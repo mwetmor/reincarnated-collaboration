@@ -1,0 +1,217 @@
+{
+  "kit_id": "poe2-temporalis-blink",
+  "spine": {
+    "kit_id": "poe2-temporalis-blink",
+    "folk_name": "Temporalis Blink",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.1;0.2-dawn",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "GX-01 GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The Temporalis Blink player would MISS the build's entire reason to exist: a UNIQUE-ITEM-driven cooldown COLLAPSE that turns a 3-second-cooldown utility blink into a ~10-cast-per-second continuous-teleport engine, which is then weaponized by linking Cast-on-Critical bomb chains to the blink frequency. The engine maps Blink as a `blink` utility geometry + a cooldown-recovery economy note + a PHASE_MOMENTUM door, but has no first-class 'ALL cooldowns approach zero' item-warp -- the ~10x/s teleport-spam that defines the kit degrades to 'a fast-cooldown blink'. The linked-CoC-autobomber payoff (the actual damage) lives one MAX_CHAIN_DEPTH=1 hop away and can't chain deeper. What survives (a highly mobile blink build) is recognizable but hollow of the cooldown-collapse fantasy -> APPROX (that build, much weaker/slower), bordering GAPPED; kept APPROX because Blink-as-utility maps and the cooldown-collapse is a quantitative economy gap (recovery-rate extremum), not a wholly unmodelable mechanism.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The Temporalis Blink player would MISS the build's entire reason to exist: a UNIQUE-ITEM-driven cooldown COLLAPSE that turns a 3-second-cooldown utility blink into a ~10-cast-per-second continuous-teleport engine, which is then weaponized by linking Cast-on-Critical bomb chains to the blink frequency. The engine maps Blink as a `blink` utility geometry + a cooldown-recovery economy note + a PHASE_MOMENTUM door, but has no first-class 'ALL cooldowns approach zero' item-warp -- the ~10x/s teleport-spam that defines the kit degrades to 'a fast-cooldown blink'. The linked-CoC-autobomber payoff (the actual damage) lives one MAX_CHAIN_DEPTH=1 hop away and can't chain deeper. What survives (a highly mobile blink build) is recognizable but hollow of the cooldown-collapse fantasy -> APPROX (that build, much weaker/slower), bordering GAPPED; kept APPROX because Blink-as-utility maps and the cooldown-collapse is a quantitative economy gap (recovery-rate extremum), not a wholly unmodelable mechanism.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blink (near-continuous teleport reposition)",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "point-target teleport to cursor with minimal AoE at destination; Temporalis unique cuts ALL cooldowns so Blink fires ~10x/second (cooldown ~0.1s) -> blink (utility movement member; blink/teleport are DISTINCT S6 enum members and the fetched language is 'point-target teleport... near-instant repositioning... skill_is_movement=true', i.e. the UTILITY-reposition read, not an offensive-damage teleport-strike). element-neutral: the kit identity is movement FREQUENCY, not a damage element (corpus elem_raw=n/a; Blink deals minimal/no damage itself). The offensive payoff comes from LINKED skills (CoC chains), not Blink's own hit."
+        }
+      ],
+      "motion_frame": "Spam Blink continuously -- Temporalis reduces all cooldowns so Blink fires ~10x/second, becoming near-uninterrupted repositioning (mobility AND combat positioning); autobomber variants ride Cast-on-Critical chains off the movement.",
+      "resource_economy": {
+        "cost_scale": "mana per blink (near-negligible at the cast rate)",
+        "cooldown_recovery": "Temporalis unique -> ALL-skill cooldown reduction; Blink cooldown 0.033s->0.1s, ~10 casts/s -- the cooldown-collapse IS the build identity"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Blink cast frequency (cooldown-collapsed) as the trigger substrate for linked Cast-on-Critical autobomber chains",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Blink point-target teleport (utility reposition, ~10x/s)"
+          ],
+          "economy": [
+            "Temporalis all-cooldown collapse (item-granted)",
+            "mana per blink"
+          ],
+          "traits_affixes": [
+            "cooldown-recovery-rate scalers",
+            "movement-speed",
+            "Cast-on-Critical linkage (autobomber variant)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-01 GX-17 (corpus gx). HOT-FLAG 4 RESOLVED: mobalytics/jungroan citation used NORMALLY (steward REVIEW-3: quarantine flag ERRONEOUS -- crawler conflated dead-domain-403 with junk-quarantine; dossier evidence is VALID authored-class). GEOMETRY CHOICE (blink vs teleport, DISTINCT S6 members): chose `blink` (utility) over `teleport` (offensive reposition) because fetched language is 'point-target teleport to cursor... near-instant REPOSITIONING... minimal AoE at destination' and corpus skill_is_movement=true -- Blink is a MOVEMENT/mobility skill whose damage comes from LINKED procs, not its own hit; the offensive read (teleport) would over-state Blink's own payload. Noted the choice. element-neutral (identity = movement frequency; elem_raw=n/a). item_alterations Temporalis DISSOLVES onto the kit as the cooldown-collapse economy (main-law 4: mechanic-granting unique -> resource_economy keys; the ITEM is recorded, its MECHANIC lands). Cast-on-Critical autobomber is a LINKED-skill variant (trigger_grammar linked-cast, MAX_CHAIN_DEPTH=1 respected -- the CoC chain itself is not deepened here). Chronomancer ascendancy -> t4 via 5 (R-M1); PHASE_MOMENTUM routes the movement-state-cycling identity. eras 0.1/0.2 CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://mobalytics.gg/poe-2/builds/blink-autobomber-jungroan",
+      "archive_url": null,
+      "site": "mobalytics.gg",
+      "author_handle": "jungroan",
+      "title": "Blink Autobomber 2.0 (Choir + Temporalis + TRAMPLETOE) - PoE 2 Witch Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3696262/page/2",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Early Access Feedback - not nerfing blink + temporalis",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1 and 0.2-dawn",
+      "anchor_quote": "Early Access Feedback - not nerfing blink + temporalis... [discussion of EA-era Temporalis + Blink interaction at 0.1 launch]",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3696262/page/2",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Temporalis Blink' and aliases 'Temporalis Blink loop', 'Blink cooldown reset', 'Temporalis chronomancer interaction' are real community usage",
+      "anchor_quote": "Blink Autobomber 2.0 (Choir + Temporalis + TRAMPLETOE) - PoE 2 Witch Build Guide... Temporalis eliminating the cooldown of Blink when rolled well enough",
+      "source_url": "https://mobalytics.gg/poe-2/builds/blink-autobomber-jungroan",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Blink; Temporalis unique reduces Blink cooldown to near-zero enabling rapid teleportation loop",
+      "anchor_quote": "You can blink 10 times a second. This is a nerf in name only; most people can't even push the button that fast, let alone purposefully.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3696262/page/2",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Chronomancer",
+          "notables": [
+            "time manipulation mechanics",
+            "cooldown recovery nodes"
+          ],
+          "note": "specific notable names not extracted from fetched text"
+        },
+        "source_url": "https://maxroll.gg/poe2/resources/chronomancer-ascendancy",
+        "anchor_quote": "Chronomancer Ascendancy Overview for Path of Exile 2 Return of the Ancients 0.5.4 | Maxroll.gg",
+        "abstained": 0,
+        "conf": 0.45
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_unique": "Temporalis unique chest",
+          "effect": "dramatically reduces all skill cooldowns; brings Blink cooldown to ~0.1s (originally near server tick rate 0.033s)"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3696262/page/2",
+        "anchor_quote": "cooldown was adjusted from server tick rate of 0.033s to 0.1s (3x worse), yet players still claim it allows approximately 10 casts per second",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "blink": "point-target teleport to cursor location; near-instant repositioning; self-origin origin; minimal AoE at destination; skill_is_movement = true"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3696262/page/2",
+        "anchor_quote": "cooldown changed from server tick rate of 0.033s to 0.1s... players report being able to blink 10 times per second",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Activate Blink (teleport) repeatedly — Temporalis unique reduces all skill cooldowns substantially, bringing Blink cooldown to ~0.1s. Use Blink as both mobility and combat positioning. Combine with Cast on Critical chains for autobomber variants."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3696262/page/2",
+        "anchor_quote": "You can blink 10 times a second. This is a nerf in name only; most people can't even push the button that fast, let alone purposefully.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Temporalis Blink Autobomber (Choir + Temporalis + CoC)",
+            "Chronomancer Blink (mobility/combat)",
+            "Infernalist with Blink and Temporalis"
+          ]
+        },
+        "source_url": "https://mobalytics.gg/poe-2/builds/blink-autobomber-jungroan",
+        "anchor_quote": "Blink Autobomber 2.0 (Choir + Temporalis + TRAMPLETOE) creates an infinite loop from Crit → Cast on Critical + Frost Wall → Greater Lightning Bolt activates",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

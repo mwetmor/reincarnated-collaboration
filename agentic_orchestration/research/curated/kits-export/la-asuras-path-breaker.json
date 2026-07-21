@@ -1,0 +1,239 @@
+{
+  "kit_id": "la-asuras-path-breaker",
+  "spine": {
+    "kit_id": "la-asuras-path-breaker",
+    "folk_name": "Asura's Path Breaker",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Attested identity maps cleanly as gauge-accumulate + timed burst_window with front-attack positional. CLOSE (not EXACT) because the dual-gauge alternation (Stamina and Shock as two named sub-gauges feeding one Asura Energy pool) is a novel economy shape the engine vocabulary doesn't fully name — source player would notice the two-sub-gauge generator structure is flattened to a single asura_energy key.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Attested identity maps cleanly as gauge-accumulate + timed burst_window with front-attack positional. CLOSE (not EXACT) because the dual-gauge alternation (Stamina and Shock as two named sub-gauges feeding one Asura Energy pool) is a novel economy shape the engine vocabulary doesn't fully name — source player would notice the two-sub-gauge generator structure is flattened to a single asura_energy key.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Stamina skills (Asura Energy generators)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Front Attack positional — +10% Stagger and +20% Damage on front-side indicator hits (boss-break Stagger vocab per §LA row 4 — NOT the stun ailment); element-silent in store"
+        },
+        {
+          "source_skill": "Shock skills (Asura Energy generators)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Front Attack positional; Shock = LA Breaker class skill category label, NOT the 16-ailment shock (paralysis); boss-break vocabulary per addendum §LA row 4"
+        },
+        {
+          "source_skill": "Asura Destruction (Z — identity burst)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Timed burst window; enhances basic attacks into flurry; Defensive Speculation shield (+40% Max HP shield, +20% damage reduction, Push Immunity) active during; burst_window consequence type"
+        },
+        {
+          "source_skill": "Defensive Speculation shield",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Survivability layer; +40% Max HP shield, +20% damage reduction, 2s base + 3s on-hit extension; not a damage skill"
+        }
+      ],
+      "motion_frame": "Constantly alternate Stamina and Shock skills to generate Asura Energy; enter Asura Destruction (Z) for enhanced flurry burst window; Defensive Speculation shield used for survivability",
+      "resource_economy": {
+        "asura_energy": "accumulate via Stamina/Shock skill alternation; release into Asura Destruction (Z) timed burst window"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "front-attack positional discipline; melee close-range"
+          ],
+          "economy": [
+            "asura_energy accumulate-release; no regen shape — pure generator-spender"
+          ],
+          "traits_affixes": [
+            "Eye of Asura, Asura War, Asura (Ark Passive nodes → capstone_alterations); Crit + Swiftness bracelet stats"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "DB mech_note front-vs-back erratum: fetched text CONFIRMS Front Attack (+10% Stagger, +20% Damage on front indicator) — mapped Front Attack shape per addendum §LA row (skipping back-attack prior). Shock/Stagger language in dossier = boss-break vocabulary (§LA row 4): NOT emitting stun or any 16-ailment. Asura Destruction is timed burst_window per §LA row 2. No element damage-typing in fetched text — all element-silent. Defensive Speculation shield maps as self_buff defensive layer, not a T4 door by itself; DEFENSIVE_TRADEOFF noted for HP-shield identity trade."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Asura's Path Breaker Raid Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Eye of Asura, Asura War, and Asura (focused on identity enhancement)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Asura's Path Breaker — class+identity spec name in real LA community usage",
+      "anchor_quote": "Constantly alternating between Stamina and Shock skills in order to generate Asura Energy, allowing you to enter Asura Destruction",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Alternates Stamina/Shock skills to generate meter and enter Asura Destruction state; Defensive Speculation shield unique to Asura's Path; sustained damage approach with positional discipline",
+      "anchor_quote": "Grants Push Immunity, +40% Max HP shield, +20% Damage reduction",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg",
+          "social": "YouTube and Twitch"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+        "anchor_quote": "Raeinor (content creator with YouTube and Twitch presence)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Eye of Asura",
+            "Asura War",
+            "Asura"
+          ],
+          "identity_mechanic": "Asura Destruction state — enhanced basic attacks into powerful flurry of blows",
+          "defensive_identity": "Defensive Speculation: +40% Max HP shield, +20% Damage reduction, Push Immunity, 2s base duration extendable by 3s when struck"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+        "anchor_quote": "Grants Push Immunity, +40% Max HP shield, +20% Damage reduction",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "gems": [
+            "Asura Destruction",
+            "Eye of the Storm",
+            "Explosive Fist"
+          ],
+          "bracelet_stats": [
+            "Crit",
+            "Swiftness"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+        "anchor_quote": "Damage gems prioritize Asura Destruction, Eye of the Storm, Explosive Fist; bracelet stats emphasize Crit and Swiftness.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "positioning": "Front Attack — +10% Stagger and +20% Damage on front-side indicator hits",
+          "notes": "Front-attack spec; note DB mech_note incorrectly states back-attack — fetched text contradicts this"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+        "anchor_quote": "All attacks with a Front Attack affix receive +10% Stagger and +20% Damage when they land on the target's front-side indicator.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Constantly alternate Stamina and Shock skills to generate Asura Energy; enter Asura Destruction to enhance basic attacks into a powerful flurry of blows; Defensive Speculation shield used for survivability"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+        "anchor_quote": "Constantly alternating between Stamina and Shock skills in order to generate Asura Energy, allowing you to enter Asura Destruction and enhance your basic attacks into a powerful flurry of blows.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Asura's Path (sustained, front-attack, with Defensive Speculation shield)"
+          ],
+          "sibling_spec": "Brawl King Storm Breaker (burst, non-positional, no shield)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/asuras-path-breaker-raid-build-guide",
+        "anchor_quote": "If you want a playstyle that revolves around earth-shattering burst, check out our Brawl King Storm guide",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

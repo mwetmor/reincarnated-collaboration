@@ -1,0 +1,285 @@
+{
+  "kit_id": "poe1-frost-blades",
+  "spine": {
+    "kit_id": "poe1-frost-blades",
+    "folk_name": "Frost Blades",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "2.x;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The melee-strike-spawns-icy-projectiles identity lands as a two-geometry composite (melee_strike + multi_projectile) with GEOMETRY_PROPAGATION_cascade for the hit-to-fan propagation, but the engine expresses it as two discrete geometries rather than a single unified 'strike that emits a projectile fan' primitive. The 30%-less-damage fan and the exact 'behind the first target' spawn geometry are behavioral properties. A player keeps the engage-in-melee / damage-projects-behind feel; the tight coupling of one attack producing both hits is generalized to two linked geometries.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The melee-strike-spawns-icy-projectiles identity lands as a two-geometry composite (melee_strike + multi_projectile) with GEOMETRY_PROPAGATION_cascade for the hit-to-fan propagation, but the engine expresses it as two discrete geometries rather than a single unified 'strike that emits a projectile fan' primitive. The 30%-less-damage fan and the exact 'behind the first target' spawn geometry are behavioral properties. A player keeps the engage-in-melee / damage-projects-behind feel; the tight coupling of one attack producing both hits is generalized to two linked geometries.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frost Blades (melee strike)",
+          "geometry_value": "melee_strike",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "a cold melee strike on the targeted enemy with increased range; this primary hit is the every-3-sec dominant action. water/cold family; chill+freeze (native shatter payoff). Physical base but the build scales as a COLD attack (100% convert)"
+        },
+        {
+          "source_skill": "Frost Blades (projectile release)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "on the primary melee hit, releases a fan of 5-8 icy projectiles that fly at enemies BEHIND the first target (dealing 30% less than the strike). multi_projectile = the icy-blade fan; this is the clear/AoE half of the skill spawned by the melee hit"
+        }
+      ],
+      "motion_frame": "melee-into-ranged hybrid: strike the front enemy in melee, the hit spits a fan of icy blades through the pack behind it -- close to engage, but the damage projects outward",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike primary hit",
+            "multi_projectile icy-blade fan (extra-projectiles support scales fan width)"
+          ],
+          "economy": [
+            "mana-light attack spend",
+            "Frenzy-charge generation (Raider/Trickster) for attack speed"
+          ],
+          "traits_affixes": [
+            "cold-penetration",
+            "extra-projectiles (fan count)",
+            "freeze/chill-scaling",
+            "attack-speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "COMPOSITE melee->projectile skill. The single source skill is TWO geometries: a melee_strike (primary, the dominant loop) that SPAWNS a multi_projectile fan behind the target. Modeled as two skill entries; the melee hit leads per s7.2 (what the player does every 3 sec = strike). water/cold family; chill+freeze on the strike, chill on the fan. Physical base -> 100% cold-converted, so it maps as a cold attack (element carries, unlike pure-physical melee). GEOMETRY_PROPAGATION_cascade routes the 'primary hit propagates damage outward to enemies behind' spawn identity (the fan IS a hit-spawned propagation); ELEMENTAL_ECHO for the mono-cold amp. The composite (one attack = melee + spawned projectiles) is faithfully two engine geometries; a player keeps the strike-front-hit-back identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2077486",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "bashtart#2403",
+      "title": "[3.7] Bashtart's Frost Blades Trickster — Oni-Goroshi — Insane Speed and Millions DPS",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2919061",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Timmytimmy123#6879",
+      "title": "[3.11] Frost Blades Raider — Super Beginner Friendly — League Starter — SSF Viable",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe/build-guides/frost-blades-slayer-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "FuzzyDuckzy",
+      "title": "Frost Blades Slayer League Starter — Maxroll.gg (3.28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Frost_Blades",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Frost Blades — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 2.x, 3.7-3.13, 3.20+",
+      "anchor_quote": "[3.7] Bashtart's Frost Blades Trickster ... [3.11] Frost Blades Raider",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2077486",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frost Blades' with no noted aliases is real community usage",
+      "anchor_quote": "Frost Blades Raider — Super Beginner Friendly — League Starter",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2919061",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Frost Blades; cold melee hit on targeted enemy throws icy projectiles to targets behind",
+      "anchor_quote": "Attack enemies with increased range, releasing icy blades from the first enemy hit which fly at other enemies.",
+      "source_url": "https://poedb.tw/us/Frost_Blades",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "bashtart#2403",
+              "site": "pathofexile.com/forum",
+              "note": "[3.7] Frost Blades Trickster guide"
+            },
+            {
+              "handle": "Timmytimmy123#6879",
+              "site": "pathofexile.com/forum",
+              "note": "[3.11] Frost Blades Raider guide"
+            },
+            {
+              "handle": "FuzzyDuckzy",
+              "site": "maxroll.gg",
+              "note": "[3.27-3.28] Frost Blades Slayer League Starter"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2077486",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Frost Blades of Katabasis (transfig)",
+              "type": "transfigured_gem",
+              "effect": "86% Effectiveness of Base and Added Damage at gem level 1 (previously 143%); 240% at gem level 20 (previously 409%)",
+              "anchor_quote": "86% Effectiveness of Base and Added Damage at gem level 1 (previously 143%), scaling up to 240% at gem level 20 (previously 409%)"
+            },
+            {
+              "node": "Fight for Survival (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Dexterity in Radius",
+              "effect": "Melee Damage dealt by Frost Blades Penetrates 15% Cold Resistance; 25% increased Projectile Speed",
+              "anchor_quote": "Melee Damage dealt by Frost Blades Penetrates 15% Cold Resistance"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Frost_Blades",
+        "anchor_quote": "Melee Damage dealt by Frost Blades Penetrates 15% Cold Resistance",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "White Wind (endgame weapon)",
+            "Oni-Goroshi (Trickster variant — Heatshiver + Yoke of Suffering cold/fire dual scaling)",
+            "The Taming",
+            "Darkray Vectors + Perseverance",
+            "Heatshiver"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/frost-blades-slayer-league-starter",
+        "anchor_quote": "White Wind (endgame weapon swap)... Heatshiver and Yoke of Suffering — Trinity gem balances cold and fire damage scaling.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee then projectile fan",
+          "footprint": "multi-point — primary melee hit + 5-8 projectile fan behind target",
+          "aoe": null,
+          "range_text": "Attack enemies with increased range... icy blades from the first enemy hit which fly at other enemies",
+          "projectile": true
+        },
+        "source_url": "https://poedb.tw/us/Frost_Blades",
+        "anchor_quote": "Attack enemies with increased range, releasing icy blades from the first enemy hit which fly at other enemies.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player attacks targeted enemy with cold melee strike; on hit releases a fan of 5-8 icy projectiles to enemies behind the target; projectiles deal 30% less damage than primary strike; Raider/Trickster build generates Frenzy charges for attack speed scaling and provides evasion."
+        },
+        "source_url": "https://poedb.tw/us/Frost_Blades",
+        "anchor_quote": "Attack enemies with increased range, releasing icy blades from the first enemy hit which fly at other enemies. Fires +(0—2) Projectiles... 30% less Damage with Hits and Ailments.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Frost Blades Raider (evasion, frenzy generation, Ranger base)",
+            "Frost Blades Trickster (Oni-Goroshi, 3.7 meta)",
+            "Frost Blades Slayer (3.27-3.28, Maxroll league-start guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/frost-blades-slayer-league-starter",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

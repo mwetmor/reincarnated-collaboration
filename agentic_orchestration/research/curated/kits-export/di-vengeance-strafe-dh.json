@@ -1,0 +1,256 @@
+{
+  "kit_id": "di-vengeance-strafe-dh",
+  "spine": {
+    "kit_id": "di-vengeance-strafe-dh",
+    "folk_name": "Strafe Weave DH",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical kit, no attested ailments. Channel energy economy approximated without resource key (ERRATA sweep). Blacktalon pierce behavior is item-defined — fidelity note only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical kit, no attested ailments. Channel energy economy approximated without resource key (ERRATA sweep). Blacktalon pierce behavior is item-defined — fidelity note only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Strafe",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving channel: 'Spin rapidly while moving at X% reduced speed, shooting in all directions for X damage per hit.' Energy drains during channel, recovers when inactive. Full-move policy while channeling per §CROSS moving-channel law. Physical rule — no element-damage verb in store."
+        },
+        {
+          "source_skill": "Vengeance",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Off-cooldown steroid buff; primary attacks fire additional shots while active."
+        },
+        {
+          "source_skill": "Daring Swing",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rope-swing mobility: 'Use a rope to swing to a nearby location, dealing damage to enemies on the way while they cannot attack you.' Utility repositioning / DH fragility mitigation."
+        }
+      ],
+      "motion_frame": "Vengeance steroid active → Strafe moving-channel omnidirectional spray through enemy pack; Daring Swing for repositioning",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Moving-channel law applied: delivery_notes state 'moving' explicitly. Blacktalon item (shots pass through initial target = pierce behavior) is item-defined archetype modifier; no separate skills[] row — fidelity note only. DH resource (Hatred) probe unreliable per ERRATA sweep; no resource_economy key emitted. Channel energy drain/recover pattern attested in skill_geometry payload_json — economy texture noted in delivery_notes."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.diablofans.com/builds/110191-dh-vengeance-strafe",
+      "archive_url": null,
+      "site": "diablofans.com",
+      "author_handle": null,
+      "title": "DH Vengeance Strafe - Demon Hunter - Diablo Immortal Builds",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-rain-of-vengeance-build-guide-for-challenge-rifts",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Demon Hunter Rain of Vengeance Build Guide for Challenge Rifts - Diablo Immortal",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Diablo Immortal: Best Strafe Demon Hunter Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022",
+      "anchor_quote": "Vengeance and Daring Swing can and should be used in between flurries to position better and increase overall damage.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-rain-of-vengeance-build-guide-for-challenge-rifts",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Strafe Weave DH' and aliases 'Strafe Vengeance DH DI', 'Daring Swing Strafe DH DI' are real community usage",
+      "anchor_quote": "DH Vengeance Strafe",
+      "source_url": "https://www.diablofans.com/builds/110191-dh-vengeance-strafe",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Strafe, Daring Swing; DH resource Hatred",
+      "anchor_quote": null,
+      "source_url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "legendary_gems": {
+            "5_star": [
+              "Blood-Soaked Jade",
+              "Bottled Hope",
+              "Echoing Shade",
+              "Howler's Call",
+              "Seeping Bile",
+              "Zwenson's Haunting"
+            ],
+            "2_star": [
+              "Bloody Reach",
+              "Cutthroat's Grin",
+              "Fervent Fang",
+              "Follower's Burden",
+              "Lightning Core",
+              "Power and Command"
+            ],
+            "1_star": [
+              "Berserker's Eye",
+              "Trickshot Gem",
+              "Chained Death",
+              "Everlasting Torment",
+              "Seled's Weakening",
+              "Zod Stone"
+            ]
+          }
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Blood-Soaked Jade, Bottled Hope, Echoing Shade, Howler's Call, Seeping Bile, Zwenson's Haunting",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "legendaries": [
+            "Blacktalon (shots pass through initial target, enabling mob clearing)"
+          ],
+          "notes": "Blacktalon is build-defining for strafe. Fetched from icy-veins context."
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Blacktalon is the most critical to the build as it allows shots to go through their initial target",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "mobile channel — projectile spray while moving",
+          "footprint": "omnidirectional cone (shoots in all directions while spinning/moving)",
+          "notes": "Strafe: 'Spin rapidly while moving at X% reduced speed, shooting in all directions for X damage per hit.' Energy drains during channel, recovers when inactive. Vengeance: empowered state causing primary attacks to launch additional shots."
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Spin rapidly while moving at X% reduced speed, shooting in all directions for X damage per hit.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Strafe channels a continuous arrow barrage while moving (fires in all directions per gamerant). Vengeance steroid activates — primary attacks fire additional shots. Daring Swing (rope swing mobility — mandatory for DH fragility) for gap-close/escape. Loop: engage mid-range, activate Vengeance steroid, Strafe channel through enemy pack.",
+          "core_combo": "Vengeance buff -> Strafe mobile channel through enemies",
+          "daring_swing_note": "'Use a rope to swing to a nearby location, dealing damage to enemies on the way while they cannot attack you.'"
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Vengeance and Daring Swing can and should be used in between flurries to position better and increase overall damage.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Solo/PvE Strafe mobile channel (primary build)",
+            "Rain of Vengeance Challenge Rift variant (icy-veins Rain of Vengeance guide)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-rain-of-vengeance-build-guide-for-challenge-rifts",
+        "anchor_quote": "Daring Swing is the solitary movement skill available to Demon hunters",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

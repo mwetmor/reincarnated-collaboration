@@ -1,0 +1,265 @@
+{
+  "kit_id": "d3-raekor-boulder",
+  "spine": {
+    "kit_id": "d3-raekor-boulder",
+    "folk_name": "Raekor Boulder Toss",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "s26-rework;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01 GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Charge-accumulate-then-Fury-dump two-tier pattern is approximated via TEMPORAL_CHARGE + RESOURCE_CONVERSION. The Raekor stack multiplier riding on charge-count (item-defined) has no exact engine analog. Source player would miss the 'charge more to hit harder' proportional scaling.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Charge-accumulate-then-Fury-dump two-tier pattern is approximated via TEMPORAL_CHARGE + RESOURCE_CONVERSION. The Raekor stack multiplier riding on charge-count (item-defined) has no exact engine analog. Source player would miss the 'charge more to hit harder' proportional scaling.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Furious Charge",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Gap-close charge; movement IS the grouping hit; builds Raekor stacks on each charge; physical → element-neutral"
+        },
+        {
+          "source_skill": "Ancient Spear: Boulder Toss",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile thrown at targeted location; large AoE on impact; dumps entire Fury pool; damage scales with Fury spent beyond base cost; at-target large-zone"
+        },
+        {
+          "source_skill": "Weapon Throw",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged throw to reach overextended Fury cap via Arreat's Law; 3-4 casts before Boulder Toss; generator role"
+        }
+      ],
+      "motion_frame": "Furious Charge into packs to generate Raekor stacks and group enemies; Weapon Throw 3-4 times to reach overextended Fury cap; dump Fury with Boulder Toss for massive damage; repeat under Wrath of the Berserker",
+      "resource_economy": {
+        "resource": "Fury",
+        "charge_stack_sub_shape": "cycle",
+        "ramp_per_s": "Furious Charge generates Raekor stacks; Arreat's Law extends Fury cap; Boulder Toss spends full Fury pool",
+        "cost_note": "Boulder Toss expends entire Fury pool; damage scales with Fury spent beyond base cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Furious Charge grouping + Skular's Salvation (Boulder Toss hit size bonus — item rider)"
+          ],
+          "economy": [
+            "Arreat's Law — extends Fury cap for overextended pool; Band of Might — damage reduction on Charge; Wrath of the Berserker — self-buff damage window"
+          ],
+          "traits_affixes": [
+            "Raekor 6pc — reworked Season 26 to Boulder Toss/Weapon Throw (scaler per item-defined-archetype); Captain Crimson's Trimmings — CDR and resource cost reduction (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical element → element-neutral per THE PHYSICAL RULE. Two-tier accumulator confirmed: Furious Charge accumulates Raekor stacks + Fury → Boulder Toss releases both in one spend (counted-tier release per §A row 5 — this IS a genuine accrual to two-tier-accumulator family unlike Frenzy). Raekor ERRATA-49 governs: Boulder Toss variant dates from Season 26 rework, not original charge archetype. Item-defined-archetype law applies: kit-as-specified IS the S26 rework form. Accrual filing: two-tier-accumulator family (Charge-stack phase + Fury-dump phase)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Season 39 Raekor Boulder Toss Barbarian Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/barbarian-boulder-toss-build-with-the-raekor-set",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Barbarian Boulder Toss Build with the Raekor set (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "reworked again in Season 26 to be centered around Weapon Throw and Ancient Spear while retaining a similar playstyle, with Boulder Toss being the skill rune of choice for this set to shine.",
+      "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Diablo 3 Season 39 Raekor Boulder Toss Barbarian Guide — The Legacy of Raekor set was reworked in Season 26 to be centered around Weapon Throw and Ancient Spear.",
+      "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Raekor Boulder Toss' and aliases 'Raekor Barbarian', 'Furious Charge Barb', 'Boulder Toss Barbarian' are real community usage",
+      "anchor_quote": "Diablo 3 Season 39 Raekor Boulder Toss Barbarian Guide — pulverizes enemies into the ground with Ancient Spear Boulder Toss, with a vast array of buffs and tremendous mobility.",
+      "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Furious Charge and Ancient Spear: Boulder Toss; Barbarian resource (Fury); charge-to-build hurl-to-spend delivery",
+      "anchor_quote": "Ancient Spear Boulder Toss is the primary damage dealer, while Furious Charge provides mobility and stack generation. Boulder Toss expends the entire Fury pool, with damage scaling based on Fury spent.",
+      "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "The Legacy of Raekor (6pc) — reworked Season 26 to center on Weapon Throw and Ancient Spear Boulder Toss",
+          "kanai_cube": [
+            "Band of Might"
+          ],
+          "legendary_powers": [
+            "Skular's Salvation",
+            "Arreat's Law"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+        "anchor_quote": "reworked again in Season 26 to be centered around Weapon Throw and Ancient Spear while retaining a similar playstyle, with Boulder Toss being the skill rune of choice for this set to shine.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "The Legacy of Raekor set (6pc)",
+            "The Three Hundredth Spear",
+            "Arreat's Law",
+            "Skular's Salvation",
+            "Band of Might"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+        "anchor_quote": "Essential pieces include The Legacy of Raekor set, The Three Hundredth Spear, Arreat's Law, Skular's Salvation, and Band of Might for damage reduction.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Ancient Spear Boulder Toss projectile thrown at targeted location; large AoE on impact; Furious Charge is dash movement; at-target large-zone delivery",
+          "range": "at-target large-AoE"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+        "anchor_quote": "Ancient Spear Boulder Toss is the primary damage dealer. Boulder Toss expends the entire Fury pool, with damage scaling based on Fury spent beyond the base cost.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use Furious Charge to group monsters and generate Raekor stacks; use Weapon Throw 3-4 times to reach overextended Fury cap via Arreat's Law; dump Fury with Boulder Toss for massive damage; Furious Charge again to refill; repeat under Wrath of the Berserker."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/raekor-boulder-toss-barbarian-guide",
+        "anchor_quote": "While Wrath of the Berserker is up, use Weapon Throw 3-4 times to get to the overextended Fury cap from Arreat's Law, then spend that Fury with Boulder Toss, then refill Fury by Furious Charging into mobs.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "IK/Raekor Furious Charge hybrid",
+            "Raekor Boulder Toss speed farm",
+            "Raekor Immortal King combo"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/barbarian-furious-charge-build-with-immortal-king-and-raekor",
+        "anchor_quote": "Barbarian Furious Charge Build With Immortal King and Raekor (Patch 2.7.8 / Season 39).",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

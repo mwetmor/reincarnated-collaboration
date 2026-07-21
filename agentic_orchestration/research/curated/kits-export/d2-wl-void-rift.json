@@ -1,0 +1,191 @@
+{
+  "kit_id": "d2-wl-void-rift",
+  "spine": {
+    "kit_id": "d2-wl-void-rift",
+    "folk_name": "Void Rift Warlock",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "rotw-s13+",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No attested mechanics, no attested identity, no attested skills. Kit is a probable spec-error / phantom entry. All mapping surfaces empty per honest-evidence-only discipline. 'Not that build' is an understatement — no verified build exists. [D-7.1 keep-as-ghost 2026-07-19: kb-hallucination-class ghost; harvest FAILED all four families (honest-negative); retained as a DOCUMENTED NEGATIVE, not excised (deletion is Matt-tier). Registered ghost, not a live kit.]",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 0,
+    "verify_contradicted": 0,
+    "verify_unsupported": 3,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No attested mechanics, no attested identity, no attested skills. Kit is a probable spec-error / phantom entry. All mapping surfaces empty per honest-evidence-only discipline. 'Not that build' is an understatement — no verified build exists. [D-7.1 keep-as-ghost 2026-07-19: kb-hallucination-class ghost; harvest FAILED all four families (honest-negative); retained as a DOCUMENTED NEGATIVE, not excised (deletion is Matt-tier). Registered ghost, not a live kit.]",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": null,
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "KIT-LEVEL FLAG (batch hot-fact §E.5): all four dossier families abstained (skill_loop, skill_geometry, item_alterations, capstone_alterations all abstained=1). verify_ledger: identity UNSUPPORTED, mechanics SOURCE_NOT_FOUND, era UNSUPPORTED, negative_canon UNSUPPORTED. Corpus mech_note: harvest performed against full Warlock roster — sole hit was AI-synthesized snippet with no underlying page. SPEC ERROR CANDIDATE per elrond ruling. No skill 'Void Rift' confirmed in D2R Warlock skill tree per two independent enumerations (rpgstash + fextralife). Cannot emit any skills[]/motion_frame/t4_doors from zero attested evidence. t4_doors=null per GAPPED/doorless law (MW1-close amendment). Review-book decision: keep-as-registered-ghost vs excise."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/warlock-class-and-builds",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Warlock Class and Builds - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/resources/warlock-overview",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Warlock Overview - Diablo 2 Resurrected (D2R) - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gurugamer.com/pc-console/complete-list-of-warlock-skills-in-diablo-2-resurrected-26393",
+      "archive_url": null,
+      "site": "gurugamer.com",
+      "author_handle": null,
+      "title": "Complete List of Warlock Skills in Diablo 2 Resurrected",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era: rotw-s13+",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d2/warlock-class-and-builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Void Rift Warlock'; aliases 'Void Rift Warlock D2R'",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d2/warlock-class-and-builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "SOURCE_NOT_FOUND",
+      "claim_text": "Core skills: Void Rift",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Void Rift Warlock rotw negative — void-school mechanic identified as over-centralized or balance-broken in ROTW season context",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d2/warlock-class-and-builds",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

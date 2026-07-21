@@ -1,0 +1,243 @@
+{
+  "kit_id": "d4-twisting-blades",
+  "spine": {
+    "kit_id": "d4-twisting-blades",
+    "folk_name": "Twisting Blades Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the delayed-return arc is the entire identity feel — maps only as delivery_notes; (2) Poison Imbuement variant excluded from core row by variant-scope law; (3) mobility requirement (Dash + Shadow Step) is the loop prerequisite that makes the return hits land.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the delayed-return arc is the entire identity feel — maps only as delivery_notes; (2) Poison Imbuement variant excluded from core row by variant-scope law; (3) mobility requirement (Dash + Shadow Step) is the loop prerequisite that makes the return hits land.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Twisting Blades",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee-range initial stab; blades impaled in target return 1.5 seconds later carving through all enemies in path (delayed melee_arc return mechanic); Small AoE on return; high mobility via Dash + Shadow Step required to maximize hits on return path; The Maestro unique doubles output"
+        },
+        {
+          "source_skill": "Shadow Step",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Blink to target; combined with Dash for mobility loop"
+        },
+        {
+          "source_skill": "Blade Shift",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Initial stab buff; 4-second buff maintained; only reapply if buff expires"
+        }
+      ],
+      "motion_frame": "Dash/Shadow Step to target, stab with Blade Shift once, hold Twisting Blades and run through enemies to maximize return-blade hits",
+      "resource_economy": {
+        "energy_cost": "primary spender"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Twisting Blades impaled state",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aspect of Imitated Imbuement — imbuement propagation",
+            "Aspect of Corruption — damage scalar on debuffed targets"
+          ],
+          "economy": [
+            "Aspect of Disobedience — armor/defense scalar"
+          ],
+          "traits_affixes": [
+            "The Maestro unique — doubles Twisting Blades damage output",
+            "Etna's Lost Dagger, Fist of the Iron Rose, Harlequin Crest — scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical: no element damage verb in dossier; element null. Delayed-return arc is the kit's identity differentiator — maps as melee_strike (initial) with delivery_notes carrying the return mechanic; no separate geometry enum for delayed-return (parsimony ladder). Poison Imbuement variant ('Poisoning Assassin') attested in variants row — variant-scope law: poison not in core skill ailments. Bladedancer + Poison = variant-only. Core dossier: no ailments named. Return mechanic: 'the blades RETURN to you seconds later, carving through everything between.'"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Twisting Blades Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/twisting-blades-rogue-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Twisting Blades – Rogue Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20230602072347/https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+      "archive_url": "http://web.archive.org/web/20230602072347/https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+      "site": "maxroll.gg (Wayback 2023-06-02)",
+      "author_handle": null,
+      "title": "Twisting Blades Rogue Endgame Build Guide - D4 Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in launch-s1-3 and loh-s13-14",
+      "anchor_quote": "29 May 2023 Updated for Launch of Diablo 4",
+      "source_url": "http://web.archive.org/web/20230602072347/https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Twisting Blades Rogue' is real community usage",
+      "anchor_quote": "Twisting Blades Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Twisting Blades and Shadow Step; Rogue class",
+      "anchor_quote": "Dash and/or Shadow Step to your target... Hold down your Twisting Blades button and run through all enemies",
+      "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Imitated Imbuement",
+            "Aspect of Corruption",
+            "Aspect of Disobedience"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+        "anchor_quote": "Aspect of Imitated Imbuement and Aspect of Corruption",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "The Maestro — essentially doubles damage output with Twisting Blades",
+            "Etna's Lost Dagger — powerful damage buff",
+            "Fist of the Iron Rose",
+            "Harlequin Crest"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+        "anchor_quote": "The Maestro essentially doubles your damage output with Twisting Blades",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Small Area of Effect Size (listed as con). Melee-range initial stab; blades return to current position 1.5 seconds later hitting all enemies in path (delayed AoE return mechanic). High mobility via Dash + Shadow Step required to maximize hits."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+        "anchor_quote": "Small Area of Effect Size",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Dash and/or Shadow Step to your target. Stab the first enemy with Blade Shift and only do this again if the 4-second buff expires. Hold down Twisting Blades button and run through all enemies to maintain Blade Shift buffs."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+        "anchor_quote": "Dash and/or Shadow Step to your target. Stab the first enemy with Blade Shift and you only ever need do this again if the 4 second buff expires",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Bladedancer + Poison Imbuement variant (S14)",
+            "Shadow Imbuement variant (pack clear)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/twisting-blades-rogue-guide",
+        "anchor_quote": "Combining the Bladedancer variant of Twisting Blades with Poison Imbuement turns you into a Poisoning Assassin",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "kit_id": "ud-multishot-link",
+  "spine": {
+    "kit_id": "ud-multishot-link",
+    "folk_name": "Multishot (as LINK rune)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "ud-launch-2022;ud-s11-forge-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No standalone build — Multishot Link is purely a support geometry modifier. Engine has no direct equivalent to a portable projectile-count modifier rune; maps to scaffold geometry lane but the kit contributes zero independent skill rows.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No standalone build — Multishot Link is purely a support geometry modifier. Engine has no direct equivalent to a portable projectile-count modifier rune; maps to scaffold geometry lane but the kit contributes zero independent skill rows.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Link rune — no independent skill loop; attaches to any Projectile-tagged skill rune; adds +2 Projectile Count per tier; one Multishot per link set",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Projectile count modifier — GMP analog; portable across host skills"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure geometry-modifier link rune with no independent cast, no player-damage loop of its own. Maps entirely to scaffold geometry lane (GMP analog per §3 chain-link law). GAPPED because there is no skill_loop to map — the kit's identity IS the modifier effect, not a standalone build. Docket: geometry-modifier-rune class (no engine slot for a standalone geometry-modifier item)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/Multishot/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Link - Multishot - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "ud-launch-2022 through ud-s11-forge-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Multishot as a LINK rune (not a skill rune); GMP analog; adds +2 Projectile Count to any compatible skill",
+      "anchor_quote": "Can be linked with Skills that satisfy Projectile. Only one Multishot can be linked at once.",
+      "source_url": "https://undecember.thein.ru/en/runes/Multishot/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Link rune — projectile multiplication; portable across any compatible skill rune; no independent mana cost",
+      "anchor_quote": "Can be linked with Skills that satisfy Projectile. Only one Multishot can be linked at once.",
+      "source_url": "https://undecember.thein.ru/en/runes/Multishot/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "inherits host skill geometry; adds projectile count only",
+          "portable": true
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Multishot/",
+        "anchor_quote": "Can be linked with Skills that satisfy Projectile.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Link rune — attached to any compatible skill rune (Projectile tag required). Adds +2 Projectile Count per tier. No independent cast; modifies host skill only. One Multishot per link set."
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Multishot/",
+        "anchor_quote": "Can be linked with Skills that satisfy Projectile. Only one Multishot can be linked at once.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

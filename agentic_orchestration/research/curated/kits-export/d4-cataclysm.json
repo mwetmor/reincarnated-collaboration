@@ -1,0 +1,254 @@
+{
+  "kit_id": "d4-cataclysm",
+  "spine": {
+    "kit_id": "d4-cataclysm",
+    "folk_name": "Cataclysm Druid",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No ailment mapped (no status word in fetched anchors). Secondary Werebear-form (Claw) flavor lost; form-locked access not a gap per form law (§CROSS row 3) when the primary loop is mapped.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No ailment mapped (no status word in fetched anchors). Secondary Werebear-form (Claw) flavor lost; form-locked access not a gap per form law (§CROSS row 3) when the primary loop is mapped.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cataclysm (Ultimate)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin large zone: 'storm ultimate blankets screen with lightning strikes and twisters from Druid body position; permanent AoE while cooldown overlap holds' per skill_geometry payload; moving Druid body is the origin point; Cataclysm persists as overlapping zone while CDR collapse maintained; lightning element attested: verify mechanics 'Druids use Spirit as their resource management system' confirms class; skill_geometry payload attests 'lightning strikes and twisters' as the zone's damage verbs — lightning family; identity anchor: 'Cataclysm is your main damage skill'"
+        },
+        {
+          "source_skill": "Lightning Storm / Claw (secondary verbs)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Lightning Storm cast for additional damage; Claw during Werebear form per skill_loop payload; these are cooldown-refresh and stack verbs subordinate to Cataclysm ultimate identity; element null for scaffold row (skill names only, no independent damage attestation)"
+        }
+      ],
+      "motion_frame": "Activate and maintain Cataclysm ultimate via cooldown overlap (Aspect of the Orange Herald + Calm Before the Storm); Druid body is AoE origin; lightning strikes and twisters blanket screen continuously per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Spirit (Druid class resource); verify mechanics anchor: 'Druids use Spirit as their resource management system in Diablo IV'; rotation_style cooldown_management per skill_loop payload — CDR collapse is the primary economy gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Cataclysm large-zone blankets screen; Lightning Storm secondary zone layer"
+          ],
+          "economy": [
+            "Aspect of the Orange Herald + Calm Before the Storm extend Cataclysm duration for overlap CDR per capstone anchor; Fer of the Old Mountain charm set (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Might of the Ursine, The Basilisk (scalers-only)",
+            "Fer of the Old Mountain paragon set (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Lightning element attested: skill_geometry payload 'lightning strikes and twisters from Druid body position' — lightning-register language in fetched dossier store (not skill-name alone; 'lightning strikes' = damage verb). PERSISTENCE_ENGINE_uptime door: CDR-collapse permanent-uptime loop is the kit's identity. No ailment attested: lightning element ≠ shock; no shock/sunder/stun language in any anchor quote. Legacy note: variants row attests 'Legacy as of Season 13 (LoH)' — kit archived; mechanics still map cleanly."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Danger",
+      "title": "Cataclysm Druid Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/cataclysm-druid-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "TheSteve",
+      "title": "Cataclysm - Druid Build for Diablo 4 (Legacy)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://mobalytics.gg/diablo-4/profile/ace/builds/cataclysm",
+      "archive_url": null,
+      "site": "mobalytics.gg",
+      "author_handle": null,
+      "title": "Cataclysm - Diablo 4 Druid Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in voh-s6+",
+      "anchor_quote": "Cataclysm is the best farming build in the game.",
+      "source_url": "https://mobalytics.gg/diablo-4/profile/ace/builds/cataclysm",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Cataclysm Druid; aliases Cataclysm Druid D4, Druid Cataclysm Build are real community usage",
+      "anchor_quote": "Cataclysm is your main damage skill. You increase its duration using Duration and Calamity.",
+      "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Cataclysm; resource Spirit (Druid); cooldown-overlap sustain",
+      "anchor_quote": "Druids use Spirit as their resource management system in Diablo IV.",
+      "source_url": "https://www.icy-veins.com/d4/guides/cataclysm-druid-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Danger",
+          "site": "maxroll.gg",
+          "co_author": null
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of the Orange Herald",
+            "Calm Before the Storm"
+          ],
+          "uniques": [
+            "Might of the Ursine",
+            "The Basilisk"
+          ],
+          "paragon": [
+            "Fer of the Old Mountain set"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+        "anchor_quote": "Fer of the Old Mountain charm set enables key damage bonuses",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Aspect of the Orange Herald",
+            "Calm Before the Storm",
+            "Might of the Ursine",
+            "The Basilisk"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+        "anchor_quote": "Aspect of the Orange Herald and Calm Before the Storm makes this much easier",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "large-zone",
+          "notes": "Storm ultimate blankets screen with lightning strikes and twisters from Druid body position; permanent AoE while cooldown overlap holds"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+        "anchor_quote": "harnesses the incredible AoE capabilities of the Cataclysm Ultimate to effortlessly clear packs of monsters",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Activate Lightning Storm, cast Cataclysm for primary damage; maintain cooldown overlap using Aspect of the Orange Herald and Calm Before the Storm; dash with Claw while in Werebear form; refresh Cataclysm on cooldown",
+          "rotation_style": "cooldown_management"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/cataclysm-druid-build-guide",
+        "anchor_quote": "Cataclysm is your main damage skill. You increase its duration using Duration and Calamity.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Legacy as of Season 13 (LoH); archival note: scalability and sustain issues with Skill Tree updates and removal of runes. Active in S14 under different itemization."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/cataclysm-druid-build/",
+        "anchor_quote": "With season 13 and the Lord of Hatred update, we are setting this build to Legacy and archiving it.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

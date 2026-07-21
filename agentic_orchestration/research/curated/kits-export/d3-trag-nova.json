@@ -1,0 +1,251 @@
+{
+  "kit_id": "d3-trag-nova",
+  "spine": {
+    "kit_id": "d3-trag-nova",
+    "folk_name": "Trag'Oul Death Nova",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null — player loses blood/shadow flavor label. Drain ailment not mapped (verbatim status word absent from anchor quotes). Life-spend economy identity preserved via hp_cost_scale and SACRIFICE_ASCENDANCY door.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null — player loses blood/shadow flavor label. Drain ailment not mapped (verbatim status word absent from anchor quotes). Life-spend economy identity preserved via hp_cost_scale and SACRIFICE_ASCENDANCY door.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Death Nova (Blood Nova rune)",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin large-AoE ring expanding from player body per skill_geometry payload; Blood Nova rune per verify anchor ('Uses the Physical rune Blood Nova as the primary damage skill'); physical damage → element null per physical rule; Iron Rose auto-casts Death Nova while Siphon Blood channels per skill_loop payload"
+        },
+        {
+          "source_skill": "Siphon Blood",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Channeled beam that triggers Iron Rose auto-cast of Death Nova; life-drain verb per 'Siphon Blood: channeling ability that triggers automatic Death Nova casts via Iron Rose' in skill_loop payload; drain attested: 'Siphon Blood' = life-drain themed; however 'drain' as a status word not verbatim in anchor_quotes — delivery texture only"
+        },
+        {
+          "source_skill": "Blood Rush",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mobility utility skill per skill_loop payload; Trag'Oul 2pc all runes gained for Blood Rush per capstone anchor"
+        }
+      ],
+      "motion_frame": "Channel Siphon Blood to auto-trigger Iron Rose Death Nova casts; Trag'Oul 6pc doubles life spending for 6,250% damage multiplier; Simulacrum mirrors all casts; Blood Rush for mobility",
+      "resource_economy": {
+        "cost_scale": "Life (Necromancer blood-magic mechanic); Trag'Oul 6pc doubles life-spending effect per capstone anchor ('quadruples Life and adds 6,250% extra damage to Blood Skills'); hp_cost_scale applies — life is the spend resource"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Simulacrum mirrors all Death Nova casts (proxy-rider)"
+          ],
+          "economy": [
+            "Iron Rose auto-trigger while channeling; Funerary Pick 200% Siphon Blood bonus (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Trag'Oul 6pc 6250% Blood Skill scalar (scaler-only per §B.1)",
+            "Bloodtide Blade up to 4000% nearby-enemy scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical rune 'Blood Nova' → element null per physical rule. Drain ailment near-miss: Siphon Blood is life-drain themed but the word 'drain' as a STATUS is not verbatim-contiguous in any anchor_quote; 'channeling ability that triggers automatic Death Nova casts via Iron Rose' is the fetched text. Do not emit drain ailment token. Life-spending economy is attested: 'quadruples Life and adds 6,250% extra damage to Blood Skills' — hp_cost_scale is the correct key. SACRIFICE_ASCENDANCY T4 door: life-as-spend IS the build identity. Trag'Oul scalers all scaler-only per §B.1. Simulacrum = proxy-rider (defensive? no — offensive mirror), maps as scaffold note not summoner GAP (no autonomous HP/behavior)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Trag'Oul Death Nova Necromancer Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/necromancer-death-nova-build-with-trag-oul",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Necromancer Death Nova Build With Trag'Oul (Patch 2.7.8 / Season 39) - Diablo 3",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-gb/article/20845159/rise-of-the-necromancer-pack-arrives-june-27",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Rise of the Necromancer Pack Arrives June 27!",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Season 39 (updated June 22, 2026); also references Season 27 buffs and Season 33 updates.",
+      "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Trag'Oul Death Nova' and aliases 'Trag'Oul Necromancer', 'Death Nova Blood Rush Necro', 'Blood Nova Necro' are real community usage",
+      "anchor_quote": "Trag'Oul Death Nova Necromancer is the primary designation, with variants including \"Nova Solo Push,\" \"Nova T16,\" and \"Nova Group TK.\"",
+      "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Death Nova: Blood Nova, Blood Rush; Necromancer resource is Essence",
+      "anchor_quote": "Death Nova: Uses the Physical rune \"Blood Nova\" as the primary damage skill. Necromancer uses Essence as its primary resource.",
+      "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "role": "Author; Northwar reviewer"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+        "anchor_quote": "by wudijo with review credit to Northwar",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Trag'Oul's Avatar 6pc",
+          "set_bonus_summary": "Quadruples life; 6,250% extra damage to Blood Skills",
+          "legendary_powers": [
+            "Iron Rose: auto Death Nova on Siphon",
+            "Bloodtide Blade: up to 4000% damage bonus on stacks"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+        "anchor_quote": "Trag'Oul's Avatar set quadruples Life and adds 6,250% extra damage to Blood Skills",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Trag'Oul's Avatar (6pc, 6250% to life-spending abilities)",
+          "key_legendaries": [
+            "Bloodtide Blade (400% Death Nova per nearby enemy, up to 10 stacks)",
+            "Iron Rose (auto-cast Death Nova while siphoning)",
+            "Funerary Pick (200% bonus via Siphon Blood Power Shift)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+        "anchor_quote": "Bloodtide Blade adds 400% increased damage to Death Nova for each nearby enemy, up to 10 stacks",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "large-zone",
+          "notes": "Death Nova ring expands outward from player body. Self-origin AoE, large radius."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+        "anchor_quote": "Trag'Oul's Avatar set quadruples Life and adds 6,250% extra damage to Blood Skills, with all runes gained for Blood Rush and Siphon Blood for more utility.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Siphon Blood to trigger Iron Rose auto-casts of Death Nova (Blood Nova); Trag'Oul 6pc doubles life spending for 6,250% damage. Simulacrum mirrors all casts. Blood Rush for mobility."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+        "anchor_quote": "Death Nova: Uses the Physical rune \"Blood Nova\" as the primary damage skill. Siphon Blood: channeling ability that triggers automatic Death Nova casts via Iron Rose.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Nova Solo Push",
+            "Nova T16",
+            "Nova Group TK",
+            "LoD Death Nova (sister build)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tragoul-death-nova-necromancer-guide",
+        "anchor_quote": "Nova Solo Push, Nova T16, Nova Group TK",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "kit_id": "di-bone-wall-necro-pvp",
+  "spine": {
+    "kit_id": "di-bone-wall-necro-pvp",
+    "folk_name": "Bone Wall Disruption Necro",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-18",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "PvP disruption identity loses its context in solo-PvE engine scope. Bone Wall barrier mechanic (blocking enemy pathing) has no engine lane — closest is placed_lane for the physical placement but the barrier/blocking function is a gap. No ailments attested despite CC-centric kit identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "PvP disruption identity loses its context in solo-PvE engine scope. Bone Wall barrier mechanic (blocking enemy pathing) has no engine lane — closest is placed_lane for the physical placement but the barrier/blocking function is a gap. No ailments attested despite CC-centric kit identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bone Wall",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Barrier placed at target location, blocks enemy movement; horizontal obstacle mechanic. Shadow element per main-law bone/necrotic→shadow."
+        },
+        {
+          "source_skill": "Bone Spear",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile along trajectory. Primary damage skill."
+        },
+        {
+          "source_skill": "Wraith Form",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dash movement / mobility escape; no damage verb attested."
+        }
+      ],
+      "motion_frame": "Bone Spear as primary damage; Bone Wall for placement CC; Wraith Form for positional escape in PvP exchanges",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PvP context: identity is PvP disruption (mech_note). DI di resource probe fields unreliable; cooldown economy used per §D convention. No ailment named in dossier store — 'stun chains' in mech_note is ILLEGAL ground (probe field). No element damage verb for shadow beyond bone/necrotic mapping (main-law carries). Capstone abstained; item_alterations abstained — sparse dossier. 'This build can alternate between a Bone Wall-centric crowd control devastator and an elusive, DoT-spreading, Bone Spikes-centric trickster' attests dual-variant but no status named for the CC. DoT-spreading: 'Bone Spikes-centric trickster' variant attested but no damage type named; no poison/burn/etc verb in store. [STEWARD-AUDIT MW5: Bone Wall: shadow->null: shadow name-only (bone x19 all names, shadow 0 store hits) — D4 name-only law] [STEWARD-AUDIT MW5: Bone Spear: shadow->null: shadow name-only — D4 name-only law]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/necromancer-bone-spear-pvp-build-guide",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Necromancer Bone Spear PvP Build Guide - Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/necromancer",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Necromancer Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-2026-era",
+      "anchor_quote": "This build can alternate between a Bone Wall-centric crowd control devastator and an elusive, DoT-spreading, Bone Spikes-centric trickster with relative ease.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-bone-spear-pvp-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bone Wall Disruption Necro'; aliases 'Bone Wall Necro DI PvP', 'Wraith Form Stun Necro DI'",
+      "anchor_quote": "This build can alternate between a Bone Wall-centric crowd control devastator and an elusive, DoT-spreading, Bone Spikes-centric trickster with relative ease.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-bone-spear-pvp-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Bone Wall, Wraith Form, stun chains; resource: Essence",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note_source": "Bone Wall has a vast array of supporting legendaries and can be adapted for numerous situations"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-bone-spear-pvp-build-guide",
+        "anchor_quote": "Bone Wall has a vast array of supporting legendaries and can be adapted for numerous situations — from pure support and crowd control, to a devastatingly effective DPS skill.",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "bone_wall": "barrier placed at target location, blocks enemy movement; horizontal obstacle mechanic",
+          "bone_spear": "projectile along trajectory",
+          "wraith_form": "dash movement"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer",
+        "anchor_quote": "Bone Wall requires precise positioning and understanding of its mechanics, as it is able to hamper the progress of your allies just as much as your enemies.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Bone Wall-centric CC + Bone Spear primary damage; Wraith Form as movement escape; cycle between CC and spike damage",
+          "primary_skill": "Bone Spear",
+          "cc_skill": "Bone Wall",
+          "mobility": "Wraith Form"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-bone-spear-pvp-build-guide",
+        "anchor_quote": "This build can alternate between a Bone Wall-centric crowd control devastator and an elusive, DoT-spreading, Bone Spikes-centric trickster with relative ease.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variant_1": "Bone Wall CC devastator",
+          "variant_2": "Bone Spikes DoT trickster (Wraith Form mobile)"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-bone-spear-pvp-build-guide",
+        "anchor_quote": "This build can alternate between a Bone Wall-centric crowd control devastator and an elusive, DoT-spreading, Bone Spikes-centric trickster with relative ease.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

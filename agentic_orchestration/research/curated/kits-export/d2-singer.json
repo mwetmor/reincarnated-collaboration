@@ -1,0 +1,245 @@
+{
+  "kit_id": "d2-singer",
+  "spine": {
+    "kit_id": "d2-singer",
+    "folk_name": "Singer",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Small-radius constraint (notably smaller than other War Cries) has no engine enforcement. The inversion pleasure (barbarian as caster) is player-experience texture the engine cannot encode. Engine stun + circle geometry captures the loop correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Small-radius constraint (notably smaller than other War Cries) has no engine enforcement. The inversion pleasure (barbarian as caster) is player-experience texture the engine cannot encode. Engine stun + circle geometry captures the loop correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "War Cry",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Self-origin small-radius shout AoE. Dossier skill_geometry: 'notably small radius compared to other War Cries.' Skill_loop: 'injures and stuns all nearby enemies.' Stun attested in anchor_quote: 'Injures and stuns all nearby enemies.' Element-neutral: War Cry is physical/magic shout — no element family."
+        },
+        {
+          "source_skill": "Battle Orders",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Buff shout: life/mana/stamina increase. Persistent aura-toggle for party/self buff."
+        },
+        {
+          "source_skill": "Battle Cry",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Defense debuff shout on enemies in radius. Reduces enemy attack rating and damage — maps to curse:weaken (reduces enemy offensive output). Persistent caster-anchored debuff."
+        }
+      ],
+      "motion_frame": "Cast War Cry repeatedly from within monster packs to stun-lock and injure; Battle Orders for self-buff; Battle Cry for enemy defense debuff. Caster barbarian using shout tree exclusively.",
+      "resource_economy": {
+        "cost_scale": "steady-mana",
+        "cost_slope": "flat-per-cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "NETWORK_AMPLIFIER",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "small-radius proximity requirement for AoE consistency"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "War Cry synergy scaffold (1.10+ patch per verify_ledger)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Stun attested: anchor_quote 'Injures and stuns all nearby enemies' — fetched-class, contiguous in-store. LEGAL. Element-neutral: War Cry is physical/magic damage; no element family per THE PHYSICAL RULE. Battle Cry curse:weaken: reduces enemy damage/attack — curse:weaken per main law §2 (Enfeeble/Weaken row: reduces enemy output). Singer Worker variant (War Cry + Find Item) = loot-economy-identity variant, noted — mapped kit is pure Singer combat loop; Worker variant's Find-Item identity goes to loot-economy-identity docket if surfaced as its own kit. Beloved-inversion-canon nature (barbarian as caster) preserved in motion_frame. [STEWARD-AUDIT 2026-07-18 MW2-close: Battle Cry 'curse:weaken' STRUCK — weaken/lowers/reduces all absent from store. War Cry 'stun' KEPT — 'shout injures and stuns all nearby enemies' attested. Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/the-worker-a-war-cry-horker-barbarian-build-t1277155.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Blubbalutsch",
+      "title": "The Worker - A War Cry Horker Barbarian Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/skills/war-cry-t4191.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": null,
+      "title": "War Cry — Diablo 2 Resurrected Skill",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod",
+      "anchor_quote": "with the addition of Synergies in patch 1.10 this skill became more used as the damaging skill in the Singing Barbarian build",
+      "source_url": "https://diablo2.io/skills/war-cry-t4191.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r",
+      "anchor_quote": "[D2R SC] Patriarch Dickinson - the master singer barbarian",
+      "source_url": "https://www.purediablo.com/forums/threads/d2r-sc-patriarch-dickinson-the-master-singer-barbarian.196116/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era token: rotw-s14 (post-cutoff — fetched text defines)",
+      "anchor_quote": null,
+      "source_url": "https://diablo2.io/skills/war-cry-t4191.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Singer' or 'War Cry Barbarian' or 'Singer Barb' is real community usage",
+      "anchor_quote": "The Worker is a caster barb, using the skill War Cry to defeat enemies and Find Item to generate drops.",
+      "source_url": "https://diablo2.io/forums/the-worker-a-war-cry-horker-barbarian-build-t1277155.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: War Cry, Battle Cry, Battle Orders; stuns enemies in radius; mana resource",
+      "anchor_quote": "Injures and stuns all nearby enemies",
+      "source_url": "https://diablo2.io/skills/war-cry-t4191.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Blubbalutsch",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/the-worker-a-war-cry-horker-barbarian-build-t1277155.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "small-radius",
+          "notes": "War Cry radiates from player body as instant AoE shout; 'notably small radius compared to other War Cries' per skill page. Enemies in radius are injured and stunned."
+        },
+        "source_url": "https://diablo2.io/skills/war-cry-t4191.html",
+        "anchor_quote": "Injures and stuns all nearby enemies",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast War Cry repeatedly from within monster packs; shout injures and stuns all nearby enemies in radius; Battle Orders for life/mana/stamina buff; Battle Cry for defense debuff on enemies. Caster barbarian using shout tree exclusively — counterintuitive class expression.",
+          "source_note": "diablo2.io War Cry skill page + Worker guide"
+        },
+        "source_url": "https://diablo2.io/forums/the-worker-a-war-cry-horker-barbarian-build-t1277155.html",
+        "anchor_quote": "The Worker is a caster barb, using the skill War Cry to defeat enemies and Find Item to generate drops.",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Singer (War Cry damage focus)",
+            "War Cry Horker / Worker (War Cry + Find Item for MF farming)",
+            "Baal Runner Singer (teleporter-adjacent support role)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/the-worker-a-war-cry-horker-barbarian-build-t1277155.html",
+        "anchor_quote": "The Worker is a caster barb, using the skill War Cry to defeat enemies and Find Item to generate drops.",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

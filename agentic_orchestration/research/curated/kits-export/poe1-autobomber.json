@@ -1,0 +1,264 @@
+{
+  "kit_id": "poe1-autobomber",
+  "spine": {
+    "kit_id": "poe1-autobomber",
+    "folk_name": "Autobomber",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The kit's signature is an UNBOUNDED cascading kill-chain (each explosion-kill triggers the next explosion across the whole pack). Engine MAX_CHAIN_DEPTH=1 is LOCKED, so the map expresses a single on-kill->burst step via GEOMETRY_PROPAGATION_cascade — the chain-reaction is truncated to one hop, never minted deeper per charter law. A player of the original would notice the screen-wide auto-chain becomes a bounded single-propagation; the 'zero-input movement clears everything' identity is intact but its unlimited-cascade magnitude is capped.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze",
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The kit's signature is an UNBOUNDED cascading kill-chain (each explosion-kill triggers the next explosion across the whole pack). Engine MAX_CHAIN_DEPTH=1 is LOCKED, so the map expresses a single on-kill->burst step via GEOMETRY_PROPAGATION_cascade — the chain-reaction is truncated to one hop, never minted deeper per charter law. A player of the original would notice the screen-wide auto-chain becomes a bounded single-propagation; the 'zero-input movement clears everything' identity is intact but its unlimited-cascade magnitude is capped.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shield Charge (movement / freeze-trigger)",
+          "geometry_value": "dash_attack",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "the player's ONLY active input — charge through a pack; crits freeze an enemy, and the freezing kill seeds the Herald-of-Ice shatter. Movement IS the damage trigger. water/cold family; freeze native with shatter payoff"
+        },
+        {
+          "source_skill": "Herald of Ice + Inpulsa's Broken Heart (on-kill explosion chain)",
+          "geometry_value": "ring",
+          "element_primary": "lightning",
+          "element_secondary": "water",
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "HoI shatters cold-killed enemies (cold burst); Inpulsa makes SHOCKED killed enemies explode for lightning, and each explosion-kill chains to the next — a self-propagating on-kill cascade. ring = burst-around-the-killed-enemy. shock(->sunder) is the Inpulsa trigger-gate. This is autonomous — no button press"
+        }
+      ],
+      "motion_frame": "movement-IS-gameplay: the player only navigates (Shield Charge); kills auto-shatter and chain-explode the whole pack with zero attack inputs",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dash_attack (Shield Charge movement)",
+            "ring (on-kill explosion burst)"
+          ],
+          "economy": [
+            "movement-cadence (no resource spend on offense)"
+          ],
+          "traits_affixes": [
+            "crit (freeze-enabling)",
+            "shock-scaling (Inpulsa gate)",
+            "cold-damage (HoI shatter)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ON-KILL PROPAGATION: GEOMETRY_PROPAGATION_cascade (on-kill) is the exact T4 door. The kit is dual-element: cold (Herald of Ice shatter) + lightning (Inpulsa explosion). Ailments: freeze (Shield Charge crit-freeze, native shatter payoff) + shock->sunder (Inpulsa requires SHOCKED enemies; PoE shock = engine sunder, false-friend). CHAIN-DEPTH VIOLATION: the source is a CASCADING kill-chain — kill -> explode -> that explosion kills -> which explodes -> ... unbounded hops across the pack. Engine MAX_CHAIN_DEPTH=1 is LOCKED; the map expresses ONE on-kill -> burst-damage step (trigger_chain_shape=apply-consume-pair at depth 1). The unbounded cascade is truncated to single-step propagation — NOT minted deeper (charter law). §7.2 dominant-loop: the player's active 3-sec input is MOVEMENT (dash_attack); explosions are autonomous, so movement geometry leads. A player of the original would keep the 'run and everything detonates' feel but the engine models it as bounded single-hop on-kill propagation rather than screen-wide unbounded chain-reaction."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://pobarchives.com/build/3cgUfRhq",
+      "archive_url": null,
+      "site": "pobarchives.com",
+      "author_handle": null,
+      "title": "Phrecia Surfcaster HoT Autobomber",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poecurrency.com/news/hot-autobomber-elementalist-poe-3-20",
+      "archive_url": null,
+      "site": "poecurrency.com",
+      "author_handle": null,
+      "title": "HoT Autobomber Elementalist Build In POE 3.20",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Herald_of_Ice",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Herald of Ice - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Herald of Ice has been added to the game in version 1.2.0",
+      "source_url": "https://poedb.tw/us/Herald_of_Ice",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Autobomber', aliases 'Inpulsa/HoI walker', 'Storm Secret variant' are real community usage; class Assassin/Elementalist",
+      "anchor_quote": "Phrecia Surfcaster HoT Autobomber [feat. Crest of Desire, CI, HoI, ZHP]",
+      "source_url": "https://pobarchives.com/build/3cgUfRhq",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Herald of Ice + Shield Charge; Herald of Ice shatters and Inpulsa explosions chain automatically as player runs past packs; movement is the damage mechanism",
+      "anchor_quote": "Shield Charge crits, casting Glacial Cascade to freeze and kill a monster, which triggers the Herald of Ice chain reaction.",
+      "source_url": "https://www.firesofheaven.org/threads/path-of-exile.84/page-698",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Inpulsa's Broken Heart enables shocked enemy explode chain",
+      "anchor_quote": "Inpulsa's Broken Heart was introduced in Path of Exile version 3.1",
+      "source_url": "https://www.poecurrency.com/news/hot-autobomber-elementalist-poe-3-20",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_primary": "Assassin",
+          "assassin_nodes": [
+            "Unstable Infusion",
+            "Deadly Infusion (crit-based freeze)",
+            "Noxious Strike"
+          ],
+          "ascendancy_secondary": "Elementalist",
+          "elementalist_nodes": [
+            "Shaper of Storms (guaranteed shock for Inpulsa trigger)",
+            "Mastermind of Discord"
+          ],
+          "note": "Assassin uses crit-freeze chain; Elementalist uses guaranteed shock for Inpulsa."
+        },
+        "source_url": "https://pobarchives.com/build/3cgUfRhq",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Inpulsa's Broken Heart (chest)",
+          "alteration": "Shocked enemies you kill explode dealing 5% of their life as lightning damage, propagating the kill-chain. Introduced patch 3.1.",
+          "secondary_item": "Cospri's Malice (sword — Assassin variant)",
+          "secondary_alteration": "Casts socketed spells on crit, enabling freeze → shatter without manual casting.",
+          "tertiary_item": "Loreweave (defensive alternative)",
+          "tertiary_alteration": "Replaces Inpulsa for tankier versions."
+        },
+        "source_url": "https://www.poecurrency.com/news/hot-autobomber-elementalist-poe-3-20",
+        "anchor_quote": "Inpulsa's Broken Heart was introduced in Path of Exile version 3.1",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Self-origin (player body as emission point) with chain-hop footprint. Herald of Ice base explosion radius 1.2 metres. Inpulsa explosions chain from each shocked kill. Shield Charge is movement delivery.",
+          "geometry_note": "Explosion chains propagate outward from each killed enemy, not from caster — effectively unlimited radius against packed mobs."
+        },
+        "source_url": "https://poedb.tw/us/Herald_of_Ice",
+        "anchor_quote": "If you shatter an enemy, this skill will cause them to explode and deal AoE cold damage to enemies near them.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Player runs into a pack with Shield Charge. Crits from Shield Charge freeze an enemy. Freezing kills trigger Herald of Ice shatter — a cold AoE explosion. Inpulsa's Broken Heart causes shocked enemies killed to explode for lightning AoE, chain-exploding the whole pack. Player movement IS the damage trigger — no active attack button required."
+        },
+        "source_url": "https://www.firesofheaven.org/threads/path-of-exile.84/page-698",
+        "anchor_quote": "Shield Charge crits, casting Glacial Cascade to freeze and kill a monster, which triggers the Herald of Ice chain reaction.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Inpulsa/HoI Walker (classic Assassin/Elementalist)",
+            "Storm Secret variant (alternate shock source)",
+            "HoT + HoI Surfcaster (Crest of Desire, 2025 Phrecia event)",
+            "Elementalist HoT Autobomber (3.20+)"
+          ]
+        },
+        "source_url": "https://pobarchives.com/build/3cgUfRhq",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

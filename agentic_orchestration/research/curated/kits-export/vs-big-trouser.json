@@ -1,0 +1,184 @@
+{
+  "kit_id": "vs-big-trouser",
+  "spine": {
+    "kit_id": "vs-big-trouser",
+    "folk_name": "Big Trouser (gold-farm archetype)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-base;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No fixed skill loop or weapon identity — the build IS the Greed economy; no geometry, ailment, or element to map. Player experience = economy archetype, not a damage loadout. 'Not that build' criterion fully met.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No fixed skill loop or weapon identity — the build IS the Greed economy; no geometry, ailment, or element to map. Player experience = economy archetype, not a damage loadout. 'Not that build' criterion fully met.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "No fixed weapon identity — Candybox character selects any base weapon for gold-yield; economy is the loadout, not a skill loop",
+      "resource_economy": {
+        "greed_per_level": "+1% Greed per level (no cap)",
+        "gold_fever_duration": "1.5x Gold Fever duration multiplier",
+        "weapon_selection": "Candybox: any base weapon chosen at run start for gold optimization"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "greed-scaling resource identity"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent (no damage-type system). Candybox = flex weapon slot — no fixed weapon identity exists; skills[] is intentionally empty (empty-projection precedent). Economy identity: Greed-scaling + Gold Fever extension. No skill loop to map. VS roguelite-park: rotation unsupported at verify — correct, not failure."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Big_Trouser",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Big Trouser - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://rogueranker.com/trouser-vampire-survivors/",
+      "archive_url": null,
+      "site": "rogueranker.com",
+      "author_handle": null,
+      "title": "Big Trouser Vampire Survivors Guide: Unlock, Gold Farm Build, and Candybox Starter",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "vs-dlc-era;vs-1.13-14-2025+",
+      "anchor_quote": "Added in Patch 0.10.0 (4 August 2022). He is part of the base game, not DLC.",
+      "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Big Trouser is a gold-farm archetype character whose BUILD is the bank; DLC character",
+      "anchor_quote": "Big Trouser was added in Patch 0.10.0 (4 August 2022). He is part of the base game, not DLC.",
+      "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Greed scaling (gains +1% Greed every level, no cap) + Candybox access = flexible weapon selection optimized for gold yield",
+      "anchor_quote": "Gains +1% Greed every level. There is no cap on this bonus. Starting weapon: Candybox.",
+      "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "candybox": "Allows selection of any base weapon at run start; no fixed weapon identity",
+          "greed_scaling": "Gold Fever duration extended 1.5x; gold/economy optimization"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+        "anchor_quote": "Candybox allows players to begin with any base weapon. Gold Fever duration extended by 1.5x multiplier.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Gold-farm character: starts with Candybox (choose any base weapon), gains +1% Greed per level (no cap), extended Gold Fever duration (1.5x multiplier). No weapon-evolution identity — weapon is chosen for gold yield, not damage shape."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+        "anchor_quote": "Gains +1% Greed every level. There is no cap on this bonus. Starting weapon: Candybox.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Big_Trouser",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

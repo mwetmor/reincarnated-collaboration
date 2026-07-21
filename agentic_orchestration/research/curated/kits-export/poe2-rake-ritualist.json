@@ -1,0 +1,245 @@
+{
+  "kit_id": "poe2-rake-ritualist",
+  "spine": {
+    "kit_id": "poe2-rake-ritualist",
+    "folk_name": "Bleed Ritualist",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.2-dawn;0.3-edict",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Drift from the flicker precedent: dash_attack captures the delivery, but the engine has no native 'apply-then-Disengage-OUT' hit-and-run RETREAT half of the loop -- the dash is modeled as an attack-approach, the strategic dash-away (the survival core of a Ritualist Rake) is delivery flavor. The dash-bleed-builder + Blood Hunt execution identity is preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Drift from the flicker precedent: dash_attack captures the delivery, but the engine has no native 'apply-then-Disengage-OUT' hit-and-run RETREAT half of the loop -- the dash is modeled as an attack-approach, the strategic dash-away (the survival core of a Ritualist Rake) is delivery flavor. The dash-bleed-builder + Blood Hunt execution identity is preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rake",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "dash-to-target movement attack: Rake moves the character to the target position on cast (dash-slash) and applies an aggravated Bleed stack at the destination ('building as much Bleeding... before dashing away'). Mirrors PoE1-flicker (queried: geometry_value=dash_attack -- teleport/dash-strike lands the hit in one action). DIFFERENCE noted: flicker auto-chains target-to-target on Frenzy Charges; Rake is a SINGLE controlled dash-in / dash-out BLEED-BUILDER (dash in, apply bleed, Disengage out, repeat) -- a builder cadence, not an auto-chaining engine. Physical melee -> element-neutral (physical rule). aggravated Bleed -> bleed (variant magnitude in param_ranges, no new ailment) per Section-A."
+        },
+        {
+          "source_skill": "Blood Hunt (single-target execution)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "when bleed accumulation is sufficient, Blood Hunt is the single-target burst execution spending the banked bleed ('followed by Blood Hunt'). Point-contact finisher -> melee_strike. Secondary spend-stage per 7.2; the every-3-seconds loop is the Rake dash-bleed-builder."
+        }
+      ],
+      "motion_frame": "hit-and-run bleed-builder: dash IN with Rake to stack aggravated bleed, Disengage back out to safety, repeat until the bleed is deep -- then Blood Hunt executes the target on the banked stacks",
+      "resource_economy": {
+        "cost_scale": "mana per Rake dash",
+        "charge_stack_sub_shape": "accumulator (bleed stacks banked, then spent by Blood Hunt)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "aggravated Bleed stacks (built by Rake dashes)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dash-to-target bleed-builder (dash_attack)",
+            "Blood Hunt point execution (melee_strike)"
+          ],
+          "economy": [
+            "mana per dash",
+            "bleed-stack accumulator -> Blood Hunt spend"
+          ],
+          "traits_affixes": [
+            "bleed magnitude / aggravated-bleed",
+            "physical DoT %",
+            "Ritualist blood-mechanic amplification (bleed stacks per hit)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-01. Section-C.5 applied: queried poe1-flicker geometry_value (dash_attack) and mirrored the dash-strike shape; noted the bleed-BUILDER difference (flicker=auto-chaining frenzy engine; Rake=controlled single dash-in/dash-out builder + Disengage). Section-A aggravated Bleed -> bleed (variant magnitude, no new ailment). Physical -> element-neutral. PERSISTENCE_ENGINE_saturation routes bleed-DoT accumulation; MOMENTUM_CASCADE routes the dash mobility loop. eras 0.2/0.3 CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.akrpg.com/news/910--poe-2-best-ritualist-leveling-bleed-huntress-build-in-02-dawn-of-the-hunt",
+      "archive_url": null,
+      "site": "akrpg.com",
+      "author_handle": null,
+      "title": "PoE 2 Best Ritualist Leveling (Bleed Huntress) Build in 0.2 Dawn of the Hunt",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3852926",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[POE2 0.3] Bleeding Ritualist Beginner Friendly Build - Forum",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mmopixel.com/news/poe-2-dawn-of-the-hunt-best-endgame-build-for-pinnacle-bosses-bleed-ritualist-build-guide",
+      "archive_url": null,
+      "site": "mmopixel.com",
+      "author_handle": null,
+      "title": "PoE 2 Dawn of the Hunt Best Endgame Build for Pinnacle Bosses - Bleed Ritualist Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "PoE 2 Best Ritualist Leveling (Bleed Huntress) Build in 0.2 Dawn of the Hunt",
+      "source_url": "https://www.akrpg.com/news/910--poe-2-best-ritualist-leveling-bleed-huntress-build-in-02-dawn-of-the-hunt",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "[POE2 0.3] Bleeding Ritualist Beginner Friendly Build - Forum - Path of Exile",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3852926",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bleed Ritualist' and aliases 'Rake bleed Ritualist', 'Bloodhunt Rake build' are real community usage",
+      "anchor_quote": "[PoE2 0.3] Infinite Herald of Blood Chain Huntress - Ritualist Rake Bleed/Poison Full Build Guide",
+      "source_url": "https://www.youtube.com/watch?v=Lo1BzPlY-Z4",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rake dash-slash stacks bleed on impact; Blood Hunt used when enemy has accumulated blood loss; Ritualist ascendancy amplifies blood mechanics",
+      "anchor_quote": "This build revolves around Rake and Disengage, building as much Bleeding and Physical Damage as possible before dashing away to a safe distance, followed by Blood Hunt to deal high single-target damage",
+      "source_url": "https://www.mmopixel.com/news/poe-2-dawn-of-the-hunt-best-endgame-build-for-pinnacle-bosses-bleed-ritualist-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Ritualist (Huntress ascendancy)",
+          "note": "Ritualist ascendancy amplifies blood/bleed mechanics. Extra ring slot and rare monster modifier absorption. Herald of Blood integration for chain explosion clears."
+        },
+        "source_url": "https://www.akrpg.com/news/910--poe-2-best-ritualist-leveling-bleed-huntress-build-in-02-dawn-of-the-hunt",
+        "anchor_quote": "Ritualist ... Herald of Blood Chain Huntress",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Dash-to-target at-target delivery. Rake moves character to target position on cast (dash-slash). Point delivery at destination. Follow-up Spear Stab is additional point contact. No AoE component on primary skill.",
+          "range": "dash-to-target melee (self-repositioning)"
+        },
+        "source_url": "https://www.mmopixel.com/news/poe-2-dawn-of-the-hunt-best-endgame-build-for-pinnacle-bosses-bleed-ritualist-build-guide",
+        "anchor_quote": "Always try to use Rake from a distance for maximum bonuses",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Dash into target with Rake to apply aggravated Bleed stack. Attack with Spear Stab while enemy bleeds. Dodge roll back. Repeat Rake dash to re-apply bleed. When bleed accumulation is sufficient, use Blood Hunt for single-target burst execution.",
+          "resource": "Mana per Rake dash"
+        },
+        "source_url": "https://www.mmopixel.com/news/poe-2-dawn-of-the-hunt-best-endgame-build-for-pinnacle-bosses-bleed-ritualist-build-guide",
+        "anchor_quote": "This build revolves around Rake and Disengage, building as much Bleeding and Physical Damage as possible before dashing away to a safe distance, followed by Blood Hunt",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Bleed Ritualist (Rake primary)",
+            "Bleed/Poison Ritualist (hybrid Rake + poison support)",
+            "Herald of Blood chain Ritualist (pack clear via Blood explosion chain)"
+          ]
+        },
+        "source_url": "https://www.youtube.com/watch?v=Lo1BzPlY-Z4",
+        "anchor_quote": "[PoE2 0.3] Infinite Herald of Blood Chain Huntress - Ritualist Rake Bleed/Poison Full Build Guide",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

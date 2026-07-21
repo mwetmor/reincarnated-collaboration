@@ -1,0 +1,260 @@
+{
+  "kit_id": "la-hunger-reaper",
+  "spine": {
+    "kit_id": "la-hunger-reaper",
+    "folk_name": "Hunger Reaper",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: Chaos Mode refresh-on-hit mechanic (duration extension per Dagger hit or Shadow skill use) is a novel refresh-shape the engine burst_window consequence_type does not natively express — source player would note the pseudo-permanent uptime dynamic is flattened. Back-attack positional discipline has no engine analog. Core loop maps correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: Chaos Mode refresh-on-hit mechanic (duration extension per Dagger hit or Shadow skill use) is a novel refresh-shape the engine burst_window consequence_type does not natively express — source player would note the pseudo-permanent uptime dynamic is flattened. Back-attack positional discipline has no engine analog. Core loop maps correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dagger skills (Chaos Meter generators)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee-range dagger attacks; back-attack positional (+10% Crit Rate, +5% Damage on back-side indicator); no elemental damage-typing in store; back-attack positioning is delivery texture, not an ailment"
+        },
+        {
+          "source_skill": "Shadow skills (Chaos Meter generators + Swoop skill layer)",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shadow/mobility skills feed Chaos Meter and reposition; Nightmare (Counter): toss dagger, reactivate to teleport to opposite side — boss-break Counter vocab (SA row 4, NOT stun/sunder)"
+        },
+        {
+          "source_skill": "Chaos Mode (100% Chaos Meter — 15s timed buff window, refreshed each hit/skill)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Timed identity window: +23% Crit Rate, +28% Attack Power, +10% Attack/Move Speed, -40% Nightmare cooldown; duration refreshes on each Dagger hit or Shadow skill use; stale buff values noted — shape only"
+        }
+      ],
+      "motion_frame": "Build Chaos Meter via Dagger and Shadow skill rotation; at 100% enter Chaos Mode (15s window, refresh per hit/skill); execute rotation inside Chaos Mode for sustained amplified damage",
+      "resource_economy": {
+        "chaos_meter": "accumulate to 100% via Dagger and Shadow skills; enter Chaos Mode (15s, refreshed each Dagger hit or Shadow skill use); near-permanent uptime in active combat"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee/dash dagger+shadow skills; back-attack positional discipline"
+          ],
+          "economy": [
+            "chaos_meter: accumulate to 100%, refresh-on-hit sustains window near-permanently in combat"
+          ],
+          "traits_affixes": [
+            "Ravening Nightmare, Fatal Nightmare, Nightmarish Plunge, Flashy Attack, Smoldering Strike, Attack (Ark Passive nodes -> capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Chaos Mode is TIMED burst_window per LA row 2 (15s, refreshed — functionally near-permanent in active combat but initiated as timed window at 100% threshold). No element or ailment attestation in store; Chaos = class mechanic label, NOT an element or status. Counter (Nightmare) = boss-break vocabulary (LA row 4) — NOT stun. Back-attack positional is delivery texture. Buff values stale per Ark Passive law — shape carried. GX-03 gap_ref noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Hunger Reaper Raid Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Last Updated: June 13, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last Updated: June 13, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Hunger Reaper — class + identity spec, community name",
+      "anchor_quote": "Hunger Reaper — A fast-paced, mobile DPS specialization emphasizing fragmented constant damage through skill combinations.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Hunger engraving focuses on generating maximum Chaos Meter for enhanced damage in Chaos Mode; builds Chaos stacks through skill use, dealing more damage the higher the stacks; high-potential-ceiling twin to Lunar Voice",
+      "anchor_quote": "Chaos Mode lasts for 15 seconds, from the moment you reach 100% Chaos Meter. Each time a Dagger Skill hits an enemy, or a Shadow Skill is used, this duration refreshes.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Chaos Mode buffs: +23% Crit Rate, +28% Attack Power, +10% Attack/Movement Speed",
+      "anchor_quote": "+23% Crit Rate, +28% Attack Power, +10% Attack/Movement Speed; -40% cooldown for Nightmare (Counter skill)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Raeinor",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-13"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+        "anchor_quote": "Raeinor (Content Creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Ravening Nightmare",
+            "Fatal Nightmare",
+            "Nightmarish Plunge",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+        "anchor_quote": "Core: Ravening Nightmare, Fatal Nightmare, Nightmarish Plunge, Flashy Attack, Smoldering Strike, Attack",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Raid Captain",
+            "Mass Increase",
+            "Adrenaline"
+          ],
+          "gems_priority": [
+            "Rage Spear",
+            "Glowing Brand",
+            "Dance of Fury",
+            "Silent Rage"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Specialization",
+              "Crit",
+              "Swiftness"
+            ],
+            "special_rolls": [
+              "Ambush",
+              "Circulate",
+              "Fervor",
+              "Wedge",
+              "Precise"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+        "anchor_quote": "Engravings: Grudge, Ambush Master, Raid Captain, Mass Increase, Adrenaline",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Nightmare (Counter): toss dagger at enemy, reactivate to teleport to opposite side. Back Attack positioning: +10% Crit Rate and +5% Damage on target's back-side indicator."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+        "anchor_quote": "Two-part skill where you first toss a dagger at the enemy, and can then reactivate it to teleport to the opposite side of where you're standing.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Build Chaos Meter via Dagger and Shadow skills; at 100% enter Chaos Mode (15s, refreshed each Dagger hit or Shadow skill use). Chaos Mode: +23% Crit Rate, +28% Attack Power, +10% Attack/Move Speed, -40% Nightmare cooldown. Rotation intertwines Swoop Skills with Shadow Vortex and other Shadow/Dagger skills. Distortion maintains Chaos Mode indefinitely when out of combat."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+        "anchor_quote": "Chaos Mode lasts for 15 seconds, from the moment you reach 100% Chaos Meter. Each time a Dagger Skill hits an enemy, or a Shadow Skill is used, this duration refreshes.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/hunger-reaper-raid-build-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

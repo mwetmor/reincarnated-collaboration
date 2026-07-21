@@ -1,0 +1,231 @@
+{
+  "kit_id": "chr-bleed-berserker",
+  "spine": {
+    "kit_id": "chr-bleed-berserker",
+    "folk_name": "Bleed Berserker",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "1.0-2020;ancient-beasts-dlc",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Take Down / Glacial Roll (melee strike applying bleed)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Physical damage — no-family per THE PHYSICAL RULE. Bleed attested: 'applies bleed effect to enemies'; 'Internal Hemorrhage 200%+ damage per second'. Melee range, point-target delivery."
+        },
+        {
+          "source_skill": "Internal Hemorrhage eruption (on-kill burst)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "On-death eruption: 'foes who die under Internal Hemorrhage erupt in an explosion of blood, dealing 250% of the total remaining damage... to all foes within 3 meters'. On-kill AoE, small radius — maps to circle geometry. Cascade trigger."
+        }
+      ],
+      "motion_frame": "Melee in, apply bleed stacks → accumulate Bloodbath → Internal Hemorrhage drains HP → on-kill eruption chains into nearby enemies; Rage builds on-hit, spent on strike activation.",
+      "resource_economy": {
+        "cost_scale": "rage",
+        "cost_slope": "on-hit accumulation; consumed on strike activation",
+        "regen_shape": "hit-to-fill"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "AoE radius extension on Internal Hemorrhage eruption"
+          ],
+          "economy": [
+            "Rage generation rate; bleed stack cap"
+          ],
+          "traits_affixes": [
+            "Physical Damage bonus; Bleed Damage per-stack multiplier (Bloodbath effect); gear set bonuses via Bloodsoaked Garb"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical = no-family (THE PHYSICAL RULE). Bleed identity fully attested. Bloodsoaked Garb set bonuses map to gear-affix lane (numeric scalers). Bloodbath stack accumulation is a two-tier-accumulator shape (bleed stacks → Bloodbath stacks → damage amp) — filing accrual to placed-proxy/two-tier family WITHOUT numbers. Verify_ledger CONFIRMED all three families (identity/mechanics/era)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2276207464",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Chronicon 1.10 Berserker Bleed Build RUS/ENG",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/0/1621726179570836361/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "community",
+      "title": "Berserker sets :: Chronicon General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "1.0-2020; ancient-beasts-dlc",
+      "anchor_quote": "In the version 1.0 release (August 21, 2020), the Bloodsoaked Garb 3) bonus was changed to double the effectiveness of bleeds when using non-stone skills",
+      "source_url": "https://steamdb.info/patchnotes/5442954/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Bleed Berserker applies heavy bleed stacks via melee strikes; bleed DoT is the damage engine; physical damage class",
+      "anchor_quote": "Bloodsoaked Garb set provides +25% Physical Damage and its Bloodbath effect increases Bleed Damage by 15% per stack, with Internal Hemorrhage dealing an additional 200% damage per second",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/1621726179570836361/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core skills: bleed suite, Fury tree; Rage resource; physical/bleed DoT damage mode; armor/hp-stack defense",
+      "anchor_quote": "A Berserker build using the Bloodsoaked Garb set applies the bleeding effect to enemies... Take Down attack skill... Rage meter that builds up and is used for moves",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/1813170373212501370/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_id": "2276207464"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2276207464",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Bloodsoaked Garb",
+          "bonuses": [
+            "plus 25% Physical Damage",
+            "Bloodbath increases Bleed Damage 15% per stack",
+            "Internal Hemorrhage 200%+ damage per second",
+            "double effectiveness of bleeds on non-stone skills at 1.0"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/1621726179570836361/",
+        "anchor_quote": "Bloodsoaked Garb set provides +25% Physical Damage and its Bloodbath effect increases Bleed Damage by 15% per stack",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "value": "point/at-target melee strikes; bleed DoT has no geometry (persists on target); Internal Hemorrhage eruption hits within 3 meters on death"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/1621726179570836361/",
+        "anchor_quote": "foes who die under the effect of Internal Hemorrhage erupt in an explosion of blood, dealing 250% of the total remaining damage of the effect to all foes within 3 meters",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Apply bleed stacks via melee strikes (Take Down / Glacial Roll); accumulate Bloodbath stacks; Internal Hemorrhage drains enemy HP continuously; Rage spend on strike activation; repeat between shatter cycles"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/1621726179570836361/",
+        "anchor_quote": "Take Down attack skill triggers EarthShatter through Shattering Impact, allowing 2 Face Breaker stacks per attack and deal more than 100B bleed damage in 10s",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Bloodsoaked Garb standard bleed",
+            "Glacier Roll Bloodsoaked variant (v0.94.2)",
+            "Cast-on-hit Earthshatter Berserker (bleed+shatter hybrid)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/1637542851358023435/",
+        "anchor_quote": "Glacial Roll is described as a better attack skill with no cooldown via Infinite Rolls",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

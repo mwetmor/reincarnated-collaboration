@@ -1,0 +1,237 @@
+{
+  "kit_id": "d3-inarius-bonestorm",
+  "spine": {
+    "kit_id": "d3-inarius-bonestorm",
+    "folk_name": "Inarius Bone Storm",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the mandatory proximity/melee-range loop feel — this is a walk-into-mobs identity not well-expressed by standard orbit token alone; (2) the Bone Armor activation prerequisite gating the orbit (engine has no conditional-activation orbital); (3) CoE rotation alignment as burst-texture layer.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the mandatory proximity/melee-range loop feel — this is a walk-into-mobs identity not well-expressed by standard orbit token alone; (2) the Bone Armor activation prerequisite gating the orbit (engine has no conditional-activation orbital); (3) CoE rotation alignment as burst-texture layer.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bone Storm (Grace of Inarius 6pc activation via Bone Armor)",
+          "geometry_value": "orbit",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Bone Storm tornado orbits the Necromancer's body continuously at melee/small radius; player walks into enemy clusters to maximize contact; moving-channel analog but technically persistent orbital rather than player-channeled"
+        },
+        {
+          "source_skill": "Grim Scythe",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Generator: maintains Bone Armor stacks and Essence; close-range melee arc"
+        }
+      ],
+      "motion_frame": "Walk into enemy cluster; Bone Storm orbital shreds melee-range contacts; maintain Bone Armor for set activation; sustain via Grim Scythe generator",
+      "resource_economy": {
+        "resource_type": "Essence",
+        "generator": "Grim Scythe",
+        "spend_pattern": "passive uptime — Bone Armor maintenance cost; no burst spend"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "element_rotation_window",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "orbital-ring uptime; small-radius proximity required"
+          ],
+          "economy": [
+            "Essence sustain via generator; Bone Armor toggle"
+          ],
+          "traits_affixes": [
+            "bone/shadow scaling; proximity/melee-range affixes; CoE rotation alignment"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: bone/necrotic → shadow per main-law element table (bone/necrotic rule). Orbit shape maps natively per §A spiral-orbit row; own fetched language 'Bone Storm orbits the Necromancer's body' attests the shape. CoE (Convention of Elements) present in item_alterations → R-M5 timed-proc law: nearest apply-event token element_rotation_window. No ailment attested in fetched dossier; orbit contact damage naming does not invoke any 16-enum status. Set multiplier (19,000%) is scaler-only per §B row 1; zero skills[] footprint. 'Magic damage' does not carry — no physical rule applies here; shadow is the bone element family mapping."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Diablo 3 Season 39 Inarius Death Nova Necromancer Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/resources/necromancer",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Necromancer Class Overview - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "The (6) Bonus activates a Bone Storm around the player while Bone Armor is active. While its own damage is meaningless, it massively boosts the damage done to enemies hit",
+      "source_url": "https://maxroll.gg/d3/resources/necromancer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Inarius Bone Storm Necromancer'; aliases include 'Inarius Necro', 'Bone Armor Necromancer'",
+      "anchor_quote": "Grace of Inarius gives extra damage reduction with Bone Armor and adds 19,000% extra damage against nearby enemies thanks to the Bone Storm",
+      "source_url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bone Armor, Grim Scythe; class resource: Essence",
+      "anchor_quote": "Necromancers use Essence to cast their most powerful skills. Essence doesn't regenerate or decay by itself.",
+      "source_url": "https://maxroll.gg/d3/resources/necromancer",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "role": "Director",
+          "reviewer": "Northwar"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+        "anchor_quote": "by wudijo (Director); reviewed by Northwar",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Grace of Inarius (6) Bonus: activates Bone Storm while Bone Armor active; 19,000% damage to nearby enemies",
+          "kanai_cube": [
+            "Bloodtide Blade or Haunted Visions cube candidates noted"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+        "anchor_quote": "Grace of Inarius gives extra damage reduction with Bone Armor and adds 19,000% extra damage against nearby enemies thanks to the Bone Storm",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grace of Inarius (6pc set)",
+            "Bloodtide Blade",
+            "Iron Rose",
+            "Haunted Visions",
+            "Krysbin's Sentence",
+            "Convention of Elements",
+            "Dayntee's Binding"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+        "anchor_quote": "Primary weapons/offhand: Bloodtide Blade, Funerary Pick, Iron Rose, Haunted Visions",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit",
+          "range": "melee/small-radius",
+          "aoe": "small orbital ring around caster",
+          "notes": "Bone Storm tornado orbits the Necromancer's body continuously"
+        },
+        "source_url": "https://maxroll.gg/d3/resources/necromancer",
+        "anchor_quote": "The (6) Bonus activates a Bone Storm around the player while Bone Armor is active. While its own damage is meaningless, it massively boosts the damage done to enemies hit",
+        "abstained": 0,
+        "conf": 0.79
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Bone Armor to activate Grace of Inarius set bonus; Bone Storm orbits the Necromancer's body amplifying damage to nearby enemies by 10,000%+; maintain Bone Armor stacks via Grim Scythe; walk into enemy clusters to maximize orbital damage"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+        "anchor_quote": "Grace of Inarius gives extra damage reduction with Bone Armor and adds 19,000% extra damage against nearby enemies thanks to the Bone Storm",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Inarius Death Nova (primary current build)",
+            "Inarius Corpse Explosion (separate variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inarius-death-nova-necromancer-guide",
+        "anchor_quote": "Diablo 3 Season 28 Inarius Corpse Explosion Necro Guide",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "kit_id": "la-lunar-voice-reaper",
+  "spine": {
+    "kit_id": "la-lunar-voice-reaper",
+    "folk_name": "Lunar Voice Reaper",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: Persona window empowers next Swoop Skill only (single-skill burst payoff with +170% damage) — the concentration-of-burst-into-one-skill shape is an unusual trigger consequence the burst_window token captures in shape but not specificity. Back-attack positional discipline (Ambush Master engraving — DEAD axis) is delivery texture lost in mapping. Poison DoT from Shadow Vortex lands correctly (only attested ailment in-basin).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: Persona window empowers next Swoop Skill only (single-skill burst payoff with +170% damage) — the concentration-of-burst-into-one-skill shape is an unusual trigger consequence the burst_window token captures in shape but not specificity. Back-attack positional discipline (Ambush Master engraving — DEAD axis) is delivery texture lost in mapping. Poison DoT from Shadow Vortex lands correctly (only attested ailment in-basin).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shadow skills (Persona Meter generators)",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shadow skills build Persona Meter and provide forward repositioning; no elemental damage-typing in store; back-attack positional supported (Ambush Master engraving — DEAD axis; back-attack is delivery texture)"
+        },
+        {
+          "source_skill": "Dagger skills (Persona Meter generators)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dagger skills supplement Persona Meter generation; Nightmare (X) = Counter teleport skill (boss-break vocab, §LA row 4 — NOT stun); melee dagger range"
+        },
+        {
+          "source_skill": "Shadow Vortex (Persona Meter generator + Poison: Corrosion applicator)",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Attested: 'Shadow Vortex applies Poison: Corrosion debuff' (dossier capstone_alterations synergy field, abstained=0). Poison: Corrosion = named DoT status, enemy-directed ('debuff') — emit poison per addendum residual OPEN ruling and hot-fact. vortex_pull geometry for Shadow Vortex forward-movement skill. Shadow Vortex also moves caster forward per skill_geometry dossier."
+        },
+        {
+          "source_skill": "Persona (Z — identity burst release, timed)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "TIMED burst window; empowers next Swoop Skill: +170% Swoop damage, +10% Crit Rate, +10% Attack Speed, +30% Move Speed, -30% Nightmare cooldown, resets Spacebar cooldown; consequence_type: burst_window"
+        },
+        {
+          "source_skill": "Swoop Skills (Rage Spear, Dance of Fury, Glowing Brand, Finishing Step — burst payoff)",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary burst damage delivery inside Persona window; +170% damage during Persona (Z); forward-moving dash attacks; back-attack positioning embedded"
+        }
+      ],
+      "motion_frame": "Build Persona Meter via Shadow and Dagger skills (including Shadow Vortex applying Poison: Corrosion); activate Persona (Z) for timed burst window; fire highest-damage Swoop Skill (Rage Spear, Dance of Fury, Glowing Brand) for concentrated burst; repeat cycle",
+      "resource_economy": {
+        "persona_meter": "accumulate via Shadow and Dagger skills; release into Persona (Z) timed burst window that empowers next Swoop Skill; consistent on-demand burst — no stack-dependency (contrast Hunger Reaper chaos_meter uptime model)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dash_attack dominant (forward-moving Swoop Skills); vortex_pull for Shadow Vortex; back-attack positional discipline"
+          ],
+          "economy": [
+            "persona_meter: accumulate via generators, release into single-Swoop burst window; Specialization + Crit primary stats"
+          ],
+          "traits_affixes": [
+            "Moonscent (Swoop damage on Destiny + Dance of Fury CD), Two Moons (Glowing Brand Crit Rate + Back Attack on Destiny) — Ark Grid sets -> capstone_alterations"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "POISON ATTESTED: 'Shadow Vortex applies Poison: Corrosion debuff' in capstone_alterations dossier (abstained=0, synergy field) — Poison: Corrosion names the DoT status; 'debuff' confirms enemy-directed. Emit poison per addendum residual OPEN + hot-fact ruling. This is the ONE genuine LA ailment attestation in-basin. Persona (Z) = TIMED burst_window per LA row 2 (timed, single-Swoop payoff — not permanent). persona_meter native key per LA row 1. Nightmare Counter = boss-break vocabulary (LA row 4) — NOT stun. Moonscent/Two Moons = Ark Grid set names -> capstone_alterations (not element attestation). PERSISTENCE_ENGINE_saturation door: Shadow Vortex Poison DoT contributes an attrition layer alongside burst. Back-attack positioning texture in delivery_notes."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Lunar Voice Reaper Raid Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Last Updated June 13, 2026; Ark Grid sets Moonscent and Two Moons listed",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last Updated June 13, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Lunar Voice Reaper — class + identity spec, community name",
+      "anchor_quote": "Lunar Voice Reaper Build Guide revolves around using Shadow Skills and Dagger Skills to build Persona Meter, then utilizing that to empower a Swoop Skill, dealing highly concentrated burst damage",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Persona Mode (Z) grants immediate Swoop damage boost without needing Chaos stacks; identity fires on demand with consistent returns; smoother more mobile Reaper path versus Hunger's stack-building dependency",
+      "anchor_quote": "+170% damage to Swoop Skills, +10% Crit Rate, +10% Attack Speed, +30% Movement Speed, -30% of Nightmare (X)'s current cooldown, Resets your Spacebar's cooldown.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Raeinor",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-13"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+        "anchor_quote": "Raeinor — Content Creator",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_grid_sets": [
+            {
+              "name": "Moonscent",
+              "effect": "increases damage of Swoop Skills on Destiny activation; lowers cooldown of Dance of Fury"
+            },
+            {
+              "name": "Two Moons",
+              "effect": "increases Crit Rate of Glowing Brand; next cast hits as Back Attack regardless of position on Destiny activation"
+            }
+          ],
+          "synergy": "Shadow Vortex applies Poison: Corrosion debuff"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+        "anchor_quote": "Moonscent: increases damage of your Swoop Skills on Destiny activation. Lowers the cooldown of Dance of Fury. Two Moons: Crit Rate of Glowing Brand, next cast hit as Back Attack regardless of position.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Adrenaline"
+          ],
+          "gems_damage": [
+            "Rage Spear",
+            "Glowing Brand",
+            "Dance of Fury"
+          ],
+          "gems_cooldown": [
+            "Shadow Vortex",
+            "Dance of Fury",
+            "Rage Spear",
+            "Glowing Brand",
+            "Shadow Storm",
+            "Black Mist",
+            "Call of the Knife",
+            "Shadow Trap"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Specialization",
+              "Crit"
+            ],
+            "special_rolls": [
+              "Ambush",
+              "Circulate",
+              "Fervor",
+              "Hammer",
+              "Wedge",
+              "Assail",
+              "Precise",
+              "Superiority",
+              "Dexterity",
+              "Weapon Power"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+        "anchor_quote": "Grudge, Ambush Master, Keen Blunt Weapon, Cursed Doll, Adrenaline",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "movement_skills": [
+            "Shadow Vortex — moves you forward",
+            "Shadow Storm — moves you forward",
+            "Glowing Brand — moves you forward",
+            "Persona (Z) — moves you backward",
+            "Lunar Eclipse: Cadenza — moves you backward",
+            "Nightmare (X) — teleports to opposite side of current position"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+        "anchor_quote": "Shadow Vortex, Shadow Storm, Glowing Brand: move you forward. Persona (Z), Lunar Eclipse: Cadenza: move you backward. Nightmare (X): teleport to the opposite side.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Build Persona Meter via Shadow and Dagger skills, activate Persona (Z) to empower next Swoop Skill for highly concentrated burst damage. Persona buffs: +170% Swoop Skill damage, +10% Crit Rate, +10% Attack Speed, +30% Move Speed, -30% Nightmare cooldown, resets Spacebar cooldown. Primary Swoop Skills: Rage Spear, Dance of Fury, Glowing Brand, Finishing Step. Contrast to Hunger: concentrated burst vs fragmented constant damage."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+        "anchor_quote": "+170% damage to Swoop Skills, +10% Crit Rate, +10% Attack Speed, +30% Movement Speed, -30% of Nightmare (X)'s current cooldown, Resets your Spacebar's cooldown.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "ark_grid_variants": [
+            "Moonscent",
+            "Two Moons"
+          ],
+          "stat_variants": [
+            "Crit-heavy (Adrenaline 120% Crit Rate target)",
+            "Swiftness-swap (Crit → Swiftness)",
+            "Keen Sense → Limit Break flex"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/lunar-voice-reaper-raid-build-guide",
+        "anchor_quote": "Flexibility noted: swapping Crit for Swiftness or Keen Sense for Limit Break",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

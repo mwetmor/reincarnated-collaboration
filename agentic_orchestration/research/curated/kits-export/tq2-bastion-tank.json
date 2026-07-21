@@ -1,0 +1,237 @@
+{
+  "kit_id": "tq2-bastion-tank",
+  "spine": {
+    "kit_id": "tq2-bastion-tank",
+    "folk_name": "Bastion (Warfare+Forge)",
+    "game": "tq2",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tq2-ea-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Bastion player gets an armor-stacking AoE bruiser, but the CORE armor-as-damage-substrate identity is not expressible: the engine has no lane where a defensive stat (armor) OVERWRITES/becomes the damage source (Shield Attack 'overwrites damage source to current armor'; Armor Eruption 'converts all armor to AoE damage'). The whole build -- stack armor to hit harder, not just to survive -- routes through normal skill scaling instead of the armor-pool coupling, so the payoff is approximated. Distinct from docket #4 stun-as-damage (filed as its own candidate, FLAG 11). That is 'not that build' for the conversion mechanism -> APPROX with docket.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Bastion player gets an armor-stacking AoE bruiser, but the CORE armor-as-damage-substrate identity is not expressible: the engine has no lane where a defensive stat (armor) OVERWRITES/becomes the damage source (Shield Attack 'overwrites damage source to current armor'; Armor Eruption 'converts all armor to AoE damage'). The whole build -- stack armor to hit harder, not just to survive -- routes through normal skill scaling instead of the armor-pool coupling, so the payoff is approximated. Distinct from docket #4 stun-as-damage (filed as its own candidate, FLAG 11). That is 'not that build' for the conversion mechanism -> APPROX with docket.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Armor Eruption (Warfare)",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "converts ALL current armor into area-of-effect damage in a large AoE around the caster, two damage instances (dossier); cooldown reset via Whirlwind chains. Self-origin armor-fueled AoE burst -> ground_slam. physical -> no element family (elem_raw=physical; physical rule). stun rider (probe: taunt+stun; taunt has no ailment slot -> fear-slot exclusive, recorded in note; stun kept). Vulnerable on Hit node + Enhanced Area."
+        },
+        {
+          "source_skill": "Shield Attack (Warfare)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "melee-range strike that OVERWRITES its damage source to current armor (dossier: 'overwrites damage source to current armor'). Single-target armor-scaled melee -> melee_strike. Chains pulls enemies into melee range (a vortex_pull utility, noted secondary). physical -> element-neutral."
+        }
+      ],
+      "motion_frame": "armor-as-weapon bastion: stack armor sky-high via Ironclad, then convert that armor directly into damage -- Shield Attack overwrites its damage to your armor value and Armor Eruption dumps your whole armor pool as a two-hit AoE, with Chains yanking the pack into range",
+      "resource_economy": {
+        "model": "spend",
+        "resource_verbatim": "Energy (STR-melee tank spend)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "RETRIBUTION_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "self-origin armor-fueled AoE (Armor Eruption, two instances)",
+            "armor-scaled melee (Shield Attack)",
+            "Chains vortex_pull (pull-into-melee utility)"
+          ],
+          "economy": [
+            "Energy spend",
+            "armor pool as the damage-scaling substrate (Ironclad stacks -> Shield Attack / Armor Eruption input)"
+          ],
+          "traits_affixes": [
+            "armor / STR scaling (Ironclad MAX)",
+            "Pierce Retaliation / Armor Shards (retaliation layer)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Warfare+Forge dual mastery (identity CONFIRMED, no errata) -- BOTH masteries' capstones route t4_doors (§E row 1). Capstones attested: Ironclad (Warfare, armor stack) + Armor Eruption (Warfare, armor->AoE); Forge is the 2nd mastery (the tank/armor-conversion frame). Mapped to DEFENSIVE_TRADEOFF (armor-tank identity, life/defense-trade group) + RETRIBUTION_ENGINE (the armor-as-damage + Pierce Retaliation retaliation shape). FLAG 11 + §E row: ARMOR-CONVERSION damage (Shield Attack overwrites damage to armor; Armor Eruption converts all armor to AoE) is a DISTINCT stat-as-damage-substrate mechanism -> filed as its OWN docket-candidate, NOT merged with docket #4 stun-as-damage. physical -> element-neutral (physical rule; identity = geometry + armor-conversion). taunt (probe) has no ailment slot (fear-exclusive) -> recorded in note, not emitted; stun kept. Chains = vortex_pull utility. Armor-conversion is the loop identity but has no engine lane (docketed). [STEWARD AUDIT m04: stun x2 stripped -- never named in fetched text; Armor Eruption -> 'sunder' via ATTESTED 'Vulnerable on Hit' node (hit-proc damage-taken amp class). terminal MAPPED_DOCKET -> MAPPED per R-M7 biconditional (docket-candidate rides side-file; grade APPROX = 'that build, worse'; m02 grim-feast precedent)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Damnfever",
+      "title": "Bastion Armor stacker build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3666320724",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Gamerinos",
+      "title": "Bastion | Tank Spiky Blasterinos",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3540989801",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "OldIslander",
+      "title": "Mastery Combo Class Names",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era tq2-ea-2025+",
+      "anchor_quote": "Updated 0.5.0 ... Update 2026-05-26 Removed rage related passives",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3666320724",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bastion (Warfare+Forge)' and aliases 'Bastion armor stacker', 'Warfare Forge tank' are real community usage",
+      "anchor_quote": "Bastion Armor stacker build ... Warfare + Forge are confirmed as the two masteries used in this build",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills TBD in corpus; sources confirm Shield Attack, Armor Eruption, Ironclad as core; armor-to-damage conversion mechanism",
+      "anchor_quote": "Shield Attack overwrites damage source to current armor... Armor Eruption converts all current armor into area-of-effect damage",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Damnfever",
+          "site": "steamcommunity.com"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+        "anchor_quote": "Damnfever [guide author]",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_capstones": [
+            "Ironclad (Warfare — MAX; Pierce Retaliation + Armor Shards nodes)",
+            "Armor Eruption (Warfare — MAX; Vulnerable on Hit + Enhanced Area + Cooldown Refresh nodes)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+        "anchor_quote": "Ironclad (MAX) /W | 1/1 Pierce Retaliation | 1/1 Armor Shards",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Armor Eruption: large AoE around caster, two damage instances; Shield Attack: melee range, converts armor to hit damage; Chains: pulls enemies into melee range; War Banner: AoE buff/debuff zone."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+        "anchor_quote": "Armor Eruption (MAX) /W | 1/1 Vulnerable on Hit | 4/5 Enhanced Area",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Warfare+Forge dual mastery. Stack armor via Ironclad (MAX); convert to damage via Shield Attack (overwrites damage source to current armor) and Armor Eruption (converts all armor to AoE damage, two damage instances, cooldown reset via Whirlwind chains). Chains pulls enemies in; Doom Horn and War Banner for utility."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3726620994",
+        "anchor_quote": "Shield Attack overwrites damage source to current armor... Armor Eruption converts all current armor into area-of-effect damage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Armor stacker spiky blasterino variant (Gamerinos guide)",
+            "Retaliation-focused Bastion (Forge+Earth, Devastator guide)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3666320724",
+        "anchor_quote": "Bastion | Tank Spiky Blasterinos [separate guide by Gamerinos]",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

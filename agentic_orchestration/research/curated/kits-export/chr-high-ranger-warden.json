@@ -1,0 +1,214 @@
+{
+  "kit_id": "chr-high-ranger-warden",
+  "spine": {
+    "kit_id": "chr-high-ranger-warden",
+    "folk_name": "High Ranger Bleed Warden",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Precision bow shot",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Single-target precision arrow; 'bleed ethereal damage' is the primary damage type per mechanics anchor; piercing variant via High Ranger 3-piece set (100% arrow piercing); physical damage base → THE PHYSICAL RULE (no family); bleed DoT is the identity"
+        }
+      ],
+      "motion_frame": "Low-tempo precision bow shots stacking heavy bleed DoT; bleed drains HP between shots",
+      "resource_economy": {
+        "cost_type": "focus",
+        "cadence_scale": "low"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce via High Ranger set 3-piece"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "bleed ethereal damage amplification",
+            "bleed tip enchantments",
+            "Serenity rune attack speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "'bleed ethereal damage' anchor confirms physical ailment-substrate identity; no element family (physical rule); geometry is line with pierce variant; High Ranger set is the identity-defining set; Harp bow bleed tips confirm ailment delivery. Era note: DLC 1.50+ primary; pre-DLC Rapid Shot variant maps differently."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "[1.50+dlc][T400+] Warden DoT Build",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/5/1836811737978930140/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "[0.90.3] High Ranger Rapid Shot Warden",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "[1.50+dlc][T400+] Warden DoT Build",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: High Ranger Bleed Warden — class=Warden, build=High Ranger set + bleed bow",
+      "anchor_quote": "The High Ranger set is the main built-around item set, with Harp bow chosen as the primary choice due to stacking bleed tips",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Bleed DoT primary damage vector; single-target precision arrows; DLC-only; low tempo shot cadence; Focus resource; dodge defense",
+      "anchor_quote": "Bleed DoT enchantments are prioritized, with every possible bleed buff taken on items. The main damage type is bleed ethereal damage.",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "High Ranger set"
+          ],
+          "weapon": "Harp bow (bleed tips)",
+          "rune": "Serenity rune (attack speed)"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+        "anchor_quote": "Harp bow chosen as the primary choice due to stacking bleed tips. The secondary rune used is Serenity rune",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "range": "single-target projectile precision arrow",
+          "aoe": "none (piercing variant possible via High Ranger 3-piece)",
+          "notes": "100% arrow piercing on 3-piece set"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+        "anchor_quote": "High Ranger set provides 100% arrow piercing",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Deliberate low-tempo precision bow shots apply heavy bleed stacks; bleed DoT drains HP between shots; High Ranger set amplifies bleed ethereal damage and arrow piercing"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2832852822",
+        "anchor_quote": "The main damage type is bleed ethereal damage",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "High Ranger Bleed DoT (DLC 1.50+)",
+            "High Ranger Rapid Shot (v0.90.3 pre-DLC)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/1836811737978930140/",
+        "anchor_quote": "[0.90.3] High Ranger Rapid Shot Warden",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

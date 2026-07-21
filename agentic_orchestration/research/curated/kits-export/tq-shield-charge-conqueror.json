@@ -1,0 +1,259 @@
+{
+  "kit_id": "tq-shield-charge-conqueror",
+  "spine": {
+    "kit_id": "tq-shield-charge-conqueror",
+    "folk_name": "Shield Charge Conqueror",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Charge-tank maps cleanly. Engine dash_attack captures lane-charge. Player would feel the engage→sustain loop but miss TQ's deep block-stat itemization and the 'skill disruption' mechanic (no engine analog).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Charge-tank maps cleanly. Engine dash_attack captures lane-charge. Player would feel the engage→sustain loop but miss TQ's deep block-stat itemization and the 'skill disruption' mechanic (no engine analog).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shield Charge",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "movement-charge through all enemies in path (lane footprint per dossier skill_geometry: 'lane — charge traces through all enemies in path'); applies stun+skill disruption along lane; verified: 'hit multiple targets, short stun and skill disruption'; stun attested; physical (no element family); dash_attack geometry (self-moving charge)"
+        },
+        {
+          "source_skill": "Onslaught (sustained DPS)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "left-click sustained DPS post-charge; 'Onslaught will be your left click ability'; physical; 3 rapid strikes; same as tq-onslaught-assassin but here secondary to Shield Charge identity"
+        },
+        {
+          "source_skill": "Battle Standard",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed pre-fight; dossier: 'Battle Standard deployed before fight'; stationary proxy → totem; buff-aura origin (no damage type)"
+        },
+        {
+          "source_skill": "Battle Awareness aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "defensive aura active; physical armor + block contribution; no damage type; self/team aura in TQ; solo-projected"
+        }
+      ],
+      "motion_frame": "charge-tank — Shield Charge engage+stun, Onslaught sustained DPS, passive block layer, Battle Standard buff",
+      "resource_economy": {
+        "cost_scale": "spend",
+        "cost_slope": "low-flat",
+        "cadence_scale": "cooldown-gated-burst"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Shield Charge lane geometry through enemy pack",
+            "Battle Standard placed-proxy buff zone"
+          ],
+          "economy": [
+            "shield mandatory for block layer"
+          ],
+          "traits_affixes": [
+            "Shield Smash passive",
+            "Disable passive",
+            "Pulverise passive",
+            "Concussive Blow (stun on axe/mace)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical primary (no engine element family). Stun attested on Shield Charge from verify_ledger mechanics anchor. Shield Charge maps to dash_attack (closest to self-moving lane-charge through enemies; note: lane geometry is also valid for the footprint but dash_attack captures the skill_is_movement=true identity better). Tank identity via passive block + aura is difficult to fully express in engine's solo-projection context."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Conqueror/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Conqueror Build Guide - Titan Quest",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1741575491",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Conqueror (Defence / Warfare) Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016",
+      "anchor_quote": "The Conqueror is a character class that combines the masteries of Warfare and Defense",
+      "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Conqueror/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shield Charge Conqueror — Warfare+Defense dual-mastery; folk name Conqueror; TQ's primary tank archetype",
+      "anchor_quote": "The Conqueror is a character class that combines the masteries of Warfare and Defense, creating a disciplined warrior equally skilled at dealing and taking damage",
+      "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shield Charge is movement skill (dash in line hitting all enemies); stun/skill-disruption on charge; Onslaught as primary sustained DPS",
+      "anchor_quote": "Shield Charge charges an enemy ... hit multiple targets, short stun and skill disruption ... Onslaught will be your left click ability and is one of the highest DPS melee abilities",
+      "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Almar",
+          "site": "almarsguides.com",
+          "note": "Almar's Guides primary; Steam guide secondary"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Conqueror/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_combo": "Warfare + Defense = Conqueror",
+          "tank_identity": "best tank archetype in TQ base game",
+          "defense_layers": [
+            "block (shield)",
+            "armor"
+          ],
+          "control": "stun + skill disruption on Shield Charge"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Conqueror/",
+        "anchor_quote": "The Conqueror is a character class that combines the masteries of Warfare and Defense, creating a disciplined warrior equally skilled at dealing and taking damage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "equipment": "shield mandatory (block layer); one-hand weapon (sword/axe/mace)",
+          "passives": [
+            "Battle Awareness aura",
+            "Shield Smash passive",
+            "Disable passive",
+            "Pulverise passive"
+          ],
+          "note": "Concussive Blow for stun only if using axe or mace"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1741575491",
+        "anchor_quote": "Defence provides shield buffs, defensive abilities and shield attacks while Warfare provides your primary offensive abilities",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-moving charge (skill_is_movement=true)",
+          "footprint": "lane — charge traces through all enemies in path",
+          "movement": "charge; caster moves through targets"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1741575491",
+        "anchor_quote": "Charge traces a lane through enemies in the path, applying damage and stun to all hit",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Shield Charge to engage (right-click; applies stun+skill disruption along lane); Onslaught as left-click sustained DPS; Battle Standard deployed before fight; Shield Smash/Disable/Pulverise passive procs on Onslaught hits; Battle Awareness aura active"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Conqueror/",
+        "anchor_quote": "Shield Charge charges an enemy ... hit multiple targets, short stun and skill disruption ... Onslaught will be your left click ability and is one of the highest DPS melee abilities in the game",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "sword+shield (primary)",
+            "dual wield variant (no block layer)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/343787920119634822/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

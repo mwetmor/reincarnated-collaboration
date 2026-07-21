@@ -1,0 +1,183 @@
+{
+  "kit_id": "di-bombardment-wizard-pvp",
+  "spine": {
+    "kit_id": "di-bombardment-wizard-pvp",
+    "folk_name": "Bombardment Artillery Wizard",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Zero store evidence; all dossier families abstained; identity UNSUPPORTED. Not a mappable kit — no mechanics attested to translate. [D-7.2 2026-07-19: d3->di misapplication flag. The mapped identity is the attested DI Bombardment one; kept. (Bombardment absent from icy-veins full DI Wizard skill list — flag retained, kit not excised.)]",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 0,
+    "verify_contradicted": 0,
+    "verify_unsupported": 3,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Zero store evidence; all dossier families abstained; identity UNSUPPORTED. Not a mappable kit — no mechanics attested to translate. [D-7.2 2026-07-19: d3->di misapplication flag. The mapped identity is the attested DI Bombardment one; kept. (Bombardment absent from icy-veins full DI Wizard skill list — flag retained, kit not excised.)]",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": null,
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Kit-level-flag: steward annotation flags this as a probable d3→di cross-game misapplication (Bombardment is a d3 Crusader skill absent from DI Wizard skill list). All dossier families abstained (abstained=1). Identity, mechanics, and era all UNSUPPORTED in verify_ledger. Zero store evidence — honest empty-projection per §D SYSTEM/empty-projection convention extended to kit-level-flag kits with zero attestation. Keep/relabel/excise decision rides review book."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/wizard-build-guides",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Wizard Build Guides - Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/wizard",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Wizard Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.dexerto.com/diablo/best-diablo-immortal-wizard-builds-1872848/",
+      "archive_url": null,
+      "site": "dexerto.com",
+      "author_handle": null,
+      "title": "Best Diablo Immortal Wizard builds (2026) - Dexerto",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in di-2026-era",
+      "anchor_quote": null,
+      "source_url": "https://www.dexerto.com/diablo/best-diablo-immortal-wizard-builds-1872848/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Bombardment Artillery Wizard'; aliases 'Bombardment Wizard DI PvP', 'Artillery Wizard DI'",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/wizard-build-guides",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Bombardment suite, range stacking; resource: Arcane Power",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/wizard",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

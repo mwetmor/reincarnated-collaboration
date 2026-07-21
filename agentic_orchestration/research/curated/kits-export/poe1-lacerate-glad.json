@@ -1,0 +1,247 @@
+{
+  "kit_id": "poe1-lacerate-glad",
+  "spine": {
+    "kit_id": "poe1-lacerate-glad",
+    "folk_name": "Bleed Gladiator",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The left-right double-slash choreography and its overlap double-hit zone generalize to a single melee_arc footprint (a Lacerate player would miss the positioning-for-overlap micro-game); the stance pair carries as a generic activation-toggle (mode re-tuning is behavioral); Gladiator max-block lives in the def-bin, not the mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The left-right double-slash choreography and its overlap double-hit zone generalize to a single melee_arc footprint (a Lacerate player would miss the positioning-for-overlap micro-game); the stance pair carries as a generic activation-toggle (mode re-tuning is behavioral); Gladiator max-block lives in the def-bin, not the mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lacerate (dual slash)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "two consecutive wide slashes -- one to the left, then the right -- sending waves of force in cone areas (base radius 38 units); enemies positioned in the OVERLAP zone take damage from BOTH hits; Blood Stance loads the bleed (25% chance; up to 88% increased damage vs bleeding). Pure-physical melee -> element-neutral (physical rule); bleed IS the identity ailment"
+        },
+        {
+          "source_skill": "Blood and Sand (stance toggle)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "persistent stance toggle, no damage of its own: Blood Stance = bleed-damage mode (single-target lean); Sand Stance = +50% slash angle (clear lean). The stance RE-TUNES Lacerate; modeled as the toggle handle"
+        }
+      ],
+      "motion_frame": "stance-set bleed swordsman: pick Blood or Sand for the room, scythe the pack with paired crossing slashes, then let the bleeds run out while max-block holds the line",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_arc paired slashes (overlap double-hit zone)",
+            "Sand-Stance +50% angle (clear mode)"
+          ],
+          "economy": [
+            "mana-light attack spend (low tempo)",
+            "stance toggle (Blood<->Sand) re-tunes damage-vs-angle"
+          ],
+          "traits_affixes": [
+            "bleed-chance / bleed-damage (rank-stacked ailment lane)",
+            "block identity (Gladiator max-block -> def-bin deflect_condition rider, not an ailment)",
+            "physical/attack scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "BLEED-DOT GLADIATOR. Physical rule: element-neutral on both slots; identity expressed via melee_arc + bleed (stack-additive native). 'Hit once, watch them bleed out' -> PERSISTENCE_ENGINE_uptime (DoT-uptime identity, s5 route); Gratuitous Violence 'bleeding enemies explode on kill for 20% max life' -> GEOMETRY_PROPAGATION_cascade (s5 on-kill propagation row, exact). PHASE_MOMENTUM considered for the stance pair and REJECTED: the build PARKS in a stance per room rather than cycling stances for momentum -- doors express identity, not everything plausible (R-M1); the toggle lands as self_buff + activation-toggle instead. The dual-slash overlap double-hit is a composite sub-geometry melee_arc does not enumerate (noted). Max-block is the archetype's defense half -- def-bin territory (deflect rider), outside skill-mapping lanes, recorded in scaffold. Era note: verify_ledger era claim UNSUPPORTED (no anchor for the 3-span stamp); identity+mechanics CONFIRMED -- mapping rests on mechanics."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Lacerate",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Lacerate — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/lacerate-gladiator-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "PoEVault's Lacerate Gladiator Build Guide (3.28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in stamped eras 3.0-3.6, 3.7-3.13, 3.20+",
+      "anchor_quote": null,
+      "source_url": "https://www.poe-vault.com/guides/lacerate-gladiator-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bleed Gladiator' and alias 'Lacerate Glad' are real community usage",
+      "anchor_quote": "PoEVault's Lacerate Gladiator Build Guide — Lacerate Gladiator League Starter",
+      "source_url": "https://www.poe-vault.com/guides/lacerate-gladiator-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Lacerate and Blood and Sand; physical bleed DoT stacking; Blood Stance grants bleed chance; dual-slash AoE pattern",
+      "anchor_quote": "Blood Stance: grants 25% chance to cause Bleeding and scales up to 88% increased damage against bleeding enemies; Sand Stance: 50% increased angle",
+      "source_url": "https://poedb.tw/us/Lacerate",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Lacerate",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Lacerate of Butchering (transfig)",
+              "type": "transfigured_gem",
+              "effect": "273% Effectiveness of Base and Added Damage at level 1 (previously 200%); 629% at level 20",
+              "anchor_quote": "273% Effectiveness of Base and Added Damage at gem level 1 (previously 200%), scaling up to 629% at gem level 20"
+            },
+            {
+              "node": "Lacerate of Haemorrhage (transfig)",
+              "type": "transfigured_gem",
+              "effect": "150% Effectiveness at level 1 (previously 80%); removed Physical Damage bonus vs Bleeding Enemies",
+              "anchor_quote": "150% Effectiveness of Base and Added Damage at gem level 1 (previously 80%)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lacerate",
+        "anchor_quote": "273% Effectiveness of Base and Added Damage at gem level 1 (previously 200%)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Lacerate of Butchering (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "629% Effectiveness at level 20; 273% at level 1",
+              "anchor_quote": "273% Effectiveness...629% at gem level 20"
+            },
+            {
+              "item": "Lacerate of Haemorrhage (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Removes Physical Damage bonus vs Bleeding Enemies; 150% effectiveness at level 1",
+              "anchor_quote": "removed 'Physical Damage added against Bleeding Enemies'"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lacerate",
+        "anchor_quote": "removed Physical Damage added against Bleeding Enemies",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (direct melee)",
+          "footprint": "small-radius (cone AoE slash; base radius 38 units)",
+          "pattern": "two consecutive slashes left then right; overlap zone for double-hit",
+          "aoe_note": "waves of force in cone areas; radius scales with gem level"
+        },
+        "source_url": "https://poedb.tw/us/Lacerate",
+        "anchor_quote": "performs two consecutive slashes—one to the left, then to the right. Enemies positioned between these strikes can take damage from both hits",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "use Blood and Sand to set stance → Lacerate dual-slash (left then right) → enemies in overlap zone hit twice → bleed DoT applies → Gladiator Gratuitous Violence: bleeding enemies explode on kill for 20% max life",
+          "stance_choice": "Blood Stance for bleed damage; Sand Stance for wider AoE clear"
+        },
+        "source_url": "https://poedb.tw/us/Lacerate",
+        "anchor_quote": "Blood Stance: grants 25% chance to cause Bleeding and scales up to 88% increased damage against bleeding enemies. Sand Stance: 50% increased angle",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Lacerate of Haemorrhage (transfigured; 172% more damage with bleeding)"
+          ],
+          "variant_source": "poe-vault"
+        },
+        "source_url": "https://www.poe-vault.com/guides/lacerate-gladiator-build-guide",
+        "anchor_quote": "Lacerate of Haemorrhage should be acquired as early as possible, providing 172% more damage with bleeding",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

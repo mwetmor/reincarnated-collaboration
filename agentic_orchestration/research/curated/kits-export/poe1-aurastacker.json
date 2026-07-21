@@ -1,0 +1,214 @@
+{
+  "kit_id": "poe1-aurastacker",
+  "spine": {
+    "kit_id": "poe1-aurastacker",
+    "folk_name": "Solo Aurastacker",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The self-stacking aura identity lands cleanly (NETWORK_AMPLIFIER, solo-viable unlike Aurabot), but the source reserves ~100% of the pool (via Aul's Uprising free-aura) which exceeds the engine's 0.75 LOCKED reservation cap — clamped in the map. A player would keep the 'walking-buff-tower who deals damage by existing' feel; the extreme near-total reservation magnitude is capped below the source's.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The self-stacking aura identity lands cleanly (NETWORK_AMPLIFIER, solo-viable unlike Aurabot), but the source reserves ~100% of the pool (via Aul's Uprising free-aura) which exceeds the engine's 0.75 LOCKED reservation cap — clamped in the map. A player would keep the 'walking-buff-tower who deals damage by existing' feel; the extreme near-total reservation magnitude is capped below the source's.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "aura suite (12+ auras: Zealotry/Hatred/Determination/Grace/Discipline/Purities/etc)",
+          "geometry_value": "aura",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "a dozen-plus persistent auras radiating from the player, buffing the PLAYER themselves (solo self-recipient); stacked aura-effect (cluster jewels) multiplies offense and defense simultaneously. water/cold family via Call-of-the-Brotherhood lightning->cold conversion; the auras ARE the offense — no active attack in the core loop"
+        }
+      ],
+      "motion_frame": "self-amplifying presence: run through content dealing damage purely from stacked self-auras; no active attack button in the core loop",
+      "resource_economy": {
+        "reservation_percent": 0.75,
+        "reservation_resource": "mana"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "RESONANCE_LOOP"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura radius (self-recipient)"
+          ],
+          "economy": [
+            "near-total reservation via Aul's-Uprising free-aura (source ~100%, engine-clamped to 0.75 LOCKED)",
+            "reservation-efficiency clusters"
+          ],
+          "traits_affixes": [
+            "aura-effect scaling (legacy cluster-jewel stacking)",
+            "reservation-efficiency",
+            "lightning->cold conversion"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SELF-stacking aura-network — maps cleanly to NETWORK_AMPLIFIER/RESONANCE_LOOP (crosswalk §5 aurabot-adjacent SELF-stacking). Distinct from Aurabot (kit-6): Aurastacker is the SELF-recipient version and IS solo-viable — the player buffs themselves, so the identity has a solo lane. Element water/cold (Call of the Brotherhood converts lightning->cold for reflect-immunity + cold scaling). RESERVATION TENSION (shared with aurabot): Aul's Uprising removes one aura's reservation enabling ~100% total reservation, which EXCEEDS the engine reservation_percent 0.75 LOCKED cap; clamped in-map with note. The 'no active attack; damage IS the stacked auras' identity is captured by NETWORK_AMPLIFIER as the self-amplification engine + aura geometry."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2913007",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "Jix#7520",
+      "title": "[3.18] Aura Stacking - EZ new Uber Content",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "3.17 READY",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Solo Aurastacker', alias \"Aul's stacker\" are real community usage; class Guardian/Scion",
+      "anchor_quote": "[3.18] Aura Stacking - EZ new Uber Content",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills aura suite + Zealotry/Hatred/etc; reserve everything for a dozen-plus auras whose stacked effect multiplies offense and defense; full-reservation economy",
+      "anchor_quote": "legacy aura effect clusters (x9)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Jix#7520",
+          "site": "pathofexile.com/forum",
+          "url": "https://www.pathofexile.com/forum/view-thread/2913007"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Scion (Ascendant)",
+          "ascendant_choices": [
+            "Necromancer (attack speed from undying)",
+            "Guardian (aura effect via Radiant Faith)"
+          ],
+          "note": "Guardian or Scion are both used; guide retrieved is Scion 3.18."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+        "anchor_quote": "Scion — Ascendant ascendancy, necro ascendancy for attack speed scaling",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Aul's Uprising (amulet)",
+          "alteration": "Removes reservation cost of one named aura (varies by implicit roll), allowing 100% reservation of remaining mana while gaining a free aura.",
+          "secondary_item": "Legacy aura effect cluster jewels",
+          "secondary_alteration": "Each jewel provides large aura effect multiplier; stacking 9 clusters generates extreme total multiplier.",
+          "tertiary_item": "Call of the Brotherhood (x2 rings)",
+          "tertiary_alteration": "Converts lightning damage to cold for elemental reflect immunity and cold scaling."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+        "anchor_quote": "legacy aura effect clusters (x9), call of the brotherhood 2x",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Aura-pulse delivery from player body; aura radius extends around caster. Solo use — auras buff the player themselves, not allies. Small effective combat radius since player is the only recipient.",
+          "geometry_note": "Distinct from Aurabot: player is own aura recipient; no party dependency."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Reserve mana and ES across 12+ auras; each aura provides both offensive and defensive stats. Stacked aura effect (via cluster jewels, Aul's Uprising necklace to remove reservation of one aura) multiplies into absurd offense and defense simultaneously. Character runs through maps dealing damage from their own aura buffs, no active attack required in core loop."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+        "anchor_quote": "Reserve EVERYTHING — a dozen-plus auras whose stacked effect multiplies into absurd offense and defense at once",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Scion Aurastacker (Jix 3.18)",
+            "Guardian Aurastacker",
+            "Aul's Stacker (name referencing key item)",
+            "Cheapest Aurastacker (budget variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2913007",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

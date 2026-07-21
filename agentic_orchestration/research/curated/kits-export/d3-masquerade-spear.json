@@ -1,0 +1,244 @@
+{
+  "kit_id": "d3-masquerade-spear",
+  "spine": {
+    "kit_id": "d3-masquerade-spear",
+    "folk_name": "Masquerade Bone Spear",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the triple-projectile-per-cast feel — engine line geometry is single projectile; three-simultaneous via clone mirrors has no native expression; DUAL_PROXY covers the delegation but not the synchronized volley feel; (2) Simulacrum spatial positioning (clones stand where spawned, creating three distinct spatial origins for spear delivery) — engine proxy positions are not separately addressable.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the triple-projectile-per-cast feel — engine line geometry is single projectile; three-simultaneous via clone mirrors has no native expression; DUAL_PROXY covers the delegation but not the synchronized volley feel; (2) Simulacrum spatial positioning (clones stand where spawned, creating three distinct spatial origins for spear delivery) — engine proxy positions are not separately addressable.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bone Spear (Shatter rune)",
+          "geometry_value": "line",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Narrow pierce projectile; attested: 'Bone Spear is a narrow pierce projectile'; player casts and two Simulacrum clones mirror every cast simultaneously — three spears fired per cast; attested: 'spam Bone Spear — clones mirror every cast, tripling projectile delivery'"
+        },
+        {
+          "source_skill": "Simulacrum (Reservoir rune)",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Two permanent blood-clone proxies spawned at rift start; mirror all Bone Spear casts; attested: 'cast Simulacrum at rift start to spawn two blood-clones'; 83% DR while active; attested: 'Masquerade of the Burning Carnival: effectively provides you with 83% damage reduction while Simulacrum is active'"
+        },
+        {
+          "source_skill": "Grim Scythe (Frost Scythe rune)",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Essence generator; attested: 'Grim Scythe Frost Scythe generates Essence'; close-range generator maintaining Essence for Bone Spear spam"
+        }
+      ],
+      "motion_frame": "Cast Simulacrum at rift start to spawn two clones; spam Bone Spear — clones mirror every cast tripling projectile delivery; Grim Scythe generates Essence; maintain Bone Armor for damage reduction",
+      "resource_economy": {
+        "resource_type": "Essence",
+        "generator": "Grim Scythe",
+        "spend_pattern": "Bone Spear Essence spend; Simulacrum maintained passively while Essence available; attested: 'Necromancers utilize Essence as their primary resource'",
+        "builder_spender": "native — Grim Scythe builds Essence; Bone Spear spends Essence"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "DUAL_PROXY",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bone Spear line/pierce; three simultaneous per cast via clone mirrors"
+          ],
+          "economy": [
+            "Essence builder-spender cycle; Simulacrum uptime = 83% DR preservation; CDR variant via Captain Crimson's"
+          ],
+          "traits_affixes": [
+            "shadow scaling; Bone Spear damage; Simulacrum CDR; set multiplier scaler (5,500% Bone Spear)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: bone/necrotic → shadow per main-law element table. Hot-fact: 'Masquerade Essence builder-spender native' — Grim Scythe (builder) + Bone Spear (spender) is the native Essence loop; maps directly to resource_economy builder_spender key. Line geometry: dossier skill_geometry payload 'narrow pierce projectile' — line is the correct phrase-book mapping. DUAL_PROXY T4: two permanent Simulacrum clones mirror player casts — exact dual-proxy shape; each clone fires independently on player cast (on-cast-linked trigger). PERSISTENCE_ENGINE_uptime: Simulacrum uptime maintenance is the defensive identity layer (83% DR while active). Set multiplier (5,500%) and 83% DR are scaler-only at capstone/fidelity layer. No ailments attested in fetched text for Bone Spear or Simulacrum outputs. Gelmindor's Marrow Guards (S22 buff clone damage) = numeric scaler on clones → gear-affix lane; zero skills[] or ailment footprint."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Masquerade Bone Spear Necromancer Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Season 21 (original introduction), Season 22 (major buffs with Gelmindor's Marrow Guards)",
+      "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "The guide covers Season 39 (current)",
+      "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Masquerade Bone Spear'; aliases include 'Masquerade Necromancer', 'Bone Spear Simulacrum Necro'",
+      "anchor_quote": "Masquerade Bone Spear Necromancer Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bone Spear, Simulacrum; class resource: Essence; Simulacrum clones mirror Bone Spear casts",
+      "anchor_quote": "Bone Spear is our main source of damage; Simulacrum functions as permanent damage-dealing companions that mimic player attacks; Necromancers utilize Essence as their primary resource",
+      "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "role": "Director",
+          "co_credits": [
+            "Northwar",
+            "Raxxanterax",
+            "Rob",
+            "sVr"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+        "anchor_quote": "wudijo (identified as Director), with contributions from Northwar, Raxxanterax, Rob, and sVr",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Masquerade of the Burning Carnival: two Simulacrum clones mirror Bone Spear; 83% DR while Simulacrum active; 5,500% increased Bone Spear damage",
+          "kanai_cube": null
+        },
+        "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+        "anchor_quote": "Masquerade of the Burning Carnival: effectively provides you with 83% damage reduction while Simulacrum is active and 5,500% increased Bone Spear damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Masquerade of the Burning Carnival (6pc set)",
+            "Gelmindor's Marrow Guards (S22 buff, clone Bone Spear damage)",
+            "Captain Crimson's Trimmings (CDR variant)",
+            "Simulacrum (skill, core)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+        "anchor_quote": "Season 22 (major buffs with Gelmindor's Marrow Guards)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (Bone Spear + clone copies)",
+          "range": "medium-long range",
+          "aoe": "point/single target per spear; tripled via clones",
+          "notes": "Bone Spear is a narrow pierce projectile; clones fire their own copies — three simultaneous spears per cast"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+        "anchor_quote": "Bone Spear is our main source of damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Simulacrum at rift start to spawn two blood-clones; spam Bone Spear — clones mirror every cast, tripling projectile delivery; Grim Scythe Frost Scythe generates Essence; maintain Bone Armor for damage reduction; Masquerade of the Burning Carnival provides 83% DR while Simulacrum active and 5,500% Bone Spear damage"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+        "anchor_quote": "Masquerade of the Burning Carnival: effectively provides you with 83% damage reduction while Simulacrum is active and 5,500% increased Bone Spear damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard Masquerade Bone Spear (primary)",
+            "Captain Crimson's CDR variant (for spamming Blood Rush/Bone Armor)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/masquerade-bone-spear-necromancer-guide",
+        "anchor_quote": "Captain Crimson's Trimmings variation that stat becomes more valuable to spam Blood Rush and Bone Armor",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

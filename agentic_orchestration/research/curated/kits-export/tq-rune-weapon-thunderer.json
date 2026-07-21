@@ -1,0 +1,252 @@
+{
+  "kit_id": "tq-rune-weapon-thunderer",
+  "spine": {
+    "kit_id": "tq-rune-weapon-thunderer",
+    "folk_name": "Rune Weapon Thunderer",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ragnarok-2017;atlantis-2019",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lightning melee converter maps well. Rune Weapon toggle-reserve is a close analog to engine tick-cost. Player would feel the lightning-enchant loop but miss TQ's unique 'Transmutation physical→elemental conversion' scaling system depth.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "shock"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lightning melee converter maps well. Rune Weapon toggle-reserve is a close analog to engine tick-cost. Player would feel the lightning-enchant loop but miss TQ's unique 'Transmutation physical→elemental conversion' scaling system depth.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rune Weapon (toggle)",
+          "geometry_value": "self_buff",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "reserve toggle active; enchants melee strikes with lightning; dossier mechanics: 'Rune Weapon maintains as a toggle with an Energy per Second cost'; identity anchor: 'full elemental melee conversion' — lightning typed on melee strikes; self_buff geometry for the toggle layer"
+        },
+        {
+          "source_skill": "Thunder Strike",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "shock"
+          ],
+          "delivery_notes": "on-cooldown active; 'fires a lightning attack'; '250-degree wide area attack' on melee variant (melee_arc); 5 projectiles on ranged variant (multi_projectile — dual-wield throwing = 10x Thunder Strike projectiles); lightning damage-typed → lightning family; 'shock' not explicitly named but §2 engine shock=paralysis-on-arc; NO sunder here (PoE shock would be sunder but TQ thunder strike is not PoE shock — no increased-damage-taken language in dossier); omitting shock, noting absence"
+        },
+        {
+          "source_skill": "Sacred Rage / Battle Rage",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "active self-buff; rage/damage boosting; no element-type; self_buff loop"
+        },
+        {
+          "source_skill": "Runic Mines",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed proxy CC; lightning-themed per mastery; but 'Runic Mines for CC' — dossier does not damage-type the mines as lightning explicitly; NAME-ONLY caution (Runic = name); omit element from Runic Mines, map as placed totem for CC"
+        }
+      ],
+      "motion_frame": "lightning melee converter — Rune Weapon toggle active, Thunder Strike burst on cooldown, sustained enchanted melee between",
+      "resource_economy": {
+        "cost_scale": "reserve",
+        "cost_slope": "sustained-toggle-EPS",
+        "persistent_condition_shape": "tick-cost",
+        "regen_shape": "energy-per-second"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Transmutation conversion skill: physical→elemental; INT-stacking for elemental damage scale"
+          ],
+          "economy": [
+            "reserve toggle EPS; cooldown on Thunder Strike"
+          ],
+          "traits_affixes": [
+            "Transmutation physical→elemental conversion",
+            "INT-stacking gear affixes",
+            "Energy Shield defense layer"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Lightning primary clearly attested ('fires a lightning attack', 'full elemental melee conversion'). Rune Weapon toggle = persistent_condition_shape tick-cost. ELEMENT_CONVERSION_MONO is the capstone identity — the build IS the conversion (physical→lightning via Transmutation + Rune Weapon enchant). Thunder Strike multi-projectile (5x on ranged; 250-degree arc on melee — mapped multi_projectile as primary variant per item_alterations optimal = throwing weapon). No TQ shock-paralysis attested — engine shock=paralysis, not emitting without attestation."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Adivice for Thunderer (Rune+Storm) Build :: Titan Quest Anniversary Edition General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.tqcalc.com/TitanCalc464c464crunee80e.html?mastery=Thunderer",
+      "archive_url": null,
+      "site": "tqcalc.com",
+      "author_handle": null,
+      "title": "Titan Quest Anniversary Edition Calculator - Thunderer",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ragnarok-2017 era (Rune mastery introduced in Ragnarok)",
+      "anchor_quote": "Thunder Strike is a Rune Mastery skill unlocked at Mastery Level 4",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1699416432434334429/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rune Weapon Thunderer — Storm+Rune dual-mastery (Ragnarok expansion); folk name Thunderer",
+      "anchor_quote": "Thunderer (Rune & Storm) is the best build if you want to go for full elemental melee conversion",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rune Weapon is a reserve toggle that enchants melee strikes with lightning; Thunder Strike as active skill; economy=reserve",
+      "anchor_quote": "core rotation is pretty simple: Thunder strike when off cooldown, otherwise rune weapon ... Rune Weapon maintains as a toggle with an Energy per Second cost",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": null,
+          "site": "steamcommunity.com",
+          "note": "Steam community discussion; tqcalc.com dataset secondary"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_combo": "Storm + Rune = Thunderer",
+          "expansion": "Ragnarok (2017) introduced Rune mastery",
+          "era_floor": "ragnarok-2017 minimum",
+          "note": "throwing weapon builds considered optimal; dual-wield throwing = 10x Thunder Strike projectiles"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1699416432434334429/",
+        "anchor_quote": "Thunder Strike becomes available at Mastery 4",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "conversion": "Transmutation skill converts physical to elemental; +4 Transmutation recommended",
+          "stat_note": "INT stacking for elemental damage conversion; throwing weapons synergize strongly with Thunder Strike 5x projectiles"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+        "anchor_quote": "If you're going rune weapon + transmutation you want to stack int anyways as you'll be turning all your dmg to elemental",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee (Rune Weapon buffed strikes); Thunder Strike fans 5 projectiles on ranged or rushes single-target on melee",
+          "footprint": "point melee primary; Thunder Strike AoE burst",
+          "movement": "full-move"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+        "anchor_quote": "Thunder Strike fires a lightning attack that inflicts total damage ... rushes at a 100% increase in speed and inflicts a 250-degree wide area attack",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Rune Weapon toggle active (reserve EPS); Thunder Strike on cooldown when off; Sacred Rage / Battle Rage active; Energy Shield for defense; Runic Mines for CC; melee or throwing weapon strikes between Thunder Strikes"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+        "anchor_quote": "core rotation is pretty simple: Thunder strike when off cooldown, otherwise rune weapon. Apply energy shield whenever it's off cooldown",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "throwing weapon Thunderer (dual-wield; optimal)",
+            "melee Thunderer (sword/axe)",
+            "INT-transmutation pure elemental conversion"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1694922980041660226/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

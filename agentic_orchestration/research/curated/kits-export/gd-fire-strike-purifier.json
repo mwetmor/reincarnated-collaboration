@@ -1,0 +1,251 @@
+{
+  "kit_id": "gd-fire-strike-purifier",
+  "spine": {
+    "kit_id": "gd-fire-strike-purifier",
+    "folk_name": "Fire Strike Purifier",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the WPS attack-variety layer is structurally present but payload-thin (unfetched); line compresses shot-plus-burst into the attested explosive-line footprint.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the WPS attack-variety layer is structurally present but payload-thin (unfetched); line compresses shot-plus-burst into the attested explosive-line footprint.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fire Strike",
+          "geometry_value": "line",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "default-attack REPLACER on dual pistols: continuous ranged fire where 'each shot triggers explosive-line AoE' ('Dual pistols spitting fire on every default shot ... explosive line') -> line token carries the per-hit explosive line; the shot itself is projectile delivery (multi_projectile alternative for the dual-pistol stream noted per 7.2); attack-speed-governed (~'180% Attack speed')."
+        },
+        {
+          "source_skill": "Inquisitor Seal",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed defensive platform ('Cast Inquisitor seal below you'); defense payload. NO consecrate token: main-law consecrate row is holy-only and holy is not attested on this fire kit."
+        }
+      ],
+      "motion_frame": "gunfire stream: stand on the Seal and hold the trigger -- every default shot is Fire Strike with an explosive line, WPS procs shuffling extra attacks into the stream",
+      "resource_economy": {
+        "cost_scale": "energy / attack-replacer (ERRATA-35 corrected economy; the kb mana/generator-inversion framing was an artifact -- verify_ledger governs)",
+        "cadence_scale": "attack-speed-governed tempo (~180% attack speed maximized)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "explosive-line size per hit",
+            "dual-pistol projectile stream coverage"
+          ],
+          "economy": [
+            "attack-replacer energy cadence"
+          ],
+          "traits_affixes": [
+            "fire scaling",
+            "50% chaos-to-fire global conversion (Ulzuin's Infernal Avatar 5pc set bonus, '1.1.0.1 update' fetched) -> conversion affix lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "A ROW-4 EVIDENCE KIT (replacer + WPS): replacer maps NATIVE (projectile auto-chassis + attack-speed tempo; economy per ERRATA-35 'energy / attack-replacer'). WPS chance-procs ('60% Inquisitor's WPS'; 'WPS (Weapon Pool Skills) from Inquisitor fill attack rotation') -> weapon-layer trigger rider: on-cast-linked / linked-cast chance-gated off each auto-attack; individual WPS payload behaviors UNFETCHED -> structure maps, payloads contribute nothing (0.3/0.4). NO burn token: fire flavor everywhere ('spitting fire') but burn/ignite never NAMED (0-UNIVERSAL near-miss). Era restamp governs (aom-2017 floor via Inquisitor mastery, errata over kb base-2016)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "archive_url": null,
+      "site": "mmos.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn Ashes Of Malmouth Expansion Coming On October 11th",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.0.7.1] The Burning Devil - Full Set Ulzuin, Fire Strike Purifier",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-1-budget-2-handed-ranged-the-desolator-fire-strike-fire-purifier/111014",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.9.1] Budget 2-handed ranged 'The Desolator' Fire Strike Fire Purifier",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "era floor base-2016 — Purifier = Inquisitor+Demolitionist; Inquisitor debuted aom-2017",
+      "anchor_quote": "Ashes of Malmouth expansion was released on October 11th 2017 … introduced two new Masteries: the Inquisitor and the Necromancer",
+      "source_url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Fire Strike Purifier'; aliases=['fire ranged Purifier']",
+      "anchor_quote": "The Purifier (Demolitionist / Inquisitor) class combination is a natural choice for ranged builds because of the synergy between Fire Strike and the Inquisitor ranged skills",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-1-budget-2-handed-ranged-the-desolator-fire-strike-fire-purifier/111014",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "core_skills=['Fire Strike','Inquisitor Seal']; delivery=projectile ranged; explosive line on each shot; resource=spirit/focus meter",
+      "anchor_quote": "Fire Strike functions as a ranged auto-attack ability … attack-based (auto-attack focused) … around 180% Attack speed … Inquisitor Seal: Cast Inquisitor seal below you",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.0.7.1] The Burning Devil - Full Set Ulzuin, Fire Strike Purifier"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Eldritch Fire",
+            "Elemental Storm",
+            "Flame Torrent",
+            "Meteor Shower",
+            "Ghoulish Hunger"
+          ],
+          "notes": "Fire-focused offensive constellation path"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+        "anchor_quote": "Eldritch Fire, Elemental Storm, Flame Torrent, Meteor Shower, and Ghoulish Hunger (fire-focused offensive configuration)",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_set": "Ulzuin's Infernal Avatar Set (5-piece)",
+          "set_bonus": "50% chaos to fire global conversion on full set (patch 1.1.0.1)",
+          "key_items": [
+            "Dagallon's set (DW variant)",
+            "Justicar set (2-piece support)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+        "anchor_quote": "Ulzuin's Infernal Avatar Set … 50% chaos to fire global conversion as a full set bonus in the 1.1.0.1 update",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile ranged",
+          "footprint": "small explosive burst at impact",
+          "range": "ranged",
+          "aoe": "explosive line on each hit",
+          "notes": "Each projectile shot triggers an explosive AoE; dual-wield pistols expand coverage"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+        "anchor_quote": "Inquisitor's WPS … Dual pistols spitting fire on every default shot … explosive line",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fire Strike replaces default weapon attack; each shot triggers explosive-line AoE; dual pistols common; WPS (Weapon Pool Skills) from Inquisitor fill attack rotation; Inquisitor Seal placed for defensive platform; attack speed maximized",
+          "resource": "auto-attack replacer (energy per proc)",
+          "tempo": "continuous ranged attack"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-7-1-the-burning-devil-full-set-ulzuin-fire-strike-purifier/48352",
+        "anchor_quote": "Fire Strike functions as a ranged auto-attack ability … around 180% Attack speed … 60% Inquisitor's WPS … Cast Inquisitor seal below you",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "fire DW ranged (dual pistol)",
+            "fire 2H ranged (Desolator variant)",
+            "lightning DW ranged Purifier"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-4-purifier-dw-ranged-fire-strike-dagallon-justicar-set/112826",
+        "anchor_quote": "[1.1.9.4] Purifier DW Ranged Fire Strike / Dagallon + Justicar Set",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "kit_id": "d3-mundunugu-sb",
+  "spine": {
+    "kit_id": "d3-mundunugu-sb",
+    "folk_name": "Mundunugu Spirit Barrage",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the Phantasm-accumulate-then-release ritual (place 3, wait, place 3 more to detonate) has no exact engine analog — two-tier accumulator approximates but The Barber's instant-all-burst at second Phantasm cast is a specific timing mechanic; (2) Big Bad Voodoo mandatory uptime as a prerequisite multiplier gate — engine has no conditional-prerequisite T4 lock; (3) Manitou overhead auto-targeting as distinct from player-aimed Phantasm placement.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the Phantasm-accumulate-then-release ritual (place 3, wait, place 3 more to detonate) has no exact engine analog — two-tier accumulator approximates but The Barber's instant-all-burst at second Phantasm cast is a specific timing mechanic; (2) Big Bad Voodoo mandatory uptime as a prerequisite multiplier gate — engine has no conditional-prerequisite T4 lock; (3) Manitou overhead auto-targeting as distinct from player-aimed Phantasm placement.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spirit Barrage (Manitou rune)",
+          "geometry_value": "totem",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Manitou: autonomous hovering spectral sentry above player head; attested: 'Casting Spirit Barrage once will activate Manitou, an eerie ghost sentry hovering above your head. Manitou lasts 20 seconds and shoots 2 projectiles per second'; Manitou = placed-at-player autonomous emitter"
+        },
+        {
+          "source_skill": "Spirit Barrage (Phantasm rune via Gazing Demise)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed spectral emitters on ground; attested: 'place three Spirit Barrage Phantasms on the ground, wait a few seconds, and then cast three more to instantly release the accumulated damage of the previous Phantasm'; The Barber converts accumulated damage to burst release; two-tier accumulator shape"
+        },
+        {
+          "source_skill": "Spirit Walk",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mobility and defensive spirit-phase; maintained for repositioning; attested in skill_loop 'maintain Spirit Walk for mobility'"
+        },
+        {
+          "source_skill": "Big Bad Voodoo",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Slam Dance rune; uptime prerequisite for Mundunugu's Regalia 6-piece multiplier; attested: 'multiply Spirit Barrage damage by 50000% if cast while Big Bad Voodoo is active'"
+        }
+      ],
+      "motion_frame": "Pull enemies; place three Phantasms on ground; wait for Phantasm damage accumulation; cast three more Phantasms to release accumulated burst via The Barber; maintain Big Bad Voodoo and Manitou uptime; reposition via Spirit Walk",
+      "resource_economy": {
+        "resource_type": "Mana",
+        "generator": "passive regen + Rush of Essence (attested: 'Rush of Essence passive for infinite Mana' in item_alterations)",
+        "spend_pattern": "Spirit Barrage mana spend for Phantasm placement and Manitou activation; Spirit Walk mana cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "phantasm-accumulated-damage",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Phantasm placement coverage; Manitou autonomous fire overhead; Ring of Emptiness debuff radius"
+          ],
+          "economy": [
+            "Mana sustain via Rush of Essence; Big Bad Voodoo uptime window management; Phantasm timing window"
+          ],
+          "traits_affixes": [
+            "cold/water scaling; Spirit Barrage damage; Phantasm count; set multiplier scaler (20,000%+)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: cold per corpus elem_raw 'cold' → water family (cold/ice name register within water family per main law §1). Totem geometry for Manitou (stationary-emitter-at-player-position per phrase-book: 'sentry hovering above your head' — totem-class, not autonomous combatant GAP). Ground_targeted_circle for Phantasms (placed ground emitters). Two-tier accumulator: place-Phantasms (accumulate tier) → cast-replacement-Phantasms (burst-release via Barber); genuine accumulate-then-SPEND; file accrual to two-tier-accumulator family. PERSISTENCE_ENGINE_saturation: Phantasm saturation phase (3 placed, wait, then release). PROXY_ASCENSION T4: Manitou autonomous targeting overhead — proxy that operates independently with own firing pattern. Set multiplier (20,000%+) scaler-only per §B row 1. Ring of Emptiness debuff requirement (via Locust Swarm): attested in item_alterations 'Ring of Emptiness (debuff requirement)' — maps to trigger_grammar condition texture in delivery. No ailments attested in fetched text for Spirit Barrage output."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewi",
+      "title": "Mundunugu Spirit Barrage Witch Doctor Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/resources/witch-doctor",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Witch Doctor Class Overview - Maxroll.gg",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Introduced with Season 20, Mundunugu's Regalia is the most recent addition to the Witch Doctor's repertoire",
+      "source_url": "https://maxroll.gg/d3/resources/witch-doctor",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "Season 39 (current guide version, dated June 21, 2026)",
+      "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Mundunugu Spirit Barrage'; aliases include 'Mundunugu WD', 'Spirit Barrage WD', 'Manitou Spirit Barrage'",
+      "anchor_quote": "Mundunugu Spirit Barrage Witch Doctor Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Spirit Barrage Manitou, Spirit Walk; class resource: Mana; Mundunugu's Regalia set",
+      "anchor_quote": "Mundunugu's Regalia is the most recent addition to the Witch Doctor's repertoire providing upwards of 20,000% separate damage multiplier to Spirit Barrage. Resource: Mana",
+      "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewi",
+          "site": "maxroll.gg",
+          "twitter": "@chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+        "anchor_quote": "Chewi (@chewingnom), Content Creator",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Mundunugu's Regalia: 20,000%+ damage multiplier to Spirit Barrage; introduced Season 20",
+          "key_legendary": "The Barber — converts Phantasm accumulated damage to single instant-release burst"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+        "anchor_quote": "Mundunugu's Regalia is the most recent addition to the Witch Doctor's repertoire providing upwards of 20,000% separate damage multiplier to Spirit Barrage",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Mundunugu's Regalia (6pc set)",
+            "The Barber (converts Phantasm accumulated damage to burst)",
+            "Gazing Demise (Phantasm rune enabler)",
+            "Ring of Emptiness (debuff requirement)",
+            "Rush of Essence (passive for infinite Mana)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+        "anchor_quote": "The main damaging mechanic in this build is Spirit Barrage Phantasm paired with The Barber",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (Phantasm placement)",
+          "range": "small radius pulse from Phantasm positions",
+          "aoe": "small-radius AoE per Phantasm",
+          "notes": "Phantasms are placed turret-spirits that pulse Spirit Barrage; Manitou sentry fires from above player head"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+        "anchor_quote": "Casting Spirit Barrage once will activate Manitou, an eerie ghost sentry hovering above your head. Manitou lasts 20 seconds and shoots 2 projectiles per second",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Make a pull of enemies; place three Spirit Barrage Phantasms on the ground; wait a few seconds for Phantasms to accumulate damage; cast three more Phantasms to instantly release all accumulated damage; maintain Spirit Walk for mobility; keep Soul Harvest and Big Bad Voodoo active; Ring of Emptiness debuff via Locust Swarm"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+        "anchor_quote": "make a pull, place three Phantasms on the ground, wait a few seconds, and then cast three more to instantly release the accumulated damage of the previous Phantasm",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard Mundunugu Solo Push (primary)",
+            "LoD Spirit Barrage (gem variant)",
+            "Group play with zBarb stacker"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mundunugu-spirit-barrage-witch-doctor-guide",
+        "anchor_quote": "especially when paired with a proper zBarb stacking enemies tightly together",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

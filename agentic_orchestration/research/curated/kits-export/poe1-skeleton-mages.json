@@ -1,0 +1,274 @@
+{
+  "kit_id": "poe1-skeleton-mages",
+  "spine": {
+    "kit_id": "poe1-skeleton-mages",
+    "folk_name": "Skeleton Mages",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Per-mage random element (fire/cold/lightning roulette) flattened to the mono-cold meta endpoint — the pre-conversion rainbow-squad texture is lost (docket accrual filed, kit graded un-minted). Squad-formation multi-point delivery carried by the proxy frame around single_target bolts.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Per-mage random element (fire/cold/lightning roulette) flattened to the mono-cold meta endpoint — the pre-conversion rainbow-squad texture is lost (docket accrual filed, kit graded un-minted). Squad-formation multi-point delivery carried by the proxy frame around single_target bolts.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Skeletons (Dead Reckoning mage conversion)",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "summons a squad of skeleton MAGES — each casts ranged elemental bolt projectiles from formation, firing independently (multi-point army delivery); bolts pierce; Sniper's Mark splits projectiles; resummon as they expire. Per-mage bolt = single_target; the army-parallelism lives in the proxy frame"
+        }
+      ],
+      "motion_frame": "firing-squad summoner: keep the mage squad summoned and positioned; bolts volley continuously from the formation while the player walks, marks, and resummons",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "single_target bolts x N mages (multi-point formation coverage)",
+            "summon-at-target squad placement"
+          ],
+          "economy": [
+            "summon-upkeep resummon cadence",
+            "aura reservations (probe mana-reserve register; standard summoner support layer)"
+          ],
+          "traits_affixes": [
+            "minion damage / minion life (Necromancer, sole documented class)",
+            "+skeleton count",
+            "cold-conversion gearing (the mono-element endpoint)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-KEYSTONE kit (crosswalks section-4 mechanic-granting): the Dead Reckoning jewel DISSOLVES — 'Converts your Skeleton Warriors to Skeleton Mages' IS the kit: a delivery-mode FLIP (melee skeletons -> ranged bolt-caster squad), which lands NATIVELY as generating ranged-caster proxies. SOURCE RNG-ELEMENT: the mages 'cast ranged fire, cold, or lightning spell projectiles' — per-mage random tri-element roll; mapped to the META ENDPOINT mono-COLD (corpus elem=cold; conversion gearing forces mono — the same random-pool-then-prune pattern as the elemental-hit b0x docket; Combat Focus there, Triad-Grip-style conversion here). cold -> water (ice register), chill+freeze per probe control (shatter payoff native). Accrual evidence filed to the existing RNG-element docket family (2nd instance) — here graded CLOSE, not APPROX, because the identity is the delivery-mode flip (which maps losslessly), not the element roulette (which the meta itself deletes)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 3,
+      "mechanism_class": "RNG-element-pool identity (per-hit/per-entity random element from a fixed pool)",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "permanent-gap-record",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/skeleton-mages-necromancer",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Skeleton Mages Necromancer Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.buildofexile.com/builds/5410",
+      "archive_url": null,
+      "site": "buildofexile.com",
+      "author_handle": "unknown",
+      "title": "Dead Reckoning Skeleton Mage Necromancer UPDATED FOR 3.7",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://pathofexilegems.com/builds/3-18-summon-skeletons-mages-necromancer-full-build/",
+      "archive_url": null,
+      "site": "pathofexilegems.com",
+      "author_handle": "unknown",
+      "title": "[3.18] Summon Skeletons Mages Necromancer | Full Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Summon_Skeletons",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Summon Skeletons — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "'Dead Reckoning Skeleton Mage Necromancer UPDATED FOR 3.7' — buildofexile.com title confirms 3.7 meta presence",
+      "source_url": "https://www.buildofexile.com/builds/5410",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "'[3.18] Summon Skeletons Mages Necromancer | Full Build Guide' on pathofexilegems.com confirms 3.18 meta",
+      "source_url": "https://pathofexilegems.com/builds/3-18-summon-skeletons-mages-necromancer-full-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Skeleton Mages' and alias 'Dead Reckoning skellies' are real community usage",
+      "anchor_quote": "'Dead Reckoning Skeleton Mage Necromancer UPDATED FOR 3.7' — buildofexile.com title; maxroll.gg confirms 'Skeleton Mages' as primary folk name",
+      "source_url": "https://maxroll.gg/poe/build-guides/skeleton-mages-necromancer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Summon Skeletons; Dead Reckoning jewel converts warriors to mages firing ranged elemental bolt projectiles",
+      "anchor_quote": "'Dead Reckoning jewel allows you to summon Summon Skeletons Mages instead of Warriors... Skeleton Mages cast ranged fire, cold, or lightning spell projectiles'",
+      "source_url": "https://maxroll.gg/poe/build-guides/skeleton-mages-necromancer",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "GhazzyTV",
+          "site": "poe-vault.com",
+          "note": "GhazzyTV authored Mage Skeleton Necromancer Build Guide on poe-vault.com (3.26)"
+        },
+        "source_url": "https://www.poe-vault.com/guides/mage-skeleton-necromancer-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Divergent Summon Skeletons (alt quality)",
+              "type": "alt_quality",
+              "effect": "+0-1 seconds to Cooldown; Summons 0-4 Skeleton Warriors",
+              "anchor_quote": "+0-1 seconds to Cooldown...Summons 0-4 Skeleton Warriors"
+            },
+            {
+              "node": "Summon Skeletons of Mages (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Produces spellcasting skeletons; approximately 5% less damage at level 1, 25% less at level 20",
+              "anchor_quote": "Mages cast ranged fire, cold, or lightning spell projectiles...approximately 5% less damage at gem level 1, scaling to approximately 25% less damage at gem level 20"
+            },
+            {
+              "node": "Dead Reckoning (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "implied item jewel socket",
+              "effect": "Converts your Skeleton Warriors to Skeleton Mages. Skeleton Mages cast ranged fire, cold, or lightning spell projectiles",
+              "anchor_quote": "Converts your Skeleton Warriors to Skeleton Mages. Skeleton Mages cast ranged fire, cold, or lightning spell projectiles"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Summon_Skeletons",
+        "anchor_quote": "Converts your Skeleton Warriors to Skeleton Mages",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Dead Reckoning",
+          "alteration": "Unique Cobalt Jewel; 'Converts your Skeleton Warriors to Skeleton Mages'; placed in skill tree passive socket; converts all skeleton summons to mage variant"
+        },
+        "source_url": "https://poedb.tw/us/Summon_Skeletons",
+        "anchor_quote": "'Converts your Skeleton Warriors to Skeleton Mages. Skeleton Mages cast ranged fire, cold, or lightning spell projectiles'",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "multi-point (multiple mage entities spread in formation firing independently)",
+          "aoe": "single-target bolt projectiles per mage; Sniper's Mark causes projectile splitting",
+          "notes": "Army of ranged casters; combined multi-target coverage via multiple independent fire sources"
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/skeleton-mages-necromancer",
+        "anchor_quote": "'skeleton mages fire piercing elemental projectiles... projectiles split into additional ones spreading in multiple directions'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Place Dead Reckoning jewel in skill tree; cast Summon Skeletons to summon mage variants (instead of warriors); mages auto-attack with ranged elemental bolt projectiles; player supports with Raise Spectre chieftains for buffs; resummon as mages die"
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/skeleton-mages-necromancer",
+        "anchor_quote": "'Dead Reckoning jewel allows you to summon Summon Skeletons Mages instead of Warriors with Summon Skeletons'",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Necromancer (primary; dominant class for all summoner builds)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/skeleton-mages-necromancer",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

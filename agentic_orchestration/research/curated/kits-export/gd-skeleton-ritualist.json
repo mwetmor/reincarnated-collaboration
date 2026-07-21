@@ -1,0 +1,231 @@
+{
+  "kit_id": "gd-skeleton-ritualist",
+  "spine": {
+    "kit_id": "gd-skeleton-ritualist",
+    "folk_name": "Skeleton Ritualist",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The damage identity is an autonomous pet army (summoner-deferral gap, §A pet row); maintenance-reservation economy and pet-stat scaling lane compound the distance. Player test: not that build. Wendigo Totem is the only native-mapping component.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The damage identity is an autonomous pet army (summoner-deferral gap, §A pet row); maintenance-reservation economy and pet-stat scaling lane compound the distance. Player test: not that build. Wendigo Totem is the only native-mapping component.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Raise Skeletons",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "'8-10 skeletons... fight independently... fragile summons in numbers' — autonomous army is the engine gap; totem = nearest placed-proxy token, NOT a fit claim. bleed is pet-inflicted, attested via 'Rend on skeletons for bleeding' (pet-stat lane — never player-scaling, §A trap note)."
+        },
+        {
+          "source_skill": "Primal Spirit",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Short-duration summon carrying '30% [of damage] from the primal spirit' — autonomous combatant, same gap; nearest-token placement only."
+        },
+        {
+          "source_skill": "Wendigo Totem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Wendigo Totem with Blood Pact provides continuous healing' for the pet army — stationary placed emitter; this component maps NATIVE."
+        }
+      ],
+      "motion_frame": "Walk with an 8-10 skeleton wall plus fiend and spirit; the totem heals the army",
+      "resource_economy": {
+        "resource": "energy",
+        "reservation_shape": "'pets cost reserve energy to maintain' — maintenance-reservation, filed as its OWN candidate class (not merged with basin-1 reservation-as-damage-scaler)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "army spread footprint"
+          ],
+          "economy": [
+            "reserve upkeep"
+          ],
+          "traits_affixes": [
+            "pet-stat devotion lane (Rend, Mogdrogen Pact, Primal Bond — 'multiplicative defensive layers for the pet army')"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-CORE per §A pet row (steward-directed honest R-M7): '60% of my damage comes from skeletons, 30% from the primal spirit' — ~90% of damage rides autonomous combatants the engine defers. Wendigo Totem alone is native. Blight Fiend named in loop but NO behavior fetched in THIS kit's dossier (b01 blight-fiend language is another kit's attestation, §C.4) — contributes nothing. Army-count shape files to placed-proxy-count family (accrual, no numbers). Manticore/Rattosh '-53% vitality resistance' RR attested but application shape unfetched → no curse/sunder token (near-miss). chain_count 3: skeletons + Primal Spirit + Wendigo Totem all load-bearing with fetched behavior."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "jhillman87",
+      "title": "Ritualist Pet Summoner - Shaman/Necro",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: aom-2017, patch-1.1-1.2",
+      "anchor_quote": "Forum timestamps (October 2017) indicate Age of Malmouth expansion era, representing early post-expansion balance",
+      "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Skeleton Ritualist; aliases include Raise Skeletons Ritualist, minion Necromancer Shaman",
+      "anchor_quote": "Ritualist combines Shaman and Necromancer classes [...] vitality skeletons with ritualist will absolutely steamroll",
+      "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Raise Skeletons, Wendigo Totem, Blight Fiend. Minion-centric, reserve mana resource.",
+      "anchor_quote": "8-10 skeletons (via Raise Skeletons) [...] 1 Blight Fiend [...] Wendigo Totem with Blood Pact provides continuous healing",
+      "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "jhillman87",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Huntress",
+            "Mogdrogen",
+            "Manticore / Will of Rattosh"
+          ],
+          "note": "Rend on skeletons for bleeding; Manticore+Rattosh stack -53% vitality resistance; Primal Bond aura buffs all pets"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+        "anchor_quote": "Mogdrogen Pact and Emboldening Presence create multiplicative defensive layers for the pet army",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "summoned entities fight independently at target positions",
+          "footprint": "distributed across area via skeleton army spread",
+          "verbatim": "8-10 skeletons [...] fight independently [...] fragile summons in numbers"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+        "anchor_quote": "60% of my damage comes from skeletons anyway, 30% from the primal spirit",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Maintain skeleton army (8-10 via Raise Skeletons) plus Blight Fiend and Briarthorn. Wendigo Totem placed for pet sustain healing. Primal Spirit summoned on short duration. Player walks with pet wall.",
+          "resource": "mana reserve (pets cost reserve energy to maintain)",
+          "loop_verb": "summon-maintain army"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/ritualist-pet-summoner-shaman-necro/41572",
+        "anchor_quote": "60% of my damage comes from skeletons anyway [...] Wendigo Totem with Blood Pact provides continuous healing",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "vitality skelemancer Ritualist",
+            "pure physical skeleton build",
+            "Shaman+Occultist (strongest pet combo per community)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-0-build-overview-vitality-skelemancer-ritualist-sr75-80/130457",
+        "anchor_quote": "Vitality Skelemancer Ritualist (SR75-80+)",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

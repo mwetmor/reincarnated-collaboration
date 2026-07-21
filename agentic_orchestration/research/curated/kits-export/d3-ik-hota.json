@@ -1,0 +1,256 @@
+{
+  "kit_id": "d3-ik-hota",
+  "spine": {
+    "kit_id": "d3-ik-hota",
+    "folk_name": "IK HotA",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "vanilla;set-era;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Permanent autonomous CotA ancestor squad (pet-rider) has no engine equivalent — player would miss the ghost-ancestor assist. Physical element null. Fury-Crit scaling texture captured in delivery_notes but no direct engine Fury→Crit lane. CoE burst window approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Permanent autonomous CotA ancestor squad (pet-rider) has no engine equivalent — player would miss the ghost-ancestor assist. Physical element null. Fury-Crit scaling texture captured in delivery_notes but no direct engine Fury→Crit lane. CoE burst window approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hammer of the Ancients",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target melee slam; small blast radius; 1% increased Critical Hit Chance per 5 Fury — Fury stat scales crit per verify anchor ('This skill has 1% increased Critical Hit Chance for every 5 Fury we have'); physical weapon damage → element null per physical rule; IK 6pc requires both WotB and CotA active for 4000% multiplier"
+        },
+        {
+          "source_skill": "Call of the Ancients (IK rider)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent via IK 4pc CDR (3 seconds per 10 Fury spent); spectral ancestor squad = autonomous combatants → pet-rider per §CROSS row 2 (core identity is HotA, not CotA); APPROX gap note applies; army GAP rider"
+        }
+      ],
+      "motion_frame": "Spend Fury on Hammer of the Ancients slams; IK 4pc CDR sustains permanent CotA+WotB; IK 6pc grants 4000% damage while both active; Fury-to-Crit scaling; Gavel of Judgment and Mortick's Brace key items",
+      "resource_economy": {
+        "cost_scale": "Fury; IK 4pc CDR mechanic: 3 seconds CDR per 10 Fury spent on HotA; Fury scales crit chance (1% per 5 Fury per verify anchor)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "HotA small AoE blast radius"
+          ],
+          "economy": [
+            "WotB (Wrath of the Berserker) CDR and damage buff via Mortick's Brace",
+            "Boon of Bul-kathos passive CDR",
+            "CoE element_rotation_window (R-M5 token)"
+          ],
+          "traits_affixes": [
+            "IK 6pc 4000% damage scalar (scaler-only per §B.1)",
+            "Gavel of Judgment HotA scalar (scaler-only)",
+            "Band of Might damage reduction (defensive scalar)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical weapon damage → element null per physical rule. Fury-stat-to-crit scaling attested in verify anchor — interesting but no mint candidate (stat-to-crit texture, no new family needed). CotA permanent = army rider: APPROX grade driven by unengineable autonomous ancestor squad. ERA watch: D-2a adjudication pending per mech_note (IK vanilla era unattested for set combo; earliest attested S4 per verify_ledger). CoE = R-M5 token. IK 6pc and all scalers scaler-only per §B.1. No ailment attested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/barbarian-hota-build-with-immortal-king",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Barbarian HotA Build with Immortal King (Patch 2.7.8 / Season 39) - Diablo 3 - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Rob",
+      "title": "Diablo 3 Season 39 Immortal King HotA Barbarian Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in vanilla",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Originally used at the start of Season 4 as main damage dealer before being replaced by the infamous Static Monk",
+      "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "Immortal King HotA Barbarian Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'IK HotA' and aliases 'Immortal King HotA Barbarian', 'IK HotA Barb', 'Hammer of the Ancients Barbarian' are real community usage",
+      "anchor_quote": "Immortal King HotA Barbarian Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Hammer of the Ancients and Call of the Ancients; Fury resource; IK set requires both active for 6pc bonus",
+      "anchor_quote": "This skill has 1% increased Critical Hit Chance for every 5 Fury we have",
+      "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Rob",
+          "site": "maxroll.gg",
+          "introduction_by": "Chewingnom",
+          "icy_veins_credit": "Deadset"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "Written by Rob. Introduction by Chewingnom",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Immortal King's Call",
+          "set_bonus_4pc": "CotA/WotB CDR by 3 seconds per 10 Fury spent",
+          "set_bonus_6pc": "4000% increased damage while both WotB and CotA are active",
+          "kanais_cube": [
+            "Gavel of Judgment",
+            "Mortick's Brace",
+            "Convention of Elements"
+          ],
+          "earliest_season_attested": "Season 4"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "Immortal King's Call (6) Bonus for the damage buff and cooldown reducing mechanics",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Gavel of Judgment",
+            "Mortick's Brace",
+            "Convention of Elements",
+            "Band of Might",
+            "Boon of Bul-kathos"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "The Gavel of Judgment, Mortick's Brace, and Convention of Elements",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee slam",
+          "footprint": "small AoE",
+          "notes": "HotA slams at targeted enemy; small blast radius; 1% crit bonus per 5 Fury"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "This skill has 1% increased Critical Hit Chance for every 5 Fury we have",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "HotA as primary damage dealer scaling with Fury; maintain permanent CotA+WotB uptime via IK 4pc CDR per Fury spent; IK 6pc grants 4000% damage while both active; Gavel of Judgment, Mortick's Brace key items"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "Empowered by the Immortal King set, this Barbarian build emphasizes melee devastation and pulverizes his enemies to the ground with Hammer of the Ancients",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "IK HotA Solo Push",
+            "LoD HotA (separate guide, currently stronger)",
+            "IK Charge (separate build)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "Immortal King HotA Barbarian Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

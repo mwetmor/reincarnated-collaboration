@@ -1,0 +1,213 @@
+{
+  "kit_id": "hot-sage-ring-blades",
+  "spine": {
+    "kit_id": "hot-sage-ring-blades",
+    "folk_name": "Ring Blades Sage",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Low-conf dossier (Sage 1.1-2026 post-cutoff); Fragile debuff has no registry lane and cannot be emitted as ailment; player building around Fragile application will notice the gap.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Low-conf dossier (Sage 1.1-2026 post-cutoff); Fragile debuff has no registry lane and cannot be emitted as ailment; player building around Fragile application will notice the gap.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ring Blades",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Blades travel outward then orbit player at extended radius; Cyclone upgrade causes circling + fly-further behavior; 'magic damage' from Piercing Blades upgrade = generic magic → element-neutral per §B5-ELEMENT; 'Fragile' debuff applied by Piercing Blades upgrade is not in 16-ailment registry — nearest is curse:weaken but unconfirmed mapping → fidelity note"
+        }
+      ],
+      "motion_frame": "Ring blades orbit at extended radius; scale Force+Range+Attack Speed until enemies die before reaching player",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_INVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "orbit radius extension (Cyclone upgrade)",
+            "2 extra projectiles via Piercing Blades"
+          ],
+          "economy": [
+            "Sage Mark: 3rd ability upgrade slot for main ability"
+          ],
+          "traits_affixes": [
+            "Force, Critical, Attack Speed, base Damage axes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Low-confidence dossier (0.42–0.45; Sage post-cutoff). Element = null throughout: 'magic damage' in Piercing Blades upgrade is generic magic per §B5-ELEMENT callout. 'Fragile' debuff has no 16-ailment registry match — likely curse:weaken or curse:sap analog but cannot attest the precise mechanism from fetched text; recorded in delivery_notes only. Orbit geometry confirmed by Cyclone upgrade anchor."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment Ability Tier List",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3172296902",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community guide)",
+      "title": "SA(VA)GE - Build Collection 1.0+ Edition (DLC required)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/games/2218750/announcements/detail/7155726611389265919",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(developer)",
+      "title": "HoT Update 2024-02-19 Chambers of Dissonance",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present only in hot-1.1-2026 (Sage added Feb 2024 in Chambers of Dissonance update, pre-1.0).",
+      "anchor_quote": "Chambers of Dissonance was added February 19, 2024; Sage can be unlocked in the Chambers of Dissonance; Sage appears in SA(VA)GE build guide marked '1.0+ Edition'",
+      "source_url": "https://steamcommunity.com/games/2218750/announcements/detail/7155726611389265919",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sage class with Ring Blades as main/signature ability; community name 'Ring Blades Sage'.",
+      "anchor_quote": "For the Sage class specifically, the first selected Ability (known as the Main Ability) determines the Main Weapon. This means Ring Blades can serve as the Sage's main weapon",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ring Blades orbit player at large radius; extreme range/coverage strategy; 'everything dies before it gets on screen'.",
+      "anchor_quote": "Once he gets a couple of level ups, he starts to steamroll; Ring Blades scales with Force, Critical, Attack Speed, and base Damage and massacres everything in your path",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Sage Mark allows picking 3rd ability upgrade for main ability; post-cutoff specifics capped at low conf"
+        },
+        "source_url": "https://steamdb.info/patchnotes/17250974/",
+        "anchor_quote": "Sage can equip the Sage Mark to pick a 3rd ability upgrade for the main ability",
+        "abstained": 0,
+        "conf": 0.42
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Piercing Blades upgrade adds 2 projectiles dealing magic damage and applies Fragile; items and traits from 1.0+ DLC context (guide marked DLC required)"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3172296902",
+        "anchor_quote": "Piercing Blades upgrade adds 2 projectiles that deal magic damage, and more importantly, apply Fragile",
+        "abstained": 0,
+        "conf": 0.42
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit-travel",
+          "description": "Ring blades travel outward from player; Cyclone upgrade causes them to circle player and fly much further; ring/orbital pattern at extended radius"
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+        "anchor_quote": "Cyclone lets Ring Blades circle around you and fly much further than before",
+        "abstained": 0,
+        "conf": 0.45
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Sage selects Ring Blades as first ability (= Main Weapon); scales range/coverage until everything dies before it gets on screen; orbit/travel-out pattern with Force+Range+Attack Speed stacking"
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+        "anchor_quote": "Ring Blades scales with Force, Critical, Attack Speed, and base Damage and massacres everything in your path both early game and late game",
+        "abstained": 0,
+        "conf": 0.45
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Sorceress also effective with Ring Blades (multistrike by leveling); Sage is the canonical build identity; post-cutoff 1.1-2026 specifics unknown"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4140563711247912515/",
+        "anchor_quote": "Did it with sorceror, was really easy. Just focus on multistrike, force, range and attackspeed",
+        "abstained": 0,
+        "conf": 0.42
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

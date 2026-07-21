@@ -1,0 +1,234 @@
+{
+  "kit_id": "d4-touch-of-death",
+  "spine": {
+    "kit_id": "d4-touch-of-death",
+    "folk_name": "Touch of Death Spiritborn",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "voh-s6+;s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Scourge fear variant is a meaningful support option but variant-scope excludes it from core row; (2) swarm cap-3 replacement behavior is the feel differentiator; (3) Vigor refund loop via Ring of Midnight Sun is economy-critical but dossier detail is thin.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Scourge fear variant is a meaningful support option but variant-scope excludes it from core row; (2) swarm cap-3 replacement behavior is the feel differentiator; (3) Vigor refund loop via Ring of Midnight Sun is economy-critical but dossier detail is thin.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Touch of Death",
+          "geometry_value": "chain",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Hold-channel: 'Hold down Touch of Death until everything is dead'; applies huge Poison Damage over Time + spawns swarms that hatch from targeted enemy; cap of 3 active swarms (oldest replaced when spamming); Poison DoT emanates from target location; chain geometry: spreads/spawns from initial target; Rod of Kepeleke makes it count as Core AND Basic Skill (item-defined-archetype)"
+        }
+      ],
+      "motion_frame": "Soar to grouped enemies, hold Touch of Death until dead; Scourge/Ravager on cooldown for support",
+      "resource_economy": {
+        "vigor_cost": "primary spender",
+        "ring_of_midnight_sun": "Vigor consumption/refund management — identity-load-bearing economy note"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Soar — gap-close/group delivery",
+            "The Protector — pull grouping opener"
+          ],
+          "economy": [
+            "Ring of the Midnight Sun — Vigor refund management",
+            "Harmony of Ebewaka, Hesha e Kesungi — numeric scalers"
+          ],
+          "traits_affixes": [
+            "Insatiable aspect — primary damage source",
+            "Unyielding Hits, Measured Ravager — scalar aspects",
+            "Occult Gems + Boss Powers (s7-s8 additions)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype: Rod of Kepeleke makes Touch of Death count as Core AND Basic Skill — the kit identity IS this dual-tag form; maps accordingly. Element earth: Centipede spirit / poison/nature register; poison DoT is the delivery ('Touch of Death applies a huge Poison Damage over Time'). Fear in Scourge variant ('Scourge on cooldown to fear enemies' from variants payload_json) — variant-scope law: variant-only mechanism; not in core skills[]; noted here only. No other ailments named in core loop dossier."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Touch of Death Spiritborn Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.wowhead.com/diablo-4-ptr/build/touch-of-death-spiritborn-endgame-season-6-29856",
+      "archive_url": null,
+      "site": "wowhead.com",
+      "author_handle": null,
+      "title": "Touch of Death Spiritborn Endgame – Season 6 (PTR)",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in voh-s6+ and s7-s12",
+      "anchor_quote": "guide was theorycrafted and created for Vessel of Hatred, Season 6",
+      "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Touch of Death Spiritborn' is real community usage",
+      "anchor_quote": "Touch of Death Spiritborn Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Touch of Death and Scourge; Spiritborn class",
+      "anchor_quote": "Touch of Death is your main ability",
+      "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Insatiable (primary damage source)",
+            "Unyielding Hits",
+            "Measured Ravager"
+          ],
+          "season_adds": {
+            "s7": "Occult Gems and Witchcraft Powers; removed Tyrael's Might for Shroud of False Death",
+            "s8": "Boss Powers added"
+          }
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+        "anchor_quote": "For Season 7: Added Occult Gems and Witchcraft Powers recommendations",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Rod of Kepeleke — makes Touch of Death count as both Core and Basic Skill",
+            "Ring of the Midnight Sun — Vigor consumption/refund management",
+            "Hesha e Kesungi",
+            "Harmony of Ebewaka",
+            "Temerity"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+        "anchor_quote": "Rod of Kepeleke",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Touch of Death applies a huge Poison Damage over Time and spawns swarms that hatch from the targeted enemy. Cap of 3 active swarms; oldest replaced when spamming. Poison DoT emanates from target location."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+        "anchor_quote": "Touch of Death applies a huge Poison Damage over Time and spawns swarms that hatch from the targeted enemy.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use The Protector to start any fight pulling enemies together. Use Soar to jump on the grouped up enemies. Hold down Touch of Death until everything is dead."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+        "anchor_quote": "Hold down right click until...kaboom!",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Scourge support variant — Scourge on cooldown to fear enemies and gain Damage Reduction",
+            "Ravager variant — Ravager on cooldown for CDR + damage"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/touch-of-death-spiritborn-guide",
+        "anchor_quote": "Ravager on cooldown for additional damage and Cooldown Reduction",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

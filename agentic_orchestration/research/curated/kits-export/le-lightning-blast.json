@@ -1,0 +1,258 @@
+{
+  "kit_id": "le-lightning-blast",
+  "spine": {
+    "kit_id": "le-lightning-blast",
+    "folk_name": "Lightning Blast",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Chain-projectile spam maps clean. Source player would miss (1) the Spark Charge self-cascading proc-engine (Lightning Blast procs charges that proc more — an on-cast proc-loop the engine only approximates via chain, not a dedicated charge-cascade), and (2) the Reowyn's Frostguard on-cast Ward burst (Runemaster variant) — a defensive on-cast rider with no native engine lane. Neither breaks the core loop; both are riders. ELEMENTAL_ECHO gestures at the repeated-hit lightning identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Chain-projectile spam maps clean. Source player would miss (1) the Spark Charge self-cascading proc-engine (Lightning Blast procs charges that proc more — an on-cast proc-loop the engine only approximates via chain, not a dedicated charge-cascade), and (2) the Reowyn's Frostguard on-cast Ward burst (Runemaster variant) — a defensive on-cast rider with no native engine lane. Neither breaks the core loop; both are riders. ELEMENTAL_ECHO gestures at the repeated-hit lightning identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Blast",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fires a lightning bolt projectile that chains to nearby enemies in sequence (fetched: 'chains to nearby enemies', 'aim for an odd number of chains'). Convergence node makes all chains hit the SAME target (concentrated single-target) at cost of chain count halving — geometry-modifying node, chain token holds either way. NO status ailment attestable: 'Spark Charge' is a named skill/item PROC, not a fetched status (§0.4 name-collision); mechanics 'shock/electrify' lives only in verify_ledger.claim_text = INADMISSIBLE (§0.2). shock/sunder NOT emitted."
+        }
+      ],
+      "motion_frame": "Spam Lightning Blast -> chain arcs to nearby enemies -> Spark Charge procs (skill + Fragment of the Enigma) -> repeat",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast spend; Foot of the Mountain node reduces cost to ZERO when fully stacked (fetched capstone) — free-cast state at stack cap"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Ward burst (Reowyn's Frostguard) — DEFENSE payload",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Convergence (chains->single target)",
+            "chain-count/Fork nodes"
+          ],
+          "economy": [
+            "Foot of the Mountain (cost->0 at stack cap)"
+          ],
+          "traits_affixes": [
+            "Fragment of the Enigma (extra Spark Charge procs)",
+            "Knowledge of an Erased Mage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§B Reowyn ward-burst rider EXERCISED (first of two attestations run-wide): 'Runic Invocation generates massive Ward bursts through Reowyn's Frostguard' — trigger_grammar RIDER with a DEFENSIVE payload (on-cast-of-carrier -> gain overshield), sibling of the §A devotion-proc row. Item-granted, lives at item_alterations layer; never rewrites core skill_geometry (Lightning Blast stays a chain projectile). Reowyn rider is the RUNEMASTER variant; the mapped core is the Sorcerer caster-spam (this kit). Spark Charge cascade (skill procs charges from itself + Fragment of the Enigma) = a proc-loop rider on cast; engine chain geometry carries the delivery, the Spark-Charge proc-engine is the rider the engine approximates. §0 near-miss: shock WANTED (lightning + 'electrify' in claim) but claim_text is INADMISSIBLE and no fetched behavioral status language exists — WITHHELD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Lightning Blast Runemaster Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/infinite-lightning-blast-sorc-build-guide-great-for-starting-season-and-beginners-0-9-ready/52254",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Infinite Lightning Blast Sorc Build Guide — great for starting season and beginners! 0.9 Ready",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/lightning-blast-mage-beginner-friendly-build-guide-last-epoch-0-9-0/58361",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Lightning Blast Mage - Beginner-Friendly Build Guide - Last Epoch 0.9.0",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Infinite Lightning Blast Sorc Build Guide — great for starting season and beginners! 0.9 Ready",
+      "source_url": "https://forum.lastepoch.com/t/infinite-lightning-blast-sorc-build-guide-great-for-starting-season-and-beginners-0-9-ready/52254",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Lightning Blast Mage - Beginner-Friendly Build Guide - Last Epoch 0.9.0 — forum guide confirming Sorcerer usage through 1.0 launch window",
+      "source_url": "https://forum.lastepoch.com/t/lightning-blast-mage-beginner-friendly-build-guide-last-epoch-0-9-0/58361",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Lightning Blast Runemaster Guide for Last Epoch Season 4 — Last Updated April 2026",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Blast Sorcerer' and alias 'lightning nuke Sorcerer' are real community usage",
+      "anchor_quote": "Lightning Blast Mage - Beginner-Friendly Build Guide - Last Epoch 0.9.0...Infinite Lightning Blast Sorc Build Guide — great for starting season and beginners! 0.9 Ready",
+      "source_url": "https://forum.lastepoch.com/t/infinite-lightning-blast-sorc-build-guide-great-for-starting-season-and-beginners-0-9-ready/52254",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Lightning Blast; Mana spend; projectile chain-hop delivery; lightning damage; shock/electrify ailments",
+      "anchor_quote": "This is a Caster build that spams Lightning Blast to reliably proc Spark Charges...Convergence makes all your chains hit the same target but cuts the number of chains in half",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "BinaQc",
+          "site": "maxroll.gg",
+          "reviewer": "Volca"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Written by BinaQc. Content Reviewed by Volca.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Foot of the Mountain node reduces Lightning Blast Mana cost to zero when fully stacked. Runemaster variant integrates Runic Invocation for Ward burst. Frost Wall converted via Pyroglass for Reowyn's Frostguard activation."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "When fully stacked, Foot of the Mountain reduces Lightning Blast Mana cost to zero...Runic Invocation generates massive Ward bursts through Reowyn's Frostguard",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Fragment of the Enigma (Spark Charge procs)",
+            "Reowyn's Frostguard (Ward burst via Runic Invocation)",
+            "Knowledge of an Erased Mage"
+          ],
+          "notes": "Fragment of the Enigma provides additional Spark Charge procs beyond the skill itself."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Fragment of the Enigma is a tremendous boost to our damage, while Knowledge of an Erased Mage provides additional Damage Dealt to Mana Before Health",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-chain",
+          "footprint": "chain-hop",
+          "description": "Lightning Blast fires a lightning bolt projectile that chains to nearby enemies in sequence. Convergence node makes all chains hit the same target (concentrated damage) at cost of chain count halving. Fork and chain count nodes expand coverage."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Convergence makes all your chains hit the same target but cuts the number of chains in half and then rounds up, therefore, aim for an odd number of chains to get the best value",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Lightning Blast to fire chaining projectile bolts. High cast speed drives Spark Charge procs (both from Lightning Blast skill tree and Fragment of the Enigma unique). Chains converge on target with Convergence node. Runemaster variant adds Runic Invocation for Ward burst via Reowyn's Frostguard.",
+          "core_cycle": "Lightning Blast spam -> chain arcs to nearby enemies -> Spark Charge procs -> Fragment of the Enigma procs"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "This is a Caster build that spams Lightning Blast to reliably proc Spark Charges, both from the skill itself and from Fragment of the Enigma",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lightning Blast Sorcerer (this kit — caster spam)",
+            "Lightning Blast Runemaster (Spark Charge + Runic Invocation variant)",
+            "Static Orb Sorc (Lightning Blast as single-target supplement)",
+            "Elemental Nova Sorc (Lightning Blast as single-target supplement)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Lightning Blast Runemaster...Static Orb Sorcerer: Use Static Orb for AoE and Lightning Blast for single target DPS",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

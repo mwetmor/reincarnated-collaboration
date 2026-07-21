@@ -1,0 +1,233 @@
+{
+  "kit_id": "le-frost-claw",
+  "spine": {
+    "kit_id": "le-frost-claw",
+    "folk_name": "Frost Claw Sorcerer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold projectile-barrage with chill/freeze maps clean. Source player would miss (1) the Elemental Nova free-proc-per-cast cascade (an on-cast linked-cast the engine approximates, not a dedicated proc-Nova), and (2) Frostbite stacking DoT — a cold damage-over-time status with no engine registry token (chill/freeze cover the CC but not the DoT). ELEMENTAL_ECHO stands in for the doubled cold-hit cadence.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold projectile-barrage with chill/freeze maps clean. Source player would miss (1) the Elemental Nova free-proc-per-cast cascade (an on-cast linked-cast the engine approximates, not a dedicated proc-Nova), and (2) Frostbite stacking DoT — a cold damage-over-time status with no engine registry token (chill/freeze cover the CC but not the DoT). ELEMENTAL_ECHO stands in for the doubled cold-hit cadence.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frost Claw",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "Fires a barrage of multiple spectral claw projectiles in a fanning cone from cast point (fetched: 'releases a barrage of projectiles', 'cone-fan' footprint). Volley of Glass node converges all projectiles on a single target (geometry-modifying, multi_projectile holds). chill + freeze admitted on fetched 'chill/freeze/frostbite' + 'apply Frostbite and other Ailments'; element cold -> water family (ice register)."
+        }
+      ],
+      "motion_frame": "Spam Frost Claw -> barrage of cold projectiles (fan cone) -> Celestial Conflux procs free Elemental Nova per cast -> cold AoE -> chill/freeze stacks",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast spend; Cryomantic Fragility affix reduces Frost Claw Mana cost to ZERO (fetched item)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Elemental Nova (free proc per Frost Claw cast via Celestial Conflux)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Volley of Glass (converge projectiles on single target)"
+          ],
+          "economy": [
+            "Cryomantic Fragility (cost->0)"
+          ],
+          "traits_affixes": [
+            "Snowdrift",
+            "Frostbite Shackles"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Multi-projectile cold barrage + chill/freeze maps clean. Elemental Nova proc (Celestial Conflux procs a free Nova on each Frost Claw cast) = trigger_grammar rider (on-cast-linked -> linked-cast); the layered Nova-at-impact AoE is a rider on the projectile core, ELEMENTAL_ECHO gestures at the per-cast echo. §0 near-miss: FROSTBITE (LE cold-DoT status, fetched 'apply Frostbite') has NO engine registry home — same NO-HOME class as GD frostburn (WAVE-PLAN review-book list); WITHHELD. chill + freeze ARE registry-native and behaviorally fetched, so admitted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Frostbite Frost Claw Sorcerer Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/my-best-frost-claw-nova-mage-rm-sorc/69060",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "My best Frost Claw Nova Mage (RM/SORC)",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "My best Frost Claw Nova Mage (RM/SORC)...build planner shows Release / 1.0.3...BroncoCollider references 'Frost Claw proc'ing Elemental Nova'",
+      "source_url": "https://forum.lastepoch.com/t/my-best-frost-claw-nova-mage-rm-sorc/69060",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frost Claw Sorcerer' and alias 'Elemental Nova Frost Claw' are real community usage",
+      "anchor_quote": "Frostbite Frost Claw Sorcerer Build Guide...Elemental Nova procs from Frost Claw, providing you with enhanced damage and clear due to its large AoE",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Frost Claw and Elemental Nova; Mana spend; projectile delivery; cone/fan footprint; cold damage; chill/freeze ailments",
+      "anchor_quote": "Frost Claw releases a barrage of projectiles, all capable of converging upon a single target...Celestial Conflux is used to proc Elemental Nova for more Cold Hits to apply Frostbite and other Ailments",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "BinaQc",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/planner/e62eu0o9",
+        "anchor_quote": "BinaQc Frostbite Frost Claw Sorcerer",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Bluefeather Band",
+            "Snowdrift",
+            "Frostbite Shackles",
+            "Ornate Glass Idols (Frost Claw Mana Efficiency)"
+          ],
+          "notes": "Cryomantic Fragility affix reduces Frost Claw Mana cost to zero."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+        "anchor_quote": "Cryomantic Fragility is essential to reduce its Mana Cost to zero...Bluefeather Band, Snowdrift and Frostbite Shackles dramatically increase the build's power",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "cone-fan",
+          "description": "Frost Claw fires multiple spectral claw projectiles in a fanning cone from cast point. Volley of Glass node can converge all projectiles on a single target. Elemental Nova procs at impact points creating a layered AoE."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+        "anchor_quote": "Frost Claw releases a barrage of projectiles, all capable of converging upon a single target...Volley of Glass enables all projectiles to hit the same target",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Frost Claw to fire a barrage of cold projectiles in a cone. Tree node Celestial Conflux procs free Elemental Nova on each Frost Claw cast. High cast speed drives the proc cascade. Ward is accumulated defensively.",
+          "core_cycle": "Frost Claw spam -> Elemental Nova proc -> Cold AoE -> chill/freeze/frostbite stacks"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-frost-claw-sorcerer-guide",
+        "anchor_quote": "Frost Claw releases a barrage of projectiles...Celestial Conflux is used to proc Elemental Nova for more Cold Hits to apply Frostbite and other Ailments",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sorcerer (this kit)",
+            "Runemaster variant (separate Frost Claw Runemaster guide exists on maxroll)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/frost-claw-runemaster-guide",
+        "anchor_quote": "Frost Claw Runemaster Build Guide — listed as separate guide from Sorcerer variant",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "kit_id": "d4-lightning-spear",
+  "spine": {
+    "kit_id": "d4-lightning-spear",
+    "folk_name": "Lightning Spear Sorcerer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Conjured-spear proxy identity approximated via PROXY_ASCENSION; engine proxy lanes are autonomous combatants (summoner gap), not transient seeking projectile-entities. Player would feel the autonomous spear hunt behavior is present but underweighted vs full summoner treatment. Evade-Teleport as trigger verb has no exact proc_trigger_condition primitive.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Conjured-spear proxy identity approximated via PROXY_ASCENSION; engine proxy lanes are autonomous combatants (summoner gap), not transient seeking projectile-entities. Player would feel the autonomous spear hunt behavior is present but underweighted vs full summoner treatment. Evade-Teleport as trigger verb has no exact proc_trigger_condition primitive.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Spear",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "conjured spear entities auto-seek and hunt targets from player position; stun attested via Shocking Impact proc chain; post-backfill: Ice Blades NOT in 6-slot bar (verify_ledger mechanics CONTRADICTED); actual bar: Lightning Spear, Ball Lightning, Unstable Currents, Chain Lightning, Charged Bolts"
+        },
+        {
+          "source_skill": "Ball Lightning",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "cast triggers additional Unstable Currents procs summoning more Lightning Spears; trigger-rider on carrier loop"
+        },
+        {
+          "source_skill": "Unstable Currents",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Evade-Teleport triggers Unstable Currents which procs summon Lightning Spears and Familiars; timed proc = R-M5 nearest apply-event"
+        }
+      ],
+      "motion_frame": "Spam Evade-Teleport to trigger Unstable Currents; summoned Lightning Spears hunt targets and chain stun via Shocking Impact",
+      "resource_economy": {
+        "mana": "primary-spender",
+        "regen_shape": "passive+Ring of Starless Skies"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aspect of Splintering Energy (pre-nerf; nerfed S9)",
+            "conjured spear entity count"
+          ],
+          "economy": [
+            "Ring of Starless Skies",
+            "Harlequin Crest",
+            "Orsivane"
+          ],
+          "traits_affixes": [
+            "Unleash/Exploit/Destruction/Imbiber/Charged paragon glyphs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Hot-fact: post-backfill verify_ledger mechanics CONTRADICTED — 'Ice Blades Battery' claim is X (struck); actual 6-slot bar confirmed as Lightning Spear + Ball Lightning + Unstable Currents + Chain Lightning + Charged Bolts. Ice Blades absent from kit mapping entirely. Stun attested: store says 'through stuns, proccing Shocking Impact' — stun token legal. Proxy-entity door class: conjured spear entities have no attested HP/commands but hunt autonomously; mapped PROXY_ASCENSION per basin-2 proxy-entity door class ruling (own-health/duration/count entities → PROXY_* even when behavioral only). R-M5 for Unstable Currents timed proc. [STEWARD-AUDIT 2026-07-18 MW4-close: Lightning Spear: lightning name-only (no zap-verb; CONTRAST d4-ball-lightning which HAS \"zap enemies\"); STUN kept (\"chain stuns via shocking impact\")] [STEWARD-AUDIT 2026-07-18 MW4-close: Ball Lightning: lightning name-only (secondary; name reference only in this kit store)] [STEWARD-AUDIT 2026-07-18 MW4-close: Unstable Currents: lightning name-only (proc-engine name; no lightning-damage descriptor)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Lightning Spear Sorcerer Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/lightning-spear-sorcerer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Lexyu",
+      "title": "Lightning Spear - Sorcerer Build for Diablo 4 (Season 9)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": "the strongest Sorcerer build from its very inception in Season 5... August 8, 2024: Guide created for Season 5 (Patch 1.5.0).",
+      "source_url": "https://www.icy-veins.com/d4/guides/lightning-spear-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": "the strongest Sorcerer build from its very inception in Season 5... in Season 9 it finally received a nerf impactful enough to knock it off the throne",
+      "source_url": "https://www.icy-veins.com/d4/guides/lightning-spear-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Lightning Spear Sorcerer'; aliases 'Lightning Spear Sorc D4', 'Ice Blades Battery Sorc'",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills Lightning Spear and Ice Blades(battery); Sorcerer Mana resource",
+      "anchor_quote": "Lightning Spear, Ball Lightning, Lightning Familiar, Unstable Currents, Chain Lightning, Charged Bolts",
+      "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+        "anchor_quote": "Written by Northwar (Content Creator)",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Splintering Energy"
+          ],
+          "paragon_glyphs": [
+            "Unleash",
+            "Exploit",
+            "Destruction",
+            "Imbiber",
+            "Charged"
+          ],
+          "note": "Splintering Energy nerfed near-100x in S9; Primordial Binding demolished in Patch 2.5"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+        "anchor_quote": "Aspect of Splintering Energy nerfed by almost 100x... Patch 2.5 putting the final nail in the Lightning Spear's coffin",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Orsivane",
+            "Heir of Perdition",
+            "Shroud of False Death",
+            "Ring of Starless Skies",
+            "Harlequin Crest"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+        "anchor_quote": "Key Uniques: Orsivane, Heir of Perdition, Shroud of False Death, Ring of Starless Skies, Harlequin Crest",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "conjured-at-player",
+          "footprint": "auto-seeking-point",
+          "note": "conjured spear entities hunt targets autonomously from player position; each spear hits single target"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+        "anchor_quote": "Lightning Spear... through stuns, proccing Shocking Impact",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Evade-Teleport to trigger Unstable Currents; Unstable Currents procs summon Lightning Spears and Familiars; Ball Lightning cast triggers more procs; spears hunt targets autonomously and chain stuns via Shocking Impact"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+        "anchor_quote": "Unstable Currents summons most of our Lightning Spears and Familiars... spam Evade Teleport to trigger Unstable Currents as much as possible",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/lightning-spear-sorcerer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

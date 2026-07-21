@@ -1,0 +1,228 @@
+{
+  "kit_id": "tl1-alchemist-summoner",
+  "spine": {
+    "kit_id": "tl1-alchemist-summoner",
+    "folk_name": "Summoner Alchemist",
+    "game": "tl1",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tl1-2009",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — the player delegates all damage to minions; no player-driven skill loop is mappable without summoner architecture.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — the player delegates all damage to minions; no player-driven skill loop is mappable without summoner architecture.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Nether Imp / Summon Alchemic Golem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "Permanent minion army (up to 6 Nether Imps + Alchemical Golem + pet). Minions are following companions not placed sentries — but pet-core identity means player damage is vestigial. lightning secondary from verify_ledger anchor: 'Ember Lightning casts a lightning bolt at foes, doing electric damage' — damage-type descriptor on generic noun, attested."
+        },
+        {
+          "source_skill": "Ember Lance",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "Channeled laser beam spell. Ember Lance anchor: 'casts a continuous blast of ember energy at your foes'. Secondary lightning from Ember Lightning spell (same kit). Alchemist holds back while minions engage."
+        }
+      ],
+      "motion_frame": "Stationary caster directing pet/minion army; Ember Lance for supplemental channeled fire.",
+      "resource_economy": {
+        "mana_resource": "standard mana pool; no inverted-resource attested"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "pet mastery doubles summon armor/attack bonuses (capstone_alterations anchor)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-core summoner: minion army IS the damage identity — player has no primary damage rotation. Summoner-deferral applies. lightning secondary attested via Ember Lightning electric damage descriptor but NOT the build's primary identity (summoner, not caster). tl1 minimal source confirmed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "http://hardcoregamemode.blogspot.com/2010/01/strategy-torchlight-alchemist-summoner.html",
+      "archive_url": null,
+      "site": "hardcoregamemode.blogspot.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Alchemist Summoner build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://slashnblast.wordpress.com/2011/09/12/new-torchlight-1-build-arcane-alchemist/",
+      "archive_url": null,
+      "site": "slashnblast.wordpress.com",
+      "author_handle": "unknown",
+      "title": "New Torchlight 1 Build: Alchemist / Arcane",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.alteredgamer.com/torchlight/60098-class-guide-the-alchemist/",
+      "archive_url": null,
+      "site": "alteredgamer.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Alchemist Class Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era tl1-2009 — Torchlight 1 release era",
+      "anchor_quote": "Ember Lance requires character level 15 to unlock",
+      "source_url": "https://slashnblast.wordpress.com/2011/09/12/new-torchlight-1-build-arcane-alchemist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Summoner Alchemist — pet-core summoner class using minion army",
+      "anchor_quote": "The alchemist is the best choice for a summoner playstyle, as it has access to Golems and Imps and can be played as a hands-off sideline warrior.",
+      "source_url": "http://hardcoregamemode.blogspot.com/2010/01/strategy-torchlight-alchemist-summoner.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Ember Lance, Summon Nether Imp, Summon Alchemic Golem",
+      "anchor_quote": "a Lore Alchemist will want to have Nether Imp, Alchemical Golem, and Beam Golem all pumped as high as possible",
+      "source_url": "http://hardcoregamemode.blogspot.com/2010/01/strategy-torchlight-alchemist-summoner.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Lightning element — Alchemist has lightning spells",
+      "anchor_quote": "Ember Lightning casts a lightning bolt at foes, doing electric damage that is good early on but weak later, and benefits from bonuses to electricity damage.",
+      "source_url": "https://slashnblast.wordpress.com/2011/09/12/new-torchlight-1-build-arcane-alchemist/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Charm Mastery skill tree boosts summon limits and stats; pet mastery doubles summon armor/attack bonuses."
+        },
+        "source_url": "http://hardcoregamemode.blogspot.com/2010/01/strategy-torchlight-alchemist-summoner.html",
+        "anchor_quote": "be sure to max out pet mastery as the bonuses to armor and attack will double the strength of your summons",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Minion melee/ranged; Ember Lance is a channeled laser beam; Ember Lightning is a targeted bolt. Summoner primarily commands minions at range."
+        },
+        "source_url": "https://slashnblast.wordpress.com/2011/09/12/new-torchlight-1-build-arcane-alchemist/",
+        "anchor_quote": "Ember Lance casts a continuous blast of ember energy at your foes",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Summon Nether Imps (up to 6) + Summon Alchemical Golem (permanent minion) + pet. Buff minions with Burning Bind. Alchemist stays back while minion army does damage."
+        },
+        "source_url": "http://hardcoregamemode.blogspot.com/2010/01/strategy-torchlight-alchemist-summoner.html",
+        "anchor_quote": "Six nether imps plus 2 golems plus pet plus buffs plus your spells hitting one target equals instant death.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure summoner (max Lore tree)",
+            "Arcane/caster Alchemist (Ember Lance focus)",
+            "Summoner/support hybrid (Burning Bind)"
+          ]
+        },
+        "source_url": "http://hardcoregamemode.blogspot.com/2010/01/strategy-torchlight-alchemist-summoner.html",
+        "anchor_quote": "If you want to be a summoner, be sure to max out pet mastery",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "kit_id": "poe1-ward-loop",
+  "spine": {
+    "kit_id": "poe1-ward-loop",
+    "folk_name": "Ward Loop",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.15-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test FAILS: without the self-sustaining loop this is a reactive CWDT build that needs enemies to hit the player; the original runs at full cast throughput in an EMPTY ROOM — perpetual motion is the identity, not a scaling detail. 'This is not that build.' Docket candidate filed (closed-loop self-damage trigger economy).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test FAILS: without the self-sustaining loop this is a reactive CWDT build that needs enemies to hit the player; the original runs at full cast throughput in an EMPTY ROOM — perpetual motion is the identity, not a scaling detail. 'This is not that build.' Docket candidate filed (closed-loop self-damage trigger economy).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "CWDT (loop motor)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "meta-trigger chassis, not an attack — carried in trigger_grammar (on-damage-taken -> linked-cast, depth 1). In source it re-fires the WHOLE loop off self-generated damage; engine expresses only the single reactive hop"
+        },
+        {
+          "source_skill": "Summon Skeletons",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "transient proxies summoned ONLY to die instantly (~0.2s via To Dust jewels) — sacrificial death-event fodder, not combatants; the minion-death -> flat self-damage conversion (2x Heartbound Loop, 420 phys each) has NO engine lane"
+        },
+        {
+          "source_skill": "Forbidden Rite (triggered payload)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "triggered self-costing chaos nova payload (geometry per b04 forbidden-rite precedent); Inquisitor variant payloads Ice Spear / Freezing Pulse (water projectiles) noted — payload identity is secondary to the loop"
+        }
+      ],
+      "motion_frame": "walk-forward autobomber: the kit casts ITSELF — a perpetual self-damage trigger engine machine-guns spells around the player, who just steers and keeps the flask window up",
+      "resource_economy": {
+        "damage_taken_converts_shape": "resource-fill",
+        "hp_cost_scale": 0.3
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "triggered spell payloads at self-origin (loop mechanism itself has no geometry)"
+          ],
+          "economy": [
+            "Ward flat-absorb sustain window (Olroth's Resolve) approximated as defensive absorb + resource-fill; 1.1k Ward threshold is the source viability gate",
+            "self-damage AS FUEL is the gap, not a key"
+          ],
+          "traits_affixes": [
+            "ward-flat stacking",
+            "CWDT-threshold tuning",
+            "triggered-spell damage scaling (Inquisitor)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Honest core: the engine CAN express the reactive half — enemy damage -> on-damage-taken -> linked-cast, plus RETRIBUTION_ENGINE — a damage-taken proc chassis. It canNOT express the CLOSED loop: the kit's own summon -> instant minion death -> flat self-damage re-ENTERING the trigger as its condition. MAX_CHAIN_DEPTH=1 is LOCKED (source depth is cyclic/unbounded — a depth mint is template-forbidden); there is no minion-death -> self-damage lane and no self-hit primitive (b04 forbidden-rite steward precedent: hp_cost_scale is a COST, it does not feed damage-taken triggers). Eras ERRATA-corrected at ingest-4 (Ward debuts 3.15; 3.14 floor removed)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 6,
+      "mechanism_class": "closed-loop self-damage trigger economy (autonomous perpetual cast engine)",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "working-as-intended",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3261066",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.26] CWDT Ward Loop Scion",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/heartbound-loop-autobomber-scion-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "Odealo",
+      "title": "[3.25] Heartbound Loop Autobomber Scion Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://www.vhpg.com/poe-ward/",
+      "archive_url": null,
+      "site": "vhpg.com",
+      "author_handle": null,
+      "title": "PoE Ward Expedition Mechanics 3.15",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poecurrency.com/news/poe-3-21-how-to-fix-the-problems-in-ward-loop-build",
+      "archive_url": null,
+      "site": "poecurrency.com",
+      "author_handle": null,
+      "title": "POE 3.21: Everything You Should Know About The Ward Loop Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "Ward mechanic 'introduced in content patch 3.15 (Expedition)'; era floor 3.14 predates Ward's existence in the game; build impossible in 3.14",
+      "source_url": "http://www.vhpg.com/poe-ward/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "Multiple guides for 3.21, 3.22, 3.23, 3.26, 3.27, 3.28 document Ward Loop as an active build with ongoing balance adjustments",
+      "source_url": "https://www.poecurrency.com/news/poe-3-21-how-to-fix-the-problems-in-ward-loop-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk names 'Ward Loop', 'Olroth loop', 'Heartbound Loop CWDT' are real community usage",
+      "anchor_quote": "'[3.26] CWDT Ward Loop Scion' forum thread title; 'Heartbound Loop Autobomber Scion Build' Odealo guide — all three naming variants confirmed in community sources",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3261066",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills CWDT + Summon Skeletons + Forbidden Rite; Heartbound Loop self-damage on minion death triggers CWDT perpetual loop; Olroth's Resolve ward absorbs self-damage",
+      "anchor_quote": "'You then take damage from Heartbound Loop and trigger Summon Skeletons again, a process that will be repeated for as long as you keep your Olroth's Resolve Flask up'",
+      "source_url": "https://odealo.com/articles/heartbound-loop-autobomber-scion-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Inquisitor: Instruments of Virtue + Inevitable Judgement (damage scaling on triggered spells)",
+            "Elementalist: Shaper of Storms/Flames (elemental proliferation)",
+            "Scion Ascendant: flexible combination"
+          ],
+          "ward_threshold": "1.1k+ Ward required for safe face-tanking of Forbidden Rite chain"
+        },
+        "source_url": "https://www.poecurrency.com/news/poe-3-21-how-to-fix-the-problems-in-ward-loop-build",
+        "anchor_quote": "'need to have at least 1.1k Ward to run Ward Loop safely'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Heartbound Loop ring x2 (mandatory — 420 physical damage on minion death each)",
+            "Olroth's Resolve flask (mandatory — ward sustain without break during effect)",
+            "To Dust jewels x3 (mandatory — reduce skeleton duration to 0.198-0.231s)",
+            "Anomalous Summon Skeletons (recommended for reliable trigger)"
+          ]
+        },
+        "source_url": "https://www.poecurrency.com/news/poe-3-21-how-to-fix-the-problems-in-ward-loop-build",
+        "anchor_quote": "'Two Heartbound Loops are pretty much mandatory... you need to obtain Heartbound Loops able to reach 420 Physical Damage Taken on Minion Death'",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (perpetual triggered spells at player position)",
+          "triggered_skills": [
+            "Ice Spear (projectile)",
+            "Freezing Pulse (projectile cone)",
+            "Forbidden Rite (self-damage AoE)"
+          ],
+          "note": "effective geometry depends on linked spells; loop mechanism itself is self-origin"
+        },
+        "source_url": "https://odealo.com/articles/heartbound-loop-autobomber-scion-build",
+        "anchor_quote": "'Skeletons die instantly, Heartbound Loop self-damages you, CWDT recasts skeletons, Olroth's ward absorbs it all'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Summon Skeletons with To Dust jewels reducing skeleton duration to ~0.2s; skeletons die instantly; Heartbound Loop ring deals 420 physical damage on each minion death; this + Forbidden Rite self-damage exceeds CWDT threshold; CWDT auto-triggers Summon Skeletons again + linked spells (Ice Spear, Freezing Pulse); Olroth's Resolve flask sustains ward that absorbs self-damage, preventing death; perpetual loop while flask active"
+        },
+        "source_url": "https://odealo.com/articles/heartbound-loop-autobomber-scion-build",
+        "anchor_quote": "'You then take damage from Heartbound Loop and trigger Summon Skeletons again, a process that will be repeated for as long as you keep your Olroth's Resolve Flask up'",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Inquisitor (Ice Spear trigger — primary documented variant)",
+            "Elementalist (elemental proliferation damage variant)",
+            "Scion (flexible ascendancy combo)",
+            "Wardless Ward Loop (without Olroth's — alternative using Iron Flask)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3261066",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

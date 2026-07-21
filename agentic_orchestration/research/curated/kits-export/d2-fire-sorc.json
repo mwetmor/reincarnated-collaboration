@@ -1,0 +1,264 @@
+{
+  "kit_id": "d2-fire-sorc",
+  "spine": {
+    "kit_id": "d2-fire-sorc",
+    "folk_name": "Fire Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fire Ball",
+          "geometry_value": "single_target",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Arc projectile to target location; small burst radius on impact. Primary spam skill."
+        },
+        {
+          "source_skill": "Meteor",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cursor-targeted delayed fall at designated location; larger AoE on impact. Pair with Fire Ball for overlapping burst."
+        }
+      ],
+      "motion_frame": "Teleport into position; drop Meteor on pack (delayed impact); spam Fire Ball for immediate hits; reposition via Teleport",
+      "resource_economy": {
+        "cost_scale": "mana-hungry",
+        "cadence_scale": "spam-fire-ball-between-meteor-cooldowns"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Teleport (1-point utility) for repositioning"
+          ],
+          "traits_affixes": [
+            "Meteor synergizes Fire Ball and Fire Bolt; Fire Mastery amplifies all fire skills"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "No ailment tokens — fetched dossier names no burn/stun/chill on the build's core output. Fire Ball burst radius is small (single_target with radius is the closest match; delivery_notes carry the AoE texture). Meteorb hybrid variant (Frozen Orb secondary) is variant-scope — not in core skills[]. S14 confirmed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Fireball Sorceress Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/meteor-sorceress",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Teo1904",
+      "title": "Fire Ball Meteor Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Fireball Sorceress Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Fireball Sorceress Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in rotw-s14 era",
+      "anchor_quote": "Fire Ball Meteor Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/meteor-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fire Sorceress' and aliases 'Fire Sorc', 'Fireball Meteor Sorc' are real community usage",
+      "anchor_quote": "Fireball Sorceress Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Fire Ball, Meteor, Fire Mastery",
+      "anchor_quote": "20 points to Fire Ball — invest immediately, main damage dealer, required; 20 points to Meteor — invest immediately and max out immediately, required; 20 points to Fire Mastery",
+      "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com",
+          "note": "Updated May 22, 2026; also Teo1904 at maxroll for S14 guide"
+        },
+        "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+        "anchor_quote": "MrLlamaSC is a professional twitch broadcaster that has been streaming since 2014",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Spirit (shield)",
+            "Chains of Honor (armor)",
+            "Heart of the Oak (weapon alt)"
+          ],
+          "uniques": [
+            "Eschuta's Temper",
+            "Flickering Flame",
+            "Harlequin Crest",
+            "Magefist",
+            "Arachnid Mesh"
+          ],
+          "synergies": [
+            "Meteor synergizes Fire Ball and Fire Bolt",
+            "Fire Mastery amplifies all fire skills"
+          ],
+          "notes": "S14 / rotw-s14 viability confirmed — build guide explicitly covers Season 14."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/meteor-sorceress",
+        "anchor_quote": "Fire Ball Meteor Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Eschuta's Temper (weapon — +fire/lightning damage, +skills)",
+            "Heart of the Oak (alt weapon)",
+            "Spirit Monarch (shield — 35 FCR, +2 skills)",
+            "Chains of Honor (armor)",
+            "Flickering Flame (helm)",
+            "Harlequin Crest (alt helm)",
+            "Magefist (gloves)",
+            "Arachnid Mesh (belt)",
+            "Mara's Kaleidoscope (amulet)"
+          ],
+          "notes": "Spirit Monarch is described as 'single best upgrade you can make'; Eschuta's is true BIS for pure fire."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+        "anchor_quote": "Eschuta's Temper for +1–3 Sorceress skills, +10–20% fire/lightning damage; Spirit Monarch at 35 FCR, +2 skills",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Fire Ball: arc-projectile to target, small burst radius on impact. Meteor: cursor-targeted delayed fall at designated location, larger AoE on impact. Small-radius footprint overall. At-target delivery via projectile or cursor placement."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+        "anchor_quote": "explosive Fire Ball and Meteor damage making both single target and area of effect extremely effective",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Teleport into position. Cast Meteor on dense pack (delayed impact, large damage). Follow with Fire Ball spam for immediate hits and AoE radius. Fire Mastery passively amplifies all fire damage. Repositioning via Teleport as needed."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fireball-sorceress-build",
+        "anchor_quote": "20 points to Fire Ball — invest immediately, main damage dealer, required; 20 points to Meteor — invest immediately and max out immediately, required",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Meteor/Fireball Sorc (pure fire; Eschuta's BIS)",
+            "Meteorb / MeteOrb (Meteor + Frozen Orb hybrid; handles cold immunes)",
+            "Blizzard/Fireball hybrid (S14 variant per Maxroll)"
+          ],
+          "notes": "PureDiablo starter guide explicitly names 'Blizzball or Meteorb' as common sorceress approaches."
+        },
+        "source_url": "https://www.purediablo.com/strategy/diablo-2-sorceress-guide-blizzball-meteorb",
+        "anchor_quote": "Diablo 2 Sorceress Starter Guide - Blizzball or Meteorb",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

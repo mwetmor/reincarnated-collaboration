@@ -1,0 +1,236 @@
+{
+  "kit_id": "d3-inna-allies",
+  "spine": {
+    "kit_id": "d3-inna-allies",
+    "folk_name": "Inna Mystic Ally",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The entire identity is an autonomous fire-ally army. Engine has no pet-combatant lane. Cyclone Strike utility and Spirit economy map fine, but combat output is pet-origin. This is not that build — summoner-deferral terminal.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The entire identity is an autonomous fire-ally army. Engine has no pet-combatant lane. Cyclone Strike utility and Spirit economy map fine, but combat output is pet-origin. This is not that build — summoner-deferral terminal.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Mystic Ally (Fire / Water / Earth / Air full menagerie)",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Autonomous pet combatants at player-adjacent positions; multi-ally army; engine summoner-GAP — pet-core dominant loop has no engine lane"
+        },
+        {
+          "source_skill": "Way of the Hundred Fists",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Generator buffing allies via Assimilation passive; player attack is secondary; skill expression is ally-buffing not personal damage"
+        },
+        {
+          "source_skill": "Cyclone Strike",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Group-pull utility; positions enemies for ally contact"
+        }
+      ],
+      "motion_frame": "Maintain ally menagerie; use Cyclone Strike to group enemies into ally strike zones; buff allies via generator; allies auto-attack as primary damage source",
+      "resource_economy": {
+        "resource_type": "Spirit",
+        "generator": "Way of the Hundred Fists",
+        "spend_pattern": "Cyclone Strike spend for grouping utility"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ally positioning geometry varies by ally type; grouping via Cyclone Strike"
+          ],
+          "economy": [
+            "Spirit generation for utility casts; ally uptime is passive"
+          ],
+          "traits_affixes": [
+            "Inna set bonus (scaler only); fire-element affixes; ally-count bonuses"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SUMMONER-GAP: dominant loop is autonomous ally army (Fire/Water/Earth/Air Mystic Allies); pet-core → GAPPED per basin-3 addendum §CROSS row 2 summoner-deferral. Ally entries above are honest skill traces but the kit identity cannot be captured without engine pet/proxy combatant lane. Element: fire — attested in corpus elem_raw 'fire' and dossier 'Fire Ally buffed again in Season 27.' Set multiplier (9,000%) scaler-only per §B row 1. Accrual to placed-proxy-count family: The Crudest Boots 'double the number of your Mystic Allies' — fetched ally-count-multiplier item, first d3 attested double."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Diablo 3 Season 38/39 Inna Mystic Ally Monk Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Inna's Mantra provides a massive 9,000% Mystic Ally damage, 50% damage reduction",
+      "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "Diablo 3 Season 38/39 Inna Mystic Ally Monk Guide",
+      "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Inna Mystic Ally'; aliases include 'Inna Monk', 'Mystic Ally Monk'",
+      "anchor_quote": "Diablo 3 Season 38/39 Inna Mystic Ally Monk Guide",
+      "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Mystic Ally, Way of the Hundred Fists; class resource: Spirit",
+      "anchor_quote": "most commonly used generator",
+      "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+        "anchor_quote": "Northwar (Content Creator, with YouTube and Twitch presence listed)",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Inna's Mantra (6): 9,000% Mystic Ally damage + 50% damage reduction + passive Mantra/Ally effects",
+          "kanai_cube": [
+            "The Crudest Boots or Bindings of the Lesser Gods are cube candidates"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+        "anchor_quote": "Inna's Mantra provides a massive 9,000% Mystic Ally damage, 50% damage reduction and a bunch of passive effects",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Inna's Mantra (6pc set)",
+            "The Crudest Boots (doubles Mystic Allies, triples damage)",
+            "Bindings of the Lesser Gods (+200% Mystic Ally damage or +600% for Fire)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+        "anchor_quote": "The Crudest Boots double the number of your Mystic Allies and triple their damage on top of letting their active effects last longer",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target/pet-based",
+          "range": "near-player",
+          "aoe": "small radius around ally positions",
+          "notes": "Allies melee/AoE in radius around their positions; build is effectively a pet-class"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+        "anchor_quote": "Water Ally with large AoE and steady DPS, used for speed content; Earth Ally ideal for Greater Rift pushing",
+        "abstained": 0,
+        "conf": 0.77
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Maintain Inna's Mantra set; summon full Mystic Ally menagerie (Fire, Water, Earth, Air allies); buff allies via Way of the Hundred Fists Assimilation; use Cyclone Strike for grouping; allies auto-attack and deal the build's primary damage"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+        "anchor_quote": "Inna's Mantra provides a massive 9,000% Mystic Ally damage, 50% damage reduction",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Water Ally (speed/AoE)",
+            "Earth Ally (GR pushing)",
+            "Fire Ally (buffed S27, speed + pushing)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/inna-mystic-ally-monk-guide",
+        "anchor_quote": "Water Ally with large AoE and steady DPS; Earth Ally ideal for Greater Rift pushing; Fire Ally buffed again in Season 27 and it's now roughly equal to Water in speedfarming",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "kit_id": "le-chthonic-fissure-warlock",
+  "spine": {
+    "kit_id": "le-chthonic-fissure-warlock",
+    "folk_name": "Chthonic Fissure Warlock",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.1-harbingers;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The signature 'fire damage over time' of Chthonic Fissure almost certainly IS the Ignite ailment in-game, but the guide never names the status, so burn is withheld under strict §0.1 — a source player would feel the DoT as their core damage and our map understates it (no burn token). Seeking-spirit pursuit is a behavioral delta noted but not minted (not the sole identity loop).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The signature 'fire damage over time' of Chthonic Fissure almost certainly IS the Ignite ailment in-game, but the guide never names the status, so burn is withheld under strict §0.1 — a source player would feel the DoT as their core damage and our map understates it (no burn token). Seeking-spirit pursuit is a behavioral delta noted but not minted (not the sole identity loop).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Chthonic Fissure",
+          "geometry_value": "placed_lane",
+          "element_primary": "fire",
+          "element_secondary": "shadow",
+          "ailments": [],
+          "delivery_notes": "Opens a ground-tear placed in the cast direction that CRAWLS FORWARD emitting tormenting spirits along its path (fetched: 'lane/directional corridor along crawl path'; spirits 'seeking enemies'). 'Both fire & necrotic tags by default' (verbatim) -> fire primary + shadow secondary (necrotic = shadow, §1). Deals fire damage over time; casts tormenting spirits."
+        },
+        {
+          "source_skill": "Chaos Bolts",
+          "geometry_value": "multi_projectile",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spammed for clear (chaos = shadow, drain-lineage §1); Chthonic Fissure triggers additional Chaos Bolts for AoE."
+        },
+        {
+          "source_skill": "Infernal Shade",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target damage tool."
+        }
+      ],
+      "motion_frame": "Tear open a crawling Chthonic Fissure that belches seeking spirits + fire/necrotic DoT; spam Chaos Bolts to clear; Infernal Shade for single target; Ward overshield holds the line",
+      "resource_economy": {
+        "resource": "mana",
+        "defense_shape": "Ward (decaying overshield) is the Warlock defensive identity"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "crawl-path corridor length",
+            "seeking-spirit count",
+            "Chaos Bolt volley"
+          ],
+          "economy": [
+            "Mana per cast",
+            "Ward overshield generation"
+          ],
+          "traits_affixes": [
+            "fire+necrotic damage scalers (Grim Tide multiplier)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Elements CORRECTED to fire+necrotic (verbatim 'both fire & necrotic tags by default') -> fire primary + shadow secondary; the corpus 'void' probe artifact is NOT echoed (hot-fact). Chaos Bolts = shadow (chaos drain-lineage §1). CRITICAL §0.1 NEAR-MISS (flagged loud): fetched 'deals fire damage over time' is behaviorally burn-shaped BUT the LE Ignite STATUS is not NAMED — 'fire damage over time' describes DoT timing, and §0-UNIVERSAL is strict (fire != burn without the named status). BURN WITHHELD. 'its ailments' (Grim Tide line) references ailments existing but names NONE -> all ailment tokens withheld. Tormenting spirits 'seeking enemies' = pursuit behavior on the fissure emission (R-M8 behavioral-delta note; not sole loop, so no qual candidate). trigger_grammar reflects Fissure->Chaos Bolts linked-cast. Bleed Warlock variant noted (out of dominant Torment loop). ELEMENT_CONVERSION_HYBRID: fire+necrotic dual-tag identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Torment Warlock Guide for Last Epoch Season 4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/chthonic-fissure-and-grim-tide-application/62794",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "unknown",
+      "title": "Chthonic Fissure and Grim Tide Application",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Warlock Mastery Reveal - Last Epoch Maxroll.gg",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "The Warlock mastery was introduced in Last Epoch's 1.0 release on February 21st, 2024. The Warlock is the Acolyte's third mastery",
+      "source_url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": "Last Epoch Patch 1.1: Harbingers of Ruin... included various balance changes to Warlock skills",
+      "source_url": "https://maxroll.gg/last-epoch/news/last-epoch-patch-1-1-harbingers-of-ruin-features-and-trailer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Chthonic Fissure Warlock builds found on maxroll updated for Season 4 (1.4)",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Chthonic Fissure Warlock'; aliases include 'Soul Feast Fissure Warlock', 'void ground Warlock'",
+      "anchor_quote": "Chthonic Fissure and its ailments... Warlock... sunder the ground unleashing unearthly horrors; multiple Warlock builds centered on Chthonic Fissure found on maxroll",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Chthonic Fissure, Soul Feast(curse feed); Warlock (Acolyte mastery); void ground lane delivery; Ward defense; Mana resource",
+      "anchor_quote": "Cthonic fissure has both fire & necrotic tags by default... deals fire damage over time and casts tormenting spirits",
+      "source_url": "https://forum.lastepoch.com/t/chthonic-fissure-and-grim-tide-application/62794",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Terek",
+          "site": "maxroll.gg",
+          "guide_title": "Acolyte Leveling Guide (Warlock) for Last Epoch Season 4"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/warlock-leveling-guide",
+        "anchor_quote": "The guide is authored by Terek, a content creator with associated YouTube and Twitch channels",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_tree_note": "Ward generation and maintenance is Warlock's defensive identity; Grim Tide passive referenced as multiplier for Chthonic Fissure ailments"
+        },
+        "source_url": "https://forum.lastepoch.com/t/chthonic-fissure-and-grim-tide-application/62794",
+        "anchor_quote": "Grim Tide applies more necrotic damage to Chthonic Fissure and its ailments",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ground-tear placed in cast direction; crawls forward emitting spirits",
+          "footprint": "lane/directional corridor along crawl path",
+          "damage_tags": "fire and necrotic by default (verbatim: 'Cthonic fissure has both fire & necrotic tags by default')",
+          "spirits": "tormenting spirits emitted along fissure lane seeking enemies"
+        },
+        "source_url": "https://forum.lastepoch.com/t/chthonic-fissure-and-grim-tide-application/62794",
+        "anchor_quote": "Cthonic fissure has both fire & necrotic tags by default... deals fire damage over time and casts tormenting spirits",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Chthonic Fissure to open a ground tear that belches chaos spirits and applies damage; spam Chaos Bolts for clear; use Infernal Shade for single target; Warlock defensive layer is Ward (overshield); Mana spend per cast",
+          "resource_model": "Mana; Ward overshield for defense"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/warlock-leveling-guide",
+        "anchor_quote": "cast Chthonic Fissure once and spam Chaos Bolts at level 20... Use Chthonic Fissure to clear and on single target... Use it when you are low on mana",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Torment Warlock (Chthonic Fissure + Chaos Bolts)",
+            "Bleed Warlock (Fissure as setup)",
+            "Flame Whip Warlock (Fissure + Spine of Malatros)",
+            "Rip Blood Warlock (Fissure as buffer)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+        "anchor_quote": "Chthonic Fissure triggers Chaos Bolts for additional AoE and damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

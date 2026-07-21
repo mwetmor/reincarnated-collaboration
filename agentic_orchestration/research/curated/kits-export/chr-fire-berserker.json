@@ -1,0 +1,247 @@
+{
+  "kit_id": "chr-fire-berserker",
+  "spine": {
+    "kit_id": "chr-fire-berserker",
+    "folk_name": "Fire Avatar Berserker",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ea-2015-2019;1.0-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire Avatar form-swap transformation is a mode-swap-identity mechanic (GX-02) not representable in engine skill-loop without form-transition support. Burning ground DoT approximated as ground_targeted_circle; burn ailment not emitted (zone DoT vs on-enemy status distinction). Player gets a recognizable fire-explosion melee build, missing the avatar transformation peak state.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire Avatar form-swap transformation is a mode-swap-identity mechanic (GX-02) not representable in engine skill-loop without form-transition support. Burning ground DoT approximated as ground_targeted_circle; burn ailment not emitted (zone DoT vs on-enemy status distinction). Player gets a recognizable fire-explosion melee build, missing the avatar transformation peak state.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fire skills (Dragon Storm / fire melee strikes)",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fire element fully attested: 'fire damage'; 'enchanting priority – fire damage'; 'This build creates huge explosions in enemies thanks to the [Dragonfire] set'. Melee range delivery. Burn ailment NOT emitted: burning ground ('Smoldering Stone rune: burning ground... 300% fire damage for 3 seconds') is a ground DoT zone, not an on-enemy burn status — §0-UNIVERSAL requires status NAMED on-enemy."
+        },
+        {
+          "source_skill": "Dragonfire Garb explosion proc (on fire-hit explosion)",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'creates huge explosions in enemies thanks to the [Dragonfire] set' — on-hit explosion (small-AoE circle at target). Trigger: on fire hit → explosion. Part of the trigger_grammar chain."
+        },
+        {
+          "source_skill": "Smoldering Stone burning ground (on-kill ground DoT)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'killed enemies leave a burning ground that deals 300% of your fire damage for 3 seconds' — on-kill ground_targeted_circle DoT zone. Attested as fire damage in fetched text."
+        }
+      ],
+      "motion_frame": "Melee fire strikes → Rage builds on-hit → fire damage events proc Dragonfire Garb explosions (circle) → killed enemies leave burning ground DoT (ground_targeted_circle); optional Fire Avatar transforms Berserker into fire entity (mode-swap, docket gap).",
+      "resource_economy": {
+        "cost_scale": "rage",
+        "cost_slope": "builds on-hit; 1 mana on-hit noted in dossier for efficiency; spent on skill activation",
+        "regen_shape": "hit-to-fill"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "explosion AoE radius; burning ground radius/duration"
+          ],
+          "economy": [
+            "Rage generation rate; mana-on-hit efficiency"
+          ],
+          "traits_affixes": [
+            "fire damage priority enchant; Smoldering Stone rune; Dragonfire Garb set bonuses"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire CONFIRMED (identity+mechanics). THE PHYSICAL RULE: fire melee strikes have fire element_primary (not physical, which is no-family — fire IS the damage type here per fetched text). Burn ailment is a §0 near-miss: 'burning ground' describes a zone effect, not an on-enemy burn status; §0-UNIVERSAL binds (status must be named in fetched text as an on-enemy status). Fire Avatar (ultimate form) is a mode-swap-identity gap — corpus GX-02 consistent; mapped as docket note, not primary identity (dossier says 'mentioned as an ultimate skill choice' = optional, not core rotation). Grade CLOSE: fire melee explosion chain maps well; Fire Avatar and exact explosion proc depth have engine fidelity gaps."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamah.com/chronicon-berserker-dragonfire-garb-build/",
+      "archive_url": null,
+      "site": "steamah.com",
+      "author_handle": "unknown",
+      "title": "Chronicon Berserker Dragonfire Garb Build",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://smattymattyca.wordpress.com/2021/07/04/chronicon-dragon-storm-fire-berserker-build-guide/",
+      "archive_url": null,
+      "site": "smattymattyca.wordpress.com",
+      "author_handle": "smattymatty",
+      "title": "Chronicon Dragon Storm-Fire Berserker Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2215223977",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Chronicon 1.10 Berserker Dragonfire Garb Build RUS/ENG",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ea-2015-2019; 1.0-2020",
+      "anchor_quote": "Chronicon entered Steam Early Access in August 2015... 1.0 is live! Full release! [August 2020]",
+      "source_url": "https://rawg.io/games/chronicon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fire Avatar Berserker channels fire-elemental transformation radiating fire damage; multi-trigger proc chain; fire damage type",
+      "anchor_quote": "fire damage... enchanting priority – fire damage... This build creates huge explosions in enemies thanks to the [Dragonfire] set",
+      "source_url": "https://steamah.com/chronicon-berserker-dragonfire-garb-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core skills: fire tree suite, avatar ultimate; Rage resource built on-hit; fire damage mode; armor/hp-stack defense",
+      "anchor_quote": "Dealing and taking damage builds Rage, which empowers abilities... fire damage... Fire Avatar has been mentioned as an ultimate skill choice for fire-focused builds",
+      "source_url": "https://earlyguides.com/chronicon",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "smattymatty",
+          "site": "smattymattyca.wordpress.com",
+          "url": "https://smattymattyca.wordpress.com/2021/07/04/chronicon-dragon-storm-fire-berserker-build-guide/"
+        },
+        "source_url": "https://smattymattyca.wordpress.com/2021/07/04/chronicon-dragon-storm-fire-berserker-build-guide/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Dragonfire Garb",
+          "bonuses": [
+            "enables huge explosions in enemies on fire hit",
+            "fire damage priority enchant",
+            "Smoldering Stone rune: killed enemies leave burning ground 300% fire damage for 3 seconds"
+          ]
+        },
+        "source_url": "https://steamah.com/chronicon-berserker-dragonfire-garb-build/",
+        "anchor_quote": "Smoldering Stone rune makes killed enemies leave a burning ground that deals 300% of your fire damage for 3 seconds",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "value": "small-radius AoE radiating from transformed Berserker body during Fire Avatar; explosions on-hit at target; melee range delivery"
+        },
+        "source_url": "https://steamah.com/chronicon-berserker-dragonfire-garb-build/",
+        "anchor_quote": "Fire Avatar has been mentioned as an ultimate skill choice for fire-focused builds",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Melee hits build Rage (on-hit); fire damage skills proc additional fire events in chain; Dragonfire Garb set creates explosions from fire hits; optional Fire Avatar ultimate transforms Berserker into fire entity; spam fire skills at high-Rage state for amplified burst"
+        },
+        "source_url": "https://steamah.com/chronicon-berserker-dragonfire-garb-build/",
+        "anchor_quote": "This build creates huge explosions in enemies thanks to the set... fire damage, 1 mana on hit",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Dragonfire Garb explosion build",
+            "Dragon Storm/Sky Lord fire build (v1.2+)",
+            "Fire Avatar ultimate variant"
+          ]
+        },
+        "source_url": "https://smattymattyca.wordpress.com/2021/07/04/chronicon-dragon-storm-fire-berserker-build-guide/",
+        "anchor_quote": "Dragon Storm is going to be the main skill for the rest of the game",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

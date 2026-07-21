@@ -1,0 +1,232 @@
+{
+  "kit_id": "di-tempest",
+  "spine": {
+    "kit_id": "di-tempest",
+    "folk_name": "Tempest (Mist Touched clones)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-tempest-2024;di-5.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Zephyr shade mechanic (auto-attack-triggered mirror-skill entities + orb-CD loop) approximated via trigger_grammar + MOMENTUM_CASCADE — the full feedback loop (orb collect → CD shorten → next Zephyr) has no exact engine lane. Source player would miss the orb-harvest rhythm. Wind/water dual-element open note filed per hot-facts.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water",
+      "wind"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Zephyr shade mechanic (auto-attack-triggered mirror-skill entities + orb-CD loop) approximated via trigger_grammar + MOMENTUM_CASCADE — the full feedback loop (orb collect → CD shorten → next Zephyr) has no exact engine lane. Source player would miss the orb-harvest rhythm. Wind/water dual-element open note filed per hot-facts.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wind Edge",
+          "geometry_value": "dash_attack",
+          "element_primary": "wind",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rushing slash primary attack; mobile melee delivery. No ailment-status named in store."
+        },
+        {
+          "source_skill": "Wave Edge",
+          "geometry_value": "melee_arc",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Water whip (lv34+ unlock); arc melee delivery. Water element from 'Command Wind and Sea' official source (ERRATA-52)."
+        },
+        {
+          "source_skill": "Squall",
+          "geometry_value": "blink",
+          "element_primary": "wind",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Teleport skill + triggers Zephyr summon on use."
+        }
+      ],
+      "motion_frame": "Wind Edge attacks → periodic Zephyr shade summon (up to 3) → Zephyr mimics skills → orb drop → collect to reduce CD",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "OPEN NOTE (per batch hot-facts mandate): Tempest element is officially Wind/Water — both genuinely active (Wind Edge primary, Wave Edge water whip). Primary mapped wind; secondary water per skills[] rows. If further runs yield single-dominant evidence, update. ERRATA-52 applied: Lightning → Wind/Water. Cooldown-only class per ERRATA-44 sweep + verify_ledger CONTRADICTED (cooldown-only confirmed). Zephyr shades mapped as trigger-grammar riders (trigger-avatar shape per §B row 4) — not summoner-GAP because they are transient proc entities (no HP, no commands, mimicking-skills behavior); orb-to-CD loop maps as MOMENTUM_CASCADE door + economy note. Accrual: placed-proxy-count family (up to 3 Zephyrs). DI resource probe unreliable per ERRATA sweep."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://screenrant.com/diablo-immortal-tempest-class-skills-builds-strategies/",
+      "archive_url": null,
+      "site": "screenrant.com",
+      "author_handle": null,
+      "title": "Diablo Immortal: Tempest Class Guide (Skills, Builds, and Strategies)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/diablo-immortal/24096019/command-wind-and-sea-as-the-tempest",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Command Wind and Sea as the Tempest - Diablo Immortal - Blizzard News",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/diablo-immortal/24077228/introducing-diablo-immortal-s-newest-class-tempest",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Introducing Diablo Immortal's Newest Class: Tempest",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-tempest-2024 and di-5.0-2026",
+      "anchor_quote": "The Tempest class was released in May 2024, making it relatively new for build guides from that period.",
+      "source_url": "https://gamerant.com/diablo-immortal-tempest-class-hands-on-preview/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Tempest (Mist Touched clones)' and aliases 'Tempest DI', 'Mist Touched Clone Tempest DI' are real community usage",
+      "anchor_quote": "Your attacks will periodically conjure a Zephyr to your aid, attacking enemies and mimicking many of your Skills before dissipating into a Mist-Touched Orb.",
+      "source_url": "https://news.blizzard.com/en-us/diablo-immortal/24096019/command-wind-and-sea-as-the-tempest",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills: wind mobility kit, Mist Touched(clone passive); class resource Spirit (Tempest); element Lightning",
+      "anchor_quote": "Command Wind and Sea as the Tempest",
+      "source_url": "https://news.blizzard.com/en-us/diablo-immortal/24096019/command-wind-and-sea-as-the-tempest",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (Zephyr clones disperse to nearby positions)",
+          "footprint": "multi-point (up to 3 Zephyrs at distinct positions)",
+          "mobility": "high — multiple dash/teleport skills (Squall, Tidal Rush, Wind Walk, Wind Edge rush)",
+          "notes": "Zephyrs are 'temporary shades that mirror your movements to distract and taunt enemies.' Not literal clones — shades that mimic skills."
+        },
+        "source_url": "https://news.blizzard.com/en-us/diablo-immortal/24096019/command-wind-and-sea-as-the-tempest",
+        "anchor_quote": "Your attacks will periodically conjure a Zephyr to your aid, attacking enemies and mimicking many of your Skills",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Tempest auto-attacks periodically summon Zephyrs (temporary shades that mimic skills, up to 3 at once). Zephyrs dissipate into Mist-Touched Orbs; collecting orbs shortens cooldown between Zephyr summons. Core skills: Wind Edge (rushing slash primary), Wave Edge (water whip, lv34+), Squall (teleport + Zephyr), Blade Dance, Crosswinds. Wind Walk and Tidal Rush for mobility. Multi-angle assault from distributed Zephyrs.",
+          "core_combo": "Wind Edge attacks -> Zephyr summon -> orb collection -> reduced CD loop",
+          "element_note": "Wind and water (NOT lightning)"
+        },
+        "source_url": "https://news.blizzard.com/en-us/diablo-immortal/24096019/command-wind-and-sea-as-the-tempest",
+        "anchor_quote": "Your attacks will periodically conjure a Zephyr to your aid, attacking enemies and mimicking many of your Skills before dissipating into a Mist-Touched Orb.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Wind/water melee (Wind Edge primary)",
+            "Wave Edge water whip (lv34+ unlock)",
+            "Squall teleport burst"
+          ],
+          "notes": "Multiple build paths implied by diverse skill list but no dedicated build guides fetched for this batch."
+        },
+        "source_url": "https://news.blizzard.com/en-us/diablo-immortal/24096019/command-wind-and-sea-as-the-tempest",
+        "anchor_quote": "Breaker, Crosswinds, Vortex, Squall, Blade Dance, Cascade, Flowing Strike, Tidal Rush, Zephyr Surge, Wind Walk, Rolling Surf, Riptide, Stormfury",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

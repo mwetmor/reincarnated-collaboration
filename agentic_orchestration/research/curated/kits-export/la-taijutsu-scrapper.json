@@ -1,0 +1,238 @@
+{
+  "kit_id": "la-taijutsu-scrapper",
+  "spine": {
+    "kit_id": "la-taijutsu-scrapper",
+    "folk_name": "Taijutsu Scrapper",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Z consequence modeled as self_buff (sustained uptime) vs burst_window (Shock Training) — this is the key design distinction between the two Scrapper specs. Stagger boss-break not mapped to ailment per §LA row 4. Synergy → curse:amplify. Gem priority skills name-only element null throughout.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Z consequence modeled as self_buff (sustained uptime) vs burst_window (Shock Training) — this is the key design distinction between the two Scrapper specs. Stagger boss-break not mapped to ailment per §LA row 4. Synergy → curse:amplify. Gem priority skills name-only element null throughout.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tenacity Release (Z) — unlimited resource / identity uptime",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Taijutsu identity: Z grants unlimited Shock & Stamina resources, +20% Stagger (boss-break buff — NOT stun ailment, §LA row 4 trap), paralysis immunity, -50% spacebar cooldown. Used at start of rotation when available. PERMANENT-analog: used as uptime buff not single burst window."
+        },
+        {
+          "source_skill": "Judgment (Synergy maintainer)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "DIRECTION TEST: 'maintain Synergy via Judgment consistently' — Synergy = enemy-directed damage-received debuff → curse:amplify. Same ruling as surge-deathblade and shining-knight. Judgment in gems_priority for taijutsu scrapper implied (Civo guide)."
+        },
+        {
+          "source_skill": "Death Rattle (at 75% Shock meter priority)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Priority skill at 75% Shock meter threshold. Named in gems context for scrapper. No element descriptor. Back-attack: +10% Crit Rate on back-side."
+        },
+        {
+          "source_skill": "Iron Cannon Blow / Battering Fists / Explosive Fist (gems_priority)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage skills in gems_priority. No element attested. Melee range, back-attack dependent. 'Explosive Fist' = skill name only, no element descriptor."
+        }
+      ],
+      "motion_frame": "Activate Tenacity Release (Z) at rotation start when available → maintain Synergy via Judgment → Death Rattle at 75% Shock meter → sustained melee output with unlimited Shock & Stamina resources during Z uptime; mobile, non-burst-window identity (contrast Shock Training's gauge-builder/spender rhythm)",
+      "resource_economy": {
+        "shock_stamina_dual": "Taijutsu identity grants unlimited Shock & Stamina during Z uptime — dual gauge SUSPENDED (not built/spent); identity converts gauge system to unlimited for duration",
+        "z_uptime": "use at rotation start when available; cooldown-based re-entry; sustained uptime orientation vs Shock Training's discrete burst windows"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Tenacity Release (Z) — unlimited resource + paralysis immunity state; used for sustained uptime not single burst",
+        "consequence_type": "self_buff"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TRAP: '+20% Stagger' in Taijutsu identity bonuses is boss-break vocabulary (stagger bar pressure), NOT the 16-ailment stun. Per §LA row 4: never map Stagger to stun. Delivered in delivery_notes only. 'Paralysis immunity' = defensive self-state on Z, not an ailment application. Element null throughout. Synergy via Judgment → curse:amplify per DIRECTION LAW (consistent with basin ruling). Z consequence_type self_buff (not burst_window) because Taijutsu Z = sustained uptime identity, not timed burst ceiling like Shock Training or surge-deathblade — player identity is 'more uptime of unlimited resources' not 'wait for one big window'."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Taijutsu Scrapper Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Written by Civo on Maxroll.gg — active Ark Passive era guide (no explicit update date but site is live 2026)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Taijutsu Scrapper — folk name (class Scrapper + Taijutsu identity spec)",
+      "anchor_quote": "Taijutsu is the primary identity; an alternative spec mentioned is Shock Training Scrapper.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Taijutsu emphasizes direct skill uptime using TS identity bonuses rather than Shock Training gauge-spend; faster animations and consistent mobile damage; simpler Scrapper identity for sustained uptime over gauge cycles",
+      "anchor_quote": "Taijutsu identity grants unlimited Shock & Stamina resources, +20% Stagger, paralysis immunity, and -50% spacebar cooldown... more burst focused playstyle [Shock Training] by comparison",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+        "anchor_quote": "Written by Civo on Maxroll.gg",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Raid Captain",
+            "Adrenaline",
+            "Cursed Doll or Keen Blunt Weapon"
+          ],
+          "gems_priority": [
+            "Iron Cannon Blow",
+            "Battering Fists",
+            "Explosive Fist"
+          ],
+          "bracelet_stats": "Swiftness and Crit"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Ambush Master, Raid Captain, Adrenaline, Cursed Doll/Keen Blunt Weapon. Bracelet stats emphasize Swiftness and Crit.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Back-attack positioning — +10% Crit Rate on back-side hits; melee range; no explicit AoE data in source"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+        "anchor_quote": "All attacks with a Back Attack affix receive +10% Crit Rate when landing on the target's back-side indicator.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Tenacity Release (Z) at start of rotation when available; maintain Synergy via Judgment consistently; prioritize Death Rattle at 75% Shock meter; Taijutsu identity grants unlimited Shock & Stamina resources + -50% spacebar cooldown during uptime. Sustained mobile output rather than gauge-spend burst cycles.",
+          "identity_bonuses": [
+            "+20% Stagger",
+            "paralysis immunity",
+            "-50% spacebar cooldown",
+            "unlimited Shock & Stamina resources"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/taijutsu-scrapper-raid-guide",
+        "anchor_quote": "Taijutsu identity grants unlimited Shock & Stamina resources, +20% Stagger, paralysis immunity, and -50% spacebar cooldown. You want to use Tenacity Release (Z) state at the start of any rotation where it is available.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Taijutsu (identity-uptime sustained damage, B tier Aug 2025)",
+            "Shock Training (gauge-builder/spender burst, B tier Aug 2025)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Taijutsu Scrapper: B Tier. Shock Training Scrapper: B Tier [August 2025 community tier list]",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

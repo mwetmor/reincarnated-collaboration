@@ -1,0 +1,308 @@
+{
+  "kit_id": "la-liberator-valkyrie",
+  "spine": {
+    "kit_id": "la-liberator-valkyrie",
+    "folk_name": "Liberator Valkyrie",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-valkyrie-2025-08-20;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: support identity (party heal/shield/buff) has no engine analog in solo combat loop. The party-heal payload (Light of the Faithful healing 10/20/30% max HP), damage-reduction (Salvation Site), and debuff-cleanse (Blessing of Salvation) cannot be expressed in a solo 1v1 fight loop. Player test: 'not that build' — this is a support-class spec. curse:amplify via Circle of Truth Brand is attested and emitted, but the dominant support identity cannot map. Docket: support-class-identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: support identity (party heal/shield/buff) has no engine analog in solo combat loop. The party-heal payload (Light of the Faithful healing 10/20/30% max HP), damage-reduction (Salvation Site), and debuff-cleanse (Blessing of Salvation) cannot be expressed in a solo 1v1 fight loop. Player test: 'not that build' — this is a support-class spec. curse:amplify via Circle of Truth Brand is attested and emitted, but the dominant support identity cannot map. Docket: support-class-identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Release Light (Z — Liberator stack generator + 12s damage buff)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Generates 1 Liberator stack per activation (max 3, lasts 60s); provides 12s Damage Buff to party; in solo projection = self buff; no elemental damage-typing in store"
+        },
+        {
+          "source_skill": "Light of the Faithful (X — Liberator stack consume for heal)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Consumes 1/2/3 Liberator stacks to heal party 10/20/30% max HP; solo = self-heal; no ailment analog"
+        },
+        {
+          "source_skill": "Circle of Truth (Brand — enemy damage-taken amplifier)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Brand: +10% enemy damage taken — DIRECTION TEST: enemy takes more damage (target receives +10%) = curse:amplify per DEBUFF-DIRECTION LAW. Attested in dossier: 'Circle of Truth (Brand: +10% enemy damage taken)'. Enemy-directed, persistent while brand active."
+        },
+        {
+          "source_skill": "Party support skills (Wings of Liberation, Divine Confirmation, Salvation Site, Blessing of Salvation)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Wings of Liberation: party-wide buff within 24m 60s; Divine Confirmation: +10% Damage 10s + 20% Hyper Awakening Damage 30s (party buff — DIRECTION TEST: party/self deals more = self_buff, NOT curse:amplify); Salvation Site: shield + damage reduction in area; Blessing of Salvation: debuff cleanse"
+        }
+      ],
+      "motion_frame": "Activate Release Light (Z) to generate Liberator stacks and party damage buff; consume stacks with Light of the Faithful (X) for party heal; apply Circle of Truth Brand for enemy damage-amp; maintain Wings of Liberation + Divine Confirmation party buffs; cleanse with Blessing of Salvation",
+      "resource_economy": {
+        "liberator_stacks": "generate via Release Light (Z), up to 3 stacks lasting 60s; consume via Light of the Faithful (X) for scaled party heal (10/20/30% max HP); stack duration and heal scaling are the economy rhythm"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "RESONANCE_LOOP"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "24m party-wide aura (Wings of Liberation); single-target Brand; area Salvation Site"
+          ],
+          "economy": [
+            "liberator_stacks: generate via Z, consume via X; Swiftness + Specialization primary stats"
+          ],
+          "traits_affixes": [
+            "Break of Dawn (Seraphic Leap -> Destiny, Divine Confirmation boost), Pledge of Salvation (Blessing of Salvation -> Destiny, Release Light boost), Holy Blade's Ashes, Faith Enhancement, Echoing Brand (Ark Grid nodes -> capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SUPPORT lane per LA row 5. Circle of Truth Brand: '+10% enemy damage taken' — enemy-directed damage-taken amplification = curse:amplify per DEBUFF-DIRECTION LAW (enemy takes more damage). Divine Confirmation '+10% Damage' is a party damage buff (ally/self deals more) — self_buff in solo projection, NOT curse:amplify. Blessing of Salvation cleanse has no ailment emit (cleanse is not a status applied). post-cutoff kit (Valkyrie class released August 2025 per verify_ledger). GX-16 gap_ref noted. Engravings DEAD axis; Ark Grid nodes -> capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Liberator Valkyrie Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgsite.net/news/18155-lost-ark-valkyrie-class-release-date-pc-amazon",
+      "archive_url": null,
+      "site": "rpgsite.net",
+      "author_handle": null,
+      "title": "Lost Ark will add the Valkyrie class on August 20",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://butwhytho.net/2025/08/lost-ark-rise-of-the-valkyrie-update/",
+      "archive_url": null,
+      "site": "butwhytho.net",
+      "author_handle": null,
+      "title": "Lost Ark's Rise of the Valkyrie Updates Adds New Class, Events, And System Updates",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-valkyrie-2025-08-20",
+      "anchor_quote": "Lost Ark will add the Valkyrie class on August 20 [2025]; Rise of the Valkyrie update released August 20, 2025 on PC for the global version through Amazon Games.",
+      "source_url": "https://www.rpgsite.net/news/18155-lost-ark-valkyrie-class-release-date-pc-amazon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Guide Last Updated June 12, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Liberator Valkyrie — class + identity spec, community name",
+      "anchor_quote": "Liberator Valkyrie — shield-wielding support; provides +8% Move Speed and +2% Damage near-permanently; Divine Confirmation grants +10% party damage for 10s.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shield-wielding support buffing party with divine energy; provides +8% Move Speed and +2% Damage near-permanently; Divine Confirmation grants +10% party damage for 10s and +20% Hyper Awakening damage for 30s; Light of the Faithful (X) consumes Liberator stacks to heal 10/20/30% of max HP; fourth support pillar alongside Bard/Paladin/Artist",
+      "anchor_quote": "Release Light (Z) provides a Damage Buff for 12 seconds while generating one stack (up to 3) of Liberator for 60s. Divine Confirmation grants +10% Damage for 10 seconds and +20% Hyper Awakening Damage for 30 seconds.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+        "anchor_quote": "Sekwah (Content Creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_grid_configs": [
+            {
+              "name": "Sacred Oath core",
+              "nodes": [
+                "Break of Dawn (Seraphic Leap → Destiny, Divine Confirmation boost)",
+                "Holy Blade's Ashes (Requiem Ash identity/stagger)",
+                "Faith Enhancement",
+                "Echoing Brand",
+                "Weapon nodes"
+              ]
+            },
+            {
+              "name": "Light Carves Life core",
+              "nodes": [
+                "Pledge of Salvation (Blessing of Salvation → Destiny, Release Light boost)",
+                "Holy Blade's Ashes",
+                "Faith Enhancement",
+                "Echoing Brand",
+                "Weapon nodes"
+              ]
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+        "anchor_quote": "Break of Dawn (Seraphic Leap → Destiny, Divine Confirmation boost); Pledge of Salvation (Blessing of Salvation → Destiny, Release Light boost)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Awakening",
+            "Magick Stream",
+            "Expert",
+            "Drops of Ether",
+            "Vital Point Hit (flex)",
+            "Explosive Expert (flex)",
+            "Max MP Increase (flex)",
+            "Heavy Armor (flex)"
+          ],
+          "gems_damage": [
+            "Seraphic Leap",
+            "Seraphic Oath",
+            "Piety skills"
+          ],
+          "gems_cooldown": [
+            "Blessing of Salvation",
+            "Requiem Ash",
+            "Requiem Rain"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Swiftness",
+              "Specialization"
+            ],
+            "special_rolls": [
+              "Attack Power buff efficiency",
+              "Identity buff efficiency",
+              "weapon power scaling"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+        "anchor_quote": "Awakening, Magick Stream, Expert, Drops of Ether (core four); flexible fifth slot (Vital Point Hit, Explosive Expert, Max MP Increase, or Heavy Armor)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Wings of Liberation applies to all party members within 24m for 60s. Salvation Site provides shield and damage reduction effect within its area. Specific AoE radii for other skills not quantified."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+        "anchor_quote": "Wings of Liberation applies to all party members within 24m for 60s",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Release Light (Z) provides 12s Damage Buff and generates 1 Liberator stack (max 3, lasts 60s). Consume stacks via Light of the Faithful (X) to heal party 10/20/30% of max HP. Divine Confirmation: +10% Damage 10s, +20% Hyper Awakening Damage 30s. Party buffs: Seraphic Leap/Oath (Attack Power), Circle of Truth (Brand: +10% enemy damage taken). Blessing of Salvation (cleanses debuffs), Salvation Site (damage reduction aura)."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+        "anchor_quote": "Release Light (Z) provides a Damage Buff for 12 seconds while generating one stack (up to a maximum of 3) of Liberator for 60s.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sacred Oath core (Seraphic Leap-focused Ark Grid)",
+            "Light Carves Life core (Blessing of Salvation-focused Ark Grid)"
+          ],
+          "sibling_spec": "Shining Knight Valkyrie (DPS identity)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/liberator-valkyrie-build-guide",
+        "anchor_quote": "Sacred Oath core; Light Carves Life core",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

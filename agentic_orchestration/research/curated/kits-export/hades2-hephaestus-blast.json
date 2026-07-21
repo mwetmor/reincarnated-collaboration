@@ -1,0 +1,235 @@
+{
+  "kit_id": "hades2-hephaestus-blast",
+  "spine": {
+    "kit_id": "hades2-hephaestus-blast",
+    "folk_name": "Hephaestus Blast Core",
+    "game": "hades2",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades2-1.0-2025;hades2-post1.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Hephaestus blast player gets the weapon-independent periodic fire blast faithfully -- ground_slam + cooldown-gated on-hit burst + fire-propagation door. Drift: the 'damage completely independent of weapon base' property (the blast pays out a flat 400 no matter what you equip, so low-base weapons like Aspect of Selene punch hit as hard as heavy swings) has no first-class engine expression -- damage still routes through the skill/scaling substrate, so the 'weapon doesn't matter, only the blast' identity is approximated. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Hephaestus blast player gets the weapon-independent periodic fire blast faithfully -- ground_slam + cooldown-gated on-hit burst + fire-propagation door. Drift: the 'damage completely independent of weapon base' property (the blast pays out a flat 400 no matter what you equip, so low-base weapons like Aspect of Selene punch hit as hard as heavy swings) has no first-class engine expression -- damage still routes through the skill/scaling substrate, so the 'weapon doesn't matter, only the blast' identity is approximated. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Volcanic Strike (Hephaestus blast)",
+          "geometry_value": "ground_slam",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "each Attack occasionally arms a BLAST every fixed duration that deals a flat 400 fire damage in a small area, 'completely independent of the weapon's base damage' (dossier) -- works on any weapon. The blast is a periodic self-origin impact burst tied to your melee attacks -> ground_slam (self-origin AoE impact) over ring; small-radius. fire family; burn rider (probe). Grand Caldera increases damage+size; Chain Reaction fires the blast twice if used immediately after recharge; Ares Grievous Blow gives a chance for +200% blast damage; Apollo Rude Awakening (Daze) nearly doubles it."
+        }
+      ],
+      "motion_frame": "heavy-weapon blast striker: play slow and land fewer, bigger hits -- each attack periodically arms a cooldown-gated fire blast that does its damage regardless of your weapon, so the blast (not the swing) is the payload you build around",
+      "resource_economy": {
+        "model": "proc",
+        "persistent_condition_shape": "proc-loop",
+        "resource_verbatim": "no resource cost; blast is cooldown-gated (fires every fixed duration on attack; Jeweled Pom lowers the starting cooldown)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "small-radius fire blast on attack (weapon-independent 400 dmg)",
+            "Grand Caldera size/damage increase"
+          ],
+          "economy": [
+            "cooldown-gated blast proc (every fixed duration; Jeweled Pom reduces start-cooldown)",
+            "Chain Reaction (blast fires twice if used right after recharge)"
+          ],
+          "traits_affixes": [
+            "fire / blast damage scaling (Heavy Metal, Furnace Blast)",
+            "blast-damage multipliers (Ares Grievous Blow +200% chance; Apollo Daze ~2x)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-03 (corpus flag). Hephaestus tag-bank grammar: each attack arms a periodic fire blast whose damage is INDEPENDENT of weapon base (the blast is the build, not the swing). The 'every fixed duration' arming is COOLDOWN-gated on-attack -> proc_trigger_condition=on-hit-threshold + consequence_type=burst-damage + persistent_condition_shape=proc-loop. The delay-to-detonation is a cooldown-gated proc (the fixed-duration arming), NOT an R-M5 timed-release channel -- modeled as the nearest apply-event (on-hit->burst). fire + burn. God boons (§D row 2) support by what they DO: Volcanic Strike/Heavy Metal/Furnace Blast = damage scaling; Chain Reaction = double-proc; Grievous Blow/Rude Awakening = damage multipliers. Capstone shape (weapon-independent on-hit fire propagation) -> GEOMETRY_PROPAGATION_overkill (on-hit scaling burst) + ELEMENTAL_ECHO. glass defense not a surface. NO duo boon here (single-god Hephaestus core) -- differs from glorious-disaster/hail-storm. [STEWARD AUDIT m04: 'burn' stripped -- mapper's own note says 'burn rider (probe)'; probe facts are kb-derived, not attestation; fetched text = flat 400 fire DAMAGE, no status. Apollo Daze (attested, support-lane) -> curse:weaken per new SD row; not a kit-skill emission]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gamerant.com/hades-2-best-hephaestus-boons-ranked/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Hades 2: Best Hephaestus Boons, Ranked",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gameluster.com/hades-2-best-hephaestus-build-guide/",
+      "archive_url": null,
+      "site": "gameluster.com",
+      "author_handle": null,
+      "title": "Hades 2: Best Hephaestus Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3431760756",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "One broken build for every weapon/aspect on Hades II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in eras hades2-1.0-2025 and hades2-post1.0-2026",
+      "anchor_quote": "For a focused blast build, get Volcanic Strike or Volcanic Flourish first, then Heavy Metal, into a Furnace Blast boon",
+      "source_url": "https://gameluster.com/hades-2-best-hephaestus-build-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hephaestus Blast Core' and aliases 'Hephaestus forge blast', 'Heph blast suite build' are real community usage",
+      "anchor_quote": "Hades 2 Hephaestus Blast Build... Hephaestus blast core build synergy",
+      "source_url": "https://gamerant.com/hades-2-best-hephaestus-boons-ranked/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Volcanic Strike, blast suite; hit arms delayed explosion tag; detonation at enemy position for fire burst",
+      "anchor_quote": "Volcanic Strike is the primary target for this build. This boon transforms your Attacks by occasionally creating a Blast every fixed duration, dealing 400 damage in a small area",
+      "source_url": "https://gamerant.com/hades-2-best-hephaestus-boons-ranked/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "keepsakes": [
+            "Jeweled Pom (reduces starting cooldown on Hephaestus boons)"
+          ],
+          "aspects": null,
+          "hexes": null
+        },
+        "source_url": "https://gameluster.com/hades-2-best-hephaestus-build-guide/",
+        "anchor_quote": "Once you unlock Jeweled Pom, Hephaestus attack and special boons are good in just about every run as you start with a much lower cooldown between blasts",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "supporting_boons": [
+            "Heavy Metal (Hephaestus) — blast amplification",
+            "Furnace Blast (Hephaestus) — core blast enhancer",
+            "Grand Caldera (Hephaestus) — size + damage",
+            "Chain Reaction (Hestia) — doubles blast damage instantly",
+            "Grievous Blow (Ares) — chance for +200% blast damage",
+            "Apollo Rude Awakening — Daze before blast nearly doubles damage"
+          ]
+        },
+        "source_url": "https://gameluster.com/hades-2-best-hephaestus-build-guide/",
+        "anchor_quote": "Ares to get Grievous Blow and Mutual Destruction for % chance to deal +200% damage on every Hephaestus Blast",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Your Attacks can cause a blast that deals 400 damage in the area; blast is a small-radius explosion; damage completely independent of weapon base damage — works on any weapon; Volcanic Strike fires every fixed duration (cooldown-gated); Grand Caldera increases damage and size; Chain Reaction fires twice if used immediately after recharge."
+        },
+        "source_url": "https://gamerant.com/hades-2-best-hephaestus-boons-ranked/",
+        "anchor_quote": "Your Attacks can cause a blast that deals 400 damage in the area... damage is completely independent of the Weapons base damage",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Take Volcanic Strike (Hephaestus Attack boon) to add periodic blast to every attack; blast damage is independent of weapon base damage; layer Heavy Metal then Furnace Blast for amplification; Ares (Grievous Blow + Mutual Destruction) or Hestia (Chain Reaction) for blast damage multiplication."
+        },
+        "source_url": "https://gameluster.com/hades-2-best-hephaestus-build-guide/",
+        "anchor_quote": "get Volcanic Strike or Volcanic Flourish first, then Heavy Metal, into a Furnace Blast boon",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Volcanic Strike Attack build (any weapon)",
+            "Volcanic Flourish Special build",
+            "Aspect of Melinoe / Aspect of Selene punch (low weapon base, blast dominates)"
+          ]
+        },
+        "source_url": "https://gamerant.com/hades-2-best-hephaestus-boons-ranked/",
+        "anchor_quote": "Put Volcanic Strike on the powerful swing of Aspect of Melinoë or the low damage Aspect of Selene punch, and the blast deals 300dmg either way",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

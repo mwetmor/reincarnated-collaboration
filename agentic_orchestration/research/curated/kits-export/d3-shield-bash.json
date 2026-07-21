@@ -1,0 +1,239 @@
+{
+  "kit_id": "d3-shield-bash",
+  "spine": {
+    "kit_id": "d3-shield-bash",
+    "folk_name": "Shield Bash",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "ros-early",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Weak set support noted in dossier ('not even worth mentioning') reflects the negative classification context. The kit maps coherently as a single-target directional burst with Wrath economy; the design constraint (weak legendaries) is fidelity texture. No stun emitted — stun was a kb-class claim (INADMISSIBLE) not attested in fetched dossier text.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Weak set support noted in dossier ('not even worth mentioning') reflects the negative classification context. The kit maps coherently as a single-target directional burst with Wrath economy; the design constraint (weak legendaries) is fidelity texture. No stun emitted — stun was a kb-class claim (INADMISSIBLE) not attested in fetched dossier text.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shield Bash",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Directional charge-projectile; hits single target in front; Pound rune adds limited AoE; at-target point delivery; physical → element-neutral; negative=1 kit — verdicts govern, mapping the redeemed/attested form per batch hot-facts"
+        },
+        {
+          "source_skill": "Akarat's Champion",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Prophet rune survivability buff; standard Crusader combat self-buff"
+        }
+      ],
+      "motion_frame": "Roland's 6pc boosts Shield Bash damage; spam Shield Bash Pound rune for single-target burst; Akarat's Champion Prophet for survivability; Laws and Iron Skin for utility; high inconsistency; low GR ceiling relative to Sweep Attack variant",
+      "resource_economy": {
+        "resource": "Wrath",
+        "cost_note": "Shield Bash costs Wrath; Piro Marella reduces resource cost (noted as mandatory for sustain)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Flail of the Ascended — Shield Bash empowerment (item rider); Drakon's Lesson — noted as weak"
+          ],
+          "economy": [
+            "Piro Marella — resource cost reduction (mandatory for sustain); Roland's 6pc 375% AS (shared with Sweep variant)"
+          ],
+          "traits_affixes": [
+            "Roland's Legacy 6pc — buffs Shield Bash equally to Sweep Attack (scaler); legendaries for Shield Bash are 'incredibly weak' per dossier — noted as design constraint"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "negative=1 kit. Verdicts: negative_canon UNSUPPORTED per verify_ledger ('Roland's Legacy only buffs one skill and supporting legendaries for the latter are incredibly weak so the build is not even worth mentioning' — this is the attested under-support, not a falsified negative; the kit IS playable in a weak state). Mapping the attested form: Shield Bash functions with Roland's set, supporting items are weak. No ailment emitted: stun is NOT named in fetched dossier text for Shield Bash (stun-window referenced only in negative_canon claim which is UNSUPPORTED; never import from claim_text). No stun token."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Crusader Shield Bash Build with Roland's Set (Patch 2.7.8 / Season 38)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/resources/crusader",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Crusader Class Overview",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/d3/t/builds-in-need-of-a-power-boost/7561",
+      "archive_url": null,
+      "site": "us.forums.blizzard.com",
+      "author_handle": null,
+      "title": "Builds in need of a power boost - Crusader",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shield Bash' and aliases 'Shield Bash Crusader RoS-early', 'Shield Bash Crusader' are real community usage",
+      "anchor_quote": "Crusader Shield Bash Build with Roland's Set (Patch 2.7.8 / Season 38) — This Shield Bash variant is a bursty, single-target-heavy, assassination-oriented build.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Shield Bash; Crusader resource (Wrath); Shield Bash delivery",
+      "anchor_quote": "This Shield Bash variant is a bursty, single-target-heavy, assassination-oriented build that is geared towards Greater Rift solo progression. The Roland's set splits its damage bonuses evenly between Sweep Attack and Shield Bash.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Shield Bash RoS-early negative — initial implementation underpowered relative to sweep-attack; stun-window geometry created dead coverage; later reworked into Roland's set",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/resources/crusader",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Roland's Legacy (6pc) — same set as Sweep Attack; Shield Bash receives equal damage bonus to Sweep Attack from set",
+          "kanai_cube": [],
+          "legendary_powers": [
+            "Drakon's Lesson",
+            "Piro Marella",
+            "Flail of the Ascended"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/resources/crusader",
+        "anchor_quote": "Roland's Legacy only buffs one skill and supporting legendaries for the latter are incredibly weak so the build is not even worth mentioning.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Roland's Legacy set (6pc)",
+            "Drakon's Lesson (weak legendary — noted)",
+            "Piro Marella (resource cost reduction — noted as mandatory)",
+            "Flail of the Ascended"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/resources/crusader",
+        "anchor_quote": "Roland's Legacy only buffs one skill and supporting legendaries for the latter (Drakon's Lesson, Piro Marella and Flail of the Ascended) are incredibly weak so the build is not even worth mentioning.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Shield Bash — directional charge-projectile; hits single target in front; limited AoE on Pound rune; at-target point",
+          "range": "at-target single-target directional"
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+        "anchor_quote": "This Shield Bash variant is a bursty, single-target-heavy, assassination-oriented build.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Roland's 6pc boosts Shield Bash damage; Shield Bash Pound rune for single-target burst; Akarat's Champion Prophet for survivability; Laws and Iron Skin for utility; highly inconsistent output reported; low GR ceiling relative to Sweep Attack variant."
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+        "anchor_quote": "This Shield Bash variant is a bursty, single-target-heavy, assassination-oriented build that is geared towards Greater Rift solo progression.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Roland's Sweep Attack (superior alternative within same set)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+        "anchor_quote": "Roland Sweep Attack Crusader Guide — The build remains effective through current seasons as the recommended Roland's variant.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

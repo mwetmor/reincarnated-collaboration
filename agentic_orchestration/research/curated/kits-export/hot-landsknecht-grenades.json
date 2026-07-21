@@ -1,0 +1,225 @@
+{
+  "kit_id": "hot-landsknecht-grenades",
+  "spine": {
+    "kit_id": "hot-landsknecht-grenades",
+    "folk_name": "Grenade Landsknecht",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Derived-scaling ratio (grenade damage = f(projectile damage)) has no engine lane — player would miss the core synergy mechanic where maximizing projectile damage directly multiplies grenade burst. Trigger grammar captures the shape but not the scaling substrate. Post-cutoff conf cap adds mapping uncertainty.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Derived-scaling ratio (grenade damage = f(projectile damage)) has no engine lane — player would miss the core synergy mechanic where maximizing projectile damage directly multiplies grenade burst. Trigger grammar captures the shape but not the scaling substrate. Post-cutoff conf cap adds mapping uncertainty.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Arquebus (single-shot pierce weapon)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "single-shot pierce projectile; physical/no-element — no damage-type descriptor beyond pierce; feeds grenade trigger"
+        },
+        {
+          "source_skill": "Grenades (derived AoE)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "thrown grenade AoE on impact; damage DERIVED from total projectile damage dealt per cooldown window (~3s); not independently scaled — grenade damage = f(projectile hits × damage per hit); post-cutoff hot-1.1-2026 — conf capped"
+        }
+      ],
+      "motion_frame": "med-tempo projectile-feeds-grenade derived loop; Arquebus pierce shots accumulate damage; threshold reached → grenades fire; grenade DPS = function of projectile DPS in cooldown window",
+      "resource_economy": {
+        "cadence_scale": "med; Arquebus auto-fire; grenade cooldown 3s independent of attack speed"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "accumulated projectile damage threshold",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce (Arquebus)",
+            "grenade AoE radius"
+          ],
+          "economy": [
+            "projectile damage accumulation rate"
+          ],
+          "traits_affixes": [
+            "Multistrike",
+            "Range",
+            "Area",
+            "Phantom Needles"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Post-cutoff confidence cap (hot-1.1-2026 era UNSUPPORTED at verify). Derived-scaling mechanism: grenade damage is not a fixed value but a function of projectile damage dealt — no clean engine analog for this ratio-trigger architecture. Mapped as on-hit-threshold trigger chain (nearest approximation); the exact derived-ratio calculation is not representable. No element attested for either weapon or grenades in fetched text — grenades described as 'area damage' with no fire/explosive element descriptor."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": null,
+      "title": "Halls of Torment All Characters Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4344355079691874480/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "how do grenades on landsknecht work? :: Halls of Torment General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "hot-1.1-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Grenade Landsknecht — Arquebus feeds bombs; grenade damage derived from other projectile damage; post-cutoff (1.1-2026)",
+      "anchor_quote": "strong, single-shot piercing Arquebus and Grenades that deal area damage ... damage is based on damage dealt by other projectiles",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "All projectile hits can trigger grenades; grenade damage scales with cumulative projectile damage dealt per cooldown; piercing aids trigger rate",
+      "anchor_quote": "all Projectile Hits can trigger Grenades, not only the Main Weapon ... Based on the amount of damage they deal",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355079691874480/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "traits": [
+            "Multistrike (more projectile hits = more grenade triggers)",
+            "Range",
+            "Area (grenade AoE)",
+            "Phantom Needles (additional projectile source to feed grenades)"
+          ],
+          "notes": "Post-cutoff; conf capped."
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+        "anchor_quote": "Signature ability: Phantom Needles (triggers grenades via projectile damage)",
+        "abstained": 0,
+        "conf": 0.45
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "thrown-projectile (grenade)",
+          "footprint": "AoE impact radius",
+          "primary_weapon": "Arquebus (pierce, single-shot)",
+          "grenade_trigger": "probabilistic based on projectile damage dealt",
+          "cooldown_sec": 3,
+          "notes": "Cooldown does not scale with attack speed. Stat bonuses do not directly apply to grenades — derived from projectile damage. Post-cutoff conf capped."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355079691874480/",
+        "anchor_quote": "damage of each grenade is calculated based on total projectile damage inflicted during cooldown",
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Landsknecht wields Arquebus (single-shot pierce weapon) + Grenades. Grenade trigger: all projectile hits accumulate damage; once threshold reached (~3k+ per hit to be reliable), grenades fire. Grenade damage = function of total projectile damage dealt in cooldown window. Arquebus feeds grenades. Post-cutoff 1.1-2026 — conf capped."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355079691874480/",
+        "anchor_quote": "all Projectile Hits can trigger Grenades, not only the Main Weapon ... Based on the amount of damage they deal",
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

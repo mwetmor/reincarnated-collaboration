@@ -1,0 +1,239 @@
+{
+  "kit_id": "d3-lod-bazooka",
+  "spine": {
+    "kit_id": "d3-lod-bazooka",
+    "folk_name": "LoD Bazooka Meteor",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the multi-step choreography identity — bank, swap-buff, dump — is a timing ritual that engine resource_economy keys approximate but don't enforce as a loop pattern; (2) the Archon swap-out mechanic (transform then intentionally exit) has no engine form-swap analog; (3) Area Damage secondary-proc texture lost.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the multi-step choreography identity — bank, swap-buff, dump — is a timing ritual that engine resource_economy keys approximate but don't enforce as a loop pattern; (2) the Archon swap-out mechanic (transform then intentionally exit) has no engine form-swap analog; (3) Area Damage secondary-proc texture lost.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Meteor (Star Pact rune)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target large-zone meteor fall; Star Pact rune attested: 'This build can use different Meteor runes. Star Pact is the strongest one used with Archon to push the highest Greater Rifts'; spends entire Arcane Power bar for maximum multiplier; single massive-burst delivery"
+        },
+        {
+          "source_skill": "Archon",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Transformation swap-buff; activated before Meteor cast then swapped out; attested: 'activate Archon for damage buffs then swap out'; delivers stacking buff layers during window"
+        },
+        {
+          "source_skill": "Black Hole",
+          "geometry_value": "vortex_pull",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Resource manipulation and enemy grouping; attested: 'Black Hole for resource manipulation'; utility setup for Meteor landing"
+        }
+      ],
+      "motion_frame": "Bank full Arcane Power pool; activate Archon for damage buffs then swap out; cast Meteor Star Pact spending entire Arcane Power bar; Black Hole for resource and grouping setup; multi-step cast choreography",
+      "resource_economy": {
+        "resource_type": "Arcane Power",
+        "generator": "passive regen + Black Hole resource manipulation",
+        "spend_pattern": "full-pool-dump: entire Arcane Power bar spent in single Star Pact cast for maximum multiplier",
+        "full_pool_dump": true
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "element_rotation_window",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "large-zone targeting; Black Hole grouping for meteor coverage"
+          ],
+          "economy": [
+            "Arcane Power full-pool banking; Archon swap timing; LoD gem scaling (no sets)"
+          ],
+          "traits_affixes": [
+            "shadow/arcane scaling; Area Damage priority (attested: 'Area Damage is by a long shot your best offensive stat'); CoE window alignment"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: arcane → shadow per main-law default (arcane = shadow default; void-register read; no per-kit override warranted — behavior is arcane-energy, no lightning analog here). CoE present in items → R-M5: element_rotation_window token. RESOURCE_CONVERSION T4: the full-pool-dump identity is resource-banking → single-spend conversion; Arcane Power accumulates then converts to Meteor damage multiplier. GEOMETRY_COLLAPSE: dispersed pre-cast setup (Archon, Black Hole) collapses into single-point meteor strike. LoD gem (no-set multiplier) is capstone-layer scaler per §CROSS row 4; zero skills[] footprint. Set-bonus scaler (9,750% max) at fidelity layer only. No ailments attested in fetched dossier for Meteor or Archon outputs."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewi",
+      "title": "Diablo 3 Season 39 LoD Meteor Bazooka Wizard Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "The Legacy of Dreams gem functions as the Legacy of Nightmares set within a single gem, liberating two ring slots by occupying one legendary gem slot instead",
+      "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "Diablo 3 Season 39 LoD Meteor 'Bazooka' Wizard Guide",
+      "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'LoD Bazooka Meteor'; aliases include 'LoD Bazooka Wizard', 'Star Pact Meteor Wizard', 'Archon Bazooka'",
+      "anchor_quote": "Diablo 3 Season 39 LoD Meteor 'Bazooka' Wizard Guide",
+      "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Meteor Star Pact, Archon, Black Hole; class resource: Arcane Power; LoD gem (setless, full-bar spend)",
+      "anchor_quote": "Star Pact is the strongest one used with Archon to push the highest Greater Rifts. Wizard Resource: Arcane Power",
+      "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewi",
+          "site": "maxroll.gg",
+          "twitter": "@chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+        "anchor_quote": "Author: Chewi (@chewingnom)",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "gem_power": "Legacy of Dreams: max 9,750% damage + 52% DR (13 ancients, rank 25); enables Reverse Archon and Shi Mizu's Haori setups",
+          "note": "No class set; LoD gem is the sole capstone multiplier"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+        "anchor_quote": "The Legacy of Dreams gem functions as the Legacy of Nightmares set within a single gem, liberating two ring slots by occupying one legendary gem slot instead",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Legacy of Dreams gem (setless foundation)",
+            "Meteor: Star Pact rune",
+            "Archon",
+            "Black Hole",
+            "Area Damage priority gear"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+        "anchor_quote": "Area Damage is by a long shot your best offensive stat",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "range": "large-zone",
+          "aoe": "large zone at cursor-designated location",
+          "notes": "Star Pact Meteor falls at targeted location; large blast radius"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+        "anchor_quote": "This build can use different Meteor runes. Star Pact is the strongest one used with Archon to push the highest Greater Rifts",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Bank full Arcane Power pool; activate Archon for damage buffs then swap out; cast Meteor Star Pact spending entire Arcane Power bar for maximum damage multiplier; Black Hole for resource manipulation; multi-step choreography earning the 'Bazooka' name"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+        "anchor_quote": "Bank the ENTIRE Arcane Power pool plus Archon swap-buffs into one Star Pact meteor — a multi-step cast choreography the community named after",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "LoD Star Pact (GR push, primary)",
+            "Thunder Crash Meteor (speedfarming variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lod-meteor-wizard-guide",
+        "anchor_quote": "Star Pact is the strongest one used with Archon to push the highest Greater Rifts while Thunder Crash is used for speedfarming content",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

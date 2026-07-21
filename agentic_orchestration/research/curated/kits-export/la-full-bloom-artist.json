@@ -1,0 +1,314 @@
+{
+  "kit_id": "la-full-bloom-artist",
+  "spine": {
+    "kit_id": "la-full-bloom-artist",
+    "folk_name": "Full Bloom Artist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Full support identity: party heal, shield, damage-reduction, attack-power buff payloads cannot map to solo damage loop. Two curse:amplify attestations (Moonfall + Brand) are the only engine-expressible payloads. Filed as support-lane GAPPED per §LA row 5.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Full support identity: party heal, shield, damage-reduction, attack-power buff payloads cannot map to solo damage loop. Two curse:amplify attestations (Moonfall + Brand) are the only engine-expressible payloads. Filed as support-lane GAPPED per §LA row 5.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sunrise (X)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "1-orb spend; targeted HP bubble (25% single HP) + AOE heal (15% HP); support heal payload"
+        },
+        {
+          "source_skill": "Moonfall (Z)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "2-orb spend; +10% damage increase to enemies — DIRECTION TEST: ENEMY takes more damage → curse:amplify per §LA DEBUFF-DIRECTION LAW (same Brand-class pattern as desperate-salvation-bard)"
+        },
+        {
+          "source_skill": "Paint: Sunsketch",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Attack power buff — DIRECTION TEST: party/self deals more → self_buff; Sunsketch = name-only → null"
+        },
+        {
+          "source_skill": "Paint: Sun Well",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Attack power buff; maintained consistently; name-only → null"
+        },
+        {
+          "source_skill": "Paint: Drawing Orchids",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Brand debuff: +10% party damage to enemy target — DIRECTION TEST: enemy takes more damage → curse:amplify"
+        },
+        {
+          "source_skill": "Stroke: Hopper",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shield 30% Artist HP + meter generation; support payload"
+        },
+        {
+          "source_skill": "Paint: Starry Night",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Damage reduction -75% incoming; party shield"
+        },
+        {
+          "source_skill": "Paint: Illusion Door",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shields + cleanse + teleport utility; support payload"
+        },
+        {
+          "source_skill": "Masterwork: Efflorescence",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Awakening; generates 2 orbs"
+        }
+      ],
+      "motion_frame": "Generate Harmony Orbs through gameplay and skill use; spend 1 orb on Sunrise (X) for targeted heal bubble + AOE heal; spend 2 orbs on Moonfall (Z) for +10% damage to enemies; maintain Paint: Sunsketch and Paint: Sun Well for attack power buffs; Paint: Drawing Orchids for Brand debuff; Stroke: Hopper for shields + meter",
+      "resource_economy": {
+        "harmony_orbs": "generated through gameplay and skill use; 1 orb = heal spend (Sunrise X); 2 orbs = damage-to-enemies buff (Moonfall Z)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura",
+            "single_target",
+            "self_buff",
+            "blink",
+            "ring"
+          ],
+          "economy": [
+            "harmony_orbs"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: support identity — party heal/shield/buff with two enemy-directed curse:amplify attestations (Moonfall +10% damage to enemies; Paint: Drawing Orchids Brand). Element null throughout: all skill names are proper names, no damage-type descriptors. Harmony Orbs native resource economy. Ark Passive → capstone_alterations. Engravings dead axis. Same support-lane projection as desperate-salvation-bard; Artists have both party-heal payloads AND enemy-debuff Brands (both attested and mapped)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Full Bloom Artist / Support Artist Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Author: Civo, Last Updated: December 23, 2025 — active maxroll.gg guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Full Bloom Artist; hybrid sustain/shield toolkit; Sunrise (X) delivers targeted HP bubbles (25% single HP) and AoE heals (15% HP) at one orb cost",
+      "anchor_quote": "Sunrise (X): provides a bubble that can be picked up that will heal a single player 25% of her HP as well as provide an AOE heal that is 15% of her HP. This will cost only one orb",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Hybrid sustain/shield toolkit bridging Bard's utility and Paladin's protection; easier than Bard with flexible healing bursts; one orb for Sunrise heal",
+      "anchor_quote": "Moonfall (Z): provides a 10% Damage increase to enemies. This will cost 2 orbs. Orb system uses Harmony Orbs generated through gameplay",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+          "last_updated": "2025-12-23"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+        "anchor_quote": "Author: Civo, Last Updated: December 23, 2025",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive": [
+            "Sun's Embrace (Order Sun core)",
+            "Faith Enhancement",
+            "Echoing Steel",
+            "Weapon stat boost"
+          ],
+          "optional": [
+            "Standing Striker or Stable Manager for MP sustainability"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+        "anchor_quote": "Core: Sun's Embrace (Order Sun); Ark Grid: Faith Enhancement, Echoing Steel, Weapon stat boost",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Awakening",
+            "Magick Stream",
+            "Expert",
+            "Drops of Ether",
+            "flex 5th slot"
+          ],
+          "gems_damage": [
+            "Paint: Sunsketch",
+            "Paint: Sun Well",
+            "Moonfall"
+          ],
+          "gems_cooldown": [
+            "Paint: Drawing Orchids",
+            "Stroke: Hopper",
+            "and 5 additional skills"
+          ],
+          "bracelet_rolls": [
+            "Cheers",
+            "Dagger",
+            "Expose Weakness",
+            "Enlightenment",
+            "MP Recovery",
+            "Intelligence",
+            "Weapon Power",
+            "Vitality",
+            "Max HP",
+            "Max MP"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+        "anchor_quote": "Engravings: Awakening, Magick Stream, Expert, Drops of Ether; flex 5th slot",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "skills": [
+            "Paint: Sunsketch (attack power buff — maintain consistently)",
+            "Paint: Sun Well (attack power buff)",
+            "Paint: Drawing Orchids (Brand debuff +10% party damage)",
+            "Stroke: Hopper (shield 30% Artist HP + meter generation)",
+            "Paint: Starry Night (damage reduction -75%; shields)",
+            "Paint: Illusion Door (shields + cleanse + teleport)"
+          ],
+          "note": "Specific AoE range geometry not enumerated; support class with party-range buff/shield skills"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+        "anchor_quote": "Paint: Starry Night — Damage reduction (-75% incoming damage); Paint: Illusion Door — Shields, cleanse, teleport utility",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Generate Harmony Orbs through gameplay and skill use; spend 1 orb on Sunrise (X) for targeted HP bubble (25% single HP) + AoE heal (15% HP); spend 2 orbs on Moonfall (Z) for +10% damage increase to enemies; maintain Paint: Sunsketch and Paint: Sun Well for attack power buffs; Paint: Drawing Orchids for Brand debuff (+10% party damage); Stroke: Hopper for shields + meter; Masterwork: Efflorescence Awakening generates 2 orbs"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+        "anchor_quote": "Sunrise (X): bubble heals single player 25% of her HP + AOE heal 15% of her HP — costs only one orb",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Recurrence Artist — alternate Artist engraving/identity path; D-tier Aug 2025 (separate kit, b05)",
+          "support_tier_note": "Full Bloom Artist rated lowest support score partly due to meta shifts post-2025"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-artist-raid-build-guide",
+        "anchor_quote": "rated lowest support score partly due to meta shifts post-2025",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "kit_id": "tq-trap-magician",
+  "spine": {
+    "kit_id": "tq-trap-magician",
+    "folk_name": "Trapper Magician",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "base-2006;immortal-throne-2007;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine captures trap-placement proxy loop but lacks the counted-max-trap economy (ammo/count system approximated). Player would feel placement + zone control but miss the deep 'trap count as resource' identity and the pet-scaling-gear dimension of TQ trap builds.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine captures trap-placement proxy loop but lacks the counted-max-trap economy (ammo/count system approximated). Player would feel placement + zone control but miss the deep 'trap count as resource' identity and the pet-scaling-gear dimension of TQ trap builds.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lay Trap (Rapid Construction)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed stationary proxy traps; 'Traps are placed at target locations'; 'stationary pets such as traps benefit from pet bonuses'; stationary placed → totem per totem-vs-companion law; pierce damage (elem_raw=pierce) → no element family (THE PHYSICAL RULE for pierce); traps fire projectiles at enemies; placed-proxy-count accrual: max active trap count is a counted-proxy shape → filing accrual"
+        },
+        {
+          "source_skill": "Storm Nimbus / Eye of the Storm (pet elemental buff aura)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "aura buffing pet elemental damage; '+pets elemental damage jewels and Eye of the Storm' in item_alterations; Storm Nimbus is Storm mastery aura; buffs traps with elemental damage but the trap element is not damage-typed for the player's own skills — trap damage is pierce + pet elemental (gear-buffed); no direct player lightning damage-typed in dossier; NAME-ONLY for 'Storm' in Storm Nimbus; 'elemental damage' in dossier is via pet gear buffing, not player damage type → element-neutral on aura"
+        },
+        {
+          "source_skill": "Flame Surge (support note in core_skills)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "noted as '(support)' in core_skills; not attested in dossier skill_loop as a primary skill; per brief p01/p02 hot-facts: flame-surge is a NEGATIVE flag in the original set — but negative flag = 'map attested identity; story→book'; flame-surge is not attested in this kit's dossier as a player-facing skill; NAME-ONLY: 'Flame Surge' — skill name only, no 'deals fire damage' in dossier; fire NOT emitted; mapped as thin single_target placeholder with null elements"
+        }
+      ],
+      "motion_frame": "trap-placement proxy — Lay Trap at target locations (max active count), Storm Nimbus aura supporting trap damage, player repositions between placements",
+      "resource_economy": {
+        "cost_scale": "ammo",
+        "cost_slope": "count-limited",
+        "cadence_scale": "cooldown-gated-burst",
+        "on_kill_frac": null
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "trap zone coverage — multiple placed proxies covering large area"
+          ],
+          "economy": [
+            "max active trap count limits deployment pace; Rapid Construction reduces trap placement time"
+          ],
+          "traits_affixes": [
+            "+pets elemental damage jewels",
+            "Eye of the Storm pet elemental buff",
+            "Rogue trap skill passives"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Trap-placement is a proxy-count identity — placed-proxy-count accrual filed. Pierce damage (no engine family). Storm Nimbus / elemental pet gear buffs do not type the PLAYER skill element; they buff the proxy's damage through gear mechanic (trait-gear lane). Flame Surge in core_skills as support-note only — no fire attestation in dossier; NAME-ONLY law applied; fire NOT emitted. §B5 hot-facts: 'tq-trap-magician' and 'Flame Surge' as negative candidate was about a different p01 kit; this kit is not marked negative in corpus (negative=0). Pet-proxy trap identity is APPROX (not GAPPED) because player does have a deployment loop — this is 'that build, worse' not 'not that build'."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/1626286205694716516/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "A Rogue-storm caller build :: Titan Quest Anniversary Edition General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/1368380934241994852/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Are trap builds viable? :: Titan Quest Anniversary Edition General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present from base-2006 through anniversary-2016",
+      "anchor_quote": "Lay Trap makes for a useful extra source of damage during boss fights",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1368380934241994852/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Trapper Magician — Rogue+Storm dual-mastery; folk name Magician; traps as primary proxy",
+      "anchor_quote": "you'd be forced to use traps/bombs with a Rogue-Storm combination ... Sorcerer (Storm/Rogue) can focus on traps, pet gear, and all skills that support the traps",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1626286205694716516/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rogue traps placed at target location; traps deal pierce damage; max active trap count (ammo economy); Storm adds lightning AoE",
+      "anchor_quote": "Traps are placed at target location ... stationary pets such as traps benefit from pet bonuses and allied auras ... elemental damage with +pets elemental damage jewels",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1368380934241994852/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": null,
+          "site": "steamcommunity.com",
+          "note": "Steam community discussions"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1626286205694716516/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_combo": "Rogue + Storm = Magician",
+          "note": "class name 'Sorcerer' also used for Rogue+Storm in some sources; 'Magician' is the official class name. Traps count as pets — pet scaling gear applies",
+          "proxy_type": "heavy (traps are all damage delivery)"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1368380934241994852/",
+        "anchor_quote": "Sorcerer (Storm/Rogue) can focus on traps, pet gear, and all skills that support the traps",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "gear": "+pets elemental damage jewels; Eye of the Storm for pet elemental buff",
+          "passives": [
+            "Rapid Construction for faster trap deployment",
+            "Stormwall",
+            "Storm Nimbus aura"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1626286205694716516/",
+        "anchor_quote": "doing very high elemental damage with +pets elemental damage jewels and Eye of the Storm",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target placement; traps are stationary proxies",
+          "footprint": "large-zone (multiple traps cover area)",
+          "movement": "full-move between placements"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1368380934241994852/",
+        "anchor_quote": "Traps are placed at target locations",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Lay Trap at target locations (up to max active count); traps deal piercing damage and fire projectiles at enemies; Storm Nimbus / Eye of the Storm active for pet elemental buff; reposition between placements; Rogue trap skills maxed"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/1626286205694716516/",
+        "anchor_quote": "you'd be forced to use traps/bombs with a Rogue-Storm combination ... pet gear, and all skills that support the traps ... Storm nimbus, all trap skills and the wisp",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Rogue+Storm trap focus (Magician)",
+            "Rogue+Earth trap focus (Magician with Volcanic Orb alternative)",
+            "hybrid trap+throwing knife"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/343786746014987819/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

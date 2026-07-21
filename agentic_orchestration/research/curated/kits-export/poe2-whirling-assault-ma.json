@@ -1,0 +1,218 @@
+{
+  "kit_id": "poe2-whirling-assault-ma",
+  "spine": {
+    "kit_id": "poe2-whirling-assault-ma",
+    "folk_name": "Whirling Assault Martial Artist",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11 GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Hollow Form MA player gets a faithful spin-AoE with a charge-fueled proxy loop, but the CLONE MULTIPLICITY (multiple images each spinning simultaneously = output-multiplication by clone count) is softened: the engine models one whirlwind geometry + a linked-cast trigger, so the 'my clones spin for me and I just tap the button' identity lands as a single spin with a charge-accumulator feed rather than N parallel spinning bodies. That build, worse (R-M7) -> CLOSE; playable, the clone-count damage-multiplier is the fidelity loss noted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Hollow Form MA player gets a faithful spin-AoE with a charge-fueled proxy loop, but the CLONE MULTIPLICITY (multiple images each spinning simultaneously = output-multiplication by clone count) is softened: the engine models one whirlwind geometry + a linked-cast trigger, so the 'my clones spin for me and I just tap the button' identity lands as a single spin with a charge-accumulator feed rather than N parallel spinning bodies. That build, worse (R-M7) -> CLOSE; playable, the clone-count damage-multiplier is the fidelity loss noted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirling Assault (Hollow Form clone-cast)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "spin AoE attack-sequence; the player taps Hollow Form to summon CLONES that each execute the full Whirling Assault spin at their position (dossier: 'the images use the full Whirling Assault attack sequence'). whirlwind = the spin-to-win 26-type (poe1-cyclone precedent). physical -> no element family (physical rule; elem_raw=physical). The clone-cast is a proxy-DELIVERY flavor on the spin, not a second geometry -- the dominant loop is the spin AoE. Whirling Assault AoE spatial detail NOT in fetched guide text (skill_geometry abstained on radius); mapped from the spin identity."
+        }
+      ],
+      "motion_frame": "tap-to-summon spin proxies: press Hollow Form and short-lived clones each spin Whirling Assault for you, Power Charges fuel each clone spawn and Lochtonial Caress feeds charges back to keep the loop self-sustaining",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "reservation_resource": null
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "whirlwind spin radius (clone-replicated)"
+          ],
+          "economy": [
+            "Power Charge accumulator (consumed per clone spawn)",
+            "Lochtonial Caress charge-refund (clones grant charges back -> self-sustaining loop)"
+          ],
+          "traits_affixes": [
+            "physical / attack-speed scaling",
+            "Power Charge count / retention affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-11 GX-17 (corpus flags). Hollow Form = CLONE-CAST proxy delivery: clones replicate the Whirling Assault spin (Way of the Stonefist ascendancy). The Power Charge economy is the engine of the loop: Hollow Form consumes a Power Charge to spawn a clone, Lochtonial Caress gives clones a chance to refund charges -> charge_stack_sub_shape=accumulator with a self-feeding refund. Modeled the clone auto-cast as proc_trigger_condition=on-cast-linked / consequence_type=linked-cast (the clone fires the spin when summoned). MAX_CHAIN_DEPTH=1 holds (Hollow Form -> clone-spin is one link). physical -> element-neutral (physical rule). Ascendancy notables (Hollow Form Technique, Way of the Stonefist) route via main-law §5 -> the charge/momentum door group. NOT a spirit-reservation kit (no Spirit cost attested; reservation_resource null)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Manni",
+      "title": "Hollow Form Whirling Assault Martial Artist Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/whirling-assault-martial-artist-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Whirling Assault Martial Artist Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.5-ancients",
+      "anchor_quote": "Return of the Ancients 0.5.4 ... last updated June 25, 2026",
+      "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Whirling Assault Martial Artist' and aliases 'Whirling Assault Hollow Form', 'Whirling Assault MA' are real community usage",
+      "anchor_quote": "Hollow Form Whirling Assault Martial Artist Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills are Whirling Assault and Hollow Form; Hollow Form clones cast Whirling Assault, bypassing attack restrictions via Power Charge consumption",
+      "anchor_quote": "Hollow Form spawns additional clones if it can consume a Power Charge... clones use the full Whirling Assault attack sequence",
+      "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Manni",
+          "site": "maxroll.gg",
+          "twitch": "@manni2"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+        "anchor_quote": "authored by Manni (with Twitch link @manni2)",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_notables": [
+            "Hollow Form Technique",
+            "Way of the Stonefist"
+          ],
+          "class": "Martial Artist"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+        "anchor_quote": "Hollow Form Technique and Way of the Stonefist as essential ascendancy selections for the Martial Artist class",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Lochtonial Caress",
+          "role": "Way of the Stonefist variant provides clones chance to grant Power Charges back to player"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+        "anchor_quote": "Lochtonial Caress provides your clones with a chance to grant you Charges, self-sustaining the Power Charges",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Clones execute Whirling Assault attack sequence at their position; Whirling Assault unlock at level 41; spatial characterization of Whirling Assault AoE not explicitly described in fetched guide text"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+        "anchor_quote": "start using the Hollow Form Whirling Assault build as soon as you unlock Whirling Assault at level 41",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Activate Hollow Form to summon clones; clones automatically execute full Whirling Assault attack sequence; Power Charges consumed per clone spawn; Lochtonial Caress (Way of the Stonefist) gives clones chance to grant charges back, self-sustaining the loop. Player taps Hollow Form and clones do the work."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hollow-form-whirling-assault-martial-artist-build-guide",
+        "anchor_quote": "Just tap Hollow Form and the images use the full Whirling Assault attack sequence, making for a smooth and convenient playstyle",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Hollow Form Whirling Assault (Lochtonial Caress charge loop)",
+            "Whirling Assault Martial Artist (non-Hollow Form variant — separate Maxroll guide exists)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/whirling-assault-martial-artist-build-guide",
+        "anchor_quote": "Whirling Assault Martial Artist Build Guide for Path of Exile 2 Return of the Ancients 0.5.4 [separate guide]",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "kit_id": "poe1-hexblast-mines",
+  "spine": {
+    "kit_id": "poe1-hexblast-mines",
+    "folk_name": "Hexblast Mines",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.12-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The consume-a-hex-for-amplified-chaos identity lands cleanly via on-mark-consume/consume-mark trigger-grammar + curse:amplify + NETWORK_AMPLIFIER + circle, but the full loop depends on an EXTERNAL curse-automation source (Impending Doom / hex-on-hit / Asenath's Mark) continuously re-applying the hex that Hexblast then consumes -- the apply half sits outside the kit's own skill and is captured in the economy lane rather than as a self-contained apply-consume primitive (MAX_CHAIN_DEPTH=1 keeps the consume as the modeled step). A player keeps the 'blast the curse off for a huge hit' feel; the automated re-cursing that sustains the loop is noted, not mechanized.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The consume-a-hex-for-amplified-chaos identity lands cleanly via on-mark-consume/consume-mark trigger-grammar + curse:amplify + NETWORK_AMPLIFIER + circle, but the full loop depends on an EXTERNAL curse-automation source (Impending Doom / hex-on-hit / Asenath's Mark) continuously re-applying the hex that Hexblast then consumes -- the apply half sits outside the kit's own skill and is captured in the economy lane rather than as a self-contained apply-consume primitive (MAX_CHAIN_DEPTH=1 keeps the consume as the modeled step). A player keeps the 'blast the curse off for a huge hit' feel; the automated re-cursing that sustains the loop is noted, not mechanized.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hexblast (via mines)",
+          "geometry_value": "circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "on mine detonation, Hexblast deals a huge CHAOS hit to the target that is massively amplified IF the target is Hexed, then REMOVES (consumes) the hex; only when a hex is consumed does the damage spread as AoE (3.2m) to nearby enemies. circle = the small AoE burst at the target on hex-consume; shadow (chaos hit); the curse it consumes is the amplify-class hex (Despair etc.). The consume-the-curse-for-a-crit IS the identity"
+        }
+      ],
+      "motion_frame": "curse-consume mine-layer: keep the target hexed (curse automation), lay mines, auto-detonate to blast the hex off the enemy for a massive amplified chaos hit that spreads to the pack",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "consume-only",
+        "proc_trigger_condition": "on-mark-consume",
+        "mark_identity": "an enemy Hex (curse) applied by automation (Impending Doom / hex-on-hit / Asenath's-Mark); Hexblast CONSUMES it for amplified chaos damage + AoE spread",
+        "consequence_type": "consume-mark"
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "circle hex-consume burst",
+            "mine placement/auto-detonate chassis"
+          ],
+          "economy": [
+            "mine throw/auto-detonate cadence (Mine Mastery = detonate-on-move, plays like a caster)",
+            "curse-automation loop (something must always re-apply the hex)"
+          ],
+          "traits_affixes": [
+            "chaos-damage",
+            "curse-effect (bigger hex = bigger Hexblast amp)",
+            "mine-throw-count"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CURSE-CONSUME kit. trigger_grammar is the core: proc_trigger_condition=on-mark-consume + consequence_type=consume-mark + trigger_chain_shape=consume-only -- Hexblast's defining act is CONSUMING an existing hex on the target for amplified chaos damage (the AoE spread only happens on-consume). The hex/curse maps to curse:amplify (crosswalk R-M3: the consumed hexes are damage-taken-amp curses -- Despair/Punishment class). shadow (chaos) family. Geometry circle (small on-consume AoE at target; dossier: 'small radius 3.2m at target entity'). CHAIN-DEPTH: two triggers exist (mine-detonate + hex-consume) but the IDENTITY-bearing one is the hex-consume; modeled at DEPTH-1 (the consume-mark step) -- the mine-detonate is the delivery chassis (activation-toggle), NOT a second nested trigger, so MAX_CHAIN_DEPTH=1 is respected. NETWORK_AMPLIFIER routes the curse-amp engine (bigger curse -> bigger consume-hit); ELEMENTAL_ECHO secondary. ERRATA: era floor corrected to 3.12 at ingest (Hexblast added 3.12 Heist); verify_ledger authoritative. THE tension: the build REQUIRES a separate curse-automation source always keeping the target hexed -- a two-part apply(by-automation)/consume(by-Hexblast) loop; the apply half lives outside the skill (Impending Doom / hex-on-hit item), noted in economy."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/hexblast-miner-saboteur-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Hexblast Miner Saboteur Build Guide (3.25)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Hexblast",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Hexblast — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2935777",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Patch Notes — Content Update 3.12.0 Path of Exile: Heist (official GGG)",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in eras: 3.7-3.13, 3.20+",
+      "anchor_quote": "Added a new Intelligence Skill Gem - Hex Blast: Deals chaos damage to a targeted enemy... [introduced in 3.12.0 Heist patch notes]. Era bucket floor 3.7 predates skill introduction by 5 patches.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2935777",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hexblast Mines' and alias 'Doomsday Hexblast (self-cast lineage)' are real community usage",
+      "anchor_quote": "Hexblast Miner Saboteur ... Hexblast Mines Saboteur League Starter",
+      "source_url": "https://www.poe-vault.com/guides/hexblast-miner-saboteur-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Hexblast and Doom Blast/mines; Hexblast consumes curse on target for chaos hit; mine cadence automates curse-then-consume loop",
+      "anchor_quote": "Hexblast gains absurd damage if the enemies has a Hex on them, which is why you're so invested into making sure an enemy always has one of your Hexes applied to it.",
+      "source_url": "https://www.poe-vault.com/guides/hexblast-miner-saboteur-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "TbXie",
+              "site": "poe-vault.com",
+              "note": "Hexblast Miner Saboteur Build Guide (3.25)"
+            },
+            {
+              "handle": "Palsteron",
+              "site": "maxroll.gg",
+              "note": "Hexblast Mines Saboteur League Starter (3.24-3.25)"
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/hexblast-miner-saboteur-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Hexblast (quality)",
+              "type": "base_quality",
+              "effect": "(-10-0)% chance to remove a Hex after Damaging",
+              "anchor_quote": "(-10—0)% chance to remove a Hex after Damaging"
+            },
+            {
+              "node": "Hexblast of Contradiction (transfig)",
+              "type": "transfigured_gem",
+              "effect": "300% more Damage with Hits if Enemy is Hexed; 120% more Damage with Ailments if Enemy is Hexed (vs base 200%/90%)",
+              "anchor_quote": "300% more Damage with Hits if Enemy is Hexed...120% more Damage with Ailments if Enemy is Hexed"
+            },
+            {
+              "node": "Hexblast of Havoc (transfig)",
+              "type": "transfigured_gem",
+              "effect": "370% Effectiveness of Added Damage; Base radius of 2.5 metres (vs standard 3.2m)",
+              "anchor_quote": "370% Effectiveness of Added Damage...Base radius of 2.5 metres"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Hexblast",
+        "anchor_quote": "300% more Damage with Hits if Enemy is Hexed",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Dissolution of the Flesh (Rathpith Globe setup mentioned in 3.22 forum guide)",
+            "Rathpith Globe (CI/hybrid defense layer)",
+            "Hex-on-hit ring or impending doom setup for curse automation"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3410657",
+        "anchor_quote": "[3.22] Hexblast Miner Sabo | Dissolution + Rathpith | ALL CONTENT",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "thrown mines — at-target, then detonation triggers Hexblast",
+          "footprint": "small radius at target entity (3.2m base)",
+          "aoe": "Base radius is 3.2 metres; triggers only when target is already hexed, causing AoE spread",
+          "range_text": "Deals chaos damage to a single enemy, dealing more damage if they are Hexed, then removing the Hex. Base radius is 3.2 metres.",
+          "projectile": false
+        },
+        "source_url": "https://poedb.tw/us/Hexblast",
+        "anchor_quote": "Base radius is 3.2 metres... triggers only when the target is already hexed, causing the AoE damage to spread to nearby enemies.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player deploys mines at targets; Mine Mastery auto-detonation triggers Hexblast which consumes active Hex on target for huge chaos hit + small AoE; build runs curse automation (e.g., Impending Doom or hex-on-hit) to ensure target is always hexed before mine detonation; mine cadence automates the curse-consume loop."
+        },
+        "source_url": "https://www.poe-vault.com/guides/hexblast-miner-saboteur-build-guide",
+        "anchor_quote": "Hexblast gains absurd damage if the enemies has a Hex on them... Mine Mastery which automatically detonates your mines while moving — plays like a caster.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Hexblast Mines Saboteur (primary — Palsteron/TbXie builds, 3.22-3.25)",
+            "Hexblast self-cast Occultist (3.12 Heist launch variant — earliest era)",
+            "Hexblast Archmage Trickster (3.12 forum guide — ignite variant)",
+            "Hexblast Impending Doom Assassin (3.28 forum guide)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2935777",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

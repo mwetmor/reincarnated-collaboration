@@ -1,0 +1,265 @@
+{
+  "kit_id": "d3-ww-wastes",
+  "spine": {
+    "kit_id": "d3-ww-wastes",
+    "folk_name": "Whirlwind Wastes",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "ros-early;set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Bleed ailment not mapped (verbatim 'bleed' absent from anchor_quotes despite mech_note probe reference). Player loses bleed synergy hooks. Moving-WW-with-Dust-Devils identity well-captured. Physical element null.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Bleed ailment not mapped (verbatim 'bleed' absent from anchor_quotes despite mech_note probe reference). Player loses bleed synergy hooks. Moving-WW-with-Dust-Devils identity well-captured. Physical element null.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving channeled spin per §CROSS row 5 (item-defined-archetype is Wastes set form); 'Whirlwind is a channeled moving AoE spin' per skill_geometry payload; 'spin and move through the monster' per skill_loop anchor; full movement policy while channeling; Whirlwind gains Dust Devils rune effect per capstone anchor (§B.3 hot-fact + §CROSS row 4 item-defined-archetype BINDING); physical attack → element null per physical rule"
+        },
+        {
+          "source_skill": "Rend",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Ambo's Pride makes Rend apply automatically to every enemy hit by WW per capstone anchor; 'Wrath of the Wastes turns Whirlwind into a moving Rend applicator' per item_alterations anchor; bleed attested: 'bleed ticks apply immediately' per mech_note (probe-class, inadmissible) — BUT skill_loop anchor: 'The core concept is that Whirlwind applies the Damage over Time (DoT) effect from Rend using Ambo's Pride. You spin and move through the monster' — Rend DoT is attested; 'bleed' specifically in mech_note only. REASSESS: kit_dossier skill_loop payload attests 'Rend' DoT application; 'bleed' as word: mech_note probe only. No verbatim 'bleed' in anchor_quotes. Do not emit bleed."
+        },
+        {
+          "source_skill": "Dust Devils (set-granted R-M6 entity)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "R-M6 drift-tick lane (§B.3 hot-fact BINDING): 'Whirlwind gains the effect of the Dust Devils rune' per capstone anchor; transient drifting damage entities spawned by WW movement; drift note: entities wander independently from spawn point; no HP, no commands, no persistence → NOT summoner GAP; physical attack → element null"
+        }
+      ],
+      "motion_frame": "Continuously Whirlwind through packs — moving channel applying Rend via Ambo's Pride and spawning Dust Devil drift-tick entities; Wrath of the Berserker burst window; Fury via Bul-Kathos weapons",
+      "resource_economy": {
+        "cost_scale": "Fury (Barbarian resource); 'Bul-Kathos weapon variants provide insane Fury generation' per item_alterations anchor; Fury generated while spinning; 'Maximum Fury paragon allocation' per verify mechanics anchor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Dust Devils R-M6 drift entities spawned during WW movement (set-granted per §B.3)",
+            "Lamentation doubles Rend stacks (scaler-only)"
+          ],
+          "economy": [
+            "Bul-Kathos Fury generation; Band of Might damage reduction (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Wrath of the Wastes 6pc 10000% WW+Rend scalar (scaler-only per §B.1)",
+            "Ambo's Pride WW→Rend mechanism (item-defined-archetype)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Hot-facts (both BINDING): Dust-Devils = R-M6 drift lane + set-granted mechanism (§B.3). Physical attack → element null. Bleed near-miss: 'bleed ticks apply immediately' appears only in mech_note (probe-class, inadmissible); anchor_quotes do not contain verbatim 'bleed' — blocked per §0 attestation law. Rend DoT is attested in skill_loop anchor; bleed token not. Moving-channel per §CROSS row 5: delivery_notes carry the full-move differentiator. item-defined-archetype (§CROSS row 4): map the Wastes-form as the kit's loop. Wrath of the Berserker = self_buff burst window; attested in skill_loop payload but not as a trigger-grammar event — fidelity note only."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewingnom",
+      "title": "Waste Whirlwind Rend Barbarian Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.diablofans.com/forums/diablo-iii-class-forums/barbarian-bastions-keep/115105-ptr-2-2-barbarian-wrath-of-the-wastes-set",
+      "archive_url": null,
+      "site": "diablofans.com",
+      "author_handle": null,
+      "title": "PTR 2.2 - Barbarian Wrath of the Wastes Set Explained",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in vanilla",
+      "anchor_quote": "Wrath of the Wastes set was added in patch 2.2.0. Wrath of the Wastes was not available in vanilla Diablo 3 — it was introduced in the Reaper of Souls expansion.",
+      "source_url": "https://www.diablofans.com/forums/diablo-iii-class-forums/barbarian-bastions-keep/115105-ptr-2-2-barbarian-wrath-of-the-wastes-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Wrath of the Wastes set splits its bonuses between Whirlwind and Rend. Introduced patch 2.2.0 — core part of Barbarian builds focused on Whirlwind.",
+      "source_url": "https://www.diablofans.com/forums/diablo-iii-class-forums/barbarian-bastions-keep/115105-ptr-2-2-barbarian-wrath-of-the-wastes-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Guide updated June 21, 2026 for Season 39, Patch 2.7.8. Previously updated Season 33 / Patch 2.7.8.",
+      "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Whirlwind Wastes' and aliases 'Wrath of the Wastes WW Barbarian', 'Wastes WW Barb', 'Whirlwind Rend Barbarian' are real community usage",
+      "anchor_quote": "\"Some people call this build 'Rend Barb' while others call it 'Whirlwind Barb'\"",
+      "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Whirlwind, Rend; Fury resource",
+      "anchor_quote": "We use the Wrath of the Wastes set for the crazy damage increase and toughness while channeling Whirlwind. Build relies on Fury generation; \"Maximum Fury\" paragon allocation.",
+      "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewingnom",
+          "site": "maxroll.gg",
+          "role": "Author; written by Rob, reviewed by Northwar and Raxxanterax"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+        "anchor_quote": "Written by Rob, reviewed by Northwar & Raxxanterax, updated by Chewingnom",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Wrath of the Wastes 6pc",
+          "set_bonus_summary": "Whirlwind gains Dust Devils rune; 10,000% WW and Rend damage increase",
+          "legendary_powers": [
+            "Ambo's Pride: WW → Rend application",
+            "Bul-Kathos: Fury generation"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+        "anchor_quote": "Whirlwind gains the effect of the Dust Devils rune with all Whirlwind and Rend damage increased by 10,000%",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Wrath of the Wastes (6pc, 10,000% WW+Rend damage)",
+          "key_legendaries": [
+            "Ambo's Pride (WW applies Rend)",
+            "Bul-Kathos weapons (Fury gen)",
+            "Band of Might (damage reduction on Charge/Stomp)",
+            "In-geom",
+            "Boon of Bul-kathos"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+        "anchor_quote": "We use the Wrath of the Wastes set for the crazy damage increase and toughness while channeling Whirlwind",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin channeled spin",
+          "footprint": "small-radius around player while moving",
+          "notes": "Whirlwind is a channeled moving AoE spin. Rend applies bleed at same radius. Player moves freely while spinning."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+        "anchor_quote": "The core concept is that Whirlwind applies the Damage over Time (DoT) effect from Rend using Ambo's Pride. You spin and move through the monster.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Whirlwind continuously through packs applying Rend via Ambo's Pride. Fury generated by Bul-Kathos weapons. Wrath of the Wastes 6pc: +10,000% Whirlwind and Rend damage + Dust Devils rune effect. Use Furious Charge/Ground Stomp for Band of Might proc."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+        "anchor_quote": "Wrath of the Wastes turns Whirlwind into a moving Rend applicator. Bul-Kathos weapon variants provide \"insane Fury generation.\"",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Waste WW Rend (primary push)",
+            "Waste WW Speed variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/waste-set-ww-rend-barbarian-guide",
+        "anchor_quote": "This build excels many other builds in Diablo at Speed farming content as it is lightning quick",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

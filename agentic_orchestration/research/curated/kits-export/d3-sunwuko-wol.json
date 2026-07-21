@@ -1,0 +1,277 @@
+{
+  "kit_id": "d3-sunwuko-wol",
+  "spine": {
+    "kit_id": "d3-sunwuko-wol",
+    "folk_name": "Sunwuko Wave of Light",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Sunwuko clone multiplication of bell drops (clones appear from set mechanic and each casts Wave of Light) approximated via trigger_grammar; no engine 'set-spawned-clone-casts-your-primary' analog. The bell-drop identity and holy element map cleanly; the clone-multiplication layer is the approximation source.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Sunwuko clone multiplication of bell drops (clones appear from set mechanic and each casts Wave of Light) approximated via trigger_grammar; no engine 'set-spawned-clone-casts-your-primary' analog. The bell-drop identity and holy element map cleanly; the clone-multiplication layer is the approximation source.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wave of Light",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Colossal spirit bell dropped at targeted cursor location; large AoE impact; at-target large-zone bell-drop; holy element attested in corpus elem_raw; Sunwuko clones multiply bell drops per set mechanic; Explosive Light rune"
+        },
+        {
+          "source_skill": "Sweeping Wind",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin small-radius persistent ring; Sunwuko 6pc multiplier rides on Sweeping Wind stack count; Inner Storm rune for Spirit regen; mandatory for Sunwuko damage multiplication"
+        },
+        {
+          "source_skill": "Dashing Strike",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Repositioning dash; triggers In-Geom CDR resets; interrupt Wave of Light spam with dashes for CDR loop"
+        },
+        {
+          "source_skill": "Epiphany",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spirit per second sustained; CDR immunity; enables constant Wave of Light spam"
+        }
+      ],
+      "motion_frame": "Maintain Sweeping Wind stacks for Sunwuko damage multiplier; hold Wave of Light on left mouse button constantly; interrupt with Dashing Strike for In-Geom CDR reset; bell drops every step through Sunwuko clone mechanics; Epiphany sustains Spirit",
+      "resource_economy": {
+        "resource": "Spirit",
+        "cost_note": "Wave of Light costs Spirit; Epiphany provides Spirit per second for constant spam; Sweeping Wind stacks maintained for Sunwuko multiplier"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "MOMENTUM_CASCADE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Sunwuko clones multiply bell drop count (set-granted proc — trigger_grammar rider: Sunwuko clone cast on Sweeping Wind interaction)"
+          ],
+          "economy": [
+            "In-Geom — CDR reset on elite kill for Dashing Strike; Vengeful Wind — increases Sweeping Wind stack count; The Flow of Eternity — Wave of Light cost reduction; Epiphany Spirit per second"
+          ],
+          "traits_affixes": [
+            "Sunwuko (Monkey King's Garb) 6pc — Sweeping Wind stacks multiply Wave of Light damage (scaler per §B row 1; reworked Patch 2.4 to solo-viable); Inna's Mantra pieces (supporting scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Holy element attested in corpus elem_raw. Sunwuko clone mechanic (6pc spawns clones that drop additional bells) is trigger_grammar rider — item-defined-archetype law: kit IS the clone-bell form (reworked Patch 2.4). Bell-drop geometry maps to ground_targeted_circle per phrase-book. The 'hold left mouse button constantly' identity maps well to PERSISTENCE_ENGINE_uptime door. Sweeping Wind ring + bell-drop at-target are two complementary geometry shapes in the same kit; both map cleanly. [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #12 holy->null x2: 'holy' x0 in store; only element-adjacent token is rune NAME 'Explosive Light' (name != attestation). Monk class-flavor import banned per same law as sotl/rolands. Bell identity carries via ground_targeted_circle geometry.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Season 38 Sunwuko Wave of Light Monk Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-sunwuko-set",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Monk Wave of Light Build with Sunwuko Set (Patch 2.7.8 / Season 38)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-lod",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Monk Wave of Light Build with LoD (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Previously stuck in the group-only support DPS role, the Sunwuko set received a revision in Patch 2.4 to a viable soloing state. With this rework and revised items, the Season 2 champion Wave of Light re-emerged.",
+      "source_url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-sunwuko-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Monk Wave of Light Build with Sunwuko Set (Patch 2.7.8 / Season 38) — this is one of the best speed builds in Diablo 3, updated for Season 38.",
+      "source_url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-sunwuko-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-lod",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Sunwuko Wave of Light' and aliases 'Sunwuko Monk', 'Wave of Light Monk', 'WoL Monk' are real community usage",
+      "anchor_quote": "the set used by the build is actually called Monkey King's Garb, but since every single piece is called 'Sunwuko's this' and 'Sunwuko's that' everyone in the community just calls it Sunwuko.",
+      "source_url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Wave of Light and Sweeping Wind; Monk resource (Spirit); bell-drop delivery with Sunwuko clone amplification",
+      "anchor_quote": "Wave of Light Explosive Light rune serves as the main damage dealer. Sweeping Wind Inner Storm provides the massive damage multiplier from the Sunwuko set bonus. Spirit is the primary resource.",
+      "source_url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-sunwuko-set",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Monkey King's Garb / Sunwuko (6pc) — core set; reworked Patch 2.4 to viable solo WoL; In-Geom enables Dashing Strike CDR loop",
+          "kanai_cube": [
+            "In-Geom"
+          ],
+          "legendary_powers": [
+            "Vengeful Wind",
+            "The Flow of Eternity"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-wave-of-light-build-with-sunwuko-set",
+        "anchor_quote": "Previously stuck in the group-only support DPS role, the Sunwuko set received a revision in Patch 2.4 to a viable soloing state. With this rework and the aid of several revised items, the Season 2 champion Wave of Light re-emerged.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Monkey King's Garb (Sunwuko) set (6pc) — Sweeping Wind stacks multiply WoL damage",
+            "In-Geom — CDR for Dashing Strike resets",
+            "Vengeful Wind — Sweeping Wind stacks",
+            "The Flow of Eternity",
+            "Inna's Mantra pieces"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+        "anchor_quote": "This is one of the best speed builds in Diablo 3. Flying around detonating everything with Wave of Light is the specialty.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Wave of Light bell dropped at targeted cursor location; large AoE impact; Sunwuko clones multiply bell drops; at-target large-zone",
+          "range": "at-target large-AoE bell-drop"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+        "anchor_quote": "Wave of Light Explosive Light rune serves as the main damage dealer. Wave of Light Explosive Light and Dashing Strike to farm GR100+ in under 3 minutes on any map.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Maintain Sweeping Wind stacks for Sunwuko damage multiplier; hold Wave of Light on left mouse button constantly; interrupt with Dashing Strike for In-Geom CDR reset; Epiphany provides Spirit per second to sustain Wave of Light spam; bell drops every step through Sunwuko clone mechanics."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+        "anchor_quote": "holding Wave of Light on your left mouse button constantly along with force stand still, and tapping your dash, with the basic idea being I'm always throwing Waves of Light, and I interrupt that with Dashes.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sunwuko Tempest Rush Monk",
+            "Sunwuko Lashing Tail Kick",
+            "LoD Wave of Light (Season 39 successor)",
+            "Sunwuko speed GR farm"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/sunwuko-wave-of-light-monk-guide",
+        "anchor_quote": "Diablo 3 Season 38 Sunwuko Wave of Light Monk Guide. Monk Wave of Light Build with LoD (Patch 2.7.8 / Season 39) — separate guide for Season 39 successor.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

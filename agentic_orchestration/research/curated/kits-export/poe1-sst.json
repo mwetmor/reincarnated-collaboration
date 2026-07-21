@@ -1,0 +1,247 @@
+{
+  "kit_id": "poe1-sst",
+  "spine": {
+    "kit_id": "poe1-sst",
+    "folk_name": "Spectral Shield Throw",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: primary-vs-secondary pierce split and shard-count patch history are behavioral; defence-scaling approximated via door + affix lane. The throw-and-shatter loop itself lands cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: primary-vs-secondary pierce split and shard-count patch history are behavioral; defence-scaling approximated via door + affix lane. The throw-and-shatter loop itself lands cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spectral Shield Throw",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "composite: primary shield projectile (cannot pierce) flies straight, then SHATTERS on impact into a radial shrapnel spray (secondaries can pierce; up to 13 shards pre-3.15, later 3+chain). Dominant footprint = the shatter burst (§7.2), primary throw folded into this note — ice-shot b04 precedent."
+        }
+      ],
+      "motion_frame": "walk-and-throw shield lobber: each throw shatters into a shrapnel spray; medium tempo with spiky shatter variance",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "impact-shatter radial spray",
+            "shard count/pierce"
+          ],
+          "economy": [
+            "mana-light spend (chassis default)"
+          ],
+          "traits_affixes": [
+            "shield armour/evasion rolls AS the damage stat (gear-affix lane carries the scaling identity)",
+            "block (Gladiator)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure-physical -> element-neutral per THE PHYSICAL RULE; canonical form is SST Bleed Gladiator -> bleed. Damage scales off the SHIELD'S armour/evasion, not weapon damage — defence-stat-into-damage identity routed RESOURCE_CONVERSION door + gear-affix lane note (no dedicated stat-conversion primitive asserted). GEOMETRY_PROPAGATION base token per R-M1 (impact-spawn, neither clearly cascade-on-kill nor overkill)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/spectral-shield-throw-pure-physical-gladiator-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.25] Spectral Shield Throw Gladiator Build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/elemental-spectral-shield-throw-raider",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.21] Elemental Spectral Shield Throw Raider — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Spectral_Shield_Throw",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Spectral Shield Throw — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6 (intro 3.2.0)",
+      "anchor_quote": "Spectral Shield Throw was introduced in patch 3.2.0 as a new Dexterity/Strength Skill Gem",
+      "source_url": "https://poedb.tw/us/Spectral_Shield_Throw",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "[3.25]Spectral Shield Throw Gladiator Build — Updated for Patch 3.25; [3.21]Elemental Spectral Shield Throw Raider",
+      "source_url": "https://odealo.com/articles/spectral-shield-throw-pure-physical-gladiator-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Spectral Shield Throw' is real community usage; alias 'SST' is real community usage",
+      "anchor_quote": "[3.25]Spectral Shield Throw Gladiator Build; Spectral Shield Throw Bleed Gladiator — tanky & fast mapping",
+      "source_url": "https://odealo.com/articles/spectral-shield-throw-pure-physical-gladiator-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Spectral Shield Throw; shield copy projectile shatters into shrapnel; damage scales off shield defenses; Gladiator class",
+      "anchor_quote": "Spectral Shield Throw deals damage based on your Shield's Armour and Evasion; shatters on impact, which combined with Gratuitous Violence, will detonate any pack of enemies; Gladiator class",
+      "source_url": "https://odealo.com/articles/spectral-shield-throw-pure-physical-gladiator-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Velyna",
+          "site": "poe-vault.com",
+          "note": "primary SST Raider guide author for 3.24"
+        },
+        "source_url": "https://www.poe-vault.com/guides/velynas-spectral-shield-throw-raider",
+        "anchor_quote": "Velyna's Spectral Shield Throw Raider",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Spectral Shield Throw (quality)",
+              "type": "base_quality",
+              "effect": "Fires (0-2) additional Projectiles",
+              "anchor_quote": "Fires (0—2) additional Projectiles"
+            },
+            {
+              "node": "Spectral Shield Throw of Shattering (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Fires cold damage instead of physical; adjusted scaling",
+              "anchor_quote": "Fires cold damage instead of physical"
+            },
+            {
+              "node": "Seething Fury jewel (reworked)",
+              "type": "threshold_jewel_reworked",
+              "effect": "No longer changes Spectral Shield Throw behaviour specifically; now grants +0.2% to Off Hand Critical Strike Chance per 10 Maximum Energy Shield on Shield",
+              "anchor_quote": "no longer changes the behaviour of Spectral Shield Throw specifically"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Shield_Throw",
+        "anchor_quote": "Fires cold damage instead of physical",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "damage scales off shield armour/evasion; shield stat optimization is core gear target"
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Shield_Throw",
+        "anchor_quote": "Added Physical Damage per 15 Armour or Evasion Rating on Shield",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "primary shield projectile cannot pierce; shatters on impact launching multiple shrapnel projectiles in all directions; secondary shards can pierce; at gem level 20: up to 13 secondary projectiles (pre-3.15 rework) then reduced to 3+chain"
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Shield_Throw",
+        "anchor_quote": "primary projectile which cannot pierce; shatters, launching a number of smaller shards as projectiles in all directions; secondary projectiles deal reduced damage but can pierce",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Throw a spectral copy of your equipped shield as a projectile. On impact, the shield shatters into secondary shrapnel projectiles in all directions. Damage scales off the shield's armour and evasion rating, not weapon damage. Gladiator's block and bleed synergy are primary ascendancy supports."
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Shield_Throw",
+        "anchor_quote": "deals off-hand damage augmented by the defences of the shield; will shatter, launching a number of smaller shards as projectiles in all directions",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "SST Bleed Gladiator — physical bleed variant (canonical)",
+            "Elemental SST Raider — elemental conversion variant",
+            "Chaos SST Pathfinder — chaos conversion variant (3.19)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/spectral-shield-throw-pure-physical-gladiator-odealos-crafty-guide",
+        "anchor_quote": "[3.21] Elemental Spectral Shield Throw Raider; [3.19] Chaos Spectral Shield Throw Pathfinder",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

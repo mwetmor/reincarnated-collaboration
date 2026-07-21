@@ -1,0 +1,257 @@
+{
+  "kit_id": "le-reaper-form-lich",
+  "spine": {
+    "kit_id": "le-reaper-form-lich",
+    "folk_name": "Reaper Form Lich",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss the transform frame and the dramatic form-break/re-entry cycle; decay race approximated as tick-cost persistent condition sustained by leech. The in-form loop itself (scythe melee arc + secondary projectile + uptime economy) carries intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss the transform frame and the dramatic form-break/re-entry cycle; decay race approximated as tick-cost persistent condition sustained by leech. The in-form loop itself (scythe melee arc + secondary projectile + uptime economy) carries intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Reaper Form",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "transform chassis: activated once, maintained via leech-vs-form-decay race; player exits form when leech fails ('keep it active by staying in combat and leeching')"
+        },
+        {
+          "source_skill": "Harvest",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "main damage skill; self-origin scythe melee in small radius around the Lich while in form"
+        },
+        {
+          "source_skill": "Flay",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "secondary projectile for range; damage + buff application during clear"
+        }
+      ],
+      "motion_frame": "in-form melee brawler; stays in combat to feed leech while form integrity decays",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Accursed Feast leech node (form-uptime sustain)"
+          ],
+          "traits_affixes": [
+            "uniques Army of Skin / Traitor's Tongue / Siphon of Anguish / Exulis -> numeric+leech gear lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "necrotic->shadow (crosswalk 1). Permanent-form kit mapped IN-FORM per basin-2 B Rage-in-form law shape (this kit's own fetched language carries: form-uptime via leech loop); form-swap presentation stays a GX-02 design note, not a lane; engine spirit-swap adjacency = design note only. 'Executioner' node is name-only, no fetched behavior -> contributes nothing (attestation law 0.4; execute NOT emitted). Eras: beta/1.0 verify honest-U, 1.4-omens confirmed; corpus columns govern."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Volca (reviewed by Lizard_IRL)",
+      "title": "Harvest Flay Lich Build Guide - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Season 4 - Shattered Omens... Last Updated: April 27, 2026.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Reaper Form Lich' / 'Harvest Reaper Lich' / 'form-shift Lich' are real community usage",
+      "anchor_quote": "Transform into Reaper Form and keep it active by staying in combat and leeching. Reaper Form and Aura Of Decay provide incredible offensive and defensive buffs.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Reaper Form (form-shift transformation), Harvest (main damage skill); Lich transforms into Reaper with decaying HP bar; leech sustains form",
+      "anchor_quote": "Harvest is your main Damage Skill... Transform into Reaper Form and keep it active by staying in combat and leeching.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "reviewer": "Lizard_IRL"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Corrupted Form",
+            "Accursed Feast",
+            "Spectral Wounds",
+            "Executioner"
+          ],
+          "notes": "Accursed Feast is the critical leech node enabling form uptime"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Corrupted Form, Accursed Feast, Spectral Wounds, and Executioner.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Army of Skin",
+            "Traitor's Tongue",
+            "Siphon of Anguish",
+            "Exulis"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Army of Skin, Traitor's Tongue, Siphon of Anguish, and Exulis.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "self-origin melee scythe attacks in small radius around the Lich while in Reaper Form; secondary Flay projectile for range",
+          "range_class": "melee",
+          "aoe": "small-radius"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Transform into Reaper Form and keep it active by staying in combat and leeching.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Player activates Reaper Form to transform. In form, Harvest is the primary damage skill executed via scythe melee attacks. The form sustains via Accursed Feast leech; if leech fails to outpace form decay the player exits. Flay provides secondary damage and buff application during map clear.",
+          "core_driver": "form-uptime via leech loop",
+          "secondary_skill": "Flay"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Transform into Reaper Form and keep it active by staying in combat and leeching. Harvest is your main Damage Skill.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Harvest Flay Lich",
+              "notes": "primary variant; melee scythe with Flay support"
+            },
+            {
+              "name": "Flay Mana Lich",
+              "notes": "single-target DPS variant"
+            },
+            {
+              "name": "Death Seal Lich",
+              "notes": "single-target alternative"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Harvest is your main Damage Skill... Flay Mana Lich... Death Seal Lich.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

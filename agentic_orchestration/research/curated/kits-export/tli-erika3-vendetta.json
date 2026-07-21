@@ -1,0 +1,245 @@
+{
+  "kit_id": "tli-erika3-vendetta",
+  "spine": {
+    "kit_id": "tli-erika3-vendetta",
+    "folk_name": "Erika 3 Vendetta's Sting",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-ss11-12-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Frostbite 100-stack → instant freeze not directly expressible; engine freeze is binary. Vendetta auto-teleport + auto-trigger is a unique mode-shift mechanic approximated as dash_attack.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Frostbite 100-stack → instant freeze not directly expressible; engine freeze is binary. Vendetta auto-teleport + auto-trigger is a unique mode-shift mechanic approximated as dash_attack.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Vendetta's Sting (teleport + auto-melee)",
+          "geometry_value": "dash_attack",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Teleport to nearest enemy + auto-trigger primary melee skill. Verify anchor: 'Vendetta teleports Erika to a nearby enemy (within roughly 8 meters) and automatically triggers her primary melee skill with bonus damage.' Cold attested: verify anchor 'switch to the Frost Spike skill to enhance cold damage and utilize the Frostbite status ailment, with the goal of setting the maximum Frostbite to 100 to instantly freeze enemies.' Frostbite→freeze: 100-stack threshold → instant freeze = hard CC. water (cold-register)."
+        },
+        {
+          "source_skill": "Twin Blade Onslaught / Focus Slash",
+          "geometry_value": "melee_strike",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Two-handed twin-blade combo. Skill_geometry anchor: 'Twin Blade Onslaught Enhances attacks using two-handed weapons.' Cold via Frost Spike / Frostbite stacking identity."
+        }
+      ],
+      "motion_frame": "Cold melee assassin: Vendetta auto-teleports to enemy and fires twin-blade combo; stack Frostbite to 100 for freeze burst; late-game Frost Spike as primary cold skill.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_stack_resource": "Frostbite stacks (0→100; threshold = instant freeze)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Frostbite stack at 100",
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "8m auto-teleport gap-close"
+          ],
+          "economy": [
+            "Frostbite accumulator (stack ramp to 100)",
+            "Energy Shield dual-scaling (damage + tankiness)"
+          ],
+          "traits_affixes": [
+            "Recklessness support (attack speed at HP cost)",
+            "Extreme Coldness talent (locks to cold-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U. Cold attested per brief p07 hot-facts: 'erika3 → water (cold) if the dossier types a cold/ice damage effect' — confirmed by verify_ledger anchor. Frostbite stacking mechanic (0→100→freeze) is TLI-specific; approximated as accumulator + ailment-overwrite trigger. Physical early-game variant dropped (dominant loop = cold late-game per dominant skill loop). PHASE_MOMENTUM for Vendetta's instant-gap-close mode shift."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.mmopixel.com/news/torchlight-infinite-vorax-ss11-erika-3-vendetta-s-sting-build-guide-new-season-setup-scaling",
+      "archive_url": null,
+      "site": "mmopixel.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite Vorax SS11 Erika 3 (Vendetta's Sting) Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.iggm.com/news/torchlight-infinite-ss11-erika-3-cold-flicker-strike-leveling-build-guide",
+      "archive_url": null,
+      "site": "iggm.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite SS11 Erika 3 Cold Flicker Strike Leveling Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://vortexgaming.io/en/postdetail/649647",
+      "archive_url": null,
+      "site": "vortexgaming.io",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite: New Erica S3 Build Guide (Vorax Season)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-ss11-12-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Erika 3 Vendetta's Sting — twin-blade cold melee assassin style",
+      "anchor_quote": "Cateye Erika (Vendetta) transforms her into a high-speed assassin-style melee damage dealer focused on darting through enemies and delivering fast, powerful attacks.",
+      "source_url": "https://www.mmopixel.com/news/torchlight-infinite-vorax-ss11-erika-3-vendetta-s-sting-build-guide-new-season-setup-scaling",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: twin-blade combo suite, Vendetta teleport mechanic",
+      "anchor_quote": "Vendetta teleports Erika to a nearby enemy (within roughly 8 meters) and automatically triggers her primary melee skill with bonus damage.",
+      "source_url": "https://www.mmopixel.com/news/torchlight-infinite-vorax-ss11-erika-3-vendetta-s-sting-build-guide-new-season-setup-scaling",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Cold damage element — Frostbite focus",
+      "anchor_quote": "switch to the Frost Spike skill to enhance cold damage and utilize the 'Frostbite' status ailment, with the goal of setting the maximum 'Frostbite' to 100 to instantly freeze enemies.",
+      "source_url": "https://www.iggm.com/news/torchlight-infinite-ss11-erika-3-cold-flicker-strike-leveling-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Vendetta's Sting trait: teleport + auto-attack trigger, 3s cooldown (removed under conditions). Erika 3 = Cateye class identity. Cold damage endgame via Frostbite stacking."
+        },
+        "source_url": "https://www.mmopixel.com/news/torchlight-infinite-vorax-ss11-erika-3-vendetta-s-sting-build-guide-new-season-setup-scaling",
+        "anchor_quote": "Cateye Erika (Vendetta), also called Erika 3, has a new playstyle where she will teleport to the nearest enemy and release her main attack automatically.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Energy Shield stacks for damage + tankiness. Recklessness support: attack speed at HP cost. Frost Shield: ES regeneration protection. Cold convert via Divine Tablet or Extreme Coldness talent node."
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-ss11-erika-3-cold-flicker-strike-leveling-build-guide",
+        "anchor_quote": "You can obtain a 100% conversion of Magic damage to Cold damage using Divine Tablet, or unlock Extreme Coldness node in the talent tree",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Melee close-range. Teleport to enemy = instant gap-close. Crescent Slash = AoE option. Berserking Blade + Focus Slash = boss/farming flex combo. Frost Shield = defensive layer."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/649647",
+        "anchor_quote": "Twin Blade Onslaught Enhances attacks using two-handed weapons.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Vendetta's Sting auto-teleports Erika to nearby enemy (within ~8m) and triggers main skill. Early: Double Thrust + physical damage. Late: Frost Spike + Frostbite stacking to 100 stacks → freeze. Twin Blade Onslaught enhances two-handed attacks."
+        },
+        "source_url": "https://www.mmopixel.com/news/torchlight-infinite-vorax-ss11-erika-3-vendetta-s-sting-build-guide-new-season-setup-scaling",
+        "anchor_quote": "Vendetta teleports Erika to a nearby enemy (within roughly 8 meters) and automatically triggers her primary melee skill with bonus damage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Cold Flicker Strike (Frostbite stacking)",
+            "Physical early-game (Double Thrust)",
+            "AoE Crescent Slash",
+            "Berserking Blade + Focus Slash (flex boss)"
+          ]
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-ss11-erika-3-cold-flicker-strike-leveling-build-guide",
+        "anchor_quote": "Crescent Slash is another option for Erika 3 if you like AoE damage",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "kit_id": "di-corpse-explosion-necro",
+  "spine": {
+    "kit_id": "di-corpse-explosion-necro",
+    "folk_name": "Corpse Explosion Necromancer",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Corpse-core identity depends on spatial-consumable-resource-node mechanic (§CROSS row 1 docket class) with no engine lane. The explosion delivery maps but the kill→corpse→detonate loop's core mechanic is unrepresentable. Accrual to spatial-consumable-resource-node docket family.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 1,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Corpse-core identity depends on spatial-consumable-resource-node mechanic (§CROSS row 1 docket class) with no engine lane. The explosion delivery maps but the kill→corpse→detonate loop's core mechanic is unrepresentable. Accrual to spatial-consumable-resource-node docket family.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Corpse Explosion",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Small AoE burst at each detonated corpse; homing to nearest corpse; chained blasts overlap for multiple-corpse pulls. Physical delivery, element null (physical rule). 'Detonate all corpses in the target area, each corpse dealing X damage to all nearby enemies.'"
+        },
+        {
+          "source_skill": "Bone Spikes",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary control/damage skill. Shadow element per bone/necrotic→shadow main-law."
+        }
+      ],
+      "motion_frame": "Generate corpses via kills; detonate with Corpse Explosion for chained AoE burst; corpse availability gates the loop",
+      "resource_economy": {
+        "corpse_nodes": "identity-load-bearing consumable-resource gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Corpse-core kit: the primary loop verb IS corpse harvest→detonate; R-M7 governs — 'not that build' without the corpse-node mechanic. §CROSS row 1 spatial-consumable-resource-node docket class applies; corpse_nodes key carried per R-M4. Element null on CE: physical elem_raw, no element damage verb in dossier. 'Detonate all corpses' = physical detonation with no fire/shadow/etc verb. Capstone: 'Rotspur legendary adds DoT component' — DoT named but no ailment status word (burn/poison/etc) in store; no ailment emitted. Bone Spikes shadow = main-law inference from necrotic register, not element damage verb — mapping secondary only; primary CE is element null. [STEWARD-AUDIT MW5: Bone Spikes: shadow->null: shadow name-only (bone x1 = \"bone spikes\" name, shadow 0 hits)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/necromancer-build-guides",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Necromancer Build Guides - Diablo Immortal - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gamerant.com/diablo-immortal-best-corpse-explosion-necromancer-build-skills-gear-gems-reforge/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Diablo Immortal: Best Corpse Explosion Necromancer Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/necromancer",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Necromancer Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in di-launch-2022",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Corpse Explosion Necromancer'; aliases 'Corpse Explosion Necro DI', 'CE Necro Diablo Immortal'",
+      "anchor_quote": "Diablo Immortal: Best Corpse Explosion Necromancer Build",
+      "source_url": "https://gamerant.com/diablo-immortal-best-corpse-explosion-necromancer-build-skills-gear-gems-reforge/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Corpse Explosion, Bone Spikes; resource: Essence",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note_source": "Legendary and set effects modify Corpse Explosion; Rotspur legendary adds DoT component"
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-corpse-explosion-necromancer-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Detonate all corpses in the target area, each corpse dealing X damage to all nearby enemies.",
+        "abstained": 0,
+        "conf": 0.55
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "corpse_explosion": "small AoE burst at each detonated corpse; homing to nearest corpse; chained blasts overlap for multiple-corpse pulls"
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-corpse-explosion-necromancer-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Detonate all corpses in the target area, each corpse dealing X damage to all nearby enemies.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Generate corpses via kills; detonate with Corpse Explosion for chained AoE damage; Bone Spikes as secondary control/damage",
+          "primary_mechanic": "corpse chain explosions",
+          "resource_gate": "corpse availability"
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-corpse-explosion-necromancer-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Detonate all corpses in the target area, each corpse dealing X damage to all nearby enemies.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

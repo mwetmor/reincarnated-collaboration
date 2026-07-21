@@ -1,0 +1,247 @@
+{
+  "kit_id": "d2-nova-sorc",
+  "spine": {
+    "kit_id": "d2-nova-sorc",
+    "folk_name": "Nova Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player lived inside melee range by design — proximity requirement for ring center has no engine enforcement. Stun cadence at spell speed (not melee speed) = unusual delivery feel preserved via ring geometry. Static Field percent-HP shred loses precision mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player lived inside melee range by design — proximity requirement for ring center has no engine enforcement. Stun cadence at spell speed (not melee speed) = unusual delivery feel preserved via ring geometry. Static Field percent-HP shred loses precision mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Nova",
+          "geometry_value": "ring",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Self-origin ring expands outward from caster body at spam cadence. Dossier: 'drop novas to Stun-lock them'; skill_loop: 'Nova rings expand from caster body, dealing lightning damage... stun-locking them.' Point-blank living-inside-melee-range playstyle."
+        },
+        {
+          "source_skill": "Static Field",
+          "geometry_value": "ring",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Percentage-HP reduction on boss targets; dossier notes boss use specifically."
+        },
+        {
+          "source_skill": "Teleport",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Repositioning utility; mana cost per use."
+        }
+      ],
+      "motion_frame": "Spam Nova rings outward from inside monster packs; Static Field for boss HP reduction; Teleport for repositioning.",
+      "resource_economy": {
+        "cost_scale": "steady-mana",
+        "cost_slope": "flat-per-cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_COLLAPSE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "self-origin ring fill; point-blank proximity requirement"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Energy Shield variant (mana-as-life) scaffold — separate variant, noted"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Stun attested in dossier anchor_quote: 'drop novas to Stun-lock them' and skill_loop 'stun-locking them' — contiguous in-store. Lightning element confirmed. Static Field boss-percentage reduction has no exact lane (percent-HP shred ≠ execute threshold); mapped as secondary utility skill. Teleport repositioning maps normally. ES Nova variant (mana-as-life resource inversion) = inverted-resource DO-NOT-MERGE ruling applies; separate variant."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "saggytits",
+      "title": "HC Nova Sorc Guide for 2.5",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/season-starter-es-nova-sorc-guide-fast-and-easy-runes-and-keys-t359249.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "APKefka",
+      "title": "Season Starter ES Nova Sorc Guide - Fast and Easy Runes and Keys!",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod",
+      "anchor_quote": "in LoD this was already a good build, with basically half the Nova damage.",
+      "source_url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r",
+      "anchor_quote": "SF synergy in D2R (along with Anni/Torch) firmly makes her a top tier cow runner",
+      "source_url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era token: rotw-s14 (post-cutoff — fetched text defines)",
+      "anchor_quote": null,
+      "source_url": "https://diablo2.io/forums/season-starter-es-nova-sorc-guide-fast-and-easy-runes-and-keys-t359249.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Nova Sorc' or 'Nova Sorceress' is real community usage",
+      "anchor_quote": "We use Nova as our main skill as it will do enough damage to keep most mobs essentially Stun locked the entire time we are killing them.",
+      "source_url": "https://diablo2.io/forums/season-starter-es-nova-sorc-guide-fast-and-easy-runes-and-keys-t359249.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Nova, Static Field, Teleport; mana resource",
+      "anchor_quote": "With maxed-out gear, every single enemy in the game will be set to either -100% or 0% final lightning resist...Using Nova, immune enemies will receive between (3315-4366) damage at 0% resist",
+      "source_url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "saggytits",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "ring",
+          "notes": "Nova expands outward from player body as ring; fills screen at high power. Point-blank playstyle: sorceress lives inside melee range by design."
+        },
+        "source_url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+        "anchor_quote": "drop novas to Stun-lock them",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast Nova repeatedly from inside monster packs; Nova rings expand from caster body, dealing lightning damage to all nearby enemies and stun-locking them. Static Field used for percentage-HP reduction on boss targets. Teleport for repositioning.",
+          "source_note": "diablo2.io HC Nova Sorc guide 2.5 + ES Nova guide"
+        },
+        "source_url": "https://diablo2.io/forums/hc-nova-sorc-guide-for-2-5-t1133963.html",
+        "anchor_quote": "We use Nova as our main skill as it will do enough damage to keep most mobs essentially Stun locked the entire time we are killing them.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Nova (mana-spend)",
+            "ES Nova (Energy Shield variant — uses Telekinesis mana recovery; sacrifices life pool)",
+            "Dual Nova (hybrid speculation — search result title only, not fetched)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/season-starter-es-nova-sorc-guide-fast-and-easy-runes-and-keys-t359249.html",
+        "anchor_quote": "Nova Sorc (Energy Shield variant)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

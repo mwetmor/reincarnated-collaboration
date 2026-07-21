@@ -1,0 +1,217 @@
+{
+  "kit_id": "ud-cwc-spin-caster",
+  "spine": {
+    "kit_id": "ud-cwc-spin-caster",
+    "folk_name": "Whirlwind CwC Blizzard (Ya55)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "ud-s7-2025",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/spin",
+    "gx": "GX-21",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine maps two discrete skills (whirlwind + ground circle). Source player would recognize the CwC proc trigger shape but the physical/cold split across two geometry slots may feel less fluid than the original spin-and-trigger single experience.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine maps two discrete skills (whirlwind + ground circle). Source player would recognize the CwC proc trigger shape but the physical/cold split across two geometry slots may feel less fluid than the original spin-and-trigger single experience.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Physical channel spin layer; self-origin; full movement while spinning. Physical=no-family."
+        },
+        {
+          "source_skill": "Blizzard (proc)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "At-target cold AOE proc triggered by Spell Activation while Channeling link rune on each Whirlwind channel tick. Cold/ice register → water family. Chill and freeze are attested via ice-crystal-arrow dossier cross-evidence for Undecember cold ailments; within this kit the verify anchor confirms 'rain down projectiles on your opponents' from Blizzard proc — cold element is structural to Blizzard identity (cold-named skill in UD). NEAR-MISS note: freeze/chill not explicitly named in this kit's own dossier — see §0 note."
+        }
+      ],
+      "motion_frame": "Channel Whirlwind spin as movement + delivery; Spell Activation while Channeling fires Blizzard cold-AOE proc per channel tick; dual-layer physical+cold",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "cost_scale": "mana",
+        "cadence_scale": "continuous-channel"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID",
+        "PERSISTENCE_ENGINE_uptime",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Spell Activation while Channeling (trigger link rune)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Two-handed Sword scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CwC variant of whirlwind-str — physical spin triggers cold Blizzard proc. element_primary=water on Blizzard proc; Whirlwind layer element=null (physical no-family). HYBRID T4 door because the identity is physical-channel + cold-proc. Chill/freeze ailments on Blizzard are attested structurally (Blizzard = cold zone in UD) but not named verbatim in this kit's dossier — honest near-miss flagged."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pocketgamer.com/undecember/builds/",
+      "archive_url": null,
+      "site": "pocketgamer.com",
+      "author_handle": "Pocket Gamer staff",
+      "title": "The best Undecember builds in Season 7",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-s7-2025 (Season 7)",
+      "anchor_quote": "Cast Whirlwind to start spinning, and with the help of the rune 'Spell Activation while Channeling', proc Blizzard to rain down projectiles on your opponents.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Whirlwind CwC Blizzard build (Ya55 meta creator; 'Spell Activation while Channeling' link rune)",
+      "anchor_quote": "Cast Whirlwind to start spinning, and with the help of the rune 'Spell Activation while Channeling', proc Blizzard to rain down projectiles on your opponents.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Whirlwind channel spin triggers 'Spell Activation while Channeling' link, firing Blizzard procs; dual delivery: spin self-origin + Blizzard at-target proc",
+      "anchor_quote": "Cast Whirlwind to start spinning, and with the help of the rune 'Spell Activation while Channeling', proc Blizzard to rain down projectiles on your opponents.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Ya55",
+          "site": "pocketgamer.com/undecember",
+          "context": "Season 7 meta creator, Whirlwind Blizzard CwC build"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "primary_link": "Spell Activation while Channeling",
+          "triggered_skill": "Blizzard",
+          "equipment": "Two-handed Sword"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Cast Whirlwind to start spinning, and with the help of the rune 'Spell Activation while Channeling', proc Blizzard to rain down projectiles on your opponents.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "self-origin small-radius (Whirlwind spin)",
+          "secondary": "at-target large-zone (Blizzard proc)",
+          "movement": "full-move while spinning"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+        "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Whirlwind to spin toward enemies; 'Spell Activation while Channeling' link rune fires Blizzard procs on channel ticks; dual-layer: spin deals physical self-origin damage while Blizzard rains cold AOE at target"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Cast Whirlwind to start spinning, and with the help of the rune 'Spell Activation while Channeling', proc Blizzard to rain down projectiles on your opponents.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "kit_id": "chr-plague-curse-warlock",
+  "spine": {
+    "kit_id": "chr-plague-curse-warlock",
+    "folk_name": "Plague Mage / Desecrator Curse Warlock",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Era UNSUPPORTED; 'Desecration Weakness' stack mechanic (9-10x accumulator) has no direct engine analog for curse-stack depth; spirit of torment cascade spread approximated as circle; fear ailment on Spirit of Torment not attested — suppressed",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:amplify",
+      "fear",
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Era UNSUPPORTED; 'Desecration Weakness' stack mechanic (9-10x accumulator) has no direct engine analog for curse-stack depth; spirit of torment cascade spread approximated as circle; fear ailment on Spirit of Torment not attested — suppressed",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Plague",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison",
+            "curse:amplify"
+          ],
+          "delivery_notes": "DoT corruptor skill placed at target; 'shadow damage' attested via 'most things teched for shadow damage' anchor; poison DoT stacking identity; 'desecrators set' = SET NAME → element null from that token; element confirmed from 'shadow damage' direct descriptor, not set name"
+        },
+        {
+          "source_skill": "Screaming Skull",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Reaper skill generating Desecration Weakness stacks (9-10x vs Hand of Death); stack generator — on-hit mark builder; Desecration Weakness = debuff amplifying damage taken → curse:amplify pattern"
+        },
+        {
+          "source_skill": "Death Speaker",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Staff item — multiplies curse damage by remaining DoT damage; amplifier/passive multiplier; maps to self_buff; Bone Chill + Corpse Shatter cascade on first kill spawns Spirit of Torment"
+        },
+        {
+          "source_skill": "Spirit of Torment / Outbreak",
+          "geometry_value": "circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "fear"
+          ],
+          "delivery_notes": "Outbreak spawns Spirit of Torment on surrounding enemies on first kill; small-radius spread; fear-adjacent horror effect from Spirit entity — 'Spirit of Torment' suggests fear ailment but name-only → empty-projection; no fetched 'fears enemies' descriptor; ailments empty on this sub-skill"
+        }
+      ],
+      "motion_frame": "Apply Plague+Affliction curse DoTs; spam Screaming Skull to stack Desecration Weakness; Death Speaker multiplies remaining DoT damage; first-kill Outbreak cascade spreads Spirit of Torment",
+      "resource_economy": {
+        "cost_type": "mana",
+        "cadence_scale": "low"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": "Desecration Weakness stack",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Splitting Throws rune — Screaming Skull multi-stack"
+          ],
+          "economy": [
+            "Cosmic Cape mana stacking damage",
+            "mana-to-barrier Vestige"
+          ],
+          "traits_affixes": [
+            "Desecrator set 3-piece",
+            "Putrefying Poisons rune",
+            "Anomalous Rune of Sentry"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Shadow element attested via mechanics anchor 'shadow damage'; 'desecrators set' = NAME-ONLY per §0.2 hot-fact — does NOT contribute element. Poison DoT identity via 'Plague (for curse stacking)'; Screaming Skull Desecration Weakness stacks = curse:amplify pattern (enemy takes more damage). Spirit of Torment fear-ailment not directly attested ('Spirit of Torment' is a skill name); suppressed. Era UNSUPPORTED at verify — era row dropped; DLC-only mechanics confirmed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2742427442",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "The Shattered Spirits Curse Spell Desecrator",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/0/3267934519713553527/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Good Warlock builds? — Chronicon General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Eras: ancient-beasts-dlc, current-1.52",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Plague Mage / Desecrator Curse Warlock — class=Warlock, build=Plague+Screaming Skull+Death Speaker curses",
+      "anchor_quote": "the corruptor skill Plague (for curse stacking) ... the reaper skill Screaming Skull ... Death Speaker",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/3267934519713553527/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Curse-centric (debuff); shadow damage type; DoT plague stacks; Screaming Skull stack generator; Death Speaker amplifier; Mana resource; DLC-only",
+      "anchor_quote": "a desecrators set with some defensive GR's and most things teched for shadow damage",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/3267934519713553527/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "Desecrator set (3-piece)"
+          ],
+          "staff": "Death Speaker (curse damage multiplier)",
+          "runes": [
+            "Anomalous Rune of Sentry (synergizes Plague+Affliction)",
+            "Putrefying Poisons rune (Blood Curse+Flesh Rot without casting)",
+            "Splitting Throws rune (Screaming Skull multi-stack)"
+          ],
+          "cape": "Cosmic Cape (mana stacking damage)",
+          "armor": "Vestige of Lost Souls (mana to barrier)"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2742427442",
+        "anchor_quote": "Death Speaker and Putrefying Poisons ... busted combination",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target cursor placement",
+          "spread": "small radius — Outbreak spawns Spirit of Torment on surrounding enemies on first kill",
+          "skills": [
+            "Plague (DoT corruptor)",
+            "Affliction (DoT curse)",
+            "Screaming Skull (reaper — Desecration stack generator)",
+            "Death Speaker (staff amplifier)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2742427442",
+        "anchor_quote": "once the first monster is killed, Outbreak will spawn Spirit of Torment on every surrounding monster",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Apply Plague+Affliction curse DoTs at target; spam Screaming Skull to stack Desecration Weakness (9-10x stacks vs Hand of Death); Death Speaker staff multiplies curse damage by remaining DoT damage; Bone Chill+Corpse Shatter cascade on first kill spawns Spirit of Torment on surrounding enemies"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2742427442",
+        "anchor_quote": "Screaming Skulls generates ~9-10 times the Desecration Weakness stacks ... Death Speaker staff multiplies curse damage",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Desecrator Curse (Screaming Skull+Plague — DLC)",
+            "Plague Mage Affliction (0.94.2 pre-DLC)",
+            "Poison/Frost/Shadow Warlock (0-damage utility — anomaly pusher)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/3344417553439918470/",
+        "anchor_quote": "[0.96] 0 damage Poison/Frost/Shadow Warlock (for very high anomalies)",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

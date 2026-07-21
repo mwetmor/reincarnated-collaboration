@@ -1,0 +1,226 @@
+{
+  "kit_id": "chr-bloodbinder-warlock",
+  "spine": {
+    "kit_id": "chr-bloodbinder-warlock",
+    "folk_name": "Bloodbinder Warlock",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "1.0-2020;ancient-beasts-dlc",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player builds mana-stack pool as both defense and damage substrate; companion double-dip scaling mechanic (Bloodscent x4→x16 effective) has no engine analog; poison-trigger companion proc-chain is source-unique. Engine approximation: poison-delivery kit with companion proxy arm — player would get 'that build, worse' (companion scaling ceiling unreachable; mana-stack identity only partially modeled).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player builds mana-stack pool as both defense and damage substrate; companion double-dip scaling mechanic (Bloodscent x4→x16 effective) has no engine analog; poison-trigger companion proc-chain is source-unique. Engine approximation: poison-delivery kit with companion proxy arm — player would get 'that build, worse' (companion scaling ceiling unreachable; mana-stack identity only partially modeled).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poison skill activation (player-cast: Hell Pit class or poison-type skill)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "'Whenever an enemy is hit by a poison skill' triggers Living Blood companion proc. Poison delivery attested as skill-category descriptor implying poison damage; element family ambiguous (earth/shadow warlock context) — holding null per §0.2 name-only discipline. 'poison' here describes skill type, not a store-applied damage-type descriptor to a generic noun."
+        },
+        {
+          "source_skill": "Living Blood companion swarm (summoned slime-like creatures)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Companion proxy: 'summon slime-like creatures whenever enemy is hit by poison skill.' Companions deal independent damage scaled by Bloodscent (x4 companion damage, double-dips to x16 effective). Placed-proxy shape (companions disperse into combat zone)."
+        }
+      ],
+      "motion_frame": "Cast poison skills to proc Living Blood companion summons; stack mana for defense and damage scaling (errata: mana-stacking, not HP-sacrifice); Bloodscent multiplies companion damage; maintain Ritual of Banes for survivability.",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "cost_slope": "mana-stacking identity — mana pool size = defensive and damage-scaling lever (errata-corrected from HP-cost claim)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "companion density / spawn radius"
+          ],
+          "economy": [
+            "mana-stack ceiling; companion re-trigger rate"
+          ],
+          "traits_affixes": [
+            "Bloodscent companion damage multiplier; Cursed Blood rune (triple Living Blood damage); Blood Binder's Raiment set bonuses"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CONTRADICTED original claim (HP-sacrifice). Attested identity per verify_ledger anchor: mana-stacking + Living Blood companion proc on poison-skill hit. Poison ailment emitted from 'hit by a poison skill' delivery language (source mechanism → ailment token per §B5-ELEMENT callout); element_primary null (no store damage-type descriptor of form 'deals X damage' for a specific family — 'poison skill' is a skill-category label, not a damage-family descriptor). Companion double-dip scaling (Bloodscent x4 → x16 effective) is source-unique; approximation notes player-cast loop survives but the double-dip economy is engine-gapped. GX-04 corpus flag consistent with mana-stacking economy shape. Filing two-tier-accumulator accrual WITHOUT numbers (mana pool size = scaling substrate)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "The Brutal Bloodbinder [Ancient Beasts DLC]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2230332164",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Chronicon 1.0 Blood Binder's Raiment Build RUS/ENG",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "1.0-2020; ancient-beasts-dlc",
+      "anchor_quote": "Ancient Beasts DLC launched February 25th, 2022... This guide is designed for the Ancient Beasts DLC expansion",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Bloodbinder Warlock uses self-sacrifice magic to summon blood-bound entities powered by own HP drain; poison DoT",
+      "anchor_quote": "the good ol' mana stacking approach is the way to go... revolves around the passive skill Living Blood, which can summon slime-like creatures whenever an enemy is hit by a poison skill",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "core skills: Living Blood, poison suite; self-cost HP economy; shield-absorb defense; poison damage mode",
+      "anchor_quote": "the good ol' mana stacking approach is the way to go",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_id": "2772862439"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Ritual of Banes provides primary defensive scaling via equipped bane skills"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+        "anchor_quote": "Ritual of Banes provides the primary defensive scaling through equipped bane skills",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Blood Binder's Raiment",
+          "bonuses": [
+            "upgrades Living Blood to spawn larger Clots with triple Health and Damage",
+            "Bloodscent multiplier x4 to companion damage (double-dips for x16 effective)",
+            "Cursed Blood rune triples Living Blood damage"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+        "anchor_quote": "any companion damage stats and effects will double dip, which gives the Bloodbinder a very high ceiling",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Hit enemies with poison skills to trigger Living Blood proc (summons slime-like companions); maintain companion army; stack mana for defense and damage scaling; Bloodscent multiplies companion damage; maintain Ritual of Banes for survivability"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+        "anchor_quote": "revolves around the passive skill Living Blood, which can summon slime-like creatures whenever an enemy is hit by a poison skill",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Brutal Bloodbinder (Ancient Beasts DLC endgame T600+)",
+            "Blood Binder Raiment 1.0 base game variant"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2772862439",
+        "anchor_quote": "Bloodbinder's Raiment is a great set for speedfarming in the T600 range",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

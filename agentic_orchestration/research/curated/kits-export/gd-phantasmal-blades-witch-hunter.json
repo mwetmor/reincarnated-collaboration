@@ -1,0 +1,206 @@
+{
+  "kit_id": "gd-phantasmal-blades-witch-hunter",
+  "spine": {
+    "kit_id": "gd-phantasmal-blades-witch-hunter",
+    "folk_name": "Phantasmal Blades Witch Hunter",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth",
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Phantasmal Blades",
+          "geometry_value": "multi_projectile",
+          "element_primary": "shadow",
+          "element_secondary": "earth",
+          "ailments": [],
+          "delivery_notes": "Fan-like projectile spread that 'pierces through weaker stuff and mows down everything in its path'; ranged spam. Acid form via Venomlance: 'full conversion for Vit and Chaos damage to PB' — earth secondary carries the venom register (Venomlance/Dreeg theme, §1 acid row)."
+        }
+      ],
+      "motion_frame": "Spam fans of spectral knives at range; energy carefree in target-rich packs",
+      "resource_economy": {
+        "resource": "energy",
+        "cost_shape": "per-cast spend; 'energy isn't a problem in target-rich environments'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "projectile-fan count",
+            "pierce"
+          ],
+          "economy": [
+            "spam cost/cadence"
+          ],
+          "traits_affixes": [
+            "vit/chaos-to-acid conversion scalers (Venomlance form)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Vitality primary maps shadow (§1 life-drain register); acid/poison variant is the era-anchored 1.2.1.6 canon form ('Green Knives Galore') — mapped as element_secondary earth, ELEMENT_CONVERSION_MONO door. NO poison token: 'acid/poison' appears only as damage-type/build-title language, no stacking-DoT status behavior fetched (§0.1/§0.3). NO drain token: 'life-drinking spread' is extractor compression, no named drain status behavior in anchors."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.2.1.6] Green Knives Galore - Acid/Poison Phantasmal Blades Witch Hunter",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "1.2.1.6 Green Knives Galore - Acid/Poison Phantasmal Blades Witch Hunter",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Phantasmal Blades Witch Hunter; aliases include PB Witch Hunter, Phantasmal Blades acid build, Nightblade Occultist PB",
+      "anchor_quote": "acid/poison Phantasmal Blades Witch Hunter",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Phantasmal Blades. Ranged projectile fan spread, pierce-vitality conversion, energy-spend resource.",
+      "anchor_quote": "pierces through weaker stuff and mows down everything in its path [...] energy isn't a problem in target-rich environments",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note_of_source_silence": "acid conversion via Venomlance weapon provides full conversion for Vit and Chaos damage to PB"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+        "anchor_quote": "full conversion for Vit and Chaos damage to PB",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged projectile fan",
+          "footprint": "multi-point spread",
+          "verbatim": "maxing this skill provides 105% weapon damage with a fan-like projectile spread"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+        "anchor_quote": "fan-like projectile spread [...] pierces through weaker stuff and mows down everything in its path",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Primary spam: Phantasmal Blades as main attack, throwing fans of spectral knives repeatedly at range. Acid/poison conversion via Venomlance or pierce-vitality conversion turning the volley into a life-drinking spread.",
+          "resource": "energy (spend)",
+          "loop_verb": "spam-cast"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-green-knives-galore-acid-poison-phantasmal-blades-witch-hunter/151949",
+        "anchor_quote": "pierces through weaker stuff and mows down everything in its path [...] energy isn't a problem in target-rich environments",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "acid/poison conversion (Venomlance)",
+            "pierce-vitality conversion",
+            "vitality/chaos Witch Hunter"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/vitality-chaos-phantasmal-blades-witch-hunter/39932",
+        "anchor_quote": "Vitality/Chaos Phantasmal Blades Witch Hunter",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

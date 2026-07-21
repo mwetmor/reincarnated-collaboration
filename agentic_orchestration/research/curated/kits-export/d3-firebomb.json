@@ -1,0 +1,219 @@
+{
+  "kit_id": "d3-firebomb",
+  "spine": {
+    "kit_id": "d3-firebomb",
+    "folk_name": "Firebomb",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "vanilla;set-era",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "'That build, worse' — Firebomb as an endgame build doesn't exist (negative confirmed); mapping covers the skill's raw mechanics only. Player would miss: no set amplification, no dedicated legendary ecosystem, no meta identity. Map is the skill, not a build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "'That build, worse' — Firebomb as an endgame build doesn't exist (negative confirmed); mapping covers the skill's raw mechanics only. Player would miss: no set amplification, no dedicated legendary ecosystem, no meta identity. Map is the skill, not a build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Firebomb",
+          "geometry_value": "single_target",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Lobbed projectile (ERRATA-46 framing governs: 'Lob an explosive skull' per verify anchor — NOT ground-targeted placement); small 8-yard blast radius on landing; Fire Pit rune creates ground DoT pool (ground_targeted_circle rider, variant-scope); Flash Fire rune bounces to 6 targets (multi_projectile rider, variant-scope); Signature spell — free to cast; no dedicated class set; no meta build identity (negative confirmed per canon_corpus.negative=1)"
+        }
+      ],
+      "motion_frame": "Lob explosive fire skull at enemies; Signature spell with no resource cost; no set multiplier or dedicated build — baseline generator only",
+      "resource_economy": {
+        "cost_scale": "Free (Signature spell — zero resource cost per 'This is a Signature spell. Signature spells are free to cast.' verify anchor)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Fire Pit rune: ground_targeted_circle DoT pool (variant-scope)",
+            "Flash Fire rune: multi_projectile bounce to 6 targets (variant-scope)"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE CONFIRMED (canon_corpus.negative=1; negative_canon CONFIRMED via verify_ledger). ERRATA-46 lobbed-framing governs: 'lob-projectile' not 'ground-targeted.' Fire element attested: 'deals 155% weapon damage as Fire' per identity verify anchor. No ailment attested (fire element ≠ burn status; no burn language in fetched text). No set, no capstone. t4_doors null per GAPPED/doorless rule (no capstone identity). Negative kit honest mapping per empty-shell discipline."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/witch-doctor-builds",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Witch Doctor Builds - Diablo 3 - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+      "archive_url": null,
+      "site": "blizzard.com",
+      "author_handle": null,
+      "title": "Firebomb - Witch Doctor Active Skill - Diablo III Game Guide",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in vanilla",
+      "anchor_quote": null,
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Firebomb' and aliases 'Firebomb Witch Doctor', 'Firebomb WD vanilla' are real community usage",
+      "anchor_quote": "Lob an explosive skull that deals 155% weapon damage as Fire to all enemies within 8 yards",
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Firebomb; ground-targeted fire grenade mechanic; free Signature spell (no resource cost)",
+      "anchor_quote": "This is a Signature spell. Signature spells are free to cast.",
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Firebomb WD negative — ground-targeted fire grenade mechanic without scaling synergy; never found a set identity; over-reliant on proc-rate at all eras",
+      "anchor_quote": "Lob an explosive skull that deals 155% weapon damage as Fire to all enemies within 8 yards",
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "No dedicated class set for Firebomb; LoN/LoD item builds explored by community as novelty; not viable endgame"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-builds",
+        "anchor_quote": "Firebomb is not listed as a viable Witch Doctor build on this page",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "lob-projectile",
+          "footprint": "small-radius",
+          "notes": "Lobbed projectile lands at target; 8-yard blast radius on landing; Fire Pit rune creates DoT pool; Flash Fire bounces to 6 targets"
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+        "anchor_quote": "Lob an explosive skull that deals 155% weapon damage as Fire to all enemies within 8 yards",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Lobs explosive fire skull at enemies within 8 yards; Signature spell (free to cast); no dedicated set; proc-rate-dependent in item builds; niche build viability only"
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+        "anchor_quote": "Lob an explosive skull that deals 155% weapon damage as Fire to all enemies within 8 yards",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "LoN Firebomb WD (fun/novelty)",
+            "Firebomb with Fire Pit DoT rune",
+            "Flash Fire bounce rune"
+          ]
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/witch-doctor/active/firebomb",
+        "anchor_quote": "Lob an explosive skull that deals 155% weapon damage as Fire to all enemies within 8 yards",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

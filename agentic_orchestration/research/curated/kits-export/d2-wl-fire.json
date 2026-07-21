@@ -1,0 +1,251 @@
+{
+  "kit_id": "d2-wl-fire",
+  "spine": {
+    "kit_id": "d2-wl-fire",
+    "folk_name": "Fire Warlock",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ring of Fire",
+          "geometry_value": "ring",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin fire ring emanating from caster. Ring geometry (nova/burst-around-self). Large AoE."
+        },
+        {
+          "source_skill": "Flame Wave",
+          "geometry_value": "cone",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged AoE fire wave traveling forward, dealing damage twice (initial wave + fire trail). Closest to cone/arc delivery — forward-traveling AoE wave. Two-hit delivery noted in fidelity."
+        },
+        {
+          "source_skill": "Apocalypse",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Wide-screen fire explosion at target location ('covers a pretty wide area, almost the entire screen'). Large ground-targeted circle. Level-30 gated."
+        }
+      ],
+      "motion_frame": "Ranged caster: Ring of Fire to clear surrounding area, Flame Wave forward sweep, Apocalypse for wide-screen coverage. Mana-intensive sustained casting.",
+      "resource_economy": {
+        "spend": "starved-mana",
+        "regen_shape": "Insight mandatory; early Energy investment; High Mana Requirements"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Mang Song's Lesson +skills/FCR"
+          ],
+          "economy": [
+            "Insight mana sustain",
+            "Flickering Flame fire res reduction — curse:sap rider"
+          ],
+          "traits_affixes": [
+            "Summon Tainted + Consume: fire damage buff — scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Three distinct fire-AoE delivery shapes (ring, forward-wave, wide-area) form the skill repertoire. Flame Wave 'deals damage twice' (wave + trail) is a DoT delivery note — not a second ailment. Mana-starved economy confirmed via econ-recrawl flag and dossier ('although a little bit mana intensive'). PERSISTENCE_ENGINE_saturation for sustained multi-source fire AoE coverage."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/fire-warlock-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Fire Warlock Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/fire-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Fire Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: rotw-s13+",
+      "anchor_quote": "Fire Warlock is exceptionally good as a ladder starter because it can get going with just minimal investment.",
+      "source_url": "https://www.rpgstash.com/blog/d2r-season-13-tier-list-best-builds-in-reign-of-the-warlock",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fire Warlock'; aliases 'Fire Warlock D2R', 'Warlock Fire School'",
+      "anchor_quote": "The Fire Warlock is a Ranged Caster that takes advantage of three very powerful Fire skills.",
+      "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: (fire school) — Ring of Fire, Flame Wave, Apocalypse in Chaos tree",
+      "anchor_quote": "Ring of Fire, Flame Wave, and Apocalypse all have large Area of Effect Fire Damage making the Chaos tree one of the best leveling trees.",
+      "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Leaf (ladder starter)",
+            "Mang Song's Lesson",
+            "Obsession",
+            "Enigma",
+            "Flickering Flame"
+          ],
+          "synergies": [
+            "Summon Tainted + Consume: adds fire damage boost"
+          ],
+          "patch_changes": [
+            "Fire Warlock slightly nerfed in patch 3.2 but remains S-tier with proper gear"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+        "anchor_quote": "Although a little bit mana intensive, most of the skills are simple to use and pack a large punch.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Leaf",
+            "Mang Song's Lesson",
+            "Obsession",
+            "Call to Arms",
+            "Spirit",
+            "Enigma",
+            "Flickering Flame",
+            "Insight",
+            "Fortitude"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+        "anchor_quote": "Leaf, Mang Song's Lesson, Obsession, Call to Arms, Spirit, Enigma, Flickering Flame, Insight, and Fortitude.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target/self-origin (mixed per skill)",
+          "footprint": "large-zone",
+          "notes": "Ring of Fire: self-origin ring around caster. Flame Wave: ranged AoE projectile wave. Apocalypse: large AoE at target covering near-full screen."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+        "anchor_quote": "Apocalypse deals a ton of fire damage and covers a pretty wide area, almost the entire screen.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Ranged caster using three large-AoE fire spells: Ring of Fire (surrounds caster), Flame Wave (travels forward, deals damage twice — initial wave and fire trail), Apocalypse (wide-screen fire explosion at level 30+). Mana-intensive but high damage output. Summon Tainted + Consume used for additional fire damage buff."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+        "anchor_quote": "The Fire Warlock is a Ranged Caster that takes advantage of three very powerful Fire skills. Ring of Fire, Flame Wave, and Apocalypse all have large Area of Effect Fire Damage.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fire Warlock ladder starter (Leaf + budget gear)",
+            "Fire Warlock endgame (Mang Song's Lesson + Flickering Flame)",
+            "Apocalypse-focused (Odealo Apocalypse Warlock S14 guide)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-warlock-build",
+        "anchor_quote": "Fire Warlock is exceptionally good as a ladder starter because it can get going with just a minimal investment.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

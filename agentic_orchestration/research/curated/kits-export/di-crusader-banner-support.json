@@ -1,0 +1,220 @@
+{
+  "kit_id": "di-crusader-banner-support",
+  "spine": {
+    "kit_id": "di-crusader-banner-support",
+    "folk_name": "Banner Support Crusader",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-launch-2022;di-5.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Party-support identity (crit buff + damage immunity for allies) loses its core value in solo-PvE engine scope. The kit maps mechanically but the 'why' of the build is irreducible to solo play — 'that build, worse.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Party-support identity (crit buff + damage immunity for allies) loses its core value in solo-PvE engine scope. The kit maps mechanically but the 'why' of the build is irreducible to solo play — 'that build, worse.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Holy Banner",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Planted stationary aura; 11.2s duration; buff range around placement point. 'Plant a holy banner that inspires nearby allies for 11.2 seconds, increasing Critical Hit Chance by 100%.' Holy element: 'holy' in skill description with buff payload attests holy register per main-law holy/sacred/light→holy. Arrowkeeper legendary makes it follow caster (item-defined-archetype variant)."
+        },
+        {
+          "source_skill": "Conjuration of Light",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Beam of holy light on caster; 3s damage immunity for nearby allies. Party support delivery. 'greatly empowering your allies with Holy Banner and Conjuration of Light.'"
+        },
+        {
+          "source_skill": "Draw and Quarter",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Movement/mobility skill; horse charge with holy chains. 'Mount a celestial war horse for 6 seconds, dispelling all movement impairing effects, increasing your movement speed by 65%.'"
+        },
+        {
+          "source_skill": "Spinning Shield",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Boomerang AoE; capstone Sinkhole Cross changes to hovering AoE zone."
+        }
+      ],
+      "motion_frame": "Holy Banner placed for party crit buff; Conjuration of Light for emergency damage immunity; Draw and Quarter for positioning; Spinning Shield for supplemental damage",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Party/group support context: 'Holy Banner is one of the most valuable buffs a Crusader can provide for his group.' Engine scope is solo-PvE; party-buff identity becomes a gap in solo context — core buff value is party-multiplying. Holy element attested via 'holy banner' + 'holy light' functional description language (not pure name-only; 'holy light on caster' is a delivery verb phrase). DI di resource probe fields unreliable; Wrath resource UNSUPPORTED in verify_ledger; cooldown economy used. Mech_note 'Crusader has BLOCK defense' = ILLEGAL probe ground. No block/taunt ailment in registry. Capstone: Arrowkeeper makes Holy Banner follow caster (item-defined-archetype noted); Sinkhole Cross changes Spinning Shield shape. NETWORK_AMPLIFIER T4 door: kit's identity is party-buff amplification network. [STEWARD-AUDIT MW5: Holy Banner: holy->null: holy = name + party-crit-buff (support, no enemy-directed holy damage)] [STEWARD-AUDIT MW5: Conjuration of Light: holy->null: holy = name + ally-buff (\"beam of holy light on caster; damage immunity\") — no damage attestation]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Crusader Draw and Quarter Build Guide for Dungeons and Group Farming - Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/crusader",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Crusader Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-5.0-2026",
+      "anchor_quote": "Holy Banner is one of the most valuable buffs a Crusader can provide for his group, as its Crit Damage trade-offs should be easily mitigated by proper gearing by the party members.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Banner Support Crusader'; aliases 'Holy Banner Crusader DI', 'Support Crusader DI', 'Conjuration Banner Crusader'",
+      "anchor_quote": "greatly empowering your allies with Holy Banner and Conjuration of Light. Holy Banner is one of the most valuable buffs a Crusader can provide for his group.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Holy Banner, Conjuration of Light, Spinning Shield; resource: Wrath",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/crusader",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "arrowkeeper": "legendary helm; forces Holy Banner to follow caster instead of stationary placement",
+          "sinkhole_cross": "legendary shield; changes Spinning Shield from boomerang to hovering AoE over chosen area",
+          "justice_without_favor": "legendary item; supports Conjuration of Light"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+        "anchor_quote": "Arrowkeeper legendary helm forces the effect of Holy Banner to follow you around instead of applying to a fixed area.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "holy_banner": "planted stationary aura; 11.2s duration; buff range around placement point; Arrowkeeper legendary makes it follow caster",
+          "conjuration_of_light": "beam of holy light on caster; damage immunity 3s for all nearby allies"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/crusader",
+        "anchor_quote": "Plant a holy banner that inspires nearby allies for 11.2 seconds, increasing Critical Hit Chance by 100%, but decreasing Critical Hit Damage to 135% instead of double.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Draw and Quarter for mobility/CC; Holy Banner for party crit buff; Conjuration of Light for damage immunity; Spinning Shield for AoE damage",
+          "support_role": "Holy Banner primary buff + Conjuration of Light emergency invuln"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+        "anchor_quote": "Holy Banner is one of the most valuable buffs a Crusader can provide for his group, as its Crit Damage trade-offs should be easily mitigated by proper gearing by the party members.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

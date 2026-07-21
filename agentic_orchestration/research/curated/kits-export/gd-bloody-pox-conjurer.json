@@ -1,0 +1,220 @@
+{
+  "kit_id": "gd-bloody-pox-conjurer",
+  "spine": {
+    "kit_id": "gd-bloody-pox-conjurer",
+    "folk_name": "Bloody Pox Conjurer",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/rabies",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the signature the source player feels is the plague JUMPING through a dense pack (contagion), which the engine single_target geometry does not model -- mapped as single-cast + spread note per precedent. Two near-misses withheld (no forcing): a vitality-decay DoT status (not named in fetched -- theme != status) and Curse of Frailty's RR token (application shape unanchored). No status emitted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the signature the source player feels is the plague JUMPING through a dense pack (contagion), which the engine single_target geometry does not model -- mapped as single-cast + spread note per precedent. Two near-misses withheld (no forcing): a vitality-decay DoT status (not named in fetched -- theme != status) and Curse of Frailty's RR token (application shape unanchored). No status emitted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bloody Pox",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "cast on an initial target, then the plague spreads body-to-body to nearby enemies via proximity contagion ('calls down a virulent plague to spread amongst foes'; 'Bloody Pox infects one target then spreads to nearby enemies via proximity contact; effective on dense packs'). single_target carries the initial cast delivery + a contagion-spread note (follows the m02 dee-witch-hunter precedent for the same Bloody Pox skill -- single_target with spread annotation). Element shadow: vitality register (§1 vitality -> shadow, life-drain lineage). NO ailment: the plague is a DoT but NO registry status (poison/drain/bleed) is NAMED in fetched text -- vitality/plague theme never implies a status (§0.1). See near-miss."
+        },
+        {
+          "source_skill": "Wendigo Totem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed support totem dropped for passive healing / defensive positioning ('Wendigo Totem dropped for passive healing/support'; 'Wendigo Totems used as defensive positioning tools while applying debuffs'). totem = placed emitter (support/heal payload); native-adjacent placed-proxy lane. Support-only, no offensive ailment."
+        }
+      ],
+      "motion_frame": "cast Bloody Pox onto a target and let the plague jump body-to-body through the pack, kiting while the DoT ticks, dropping Wendigo Totems for passive healing and applying Curse of Frailty as a resistance-reduction debuff",
+      "resource_economy": {
+        "cadence_scale": "cooldown/on-demand cast rhythm (the DoT + contagion carry damage between casts)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Pox contagion-spread range",
+            "Wendigo Totem placement"
+          ],
+          "economy": [
+            "on-demand cast cadence"
+          ],
+          "traits_affixes": [
+            "vitality DoT scaling (shadow-family gated)",
+            "Curse of Frailty -> resistance-reduction debuff lane (RR; specific curse token WITHHELD -- application shape unanchored)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "single_target + contagion-spread note follows the m02 dee-witch-hunter precedent (same Bloody Pox skill mapped single_target with spread annotation) for cross-batch consistency; the proximity-contagion body-to-body spread is a behavioral delta the base single_target does not encode. Element shadow (vitality/life-drain register per §1). Wendigo Totem = placed support emitter (totem lane), heal/defensive payload. Curse of Frailty is a resistance-reduction debuff (RR) -> §2 RR-branch: curse:sap vs sunder needs an application-shape anchor (aura/persistent vs hit-proc); fetched gives only 'RR debuff'/'applying debuffs' (shape-silent) -> WITHHOLD the curse token per the RR-branch reminder (m03 exercised this 5x), recorded as a support-lane RR only. PERSISTENCE_ENGINE_saturation = the spreading-DoT-uptime identity. CLOSE: contagion-spread is the un-encoded delta."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-7-0-bloody-madness-fevered-rage-bloody-pox-conjurer-sr-80-gladiator-150-170/100806",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "MergosWetNurse",
+      "title": "[1.1.7.0] Bloody Madness! Fevered Rage Bloody Pox Conjurer. SR-80 & Gladiator 150-170",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.grimdawn.com/guide/character/masteries/occultist/",
+      "archive_url": null,
+      "site": "grimdawn.com",
+      "author_handle": null,
+      "title": "Guide - Character - Masteries - Occultist - Grim Dawn",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "Occultist appears in the core mastery list alongside other base classes like Soldier, Demolitionist, and Nightblade; Bloody Pox is an Occultist skill",
+      "source_url": "https://www.grimdawn.com/guide/character/masteries/occultist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bloody Pox Conjurer'; aliases include 'Wendigo Totem Pox Conjurer', 'DoT spread Conjurer'",
+      "anchor_quote": "Conjurer and mentions skills associated with both Occultist (Bloody Pox, Curse of Frailty) and Shaman (Wendigo Totems, Storm Totems)",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-bloody-madness-fevered-rage-bloody-pox-conjurer-sr-80-gladiator-150-170/100806",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bloody Pox (spreads body-to-body), Wendigo Totem (support)",
+      "anchor_quote": "calls down a virulent plague to spread amongst foes... Wendigo Totems used as defensive positioning tools while applying debuffs",
+      "source_url": "https://www.grimdawn.com/guide/character/masteries/occultist/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MergosWetNurse",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-bloody-madness-fevered-rage-bloody-pox-conjurer-sr-80-gladiator-150-170/100806",
+        "anchor_quote": "MergosWetNurse posted original Bloody Madness build",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "cast-on-target-then-spreads",
+          "footprint": "chain-hop-proximity",
+          "notes": "Bloody Pox infects one target then spreads to nearby enemies via proximity contact; effective on dense packs"
+        },
+        "source_url": "https://www.grimdawn.com/guide/character/masteries/occultist/",
+        "anchor_quote": "calls down a virulent plague to spread amongst foes",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Bloody Pox on initial target; plague spreads to nearby enemies on proximity; kite while DoT ticks; Wendigo Totem dropped for passive healing/support; Curse of Frailty as RR debuff"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-bloody-madness-fevered-rage-bloody-pox-conjurer-sr-80-gladiator-150-170/100806",
+        "anchor_quote": "stacks three Pox-like abilities while kiting... Wendigo Totems used as defensive positioning tools while applying debuffs",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Bloody Pox Cabalist (Fevered Rage non-Retal, SR 95)",
+            "Vitality DoT 2H Caster Conjurer (1.2.1.4)",
+            "Pure Bleed Bloody Pox Conjurer (1.2.1.4)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-the-bloody-pox-cabalist-fevered-rage-non-retal-ravager-sr-95/129193",
+        "anchor_quote": "[1.1.9.8] The Bloody Pox Cabalist (Fevered Rage, non-Retal, Ravager, SR 95)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

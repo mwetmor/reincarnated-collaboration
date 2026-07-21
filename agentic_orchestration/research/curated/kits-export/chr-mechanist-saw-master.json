@@ -1,0 +1,224 @@
+{
+  "kit_id": "chr-mechanist-saw-master",
+  "spine": {
+    "kit_id": "chr-mechanist-saw-master",
+    "folk_name": "Saw Master Mechanist",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Saw blade",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Saw blade projectile chain-hops between enemies; 'physical damage' attested — THE PHYSICAL RULE applies (no family); Puncture stacks on each hit; enemies dying with Puncture spawn Loose Blades (_cascade on-kill proxy); bleed via Puncture stacks confirmed via 'Physical/bleed-focused skill' + Wolftooth variant bleed anchor in proxy set"
+        },
+        {
+          "source_skill": "Loose Blade cascade",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "On-kill proxy spawn from Puncture victims; same chain-hop pattern as main blade; cascade extends the ricochet network on enemy death"
+        }
+      ],
+      "motion_frame": "Launch physical ricochet saw blades that chain-hop; Puncture stacks on hits; Loose Blade cascade on Puncture-victim death expands reach",
+      "resource_economy": {
+        "cost_type": "ammo",
+        "cadence_scale": "high"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": "Puncture stack",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Loose Blade on-kill cascade"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Saw Master set",
+            "physical damage scaling",
+            "Drone Pilot 2pc hybrid variant"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical = no family per THE PHYSICAL RULE; bleed via Puncture confirmed (mechanics anchor includes bleed-focused); Loose Blade spawn = on-kill cascade (GEOMETRY_PROPAGATION_cascade family); dossier notes 'NOT a line — ricochet pattern' explicitly; Saw Master + Drone Pilot hybrid is a variant (adds drone proxy layer)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "(v1.52.0+DLC) My Mechanist's Build for MythicXV Endless Tier400-600",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/app/2206120/Chronicon__The_Mechanist/",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "Subworld",
+      "title": "Chronicon - The Mechanist (official DLC Steam page)",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "(v1.52.0+DLC) My Mechanist's Build for MythicXV Endless Tier400-600",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Saw Master Mechanist — Mechanist subclass, Frontliner/saw-blade skill set",
+      "anchor_quote": "the physical Frontliner ... skill trees",
+      "source_url": "https://store.steampowered.com/app/2206120/Chronicon__The_Mechanist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Saw blades ricochet/chain-hop between enemies; physical damage; bleed on puncture; light proxy; DLC-only",
+      "anchor_quote": "Saw Master — Physical/bleed-focused skill ... dealing 'physical' damage ... Puncture效果を受けている敵が死んだ時、Loose Bladeがスポーン",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "Saw Master 2-piece",
+            "Saw Master 2pc + Drone Pilot 2pc hybrid"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763356290936708637/",
+        "anchor_quote": "2-piece Saw Master combined with 2-piece Drone Pilot ... ranked as one of the highest DPS class/build combinations",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile saw blade",
+          "footprint": "chain-hop bounce between multiple targets",
+          "notes": "NOT a line — ricochet pattern"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+        "anchor_quote": "Saw blade bouncing = chain-hop, NOT a line",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Launch saw blades that ricochet between enemies; each bounce deals physical damage; Puncture stacks applied; enemies dying with Puncture spawn Loose Blades for cascade; chain-hop footprint"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+        "anchor_quote": "Saw Master's effectiveness comes from its ability to spawn Loose Blades when enemies with Puncture effects die",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Saw Master",
+            "Saw Master + Drone Pilot hybrid bleed"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763356290936708637/",
+        "anchor_quote": "2-piece Saw Master combined with 2-piece Drone Pilot Mechanist bleed build",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

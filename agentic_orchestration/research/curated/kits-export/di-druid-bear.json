@@ -1,0 +1,192 @@
+{
+  "kit_id": "di-druid-bear",
+  "spine": {
+    "kit_id": "di-druid-bear",
+    "folk_name": "Bear Druid (heal-shift)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-druid-2025;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Summon companions (wolf, grizzly, oak sage) are autonomous combatants — summoner-GAP; not representable in engine. The Werebear loop maps but the companion layer that provides 'DPS and healing' per skill_loop is absent. 'That build, worse' without companion damage contribution.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Summon companions (wolf, grizzly, oak sage) are autonomous combatants — summoner-GAP; not representable in engine. The Werebear loop maps but the companion layer that provides 'DPS and healing' per skill_loop is absent. 'That build, worse' without companion damage contribution.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Werebear roar",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Nova-burst around self. 'The Werebear transformation allows druids to roar, dealing damage and Stunning nearby enemies for 2 seconds.' Stun explicitly named. No element damage verb in store."
+        },
+        {
+          "source_skill": "Werebear melee attacks",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sustained melee with stacking damage reduction self-buff. 'Each attack grants stacking damage reduction.' No ailment named for melee strikes."
+        }
+      ],
+      "motion_frame": "Werebear form: sustained melee with stacking damage reduction; roar for AoE stun burst; summons provide supplemental DPS and healing",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Form law: Werebear = dominant form per §CROSS form law; map in-form loop. Primal Power resource: verify_ledger mechanics CONTRADICTED for 'Spirit (Druid)' — 'Primal Power is a resource unique to Druids' is the anchor_quote. Primal Power is a named resource but DI resource probe fields are UNRELIABLE (§D basin-wide ERRATA sweep) — no resource key populated per ban; cooldown used as safe fallback. Stun attested verbatim: 'Stunning nearby enemies for 2 seconds.' Element null: no element damage verb in store. Summons (wolf, grizzly, oak sage): autonomous combatants = summoner-GAP per §CROSS row 2; not mapped to skills[]; gap noted here. 'The Craw transforms you into a gigantic bear with increased attack range and maximum Life' = item-defined capstone variant, fidelity note only. 2025 class addition; confidence reduced (mech_note partial-knowledge note). APPROX because summon companions are autonomous-combatant GAP class and are part of the kit loop description."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+      "archive_url": null,
+      "site": "blizzard.com",
+      "author_handle": null,
+      "title": "Introducing Diablo Immortal's Newest Class: Druid - Blizzard News",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-druid-2025 and di-2026-era",
+      "anchor_quote": "Starting on July 3, you can protect the forests of Sharval, and beyond from demonic rot as nature's ultimate defender in Diablo Immortal.",
+      "source_url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bear Druid (heal-shift)'; aliases 'Bear Form Druid DI', 'Heal Shift Bear Druid DI'",
+      "anchor_quote": "The Werebear transformation allows druids to roar, dealing damage and Stunning nearby enemies for 2 seconds. Each attack grants stacking damage reduction.",
+      "source_url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills: bear form, heal suite, summons; resource: Spirit (Druid)",
+      "anchor_quote": "Primal Power is a resource unique to Druids, represented by a green bar above the skill buttons. This resource is required to fuel your most impressive and powerful skills.",
+      "source_url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "the_craw": "transforms Druid into a gigantic bear with increased attack range and maximum Life"
+        },
+        "source_url": "https://massivelyop.com/2025/06/26/hands-on-with-diablo-immortals-newly-announced-druid-launching-july-3/",
+        "anchor_quote": "The Craw, which transforms you into a gigantic bear with increased attack range and maximum Life.",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "werebear": "melee self-origin; roar AoE stun; ground-slam type attacks; close proximity"
+        },
+        "source_url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+        "anchor_quote": "The Werebear transformation allows druids to roar, dealing damage and Stunning nearby enemies for 2 seconds. Each attack grants stacking damage reduction.",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Werebear form: sustained melee with stacking damage reduction; summons (wolf, grizzly, oak sage) provide DPS and healing; Circle of Life for party heal; Primal Power resource fuels transformations"
+        },
+        "source_url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+        "anchor_quote": "The Werebear transformation allows druids to roar, dealing damage and Stunning nearby enemies for 2 seconds. Each attack grants stacking damage reduction.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

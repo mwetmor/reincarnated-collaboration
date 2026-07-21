@@ -1,0 +1,185 @@
+{
+  "kit_id": "vs-runetracer-no-future",
+  "spine": {
+    "kit_id": "vs-runetracer-no-future",
+    "folk_name": "No Future (Runetracer evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "vs-1.0-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: ricochet_bounce geometry and cascade T4 door capture the identity. What source player misses: the dual explosion trigger (wall bounce AND enemy hit) creates a richer cascade geometry than single-condition ricochet; Armor-as-explosion-scalar is an atypical stat routing not in the engine economy.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: ricochet_bounce geometry and cascade T4 door capture the identity. What source player misses: the dual explosion trigger (wall bounce AND enemy hit) creates a richer cascade geometry than single-condition ricochet; Armor-as-explosion-scalar is an atypical stat routing not in the engine economy.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "No Future (Runetracer evolution)",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ricocheting cyan projectile fires in random directions; infinite pierce; bounces off screen edges and obstacles; explodes at each bounce point (small-radius AoE) and on enemy hit. Element = null: VS has no elemental damage-type system; 'cyan' is visual flavor; no damage-type descriptor."
+        }
+      ],
+      "motion_frame": "Fire ricocheting rune projectile; projectile bounces off walls and explodes at each bounce; hits anything in its chaotic path.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Armor stat scales explosion damage additively (+10% per Armor point attested)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "bounce off wall/obstacle",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS weapon evolution). Wall-bounce geometry is core identity. Explosions on every bounce = cascade propagation shape. No ailments attested. Armor-as-damage-scalar is atypical resource link. No element. CLOSE: ricochet_bounce geometry captures the identity well; GEOMETRY_PROPAGATION_cascade fits the bounce-explosion cascade. What misses: explosion trigger on enemy-hit as well as wall-hit adds a secondary proc condition not fully representable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/No_Future",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "NO FUTURE - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "Added to game in Patch 0.4.2 (5 April 2022)",
+      "source_url": "https://vampire.survivors.wiki/w/No_Future",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "No Future — Runetracer evolution; Runetracer + Armor catalyst; bouncing rune projectile; chain-hop footprint",
+      "anchor_quote": "NO FUTURE fires a ricocheting cyan laser in random directions. It has infinite Pierce and bounces off the edge of the screen or obstacles.",
+      "source_url": "https://vampire.survivors.wiki/w/No_Future",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Explosions on each ricochet/bounce — wall-bounce geometry weaponized",
+      "anchor_quote": "Explodes when bouncing off walls/obstacles, creating an explosion radius with translucent test pattern, surrounded by a circle of purple particles",
+      "source_url": "https://vampire.survivors.wiki/w/No_Future",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Armor stat scales explosion retaliation damage (+10% per point additively). Power/Amount items scale main projectile damage and count."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/No_Future",
+        "anchor_quote": "retaliatory explosions scale with Armor stat (+10% per point additively)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "chain-hop",
+          "note": "Ricochet chain off walls and enemies = chain-hop footprint. Explosions at each bounce point add small-radius AoE at hop nodes."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/No_Future",
+        "anchor_quote": "bounces off the edge of the screen or obstacles, damaging enemies they hit",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Evolution weapon. Recipe: Runetracer (maxed) + Armor. Fires ricocheting cyan rune projectile in random directions. Infinite Pierce. Bounces off screen edges and obstacles. Explodes on bounce AND when hit by an enemy. Explosion radius with translucent test pattern + purple particle ring. Wall-bounce geometry is the defining footprint."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/No_Future",
+        "anchor_quote": "NO FUTURE fires a ricocheting cyan laser in random directions. It has infinite Pierce and bounces off the edge of the screen or obstacles.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

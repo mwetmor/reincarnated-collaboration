@@ -1,0 +1,269 @@
+{
+  "kit_id": "poe1-whispering-ice",
+  "spine": {
+    "kit_id": "poe1-whispering-ice",
+    "folk_name": "Whispering Ice",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player of the original would miss storms growing LONGER as INT climbs (duration side of the scaling pact) and the staff-as-whole-build item romance; the damage side of stat-stacking survives natively. TIMED-WHILE-ACTIVE-APPROX does not apply (storm duration is skill-native, not a proc window).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player of the original would miss storms growing LONGER as INT climbs (duration side of the scaling pact) and the staff-as-whole-build item romance; the damage side of stat-stacking survives natively. TIMED-WHILE-ACTIVE-APPROX does not apply (storm duration is skill-native, not a proc window).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Icestorm (item-granted)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "cast rains icy bolts over a large target zone (impacts every 0.2s for the storm duration, bolts explode and chill); up to 5 storms live at once; damage AND duration both scale per 10 Intelligence; granted solely by The Whispering Ice staff — item dissolves, skill maps as core (crosswalk 4)"
+        },
+        {
+          "source_skill": "Cyclone (CwC variant)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "spin-channel chassis auto-casting Icestorm (cast-while-channelling = on-cast-linked trigger, depth 1) — variant delivery only, not the identity; primary loop stays self-cast"
+        }
+      ],
+      "motion_frame": "stat-stack caster: walk between packs layering overlapping ice storms; every point of Intelligence visibly buys a bigger, longer storm (CwC variant spins through the middle instead)",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "large ground-zone bolt rain",
+            "5-storm concurrent overlap (saturation)",
+            "Intensify-style AoE-shrink-for-density noted"
+          ],
+          "economy": [
+            "mana spend default; INT thresholds (~2000 INT -> 3s storms) as gear-progression pacing"
+          ],
+          "traits_affixes": [
+            "INT attribute-stacking gear affixes — THE build engine (crosswalk 4 numeric-modulation lane)",
+            "INT-to-ES/accuracy conversion (Shaper's Touch-class) as gear numeric",
+            "curse-to-charge INT tech (Anathema) as flavor note"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-keystone kit ruled MAPPED under the R-M7 test: the stacking identity HAS lanes — native caster-stat damage scaling + attribute-stacking gear affixes + RESOURCE_CONVERSION door — so the player gets 'stack one stat until the storm is enormous', which IS this build, worse. LOST: the stat -> DURATION binding (INT lengthening storms, the second half of the per-10-INT quantization) — no stat-to-duration lane; 5-storm cap approximated via the saturation door; the single-unique build-around dissolves per crosswalk 4 (staff recorded here). Four-era longevity (2.0 through 3.20+) all CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/whispering-ice-icestorm-trickster-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "Odealo",
+      "title": "[3.24] Whispering Ice Icestorm Trickster Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2936012/page/2",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "General Discussion - Whispering Ice 'Icestorm' discussion about 3.12's big changes",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/The_Whispering_Ice",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "The Whispering Ice - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "'The Whispering Ice was introduced in version 2.0.0' — item and associated Icestorm build present from 2.0 era onward",
+      "source_url": "https://poedb.tw/us/The_Whispering_Ice",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Odealo and Trickster build guides document INT-stack Icestorm across multiple 3.x eras; 3.12 forum thread discusses 'Icestorm 3.12 big changes' implying active meta through 3.x",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2936012/page/2",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "'Whispering Ice STACKING Int Build Update | Path of Exile 3.17 Archnemesis League' YouTube + 3.12 forum discussion confirm meta presence through 3.7-3.13 era",
+      "source_url": "https://www.youtube.com/watch?v=YonwHwPZaI0",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "'[3.27] Icestorm Trickster Build - POE Keepers of the Flame' rpgstash guide and '[3.24] Whispering Ice Icestorm Trickster Build' Odealo guide confirm continued meta presence",
+      "source_url": "https://odealo.com/articles/whispering-ice-icestorm-trickster-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Whispering Ice' and alias 'Icestorm int-stack' are real community usage",
+      "anchor_quote": "'[3.24] Whispering Ice Icestorm Trickster Build' Odealo guide title; YouTube title 'Icestorm Intelligence Stacker Budget Build Guide' confirm both names",
+      "source_url": "https://odealo.com/articles/whispering-ice-icestorm-trickster-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Icestorm (item-granted) + optional Cyclone (CwC variant); damage and duration scale per 10 Intelligence; icy bolts rain at target area; up to 5 concurrent storms",
+      "anchor_quote": "'Icy bolts rain down over the targeted area... damage AND duration scale per 10 Intelligence... maximum 5 concurrent Icestorms active at any time'",
+      "source_url": "https://poedb.tw/us/The_Whispering_Ice",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Trickster: Ghost Dance + Escape Artist (ES/evasion synergy)",
+            "Guardian: Radiant Faith (ES from devotion for party play)",
+            "Berserker: Aspect of Carnage (damage multiplier on high-investment)"
+          ],
+          "int_threshold": "~2000 INT target; at 2000 INT each Icestorm lasts 3 seconds"
+        },
+        "source_url": "https://odealo.com/articles/whispering-ice-icestorm-trickster-build",
+        "anchor_quote": "'With 2000 Intelligence, one Icestorm will last 3 seconds'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "The Whispering Ice unique staff (mandatory — sole source of Icestorm)",
+            "Anathema ring (converts curses to charges for INT stacking)",
+            "Void Battery wands (not applicable — this build uses the staff)",
+            "Shaper's Touch gloves (INT to Accuracy/ES conversion)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/whispering-ice-icestorm-trickster-build",
+        "anchor_quote": "'two core unique items are The Whispering Ice and Anathema Ring'",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (large zone)",
+          "aoe": "Icestorm covers large area at target location; icy bolts impact every 0.2s",
+          "concurrent_storms": "up to 5 active simultaneously",
+          "intensify_interaction": "Intensify Support reduces AoE (increases single-target density)",
+          "range": "cast range; player not required at target location"
+        },
+        "source_url": "https://poedb.tw/us/The_Whispering_Ice",
+        "anchor_quote": "'Icy bolts rain down over the targeted area. They explode when landing, dealing damage to nearby enemies and chilling them'",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Equip The Whispering Ice staff to gain Icestorm skill; cast Icestorm at target; icy bolts rain down at target area; damage and duration both scale per 10 Intelligence; maintain up to 5 concurrent Icestorms; stack Intelligence to maximize both damage and storm duration; Cyclone variant uses CwC to auto-cast Icestorm while spinning"
+        },
+        "source_url": "https://poedb.tw/us/The_Whispering_Ice",
+        "anchor_quote": "'Icy bolts rain down over the targeted area... 1% increased Spell Damage per 10 Intelligence; skill damage and duration scale per 10 Intelligence'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Trickster CI (primary modern variant; ES + evasion)",
+            "Ascendant Scion (highest INT scaling potential)",
+            "Berserker (high-investment damage variant)",
+            "Cyclone CwC variant (auto-cast Icestorm while spinning)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/whispering-ice-icestorm-trickster-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

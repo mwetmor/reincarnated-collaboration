@@ -1,0 +1,266 @@
+{
+  "kit_id": "poe1-glacial-hammer",
+  "spine": {
+    "kit_id": "poe1-glacial-hammer",
+    "folk_name": "Glacial Hammer",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The phys->cold single-target striker + freeze/shatter lands cleanly via melee_strike + ELEMENT_CONVERSION_PHYSICAL + the engine's NATIVE shatter (a direct match to shatter-frozen-low-life), but the 'every 3rd successive hit deals 200-390% more damage' cadence-counter has no enum carrier -- it is a behavioral property noted in traits, not modeled as a mechanism. A player keeps the freeze-a-target-then-shatter-it cold-mace identity; the rhythmic every-3rd-hit power-stroke pacing is generalized to flat strike output.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The phys->cold single-target striker + freeze/shatter lands cleanly via melee_strike + ELEMENT_CONVERSION_PHYSICAL + the engine's NATIVE shatter (a direct match to shatter-frozen-low-life), but the 'every 3rd successive hit deals 200-390% more damage' cadence-counter has no enum carrier -- it is a behavioral property noted in traits, not modeled as a mechanism. A player keeps the freeze-a-target-then-shatter-it cold-mace identity; the rhythmic every-3rd-hit power-stroke pacing is generalized to flat strike output.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Glacial Hammer",
+          "geometry_value": "melee_strike",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "a single-target melee strike (mace/sceptre) that converts 100% of physical damage to COLD; every 3rd successive hit carries a large (200-390%) more-damage bonus; frozen non-unique enemies below 1/3 life SHATTER when hit. melee_strike = the point single-target hit; water/cold family (full phys->cold conversion); chill+freeze with the engine's native shatter-at-freeze-expiry-under-threshold payoff -- a direct match to the skill's shatter-frozen-low-life mechanic"
+        }
+      ],
+      "motion_frame": "single-target cold bruiser: swing a mace that freezes; land the every-3rd-hit power stroke to freeze, then shatter frozen low-life enemies -- a slow, deliberate melee cadence",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike single-target hit"
+          ],
+          "economy": [
+            "mana-light attack spend",
+            "Herald of Ice shatter-trigger for clear (secondary)"
+          ],
+          "traits_affixes": [
+            "cold-penetration (post-conversion)",
+            "physical->cold conversion (the build-defining affix)",
+            "freeze-scaling",
+            "every-3rd-hit counter (behavioral)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PHYS-TO-COLD CONVERSION single-target striker. [negative=1 kit -- mapping records what the kit WAS; the negative_canon flag lives on the corpus row, NOT in this mapping_json, per batch instruction. Confirmed obsolete/niche ('melee strike skill in modern POE' listed as a con) but its identity maps cleanly.] Geometry melee_strike (dossier: 'at-target melee strike, single target point'). ELEMENT_CONVERSION_PHYSICAL is the exact capstone T4 -- the skill's defining act is converting 100% physical to cold (crosswalk s5 phys-to-X row). water/cold family; chill+freeze -- and critically the ENGINE'S NATIVE freeze-expiry-under-threshold SHATTER (ailments.yaml freeze: shatter_threshold_fraction 0.25) is a DIRECT match to Glacial Hammer's 'frozen enemy below 1/3 life shatters when hit', so the shatter identity is native, not approximated. The 'every 3rd hit 200-390% more' is a cadence-counter behavioral property (no enum carrier) noted in traits. Herald of Ice shatter-clear is a secondary. Clean map despite the negative flag."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3332780",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "mantol456#0648",
+      "title": "[3.22 Ready] Glacial Hammer Slayer — Freeze and Shatter Everything",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Glacial_Hammer",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Glacial Hammer — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": "Glacial Hammer was added in patch 0.8.6 as a new skill prototype, making it one of Path of Exile's original melee abilities.",
+      "source_url": "https://poedb.tw/us/Glacial_Hammer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Glacial Hammer' with no aliases is real community usage",
+      "anchor_quote": "[3.22 Ready] Glacial Hammer Slayer — Freeze and Shatter Everything",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3332780",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Glacial Hammer; melee strike converting physical to cold damage",
+      "anchor_quote": "Hits enemies, converting some of your physical damage to cold damage. If a non-unique enemy is frozen and is on less than one third life, they will shatter when hit by Glacial Hammer.",
+      "source_url": "https://poedb.tw/us/Glacial_Hammer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Glacial Hammer is negative=true: obsolete/niche — fell out of meta after eras 1.x-3.0-3.6",
+      "anchor_quote": "Melee strike skill in modern POE [listed as a con] ... I used to play Ice Shot alot, but GGG has been on a nerfing spree...I had to look for other alternatives.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3332780",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "mantol456#0648",
+              "site": "pathofexile.com/forum",
+              "note": "[3.22 Ready] Glacial Hammer Slayer guide; same author as Heavy Strike Champion guide"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3332780",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Winter Burial (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Strength in Radius",
+              "effect": "Glacial Hammer deals Cold-only Splash Damage to surrounding targets; 25% of Glacial Hammer Physical Damage Converted to Cold Damage",
+              "anchor_quote": "Glacial Hammer deals Cold-only Splash Damage to surrounding targets"
+            },
+            {
+              "node": "Glacial Hammer of Shattering (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Damage scaling adjustments matching v3.25.0 balance changes",
+              "anchor_quote": null
+            },
+            {
+              "node": "Vaal Glacial Hammer (vaal)",
+              "type": "vaal_variant",
+              "effect": "Reduced damage effectiveness vs base skill",
+              "anchor_quote": null
+            },
+            {
+              "node": "Shattered Chains (threshold jewel — removed)",
+              "type": "threshold_jewel_removed",
+              "req": "40 Strength in Radius",
+              "effect": "20% increased Rarity of Items dropped by Enemies Shattered by Glacial Hammer. NOTE: no longer drops as of v3.11.0",
+              "anchor_quote": "no longer drops as of v3.11.0"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Hammer",
+        "anchor_quote": "Glacial Hammer deals Cold-only Splash Damage to surrounding targets",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Winter Burial jewel",
+            "Shattered Chains jewel",
+            "Heatshiver",
+            "Yoke of Suffering",
+            "Herald of Ice (clear trigger via shatters)",
+            "Trinity gem (cold/fire dual scaling)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3332780",
+        "anchor_quote": "Winter Burial and Shattered Chains provide cold damage bonuses... Heatshiver and Yoke of Suffering. Trinity gem balances cold and fire damage scaling.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee strike",
+          "footprint": "single target (point)",
+          "aoe": null,
+          "range_text": "Melee strike range standardized across gem levels in 3.16.0. Point/single target hit.",
+          "projectile": false
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Hammer",
+        "anchor_quote": "Melee strike range standardized across gem levels in 3.16.0.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player attacks with mace/sceptre; Glacial Hammer converts 100% physical to cold; every 3rd successive hit carries 200-390% more damage bonus; frozen enemies below 1/3 life shatter on hit; shatter triggers Herald of Ice explosions in clearing builds."
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Hammer",
+        "anchor_quote": "Hits enemies, converting some of your physical damage to cold damage. If a non-unique enemy is frozen and is on less than one third life, they will shatter when hit by Glacial Hammer.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Glacial Hammer Slayer (freeze+shatter, 3.22 forum guide)",
+            "Historical Marauder lineage (1.x-2.x founding era)",
+            "Niche modern build — explicitly listed con: 'Melee strike skill in modern POE'"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3332780",
+        "anchor_quote": "Melee strike skill in modern POE [listed as a con].",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

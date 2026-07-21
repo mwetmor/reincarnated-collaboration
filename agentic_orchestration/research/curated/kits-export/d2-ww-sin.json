@@ -1,0 +1,241 @@
+{
+  "kit_id": "d2-ww-sin",
+  "spine": {
+    "kit_id": "d2-ww-sin",
+    "folk_name": "Whirlwind Assassin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-1.10+;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Claw-speed weapon-math produces different WW feel than barb version (faster claw ticks vs slower weapon pool); source player experiences this speed-math difference. Engine whirlwind geometry does not differentiate weapon-speed-math — noted as fidelity delta.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Claw-speed weapon-math produces different WW feel than barb version (faster claw ticks vs slower weapon pool); source player experiences this speed-math difference. Engine whirlwind geometry does not differentiate weapon-speed-math — noted as fidelity delta.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind (Chaos oskill)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Item-defined-archetype: Chaos runeword grants Whirlwind as oskill to Assassin. Moving-channel spin with claw-speed weapon math instead of sword/axe math. Full-move policy while channeling per §CROSS.5. Physical rule: element-neutral. The Chaos runeword IS the kit (item-defined-archetype law §CROSS row 4) — map the WITH-item form."
+        },
+        {
+          "source_skill": "Fade",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Defensive self-buff: damage reduction, resistances, curse duration reduction. Sustained toggle."
+        }
+      ],
+      "motion_frame": "Borrow-spin loop: Chaos-equipped Assassin spins through packs identical to WW Barb but with claw attack speed calculation; Fade provides defensive sustain.",
+      "resource_economy": {
+        "spend": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Chaos runeword mandatory (item-defined WW grant)"
+          ],
+          "economy": [
+            "mana sustain gear"
+          ],
+          "traits_affixes": [
+            "Trap hybrid variant — scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype: the kit's identity IS the Chaos-runeword-granted WW on Assassin. Map the with-Chaos form as core per §CROSS row 4. Claw-speed math vs barb weapon math is a fidelity note; WW mechanic is identical in feel. Fade = defensive self_buff. Kit noted as niche/limited PvE viability in dossier skill_loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Whirlwind Assassin (Whirlwindsin) Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/whirlwind-assassin",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Whirlwind Assassin Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: lod-1.10+",
+      "anchor_quote": "The Whirlwind Assassin is a unique build that revolves around the Chaos Rune Word to unlock Whirlwind, which is usually a Barbarian skill.",
+      "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: d2r",
+      "anchor_quote": "Whirlwind Assassin (Whirlwindsin) Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Whirlwind Assassin'; aliases 'WW Assassin', 'Whirlwind Sin', 'Chaos Rune WW Assassin'",
+      "anchor_quote": "Whirlwind Assassin (Whirlwindsin) Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Whirlwind (oskill via Chaos runeword), Fade",
+      "anchor_quote": "The Whirlwind Assassin is a unique build that revolves around the Chaos Rune Word to unlock Whirlwind, which is usually a Barbarian skill.",
+      "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Chaos (oskill WW)",
+            "Fury",
+            "Fortitude",
+            "Call to Arms"
+          ],
+          "synergies": [],
+          "oskills": [
+            "Whirlwind (from Chaos runeword)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+        "anchor_quote": "Chaos is obviously a must have, otherwise there is no Whirlwind.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Chaos (primary claw — grants Whirlwind oskill)",
+            "Fury (offhand claw)",
+            "Fortitude (armor)",
+            "Call to Arms",
+            "Spirit (switch)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+        "anchor_quote": "Chaos, Weapon Offhand: Fury or Fool's Claw, Body Armor: Fortitude",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (spinning body)",
+          "footprint": "small-radius (AoE around player path)",
+          "notes": "Same WW spin mechanic as Barb but with claw-speed weapon math. Chaos runeword grants WW as oskill."
+        },
+        "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+        "anchor_quote": "The Whirlwind Assassin is a unique build that revolves around the Chaos Rune Word to unlock Whirlwind, which is usually a Barbarian skill.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Assassin uses Chaos runeword claws to access Whirlwind as an oskill (normally Barbarian-only). Spins through enemy packs dealing physical damage along the path, identical mechanics to WW Barb but with claw weapon speed math. Fade used for defensive survivability (damage reduction, resists). Limited PvE viability; novelty/niche build."
+        },
+        "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+        "anchor_quote": "The Whirlwind Assassin is a unique build that revolves around the Chaos Rune Word to unlock Whirlwind, which is usually a Barbarian skill.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure WW Sin (Chaos primary)",
+            "Trap hybrid WW Sin (adds Lightning Sentry traps for additional AoE damage)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/whirlwind-assassin-whirlwindsin-build",
+        "anchor_quote": "By mixing in Traps, this build can become more viable overall and clear more areas and at a faster pace.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

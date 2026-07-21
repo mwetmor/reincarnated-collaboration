@@ -1,0 +1,266 @@
+{
+  "kit_id": "poe1-wormblaster",
+  "spine": {
+    "kit_id": "poe1-wormblaster",
+    "folk_name": "Wormblaster",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-12",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test FAILS on the attested invariant: a CoC spellslinger without the worm supply 'is not Wormblaster' — the name IS the worms, and the boss-context fodder guarantee is the kit's stated point (mech_note). Graded on the attested worm-fodder identity, not the unsupported skill pairing. Docket filed WITH the confidence caveat (heavy-strike-stun precedent: re-check the gap if a deeper dossier lands).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test FAILS on the attested invariant: a CoC spellslinger without the worm supply 'is not Wormblaster' — the name IS the worms, and the boss-context fodder guarantee is the kit's stated point (mech_note). Graded on the attested worm-fodder identity, not the unsupported skill pairing. Docket filed WITH the confidence caveat (heavy-strike-stun precedent: re-check the gap if a deeper dossier lands).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cast On Critical Strike (chassis)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "on-crit -> linked-cast trigger chassis (native trigger grammar, depth 1). WHICH spells it machine-guns varies by era-variant and is weakly attested; corpus stamps fire (the 3.3 Flameblast / Herald of Ash Slayer variant attests the fire register)"
+        },
+        {
+          "source_skill": "Barrage",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "rapid sequential bolt volley = the crit-generator in the classic CoC reading. CONF-SENSITIVE: this pairing is UNSUPPORTED at verify (sources 403'd; the 3.3-era variant shows Slayer+Flameblast instead) — carried at reduced confidence because corpus core_skills orders it, not because sources re-confirmed it"
+        }
+      ],
+      "motion_frame": "pop the jar, shoot your own worms: flask-spawned victims guarantee crits and kills on demand, machine-gunning triggered spells at bosses",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-crit",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_INVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "triggered spell payloads (variant-dependent: Barrage-CoC projectiles or Flameblast AoE)",
+            "volley crit-generator"
+          ],
+          "economy": [
+            "flask-charge cadence as the ammo clock — NO engine key fits (the fodder-supply economy is the gap)",
+            "on-kill / leech effects fed by worm deaths (Slayer overleech variant)"
+          ],
+          "traits_affixes": [
+            "crit chance (proc rate driver)",
+            "flask-uptime register (Pathfinder claim UNVERIFIED)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "WEAKEST-FACTS KIT IN THE BATCH — said plainly: the promoted mechanics claim (CoC + Barrage + Pathfinder) is UNSUPPORTED (verification sources 403'd) and the kit is NOT promoted; a 3.3-era variant contradicts the frame (Slayer + Flameblast). What the dossier DOES attest (conf 0.72-0.82, invariant across ALL documented variants): The Writhing Jar spawns 2 HOSTILE worms at the player; worms interact with on-hit and on-kill effects; the build family farms its own victims to fuel proc economies where real enemies are scarce (bosses). That invariant — self-supplied sacrificial victim-entities as guaranteed proc-target ammunition — has NO engine lane: engine proxies are ALLIES, and trigger conditions consume real combat events; nothing supplies synthetic targets. The reactive trigger half (on-crit -> linked-cast) IS native, and PROXY_INVERSION is the nearest door for spawn-to-destroy proxy semantics (capstone family abstained at dossier — single hedged door only). No source facts invented."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 1,
+      "mechanism_class": "entity-as-consumable-resource-pool",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2130484",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "Bramux#0742",
+      "title": "[3.3] Wormblaster the 4.5th - Flameblast / Herald of Ash Slayer",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poecurrency.com/news/suzu520-s-herald-of-ice-wormblaster-build-for-poe-3-22",
+      "archive_url": null,
+      "site": "poecurrency.com",
+      "author_handle": null,
+      "title": "Suzu520's Herald Of Ice Wormblaster Build For POE 3.22",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Cast_On_Critical_Strike_Support",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "'[3.3] Wormblaster the 4.5th - Flameblast / Herald of Ash Slayer' forum thread by Bramux — Wormblaster iterations documented from 3.3 era onward",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2130484",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "'WORMBLASTER THE FIFTH' Reddit post (2018) documents continued iteration of the build concept through 3.3-3.4+ eras; series of builds documented across patches",
+      "source_url": "https://libredd.it/r/pathofexile/comments/96jnmo/wormblaster_the_fifth/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wormblaster' and alias 'Writhing Jar CoC' are real community usage",
+      "anchor_quote": "'Wormblaster is a series of builds that was first adopted by Youtuber eirikeiken, also known as c9q9md... utilized The Writhing Jar in combination with various mechanics'",
+      "source_url": "https://www.poecurrency.com/news/suzu520-s-herald-of-ice-wormblaster-build-for-poe-3-22",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Cast On Critical Strike + Barrage; Writhing Jar flask spawns hostile worms as kill-fodder for CoC trigger; Pathfinder archetype",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "eirikeiken (c9q9md)",
+          "site": "youtube.com",
+          "note": "original Wormblaster series creator; Bramux#0742 authored 3.3 forum variant; Suzu520 documented 3.22 variant"
+        },
+        "source_url": "https://www.poecurrency.com/news/suzu520-s-herald-of-ice-wormblaster-build-for-poe-3-22",
+        "anchor_quote": "'Wormblaster is a series of builds that was first adopted by Youtuber eirikeiken, also known as c9q9md'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Cast On Critical Strike Support — core trigger",
+              "type": "support_trigger",
+              "effect": "Supported Attacks will Trigger a Supported Spell when you Crit an Enemy; 0.15 second cooldown",
+              "anchor_quote": "Supported Attacks will Trigger a Supported Spell when you Crit an Enemy"
+            },
+            {
+              "node": "Writhing Jar — worm mechanic",
+              "type": "item_mod",
+              "effect": "Writhing Worms escape the Flask when used; Writhing Worms are destroyed when Hit",
+              "anchor_quote": "Writhing Worms escape the Flask when used...Writhing Worms are destroyed when Hit",
+              "source_note": "poedb search result; direct item page 404"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Cast_On_Critical_Strike_Support",
+        "anchor_quote": "Supported Attacks will Trigger a Supported Spell when you Crit an Enemy",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "The Writhing Jar flask (mandatory — spawns hostile worms)",
+            "Items that scale with on-hit/on-kill effects (varied by variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2130484",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "varies by variant (CoC spells — projectile or AoE)",
+          "core_mechanic": "Writhing Jar spawns melee-range worms as kill-fodder at player position; CoC triggers at close range",
+          "note": "3.3 variant used Flameblast + Herald of Ash for AoE flame; original CoC Barrage variant is projectile delivery"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2130484",
+        "anchor_quote": "'Wormblaster the 4.5th - Flameblast / Herald of Ash Slayer'",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Use The Writhing Jar flask to spawn 2 hostile worms; attack worms with a crit-capable attack (Barrage in Pathfinder CoC variant); critical hits trigger Cast on Critical Strike linked spells; worms die quickly, can be re-spawned with flask; chain of flask use + crit + CoC triggers = continuous spell machine-gun; variant builds use different primary attack + spell combinations"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2130484",
+        "anchor_quote": "'The Writhing Jar pops out two little worms when used, and these worms are enemies, so they will interact with any on-hit and on-kill effects'",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Original CoC Barrage Pathfinder (3.0-3.2 era)",
+            "Flameblast Herald of Ash Slayer (3.3 — Bramux variant)",
+            "Various iterations through 3.3-3.22; each era exploited different mechanics before nerfs",
+            "Herald of Ice Wormblaster (3.22 — Suzu520 variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2130484",
+        "anchor_quote": "'As of Patch 3.6.0, this build is no longer viable due to changes to Leech mechanics'",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

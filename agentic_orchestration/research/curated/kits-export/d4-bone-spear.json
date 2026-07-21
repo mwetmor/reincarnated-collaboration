@@ -1,0 +1,263 @@
+{
+  "kit_id": "d4-bone-spear",
+  "spine": {
+    "kit_id": "d4-bone-spear",
+    "folk_name": "Bone Spear Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shadow element applied via crosswalk deterministic row (bone→shadow) rather than explicit fetched 'shadow damage' language — mapper judgment per §7.1. Corpse Tendrils not mapped (no dossier row). No ailments attested despite shadow/bone-damage identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shadow element applied via crosswalk deterministic row (bone→shadow) rather than explicit fetched 'shadow damage' language — mapper judgment per §7.1. Corpse Tendrils not mapped (no dossier row). No ailments attested despite shadow/bone-damage identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bone Spear",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Piercing ranged projectile; skill_geometry payload: 'Bone Spear pierces through corridor; crits generate splinters; straight-line ranged projectile'; verify_ledger anchor: 'Critical bone lances splintering through corridors off essence dumps'; skill_loop anchor: 'Do not reduce your essence cost as you want to spend as much essence as possible'; shadow element: bone/necrotic → shadow per main-law element crosswalk table (§1); note: no explicit 'shadow damage' language in fetched rows — crosswalk table rule applies (deterministic row: 'shadow / dark / bone / necrotic (D2/D3/D4 necro)' = shadow); no ailment: no drain/poison/fear/freeze language attested in fetched rows"
+        },
+        {
+          "source_skill": "Bone Storm",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cooldown reset via 4 Bone Spear casts per skill_loop anchor ('every 4 Bone Spear casts reset seconds off Bone Storm cooldown'); ring/orbit geometry around player; shadow element follows kit; no ailment attested for Bone Storm in fetched rows"
+        },
+        {
+          "source_skill": "Skeleton Mage",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Essence regeneration and minion support per skill_loop payload; placed-proxy geometry; autonomous minion = pet-rider not pet-core (Bone Spear is identity core); shadow element follows kit; totem slot (stationary placed emitter per totem-vs-companion ruling)"
+        }
+      ],
+      "motion_frame": "Spam Bone Spear off Essence dumps; every 4 Bone Spear casts reset Bone Storm cooldown; Skeleton Mage for Essence regen; Bone Storm orbiting on rapid cooldown per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Essence; verify_ledger anchor: 'Core skills: Bone Spear, Corpse Tendrils; resource: Essence'; skill_loop anchor: 'Do not reduce your essence cost as you want to spend as much essence as possible'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bone Spear pierce corridor; Bone Storm ring orbit"
+          ],
+          "economy": [
+            "Essence spam loop; Skeleton Mage Essence regen; Bone Storm 4-cast reset"
+          ],
+          "traits_affixes": [
+            "Deathless Visage (scaler)",
+            "Blood Moon Breeches (scaler)",
+            "Lidless Wall (scaler)",
+            "Dominate/Essence/Corporeal/Gravekeeper/Amplify paragon glyphs (scalers)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Shadow element: crosswalk table has deterministic row 'bone/necrotic (D2/D3/D4 necro) → shadow'; applied per §7.1 deterministic row. Note: no fetched row contains explicit 'shadow damage' phrase — relying on crosswalk table rule which is the designed engine for exactly this case. No ailment attested: no explicit ailment-name language ('bleed', 'drain', 'poison', 'fear') in any fetched row. Skeleton Mage = pet-rider (not identity-core); maps as totem geometry row per totem-vs-companion ruling. Bone Storm cooldown-reset mechanic captured in trigger_grammar. Corpse Tendrils in verify_ledger core_skills but no dossier row for it — not mapped (variant-scope: insufficient evidence for independent row). [STEWARD-AUDIT 2026-07-18 MW4-close: Bone Spear: shadow name-only (bone x12 ALL names; shadow 0 hits; no necrotic/shadow-damage) - bone->shadow routing never triggered] [STEWARD-AUDIT 2026-07-18 MW4-close: Bone Storm: shadow name-only] [STEWARD-AUDIT 2026-07-18 MW4-close: Skeleton Mage: shadow name-only]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Seroc Ifkre",
+      "title": "Bone Spear Necromancer Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20230606021540/https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "archive_url": "http://web.archive.org/web/20230606021540/https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "site": "maxroll.gg (Wayback 2023-06-06)",
+      "author_handle": null,
+      "title": "Bone Spear Necromancer Endgame Build Guide Diablo 4 - Maxroll.gg D4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": "30 May 2023 Published for the Launch of Diablo 4",
+      "source_url": "http://web.archive.org/web/20230606021540/https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Bone Spear Necromancer; aliases: Bone Spear Necro D4, Bone Spear Necromancer launch",
+      "anchor_quote": "Bone Spear Necromancer",
+      "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bone Spear, Corpse Tendrils; resource: Essence; geometry: projectile piercing/splintering through corridor",
+      "anchor_quote": "Do not reduce your essence cost as you want to spend as much essence as possible.",
+      "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Seroc Ifkre",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+        "anchor_quote": "by Seroc Ifkre",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Deathless Visage",
+            "Blood Moon Breeches",
+            "Lidless Wall"
+          ],
+          "paragon_glyphs": [
+            "Dominate",
+            "Essence",
+            "Corporeal",
+            "Gravekeeper",
+            "Amplify"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+        "anchor_quote": "Glyphs (priority order): Dominate, Essence, Corporeal, Gravekeeper, Amplify",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Deathless Visage (buffed S14)",
+            "Blood Moon Breeches",
+            "Lidless Wall"
+          ],
+          "aspects": [
+            "Dominate (glyph)",
+            "Essence (glyph)",
+            "Corporeal (glyph)",
+            "Gravekeeper (glyph)",
+            "Amplify (glyph)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+        "anchor_quote": "Mythics: Deathless Visage, Blood Moon Breeches, Lidless Wall",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "point/piercing line",
+          "range": "ranged",
+          "notes": "Bone Spear pierces through corridor; crits generate splinters; straight-line ranged projectile"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+        "anchor_quote": "Critical bone lances splintering through corridors off essence dumps",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Bone Spear off Essence dumps; Bone Storm on cooldown reset (every 4 Bone Spear casts reset seconds off Bone Storm cooldown); Skeleton Mage for Essence regeneration and minion support. Deathless Visage and Bone Graft buffed S14.",
+          "core_loop": "Bone Spear spam -> Essence spend -> Bone Storm cooldown reset every 4 casts -> repeat"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+        "anchor_quote": "Do not reduce your essence cost as you want to spend as much essence as possible.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Traditional Bone Spear endgame",
+            "Skeleton Mage support variant (current S14)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bone-spear-necromancer-guide",
+        "anchor_quote": "Traditional Bone Spear",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

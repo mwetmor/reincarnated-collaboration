@@ -1,0 +1,245 @@
+{
+  "kit_id": "d4-incinerate",
+  "spine": {
+    "kit_id": "d4-incinerate",
+    "folk_name": "Incinerate Sorcerer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "launch-s1-3;loot-reborn-s4-5;voh-s6+",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Overheating timed damage buff mapped as burst_window trigger consequence; exact 2s ramp duration is fidelity texture not engine-capturable. Mobility penalty (rooted while channeling) = fidelity note only. Player would feel the stationary constraint is present but underweighted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Overheating timed damage buff mapped as burst_window trigger consequence; exact 2s ramp duration is fidelity texture not engine-capturable. Mobility penalty (rooted while channeling) = fidelity note only. Player would feel the stationary constraint is present but underweighted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Incinerate",
+          "geometry_value": "beam_channel",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "three beams of fire; rooted while channeling; most effective at melee range to hit with all three beams; §CROSS moving-vs-rooted: ROOTED channel"
+        }
+      ],
+      "motion_frame": "Channel Incinerate stationary for 2s ramp; Teleport for repositioning between channel windows",
+      "resource_economy": {
+        "mana": "primary-spender",
+        "regen_shape": "passive; Supreme Inferno removes Mana Cost from Pyromancy Skills during ultimate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-channel-duration",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Flamethrower's Aspect splits into 3 beams"
+          ],
+          "economy": [
+            "Ring of Starless Skies skill ranks/damage multiplier",
+            "Supreme Inferno removes Mana cost"
+          ],
+          "traits_affixes": [
+            "Aspect of Overheating 75-100% damage after 2s channel",
+            "Aspect of Conflagration 25-40% Burning boost while channeling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Falsified-negative redeemed: negative_canon CONTRADICTED (verify_ledger anchor: 'After channeling Incinerate for 2 seconds it deals x [75-100%] increased damage for 5 seconds... B-Tier Build'). Mapped redeemed VoH-era form. No burn ailment attested in store — Aspect of Conflagration references 'Burning' as a condition modifier but no enemy burn status is named in fetched text; blocked. Overheating buff = self-side burst_window, not enemy ailment. Rooted channel per §CROSS row 5 contrast case."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "pandaglassjaw",
+      "title": "Incinerate Sorcerer Endgame Guide for Diablo IV Season 11 - Divine Intervention",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/incinerate-sorcerer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Lexyu",
+      "title": "Incinerate - Sorcerer Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": "Incinerate Sorcerer Endgame Guide for Diablo IV Season 11 - Divine Intervention... enters the Endgame strong and has the tools to finish the Season Journey.",
+      "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Incinerate Sorcerer'; aliases 'Incinerate Sorc D4', 'Incinerate channel Sorcerer'",
+      "anchor_quote": "As a Channeling build, it requires you to stand still for extended periods of time that can make surviving harder in more difficult content.",
+      "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Incinerate; channeled fire beam; Sorcerer Mana resource",
+      "anchor_quote": "Channel Incinerate as long as possible to ramp up damage... Supreme Inferno removes the Mana Cost from Pyromancy Skills.",
+      "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Incinerate launch-s6 negative — channeled fire beam locked to stationary cast; mobility penalty and no burst window; persistently below meta across launch through VoH; channel-kit over-centralization concern",
+      "anchor_quote": "After channeling Incinerate for 2 seconds it deals x [75-100%] increased damage for 5 seconds... B-Tier Build",
+      "source_url": "https://www.icy-veins.com/d4/guides/incinerate-sorcerer-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "pandaglassjaw",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+        "anchor_quote": "Written by pandaglassjaw, listed as Content Creator.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Flamethrower's Aspect",
+            "Aspect of Overheating",
+            "Aspect of Conflagration"
+          ],
+          "note": "Flamethrower's splits into 3 beams; Overheating grants 75-100% damage after 2s channel; Conflagration 25-40% Burning boost while channeling"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/incinerate-sorcerer-build/",
+        "anchor_quote": "Flamethrower's Aspect... Splits into 3 beams... Aspect of Overheating... 75-100% increased damage after 2 seconds of channeling",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Orsivane",
+            "Heir of Perdition",
+            "Shroud of False Death",
+            "Ring of Starless Skies"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+        "anchor_quote": "Orsivane (unique mace): Major damage increase... Ring of Starless Skies: Skill ranks and damage multiplier",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "channeled-beam",
+          "footprint": "melee-range-cone",
+          "note": "three beams of fire; most effective at melee range to hit enemies with all three beams; rooted while channeling"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+        "anchor_quote": "three beams of fire... you need to channel it for 2 seconds for its maximum damage and for the Overheating buff",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Incinerate as long as possible creating three fire beams; after 2 seconds gain Overheating damage buff; Teleport for repositioning; mobility is the core constraint"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+        "anchor_quote": "As a Channeling build, it requires you to stand still for extended periods of time that can make surviving harder in more difficult content.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/incinerate-sorcerer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

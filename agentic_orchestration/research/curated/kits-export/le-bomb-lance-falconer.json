@@ -1,0 +1,299 @@
+{
+  "kit_id": "le-bomb-lance-falconer",
+  "spine": {
+    "kit_id": "le-bomb-lance-falconer",
+    "folk_name": "Explosive Ballista Falconer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire element not attested in non-abstained dossier rows (brief hot-fact references 'inflicting fire damage' but this phrase not found in fetched abstained=0 text); mapping as water-only with fidelity note. Dual placed-proxy identity (Trap+Ballista both placed) is richer than a single totem; DUAL_PROXY T4 captures this. Falcon companion following vs placed nuance: companion lane not a T4 door class but noted in delivery.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 6,
+    "verify_confirmed": 0,
+    "verify_contradicted": 3,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire element not attested in non-abstained dossier rows (brief hot-fact references 'inflicting fire damage' but this phrase not found in fetched abstained=0 text); mapping as water-only with fidelity note. Dual placed-proxy identity (Trap+Ballista both placed) is richer than a single totem; DUAL_PROXY T4 captures this. Falcon companion following vs placed nuance: companion lane not a T4 door class but noted in delivery.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Explosive Trap (0-mana, thrown placed trap, AoE explosion on trigger)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spammed as primary; 0 mana cost; triggers placed Ballista via Armed Construction node; AoE explosion footprint; placed-proxy trigger"
+        },
+        {
+          "source_skill": "Ballista (stationary turret, ranged projectile auto-targeting, triggered by Explosive Trap)",
+          "geometry_value": "totem",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed-proxy stationary turret; auto-targets ranged; summoned/triggered by Explosive Trap procs via Armed Construction; screen-wide AoE per maxroll guide"
+        },
+        {
+          "source_skill": "Dive Bomb (Falcon descends, large AoE burst against priority targets)",
+          "geometry_value": "circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Large AoE burst; 'amazing AoE'; AoE scale modified by Hindering Beak Strike passive; used for burst against priority targets; Falcon companion delivers"
+        },
+        {
+          "source_skill": "Falconry (Falcon companion — passive Falcon Strikes, following companion)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Falcon companion provides passive Falcon Strikes; following companion (not placed); capstone scales Falcon damage via player crits and penetration buffs"
+        },
+        {
+          "source_skill": "Smoke Bomb (placed cloud AoE — defense and mobility)",
+          "geometry_value": "defensive_dash",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed cloud for defense/movement; utility function in rotation"
+        }
+      ],
+      "motion_frame": "Spam Explosive Trap (0 mana) to proc explosive Ballistae continuously → Dive Bomb for burst on priority targets → Falconry companion delivers passive Falcon Strikes → Smoke Bomb defensively",
+      "resource_economy": {
+        "primary_cost": "0 mana (Explosive Trap free-cast)",
+        "secondary_resource": "cooldown-gated Dive Bomb and Smoke Bomb"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Armed Construction node (Explosive Trap → Ballista proc)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "DUAL_PROXY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem (Ballista placed-proxy)",
+            "circle (Dive Bomb AoE burst)",
+            "ground_targeted_circle (Explosive Trap)"
+          ],
+          "economy": [
+            "0-mana primary loop (Explosive Trap)",
+            "cooldown-gated burst skills"
+          ],
+          "traits_affixes": [
+            "Apogee of Frozen Light (unique — cold scaling)",
+            "Talons of Valor (primary cooldown enabler)",
+            "Death Rattle (crit multiplier)",
+            "Sapping Strikes, Finesse Them, Needle Like Precision (passive nodes)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element attested from dossier variants row (prose inside IDENTITY_MISMATCH wrapper, which is the mappable content per brief): 'cold/physical, BinaQc' — cold is a genuine build descriptor for the primary variant. Physical applies physical-rule (ailment substrate only; no element slot). Fire (Explosive Trap 'inflicting fire damage') not found in non-abstained dossier rows; element_primary = water (cold) only from attested prose. Stale canon_corpus.elem_raw='physical' correctly ignored per brief. Placed Ballista = placed-proxy (totem); following Falcon companion = companion (not totem). Two placed-proxy entities (Explosive Trap + Ballista) → placed-proxy-count accrual candidate. ZHP design variant (zero defense except guaranteed dodges) noted in capstone row."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "BinaQc",
+      "title": "Explosive Ballista Falconer — Last Epoch",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LizardIRL",
+      "title": "Dive Bomb Falconer Build Guide — Last Epoch",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/last-epoch/falconer-explosive-dive-bomb-endgame-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "EMP1241",
+      "title": "Falconer Explosive Dive Bomb Endgame Build for Last Epoch (Patch 1.1)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/ballista-falconer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "BinaQc",
+      "title": "Ballista Falconer Guide for Last Epoch Season 4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://loltank.com/2024/02/27/last-epoch-1-0-build-dive-bomb-explosive-ballista-falconer",
+      "archive_url": null,
+      "site": "loltank.com",
+      "author_handle": "Dwight",
+      "title": "Last Epoch 1.0 Build: Dive Bomb Explosive Ballista Falconer",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/falconer-reveal",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Falconer Reveal — Last Epoch",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present in Season 4 (patch 1.4-omens); mech_note asserts '1.4-omens new Rogue skill'.",
+      "anchor_quote": "Falconer was introduced at Last Epoch 1.0 (published February 27, 2024 per loltank.com; 'originally added February 19, 2024' per icy-veins guide). Season 4 (patch 1.4 Shattered Omens) launched March 26, 2026. Falconer is not new to Season 4 — it predates it by over 2 years. Era intro-check FAILED.",
+      "source_url": "https://www.icy-veins.com/last-epoch/falconer-explosive-dive-bomb-endgame-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build folk_name 'Bomb Lance Falconer' — a Falconer (Rogue mastery) build around a skill called 'Bomb Lance' — is real community usage for Last Epoch.",
+      "anchor_quote": "No skill, passive node, build guide, or community forum post named 'Bomb Lance' or 'Bomb Lance Falconer' exists in any fetched source across maxroll.gg, icy-veins.com, forums, or general web search. Falconer skill set = Falconry, Explosive Trap, Net, Aerial Assault, Dive Bomb only.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/rogue",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills: Bomb Lance (thrown explosive) + Falconry (Falcon companion); Aerial Assault / Dive Bomb synergies; delivery = thrown lance / explosion AoE.",
+      "anchor_quote": "The Falconer has no skill called 'Bomb Lance'. Fetched sources across maxroll.gg and icy-veins confirm Falconer skill set is: Falconry, Explosive Trap, Net, Aerial Assault, Dive Bomb. The closest real 'ballista-and-bird' build is Explosive Ballista Falconer: spam Explosive Trap to proc explosive Ballistae; Dive Bomb for burst.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "(not emitted — kit negative=0)",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "primary_guide": "BinaQc (maxroll.gg, Explosive Ballista Falconer and Ballista Falconer, Season 4)",
+          "secondary_guides": [
+            "LizardIRL (maxroll.gg, Dive Bomb Falconer, Season 2)",
+            "EMP1241 (icy-veins.com, Explosive Dive Bomb, Patch 1.1)",
+            "Dwight (loltank.com, 1.0 launch guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "IDENTITY_MISMATCH: capstone is for Falconer mastery (real class). Falconer is third mastery for Rogue. Mastery bonus: +12 Dexterity, +1 Falcon Melee Damage per 4 Dexterity. Capstone identity described as 'nuclear bomb as a pet' — scales Falcon companion damage through player critical strikes and penetration buffs. Unique mastery skills: Aerial Assault, Dive Bomb (Falconer-exclusive). ZHP (Zero Hit Points) design variant: 'focused entirely on maximizing Damage with no regard for Defense except guaranteed Dodges'. Introduced with Last Epoch 1.0 (February 2024), NOT Season 4."
+        },
+        "source_url": "https://www.icy-veins.com/last-epoch/falconer-overview",
+        "anchor_quote": "nuclear bomb as a pet playstyle — scaling a falcon companion's damage through player critical strikes and penetration buffs",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "IDENTITY_MISMATCH: items are for Explosive Ballista Falconer. Uniques: Peak of the Mountain (bow), Foot of the Mountain, Apogee of Frozen Light, Death Rattle (amulet — crit multiplier), Woven Flesh (chest — crit avoidance conversion), Melvern's Writ, Uethrin's Stand, Phantom Grip, Tyrant's Skull, Mourningfrost, Talons of Valor (bow — primary cooldown enabler). Idols: Large Shadow Idols (Health/Elemental Resistance), Adorned Majasan Idol (Bow Physical Damage). Key passives: Sapping Strikes, Finesse Them, Needle Like Precision, Fencing Grace, Coordinated Fade, Free Lofting Bird, Sky Signal, Handler, Perfect Aim, Shared Enhancements."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Uniques: Peak of the Mountain, Foot of the Mountain, Apogee of Frozen Light, Death Rattle, Woven Flesh, Melvern's Writ",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "note": "IDENTITY_MISMATCH: geometry is for Explosive Ballista Falconer (real 'ballista-and-bird' kit). Explosive Trap: thrown trap, mid-range AoE explosion on trigger. Ballista: stationary turret projectile, auto-targeting ranged. Dive Bomb: Falcon descends on a target location — large AoE per 'amazing AoE' descriptor; AoE scale modified by Hindering Beak Strike passive node. Smoke Bomb: placed cloud AoE (area protection, movement tool). Aerial Assault: leap forward with Falcon carry + Wing Burst at target location. Build achieves 'Screen-Wide AoE' per maxroll guide."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "incredible AoE, Damage capability; Dexterity scaling affects area via Armed Construction multiplier",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "note": "IDENTITY_MISMATCH: 'Bomb Lance' is not a Last Epoch skill. Real 'ballista-and-bird' build is Explosive Ballista Falconer. Rotation: spam Explosive Trap (0 mana cost) to proc explosive Ballistae; use Dive Bomb for burst against priority targets; Falconry provides passive Falcon Strikes; Smoke Bomb for defense and mobility. All skills: Explosive Trap (primary spam), Ballista (summoned turret, triggered by Explosive Trap via Armed Construction node), Dive Bomb (burst), Falconry (Falcon companion + passive Falcon Strikes), Smoke Bomb (defense/movement)."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Use Explosive Trap to proc Ballista from a safe distance; deploy Dive Bomb and Falcon Strikes against priority targets; time Smoke Bomb defensively",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "IDENTITY_MISMATCH: variants are for the Falconer 'ballista-and-bird' archetype. Three main variants: (1) Explosive Ballista Falconer — Explosive Trap procs Ballista (screen-wide AoE, cold/physical, BinaQc); (2) Dive Bomb Falconer — Explosive Trap cools down Falcon Dive Bomb for burst (LizardIRL); (3) Ballista Falconer — Ballista as primary, Aerial Assault buff, ZHP/dodge design (BinaQc). Additional: Bleed Falconer (Net+Puncture+Dive Bomb bleed stacks), Bow Bleed Ballista (fextralife). All confirmed present from 1.0 launch (Feb 2024) through Season 4 (March 2026)."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/rogue",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 6,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "kit_id": "poe1-split-arrow-bleed",
+  "spine": {
+    "kit_id": "poe1-split-arrow-bleed",
+    "folk_name": "Split Arrow Bleed",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: 5-9 arrow count scaling, the no-double-hit-per-attack rule, and explosion magnitude tuning are behavioral; bleed, fan, swap-rotation, and on-kill pops all land on native lanes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: 5-9 arrow count scaling, the no-double-hit-per-attack rule, and explosion magnitude tuning are behavioral; bleed, fan, swap-rotation, and on-kill pops all land on native lanes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Split Arrow",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "fan of 5-9 arrows spreading across the pack, each applying bleed stacks; source rule 'multiple arrows cannot hit the same enemy per attack' (excess passes through) is behavioral — engine multi_projectile overlap behavior not asserted."
+        },
+        {
+          "source_skill": "Puncture",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "boss-swap single-arrow heavy bleed application; the two-skill clear/single-target swap is the dominant rotation."
+        }
+      ],
+      "motion_frame": "run-and-fan: full-move bleed application — fire the fan, keep moving while bleeds tick; swap to Puncture on bosses",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "arrow-fan width/count",
+            "single-target swap"
+          ],
+          "economy": [
+            "mana-light spend (chassis default)",
+            "damage-while-not-attacking is the bleed uptime identity"
+          ],
+          "traits_affixes": [
+            "bleed-magnitude/duration trait ranks",
+            "physical bow affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure-physical bleed kit -> element-neutral per THE PHYSICAL RULE (elem slots null; identity = geometry + bleed). Gladiator's Gratuitous Violence (bleed-stacked enemies explode on death, clearing packs) routes to GEOMETRY_PROPAGATION_cascade — the on-kill propagation door IS the capstone identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/bleeding-split-arrow-puncture-gladiator-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.23] Bleeding Split Arrow/Puncture Gladiator Build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Split_Arrow",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Split Arrow — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Split Arrow Bleed' is real community usage; Gladiator class",
+      "anchor_quote": "Split Arrow/Puncture is currently the best combination of Bleed Skills in Path of Exile — Gladiator build",
+      "source_url": "https://odealo.com/articles/bleeding-split-arrow-puncture-gladiator-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Split Arrow and Puncture (swap); bleed DoT; Gladiator ascendancy",
+      "anchor_quote": "Split Arrow for clear speed and Puncture as primary single-target ability, with the two skills swapped depending on encounter needs; Gladiator, Blood in the Eyes, Gratuitous Violence",
+      "source_url": "https://odealo.com/articles/bleeding-split-arrow-puncture-gladiator-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Split Arrow of Splitting (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Mana cost 6 at level 1 (previously 7); 10 at level 20 (previously 11)",
+              "anchor_quote": "Now has a Mana cost of 6 at gem level 1 (previously 7)"
+            },
+            {
+              "node": "Straight and True (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40+ Dexterity nearby",
+              "effect": "Split Arrow fires Projectiles in Parallel; (7-10)% increased Projectile Damage",
+              "anchor_quote": "Split Arrow 'fires Projectiles in Parallel'"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Split_Arrow",
+        "anchor_quote": "Split Arrow fires Projectiles in Parallel",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Straight and True (threshold jewel)",
+              "type": "threshold_jewel",
+              "effect": "Split Arrow fires Projectiles in Parallel; (7-10)% increased Projectile Damage",
+              "anchor_quote": "Split Arrow 'fires Projectiles in Parallel'"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Split_Arrow",
+        "anchor_quote": "Split Arrow fires Projectiles in Parallel",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "fan of arrows spreading across enemy group; each arrow applies bleed; at higher gem levels fires 5-9 arrows; multiple arrows cannot hit the same enemy per attack"
+        },
+        "source_url": "https://poedb.tw/us/Split_Arrow",
+        "anchor_quote": "Fires between 5-9 arrows depending on gem level; multiple arrows cannot hit the same enemy per attack; excess projectiles pass through",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Fire a fan of arrows with Split Arrow applying bleed stacks to groups. Swap to Puncture for single-target bleed application on bosses. Gladiator's Gratuitous Violence causes bleed-stacked enemies to explode on death, clearing packs."
+        },
+        "source_url": "https://odealo.com/articles/bleeding-split-arrow-puncture-gladiator-build",
+        "anchor_quote": "Split Arrow for clear speed and Puncture as primary single-target ability; mobility because it's a Bleed build that damages enemies even when you're not continuously attacking",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Split Arrow/Puncture Bleed Gladiator — canonical form",
+            "Rain of Arrows Bleed — parallel bleed bow variant"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/bleeding-split-arrow-puncture-gladiator-build",
+        "anchor_quote": "Split Arrow/Puncture is currently the best combination of Bleed Skills in Path of Exile",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

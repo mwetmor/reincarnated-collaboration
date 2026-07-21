@@ -1,0 +1,246 @@
+{
+  "kit_id": "d2-fohdin",
+  "spine": {
+    "kit_id": "d2-fohdin",
+    "folk_name": "FoHdin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-pvp;d2r-2.4+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Holy bolt shrapnel spray as a secondary AoE element from the same cast is approximated as dual-element delivery note. Engine single_target geometry doesn't natively carry 'lightning bolt + radial shrapnel' dual-shape without delivery_notes. Player feels 'holy lightning cursor-caster with resist-shred aura' — that build, minor shrapnel-shape texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "holy",
+      "lightning"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Holy bolt shrapnel spray as a secondary AoE element from the same cast is approximated as dual-element delivery note. Engine single_target geometry doesn't natively carry 'lightning bolt + radial shrapnel' dual-shape without delivery_notes. Player feels 'holy lightning cursor-caster with resist-shred aura' — that build, minor shrapnel-shape texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fist of the Heavens",
+          "geometry_value": "single_target",
+          "element_primary": "lightning",
+          "element_secondary": "holy",
+          "element_secondary_note": "holy bolt shrapnel component; mapped as secondary per dual-element hybrid rule",
+          "ailments": [],
+          "delivery_notes": "At-target lightning bolt strike + radial holy bolt shrapnel spray around the strike point. Small-radius AoE footprint. Patch 2.4: damages both Undead and Demons."
+        },
+        {
+          "source_skill": "Conviction (aura)",
+          "geometry_value": "aura",
+          "element_primary": "holy",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Persistent caster-anchored aura; lowers all enemy resistances. Conviction = always-on aura (no reservation, §A row 2); resist-shred = persistent caster-anchored → curse:sap per main-law exposure split."
+        }
+      ],
+      "motion_frame": "Activate Conviction aura to lower enemy resistances; cast Fist of the Heavens at targeted enemy location for lightning bolt + holy bolt shrapnel; reposition via Enigma Teleport",
+      "resource_economy": {
+        "cost_scale": "mana-hungry",
+        "cadence_scale": "spam-foh-under-conviction"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Enigma Teleport (item-defined repositioning — item-layer, fidelity note)"
+          ],
+          "traits_affixes": [
+            "Fist of the Heavens synergized by Holy Bolt; Griffon's Eye item: -enemy lightning res up to 20%"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element crosswalk: Fist of the Heavens = lightning primary + holy secondary (dual-element hybrid per holy bolt shrapnel; both attested in fetched skill_loop). Conviction aura resist-shred = curse:sap (persistent caster-anchored, §A row 2 rule). No burn/stun/freeze attested in fetched dossier. Griffon's Eye item resistance-shred is numeric gear-affix texture. PvP→PvM shift at patch 2.4 noted in fidelity. Holy element: FoH holy bolt component is fetched in skill_geometry/skill_loop ('holy bolt shrapnel sprays outward') — NOT a probe fabrication (compare §A hammerdin 'magic damage' erratum which IS probe-fabricated holy)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Fist of the Heavens (FoH) Paladin Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-pvp era",
+      "anchor_quote": "With Patch 2.4, Fist of the Heavens now deals Damage to both Undead Monsters and Demons...These changes now allow this Character to not just fight in PvP but also PvM content.",
+      "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r-2.4+ era",
+      "anchor_quote": "With Patch 2.4, Fist of the Heavens now deals Damage to both Undead Monsters and Demons",
+      "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'FoHdin' and aliases 'Fist of the Heavens Paladin', 'FoH Paladin', 'Holy Bolt Paladin' are real community usage",
+      "anchor_quote": "Fist of the Heavens (FoH) Paladin Build",
+      "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Fist of the Heavens, Holy Bolt, Conviction",
+      "anchor_quote": "20 points to Fist of the Heavens — Main skill of the build, required; 20 points to Holy Bolt — Synergy for Fist of the Heavens, required; 20 points to Conviction — Main Aura",
+      "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com",
+          "note": "30,000+ hours in D2; professional broadcaster"
+        },
+        "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+        "anchor_quote": "MrLlamaSC is a professional twitch broadcaster that has been streaming since 2014...With roughly 30,000 hours in the game he is a D2 Master",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Heart of the Oak",
+            "Enigma"
+          ],
+          "uniques": [
+            "Herald of Zakarum",
+            "Griffon's Eye",
+            "Harlequin Crest",
+            "Arachnid Mesh"
+          ],
+          "synergies": [
+            "Fist of the Heavens synergized by Holy Bolt",
+            "Conviction aura is mandatory damage amplifier (lowers all resistances)"
+          ],
+          "notes": "Patch 2.4 is the key capstone shift: FoH now damages both Demons and Undead, not just Undead."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+        "anchor_quote": "With Patch 2.4, Fist of the Heavens now deals Damage to both Undead Monsters and Demons",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Heart of the Oak (weapon — +skills, FCR)",
+            "Herald of Zakarum (shield — +Paladin skills, blocking)",
+            "Enigma (armor — Teleport access)",
+            "Griffon's Eye (helm — -enemy lightning res, lightning damage bonus)",
+            "Harlequin Crest (alt helm)",
+            "Arachnid Mesh (belt — FCR)"
+          ],
+          "notes": "Griffon's Eye singled out: 'nearby enemies will have their lightning resistance reduced by up to 20%.'"
+        },
+        "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+        "anchor_quote": "Weapon: Heart of the Oak; Shield: Herald of Zakarum; Body Armor: Enigma; Helm: Harlequin Crest or Griffon's Eye; Belt: Arachnid Mesh",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Fist of the Heavens: at-target delivery, lightning strike at designated location + radial holy bolt shrapnel spray around the strike point. Small-radius AoE footprint. Holy Bolt travels outward from FoH impact point."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+        "anchor_quote": "Fist of the Heavens calls lightning bolt at targeted location; holy bolt shrapnel sprays outward",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Fist of the Heavens at targeted enemy location. FoH delivers a lightning bolt strike plus holy bolt shrapnel spray. Activate Conviction aura to lower enemy lightning/elemental resistance. Holy Bolt shrapnel damages undead. Pre-2.4: PvP-primary build. Post-2.4: viable PvM with buffed demon/undead damage."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+        "anchor_quote": "Fist of the Heavens calls lightning bolt at targeted location; holy bolt shrapnel sprays outward; Conviction — Main Aura, providing both lowered Resistances",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "PvP FoHdin (pre-2.4 standard; holy bolt stun on players/undead; lod-pvp era)",
+            "PvM FoHdin (post-2.4; Demon+Undead damage buffed; d2r-2.4+ era; rivals Hammadin for specific areas)"
+          ],
+          "notes": "Spec eras lod-pvp and d2r-2.4+ correctly capture this bifurcation."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fist-of-the-heavens-foh-paladin-build",
+        "anchor_quote": "not just fight in PvP but also PvM content",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "kit_id": "vs-unholy-vespers",
+  "spine": {
+    "kit_id": "vs-unholy-vespers",
+    "folk_name": "Unholy Vespers (King Bible evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Unholy Vespers",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Revolving symbols orbit player clockwise at fixed radius; continuous during active window; multiple circles can be active simultaneously. Element = null: 'Unholy' in name = NAME-ONLY per VS element law (VS has no elemental damage-type system); no damage-type descriptor on generic effect noun. No ailments attested."
+        }
+      ],
+      "motion_frame": "Orbit ring revolves clockwise continuously; stand in enemy density; orbit window extended by Duration stat.",
+      "resource_economy": {
+        "cadence_scale": "Duration stat extends orbit window (attested: 'Duration affects how long they rotate before cooling down')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "cadence_scale"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS weapon evolution). Canonical orbit weapon. Orbit geometry confirmed: 'revolve clockwise around the player.' Duration-scaling = uptime identity (PERSISTENCE_ENGINE_uptime door). 'Unholy' is name-only; no element. No ailments. Spellbinder catalyst contributes Duration. Multiple simultaneous circles with enough Duration."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Unholy Vespers - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "Added: October 27, 2021 (Update: 'There exist tales that don't exist.')",
+      "source_url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Unholy Vespers — King Bible evolution; King Bible + Spellbinder catalyst; bibles orbit player body perpetually; ring footprint",
+      "anchor_quote": "The symbols revolve clockwise around the player and deal damage to any enemy they touch.",
+      "source_url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Orbit delivery; perpetual; no wave limit / downtime; distinct from projectile; canonical orbit weapon",
+      "anchor_quote": "revolve clockwise around the player and deal damage to any enemy they touch",
+      "source_url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Spellbinder (catalyst) contributes Duration (longer orbit windows). Area items increase orbit radius. Amount items add more bible symbols per orbit."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+        "anchor_quote": "Duration affects how long they rotate before cooling down",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit",
+          "footprint": "ring",
+          "note": "Fixed-radius orbit ring. Duration extends orbit window. 'revolve clockwise around the player' — no arc gap described."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+        "anchor_quote": "revolve clockwise around the player and deal damage to any enemy they touch",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Evolution weapon. Recipe: King Bible (maxed) + Spellbinder. Revolving symbols orbit player clockwise continuously. Duration affects orbit duration before cooldown. Multiple circles can be active simultaneously with bonuses. The orbit never ceases during active windows."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Unholy_Vespers",
+        "anchor_quote": "The symbols revolve clockwise around the player and deal damage to any enemy they touch.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

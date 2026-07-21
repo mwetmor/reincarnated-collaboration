@@ -1,0 +1,249 @@
+{
+  "kit_id": "le-runic-invocation",
+  "spine": {
+    "kit_id": "le-runic-invocation",
+    "folk_name": "Runic Invocation Runemaster",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03 GX-15",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The combinatorial identity (~40 outputs selected by specific rune sequences / spell rotations) has no engine lane; realized loop approximated as accumulator-spend into one payoff zone. Source player would miss choosing WHICH output via rotation ordering. Terminal stays MAPPED per R-M7 (that build, worse - the rotate-then-nuke loop survives).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The combinatorial identity (~40 outputs selected by specific rune sequences / spell rotations) has no engine lane; realized loop approximated as accumulator-spend into one payoff zone. Source player would miss choosing WHICH output via rotation ordering. Terminal stays MAPPED per R-M7 (that build, worse - the rotate-then-nuke loop survives).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Runic Invocation",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "invocation output = large elemental zone at target area; output spell varies by rune combination (fire burst / ice storm / lightning fork per dossier); Hydrahedron variant = auto-targeting large zone [ERRATA-57 2026-07-19: multi-element outputs 'fire burst, ice storm, lightning fork' attest engine FIRE + WATER (ice) alongside the lightning primary; added to attested set via attested_elements_errata. Blind-rider anchor, D-1.]",
+          "attested_elements_errata": [
+            "fire",
+            "water"
+          ]
+        }
+      ],
+      "motion_frame": "ranged rotation caster: cast rune-input spells to slot Rah/Heo/Gon runes, then invoke the payoff zone",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "rune-slot count + cooldown reduction via passive tree"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Class corrected: Runemaster is a Mage mastery (corpus governs). Rune-input spells (Flame Rush, Frost Wall) are named as inputs only, behavior unfetched -> they map as accumulator ticks, not own skill rows (attestation law 0.4). Multi-element output range kept as fidelity texture; corpus lightning primary carries the row. trigger_grammar row = Reowyn's Frostguard ward-burst rider (basin-2 B row, attested twice): on-cast-of-carrier -> ward overshield fill; item-layer rider, never rewrites core geometry. Accumulator shape filed as two-tier-accumulator accrual; recipe-determines-output filed as docket-candidate (no lane, main-law 7.4 recipe class)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Hydrahedron Runemaster Build Guide - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://dotesports.com/last-epoch/news/last-epoch-all-runic-invocations-listed",
+      "archive_url": null,
+      "site": "dotesports.com",
+      "author_handle": null,
+      "title": "Last Epoch: All Runic Invocations, listed",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Season 4 - Shattered Omens... Last Updated: April 27, 2026.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Runic Invocation Runemaster' / 'Flame Rush Frost Wall Runemaster' / 'random rune build Runemaster' are real community usage",
+      "anchor_quote": "The Runemaster class casts one of many different Runic Invocation attacks depending on the combination of elemental spells used beforehand.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Runic Invocation (output spell), Flame Rush / Frost Wall (rune feeders); rune combination determines output; large-AOE elemental output; resource=Mana",
+      "anchor_quote": "Runic Invocations are a combination of only three Runes: Rah (Red), Heo (Blue), and Gon (Purple)... requires specific rune combinations (and therefore specific spell rotations) in order to work.",
+      "source_url": "https://dotesports.com/last-epoch/news/last-epoch-all-runic-invocations-listed",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": null,
+          "site": "maxroll.gg",
+          "notes": "Author handle not captured in fetched guide page; Hydrahedron guide"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "40 total Runic Invocation combinations; Runic Invocation: Enigma and Runic Invocation: Hydrahedron are endgame-defining output spells; passive tree governs rune-slot count and cooldown reduction"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+        "anchor_quote": "Runic Invocation: Enigma is used to get double value from Nimbus Walk... Hydrahedron is a powerful Runic Invocation.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Reowyn's Frostguard (Ward burst via Lightning Blast+Runic Invocation interaction)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+        "anchor_quote": "Runic Invocation generating massive Ward bursts through Reowyn's Frostguard.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "large elemental zone at target area; output varies by rune combination (fire burst, ice storm, lightning fork, etc.); Hydrahedron = auto-targeting large zone",
+          "range_class": "ranged",
+          "aoe": "large-zone"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+        "anchor_quote": "Hydrahedron is a powerful Runic Invocation unique to the Runemaster that turns foes into ashes... insane Range, a very easy playstyle and auto targeting mechanic.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Runemaster slots rune inputs (Flame Rush, Frost Wall, etc.) to build a specific rune sequence (Rah/Heo/Gon combination). On invocation, the combination determines the output from ~40 possible spells. High-tier outputs produce large elemental zone effects. The Hydrahedron variant uses Runic Invocation: Enigma to multiply value from mobility skills.",
+          "core_driver": "rune-combination recipe loop"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+        "anchor_quote": "Runic Invocations are a combination of only three Runes: Rah (Red), Heo (Blue), and Gon (Purple)... requires specific rune combinations (and therefore specific spell rotations) in order to work.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Hydrahedron Runemaster",
+              "notes": "Runic Invocation: Hydrahedron as primary output; auto-targeting large zone"
+            },
+            {
+              "name": "Lightning Blast Runemaster",
+              "notes": "Uses Runic Invocation to generate Ward via Reowyn's Frostguard; Lightning Blast as primary skill"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/hydrahedron-runemaster-guide",
+        "anchor_quote": "Hydrahedron Runemaster... Lightning Blast Runemaster Build.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

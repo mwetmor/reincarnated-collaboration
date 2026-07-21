@@ -1,0 +1,229 @@
+{
+  "kit_id": "hades2-hail-storm",
+  "spine": {
+    "kit_id": "hades2-hail-storm",
+    "folk_name": "Hail Storm (Zeus+Demeter duo)",
+    "game": "hades2",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades2-1.0-2025;hades2-post1.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-15",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Hail Storm player gets the freeze-triggers-lightning engine faithfully via on-ailment-application -> linked-cast (the cleanest possible map for 'control converts to damage'). Minor drift: the cross-element cadence where longer freeze-lock = MORE lightning triggers (Cold Storage extending the trigger window) is carried as a freeze-duration trait rather than a first-class freeze-uptime-to-lightning-frequency coupling; the throughput scales, but the 'hold the freeze longer to fire more bolts' curve is approximated. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Hail Storm player gets the freeze-triggers-lightning engine faithfully via on-ailment-application -> linked-cast (the cleanest possible map for 'control converts to damage'). Minor drift: the cross-element cadence where longer freeze-lock = MORE lightning triggers (Cold Storage extending the trigger window) is carried as a freeze-duration trait rather than a first-class freeze-uptime-to-lightning-frequency coupling; the throughput scales, but the 'hold the freeze longer to fire more bolts' curve is approximated. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hail Storm (Zeus+Demeter duo) -- freeze-triggers-lightning",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": "lightning",
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Freeze at an enemy position TRIGGERS a lightning bolt at that location (dossier: 'Freeze at enemy position triggers lightning bolt at that location'); repeated triggers on extended freeze blanket a large zone. The bolt lands at the frozen enemy's position = a location-anchored ground burst -> ground_targeted_circle. Cold+lightning cross-element: water primary (cold register, Demeter freeze), lightning secondary (Zeus bolts). freeze (Demeter Ice Strike/Cold Storage) + shock (lightning-status rider). Winter Harvest adds low-HP frozen-enemy explosions (freeze+execute threshold)."
+        }
+      ],
+      "motion_frame": "control-is-the-damage-engine: freeze the pack with Demeter (Ice Strike freeze-on-hit, Cold Storage to hold the lock), and every freeze application calls a lightning bolt onto the frozen foe -- crowd-control converts directly into wave-clearing burst",
+      "resource_economy": {
+        "model": "proc",
+        "resource_verbatim": "no additional resource per lightning strike beyond the freeze-application (freeze-proc drives lightning throughput)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "freeze status is the trigger condition",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "location-anchored lightning burst on freeze",
+            "large-zone coverage across multiple frozen targets"
+          ],
+          "economy": [
+            "freeze-proc-drives-lightning (no per-strike cost; the freeze-application IS the gate)"
+          ],
+          "traits_affixes": [
+            "freeze duration (Cold Storage) / lightning-per-trigger damage (Zeus tiers)",
+            "cold + lightning cross-element scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-15 (corpus flag). FLAG 4 + §D row: freeze->lightning is NATIVE trigger grammar -> proc_trigger_condition=on-ailment-application, consequence_type=linked-cast. This is NOT an R-M9 meta-gem chassis (do NOT emit R-M9 framing / self_buff) -- it is a direct on-ailment-apply trigger, so the geometry is the payload (ground_targeted_circle), not self_buff. DUO BOON (FLAG 2 + §D) = capstone: Hail Storm (Zeus+Demeter) -> main-law §5 -> GEOMETRY_PROPAGATION_cascade (control-into-damage wave-clear, freeze spreads the lightning across the pack) + ELEMENTAL_ECHO (the cross-element echo). control centrality=core (freeze IS the damage engine). water primary + lightning secondary (cross-element, §1 hybrid: both slots direct). Winter Harvest (low-HP frozen explosion) = freeze+execute threshold-burst, native, noted. glass defense not a surface. [STEWARD AUDIT m04: 'shock' stripped -- never named in fetched text (bolt = damage); freeze UPHELD (named + CC-semantics attested: 'freeze-lock')]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://rogueranker.com/hades-2-duo-boons/",
+      "archive_url": null,
+      "site": "rogueranker.com",
+      "author_handle": null,
+      "title": "Hades 2 Duo Boons: All 37 and the Best Combos",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+      "archive_url": null,
+      "site": "switchbladegaming.com",
+      "author_handle": null,
+      "title": "5 Hades 2 Boon Combos That Break Runs",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.techtimes.com/articles/313887/20260127/hades-2-boon-guide-broken-god-combinations-run-optimization-tips-faster-clears.htm",
+      "archive_url": null,
+      "site": "techtimes.com",
+      "author_handle": null,
+      "title": "Hades 2 Boon Guide: Broken God Combinations and Run Optimization Tips for Faster Clears",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in eras hades2-1.0-2025 and hades2-post1.0-2026",
+      "anchor_quote": "The Lightning Freeze Engine (Zeus + Demeter + Hermes)... Hail Storm and Hermes sprint/dodge boons to wipe waves",
+      "source_url": "https://www.techtimes.com/articles/313887/20260127/hades-2-boon-guide-broken-god-combinations-run-optimization-tips-faster-clears.htm",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hail Storm (Zeus+Demeter duo)' and aliases are real community usage",
+      "anchor_quote": "Hail Storm is a Zeus duo boon that makes Freeze also call lightning bolts onto afflicted foes",
+      "source_url": "https://rogueranker.com/hades-2-duo-boons/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Demeter freeze suite, Zeus bolts, Hail Storm(duo); freeze applications trigger lightning procs; cold/lightning hybrid",
+      "anchor_quote": "freeze effects repeatedly trigger lightning bolts, erasing groups of enemies quickly... cold + lightning cross-element synergy",
+      "source_url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "supporting_boons": [
+            "Ice Strike (Demeter) — freeze on hit",
+            "Cold Storage (Demeter) — extended freeze duration",
+            "Winter Harvest (Demeter) — frozen low-HP enemy explosion"
+          ],
+          "note": "Zeus boon lineage required for Hail Storm access"
+        },
+        "source_url": "https://rogueranker.com/demeter-hades-2/",
+        "anchor_quote": "Open with Ice Strike so every hit freezes and hurts, add Cold Storage so the lock lasts long enough to matter, then take Winter Harvest",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Freeze at enemy position triggers lightning bolt at that location; repeated triggers on extended freeze create large-zone lightning coverage across multiple frozen targets; crowd-control-into-damage conversion."
+        },
+        "source_url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+        "anchor_quote": "Freeze status refreshes triggers additional lightning. Cold + lightning cross-element synergy satisfying Privileged Status",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stack Demeter freeze boons (Ice Strike for freeze-on-hit, Cold Storage for extended freeze duration, Winter Harvest for low-HP frozen enemy explosions); add Zeus boon lineage; Hail Storm duo makes every freeze application trigger lightning bolts. Freeze-lock converts to burst damage engine."
+        },
+        "source_url": "https://rogueranker.com/demeter-hades-2/",
+        "anchor_quote": "freeze effects repeatedly trigger lightning bolts, erasing groups of enemies quickly",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Zeus+Demeter+Hermes (Lightning Freeze Engine)",
+            "Hestia+Demeter (Freezer Burn — different duo)"
+          ]
+        },
+        "source_url": "https://www.techtimes.com/articles/313887/20260127/hades-2-boon-guide-broken-god-combinations-run-optimization-tips-faster-clears.htm",
+        "anchor_quote": "Lightning Freeze Engine (Zeus + Demeter + Hermes)... Hestia for Freezer Burn duo (Hestia × Demeter)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

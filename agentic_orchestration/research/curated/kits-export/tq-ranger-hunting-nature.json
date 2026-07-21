@@ -1,0 +1,239 @@
+{
+  "kit_id": "tq-ranger-hunting-nature",
+  "spine": {
+    "kit_id": "tq-ranger-hunting-nature",
+    "folk_name": "Ranger",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Pierce ranger maps cleanly to line geometry + companion proxy. Engine lacks TQ's 'pierce ratio' scaling system (gear affixes cover part of it). Player would feel the ranged loop but miss the deep pierce-ratio itemization identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Pierce ranger maps cleanly to line geometry + companion proxy. Engine lacks TQ's 'pierce ratio' scaling system (gear affixes cover part of it). Player would feel the ranged loop but miss the deep pierce-ratio itemization identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Marksmanship",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "primary left-click ranged attack; single-target point pierce; 'Marksmanship is your left mouse click ability for ranged damage'; pierce damage → no element family (THE PHYSICAL RULE for pierce)"
+        },
+        {
+          "source_skill": "Study Prey",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "debuff on target; 'Study Prey debuff on target'; reduces enemy resistances/defenses — maps as curse:sap (persistent defense-shred per §2); solo-projected as self-buff economy but delivered enemy-directed"
+        },
+        {
+          "source_skill": "Call of the Wild (wolves)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "3 wolves as light-proxy secondary; physical damage; following companions; partial proxy (player still deals damage as primary) — not pet-core; companion note"
+        },
+        {
+          "source_skill": "Call of the Hunt / Art of the Hunt",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "pre-engagement self-buff; flat pierce/attack speed bonuses; buff-type aura self"
+        }
+      ],
+      "motion_frame": "pierce-ranger — Marksmanship as sustained ranged left-click, wolf pack light-proxy secondary, debuff+buff maintenance loop",
+      "resource_economy": {
+        "cost_scale": "spend",
+        "cost_slope": "low-flat",
+        "cadence_scale": "fast-autoattack"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "wolf melee proxy covers AoE gap; Marksmanship point-single supplements"
+          ],
+          "economy": [
+            "DEX-heavy stat investment for pierce scaling; +Skills for wolf scaling"
+          ],
+          "traits_affixes": [
+            "Art of the Hunt flat pierce",
+            "Heart of Oak survivability passive",
+            "Stonebinder's Cuffs +Skills"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pierce primary (no engine element family). Wolves as light companion proxy — not pet-core (player Marksmanship is primary damage delivery). Study Prey maps as curse:sap (resistance reduction = armor/resist shred → §2 exposure/armor-shred/RR row → curse:sap persistent). No genuine element damage-type attested in dossier beyond pierce."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Ranger Build Guide - Titan Quest",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016",
+      "anchor_quote": "guides suggest this build offers high survivability and can successfully progress through Normal and Epic difficulties",
+      "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ranger — Hunting+Nature dual-mastery combo; folk name Ranger",
+      "anchor_quote": "The Ranger class combines the Hunting and Nature skill trees and can be played with Spear, Bow or Throwing Weapons",
+      "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Marksmanship is primary skill; pierce damage; wolves (Call of the Wild) as light proxy secondary; Study Prey debuff",
+      "anchor_quote": "Marksmanship (Ranged), Study Prey, Call of the Wild, Sylvan Nymph, Heart of Oak, Art of the Hunt, Call of the Hunt ... Pierce damage ... flat percentage boosts as the primary damage source",
+      "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Almar",
+          "site": "almarsguides.com",
+          "note": "Almar's Guides — dedicated TQ build reference site"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_combo": "Hunting + Nature = Ranger",
+          "secondary_options": "Bow or Spear or Throwing Weapons",
+          "pet_scaling": "wolves scale enormously with +Skills and difficulty bonuses"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+        "anchor_quote": "The Ranger class combines the Hunting and Nature skill trees and can be played with Spear, Bow or Throwing Weapons",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "stats": "heavy Dexterity investment for pierce scaling (450-550 STR for gear reqs; rest into DEX)",
+          "skill_notes": "+3 to +5 Skills for 3 wolves critical; Stonebinder's Cuffs for +Skills"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+        "anchor_quote": "Since your primary damage will be Pierce, you'll want to dump a ton of points into Dexterity",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (arrows/bow primary)",
+          "footprint": "point single-target primary; wolves provide melee AoE secondary",
+          "movement": "full-move; Find Cover passive reduces projectile hits"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+        "anchor_quote": "Arrow shots are point/single-target; Nature wolves provide AoE coverage at secondary level",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Marksmanship as left-click primary; Call of the Hunt buff before engagement; Study Prey debuff on target; Call of the Wild wolves active as supplementary melee proxy; Art of the Hunt passive for flat pierce"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+        "anchor_quote": "Marksmanship is your left mouse click ability for ranged damage and should be maxed along with all other passives",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "bow ranger (primary)",
+            "spear ranger",
+            "throwing weapon ranger",
+            "pet-heavy 'Captain Nature' variant"
+          ]
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Ranger/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

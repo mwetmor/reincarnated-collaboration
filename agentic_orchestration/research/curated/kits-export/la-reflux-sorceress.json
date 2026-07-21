@@ -1,0 +1,260 @@
+{
+  "kit_id": "la-reflux-sorceress",
+  "spine": {
+    "kit_id": "la-reflux-sorceress",
+    "folk_name": "Reflux Sorceress",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/burst-mage",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Individual skill geometries inferred from names / notes — not damage-typed in store. Element consistently null across all skills. Sub-variant Destiny distinction (Palpatine vs Instacast) carried in fidelity_notes only; the two Ark Passive paths collapse to same mapping_json shape.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Individual skill geometries inferred from names / notes — not damage-typed in store. Element consistently null across all skills. Sub-variant Destiny distinction (Palpatine vs Instacast) carried in fidelity_notes only; the two Ark Passive paths collapse to same mapping_json shape.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blaze",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "NAME-ONLY STRIKE: Blaze appears in gems_damage list only — zero damage-type descriptor in store. element_primary null per D4 NAME-ONLY LAW. Short-range fire-themed line projectile per geometry notes."
+        },
+        {
+          "source_skill": "Rime Arrow",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "NAME-ONLY STRIKE: Rime Arrow in gems_damage and skill names — zero damage-type descriptor. element_primary null. Palpatine variant: repeated Rime Arrow triggers Vortex/Condense Destiny."
+        },
+        {
+          "source_skill": "Reverse Gravity",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Named in gems_damage list; geometry inferred from name (vortex/pull mechanic). No element attested."
+        },
+        {
+          "source_skill": "Doomsday / Inferno / Esoteric Reaction",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "NAME-ONLY: Inferno in gems list only. Doomsday/Esoteric Reaction in gems_damage. No element damage-type descriptor in store for any. Geometry: high-damage single-target spells."
+        },
+        {
+          "source_skill": "Blink / Phase Leap (X — Magick Charge)",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Arcane Rupture DISABLED (Reflux identity). Blink becomes Magick Charge via Ark Passive — grants 30s flat damage boost self_buff. Not an identity burst window; not a gauge release. Delivery: blink repositioning + buff trigger."
+        }
+      ],
+      "motion_frame": "Rotation-less cooldown-spam; prioritize high-damage skills as ready; Blink (X) triggers 30s Magick Charge self_buff; no Arcane Meter build/release cycle (Arcane Rupture disabled); Palpatine sub-variant: Rime Arrow × 2 → Vortex/Condense Destiny; Instacast sub-variant: 3 Normal skills → Exchange/Bias Destiny",
+      "resource_economy": {
+        "arcane_meter": "DISABLED — Arcane Rupture locked off by Reflux identity; meter not built or spent; Blink substitutes as identity button granting 30s damage buff",
+        "cooldown_efficiency": "core loop driver: use high-damage skills on cooldown; animation-cancel via spacebar Phase Leap"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Magick Charge (Blink X) — 30s damage boost self-state",
+        "consequence_type": "self_buff"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ELEMENT NEAR-MISS (§0 flag): Blaze, Rime Arrow, Inferno, Doomsday all appear as skill/gem names with zero damage-type descriptor → all null per D4 NAME-ONLY LAW / reflux exemplar ruling in hot-facts. Contrast igniter's 'fire attribute on skills' genuine keep. Reflux is the element-STRIKE exemplar for this basin. Sub-variant Destiny nodes (Palpatine/Instacast) attested via ark_passive_ keys; map Destiny consequence as self_buff modifier (identity-grade booster, not a separate burst_window since it is instacast-modifier not timed HP-lock). No named ailments anywhere in store."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Reflux Sorceress Build Guide - Lost Ark Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024 era; la-global-2026",
+      "anchor_quote": "Last Updated: June 12, 2026 — live guide covering Ark Passive builds with Magick Charge node referenced",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Reflux Sorceress — folk name (class Sorceress + Reflux identity spec)",
+      "anchor_quote": "Arcane Rapture is disabled, leaving you with Blink.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Reflux engraving disables Arcane Rupture; grants flat +damage and faster cooldowns; rotation-less continuous spell-slinging; Blink (X dodge) as primary movement; higher uptime lower ceiling than Igniter",
+      "anchor_quote": "Arcane Rapture is disabled, leaving you with Blink. Through Magick Charge Ark Passive, Blink becomes a buffing skill providing damage boost for 30 seconds. There is no strict rotation for any Reflux build.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+        "anchor_quote": "Sekwah (Content Creator) — Last Updated: June 12, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_palpatine": [
+            "Vortex — activate Destiny with 2x Rime Arrow",
+            "Condense — Destiny increases holding skill damage greatly"
+          ],
+          "ark_passive_instacast": [
+            "Exchange — Destiny triggered by 3 Normal mode skills",
+            "Bias — boosts Normal/Point mode damage"
+          ],
+          "identity_effect": "Arcane Rupture disabled; Blink (X) becomes Magick Charge buffing skill granting 30s damage boost"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+        "anchor_quote": "Arcane Rapture is disabled, leaving you with Blink. Through Magick Charge Ark Passive, Blink becomes a buffing skill providing damage boost for 30 seconds.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings_priority": [
+            "Grudge",
+            "Adrenaline",
+            "Keen Blunt Weapon",
+            "Hit Master",
+            "MP Efficiency Increase or Cursed Doll"
+          ],
+          "gems_damage": [
+            "Reverse Gravity",
+            "Esoteric Reaction",
+            "Rime Arrow",
+            "Doomsday",
+            "Inferno",
+            "Punishing Strike",
+            "Blaze"
+          ],
+          "gems_cooldown": [
+            "Reverse Gravity",
+            "Esoteric Reaction",
+            "Rime Arrow",
+            "Doomsday"
+          ],
+          "bracelet_stats": "Crit, Swiftness; Intelligence main stat",
+          "stat_target": "~90% Crit Rate accounting for all sources"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+        "anchor_quote": "Around ~90% Crit Rate when accounting for all sources; remaining allocation to Swiftness",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Blaze — shorter range fire line; Rime Arrow — longer ranged ice projectile; Blink (X) — evasion/reposition dash; most skills animation-cancellable via spacebar Phase Leap; positioning-dependent range variation"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+        "anchor_quote": "Blaze has shorter range than Rime Arrow; positioning-dependent. Most skills can be cut short via spacebar Phase Leap.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "No strict rotation — prioritise high-damage skills on cooldown; maintain Magick Charge buff (30s damage boost from Blink/X); use spacebar Phase Leap to animation-cancel. Palpatine variant uses repeated Rime Arrow to trigger Vortex/Condense Destiny. Instacast variant uses 3 Normal-mode skills to trigger Exchange/Bias Destiny.",
+          "palpatine_node": "Vortex (Destiny via 2x Rime Arrow) + Condense",
+          "instacast_node": "Exchange (Destiny via 3 Normal skills) + Bias"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+        "anchor_quote": "There is no strict rotation for any Reflux build. Constantly prioritizing your high damage skills as well as keeping your Magick Charge buff up at all times.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Palpatine (Vortex/Condense Destiny via Rime Arrow spam)",
+            "Instacast (Exchange/Bias Destiny via 3 Normal skills)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/reflux-sorceress-raid-guide",
+        "anchor_quote": "Palpatine Build: Emphasizes Lightning Bolt as primary damage dealer. Instacast Build: Reverse Gravity, Rushing Glacier, Rime Arrow...",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

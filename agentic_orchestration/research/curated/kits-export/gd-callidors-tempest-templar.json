@@ -1,0 +1,230 @@
+{
+  "kit_id": "gd-callidors-tempest-templar",
+  "spine": {
+    "kit_id": "gd-callidors-tempest-templar",
+    "folk_name": "Callidor's Tempest Templar",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player accepts a hard range/target-size restriction (must be point-blank; only hits human-sized mobs) as the cost of a strong pulse -- the engine ring geometry delivers the point-blank burst but does not model the human-size gate. The aether-fire composite is compressed to fire-primary + lightning-secondary. burn is captured (named). Minor composite-element drift.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player accepts a hard range/target-size restriction (must be point-blank; only hits human-sized mobs) as the cost of a strong pulse -- the engine ring geometry delivers the point-blank burst but does not model the human-size gate. The aether-fire composite is compressed to fire-primary + lightning-secondary. burn is captured (named). Minor composite-element drift.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Callidor's Tempest",
+          "geometry_value": "ring",
+          "element_primary": "fire",
+          "element_secondary": "lightning",
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "self-origin pulse bursting in a small radius around the player at point-blank / near-melee range ('Must be in near-melee range'; 'can hit everything in a ~6m radius'; 'almost have to be in melee range for it to hit mobs, and that it only affects about human-sized mobs'; 'stand in melee and pulse aether-fire damage in radius'). ring carries the nova/burst-around-self identity (phrase-book). burn NAMED in fetched text ('fire and burn modifiers emphasized' in the Templar variant). Element fire primary (the Templar variant's actual scaling: 'fire and burn modifiers emphasized'), aether/lightning secondary (Callidor's Tempest is aether-based; §1 aether-energy -> lightning)."
+        }
+      ],
+      "motion_frame": "stand at point-blank in the middle of the pack and spam Callidor's Tempest, pulsing aether-fire burst damage in a ~6m ring and stacking burn on everything human-sized around you",
+      "resource_economy": {
+        "cost_scale": "per-cast energy (spam at point-blank; near-continuous pulsing)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pulse radius (~6m)",
+            "target-size gate (human-sized only)"
+          ],
+          "economy": [
+            "point-blank spam cadence"
+          ],
+          "traits_affixes": [
+            "fire/burn damage scaling",
+            "aether/lightning composite scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ring for the self-origin point-blank pulse (nova/burst-around-self). burn EMITTED -- explicitly NAMED ('fire and burn modifiers emphasized'), the one attested status in this batch's aether-fire kit. Element: fire PRIMARY per §1 'pick the build's actual scaling element' (Templar variant emphasizes fire/burn), aether -> lightning SECONDARY (composite noted; the aether base register maps lightning per §1 aether-energy row). Era CORRECTED per verify_ledger errata (errata_applied=1): Templar requires Oathkeeper = FG-only mastery; base-2016 floor is INVALID (Oathkeeper predates it) -- errata governs, era is FG-2019. The 'only affects human-sized mobs' + near-melee-range constraints are fidelity texture. GEOMETRY_COLLAPSE = closest T4 to the point-blank concentrated-nova identity. CLOSE: the size-restriction quirk + aether/fire composite are the deltas (I dropped a non-canonical element key -- see cleanup)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-8-callidors-holy-hammer-1-14m-callidors-tempest-crucible-150-sr-76/127806",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "WyreZ",
+      "title": "[1.1.9.8] Callidor's Holy Hammer - 1.14m Callidor's Tempest - Crucible 150, SR 76",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/forgotten-gods-what-we-know-about-the-new-mastery/46822",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": null,
+      "title": "[Forgotten Gods] What we know about the new Mastery",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/219990/discussions/0/451850213950176826/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Callidor's Tempest or Primal Strike? (Secondary for Demolitionist)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "DB era includes base-2016; Templar requires Oathkeeper (FG-only mastery)",
+      "anchor_quote": "Oathkeeper is confirmed new mastery introduced with Forgotten Gods expansion; Templar (Arcanist+Oathkeeper) cannot exist in base-2016 era — era floor predates Oathkeeper introduction",
+      "source_url": "https://forums.crateentertainment.com/t/forgotten-gods-what-we-know-about-the-new-mastery/46822",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Callidor's Tempest Templar'; aliases include 'CT Templar', 'Callidor's Tempest Arcanist Oathkeeper', 'lightning CT build'",
+      "anchor_quote": "post confirms Templar combines 'Arcanist+Oathkeeper' through tags and build references",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-callidors-holy-hammer-1-14m-callidors-tempest-crucible-150-sr-76/127806",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Callidor's Tempest (point-blank pulse AoE)",
+      "anchor_quote": "can hit everything in a ~6m radius... almost have to be in melee range for it to hit mobs — confirms close-range pulse mechanic",
+      "source_url": "https://steamcommunity.com/app/219990/discussions/0/451850213950176826/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "WyreZ",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-callidors-holy-hammer-1-14m-callidors-tempest-crucible-150-sr-76/127806",
+        "anchor_quote": "WyreZ posted the original build",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin-pulse",
+          "footprint": "small-radius-around-player",
+          "range": "melee-range (~6m)",
+          "notes": "Must be in near-melee range; only affects enemies of approximately human size in attested community text"
+        },
+        "source_url": "https://steamcommunity.com/app/219990/discussions/0/451850213950176826/",
+        "anchor_quote": "almost have to be in melee range for it to hit mobs, and that it only affects about human-sized mobs",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Callidor's Tempest at point-blank range; stand in melee and pulse aether-fire damage in radius; fire-and-burn focus in Templar variant; rooted or slow-moving while casting"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-callidors-holy-hammer-1-14m-callidors-tempest-crucible-150-sr-76/127806",
+        "anchor_quote": "can hit everything in a ~6m radius... fire and burn modifiers emphasized",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "CT Spellbinder (Aether)",
+            "CT Warlock (2H elemental)",
+            "CT Druid",
+            "CT Spellbreaker (cold)",
+            "CT Mage Hunter (cold 2H)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-6-1-aether-callidors-tempest-devastation-spellbinder-75-76-farmer-ravager-95-sr/97272",
+        "anchor_quote": "Aether Callidor's Tempest/Devastation Spellbinder... Mental Callidor - 2H elemental CT Warlock... So cold CT spamming Spellbreaker",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

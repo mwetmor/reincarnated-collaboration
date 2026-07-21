@@ -1,0 +1,254 @@
+{
+  "kit_id": "d2-enchantress",
+  "spine": {
+    "kit_id": "d2-enchantress",
+    "folk_name": "Enchantress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source Enchantress wraps a buff-economy into a melee kit via oskill — the buff-recast loop and melee-strike delivery are both present, but the double-Fire-Mastery application trigger and the prebuff window are minor texture losses. Player feels 'fire melee with big buff' — that build, slightly worse.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source Enchantress wraps a buff-economy into a melee kit via oskill — the buff-recast loop and melee-strike delivery are both present, but the double-Fire-Mastery application trigger and the prebuff window are minor texture losses. Player feels 'fire melee with big buff' — that build, slightly worse.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Enchant",
+          "geometry_value": "self_buff",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Touch-range buff cast on self or ally; adds flat fire damage to melee attacks for duration. Fire Mastery applies twice per swing-hit (once on cast, once on hit). Prebuff variant possible."
+        },
+        {
+          "source_skill": "Zeal (Passion oskill)",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Multi-hit melee sequence (5 hits) on adjacent target. Fire damage sourced from Enchant buff. Item-defined-archetype: Passion runeword grants Zeal; kit identity is the WITH-Passion form."
+        }
+      ],
+      "motion_frame": "Cast Enchant buff on self; execute rapid Zeal multi-hit melee sequence empowered by fire damage; recast on timer",
+      "resource_economy": {
+        "cost_scale": "long-buff-cycle",
+        "cadence_scale": "recast-as-needed"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Enchant synergizes with Warmth only — single synergy path"
+          ],
+          "traits_affixes": [
+            "Fire Mastery passive scales all fire damage; Passion runeword enables oskill Zeal"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype (§CROSS row 4): kit identity is Enchantress WITH Passion runeword. No ailment attestation in fetched dossier (no burn/stun/bleed named). Pure-physical melee swing carries fire damage via buff — element_primary=fire per Enchant's identity. Support variant (buff-only party Enchantress) maps as same kit with solo-scope note."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Enchantress Sorceress Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/strategy/mongojerrys-1-10-enchantress-guide",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": "MongoJerry",
+      "title": "Diablo 2 Guide: MongoJerry's 1.10 Enchantress Sorceress Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Diablo 2 Guide: MongoJerry's 1.10 Enchantress Sorceress Guide",
+      "source_url": "https://www.purediablo.com/strategy/mongojerrys-1-10-enchantress-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Enchantress Sorceress Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Enchantress' and aliases 'Enchant Sorceress', 'Fire Enchantress' are real community usage",
+      "anchor_quote": "Enchantress Sorceress Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Enchant, Fire Mastery, Zeal (oskill via Passion runeword era)",
+      "anchor_quote": "20 points to Enchant — main damage boost Skill, required; 20 points to Fire Mastery — added damage for Enchant, required; Passion Runeword",
+      "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com",
+          "note": "Professional Twitch broadcaster, 30,000+ hours in D2"
+        },
+        "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+        "anchor_quote": "MrLlamaSC is a professional twitch broadcaster that has been streaming since 2014",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Passion (Zeal oskill)",
+            "Fortitude",
+            "Call to Arms",
+            "Spirit",
+            "Phoenix"
+          ],
+          "uniques": [
+            "Flickering Flame",
+            "Ormus' Robes",
+            "Andariel's Visage",
+            "The Reaper's Toll"
+          ],
+          "synergies": [
+            "Enchant synergizes with Warmth only"
+          ],
+          "notes": "Fire Mastery % fire damage applies twice for melee enchantress — once on cast, once on swing hit."
+        },
+        "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+        "anchor_quote": "Enchant only synergizes with Warmth; Fire Mastery % Fire Damage...will apply twice",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Passion runeword (grants Zeal oskill)",
+            "Orb with +5-6 to Enchant for prebuff/support variant",
+            "Rainbow Facet jewels",
+            "Flickering Flame helm",
+            "Ormus' Robes",
+            "Fortitude",
+            "Call to Arms",
+            "Spirit"
+          ],
+          "notes": "Passion enables the Zeal-attack loop; Spirit provides FCR/skills for caster portion."
+        },
+        "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+        "anchor_quote": "Passion Runeword; Call to Arms; Spirit; Phoenix; Flickering Flame; Ormus' Robes; Fortitude",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Enchant: single-target touch-range buff cast (self or ally). Zeal: melee multi-hit sequence on adjacent target(s). Point footprint. No AoE on delivery."
+        },
+        "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+        "anchor_quote": "Enchant — main damage boost Skill; Passion Runeword enabling melee Zeal attacks",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Enchant on self (and party/mercenary) to add fire damage to attacks. Use Passion runeword to gain Zeal oskill; execute rapid multi-hit melee strikes empowered by fire damage buff. Recast Enchant as needed; prebuff before runs possible."
+        },
+        "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+        "anchor_quote": "Enchant converts the sorceress (and party/mercenary) into fire-melee attackers; Passion Runeword enabling Zeal as oskill",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Support Enchantress (buff party/mercenary; prebuff-focused; Orb with +Enchant)",
+            "Melee Enchantress (Passion Zeal loop; self-melee; Phoenix/Fortitude gear)"
+          ],
+          "notes": "Spec lists Zeal as 'oskill era' — confirmed; Passion runeword is the mechanism in both LoD and D2R."
+        },
+        "source_url": "https://www.icy-veins.com/d2/enchantress-sorceress-build",
+        "anchor_quote": "The Enchantress can be used in various ways, including enchanting party members...or enchanting herself to become a Zealot",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

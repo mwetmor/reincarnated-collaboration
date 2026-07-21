@@ -1,0 +1,221 @@
+{
+  "kit_id": "tl2-emberquake-engineer",
+  "spine": {
+    "kit_id": "tl2-emberquake-engineer",
+    "folk_name": "Emberquake Engineer",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Emberquake",
+          "geometry_value": "ring",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin overhand strike sends eight ember-charged fissures radiating outward — burst-around-self ring geometry. 'deals fire-based magic damage' attests fire element directly. 'can hit the same target multiple times per cast' — multi-hit ring/burst. No explicit burn ailment attested in any store."
+        },
+        {
+          "source_skill": "Heavy Lifting",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Passive amplifier. Fire Bash passive amplifies fire damage. Self_buff lane."
+        }
+      ],
+      "motion_frame": "Spam Emberquake continuously — 8 fissures/cast radiate from caster, 8 hits/sec; support with Force Field defense and Dynamo Field charge generation.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Dynamo Field generates Charge per enemy struck (up to 5 per field)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": [
+            "fire_damage_amplifier"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire attested via 'fire-based magic damage' — genuine damage-type descriptor. No burn ailment found in fetched text (fire damage only, no explicit burn/DoT mention). Ring geometry: eight fissures radiating from self-position = burst-around-self pattern. Tanky fire spam identity. PERSISTENCE_ENGINE_saturation fits high-tempo 8-hit spam. ELEMENT_CONVERSION_MONO fits mono-fire scaling build."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Kardfogu",
+      "title": "Kardfogu's Guide to Emberquakers",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Engineer Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in tl2-2012 era",
+      "anchor_quote": "Kardfogu's Guide to Emberquakers; described as viable tanky build with fire-focused elemental scaling for end-game content",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Emberquake Engineer — community usage name for fire AoE ground-slam Engineer build",
+      "anchor_quote": "Kardfogu's Guide to Emberquakers; tanky damage dealing builds requiring minimal gear dependency; fire-focused elemental scaling",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Emberquake, Heavy Lifting; self-origin large-zone AoE; fire element ground slam; secondary fire zones",
+      "anchor_quote": "Emberquake performs a huge overhand strike sending eight ember-charged fissures radiating out towards enemies; it deals fire-based magic damage and can hit the same target multiple times per cast",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Kardfogu",
+          "site": "steamcommunity.com",
+          "guide_title": "Kardfogu's Guide to Emberquakers"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Fire Bash passive amplifies fire damage; Dynamo Field generates Charge per enemy struck (up to 5 per field); Force Field provides damage absorption scaling with skill level and Charge"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": "Fire Bash is one of the two amplifiers for fire damage; Dynamo Field generates charge for each enemy that's struck, up to five per field",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin radial fissures",
+          "footprint": "large-zone",
+          "range": "medium-large (fissures radiate outward)",
+          "notes": "eight fissures per cast radiating from Engineer position; secondary fire zones persist"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": "Emberquake performs a huge overhand strike sending eight ember-charged fissures radiating out towards enemies",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Use Emberquake as main attack (eight fissures radiate from caster per activation); spam Emberquake continuously — 8 hits/sec per cast; support with Force Field for defense, Healing Bot for regen, Dynamo Field for Charge"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": "Emberquake is the main attack skill of the build; it deals fire-based magic damage and can hit the same target multiple times per cast, with seeking and ricochet capabilities; Emberquake strikes 8 times a second",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pure Emberquake spam",
+            "Emberquake + Force Field tank hybrid",
+            "Flame Hammer vs Emberquake (either chosen as main; not usually both)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": "Flame Hammer is Emberquake's only real competition",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

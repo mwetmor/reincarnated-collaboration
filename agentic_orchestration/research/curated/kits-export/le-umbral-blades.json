@@ -1,0 +1,268 @@
+{
+  "kit_id": "le-umbral-blades",
+  "spine": {
+    "kit_id": "le-umbral-blades",
+    "folk_name": "Umbral Blades Rogue",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "1.0-launch;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10 GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss the recall: engine multi_projectile throws OUT only -- the plant-blades-then-sweep-them-back-through-enemies rhythm (the kit's econ_raw identity, 'field-plant-recall') has no native return leg; carried in notes + out-and-return accrual. Shadow-clone mirror-discharge softens to a linked-cast echo. Throw-scatter + traversal-proc skeleton survives: that build, worse -- not GAPPED (R-M7 player test).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss the recall: engine multi_projectile throws OUT only -- the plant-blades-then-sweep-them-back-through-enemies rhythm (the kit's econ_raw identity, 'field-plant-recall') has no native return leg; carried in notes + out-and-return accrual. Shadow-clone mirror-discharge softens to a linked-cast echo. Throw-scatter + traversal-proc skeleton survives: that build, worse -- not GAPPED (R-M7 player test).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Umbral Blades",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Two-phase: outward multi-blade throw lodging spectral daggers at scattered ground positions, then recall sweep pulls every lodged blade back through enemies along its return lane ('throw out your blades and shift through enemies'; fetched geometry: 'outward throw (scatter) + inward recall (lane-sweep)'). Mapped on the OUT leg (multi_projectile); the recall-sweep return is the approximated half -- placed_lane return-lanes noted as the competing row (7.2 alternative)."
+        },
+        {
+          "source_skill": "Shift",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Traversal-as-proc-hub per SB Shift row (this kit is a cited attestation: 'the trailing Bladestorm from Shift'): Shift stays a movement token; casting Umbral Blades / trailing Bladestorm ride as on-traversal riders, never promoted into Shift's own geometry."
+        },
+        {
+          "source_skill": "Synchronized Strike",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'summons shadows which also discharge Umbral Blades for mass Shadow Dagger application' -- shadow-clones mirror-discharge the core throw (echo-multiplier). No placement or dash shape fetched -> null geometry is the honest carrier; the echo lives in trigger_grammar."
+        }
+      ],
+      "motion_frame": "throw Umbral Blades (blades lodge at scatter positions) -> Shift through enemies (auto-casts blades / trailing Bladestorm) -> recall sweep drags all lodged blades back through enemies -> Synchronized Strike shadows mass-discharge -> repeat on cooldown",
+      "resource_economy": {
+        "resource": "mana (dossier skill_loop payload 'spend per cast'; the kb no-secondary-resource claim is verify-UNSUPPORTED -- kept minimal per R-M4: economy is not this kit's identity load)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked (Shift auto-casts Umbral Blades / trailing Bladestorm; Synchronized Strike shadows mirror-discharge the same throw)",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "Explosive Blades node REMOVED from tree (patch alteration; 'only be used at higher corruption when the trailing Bladestorm from Shift is no longer sufficient' -- era texture)"
+          ],
+          "economy": [
+            "Blood Dance + Siphon of Anguish + gloves leech ('excellent leech thanks to Blood Dance, Siphon of Anguish and Melee Damage Leeched as Health on gloves')"
+          ],
+          "traits_affixes": [
+            "Shadow Daggers node pathway (Bladedancer mastery) -- name-only payload, contributes nothing to mapping_json per 0.4"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "THE PHYSICAL RULE: corpus elem physical -> elements null/null; physical is never an element token. COLD WITHHELD: steward hot-fact flagged physical/cold with 'dossier language governs' -- store-grep at mapping time found NO cold/frost/ice token in any admissible store (dossier families + verify anchors; only probe-class 'Physical / Cold (hybrid via node)' exists, ILLEGAL as grounds, and node = variant-scoped anyway per 7.2); ANCHOR-SPLICE law forbids citing text that lives in no store -> cold left off, flagged LOUDLY for steward audit/errata. 'Void blade' alias = probe artifact (hot-fact), rejected -- no shadow element. Shadow Daggers proc: name + proc-source fetched, behavior unfetched -> contributes nothing (0.4); its dominant post-1.0 variant identity stays variant-scoped. Bleed (Corsair set) + poison (boss-killer) are variant-scoped -> off core; near-misses. Out-and-return accrual FILED (mint-candidates): the plant-then-recall sweep is the standing family's exact shape; kit mapped un-minted on multi_projectile."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forum.lastepoch.com/t/umbral-blades-bladedancer-build-guide-0-8-4/46067",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "boardman21",
+      "title": "Umbral Blades Bladedancer | Build Guide | 0.8.4 - Rogue - Last Epoch Forums",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/umbral-blades-bladedancer-rogue-build-guide-0-8-4c/46537",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "unknown-op",
+      "title": "Umbral Blades - Bladedancer (Rogue) | Build Guide 0.8.4C - Rogue - Last Epoch Forums",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-staff",
+      "title": "Shadow Daggers Bladedancer Last Epoch Build Guide - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: 1.0-launch",
+      "anchor_quote": "Bladedancer - Corsair Set Bleed Umbral Blades Guide 0.8.5 ... Shadow Daggers Bladedancer Last Epoch Build Guide - Maxroll.gg [Season 4 guide, confirming continuous presence]",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: 1.2-woven",
+      "anchor_quote": "Explosive Blades was removed from the Umbral Blades Skill tree, and should only be used at higher corruption when the trailing Bladestorm from Shift is no longer sufficient",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Umbral Blades Rogue' and aliases 'Umbral Blades Bladedancer', 'void blade Rogue' are real community usage.",
+      "anchor_quote": "Umbral Blades Bladedancer | Build Guide | 0.8.4 ... Umbral Blades - Bladedancer (Rogue) | Build Guide 0.8.4C",
+      "source_url": "https://forum.lastepoch.com/t/umbral-blades-bladedancer-build-guide-0-8-4/46067",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Umbral Blades. Projectile throwing skill — blades lodge, then recall through enemies. Rogue/Bladedancer class.",
+      "anchor_quote": "Shadow Daggers Bladedancer ... procs Shadow Daggers from Umbral Blades ... casting Umbral Blades with Shift ... 'throw out your blades and shift through enemies'",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Resource: Mana (spend per cast, no secondary resource).",
+      "anchor_quote": null,
+      "source_url": "https://forum.lastepoch.com/t/umbral-blades-bladedancer-rogue-build-guide-0-8-4c/46537",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "boardman21",
+          "site": "forum.lastepoch.com",
+          "role": "0.8.4 Umbral Blades Bladedancer guide author"
+        },
+        "source_url": "https://forum.lastepoch.com/t/umbral-blades-bladedancer-build-guide-0-8-4/46067",
+        "anchor_quote": "Umbral Blades Bladedancer | Build Guide | 0.8.4 - Rogue - Last Epoch Forums",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Explosive Blades node removed from Umbral Blades skill tree (patch alteration confirmed). Shadow Daggers node interaction via Bladedancer mastery tree is defining capstone pathway."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "Explosive Blades was removed from the Umbral Blades Skill tree, and should only be used at higher corruption when the trailing Bladestorm from Shift is no longer sufficient",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Blood Dance",
+            "Siphon of Anguish",
+            "Woven Flesh",
+            "Bleeding Heart",
+            "Li'raka's Claws",
+            "Smoke Weaver",
+            "Ravenous Void"
+          ],
+          "notes": "Blood Dance flagged as enabling leech. Woven Flesh/Bleeding Heart as early-access items."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "excellent leech thanks to Blood Dance, Siphon of Anguish and Melee Damage Leeched as Health on gloves",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary_geometry": "projectile throw + ground-plant + recall sweep",
+          "range": "ranged throw to target, then sweep-return along lodged-blade paths",
+          "aoe_shape": "multi-point scatter positions; lane returns to player",
+          "notes": "Two-phase geometry: outward throw (scatter) + inward recall (lane-sweep)"
+        },
+        "source_url": "https://forum.lastepoch.com/t/umbral-blades-bladedancer-rogue-build-guide-0-8-4c/46537",
+        "anchor_quote": "throw out your blades and shift through enemies ... homing on Blade storm",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Throw Umbral Blades to lodge spectral daggers at ground positions. Recall phase sweeps all lodged blades back through enemies. Blades proc Shadow Daggers on hit. Synchronized Strike summons shadows which also discharge Umbral Blades for mass Shadow Dagger application. Repeat via cooldown.",
+          "resource": "Mana (spend per cast)",
+          "loop_type": "projectile-plant-recall"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "procs Shadow Daggers from Umbral Blades, Smoke Bomb, Shadow Cascade and Synchronized Strike",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Shadow Daggers Bladedancer (dominant post-1.0, Maxroll Season 4)",
+            "Umbral Shadows Bladedancer (0.8.4 variant, Synchronized Strike shadow focus)",
+            "Corsair Set Bleed Umbral Blades (0.8.5, 100% block face-tank)",
+            "Poison Umbral Blades Boss Killer (0.8.4G)"
+          ]
+        },
+        "source_url": "https://forum.lastepoch.com/t/bladedancer-corsair-set-bleed-umbral-blades-guide-0-8-5-100-block-3-million-dps-face-tank-t4-julra/49558",
+        "anchor_quote": "Bladedancer - Corsair Set Bleed Umbral Blades Guide 0.8.5 - 100% Block | 3 Million Dps | Face Tank T4 Julra",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

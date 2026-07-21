@@ -1,0 +1,268 @@
+{
+  "kit_id": "d2-fury-wolf",
+  "spine": {
+    "kit_id": "d2-fury-wolf",
+    "folk_name": "Fury Werewolf",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fury",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Multi-bite at-target melee sequence (5 hits in quick succession on target; may hit adjacent enemies). Primary damage verb in Werewolf form."
+        },
+        {
+          "source_skill": "Feral Rage (pre-buff ramp)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Each hit builds life leech charge and velocity buff. §A row 5: sustain-stack ramp, NOT two-tier-accumulator. Stack before switching to Fury burst."
+        }
+      ],
+      "motion_frame": "Shapeshift into Werewolf (form-locked, economy-agnostic); stack Feral Rage life-leech+velocity charges; execute Fury multi-bite burst; maintain form for entire combat loop",
+      "resource_economy": {
+        "cost_scale": "form-locked",
+        "cadence_scale": "on-hit-ramp"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Life leech sustain via hits; Feral Rage velocity buff is movement-economy texture"
+          ],
+          "traits_affixes": [
+            "Lycanthropy synergizes Werewolf (form duration, HP bonus); Heart of Wolverine aura (+AR, +damage); Grief Phase Blade item-defined BIS"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Economy-agnostic form law (§CROSS row 3): Werewolf is permanent dominant form; kit maps the in-form loop. No resource swap on form entry (d2 wereforms swap no resource — law is agnostic, not a swap-mandate). Fury is physical — THE PHYSICAL RULE: no element_primary. §A row 5: Feral Rage stack-ramp = sustain-stack (NOT accumulator; the stack IS the steady-state, no counted-tier release). No ailment attestation in fetched dossier. Metamorphosis unique helm (RotW/S13-14 post-cutoff item) = item-layer texture; flagged as post-cutoff. Fireclaws Wolf is a distinct kit (d2-fireclaw-wolf), not a variant here."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Teo1904",
+      "title": "Fury Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d2/fury-druid-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Fury Druid Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "archive_url": null,
+      "site": "wikipedia.org",
+      "author_handle": null,
+      "title": "Diablo II: Lord of Destruction - Wikipedia",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Lord of Destruction added content in the form of two new character classes",
+      "source_url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Fury Druid Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/fury-druid-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fury Werewolf' and aliases 'Fury Wolf', 'Werewolf Fury Druid' are real community usage",
+      "anchor_quote": "Fury Werewolf Druid Build Guide Diablo II: Resurrected Season 13",
+      "source_url": "https://www.wowhead.com/diablo-2/guide/fury-werewolf-druid-build-skills-gear",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Werewolf, Fury, Feral Rage",
+      "anchor_quote": "Max out the following Skills in this order: 1. Werewolf 2. Lycanthropy 3. Fury 4. Feral Rage 5. Heart of Wolverine",
+      "source_url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Teo1904",
+          "site": "maxroll.gg",
+          "note": "Original by BTNeandertha1; maintained by Teo1904. MrLlamaSC at icy-veins."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+        "anchor_quote": "by Teo1904",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief (weapon)",
+            "Breath of the Dying (weapon)",
+            "Fortitude (armor)"
+          ],
+          "uniques": [
+            "Jalal's Mane",
+            "Ribcracker",
+            "Gore Rider",
+            "Highlord's Wrath",
+            "Metamorphosis (RotW-era new unique)"
+          ],
+          "synergies": [
+            "Lycanthropy synergizes Werewolf (extended duration, bonus HP in form)",
+            "Feral Rage synergizes Fury (life steal + velocity buff charges)",
+            "Heart of Wolverine aura (1 point) boosts party/self AR and damage"
+          ],
+          "notes": "Metamorphosis unique helm appears in S14 guide — likely a RotW-era addition; post-cutoff flag."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+        "anchor_quote": "Lycanthropy, Fury, Feral Rage, Heart of Wolverine",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grief Phase Blade (BIS weapon)",
+            "Ethereal Breath of the Dying (alternate weapon — Indestructible in eth base)",
+            "Ribcracker (budget weapon)",
+            "Fortitude (armor)",
+            "Jalal's Mane (helm — Druid-specific bonuses)",
+            "String of Ears (belt)",
+            "Thundergod's Vigor (belt alt)",
+            "Laying of Hands (gloves)",
+            "Dracul's Grasp (alt gloves — Life Tap)",
+            "Gore Rider (boots)",
+            "Highlord's Wrath (amulet)",
+            "Metamorphosis (helm — new in RotW/S13-14)"
+          ],
+          "notes": "Metamorphosis is a new unique (RotW era) — flagged as post-cutoff item for the steward."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+        "anchor_quote": "Weapon: Grief Phase Blade; Ethereal Breath of the Dying Archon Staff; Ribcracker; Jalal's Mane; String of Ears; Thundergod's Vigor",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Fury: at-target multi-bite melee sequence on targeted enemy (or adjacent targets). Hits enemy 5 times in quick succession. Single-target point footprint on primary target; may hit adjacent enemies if positioned. Werewolf form provides enhanced attack speed and leech."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+        "anchor_quote": "Fury allows you to attack with increased Damage and Attack Rating, either to multiple adjacent targets, or one target multiple times",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Shapeshift into Werewolf form (increases stats, attack speed). Stack Feral Rage first — each hit builds life leech charge and velocity buff. Switch to Fury for main damage — multi-bite sequence hits enemy 5 times rapidly. Form remains locked; maintain form for entire combat loop."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/werewolf-fury-druid",
+        "anchor_quote": "Max out the following Skills in this order: 1. Werewolf 2. Lycanthropy 3. Fury 4. Feral Rage; Fury allows you to attack with increased Damage and Attack Rating",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fury Werewolf (standard physical melee Druid)",
+            "Fury Werebear (bear form; slower attack speed but higher HP; distinct build)",
+            "Fireclaws Wolf (fire-damage variant; separate kit d2-fireclaw-wolf)"
+          ],
+          "notes": "Fury Wolf and Fireclaws Wolf are distinct kits despite sharing Werewolf shapeshifting."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fury-druid-build",
+        "anchor_quote": "Fury Druid Build for Diablo 2 Resurrected",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

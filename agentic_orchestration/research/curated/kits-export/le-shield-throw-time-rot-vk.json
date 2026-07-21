@@ -1,0 +1,208 @@
+{
+  "kit_id": "le-shield-throw-time-rot-vk",
+  "spine": {
+    "kit_id": "le-shield-throw-time-rot-vk",
+    "folk_name": "Shield Throw Time Rot VK",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The named Time Rot ailment (the build's payload identity) is unexpressed pending a steward row - source player would miss the stacking void-rot on the boss; delivery (void ricochet shuttle) and set-bonus scaling carry via geometry + gear lane.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The named Time Rot ailment (the build's payload identity) is unexpressed pending a steward row - source player would miss the stacking void-rot on the boss; delivery (void ricochet shuttle) and set-bonus scaling carry via geometry + gear lane.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shield Throw",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "thrown shield converted to Void via body-armor affix; ricochets back and forth between player and boss (out-and-return shape); applies Time Rot stacks - token WITHHELD, no crosswalk row (filed to steward)"
+        }
+      ],
+      "motion_frame": "ranged boss-killer: position so the shield can ricochet player<->boss; Volatile Reversal + Abyssal Echoes named as support (behavior unfetched)",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Void Well passive required for Mana sustain"
+          ],
+          "traits_affixes": [
+            "Forgotten Knight set bonus (Reforged sword+amulet affixes) = massive numeric damage increase -> gear-affix lane",
+            "Rot Grip multiplier -> numeric lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "void -> shadow (crosswalk 1). Element conversion (phys->void on body armor) is REQUIRED for the build -> ELEMENT_CONVERSION_MONO door. Time Rot: ailment NAMED in fetched text but has NO crosswalk row and no registry home ('rot'-as-decay would be name-inference, 0.4) -> withheld + docket-candidate + summary flag; its stack-cap language also feeds the open LE ailment-stack-count question. Player<->target ricochet filed as out-and-return accrual. Season-4 Idol Altars = season-scoped, not core row. Era 1.4-omens confirmed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Volca",
+      "title": "Shield Throw Time Rot Void Knight Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Season 4 - Shattered Omens... Last Updated: April 27, 2026.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shield Throw Time Rot VK' / 'Time Rot Void Knight' / 'shield throw void build' are real community usage",
+      "anchor_quote": "Shield Throw Time Rot Void Knight... Shield Throw to inflict enemies with the powerful Time Rot ailment.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Shield Throw converted to Void; ricochet delivery; Time Rot ailment stacking; resource=Mana; Void Knight class",
+      "anchor_quote": "Make sure it can ricochet back and forth between you and the Boss... Void Well is required for Mana sustain.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Rot Grip (Time Rot damage multiplier)",
+            "Void Well (Mana sustain)"
+          ],
+          "season_mechanics": [
+            "Idol Altars (Season 4): Pyramidial Idol with Slow Suffixes scaling in Refracted Slots"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+        "anchor_quote": "Time Rot is limited to 12 stacks... Void Well is required for Mana sustain.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Blade of the Forgotten Knight Reforged (sword affix)",
+            "Locket of the Forgotten Knight Reforged (amulet affix)",
+            "The Last Bear's Lament Reforged (helmet affix)",
+            "The Last Bear's Scorn Reforged (body armor affix)"
+          ],
+          "notes": "Forgotten Knight set bonus is core to build function; conversion to Void on body armor required"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+        "anchor_quote": "Crafting Blade of the Forgotten Knight Reforged and Locket of the Forgotten Knight Reforged Affixes on your Sword and Amulet activates the Forgotten Knight Set Bonus for a massive damage increase.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "chain/ricochet projectile: thrown shield bounces between caster and target; chain-hop delivery; Void damage type",
+          "range_class": "ranged",
+          "aoe": "chain-hop"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+        "anchor_quote": "Make sure it can ricochet back and forth between you and the Boss.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Shield Throw converted to Void via body armor affix. Thrown shield ricochets between player and boss, applying Time Rot stacks (max 12). Time Rot scales with Rot Grip passive (multiplied by Slow Chance + Time Rot Chance). Forgotten Knight set bonus provides massive damage increase. Volatile Reversal and Abyssal Echoes provide support.",
+          "core_driver": "Time Rot ailment stacking via ricochet shield"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/time-rot-void-knight-guide",
+        "anchor_quote": "Shield Throw to inflict enemies with the powerful Time Rot ailment... Make sure it can ricochet back and forth between you and the Boss.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "kit_id": "poe1-vaal-blade-vortex",
+  "spine": {
+    "kit_id": "poe1-vaal-blade-vortex",
+    "folk_name": "Vaal Blade Vortex",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": null,
+    "canon_tier": null,
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the VBV player would miss: the vortex HUNTING — it chases fresh enemies across the screen for its 5s life. Engine circle is a stationary/drifting tick-AoE (R-M6 class); a non-seeking blade storm reads 'Vaal BV, worse' but the pursuit is the load-bearing geometry delta (batch flag a).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the VBV player would miss: the vortex HUNTING — it chases fresh enemies across the screen for its 5s life. Engine circle is a stationary/drifting tick-AoE (R-M6 class); a non-seeking blade storm reads 'Vaal BV, worse' but the pursuit is the load-bearing geometry delta (batch flag a).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Vaal Blade Vortex",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "MOBILE CHASING VORTEX — an independently-moving blade-vortex entity that PURSUES nearby enemies, damaging everything it passes through; up to 10 active blades, hits every 0.2s, 5s duration, 2 stored uses (post-3.14). NOT player-orbiting (regular BV is the orbit skill; the dossier contrast is explicit) — do not read this as orbit. Geometry per R-M6 drift-tick precedent: circle + behavioral note; the enemy-SEEKING travel exceeds R-M6's drift class."
+        }
+      ],
+      "motion_frame": "drop-and-let-hunt: unleash a stored chasing blade-vortex as a burst window, keep moving while it pursues the pack",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-kill"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "mobile tick-AoE (0.2s hit cadence)",
+            "blade count"
+          ],
+          "economy": [
+            "Vaal soul economy: kills fill the accumulator, discharge = one stored burst use (2 max)"
+          ],
+          "traits_affixes": [
+            "duration ranks",
+            "phys/ele damage rolls (Inquisitor crit variant)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure-physical -> element-neutral per THE PHYSICAL RULE (Inquisitor elemental-crit canonical variant carried by gear/trait lanes, noted). Vaal soul-charge burst -> accumulator filled on-kill, TEMPORAL_CHARGE door. Qualitative mint-candidate filed: autonomous enemy-seeking mobile AoE entity (graded as if un-minted). Used in source as the burst cooldown inside a regular-BV build; standalone-mapped here per kit_id scope."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 6,
+      "evidence_tier": "C-provisional",
+      "mint_class": "qualitative",
+      "build_authorized": 0,
+      "description": "Autonomous enemy-seeking mobile AoE entity: a skill-effect zone that MOVES ITSELF toward nearby enemies for its duration (chase behavior), distinct from R-M6's drift-tick class (drift = passive travel along cast line; this = active target-seeking pathing)."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2144834",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2091072",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.6] BLADE VORTEX INQUISITOR Build (3-4 million DPS, SHAPER DEAD)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Blade_Vortex",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Vaal Blade Vortex — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era stamps absent from DB — verifying 3.0-3.6 (intro 3.3.0) and 3.7-3.13",
+      "anchor_quote": "Vaal Blade Vortex has been added to the game (3.3.0); [3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor] confirms 3.7-3.13 era presence",
+      "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Vaal Blade Vortex' is real community usage; aliases 'VBV', 'Vaal BV', 'Vaal Blade Vortex Inquisitor' are real community usage",
+      "anchor_quote": "Vaal Blade Vortex has been added to the game (3.3.0); [3.6] BLADE VORTEX INQUISITOR Build; [3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]",
+      "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Vaal Blade Vortex; independently-moving vortex of ethereal blades (NOT orbiting); pursues enemies; Inquisitor/Occultist class",
+      "anchor_quote": "creates an independently-moving vortex of ethereal blades which lasts for a duration. The vortex moves toward nearby enemies, repeatedly damaging enemies that it passes through",
+      "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Vaal Blade Vortex (quality)",
+              "type": "base_quality",
+              "effect": "+(0-5)% increased Hit Rate for each blade",
+              "anchor_quote": "+(0—5)% increased Hit Rate for each blade"
+            },
+            {
+              "node": "Vaal mechanics vs base",
+              "type": "vaal_variant",
+              "effect": "Stores 2 uses; lasts 5 seconds; hits every 0.2 seconds (base 0.6s)",
+              "anchor_quote": "Vaal version stores 2 uses; lasts 5 seconds; hits every 0.2 seconds vs base 0.6 seconds"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "anchor_quote": "hits every 0.2 seconds vs base 0.6 seconds",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Blade Vortex of the Scythe (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Slower cast time; higher mana cost; increased effectiveness of added damage",
+              "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Blade_Vortex",
+        "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "mobile vortex entity moves independently toward enemies (NOT orbiting player); up to 10 active blades; hits every 0.2 seconds; 5s base duration; area covered by vortex travel path"
+        },
+        "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "anchor_quote": "independently-moving vortex; moves toward nearby enemies; 10 active blades; strikes enemies every 0.2 seconds; contrast with regular BV which creates ethereal blades which orbit in an area around you",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Spawn an independently-moving vortex of ethereal blades that pursues nearby enemies and deals physical damage as it passes through them. Vortex lasts 5s, stores up to 2 uses (post 3.14). Used as a burst cooldown within a regular Blade Vortex build or as standalone. Inquisitor/Occultist preferred."
+        },
+        "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "anchor_quote": "independently-moving vortex of ethereal blades which lasts for a duration. The vortex moves toward nearby enemies, repeatedly damaging enemies that it passes through",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "VBV Inquisitor — elemental crit variant (canonical)",
+            "VBV Occultist — with Vaal version used as cooldown burst",
+            "Triple Herald BV Elementalist — Vaal version as burst complement"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2144834",
+        "anchor_quote": "[3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]; Triple Herald Blade Vortex Elementalist has become an iconic staple of the PoE meta",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

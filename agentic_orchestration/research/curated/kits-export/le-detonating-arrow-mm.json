@@ -1,0 +1,248 @@
+{
+  "kit_id": "le-detonating-arrow-mm",
+  "spine": {
+    "kit_id": "le-detonating-arrow-mm",
+    "folk_name": "Detonating Arrow Marksman",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The kit's real identity is a trigger-driven proc-multiplication engine (traps proc DA explosions), not a manually-fired arrow spam — mapped via GEOMETRY_PROPAGATION_cascade + linked-cast trigger grammar. Source player feels a screen-filling explosion storm; our chain_count=2 + single door understate the density of the proc-multiply (accrual-adjacent, but no numbers filed — the proc COUNT is not a family member yet). No status token despite 'explosive' theme.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The kit's real identity is a trigger-driven proc-multiplication engine (traps proc DA explosions), not a manually-fired arrow spam — mapped via GEOMETRY_PROPAGATION_cascade + linked-cast trigger grammar. Source player feels a screen-filling explosion storm; our chain_count=2 + single door understate the density of the proc-multiply (accrual-adjacent, but no numbers filed — the proc COUNT is not a family member yet). No status token despite 'explosive' theme.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Detonating Arrow",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Explosive-tipped arrow fired at ranged target, detonates on impact (configurable delay) for a small-radius blast. The Blast Rain identity PROCS an 'insane amount' of Detonating Arrows via Explosive Trap through the Arrow Traps Node (not a standalone spam). Fire primary (elem_raw fire; Frostfang Arrow cold-conversion is a variant)."
+        },
+        {
+          "source_skill": "Multishot",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Volley enabler — tree nodes stagger DA explosions across a Multishot spread."
+        }
+      ],
+      "motion_frame": "Blast Rain loop: lay Explosive Trap, which procs a storm of Detonating Arrow explosions via the Arrow Traps Node; Multishot volleys stagger the blasts; sustain Mana via Mana Arrow (cost removed) / Draining Arrows",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "Mana Arrow node REMOVES Mana cost; Mana on Hit when manually cast; Draining Arrows for sustain"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "DA explosion count (proc-multiplied)",
+            "Multishot spread",
+            "small blast radius"
+          ],
+          "economy": [
+            "Mana Arrow cost-removal",
+            "Mana on Hit / Draining Arrows sustain"
+          ],
+          "traits_affixes": [
+            "fire (or cold via Frostfang) damage scalers",
+            "Sharpshooter/Death from Afar damage nodes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Identity is WATCH-annotated (folk-name 'Detonating Arrow' but the attested build is Blast Rain Marksman) — mapped the Blast-Rain proc loop AS ATTESTED (hot-fact); the folk-name weakness is not a mapping concern. Fire primary (elem_raw; Reign of Winter / Frostfang cold-conversion variant carries cold, noted out-of-scope). NO ailment token: detonations/explosions, no burn/Ignite STATUS named (§0.1). trigger_grammar: Explosive Trap -> procs DA explosions is the on-cast-linked proc engine (MAX_CHAIN_DEPTH=1 respected — Trap->DA is one proc hop). GEOMETRY_PROPAGATION door (base) [STEWARD AUDIT 2026-07-18: _cascade variant is pinned on-kill in §5; this cascade is trap-TRIGGER-driven — R-M1 base-when-unclear]: the proc-multiplied blast-cascade IS the build ('insane amount of Detonating Arrows'). Overlaps le-explosive-trap-falconer's trap-proc chassis but distinct primary (DA-explosions vs explosive-Ballistae)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Volca",
+      "title": "Blast Rain Marksman Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/last-epoch-1-0-patch-notes-released",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Last Epoch 1.0 Patch Notes Released!",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Patch 1.0 introduced the Falconer Mastery... Marksman is also a Rogue mastery introduced at 1.0",
+      "source_url": "https://maxroll.gg/last-epoch/news/last-epoch-1-0-patch-notes-released",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Blast Rain Marksman last updated August 20, 2025 — Season 4 / 1.4 era",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Detonating Arrow Marksman'; aliases include 'DA Marksman', 'explosive arrow Marksman'",
+      "anchor_quote": "You mainly want to proc Detonating Arrow with Explosive Trap... Detonating Arrows with Explosive Trap through the Arrow Traps Node",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Detonating Arrow, Multishot; ranged projectile + explosion; fire/physical damage; Mana resource; ignite ailment",
+      "anchor_quote": "proc Detonating Arrow with Explosive Trap... Converts to Cold damage via the Frostfang Arrow node... Mana Arrow specialization removes Mana cost",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "guide_title": "Blast Rain Marksman Build Guide"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+        "anchor_quote": "Author: Volca (content creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Sharpshooter",
+            "Death from Afar",
+            "Draining Arrows",
+            "Perfect Aim",
+            "Ethereal Arrows"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+        "anchor_quote": "Sharpshooter and Death from Afar boost your Damage significantly... Draining Arrows and Perfect Aim are crucial for sustain",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile arrow fired at ranged target",
+          "footprint": "small-radius explosion on impact",
+          "notes": "Arrow travels to target, detonates on impact or configurable delay; Blast Rain variant procs multiple DA explosions via Explosive Trap + Arrow Traps Node"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+        "anchor_quote": "proc Detonating Arrow with Explosive Trap through the Arrow Traps Node",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fire explosive-tipped arrows at target; detonation on impact creates small-radius blast; some tree nodes enable Multishot volleys with staggered explosions; Mana management through Mana Arrow node (removes cost) or Draining Arrows sustain; Sharpshooter and Death from Afar for damage scaling",
+          "resource_model": "Mana; Mana Arrow node can remove Mana cost; Mana on Hit via manual use"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+        "anchor_quote": "You mainly want to proc Detonating Arrow with Explosive Trap... Mana Arrow specialization removes this cost... Mana on Hit when you manually use it",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Blast Rain Marksman (DA proc via Explosive Trap + Arrow Traps)",
+            "Reign of Winter Bowmage (DA procs Icicles via explosion)",
+            "standalone DA Marksman (no dedicated maxroll guide found)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/blast-rain-marksman-guide",
+        "anchor_quote": "proccing an insane amount of Detonating Arrows with Explosive Trap through the Arrow Traps Node",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

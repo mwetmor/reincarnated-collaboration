@@ -1,0 +1,242 @@
+{
+  "kit_id": "tli-gemma-frost-caster",
+  "spine": {
+    "kit_id": "tli-gemma-frost-caster",
+    "folk_name": "Gemma Frost Caster",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-live-2022+;tli-ss11-12-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Frostbite stacking threshold mechanic (0→100 → freeze burst) approximated; engine freeze is binary CC not a 100-stack ramp. Ice-Fire Fusion dual-element variant dropped (dominant cold loop wins per §7.2).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Frostbite stacking threshold mechanic (0→100 → freeze burst) approximated; engine freeze is binary CC not a 100-stack ramp. Ice-Fire Fusion dual-element variant dropped (dominant cold loop wins per §7.2).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Lance",
+          "geometry_value": "line",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Primary cold projectile. Verify anchor: 'Cast Ice Lances as the main skill.' Cold identity attested: 'When using Cold Skills, Gemma will gain Cold Energy, which will increase Cold Damage and Frostbite Chance.' Frostbite → freeze: verify anchor 'with the goal of setting the maximum Frostbite to 100 to instantly freeze enemies.'"
+        },
+        {
+          "source_skill": "Frost Pool",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ground AoE cold zone. Skill_geometry anchor: 'Always drop Frost Pool under the enemy to increase Ice Lance damage.' Enhances Ice Lance damage — ground zone mechanic."
+        },
+        {
+          "source_skill": "Frozen Lotus",
+          "geometry_value": "circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "On-kill AoE proc. Skill_loop anchor: 'When something dies, Frozen Lotus will proc and clear the entire screen of monsters.' On-kill cascade; cold element (Frost-family, cold Skills system)."
+        }
+      ],
+      "motion_frame": "Frost mage: cast Ice Lance main, proc Frozen Lotus on kill for clear, Frost Pool for boss damage amp. Stack Frostbite to 100 for freeze burst.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_stack_resource": "Cold Energy (accumulates from Cold Skills use; increases Cold Damage and Frostbite Chance — item_alterations anchor)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Frost Pool zone amp"
+          ],
+          "economy": [
+            "Cold Energy accumulator"
+          ],
+          "traits_affixes": [
+            "Frostbitten Heart trait (Cold Energy generation)",
+            "Seeping In (cold penetration in Frostfire Rampage)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U (guide era stale) — mapping shape. Frostbite stacking to 100 → instant freeze: Frostbite is TLI-specific stacking status that maps to freeze (hard CC threshold). Ice-Fire Fusion variant (dual-element) noted as T4 alternative but Frost-only is dominant loop. Frigid Transmission cooldown reset on freeze not fully expressible."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://tlidb.com/Gemma",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Gemma - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.gfinityesports.com/article/torchlight-infinite-gemma-build",
+      "archive_url": null,
+      "site": "gfinityesports.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite Gemma build guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://tlidb.com/Ice-Fire_Fusion",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Ice-Fire Fusion - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-live-2022+;tli-ss11-12-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Gemma Frost Caster — frost mage hero identity",
+      "anchor_quote": "When using Cold Skills, Gemma will gain Cold Energy, which will increase Cold Damage and Frostbite Chance.",
+      "source_url": "https://tlidb.com/Gemma",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: frost spell suite, Frostbite scaling",
+      "anchor_quote": "Cast Ice Lances as the main skill. When something dies, Frozen Lotus will proc and clear the entire screen of monsters. Always drop Frost Pool under the enemy to increase Ice Lance damage.",
+      "source_url": "https://www.gfinityesports.com/article/torchlight-infinite-gemma-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Trait Icefire Fiend: grants Frostfire Rampage DPS cooldown. Frost Caster build stays in cold-primary; Ice-Fire Fusion build runs dual-element."
+        },
+        "source_url": "https://www.gfinityesports.com/article/torchlight-infinite-gemma-build",
+        "anchor_quote": "The key traits are Icefire Fiend, which grants a huge DPS cooldown in Frostfire Rampage",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Trait Frostbitten Heart: Cold Skills generate Cold Energy → Cold Damage + Frostbite Chance. Trait Seeping In: cold penetration doubled during Frostfire Rampage. Ice-Fire Fusion: Fusion Energy from cold+fire skills."
+        },
+        "source_url": "https://tlidb.com/Gemma",
+        "anchor_quote": "When using Cold Skills, Gemma will gain Cold Energy, which will increase Cold Damage and Frostbite Chance.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Ice Lance = projectile. Frozen Lotus = on-kill AoE proc. Frost Pool = ground AoE zone. Frost Caster identity confirmed as cold-damage mage."
+        },
+        "source_url": "https://www.gfinityesports.com/article/torchlight-infinite-gemma-build",
+        "anchor_quote": "Always drop Frost Pool under the enemy to increase Ice Lance damage.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Ice Lance as primary. Proc Frozen Lotus on kill for AoE clear. Drop Frost Pool under enemy to boost Ice Lance. Use Frigid Transmission (cooldown resets on freeze). Stack Frostbite via Frostbitten Heart trait."
+        },
+        "source_url": "https://www.gfinityesports.com/article/torchlight-infinite-gemma-build",
+        "anchor_quote": "Cast Ice Lances as the main skill. When something dies, Frozen Lotus will proc and clear the entire screen of monsters.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Frost-only (Frostbitten Heart)",
+            "Ice-Fire Fusion (dual-element)",
+            "Frostfire Rampage (endgame)"
+          ]
+        },
+        "source_url": "https://tlidb.com/Gemma",
+        "anchor_quote": "The forces of fire and ice fuse within Gemma's body, reinforcing each other. When using Cold and Fire Skills, Gemma will gain Fusion Energy.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

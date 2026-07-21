@@ -1,0 +1,255 @@
+{
+  "kit_id": "le-shield-bash-le",
+  "spine": {
+    "kit_id": "le-shield-bash-le",
+    "folk_name": "Shield Bash (LE)",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The block-cap chase AS the damage-scaling verb (defense stat converting to a more-damage multiplier) is unexpressed - approximated as flat numeric scaling; source player would miss capping block being offense. Core loop (single-target melee spam behind a defensive wall) carries.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 3,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The block-cap chase AS the damage-scaling verb (defense stat converting to a more-damage multiplier) is unexpressed - approximated as flat numeric scaling; source player would miss capping block being offense. Core loop (single-target melee spam behind a defensive wall) carries.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shield Bash",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "single-target melee hit, Strength-scaled; limited AoE is an explicit guide con; block-chance feeds a more-damage multiplier (capped block = full multiplier)"
+        },
+        {
+          "source_skill": "Ring of Shields",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "defensive shield-entity layer supporting the bash loop (see le-ring-of-shields for the full support-skill mapping)"
+        }
+      ],
+      "motion_frame": "stationary single-target melee spam in block posture; Manifest Armor adds armor",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Indomitable Force + Iron Arms Strength scaling -> numeric trait lane",
+            "Event Horizon / Twisted Heart of Uhkeiros / Code of an Erased Sentinel / Shattered Worlds / Red Ring of Atlaria -> gear lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "physical -> null element (THE PHYSICAL RULE). 'Bash' name implies NO stun - no status named in fetched text, none emitted (attestation law 0.4; near-miss logged). Block-chance-as-damage-multiplier = defensive-stat-as-offense: filed as its OWN stat-as-damage-substrate cluster candidate (C.2 - no merge), kit graded un-minted with the multiplier approximated in the numeric trait lane. corpus negative=1 but the kb negative framing is UNATTESTED (verify honest-U) - annotation only, not mapping grounds. Eras beta;1.0;1.2 per corpus (Season-2 era anchor confirmed)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Volca",
+      "title": "Shield Bash Forge Guard Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/build-forge-guard-shield-bash-v1-3-2/79874/12",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "DaddyLuvsYou",
+      "title": "Build - Forge Guard Shield Bash v1.3.2 - Sentinel - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": "Shield Bash Forge Guard Build Guide | Last Epoch Season 2... Maxroll Season 2 (April 2025) changelog entry.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shield Bash (LE)' / 'Forge Guard Shield Bash' / 'shield melee build LE' are real community usage",
+      "anchor_quote": "Shield Bash Forge Guard... Shield Bash is your main Damage Skill.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Shield Bash; single-target melee physical hit; Forge Guard / Sentinel class; resource=Mana",
+      "anchor_quote": "Shield Bash is your main Damage Skill, with damage scaled by stacking Strength thanks to Indomitable Force and Iron Arms.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Shield Bash LE is negative — kit-family centralization concern or scaling deficiency identified at triage",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Indomitable Force (Strength scaling)",
+            "Iron Arms (Strength scaling)"
+          ],
+          "notes": "Block Chance cap is the mechanical capstone; no unique passive node named as singular capstone"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+        "anchor_quote": "damage scaled by stacking Strength thanks to Indomitable Force and Iron Arms.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Event Horizon (sword)",
+            "Twisted Heart of Uhkeiros (relic)",
+            "Code of an Erased Sentinel (relic)",
+            "Shattered Worlds (uber drop)",
+            "Red Ring of Atlaria",
+            "Flames of Midnight"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+        "anchor_quote": "Use Twisted Heart of Uhkeiros or Code of an Erased Sentinel as your Relic... Shattered Worlds from Uber Aberroth.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "single-target melee hit; limited AoE noted as explicit con in guide; physical damage",
+          "range_class": "melee",
+          "aoe": "single"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+        "anchor_quote": "Limited AoE... Mediocre Clear Speed.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Player spams Shield Bash as primary damage skill, scaling via Strength. Block chance (capped at 100%) feeds the 1.5% More Damage per Block Chance multiplier. Ring of Shields provides defensive layer; Manifest Armor adds armor. Build can reach 600-1000+ corruption in endgame Monoliths.",
+          "core_driver": "block-stacking damage multiplier"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+        "anchor_quote": "Shield Bash is your main Damage Skill, with damage scaled by stacking Strength... has a built-in damage multiplier with 1.5% More Damage per Block Chance, granting it 150% More Damage with capped Block.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Shield Bash Forge Guard (standard)",
+              "notes": "single-shield dual-block scaling"
+            },
+            {
+              "name": "Dual Shield Shield Bash",
+              "notes": "dual-shield variant; 500+ corruption attested in YouTube title"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shield-bash-forge-guard-guide",
+        "anchor_quote": "Last Epoch Forge Guard Shield Bash Endgame Build Guide! 500+ Corruption... Dual Shield Goodness!!",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "kit_id": "tl2-bot-engineer",
+  "spine": {
+    "kit_id": "tl2-bot-engineer",
+    "folk_name": "Bot Summoner Engineer",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: pet-core identity — the player build IS the bot-army; no fixed player-damage rotation exists. The engine's solo-projection cannot represent the commander-plus-swarm structure. Summoner-deferral applies per basin-5 rules. 'Not that build' — the player's experience is bot-army management, not a skill rotation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: pet-core identity — the player build IS the bot-army; no fixed player-damage rotation exists. The engine's solo-projection cannot represent the commander-plus-swarm structure. Summoner-deferral applies per basin-5 rules. 'Not that build' — the player's experience is bot-army management, not a skill rotation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Gun Bot",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed bot proxy — deployed at target position, operates independently attacking nearby enemies. Placed-proxy (totem) per brief hot-fact and totem-vs-companion law."
+        },
+        {
+          "source_skill": "Spider Mines",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Trio of placed spider drones charge nearest foes, explode in 3m radius. Placed-proxy (totem). Up to 10 simultaneous — file placed-proxy-count accrual."
+        },
+        {
+          "source_skill": "Healing Bot",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed healing drone generating energy pulses healing player. Placed-proxy support (totem)."
+        }
+      ],
+      "motion_frame": "Deploy bots at target locations; Engineer commands, does not attack directly; re-deploy destroyed bots while swarm maintains damage.",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-core summoner: Engineer has NO player-damage loop — 'Engineer commands rather than attacks directly.' Summoner-deferral applies. Filed placed-proxy-count accrual (Spider Mines up to 10 simultaneous + Gun Bot + Ballista-class multi-count). No element attested on bots. Dossier records no damage-type descriptors for bot attacks — element-silent."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "MINION-PET",
+    "group_intent_rationale": "movement=full-move · amp=flat · treatment=damage · function=taunt · economy=reserve · proxy=heavy · tempo=med · commit=instant · activation=active · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Engineer Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in tl2-2012 era",
+      "anchor_quote": "Torchlight II shipped September 2012; Engineer bot skills (Combat Bots, Spider Mines, Healing Bot) present at launch",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Bot Summoner Engineer — community usage name for Engineer bot proxy build",
+      "anchor_quote": "Engineer deploys Combat Bots at targeted positions; bots move and attack independently, covering the entire combat zone; Engineer commands rather than attacks directly",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Gun Bot, Blast Cannon (support), Healing Bot; bots deliver all damage as heavy proxy; Engineer commander",
+      "anchor_quote": "a small drone that generates energy pulses, healing both you and your allies; Spider Mines summons a trio of spider drones that charge the nearest foes; Blast Cannon fires a long-range, piercing projectile from your cannon",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_title": "Engineer Skill Guide - Torchlight II"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (bot placement)",
+          "footprint": "large-zone (bots dispersed across combat area)",
+          "range": "medium (bot deployment range)",
+          "notes": "bots cover wide area independently once deployed"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "Spider Mines summons a trio of spider drones that charge the nearest foes and explode in a three-meter radius; up to ten mines can remain active simultaneously",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Deploy bots at target locations; bots operate independently attacking enemies; Engineer re-deploys destroyed bots; Healing Bot provides sustained health regen; Spider Mines supplement with burst AoE; Engineer acts as commander not direct attacker"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "Engineer deploys Combat Bots at targeted positions; bots move and attack independently, covering the entire combat zone; Engineer commands rather than attacks directly",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pure bot army (Spider Mine + Gun Bot focus)",
+            "hybrid bot + Healing Bot support",
+            "summoner with Spider Mines as primary AoE"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "Spider Mines primarily valuable for summoner builds; Healing Bot is permanent minion",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

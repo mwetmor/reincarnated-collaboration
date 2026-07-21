@@ -1,0 +1,265 @@
+{
+  "kit_id": "d4-earthquake-barb",
+  "spine": {
+    "kit_id": "d4-earthquake-barb",
+    "folk_name": "Earthquake Barbarian",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null (physical only in probe). No ailment. Zone-detonation trigger grammar approximated via apply-only / earthquake_zone_active mark; no native placed-zone-trigger lane for the HotA-detonates-Earthquake mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null (physical only in probe). No ailment. Zone-detonation trigger grammar approximated via apply-only / earthquake_zone_active mark; no native placed-zone-trigger lane for the HotA-detonates-Earthquake mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Leap",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Movement skill landing at target per skill_geometry payload: 'Leap is movement skill landing at target; overlapping ground-paint coverage'; identity anchor 'leaping across the map, crushing enemies beneath your boots each time you land, and leaving behind an earthquake'; leap_strike per phrase-book (dash/charge → target impact); creates earthquake zone on landing; element null (physical attack; no element damage-type language in any anchor)"
+        },
+        {
+          "source_skill": "Earthquake / Ground Stomp (zone generators)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Earthquake zones stack via multiple Leap + Ground Stomp landings per skill_geometry payload: 'Earthquake AoE zones stack via multiple Leap + Ground Stomp landings'; 'Earthquakes are created primarily by using Leap with the Bul-Kathos Aspect, Ground Stomp with the Earthquakes Aspect, and by triggering the Tec Rune' per verify mechanics anchor; overlapping ground-paint zones; element null"
+        },
+        {
+          "source_skill": "Hammer of the Ancients (detonator)",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Hammer of the Ancients detonates active Earthquakes via Mantle of Mountain's Fury' per skill_loop payload; item-defined-archetype mechanic: Mantle of Mountain's Fury enables detonation; Earthquake detonation = consequence_type burst-damage; ground_slam geometry at target"
+        }
+      ],
+      "motion_frame": "Leap into elite packs creating earthquake zones; Ground Stomp resets Leap via Aspect of Perpetual Stomping and creates more quakes; Hammer of the Ancients detonates active Earthquake zones via Mantle of Mountain's Fury; War Cry for damage buff per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Fury (Barbarian class resource; verify mechanics for hota attests 'Fury powers this build' for Barbarian class — class-wide; Earthquake barb loop: rotation_style leap_stomp_detonate per skill_loop payload); cooldown_refresh_on_proc: 'Ground Stomp to reset Leap (Aspect of Perpetual Stomping)' per skill_loop payload"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "earthquake_zone_active",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Earthquake zone stacking via Leap+Stomp landings; Tec Rune earthquake trigger (capstone anchor)"
+          ],
+          "economy": [
+            "Aspect of Perpetual Stomping Leap reset (CDR on Ground Stomp)",
+            "War Cry shout economy (damage buff + Fury) per skill_loop payload"
+          ],
+          "traits_affixes": [
+            "Mantle of Mountain's Fury earthquake detonation mechanic (item-defined-archetype via capstone anchor)",
+            "Bul-Kathos Aspect, Chainscourged Mail, Melted Heart of Selig (scalers-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: no element damage-type language in any anchor quote; mech_note 'physical' is probe-class (inadmissible). No ailment attested: no status word in any legal store. GEOMETRY_PROPAGATION_overkill door: Mantle detonation spreads earthquake damage at impact — overkill-scaling propagation shape. Mark grammar: earthquake_zone_active = placed-zone trigger that fires on HotA cast (apply-only, consequence burst-damage). This is a zone-as-mark identity (not a character mark) — map_grammar captures the trigger relationship between zone-presence and detonator."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/earthquake-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "snail",
+      "title": "Earthquake Barbarian Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/build-guides/leapquake-barbarian-guide-clone",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "snail",
+      "title": "Earthquake Barbarian Endgame Build Guide for Diablo IV Season 7 - Season of Witchcraft",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/leap-quake-barbarian-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Mathris",
+      "title": "Leap Quake - Barbarian Build for Diablo 4 (Season 9)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in voh-s6+",
+      "anchor_quote": "Uses Hammer of the Ancients and Mantle of Mountain's Fury for dangerous terrestrial destruction",
+      "source_url": "https://maxroll.gg/d4/build-guides/leapquake-barbarian-guide-clone",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Earthquake Barbarian; aliases Earthquake Barb D4, Ground Stomp Earthquake Barb, EQ Barb D4 are real community usage",
+      "anchor_quote": "jumping around like a madman and leaving destructive, incendiary fissures.",
+      "source_url": "https://maxroll.gg/d4/build-guides/earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Ground Stomp, Leap, EQ aspects; resource Fury (Barbarian); overlapping Earthquake zones via Leap/Stomp triggers",
+      "anchor_quote": "Earthquakes are created primarily by using Leap with the Bul-Kathos Aspect, Ground Stomp with the Earthquakes Aspect, and by triggering the Tec Rune",
+      "source_url": "https://maxroll.gg/d4/build-guides/leapquake-barbarian-guide-clone",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "snail",
+          "site": "maxroll.gg",
+          "co_author": "Mathris (icy-veins)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/earthquake-barbarian-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Bul-Kathos Aspect",
+            "Earthquake Aspect",
+            "Aspect of Perpetual Stomping"
+          ],
+          "uniques": [
+            "Mantle of Mountain's Fury",
+            "Chainscourged Mail",
+            "Melted Heart of Selig"
+          ],
+          "runes": [
+            "Tec Rune"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/earthquake-barbarian-guide",
+        "anchor_quote": "Mantle of Mountain's Fury, Chainscourged Mail, Bul-Kathos Aspect, Tec Rune",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Mantle of Mountain's Fury",
+            "Bul-Kathos Aspect",
+            "Chainscourged Mail",
+            "Tec Rune",
+            "Melted Heart of Selig"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/earthquake-barbarian-guide",
+        "anchor_quote": "Mantle of Mountain's Fury (enables earthquake detonation)",
+        "abstained": 0,
+        "conf": 0.79
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "notes": "Earthquake AoE zones stack via multiple Leap + Ground Stomp landings; Leap is movement skill landing at target; overlapping ground-paint coverage"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/leapquake-barbarian-guide-clone",
+        "anchor_quote": "leaping across the map, crushing enemies beneath your boots each time you land, and leaving behind an earthquake",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Leap into elite packs repeatedly; Ground Stomp to reset Leap (Aspect of Perpetual Stomping) and generate more quakes; Hammer of the Ancients detonates active Earthquakes via Mantle of Mountain's Fury; War Cry for damage buff",
+          "rotation_style": "leap_stomp_detonate"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/leapquake-barbarian-guide-clone",
+        "anchor_quote": "Earthquakes are created primarily by using Leap with the Bul-Kathos Aspect, Ground Stomp with the Earthquakes Aspect, and by triggering the Tec Rune",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Season 7 variant uses Tec Rune as primary earthquake engine; Season 12 variant uses Leap+HotA detonation; Ground Stomp retained as core in both"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/leapquake-barbarian-guide-clone",
+        "anchor_quote": "Uses Hammer of the Ancients and Mantle of Mountain's Fury for dangerous terrestrial destruction",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "kit_id": "di-monk-sss",
+  "spine": {
+    "kit_id": "di-monk-sss",
+    "folk_name": "Seven-Sided Strike Monk",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Multi-point teleport burst (SSS) approximated as melee_strike — the 7-position radial delivery pattern is not natively represented. No ailments attested despite CC-adjacent kit feel (inward pull, stun-adjacency in PvP copy). DI resource unreliable.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Multi-point teleport burst (SSS) approximated as melee_strike — the 7-position radial delivery pattern is not natively represented. No ailments attested despite CC-adjacent kit feel (inward pull, stun-adjacency in PvP copy). DI resource unreliable.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Seven-Sided Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "7 sequential teleport-strike positions around primary target; Monk is untargetable (invulnerability window) during animation. No element-damage verb in store — physical rule applies. Multi-point repositioning delivery has no exact phrase-book enum; melee_strike with multi-hit note is the closest honest map."
+        },
+        {
+          "source_skill": "Cyclone Strike",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pulls enemies into melee range before SSS fires. Inward-pull geometry. No named status attested."
+        }
+      ],
+      "motion_frame": "Cyclone Strike density pull into melee cluster → SSS 7-hit teleport burst",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "DI resource (Spirit) probe unreliable per ERRATA sweep; no resource_economy key. SSS's 7-hit multi-point teleport burst has no exact 26-enum geometry — melee_strike with multi-hit delivery note is honest approximation. PHASE_MOMENTUM door from SSS untargetable-animation window. Cyclone Strike inward pull maps to vortex_pull; no named ailment status in store. PvP note: SSS is a reliable kill-combo opener (context only)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Monk Seven-Sided Strike Build Guide for Solo Farming and Bounties - Diablo Immortal",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-2026-era",
+      "anchor_quote": "Seven-Sided Strike is equally formidable as a multi-target skill as it is on single targets",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Seven-Sided Strike Monk' and aliases 'SSS Monk DI', 'Seven-Sided Strike DI', 'Shield of Zen Monk DI' are real community usage",
+      "anchor_quote": "Monk Seven-Sided Strike Build Guide for Solo Farming and Bounties",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Seven-Sided Strike, Shield of Zen, Cyclone Strike; Monk resource Spirit",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "legendary_gems": [
+            "Blood-Soaked Jade",
+            "Seeping Bile",
+            "Frozen Hearth",
+            "Howler's Call",
+            "Blessing of the Worthy"
+          ],
+          "notes": "Fetched from icy-veins DI Monk SSS guide."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "Blood-Soaked Jade, Seeping Bile, Frozen Hearth, Howler's Call, and Blessing of the Worthy for endgame play",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "multi-point teleport strikes around primary target",
+          "footprint": "multi-point burst (7 sequential strike positions)",
+          "notes": "SSS teleports the Monk through positions around/near the target. 'Equally formidable as a multi-target skill as it is on single targets.'"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "Seven-Sided Strike is equally formidable as a multi-target skill as it is on single targets",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Seven-Sided Strike (SSS) is primary damage dealer — hits multiple enemies and makes Monk untargetable during animation. Cyclone Strike pulls enemies into melee range before SSS fires. Shield of Zen used in group play for CC immunity. Core loop: Cyclone Strike pull -> SSS burst.",
+          "core_combo": "Cyclone Strike density pull -> SSS burst",
+          "source_note": "icy-veins DI Monk SSS guide"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "it has the added benefit of making you untargetable — and thus immune to damage — during its animation.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Solo farming (SSS primary)",
+            "Group play (Shield of Zen CC-immunity variant)",
+            "Cyclone Storm Raid variant (separate guide)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk-seven-sided-strike-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "consider changing this skill slot for Shield of Zen",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

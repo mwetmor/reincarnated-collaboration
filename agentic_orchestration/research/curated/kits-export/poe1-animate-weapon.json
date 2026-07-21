@@ -1,0 +1,266 @@
+{
+  "kit_id": "poe1-animate-weapon",
+  "spine": {
+    "kit_id": "poe1-animate-weapon",
+    "folk_name": "Animate Weapon",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "1.x;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-12",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 'ground-lying weapons ARE the summon ammunition; the loot drop-stream is the resource pool' is the kit's signature identity and has no engine lane — engine proxies draw from mana/corpses, not consumed ground-item entities. Mapped as a standard transient poison-proxy swarm (PROXY_FISSION) which captures the combat feel but LOSES the loot-becomes-ammo resource-substrate. A player of the original would miss that their army's size and cadence were fed by what dropped on the floor. Docket candidate filed.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 'ground-lying weapons ARE the summon ammunition; the loot drop-stream is the resource pool' is the kit's signature identity and has no engine lane — engine proxies draw from mana/corpses, not consumed ground-item entities. Mapped as a standard transient poison-proxy swarm (PROXY_FISSION) which captures the combat feel but LOSES the loot-becomes-ammo resource-substrate. A player of the original would miss that their army's size and cadence were fed by what dropped on the floor. Docket candidate filed.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bladefall of Trarthus (blade-drop feeder)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "rains a volley of blades that linger on the ground; in engine terms a multi_projectile placement that seeds the summon source — the lingering blades are the ammunition substrate"
+        },
+        {
+          "source_skill": "Animate Weapon of Ranged Arms",
+          "geometry_value": "totem",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "animates each lingering blade into a transient ranged sword-minion (proxy) that fires projectiles dealing poison; the proxy is the dominant every-3-seconds damage source. totem geometry = placed autonomous proxy entity"
+        }
+      ],
+      "motion_frame": "kite-and-seed caster: drop blades, animate the swarm, reposition while transient ranged proxies poison the pack",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_FISSION",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile blade-seed",
+            "totem/proxy swarm"
+          ],
+          "economy": [
+            "summon-cadence (low re-summon frequency in maps; long proxy duration)"
+          ],
+          "traits_affixes": [
+            "minion-damage",
+            "minion-life",
+            "poison-scaling (Unbound Ailments analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: base skill is physical but the meta variant (Ranged Arms) is a POISON minion build; poison here is a necromancer/corruption register -> shadow family + poison ailment lane (crosswalk §1 poison-row: shadow when corruption-themed, minions=necro). Geometry: the animated weapons are transient proxies (totem geometry = placed autonomous entity); Bladefall is the multi_projectile feeder. PROXY_FISSION routes 'one summoning action -> many transient proxies'. THE MISSED IDENTITY: 'loot lying on the ground literally becomes ammunition; the drop stream is the resource pool' — engine proxies summon from mana/corpses, NOT from ground-dropped item entities. That resource-substrate (ground-item-consumption-as-summon-fuel) has no engine lane; docketed. A Poison-Ranged-AW player would notice their summons are no longer gated by/fed from the loot-drop stream — the flavor that made this kit iconic."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 1,
+      "mechanism_class": "entity-as-consumable-resource-pool",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/poison-ranged-animate-weapons-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Helm Breaker",
+      "title": "Poison Ranged Animate Weapons League Starter",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/animate-weapon-necromancer-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "GhazzyTV",
+      "title": "GhazzyTV's Poison Animate Weapon Necromancer Build Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3788773",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "Hoffen#2482",
+      "title": "[3.28] Poison Ranged Animate Weapon Necromancer League Starter",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Animate_Weapon",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Animate Weapon - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in eras 1.x, 3.7-3.13, 3.20+",
+      "anchor_quote": "The skill was introduced in version 1.0.0. A major rework occurred in version 3.10.0",
+      "source_url": "https://poedb.tw/us/Animate_Weapon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Animate Weapon' and alias 'AW of Ranged Arms (3.28 variant)' are real community usage",
+      "anchor_quote": "Poison Ranged Animate Weapons League Starter",
+      "source_url": "https://maxroll.gg/poe/build-guides/poison-ranged-animate-weapons-league-starter",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Animate Weapon animates weapons lying on the ground as temporary sword-minions; loot becomes ammunition; Necromancer class",
+      "anchor_quote": "Animates a Melee Weapon Item or Lingering Blade to fight by your side. You cannot animate unidentified Weapons.",
+      "source_url": "https://poedb.tw/us/Animate_Weapon",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": [
+          {
+            "handle": "GhazzyTV",
+            "site": "poe-vault.com",
+            "url": "https://www.poe-vault.com/guides/animate-weapon-necromancer-build-guide"
+          },
+          {
+            "handle": "Hoffen#2482",
+            "site": "pathofexile.com/forum",
+            "url": "https://www.pathofexile.com/forum/view-thread/3788773"
+          },
+          {
+            "handle": "Helm Breaker",
+            "site": "maxroll.gg",
+            "url": "https://maxroll.gg/poe/build-guides/poison-ranged-animate-weapons-league-starter"
+          }
+        ],
+        "source_url": "https://www.poe-vault.com/guides/animate-weapon-necromancer-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Necromancer",
+          "note": "Necromancer provides minion damage, life, and resists; specific Necromancer notables not extracted from fetched text beyond class confirmation."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3788773",
+        "anchor_quote": "Poison Ranged Animate Weapon Necromancer",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Bladefall of Trarthus (transfigured gem)",
+          "alteration": "Rains down volleys of blades that linger on the ground, serving as ammunition for Animate Weapon of Ranged Arms.",
+          "secondary_item": "A Covenant (unique staff)",
+          "secondary_alteration": "Can more than double damage output when added to 6-link setup."
+        },
+        "source_url": "https://www.poe-vault.com/guides/animate-weapon-necromancer-build-guide",
+        "anchor_quote": "These can be used as ammunition for Blade Blast or, in this case, as ammunition for our Animate Weapon.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "at-target (point) delivery — single animated weapon entity spawned at each blade drop location; geo=single per entity; ranged minion attacks use projectile delivery from animated weapon position"
+        },
+        "source_url": "https://poedb.tw/us/Animate_Weapon",
+        "anchor_quote": "Animates a Melee Weapon Item or Lingering Blade to fight by your side.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Use Bladefall of Trarthus to drop blades on the ground, then cast Animate Weapon of Ranged Arms to animate those blades into ranged minions. Minions persist for long duration; in endgame mapping, summoning frequency is low. Minions deal poison damage. The loot/drop stream from Bladefall is the ammunition pool."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3788773",
+        "anchor_quote": "you need to use Bladefall to summon weapons on the ground and then cast the ranged animate weapon skill to animate your minions each time you enter a new map",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Animate Weapon of Ranged Arms (3.28 transfigured variant)",
+            "Original Animate Weapon (melee weapons on ground, pre-3.28)",
+            "Poison Ranged AW (Hoffen/GhazzyTV lineage)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3788773",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

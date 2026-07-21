@@ -1,0 +1,259 @@
+{
+  "kit_id": "le-manifest-armor",
+  "spine": {
+    "kit_id": "le-manifest-armor",
+    "folk_name": "Manifest Armor Forge Guard",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07 GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "MANDATORY (GAPPED): the kit IS 'summon one autonomous gear-scaled construct and let it fight' — an autonomous-combatant pet, which the engine defers by design (summoner-deferral). The whole identity (a persistent construct that pursues and attacks on its own, scaled by YOUR worn gear) has no engine delivery: null geometry is the honest read. A source player has 'not that build' — there is no engine analog to a gear-stat-scaled autonomous construct. PROXY_ASCENSION names the proxy-ambition but the engine has no autonomous-combatant to ascend. The gear-stat-as-minion-scaling is separately docketed. Forge Strike (anvil ground-slam) survives as a bolt-on but is not the mapped identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "MANDATORY (GAPPED): the kit IS 'summon one autonomous gear-scaled construct and let it fight' — an autonomous-combatant pet, which the engine defers by design (summoner-deferral). The whole identity (a persistent construct that pursues and attacks on its own, scaled by YOUR worn gear) has no engine delivery: null geometry is the honest read. A source player has 'not that build' — there is no engine analog to a gear-stat-scaled autonomous construct. PROXY_ASCENSION names the proxy-ambition but the engine has no autonomous-combatant to ascend. The gear-stat-as-minion-scaling is separately docketed. Forge Strike (anvil ground-slam) survives as a bolt-on but is not the mapped identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Manifest Armor",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "A persistent proxy MINION — 'a colossal humanoid construct made of fire and metal' — that PURSUES enemies and attacks at melee range (fetched: 'persistent proxy minion that pursues enemies and attacks at melee range'). PURSUE/FOLLOW type with NO placement language -> null geometry is honest (gapped-pet two-lane convention: placement-attested -> totem; follow/pursue -> null). Autonomous combatant = summoner-deferral GAP. Element PHYSICAL -> no family; 'fire and metal' is construct-APPEARANCE flavor, NOT a fetched scaling-element attestation (§0.1) -> element-neutral. Uniquely scales off the PLAYER's gear stats (Helmet/Body/Gloves/Boots; +Weapon w/ Titan Mace) — a pet-stat-from-player-gear mechanism."
+        },
+        {
+          "source_skill": "Forge Strike",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary skill — drops anvils from the sky at a targeted position (fetched: 'Forge Strike... drops anvils from sky at targeted position'). [STEWARD AUDIT 2026-07-18: fire secondary STRUCK — no fire damage language is fetched for Forge Strike; 'fire and metal' is construct-APPEARANCE flavor (the row's own §0.1 reasoning, applied consistently). Element-neutral.] A supplementary delivery, not the kit's core identity (the construct is)."
+        }
+      ],
+      "motion_frame": "Summon Manifest Armor (gear-stat-scaled construct) -> maintain Sigils of Hope buffs -> Shield Throw AT own Manifest Armor -> MA performs additional melee AoE -> construct pursues+attacks autonomously",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "Mana-based summon with gear-scaling (verify_ledger: 'Forge Stacks' economy is UNSUPPORTED/errata'd — probe fabrication, NOT echoed; capstone note confirms Mana-based summon)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Shield Throw at own Manifest Armor -> construct performs additional melee AoE (self-targeted proc rider)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "gear-stat-as-minion-scaling (Helmet/Body/Gloves/Boots/+Weapon)",
+            "Platemail/Steel Greaves/Great Helm passives"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: pet-core (persistent autonomous construct that pursues+attacks) hits the summoner-deferral engine GAP (§A/§B pet law; autonomous-combatant delivery deferred by design). Gapped-pet geometry convention APPLIED: Manifest Armor is a follow/pursue minion with NO placement language -> null geometry honest (the autonomy gap lives in grade + deviation_notes + docket per R-M7). PROXY_ASCENSION T4 gestures at the single-construct-proxy identity. RESOURCE CORRECTED per hot-fact + verify_ledger: 'Forge Stacks' is probe FABRICATION (UNSUPPORTED, anchor=none) -> NEVER echoed; economy is MANA. Distinctive mechanism: gear-stat-as-minion-scaling (player's equipped gear stats scale the construct) -> docket-candidate (own row; pet-stat lane != player-stat lane per §A trap). Shield Throw-at-own-construct = a self-targeted proc rider (trigger). Forge Strike anvil-drop mapped as a secondary ground_targeted_circle but is NOT the identity. §0 near-miss: none withheld (no status named); 'fire and metal' held as flavor not element per §0.1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Manifest Armor Forge Guard Build Guide",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/wrouks-manifest-armor-forge-guard-tankiest-build-in-the-game-last-epoch-build-guide/32913",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Wrouk's Manifest Armor Forge Guard, Tankiest Build In The Game, Last Epoch Build Guide",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Wrouk's Manifest Armor Forge Guard, Tankiest Build In The Game, Last Epoch Build Guide — forum thread attesting early beta presence",
+      "source_url": "https://forum.lastepoch.com/t/wrouks-manifest-armor-forge-guard-tankiest-build-in-the-game-last-epoch-build-guide/32913",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Manifest Armor Forge Guard Build Guide — archived guide last updated August 23, 2025",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Manifest Armor Forge Guard' and alias 'Forge Strike Manifest Armor' are real community usage",
+      "anchor_quote": "Manifest Armor Forge Guard Build Guide — Manifest Armor is a very unique Minion that scales with the stats in the player's Helmet, Body Armour, Gloves and Boots",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Manifest Armor and Forge Strike; proxy minion delivery; gear-stat scaling; Forge Stacks economy; physical/fire damage",
+      "anchor_quote": "Use Shield Throw against its own Manifest Armor to make it perform additional melee AoE attacks...Manifest Armor scales with the stats in the player's Helmet, Body Armour, Gloves and Boots",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Resource economy is Forge Stacks (harvest model)",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Lizard_IRL",
+          "site": "maxroll.gg",
+          "reviewer": "Facefoot",
+          "reviewer_2": "McFluffin"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+        "anchor_quote": "Written by Lizard_IRL. Reviewed by Facefoot, McFluffin.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Manifest Armor guide marked archived on maxroll (last updated Aug 2025). Forge Strike Forge Guard is current-season guide. Economy discrepancy: DB records 'Forge Stacks' as resource; maxroll guide describes Mana-based summon with gear-scaling — no Forge Stacks mechanic attested in fetched text."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+        "anchor_quote": "Scale Throwing Attack Speed to proc Manifest Inspiration as much as possible",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "scaling_sources": [
+            "Helmet stats",
+            "Body Armour stats",
+            "Gloves stats",
+            "Boots stats",
+            "Weapon stats (with Titan Mace node)"
+          ],
+          "key_passive_nodes": [
+            "Platemail",
+            "Steel Greaves",
+            "Great Helm nodes for amplified gear scaling"
+          ],
+          "other_items": [
+            "Sigils of Hope (player skill, high mana cost)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+        "anchor_quote": "Manifest Armor scales with the stats in the player's Helmet, Body Armour, Gloves and Boots...With Titan Mace the construct also gets stats from your Weapon",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "proxy-minion-at-target",
+          "footprint": "small-radius",
+          "description": "Manifest Armor is a persistent proxy minion that pursues enemies and attacks at melee range. A colossal humanoid construct made of fire and metal. Player-position delivery via minion proxy. Forge Strike (separate skill) drops anvils from sky at targeted position."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+        "anchor_quote": "A colossal humanoid construct made of fire and metal...Manifest Armor is a very unique Minion that scales with the stats in the player's Helmet, Body Armour, Gloves and Boots",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Summon Manifest Armor — a humanoid construct made of fire and metal that scales from the player's equipped gear stats. Forge Guard uses Shield Throw against its own Manifest Armor to trigger additional melee AoE attacks. Sigils of Hope maintained for buffs. Manifest Armor pursues and attacks enemies independently.",
+          "core_cycle": "Summon Manifest Armor -> maintain Sigils of Hope -> Shield Throw at own Manifest Armor -> MA performs melee AoE -> player provides buff support"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/manifest-armor-forge-guard-guide",
+        "anchor_quote": "Use Shield Throw against its own Manifest Armor to make it perform additional melee AoE attacks...Maintain 5 Sigils Of Hope up at all times for the amazing buffs they provide",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Manifest Armor Forge Guard (Shield Throw trigger variant — main guide)",
+            "Wrouk's Manifest Armor (beta era 'tankiest build', forum guide)",
+            "Forge Strike Forge Guard (anvil-drop variant, current season guide)",
+            "Forged Weapons Forge Guard (minion-weapon variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/forge-strike-forge-guard-guide",
+        "anchor_quote": "Forge Strike Forge Guard Guide for Last Epoch Season 4...Manifest Armor Forge Guard Build Guide",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

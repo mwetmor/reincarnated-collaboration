@@ -1,0 +1,276 @@
+{
+  "kit_id": "d2-zealot",
+  "spine": {
+    "kit_id": "d2-zealot",
+    "folk_name": "Zealot",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r;rotw-s13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Commitment-lock animation (cannot cancel mid-Zeal) is the build's defining mechanical feel; engine melee_strike does not carry an animation-lock mechanic. Source player experiences this as a tactical trade; engine approximates the 5-hit flurry output without the lock consequence.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Commitment-lock animation (cannot cancel mid-Zeal) is the build's defining mechanical feel; engine melee_strike does not carry an animation-lock mechanic. Source player experiences this as a tactical trade; engine approximates the 5-hit flurry output without the lock consequence.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Zeal",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Five-hit melee flurry per click, commitment-locked until all hits complete. Physical weapon-scaled. First strike targets clicked enemy; further strikes can hit adjacent if target dies. Physical rule: element-neutral. econ-recrawl verified: 2 mana fixed cost per use (spend/steady-mana)."
+        },
+        {
+          "source_skill": "Fanaticism",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Always-on aura: party-wide physical damage, attack speed, and attack rating boost. No reservation (d2 aura free-toggle). §A row 2: aura-pulse geometry + self_buff."
+        },
+        {
+          "source_skill": "Holy Shield",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Active self-buff: maximizes block rate and defense rating. Toggle/maintained."
+        }
+      ],
+      "motion_frame": "Commitment-locked melee: click target, character locks into 5-swing Zeal sequence under Fanaticism, high on-hit Crushing Blow rate; sustain via life leech.",
+      "resource_economy": {
+        "spend": "steady-mana",
+        "cost_value": "2 mana per Zeal use (fixed, all levels)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Sacrifice synergy: +12% physical damage per level — scaffold"
+          ],
+          "economy": [
+            "life leech sustain",
+            "mana at 2/use minimal requirement"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Commitment-locked animation is a core feel differentiator — player cannot cancel Zeal mid-sequence ('stuck in attack animation'). Engine melee_strike does not model commitment-lock; noted as fidelity delta. Fanaticism = free-toggle aura per §A row 2. Mana economy confirmed via econ-recrawl (2 mana/use, spend/steady-mana). Dream Zealot variant would add Holy Shock lightning aura via item-layer — variant-scope law, not core skills. TEMPORAL_CHARGE for the commitment-locked hit-sequence identity; MOMENTUM_CASCADE for on-hit Crushing Blow cascade rate."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/zealot-paladin-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Zealot Paladin Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/zeal-paladin",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Zeal Paladin Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/strategy/diablo-2-paladin-guide-zealot",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Paladin Guide – Build Your Own Zealot! - PureDiablo",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: lod",
+      "anchor_quote": "Main Aura, increases attack speed and damage significantly, required. Improves Chance to Block and Defense, required.",
+      "source_url": "https://www.icy-veins.com/d2/zealot-paladin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: d2r",
+      "anchor_quote": "The Zeal Paladin is one of the strongest melee builds in Diablo II: Resurrected.",
+      "source_url": "https://maxroll.gg/d2/guides/zeal-paladin",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era: rotw-s13",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d2/guides/zeal-paladin",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Zealot'; aliases 'Zeal Paladin', 'Zealot Paladin', 'Fanaticism Zeal'",
+      "anchor_quote": "The Zealot revolves around using Zeal and Fanaticism to reach one of the highest attack speed in the game.",
+      "source_url": "https://www.icy-veins.com/d2/zealot-paladin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Zeal, Fanaticism, Holy Shield",
+      "anchor_quote": "It swings your weapon up to 5 times in quick succession. Your Character is stuck in its attack animation until the maximum number of swings have been completed.",
+      "source_url": "https://maxroll.gg/d2/guides/zeal-paladin",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief",
+            "Exile",
+            "Fortitude",
+            "Pride (merc)",
+            "Call to Arms"
+          ],
+          "synergies": [
+            "Sacrifice: +12% physical damage per level to Zeal"
+          ],
+          "auras": [
+            "Fanaticism (self + party damage/attack speed/attack rating)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/zeal-paladin",
+        "anchor_quote": "Sacrifice provides a decent damage boost to Zeal at +12% damage per level.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Grief (primary weapon)",
+            "Call to Arms",
+            "Spirit",
+            "Exile (shield)",
+            "Fortitude",
+            "Pride (merc)",
+            "Breath of the Dying",
+            "Last Wish",
+            "Doom",
+            "Oath",
+            "Unbending Will"
+          ],
+          "notable_uniques": []
+        },
+        "source_url": "https://www.icy-veins.com/d2/zealot-paladin-build",
+        "anchor_quote": "Grief Phase Blade, Call to Arms, Spirit, Exile, Fortitude, Pride, and Breath of the Dying",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (melee, single-target commitment)",
+          "footprint": "point (single enemy; additional hits may splash to adjacent if primary dies)",
+          "notes": "Zeal locks five-hit flurry onto clicked target. First strike targets clicked enemy, further strikes can hit adjacent if target dies."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/zeal-paladin",
+        "anchor_quote": "Zeal will strike two times per attack, increasing by one hit until you hit five times at level four, with the first strike aimed at your target.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Paladin uses Zeal (5-hit melee flurry per click, commitment-locked until all hits complete) under Fanaticism aura (party-wide physical damage, attack speed, and attack rating boosts). Holy Shield maximizes block rate and defense. High single-target damage output via on-hit Crushing Blow with rapid hit rate. Life leech sustains."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/zeal-paladin",
+        "anchor_quote": "It swings your weapon up to 5 times in quick succession. Your Character is stuck in its attack animation until the maximum number of swings have been completed.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Zealot (Grief + Exile)",
+            "Dream Zealot (Dream runeword helm/shield for bonus Holy Shock lightning aura)",
+            "Auradin Zealot (multiple aura stacking)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/zealot-paladin-build",
+        "anchor_quote": "Dream Zealot Paladin Build",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

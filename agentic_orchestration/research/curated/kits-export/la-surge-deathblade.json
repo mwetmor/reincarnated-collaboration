@@ -1,0 +1,252 @@
+{
+  "kit_id": "la-surge-deathblade",
+  "spine": {
+    "kit_id": "la-surge-deathblade",
+    "folk_name": "Surge Deathblade",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/dash-melee",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "None — Death Trance→60-stack→Limit Break cycle maps cleanly to dual resource_economy keys + burst_window. Hot-fact pre-ruling honored throughout. Synergy→curse:amplify per DIRECTION LAW.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "None — Death Trance→60-stack→Limit Break cycle maps cleanly to dual resource_economy keys + burst_window. Hot-fact pre-ruling honored throughout. Synergy→curse:amplify per DIRECTION LAW.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wind Cut (pre-cast before Death Trance)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pre-cast before Z entry; in gems_cooldown. No element descriptor. NAME-ONLY check: 'Wind Cut' = skill name only, no wind damage-type descriptor."
+        },
+        {
+          "source_skill": "Blade Dance / Blitz Rush / Maelstrom (Surge stack generators in Death Trance)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stack Surge charges inside Death Trance window. Multiple-hit melee skills. Named in gems_damage. Back-attack positioning: +10% Crit Rate, +5% Damage on back-side. No element descriptor."
+        },
+        {
+          "source_skill": "Surprise Attack (Synergy applicator)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "DIRECTION TEST: 'Surprise Attack applies Synergy' — Synergy in LA = enemy-directed damage-received debuff → curse:amplify. Same Synergy ruling as Shining Knight (enemy takes more damage). Applied mid-burst window."
+        },
+        {
+          "source_skill": "Surge (60-stack Limit Break burst)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cast at 60 Surge stacks → Limit Break doubles damage. Death Orbs refunded immediately after cast — enables instant repeat cycle entry. Proper skill name 'Surge' → element null per D4 NAME-ONLY LAW. High-impact burst skill."
+        }
+      ],
+      "motion_frame": "Pre-cast Wind Cut → enter Death Trance (Z) → stack Surge charges via Blade Dance/Blitz Rush/Maelstrom → Surprise Attack (curse:amplify Synergy) → cast Surge at 60 stacks for Limit Break double-damage burst → Death Orbs refunded → repeat cycle immediately; back-attack positioning throughout",
+      "resource_economy": {
+        "surge_stacks": "built inside Death Trance via multi-hit skills; 60-stack threshold triggers Limit Break (double damage on Surge cast)",
+        "death_orbs": "consumed to enter Death Trance (Z); refunded on Surge cast → immediate repeat cycle; orb count determines Death Trance access"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "surge_stacks at 60 → Limit Break on Surge cast; Death Orbs refund → instant re-entry",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Two-gauge economy (surge_stacks WITHIN Death Trance + death_orbs for Death Trance entry) modeled as nested: death_orbs gates Z entry; surge_stacks gates Limit Break burst. Both load-bearing per §LA row 1. Ark Passive nodes: Deathblade Surge (damage increase on Destiny trigger), Surge Core (Destiny on Surge cast) → capstone_alterations — Destiny chain between Surge cast and Ark Passive riders is attested. Surprise Attack Synergy → curse:amplify per DIRECTION LAW (same basin ruling as shining-knight). Element null: 'Surge', 'Blade Dance', 'Blitz Rush', 'Maelstrom', 'Wind Cut' are all proper skill names with zero damage-type descriptors."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Surge Deathblade Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Author: Sekwah. Last Updated: June 12, 2026 — Ark Passive nodes (Deathblade Surge, Surge Core) explicitly covered",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Surge Deathblade — folk name (class Deathblade + Surge identity spec)",
+      "anchor_quote": "Surge Deathblade — The guide contrasts this with an alternative playstyle called Remaining Energy Deathblade.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Enters Death Trance (Z), stacks Surge charges via multi-hit skills, fires Surge at 60 stacks for massive burst; high-risk/high-reward shorter identity duration but higher ceiling than Remaining Energy",
+      "anchor_quote": "Quickly gathering 60 Surge Stacks during the Death Trance state... Limit Break doubles the damage of the skill if you cast Surge at 60 stacks. After using Surge, your Death Orbs are refunded so you can repeat the stacking cycle instantly.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+        "anchor_quote": "Author: Sekwah (Content Creator). Last Updated: June 12, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_core": [
+            "Deathblade Surge — Increases damage to foes and Surge damage when you trigger Destiny",
+            "Surge Core — Grants Destiny on casting Surge",
+            "Additional nodes boost Strike, Turning Slash, and general attack damage"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+        "anchor_quote": "Deathblade Surge: Increases damage to foes and Surge damage when you trigger Destiny. Surge Core: Grants Destiny on casting Surge.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Ambush Master",
+            "Cursed Doll or Raid Captain",
+            "Keen Blunt Weapon"
+          ],
+          "gems_damage": [
+            "Surge",
+            "Blitz Rush",
+            "Blade Dance"
+          ],
+          "gems_cooldown": [
+            "Wind Cut",
+            "Surprise Attack"
+          ],
+          "bracelet_stats": "Specialization/Crit",
+          "bracelet_specials": [
+            "Crit Rate",
+            "Crit Damage",
+            "Weapon Power",
+            "Back Attack Damage"
+          ],
+          "elixirs": "Atropine Potion recommended pre-Surge in burst scenarios"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+        "anchor_quote": "Engravings (5 equipped): Grudge, Adrenaline, Ambush Master, Cursed Doll/Raid Captain, Keen Blunt Weapon. Atropine Potion recommended pre-Surge in burst scenarios.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Melee back-attack positioning — +10% Crit Rate and +5% Damage on back-side; no explicit AoE/range data; melee dash skills implied (Spincutter, Blitz Rush)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+        "anchor_quote": "Back Attack positioning bonus (+10% Crit Rate, +5% Damage when landing behind), suggesting positioning-dependent gameplay with implied melee range.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Pre-cast Wind Cut → enter Death Trance (Z) → stack Surge charges via Blade Dance / Blitz Rush / Maelstrom → Surprise Attack (applies Synergy) → cast Surge at 60 stacks for Limit Break double-damage burst → Death Orbs refunded → repeat cycle. Death Trance grants: 10/15/20% Attack Speed, 10% Move Speed, 8/16/24% Attack Power, 50% Cooldown Reduction.",
+          "limit_break": "doubles Surge damage at 60 stacks",
+          "orb_refund": "Death Orbs refunded after Surge cast — immediate repeat"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/surge-deathblade-raid-guide",
+        "anchor_quote": "Quickly gathering 60 Surge Stacks during the Death Trance state... Limit Break doubles the damage of the skill if you cast Surge at 60 stacks. After using Surge, your Death Orbs are refunded so you can repeat the stacking cycle instantly.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Surge (extreme burst at 60 stacks, A tier Aug 2025)",
+            "Remaining Energy (consistent uptime cycling, S+ tier Aug 2025)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Surge Deathblade: A Tier. Remaining Energy Deathblade: S+ Tier [August 2025 community tier list]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

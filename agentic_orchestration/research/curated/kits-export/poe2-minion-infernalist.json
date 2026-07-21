@@ -1,0 +1,269 @@
+{
+  "kit_id": "poe2-minion-infernalist",
+  "spine": {
+    "kit_id": "poe2-minion-infernalist",
+    "folk_name": "Minion Infernalist",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Behavioral delta (R-M8-adjacent): engine totems are STATIONARY while these minions PURSUE targets across the encounter -- the roaming-army feel is delivery flavor the stationary-totem geometry cannot fully carry. Proxy-army identity is expressible (CLOSE); the deviation is the mobility of the proxies.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Behavioral delta (R-M8-adjacent): engine totems are STATIONARY while these minions PURSUE targets across the encounter -- the roaming-army feel is delivery flavor the stationary-totem geometry cannot fully carry. Proxy-army identity is expressible (CLOSE); the deviation is the mobility of the proxies.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Skeletal Arsonists / Summon Raging Spirits / Loyal Hellhound (persistent minion army)",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "distributed autonomous at-target minion army paid out of Spirit reservation. Skeletal Arsonists deal fire (label_verbatim Physical/Fire; damage_mode=hit); Raging Spirits add single-target/AoE presence; Infernal Hound gives the player 10% less damage taken (Loyalty). Minions engage independently -- no player-aimed geometry. Mapped to totem (autonomous placed-proxy that fights on its own) as the nearest persistent-proxy 26-type; the swarm is player-positioned, not aimed. ignite rider (Arsonist fire). fire primary (dominant Arsonist scaling)."
+        }
+      ],
+      "motion_frame": "persistent skeleton-arsonist swarm: reserve Spirit to field a standing fire-minion army that autonomously pursues and burns packs while the Infernal Hound soaks damage for you -- you steer, they kill",
+      "resource_economy": {
+        "reservation_resource": "spirit",
+        "reservation_percent": "permanent Spirit reservation per minion slot (Infernalist enhanced Spirit capacity) -- Spirit-reservation FALSE FRIEND, NOT engine spirit_guide",
+        "on_kill_frac": null
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "distributed autonomous minion at-target (totem-class placed-proxy, multi-point)"
+          ],
+          "economy": [
+            "Spirit permanent reservation per minion slot",
+            "Infernal Hound defensive proxy (10% less damage taken via Loyalty)"
+          ],
+          "traits_affixes": [
+            "minion damage / minion fire damage",
+            "minion life / count",
+            "ignite / burning %"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-05. Spirit-reservation FALSE FRIEND FIRED: reservation_resource=spirit is the poe2 reservation pool; NOT engine spirit_guide. R-M7 minion-persistence player test: engine HAS proxy T4 (PROXY_SOVEREIGNTY for a large standing autonomous army; PROXY_ASCENSION) -> proxy kit, 'that build, worse' not 'not that build'. geometry_value=totem is the nearest autonomous-placed-proxy 26-type. eras 0.1-0.4 CONFIRMED. Distinct from infernal-legion (this batch): minion-infernalist = minions ATTACK (proxy-damage army); infernal-legion = minions SELF-IMMOLATE as a fire-aura carrier. [STEWARD AUDIT: ailment token 'ignite' -> 'burn' -- 'ignite' is source vocabulary, not a 16-registry member; main-law §2 row 1 (PoE ignite -> burn) is deterministic.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Helm Breaker",
+      "title": "Minion Army Infernalist Build Guide - Path of Exile 2 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/twink-skeletal-arsonist-infernalist-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Twink Skeletal Arsonist Infernalist Leveling Guide - Path of Exile 2",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3644326",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[0.4] Minion Army Witch Infernalist Leveling and Endgame guide - Forum",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": "Twink Skeletal Arsonist Infernalist Leveling Guide ... designed for players leveling subsequent characters [active from launch]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/twink-skeletal-arsonist-infernalist-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "NEW Kripp's Infernal Legion Infernalist - PoE 2 Witch Build Guide [December 2025]",
+      "source_url": "https://mobalytics.gg/poe-2/builds/kripp-infernal-legion-infernalist",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "Minion Army Infernalist Build Guide ... Updated for 0.5.4, no changes needed",
+      "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.4",
+      "anchor_quote": "[0.4] Minion Army Witch Infernalist Leveling and Endgame guide - Forum - Path of Exile",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3644326",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Minion Infernalist' and aliases 'Arsonist SRS Infernalist', 'Loyal Hellhound build', 'Skeletal Arsonist infernalist' are real community usage",
+      "anchor_quote": "Twink Skeletal Arsonist Infernalist Leveling Guide - Path of Exile 2",
+      "source_url": "https://maxroll.gg/poe2/build-guides/twink-skeletal-arsonist-infernalist-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Skeletal Arsonists, Summon Raging Spirits; Infernalist class enables fire-enhanced minion interactions; Spirit reservation per minion slot",
+      "anchor_quote": "The Minion Army Infernalist Build Guide uses a large variety of Minions such as Skeletal Arsonist or Spectres together with Raging Spirits for single target and AoE damage.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Loyal Hellhound is a core skill",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Helm Breaker",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+        "anchor_quote": "Written by: Helm Breaker",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Infernalist (Witch ascendancy)",
+          "note": "Infernalist class enables fire-enhanced minion interactions and enhanced Spirit capacity for larger minion armies"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+        "anchor_quote": "Minion Army Infernalist Build Guide",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Distributed autonomous at-target. Individual minions engage targets independently across encounter area. Collective coverage is multi-point. No player-aimed geometry.",
+          "range": "distributed multi-point (minion auto-attack range)"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+        "anchor_quote": "Minion Army ... large variety of Minions such as Skeletal Arsonist or Spectres together with Raging Spirits",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Reserve Spirit to maintain Skeletal Arsonists and Raging Spirits. Summon minions; they autonomously attack. Skeletal Arsonists deal fire damage; Raging Spirits (summoned via Volcano or Flame Wall) add persistent single-target/AoE presence. Infernal Hound provides player defense (10% less damage taken while alive).",
+          "resource": "Spirit (permanent reservation per minion slot)"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+        "anchor_quote": "Skeletal Arsonist or Spectres together with Raging Spirits for single target and AoE damage ... Summon Infernal Hound supported by Loyalty which makes you take 10% less damage",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Skeletal Arsonist Infernalist (fire minion focus)",
+            "Bombarding Minions Infernalist (Vaal Guard Spectre endgame)",
+            "Skeletal Sniper Infernalist (ranged minion variant)",
+            "Twink leveling Skeletal Arsonist Infernalist"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/minion-army-infernalist-build-guide",
+        "anchor_quote": "Minion Army ... Skeletal Arsonist or Spectres together with Raging Spirits",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 7,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

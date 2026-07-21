@@ -1,0 +1,184 @@
+{
+  "kit_id": "vs-thousand-edge",
+  "spine": {
+    "kit_id": "vs-thousand-edge",
+    "folk_name": "Thousand Edge (Knife evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Thousand Edge",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Never-ending stream of knife projectiles fired in movement direction. Base Amount 6; Projectile Interval 0.05s; Speed 150%. Direction: movement-vector aiming (cardinal+ordinal on keyboard, analog on mouse/gamepad). Dense forward lane. Element = null: VS has no elemental damage-type system; 'knife' is physical-weapon flavor."
+        }
+      ],
+      "motion_frame": "Move in attack direction; dense knife stream auto-fires; player movement IS the aiming system.",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_INVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "movement_vector_aim_note"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS weapon evolution). Movement-vector aiming is a distinctive delivery mechanic — player body IS the aim controller. GEOMETRY_INVERSION T4 door: the inversion is that the movement input that normally avoids enemies is repurposed as the attack vector. Multi_projectile geometry confirmed by 'stream of knife projectiles.' No ailments, no element."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Thousand Edge - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "27 October 2021 (Update 'There exist tales that don't exist.'): Added to game.",
+      "source_url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Thousand Edge — Knife evolution; Knife + Bracer catalyst; movement-direction aiming; projectile-spam dagger wall in faced direction",
+      "anchor_quote": "Thousand Edge continuously fires a never-ending stream of knife projectiles in the direction the player is moving or last moved.",
+      "source_url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Player movement direction IS the aiming system; individual daggers not beam; dense forward lane-deny",
+      "anchor_quote": "fires a never-ending stream of knife projectiles in the direction the player is moving or last moved",
+      "source_url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Bracer (catalyst) contributes Projectile Speed. Cooldown reduction increases effective fire rate. Amount items increase simultaneous dagger count."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+        "anchor_quote": "Amount: 6; Speed: 150% (+50%)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "multi-point",
+          "note": "Dense forward wall of simultaneous daggers. Not a beam — individual projectiles. 8-directional aiming on keyboard; analog on mouse/gamepad."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+        "anchor_quote": "fires a never-ending stream of knife projectiles in the direction the player is moving or last moved",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Evolution weapon. Recipe: Knife (maxed) + Bracer. Fires never-ending stream of knife projectiles in movement direction. Direction: cardinal + ordinal on keyboard; any direction with mouse/gamepad. Base Amount: 6. Projectile Interval: 0.05s. Speed: 150% (+50%). Player movement IS the aiming system."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Thousand_Edge",
+        "anchor_quote": "Thousand Edge continuously fires a never-ending stream of knife projectiles in the direction the player is moving or last moved.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

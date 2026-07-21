@@ -1,0 +1,242 @@
+{
+  "kit_id": "d4-pulverize",
+  "spine": {
+    "kit_id": "d4-pulverize",
+    "folk_name": "Pulverize Druid",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Pulverize",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "werebear ground-slam with shockwave rolling forward; large AoE; form law applies: in-form loop mapped; physical element per THE PHYSICAL RULE"
+        },
+        {
+          "source_skill": "Trample",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "mobility skill within werebear form; secondary use for gap close"
+        }
+      ],
+      "motion_frame": "Werebear Pulverize as primary damage slams; Trample for mobility; Overpower burst windows off Spirit spending",
+      "resource_economy": {
+        "spirit": "primary-spender",
+        "regen_shape": "passive Spirit regen; affixes"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "shockwave AoE radius; Aspect of Glynn's Anvil; Might of the Ursine"
+          ],
+          "economy": [
+            "Tibault's Will ring",
+            "Gathlen's Birthright",
+            "The Basilisk weapon",
+            "Song of the Old Mountain charm set"
+          ],
+          "traits_affixes": [
+            "Earth and Sky/Dominate/Outmatch/Fang and Claw/Spirit paragon glyphs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Form law (§CROSS economy-agnostic): werebear form is permanent/dominant — in-form loop mapped as kit loop. Physical element: no fire/cold/lightning damage language in store; element-neutral. No ailment attested in store. Overpower = self-side burst_window (§C.3): 'shockwave AoE slams off Overpower windows' — Overpower is a SELF-side burst state, not an enemy status. PHASE_MOMENTUM door: werebear form = persistent form identity qualifying per phase-cycling door routing. ZONE_CONTROL: shockwave rolling forward + large AoE is zone-control shaped."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Danger",
+      "title": "Pulverize Druid Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/shifter-pulverize-druid-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "TheSteve",
+      "title": "Pulverize - Druid Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Pulverize Druid'; aliases 'Pulverize Druid D4', 'Pulverize Trample Druid launch'",
+      "anchor_quote": "Pulverize is your main damage Skill... smash monsters with Pulverize",
+      "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Pulverize and Trample; Druid Spirit resource; werebear ground-slam",
+      "anchor_quote": "Pulverize involves melee slams... smashing through packs of enemies with its hard hitting AoE slams... Spirit powers the build.",
+      "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Danger",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+        "anchor_quote": "Created by Danger, identified as a Content Creator",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Glynn's Anvil",
+            "Might of the Ursine"
+          ],
+          "paragon_glyphs": [
+            "Earth and Sky",
+            "Dominate",
+            "Outmatch",
+            "Fang and Claw",
+            "Spirit"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+        "anchor_quote": "Aspects: Aspect of Glynn's Anvil, Might of the Ursine... Paragon Glyphs: Earth and Sky, Dominate, Outmatch, Fang and Claw, Spirit",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "The Basilisk",
+            "Tibault's Will",
+            "Gathlen's Birthright"
+          ],
+          "charm_set": "Song of the Old Mountain"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+        "anchor_quote": "Uniques: The Basilisk (weapon), Tibault's Will (ring), Gathlen's Birthright",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-slam",
+          "footprint": "large-aoe",
+          "note": "werebear ground-slam with shockwave rolling forward; Trample secondary mobility; AoE cone/shockwave footprint"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+        "anchor_quote": "Pulverize involves melee slams... smashing through packs of enemies with its hard hitting AoE slams",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Werebear form Pulverize as primary damage; Trample for mobility; shockwave AoE slams off Overpower windows; Spirit managed via affixes; straightforward close-range slam loop"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+        "anchor_quote": "smash monsters with Pulverize... smashing through packs of enemies with its hard hitting AoE slams",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/pulverize-druid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

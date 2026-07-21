@@ -1,0 +1,226 @@
+{
+  "kit_id": "d3-wave-of-force",
+  "spine": {
+    "kit_id": "d3-wave-of-force",
+    "folk_name": "Wave of Force",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "vanilla;set-era;late-sets",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: no dedicated build identity, non-meta status, DMO indirect multiplier only. Engine maps the skill's raw mechanics — arcane nova with knockback. Chill not attested (slow language absent from anchor_quotes for knockback rune). NEGATIVE confirmed, honest empty-shell adjacent mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: no dedicated build identity, non-meta status, DMO indirect multiplier only. Engine maps the skill's raw mechanics — arcane nova with knockback. Chill not attested (slow language absent from anchor_quotes for knockback rune). NEGATIVE confirmed, honest empty-shell adjacent mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wave of Force",
+          "geometry_value": "ring",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "Self-origin radial wave expanding outward per skill_geometry payload ('Discharge a wave of pure energy' per verify anchor); knockback attested: 'Impactful Wave rune adds knockback' per skill_geometry payload — verify anchor confirms 'Impactful Wave rune adds a 5 second cooldown' and overall WoF description as knockback nova; arcane element → shadow default per crosswalk; 'deals 390% weapon damage as Arcane' per verify anchor attests arcane; arcane→shadow; DMO 6pc provides 12,500% multiplier vs Slow Time enemies per verify anchor CONTRADICTED verdict (falsified-negative — DMO coverage IS attested)"
+        }
+      ],
+      "motion_frame": "Cast Wave of Force as radial AoE knockback nova; use within Slow Time bubble for DMO 12,500% multiplier; niche/non-meta — no dedicated set, utility role in other builds per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Arcane Power; 5-second cooldown per Impactful Wave rune per verify anchor ('Impactful Wave rune adds a 5 second cooldown')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Slow Time placed_lane synergy for DMO multiplier window"
+          ],
+          "economy": [
+            "DMO 6pc 12500% vs Slow Time enemies — multiplier only, scaler-only per §B.1"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FALSIFIED-NEGATIVE: mech_note and verify_ledger confirm ingest-13 ERRATA annotation. The kit IS negative=1 (canon_corpus.negative=1) but the negative canon claim was CONTRADICTED in verify_ledger ('no set multiplier path' falsified by DMO 6pc Slow Time coverage). Map the mechanics honestly per the corrected evidence: DMO provides 12,500% multiplier but WoF has no dedicated set. Arcane attested: 'deals 390% weapon damage as Arcane' — arcane→shadow per default crosswalk row. Knockback attested: 'Impactful Wave rune adds knockback' (verbatim in skill_geometry payload; verify anchor confirms). NEAR-MISS: chill considered for Impactful Wave 'slow' rune description — but 'slow' alone does not attest chill per law row 41 trap note 'chill = slow/cripple movement language.' DMO Slow Time is skill-name = §0.3 collision candidate, but movement-slow is implied semantically; 'slow' not verbatim-contiguous in anchor_quote for chill. Do not emit chill. Single T4 door: no build identity strong enough for second door (non-meta kit)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/wizard-builds",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Wizard Builds for Season 35 / Patch 2.8.0 - Diablo 3",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.diablofans.com/builds/80752-2-4-1-delseres-wave-of-force-build-beginners",
+      "archive_url": null,
+      "site": "diablofans.com",
+      "author_handle": null,
+      "title": "2.4.1 delseres wave of force build beginners",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://eu.diablo3.blizzard.com/en-us/class/wizard/active/wave-of-force",
+      "archive_url": null,
+      "site": "eu.diablo3.blizzard.com",
+      "author_handle": null,
+      "title": "Wave of Force - Game Guide - Diablo III",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wave of Force' and aliases 'Wave of Force Wizard', 'WoF Wizard' are real community usage",
+      "anchor_quote": "Wave of Force is described as a cool but currently underutilized skill. In the beta, it was considered purely a support skill due to its long cooldown.",
+      "source_url": "https://gamefaqs.gamespot.com/boards/738566-diablo-iii-ultimate-evil-edition/75611093",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Wave of Force; radial knockback, cooldown, crowd-control utility",
+      "anchor_quote": "Discharge a wave of pure energy that deals 390% weapon damage as Arcane to nearby enemies. Impactful Wave rune adds \"a 5 second cooldown.\"",
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/wizard/active/wave-of-force",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Wave of Force negative — radial knockback mechanic with cooldown; no set multiplier path across any era; functionally a crowd-control utility that never reached damage-dealing viability",
+      "anchor_quote": "With Delsere's Magnum Opus Set (6 item bonus), enemies affected by Slow Time and 5 seconds afterwards take +12500% increased damage from Wave of Force",
+      "source_url": "https://www.diablofans.com/builds/80752-2-4-1-delseres-wave-of-force-build-beginners",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Delsere's Magnum Opus: +12500% to WoF vs Slow Time enemies. No dedicated WoF 6pc set. No standalone push viability documented."
+        },
+        "source_url": "https://www.diablofans.com/builds/80752-2-4-1-delseres-wave-of-force-build-beginners",
+        "anchor_quote": "delseres wave of force build beginners — 2.4.1 patch era",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "No dedicated class set for Wave of Force exists. DMO set provides indirect multiplier via Slow Time interaction."
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-builds",
+        "anchor_quote": "No Wave of Force build is listed among the current viable options.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin radial",
+          "footprint": "small-radius radial wave",
+          "runes": [
+            "Impactful Wave (knockback+slow)",
+            "Debilitating Force (20% dmg reduction)",
+            "Arcane Attunement",
+            "Static Pulse (Lightning)",
+            "Heat Wave (Fire)"
+          ]
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/wizard/active/wave-of-force",
+        "anchor_quote": "Discharge a wave of pure energy that deals 390% weapon damage as Arcane to nearby enemies.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Wave of Force discharges radial wave dealing Arcane damage and knockback. Delsere's Magnum Opus set (DMO) provides multiplier to WoF vs Slow Time-affected enemies. No dedicated WoF set exists; skill used as utility in other builds."
+        },
+        "source_url": "https://www.diablofans.com/builds/80752-2-4-1-delseres-wave-of-force-build-beginners",
+        "anchor_quote": "With Delsere's Magnum Opus Set, enemies affected by Slow Time and 5 seconds afterwards take +12500% increased damage from Wave of Force",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "DMO Wave of Force (niche, patch 2.4.x era)"
+          ]
+        },
+        "source_url": "https://www.diablofans.com/builds/80752-2-4-1-delseres-wave-of-force-build-beginners",
+        "anchor_quote": "2.4.1 delseres wave of force build beginners",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

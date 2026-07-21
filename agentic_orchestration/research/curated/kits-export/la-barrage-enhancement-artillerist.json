@@ -1,0 +1,216 @@
+{
+  "kit_id": "la-barrage-enhancement-artillerist",
+  "spine": {
+    "kit_id": "la-barrage-enhancement-artillerist",
+    "folk_name": "Barrage Enhancement Artillerist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Barrage Mode is a player-transforms-into-turret mechanic — not a placed totem proxy. The immobile-bombardment shape is the best available geometry but the source player would notice the player-body-as-turret nuance is lost. Economy maps cleanly as accumulate-release. CLOSE not APPROX because the dominant loop (build→burst→exit→repeat) lands correctly; the geometry approximation is delivery texture, not loop identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Barrage Mode is a player-transforms-into-turret mechanic — not a placed totem proxy. The immobile-bombardment shape is the best available geometry but the source player would notice the player-body-as-turret nuance is lost. Economy maps cleanly as accumulate-release. CLOSE not APPROX because the dominant loop (build→burst→exit→repeat) lands correctly; the geometry approximation is delivery texture, not loop identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Normal skills (Barrage Meter generators — Flamethrower, Gravity Explosion, Cluster Bomb, Homing Barrage, Air Raid)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged AoE artillery; no positional requirement; element names (Flamethrower, Gravity Explosion) appear as skill NAMES only — no damage-typing descriptor in store (D4 NAME-ONLY STRIKE)"
+        },
+        {
+          "source_skill": "Barrage Mode skills (Z — identity form; immobile turret stance)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Player immobilizes into turret form; Barrage Enhancement removes Exhaustion penalty on exit; 20% Damage Reduction in Barrage Mode; AoE blasts from fixed position; totem-analog for immobile turret — closest geometry"
+        }
+      ],
+      "motion_frame": "Build full Barrage Meter via normal skill rotation; transform into Barrage Mode (Z) for damage dump; exit without Exhaustion; repeat cycle",
+      "resource_economy": {
+        "barrage_meter": "accumulate via normal skills; release into Barrage Mode transformation; Barrage Enhancement spec removes Exhaustion on exit enabling consistent re-entry; Specialization primary stat drives meter gain and damage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ranged AoE artillery; immobile turret in Barrage Mode"
+          ],
+          "economy": [
+            "barrage_meter accumulate-release; Specialization scales meter gain + damage"
+          ],
+          "traits_affixes": [
+            "Bombardment, Rapid Tank, Sea of Fire, Flashy Attack, Smoldering Strike, Attack (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Barrage Mode is a timed transformation burst_window (entry via Z when meter full; Barrage Enhancement spec removes Exhaustion = consistent re-entry). Geometry_value 'totem' is the closest approximation for immobile-turret form — source player would note it is a player-transformation, not a placed proxy; APPROX-level fidelity on that specific skill but CLOSE overall because the burst-cycle identity maps clearly. No damage-type descriptors in store; Flamethrower/Gravity Explosion are skill names only."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Barrage Enhancement Artillerist Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Bombardment, Rapid Tank, Sea of Fire, Flashy Attack, Smoldering Strike, and Attack are core nodes.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Barrage Enhancement Artillerist — class+identity spec name in real LA community usage",
+      "anchor_quote": "Barrage Enhancement buffs your damage and meter gain while completely removing the exhaustion effect from exiting Barrage.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Removes Exhaustion from exiting Barrage Mode, allowing consistent re-entry for massive burst; Specialization-based; Flamethrower, Air Raid, Cluster Bomb, Homing Barrage as key skills",
+      "anchor_quote": "Your first goal will be to generate a full Barrage meter using the rotation listed below. Once you do, then you transform using Barrage and dump your damage skills, leave form and repeat.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+        "anchor_quote": "Civo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Bombardment",
+            "Rapid Tank",
+            "Sea of Fire",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ],
+          "key_engraving_effect": "Barrage Enhancement: buffs damage and meter gain, completely removes exhaustion from exiting Barrage"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+        "anchor_quote": "Barrage Enhancement buffs your damage and meter gain while completely removing the exhaustion effect from exiting Barrage.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "primary_stat": "Specialization",
+          "notes": "Provides damage benefits across Tier 3 and Tier 4 equipment"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+        "anchor_quote": "Specialization is listed as primary stat goal for bracelets, providing damage benefits across Tier 3 and Tier 4 equipment.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Non-positional; immobile turret in Barrage mode; AoE blasts; high cooldown management demands"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+        "anchor_quote": "20% Damage Reduction in Barrage. Access to Barrage skills.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Generate full Barrage meter with normal skills; transform into Barrage Mode; use Barrage skills to dump damage; exit Barrage (no Exhaustion penalty); repeat; Flamethrower+Gravity Explosion paired; Homing Barrage+Air Raid paired by cooldown"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+        "anchor_quote": "Your first goal will be to generate a full Barrage meter using the rotation listed below. Once you do, then you transform using Barrage and dump your damage skills, leave form and repeat.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Barrage Enhancement (burst, consistent re-entry)"
+          ],
+          "sibling_spec": "Firepower Enhancement Artillerist (different identity loop)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/barrage-enhancement-artillerist-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

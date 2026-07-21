@@ -1,0 +1,184 @@
+{
+  "kit_id": "vs-red-death",
+  "spine": {
+    "kit_id": "vs-red-death",
+    "folk_name": "Red Death / Mask of the Red Death",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-13",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: identity is a movement-speed + orbit-weapon character with no skill rotation. Engine cannot represent the loadout-identity structure. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: identity is a movement-speed + orbit-weapon character with no skill rotation. Engine cannot represent the loadout-identity structure. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Death Spiral",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rotating axe spiral orbit ring around player. Auto-fires continuously. Element = null: VS has no elemental damage-type system; 'Death Spiral' = skill name only, no damage-type descriptor."
+        }
+      ],
+      "motion_frame": "Maximum-speed movement with orbit weapon auto-attacking; kite enemies; Death Spiral orbit ring fires automatically.",
+      "resource_economy": {
+        "ramp_per_s": "+100% base move speed attested — move-speed-as-identity; no mana/resource attested"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS character). Unlock = defeat The Reaper. Identity = maximum-speed orbit character. No rotation. GAPPED: no skill rotation; engine cannot represent defeat-Reaper unlock or the identity of speed + orbit as primary strategy. PHASE_MOMENTUM door fits the movement-speed identity shape loosely."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Red_Death",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Mask of the Red Death - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "Added to the game on 13 February 2022 (Patch 0.2.12).",
+      "source_url": "https://vampire.survivors.wiki/w/Red_Death",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Red Death / Mask of the Red Death — unlock by defeating The Reaper; starts with Death Spiral; +100% move speed",
+      "anchor_quote": "Settle the score with the Reaper by defeating The Reaper enemy.",
+      "source_url": "https://vampire.survivors.wiki/w/Red_Death",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Unlock-trophy economy: slaying Grim Reaper unlocks character; Death Spiral as starting weapon; 100% move speed base stat",
+      "anchor_quote": "Mask of the Red Death starts with... +100% Move Speed.",
+      "source_url": "https://vampire.survivors.wiki/w/Red_Death",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Death Spiral upgrades apply; 100% move speed stacks with all movement bonuses. No unique item interactions stated in fetched text."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Red_Death",
+        "anchor_quote": "Mask of the Red Death starts with... +100% Move Speed.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "ring",
+          "note": "Death Spiral = rotating axe orbit ring around player body. Orbit delivery."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Red_Death",
+        "anchor_quote": "Starting weapon: Death Spiral",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Character kit. Unlock: defeat The Reaper during a run (costs 666 gold post-unlock). Starting weapon: Death Spiral (rotating axe spiral — orbit ring around player). +100% Move Speed base stat. No rotation — the identity is maximum-speed orbit character with Death Spiral auto-firing continuously."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Red_Death",
+        "anchor_quote": "Settle the score with the Reaper by defeating The Reaper enemy.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

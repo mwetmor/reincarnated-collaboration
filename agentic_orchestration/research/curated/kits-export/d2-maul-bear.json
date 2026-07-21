@@ -1,0 +1,223 @@
+{
+  "kit_id": "d2-maul-bear",
+  "spine": {
+    "kit_id": "d2-maul-bear",
+    "folk_name": "Maul Werebear",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Maul",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target melee swing in Werebear form. Each hit stacks additional physical damage and attack speed ('stacking additional Damage and Attack Speed with each blow up to a maximum' — capstone_alterations anchor). Stack ramp: sustain-stack is the steady state, NOT accumulate-then-spend. Physical damage; THE PHYSICAL RULE."
+        },
+        {
+          "source_skill": "Shockwave",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Cone AoE in front of Werebear. 'Shock Wave stuns mobs in a cone in front of the Werebear. Stun length is based on its Skill Level.' — verify_ledger + dossier anchor. Stun attested: legal emission per §0-UNIVERSAL."
+        },
+        {
+          "source_skill": "Werebear (form transform)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent form transform; economy-agnostic (d2 wereforms swap no resource — §CROSS form law). In-form loop is the kit's loop. Form-locked: Maul and Shockwave are in-form skills only."
+        }
+      ],
+      "motion_frame": "Transform to Werebear; attack with Maul to ramp damage-and-speed stacks; use Shockwave cone for CC on dangerous packs; sustain through high HP pool",
+      "resource_economy": {
+        "cost_scale": "on-hit-ramp: Maul stacks build per hit at no additional cost; attested 'on-hit-ramp' corpus econ_raw; economy is the melee engagement cadence"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Lycanthropy synergy (life for Werebear) + Maul synergy (damage/speed per hit) — traits-affixes scaffold lane per §A row 1"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "EXACT: Form law (§CROSS row 3): economy-agnostic, permanent form — map the in-form loop as the kit. Werebear maps as self_buff (form entry); Maul + Shockwave map as in-form primary skills. Stun attested in dossier + verify_ledger anchor: 'Shock Wave stuns mobs in a cone' — §0-UNIVERSAL satisfied. Maul stack ramp: §A row 5 — sustain-stack (stack IS steady state), NOT two-tier-accumulator; NO accrual filing to two-tier-accumulator family. Physical element: null slots per THE PHYSICAL RULE. T4 MOMENTUM_CASCADE: Maul hit-stack ramp is momentum-accumulation identity. PHASE_MOMENTUM: form-entry + sustained momentum texture. Eras: lod and d2r both CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/maul-druid",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Maul Druid Endgame Build Guide Season 14 — Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Maul Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Maul Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Maul Werebear' and aliases 'Maul Bear', 'Werebear Maul Druid', 'Shockwave Bear' are real community usage",
+      "anchor_quote": "Maul Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Werebear, Maul, Shockwave; Maul stacks damage charges per hit; Shockwave for crowd control",
+      "anchor_quote": "Maul swipes at enemies, increasing your Physical Damage and Attack Speed with each successful hit...Shock Wave stuns mobs in a cone in front of the Werebear.",
+      "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "synergies": "Lycanthropy synergizes with Werebear for life; Maul stacks damage and attack speed with each hit up to a maximum",
+          "notes": "Werebear is LoD-only class skill (Druid is LoD expansion class); build not possible in classic Diablo 2"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+        "anchor_quote": "Maul deals a high amount of Physical Damage, stacking additional Damage and Attack Speed with each blow (up to a maximum)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target single with stun cone",
+          "delivery": "melee single-target swing (Maul); Shockwave cone in front of caster (bear form)",
+          "footprint": "single target for Maul; cone AoE for Shockwave",
+          "notes": "Werebear form significantly boosts life pool — defines tank identity"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+        "anchor_quote": "Shock Wave stuns mobs in a cone in front of the Werebear. Stun length is based on its Skill Level.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Transform to Werebear; attack with Maul to build damage-and-speed stacks; use Shockwave for crowd control on dangerous packs; tank identity — sustain through high HP pool; slow heavy swings build momentum"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+        "anchor_quote": "Continuously attack monsters with Maul to build up stacks...Use Shock Wave to Stun dangerous monster packs.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Maul Bear (Maul/Werebear/Lycanthropy maxed)",
+            "Shockwave Bear (Shockwave focus for CC)",
+            "Hybrid Werebear-Summon (bear form + grizzly support)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/maul-druid",
+        "anchor_quote": "A Werebear Druid has the highest possible Life pool in the game",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

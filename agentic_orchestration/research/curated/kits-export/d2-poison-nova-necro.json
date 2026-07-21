@@ -1,0 +1,256 @@
+{
+  "kit_id": "d2-poison-nova-necro",
+  "spine": {
+    "kit_id": "d2-poison-nova-necro",
+    "folk_name": "Poison Nova Necromancer",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Corpse Explosion's corpse-consumer identity loses fidelity — corpse_nodes rider note captures the gap. Immune cleanup via CE has no engine corpse-resource analogue. Engine ring geometry + DoT correctly captures Nova identity. Lower Resist → curse:sap loses the poison-resistance-specific flavor.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:sap",
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Corpse Explosion's corpse-consumer identity loses fidelity — corpse_nodes rider note captures the gap. Immune cleanup via CE has no engine corpse-resource analogue. Engine ring geometry + DoT correctly captures Nova identity. Lower Resist → curse:sap loses the poison-resistance-specific flavor.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poison Nova",
+          "geometry_value": "ring",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Self-origin ring expanding from caster body; covers entire screen at high skill level. DoT damage — 'enemies must linger in zone for full effect.' Dossier anchor: 'you lower res, you Nova, you...wait for Nova to do its thing before novaing again to refresh.'"
+        },
+        {
+          "source_skill": "Lower Resist",
+          "geometry_value": "aura",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Persistent caster-anchored curse reducing enemy poison resistance. Aura/hex shape → curse:sap per main law (aura/hex → curse; hit-proc window → sunder). Dossier: 'lower res' as preparatory cast."
+        },
+        {
+          "source_skill": "Corpse Explosion",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "AoE corpse detonation for non-poison-immune cleanup. Corpse-rider (not corpse-core) — combat verb exists independently; gap noted per §CROSS row 1."
+        }
+      ],
+      "motion_frame": "Apply Lower Resist curse; cast Poison Nova ring from caster body; wait for DoT ticks; refresh Nova; Corpse Explosion for immune cleanup.",
+      "resource_economy": {
+        "cost_scale": "steady-mana",
+        "cost_slope": "flat-per-cast",
+        "corpse_nodes": "corpse-rider — CE uses available corpses but identity is not corpse-harvest core"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ZONE_CONTROL",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "full-screen ring coverage"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Poison Nova synergy scaffold; Bramble/Enigma item items noted"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Shadow element: corruption-themed necro per main-law poison/nature→shadow rule (hot-fact confirmed). Poison ailment attested: dossier 'Poison Nova,' verify_ledger CONFIRMED. Lower Resist curse:sap: aura-anchored persistent debuff, not on-hit window → curse:sap per §CROSS addendum. Corpse Explosion: corpse-rider APPROX — CE is cleanup, not the loop identity; corpse_nodes key populated with rider note per R-M4 (identity-load-bearing: CE is named in core_skills but as secondary). Skeleton army optional support layer noted; not a skill row (pet-GAP would apply if included — appropriately omitted from core loop per dossier). DoT-timing ruling: 'wait for Nova to do its thing' attests cadence/timing, not additional ailment."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/necro-build-poison-nova-t1503529.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "ghostpos",
+      "title": "Necro Build -- Poison Nova",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/gearing-a-poison-nova-necro-t1459573.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "xigua",
+      "title": "Gearing a poison nova necro",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod-1.10+",
+      "anchor_quote": "put 7 points in the curse tree for Lower Resist and 62 points to poison and its prerequisites",
+      "source_url": "https://www.purediablo.com/forums/threads/pvm-poison-necromancer.184452/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r",
+      "anchor_quote": "Meet Thanatos - The Deadly Poison Nova Necromancer!",
+      "source_url": "https://www.purediablo.com/forums/threads/meet-thanatos-the-deadly-poison-nova-necromancer.195146/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Poison Nova Necromancer' or 'PNova Necromancer' is real community usage",
+      "anchor_quote": "You go in, you lower res, you Nova, you...wait for Nova to do its thing before novaing again to refresh",
+      "source_url": "https://diablo2.io/forums/necro-build-poison-nova-t1503529.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Poison Nova, Lower Resist, Corpse Explosion; mana resource",
+      "anchor_quote": "You go in, you lower res, you Nova, you...wait for Nova to do its thing before novaing again to refresh (if one isn't enough yet to kill stuff outright).",
+      "source_url": "https://diablo2.io/forums/necro-build-poison-nova-t1503529.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Schnorki",
+          "site": "diablo2.io",
+          "role": "moderator"
+        },
+        "source_url": "https://diablo2.io/forums/gearing-a-poison-nova-necro-t1459573.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Bramble",
+              "type": "runeword",
+              "effect": "higher poison skill damage bonus"
+            },
+            {
+              "name": "Enigma",
+              "type": "runeword",
+              "effect": "superior mobility via Teleport; more practical over Bramble per community consensus"
+            },
+            {
+              "name": "Trang-Oul's set",
+              "type": "set",
+              "effect": "three-piece discount option — poison resist and set bonuses"
+            }
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/gearing-a-poison-nova-necro-t1459573.html",
+        "anchor_quote": "Bramble is stronger, but Enigma is WAY more practical. Matter of taste",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "ring",
+          "notes": "Poison Nova expands as complete ring from player body; covers entire screen at high skill level. DoT damage — enemies must linger in zone for full effect."
+        },
+        "source_url": "https://diablo2.io/forums/necro-build-poison-nova-t1503529.html",
+        "anchor_quote": "you lower res, you Nova, you...wait for Nova to do its thing",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Apply Lower Resist curse to reduce enemy poison resistance; cast Poison Nova ring from caster body; wait for DoT ticks; repeat Nova to refresh on tough targets. Corpse Explosion for non-poison-immune cleanup. Skeleton army optional support layer.",
+          "source_note": "diablo2.io poison nova thread + gearing thread"
+        },
+        "source_url": "https://diablo2.io/forums/necro-build-poison-nova-t1503529.html",
+        "anchor_quote": "You go in, you lower res, you Nova, you...wait for Nova to do its thing before novaing again to refresh",
+        "abstained": 0,
+        "conf": 0.89
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "kit_id": "la-communication-overflow-summoner",
+  "spine": {
+    "kit_id": "la-communication-overflow-summoner",
+    "folk_name": "Communication Overflow Summoner",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/summoner",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner deferral: companion-as-primary-damage-source with player as uptime/buff manager has no solo-combat engine loop analog. Akir-as-buff mechanic verdict is UNSUPPORTED. Empty projection per §E.2 empty-projection convention. Not 'that build, worse' — genuinely outside the current engine combat loop.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner deferral: companion-as-primary-damage-source with player as uptime/buff manager has no solo-combat engine loop analog. Akir-as-buff mechanic verdict is UNSUPPORTED. Empty projection per §E.2 empty-projection convention. Not 'that build, worse' — genuinely outside the current engine combat loop.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": null,
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-core summoner deferral per hot-fact + addendum §E.3. verify_ledger mechanics verdict: UNSUPPORTED ('Turns Akir summon from damaging skill into buff for normal summons; companions deal consistent damage' — no anchor_quote). The attested identity is: pets (Pauru, Maririn, Shurdi, Igna) move with player, Ancient Orbs build to Akir Burst activation; but the core mechanic claim (Akir-as-buff to normal summons) is UNSUPPORTED. Empty-projection convention applies: skill[] empty, economy empty, motion_frame null. Only what the store attests: Ancient Orb accumulation to Elemental Burst (Z) at 5/6/7 orbs; pet companions active; Swiftness keeps cooldowns low. Mapped only what the dossier attests (hot-fact law). Pet-core → GAPPED per addendum §E.3 (summoner-deferral class)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Communication Overflow Summoner Raid Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/tierlists/community-class-tier-list-february-2025",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-community",
+      "title": "Community Class Tier List - February 2025",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Elemental Entwinement: Destiny proc grants a buff that increases all your non-positional damage.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Communication Overflow Summoner — class+identity spec name in real LA community usage",
+      "anchor_quote": "Elemental Burst changes Akir into Akir Burst, which can be used at 5, 6 or 7 Ancient Orbs.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Turns Akir summon from damaging skill into buff for normal summons; companions deal consistent damage through enemy engagement; reliable uptime-focused summoner",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+        "anchor_quote": "Sekwah",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Elemental Entwinement"
+          ],
+          "node_effect": "Destiny proc grants buff that increases all non-positional damage"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+        "anchor_quote": "Elemental Entwinement: Destiny proc grants a buff that increases all your non-positional damage.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "primary_stat": "Swiftness",
+          "notes": "Low cooldowns via Swiftness keep pets active"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+        "anchor_quote": "With her preferred stat being Swiftness, her cooldowns are low which means your pets are most of the time.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Non-positional per Ark Passive node reference; pets mobile and follow player; Osh costs 3 Orbs (Destruction + low damage); Alimaji costs 4 Orbs (Destruction + Stagger + decent damage)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+        "anchor_quote": "Osh: Costs 3 Orbs. Deals Destruction and low damage. Alimaji: Costs 4 Orbs. Deals Destruction, Stagger and decent damage.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Build Ancient Orbs to activate Elemental Burst (Akir Burst at 5/6/7 Orbs); companions (Pauru, Maririn, Shurdi, Igna) move with player and deal sustained damage; low cooldowns via Swiftness keep pets active most of the time"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/communication-overflow-summoner-raid-build-guide",
+        "anchor_quote": "Elemental Burst changes Akir into Akir Burst, which can be used at 5, 6 or 7 Ancient Orbs. Pauru, Maririn, Shurdi and Igna move around with you.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Communication Overflow (pet buff/uptime, Akir Burst as buff identity)"
+          ],
+          "sibling_spec": "Master Summoner (A-tier Feb 2025 vs CO's D-tier — likely the dominant summoner spec)",
+          "meta_note": "D-Tier in Feb 2025 community tier list — sole lowest-ranked build"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/tierlists/community-class-tier-list-february-2025",
+        "anchor_quote": "Communication Overflow Summoner: D Tier",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

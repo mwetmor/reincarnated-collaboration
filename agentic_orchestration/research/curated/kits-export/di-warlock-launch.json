@@ -1,0 +1,238 @@
+{
+  "kit_id": "di-warlock-launch",
+  "spine": {
+    "kit_id": "di-warlock-launch",
+    "folk_name": "Warlock (launch state)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-5.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element unattested from store (null emitted despite shadow-register theme). Soulgorger permanent companion = pet-rider gap (autonomous combatant, no engine lane). Hybrid summoner+caster identity approximated — source player running pure-caster variant would miss demon-horde flavor. Post-cutoff confidence cap.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element unattested from store (null emitted despite shadow-register theme). Soulgorger permanent companion = pet-rider gap (autonomous combatant, no engine lane). Hybrid summoner+caster identity approximated — source player running pure-caster variant would miss demon-horde flavor. Post-cutoff confidence cap.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hellfire Bolt",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ultimate 'rain of meteors' — at-target large AoE impact. Skill/rune name only in store ('Hellfire Bolt' / 'rain of meteors') — no element-damage verb; element null per MW4 name-only law."
+        },
+        {
+          "source_skill": "Soulgorger (companion)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent demon companion from lv1; Warp Strike (teleport to target) at lv15. Autonomous combatant — pet-rider gap per summoner-deferral law. Mapped as totem-proxy (closest geometry to placed active companion) with gap note."
+        },
+        {
+          "source_skill": "Spiteful Sacrifice (via The Dark Trade)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "Item-defined (The Dark Trade): 'Spiteful Sacrifice Critical Hits drain a portion of your current Life.' drain attested from item_alterations anchor. hp-cost identity on crit."
+        }
+      ],
+      "motion_frame": "Soulgorger permanent companion + demon horde temporary summons; magic casting (Hellfire Bolt) as caster-primary option; health-sacrifice loop via Dark Trade",
+      "resource_economy": {
+        "cooldown": "primary-gate",
+        "hp_cost_scale": 0.1
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-crit",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Post-cutoff class (DI 5.0 2026); conf ≤0.50 per corpus. Cooldown-only class confirmed per verify_ledger CONTRADICTED anchor 'There are no resource builders or spenders (only cooldowns).' Element: elem_raw=shadow is corpus-only; no anchor-quote attests shadow damage verb; element null emitted per THE PHYSICAL/neutral rule. drain attested from item_alterations anchor ('drain a portion of your current Life'). Soulgorger permanent companion = autonomous combatant (pet-rider gap); kit is hybrid not summoner-core — caster-primary variant is viable per store. Accrual: placed-proxy-count family (Soulgorger + temporary demon horde). hp_cost_scale is set to indicative 0.1 (notional; exact fraction not attested — fidelity note pending exact source)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+      "archive_url": null,
+      "site": "mmorpg.com",
+      "author_handle": null,
+      "title": "Diablo Immortal: Hands-On Preview of the ARPG's Warlock Class",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://comicbook.com/gaming/news/diablo-immortal-confirms-release-date-for-its-warlock-class-major-5-0-update/",
+      "archive_url": null,
+      "site": "comicbook.com",
+      "author_handle": null,
+      "title": "Diablo Immortal Confirms Release Date for Its Warlock Class & Major 5.0 Update",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/article/24277443/introducing-diablo-immortals-newest-class-warlock",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Introducing Diablo Immortal's Newest Class: Warlock",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-5.0-2026",
+      "anchor_quote": "The Warlock launches as the game's 10th class via the 'Bloodied Jewel 5.0 patch.'",
+      "source_url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Warlock (launch state)' and aliases 'Warlock DI launch', 'Vizjerei Warlock DI', 'Soulgorger Warlock DI' are real community usage",
+      "anchor_quote": "The Warlock launches as the game's 10th class via the 'Bloodied Jewel 5.0 patch.'",
+      "source_url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills: Vizjerei spell suite(TBD), Soulgorger demon(TBD); Warlock resource Shadow",
+      "anchor_quote": "There are no resource builders or spenders (only cooldowns).",
+      "source_url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "legendaries": [
+            "The Dark Trade (Spiteful Sacrifice critical hits drain current Life)"
+          ],
+          "notes": "Health-cost items confirmed from Blizzard official post. Additional legendary items not fetched in detail."
+        },
+        "source_url": "https://news.blizzard.com/en-us/article/24277443/introducing-diablo-immortals-newest-class-warlock",
+        "anchor_quote": "Spiteful Sacrifice's Critical Hits drain a portion of your current Life",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin summon + at-target magic abilities",
+          "footprint": "mixed: summons spread (large-zone from demon horde), Hellfire Bolt at-target rain-of-meteors",
+          "notes": "Soulgorger has Warp Strike (teleport to target). Warlock itself is ranged caster. Demon horde disperses around combat zone."
+        },
+        "source_url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+        "anchor_quote": "Soulgorger demon companion available from Level 1",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Warlock is hybrid summoner + magic caster. Permanent Soulgorger demon companion (passive, lv1 — Warp Strike teleport at lv15, health sacrifice heals). Temporary summons via Demonic Portal (Bloodlord/Warriors/Rasplet Hulk), Demonic Pact (Twisted Shaman), Lunatic Rush (Fallen Lunatic). Magic: Hellfire Bolt (ultimate rain of meteors), Infernal Eruption, Devouring Darkness, Tyrant's Grasp, Brimstone Gateway. Health-cost mechanics on select skills (Devouring Darkness, Demonic Pact, Spiteful Sacrifice via The Dark Trade). No named resource — cooldown only.",
+          "core_combo": "Soulgorger permanent companion + demon horde summons; optional: sacrifice demons to power Soulgorger",
+          "no_resource_note": "Confirmed: 'There are no resource builders or spenders (only cooldowns).'"
+        },
+        "source_url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+        "anchor_quote": "There are no resource builders or spenders (only cooldowns).",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Summoner-primary (demon horde + Soulgorger sacrifice)",
+            "Caster-primary (Hellfire Bolt + magic skills — 'viable builds using only casting anticipated')",
+            "Hybrid summon+cast"
+          ],
+          "notes": "Three variants implied from MMORPG hands-on preview."
+        },
+        "source_url": "https://www.mmorpg.com/previews/diablo-immortal-hands-on-preview-of-the-arpgs-warlock-class-2000138298",
+        "anchor_quote": "viable builds using only casting are anticipated",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "kit_id": "chr-pet-warden",
+  "spine": {
+    "kit_id": "chr-pet-warden",
+    "folk_name": "Pet Zoo Warden",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "1.0-2020;ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Companion-core identity (pets do most damage); no player-direct-damage primary loop; diverse pet zoo with per-type behavior = unrepresentable in current engine; summoner-deferral applies",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Companion-core identity (pets do most damage); no player-direct-damage primary loop; diverse pet zoo with per-type behavior = unrepresentable in current engine; summoner-deferral applies",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Pet command (wolf / wisp / spiderling / demon / imp / eye / sandworm)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Player commands diverse pet zoo; pets attack from all positions filling combat zone; 'companions will be doing most of our damage'; physical base (All for One set 2k+ physical damage); Wolftooth Necklace 'infinitely stacking bleed effect' attested → bleed ailment; pets are following companions (not placed) but pet-core = GAPPED; Wolfcaster variant links Ice Shard cast but pet IS the identity"
+        }
+      ],
+      "motion_frame": "Maintain diverse companion zoo; pets autonomously fill combat zone; player casts support commands; Mana dump strategy for scaling",
+      "resource_economy": {
+        "cost_type": "focus",
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "COMPANION_CONTRACT"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Mana dump scaling strategy"
+          ],
+          "traits_affixes": [
+            "All for One set (2k+ physical)",
+            "Bond set",
+            "Master's Command set",
+            "Wolfcaster rune",
+            "Wolftooth Necklace (bleed stacking)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: companion-core identity; pets do 'most of our damage'; player damage loop absent. Physical base (no family); bleed attested via Wolftooth Necklace 'infinitely stacking bleed effect' anchor. Pet zoo diversity (7 pet types) is the identity mechanic — unrepresentable without companion-count and per-pet behavior spec. Wolfcaster variant adds Ice Shard player-cast but pet remains primary damage. Companion-count accrual candidate."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "MINION-PET",
+    "group_intent_rationale": "movement=full-move · amp=flat · treatment=damage · function=taunt · economy=reserve · proxy=heavy · tempo=med · commit=instant · activation=active · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2755611415",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Warden Wolf Posse build [v1.31.1]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/0/2913220877920550081/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Pet Warden — Chronicon General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: 1.0-2020, ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "[1.0] Just a Warden Summoner Build",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/5/4625714282760348460/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Pet Zoo Warden — class=Warden, build=maximum companion diversity (wolf, wisp, companions)",
+      "anchor_quote": "This build is a companion build, as such companions will be doing most of our damage",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2755611415",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Wolf pack, wisp, companion pets; physical damage base; heavy proxy; dodge defense; DLC prov reduces conf slightly",
+      "anchor_quote": "i got around 1200% companion damage ... All for One set for 2k+ percent physical damage",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/2913220877920550081/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery": "dump mastery points into Mana for damage scaling (Mana Package strategy)"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2755611415",
+        "anchor_quote": "dump all extra mastery points into Mana",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "Bond set",
+            "Summoners Garb",
+            "Master's Command set (90% DR companions + elite)",
+            "All for One set (2k+ physical damage)"
+          ],
+          "runes": [
+            "Wolfcaster rune",
+            "Wolftooth Necklace lesser rune",
+            "Bloodscent lesser rune",
+            "Advancing Army rune"
+          ],
+          "necklace": "Wolftooth Necklace (doubles wolf damage, infinite stacking bleed)"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2755611415",
+        "anchor_quote": "Wolftooth Necklace rune doubles wolf damage and gives them an infinitely stacking bleed effect",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "command_origin": "self-origin (player commands pets)",
+          "coverage": "large zone (mixed pet army covers entire combat area)",
+          "pet_types": [
+            "wolf/Alpha Wolf",
+            "wisps",
+            "spiderlings",
+            "demons",
+            "imps",
+            "eyes",
+            "Sandworm (Thumper rune)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/2913220877920550081/",
+        "anchor_quote": "wolves ... wisps ... Spiderlings ... Demons ... Imps ... Eyes ... Sandworm",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Maintain diverse zoo of pets (wolves, wisps, spiderlings, demons, imps, eyes) via reserve Focus/mana; pets attack from all positions filling combat zone; Wolfcaster rune links wolf damage to Ice Shard cast; Gaia item gives +20% damage per companion stacking"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2755611415",
+        "anchor_quote": "This build is a companion build, as such companions will be doing most of our damage ... Gaia provides a +20% damage increase per companion",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pet Zoo (maximum diversity — wolf+wisp+misc)",
+            "Wolfcaster (wolf-primary + Ice Shard cast support)",
+            "Wolf Posse (wolf-focused v1.31.1)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2755611415",
+        "anchor_quote": "Wolfcaster Warden ... 26 companions ... companion build",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

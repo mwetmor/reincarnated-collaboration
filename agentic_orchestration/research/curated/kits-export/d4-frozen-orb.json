@@ -1,0 +1,236 @@
+{
+  "kit_id": "d4-frozen-orb",
+  "spine": {
+    "kit_id": "d4-frozen-orb",
+    "folk_name": "Frozen Orb Sorcerer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null and ailment null per MW3 BINDING: 'Frozen Orb' skill name alone does not attest water/freeze; no verbatim cold-damage or freeze-status language in any anchor_quote. Player would miss the entire cold/ice identity — the most significant deviation in this batch. Projectile-shatter delivery shape preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null and ailment null per MW3 BINDING: 'Frozen Orb' skill name alone does not attest water/freeze; no verbatim cold-damage or freeze-status language in any anchor_quote. Player would miss the entire cold/ice identity — the most significant deviation in this batch. Projectile-shatter delivery shape preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frozen Orb",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile travels set distance then explodes into radial bolt spray per skill_geometry payload: 'Orb travels forward then detonates into radial bolt/Ice Spike spray'; verify identity: 'Frozen Orb projectile travels then shatters into radial bolt spray'; 'terrain-destructible projectile; shatter footprint is radial multi-spawn' per skill_geometry payload; element null: MW3 BINDING — 'Frozen Orb' the NAME alone does not attest freeze/water; no verbatim 'cold damage', 'frost damage', 'ice damage', 'freeze', 'chill' damage-type language in any anchor_quote (skill names 'Ice Spikes', 'Frozen Orb', 'Azurewrath' are name-class); ailment null: no freeze/chill status word verbatim in any anchor"
+        },
+        {
+          "source_skill": "Ice Spikes (shatter payload)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'orb travels set distance then explodes releasing Ice Spikes' per skill_loop payload; 'Ice Spike scaling is core damage source in current meta' per skill_loop payload; Ice Spikes = radial bolt spray on Frozen Orb detonation; element null (skill name 'Ice Spikes' alone inadmissible per MW3 rule)"
+        }
+      ],
+      "motion_frame": "Cast Frozen Orb as primary Mana spender; orb travels set distance then explodes releasing Ice Spikes; Berú of Threefold auto-casts all Mastery skills per capstone anchor; Ice Spike scaling is core damage source per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Mana (Sorcerer class resource; verify mechanics: 'suffers due to being changed in the recent Expansion to force it to travel a set distance before exploding' — travel-distance change is the mechanic change, not resource; class resource = Mana per chain-lightning kit class attestation)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Berú of Threefold auto-casts all Mastery skills with 5-Set bonus per capstone anchor (item-defined-archetype trigger rider)"
+          ],
+          "economy": [
+            "Tibault's Will (scaler-only)",
+            "Esu's Heirloom (scaler-only)",
+            "Raiment of the Infinite (mythic: economy-warping scaler per item_alterations anchor)"
+          ],
+          "traits_affixes": [
+            "Rustbitten Dirk (scaler-only)",
+            "Azurewrath charm (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MW3 BINDING: 'Frozen Orb' the skill NAME alone does not attest freeze/water — element null and ailment null per the standing amendment. This is the kit where MW3 law was specifically articulated for the frozen-orb case. Verbatim audit of all anchor_quotes: no 'cold damage', 'frost damage', 'ice damage', 'chill', 'freeze', 'freezes', 'frozen targets' language as a damage verb; 'Frozen Orb projectile travels then shatters' (identity anchor) — 'Frozen Orb' is the skill name; 'Ice Spike scaling is core damage source' (skill_loop) — 'Ice Spike' is a skill name; 'The D2 heirloom in D4 clothes' (variants) — lineage note, no element attestation. ALL element-language comes from skill names only. No ailment token emitted. APPROX: player would miss the entire water/cold/freeze identity — this is a significant deviation. R-M7 test: 'that build, worse' (cold/freeze are core feel) but the damage delivery shape maps correctly. APPROX grade."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "pandaglassjaw",
+      "title": "Frozen Orb Sorcerer Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in voh-s6+",
+      "anchor_quote": "Frozen Orb Sorcerer Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Frozen Orb Sorcerer; aliases Frozen Orb Sorc D4, Frozen Orb Sorcerer D4 are real community usage",
+      "anchor_quote": "Frozen Orb projectile travels then shatters into radial bolt spray",
+      "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Frozen Orb; resource Mana; projectile travels and sprays radial bolts on shatter",
+      "anchor_quote": "suffers due to being changed in the recent Expansion to force it to travel a set distance before exploding",
+      "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "pandaglassjaw",
+          "site": "maxroll.gg",
+          "co_author": null
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [],
+          "uniques": [
+            "Raiment of the Infinite",
+            "Esu's Heirloom",
+            "Tibault's Will",
+            "Rustbitten Dirk"
+          ],
+          "charm_set": [
+            "Berú of the Threefold"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+        "anchor_quote": "Berú of the Threefold charm set, which automatically casts all of your Mastery skills with the 5-Set bonus",
+        "abstained": 0,
+        "conf": 0.77
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Raiment of the Infinite",
+            "Esu's Heirloom",
+            "Tibault's Will",
+            "Azurewrath charm",
+            "Rustbitten Dirk",
+            "Berú of the Threefold"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+        "anchor_quote": "Raiment of the Infinite (mythic priority #1)",
+        "abstained": 0,
+        "conf": 0.79
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "multi-point",
+          "notes": "Orb travels forward then detonates into radial bolt/Ice Spike spray; terrain-destructible projectile; shatter footprint is radial multi-spawn"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+        "anchor_quote": "frozen projectiles are destroyed by terrain without a final explosion, necessitating careful positioning",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Frozen Orb as primary spender (Mana); orb travels set distance then explodes releasing Ice Spikes; Berú of Threefold auto-casts all Mastery skills; Ice Spike scaling is core damage source in current meta",
+          "rotation_style": "projectile_shatter"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+        "anchor_quote": "suffers due to being changed in the recent Expansion to force it to travel a set distance before exploding",
+        "abstained": 0,
+        "conf": 0.81
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "D2-lineage skill in D4; VoH expansion forced travel-distance change removing point-blank detonation; Ice Spike variant is current endgame configuration"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/frozen-orb-sorcerer-guide",
+        "anchor_quote": "The D2 heirloom in D4 clothes",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

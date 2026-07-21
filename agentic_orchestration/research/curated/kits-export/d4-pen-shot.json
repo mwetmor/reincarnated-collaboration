@@ -1,0 +1,237 @@
+{
+  "kit_id": "d4-pen-shot",
+  "spine": {
+    "kit_id": "d4-pen-shot",
+    "folk_name": "Penetrating Shot Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold/Poison variant duality cannot be fully captured in one row; primary line-pierce form mapped, variants in fidelity. Boomerang bounce (Eaglehorn) is a delivery variant that changes the loop feel significantly — noted but not mapped as alternate geometry per variant-scope law.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold/Poison variant duality cannot be fully captured in one row; primary line-pierce form mapped, variants in fidelity. Boomerang bounce (Eaglehorn) is a delivery variant that changes the loop feel significantly — noted but not mapped as alternate geometry per variant-scope law.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Penetrating Shot",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "single piercing arrow travels through enemies in a line; Eaglehorn variant bounces off walls and returns like a boomerang (ricochet_bounce delivery); two delivery shapes by variant"
+        },
+        {
+          "source_skill": "Shadow Clone",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "provides Unstoppable and damage boost; utility shadow skill on cooldown"
+        }
+      ],
+      "motion_frame": "Spam Penetrating Shot as primary; Dash and Shadow Step for mobility; Shadow Clone for Unstoppable; Eaglehorn boomerang variant adds wall-bounce",
+      "resource_economy": {
+        "energy": "primary-spender",
+        "regen_shape": "passive+resource aspects on rings"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Heartseeker trigger via Nilfur's Narrow Eye (3 triggers per Pen Shot)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Eaglehorn ricochet/boomerang bounce",
+            "Aspect of Imitated Imbuement",
+            "Nilfur's Narrow Eye 3x Heartseeker trigger"
+          ],
+          "economy": [
+            "Combo Points specialization",
+            "Etna's Lost Dagger",
+            "The Sightless Set"
+          ],
+          "traits_affixes": [
+            "Lucky Hit Chance bonuses (Combo Points specialization)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Line geometry per phrase-book (straight-line pierce). Eaglehorn ricochet_bounce is an item-defined delivery variant: fidelity noted. Cold variant references 'Shadow/Freeze' — 'Freeze' appears in variants payload but only as a variant label, not as fetched damage/behavior language for the primary Cold kit form; freeze not emitted per MW3 element/ailment law (skill/variant-NAME is never an ailment ground). Physical element for Penetrating Shot: no damage-type language; element-neutral. Shadow Clone = shadow per element table (shadow/dark). mark_identity: Nilfur's Narrow Eye triggers Heartseeker 3x per Pen Shot — mark-and-trigger rider; mapped in trigger_grammar mark_identity as item-level trigger rider. [STEWARD-AUDIT 2026-07-18 MW4-close: Shadow Clone: shadow name-only utility (\"shadow clone for unstoppable and damage boost\" = buff/utility, not shadow damage)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Mattias",
+      "title": "Penetrating Shot Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": "Penetrating Shot Rogue Endgame Build Guide... Season 14 - Death Awakening Last Updated: July 11, 2026",
+      "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Penetrating Shot Rogue'; aliases 'Penetrating Shot Rogue D4', 'Pen Shot Rogue'",
+      "anchor_quote": "Penetrating Shot Rogue Endgame Build... Pen Shot Rogue",
+      "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Penetrating Shot; piercing line shot; Rogue Energy resource",
+      "anchor_quote": "If you're struggling with Energy Generation, dedicate one or two of your rings to any resource aspect... cover your entire screen in projectiles",
+      "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Mattias",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+        "anchor_quote": "Content Creator Mattias (with social media links to YouTube, Twitch, and X)",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Imitated Imbuement"
+          ],
+          "note": "Combo Points specialization preferred for damage and Lucky Hit Chance bonuses; Nilfur's Narrow Eye Charm Set triggers Heartseeker 3 times per Penetrating Shot"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+        "anchor_quote": "Combo Points is the preferred Specialization for the Penetrating Shot Rogue... Nilfur's Narrow Eye Charm Set automatically triggers Heartseeker 3 times",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Eaglehorn",
+            "Etna's Lost Dagger"
+          ],
+          "charm_set": "The Sightless Set"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+        "anchor_quote": "Essential items include: Eaglehorn (Mythic weapon)... Etna's Lost Dagger... The Sightless Set",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-piercing",
+          "footprint": "lane",
+          "note": "single piercing arrow that travels through enemies in a line; Eaglehorn variant bounces off walls and returns like a boomerang"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+        "anchor_quote": "Eaglehorn not only bounces off walls, but it automatically returns like a boomerang",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Penetrating Shot as primary attack; Shadow Clone for Unstoppable and damage boost; Dash and Shadow Step for mobility between packs; Eaglehorn bounces create boomerang effect; choose Cold (speedfarm) or Poison (bossing) variant"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+        "anchor_quote": "Dash and Shadow Step between packs of monsters, use Shadow Clone to become Unstoppable... Attack with Penetrating Shot as much as possible.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Cold (speedfarm — Shadow/Freeze)",
+            "Poison (bossing — Ballista)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/penetrating-shot-rogue-guide",
+        "anchor_quote": "Cold variant is better for speedfarming, and Poison is better for bossing",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

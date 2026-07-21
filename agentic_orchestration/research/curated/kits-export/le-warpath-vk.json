@@ -1,0 +1,295 @@
+{
+  "kit_id": "le-warpath-vk",
+  "spine": {
+    "kit_id": "le-warpath-vk",
+    "folk_name": "Warpath Void Knight",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.1-harbingers;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/spin",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Void Essence -> Void Well sub-resource feedback compressed into regen_shape note; auto-cast-on-move nearest-mapped (AUTOCAST_ON_MOVE token); Anomaly/Symbols buff-layer texture thinned. Core loop (move-while-spinning tick-drain field + orbiting orb + ramp) maps near-natively -- that build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Void Essence -> Void Well sub-resource feedback compressed into regen_shape note; auto-cast-on-move nearest-mapped (AUTOCAST_ON_MOVE token); Anomaly/Symbols buff-layer texture thinned. Core loop (move-while-spinning tick-drain field + orbiting orb + ramp) maps near-natively -- that build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Warpath",
+          "geometry_value": "whirlwind",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spin-to-win channel while moving freely ('Unleash the Spin-to-Win playstyle'); phrase-book direct hit. Radius RAMPS while channeling: 'Stay spinning to increase your Damage and AoE until Warpath almost covers the whole screen' (Warrior's Fury ramp). Void -> shadow per main-law 1 (LE void row)."
+        },
+        {
+          "source_skill": "Devouring Orb",
+          "geometry_value": "orbit",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Devouring Orb orbits at larger radius' -- true orbit token (R-M6 drift-tick circle rule considered, not applicable: fetched language attests orbiting, not drifting). Auto-cast by movement: 'Always keep moving to auto-cast Devouring Orb'; feeds Void Essence to the Void Well passive (economy loop)."
+        },
+        {
+          "source_skill": "Abyssal Echoes",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Abyssal Echoes adds void patches' -- pool/patch phrase-book row; buff-granting secondary per capstone ('Devouring Orb, Anomaly, Symbols of Hope and Abyssal Echoes grant powerful buffs')."
+        }
+      ],
+      "motion_frame": "channel Warpath and keep walking (mana drains per second) -> damage/AoE ramp toward screen-size -> Devouring Orb auto-casts from movement, orbiting and feeding Void Essence -> Void Well + mana stacking sustain the drain -> never stop spinning",
+      "resource_economy": {
+        "resource": "mana",
+        "persistent_condition_shape": "tick-cost ('Warpath costs more Mana every second' -- verbatim-confirmed channel drain)",
+        "cost_slope": "escalating per-second cost; sustained only via 'the Void Well Passive and Mana stacking'",
+        "regen_shape": "Devouring Orb -> Void Essence -> activates Void Well (sub-resource feedback loop compressed here; 'Devouring Orb is your main source of Void Essence to activate Void Well')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked (nearest apply-event for auto-cast-while-moving; greppable: AUTOCAST_ON_MOVE -- movement-condition trigger has no native enum)",
+        "mark_identity": "Mark of Rot (Anomaly, boss-application -- name + application fetched, payload unfetched: contributes structure only per 0.4)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Void Well passive (mandatory when Warrior's Fury allocated)",
+            "World Splitter ('provides a lot of Mana and Damage')",
+            "Anomaly Time Bubble sustain"
+          ],
+          "traits_affixes": [
+            "Warrior's Fury (AoE/damage ramp)",
+            "Siphon of Anguish / Shattered Chains / Anchor of Oblivion / Nihilis (affix lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "POST-W2 cascade-pin check performed: no on-kill propagation fetched -> _cascade rejected; dominant loop verified against dossier = walking-damage-field uptime maintenance (stay spinning, ramp, sustain the drain) -> PERSISTENCE_ENGINE_uptime primary door (RF-class exemplar per pin); MOMENTUM_CASCADE second door for the Warrior's Fury while-spinning ramp. Probe 'Void / Physical' secondary is probe-class -> physical secondary not fetched, and physical would be null anyway (PHYSICAL RULE). Probe 'void-corruption' ailment = probe-class, ILLEGAL -> no ailment; near-miss: none named in fetched text (Mark of Rot is a mark name, not a registry status -- name-collision guard 0.4). Devouring-Orb-primary build is a listed VARIANT (orb-primary Maxroll guide) -> stays variant-scoped; this kit maps the Warpath-dominant loop (7.2)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-staff",
+      "title": "Warpath Void Knight Guide for Last Epoch Season 4 | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/echo-warpath-void-knight-build-0-8-3b/43691",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "unknown-op",
+      "title": "Echo Warpath Void Knight Build 0.8.3B - Sentinel - Last Epoch Forums",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/dual-wield-warpath-void-knight-0-8-1e-build-suggestions/35198",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "unknown-op",
+      "title": "Dual Wield Warpath Void Knight 0.8.1E Build Suggestions - Sentinel - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Dual Wield Warpath Void Knight 0.8.1E Build Suggestions ... 1 to 75 Leveling Guide Void Knight with Void Warpath 0.8.3C",
+      "source_url": "https://forum.lastepoch.com/t/dual-wield-warpath-void-knight-0-8-1e-build-suggestions/35198",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Warpath Void Knight Guide for Last Epoch Season 4 | Maxroll.gg ... Season 4 - Shattered Omens ... April 27, 2026",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": "Warpath Void Knight Guide for Last Epoch Season 4 | Maxroll.gg [continuous guide presence across seasons confirmed]",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Season 4 - Shattered Omens ... last update April 27, 2026 ... Stay spinning to increase your Damage and AoE until Warpath almost covers the whole screen",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Warpath Void Knight' and aliases 'Warpath VK', 'Devouring Orb Warpath VK', 'void spin Void Knight' are real community usage.",
+      "anchor_quote": "Warpath Void Knight Guide for Last Epoch Season 4 | Maxroll.gg ... Unleash the Spin-to-Win playstyle with this build!",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Warpath (channel spin), Devouring Orb. Mana drains per tick while channeling.",
+      "anchor_quote": "Warpath costs more Mana every second, but thanks to the Void Well Passive and Mana stacking, you're able to stay spinning ... Devouring Orb is your main source of Void Essence to activate Void Well.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "maxroll-staff",
+          "site": "maxroll.gg",
+          "role": "Season 4 guide author"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+        "anchor_quote": "Warpath Void Knight Guide for Last Epoch Season 4 | Maxroll.gg",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_keystones": [
+            "Void Well (mandatory when Warrior's Fury allocated)",
+            "Warrior's Fury (AoE/damage ramp)"
+          ],
+          "secondary_skills": [
+            "Devouring Orb",
+            "Anomaly",
+            "Symbols of Hope",
+            "Abyssal Echoes"
+          ],
+          "notes": "Anomaly provides Mark of Rot on bosses. Anomaly's Time Bubble is a key sustain mechanic."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+        "anchor_quote": "Devouring Orb, Anomaly, Symbols of Hope and Abyssal Echoes grant powerful buffs",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "World Splitter",
+            "Siphon of Anguish",
+            "Shattered Chains",
+            "Anchor of Oblivion",
+            "Nihilis",
+            "Immortal Vise (Uber Aberroth)",
+            "Wings of Argentus"
+          ],
+          "notes": "World Splitter recommended for Mana + Damage. Nihilis appears as top-end power item."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+        "anchor_quote": "World Splitter is recommended, as it provides a lot of Mana and Damage ... Siphon of Anguish, Shattered Chains, Anchor of Oblivion and Nihilis",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary_geometry": "self-origin AoE spin (player is AoE center, moves freely)",
+          "range": "small-radius scaling to near-screen via Warrior's Fury",
+          "aoe_shape": "expanding radius around player while channeling",
+          "secondary": "Devouring Orb orbits at larger radius; Abyssal Echoes adds void patches"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+        "anchor_quote": "Stay spinning to increase your Damage and AoE until Warpath almost covers the whole screen",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Warpath (continuous spin) while moving freely. Mana drains per second; Void Well passive + Mana stacking sustains channel. Warrior's Fury ramps damage/AoE while spinning. Always keep moving to auto-cast Devouring Orb. Devouring Orb provides Void Essence feeding Void Well passive.",
+          "resource": "Mana (reserve drain while channeling)",
+          "loop_type": "channel-move-spin"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+        "anchor_quote": "Warpath costs more Mana every second, but thanks to the Void Well Passive and Mana stacking, you're able to stay spinning",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Echo Warpath VK (dominant Season 4)",
+            "Echoing Void Warpath (0.8.4G, early variant)",
+            "Warslash Warpath VK (0.8.3 forum variant)",
+            "Devouring Orb VK (orb-primary, Maxroll dedicated guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/devouring-orb-void-knight-guide",
+        "anchor_quote": "Devouring Orb Void Knight Endgame Guide - Last Epoch Maxroll.gg",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

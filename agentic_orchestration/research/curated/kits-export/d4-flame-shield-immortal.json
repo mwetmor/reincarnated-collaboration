@@ -1,0 +1,227 @@
+{
+  "kit_id": "d4-flame-shield-immortal",
+  "spine": {
+    "kit_id": "d4-flame-shield-immortal",
+    "folk_name": "Immortal Flame Shield",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "launch-s1-3",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Burn ailment not mapped (DoT delivery language ≠ ailment status token per basin-2 DoT-timing rule). Player would miss burn-status synergy hooks. Defensive immortality identity cleanly captured via SACRIFICE_ASCENDANCY.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Burn ailment not mapped (DoT delivery language ≠ ailment status token per basin-2 DoT-timing rule). Player would miss burn-status synergy hooks. Defensive immortality identity cleanly captured via SACRIFICE_ASCENDANCY.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flame Shield",
+          "geometry_value": "self_buff",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin immunity aura with burn trail per verify identity anchor: 'Engulf yourself in flames for 1.0 seconds, becoming Immune and dealing X [80%] Burning damage over 4 seconds to surrounding enemies'; fire element attested: 'Burning damage over 4 seconds' = fire-family burn-damage delivery (fire/burn language); self_buff geometry (immunity aura covers player position); burn DoT delivery texture noted; NOT burn ailment — 'Burning damage' is damage-type not a STATUS token applied to enemies as a named ailment in the anchor; delivery timing (4 seconds DoT) is delivery texture per basin-2 DoT-timing rule; no 'burn' ailment token emitted"
+        },
+        {
+          "source_skill": "Teleport (repositioning)",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Teleport for mobility and repositioning; trailing burn damage applied to nearby enemies' per skill_loop payload; offensive reposition class per phrase-book; utility support skill; element null for scaffold row"
+        }
+      ],
+      "motion_frame": "Collapse Flame Shield cooldown to achieve permanent immunity per skill_loop payload; walk through boss mechanics untouched; trailing burn damage applied to nearby enemies; Teleport for repositioning",
+      "resource_economy": {
+        "cost_scale": "Mana (Sorcerer class resource; 'Sorcerers use Mana' per skill_loop payload); cooldown (Flame Shield cooldown collapse IS the build economy identity: 'Engulf yourself in flames for 1.0 seconds, becoming Immune' — permanent immunity via CDR collapse per verify identity anchor)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Burn trail AoE while Flame Shield active (small-radius from Sorcerer body)"
+          ],
+          "economy": [
+            "Cooldown reduction gear (item_alterations key: 'cooldown reduction gear'); Flame Shield enchantment slot"
+          ],
+          "traits_affixes": [
+            "Permanent-immunity CDR collapse (item-defined-archetype: gear items enable the immortality loop per item_alterations anchor)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire element attested: verify identity anchor 'dealing X [80%] Burning damage over 4 seconds to surrounding enemies' — 'Burning damage' = fire-register damage language (not skill name). NEAR-MISS: burn ailment considered — 'Burning damage over 4 seconds' = DoT delivery language per basin-2 DoT-timing rule (DoT delivery attests timing/delivery, not ailment status token applied to enemy); 'burn' as a STATUS ailment requires the enemy STATUS named as such in the anchor; anchor describes damage to enemies, not enemy gaining burn ailment — burn ailment blocked. SACRIFICE_ASCENDANCY T4 door: immortality-trade (immunity as the identity sacrifice) fits the T4 shape. PERSISTENCE_ENGINE_uptime: permanent-CDR-collapse uptime loop. S4 exploit-adjacent note per variants row ('patched in later seasons'); core mechanics still map. Author not present in dossier = very sparse kit (item_alterations + skill_geometry + skill_loop only); CLOSE grade held — identity is clean."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/blizzard-sorcerer-guide/build-scaling-faq-mechanics",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Blizzard Sorcerer Endgame Build Scaling, FAQ & Mechanics",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo4.wiki.fextralife.com/Flame+Shield",
+      "archive_url": null,
+      "site": "diablo4.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Flame Shield | Diablo 4 Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://mobalytics.gg/diablo-4/profile/be8635af-0e26-4d16-8e47-026eecfb5662/builds/1ead0368-d303-41aa-8607-351005f50d41",
+      "archive_url": null,
+      "site": "mobalytics.gg",
+      "author_handle": null,
+      "title": "T100 Immortal Frozen Orb S4 & Eternal (Permanent Flameshield)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in launch-s1-3",
+      "anchor_quote": "T100 Immortal Frozen Orb S4 & Eternal (Permanent Flameshield)",
+      "source_url": "https://mobalytics.gg/diablo-4/profile/be8635af-0e26-4d16-8e47-026eecfb5662/builds/1ead0368-d303-41aa-8607-351005f50d41",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Immortal Flame Shield; aliases Flame Shield Immortal Sorc, Immortal Sorcerer launch, Flame Shield Teleport Sorc are real community usage",
+      "anchor_quote": "Engulf yourself in flames for 1.0 seconds, becoming Immune and dealing X [80%] Burning damage over 4 seconds to surrounding enemies.",
+      "source_url": "https://diablo4.wiki.fextralife.com/Flame+Shield",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Flame Shield + Teleport; resource Mana; permanent immunity via cooldown-collapsed Flame Shield",
+      "anchor_quote": "Flame Shield makes you immortal in Diablo 4, particularly for defensive-focused Sorcerer builds.",
+      "source_url": "https://maxroll.gg/d4/build-guides/blizzard-sorcerer-guide/build-scaling-faq-mechanics",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://mobalytics.gg/diablo-4/profile/be8635af-0e26-4d16-8e47-026eecfb5662/builds/1ead0368-d303-41aa-8607-351005f50d41",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/blizzard-sorcerer-guide/build-scaling-faq-mechanics",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "cooldown reduction gear",
+            "Flame Shield enchantment slot"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blizzard-sorcerer-guide/build-scaling-faq-mechanics",
+        "anchor_quote": "Flame Shield makes you immortal in Diablo 4, particularly for defensive-focused Sorcerer builds.",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "small-radius",
+          "notes": "Flame Shield emanates from Sorcerer body; burn trail left while active; immunity aura covers player position; Teleport relocates body instantly"
+        },
+        "source_url": "https://diablo4.wiki.fextralife.com/Flame+Shield",
+        "anchor_quote": "Engulf yourself in flames for 1.0 seconds, becoming Immune and dealing X [80%] Burning damage over 4 seconds to surrounding enemies.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Collapse Flame Shield cooldown to achieve permanent immunity; walk through boss mechanics; Teleport for mobility and repositioning; trailing burn damage applied to nearby enemies; Sorcerers use Mana",
+          "rotation_style": "defensive_immortal"
+        },
+        "source_url": "https://diablo4.wiki.fextralife.com/Flame+Shield",
+        "anchor_quote": "Engulf yourself in flames for 1.0 seconds, becoming Immune and dealing X [80%] Burning damage over 4 seconds to surrounding enemies.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "S4 Eternal variant attested (permanent Flameshield T100 Frozen Orb); launch-era build was exploit-adjacent (permanently immune vs Uber Lilith mechanics); patched in later seasons"
+        },
+        "source_url": "https://mobalytics.gg/diablo-4/profile/be8635af-0e26-4d16-8e47-026eecfb5662/builds/1ead0368-d303-41aa-8607-351005f50d41",
+        "anchor_quote": "T100 Immortal Frozen Orb S4 & Eternal (Permanent Flameshield)",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

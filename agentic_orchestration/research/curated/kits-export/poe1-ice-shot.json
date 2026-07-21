@@ -1,0 +1,265 @@
+{
+  "kit_id": "poe1-ice-shot",
+  "spine": {
+    "kit_id": "poe1-ice-shot",
+    "folk_name": "Ice Shot",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The cold-arrow-with-cone-splash-behind-target identity lands cleanly via cone geometry + water + ELEMENT_CONVERSION_PHYSICAL + freeze/shatter, with only minor drift: the skill is a two-part hit (partial phys->cold ON the target, then TOTAL phys->cold in the cone behind it) and the engine expresses the dominant cone while the on-target partial-conversion hit is folded into the cone-delivery note rather than modeled as a separate strike. A player keeps the aim-the-cone-through-the-pack cold-archer feel; the exact split between the single-target arrow hit and the full-conversion cone is generalized to the cone as the identity footprint.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The cold-arrow-with-cone-splash-behind-target identity lands cleanly via cone geometry + water + ELEMENT_CONVERSION_PHYSICAL + freeze/shatter, with only minor drift: the skill is a two-part hit (partial phys->cold ON the target, then TOTAL phys->cold in the cone behind it) and the engine expresses the dominant cone while the on-target partial-conversion hit is folded into the cone-delivery note rather than modeled as a separate strike. A player keeps the aim-the-cone-through-the-pack cold-archer feel; the exact split between the single-target arrow hit and the full-conversion cone is generalized to the cone as the identity footprint.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Shot",
+          "geometry_value": "cone",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "fires an arrow that converts some physical to cold ON the target, then converts ALL physical to cold in a CONE BEHIND that target at impact (base radius 2.4m); the cone-splash-behind-the-target is the identity-bearing AoE and the dominant clear footprint. cone = the impact splash; water/cold family; chill+freeze (native shatter). The arrow itself is the delivery vector into the cone"
+        }
+      ],
+      "motion_frame": "cold archer: fire arrows into packs, each impact blooms a cold cone behind the struck enemy that freezes and chills the group -- a ranged clear playstyle built around aiming the cone through enemies",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "cone impact-splash-behind-target",
+            "multi_projectile / extra-arrows (Endless Munitions clear)",
+            "arrow-return (Returning Projectiles = hit twice)"
+          ],
+          "economy": [
+            "mana-light attack spend"
+          ],
+          "traits_affixes": [
+            "cold-penetration (post-conversion)",
+            "physical->cold conversion (build-defining)",
+            "area-of-effect (cone angle/radius; +quality widens angle)",
+            "freeze/chill-scaling",
+            "projectile-count (Deadeye clear)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CONE-BEHIND-TARGET cold archer. Geometry cone -- dossier is explicit: 'converts all physical to cold in a CONE behind that target, base radius 2.4m'; the cone-splash IS the identity (crosswalk s6 'cone/breath/sweep -> cone'), the arrow is the vector into it. Modeled with cone as the dominant geometry (what clears the pack every shot); extra-arrows/projectile-count for Deadeye clear noted in traits (multi_projectile is the secondary clear-scaling lane, not the identity footprint). water/cold family; chill+freeze (native shatter payoff). ELEMENT_CONVERSION_PHYSICAL is the capstone door -- Ice Shot's defining act is converting physical to cold (partial on-target, TOTAL in the cone; crosswalk s5 phys-to-X). ELEMENTAL_ECHO for the mono-cold amp. Asenath's Mark (auto hex/exposure/mark) + Returning Projectiles (hit twice) are endgame item accelerants noted in geometry/economy, not identity. The cone-behind-target aiming skill (line up the cone through a pack) is preserved by the cone geometry."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/ice-shot-deadeye-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "PoEVault",
+      "title": "PoEVault's Ice Shot Deadeye Build Guide (3.26)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe/build-guides/ice-shot-of-penetration-miner-deadeye-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "aer0",
+      "title": "Ice Shot of Penetration Miner Deadeye League Starter — Maxroll.gg (3.28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Ice_Shot",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Ice Shot — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 3.7-3.13, 3.20+",
+      "anchor_quote": "[3.21] Ice Shot Build | Deadeye | Crucible ... Ice Shot Deadeye League Starter 3.24",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3402850",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ice Shot' with no aliases is real community usage",
+      "anchor_quote": "Ice Shot Deadeye Build Guide ... PoEVault's Ice Shot Deadeye Build Guide",
+      "source_url": "https://www.poe-vault.com/guides/ice-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Ice Shot; cold arrow projectile with cone splash behind target at impact",
+      "anchor_quote": "Fires an arrow that converts some physical damage to cold on its target and converts all physical damage to cold in a cone behind that target.",
+      "source_url": "https://poedb.tw/us/Ice_Shot",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "PoEVault",
+              "site": "poe-vault.com",
+              "note": "Ice Shot Deadeye Build Guide (3.26)"
+            },
+            {
+              "handle": "aer0",
+              "site": "maxroll.gg",
+              "note": "Ice Shot of Penetration Miner Deadeye League Starter (3.28)"
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Ice Shot (quality)",
+              "type": "base_quality",
+              "effect": "(0-80)% increased Area of Effect angle",
+              "anchor_quote": "(0—80)% increased Area of Effect angle"
+            },
+            {
+              "node": "Ice Shot of Penetration (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Mana cost 7-13 at level 1-20 (previously 12); penetration added",
+              "anchor_quote": "adjusted mana costs (7 at level 1, scaling to 13 at level 20, previously 12)"
+            },
+            {
+              "node": "Omen on the Winds (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Dexterity in Radius",
+              "effect": "Ice Shot Pierces 3 additional Targets; 25% increased Area of Effect",
+              "anchor_quote": "Ice Shot Pierces 3 additional Targets...25% increased Area of Effect"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Ice_Shot",
+        "anchor_quote": "Ice Shot Pierces 3 additional Targets...25% increased Area of Effect",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Asenath's Mark (automated hex, exposure, and mark application)",
+            "Voidfletcher quiver (cold damage scaling)",
+            "Returning Projectiles support (arrows return, hitting enemies twice)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": "Asenath's Mark to automate casting a Hex, a source of Exposure, and a Mark... Returning Projectiles interaction — hitting everything twice.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (arrow, straight line)",
+          "footprint": "small radius — cone cold splash behind target at arrow impact",
+          "aoe": "Base radius 2.4 metres; (0-80)% increased Area of Effect angle from quality",
+          "range_text": "Fires an arrow... converts all physical damage to cold in a cone behind that target. Base radius is 2.4 metres.",
+          "projectile": true
+        },
+        "source_url": "https://poedb.tw/us/Ice_Shot",
+        "anchor_quote": "Fires an arrow that converts some physical damage to cold on its target and converts all physical damage to cold in a cone behind that target. Base radius measures 2.4 metres.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player fires Ice Shot cold arrows; on primary hit converts all physical damage to cold and creates cold cone behind target; Deadeye Far Shot + Endless Munitions scale per-arrow damage at range and projectile count for clear; Asenath's Mark automates buff application in endgame setups."
+        },
+        "source_url": "https://poedb.tw/us/Ice_Shot",
+        "anchor_quote": "Fires an arrow that converts some physical damage to cold on its target and converts all physical damage to cold in a cone behind that target.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Ice Shot Deadeye (primary — Far Shot, Endless Munitions, 3.7+)",
+            "Ice Shot of Penetration Miner Deadeye (3.28 — mine delivery variant)",
+            "Ice Shot Barrage Deadeye (TbXie Voidfletcher variant, 3.21)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "kit_id": "tli-rosa-unsullied",
+  "spine": {
+    "kit_id": "tli-rosa-unsullied",
+    "folk_name": "Rosa Unsullied Blade",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-ss11-12-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Highest-element-tracking Mercury Baptism is a combination-determines-output mechanic with no engine lane; approximated as cold-primary per dominant loop. Mana-stacking as damage scalar not directly expressible in skill geometry. Mystic Mercury accumulator state has no engine exact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Highest-element-tracking Mercury Baptism is a combination-determines-output mechanic with no engine lane; approximated as cold-primary per dominant loop. Mana-stacking as damage scalar not directly expressible in skill geometry. Mystic Mercury accumulator state has no engine exact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cone of Cold / Frost Spike (cold-locked variant)",
+          "geometry_value": "cone",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Cold primary attack. Skill_geometry anchor: 'the core gameplay typically revolves around Rosa 2 (Unsullied Blade) hero trait. It achieves high damage by stacking a massive amount of mana, combined with the hero trait, core unique items, and Cone of Cold skill.' Cold element via dossier variants: 'several cold damage skills are recommended: Frostbite, Frost Spike, Ice Bond.' Capstone: 'If the highest recorded damage type is Cold, it inflicts Cold Infiltration.' Dominant cold loop per Extreme Coldness talent — cold locked per capstone_alterations anchor."
+        },
+        {
+          "source_skill": "Mercury Baptism (Realm of Mercury zone)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Realm zone AoE that fires Mercury Baptism applying Infiltration. Skill_loop anchor: 'The Realm of Mercury records non-Channeled Attack Elemental Hit Damage dealt to enemies and casts Mercury Baptism on all enemies within it.' Cold Infiltration effect when cold = highest recorded type. Realm zone = placed area around Rosa."
+        }
+      ],
+      "motion_frame": "Mana-stacking cold melee caster: accumulate Mystic Mercury via non-channeled elemental hits → enter Realm of Mercury → Mercury Baptism applies Cold Infiltration to all enemies in zone. Mana = primary damage scalar.",
+      "resource_economy": {
+        "inverted_resource_shape": "mana-stacking (Baptism of Purity: +20% max mana; mana stacking = primary damage scaling — item_alterations anchor)",
+        "charge_stack_sub_shape": "accumulator",
+        "charge_stack_resource": "Mystic Mercury (accumulates from elemental hit damage; threshold = enter Realm of Mercury state)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Mystic Mercury at max → Realm of Mercury state",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Realm of Mercury zone (area around Rosa)",
+            "Ice Bond positional placement"
+          ],
+          "economy": [
+            "Mana stack scalar",
+            "Mystic Mercury accumulator",
+            "Boundless Sanctuary: area extension + elemental bonus per enemy"
+          ],
+          "traits_affixes": [
+            "Extreme Coldness talent (cold-lock)",
+            "Unsullied Blade trait (Mercury resource system)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U. Corpus elem_raw = 'holy' — overridden by dossier cold-dominant evidence (cold Skills recommended; Extreme Coldness locks to cold; capstone confirms cold Infiltration). holy = name-only artifact from corpus probe; cold is the attested damage type in fetched dossier. Multi-elemental tracking identity (Infiltration = highest-recorded element) is a combination-determines-output mechanic — file docket. Mana stacking as stat-as-damage-substrate accrual: file 'accrual to stat-as-damage-substrate family' (tli-rosa-unsullied: mana stacking → damage scaling)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://tlidb.com/Unsullied_Blade",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Unsullied Blade - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.iggm.com/news/torchlight-infinite-season-9-how-to-complete-unsullied-blade-rosa-2-build",
+      "archive_url": null,
+      "site": "iggm.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite Season 9 Unsullied Blade Rosa 2 Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://tlidb.com/Rosa",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Rosa - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-ss11-12-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rosa Unsullied Blade — mana/elemental melee hero",
+      "anchor_quote": "Rosa 2's Level 1 Trait 'Unsullied Blade' focuses on the resource Mercury, and thanks to this, she can reach the Mystic Mercury or Realm of Mercury state.",
+      "source_url": "https://www.iggm.com/news/torchlight-infinite-season-9-how-to-complete-unsullied-blade-rosa-2-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: blade suite, Realm of Mercury elemental damage",
+      "anchor_quote": "The Realm of Mercury records non-Channeled Attack Elemental Hit Damage dealt to enemies and casts Mercury Baptism on all enemies within it, inflicting an Infiltration Effect of the same type as the highest recorded damage.",
+      "source_url": "https://www.iggm.com/news/torchlight-infinite-season-9-how-to-complete-unsullied-blade-rosa-2-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Unsullied Blade trait: Mercury resource, Mystic Mercury / Realm of Mercury states. Mercury Baptism inflicts Infiltration matching highest damage type (Fire/Lightning/Cold). Extreme Coldness talent: locks to Cold-only damage."
+        },
+        "source_url": "https://tlidb.com/Unsullied_Blade",
+        "anchor_quote": "If the highest recorded damage type is Cold, it inflicts Cold Infiltration",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Baptism of Purity: bonus mana in Realm, Mercury Baptism hits all targets. Boundless Sanctuary: extends Realm area + bonus elemental damage per enemy. Mana stacking = primary scaling."
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-season-9-how-to-complete-unsullied-blade-rosa-2-build",
+        "anchor_quote": "Baptism of Purity: Increases maximum mana by an additional 20%",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Realm of Mercury = area zone around Rosa. Ice Bond placement = positional boss tool. Frost Spike + Spiral Strike = movement skill combo. Cone of Cold skill as cold primary attack."
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-season-9-how-to-complete-unsullied-blade-rosa-2-build",
+        "anchor_quote": "the core gameplay typically revolves around Rosa 2 (Unsullied Blade) hero trait. It achieves high damage by stacking a massive amount of mana, combined with the hero trait, core unique items, and Cone of Cold skill.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Non-channeled attack skills accumulate Mystic Mercury → max out → enter Realm of Mercury → deal elemental damage to enemies in zone. Mercury Baptism applies Infiltration of highest recorded element type."
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-season-9-how-to-complete-unsullied-blade-rosa-2-build",
+        "anchor_quote": "The Realm of Mercury records non-Channeled Attack Elemental Hit Damage dealt to enemies and casts Mercury Baptism on all enemies within it",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Cold-locked Mana Stacking (Extreme Coldness talent)",
+            "Multi-elemental Mercury (highest-element tracking)",
+            "SS10 Mana Stacking (IGGM variant)"
+          ]
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-ss10-mana-stacking-guide-to-maximize-rosa-2-dps-in-battle",
+        "anchor_quote": "several cold damage skills are recommended for this build: Frostbite, Frost Spike, Ice Bond",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

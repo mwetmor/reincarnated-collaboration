@@ -1,0 +1,242 @@
+{
+  "kit_id": "d3-jade-harvester",
+  "spine": {
+    "kit_id": "d3-jade-harvester",
+    "folk_name": "Jade Harvester",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the precise DoT-duration-banking mechanic (Jade 2pc stacks thousands of seconds of duration into reapplication — no engine analog for duration-as-currency); (2) the geographic requirement that Soul Harvest hits the DoT'd enemies in its radius — player must maneuver between apply and harvest phases.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth",
+      "shadow"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the precise DoT-duration-banking mechanic (Jade 2pc stacks thousands of seconds of duration into reapplication — no engine analog for duration-as-currency); (2) the geographic requirement that Soul Harvest hits the DoT'd enemies in its radius — player must maneuver between apply and harvest phases.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Haunt",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": "earth",
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Ranged at-target projectile; applies Haunt DoT; Raiment of the Jade Harvester (2) Bonus — Haunt reapplication banks extra duration (3,500 seconds worth per cast); poison DoT attested via WD Haunt 'deals shadow damage over time' and Locust Swarm poison vector"
+        },
+        {
+          "source_skill": "Locust Swarm",
+          "geometry_value": "circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Spreading AoE DoT; applies Locust Swarm poison stacks; secondary DoT layer feeding Soul Harvest consumption"
+        },
+        {
+          "source_skill": "Soul Harvest",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Consumes all DoT duration on nearby enemies and deals it as instant damage; large-zone player-position harvest; the SET mechanic: Raiment of the Jade Harvester (6) converts banked DoT duration to burst"
+        }
+      ],
+      "motion_frame": "Apply Haunt and Locust Swarm DoTs to all targets; use Soul Harvest to consume accumulated DoT stacks as instant burst; reapply DoTs immediately; cycle repeats",
+      "resource_economy": {
+        "resource_type": "Mana",
+        "generator": "passive regen + Rush of Essence",
+        "spend_pattern": "Haunt and Locust Swarm mana spend; Soul Harvest low cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "consume-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "haunt-locust-dot-stack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "DoT application range (Haunt=ranged; Locust Swarm=AoE spread); Soul Harvest radius"
+          ],
+          "economy": [
+            "Mana sustain via Rush of Essence passive; DoT reapplication cadence"
+          ],
+          "traits_affixes": [
+            "poison/shadow scaling; DoT duration/damage gear; set multiplier (scaler only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: shadow primary (Haunt WD shadow-register) with earth secondary (Locust Swarm nature/venom-themed — earth per main law). Poison attested: dossier skill_loop 'Stack Haunt and Locust Swarm DoTs' and capstone 'Some of the DoT duration on the target is taken away and the damage is dealt instantly instead' — the DoT payload is poison-register (Witch Doctor venom/nature lineage → earth-or-shadow; here earth for the Locust Swarm vector). Two-tier accumulator accrual: apply-DoT-ticks (tier 1) → Soul Harvest burst-consume (tier 2) — genuine accumulate-then-SPEND shape; file accrual to two-tier-accumulator family. Set multiplier (6pc consume-duration mechanic) is mechanism-granting, not pure scaler → routes as item-defined-archetype (§CROSS row 4): the WITH-set consumed-duration form is the kit identity. GEOMETRY_COLLAPSE T4: Soul Harvest collapses distributed DoT spread into single-point burst. PERSISTENCE_ENGINE_saturation: DoT saturation phase before harvest. [STEWARD-AUDIT 2026-07-18 MW3-close: elements KEPT with routing ground made explicit: shadow/earth routes from ATTESTED registers — 'poisoned spirit' rune + resentful-spirits language; poison->earth (venom/nature branch: Locust Swarm) and spirit-corruption->shadow (Haunt/Soul Harvest) per main-law line 22 per-kit split. Hygiene: quote 'deals shadow damage over time' is self-coined, not store text — routing stands on the register language above, not on that quote.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewi",
+      "title": "Diablo 3 Season 39 Jade Harvester Witch Doctor Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "The Jade Harvester set is not currently one of the strongest Witch Doctor builds, but it has a long history",
+      "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "These effects are unique in the game: Some of the DoT duration on the target is taken away and the damage is dealt instantly instead",
+      "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Jade Harvester'; aliases include 'Soul Harvest WD', 'Jade WD'",
+      "anchor_quote": "Raiment of the Jade Harvester",
+      "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Haunt, Locust Swarm, Soul Harvest; class resource: Mana",
+      "anchor_quote": "Haunt is used as the main damage skill; Class Resource: Mana",
+      "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewi",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+        "anchor_quote": "Author: Chewi (Content Creator)",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Raiment of the Jade Harvester (2): Haunt deals extra damage on reapplication; (6): Soul Harvest consumes all DoT duration and deals it as instant damage",
+          "kanai_cube": null
+        },
+        "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+        "anchor_quote": "These effects are unique in the game: Some of the DoT duration on the target is taken away and the damage is dealt instantly instead",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Raiment of the Jade Harvester (6pc set)",
+            "Haunt: Resentful Spirits or Poisoned Spirit rune choice"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+        "anchor_quote": "Haunt is used as the main damage skill, and this skill can be spammed on the same target to get 3,500 seconds worth of damage per cast from Raiment of the Jade Harvester (2) Bonus",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (Soul Harvest), projectile (Haunt)",
+          "range": "player-position (Soul Harvest consumes in zone around player)",
+          "aoe": "large-zone on consume",
+          "notes": "Soul Harvest harvests all DoTs on nearby enemies in radius; Haunt is ranged"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+        "anchor_quote": "Aim for as much Area Damage as possible as this will allow you to deal massive burst damage with Soul Harvest through the Raiment of the Jade Harvester (6) Bonus",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Apply Haunt and Locust Swarm DoT stacks to enemies; use Soul Harvest to consume DoT stacks instantly for massive burst damage (3,500 seconds worth per cast); reapply DoTs immediately; the Raiment of the Jade Harvester set enables this DoT-harvest mechanic"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+        "anchor_quote": "These effects are unique in the game: Some of the DoT duration on the target is taken away and the damage is dealt instantly instead",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard Jade Harvester (Haunt spam primary)",
+            "Locust Swarm variant (secondary DoT)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/jade-harvester-witch-doctor-guide",
+        "anchor_quote": "you can choose between Haunt rune: Resentful Spirits for spread, or Poisoned Spirit for damage output",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "kit_id": "d4-payback-sb",
+  "spine": {
+    "kit_id": "d4-payback-sb",
+    "folk_name": "Payback Spiritborn",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Skill footprint unknown from store: single_target is a reasonable default but the actual geometry of Payback (cone? point? AoE?) is unverified. Inverted-Vigor loop has no perfect engine primitive; RESOURCE_CONVERSION approximates the spend-restore identity. Player would feel the spam-loop is present but the exact geometry may differ.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Skill footprint unknown from store: single_target is a reasonable default but the actual geometry of Payback (cone? point? AoE?) is unverified. Inverted-Vigor loop has no perfect engine primitive; RESOURCE_CONVERSION approximates the spend-restore identity. Player would feel the spam-loop is present but the exact geometry may differ.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Payback",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Core Skill converted to free Basic Skill via Rod of Kepeleke (no cooldown, no cost); spammed continuously; physical element; skill_geometry footprint unconfirmed from fetched text — single_target per Spiritborn melee/ranged Core Skill convention and dossier 'spammable damage ability'"
+        },
+        {
+          "source_skill": "Thunderspike",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "fills between Payback casts for Vigor generation; secondary skill in rotation; variant-scope only"
+        }
+      ],
+      "motion_frame": "Spam Payback continuously; each cast restores 100% Vigor via Ring of the Midnight Sun; utility cooldowns between spam",
+      "resource_economy": {
+        "vigor": "inverted-loop",
+        "regen_shape": "Ring of the Midnight Sun restores 100% Vigor per cast (spend-and-restore inverted loop)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aspect of Supremacy",
+            "Aspect of Plains Power"
+          ],
+          "economy": [
+            "Rod of Kepeleke removes Payback cooldown/cost",
+            "Ring of the Midnight Sun 100% Vigor restore per cast",
+            "Temerity",
+            "Razorplate"
+          ],
+          "traits_affixes": [
+            "Hesha e Kesungi",
+            "Harmony of Ebewaka",
+            "Replenishing Toxic Skin",
+            "Ferocious Aspect",
+            "Hubris/Revenge/Outmatch/Spirit/Colossal paragon glyphs",
+            "Rezoka's Rage 5-piece charm set"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Inverted-resource no-merge law (basin-2 ruling) applied: Vigor spend-restore 100% per cast is an inverted-loop economy not a standard regen; recorded as inverted-loop key, not merged with regen_shape. Item-defined-archetype: Rod of Kepeleke + Ring of the Midnight Sun define the free-spam inverted-Vigor identity mapped here. Physical element: no damage-type language in store ('spammable damage ability' with no element named) — element-neutral per THE PHYSICAL RULE. Skill_geometry footprint unconfirmed: dossier note explicitly flags 'unknown-from-fetched-text'; single_target is minimum-footprint default. No ailments attested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "KattKills",
+      "title": "Payback Spiritborn Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/payback-spiritborn-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Cashlarond",
+      "title": "Payback - Spiritborn Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in loh-s13-14",
+      "anchor_quote": "The guide is current for Season 14 (Death Awakening) and Season 13. The changelog notes updates through June 2026 for Season 14.",
+      "source_url": "https://www.icy-veins.com/d4/guides/payback-spiritborn-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Payback Spiritborn'; aliases 'Payback Spiritborn D4', 'Spiritborn Payback s13-14'",
+      "anchor_quote": "Rod of Kepeleke turns Payback into a basic skill removing the cooldown... you spend and restore 100% of your Vigor with every attack.",
+      "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Payback; Spiritborn Vigor resource; Spiritborn debuted VoH",
+      "anchor_quote": "Ring of the Midnight Sun... you spend and restore 100% of your Vigor with every attack... Vessel of Hatred expansion (referenced via mercenary unlock)",
+      "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "KattKills",
+          "site": "maxroll.gg",
+          "role": "Content Creator",
+          "reviewer": "Wudijo"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+        "anchor_quote": "Written by KattKills; Reviewed by Wudijo",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Hesha e Kesungi",
+            "Harmony of Ebewaka",
+            "Replenishing Toxic Skin",
+            "Ferocious Aspect",
+            "Aspect of Plains Power",
+            "Aspect of Supremacy"
+          ],
+          "paragon_glyphs": [
+            "Hubris",
+            "Revenge",
+            "Outmatch",
+            "Spirit",
+            "Colossal"
+          ],
+          "charm_set": "Rezoka's Rage (5-piece)"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/payback-spiritborn-build/",
+        "anchor_quote": "Ferocious Aspect, Aspect of Plains Power, Aspect of Supremacy... Charm Set: Rezoka's Rage (5-piece set)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Rod of Kepeleke",
+            "Ring of the Midnight Sun",
+            "Temerity",
+            "Razorplate"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+        "anchor_quote": "Rod of Kepeleke, Ring of the Midnight Sun (47-50% Vigor refund roll), Temerity, Razorplate",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "spammable-core-skill",
+          "footprint": "unknown-from-fetched-text",
+          "note": "Payback is a Core Skill made free via Rod of Kepeleke; described as spammable damage ability, not a retaliation counter-strike; probe description 'retaliation counter-strike' is not attested by fetched text"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+        "anchor_quote": "Rod of Kepeleke turns Payback into a basic skill removing the cooldown",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Rod of Kepeleke converts Payback to a free Basic Skill; Ring of the Midnight Sun restores 100% Vigor per cast; spam Payback continuously while using utility skills on cooldown for buffs; Thunderspike fills between Payback casts for Vigor generation"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+        "anchor_quote": "Rod of Kepeleke turns Payback into a basic skill removing the cooldown, and when you combine it with Ring of the Midnight Sun...you spend and restore 100% of your Vigor with every attack.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/payback-spiritborn-build-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

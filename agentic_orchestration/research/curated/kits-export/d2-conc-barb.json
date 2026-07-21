@@ -1,0 +1,235 @@
+{
+  "kit_id": "d2-conc-barb",
+  "spine": {
+    "kit_id": "d2-conc-barb",
+    "folk_name": "Concentrate Barbarian",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: uninterruptible swing feel — engine melee_strike approximates but no native 'cannot be interrupted' mechanic; the safety-vs-damage identity is approximated via DEFENSIVE_TRADEOFF T4.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: uninterruptible swing feel — engine melee_strike approximates but no native 'cannot be interrupted' mechanic; the safety-vs-damage identity is approximated via DEFENSIVE_TRADEOFF T4.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Concentrate",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Uninterruptible single-target physical swing; anchor: 'an attack that cannot be interrupted... Single-Target Attacker dealing physical damage exclusively from the left-hand weapon'; physical = element-neutral; no AoE; no hit-recovery interruption"
+        },
+        {
+          "source_skill": "Shout",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Warcry team defense buff; 'Shout buffs team defense'; self_buff/aura layer; free warcry toggle"
+        }
+      ],
+      "motion_frame": "Stand at melee range; Concentrate for uninterruptible sustained DPS; Shout maintained for defense; safe tanking identity via uninterruptible property",
+      "resource_economy": {
+        "cost_scale": "Concentrate mana per swing (low); no special economy"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Battle Orders HP/mana (synergy chain via capstone_alterations anchor: 'Concentrate ↔ Battle Orders ↔ Shout ↔ Berserk')"
+          ],
+          "traits_affixes": [
+            "Synergy chain: Concentrate ↔ Battle Orders ↔ Shout ↔ Berserk — §A row 1 scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Uninterruptible swing is core identity (no hit-recovery interruption); DEFENSIVE_TRADEOFF T4 partially captures the safety-trade identity. Physical = element-neutral. Synergy chain captured in scaffold per §A row 1. PERSISTENCE_ENGINE_uptime covers the sustained tanking swing identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "LuckyAce",
+      "title": "Guide to Playing a MF Concentrate Barbarian",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod",
+      "anchor_quote": "Concentrate Barbarian — pre-Resurrected, classic D2 prior to D2R update",
+      "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "guide references Diablo 2 Resurrected patch 2.4, with the author noting this is an original build",
+      "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Concentrate Barbarian; aliases Conc Barb, Concentrate Barb, Concentration Barbarian",
+      "anchor_quote": "Concentrate Barbarian or MF Concentrate Barb — a niche build focused on Magic Finding",
+      "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Concentrate (uninterruptible, single-target physical), Shout",
+      "anchor_quote": "an attack that cannot be interrupted... Single-Target Attacker dealing physical damage exclusively from the left-hand weapon",
+      "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LuckyAce",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+        "anchor_quote": "LuckyAce — the guide's creator, who notes nearly 20 years of Diablo 2 experience",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief (weapon)",
+            "Enigma (armor)",
+            "Rhyme (shield, budget)"
+          ],
+          "synergies": [
+            "Battle Orders (HP/mana stack)",
+            "Shout (defense)"
+          ],
+          "notes": "Synergy chain: Concentrate ↔ Battle Orders ↔ Shout ↔ Berserk"
+        },
+        "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+        "anchor_quote": "Concentrate paired with Battle Orders, which chains with Shout, which chains with Berserk",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grief (endgame weapon)",
+            "Unbending Will",
+            "Honor (budget)",
+            "Enigma (armor)",
+            "Wealth (budget armor for MF)",
+            "Reaper's Toll (merc)",
+            "Insight (merc)"
+          ],
+          "notes": "MF variant uses Wealth + budget offensive items; Enigma strongly recommended for mobility"
+        },
+        "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+        "anchor_quote": "Weapons: Grief (endgame), Unbending Will, Honor",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target single swing",
+          "footprint": "point (single enemy)",
+          "range_type": "melee",
+          "notes": "Uninterruptible melee single-target; no AoE; Whirlwind available as secondary for crowd control but not core identity skill"
+        },
+        "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+        "anchor_quote": "Single-Target Attacker dealing physical damage exclusively from the left-hand weapon",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Concentrate delivers an uninterruptible single-target physical swing; cannot be interrupted by hit recovery frames. Shout buffs team defense. Player stands at melee range, Concentrates single target; the uninterruptible property enables reliable tanking and sustained DPS without knockback risk."
+        },
+        "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+        "anchor_quote": "an attack that cannot be interrupted... Single-Target Attacker dealing physical damage exclusively from the left-hand weapon",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "MF Concentrate Barb (Magic Find via Enigma/Wealth)",
+            "Hardcore Concentrate Barb (safety-first melee)",
+            "IK Concentration Barb (Immortal King's set)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/guide-to-playing-a-mf-concentrate-barbarian-t899635.html",
+        "anchor_quote": "Patriarch OldKingFocus, Immortal King's Concentration Barb (D2R)",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

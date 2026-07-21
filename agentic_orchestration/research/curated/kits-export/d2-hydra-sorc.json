@@ -1,0 +1,226 @@
+{
+  "kit_id": "d2-hydra-sorc",
+  "spine": {
+    "kit_id": "d2-hydra-sorc",
+    "folk_name": "Hydra Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "d2r-2.4+;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: the 6-turret simultaneous stacking density is the build's power multiplier; mapping captures placed-turret identity but not the specific up-to-6 count scaling texture.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: the 6-turret simultaneous stacking density is the build's power multiplier; mapping captures placed-turret identity but not the specific up-to-6 count scaling texture.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hydra",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed stationary 3-headed turret entity; each head fires fire bolts automatically. Up to 6 simultaneous Hydras post-2.4 (casting cooldown removed). 10-second duration; player repositions while turrets fire. Stationary placed emitter — totem lane (not summoner GAP: no HP bar, no autonomous combat behavior, duration-capped)."
+        },
+        {
+          "source_skill": "Teleport",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Offensive repositioning while Hydras fire. 'Teleport into position; drop Hydras; reposition while turrets shoot' — attested skill_loop."
+        }
+      ],
+      "motion_frame": "Teleport into position; place up to 6 Hydra turrets; reposition while Hydras fire automatically for 10 seconds; refresh Hydras when they expire",
+      "resource_economy": {
+        "cooldown": "primary gate: Hydra casting cooldown removed in d2r-2.4+; prior to 2.4 casting delay was the constraint. Post-2.4: mana cost per placement is the economy gate.",
+        "cost_scale": "mana-per-placement; cooldown-cycle per corpus econ_raw"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "6-Hydra stack: placement count is the geometry multiplier — placed-proxy-count family accrual"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Hydra synergies (Fire Bolt, Meteor) — traits-affixes scaffold lane per §A row 1"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CLOSE: Hydra maps cleanly as stationary placed turret (totem geometry). Totem-vs-companion two-lane law: Hydra is duration-capped stationary emitter, not autonomous combatant — totem lane is correct (not summoner GAP). Fire element confirmed: 'spits out fire bolts' (dossier). Element-neutral for Teleport slot. T4 PROXY_SOVEREIGNTY: multi-turret network identity. PERSISTENCE_ENGINE_uptime: turret uptime IS the damage loop — keep 6 Hydras running. Era: d2r-2.4+ CONFIRMED; rotw-s14 UNSUPPORTED. Accrual to placed-proxy-count family (§E.3): '6 simultaneous Hydras possible.' Deviation: 6-hydra stacking density and the specific fire-bolt-per-head cadence are attested but not fully expressible in current mapping_json."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Hydra Sorceress Endgame Build Guide Season 14 — Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d2/hydra-orb-sorceress-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Hydra Orb Sorceress Build — Diablo 2 Resurrected — Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r-2.4+ era",
+      "anchor_quote": "The Hydra Orb Sorceress is a new creation thanks to Patch 2.4 buffing Hydra to remove any casting cooldown",
+      "source_url": "https://www.icy-veins.com/d2/hydra-orb-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in rotw-s14 era",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hydra Sorceress' and alias 'Hydra Sorc' are real community usage",
+      "anchor_quote": "Hydra Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Hydra, Fire Ball, Teleport; Hydra summons stationary fire-spitting turrets at target location",
+      "anchor_quote": "Hydra summons a 3-headed pet on the targeted location that spits out fire bolts.",
+      "source_url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "key_change": "Patch 2.4 removed Hydra casting cooldown, enabling 6-stack playstyle; prior to 2.4 Hydra had casting delay that prevented this",
+          "notes": "Pre-2.4 Hydra was a supplementary skill, not build-defining"
+        },
+        "source_url": "https://www.icy-veins.com/d2/hydra-orb-sorceress-build",
+        "anchor_quote": "The Hydra Orb Sorceress is a new creation thanks to Patch 2.4 buffing Hydra to remove any casting cooldown",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target multi-point turret",
+          "delivery": "placed stationary entities fire projectiles automatically",
+          "footprint": "6-hydra turret network at placed positions",
+          "notes": "Each Hydra has 3 heads firing fire bolts; 6 simultaneous Hydras possible post-2.4"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+        "anchor_quote": "Hydra summons a 3-headed pet on the targeted location that spits out fire bolts. The Skill lasts for 10 Seconds and you can have up to 6 at a time.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Teleport into position; drop up to 6 Hydra turrets at target location; Hydras fire automatically for 10 seconds; reposition while turrets shoot; use Static Field vs bosses; place new Hydras when old expire"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+        "anchor_quote": "Stack up to six Hydra so that they're most likely to all fire into the same direction.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Hydra Orb (Hydra + Frozen Orb dual element)",
+            "Pure Hydra Fireball (mono-fire)",
+            "Ladder starter Hydra variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/hydra-sorceress",
+        "anchor_quote": "Hydra Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "kit_id": "poe1-siege-ballista",
+  "spine": {
+    "kit_id": "poe1-siege-ballista",
+    "folk_name": "Iron Commander Siege Ballista",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03 GAP-P1-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY: the central scaling loop — every 200 DEX is literally another ballista, so every gear/attribute decision COUNTS the army — is severed; the player keeps the turret-battery archetype but attribute-stacking regresses to ordinary stat scaling instead of visible army growth. Graded as-if-un-minted per the parsimony ladder; docket candidate filed (attribute-value -> proxy-count coupling).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY: the central scaling loop — every 200 DEX is literally another ballista, so every gear/attribute decision COUNTS the army — is severed; the player keeps the turret-battery archetype but attribute-stacking regresses to ordinary stat scaling instead of visible army growth. Graded as-if-un-minted per the parsimony ladder; docket candidate filed (attribute-value -> proxy-count coupling).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Siege Ballista",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "places ballista turret proxies that auto-fire piercing bolts (pierce 6 targets at gem level 1 up to 9 at 20) at range; with Iron Commander the maximum ballista count scales with stacked DEX (+1 per 200) — the battery fires in parallel from placed positions. Physical -> element-neutral (physical rule)"
+        }
+      ],
+      "motion_frame": "turret-battery commander: stack DEX, plant a wall of ballistae, and let the battery of piercing bolts fire while the player repositions and replants",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem turret placement (the battery)",
+            "piercing bolt fire-lanes (pierce 6-9 targets)"
+          ],
+          "economy": [
+            "totem-cycle placement cadence",
+            "UNMAPPED BINDING: DEX value -> totem count (see docket candidate)"
+          ],
+          "traits_affixes": [
+            "DEX / attribute stacking (the army-size stat itself)",
+            "totem placement speed (Hierophant primary, Scion alternate)",
+            "projectile + pierce affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-KEYSTONE kit (crosswalks section-4 load-bearing): Iron Commander DISSOLVES — its mechanic ('+1 to maximum number of Summoned Totems per 200 Dexterity') IS the kit identity: STAT-AS-ARMY-SIZE, 'the attribute stack literally COUNTS your turret army' (econ_raw=stat-counts-army). The engine carries totem proxies natively (geometry totem) and attribute-stacking gear affixes natively (trait lane), but has NO coupling from an attribute VALUE to proxy COUNT — mapped as a fixed-count turret battery + DEX-stack traits, with the binding docketed (qualitative; ladder run in docket row). Pierce -> delivery note on the totem's bolts (single-point per shot, geo_raw=single). Era 2.x + 3.0-3.6."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 8,
+      "mechanism_class": "attribute-value to proxy-count coupling (stat-as-army-size)",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Siege_Ballista",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Siege Ballista — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Iron_Commander",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Iron Commander — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "Siege Ballista introduced 2.1.0; Iron Commander introduced 2.2.0; DEX-stack archetype documented from 2.x era",
+      "source_url": "https://poedb.tw/us/Siege_Ballista",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Siege Ballista and Iron Commander persisted into 3.x; community build guides document continued viability in 3.0-3.6",
+      "source_url": "https://poedb.tw/us/Siege_Ballista",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Iron Commander Siege Ballista' and alias 'Dex-stack ballistas' are real community usage",
+      "anchor_quote": "'Iron Commander grants +1 ballista per 200 DEX'; 'stat-as-army-size' framing attested in DB evidence",
+      "source_url": "https://poedb.tw/us/Siege_Ballista",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Siege Ballista; Iron Commander grants +1 max totem per 200 DEX; DEX-stacking determines totem count; ballista totems fire projectiles from placed position",
+      "anchor_quote": "'Iron Commander grants Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity, enabling substantial totem multiplication'",
+      "source_url": "https://poedb.tw/us/Siege_Ballista",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Siege Ballista (quality)",
+              "type": "base_quality",
+              "effect": "(0-5)% increased Attack Speed per maximum Totem",
+              "anchor_quote": "(0—5)% increased Attack Speed per maximum Totem"
+            },
+            {
+              "node": "Siege Ballista of Splintering (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Same mana cost as base",
+              "anchor_quote": null
+            },
+            {
+              "node": "Siege Ballista of Trarthus (transfig)",
+              "type": "transfigured_gem",
+              "effect": "35% more Attack Damage at all gem levels",
+              "anchor_quote": "Now deals 35% more Attack Damage at all gem levels"
+            },
+            {
+              "node": "Iron Commander (item modifier)",
+              "type": "item_mod",
+              "effect": "Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity",
+              "anchor_quote": "Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Siege_Ballista",
+        "anchor_quote": "Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Iron Commander",
+          "alteration": "Unique Death Bow; grants '+1 to maximum number of Summoned Totems per 200 Dexterity'; core item that makes the DEX-stacking archetype function"
+        },
+        "source_url": "https://poedb.tw/us/Iron_Commander",
+        "anchor_quote": "'Iron Commander grants Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity'",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (ballista placed at target location); fires single-target piercing projectiles",
+          "aoe": "single-point per shot; projectiles pierce up to 6-9 targets",
+          "notes": "Multiple totems create overlapping fire coverage; army of simultaneous single-target projectiles"
+        },
+        "source_url": "https://poedb.tw/us/Siege_Ballista",
+        "anchor_quote": "'The projectiles pierce 6 targets at level 1, up to 9 at level 20'",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Stack DEX to high value; place Siege Ballista totems via Iron Commander (bonus totems per 200 DEX); totems auto-fire piercing projectiles at enemies from placed positions; player places more totems and repositions as needed"
+        },
+        "source_url": "https://poedb.tw/us/Siege_Ballista",
+        "anchor_quote": "'Iron Commander grants +1 to maximum number of Summoned Totems per 200 Dexterity'",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Hierophant (primary; totem buffs + ancestral bond)",
+            "Scion (alternate)"
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Siege_Ballista",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

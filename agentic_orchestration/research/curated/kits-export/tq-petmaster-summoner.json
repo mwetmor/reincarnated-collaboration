@@ -1,0 +1,259 @@
+{
+  "kit_id": "tq-petmaster-summoner",
+  "spine": {
+    "kit_id": "tq-petmaster-summoner",
+    "folk_name": "Petmaster Summoner",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "base-2006;immortal-throne-2007;anniversary-2016;eternal-embers-2021",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — pet-core identity has no engine analog yet (summoner-deferral). Player would not be playing a pet-core summoner; they'd be playing a totem-adjacent kit at best. Core pet-ownership feel and summon-management loop is structurally absent.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — pet-core identity has no engine analog yet (summoner-deferral). Player would not be playing a pet-core summoner; they'd be playing a totem-adjacent kit at best. Core pet-ownership feel and summon-management loop is structurally absent.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Liche King",
+          "geometry_value": "totem",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "summoned following pet (Liche King is described as best overall minion); vitality damage typed in capstone_alterations 'pet_damage_types: vitality (Liche King)'; vitality→shadow per §B5-ELEMENT; stationary vs following ambiguous — dossier 'caster maintains safe distance while pets engage' implies companion behavior but placement-based summon; mapped totem as primary proxy, companion fidelity_note"
+        },
+        {
+          "source_skill": "Call of the Wild (wolves x3)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "3 wolves; physical damage typed in verify_ledger mechanics anchor 'dealing 43-71 physical damage'; physical → no element family; following companion wolf pack — mapped totem/companion; pet-core delivery"
+        },
+        {
+          "source_skill": "Plague / Deathchill Aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Deathchill Aura reduces enemy resistance (Vitality Resistance reduction -119%); resistance reduction → curse:sap (persistent caster-anchored per §2 exposure/armor-shred/RR row)"
+        }
+      ],
+      "motion_frame": "pet-core summoner — Liche King + wolf swarm deliver all damage; player repositions safely and maintains summon uptime",
+      "resource_economy": {
+        "cost_scale": "reserve",
+        "cost_slope": "sustained-pet-upkeep",
+        "regen_shape": "energy-reserve for pet maintenance"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pet-swarm spread — large-zone proxy coverage"
+          ],
+          "economy": [
+            "energy reserve for pet upkeep; +Skills investment for pet scaling"
+          ],
+          "traits_affixes": [
+            "Strength of the Pack wolf physical scaling",
+            "Arcane Lore vitality damage scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-core summoner — GAPPED per summoner-deferral docket class (§E rule). No player-damage loop; all damage delivery via proxy pets. Liche King vitality damage (→shadow) is pet-owned, not player skill typed. Wolves deal physical (no engine family). placed-proxy-count accrual: multi-summon (3 wolves + Liche King) = placed proxy count mechanism; filing accrual to placed-proxy-count family without numbers."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "MINION-PET",
+    "group_intent_rationale": "movement=full-move · amp=flat · treatment=damage · function=taunt · economy=reserve · proxy=heavy · tempo=med · commit=instant · activation=active · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1243731210",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Soothsayer Guide - The Petmaster",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.almarsguides.com/computer/games/titanquest/builds/soothsayer/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Soothsayer Build Guide - Titan Quest",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/3051633726574957279/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "First 40 Levels of Soothsayer? :: Titan Quest Anniversary Edition General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present from base-2006 through anniversary-2016 and eternal-embers-2021",
+      "anchor_quote": "The Soothsayer heavily benefits from + to all skills ... nearly all skills are beneficial to us and/or our allies",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/1640926712932526643/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Petmaster Summoner — TQ summoner archetype; Nature+Spirit (Soothsayer) or multi-mastery pet build",
+      "anchor_quote": "Soothsayer is the combination of Nature and Spirit masteries and is typically best played as a caster pet class",
+      "source_url": "https://www.almarsguides.com/computer/games/titanquest/builds/soothsayer/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Heavy proxy; pets (wolves via Call of the Wild; Liche King via Summon Liche King) deliver all damage; reserve energy economy for pet upkeep",
+      "anchor_quote": "Call of the Wild summons three Wolves dealing 43-71 physical damage ... Summon Liche King is possibly the best overall minion in the game",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/3051633726574957279/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": null,
+          "site": "steamcommunity.com",
+          "note": "Steam guide; Almar's Guides (almarsguides.com) secondary source"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1243731210",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_combo": "Nature + Spirit = Soothsayer (canonical Petmaster)",
+          "pet_damage_types": [
+            "physical (wolves)",
+            "vitality (Liche King)",
+            "elemental (Sylvan Nymph)"
+          ],
+          "expansion_note": "Eternal Embers 2021 added Neidan mastery as additional summon synergy"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1243731210",
+        "anchor_quote": "There are physical, vitality and elemental damage type buffs on gear",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "stats": "+4 or +5 to all Skills primary priority",
+          "damage_gear": "+% Vitality Damage for Liche King",
+          "pet_gear": "Strength of the Pack for wolf physical scaling"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1243731210",
+        "anchor_quote": "There are physical, vitality and elemental damage type buffs on gear",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (summon commands from caster)",
+          "footprint": "large-zone (pet swarm spreads across combat field)",
+          "movement": "full-move while pets engage"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1243731210",
+        "anchor_quote": "Caster maintains safe distance while pets overwhelm enemies",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Maintain wolves (Call of the Wild x3) + Liche King (Summon Liche King) active at all times; Plague debuff on enemies; Deathchill Aura for resistance reduction; Necrosis for vitality resistance; caster repositions safely while pets attack"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1243731210",
+        "anchor_quote": "Summon Liche King is possibly the best overall minion in the game ... Call of the Wild lets you summon pet wolves",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Nature+Spirit Soothsayer (wolves+Liche King)",
+            "pure-Spirit heavy Liche King focus",
+            "Eternal Embers Neidan+Nature or Neidan+Spirit"
+          ]
+        },
+        "source_url": "https://www.almarsguides.com/computer/games/titanquest/builds/soothsayer/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

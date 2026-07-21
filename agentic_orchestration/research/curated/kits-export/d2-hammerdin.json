@@ -1,0 +1,247 @@
+{
+  "kit_id": "d2-hammerdin",
+  "spine": {
+    "kit_id": "d2-hammerdin",
+    "folk_name": "Hammerdin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r;rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) hammers travel in fixed spiral paths — coverage is position-dependent, not true ring/orbit; the spiral-arc placement puzzle is mechanically distinct from a maintained orbital. Orbit token is the best available approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) hammers travel in fixed spiral paths — coverage is position-dependent, not true ring/orbit; the spiral-arc placement puzzle is mechanically distinct from a maintained orbital. Orbit token is the best available approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blessed Hammer",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hammers spiral outward from caster position in fixed radial arcs; multi-point self-origin emission. Magic damage — element-neutral per THE PHYSICAL RULE (holy is probe fabrication per §A row 6 — never import). Position-dependent hit coverage; player repositions to maximize hits. Moving delivery; not rooted."
+        },
+        {
+          "source_skill": "Teleport (Enigma runeword)",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Item-granted repositioning skill; Enigma runeword provides Teleport. Aggressive repositioning is core to loop."
+        }
+      ],
+      "motion_frame": "Cast Blessed Hammer with Concentration aura active; hammers spiral outward in fixed arcs; reposition via Teleport to align spiral paths with enemy clusters",
+      "resource_economy": {
+        "cost_scale": "mana-sustain: Concentration aura + mana gear; mana cost per Blessed Hammer cast is primary gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Enigma Teleport = geometry/repositioning modifier; aggressive repositioning is loop-critical"
+          ],
+          "economy": [
+            "Concentration aura = 200% damage passive boost; aura-pulse geometry + free toggle (no reservation — d2 auras are free, §A row 2)"
+          ],
+          "traits_affixes": [
+            "Blessed Aim, Vigor synergies = scaffold.support_lanes.traits_affixes (§A row 1 synergy law)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CLOSE: Spiral orbit geometry maps cleanly to orbit per §A row 6 phrase-book. Magic damage = element-neutral (holy NEVER — probe fabrication, §A row 6 hot-fact). T4 PERSISTENCE_ENGINE_uptime: uptime IS the loop (keep hammers spiraling, reposition to catch mobs). ZONE_CONTROL: positional-alignment identity. Enigma Teleport maps as item-defined-archetype mobility layer (item dissolves; mechanic lands per §CROSS row 4). Synergies (Blessed Aim, Vigor) → traits-affixes scaffold lane per §A row 1. Aura (Concentration) is free toggle, no reservation, d2-aura law. Era: lod-1.10+ and d2r CONFIRMED; rotw-s13+ UNSUPPORTED in verify_ledger. Deviation: player would miss the fixed-spiral positional puzzle (orbit token approximates but can't fully capture the placement-dependent coverage shape)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Blessed Hammer Paladin (Hammerdin) Build — Diablo 2 Resurrected — Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/strategy/diablo-2-guide-paladin-hammerdin-v1-10",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: Paladin Hammerdin v1.10 — PureDiablo",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/blessed-hammer-paladin",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Blessed Hammer Paladin Endgame Build Guide Season 14 — Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.10+ era",
+      "anchor_quote": "the Hammerdin is an iconic Paladin build",
+      "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-paladin-hammerdin-v1-10",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "the Hammerdin boasts both high damage output and fair area of effect via Blessed Hammer's magic damage that is very rarely resisted by monsters.",
+      "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in rotw-s13+ era",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d2/guides/blessed-hammer-paladin",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hammerdin' and aliases 'Blessed Hammer Paladin', 'BH Paladin' are real community usage",
+      "anchor_quote": "One of the most popular characters in Diablo 2, the Hammerdin is an iconic Paladin build.",
+      "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Blessed Hammer, Concentration, Holy Shield; magic damage delivery",
+      "anchor_quote": "20 points to Blessed Hammer (primary), 20 to Concentration (damage boost), and 20 to Holy Shield (defense).",
+      "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "synergies": "Blessed Aim and Vigor are synergy skills for Blessed Hammer damage; Concentration aura doubles damage",
+          "runewords": "Heart of the Oak, Enigma, Spirit",
+          "notes": "Magic damage type bypasses nearly all monster resistances — signature identity"
+        },
+        "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+        "anchor_quote": "Blessed Aim and Vigor receive 20 points each as synergies",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": "Heart of the Oak (Ko Vex Pul Thul) — +3 skills 40 FCR; Herald of Zakarum or Spirit shield; Enigma runeword for Teleport mobility; Harlequin Crest helm",
+          "notes": "FCR breakpoints: 75% first, 125% optimal"
+        },
+        "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+        "anchor_quote": "Heart of the Oak (Ko Vex Pul Thul) provides +3 skills and 40 FCR, with the definitive endgame Hammerdin weapon",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "self-origin multi-point",
+          "delivery": "spiral radial arcs from caster position",
+          "footprint": "multi-point spiraling",
+          "notes": "Hammers travel in fixed spiral paths outward from cast point; position-dependent hit coverage"
+        },
+        "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+        "anchor_quote": "the Hammerdin boasts both high damage output and fair area of effect",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Blessed Hammer with Concentration aura active; hammers spiral outward from player body in fixed arcs; magic damage hits nearly all enemies; reposition with Vigor/Enigma Teleport; Holy Shield provides defense"
+        },
+        "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+        "anchor_quote": "the Hammerdin boasts both high damage output and fair area of effect via Blessed Hammer's magic damage that is very rarely resisted by monsters.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Hammerdin (max Blessed Hammer/Concentration/Vigor/Blessed Aim/Holy Shield)",
+            "Budget Hammerdin (Spirit shield, Insight merc)",
+            "Ladder-starter variant"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/blessed-hammer-paladin-hammerdin-build",
+        "anchor_quote": "the Hammerdin is an iconic Paladin build",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

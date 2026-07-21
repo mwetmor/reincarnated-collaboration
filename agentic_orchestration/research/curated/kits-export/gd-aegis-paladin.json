@@ -1,0 +1,220 @@
+{
+  "kit_id": "gd-aegis-paladin",
+  "spine": {
+    "kit_id": "gd-aegis-paladin",
+    "folk_name": "Aegis of Menhir Paladin",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the out-and-return boomerang leg is a signature the source player feels (shield comes back) but the engine ricochet_bounce geometry does not model the return path -- filed as out-and-return accrual, geometry approximates the outbound hop only. No status lost (none attested).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the out-and-return boomerang leg is a signature the source player feels (shield comes back) but the engine ricochet_bounce geometry does not model the return path -- filed as out-and-return accrual, geometry approximates the outbound hop only. No status lost (none attested).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Aegis of Menhir",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "thrown shield that homes on the target, bounces/ricochets through multiple nearby enemies, then returns to the player ('hurl a magical aegis that will home in upon your target'; 'you throw a shield that bounces on monsters dealing massive damage to them'; 'ricochets to multiple nearby enemies, returns to player'). ricochet_bounce carries the bounce-through-pack identity; the RETURN-to-player leg is an out-and-return behavioral delta -> family-accrual candidate (docket). NO ailment named (fire theme never implies burn -- §0.1)."
+        },
+        {
+          "source_skill": "Inquisitor Seal",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "optional placed defensive zone ('one of the most strong defense skills but I did not choose it to be mobile'); dropped in the mobile variant. Not part of the core offensive loop in the mapped variant."
+        }
+      ],
+      "motion_frame": "hurl the Aegis of Menhir shield to home on a target, ricochet through the pack, and boomerang back to the player, repeating on cooldown while staying mobile",
+      "resource_economy": {
+        "cadence_scale": "cooldown-governed throw rhythm (shield out-and-return cycle)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ricochet hop count",
+            "return-leg reach"
+          ],
+          "economy": [
+            "cooldown cadence on the throw cycle"
+          ],
+          "traits_affixes": [
+            "fire/physical shield-damage scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ricochet_bounce over chain: 'bounces on monsters' + 'ricochets to nearby enemies' is bounce-hop language, not target-arc. The 'returns to player' leg is the out-and-return SHAPE (basin-1 family) -> accrual candidate WITHOUT numbers; base ricochet_bounce does not encode the return, hence CLOSE + note. Element fire per elem_raw (Oathkeeper fire-shield base); Acid/Aether/Infernal-DOT variants exist but this kit's fetched identity is the fire base. GEOMETRY_PROPAGATION_overkill approximates the multi-enemy hop payoff -- delivery-appropriate, not a hard capstone attestation. No status attestable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-8-1-fire-shield-throw-paladin-from-scratch-build-journal-and-guide/105073",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Ulvar1",
+      "title": "[1.1.8.1] Fire Shield Throw Paladin from scratch - build journal and guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/forgotten-gods-what-we-know-about-the-new-mastery/46822",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": null,
+      "title": "[Forgotten Gods] What we know about the new Mastery",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: fg-2019, patch-1.1-1.2",
+      "anchor_quote": "When Forgotten Gods expansion was about to be released, 'everyone' was hyped for the Oathkeeper skills — Oathkeeper arrived with FG; Aegis of Menhir is an Oathkeeper skill",
+      "source_url": "https://forums.crateentertainment.com/t/forgotten-gods-what-we-know-about-the-new-mastery/46822",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Aegis of Menhir Paladin'; aliases include 'Aegis Paladin', 'Menhir's Bulwark Paladin', 'shield proc Paladin'",
+      "anchor_quote": "Paladin is Oathkeeper + Inquisitor... you throw a shield that bounces on monsters dealing massive damage to them",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-fire-shield-throw-paladin-from-scratch-build-journal-and-guide/105073",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Aegis of Menhir (shield projectile that ricochets), Inquisitor Seal (defensive toggle)",
+      "anchor_quote": "you throw a shield that bounces on monsters dealing massive damage to them... Inquisitor also has one of the most strong defense skill in game - the inquisitor seal",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-fire-shield-throw-paladin-from-scratch-build-journal-and-guide/105073",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Ulvar1",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-fire-shield-throw-paladin-from-scratch-build-journal-and-guide/105073",
+        "anchor_quote": "guide's creator is Ulvar1, posted November 6, 2020",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "thrown-projectile",
+          "footprint": "chain-hop-ricochet",
+          "notes": "Shield thrown at target, ricochets to multiple nearby enemies, returns to player"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/forgotten-gods-what-we-know-about-the-new-mastery/46822",
+        "anchor_quote": "hurl a magical aegis that will home in upon your target",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Throw Aegis of Menhir; shield ricochets through pack and returns; Inquisitor Seal optional defensive placement for mobile variant"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-fire-shield-throw-paladin-from-scratch-build-journal-and-guide/105073",
+        "anchor_quote": "you throw a shield that bounces on monsters dealing massive damage to them... Inquisitor Seal is one of the most strong defense skills but I did not choose it to be mobile",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Acid Aegis Sentinel",
+            "Aether Aegis of Menhir",
+            "Infernal Aegis Burning DOT Shieldbreaker",
+            "Retaliation Warlord Aegis"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-acid-aegis-sentinel-experiment159b-leveling-journal/124629",
+        "anchor_quote": "Acid Aegis Sentinel... Infernal Aegis Burning DOT Shieldbreaker build showcase",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

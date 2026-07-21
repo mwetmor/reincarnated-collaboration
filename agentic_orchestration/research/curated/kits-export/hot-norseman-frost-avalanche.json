@@ -1,0 +1,233 @@
+{
+  "kit_id": "hot-norseman-frost-avalanche",
+  "spine": {
+    "kit_id": "hot-norseman-frost-avalanche",
+    "folk_name": "Frost Avalanche Norseman",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Dual-threshold structure (250-hit nova trigger AND 20-stack per-enemy explosion) partially maps to TEMPORAL_CHARGE + cascade pair but the two-tier accumulator shape is steward-accrual territory. Player who expects independent nova-and-explode timing control will notice the approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Dual-threshold structure (250-hit nova trigger AND 20-stack per-enemy explosion) partially maps to TEMPORAL_CHARGE + cascade pair but the two-tier accumulator shape is steward-accrual territory. Player who expects independent nova-and-explode timing control will notice the approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frost Avalanche",
+          "geometry_value": "ring",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze",
+            "chill"
+          ],
+          "delivery_notes": "Nova ring wave after 250-hit stack threshold; frost status explodes at 20 stacks or on death (threshold burst = freeze; movement-slow register = chill per §B5-ROGUELITE + source-mechanism-not-token-word; frost trail upgrade adds slow-field lane)"
+        }
+      ],
+      "motion_frame": "Stack auto-hits to 250 → release ring nova; maintain frost accumulator on nearby enemies",
+      "resource_economy": {
+        "stack_trigger_threshold": "250 hits → nova release",
+        "frost_stack_cap": "20 per enemy (explode on cap or death)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "frost stack (20-stack accumulator)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "frost trail lane upgrade → placed_lane slow-field"
+          ],
+          "economy": [
+            "offer-pool hygiene (skip off-build)"
+          ],
+          "traits_affixes": [
+            "frost damage affixes (Ring of Frost, Frozen Bog Boots, Elemental Resonator)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Two-tier accumulator: hit-counter (250) triggers nova; enemy-frost stack (20) triggers explosion. TEMPORAL_CHARGE maps the hit-threshold; GEOMETRY_PROPAGATION_cascade maps the on-death/cap explosion chain. Frost trail upgrade adds placed_lane slow-field dimension not modeled in primary skill. Filed: accrual to the two-tier-accumulator family."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3164166010",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community guide)",
+      "title": "Max Agony Class Build Archive",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/3807284068741988671/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community discussion)",
+      "title": "Norseman Quest: Flash Freeze",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://fullcleared.com/news/halls-of-torment-update-adds-two-new-characters-and-more/",
+      "archive_url": null,
+      "site": "fullcleared.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment Update Adds Two New Characters and More",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment All Characters Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hot-1.0-2024 and hot-1.1-2026.",
+      "anchor_quote": "Norseman was added August 31, 2023; game entered early access May 24, 2023; 1.0 launched September 24, 2024",
+      "source_url": "https://fullcleared.com/news/halls-of-torment-update-adds-two-new-characters-and-more/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Norseman class with Frost Avalanche as signature ability; known as 'Frost Avalanche Norseman' in community.",
+      "anchor_quote": "His Frost Avalanche build leverages ice-type damage for crowd control",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3164166010",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Frost Avalanche deals frost/cold damage, applies frost status effect, large AoE zone. Offer-pool hygiene: skip off-build upgrades to keep pool pure for Frost Avalanche offers.",
+      "anchor_quote": "Applies a frost status effect to enemies; enemies with frost explode when they exceed 20 stacks or upon death",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3807284068741988671/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Scrolls of Mastery (frost) are the capstone upgrade path; frost upgrade sequence: Frost-Frost-Waves-Frost-Frost-Waves-Frost-Frost-Impact-Waves"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3807284068741988671/",
+        "anchor_quote": "frost-focused sequence: Frost-Frost-Waves-Frost-Frost-Waves-Frost-Frost-Impact-Waves",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Ring of Frost, Frozen Bog Boots, Elemental Resonator cited as core items; frost damage affixes stack; Scrolls of Mastery for frost upgrade path"
+        },
+        "source_url": "https://primagames.com/tips/best-norseman-build-in-halls-of-torment-norseman-build-guide",
+        "anchor_quote": "Ring of Frost or uncommon Frozen Bog Boots, you'll be unstoppable; Elemental Resonator is another great addition",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "large-zone",
+          "description": "Large circular Frost Nova AoE wave emanating from player position; zone denial mechanic; frost trail upgrades add slow-field lane"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3807284068741988671/",
+        "anchor_quote": "releases a big circular Frost Nova wave after 250 hits",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Norseman auto-attacks to build frost stacks; after 250 hits releases large circular Frost Nova wave. Offer-pool hygiene: skip all non-Frost-Avalanche upgrades to keep offer pool pure, maximizing Frost Avalanche appearances per run."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3807284068741988671/",
+        "anchor_quote": "Applies a frost status effect to enemies; enemies with frost explode when they exceed 20 stacks or upon death",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Frost Avalanche (primary); Hailstorm vortex variant noted by community as more effective for Flash Freeze achievement but Frost Avalanche is the named kit identity"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3807284068741988671/",
+        "anchor_quote": "Many players found Hailstorm with vortex upgrades more effective for the achievement than Frost Avalanche alone",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

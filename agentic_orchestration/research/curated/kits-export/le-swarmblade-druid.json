@@ -1,0 +1,302 @@
+{
+  "kit_id": "le-swarmblade-druid",
+  "spine": {
+    "kit_id": "le-swarmblade-druid",
+    "folk_name": "Swarmblade Druid",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.1-harbingers;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Swarm-entity texture thinned: Swarm Strike 360-finisher maps as ring; Locust Swarm cycle is shape-silent (null row); Tornado proc payload carried as rider note; form-entry moment compressed into self_buff chassis. Loop verb (in-form melee spam + nova finisher + Rage pressure) survives intact -- that build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Swarm-entity texture thinned: Swarm Strike 360-finisher maps as ring; Locust Swarm cycle is shape-silent (null row); Tornado proc payload carried as rider note; form-entry moment compressed into self_buff chassis. Loop verb (in-form melee spam + nova finisher + Rage pressure) survives intact -- that build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Swarmblade Form",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent-transform chassis (R-M9 register): one Mana-cost cast enters the Rage-fueled insectoid form with its own skill bar; kit maps IN-FORM per SB Rage-in-form law ('This is a permanent Swarmblade Form build therefore uses Rage instead of Mana')."
+        },
+        {
+          "source_skill": "Armblade Slash",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "In-form spam melee, self-origin small-radius AoE (fetched geometry: 'self-origin melee AoE, small-radius around player in form'); procs on attack: 'Spam Armblade Slash to deal melee damage and proc Tornadoes / Locust Swarm'."
+        },
+        {
+          "source_skill": "Swarm Strike",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "skill_loop verbatim: 'Swarm Strike as 360-degree heavy AoE finisher' -- discrete nova finisher, ring per phrase-book burst-around-self; one heavy beat, not a sustained spin (whirlwind rejected). [STEWARD AUDIT 2026-07-18: mapper's longer quote ('a 360 degree heavy spin attack that also rallies your summoned bugs around you...') was an ANCHOR-SPLICE -- exists in NO store; STRUCK. Ring survives on the legal fragment.]"
+        },
+        {
+          "source_skill": "Locust Swarm",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "skill_loop verbatim: '15-second Locust Swarm cycle via hive summons', proc'd by Armblade Slash ('proc Tornadoes / Locust Swarm'). Shape-silent AND behavior-silent in all admissible stores -> null geometry is the honest carrier. [STEWARD AUDIT 2026-07-18: 'rallies your summoned bugs around you' was ANCHOR-SPLICED (no store); the bugs-as-around-player-texture stance is NEUTRALIZED to behavior-silent -- no summoner-GAP claim, no texture claim; the kit's dominant loop (Armblade Slash spam) is untouched.]"
+        }
+      ],
+      "motion_frame": "enter permanent Swarmblade Form -> spam Armblade Slash (procs Tornado / Locust Swarm) -> Swarm Strike 360 finisher -> sustain Rage via combat -> Dive gap-close",
+      "resource_economy": {
+        "resource": "rage (native engine type; replaces mana IN FORM per SB law -- the swap itself is fidelity_notes, not a second economy)",
+        "charge_stack_sub_shape": "accumulator (Rage built by sustained combat; 'Rageborn is mandatory to sustain Rage')",
+        "persistent_condition_shape": "tick-cost (form maintenance rides Rage sustain -- out-of-combat decay pressure)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold (nearest apply-event for proc-on-attack: Armblade Slash procs Tornadoes / Locust Swarm)",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "Tornado proc -- larger AoE cone/spread (fetched geometry payload)",
+            "Dive gap-close"
+          ],
+          "economy": [
+            "Rageborn (mandatory Rage sustain)",
+            "Bush Stalker (leech)"
+          ],
+          "traits_affixes": [
+            "Harmony of Blades (dual-wield enable)",
+            "Ursine Strength",
+            "Impervious",
+            "Stormcarved Testament + Culnivar's Claim primary power items (affix lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SB Rage-in-form law applied: in-form economy IS the kit economy; Mana->Rage swap recorded HERE, not as a second economy. Permanent form dissolves the form-SWAP docket class (no swap loop -- GX-02 form-swap gap not triggered; thematic adjacency to engine spirit-swap is a design note, not a lane, per SB trap note). Elements null/null per THE PHYSICAL RULE (corpus elem physical; physical is never an element token). Variant-scoped attributes OFF core row (7.2): Lightning Swarmblade (Tornado/Storm Bolt), Frostbite Swarmblade (LE Frostbite is ALSO a no-home cold-DoT -- WITHHOLD + note), BearSwarm hybrid, Locust leveling. T4: MOMENTUM_CASCADE (Rage momentum engine) + PERSISTENCE_ENGINE_uptime hint (permanent-form uptime maintenance)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-staff",
+      "title": "Lightning Swarmblade Druid Guide - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/frostbite-swarmblade-druid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-staff",
+      "title": "Frostbite Swarmblade Druid Guide for Last Epoch Season 4 | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/1-to-76-swarmblade-locust-swarm-leveling-guide-0-9-2/61104",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "boardman21",
+      "title": "1 to 76 Swarmblade Locust Swarm | Leveling Guide | 0.9.2 - Primalist - Last Epoch Forums",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/druid-overhaul-overview-and-swarmblade-form/45307",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "elevengames-official",
+      "title": "Druid Overhaul Overview and Swarmblade Form - News - Last Epoch Forums",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: 1.0-launch",
+      "anchor_quote": "Season 2 - Tombs of the Erased (updated April 17, 2025) ... 1 to 76 Swarmblade Locust Swarm | Leveling Guide | 0.9.2",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: 1.1-harbingers",
+      "anchor_quote": "Season 2 - Tombs of the Erased (updated April 17, 2025) ... Frostbite Swarmblade Druid Guide ... Season 3 (August 31, 2025)",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-swarmblade-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: 1.2-woven",
+      "anchor_quote": "Season 4 - Shattered Omens ... changelog noting updates for Season 3 (August 31, 2025) and Season 2 (July 10, 2024)",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-swarmblade-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Swarmblade Druid' and aliases 'Locust Swarm Swarmblade', 'swarm form Druid' are real community usage.",
+      "anchor_quote": "Lightning Swarmblade Druid ... a Melee Swarmblade Form build ... 1 to 76 Swarmblade Locust Swarm | Leveling Guide ... Primalist Druid build",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Swarmblade Form and Locust Swarm. Transformation build using Rage as resource in form.",
+      "anchor_quote": "This is a permanent Swarmblade Form build therefore uses Rage instead of Mana.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "boardman21",
+          "site": "forum.lastepoch.com",
+          "role": "early Locust Swarm leveling guide author (0.9.2)"
+        },
+        "source_url": "https://forum.lastepoch.com/t/1-to-76-swarmblade-locust-swarm-leveling-guide-0-9-2/61104",
+        "anchor_quote": "1 to 76 Swarmblade Locust Swarm | Leveling Guide | 0.9.2",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_keystones": [
+            "Rageborn (mandatory for Rage sustain)",
+            "Harmony of Blades (dual-wield enable)",
+            "Bush Stalker (leech)",
+            "Ursine Strength",
+            "Impervious"
+          ],
+          "notes": "Rageborn flagged mandatory. No unique set identity confirmed from fetched sources."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+        "anchor_quote": "Rageborn is mandatory to sustain Rage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Stormcarved Testament",
+            "Culnivar's Claim",
+            "Aurora's Time Glass",
+            "Mantle of the Pale Ox",
+            "Tempest Maw",
+            "Seed of Ekkidrasil",
+            "Rule of the Simoon",
+            "Phantom Grip"
+          ],
+          "notes": "Stormcarved Testament and Culnivar's Claim appear as primary power items"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+        "anchor_quote": "Stormcarved Testament, Culnivar's Claim, Aurora's Time Glass, Mantle of the Pale Ox, Tempest Maw, Seed of Ekkidrasil, Rule of the Simoon, Phantom Grip",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary_geometry": "self-origin melee AoE",
+          "range": "close/melee",
+          "aoe_shape": "small-radius around player in form",
+          "secondary": "Tornado procs — larger AoE cone/spread",
+          "movement": "Dive ability provides gap-close"
+        },
+        "source_url": "https://forum.lastepoch.com/t/druid-overhaul-overview-and-swarmblade-form/45307",
+        "anchor_quote": "Swarm Strike, a 360 degree heavy spin attack that also rallies your summoned bugs around you dealing heavy AoE damage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Transform into Swarmblade Form (costs Mana, enter Rage-fueled insectoid form with own skill bar). Spam Armblade Slash to deal melee damage and proc Tornadoes / Locust Swarm. Maintain Rage via sustained combat. Swarm Strike as 360-degree heavy AoE finisher. 15-second Locust Swarm cycle via hive summons.",
+          "resource": "Rage (replaces Mana in form)",
+          "loop_type": "permanent-transform-spam"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-swarmblade-druid-guide",
+        "anchor_quote": "This is a permanent Swarmblade Form build therefore uses Rage instead of Mana.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lightning Swarmblade (Tornado/Storm Bolt proc)",
+            "Frostbite Swarmblade (Frostbite DoT)",
+            "Swarmblade/Werebear Hybrid ('BearSwarm')",
+            "Locust Swarm leveling variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/frostbite-swarmblade-druid-guide",
+        "anchor_quote": "BEARSWARM! Intro to a Swarmblade / Werebear Hybrid (S-Tier?) Druid Build",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

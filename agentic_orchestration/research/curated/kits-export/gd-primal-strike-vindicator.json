@@ -1,0 +1,237 @@
+{
+  "kit_id": "gd-primal-strike-vindicator",
+  "spine": {
+    "kit_id": "gd-primal-strike-vindicator",
+    "folk_name": "Primal Strike Vindicator",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Wind Devil wanders; engine totem is stationary (R-M8-adjacent mobile-emitter drift; qual mint-candidate filed). Storm Totem unfetched — omitted rather than memory-supplemented.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Wind Devil wanders; engine totem is stationary (R-M8-adjacent mobile-emitter drift; qual mint-candidate filed). Storm Totem unfetched — omitted rather than memory-supplemented.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Primal Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Attack-replacer (§A replacer row): fires on every swing/shot; 'Primal Strike has a AoE radius effect, this will compound the damage in packs' — small AoE rider on impact. 'Works with melee or ranged weapons'; rifle variant fires projectile with '100% pass-through' (Ugdenbog Sparkthrower)."
+        },
+        {
+          "source_skill": "Wind Devil",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "'Wandering tornado proxies for RR debuff' — placed emitter applying resistance reduction (§2 GD-RR row, persistent entity-anchored shape → curse:sap). Engine totem is stationary; the wander is the drift (qual mint-candidate filed)."
+        }
+      ],
+      "motion_frame": "Every 2H swing/shot detonates a lightning AoE at target; Wind Devils wander ahead as RR tornadoes",
+      "resource_economy": {
+        "resource": "energy",
+        "cost_shape": "per-swing spend (attack-replacer tempo)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "AoE radius on impact",
+            "pass-through pierce (item-granted)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Ultos set lightning scalers (numeric lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era restamped: base-2016 CONTRADICTED (errata applied); mapped from aom-2017+ dossier language. Storm Totem named in corpus core_skills but NO behavior fetched in this kit's dossier — contributes nothing (§0.4 memory-supplement law); chain_count stays 2. Mono-lightning identity → ELEMENT_CONVERSION_MONO."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.2.1.6] Beginner Primal Strike Vindicator - Unleash the Thunderbuss",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "Crate Entertainment",
+      "title": "Grim Dawn - Ashes of Malmouth Expansion on Steam",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Present as build in era: base-2016",
+      "anchor_quote": "Unleash your vengeance upon the enemies of humanity with two new Masteries: the Inquisitor and the Necromancer",
+      "source_url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in era: aom-2017, patch-1.1-1.2",
+      "anchor_quote": "Vindicator combines Shaman and Inquisitor masteries [...] Shaman is the primary lightning class",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Primal Strike Vindicator; aliases include PS Vindicator, Wind Devil Storm Totem Vindicator",
+      "anchor_quote": "Beginner Primal Strike Vindicator - Unleash the Thunderbuss",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Primal Strike, Wind Devil, Storm Totem. Melee/ranged lightning strike, AoE radius, energy resource.",
+      "anchor_quote": "The skill works with melee or ranged weapons [...] Since Primal Strike has a AoE radius effect, this will compound the damage in packs",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Ultos set",
+          "note": "Ultos set is perfect for lightning builds with Primal Strike"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+        "anchor_quote": "The Ultos set is perfect for lightning builds",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Ugdenbog Sparkthrower",
+          "alteration": "adds 100% pass-through to Primal Strike projectile"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+        "anchor_quote": "Ugdenbog Sparkthrower will add 100% pass-through to Primal Strike, meaning the projectile will pierce enemies",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target with AoE radius",
+          "footprint": "small AoE on impact plus Wind Devil wander",
+          "verbatim": "Primal Strike has a AoE radius effect [...] Ugdenbog Sparkthrower will add 100% pass-through to Primal Strike, meaning the projectile will pierce enemies"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+        "anchor_quote": "Primal Strike has a AoE radius effect, this will compound the damage in packs that stand close together",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Two-handed melee or ranged rifle build; Primal Strike fires on every swing/shot for lightning nova AoE. Wind Devils summoned as wandering tornado proxies for RR debuff.",
+          "resource": "energy (spend)",
+          "loop_verb": "auto-attack with AoE proc"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-primal-strike-vindicator-unleash-the-thunderbuss-sr-and-lokarr-viable/143897",
+        "anchor_quote": "The skill works with melee or ranged weapons [...] Since Primal Strike has a AoE radius effect, this will compound the damage in packs",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "2H ranged blunderbuss (lightning)",
+            "2H melee (lightning/physical)",
+            "Wind Devil caster hybrid"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-2-ultos-2h-primal-strike-vindicator-speed-of-light-approved/82750",
+        "anchor_quote": "Ultos 2H Primal Strike Vindicator speed of light approved",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

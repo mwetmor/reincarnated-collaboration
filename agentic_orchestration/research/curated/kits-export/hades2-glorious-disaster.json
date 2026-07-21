@@ -1,0 +1,233 @@
+{
+  "kit_id": "hades2-glorious-disaster",
+  "spine": {
+    "kit_id": "hades2-glorious-disaster",
+    "folk_name": "Glorious Disaster (Zeus+Apollo duo)",
+    "game": "hades2",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades2-1.0-2025;hades2-post1.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Glorious Disaster player gets the channel-a-lightning-zone boss-shredder faithfully -- placed zone + Magick tick-cost channel + lightning-echo capstone door. Drift: the exact '20 dmg / 0.13s while channeling, scaling with +30 Magick invested' TIGHT COUPLING of channel-duration-to-strike-count is carried as a tick-cost channel rather than a first-class Magick-investment-to-output multiplier; you channel for damage, but the precise Magick-fed escalation curve is approximated. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Glorious Disaster player gets the channel-a-lightning-zone boss-shredder faithfully -- placed zone + Magick tick-cost channel + lightning-echo capstone door. Drift: the exact '20 dmg / 0.13s while channeling, scaling with +30 Magick invested' TIGHT COUPLING of channel-duration-to-strike-count is carried as a tick-cost channel rather than a first-class Magick-investment-to-output multiplier; you channel for damage, but the precise Magick-fed escalation curve is approximated. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Omega Cast (Glorious Disaster duo, Zeus+Apollo)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "place an Omega Cast at a target location, then CHANNEL +30 Magick into it for repeated sustained lightning bolt strikes ('20 damage every 0.13 seconds for as long as you channel' -- dossier). Placed/aimed zone that grows with channel = ground_targeted_circle. Best on Aspect of Circe (cast lingers for full lightning coverage). lightning family; shock/stun as riders (probe control set; §A engine-shock note -- here shock is the lightning-status rider, kept as attested ailment set from probe). Local Climate (Demeter) anchors the AoE on the player while dodging."
+        }
+      ],
+      "motion_frame": "channel-a-lightning-zone boss-shredder: drop an Omega Cast on the target and pour Magick into it, staying in the anchored zone (Local Climate) to keep the bolts raining while you dodge, until the Magick bar drains",
+      "resource_economy": {
+        "meter_type": "focus",
+        "persistent_condition_shape": "tick-cost",
+        "resource_verbatim": "Magick channel (+30 Magick fed into the Omega Cast; drains during sustained channel)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "placed lightning zone (grows with Magick channel)",
+            "Local Climate anchors AoE on player (mobile-zone)"
+          ],
+          "economy": [
+            "Magick channel tick-cost (focus meter; +30 Magick investment drives strike count)",
+            "Apollo Solar Ring passive sustained-cast fallback"
+          ],
+          "traits_affixes": [
+            "lightning damage (Air Quality / Zeus buffs each bolt)",
+            "Magick regen (extends channel window)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-19 (corpus flag). DUO BOON = the kit's capstone identity (FLAG 2 + §D row): Glorious Disaster (Zeus+Apollo) is 'the highest theoretical damage of any duo boon for cast-heavy builds' -> route via main-law §5 -> ELEMENTAL_ECHO (mono-lightning amp/echo) + GEOMETRY_COLLAPSE (the concentrated channeled-zone identity), 1-3 ENGINE tokens (R-M1). Magick (FLAG 1 + §D row 1) = plain cast-cost/channel resource, mana-register -> meter_type=focus + persistent_condition_shape=tick-cost; NOT reservation, NOT spirit-guide-adjacent. The channel-into-placed-cast = on-cast-linked / linked-cast (the Cast is the host; the Magick channel drives repeated linked lightning). glass defense noted, not a surface. [STEWARD AUDIT m04: ailments ['shock','stun'] -> [] -- neither status named in fetched dossier text (probe-facts are kb-derived, NOT attestation); lightning bolts are damage, not a status. RUN-WIDE no-un-named-status law]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3431760756",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "One broken build for every weapon/aspect on Hades II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.techtimes.com/articles/313887/20260127/hades-2-boon-guide-broken-god-combinations-run-optimization-tips-faster-clears.htm",
+      "archive_url": null,
+      "site": "techtimes.com",
+      "author_handle": null,
+      "title": "Hades 2 Boon Guide: Broken God Combinations and Run Optimization Tips for Faster Clears",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+      "archive_url": null,
+      "site": "switchbladegaming.com",
+      "author_handle": null,
+      "title": "5 Hades 2 Boon Combos That Break Runs: God Synergies, Duo Conditions, and Setups That Win Without Perfect RNG",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in eras hades2-1.0-2025 and hades2-post1.0-2026",
+      "anchor_quote": "Glorious Disaster is the highest theoretical damage output of any duo boon in the game for cast-heavy builds",
+      "source_url": "https://www.techtimes.com/articles/313887/20260127/hades-2-boon-guide-broken-god-combinations-run-optimization-tips-faster-clears.htm",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Glorious Disaster (Zeus+Apollo duo)' and aliases are real community usage",
+      "anchor_quote": "Glorious Disaster is a boon Melinoe can receive from... Zeus, and the God of Light, Apollo",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3431760756",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: cast(Apollo-modded), Zeus strikes, Glorious Disaster(duo); channel Magick into Omega Cast for repeated lightning strikes",
+      "anchor_quote": "You can Channel +30 Magick into your Ω Cast to repeatedly strike foes with lightning bolts",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3431760756",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Circe (preferred — cast lingers)"
+          ],
+          "keepsakes": null,
+          "hexes": null,
+          "note": "No keepsake or hex recommendations extracted from fetched sources"
+        },
+        "source_url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+        "anchor_quote": "The best weapon for this build is the Aspect of Circe",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "supporting_boons": [
+            "Local Climate (Demeter) — anchors Omega Cast AoE on player while dodging",
+            "Air Quality (Zeus) — buffs each bolt's damage",
+            "Apollo Solar Ring — passive sustained cast AoE fallback"
+          ],
+          "note": "Item alterations = boons in Hades II context"
+        },
+        "source_url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+        "anchor_quote": "Local Climate (Demeter) keeps the Omega Cast AoE anchored on you while you dodge through it, and Air Quality (Zeus) buffs each individual bolt's damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Placed cast at target location grows with Magick channel; large-zone lightning coverage; Aspect of Circe cast lingers long enough for full lightning coverage; quick-snap cast weapons (Sister Blades, Umbral Flames) too short to get meaningful lightning coverage."
+        },
+        "source_url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+        "anchor_quote": "Aspect of Circe — its Omega Cast lingers long enough to get full lightning coverage, unlike the quick-burst casts on some other aspects",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Obtain Zeus + Apollo boon lineages to unlock Glorious Disaster duo boon. Activate Omega Cast to place cast at target; channel +30 additional Magick into it for sustained repeated lightning bolt strikes. Best on Aspect of Circe (cast lingers). Support with Local Climate (Demeter, anchors AoE) and Air Quality (Zeus, buffs bolt damage)."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3431760756",
+        "anchor_quote": "channel Magick into Omega Cast, which will repeatedly strike enemies with lightning bolts... 20 damage every 0.13 seconds for as long as you channel — at a cost of +30 Magick",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Glorious Disaster full channel (Aspect of Circe)",
+            "Apollo Solar Ring fallback (without duo boon)"
+          ]
+        },
+        "source_url": "https://www.switchbladegaming.com/hades-2/boon-combos/",
+        "anchor_quote": "Apollo's Solar Ring alone generates passive cast damage in a sustained AoE... becomes dramatically stronger if you do [get Glorious Disaster]",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

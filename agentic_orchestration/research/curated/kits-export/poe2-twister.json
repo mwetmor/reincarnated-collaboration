@@ -1,0 +1,240 @@
+{
+  "kit_id": "poe2-twister",
+  "spine": {
+    "kit_id": "poe2-twister",
+    "folk_name": "Twister Spirit Walker",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Twister player would miss the kit's signature geometry: SELF-PROPELLED vortices that WANDER erratically across the room at 7.5m/s for 3 seconds, blinding and grinding everything they pass through, spawned in bunches by consuming a stationary whirlwind you must cast from inside. The engine's multi_projectile + an R-M8 wander-note + a GEOMETRY_PROPAGATION door approximate 'many moving hits that spread', but there is no first-class 'autonomous roaming persistent AoE that pathfinds forward' member -- the erratic-wander identity (the whole reason the build feels alive) degrades to a projectile spread with a mobility note, and the 'cast-from-inside-the-whirlwind-or-lose-the-buff' positional dance compresses to an activation-toggle. What survives (a physical caster laying down multi-hit blinding area) is recognizable but hollow of the wandering-tornado fantasy -> APPROX (that build, meaningfully flatter); the roaming behavior is a documented R-M8 delta + a qualitative candidate for steward review (roaming-persistent-AoE class), not a wholly unmodelable loop, so APPROX not GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "blind"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Twister player would miss the kit's signature geometry: SELF-PROPELLED vortices that WANDER erratically across the room at 7.5m/s for 3 seconds, blinding and grinding everything they pass through, spawned in bunches by consuming a stationary whirlwind you must cast from inside. The engine's multi_projectile + an R-M8 wander-note + a GEOMETRY_PROPAGATION door approximate 'many moving hits that spread', but there is no first-class 'autonomous roaming persistent AoE that pathfinds forward' member -- the erratic-wander identity (the whole reason the build feels alive) degrades to a projectile spread with a mobility note, and the 'cast-from-inside-the-whirlwind-or-lose-the-buff' positional dance compresses to an activation-toggle. What survives (a physical caster laying down multi-hit blinding area) is recognizable but hollow of the wandering-tornado fantasy -> APPROX (that build, meaningfully flatter); the roaming behavior is a documented R-M8 delta + a qualitative candidate for steward review (roaming-persistent-AoE class), not a wholly unmodelable loop, so APPROX not GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Twister (wandering vortex projectiles)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "blind"
+          ],
+          "delivery_notes": "0.5m-radius vortices that move forward ERRATICALLY at 7.5m/s for 3s, Blinding and repeatedly Hitting enemies within; consumes whirlwinds to spawn ADDITIONAL twisters (multi-point via several wandering twisters) -> multi_projectile (discrete self-propelled moving hazards, mirrors the poe1-spark/blade-vortex discrete-projectile lineage; multiple bouncing/wandering twisters = a projectile spread that persists and roams). Physical -> element-neutral (physical rule; elem_raw=physical). ailment=blind (fetched verbatim: 'Blinding... enemies within' -- accuracy-tax). R-M8: the erratic forward wander is a PURSUIT-adjacent behavioral delta (mobile AoE), noted."
+        },
+        {
+          "source_skill": "Whirling Slash (stationary empower-zone)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "creates a STATIONARY whirlwind zone that empowers Twister when cast from inside it -> whirlwind (spin-to-win phrase-book; here a placed spin-zone). Physical -> element-neutral. Cast Twister while inside for the empower bonus; leaving before casting collapses the whirlwind and loses the bonus. This is the SETUP for Twister (secondary stage per 7.2; Twister is the every-3-seconds damage)."
+        }
+      ],
+      "motion_frame": "Whirling Slash x3 to lay a stationary whirlwind, then cast Twister from INSIDE it (empowered) -- wandering 0.5m vortices roam at 7.5m/s for 3s, blinding and multi-hitting; exit the whirlwind before Twister collapses the empowerment. Bear companion soaks.",
+      "resource_economy": {
+        "cost_scale": "mana/spirit per cast",
+        "reservation_resource": "spirit",
+        "persistent_condition_shape": "activation-toggle (Whirling Slash empower-zone; empowerment lost if you leave before casting Twister)",
+        "duration_stack": "Twister lasts 3s; duration-stacker variant extends the roaming window"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Whirling Slash whirlwind-zone (empowers Twister if cast from inside; consumed to spawn extra twisters)",
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Twister wandering multi_projectile vortices (0.5m, 7.5m/s, 3s)",
+            "Whirling Slash stationary whirlwind empower-zone"
+          ],
+          "economy": [
+            "Spirit (Spirit Walker) reservation/spend",
+            "Twister duration (duration-stacker variant)",
+            "whirlwind-consumption -> extra twisters"
+          ],
+          "traits_affixes": [
+            "projectile/twister-count scalers",
+            "duration scalers (Kripp duration-stacker)",
+            "blind-effect / area"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-09 (corpus gx). Twister -> multi_projectile (discrete self-propelled roaming hazards; the poe1-spark/blade-vortex precedent for discrete-moving-projectiles governs -- multiple wandering twisters that bounce/roam = a persistent projectile spread, NOT vortex_pull which is a pull/vacuum, and NOT a single whirlwind since there are MANY moving twisters). R-M8 APPLIED: the erratic 7.5m/s forward wander is a mobile-AoE pursuit-adjacent behavioral delta -> noted (not a mint; the roaming is delivery flavor on top of the projectile). blind ailment kept (fetched verbatim 'Blinding'). Whirling Slash -> whirlwind (stationary spin-zone). Physical -> element-neutral (physical rule) -- Spirit Walker uses SPIRIT as a reservation/combat resource (reservation_resource=spirit, poe2-Spirit false-friend, NOT spirit-guide). Empower-if-cast-from-inside -> activation-toggle persistent_condition + apply-mark trigger. GEOMETRY_PROPAGATION routes the whirlwind-consumed->extra-twisters spread; ZONE_CONTROL routes the roaming-hazard area denial. Spirit Walker (Huntress) ascendancy -> t4 via 5 (R-M1). eras 0.2-0.5 CONFIRMED."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 8,
+      "evidence_tier": "C-provisional",
+      "mint_class": "qualitative",
+      "build_authorized": 0,
+      "description": "roaming-persistent-AoE / twister: a persistent AoE entity that roams/drifts across the field for its duration (the 27th-geometry question). Distinct from R-M6 drift-tick (passive travel along cast line) and from D-3#6 enemy-seeking (active chase) — this is undirected roaming persistence."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Spirit Walker Twisters Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Twister",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Twister - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+      "anchor_quote": "Twister earliest version history entry is 0.2.0b. Spirit Walker Twisters guide covers Return of the Ancients 0.5.4, last updated July 15, 2026",
+      "source_url": "https://poe2db.tw/us/Twister",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Twister Spirit Walker' and aliases 'Twister Whirling Slash', 'Spirit Walker Twister', 'Twister ranger build' are real community usage",
+      "anchor_quote": "Spirit Walker Twisters Build Guide for Path of Exile 2 Return of the Ancients 0.5.4... Whirling Slash creates a whirlwind that allows you to empower your Twister skill",
+      "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Whirling Slash and Twister; twisters bounce and cover area; Spirit Walker uses Spirit reservation",
+      "anchor_quote": "Whirling Slash creates a whirlwind that allows you to empower your Twister skill. However, if you leave the whirlwind before casting Twister, the whirlwind collapses and you lose the extra damage.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Spirit Walker (Huntress)",
+          "notables": [
+            "not individually named in fetched guide text"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+        "anchor_quote": "The guide references a specific ascendancy progression order but doesn't explicitly name individual Spirit Walker notables",
+        "abstained": 0,
+        "conf": 0.45
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "twister": "0.5m radius vortex moving forward erratically at 7.5m/s; lasts 3 seconds; Blinds and repeatedly hits enemies within; consumes whirlwinds for additional twisters; multi-point coverage via multiple bouncing twisters",
+          "whirling_slash": "creates stationary whirlwind zone that empowers Twister on cast"
+        },
+        "source_url": "https://poe2db.tw/us/Twister",
+        "anchor_quote": "The twister moves forward erratically, Blinding and repeatedly Hitting enemies within... 0.5 metre radius, lasts 3.00 seconds, travels at 7.5 metres per second",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Dodge Roll → Ice-Tipped Arrows → Barrage → Whirling Slash x3 → Twister (cast while inside whirlwind for empowerment bonus). Exit whirlwind before Twister collapses the empowerment. Bear companion soaks damage."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+        "anchor_quote": "Whirling Slash creates a whirlwind that allows you to empower your Twister skill. However, if you leave the whirlwind before casting Twister, the whirlwind collapses and you lose the extra damage.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Twister Spirit Walker (Huntress — standard)",
+            "Twister Duration Stacker Spirit Walker (Kripp variant)",
+            "Twister SiahZ league starter"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+        "anchor_quote": "Kripp's Twister DURATION Stacker Spirit Walker - PoE 2 Huntress Build Guide",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

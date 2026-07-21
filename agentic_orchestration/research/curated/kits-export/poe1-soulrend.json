@@ -1,0 +1,222 @@
+{
+  "kit_id": "poe1-soulrend",
+  "spine": {
+    "kit_id": "poe1-soulrend",
+    "folk_name": "Soulrend",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The damage-FEEDS-defense loop (per-hit spell-leech -> energy shield) has no resource_economy key — the TH lane converts damage TAKEN, not dealt; carried via the defense probe (ES primary), trait lane, and the RESOURCE_CONVERSION door. A player of the original misses the mechanical per-pack shield-refill pulse; homing-turn and the DoT-area-around-the-projectile are behavioral notes on the line pierce.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The damage-FEEDS-defense loop (per-hit spell-leech -> energy shield) has no resource_economy key — the TH lane converts damage TAKEN, not dealt; carried via the defense probe (ES primary), trait lane, and the RESOURCE_CONVERSION door. A player of the original misses the mechanical per-pack shield-refill pulse; homing-turn and the DoT-area-around-the-projectile are behavioral notes on the line pierce.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Soulrend",
+          "geometry_value": "line",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "single HOMING chaos projectile that turns toward enemies in front of it, PIERCES everything it passes, repeatedly applies a short powerful chaos DoT to each enemy in an area around it, and leeches spell damage as energy shield (4% attested) while traveling. Straight-line pierce -> line; the homing turn is behavioral"
+        }
+      ],
+      "motion_frame": "soul-siphon caster: lob homing soul-projectiles down corridors; they thread through packs leaving DoT and refilling the caster's energy shield — the damage output IS the defensive intake",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "line pierce-through-pack trajectory (homing turn behavioral)",
+            "DoT-area-around-projectile footprint (note)"
+          ],
+          "economy": [
+            "damage-feeds-defense: ES-leech-on-damage-DEALT has no chassis key — carried in traits + deviation",
+            "low-tempo recast rhythm (duration DoT does the work)"
+          ],
+          "traits_affixes": [
+            "chaos DoT scaling",
+            "energy shield + ES-leech affixes (Trickster chassis)",
+            "projectile speed (pack coverage)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "chaos -> SHADOW (section-1 drain-DoT lineage — literally the soul-drain register). Ailment DRAIN (section-2 life-drain/essence-drain row) from the dossier-verbatim 'chaos damage over time debuff' + ES-leech identity — this OVERRIDES the probe's generic [poison, wither] rider tags (dossier is the verified surface; the wither register survives only as a trait-lane rider note). Homing = behavioral property on a line pierce (flicker/spark randomness precedent). ERA CAVEAT: verify_ledger holds era 3.7-3.13 UNSUPPORTED (no errata applied; corpus eras retained) — mapping is era-agnostic mechanics. Doors: RESOURCE_CONVERSION carries the damage->ES conversion identity (econ_raw=damage-feeds-defense); PERSISTENCE_ENGINE_uptime the chaos-DoT uptime loop (section-5 ED/C register). CAPSTONE ABSTAINED — doors from identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Soulrend",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Soulrend — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Soulrend introduced patch 3.6.0 (Synthesis league); era bucket 3.0-3.6 is the introduction patch",
+      "source_url": "https://poedb.tw/us/Soulrend",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": null,
+      "source_url": "https://poedb.tw/us/Soulrend",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Soulrend' is real community usage",
+      "anchor_quote": "'Soulrend' is the official gem name introduced 3.6.0 and primary community identifier; no folk-name divergence found",
+      "source_url": "https://poedb.tw/us/Soulrend",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Soulrend; homing chaos projectile that drains life into energy shield as it passes through enemies; DoT debuff left on enemies",
+      "anchor_quote": "'fires a single projectile that turns towards enemies... 4% of Spell Damage Leeched as Energy Shield... repeatedly applies a short but powerful chaos damage over time debuff'",
+      "source_url": "https://poedb.tw/us/Soulrend",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Soulrend of Reaping (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not available on poedb page",
+              "anchor_quote": null
+            },
+            {
+              "node": "Soulrend of the Spiral (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not available on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Soulrend",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (single homing chaos projectile)",
+          "aoe": "point (single piercing projectile; DoT debuff left on each hit enemy)",
+          "notes": "Piercing behavior allows multi-target hit on a single cast; DoT aura around projectile path"
+        },
+        "source_url": "https://poedb.tw/us/Soulrend",
+        "anchor_quote": "'repeatedly applies a short but powerful chaos damage over time debuff to each enemy in an area around it'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Soulrend toward enemy clusters; homing projectile seeks targets, pierces through them, applies chaos DoT debuff on each hit, and leeches life as energy shield; re-cast for ongoing projectile coverage; ES sustain from leech is primary defense"
+        },
+        "source_url": "https://poedb.tw/us/Soulrend",
+        "anchor_quote": "'fires a single projectile that turns towards enemies in front of it and pierces through those it hits... 4% of Spell Damage Leeched as Energy Shield'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Trickster (primary; ES leech + evasion)"
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Soulrend",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

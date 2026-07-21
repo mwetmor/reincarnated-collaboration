@@ -1,0 +1,250 @@
+{
+  "kit_id": "poe2-snipe-mirage-deadeye",
+  "spine": {
+    "kit_id": "poe2-snipe-mirage-deadeye",
+    "folk_name": "Snipe Mirage Deadeye",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the freeze->Snipe interaction is a cross-skill setup (Ice Shot freezes, Snipe cashes the frozen-target bonus) that the engine models as two independent skills + a GEOMETRY_COLLAPSE door rather than a first-class 'bonus-vs-frozen' coupling; the player keeps the freeze-then-burst rhythm. Mirage Deadeye's clone-echo (repeat-my-attack) collapses to a self_buff+linked-cast trigger rather than spawned autonomous clones -- the 'my shots get doubled by ghosts' fantasy reads as a linked-cast proc. Both are recognizable-but-slightly-hollow, not identity-breaking.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the freeze->Snipe interaction is a cross-skill setup (Ice Shot freezes, Snipe cashes the frozen-target bonus) that the engine models as two independent skills + a GEOMETRY_COLLAPSE door rather than a first-class 'bonus-vs-frozen' coupling; the player keeps the freeze-then-burst rhythm. Mirage Deadeye's clone-echo (repeat-my-attack) collapses to a self_buff+linked-cast trigger rather than spawned autonomous clones -- the 'my shots get doubled by ghosts' fantasy reads as a linked-cast proc. Both are recognizable-but-slightly-hollow, not identity-breaking.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Snipe (channeled bow shot)",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "channeled single-target bow shot; releases one powerful projectile on charge completion (point footprint) -> single_target. Snipe delivers massive bonus damage to FROZEN targets (freeze-shatter-adjacent burst; the freeze is applied by Ice Shot, not Snipe). water register (cold/Ice Shot theming; corpus elem_raw=cold). Rooted/channel commit during the charge."
+        },
+        {
+          "source_skill": "Ice Shot (freeze-setup projectile + shard AoE)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "fires one primary projectile which on impact unleashes 9 shard projectiles in a small spread -> multi_projectile (shotgun/volley phrase-book). This is the FREEZE applicator that sets up Snipe. water (cold). freeze+chill attested via freeze/shatter loop. The 9-shard fanout is the impact stage; primary-shot->fanout is a two-stage geometry (addendum C.4) -- the shard spread is the every-3-seconds map-clear shape, dominant per 7.2."
+        },
+        {
+          "source_skill": "Mirage Deadeye (clone meta-skill)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "meta-skill: places clones nearby that repeat the triggering ranged attack at 50% damage for 4-5s -> R-M9 (trigger-chassis meta-skill -> self_buff + trigger_grammar). The clones are a proxy-echo of the player's own ranged attack, not an independent minion loop; consequence lives in trigger_grammar (on-cast-linked -> linked-cast)."
+        }
+      ],
+      "motion_frame": "Ice Shot to freeze the pack, then channel Snipe for massive burst on frozen targets; Mirage Deadeye clones echo the ranged attack for 4-5s. Boss rotation: Tornadoes -> Ice Shot freeze -> Barrage -> Snipe.",
+      "resource_economy": {
+        "cost_scale": "mana per shot; channel-hold on Snipe (charge-to-release)",
+        "persistent_condition_shape": "tick-cost (Snipe channel charge)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Mirage Deadeye clone echo (triggered on ranged attack, repeats it at 50%)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "Snipe single_target channeled burst",
+            "Ice Shot 9-shard multi_projectile fanout",
+            "Mirage clone linked-cast echo"
+          ],
+          "economy": [
+            "mana per shot",
+            "Snipe channel charge (tick-cost)"
+          ],
+          "traits_affixes": [
+            "freeze-buildup / cold penetration",
+            "channel/charge-speed scalers",
+            "crit-vs-marked (Bullseye) / mark-application (Called Shots)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-11 (corpus gx). Deadeye ascendancy -> t4 via main-law 5 (R-M1): Called Shots (auto-Mark) + Bullseye (crit-vs-marked) route the mark/proxy identity -> PROXY_ASCENSION for the Mirage clone echo; GEOMETRY_COLLAPSE routes the freeze->Snipe conc-burst. chain_count=3 per R-M2 (>=3 load-bearing actives: Ice Shot freeze-setup + Snipe finisher + Mirage Deadeye meta). freeze+chill kept (fetched: 'Snipe is used specifically for frozen enemies'; Ice Shot is the freeze applicator). Mirage Deadeye = R-M9 meta-chassis (self_buff + trigger_grammar), NOT a proxy minion loop -> element-neutral. water single-slot (cold register); no secondary element attested (Lightning Arrow is a distinct variant, not this kit). shock NOT emitted (never named for this kit, S0). Two-stage Ice Shot geometry (primary->9 shards) noted per addendum C.4; dominant loop = shard fanout. [STEWARD AUDIT m03: 'chill' stripped -- never named in fetched text (freeze/frozen only); bundled cold-flavor rider. freeze UPHELD ('Ice Shot to freeze enemies' verbatim)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Ice Shot Deadeye Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://pathofexile2.wiki.fextralife.com/Mirage+Deadeye+(Meta+Skill)",
+      "archive_url": null,
+      "site": "pathofexile2.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Mirage Deadeye (Meta Skill) | Path of Exile 2 Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Snipe",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Snipe - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.5-ancients",
+      "anchor_quote": "PoE 2 Ice Shot Deadeye Build Guide (0.5) — Freeze, Shatter, Repeat... guide covers Path of Exile 2 Return of the Ancients 0.5.4, last updated July 10, 2026",
+      "source_url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Snipe Mirage Deadeye' and aliases 'Snipe Ice Shot Deadeye', 'Mirage Archer Snipe' are real community usage",
+      "anchor_quote": "Ice Shot fires a projectile which, upon striking an enemy or object, unleashes 9 shard projectiles... Snipe is used specifically for frozen enemies, delivering massive bonus damage.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Snipe and Ice Shot; Mirage Deadeye creates clones that continue sniping",
+      "anchor_quote": "as of Patch 0.5, the skill can now be used with Channelled Skills, including Snipe, Plasma Blast, and Detonating Arrow",
+      "source_url": "https://pathofexile2.wiki.fextralife.com/Mirage+Deadeye+(Meta+Skill)",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Deadeye",
+          "notables": [
+            "Gathering Winds",
+            "Called Shots",
+            "Bullseye",
+            "Point Blank"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": "Gathering Winds – Movement/Attack Speed buff with evasion scaling; Called Shots – Automatic Mark application for damage and Frenzy generation; Bullseye – Critical strike chance against marked targets; Point Blank – Single-target damage amplification",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "snipe": "channeled single-target bow shot; releases one powerful projectile on charge completion; point footprint",
+          "ice_shot": "fires one primary projectile which on impact unleashes 9 shard projectiles in AoE; projectile + small spread",
+          "mirage_deadeye": "clones placed nearby repeat the triggering ranged attack at 50% damage for 4-5s"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": "Ice Shot fires a projectile which, upon striking an enemy or object, unleashes 9 shard projectiles",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Ice Shot to freeze enemies, then Snipe for bonus burst damage on frozen targets. Mirage Deadeye clones (triggered on ranged attack) continue sniping for 4-5s. Boss rotation: Tornadoes → Ice Shot freeze → Barrage → Snipe. Map rotation: spam Ice Shot + Barrage + Ice-Tipped Arrows."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": "The rotation differs between content types. For bosses: place Tornadoes, use Ice Shot to freeze, then apply Barrage followed by Snipe.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Ice Shot Deadeye (Snipe boss damage)",
+            "Lightning Arrow Deadeye"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/ice-shot-deadeye-build-guide",
+        "anchor_quote": "Lightning Arrow Deadeye Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

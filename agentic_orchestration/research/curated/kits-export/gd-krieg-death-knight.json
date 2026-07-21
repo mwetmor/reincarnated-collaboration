@@ -1,0 +1,240 @@
+{
+  "kit_id": "gd-krieg-death-knight",
+  "spine": {
+    "kit_id": "gd-krieg-death-knight",
+    "folk_name": "Krieg Death Knight",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the counted every-3rd-hit texture is approximated by the native cycle + threshold surfaces (accrual filed for the exact two-tier shape); Krieg's Wrath set-proc layer is empty (name-only).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the counted every-3rd-hit texture is approximated by the native cycle + threshold surfaces (accrual filed for the exact two-tier shape); Krieg's Wrath set-proc layer is empty (name-only).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cadence",
+          "geometry_value": "melee_strike",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "at-target melee auto-attack rhythm: every 3rd hit triggers the amplified strike with small AoE around impact ('operates on a resource model where it triggers every 3rd hit'; 'melee at-target strikes with small AoE around impact'; 'Cadence 3rd hit has expanded strike'); fully aether-converted ('Cadence, fully converted to Aether damage') -> shadow (aether-corruption register); DW Mindwarp pair hits both targets."
+        },
+        {
+          "source_skill": "Bone Harvest",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "cooldown AoE clear with cleave footprint ('Bone Harvest on cooldown for AoE clear'; geometry notes 'Bone Harvest cleave')."
+        }
+      ],
+      "motion_frame": "auto-attack rhythm: swing into the pack counting to three, the amplified Cadence strike lands, Bone Harvest on cooldown for the wide clear, 25k HP and constant ADCtH shrugging off the return damage",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "cadence_scale": "every-3rd-hit detonation rhythm riding attack speed"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "3rd-hit expanded-strike radius",
+            "Bone Harvest cleave arc"
+          ],
+          "economy": [
+            "swing-count cycle cadence"
+          ],
+          "traits_affixes": [
+            "aether melee percent (Krieg set-gated conversion + bonuses)",
+            "ADCtH sustain ('18% constant ADCtH')",
+            "massive HP pool (~25k fetched)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "A ROW-4 CADENCE CLAUSE APPLIED: the Nth-swing detonation is accrued to the two-tier-accumulator family (FILED in mint-candidates-batch-02, no numbers, C.2 -- strengthens the FIRED watch-item); the kit itself maps un-minted at the nearest native surface: charge_stack_sub_shape=cycle + on-hit-threshold -> burst-damage. aether -> shadow per main-law aether row (corruption register: Death Knight necro frame, Krieg set, 'Warpblade'); lightning-energy read is the alternative, noted. Krieg's Wrath appears in core_skills as a NAME with no fetched behavior -> contributes nothing (0.3), so chain_count stays 2 (R-M2: only Cadence + Bone Harvest are load-bearing-attested). Set-authored loop: Krieg's Armament = conversion + numeric item lane (4) -> ELEMENT_CONVERSION_MONO door. ADCtH = sustain scaler in traits lane, NOT drain (no enemy-status language). Mark of Torment relic + Ghoul devotion = defensive riders, noted only. R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gametyrant.com/news/grim-dawn-ashes-of-malmouth-is-a-necromancers-dream",
+      "archive_url": null,
+      "site": "gametyrant.com",
+      "author_handle": "unknown",
+      "title": "GRIM DAWN: ASHES OF MALMOUTH is a Necromancer's Dream",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.0.6.1] Warpblade - Krieg DW Aether Cadence Death Knight, Gladiator farmer (9 minutes)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['aom-2017','patch-1.1-1.2']",
+      "anchor_quote": "Necromancer mastery debuted with Ashes of Malmouth (October 2017). Death Knight = Soldier+Necromancer. Era floor aom-2017 is consistent with mastery intro.",
+      "source_url": "https://gametyrant.com/news/grim-dawn-ashes-of-malmouth-is-a-necromancers-dream",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Krieg Death Knight'; aliases=['Cadence Bone Harvest DK','Krieg\\'s Wrath set build']",
+      "anchor_quote": "[1.0.6.1] Warpblade - Krieg DW Aether Cadence Death Knight … Soldier + Necromancer (Death Knight class combination) … Krieg's Armament provides the foundation",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Cadence','Bone Harvest','Krieg\\'s Wrath']; delivery=at-target melee; resource=Cadence every-3rd-hit; element=aether",
+      "anchor_quote": "Cadence, fully converted to Aether damage … operates on a resource model where it triggers 'every 3rd hit' … Krieg's Armament … melee at-target strikes with 'small AoE around impact'",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.0.6.1] Warpblade - Krieg DW Aether Cadence Death Knight"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Mark of Torment (relic)",
+            "Ghoul devotion (defensive)"
+          ],
+          "notes": "Menhir's Will survival proc mentioned in community context; Ghoul provides ADCtH spike"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+        "anchor_quote": "Mark of Torment relic and Ghoul devotion as defensive layers",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_set": "Krieg's Armament set",
+          "key_weapons": [
+            "Mythical Mindwarp (DW pair)"
+          ],
+          "notes": "Set provides aether conversion and bonuses; dual Mindwarp enables DW Cadence variant"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+        "anchor_quote": "Krieg's Armament provides the foundation, paired with dual Mythical Mindwarp weapons for dual-wielding capability",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee",
+          "footprint": "small-radius around impact",
+          "range": "melee",
+          "aoe": "small AoE on Cadence 3rd hit; Bone Harvest cleave",
+          "notes": "Cadence 3rd hit has expanded strike; DW variant hits both targets simultaneously"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+        "anchor_quote": "melee at-target strikes with 'small AoE around impact'",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cadence auto-attack triggers every 3rd hit for amplified strike; Bone Harvest on cooldown for AoE clear; Krieg set amplifies aether melee; massive HP pool + ADCtH sustain; Mark of Torment defensive window",
+          "resource": "Cadence = passive every-3rd-hit; Bone Harvest = cooldown",
+          "tempo": "auto-attack rhythm with cooldown ability"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-6-1-warpblade-krieg-dw-aether-cadence-death-knight-gladiator-farmer-9-minutes/46973",
+        "anchor_quote": "Cadence, fully converted to Aether damage … triggers 'every 3rd hit' … 18% constant ADCtH … huge HP pool (~25k in Crucible)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "DW Cadence Krieg DK (this version, aether)",
+            "2H Bone Harvest vitality DK",
+            "Blitz Krieg (2H Blitz-focused)",
+            "shield/Cadence Krieg DK (classic beginner version)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-blitz-krieg-2h-melee-aether-death-knight-using-blitz-and-krieg-set-easy-sr-80/99386",
+        "anchor_quote": "[1.1.8.0] Blitz Krieg - 2H melee aether Death Knight using Blitz and Krieg set",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

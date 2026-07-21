@@ -1,0 +1,234 @@
+{
+  "kit_id": "tq-liche-king-conjurer",
+  "spine": {
+    "kit_id": "tq-liche-king-conjurer",
+    "folk_name": "Liche King Conjurer",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "base-2006;immortal-throne-2007;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner — the Liche King IS the primary damage dealer; player combat loop is pet-management not direct skill delivery. Engine lacks a pet-autonomous-damage loop native representation. Summoner-deferral docket filed.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:weaken"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner — the Liche King IS the primary damage dealer; player combat loop is pet-management not direct skill delivery. Engine lacks a pet-autonomous-damage loop native representation. Summoner-deferral docket filed.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Liche King",
+          "geometry_value": "totem",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summoned companion pet (NOT player transform — CONTRADICTED at verify); Liche King fires ranged vitality/elemental attacks autonomously; vitality → shadow per §B5-ELEMENT; following companion behavior (not placed-totem); pet-core identity — Liche IS the primary damage"
+        },
+        {
+          "source_skill": "Deathchill Aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:weaken"
+          ],
+          "delivery_notes": "Debuffs enemy speed and health — curse:weaken (enemy damage/health reduction)"
+        },
+        {
+          "source_skill": "Volcanic Orb (Earth secondary)",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Player-cast secondary output when Liche King is primary damage dealer; fire+physical (physical no-family)"
+        }
+      ],
+      "motion_frame": "Summon Liche King; pet autonomously deals ranged vitality/elemental damage; Deathchill Aura persistent; player casts Volcanic Orb or Ternion as secondary output; pet-core rhythm",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "note": "Liche King summon cost; player secondary skills supplement"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Liche King AI behavior",
+            "totem radius"
+          ],
+          "economy": [
+            "summon uptime",
+            "secondary skill cost"
+          ],
+          "traits_affixes": [
+            "vitality/shadow damage %",
+            "pet damage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED — summoner-deferral per p01 hot-fact and totem-vs-companion law: Liche King is a following companion (pet-core), not a placed totem. Identity claim 'player transformation' CONTRADICTED at verify ('The Liche King functions as a summoned pet, not a player transformation'). Pet-core identity = 'not that build' threshold → GAPPED. Docket for summoner-deferral. Skills mapped to show shape but GAPPED grade reflects engine gap on pet-core autonomous damage loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2379512416",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Conjurer (Spirit / Earth) Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/152391995420836641/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Is Liche King worth it?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006, immortal-throne-2007, anniversary-2016",
+      "anchor_quote": "Summon Liche King has been hit with a combination of buffs and nerfs in Anniversary Edition",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/152391995420836641/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Liche King Conjurer = Spirit+Earth dual mastery; Liche Form = player transformation into undead liche",
+      "anchor_quote": "The Liche King functions as a summoned pet, not a player transformation",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/152391995420836641/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Liche King, Deathchill Aura, Ternion support; proxy=heavy (Liche as primary damage); vitality damage",
+      "anchor_quote": "One of the best overall support pets in the game. A ranged elemental / vitality damage pet",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2379512416",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Death Nova synergy — short-range AoE vitality damage + health% reduction + ADCTH for Liche; Wraith Shell synergy — Liche gains physical resist + damage absorption; Arcane Blast synergy — multi-projectile elemental/vitality stun+slow; Circle of Power totem buffs Vitality Damage when standing inside"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2379512416",
+        "anchor_quote": "Death Nova synergy gives the Liche King a short range AOE attack that does vitality damage, reduces enemy health %",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "proxy heavy — Liche King pet fires ranged vitality/elemental attacks autonomously; NOT a player transformation",
+          "note": "mech_note claim of 'player transformation' is CONTRADICTED — Liche King is a summoned pet companion; player remains in own form",
+          "secondary": "player cast Volcanic Orb or Ternion for additional damage"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/152391995420836641/",
+        "anchor_quote": "The Liche pet isn't that great in boss fights, because they made bosses immune to vitality resist debuffs",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Summon Liche King pet (Spirit mastery); Liche King autonomously deals ranged vitality/elemental damage; Deathchill Aura debuffs enemy speed and health; Earth secondary provides Volcanic Orb or Ternion for player output; Liche King Death Nova for AoE vitality burst"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2379512416",
+        "anchor_quote": "One of the best overall support pets in the game. A ranged elemental / vitality damage pet",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Spirit+Earth Conjurer (Liche King + Core Dweller dual-summon)",
+            "Spirit+Nature Soothsayer (Liche King + wolves)",
+            "Spirit solo caster (Ternion primary, Liche support)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2379512416",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

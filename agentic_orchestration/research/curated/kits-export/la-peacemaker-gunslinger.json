@@ -1,0 +1,255 @@
+{
+  "kit_id": "la-peacemaker-gunslinger",
+  "spine": {
+    "kit_id": "la-peacemaker-gunslinger",
+    "folk_name": "Peacemaker Gunslinger",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Irreducible 3-stance rotation (Peacemaker identity) is the build — the buff set per stance (Pistol speed / Shotgun crit / Rifle damage) cannot be collapsed to a dominant mode without misrepresenting the kit. Player test: 'not that build.' Filed to mode-swap-identity docket per §LA row 3 + §E.3.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Irreducible 3-stance rotation (Peacemaker identity) is the build — the buff set per stance (Pistol speed / Shotgun crit / Rifle damage) cannot be collapsed to a dominant mode without misrepresenting the kit. Player test: 'not that build.' Filed to mode-swap-identity docket per §LA row 3 + §E.3.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sharpshooter",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rifle stance primary damage; single-target precision shot"
+        },
+        {
+          "source_skill": "Dual Buckshot",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shotgun stance; close-range cone spread"
+        },
+        {
+          "source_skill": "Focused Shot",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rifle stance damage; high gem priority"
+        },
+        {
+          "source_skill": "Target Down",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage across stances"
+        },
+        {
+          "source_skill": "Spiral Tracker",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Weakness Exposure synergy maintenance — boss-break vocab (§LA row 4); NOT an ailment; delivery_notes only"
+        },
+        {
+          "source_skill": "Catastrophe",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary damage skill; multi-projectile volley"
+        }
+      ],
+      "motion_frame": "All-stance rotation: Pistol (+16% Attack Speed) → Shotgun (+10% Crit Rate, +24% Damage) → Rifle (+28% Damage); Pacifist node unifies buffs active in any stance; Spiral Tracker + Dexterous Shot maintain Weakness Exposure synergy across rotation",
+      "resource_economy": {
+        "stance_rotation": "irreducible 3-stance rotation (Pistol/Shotgun/Rifle); Pacifist node grants all stance buffs regardless of current stance; no gauge meter — stance position IS the economy shape; rotation itself is the identity"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Weakness Exposure via Spiral Tracker and Dexterous Shot (synergy maintenance)",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: 3-stance rotation (Pistol/Shotgun/Rifle) is the irreducible identity — no single dominant mode; the rotation itself IS the build identity per §LA row 3 pre-ruling and mode-swap-identity docket. Skills map individually but the ROTATION ARCHITECTURE has no engine lane. Weakness Exposure = boss-break synergy vocab (§LA row 4), not a 16-ailment. Element null throughout (bullet/gun skill names only, zero damage-typing). Ark Grid updated January 4, 2026 → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Peacemaker Gunslinger Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last Updated: June 13, 2026 with January 4, 2026 update for Ark Grid",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Peacemaker Gunslinger — Gunslinger class, Peacemaker identity spec",
+      "anchor_quote": "Gunslinger with Peacemaker identity",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rotates all three stances (Pistol for tempo/attack speed, Shotgun for crit/damage, Rifle for crit-weighted finishers vs low HP); Peacemaker buffs each stance differently creating structured three-part rotation",
+      "anchor_quote": "Pacifist unifies and empowers these buffs, granting all of them regardless of which stance you are in. Shotgun: +10% Crit Rate and +24% Damage. Rifle: +28% Damage. Handgun: +16% Attack Speed.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Raeinor",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+        "anchor_quote": "Written by Raeinor",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_notes": "Ark Grid updated January 4, 2026. Guide last updated June 13, 2026."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+        "anchor_quote": "January 4, 2026 update for Ark Grid",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Hit Master",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Adrenaline"
+          ],
+          "gems_damage": [
+            "Sharpshooter",
+            "Focused Shot",
+            "Dual Buckshot",
+            "Target Down",
+            "Bullet Rain"
+          ],
+          "stats": "Specialization and Crit prioritized via bracelet rolls"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+        "anchor_quote": "Engravings priority order: Grudge, Hit Master, Keen Blunt Weapon, Cursed Doll, Adrenaline",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "key_skills": [
+            "Sharpshooter",
+            "Dual Buckshot",
+            "Focused Shot",
+            "Target Down",
+            "Bullet Rain",
+            "Perfect Shot",
+            "Catastrophe",
+            "Dexterous Shot",
+            "Spiral Tracker"
+          ],
+          "geometry_notes": "Ranged bullet-based across rifle/shotgun/handgun weapons; all stances active; Dexterous Shot and Spiral Tracker provide Weakness Exposure synergy"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+        "anchor_quote": "Try your best to maintain your Synergy using Spiral Tracker and Dexterous Shot, even if you aren't planning to attack immediately after",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "All-stance rotation leveraging unified Peacemaker buffs (active in any stance). Synergy maintenance via Spiral Tracker (Weakness Exposure) and Dexterous Shot. Primary damage: Sharpshooter, Dual Buckshot, Focused Shot, Target Down. Secondary: Bullet Rain, Perfect Shot, Catastrophe. Stance-specific bonuses: Shotgun +10% Crit Rate +24% Damage; Rifle +28% Damage; Handgun +16% Attack Speed. Unified by Peacemaker regardless of active stance."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+        "anchor_quote": "Pacifist unifies and empowers these buffs, granting all of them regardless of which stance you are in",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Time to Hunt Gunslinger (Rifle/Handgun focused, simpler playstyle)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/peacemaker-gunslinger-raid-guide",
+        "anchor_quote": "Alternative guide referenced: Time to Hunt Gunslinger (Rifle/Handgun focused, simpler playstyle)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

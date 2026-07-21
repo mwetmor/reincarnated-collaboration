@@ -1,0 +1,228 @@
+{
+  "kit_id": "tli-carino2-lethal-flash",
+  "spine": {
+    "kit_id": "tli-carino2-lethal-flash",
+    "folk_name": "Carino 2 Lethal Flash",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-ss12-lunaria-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10 GX-14",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Out-and-return double-hit trajectory has no direct engine geometry; multi_projectile captures the volley shape; return pass noted. Ammo reload economy approximated via cycle sub-shape.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Out-and-return double-hit trajectory has no direct engine geometry; multi_projectile captures the volley shape; return pass noted. Ammo reload economy approximated via cycle sub-shape.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shotgun projectile volley (Lethal Flash)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ammo-based shotgun volleys with out-and-return pass. Verify anchor: 'After reaching their max range, Projectiles will return and travel an additional 75% of that distance, hitting the enemies on their path again.' Corpus elem_raw = physical; dossier capstone note: 'No inherent elemental type — skill selection determines element.' Physical = no family. Out-and-return = double-hit pass through pack."
+        },
+        {
+          "source_skill": "Ground-jump projectile variant",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Skill_geometry anchor: 'Projectiles can Jump off the ground, but cannot Jump toward enemies they have hit before.' Ground-bounce secondary mechanic (variant). No element."
+        }
+      ],
+      "motion_frame": "Ammo-economy shotgun: fire multi-projectile volley, ammo auto-reloads every 0.6s (2 at a time), projectiles travel to max range then return through pack for second hit pass.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "charge_stack_resource": "Ammo (auto-reload 0.6s per 2 ammo; Ammo consumption triggers +50% damage bonus per skill_loop anchor)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Ammo-consumption threshold",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "out-and-return double-pass trajectory",
+            "projectile range control (Lethal Flash trait)"
+          ],
+          "economy": [
+            "Ammo reload cycle (0.6s / 2 ammo)",
+            "Fortitude damage multiplier on short-range variant"
+          ],
+          "traits_affixes": [
+            "Deflection survivability mechanic"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U (SS12 rework context — map shape). Out-and-return projectile is a standing accrual family (addendum §B5 §E3). File: accrual to out-and-return family (carino2-lethal-flash). No element attested — skill-selection determines element in-source; honest null. Ground-bounce variant secondary skill noted, not dominant loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://tlidb.com/Lethal_Flash",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Lethal Flash - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://vortexgaming.io/en/postdetail/740756",
+      "archive_url": null,
+      "site": "vortexgaming.io",
+      "author_handle": "unknown",
+      "title": "Torchlight: Infinite Season 12, Carino 2 Deadly Flash Rework Full Analysis",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://fandomwire.com/torchlight-infinite-top-builds-season-12-lunaria/",
+      "archive_url": null,
+      "site": "fandomwire.com",
+      "author_handle": "unknown",
+      "title": "Top 3 Best Torchlight: Infinite Builds (Season 12: Lunaria)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-ss12-lunaria-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Carino 2 Lethal Flash — shotgun projectile suite with ammo economy",
+      "anchor_quote": "Lethal Flash centers around controlling projectile range. It changes projectile forms to match the situation, and boosts damage and survivability through Deflection.",
+      "source_url": "https://tlidb.com/Lethal_Flash",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Projectiles have AUTOMATIC RETURN and AMMO economy — shotgun volleys that fly back",
+      "anchor_quote": "After reaching their max range, Projectiles will return and travel an additional 75% of that distance, hitting the enemies on their path again",
+      "source_url": "https://tlidb.com/Lethal_Flash",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Lethal Flash trait: controls projectile range, Deflection for survivability. Evil Ouroboros (Lv45): return mechanic. Weightless Step (Lv75): ground-jump. No inherent elemental type — skill selection determines element."
+        },
+        "source_url": "https://tlidb.com/Lethal_Flash",
+        "anchor_quote": "Lethal Flash centers around controlling projectile range. It changes projectile forms to match the situation, and boosts damage and survivability through Deflection.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "SS12 rework removed movement-skill reload dependency. +2 to projectile skill levels. Sacrifice projectile range for large damage multipliers (Fortitude). Bounce-off-ground variant possible with specific items."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/740756",
+        "anchor_quote": "sacrificing projectile range for massive damage multipliers and Fortitude effects, or even enabling projectiles to bounce off the ground",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Projectiles travel to max range → return 75% of distance. Ground-jump mechanic (9m fixed range, no repeat-hit). Shotgun multi-projectile spread. Deflection mechanic for survivability."
+        },
+        "source_url": "https://tlidb.com/Lethal_Flash",
+        "anchor_quote": "Projectiles can Jump off the ground, but cannot Jump toward enemies they have hit before",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire shotgun projectile volley (ammo-based). Ammo auto-reloads every 0.6s (2 at a time). Ammo consumption triggers +50% damage bonus. Projectiles return after reaching max range for secondary hits through pack."
+        },
+        "source_url": "https://tlidb.com/Lethal_Flash",
+        "anchor_quote": "After reaching their max range, Projectiles will return and travel an additional 75% of that distance, hitting the enemies on their path again",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Projectile return (outward+return double-hit)",
+            "Short-range high-multiplier (Fortitude)",
+            "Ground-bounce variant",
+            "Spell projectile builds post-SS12 rework"
+          ]
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/740756",
+        "anchor_quote": "both projectile attack and spell projectile builds have become powerful",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

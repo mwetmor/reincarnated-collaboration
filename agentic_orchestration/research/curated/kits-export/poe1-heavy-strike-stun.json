@@ -1,0 +1,253 @@
+{
+  "kit_id": "poe1-heavy-strike-stun",
+  "spine": {
+    "kit_id": "poe1-heavy-strike-stun",
+    "folk_name": "Heavy Strike Stun Berserker",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Heavy Strike Stun's identity -- STUN IS THE DAMAGE: ~75% reduced-enemy-stun-threshold to relentlessly stun-lock, with damage scaling off the stun model -- has no engine lane. The engine's stun ailment is a hard-CC primitive with a deliberate anti-stunlock immunity floor + boss resistance, and it is NOT a damage source; there is no T4 strategy for 'convert stun buildup into damage'. Mapped as a melee_strike + stun ailment + the nearest (MOMENTUM_CASCADE) door, which captures 'a heavy melee that stuns' but LOSES both the perma-stunlock feel (engine prevents it) and the stun-as-damage-scaling model that IS the build. A player of the original would find stun is now crowd-control flavor on their hits rather than the damage engine. Docket candidate filed. (Low source confidence compounds the gap.) | [STEWARD-AUDIT R-M7 2026-07-18] Re-graded APPROX->GAPPED: stun-as-kill-plan (threshold stunlock as the damage mechanism) has no engine lane; without it this is generic single-target melee — 'not that build.' Terminal MAPPED_DOCKET unchanged; docket row stands.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "chill",
+      "stun"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Heavy Strike Stun's identity -- STUN IS THE DAMAGE: ~75% reduced-enemy-stun-threshold to relentlessly stun-lock, with damage scaling off the stun model -- has no engine lane. The engine's stun ailment is a hard-CC primitive with a deliberate anti-stunlock immunity floor + boss resistance, and it is NOT a damage source; there is no T4 strategy for 'convert stun buildup into damage'. Mapped as a melee_strike + stun ailment + the nearest (MOMENTUM_CASCADE) door, which captures 'a heavy melee that stuns' but LOSES both the perma-stunlock feel (engine prevents it) and the stun-as-damage-scaling model that IS the build. A player of the original would find stun is now crowd-control flavor on their hits rather than the damage engine. Docket candidate filed. (Low source confidence compounds the gap.) | [STEWARD-AUDIT R-M7 2026-07-18] Re-graded APPROX->GAPPED: stun-as-kill-plan (threshold stunlock as the damage mechanism) has no engine lane; without it this is generic single-target melee — 'not that build.' Terminal MAPPED_DOCKET unchanged; docket row stands.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Heavy Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun",
+            "chill"
+          ],
+          "delivery_notes": "a forceful single-target melee blow (mace/axe/sword/staff); the build stacks ~75% reduced-enemy-stun-threshold so nearly every hit STUNS, and damage scales off the stun model. melee_strike = single-target point hit; physical -> element-neutral (physical rule); stun is the identity ailment + chill (the 3.23 'Stun and Chill' Champion variant adds cold). Delivery/econ confidence is LOW (post-cutoff 3.28 kit, sparse sources)"
+        }
+      ],
+      "motion_frame": "single-target stun-bruiser: swing a heavy weapon that reliably stuns via massive stun-threshold reduction; the stun IS the damage payoff -- a deliberate, single-target melee playstyle",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike single-target hit"
+          ],
+          "economy": [
+            "Enduring Cry (Call to Arms) for endurance-charge defense",
+            "unknown offensive resource model (source-sparse)"
+          ],
+          "traits_affixes": [
+            "reduced-enemy-stun-threshold (the build-defining stat)",
+            "stun-scaling",
+            "physical/attack damage",
+            "chill-scaling (Champion cold rider)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "STUN-AS-PAYOFF single-target striker. Geometry melee_strike (dossier: single-target only, mace/axe/sword/staff). PHYSICAL RULE: physical melee -> element-neutral (flavor); stun is the identity ailment (engine stun = physical+lightning hard-control, a direct match for heavy-hammer stun) + chill (the attested 3.23 'Stun and Chill' Champion variant). Engine truth check: the engine stun ailment carries an immunity_after_seconds anti-stunlock floor and boss stun-resistance -- so 'reliably stun EVERYTHING via 75% threshold reduction' is APPROXIMATED, not native: the engine deliberately prevents perma-stun and bosses resist, whereas this build's identity is relentless stun-locking. T4: no clean 'stun-IS-damage' strategy exists in the 26; MOMENTUM_CASCADE is the nearest (a build-up-to-payoff control-to-damage reading) -- noted as approximate, not a precise capstone match. LOW SOURCE CONFIDENCE flagged (post-cutoff 3.28, delivery/econ conf 0.3-0.4, econ 'unknown'); the stun-scaling DAMAGE MODEL (damage computed from stun magnitude) is the identity and has no direct engine expression (engine stun is a CC ailment, not a damage-source)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 4,
+      "mechanism_class": "stun-magnitude as damage source (stun-scaling) + perma-stunlock",
+      "docket_family": "stat-as-damage-substrate",
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3421600",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "mantol456#0648",
+      "title": "[3.23] Heavy Strike Champion | Stun and Chill | Start>Endgame",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Heavy_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Heavy Strike — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: 3.20+",
+      "anchor_quote": "[3.23] Heavy Strike Champion | Stun and Chill | Start>Endgame ... The author initially developed it in 3.22, reaching level 97 by end of week 1.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Heavy Strike Stun Berserker' is real community usage",
+      "anchor_quote": "[3.23] Heavy Strike Champion | Stun and Chill | Start>Endgame",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Heavy Strike and warcries; stun-scaling damage model",
+      "anchor_quote": "25% reduced Enemy Stun Threshold... The build aims for approximately 75% total Reduced Enemy Stun Threshold to reliably stun enemies.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "mantol456#0648",
+              "site": "pathofexile.com/forum",
+              "note": "[3.23] Heavy Strike Champion | Stun and Chill guide; same author as Glacial Hammer Slayer guide"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Heavy Strike (quality)",
+              "type": "base_quality",
+              "effect": "(0-20)% chance to deal Double Damage",
+              "anchor_quote": "(0—20)% chance to deal Double Damage"
+            },
+            {
+              "node": "Weight of the Empire (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Strength in Radius",
+              "effect": "Heavy Strike has a 20% chance to deal Double Damage",
+              "anchor_quote": "With at least 40 Strength in Radius, Heavy Strike has a 20% chance to deal Double Damage"
+            },
+            {
+              "node": "Heavy Strike of Trarthus (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not available on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Heavy_Strike",
+        "anchor_quote": "With at least 40 Strength in Radius, Heavy Strike has a 20% chance to deal Double Damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Tidebreaker (historical stunner variant — predates current 3.20+ archetype)",
+            "Enduring Cry (warcry utility — endurance charge generation)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+        "anchor_quote": "Enduring Cry as a utility skill, configured with Call to Arms for instant activation.",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee strike (direct)",
+          "footprint": "single target (point)",
+          "aoe": null,
+          "range_text": "Attacks enemies with a forceful blow. Requires a Mace, Sceptre, Axe, Sword or Staff. Single-target only.",
+          "projectile": false
+        },
+        "source_url": "https://poedb.tw/us/Heavy_Strike",
+        "anchor_quote": "Attacks enemies with a forceful blow. Requires a Mace, Sceptre, Axe, Sword or Staff.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player attacks single target with Heavy Strike (mace/sceptre/axe/sword/staff) building toward high stun threshold reduction (~75% reduced enemy stun threshold); warcry (Enduring Cry via Call to Arms) provides endurance charges for defense; build model relies on stun-damage scaling introduced in modern patches."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+        "anchor_quote": "25% reduced Enemy Stun Threshold... The build aims for approximately 75% total Reduced Enemy Stun Threshold to reliably stun enemies.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Heavy Strike Champion (3.23, stun+chill — primary attested modern variant)",
+            "Heavy Strike Berserker (spec claim: DB lists Berserker; forum sources show Champion as primary attested class for stun build 3.20+)",
+            "Historical Tidebreaker stunner (3.6-3.11 era, Duelist)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3421600",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

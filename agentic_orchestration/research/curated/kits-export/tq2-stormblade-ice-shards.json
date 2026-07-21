@@ -1,0 +1,235 @@
+{
+  "kit_id": "tq2-stormblade-ice-shards",
+  "spine": {
+    "kit_id": "tq2-stormblade-ice-shards",
+    "folk_name": "Stormblade Ice Shards",
+    "game": "tq2",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tq2-ea-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Stormblade Ice Shards player gets a 9-shard homing cold volley (the homing softens to a pursuit-note, which is fine -- R-M8 delivery flavor), BUT the reserved-energy-AS-damage-scaling coupling is not expressible: the engine has reservation keys (reserve a resource) but NONE where the RESERVED amount SCALES the skill's damage -- 'reserve energy to make Ice Shards hit harder' is the build's power identity, and it routes through normal damage scaling instead. That coupling is docketed (§E watch-item). The homing volley is playable (CLOSE-ish) but the reservation-damage coupling is 'not that build' -> APPROX with docket.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Stormblade Ice Shards player gets a 9-shard homing cold volley (the homing softens to a pursuit-note, which is fine -- R-M8 delivery flavor), BUT the reserved-energy-AS-damage-scaling coupling is not expressible: the engine has reservation keys (reserve a resource) but NONE where the RESERVED amount SCALES the skill's damage -- 'reserve energy to make Ice Shards hit harder' is the build's power identity, and it routes through normal damage scaling instead. That coupling is docketed (§E watch-item). The homing volley is playable (CLOSE-ish) but the reservation-damage coupling is 'not that build' -> APPROX with docket.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Shards (Storm mastery)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'9 shards per cast with sufficient homing, scaling damage with reserved energy' (dossier) -- 'the one and only damage skill you will use for clearing and bossing'. A 9-projectile homing volley -> multi_projectile + pursuit note (R-M8: homing = behavioral delta, delivery flavor, not identity void). cold -> water family (ice register). freeze rider (probe: freeze+slow; freeze kept, slow->chill noted not emitted absent stronger attestation). Damage SCALES WITH RESERVED ENERGY -- the reservation-as-damage-scaler coupling."
+        }
+      ],
+      "motion_frame": "homing ice-shard spammer: fire a 9-shard homing volley every cast that seeks targets, reserving energy to pump the shard damage -- the single skill you use for everything, clearing and bossing alike",
+      "resource_economy": {
+        "model": "spend",
+        "reservation_percent": "reserved-energy-as-damage-scaler: Ice Shards damage scales with RESERVED energy (reservation coupling -- no economy key expresses reservation-AS-damage-scaling; docket-candidate filed)",
+        "resource_verbatim": "Energy (spend per cast; a portion reserved to scale shard damage)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "9-shard homing volley (multi_projectile + pursuit)",
+            "projectile-count economy (9 per cast)"
+          ],
+          "economy": [
+            "Energy spend per cast",
+            "reserved-energy-as-damage-scaler coupling (reservation_percent; DOCKETED)"
+          ],
+          "traits_affixes": [
+            "cold / projectile damage scaling",
+            "projectile-count / homing affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FLAG 8 + §E: ERRATA-23 VERIFIED pair = Rogue + Storm (mechanics CONTRADICTED, errata=1; anchor 'Stormblade = Rogue+Storm'); Ice Shards is the Storm-mastery cold projectile primary. BOTH masteries' capstones route t4_doors -- but only Ice Shards (Storm) is attested with detail; Rogue capstone not extracted -> mapped the attested Storm primary, t4 = ELEMENTAL_ECHO (mono-cold amp -- Ice Shards is the ONLY damage skill) + ZONE_CONTROL (the homing-volley area control). FLAG 10 + §E row: RESERVED-ENERGY-DAMAGE-SCALING coupling (damage scales with reserved energy) -- no economy key expresses reservation-AS-damage-scaling -> reservation_percent set with a fidelity_note + DOCKET-CANDIDATE filed (watch-item, §E). Homing (FLAG 10 + R-M8): 9-shard homing volley -> multi_projectile + pursuit note (behavioral delta, NOT identity void -- homing is delivery flavor); 9-count -> projectile-count economy. cold -> water family. freeze kept; slow noted not emitted. GX-17. resist/glass defense not a surface. [STEWARD AUDIT m04: 'freeze' stripped -- no freeze/chill status named in fetched text (cold-flavor rider). terminal MAPPED_DOCKET -> MAPPED per R-M7 (docket-candidate rides side-file; APPROX stands)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Syn",
+      "title": "Stormblade - Ice Shards Build 0.6.0",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3540989801",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "OldIslander",
+      "title": "Mastery Combo Class Names",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1154030/discussions/0/591778624388992637/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Ice Shards is the most OP spell so far. :: Titan Quest II General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era tq2-ea-2025+",
+      "anchor_quote": "Stormblade - Ice Shards Build 0.6.0... Ice Shards is the most OP spell so far",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Stormblade Ice Shards' and aliases 'Ice Shards Stormcaller', 'Storm ice shards build TQ2' are real community usage",
+      "anchor_quote": "Ice-Shard Stormcaller (Storm only)... Stormblade - Ice Shards Build 0.6.0",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Ice Shards; Storm mastery; projectile with homing, damage scaling with reserved energy",
+      "anchor_quote": "Ice Shards belongs to the Storm mastery... 9 shards with sufficient homing, scaling damage with reserved energy",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Stormblade is a Storm mastery solo class; Ice Shards is cold/projectile",
+      "anchor_quote": "Stormblade - Ice Shards Build 0.6.0... Stormblade = Rogue+Storm per mastery combo class names guide",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3540989801",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Syn",
+          "site": "steamcommunity.com"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+        "anchor_quote": "Syn [guide creator]",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_capstones": [
+            "Stormblade class = Rogue+Storm; Ice Shards is Storm mastery skill; specific capstone skill nodes not extracted from fetched text"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+        "anchor_quote": "Stormblade - Ice Shards Build 0.6.0 [Rogue+Storm per class names guide]",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "9 shards per cast; homing behavior; projectile delivery; Ice Shards is the most OP spell per community consensus; Cold mastery skill in Storm mastery."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+        "anchor_quote": "9 shards with sufficient homing, scaling damage with reserved energy",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stormblade = Rogue+Storm dual mastery. Primary damage skill: Ice Shards (9 shards, homing, damage scales with reserved energy). Described as 'the one and only damage skill you will use for clearing and bossing' in the 0.6.0 guide."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541534584",
+        "anchor_quote": "9 shards with sufficient homing, scaling damage with reserved energy... The one and only damage skill you will use for clearing and bossing",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Stormblade Ice Shards (Rogue+Storm)",
+            "Ice-Shard Stormcaller (Storm solo, Sweetie Belle guide)",
+            "Storm+Earth Elementalist with Ice Shards"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3591979303",
+        "anchor_quote": "Ice-Shard Stormcaller (Storm only) [separate guide]",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

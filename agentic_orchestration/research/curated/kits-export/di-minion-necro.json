@@ -1,0 +1,198 @@
+{
+  "kit_id": "di-minion-necro",
+  "spine": {
+    "kit_id": "di-minion-necro",
+    "folk_name": "Minion Necromancer",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-launch-2022;di-5.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Summoner-core gap: autonomous combat minions have no engine lane. Kit cannot map beyond empty projection.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Summoner-core gap: autonomous combat minions have no engine lane. Kit cannot map beyond empty projection.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Commander directs skeleton/golem swarm from rear; minions deal bulk damage",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Summoner-core kit: Command Skeletons + Command Golem + Skeletal Mage are the damage delivery system; Necro positions and commands. Summoner-GAP law applies — pet combatants have no engine lane. Bone Armor (defensive) + Flickering Warmth (item-transforms Bone Armor to orbiting damage) noted; item-defined archetype law (§CROSS row 4) would admit the orbit form if orbit were the kit identity, but the verified identity is summoner-core. DI resource (Essence) probe unreliable per ERRATA sweep; no resource_economy key emitted. Accrual: placed-proxy-count family (skeleton army size)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "MINION-PET",
+    "group_intent_rationale": "movement=full-move · amp=flat · treatment=damage · function=taunt · economy=reserve · proxy=heavy · tempo=med · commit=instant · activation=active · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Necromancer Command Skeletons Build Guide for Solo Farming and Bounties - Diablo Immortal",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-5.0-2026",
+      "anchor_quote": "a summoner setup where minions deal the bulk of its damage",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Minion Necromancer' and aliases 'Minion Necro DI', 'Command Skeletons Necro DI' are real community usage",
+      "anchor_quote": "Necromancer Command Skeletons Build Guide for Solo Farming and Bounties",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Command Skeletons, Skeletal Mage, Command Golem, Bone Armor; Necromancer resource Essence",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "legendary_gems": [
+            "Blood-Soaked Jade",
+            "Seeping Bile",
+            "Echoing Shade",
+            "Fervent Fang",
+            "Ca'arsen's Invigoration",
+            "Zod Stone"
+          ],
+          "notes": "Fetched from icy-veins DI Necro CS guide."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "Blood-Soaked Jade, Seeping Bile, Echoing Shade, Fervent Fang, Ca'arsen's Invigoration, Zod Stone",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "legendaries": [
+            "Flickering Warmth (converts Bone Armor to orbiting damage)",
+            "Guided by Maggots (alters Dark Curse to buff minion speed)",
+            "Shepherd's Call to Wolves set (increases summon damage + attack speed, scales crit by minion count)"
+          ],
+          "notes": "Items fundamentally alter skill behavior."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "Flickering Warmth legendary chest alters the base defensive properties of Bone Armor into a source of damage that orbits around you",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin command aura; minions attack at range",
+          "footprint": "large-zone (minion swarm spread)",
+          "notes": "Minions spread across combat area; effective zone equals summon spread radius. Necromancer directs from rear."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "Command Golem summon in the midst of enemies and sicking your Command Skeletons on top of the brawl",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Necromancer deploys Command Skeletons (targeted single-target focus), Command Golem (versatile tanking/damage/CC), Skeletal Mage (summoner option), Bone Armor (defense). Core loop: pull enemy groups, position summons in the middle of brawl, minions deal bulk damage while Necro manages via aura/command skills.",
+          "core_combo": "Command Golem + Command Skeletons center-of-pack",
+          "source_note": "icy-veins DI Necro CS guide"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "a summoner setup where minions deal the bulk of its damage",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Solo farming (Command Skeletons focus)",
+            "Challenge Rifts (Command Golem focus)",
+            "Raids support (Bone Armor support variant)"
+          ],
+          "notes": "Three distinct build paths confirmed from icy-veins guide index."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/necromancer-command-skeletons-build-guide-for-solo-farming-and-bounties",
+        "anchor_quote": "Necromancer Command Golem Build Guide for Challenge Rifts",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

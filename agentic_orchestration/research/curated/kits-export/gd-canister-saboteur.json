@@ -1,0 +1,226 @@
+{
+  "kit_id": "gd-canister-saboteur",
+  "spine": {
+    "kit_id": "gd-canister-saboteur",
+    "folk_name": "Canister Bomb Saboteur",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player uses Flashbang as a hard CC/debuff (community calls it 'Insane') and stun-locks packs -- but the engine emits NO CC token for it because the fetched anchor names only 'debuff' (stun/blind live in probe/claim-paraphrase, both inadmissible). Canister's cluster-scatter maps to multi_projectile and internal-trauma to bleed cleanly. The withheld Flashbang CC + Thermite RR are near-misses, not silent drops.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player uses Flashbang as a hard CC/debuff (community calls it 'Insane') and stun-locks packs -- but the engine emits NO CC token for it because the fetched anchor names only 'debuff' (stun/blind live in probe/claim-paraphrase, both inadmissible). Canister's cluster-scatter maps to multi_projectile and internal-trauma to bleed cleanly. The withheld Flashbang CC + Thermite RR are near-misses, not silent drops.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Canister Bomb",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "lobbed cluster bomb whose fragments scatter on impact in a small radius, with a pierce component and internal trauma ('Cluster bomb: lobbed at target, fragments scatter on impact in small radius'; 'bigger pierce component and non transmutable internal trauma -- scatter/fragment damage on impact'). multi_projectile carries the cluster-fragment-scatter identity (phrase-book shotgun/volley/barrage -> multi_projectile). INTERNAL TRAUMA -> bleed (§A GD Internal-Trauma row = phys-DoT bleed): 'non transmutable internal trauma' is NAMED in fetched text on this skill, so bleed emits. Element fire (elem_raw / Demolitionist fire family)."
+        },
+        {
+          "source_skill": "Flashbang",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "thrown debuff/CC utility ('toss Flashbang'; 'Flashbang as debuff/CC'; 'Flashbang listed as Insane debuff'). ground_targeted_circle for the thrown-area debuff. NO ailment token: the fetched anchor names only 'debuff'/'Insane debuff' (shape-neutral); 'Flashbang' NAME does not attest blind, and 'stun' appears only in probe + claim-paraphrase, NOT in a fetched anchor -> both blind AND stun WITHHELD (§0.2 probe-illegal, §0.4 name-collision). See near-miss."
+        }
+      ],
+      "motion_frame": "lob Canister Bombs off cooldown so the cluster fragments scatter across the pack dealing pierce + internal-trauma bleed, toss Flashbang as a debuff, and place Thermite Mines for resistance reduction on a grenadier rhythm",
+      "resource_economy": {
+        "cadence_scale": "cooldown-based grenadier lob rhythm (Canister + Flashbang off cooldown)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "fragment scatter radius",
+            "Flashbang debuff zone",
+            "Thermite Mine placement"
+          ],
+          "economy": [
+            "cooldown grenadier cadence"
+          ],
+          "traits_affixes": [
+            "fire + pierce/internal-trauma scaling",
+            "Thermite Mine -> resistance-reduction support lane (RR; token WITHHELD -- shape unanchored)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "multi_projectile for the cluster-fragment scatter. bleed EMITTED via the §A GD Internal-Trauma row (internal trauma = phys-DoT bleed) -- 'non transmutable internal trauma' is NAMED on Canister Bomb in fetched text. Element fire (elem_raw / Demolitionist family); the fetched core-skill language emphasizes pierce + internal-trauma (physical-substrate) so fire is the base-identity slot while bleed carries the phys ailment. Flashbang: STUN and BLIND both WITHHELD -- 'stun/daze' is present only in the verify_ledger CLAIM paraphrase + probe (§0.2 probe-illegal), and the fetched anchor names only 'debuff'; 'Flashbang' name != blind attestation (§0.4). Thermite Mine RR: §2 RR-branch shape-silent -> WITHHOLD token, support-lane note only. GEOMETRY_COLLAPSE = closest T4 to the scatter-cluster identity. CLOSE."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-0-9-saboteur-the-grenado-gunslinger-caster-gunslinger/38302",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "chillstepbbc",
+      "title": "[1.0.0.9] [Saboteur] The Grenado Gunslinger [Caster/Gunslinger] (Apr 2017)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-3-the-sparkle-bomber-cold-canister-bomb-pb-saboteur-sr75/112102",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Torzini",
+      "title": "[1.1.9.3] The Sparkle Bomber - Cold Canister Bomb/PB Saboteur [SR75+]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "version 1.0.0.9 which is the base-game era before expansions... Canister Bomb and Grenado are both active Demolitionist abilities in the base game",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-9-saboteur-the-grenado-gunslinger-caster-gunslinger/38302",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Canister Bomb Saboteur'; aliases include 'Flashbang Canister build', 'bomb-trap Saboteur'",
+      "anchor_quote": "Saboteur combines Demolitionist and Nightblade... uses Canister Bomb as a RMB... Flashbang as active skill",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-9-saboteur-the-grenado-gunslinger-caster-gunslinger/38302",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Canister Bomb (cluster grenade scatter AoE), Flashbang (stun/daze rider)",
+      "anchor_quote": "Canister Bomb... bigger pierce component and non transmutable internal trauma... Flashbang listed as 'Insane debuff'",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-9-saboteur-the-grenado-gunslinger-caster-gunslinger/38302",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "chillstepbbc",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide",
+          "secondary_handle": "Torzini"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-9-saboteur-the-grenado-gunslinger-caster-gunslinger/38302",
+        "anchor_quote": "chillstepbbc posted this build guide on April 3, 2017; Torzini posted November 20, 2021",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "lobbed-projectile",
+          "footprint": "small-radius-scatter",
+          "notes": "Cluster bomb: lobbed at target, fragments scatter on impact in small radius; Flashbang thrown separately"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-9-saboteur-the-grenado-gunslinger-caster-gunslinger/38302",
+        "anchor_quote": "bigger pierce component and non transmutable internal trauma — scatter/fragment damage on impact",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Lob Canister Bomb at target; cluster fragments scatter on impact; use off cooldown; Flashbang as debuff/CC; Thermite Mines for RR support; cooldown-based grenadier rhythm"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-the-sparkle-bomber-cold-canister-bomb-pb-saboteur-sr75/112102",
+        "anchor_quote": "Use Canister Bomb and PB whenever they are off cooldown... toss Flashbang",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Cold Canister Bomb + PB Saboteur (Sparkle Bomber)",
+            "Fire Canister Bomb Shieldbreaker (Ulzuin)",
+            "Unimaginative Grenado+Canister Bomb Purifier"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-0-3-flames-of-frenzy-ulzuin-fire-canister-bomb-shieldbreaker-sr-80-81/133944",
+        "anchor_quote": "[1.2.0.3] Flames of Frenzy - Ulzuin Fire Canister Bomb Shieldbreaker... [1.1.9.3] The Sparkle Bomber - Cold Canister Bomb",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

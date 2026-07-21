@@ -1,0 +1,237 @@
+{
+  "kit_id": "poe2-bonestorm",
+  "spine": {
+    "kit_id": "poe2-bonestorm",
+    "folk_name": "Bonestorm",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.1;0.2-dawn;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: Bone Cage's exact shape is under-specified in source (only 'defensive panic button'), so its placed_lane+root mapping is a reasonable-but-thin inference. The core Bonestorm channel-release-Impale loop maps cleanly (geometry+sunder+accumulator), so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "root",
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: Bone Cage's exact shape is under-specified in source (only 'defensive panic button'), so its placed_lane+root mapping is a reasonable-but-thin inference. The core Bonestorm channel-release-Impale loop maps cleanly (geometry+sunder+accumulator), so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bone Storm",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode. Physical multi-point projectile barrage; wind-up (channel accumulates shard count). Physical -> element-neutral per THE PHYSICAL RULE. Shrapnel Impales hit enemies -> sunder (subsequent Attack Hits deal extra damage = damage-taken amp window)."
+        },
+        {
+          "source_skill": "Bone Cage",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "root"
+          ],
+          "delivery_notes": "Defensive panic button / placed containment. Secondary active; approximated as a placed control shape (cage=confinement -> root-adjacent). LOW confidence -- fetched text names it only as 'defensive panic button'."
+        }
+      ],
+      "motion_frame": "Channel Bonestorm to accumulate shard count; release full barrage of exploding physical projectiles; Bone Cage as defensive panic button.",
+      "resource_economy": {
+        "cost_scale": "mana-mid spend per cast",
+        "accumulator": "channel accumulates shard count",
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Impale (Shrapnel Impales enemies Hit)",
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "shard-count -> multi_projectile density",
+            "Bone Cage placed_lane"
+          ],
+          "economy": [
+            "channel-accumulator shard count"
+          ],
+          "traits_affixes": [
+            "physical-crit scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "IMPALE -> SUNDER per addendum A (hit-applied damage-taken amp window; NOT bleed -- fetched text 'causing subsequent Attack Hits against those targets to deal extra damage' has no DoT component). elem 'physical' -> THE PHYSICAL RULE element-neutral. The channel-then-release shard-count is a wind-up accumulator (charge_stack_sub_shape:accumulator) -- longer hold = more shards. No capstone locked to Bonestorm (used across Blood Mage/Witch Hunter/Deadeye per dossier) -> no ascendancy T4; GEOMETRY_COLLAPSE chosen for the burst-conc-density identity. chain_count=2 (Bonestorm core + Bone Cage utility; Bone Cage is not damage-load-bearing). verify_ledger: identity+mechanics+era all CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3852711",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[PoE2 0.3] 2in1 Witch Hunter Build | Bonestorm & Unlimited Poison",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3706145",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Unlimited Boneworks - Turning Bonestorm into a Non-Channeling skill with the Deadeye ascendancy",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Bonestorm",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Bonestorm - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.5-ancients",
+      "anchor_quote": "Bonestorm introduced in version 0.1.0d (with support updates). Version 0.2.0 redesigned its impale mechanic",
+      "source_url": "https://poe2db.tw/us/Bonestorm",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bonestorm'; aliases 'Bone Storm spam', 'Bone Cage Bonestorm'",
+      "anchor_quote": "[PoE2 0.3] 2in1 Witch Hunter Build | Bonestorm & Unlimited Poison",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3852711",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bone Storm (channeling physical projectile), Bone Cage; physical crit archetype",
+      "anchor_quote": "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode. Shrapnel Impales enemies Hit",
+      "source_url": "https://poe2db.tw/us/Bonestorm",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "DrugaddictMenemist#6176",
+          "site": "pathofexile.com/forum",
+          "url": "https://www.pathofexile.com/forum/view-thread/3592603"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3592603",
+        "anchor_quote": "My Bonestorm/Reap Blood Mage starter for PoE 2",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Bonestorm used across multiple ascendancies (Blood Mage, Witch Hunter, Deadeye via non-channeling conversion). No single capstone ascendancy locked to Bonestorm."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3706145",
+        "anchor_quote": "Unlimited Boneworks - Turning Bonestorm into a Non-Channeling skill with the Deadeye ascendancy",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry_verbatim": "Physical projectile barrage released in spray from caster; projectiles hit multiple impact points simultaneously. 'The physical-spell crit archetype: bone shard density + crit scaling for burst.' Multi-point footprint confirmed."
+        },
+        "source_url": "https://poe2db.tw/us/Bonestorm",
+        "anchor_quote": "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Channel Bonestorm to accumulate bone shard charge count; release to fire full barrage as physical projectiles that explode on impact. Bone Cage used as defensive panic button. Impale debuff from shard hits amplifies subsequent attack damage."
+        },
+        "source_url": "https://poe2db.tw/us/Bonestorm",
+        "anchor_quote": "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode. Shrapnel Impales enemies Hit, causing subsequent Attack Hits against those targets to deal extra damage.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Blood Mage Bonestorm (physical crit, 0.1)",
+            "Witch Hunter Bonestorm + Poison (0.3)",
+            "Deadeye non-channeling Bonestorm (ascendancy conversion)",
+            "Bloodmage Needler (Bonestorm + Detonate Dead, endgame T16+)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3648838",
+        "anchor_quote": "Bloodmage - 'The Needler' Arbiter of Ash DOWN & T16+ (Bonestorm + Detonate Dead) Lategame Guide!",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

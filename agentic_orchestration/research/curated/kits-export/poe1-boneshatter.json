@@ -1,0 +1,244 @@
+{
+  "kit_id": "poe1-boneshatter",
+  "spine": {
+    "kit_id": "poe1-boneshatter",
+    "folk_name": "Boneshatter",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.14-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Trauma maps cleanly as a charge-stack accumulator (on-hit-dealt fill, cap 9) paired with hp_cost_scale self-damage — the exact 'more damage AND more self-harm per stack' coupling, both native. Drift: the identity's SOUL is the reset-cliff risk-management (ride toward 9, dread the 10th-stack reset, self-damage climbing quadratically 194*(N+1)); the engine accumulator caps-and-holds rather than modelling the overflow-reset threat, and hp_cost_scale 0.30 LOCKED clamps the escalating self-hit magnitude. Damage ramp intact; the knife-edge cap-tension is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Trauma maps cleanly as a charge-stack accumulator (on-hit-dealt fill, cap 9) paired with hp_cost_scale self-damage — the exact 'more damage AND more self-harm per stack' coupling, both native. Drift: the identity's SOUL is the reset-cliff risk-management (ride toward 9, dread the 10th-stack reset, self-damage climbing quadratically 194*(N+1)); the engine accumulator caps-and-holds rather than modelling the overflow-reset threat, and hp_cost_scale 0.30 LOCKED clamps the escalating self-hit magnitude. Damage ramp intact; the knife-edge cap-tension is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Boneshatter",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "melee strike whose impact radiates a small shockwave from the hit point (small-AOE); physical -> no element family, stun is the native physical-heavy-hit ailment substrate. The damage engine is the Trauma self-damage accumulator, not the strike geometry"
+        }
+      ],
+      "motion_frame": "self-harm melee ramp: strike the pack, each hit stacks Trauma (more damage + escalating self-damage), ride the sustain against the climbing self-hit",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-hit-dealt",
+        "accumulator_max": 9,
+        "hp_cost_scale": 0.3
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_slam small shockwave",
+            "'Non-Vaal Strike Skills target 1-2 additional Enemy' glove-analog for clear reach"
+          ],
+          "economy": [
+            "charge-stack accumulator (Trauma) with on-hit-dealt fill",
+            "hp_cost_scale (per-stack self-damage)",
+            "regen scaling with damage-taken (Untiring-analog sustain)"
+          ],
+          "traits_affixes": [
+            "physical-damage / Trauma-per-stack scaling",
+            "armour + hp-stack (the self-damage sink)",
+            "endurance-charge-uptime (Unflinching-analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Strong map: the Trauma mechanic is a charge-stack accumulator (sub_shape=accumulator, fill on-hit-dealt, cap 9) COUPLED to a self-damage cost (hp_cost_scale) — both native engine lanes, and their pairing is exactly the 'each stack = more damage AND more self-hit' identity. TEMPORAL_CHARGE routes the stack-engine-as-build-identity capstone; SACRIFICE_ASCENDANCY the self-damage-sustain trade (Untiring: regen scales with self-damage). THE DRIFT worth naming: the source's soul is the RESET-CLIFF risk dance — push to 9, avoid the 10th stack that resets, while per-stack self-damage climbs quadratically (194*(N+1)). Engine accumulator caps-and-holds at accumulator_max; it does not model 'overflow forces a reset AND the self-damage is a live threat you're managing toward the cap.' The damage ramp lands; the knife's-edge cap-management tension is a behavioral note the accumulator approximates. hp_cost_scale 0.30 LOCKED also clamps the top-end self-damage magnitude vs PoE's uncapped Trauma self-hit."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Zizaran",
+      "title": "Boneshatter Juggernaut League Starter for Path of Exile Mirage 3.28",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/boneshatter-of-complex-trauma-juggernaut-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.24] Boneshatter of Complex Trauma Juggernaut Build - Odealo's Crafty Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.14-3.19 and 3.20+",
+      "anchor_quote": "Boneshatter Juggernaut League Starter for Path of Exile Mirage 3.28",
+      "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Boneshatter' and alias 'Trauma stacker' are real community usage",
+      "anchor_quote": "Boneshatter scales its damage through Trauma stacks, which is a buff that stacks infinitely and allows you to deal more physical damage but comes at the cost of dealing damage to yourself.",
+      "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Boneshatter: each strike adds self-damaging Trauma stacks that raise the skill's damage — escalating self-harm ramp balanced against armour and recovery",
+      "anchor_quote": "Using this skill gives you up to 9 stacks of Trauma, each granting you extra damage. The Trauma counter resets upon reaching 10 stacks.",
+      "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": "Zizaran",
+          "reviewer": "crouching_tuna, Tenkei",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+        "anchor_quote": "Zizaran created this guide, with review contributions from crouching_tuna and Tenkei.",
+        "abstained": 0,
+        "conf": 0.97
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Juggernaut",
+          "nodes": [
+            {
+              "name": "Untiring",
+              "alteration": "Life regeneration scales with self-damage taken — the sustain engine of the build."
+            },
+            {
+              "name": "Unflinching",
+              "alteration": "Maintains Endurance Charge uptime through self-hits."
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+        "anchor_quote": "Untiring: the harder you hit yourself, the more you regenerate. Unflinching: maintains Endurance Charge uptime through self-hits.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Kaom's Sign",
+              "slot": "ring",
+              "alteration": "Cheap early unique greatly improving defenses."
+            },
+            {
+              "name": "Ryslatha's Coil",
+              "slot": "belt",
+              "alteration": "Provides roughly 40-50% more damage."
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+        "anchor_quote": "Ryslatha's Coil: provides roughly 40-50% more damage.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Small AoE shockwave radiating from the hit point at each strike. Guide does not specify exact radius value. 'Non-Vaal Strike Skills target 1-2 additional nearby Enemy' modifier on gloves extends hit reach. Primary damage is at-target melee contact; secondary shockwave expands to small surrounding area."
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+        "anchor_quote": "Obtaining 'Non-Vaal Strike Skills target 1-2 additional nearby Enemy' modifiers on gloves for improved clear speed, suggesting moderate AoE capabilities requiring some scaling.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Direct melee strike on targeted enemy. Each successful attack grants one Trauma stack (up to 9; resets at 10). Each stack grants more physical damage AND deals self-damage equal to 194*(N+1) physical (pre-mitigation) on the next attack. Juggernaut sustains the self-damage via Untiring (regen scales with hits taken) and Endurance Charges. Unflinching ascendancy maintains Endurance Charge uptime via self-hits."
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/boneshatter-juggernaut-league-starter",
+        "anchor_quote": "Using this skill gives you up to 9 stacks of Trauma, each granting you extra damage. The Trauma counter resets upon reaching 10 stacks.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Boneshatter of Complex Trauma",
+              "description": "Transfigured variant that extends Trauma mechanics; featured in 3.24+ guides."
+            },
+            {
+              "name": "Slayer variant (budget/early-game)",
+              "description": "Slayer overleech addresses sustain until mid-game; Juggernaut recommended for endgame."
+            }
+          ]
+        },
+        "source_url": "https://odealo.com/articles/boneshatter-of-complex-trauma-juggernaut-build",
+        "anchor_quote": "The life overleech of the Slayer is not able to address the self-damaging mechanic of Boneshatter, making the Slayer only great until mid-game, while the Juggernaut is recommended to take this build to the next level.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

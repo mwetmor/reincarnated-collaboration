@@ -1,0 +1,282 @@
+{
+  "kit_id": "la-shining-knight-valkyrie",
+  "spine": {
+    "kit_id": "la-shining-knight-valkyrie",
+    "folk_name": "Shining Knight Valkyrie",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-valkyrie-2025-08-20;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Synergy → curse:amplify mapping is correct per DIRECTION LAW; the self-side 35% Holy Blade boost is modeled separately in economy charges. Requiem Ash/Rain geometry inferred from name class — not explicitly stated in store. Light Meter 15-cast fill mechanism correctly models the identity-gauge economy.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Synergy → curse:amplify mapping is correct per DIRECTION LAW; the self-side 35% Holy Blade boost is modeled separately in economy charges. Requiem Ash/Rain geometry inferred from name class — not explicitly stated in store. Light Meter 15-cast fill mechanism correctly models the identity-gauge economy.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shining Knight (Z identity) — Synergy + Holy Blade boost",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "DIRECTION TEST: 'applies Synergy to nearby enemies' — enemy-directed debuff. 'Synergy' in LA = raid-wide enemy damage-received debuff → curse:amplify per DIRECTION LAW (enemy takes more damage). Also buffs next 3 Holy Blade skills 35% damage (self-side boost → self_buff, NOT a curse — separate payload). Geometry: aura/presence-radius debuff on enemies."
+        },
+        {
+          "source_skill": "Final Splendor (X identity) — high single-hit",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Very high single-hit damage; identity X activation. No element descriptor. No ailment named."
+        },
+        {
+          "source_skill": "Requiem Ash / Requiem Rain",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Named in core_skills and gems_priority. AoE raid skills — ground placement geometry inferred from 'Requiem' class (raining/ash area). Back Attack affix removed via tripods (fully non-positional). No element/ailment in store."
+        },
+        {
+          "source_skill": "Cataclysm (Perfect Combo mechanic — becomes new skill post-combo)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Core DPS skill. Perfect Combo mechanic unlocks Cataclysm variant. No element or ailment descriptor in store."
+        },
+        {
+          "source_skill": "Whisper of Judgment / Judgment Stigmata / Sword of Revelation / Foresight Slash / Lunging Stab",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Core_skills set; melee range. Non-positional (tripod-modified). Light Meter filled by 15-skill casts across all core skills. No element/ailment descriptor in store for any."
+        }
+      ],
+      "motion_frame": "Cast 15 skills to fill Light Meter → activate Shining Knight (Z): enemy Synergy debuff (curse:amplify) + 3x Holy Blade 35% self-damage-boost → cast Final Splendor (X) high single-hit → expend Piety/Light Meter → repeat; Perfect Combo: Cataclysm evolves mid-combo",
+      "resource_economy": {
+        "light_meter": "filled by 15 skill casts (excluding Z/X); triggers identity activation; also called Piety meter",
+        "holy_blade_charges": "3 charges granted by Z identity; consumed on Holy Blade skills for 35% damage boost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Light Meter at 15 casts → Shining Knight (Z) — Synergy debuff on enemies + Holy Blade damage rider",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "DIRECTION TEST for Synergy: 'applies Synergy to nearby enemies' = enemy-directed → curse:amplify (enemy takes more damage). The 35% Holy Blade boost is SELF-side (+% dealt by self) → NOT a curse on enemy; modeled as economy charge. Ark Passive: Holy Sword Unleashed (100% Crit) and Celestial Blade (alt) → capstone_alterations shape (no specific node effects in fetched text beyond crit-targeting). Non-positional confirmed (tripod removal of Back Attack). Element null: 'Holy Blade' is a skill name with zero damage-type descriptor → D4 NAME-ONLY LAW (despite holy-themed class). Valkyrie is a 2025-era class (ship date Aug 20, 2025 per verify_ledger)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Shining Knight Valkyrie Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgsite.net/news/18155-lost-ark-valkyrie-class-release-date-pc-amazon",
+      "archive_url": null,
+      "site": "rpgsite.net",
+      "author_handle": "rpgsite-staff",
+      "title": "Lost Ark will add the Valkyrie class on August 20",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.playlostark.com/en-us/game/releases/rise-of-the-valkyrie",
+      "archive_url": null,
+      "site": "playlostark.com",
+      "author_handle": "Amazon-Games-official",
+      "title": "Rise of the Valkyrie - Releases",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-valkyrie-2025-08-20 era; la-global-2026",
+      "anchor_quote": "Lost Ark will add the Valkyrie class on August 20 [2025] — confirmed ship date; guide last updated June 29, 2026 confirming la-global-2026 era presence",
+      "source_url": "https://www.rpgsite.net/news/18155-lost-ark-valkyrie-class-release-date-pc-amazon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shining Knight Valkyrie — folk name (class Valkyrie + Shining Knight identity spec)",
+      "anchor_quote": "Shining Knight Valkyrie — The guide references an alternate support variant called Liberator Valkyrie.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shining Knight identity (Z) applies party synergy and boosts next 3 Holy Blade skills 35% damage via Trinity node; cycle alternates Z and Final Splendor (X); fills Piety/Light Meter via skills then expends on identity",
+      "anchor_quote": "applies Synergy to nearby enemies, and buffs your next 3 Holy Blade skills for 35% extra damage... You need 15 skills to fill your Light Meter (excluding Shining Knight (Z) and Final Splendor (X))",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "updated": "2026-06-29"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+        "anchor_quote": "Author: Sekwah (Content Creator). Last Updated: June 29, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_primary": "Holy Sword Unleashed — targets 100% Crit Rate",
+          "ark_passive_alt": "Celestial Blade — slightly higher damage alternative",
+          "identity_effect": "Shining Knight (Z): Synergy debuff on enemies + 35% damage boost on next 3 Holy Blade skills via Trinity node"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+        "anchor_quote": "Build recommends 100% Crit Rate targeting via Holy Sword Unleashed. Celestial Blade noted as alternative for slightly higher damage.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Keen Blunt Weapon",
+            "Raid Captain",
+            "Cursed Doll"
+          ],
+          "gems_priority": [
+            "Final Splendor",
+            "Requiem Ash",
+            "Requiem Rain"
+          ],
+          "bracelet_stats": "Crit, Swiftness",
+          "bracelet_specials": [
+            "weapon power",
+            "damage bonuses"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+        "anchor_quote": "Engravings: Grudge, Adrenaline, Keen Blunt Weapon, Raid Captain, Cursed Doll",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Fully non-positional — tripods remove Back Attack affix from most skills; back attack requirement eliminated by specific tripod choices",
+          "core_skills": [
+            "Requiem Ash",
+            "Requiem Rain",
+            "Cataclysm",
+            "Whisper of Judgment",
+            "Judgment Stigmata",
+            "Sword of Revelation",
+            "Foresight Slash",
+            "Lunging Stab"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+        "anchor_quote": "Thanks to specific tripods, most of your skills with Back Attack affix have it removed, making you fully non-positional.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast 15 skills to fill Light Meter (excluding Z/X identity skills); apply buffs; activate Shining Knight (Z) for Synergy + 3x Holy Blade 35% damage boost via Trinity node; cast Final Splendor (X) for high single hit; expend Piety/Light Meter; repeat. Perfect Combo mechanic: Cataclysm becomes new skill type requiring timing window.",
+          "identity_z_effect": "party Synergy + 35% damage on next 3 Holy Blade skills",
+          "identity_x_effect": "single hit very high damage",
+          "meter_fill": "15 skill casts"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+        "anchor_quote": "applies Synergy to nearby enemies, and buffs your next 3 Holy Blade skills for 35% extra damage. You need 15 skills to fill your Light Meter",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Shining Knight (DPS — Holy Blade burst, Synergy applicator)",
+            "Liberator Valkyrie (support variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shining-knight-valkyrie-build-guide",
+        "anchor_quote": "The guide references an alternate support variant called Liberator Valkyrie.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

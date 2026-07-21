@@ -1,0 +1,218 @@
+{
+  "kit_id": "poe1-blood-magic-kit",
+  "spine": {
+    "kit_id": "poe1-blood-magic-kit",
+    "folk_name": "Blood Magic Life-as-Resource",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": null,
+    "canon_tier": null,
+    "eras": null,
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Life-as-resource lands on the purpose-built RS/LC lane (reservation_resource=hp + hp_cost_scale — the engine even names the guard after this kit). Minor identity drift: PoE Blood Magic is TOTAL and uncapped (max mana=0, any cost can exceed your life), engine clamps to 0.30 max-HP/cast LOCKED and keeps a mana pool. The 'no safety rail, cast can kill you' danger that defines the keystone's feel is bounded by the guard. Keystone-not-active-skill => geometry is a degenerate placeholder.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Life-as-resource lands on the purpose-built RS/LC lane (reservation_resource=hp + hp_cost_scale — the engine even names the guard after this kit). Minor identity drift: PoE Blood Magic is TOTAL and uncapped (max mana=0, any cost can exceed your life), engine clamps to 0.30 max-HP/cast LOCKED and keeps a mana pool. The 'no safety rail, cast can kill you' danger that defines the keystone's feel is bounded by the guard. Keystone-not-active-skill => geometry is a degenerate placeholder.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blood Magic (keystone passive — no active cast)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "NOT an active skill with a discrete geometry — a keystone that rewrites the resource chassis for EVERY skill. self_buff is a degenerate placeholder; the kit's whole expression is in resource_economy, not geometry. element-neutral (physical/chaos raw is incidental; keystone is element-agnostic)"
+        }
+      ],
+      "motion_frame": "resource-identity keystone: mana is deleted; life pays every cost and every reservation; the player manages the life pool against recovery instead of a mana bar",
+      "resource_economy": {
+        "reservation_resource": "hp",
+        "hp_cost_scale": 0.3
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "reservation_resource=hp (auras/reserves draw from life, per RS/LC lane)",
+            "hp_cost_scale (skill costs paid from HP; clamped at 0.30 LOCKED = the engine's named 'PoE1 Blood Magic guard')"
+          ],
+          "traits_affixes": [
+            "max-life scaling",
+            "life-recovery / regen (the sustain that replaces mana regen)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "The engine's RS/LC lane is LITERALLY named for this kit: resource_economy.py comments hp_cost_scale 0.0..0.30 as the 'PoE1 Blood Magic guard', and reservation_resource enum includes hp. Cleanest-possible identity landing for life-as-resource. THE DRIFT: PoE Blood Magic is total and UNCAPPED — 'Removes all mana; Skills Cost Life instead of Mana; Skills Reserve Life instead of Mana; max mana = 0'; a skill can cost >30% max-HP and you can kill yourself casting. Engine hp_cost_scale is LOCKED at 0.30 (max 30% max-HP/cast) and does not zero the mana pool. So the identity (life pays for everything) lands, but the totality + the no-safety-rail DANGER that IS the Blood Magic thrill is clamped by the 0.30 guard. Keystone-not-skill => skills[] degenerate (self_buff placeholder). SACRIFICE_ASCENDANCY / DEFENSIVE_TRADEOFF express the life-cost-as-build-identity capstone. Items (Malachai's, Tukohama's, Slavedriver's) dissolve to the same reservation_resource=hp lane per crosswalk §4."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://pathofexile.fandom.com/wiki/Blood_Magic",
+      "archive_url": null,
+      "site": "pathofexile.fandom.com",
+      "author_handle": null,
+      "title": "Blood Magic - Path of Exile Wiki - Fandom",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Blood_Magic",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Blood Magic - PoEDB, Path of Exile Wiki",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build archetype present in eras 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blood Magic Life-as-Resource' and aliases 'BM', 'Life-as-Mana', 'BM Keystone' are real community usage",
+      "anchor_quote": "Blood Magic (often referred to as BM) is a keystone passive skill that allows the character to spend life instead of mana to use skills.",
+      "source_url": "https://pathofexile.fandom.com/wiki/Blood_Magic",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core mechanic: Blood Magic keystone — life reservation replaces mana reservation; skills cost life instead of mana",
+      "anchor_quote": "Removes all mana. 10% more maximum Life. Skills Cost Life instead of Mana. Skills Reserve Life instead of Mana.",
+      "source_url": "https://poedb.tw/us/Blood_Magic",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Blood Magic (keystone)",
+              "type": "keystone",
+              "effect": "Removes all mana. 10% more maximum Life. Skills Cost Life instead of Mana. Skills Reserve Life instead of Mana",
+              "anchor_quote": "Removes all mana. 10% more maximum Life. Skills Cost Life instead of Mana. Skills Reserve Life instead of Mana"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Blood_Magic",
+        "anchor_quote": "Removes all mana. 10% more maximum Life. Skills Cost Life instead of Mana. Skills Reserve Life instead of Mana",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Malachai's Simula / Malachai's Awakening",
+              "slot": "helmet",
+              "alteration": "Grants Blood Magic modifier on item."
+            },
+            {
+              "name": "Tukohama's Fortress",
+              "slot": "shield",
+              "alteration": "Totem-focused shield with Blood Magic synergy."
+            },
+            {
+              "name": "Slavedriver's Hand",
+              "slot": "gloves",
+              "alteration": "Trap-scaling gloves with Blood Magic modifier."
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Blood_Magic",
+        "anchor_quote": "Several items grant Blood Magic or synergize with it: Malachai's Simula and Awakening, Tukohama's Fortress, Slavedriver's Hand.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Passive keystone — not an active skill with a discrete cast loop. Blood Magic converts mana cost of all skills to life cost and sets maximum mana to zero. Auras/reservations draw from life pool instead of mana. Player manages skill costs against life pool and recovery rate rather than a separate mana resource."
+        },
+        "source_url": "https://poedb.tw/us/Blood_Magic",
+        "anchor_quote": "Removes all mana. Skills Cost Life instead of Mana. Skills Reserve Life instead of Mana.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Blood_Magic",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

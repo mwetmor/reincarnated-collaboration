@@ -1,0 +1,217 @@
+{
+  "kit_id": "ud-spread-rapid-dex",
+  "spine": {
+    "kit_id": "ud-spread-rapid-dex",
+    "folk_name": "Spread/Rapid Shot Archer (launch baseline)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "ud-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spread Shot",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Multi-arrow spread cone; 5 base arrows, +4 per grade; physical damage attested: 'Fires several arrows over a wide area to inflict physical damage on the enemy'. Physical=no-family; no element qualifier beyond physical."
+        },
+        {
+          "source_skill": "Rapid Shot",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Additional quick-fire projectile attacks layered with Spread Shot. Physical, no element attest. Mobile kite pattern — +DMG Amplification at 600+ range."
+        }
+      ],
+      "motion_frame": "Kite archer: fire Spread Shot + Rapid Shot maintaining range distance; Multishot link adds +2 projectile count; Vital Blow for crit; +DMG bonus at 600+ range incentivizes staying ranged",
+      "resource_economy": {
+        "cost_scale": "mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Multishot link (+2 Projectile Count)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Vital Blow (critical rate)",
+            "Sentence of Avoidance (dodge variant)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure physical kite-archer. Physical=no-family. Cone + multi_projectile split captures the Spread/Rapid two-skill pattern. Range-bonus mechanic noted in fidelity but has no direct engine key."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/SpreadShot/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Spread Shot - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pockettactics.com/undecember/builds",
+      "archive_url": null,
+      "site": "pockettactics.com",
+      "author_handle": "Pocket Tactics staff",
+      "title": "Undecember builds for beginners and more",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-launch-2022",
+      "anchor_quote": "use skills like spread shot or rapid shot to stay away from enemies while providing consistent blistering damage",
+      "source_url": "https://www.pockettactics.com/undecember/builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Spread/Rapid Shot DEX archer — beginner-accessible launch floor; multishot link; kite-archer pattern",
+      "anchor_quote": "Fires several arrows over a wide area to inflict physical damage on the enemy",
+      "source_url": "https://undecember.thein.ru/en/runes/SpreadShot/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Physical projectile volley; spread cone; Multishot link adds projectile count; kite pattern; fully mobile",
+      "anchor_quote": "Fires several arrows over a wide area to inflict physical damage on the enemy",
+      "source_url": "https://undecember.thein.ru/en/runes/SpreadShot/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "link": "Multishot (+2 Projectile Count)",
+          "support_skills": [
+            "Rapid Shot",
+            "Vital Blow",
+            "Sentence of Avoidance (dodge variant)"
+          ]
+        },
+        "source_url": "https://www.pockettactics.com/undecember/builds",
+        "anchor_quote": "use skills like spread shot or rapid shot to stay away from enemies while providing consistent blistering damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "multi-projectile spread cone",
+          "base_arrows": 5,
+          "upgrade": "+4 per grade",
+          "range_bonus": "DMG Amplification at 600+ range"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/SpreadShot/",
+        "anchor_quote": "Fires several arrows over a wide area to inflict physical damage on the enemy",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Spread Shot fires 5+ arrows in wide physical cone per cast; Rapid Shot adds additional quick-fire attacks; Vital Blow for critical amplification; kite-archer pattern — stay ranged, maintain distance for +DMG bonus at 600+ range"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/SpreadShot/",
+        "anchor_quote": "Fires several arrows over a wide area to inflict physical damage on the enemy",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variant": "Agility Build: Spread Shot + Vital Blow (crit focus) or + Sentence of Avoidance (dodge focus)"
+        },
+        "source_url": "https://www.pockettactics.com/undecember/builds",
+        "anchor_quote": "vital blow, which dramatically increases critical rate",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

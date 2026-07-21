@@ -1,0 +1,228 @@
+{
+  "kit_id": "mcd-fireworks",
+  "spine": {
+    "kit_id": "mcd-fireworks",
+    "folk_name": "Fireworks Arrow Artillery",
+    "game": "mcd",
+    "corpus_bucket": "mcd",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "mcd-2020-launch;mcd-2022-final-v1.17",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-mcd-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No direct 'cooldown-as-resource' engine lane; CD reduction via armor enchant approximates resource_economy cadence_scale. Explosion AoE radius is not quantified in fetched text, so circle footprint is directionally correct but unscaled. Player familiar with ARPGs would recognize trap/artillery loop.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No direct 'cooldown-as-resource' engine lane; CD reduction via armor enchant approximates resource_economy cadence_scale. Explosion AoE radius is not quantified in fetched text, so circle footprint is directionally correct but unscaled. Player familiar with ARPGs would recognize trap/artillery loop.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fireworks Arrow artifact (explosive projectile, AoE on hit)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single explosive arrow loaded into quiver; 'explodes on hit'; AoE radial on impact; 30s CD artifact"
+        },
+        {
+          "source_skill": "Scatter Crossbow delivery (3 simultaneous firework arrows)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Scatter Crossbow fires 3 arrows simultaneously; each triggers separate explosion; 'Scatter crossbows can shoot three firework arrows'"
+        }
+      ],
+      "motion_frame": "Load Fireworks Arrow artifact → fire Scatter Crossbow volley (3 simultaneous explosions) → manage artifact CD via armor reduction → reload and repeat",
+      "resource_economy": {
+        "cd_gated": true,
+        "artifact_cd_base_seconds": 30,
+        "cd_reduction_source": "Cool Down enchantment (armor) + Evocation Robe armor passive; cycles artifact CD near-permanently at high reduction"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile (Scatter Crossbow 3-shot)",
+            "circle (explosion AoE per arrow)"
+          ],
+          "economy": [
+            "artifact CD management: Cool Down enchant + Evocation Robe"
+          ],
+          "traits_affixes": [
+            "Multishot enchantment (confirmed compatible with fireworks)",
+            "Refreshment (indirect CD reduction via kills)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MCD element-silent — 'explosion' is mechanism/flavor, not fire damage-type per §B5-MCD. No mastery tree: capstone_alterations structurally abstains. Geometry is a hybrid: the identity is a multi-projectile delivery that triggers AoE explosions (circle) per projectile — maps cleanly to geometry_propagation pattern. CD management via armor enchant is the economy identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Fireworks_Arrow",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Fireworks Arrow – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://game8.co/games/Minecraft-Dungeons/archives/289200",
+      "archive_url": null,
+      "site": "game8.co",
+      "author_handle": null,
+      "title": "Fireworks Arrow Stats, Effects and Location | Minecraft Dungeons – Game8",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era mcd-2020-launch — Fireworks Arrow present at launch (Beta phase); persists through mcd-2022-final-v1.17",
+      "anchor_quote": "First revealed in the June 9, 2019 gameplay trailer... added during the Dungeons Beta phase",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Fireworks_Arrow",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Fireworks Arrow Artillery — build archetype centered on Fireworks Arrow artifact as loop anchor with Scatter Crossbow pairing for AoE chain damage",
+      "anchor_quote": "Scatter crossbows can shoot three firework arrows",
+      "source_url": "https://game8.co/games/Minecraft-Dungeons/archives/289200",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fireworks Arrow artifact fires explosive arrow (explodes on hit); paired with Scatter Crossbow each shot triggers separate firework explosion; cooldown reduction via armor enchants cycles it; Cooldown Shot/Refreshment/Burst Bowstring reduce recharge",
+      "anchor_quote": "puts a fireworks arrow into your quiver. The arrow explodes on hit",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Fireworks_Arrow",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "artifacts": [
+            "Fireworks Arrow — core; 30s CD; 'explodes on hit'; damage scales 40–3311 per power level"
+          ],
+          "enchantments": [
+            "Multishot — confirmed compatible: 'Multishot works with firework rockets'",
+            "Cool Down (armor enchant) — reduces artifact cooldown",
+            "Refreshment (armor enchant) — listed in corpus mech_note; indirect CD reduction via kills"
+          ],
+          "weapons_noted": [
+            "Scatter Crossbow — 3 simultaneous firework arrows",
+            "Auto Crossbow / Rapid Crossbow — corpus lists Burst Bowstring as support enchant"
+          ]
+        },
+        "source_url": "https://game8.co/games/Minecraft-Dungeons/archives/289200",
+        "anchor_quote": "Scatter crossbows can shoot three firework arrows",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged projectile (arrow)",
+          "explosion": "AoE on hit — 'explodes on hit'; area effect hits all enemies in proximity",
+          "projectile": "single arrow per activation; Scatter Crossbow multiplies to 3 simultaneous firework arrows",
+          "range": "standard bow range; explosion has radial AoE (size not quantified in fetched text)"
+        },
+        "source_url": "https://game8.co/games/Minecraft-Dungeons/archives/289200",
+        "anchor_quote": "Scatter crossbows can shoot three firework arrows",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Fireworks Arrow artifact to load explosive arrow into quiver; fire with Scatter Crossbow (triggers one explosion per arrow fired = up to 3 simultaneous explosions with Scatter Crossbow's multishot); cooldown reduction via armor (Cool Down enchantment, Evocation Robe) cycles the 30-second artifact CD; loop: fire volley → wait for CD reduction → reload → fire again. No rotation; artifact CD management IS the loop.",
+          "resource": "no soul cost; cooldown-gated only"
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Fireworks_Arrow",
+        "anchor_quote": "puts a fireworks arrow into your quiver. The arrow explodes on hit",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Corpus notes Winter's Touch crossbow as alternative pairing. Wiki does not explicitly name this variant; Scatter Crossbow is the primary confirmed pairing."
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Fireworks_Arrow",
+        "anchor_quote": "puts a fireworks arrow into your quiver. The arrow explodes on hit",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

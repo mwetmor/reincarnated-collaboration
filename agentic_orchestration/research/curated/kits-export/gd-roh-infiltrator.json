@@ -1,0 +1,231 @@
+{
+  "kit_id": "gd-roh-infiltrator",
+  "spine": {
+    "kit_id": "gd-roh-infiltrator",
+    "folk_name": "Rune of Hagarrad Infiltrator",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03 GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Trap arms on enemy contact; engine ground-circle bursts/ticks on placement — the arm-and-lure timing texture is lost (qual mint-candidate filed). Still that build, slightly worse: place-under-enemies loop survives.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Trap arms on enemy contact; engine ground-circle bursts/ticks on placement — the arm-and-lure timing texture is lost (qual mint-candidate filed). Still that build, slightly worse: place-under-enemies loop survives.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rune of Hagarrad",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Rune placed on floor, cold shards burst when enemies step on it' — at-target floor placement, small-radius burst, cooldown-gated. Proximity-armed trap timing is the drift vs the engine's immediate ground-circle (qual mint-candidate filed)."
+        },
+        {
+          "source_skill": "Word of Renewal",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'WoR provides very good stats that are irreplacable' — healing + stat buffer support."
+        }
+      ],
+      "motion_frame": "Inscribe cold rune traps ahead and melee alongside; Word of Renewal keeps you standing",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence": "cooldown-gated trap placement; energy secondary"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "trap burst radius"
+          ],
+          "economy": [
+            "cooldown cadence"
+          ],
+          "traits_affixes": [
+            "WoR stat buffer; Chillwhisper off-hand caster variant"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NO freeze/chill token — 'cold shards' is element flavor only; no status behavior fetched (§0.1; prior knowledge of RoH's freeze is exactly the memory-supplement leak class and was not used). Proximity-arming has no trigger-enum home (on-enemy-proximity absent) → trigger_grammar stays null, drift carried in notes + candidate. DW melee hybrid (ABB) variant noted; ABB behavior unfetched — contributes nothing."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 12,
+      "evidence_tier": "C-provisional",
+      "mint_class": "qualitative",
+      "build_authorized": 0,
+      "description": "GD proximity-armed-trigger: a placed device that ARMS on enemy proximity and detonates when the proximity condition is met — the Grim Dawn Rune of Hagarrad pattern. A proximity-fused placed proxy, distinct from cast-detonated or timed placements."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.9.7] DW Melee Cold ABB + Rune of Hagarrad Infiltrator - SR 90",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "Crate Entertainment",
+      "title": "Grim Dawn - Ashes of Malmouth Expansion on Steam",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: aom-2017, patch-1.1-1.2",
+      "anchor_quote": "Infiltrator (Nightblade/Inquisitor) [...] Inquisitor debuted with Ashes of Malmouth (October 2017)",
+      "source_url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Rune of Hagarrad Infiltrator; aliases include RoH Infiltrator, cold Infiltrator, Word of Renewal Infiltrator",
+      "anchor_quote": "DW Melee Cold ABB + Rune of Hagarrad Infiltrator",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Rune of Hagarrad (cold rune trap on floor), Word of Renewal. Dual delivery (caster+melee).",
+      "anchor_quote": "rune placed on floor, cold shards burst when enemies step on it [...] WoR provides very good stats that are irreplacable",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Chillwhisper off-hand",
+          "alteration": "provides cold RoH caster variant; off-hand instead of dual-wield"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-cold-fantasy-rune-of-haggard-chillwhisper-off-hand-infiltrator/100797",
+        "anchor_quote": "Rune of Haggard Chillwhisper off-hand Infiltrator",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target floor placement (trap)",
+          "footprint": "small-radius burst on trigger",
+          "verbatim": "rune placed on floor, cold shards burst when enemies step on it [...] never saw such DW Melee build both utilize ABB and Rune of Hagarrad"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+        "anchor_quote": "rune placed on floor, cold shards burst when enemies step on it",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Inscribe Rune of Hagarrad on floor at targeted position; cold shards burst when enemies step on it. Cooldown-gated trap placement. Word of Renewal provides healing and stat buffer. Hybrid melee-trap loop in some builds.",
+          "resource": "cooldown for rune; energy secondary",
+          "loop_verb": "place-rune trap + melee follow-up"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+        "anchor_quote": "rune placed on floor, cold shards burst when enemies step on it [...] WoR provides very good stats that are irreplacable",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "caster RoH Infiltrator (off-hand)",
+            "DW melee hybrid ABB+RoH Infiltrator",
+            "pure cold caster"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-cold-dw-caster-infiltrator-ssf-beginner-guide-leveling-advanced-all-celestials-hc-friendly/115289",
+        "anchor_quote": "Cold DW Caster Infiltrator SSF Beginner guide",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "kit_id": "d4-blood-lance",
+  "spine": {
+    "kit_id": "d4-blood-lance",
+    "folk_name": "Blood Lance Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "launch-s1-3",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null (blood/physical = element-neutral); source player would expect a physical or shadow identity but no explicit damage-type language attested. Overpower burst captured as fidelity note rather than primary consequence_type.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null (blood/physical = element-neutral); source player would expect a physical or shadow identity but no explicit damage-type language attested. Overpower burst captured as fidelity note rather than primary consequence_type.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blood Lance",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged projectile that lingers in target; verify_ledger anchor: 'Each Blood Lance remains in an enemy for 3 seconds, and additional Blood Lance not only hit the original target but also deal damage to all enemies already Lanced'; echo network between Lanced targets per skill_loop payload; skill_geometry anchor: 'strong AoE clear and its unique range sniper playstyle'; physical = element-neutral (blood/physical — no explicit shadow or fire damage language in fetched rows; THE PHYSICAL RULE: element null); ailments: no explicit ailment-name language in fetched rows for base lance hit; mark_identity = 'lanced' state attested in trigger_grammar row"
+        }
+      ],
+      "motion_frame": "Fire Blood Lances that linger in targets for 3 seconds; additional lances damage all already-Lanced enemies creating echo network; Overpower scaling via Lord of Hatred expansion per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Essence; Necromancer class resource; verify_ledger confirms 'resource: Essence'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-mark-apply",
+        "mark_identity": "lanced",
+        "consequence_type": "echo re-hit"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Lance echo between all Lanced targets per verify_ledger anchor — cross-target network"
+          ],
+          "economy": [
+            "Essence resource; Juggernaut's Aspect + Tidal Aspect (scalers)"
+          ],
+          "traits_affixes": [
+            "Blood Moon Breeches (scaler)",
+            "Mutilator Plate (scaler)",
+            "Ring of Starless Skies (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Echo-mark rider (§C.2 hot-fact binding): 'Blood Lance… already-Lanced enemies creating echo network' — trigger_grammar carries mark_identity='lanced' and consequence_type='echo re-hit'. Physical = element-neutral per THE PHYSICAL RULE: blood/physical has no engine element family; element slot null. No ailment attested: 'Blood Lance' name does not imply bleed; no 'bleed', 'drain', or other ailment language in fetched rows. Overpower burst_window: verify_ledger capstone contains 'Overpower scaling via Lord of Hatred expansion' — trigger_grammar consequence_type captures burst_window shape per §C.3; however primary consequence is echo re-hit so burst_window is fidelity note rather than dominant consequence. Accrual: stat-as-damage-substrate family (echo network scales with Lanced count)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LordxSaura",
+      "title": "Blood Lance Necromancer Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20230721155642/https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+      "archive_url": "http://web.archive.org/web/20230721155642/https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+      "site": "maxroll.gg (Wayback 2023-07-21)",
+      "author_handle": null,
+      "title": "Blood Lance Necromancer Build Guide - D4 Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": "Season 1 - The Malignant...Diablo 4 Season 1 introduces a new questline to hunt Malignant Monsters",
+      "source_url": "http://web.archive.org/web/20230721155642/https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Blood Lance Necromancer; aliases: Blood Lance Necro D4, Blood Lance Necromancer launch",
+      "anchor_quote": "Blood Lance Necromancer",
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Blood Lance; resource: Essence; delivery: lingering lances that echo damage between all lanced enemies",
+      "anchor_quote": "Each Blood Lance remains in an enemy for 3 seconds, and additional Blood Lance not only hit the original target but also deal damage to all enemies already Lanced.",
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LordxSaura",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+        "anchor_quote": "by LordxSaura",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Juggernaut's Aspect",
+            "Tidal Aspect"
+          ],
+          "uniques": [
+            "Mutilator Plate",
+            "Ring of Starless Skies",
+            "Blood Moon Breeches"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+        "anchor_quote": "Juggernaut's Aspect on helmet and Tidal Aspect on boots are recommended.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Mutilator Plate (mythic)",
+            "Ring of Starless Skies",
+            "Blood Moon Breeches"
+          ],
+          "aspects": [
+            "Juggernaut's Aspect (helmet)",
+            "Tidal Aspect (boots)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+        "anchor_quote": "Primary mythics include Mutilator Plate, Ring of Starless Skies, and Blood Moon Breeches.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile + echo between targets",
+          "footprint": "chain-hop between Lanced enemies",
+          "range": "ranged",
+          "notes": "Described as 'strong AoE clear and its unique range sniper playstyle'; lances persist in targets enabling cross-target echo"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+        "anchor_quote": "strong AoE clear and its unique range sniper playstyle",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fire Blood Lances that linger in targets for 3 seconds; additional lances deal damage to all already-Lanced enemies creating echo network; Overpower scaling via Lord of Hatred expansion.",
+          "core_loop": "Blood Lance -> tag enemies -> lances linger -> echo damage between all Lanced targets"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+        "anchor_quote": "Each Blood Lance remains in an enemy for 3 seconds, and additional Blood Lance not only hit the original target but also deal damage to all enemies already Lanced.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-lance-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

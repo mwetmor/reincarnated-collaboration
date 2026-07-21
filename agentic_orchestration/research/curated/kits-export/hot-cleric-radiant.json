@@ -1,0 +1,231 @@
+{
+  "kit_id": "hot-cleric-radiant",
+  "spine": {
+    "kit_id": "hot-cleric-radiant",
+    "folk_name": "Radiant Aura Cleric",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element-neutral mapping misses the cleric-holy thematic register; player would notice the absence of holy identity. Mechanically clean: aura+heal loop maps well.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element-neutral mapping misses the cleric-holy thematic register; player would notice the absence of holy identity. Mechanically clean: aura+heal loop maps well.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Radiant Aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "always-active magic-damage halo; damage divided equally among all enemies in radius; 'magic damage' in fetched text is element-NEUTRAL per §B5-ROGUELITE (radiant→holy only if store types 'radiant damage' — crawl attested generic 'magic' only); heal sustain integral to loop; upgrade option: +20% damage / -15% radius"
+        }
+      ],
+      "motion_frame": "stationary aura grinder; always-active halo pulses magic damage to melee-range enemies; heal traits top up HP; no rotation",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle",
+        "regen_shape": "on-hit-leech (heal traits)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura radius scaling",
+            "damage distribution among enemies"
+          ],
+          "economy": [
+            "heal trait throughput"
+          ],
+          "traits_affixes": [
+            "Affliction",
+            "Fragile",
+            "heal traits",
+            "Block Strength"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "element-neutral confirmed: §B5-ROGUELITE explicit ruling — 'radiant→holy only if store types radiant damage; crawl attested only generic magic → neutral'. No ailments: Affliction/Fragile in HoT are trait categories, not named status effects in the 16-enum. No stun/burn/etc attested. Heal sustain noted in economy lane."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "AURA",
+    "group_intent_rationale": "delivery=aura-pulse · amp=flat · geometry=aura · treatment=damage · proxy=solo · commit=instant · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "archive_url": null,
+      "site": "progameguides.com",
+      "author_handle": null,
+      "title": "Halls of Torment Ability Tier List",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "Halls of Torment: The 10 Best Abilities",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": null,
+      "title": "Halls of Torment All Characters Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-1.0-2024; hot-1.1-2026",
+      "anchor_quote": "casts a light circle around the character, distributing its damage equally among all enemies in its range",
+      "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Radiant Aura Cleric — passive holy aura build; sustain-leech as primary defense",
+      "anchor_quote": "Radiant Aura ... deals huge damage in a circle around you, but divided equally among all enemies",
+      "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Radiant Aura is always-active aura; pulses magic damage in circle around player; heals sustain the Cleric",
+      "anchor_quote": "casts a light circle around the character, distributing its damage equally among all enemies in its range ... main weapon deals magic damage",
+      "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            "Bloodstained Wrappings (heal)",
+            "Holy Relic (heal)",
+            "Hunter's Garb (pairs with aura stationary play)"
+          ],
+          "traits": [
+            "Heal traits increase sustain throughput",
+            "Affliction/Fragile can be applied by Radiant Aura"
+          ]
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+        "anchor_quote": "Focus: Movement Speed, healing items (Bloodstained Wrappings, Holy Relic), Defense, Block Strength",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura-pulse",
+          "footprint": "small-radius-circle",
+          "damage_split": "equal among all enemies in range",
+          "damage_type": "magic",
+          "notes": "Upgrade option: +20% damage at cost of -15% smaller radius."
+        },
+        "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "anchor_quote": "distributing its damage equally among all enemies in its range",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Radiant Aura is an always-active magic-damage halo centered on the player. Damage distributed equally among all enemies in radius. Heal traits sustain the Cleric. Loop: aura grinds melee-range enemies; heals top up HP. Roguelite auto-fire — no rotation."
+        },
+        "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "anchor_quote": "casts a light circle around the character, distributing its damage equally among all enemies in its range",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Cleric can run Radiant Aura + Arcane Rift variant; also pairs with Astronomer's Orbs for full stationary-aura build."
+        },
+        "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+        "anchor_quote": "Excellent for stationary gameplay paired with Astronomer's Orbs",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

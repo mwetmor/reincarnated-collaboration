@@ -1,0 +1,267 @@
+{
+  "kit_id": "d4-heartseeker",
+  "spine": {
+    "kit_id": "d4-heartseeker",
+    "folk_name": "Heartseeker Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loot-reborn-s4-5",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null. No ailment. Paingorger echo-propagation approximated via trigger_grammar + GEOMETRY_PROPAGATION_overkill door; no native 'echo every hit to surrounding enemies' lane. Seeking behavior preserved in delivery_notes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null. No ailment. Paingorger echo-propagation approximated via trigger_grammar + GEOMETRY_PROPAGATION_overkill door; no native 'echo every hit to surrounding enemies' lane. Seeking behavior preserved in delivery_notes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Heartseeker",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Seeking arrow auto-tracks nearest enemy per §C.1 hot-fact BINDING: 'Spam Heartseeker as basic seeking arrow' per skill_loop payload; 'Heartseeker dealing devastating single-target damage' per skill_geometry anchor; single_target projectile with seeking; seeking per §C.1: 'CONDITIONAL seek (seek-the-nearest)' — delivery_notes carries seeking behavior; Paingorger's Gauntlets echo per §C.2 hot-fact: 'Paingorger's Gauntlets echoing the damage to clear activities with high monster density' per skill_geometry anchor; echo = trigger_grammar rider; element null (physical; no element damage-type language in any anchor)"
+        },
+        {
+          "source_skill": "Paingorger echo (AoE supplement)",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Paingorger's Gauntlets echoes damage to multiple enemies' per item_alterations anchor; §C.2: echo-mark rider via trigger_grammar; the echo creates AoE splash from single-target hit; ring/nova delivery from target position; element null"
+        }
+      ],
+      "motion_frame": "Spam Heartseeker as seeking basic attack; Paingorger's Gauntlets echoes each hit to multiple surrounding enemies; stack Ferocity (Aspect of Moonrise) via Dash and Concealment; Preparation for cooldown resets per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Energy (Rogue class resource; rotation_style basic_spam per skill_loop payload — basic attack spam is generatorless for Energy generation; Preparation specialization for cooldown resets per skill_loop payload)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "paingorger_echo_mark",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Paingorger echo AoE splash; Narrows Eye 5-piece Spin-to-Win variant (Dance of Knives rider, variant-scope only)"
+          ],
+          "economy": [
+            "Preparation cooldown reset specialization per skill_loop payload",
+            "Shard of Verathiel optional premium (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Etna's Lost Dagger (scaler-only)",
+            "Scoundrel's Kiss (scaler-only)",
+            "Harlequin Crest (scaler-only)",
+            "Narrows Eye 5-piece (variant-scope scaler)",
+            "Gladiator's Triumph (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§C.1 hot-fact BINDING: seeking behavior per 'Spam Heartseeker as basic seeking arrow' (skill_loop verify anchor). §C.2 hot-fact BINDING: 'Paingorger's Gauntlets echoing the damage' (skill_geometry anchor) — echo-mark rider in trigger_grammar per addendum. mark_identity = paingorger_echo_mark; consequence = burst-damage (echo splash). TEMPORAL_CHARGE door: Aspect of Moonrise stacking buff per capstone_alterations row (Aspect of Moonrise in key_items list — item-defined-archetype stacking identity); note 'stack Ferocity' in skill_loop appears to be build-language for Rogue resource stack context, not Spiritborn Ferocity (dossier cross-contamination from variant info). Element null: no element damage-type language in any anchor; physical basic attack. No ailment attested. GEOMETRY_PROPAGATION_overkill door: Paingorger echo propagates damage outward from hit target."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "DiEoxidE",
+      "title": "Heartseeker Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/heartseeker-rogue-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Lexyu",
+      "title": "Heartseeker - Rogue Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.wowhead.com/diablo-4/build/heartseeker-endgame-season-5-24142",
+      "archive_url": null,
+      "site": "wowhead.com",
+      "author_handle": null,
+      "title": "Heartseeker Endgame Season 5 - Build - Diablo 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://wowcarry.com/blog/diablo-4/the-most-powerful-builds-season-4-diablo-4",
+      "archive_url": null,
+      "site": "wowcarry.com",
+      "author_handle": null,
+      "title": "The Most Powerful Builds For Every Class In Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 1
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in loot-reborn-s4-5",
+      "anchor_quote": "Heartseeker Endgame Season 5",
+      "source_url": "https://www.wowhead.com/diablo-4/build/heartseeker-endgame-season-5-24142",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Heartseeker Rogue; aliases Heartseeker Rogue D4, Heartseeker Rogue s4-5 are real community usage",
+      "anchor_quote": "Heartseeker is a very popular ranged bow build, known for its ease of use and overall simplicity and effectiveness",
+      "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Heartseeker; resource Energy (Rogue); seeking arrow basic skill",
+      "anchor_quote": "spam Heartseeker till your hands fall off",
+      "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "DiEoxidE",
+          "site": "maxroll.gg",
+          "co_author": "Lexyu (icy-veins)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Frozen Memories",
+            "Aspect of Adaptability",
+            "Aspect of the Moonrise"
+          ],
+          "uniques": [
+            "Paingorger's Gauntlets",
+            "Etna's Lost Dagger",
+            "Shard of Verathiel",
+            "Scoundrel's Kiss",
+            "Harlequin Crest"
+          ],
+          "charm_set": [
+            "Narrows Eye (5-piece)",
+            "Gladiator's Triumph"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+        "anchor_quote": "Aspect of Frozen Memories (requires Etna's Dagger to function)",
+        "abstained": 0,
+        "conf": 0.79
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Paingorger's Gauntlets",
+            "Etna's Lost Dagger",
+            "Shard of Verathiel",
+            "Scoundrel's Kiss",
+            "Harlequin Crest",
+            "Gladiator's Triumph",
+            "Narrows Eye 5-piece"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+        "anchor_quote": "Paingorger's Gauntlets (highly recommended) echoes damage to multiple enemies",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "point",
+          "notes": "Seeking arrow auto-tracks nearest enemy; single-target primary with Paingorger's Gauntlets echo providing AoE supplement"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+        "anchor_quote": "Heartseeker dealing devastating single-target damage and Paingorger's Gauntlets echoing the damage to clear activities with high monster density",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Heartseeker as basic seeking arrow; weave with Dance of Knives spin via Narrows Eye 5-piece Spin-to-Win variant; stack Ferocity with Dash and Concealment; Preparation specialization for cooldown resets",
+          "rotation_style": "basic_spam"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/heartseeker-rogue-specialized-guide",
+        "anchor_quote": "spam Heartseeker till your hands fall off",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Standard Heartseeker vs Spin-to-Win (Narrows Eye + Dance of Knives) variant; Shard of Verathiel optional premium variant; Season 4 build used Adaptability+Hectic+Moonrise"
+        },
+        "source_url": "https://wowcarry.com/blog/diablo-4/the-most-powerful-builds-season-4-diablo-4",
+        "anchor_quote": "Heartseeker Rogue set the individual tier 133 benchmark for Season 4",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

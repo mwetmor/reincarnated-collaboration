@@ -1,0 +1,225 @@
+{
+  "kit_id": "tli-youga-spirit-magus",
+  "spine": {
+    "kit_id": "tli-youga-spirit-magus",
+    "folk_name": "Youga Spirit Magus Summons",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-live-2022+;tli-ss11-12-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — player has no damage rotation; all damage from permanent Spirit Magi army. Summoner architecture required.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — player has no damage rotation; all damage from permanent Spirit Magi army. Summoner architecture required.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Thunder Magus (Spell, Summon, Lightning)",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent following companion minions. Skill_geometry anchor: 'Summon Thunder Magus (Spell, Summon, Lightning).' lightning attested: verify anchor 'You can summon a Thunder Magus, which converts 100% of the Spirit Magi Physical Damage to Lightning Damage' — physical to lightning conversion, damage-type attested on minion output. Dominant variant in this kit is Thunder Magus."
+        },
+        {
+          "source_skill": "Aura suite (passive buffs)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Player support role. Skill_loop anchor: 'permanent minions tank and DPS while you support with auras and curses.' Auras include Precise Projectiles, Weapon Amplification. No element attested for aura skills."
+        }
+      ],
+      "motion_frame": "Pure support summoner: permanent Spirit Magi do all DPS while hero maintains auras and curses; minion growth through 5 stages (100→500 Growth).",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Minion Damage / Minion Life / Aura Effectiveness scaling"
+          ],
+          "traits_affixes": [
+            "Spirit Magi stage growth system (stage 1→5, stat gains per stage)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U. Pet-core summoner: Spirit Magi IS the damage identity; player has no primary damage rotation. Summoner-deferral applies. Lightning emission is from Thunder Magus conversion (dominant variant) — the physical→lightning conversion IS attested but belongs to the minion, not a player skill. Five elemental variants (Fire/Cold/Lightning/Physical/Erosion) mean element is build-selector-dependent. PROXY_SOVEREIGNTY (network of permanent minions with stage growth) over PROXY_ASCENSION. Youga's aura/curse support role approximated but core damage is minion-only → GAPPED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://tlidb.com/en/Spirit_Magus",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Spirit Magus - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://earlyguides.com/torchlight-infinite/builds",
+      "archive_url": null,
+      "site": "earlyguides.com",
+      "author_handle": "unknown",
+      "title": "Best Torchlight Infinite Builds: Ranked & Explained",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://tlidb.com/Friend_of_Spirit_Magi",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Friend of Spirit Magi - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-live-2022+;tli-ss11-12-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Youga Spirit Magus Summons — spirit summoner with lightning bias",
+      "anchor_quote": "You can summon a Thunder Magus, which converts 100% of the Spirit Magi's Physical Damage to Lightning Damage.",
+      "source_url": "https://earlyguides.com/torchlight-infinite/builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: spirit summons, aura/curse suite",
+      "anchor_quote": "permanent minions tank and DPS while you support with auras and curses. This is the safest build since minions absorb all aggro.",
+      "source_url": "https://earlyguides.com/torchlight-infinite/builds",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Spirit Magus passive skill system. Five elemental variants (Fire/Cold/Lightning/Physical/Erosion). Growth stage system 1–5. Youga hero traits not separately confirmed from fetched text."
+        },
+        "source_url": "https://tlidb.com/en/Spirit_Magus",
+        "anchor_quote": "Spirit Magi are a type of Minion. Skills that summon Spirit Magi are typically Passive Skills.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Core gear: Minion Damage, Minion Life, Aura Effectiveness. Thunder Magus support via specific summon skill selection."
+        },
+        "source_url": "https://earlyguides.com/torchlight-infinite/builds",
+        "anchor_quote": "Clear stat priorities for this build include Minion Damage, Minion Life, Aura Effectiveness, and Player Survivability.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Spirit Magi at Stage 5: +50% additional damage, +10% additional Skill Area, +30% additional Movement Speed. Thunder Magus converts physical to lightning. Erosion/Frost/Fire Magus variants also exist."
+        },
+        "source_url": "https://tlidb.com/en/Spirit_Magus",
+        "anchor_quote": "Summon Thunder Magus (Spell, Summon, Lightning)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Permanent Spirit Magi tank and DPS. Hero supports with auras and curses. Thunder Magus variant: converts minion physical damage to lightning. Spirit Magi grow through 5 stages (100→500 Growth) gaining stats per stage."
+        },
+        "source_url": "https://earlyguids.com/torchlight-infinite/builds",
+        "anchor_quote": "permanent minions tank and DPS while you support with auras and curses. This is the safest build since minions absorb all aggro.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Thunder Magus (lightning convert)",
+            "Fire Magus",
+            "Frost Magus",
+            "Rock Magus (physical)",
+            "Erosion Magus",
+            "Serpent Beam Youga (SS10)"
+          ]
+        },
+        "source_url": "https://tlidb.com/en/Spirit_Magus",
+        "anchor_quote": "Summon Fire Magus (Spell, Summon, Fire) ... Summon Frost Magus (Spell, Summon, Cold) ... Summon Thunder Magus (Spell, Summon, Lightning)",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

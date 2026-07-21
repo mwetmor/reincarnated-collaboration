@@ -1,0 +1,215 @@
+{
+  "kit_id": "tq2-whirlwind-rogue",
+  "spine": {
+    "kit_id": "tq2-whirlwind-rogue",
+    "folk_name": "Whirlwind Rogue",
+    "game": "tq2",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tq2-ea-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/spin",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A TQ2 Whirlwind (Warfare) player gets the mobile spin-to-win faithfully -- whirlwind geometry (poe1-cyclone precedent, full-movement-during-channel is native) + tick-cost channel + Rage accumulator + spin-momentum doors. Minor drift: 'the ONLY skill where you can keep moving while channeling' is a game-relative uniqueness that the engine can't express as special (many engine channels may allow movement), so the standout 'mobile-while-everyone-else-is-rooted' identity is carried as a normal mobile channel -- the feel is right, the game-relative distinctiveness is flattened. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A TQ2 Whirlwind (Warfare) player gets the mobile spin-to-win faithfully -- whirlwind geometry (poe1-cyclone precedent, full-movement-during-channel is native) + tick-cost channel + Rage accumulator + spin-momentum doors. Minor drift: 'the ONLY skill where you can keep moving while channeling' is a game-relative uniqueness that the engine can't express as special (many engine channels may allow movement), so the standout 'mobile-while-everyone-else-is-rooted' identity is carried as a normal mobile channel -- the feel is right, the game-relative distinctiveness is flattened. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind (Warfare mastery)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "self-origin continuous spinning AoE around the player; 'the only skill where you can keep moving while using it' (dossier) -- MOBILE channel (whirlwind is native to full-movement-during-channel, poe1-cyclone precedent: 'full-movement-during-channel is native to whirlwind'). Builds Rage very fast. physical -> no element family (elem_raw=physical; physical rule). knockback rider (probe). Sweeping Strikes is the prerequisite node (17pt); Whirlwind is a WARFARE skill (NOT Rogue -- identity errata)."
+        }
+      ],
+      "motion_frame": "mobile spin-to-win: channel a continuous physical spin AoE and keep moving through it -- the one skill you can walk with while channeling -- whirlwinding around bosses and through packs, building Rage fast so mobs can't touch you",
+      "resource_economy": {
+        "model": "channel",
+        "persistent_condition_shape": "tick-cost",
+        "resource_verbatim": "Energy (channel drain while spinning)",
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "self-origin spin radius (whirlwind, mobile-channel)"
+          ],
+          "economy": [
+            "Energy channel tick-cost (mobile spin drain)",
+            "Rage accumulator (builds fast during the spin)"
+          ],
+          "traits_affixes": [
+            "physical / attack-speed scaling",
+            "Rage generation / retention"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FLAG 8 + FLAG 12: identity CONTRADICTED (errata=1) -- Whirlwind is a WARFARE mastery skill, NOT Rogue; the 'Whirlwind Rogue' folk_name/slug is left as-is per dispatch but the VERIFIED mastery = Warfare (+ 2nd mastery, commonly Earth; anchor 'Warfare - Sweeping Strikes 17 - Whirlwind 1/1'). BOTH masteries' capstones route t4_doors (§E row 1): Whirlwind (Warfare) + the paired mastery (Earth solid / Fire eye-candy) -> ZONE_CONTROL (spin-through-packs space control) + MOMENTUM_CASCADE (the Rage-building mobile-spin momentum). FLAG 12: queried kit_mapping for the poe1 spin precedent -- poe1-cyclone (EXACT, geometry=whirlwind, 'spin-to-win channel', full-movement-during-channel native) is the mirror; also poe1-sweep=melee_arc (full-circle, but non-mobile) -- Whirlwind's MOBILE channel matches cyclone, so whirlwind token (not melee_arc). Mobility-while-channeling in fidelity_note (FLAG 12). physical -> element-neutral (physical rule). Rage (§E row) = single-tier accumulator, native. knockback rider (probe). GX none. dodge/armor defense not a surface. [STEWARD AUDIT m04: 'knockback' stripped -- never named in fetched text (mobile-channel spin is the identity; no CC status attested)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/1154030/discussions/0/591778884098532299/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "My OP Spin to Win Build - Thoughts? :: Titan Quest II General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1154030/discussions/0/591778249679593046/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "what 2nd mastery for whirlwind? (warfare+?) :: Titan Quest II General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era tq2-ea-2025+",
+      "anchor_quote": "what 2nd mastery for whirlwind? (warfare+?)... Earth works well [2025 discussion]",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778249679593046/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Folk name 'Whirlwind Rogue' and aliases 'Whirlwind rogue mastery TQ2', 'Rogue Whirlwind build' are real community usage",
+      "anchor_quote": "Warfare - Sweeping Strikes 17 - Whirlwind 1/1... what 2nd mastery for whirlwind? (warfare+?)",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778884098532299/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Whirlwind; self-origin spinning AoE; channel mechanic; mobile while channeling",
+      "anchor_quote": "Whirlwind is extremely fast... the only skill where you can keep moving while using it, allowing you to whirlwind around bosses while doing damage",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778249679593046/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_capstones": [
+            "Whirlwind (Warfare mastery); Sweeping Strikes as prerequisite (17pt investment in guide)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778884098532299/",
+        "anchor_quote": "Warfare - Sweeping Strikes 17 - Whirlwind 1/1",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Self-origin spinning AoE; continuous rotation around player position; mobile channel (player moves while spinning); extremely fast; mobs cannot touch you when moving constantly."
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778249679593046/",
+        "anchor_quote": "Whirlwind is extremely fast, builds rage very fast, and is the only skill where you can keep moving while using it",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Whirlwind is a Warfare mastery skill (not Rogue). Player channels spin continuously; mobile during the channel (only skill where you can keep moving while using it). Builds Rage fast. Pair with Earth (solid), Fire (eye candy + damage), or other second mastery. Sweeping Strikes is a prerequisite investment node."
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778884098532299/",
+        "anchor_quote": "Warfare - Sweeping Strikes 17 - Whirlwind 1/1... the only skill where you can keep moving while using it",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Whirlwind + Earth (solid pairing)",
+            "Whirlwind + Fire (damage + visual)",
+            "Whirlwind + Rogue (Reaver class — Vampire Build per separate guide)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/591778249679593046/",
+        "anchor_quote": "Earth works well... yeah earth is pretty solid, right now doing fire cause its full on eye candy and decent damage",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

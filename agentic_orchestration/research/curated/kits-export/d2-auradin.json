@@ -1,0 +1,264 @@
+{
+  "kit_id": "d2-auradin",
+  "spine": {
+    "kit_id": "d2-auradin",
+    "folk_name": "Auradin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-1.11+;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: dual-aura stack identity texture and the no-reservation free-aura economy feel; engine aura-pulse approximates but stack-doubling flavor is absent. Physical Zeal layer fully approximated. Item-dependence noted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: dual-aura stack identity texture and the no-reservation free-aura economy feel; engine aura-pulse approximates but stack-doubling flavor is absent. Physical Zeal layer fully approximated. Item-dependence noted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Zeal",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target multi-hit melee physical swing; physical — no engine element family; identity carried by aura-pulse layer"
+        },
+        {
+          "source_skill": "Conviction aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Persistent caster-anchored resistance-reduction aura; §A row 2 + main-law §2 aura/hex → curse:sap; anchor: 'you will augment your item-based dmg auras with a solid, real Conviction at -150'"
+        },
+        {
+          "source_skill": "Dream Holy Shock aura-pulse (item-defined)",
+          "geometry_value": "ring",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Item-defined-archetype §CROSS row 4: Dream runeword grants Holy Shock aura; aura pulses lightning ring around body; dossier anchor: 'trash mobs simply blow up off-screen and well before they're ever in Conviction range'; moving-pulse noted; NO reservation (§A row 2 free-toggle)"
+        },
+        {
+          "source_skill": "Dragon Holy Fire aura-pulse (item-defined)",
+          "geometry_value": "ring",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dragon runeword grants Holy Fire aura-pulse; fire ring around body; item-defined-archetype variant; dual-Dream or Dream+Dragon per capstone_alterations anchor"
+        }
+      ],
+      "motion_frame": "Walk/move continuously; Dream/Dragon aura rings pulse damage around moving body passively; Zeal multi-strikes at melee contact; Conviction always-on debuff aura",
+      "resource_economy": {
+        "cost_scale": "Zeal mana per hit (identity-minor); aura pulses free toggle — no reservation"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "ELEMENT_CONVERSION_HYBRID",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dual aura-ring stacking (Dream×2 or Dream+Dragon)"
+          ],
+          "economy": [
+            "Conviction free aura toggle"
+          ],
+          "traits_affixes": [
+            "Synergy: Zeal + Resist skills for elemental damage per level"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype: the entire offensive identity requires Dream/Dragon runewords; combat loop without them is Zeal physical only. Holy Shock element label 'lightning' (NOT 'holy' — §A row 6 hammerdin note carries: 'holy is a PROBE fabrication'; no fetched language names holy element for auradin specifically — element is lightning for Holy Shock, fire for Holy Fire). curse:sap attested via Conviction resist-shred aura behavior (persistent caster-anchored). Synergies: scaffold.support_lanes.traits_affixes per §A row 1. Dual-Dream self-stack (double Holy Shock pulse) = fidelity texture; single-aura form maps identically."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "AURA",
+    "group_intent_rationale": "delivery=aura-pulse · amp=flat · geometry=aura · treatment=damage · proxy=solo · commit=instant · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Blindfire187; Schnorki (mod)",
+      "title": "Auradin Questions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/max-auradin-build-t1237207.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Nate; Queegon; Schnorki (mod)",
+      "title": "Max auradin build?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.11+",
+      "anchor_quote": "auradin - two elements for most anyone unless you find unbreakable light/fire immune",
+      "source_url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "The discussion is from 3 years ago (pre-Resurrected) and experts confirm the build functions perfectly serviceable up to p3 where monsters die just to auras",
+      "source_url": "https://diablo2.io/forums/max-auradin-build-t1237207.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Auradin; aliases Aura Paladin, Dragon Paladin, Dream Auradin",
+      "anchor_quote": "auradin - two elements for most anyone unless you find unbreakable light/fire immune",
+      "source_url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Zeal, Conviction, item auras (Dream Holy Shock, Dragon Holy Fire)",
+      "anchor_quote": "You will be using Zeal exclusively... if you run as either a firedin or a tesladin, you will augment your item-based dmg auras with a solid, real Conviction at -150",
+      "source_url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Dream (Holy Shock aura)",
+            "Dragon (Holy Fire aura)"
+          ],
+          "notes": "Dual Dream or Dream + Dragon are the canonical runeword capstones; each grants a different elemental aura"
+        },
+        "source_url": "https://diablo2.io/forums/max-auradin-build-t1237207.html",
+        "anchor_quote": "Dual Dream or Dual Dragon + HoJ",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Dream (runeword, grants Holy Shock aura)",
+            "Dragon (runeword, grants Holy Fire aura)",
+            "Crescent Moon (cold damage add)",
+            "Grief (Zeal damage)"
+          ],
+          "notes": "Build defined entirely by item-granted auras; no gear-independent damage without Dream/Dragon"
+        },
+        "source_url": "https://diablo2.io/forums/max-auradin-build-t1237207.html",
+        "anchor_quote": "auradin with HoJ, Dragon, and Dreams is considered one of the best zealer options",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura-pulse",
+          "footprint": "small-radius around body",
+          "range_type": "aoe",
+          "notes": "Dream and Dragon auras pulse lightning/fire damage in rings around moving body; Zeal delivers at-target melee hits supplement"
+        },
+        "source_url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+        "anchor_quote": "trash mobs simply blow up off-screen and well before they're ever in Conviction range",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Zeal strikes supplemented by passive aura pulses from Dream (Holy Shock) and Dragon (Holy Fire) runewords; Conviction reduces enemy resistances. Player moves/attacks and aura rings pulse automatically around the body, killing nearby enemies without direct targeting."
+        },
+        "source_url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+        "anchor_quote": "auradin - two elements for most anyone unless you find unbreakable light/fire immune",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Tesladin (Holy Shock focus, dual Dream)",
+            "Dragondin (Holy Fire focus, Dragon runeword)",
+            "Dreamer Paladin (Dream-based)",
+            "Auradin Avenger (hybrid with Vengeance)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/auradin-questions-t1209183.html",
+        "anchor_quote": "Tesladin... Dragondin variants",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

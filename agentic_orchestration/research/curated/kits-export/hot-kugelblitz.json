@@ -1,0 +1,244 @@
+{
+  "kit_id": "hot-kugelblitz",
+  "spine": {
+    "kit_id": "hot-kugelblitz",
+    "folk_name": "Kugelblitz (wandering ball lightning)",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-ea-2023;hot-1.0-2024",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Electrify ailment (the kit's secondary status identity) drops entirely — player would miss the stacking voltage mechanic that is central to the achievement/mastery path. Stun-only capture is weaker than the source identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Electrify ailment (the kit's secondary status identity) drops entirely — player would miss the stacking voltage mechanic that is central to the achievement/mastery path. Stun-only capture is weaker than the source identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Kugelblitz (wandering ball of electricity)",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "lightning attested: 'ball of electricity', 'ball of lightning', '11.5M Lightning' damage output; stun attested: 'Stun for 0.1s' — explicit stun duration; Electrify is a HoT-native status NOT in the 16-ailment registry — dropped to delivery_notes; geometry: autonomous-wandering proxy that emits periodic shockwave pulses (totem-like placed proxy, self-directed drift); High Voltage upgrade adds chain arc"
+        }
+      ],
+      "motion_frame": "med-tempo wandering lightning proxy; ball drifts toward random enemies emitting shockwave pulses; stun on each pulse; Electrify ailment (HoT-native, not mapped); uptime-passive identity",
+      "resource_economy": {
+        "cadence_scale": "med; periodic shockwave emission per ball; roguelite auto-fire"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "High Voltage chain arc upgrade",
+            "Shockwave AoE +20%"
+          ],
+          "economy": [
+            "electrify stack accumulation (HoT-native)"
+          ],
+          "traits_affixes": [
+            "Electrify Chance",
+            "Attack Speed",
+            "Ring of Thunder",
+            "Windcrown",
+            "Elemental Resonator"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Geometry: autonomous-wandering orb mapped as totem (placed proxy — self-directed drift is a delivery note, not a different geometry family); the orb is not following the player like a companion but is placed-and-drifting. Electrify (HoT-native status) CANNOT map to our `shock` (engine shock = paralysis-on-arc hard CC, entirely different mechanism) — dropped to delivery_notes per §0-UNIVERSAL. §0 near-miss: wanted to emit `shock` for Electrify but Electrify is not the engine shock status."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "Halls of Torment: The 10 Best Abilities",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "archive_url": null,
+      "site": "progameguides.com",
+      "author_handle": null,
+      "title": "Halls of Torment Ability Tier List",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/2/3836550120034827178/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Lightning, Kugelblitz + Electrify :: Halls of Torment Feedback",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-ea-2023; hot-1.0-2024",
+      "anchor_quote": "Electrify attack ... discharge and voltage ability",
+      "source_url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Kugelblitz — wandering ball lightning; autonomous wandering proxy entity; shock/stun riders from lightning element",
+      "anchor_quote": "a ball of lightning, slowly moving towards enemies at random while releasing shockwaves",
+      "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fires slow-moving ball of electricity toward random enemy; periodic electric pulse/shockwave; Stun 0.1s; Electrify ailment",
+      "anchor_quote": "fires a slow-moving ball of electricity toward a random enemy ... periodically emit an electric pulse ... Stun for 0.1s and can inflict Electrify",
+      "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "upgrades": [
+            "High Voltage (chain lightning)",
+            "Shockwave AoE (+20%)"
+          ],
+          "items": [
+            "Ring of Thunder",
+            "Proficient Stance Voltage",
+            "Windcrown",
+            "Elemental Resonator",
+            "Guiding Star"
+          ],
+          "traits": [
+            "Electrify Chance",
+            "Attack Speed"
+          ]
+        },
+        "source_url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+        "anchor_quote": "discharge and voltage ability with additional +20% Shockwave area of effect",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "autonomous-wandering-orb",
+          "footprint": "small-radius (shockwave around orb position)",
+          "targeting": "random enemy (self-directed drift)",
+          "damage_type": "lightning",
+          "ailments": [
+            "stun (0.1s)",
+            "electrify"
+          ],
+          "notes": "ELEMENT LAW: lightning attested — fetched text states 'ball of electricity', 'Electrify attack', 'Lightning ... 11.5M Lightning, 10.5M Electrify, 8.5M Kugel'. Shockwave = electric pulse."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/2/3836550120034827178/",
+        "anchor_quote": "11.5M Lighting, 10.5M Electrify, 8.5M Kugel",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Kugelblitz fires slow-moving electricity balls toward random enemies. Each ball drifts autonomously and periodically emits electric shockwave pulses — applying Stun 0.1s and Electrify ailment. High Voltage upgrade adds chain lightning. Roguelite auto-fire — no rotation."
+        },
+        "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "anchor_quote": "fires a slow-moving ball of electricity toward a random enemy ... periodically emit an electric pulse ... Stun for 0.1s and can inflict Electrify",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Sorceress primary class host (Windcrown + Electrify synergy). Specialist build: 20 Electrify stacks x1000 times as achievement challenge."
+        },
+        "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "anchor_quote": "goal is to apply the 20th Stack of Electrify 1000 times",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

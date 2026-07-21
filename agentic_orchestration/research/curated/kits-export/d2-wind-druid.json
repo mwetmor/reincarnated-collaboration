@@ -1,0 +1,274 @@
+{
+  "kit_id": "d2-wind-druid",
+  "spine": {
+    "kit_id": "d2-wind-druid",
+    "folk_name": "Wind Druid",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Tornado's erratic wandering path is a player-skill expression unique to d2; engine circle/zone + drift note approximates the wander but loses the manual aim challenge that is the skill expression of this build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Tornado's erratic wandering path is a player-skill expression unique to d2; engine circle/zone + drift note approximates the wander but loses the manual aim challenge that is the skill expression of this build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tornado",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Erratic wandering-path physical-magic projectile. Physical rule: element-neutral (magic damage component is element-neutral per MW1-close d2 magic-damage = element-NEUTRAL ruling). Path is semi-random wander — R-M6 drift-tick class; circle/zone token with drift note."
+        },
+        {
+          "source_skill": "Hurricane",
+          "geometry_value": "aura",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "Persistent cold damage-per-second aura centered on caster body. 'main crowd control and cold damage dealer' — chill attested via cold-slow effect on enemies (movement crowd control via cold aura). Water family (cold register)."
+        },
+        {
+          "source_skill": "Cyclone Armor",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Elemental damage absorption shield (defensive self-buff; elemental damage absorbed)."
+        },
+        {
+          "source_skill": "Oak Sage",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spirit that grants life bonus to player and party; free-toggle persistent buff (no reservation noted)."
+        }
+      ],
+      "motion_frame": "Cast Tornado at cursor, Hurricane persists as body-centered aura; player repositions (Enigma teleport standard) to keep wandering Tornado on-target through packs.",
+      "resource_economy": {
+        "spend": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Tornado synergies: Cyclone Armor, Twister — scaffold"
+          ],
+          "economy": [
+            "Enigma teleport for repositioning"
+          ],
+          "traits_affixes": [
+            "Hurricane synergy: Tornado, Cyclone Armor — scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Tornado is physical+magic dual type — physical rule makes it element-neutral; magic-damage component also element-neutral per MW1-close ruling. Hurricane is cold-element water family with chill from slow-on-cold-aura (attested as 'cold damage dealer' and 'crowd control'). Wandering Tornado path = R-M6 drift class. ZONE_CONTROL from Hurricane persistent large-radius aura maintaining battlefield coverage. PERSISTENCE_ENGINE_uptime for Hurricane uptime loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/wind-druid-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Wind Druid Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Tornado Hurricane Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: lod-1.10+",
+      "anchor_quote": "Tornados move in semi-random winding paths in the direction you cast them.",
+      "source_url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: d2r",
+      "anchor_quote": "Last updated on May 22, 2026 at 10:00 by MrLlamaSC",
+      "source_url": "https://www.icy-veins.com/d2/wind-druid-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wind Druid'; aliases 'Tornado Hurricane Druid', 'Elemental Druid'",
+      "anchor_quote": "The Tornado Hurricane Druid or 'Wind Druid' is one of the most versatile Magic Finding builds.",
+      "source_url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Tornado, Hurricane, Cyclone Armor, Oak Sage",
+      "anchor_quote": "20 points to Tornado — main damage dealer, required. 20 points to Hurricane — main crowd control and cold damage dealer, required. 20 points to Cyclone Armor — great elemental absorb, required. 1-20 points to Oak Sage — bonus to Life for you and party, required.",
+      "source_url": "https://www.icy-veins.com/d2/wind-druid-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d2/wind-druid-build",
+        "anchor_quote": "Last updated on May 22, 2026 at 10:00 by MrLlamaSC",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Enigma",
+            "Heart of the Oak",
+            "Call to Arms",
+            "Spirit"
+          ],
+          "synergies": [
+            "Tornado synergies: Cyclone Armor, Twister",
+            "Hurricane synergies: Tornado, Cyclone Armor"
+          ],
+          "oskills": []
+        },
+        "source_url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+        "anchor_quote": "20 points to Tornado — main damage dealer, required. 20 points to Hurricane — main crowd control and cold damage dealer, required.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Enigma (teleport)",
+            "Heart of the Oak",
+            "Call to Arms",
+            "Spirit",
+            "Harmony",
+            "Lawbringer",
+            "Infinity (merc)",
+            "Grief"
+          ],
+          "notable_uniques": [
+            "Nightwing's Veil",
+            "Harlequin Crest (Shako)",
+            "Mara's Kaleidoscope",
+            "Andariel's Visage"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/wind-druid-build",
+        "anchor_quote": "Enigma is a must-have for endgame Wind Druids due to the sheer power of Teleport, combined with +45 to All Skills.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (Tornado) + self-origin (Hurricane)",
+          "footprint": "multi-point (wandering Tornado path + body-centered Hurricane ring)",
+          "notes": "Tornado: erratic wandering path projectile. Hurricane: persistent cold ring radiating from caster body."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+        "anchor_quote": "The tornado moves in a randomized route in the direction of the cursor. Hurricane is a passive Cold Damage per second Skill that centers on you as you move.",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player casts Tornado (semi-random winding physical-magic projectile) while Hurricane (passive cold aura centered on player) provides sustained cold damage and slow. Cyclone Armor absorbs elemental damage. Oak Sage provides party life bonus. Telestomping with Enigma is standard endgame technique."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+        "anchor_quote": "Tornados move in semi-random winding paths in the direction you cast them. Hurricane is a passive Cold Damage per second Skill that centers on you as you move.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Wind Druid (Tornado+Hurricane)",
+            "Hybrid with Summons (Oak Sage primary, Tornado secondary)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/tornado-hurricane-druid",
+        "anchor_quote": "The Wind Druid is one of the most well-rounded builds in Diablo II: Resurrected, dealing two damage types simultaneously.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

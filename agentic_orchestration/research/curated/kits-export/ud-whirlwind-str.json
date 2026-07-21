@@ -1,0 +1,202 @@
+{
+  "kit_id": "ud-whirlwind-str",
+  "spine": {
+    "kit_id": "ud-whirlwind-str",
+    "folk_name": "Whirlwind STR Melee (launch baseline)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "ud-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/spin",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Physical channel spin; full movement while channeling; player steers with directional input; 30% movement dampen while active. Physical=no-family per THE PHYSICAL RULE; identity via geometry only."
+        }
+      ],
+      "motion_frame": "Channel Whirlwind spin toward enemies; continuous mana drain; regeneration toggle layers for sustain; skill IS movement",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "cost_scale": "mana",
+        "cadence_scale": "continuous-channel"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "PHASE_MOMENTUM",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "regeneration toggle sustain layer"
+          ],
+          "traits_affixes": [
+            "Minion/attack speed — Whirlwind STR archetype"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Baseline physical melee channel. Physical = no element family; identity purely geometry+economy. ELEMENT_CONVERSION_PHYSICAL T4 door included because conversion variant (CwC Blizzard = ud-cwc-spin-caster) is the notable upgrade path."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Whirlwind - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-launch-2022",
+      "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+      "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Whirlwind STR Melee — channel spin, skill IS movement, STR two-hander, launch baseline",
+      "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+      "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Continuous mana drain while spinning; player moves while spinning; regeneration toggle for sustain; physical damage",
+      "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+      "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "regeneration": "Regeneration toggle skills layered for channel sustain",
+          "damage": "Physical DMG 220%-660% scaling level 1-45",
+          "mana_drain": "3 to 16.6 per tick"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+        "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "self-origin radial melee (spin around caster)",
+          "movement": "full-move — directional input steers spin path",
+          "movement_dampening": "30% while active",
+          "damage_dampening": "30% trigger skills while active"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+        "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Whirlwind — spin toward control direction dealing physical damage to all enemies in path; mana drains continuously; regeneration toggle skills layer for sustain; skill IS movement (directional input controls spin trajectory)"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Whirlwind/",
+        "anchor_quote": "Spins toward the control direction while Channeling, dealing damage to all enemies in the path",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variant_1": "Whirlwind CwC Blizzard (ud-cwc-spin-caster — overlapping kit; cold hybrid variant via Spell Activation while Channeling link)",
+          "variant_2": "Whirlwind Toxic Flame (STR + DoT hybrid; Showgamer/progameguides)",
+          "variant_3": "Whirlwind Bloodshed (bleed/physical; progameguides)"
+        },
+        "source_url": "https://progameguides.com/undecember/best-undecember-whirlwind-builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

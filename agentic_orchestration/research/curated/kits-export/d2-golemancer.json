@@ -1,0 +1,231 @@
+{
+  "kit_id": "d2-golemancer",
+  "spine": {
+    "kit_id": "d2-golemancer",
+    "folk_name": "Golemancer",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "lod",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build: autonomous combatant pet army engine has no engine lane. T4 doors reflect proxy-family shape; combat loop is genuinely un-mappable pending summoner-deferral resolution.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build: autonomous combatant pet army engine has no engine lane. T4 doors reflect proxy-family shape; combat loop is genuinely un-mappable pending summoner-deferral resolution.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Iron Golem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-golem autonomous combatant raised from consumed equipped item; player is support layer; golem attacks via its own AI at melee range. GAP: autonomous combatant pet, not stationary emitter."
+        }
+      ],
+      "motion_frame": "Sustain single Iron Golem from consumed runeword item; re-raise from backup if golem dies",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Golem Mastery passive life/speed scaling → traits-affixes lane; synergy analog"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Core identity is single autonomous combatant pet (Iron Golem) — summoner-deferral GAP per §CROSS row 2. Totem lane excluded: Iron Golem is autonomous combatant, not stationary placed emitter (totem-vs-companion two-lane law). Item-defined-archetype: 'item quality directly determines golem stats' — accrual to gear-stat-as-minion-scaling docket family (§CROSS row 2, first d2 attestation confirmed). Element-neutral: physical primary, no secondary element; element slots null per THE PHYSICAL RULE. Negative kit (canon_corpus.negative=1): identity and negative_canon both CONFIRMED in verify_ledger. Era: lod CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://alt.games.diablo2.narkive.com/iHCyHN5J/golemancer-build",
+      "archive_url": null,
+      "site": "alt.games.diablo2.narkive.com",
+      "author_handle": "Buck Naked; Cernovog (multiple posters)",
+      "title": "Golemancer build? — alt.games.diablo2 newsgroup archive",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/iron-golem-survivability-t1330383.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Asha; Schnorki; Conspirator (multiple posters)",
+      "title": "Iron golem survivability — diablo2.io forum",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.diablofans.com/forums/read-only-diablo-forums/diablo-legacy-forums/diablo-ii/71381-summonancer-golems-or-skeletons",
+      "archive_url": null,
+      "site": "diablofans.com",
+      "author_handle": "multiple community posters",
+      "title": "Summonancer: Golems OR Skeletons? — DiabloFans Legacy Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20090324043656/http://classic.battle.net:80/diablo2exp/skills/necromancer-summoning.shtml",
+      "archive_url": "http://web.archive.org/web/20090324043656/http://classic.battle.net:80/diablo2exp/skills/necromancer-summoning.shtml",
+      "site": "classic.battle.net (Arreat Summit via Wayback)",
+      "author_handle": "Blizzard Entertainment (official)",
+      "title": "The Arreat Summit - Skills: Necromancer Summoning Skills",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Iron Golem [24]...You do not need a monster corpse to summon Golems although the Iron Golem requires an item.",
+      "source_url": "http://web.archive.org/web/20090324043656/http://classic.battle.net:80/diablo2exp/skills/necromancer-summoning.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Golemancer' and aliases 'Iron Golem Necromancer', 'Golem Necro' are real community usage",
+      "anchor_quote": "GolemMancer...was a LOT more difficult than my current skellimancer",
+      "source_url": "https://alt.games.diablo2.narkive.com/iHCyHN5J/golemancer-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Iron Golem and Golem Mastery; iron golem mechanic creates itemization dependency",
+      "anchor_quote": "If it drops for whatever reason - I'll raise another one from Insight I prepared, or perhaps even find another Pride",
+      "source_url": "https://diablo2.io/forums/iron-golem-survivability-t1330383.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Golemancer lod negative — single-golem summon over-centralization; iron golem mechanic creates itemization dependency trap; lack of scaling versus skeleton alternative",
+      "anchor_quote": "Golems become useless for damage dealing past nightmare difficulty...never put more than 1 point into any golem ability",
+      "source_url": "https://www.diablofans.com/forums/read-only-diablo-forums/diablo-legacy-forums/diablo-ii/71381-summonancer-golems-or-skeletons",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": "high-quality weapon consumed to create Iron Golem (Insight runeword, Pride runeword); item quality directly determines golem stats",
+          "notes": "Item consumed on creation; if golem dies, item is lost"
+        },
+        "source_url": "https://diablo2.io/forums/iron-golem-survivability-t1330383.html",
+        "anchor_quote": "If it drops for whatever reason - I'll raise another one from Insight I prepared, or perhaps even find another Pride",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "single-entity",
+          "delivery": "at-target melee (via golem)",
+          "footprint": "single golem AoE from golem strike",
+          "notes": "Iron Golem attacks on its own AI; player is support layer"
+        },
+        "source_url": "https://alt.games.diablo2.narkive.com/iHCyHN5J/golemancer-build",
+        "anchor_quote": "just too nice of a target by himself",
+        "abstained": 0,
+        "conf": 0.58
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Raise Iron Golem from equipped item; sustain single Iron Golem as primary damage dealer; Golem Mastery provides passive life/speed scaling; re-raise golem from backup item if it dies"
+        },
+        "source_url": "https://diablo2.io/forums/iron-golem-survivability-t1330383.html",
+        "anchor_quote": "If it drops for whatever reason - I'll raise another one from Insight I prepared",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Clay Golem support tank variant",
+            "Fire Golem variant",
+            "Iron Golem endgame variant requiring high-value runeword item"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/iron-golem-survivability-t1330383.html",
+        "anchor_quote": "if all you want is a tank..just stick with clay. Still superior in that regard",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

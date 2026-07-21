@@ -1,0 +1,257 @@
+{
+  "kit_id": "le-judgement-paladin",
+  "spine": {
+    "kit_id": "le-judgement-paladin",
+    "folk_name": "Judgement Paladin",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ground-targeted consecrate zone maps clean. Source player would miss the ZONE-STACKING accumulation (Lingering Force multiplying overlapping Consecrated Grounds for compounding damage+healing) — the engine ground_targeted_circle places a zone but does not natively model overlapping-zone multiplication; ZONE_CONTROL approximates the control-density, not the stack-multiplier. The self-heal-within-zone duality (offense + sustain in one patch) is captured by consecrate but not the healing-scaling.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "holy"
+    ],
+    "ailments_attested": [
+      "consecrate"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ground-targeted consecrate zone maps clean. Source player would miss the ZONE-STACKING accumulation (Lingering Force multiplying overlapping Consecrated Grounds for compounding damage+healing) — the engine ground_targeted_circle places a zone but does not natively model overlapping-zone multiplication; ZONE_CONTROL approximates the control-density, not the stack-multiplier. The self-heal-within-zone duality (offense + sustain in one patch) is captured by consecrate but not the healing-scaling.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Judgement",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": "holy",
+          "ailments": [
+            "consecrate"
+          ],
+          "delivery_notes": "Slams the ground at a targeted location creating a Consecrated Ground ZONE that damages enemies (fire/holy) and heals the Paladin within it (fetched: 'Judgement creates Consecrated Ground which damages enemies and provides healing'). The persistent DoT ZONE is the identity (patch/ground-DoT -> ground_targeted_circle per §6), not the slam impact. Multiple zones STACK (Lingering Force multiplier). consecrate emitted on fetched 'Consecrated Ground' (§2 consecrated-ground -> consecrate); element fire primary + holy (the hallowed zone)."
+        }
+      ],
+      "motion_frame": "Vengeance (mana gen) -> spam Judgement (Urgent Inquisition removes cooldown) -> stack Consecrated Ground zones -> burn enemies + self-heal within zone",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast spend; Vengeance generates Mana; Pious Offering scales damage by stacked Mana (Judgement Aura variant)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "stackable zones (Lingering Force multiplier)"
+          ],
+          "economy": [
+            "Urgent Inquisition (removes cooldown -> spam)",
+            "Pious Offering (Mana-stack -> damage)"
+          ],
+          "traits_affixes": [
+            "Rahyeh's Light",
+            "Blossom of Immortal Stone"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Textbook consecrate zone: ground-targeted DoT circle + consecrate ailment maps clean. ZONE_CONTROL T4 for the stacking-zone-control identity (PERSISTENCE_ENGINE_saturation was the alternative for the DoT-uptime reading — ZONE_CONTROL chosen because the STACKING placement of multiple zones, not raw uptime, is the dominant §7.2 loop). Zone stacking (Lingering Force multiplies overlapping Consecrated Ground damage/healing) is a distinctive placed-zone-accumulation nuance. Vengeance mana-gen + Urgent Inquisition cooldown-removal = economy/cadence riders. eras: 1.2-woven verify_ledger UNSUPPORTED (anchor=none) but 1.0/1.4 CONFIRMED — mapped on CONFIRMED. §0 near-miss: burn WANTED (fire zone 'damages enemies' as a DoT patch) but not NAMED as burn/ignite -> WITHHELD; consecrate carries the hallowed-zone identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Judgement Paladin Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/judgement-aura-paladin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Judgement Aura Paladin Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/holy-judgement-paladin-sentinel-build-guide-0-8-4e/46868",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Holy Judgement Paladin (Sentinel) | Build Guide 0.8.4E",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Holy Judgement Paladin (Sentinel) | Build Guide 0.8.4E — attests Judgement Paladin build guide on forum (cross-launch era)",
+      "source_url": "https://forum.lastepoch.com/t/holy-judgement-paladin-sentinel-build-guide-0-8-4e/46868",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Judgement Paladin Guide for Last Epoch Season 4 — Last Updated: April 27, 2026",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Judgement Paladin' and alias 'Consecrated Ground Paladin' are real community usage",
+      "anchor_quote": "Judgement Paladin Guide for Last Epoch Season 4...Judgement creates Consecrated Ground which damages enemies and provides healing",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Judgement and Consecrated Ground; Mana spend; at-target ground slam delivery; fire damage; large-zone footprint",
+      "anchor_quote": "Judgement creates Consecrated Ground which damages enemies and provides healing...Consecrated Ground can stack, so Lingering Force is a multiplier to your damage and healing...Generate Mana with Vengeance",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "reviewer": "Lizard_IRL",
+          "language_reviewer": "Tenkiei"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+        "anchor_quote": "Written by Volca. Content Reviewed by Lizard_IRL. Language Reviewed by Tenkiei.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Urgent Inquisition node removes Judgement cooldown enabling spam. Lingering Force multiplies stacked zone damage/healing. Mana scaling via Pious Offering for huge damage in Judgement Aura variant. Judgement Aura variant (separate guide) uses aura duration for sustained zone presence."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-aura-paladin-guide",
+        "anchor_quote": "Stack Mana for huge damage thanks to Pious Offering...aura duration 12 seconds when all +duration nodes are specialized",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Transcriber's Graver",
+            "Wing Guards",
+            "Rahyeh's Light",
+            "Immolator's Oblation",
+            "Twisted Heart of Uhkeiros",
+            "Blossom of Immortal Stone"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+        "anchor_quote": "Transcriber's Graver, Wing Guards, Rahyeh's Light, Immolator's Oblation, Twisted Heart of Uhkeiros and Blossom of Immortal Stone are great Uniques",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-ground-slam",
+          "footprint": "large-zone",
+          "description": "Judgement slams the ground at targeted location creating a Consecrated Ground zone. Zone damages enemies (fire/holy) and heals Paladin within it. Multiple zones can be stacked. Lingering Force extends zone duration for stacking effect."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+        "anchor_quote": "Judgement creates Consecrated Ground which damages enemies and provides healing...Consecrated Ground can stack, so Lingering Force is a multiplier",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Judgement to create stacking Consecrated Ground zones that damage enemies with fire and heal the Paladin. Remove cooldown with Urgent Inquisition node. Vengeance generates Mana. Multiple zones stack for multiplied damage and healing via Lingering Force.",
+          "core_cycle": "Vengeance (mana gen) -> spam Judgement -> stack Consecrated Ground zones -> burn enemies + self-heal"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-paladin-guide",
+        "anchor_quote": "Judgement creates Consecrated Ground which damages enemies and provides healing...Consecrated Ground can stack, so Lingering Force is a multiplier to your damage and healing...Generate Mana with Vengeance",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard Judgement Paladin (spam for stacking zones, S4)",
+            "Judgement Aura Paladin (aura duration sustained zones, Mana scaling, S4)",
+            "Holy Judgement Paladin 0.8.4E (early beta variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/judgement-aura-paladin-guide",
+        "anchor_quote": "Judgement Aura Paladin Guide for Last Epoch Season 4",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

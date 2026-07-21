@@ -1,0 +1,241 @@
+{
+  "kit_id": "d3-arachyr-firebats",
+  "spine": {
+    "kit_id": "d3-arachyr-firebats",
+    "folk_name": "Arachyr Firebats",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "set-era;late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire element unatttested (player loses element flavor). No ailments mapped. Horrify fear unatttested in dossier — player seeking fear synergy finds none. Rooted channel feel preserved via delivery_notes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire element unatttested (player loses element flavor). No ailments mapped. Horrify fear unatttested in dossier — player seeking fear synergy finds none. Rooted channel feel preserved via delivery_notes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Firebats (Cloud of Bats rune)",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Point-blank rooted channel cone per §B.5 (hot-fact BINDING); Cloud of Bats rune; caster rooted while channeling — melee-range channel not melee attack; Leech rune variant restores resource during channel; fire-damage thematic unatttested in fetched dossier text (skill-name 'Fire' = collision, leak class per §0.3)"
+        },
+        {
+          "source_skill": "Hex",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Utility/CC skill; no ailment named in fetched dossier text; Piranhas/Piranhado pull variant maps vortex_pull geometry but not attested as core skill row"
+        },
+        {
+          "source_skill": "Piranhas (Piranhado rune)",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Piranhado pulls packs into channel cone per mech_note; pull geometry; no ailment named in fetched dossier rows"
+        }
+      ],
+      "motion_frame": "Stand inside enemy cluster channeling rooted Firebats cone; Piranhas/Piranhado pull enemies into channel range; Arachyr 6pc amplifies creature skills including Firebats; Hex utility",
+      "resource_economy": {
+        "cost_scale": "Mana channel cost; Leech rune restores resource during channel (sustain)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Piranhado vortex_pull concentrates enemies into cone range"
+          ],
+          "economy": [
+            "Leech rune sustains mana during channel; Staff of Chiroptera + Bakuli Jungle Wraps amplify"
+          ],
+          "traits_affixes": [
+            "Arachyr 6pc creature-skill buff (scaler-only per §B.1)",
+            "CoE element_rotation_window (R-M5 token)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null — fire thematic from skill name 'Firebats' is skill-name collision (§0.3 leak class); no 'fire damage' or fire element in fetched dossier rows. No ailment attested (Horrify fear not in fetched text — mech_note probe only). Rooted-channel per §B.5 hot-fact (kit-level binding). CoE = R-M5 token. Melee-range channel ≠ melee attack — channel economy maintained per §B.5 trap note. Arachyr 6pc scaler-only per §B.1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Witch Doctor Arachyr Firebats Build (Patch 2.7.8 / Season 38) - Diablo 3 - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Updated for Season 39, Patch 2.7.8",
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Updated for Season 39, Patch 2.7.8",
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Arachyr Firebats' and aliases 'Arachyr Firebats Witch Doctor', 'Firebats WD', 'Hex Firebats' are real community usage",
+      "anchor_quote": "Witch Doctor Arachyr Firebats Build (Patch 2.7.8 / Season 38) - Diablo 3 - Icy Veins",
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Firebats and Hex; Mana resource; beam/cone channeled delivery",
+      "anchor_quote": "Firebats with rune Cloud of Bats as the primary left-mouse-button skill",
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+        "anchor_quote": "This build is presented to you by Deadset, one of the very few professional Diablo 3 players",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Spirit of Arachyr",
+          "set_bonus_note": "6pc buffs creature skills including Firebats",
+          "kanais_cube": [
+            "Staff of Chiroptera",
+            "Bakuli Jungle Wraps",
+            "Ring of Royal Grandeur"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+        "anchor_quote": "Staff of Chiroptera (weapon slot), Bakuli Jungle Wraps (armor slot), Ring of Royal Grandeur (jewelry slot). Season 39 adds Convention of Elements to a 4th slot",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Staff of Chiroptera",
+            "Bakuli Jungle Wraps",
+            "Ring of Royal Grandeur",
+            "Convention of Elements"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+        "anchor_quote": "Staff of Chiroptera (weapon slot), Bakuli Jungle Wraps (armor slot), Ring of Royal Grandeur (jewelry slot)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam",
+          "footprint": "cone",
+          "notes": "Point-blank channeled cone; Cloud of Bats rune; rooted while channeling"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+        "anchor_quote": "Firebats with rune Cloud of Bats as the primary left-mouse-button skill",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Firebats (Cloud of Bats rune) at melee range; Arachyr 6pc buffs creature skills including Firebats; Staff of Chiroptera and Bakuli Jungle Wraps amplify; Hex provides utility"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+        "anchor_quote": "Firebats is among the creature skills buffed by the Arachyr set 6-piece bonus",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Solo GR progression",
+            "Group Trash Killer",
+            "Speed Farming T16"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-arachyr-firebats-build",
+        "anchor_quote": "a flashy, Firebats-centric progression spec for solo GR pushes, a progression spec for group GR pushes, and a speed farming variation for T16 runs",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

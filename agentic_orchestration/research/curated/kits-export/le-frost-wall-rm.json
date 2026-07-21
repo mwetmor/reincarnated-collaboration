@@ -1,0 +1,234 @@
+{
+  "kit_id": "le-frost-wall-rm",
+  "spine": {
+    "kit_id": "le-frost-wall-rm",
+    "folk_name": "Frost Wall Runemaster",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-18-proposed",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Placed ice-lane with guaranteed freeze maps clean. Source player would miss (1) the wall physically blocking enemy projectiles/movement (engine placed_lane is a hit-lane, not a collision barrier), and (2) the Pyroglass fire-conversion -> Brand of Trespass -> damage-multiplier Runemaster chain (a rune-interaction rider with no native lane). Control identity preserved via ZONE_CONTROL + freeze/chill.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Placed ice-lane with guaranteed freeze maps clean. Source player would miss (1) the wall physically blocking enemy projectiles/movement (engine placed_lane is a hit-lane, not a collision barrier), and (2) the Pyroglass fire-conversion -> Brand of Trespass -> damage-multiplier Runemaster chain (a rune-interaction rider with no native lane). Control identity preserved via ZONE_CONTROL + freeze/chill.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frost Wall",
+          "geometry_value": "placed_lane",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze",
+            "chill"
+          ],
+          "delivery_notes": "Creates a horizontal line of ice segments at cast target position (fetched: 'horizontal line of ice segments', 'lane-barrier'); wall blocks movement AND projectiles; enemies passing through/touching receive chill/freeze. freeze admitted on strong fetched behavioral language ('guaranteed Freeze on everything but bosses' — boss-immune); chill on 'chill/freeze enemies passing through'. Multiple segments placeable. Element cold -> water."
+        },
+        {
+          "source_skill": "Glacier",
+          "geometry_value": "mobility",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary mobility/traversal (fetched: 'Glacier provides mobility'); listed core skill alongside Frost Wall."
+        }
+      ],
+      "motion_frame": "Place Frost Wall segments at targeted ground -> enemies chill/freeze in lane -> Runemaster rune patterns fire secondary spells off wall interactions -> (Pyroglass) fire conversion -> Brand of Trespass damage multiplier",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast placement spend"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Brand of Trespass (via Pyroglass fire-conversion) — enables Celestial Doom + damage multiplier",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi-segment placement"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Pyroglass (Frost Wall->fire conversion)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Placed-lane ice barrier with guaranteed freeze (boss-immune) + chill maps clean; ZONE_CONTROL T4 for the barrier-control identity. Wall-as-projectile-BLOCK is a geometry nuance the engine placed_lane approximates (no native projectile-blocking wall). Pyroglass fire-conversion -> Brand of Trespass (Cleanse/Haste/damage-multiplier) is a Runemaster rune-interaction rider at the capstone/item layer (fidelity, not core geometry). The RM rune-pattern (secondary spells fired off wall interactions) = the Runemaster-specific rider. eras 1.0/1.2 are verify_ledger UNSUPPORTED (anchor=none) but identity+mechanics CONFIRMED — mapped on the CONFIRMED mechanics. §0 near-miss: none withheld — freeze + chill both behaviorally fetched."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Lightning Blast Runemaster Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/runemaster-question-frost-wall-spec-chill-touched-vs-pyroglass/75990",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Runemaster question: Frost Wall spec - Chill Touched vs Pyroglass",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://forum.lastepoch.com/t/runemaster-question-frost-wall-spec-chill-touched-vs-pyroglass/75990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://forum.lastepoch.com/t/runemaster-question-frost-wall-spec-chill-touched-vs-pyroglass/75990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frost Wall Runemaster' and alias 'Glacier Frost Wall combo' are real community usage",
+      "anchor_quote": "Runemaster question: Frost Wall spec — Chill Touched vs Pyroglass...BinaQc's Runemaster guide",
+      "source_url": "https://forum.lastepoch.com/t/runemaster-question-frost-wall-spec-chill-touched-vs-pyroglass/75990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Frost Wall and Glacier; Mana spend; at-target lane placement; cold damage; chill/freeze/slow ailments; wall blocks movement and projectiles",
+      "anchor_quote": "Frost Wall is an incredible crowd control tool with guaranteed Freeze on everything but bosses...Convert Frost Wall to Fire with Pyroglass...provides Cleanse, Haste, and a Damage Multiplier",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "BinaQc",
+          "site": "maxroll.gg",
+          "note": "BinaQc's Runemaster guide referenced in Frost Wall spec thread"
+        },
+        "source_url": "https://forum.lastepoch.com/t/runemaster-question-frost-wall-spec-chill-touched-vs-pyroglass/75990",
+        "anchor_quote": "I was reading BinaQc's Runemaster guide",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Pyroglass node converts Frost Wall to fire for Brand of Trespass; Aspirant's Arrival node subject to bugfix/nerf (August 2025)"
+        },
+        "source_url": "https://forum.lastepoch.com/t/upcoming-bugfix-nerf-frost-wall-aspirants-arrival/78737/4",
+        "anchor_quote": "Upcoming Bugfix (Nerf) - Frost Wall (Aspirant's Arrival)",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://forum.lastepoch.com/t/runemaster-question-frost-wall-spec-chill-touched-vs-pyroglass/75990",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-ground",
+          "footprint": "lane-barrier",
+          "description": "Frost Wall creates a horizontal line of ice segments at cast target position. Wall blocks movement and projectiles; enemies passing through or touching wall receive chill/freeze. Multiple segments can be placed."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Frost Wall is an incredible crowd control tool with guaranteed Freeze on everything but bosses, and can be used to get out of tough situations and give yourself some breathing room",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Frost Wall segments at targeted ground positions to create lane barriers that chill/freeze enemies passing through. Glacier provides mobility. Runemaster rune patterns fire secondary spells off wall interactions. Pyroglass node converts Frost Wall to fire, enabling Brand of Trespass debuff for damage multiplication.",
+          "core_cycle": "Place Frost Wall -> enemies chill/freeze in lane -> Pyroglass fire conversion -> Brand of Trespass -> spell damage multiplier"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Frost Wall is an incredible crowd control tool with guaranteed Freeze on everything but bosses...Convert Frost Wall to Fire with Pyroglass. This setup applies Brand of Trespass, enabling Celestial Doom, provides Cleanse, Haste, and a Damage Multiplier",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Frost Wall as primary control skill (this kit)",
+            "Frost Wall as support in Lightning Blast RM",
+            "Frost Wall converted to fire via Pyroglass for damage multiplication"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/lightning-blast-runemaster-guide",
+        "anchor_quote": "Glacier and Frost Wall offer multiple buffs, mobility, and even cast Lightning Blast for additional damage output",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

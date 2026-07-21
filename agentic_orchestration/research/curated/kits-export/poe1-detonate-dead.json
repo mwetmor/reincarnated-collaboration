@@ -1,0 +1,273 @@
+{
+  "kit_id": "poe1-detonate-dead",
+  "spine": {
+    "kit_id": "poe1-detonate-dead",
+    "folk_name": "Detonate Dead",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The corpse-as-ammunition economy lands NATIVELY (on-corpse-consume accumulator), but Detonate Dead's DEFINING mechanic — explosion damage scales as a percentage of the CORPSE's/victim's maximum life (boss corpses = huge blasts, red-map monster HP = bigger explosions) — has no engine lane: engine damage scales off caster stats, never target HP. Mapped as a standard fire-AoE detonation, which LOSES the victim-HP-scaling that makes the skill iconic (a DD player would notice their blast no longer grows with the corpse's health pool). Docket candidate filed. GRADE=GAPPED (not APPROX): the victim-max-HP-fraction damage IS 'an identity-bearing mechanism with no engine lane' per the grade definition; terminal MAPPED_DOCKET follows.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "shadow"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The corpse-as-ammunition economy lands NATIVELY (on-corpse-consume accumulator), but Detonate Dead's DEFINING mechanic — explosion damage scales as a percentage of the CORPSE's/victim's maximum life (boss corpses = huge blasts, red-map monster HP = bigger explosions) — has no engine lane: engine damage scales off caster stats, never target HP. Mapped as a standard fire-AoE detonation, which LOSES the victim-HP-scaling that makes the skill iconic (a DD player would notice their blast no longer grows with the corpse's health pool). Docket candidate filed. GRADE=GAPPED (not APPROX): the victim-max-HP-fraction damage IS 'an identity-bearing mechanism with no engine lane' per the grade definition; terminal MAPPED_DOCKET follows.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Detonate Dead",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "targeted cast on a corpse at location; small AoE (2.2m->2.6m at gem 20) fire explosion; explosion damage = 6-7.9% of the CORPSE's maximum life (scales with the VICTIM's body, not caster stats); Ignite procs -> burn DoT. Blackflame ring can convert the ignite to chaos in the 3.22+ meta but the base identity is fire"
+        },
+        {
+          "source_skill": "Desecrate",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "corpse-spawning spell: places a patch of corpses at target location as ammunition for Detonate Dead. A support/feeder cast (spawns the ammo substrate), not a damage geometry — ground_targeted_circle as the corpse-placement footprint"
+        }
+      ],
+      "motion_frame": "seed-and-blast caster: Desecrate to spawn a corpse pile, Detonate Dead to explode a corpse for a huge victim-HP-scaled fire blast, repeat; med mobility",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-corpse-consume",
+        "accumulator_max": 10
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle explosion",
+            "ground_targeted_circle corpse-placement (Desecrate)"
+          ],
+          "economy": [
+            "corpse-as-resource (on-corpse-consume accumulator fill; Desecrate refills the corpse pool)",
+            "Corpsewalker item creates corpses on movement (a corpse-generation economy rider)"
+          ],
+          "traits_affixes": [
+            "fire-penetration",
+            "ignite/burn-scaling",
+            "area-of-effect (blast radius)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CORPSE-FUEL BLAST: Detonate Dead explodes a corpse for a percentage of THAT CORPSE'S max life as fire AoE (dossier skill_loop: '6-7.9% of corpse max life'). Two lanes engage: (1) the corpse-as-ammunition ECONOMY has a NATIVE engine lane — charge_stack_sub_shape=accumulator with accumulator_fill_trigger=on-corpse-consume (verified engine enum, resource_economy.py:142); Desecrate refills the pool. (2) BUT the DAMAGE-SCALING signature — payload = % of the VICTIM's (corpse's) maximum HP, so boss-tier corpses and high-life map monsters produce massive explosions — has NO engine lane: engine damage scales off CASTER stats + base_mag, never off the target's/corpse's HP pool. This is the kit's identity-bearing twist and it is GAPPED; docketed. Mapped as a standard fire-AoE + on-corpse-consume resource with GEOMETRY_PROPAGATION_cascade (the corpse->explosion->new-corpse clear-chain reading; a DD player chains explosions across a pack). CAPSTONE ABSTAINED — t4 routed from core identity (corpse-detonation propagation + fire-ignite amp) + probe (corpse proc economy) per fallback. Element: base fire->burn (probe 'burn'); Blackflame chaos-conversion is a meta item-variant noted, not the base identity. Desecrate is a shadow/necro corpse-spawn feeder."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 1,
+      "mechanism_class": "entity-as-consumable-resource-pool",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/unkillable-necro-detonate-dead-necromancer-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Detonate Dead Necromancer Build Guide (PoE Trial of the Ancestors 3.22)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Detonate_Dead",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Detonate Dead - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2041296",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Corpse explosion necro - detonate dead/cremation with maxblock and MoM (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in eras 1.x, 3.7-3.13, 3.14-3.19",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Detonate Dead' is real community usage; aliases DD ignite, Cremation(sibling)",
+      "anchor_quote": "TbXie's Detonate Dead Necromancer Build Guide … causing Ignite via Corpse Explosion",
+      "source_url": "https://www.poe-vault.com/guides/unkillable-necro-detonate-dead-necromancer-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Detonate Dead + Desecrate; explodes corpse for percentage of corpse life as fire AoE; corpse-spawning spells (Desecrate) as ammo",
+      "anchor_quote": "base Fire Damage equal to 6% of the corpse's Maximum Life … explosion damage based on the target's maximum life",
+      "source_url": "https://poedb.tw/us/Detonate_Dead",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com"
+        },
+        "source_url": "https://www.poe-vault.com/guides/unkillable-necro-detonate-dead-necromancer-build-guide",
+        "anchor_quote": "TbXie's Detonate Dead Necromancer Build Guide",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Detonate Dead of Scavenging (transfig)",
+              "type": "transfigured_gem",
+              "effect": "70% less Damage with Ailments",
+              "anchor_quote": "70% less Damage with Ailments"
+            },
+            {
+              "node": "Detonate Dead of Chain Reaction (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Now deals 6 to 8 Fire Damage at gem level 1; 65% Effectiveness of Added Damage",
+              "anchor_quote": "Now deals 6 to 8 Fire Damage at gem level 1...65% Effectiveness of Added Damage"
+            },
+            {
+              "node": "Vaal Detonate Dead (quality)",
+              "type": "vaal_variant",
+              "effect": "0-30% chance to detonate an additional corpse",
+              "anchor_quote": "0-30% chance to detonate an additional corpse"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Detonate_Dead",
+        "anchor_quote": "70% less Damage with Ailments",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "mandatory_uniques_3_22": [
+            "Corpsewalker (boots)",
+            "Blackflame (ring)"
+          ],
+          "function": "Blackflame converts ignite to chaos; Corpsewalker creates corpses on movement"
+        },
+        "source_url": "https://www.poe-vault.com/guides/unkillable-necro-detonate-dead-necromancer-build-guide",
+        "anchor_quote": "unique items which are mandatory are Corpsewalker and Blackflame",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target corpse explosion; small AoE radius; base radius 2.2m scaling to 2.6m at gem level 20",
+          "delivery": "targeted cast on corpse at location"
+        },
+        "source_url": "https://poedb.tw/us/Detonate_Dead",
+        "anchor_quote": "Base radius starts at 2.2 metres and increases to 2.6 metres at maximum gem level",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use Desecrate to spawn corpses -> Detonate Dead targets a corpse -> explosion deals 6-7.9% of corpse max life as fire AoE -> Ignite procs burn DoT; Spectre summons with high life create high-damage corpse pool; Blackflame + Corpsewalker items in 3.22+ meta"
+        },
+        "source_url": "https://www.poe-vault.com/guides/unkillable-necro-detonate-dead-necromancer-build-guide",
+        "anchor_quote": "scales mostly off of the monsters it detonates … specific spectres … up to 750% [life modifier] equates to a 500% more damage multiplier",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Detonate Dead Necromancer (primary, ignite + Blackflame chaos, 3.22+)",
+            "Spellslinger Volatile Dead + Detonate Dead Necromancer (3.15)",
+            "Detonate Dead Ignite Elementalist (3.24)",
+            "Cremation Necromancer (sibling skill)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/unkillable-necro-detonate-dead-necromancer-build-guide",
+        "anchor_quote": "The Necromancer version is nowadays the new meta pick for Detonate Dead builds",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

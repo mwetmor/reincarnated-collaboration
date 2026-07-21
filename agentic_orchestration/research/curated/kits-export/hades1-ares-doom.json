@@ -1,0 +1,215 @@
+{
+  "kit_id": "hades1-ares-doom",
+  "spine": {
+    "kit_id": "hades1-ares-doom",
+    "folk_name": "Ares Doom Core",
+    "game": "hades1",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades1-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Delayed-detonation Doom tag has no 16-ailment equivalent and no engine rotation analogue. Boon loadout with no fixed skill sequence. Stack-accumulator shape docketed. Capstone synergy (Merciful End) is a cross-kit relationship.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Delayed-detonation Doom tag has no 16-ailment equivalent and no engine rotation analogue. Boon loadout with no fixed skill sequence. Stack-accumulator shape docketed. Capstone synergy (Merciful End) is a cross-kit relationship.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Curse of Agony (Doom on Attack)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Doom tag applied at target enemy on hit; detonates at enemy position after 1.1-second delay for burst damage. 'Doom' is a Hades mechanic name, not a damage-type descriptor — element null per §0.2 name-only law. No 16-ailment equivalent for Doom-tag (delayed-detonation status not in registry)."
+        },
+        {
+          "source_skill": "Dire Misfortune (stacking Doom instances)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Boon modifier that allows multiple Doom stacks on one enemy; each stack detonates independently. Stack-accumulator shape. No element; no 16-ailment."
+        }
+      ],
+      "motion_frame": "passive boon: every attack applies Doom tag; 1.1-second delay then burst detonation at enemy; Dire Misfortune stacks multiple instances",
+      "resource_economy": {
+        "proc_trigger_condition": "on-hit",
+        "stack_accumulator": "Doom instances stack on target; each detonates independently after delay"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Doom tag on target enemy",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "boon rarity increases Doom damage: 50 Common to 125 Heroic"
+          ],
+          "traits_affixes": [
+            "Doom damage tier per boon rarity"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Ares Doom is a boon loadout with no player rotation — passive tag-bank-payout architecture. Doom = delayed detonation status with no 16-ailment registry equivalent. Element null: 'Doom' is a mechanic/boon name, not a damage-type applied to a generic noun (§0.2 name-only law). Capstone_alterations dossier attests Merciful End removes the delay — this is the primary capstone synergy (shared with hades1-merciful-end kit). Dire Misfortune is an item/boon modifier (dossier family: item_alterations). Stacking Doom across boon rarity tiers = two-tier-accumulator shape — file accrual to the accumulator family (steward-owned)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://basicallyaverage.com/ares-hades-guide/",
+      "archive_url": null,
+      "site": "basicallyaverage.com",
+      "author_handle": null,
+      "title": "Ares Boons | Hades Guide - Basically Average",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gamerant.com/hades-all-status-curses-explained-guide/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Hades: All Status Curses, Explained",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hades1-2020 era.",
+      "anchor_quote": "Doom provides a single high damage in exchange for a short delay",
+      "source_url": "https://gamerant.com/hades-all-status-curses-explained-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ares Doom Core' — Ares Doom boon loadout built around Curse of Agony and Dire Misfortune is real community usage for Hades.",
+      "anchor_quote": "Curse of Agony allows players to cause Doom on an enemy any time they use their Attack ... Dire Misfortune [allows] players to stack multiple Doom effects on enemies",
+      "source_url": "https://basicallyaverage.com/ares-hades-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills are Curse of Agony and Dire Misfortune; Doom applies on hit then detonates after a delay; hit-now-damage-later archetype.",
+      "anchor_quote": "Doom will always take 1.1 seconds before it hits the enemy ... will deal more damage based on the rarity of the Boon",
+      "source_url": "https://basicallyaverage.com/ares-hades-guide/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Merciful End duo boon (Ares+Athena) removes the Doom delay — Doom detonates instantly on deflect contact. This is the primary capstone synergy for the Ares Doom kit."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+        "anchor_quote": "Merciful End causes your attacks that Deflect to immediately trigger Doom effects ... reduces the normal 1.1-second Doom delay",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Dire Misfortune (Ares boon) stacks Doom instances; higher rarity adds more bonus damage per stack. Impending Doom (Ares boon) increases delay but raises burst damage. Boon rarity tiers increase base Doom damage from 50 (Common) to 125 (Heroic)."
+        },
+        "source_url": "https://basicallyaverage.com/ares-hades-guide/",
+        "anchor_quote": "Dire Misfortune [allows] players to stack multiple Doom effects on enemies",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target point",
+          "description": "Doom tag applied at target enemy on hit; detonation fires at the single tagged enemy position after delay. No AoE on base Doom. Point delivery."
+        },
+        "source_url": "https://basicallyaverage.com/ares-hades-guide/",
+        "anchor_quote": "Doom will always take 1.1 seconds before it hits the enemy",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Boon passive, not a rotation. Ares Doom boon causes every attack hit to apply a Doom tag on the enemy. After a 1.1-second delay the Doom detonates for burst damage. Dire Misfortune stacks multiple Doom instances; each detonates independently for bonus damage. No rotation sequence — passive modifier on hit verb."
+        },
+        "source_url": "https://basicallyaverage.com/ares-hades-guide/",
+        "anchor_quote": "Doom will always take 1.1 seconds before it hits the enemy ... will deal more damage based on the rarity of the Boon",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Curse of Agony on Attack (most common)",
+            "Curse of Pain on Special (variant)",
+            "Impending Doom delayed-burst variant"
+          ]
+        },
+        "source_url": "https://basicallyaverage.com/ares-hades-guide/",
+        "anchor_quote": "Curse of Agony allows players to cause Doom on an enemy any time they use their Attack",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

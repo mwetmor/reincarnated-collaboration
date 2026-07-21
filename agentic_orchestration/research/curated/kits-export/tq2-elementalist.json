@@ -1,0 +1,249 @@
+{
+  "kit_id": "tq2-elementalist",
+  "spine": {
+    "kit_id": "tq2-elementalist",
+    "folk_name": "Elementalist (TQ2)",
+    "game": "tq2",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tq2-ea-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A TQ2 Elementalist (Storm+Earth) gets the dual-element stack-nuker faithfully -- big fire AoE + chunky lightning zone + Amplify/Overload accumulator + cross-element echo door. Minor drift: the Amplify+Overload TWO-STACK-SYSTEM interplay (Roiling Magma dumps both, Call Lightning charges Amplify, Cyclone must cleanse Overload to avoid a downside) is carried as a single accumulator + apply-mark; the engine models one stack meter cleanly but the two-resource management texture (build Amplify, dump/cleanse Overload) is simplified. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A TQ2 Elementalist (Storm+Earth) gets the dual-element stack-nuker faithfully -- big fire AoE + chunky lightning zone + Amplify/Overload accumulator + cross-element echo door. Minor drift: the Amplify+Overload TWO-STACK-SYSTEM interplay (Roiling Magma dumps both, Call Lightning charges Amplify, Cyclone must cleanse Overload to avoid a downside) is carried as a single accumulator + apply-mark; the engine models one stack meter cleanly but the two-resource management texture (build Amplify, dump/cleanse Overload) is simplified. That build, worse -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Roiling Magma (Earth mastery)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "primary damage: large-area fire AoE with extremely high energy cost; 'generates a large amount of Amplify + Overload stacks with a single cast' (dossier). Aimed ground fire zone -> ground_targeted_circle. fire family (Earth-mastery fire). burn rider (fire DoT). Ring of Flame (Earth) provides amplify + energy management."
+        },
+        {
+          "source_skill": "Call Lightning (Storm mastery)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "secondary: 'nice chunk of dmg in a area' but the area is SMALL and it costs a lot to cast (dossier); charges Amplify. Aimed lightning strike zone -> ground_targeted_circle (small area noted). lightning family. shock rider (probe: shock+slow; §A -- shock here is the lightning-status rider from probe attestation, kept; slow -> chill not emitted absent stronger attestation, noted). Cyclone (Storm) cleanses Overload."
+        }
+      ],
+      "motion_frame": "dual-element stack-nuker: alternate high-cost Roiling Magma (big fire AoE that dumps Amplify+Overload stacks) and Call Lightning (small chunky lightning zone that charges Amplify), managing energy with Ring of Flame and cleansing Overload with Cyclone -- Storm+Earth combined",
+      "resource_economy": {
+        "model": "spend",
+        "resource_verbatim": "Energy (extremely high energy cost per cast; Ring of Flame provides energy management)",
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": "Amplify + Overload stacks accrue from casts",
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "large fire AoE (Roiling Magma)",
+            "small lightning zone (Call Lightning)"
+          ],
+          "economy": [
+            "high Energy cost per cast (Ring of Flame energy management)",
+            "Amplify + Overload accumulator (built by casts; Cyclone cleanses Overload)"
+          ],
+          "traits_affixes": [
+            "fire + lightning cross-element scaling",
+            "Amplify stack scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FLAG 8 + §E row 1: corpus class column was kb-WRONG; ERRATA-22 VERIFIED pair = Storm + Earth (mechanics CONTRADICTED, errata=1; anchor 'Elementalist using two masteries: Storm and Earth'). Mapped from the VERIFIED pair. BOTH masteries' capstones route t4_doors: Cyclone (Storm, Overload cleanse) + Ring of Flame (Earth, amplify/energy) -> ELEMENTAL_ECHO (the cross-element fire+lightning amp identity) + ZONE_CONTROL (the aimed-zone dual-nuker). Amplify/Overload (§E row: Roiling Magma) = single-tier accumulator, native (charge_stack_sub_shape=accumulator + apply-mark). fire primary (Roiling Magma) + lightning (Call Lightning) -- two skills, two elements (§1 hybrid handled per-skill). shock from probe kept as lightning rider; slow noted not emitted (§A: needs positive attestation, weak here). glass/resist defense not a surface. No two-tier accumulator (Amplify+Overload are parallel single-tier meters, not a series) -- not a §B two-tier accrual. [STEWARD AUDIT m04: 'burn'+'shock' stripped -- neither named in fetched text (Roiling Magma/Call Lightning are damage + Amplify/Overload stacks, already in accumulator economy); element-flavor riders]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541374759",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Ender Yılmaz",
+      "title": "Elementalist - Ice Shard Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1154030/discussions/0/802323230979393416/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Need some inspiration with build for Elementalist :: Titan Quest II General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1154030/discussions/0/591778624388989110/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Is Roiling magma supposed to light me on fire whenever I cast it? :: Titan Quest II General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era tq2-ea-2025+",
+      "anchor_quote": "posted on August 3, 2025... Fire/Cold Caster with Roiling Magma and Ice Shards is a viable build combination",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541374759",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Elementalist (TQ2)' and aliases 'TQ2 Elementalist mastery', 'Rolling Magma Call Lightning build' are real community usage",
+      "anchor_quote": "Level 22 Elementalist that use Ice Shard as main skill... Elementalist using two masteries: Storm and Earth",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541374759",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Rolling Magma and Call Lightning",
+      "anchor_quote": "Roiling magma has extremely high energy cost... Call lightning is fun as well because it actually does nice chunk of dmg in a area",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/802323230979393416/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Elementalist is a standalone mastery class",
+      "anchor_quote": "Elementalist using two masteries: Storm and Earth",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541374759",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Ender Yılmaz",
+          "site": "steamcommunity.com",
+          "note": "posted August 3 2025, updated August 5 2025"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541374759",
+        "anchor_quote": "posted on August 3, 2025, with an update on August 5, 2025",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_capstones": [
+            "Elementalist class = Storm+Earth dual mastery capstone pairing",
+            "Cyclone (Storm — Overload cleansing)",
+            "Ring of Flame (Earth — amplify + energy management)"
+          ],
+          "note": "Specific mastery capstone skill names not extracted from guide; skill investment details absent from fetched text"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3541374759",
+        "anchor_quote": "Level 22 Elementalist that use Ice Shard as main skill... Storm and Earth masteries",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Roiling Magma: large-area fire AoE, high energy cost; Call Lightning: chunky damage in a small area, high energy cost; Ring of Flame + Cyclone provides amplify and good energy management."
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/802323230979393416/",
+        "anchor_quote": "Call lightning is fun as well because it actually does nice chunk of dmg in a area, but the trade-off is that the area is small and it costs a lot to cast",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Storm+Earth dual mastery (class name: Elementalist). Primary damage: Roiling Magma (high energy cost, AoE fire, builds Amplify+Overload stacks); secondary: Call Lightning (chunky AoE lightning, high energy cost, charges Amplify); Cyclone for Overload cleansing; Ice Shards also viable as primary in some builds."
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/802323230979393416/",
+        "anchor_quote": "Roiling magma has extremely high energy cost... generates a large amount of amplify and overload stacks with a single cast... Call Lightning with Rage Gain 3 + Thunderstorm 3 + Energy Drain 2",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Roiling Magma + Cyclone (Overload stacker)",
+            "Call Lightning spam (Amplify charger)",
+            "Fire/Cold Caster (Roiling Magma + Ice Shards)",
+            "Ice Shard primary Elementalist"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/802323230979393416/",
+        "anchor_quote": "Fire/Cold Caster with Roiling Magma and Ice Shards is a viable build combination",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

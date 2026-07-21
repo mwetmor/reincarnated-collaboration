@@ -1,0 +1,215 @@
+{
+  "kit_id": "la-deathblow-striker",
+  "spine": {
+    "kit_id": "la-deathblow-striker",
+    "folk_name": "Deathblow Striker",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "3-orb strict all-consume gate maps as resource_economy accumulate-release but the 'all orbs consumed simultaneously for multiplicative burst' nuance differs from a simple spend-one-at-a-time meter. Source player would note the strict orb-count gate and multiplicative per-orb damage scaling are characteristic but not fully representable. CLOSE: the build-and-detonate loop identity maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "3-orb strict all-consume gate maps as resource_economy accumulate-release but the 'all orbs consumed simultaneously for multiplicative burst' nuance differs from a simple spend-one-at-a-time meter. Source player would note the strict orb-count gate and multiplicative per-orb damage scaling are characteristic but not fully representable. CLOSE: the build-and-detonate loop identity maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Normal skills (Esoteric Orb generators)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Back Attack positional per skill_geometry dossier; melee close-range; generate Esoteric Orbs via skill use; Lightning Tiger Strike appears as skill NAME only — no lightning damage-typing descriptor in store (NAME-ONLY STRIKE per §0.4; hot-fact: deathblow highest-prob lightning at crawl but left silent — NOT imported without in-store damage-typing)"
+        },
+        {
+          "source_skill": "Deathblow Esoteric Skills (Lightning Tiger Strike, Tiger Emerges, Charging Kick — 3-orb all-consume burst)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Consumes ALL 3 Esoteric Orbs at once; +35% damage per orb consumed (stale value per Ark Passive law — shape only); strict 3-orb gate makes every cycle a build-and-detonate loop; back-attack positional for maximum damage"
+        }
+      ],
+      "motion_frame": "Generate 3 Esoteric Orbs via normal skills; consume all 3 at once with Deathblow Esoteric Skills (Lightning Tiger Strike, Tiger Emerges) for maximum burst; strict 3-orb gate — every cycle is build-and-detonate",
+      "resource_economy": {
+        "esoteric_orbs": "generate via normal skills; strict 3-orb all-consume gate for Deathblow Esoteric Skills; Deathblow spec increases max orbs by +1 (per capstone_alterations); +35% damage per orb consumed (stale — shape only)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "consume-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "back-attack positional; melee close-range; glass cannon DPS"
+          ],
+          "economy": [
+            "esoteric_orbs strict 3-orb all-consume gate; Deathblow max +1 orb from capstone"
+          ],
+          "traits_affixes": [
+            "Release Potential, Instant Spell, Transcendent Power, High-Speed Recharge (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Lightning NOT emitted: Lightning Tiger Strike is a skill name only; hot-fact pre-ruling confirmed: 'deathblow was flagged highest-prob lightning at crawl but left silent — do NOT import it without in-store damage-typing'. No damage-type descriptor found in store. Back Attack positional confirmed in skill_geometry dossier ('Back Attack — guide implies positional requirement for max damage'). The 3-orb strict all-consume gate is the identity differentiator vs Esoteric Flurry's 1-orb sustainers — maps as strict accumulate-all-release burst. +35% per orb value is stale; shape only per Ark Passive law."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Deathblow Striker Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Release Potential, Instant Spell, Transcendent Power, and High-Speed Recharge",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Deathblow Striker — class+identity spec name in real LA community usage",
+      "anchor_quote": "generating Esoteric Orbs and then consuming them all at once to unleash powerful bursts of damage",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Generates 3 Esoteric Orbs via skill use then consumes all 3 for Deathblow Esoteric Skills; strict 3-orb gate; build-and-detonate loop; glass cannon versus Esoteric Flurry's 1-orb sustainers; Tiger Emerges as key Esoteric Skill",
+      "anchor_quote": "Esoteric Skill: Lightning Tiger Strike and Esoteric Skill: Tiger Emerges. generating Esoteric Orbs and then consuming them all at once to unleash powerful bursts of damage",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+        "anchor_quote": "Sekwah (Content Creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Release Potential",
+            "Instant Spell",
+            "Transcendent Power",
+            "High-Speed Recharge"
+          ],
+          "deathblow_engraving_effect": "Increases max Elemental Orbs by +1; Esoteric skills consume all Elemental Orbs and inflict +35% Damage per Orb consumed"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+        "anchor_quote": "Release Potential, Instant Spell, Transcendent Power, and High-Speed Recharge",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Specific gem/accessory detail not fully captured; standard melee DPS gear"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "positioning": "Back Attack — guide implies positional requirement for max damage",
+          "notes": "Back-attack positioning for maximum damage output per search result context"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Generate Esoteric Orbs via normal skills; consume all 3 at once with Deathblow Esoteric Skills for maximum burst damage; strict 3-orb gate makes every cycle a build-and-detonate loop; key Esoteric Skills: Lightning Tiger Strike, Tiger Emerges, Charging Kick"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+        "anchor_quote": "generating Esoteric Orbs and then consuming them all at once to unleash powerful bursts of damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Deathblow (3-orb burst gate, glass cannon)",
+            "Kurzan Front variant (includes Blast Formation as front-cone skill)"
+          ],
+          "sibling_spec": "Esoteric Flurry Striker (faster, more dynamic, 1-orb sustainers)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-blow-striker-raid-guide",
+        "anchor_quote": "Blast Formation appears only in the Kurzan Front section. Esoteric Flurry guide as a faster and more dynamic playstyle.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

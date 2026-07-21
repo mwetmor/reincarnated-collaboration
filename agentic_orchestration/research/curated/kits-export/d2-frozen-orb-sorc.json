@@ -1,0 +1,249 @@
+{
+  "kit_id": "d2-frozen-orb-sorc",
+  "spine": {
+    "kit_id": "d2-frozen-orb-sorc",
+    "folk_name": "Frozen Orb Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The traveling-orb-that-emits-radially is approximated as orbit — the kit's defining shape (advancing emitter, not stationary orbit) is a delivery texture loss. Player feels 'cold orb sorceress who blankets areas with ice' — that build, slight advancing-vs-stationary orbit texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The traveling-orb-that-emits-radially is approximated as orbit — the kit's defining shape (advancing emitter, not stationary orbit) is a delivery texture loss. Player feels 'cold orb sorceress who blankets areas with ice' — that build, slight advancing-vs-stationary orbit texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frozen Orb",
+          "geometry_value": "orbit",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Traveling projectile-that-emits: orb travels straight, continuously emitting radial ice bolt sprays perpendicular to travel path, then final radial burst on expiry. Multi-point footprint covering wide area across full path. Self-origin → advancing orbit emission — closest match is orbit (self-origin multi-point radial). §A row 6 spiral-orbit precedent applies as SHAPE only (not attestation authority)."
+        },
+        {
+          "source_skill": "Teleport",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "1-point offensive repositioning utility; covers gaps and walls."
+        }
+      ],
+      "motion_frame": "Cast Frozen Orb — traveling orb emits radial ice bolt sprays continuously, shatters in final burst; Teleport to reposition and manage approach angles",
+      "resource_economy": {
+        "cost_scale": "mana-mid",
+        "cadence_scale": "orb-recast-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Frozen Orb synergizes with Ice Bolt; Cold Mastery passively reduces enemy cold resistance"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "No ailment attestation in fetched dossier — no chill/freeze named in the Frozen Orb description (the orb sprays bolts; no named status on impact in skill_loop text). Geometry rationale: Frozen Orb is an advancing emitter that sprays in all radial directions — orbit is the closest 26-enum token (self-origin multi-point radial emission). Basin-2 hammer-throw orbit precedent SHAPE only. Meteorb variant is variant-scope (Meteor secondary not in core skills[] per variant-scope law). One-point-wonder accessibility noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Jymnasium",
+      "title": "Frozen Orb Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Frozen Orb Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Frozen Orb Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in rotw-s14 era",
+      "anchor_quote": "Frozen Orb Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frozen Orb Sorceress' and aliases 'Frozen Orb Sorc', 'Orb Sorc', 'Cold Orb Sorceress' are real community usage",
+      "anchor_quote": "Frozen Orb Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Frozen Orb, Teleport",
+      "anchor_quote": "Frozen Orb is your main Damage Skill. Teleport with 1 point covers large distances over almost any gap or wall",
+      "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Jymnasium",
+          "site": "maxroll.gg",
+          "note": "Original post by BTNeandertha1; maintained by Jymnasium. S14 guide."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+        "anchor_quote": "Original Post by BTNeandertha1; Maintained by Jymnasium",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Spirit (starter)",
+            "Stealth (early armor)",
+            "Lore (early helm)",
+            "Ancients' Pledge (early shield)"
+          ],
+          "uniques": [
+            "Death's Fathom",
+            "Skin of the Vipermagi"
+          ],
+          "synergies": [
+            "Frozen Orb synergizes with Ice Bolt (each point adds cold damage)",
+            "Cold Mastery passively reduces enemy cold resistance"
+          ],
+          "notes": "S14/rotw-s14 confirmed as top-tier Ladder Starter. Described as destroying Andariel, Mephisto, Pindleskin."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+        "anchor_quote": "Frozen Orb destroys Andariel, Mephisto, and Pindleskin — making it one of the top-tier Ladder Starters in D2R",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Death's Fathom (weapon — cold damage + FCR; BIS endgame)",
+            "Skin of the Vipermagi (armor — +skills, all-resists; starter)",
+            "Spirit runeword (starter shield/weapon)",
+            "Stealth runeword (early armor)",
+            "Lore runeword (early helm)",
+            "Ancients' Pledge (early shield)",
+            "Infinity Giant Thresher (merc weapon — Conviction aura)"
+          ],
+          "notes": "Spirit + Stealth + Lore + Ancients' Pledge noted as 'core starter package.' Death's Fathom is endgame BIS."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+        "anchor_quote": "Spirit, Stealth, Lore, and Ancients' Pledge make up the core; Death's Fathom for damage and FCR; Skin of the Vipermagi for Skills and Resistances",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Frozen Orb: projectile that travels in a straight line, continuously emitting radial ice bolt sprays in all directions perpendicular to travel. On expiry: final radial burst. Multi-point footprint — covers wide area across full travel path. Described as 'low-invest one-point wonder and the projectile-that-emits.'"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+        "anchor_quote": "Frozen Orb travels then shatters, spraying radial ice bolts along its whole path",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Frozen Orb — projectile sphere travels forward firing cold bolt sprays in all directions continuously, then shatters into final burst at end of travel. Reposition via Teleport to manage distance and angles. Static Field to quickly lower boss HP. Ice Bolt / Blizzard as secondary. One-point Frozen Orb also viable early."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/frozen-orb-sorceress",
+        "anchor_quote": "Frozen Orb is the most iconic Sorceress spell — a spinning sphere of ice that constantly fires cold bolts in all directions as it travels, then explodes into a final burst on impact",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Frozen Orb Sorc (Death's Fathom; cold only; best for Meph/Pindle/Andariel farm)",
+            "Meteorb / MeteOrb (Frozen Orb + Meteor hybrid; handles cold immunes; classic hybrid)",
+            "Blizzard/Frozen Orb hybrid (Blizz primary with Orb as secondary; Icy Veins separate guide)",
+            "Frozen Orb/Meteor S14 variant (maxroll S14 variant guide exists)"
+          ],
+          "notes": "Meteorb is a widely recognized named variant — Frozen Orb handles non-fire, Meteor handles cold immunes."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/frozen-orb-meteor-sorceress",
+        "anchor_quote": "Frozen Orb Meteor Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

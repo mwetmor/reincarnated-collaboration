@@ -1,0 +1,260 @@
+{
+  "kit_id": "poe1-flameblast",
+  "spine": {
+    "kit_id": "poe1-flameblast",
+    "folk_name": "Flameblast",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Flameblast maps nearly losslessly — the purest charge-and-detonate: circle expanding-nova geometry + native accumulator-discharge (10-stage build via on-passive-tick, release at cap, and native sub-threshold release = the 'earlier release = weaker' behavior) + tick-cost rooted channel + fire/burn. Only minor flavor drift: the exact +0.3m-per-stage radius growth and 165%-more-per-stage magnitude are numeric tuning the geometry/accumulator carry as scaling rather than named fields; and 'circle' (filled expanding disc) is chosen over 'ring' for the self-origin grow-out. A player keeps the full channel-grow-release commitment faithfully.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Flameblast maps nearly losslessly — the purest charge-and-detonate: circle expanding-nova geometry + native accumulator-discharge (10-stage build via on-passive-tick, release at cap, and native sub-threshold release = the 'earlier release = weaker' behavior) + tick-cost rooted channel + fire/burn. Only minor flavor drift: the exact +0.3m-per-stage radius growth and 165%-more-per-stage magnitude are numeric tuning the geometry/accumulator carry as scaling rather than named fields; and 'circle' (filled expanding disc) is chosen over 'ring' for the self-origin grow-out. A player keeps the full channel-grow-release commitment faithfully.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flameblast",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "channel from the player's own position to grow a circle through up to 10 stages (base 2m radius, +0.3m/stage = 5m max; 165% more spell damage per stage); release at full size for an enormous fire nova; rooted while channeling, earlier release = smaller zone + less damage. fire->burn. circle = the expanding self-origin circle (§6 expanding circle); it grows from self so circle (not ring) is the honest type for the filled expanding nova"
+        }
+      ],
+      "motion_frame": "purest charge-and-detonate: root at the player position, channel to grow the circle through 10 stages, release the full-size fire nova; commit or release early for less",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-passive-tick",
+        "accumulator_max": 10,
+        "accumulator_discharge_threshold": 10,
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "circle (expanding self-origin nova, +0.3m/stage to 5m)"
+          ],
+          "economy": [
+            "stage accumulator (channel-to-build-10-stages, release-to-detonate; on-passive-tick fill while channeling; discharge at cap)",
+            "channel tick-cost (mana-per-stage; rooted-while-casting)",
+            "release-burst at stage cap (165% more per stage)"
+          ],
+          "traits_affixes": [
+            "fire-penetration",
+            "ignite/burn scaling (Shaper of Flames guaranteed ignite)",
+            "area-of-effect (nova radius)",
+            "cast/channel speed (faster stage build)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "THE PUREST CHARGE-AND-DETONATE (mech_note verbatim): channel to grow a circle through 10 stages from the player position, release an enormous fire nova at full size; rooted while channeling (dossier skill_loop/skill_geometry). This maps NEARLY LOSSLESSLY: (1) circle geometry (§6 expanding circle; self-origin filled nova — circle over ring since it is a filled growing disc from self, not a hollow burst-ring); (2) the 10-stage-channel-then-release IS the accumulator-discharge primitive (charge_stack_sub_shape=accumulator, accumulator_max=10 = the 10 stages, fill on-passive-tick = the channel builds a stage per tick, discharge_threshold=10 = release at full — all engine-verified enums, resource_economy.py:70-74,143); (3) the rooted channel-maintain = persistent_condition_shape=tick-cost (mana-per-stage). fire->burn (probe 'burn'; Shaper of Flames guaranteed-ignite variant). T4 TEMPORAL_CHARGE (the stage-charge engine, §5 charge/stack) + GEOMETRY_COLLAPSE (the grow-then-detonate-one-big-nova reading). CAPSTONE ABSTAINED — t4 routed from core identity (stage-charge-then-detonate engine) + probe (mana-spend, rooted, self-origin, large-zone) per fallback. The 'earlier release = smaller/weaker' is the native accumulator-below-threshold behavior (discharge before cap = fewer stages consumed) — a clean match. The rooted-vulnerability is a behavioral property of the tick-cost channel; the Totem variant (avoids player vulnerability) is a delivery swap noted in variants, not the dominant self-cast identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3262997",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[3.17] Ultimate Self-cast Flameblast Occultist (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/3-0-starter-flameblast-totem-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.2] Starter Flameblast Totem Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Flameblast",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Flameblast - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": "Flameblast debuted in version 1.0.4 … underwent significant redesign in patch 2.4.0 … [3.2] Starter Flameblast Totem Build",
+      "source_url": "https://poedb.tw/us/Flameblast",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Flameblast' is real community usage for Elementalist/Chieftain channel build",
+      "anchor_quote": "[3.17] Ultimate Self-cast Flameblast Occultist … Starter Flameblast Totem Build",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3262997",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Channel grows circle through ten stages from self-origin; release fires enormous fire nova; rooted while casting; mana spend resource",
+      "anchor_quote": "Channels to build up a large explosion, which is released when you stop using the skill … 165% more Spell Damage for each stage",
+      "source_url": "https://poedb.tw/us/Flameblast",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Divergent Flameblast (alt quality)",
+              "type": "alt_quality",
+              "effect": "grants 1% less cast speed per 1% gem quality (from 2% per 1% gem quality)",
+              "anchor_quote": "grants 1% less cast speed per 1% gem quality"
+            },
+            {
+              "node": "Flameblast of Celerity (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Cast time 0.3s vs 0.20s base; radius scaling +0.7m per stage vs +0.3m",
+              "anchor_quote": "0.3s vs 0.20s base cast time; +0.7m per stage vs +0.3m"
+            },
+            {
+              "node": "Flameblast of Contraction (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanics not detailed on poedb page",
+              "anchor_quote": null
+            },
+            {
+              "node": "Vaal Flameblast (vaal)",
+              "type": "vaal_variant",
+              "effect": "200% more Spell Damage for each stage",
+              "anchor_quote": "200% more Spell Damage for each stage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Flameblast",
+        "anchor_quote": "200% more Spell Damage for each stage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Divergent Flameblast (alt quality gem)",
+              "type": "alt_quality_gem",
+              "effect": "1% less cast speed per 1% gem quality (vs 2% for standard quality)",
+              "anchor_quote": "grants 1% less cast speed per 1% gem quality"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Flameblast",
+        "anchor_quote": "grants 1% less cast speed per 1% gem quality",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "self-origin nova; large zone (base 2m radius, +0.3m per stage = 5m max at stage 10); player is origin point; fire damage type; rooted while channeling",
+          "channel_note": "10 stages max; earlier release = smaller zone + less damage"
+        },
+        "source_url": "https://poedb.tw/us/Flameblast",
+        "anchor_quote": "base radius of 2 meters, expanding by +0.3 metres to radius per Stage, resulting in a maximum 5-meter radius at full charge",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Flameblast growing circle through up to 10 stages from player position -> each stage grows radius (+0.3m) and multiplies damage (165% per stage) -> release at full stage for enormous fire nova; rooted during channel; Elementalist Shaper of Flames for ignite; Totem variant avoids player vulnerability"
+        },
+        "source_url": "https://poedb.tw/us/Flameblast",
+        "anchor_quote": "Channels to build up a large explosion, which is released when you stop using the skill … 165% more Spell Damage for each stage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Self-cast Flameblast Elementalist/Chieftain (primary, rooted channel)",
+            "Flameblast Totem build (Spell Totem Support, avoids player vulnerability)",
+            "Self-cast Flameblast Occultist (3.17+)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/3-0-starter-flameblast-totem-build-odealos-crafty-guide",
+        "anchor_quote": "[3.2] Starter Flameblast Totem Build … [3.17] Ultimate Self-cast Flameblast Occultist",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "kit_id": "vs-queen-sigma",
+  "spine": {
+    "kit_id": "vs-queen-sigma",
+    "folk_name": "Queen Sigma",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-0.11.0-2022;vs-dlc-era;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: the identity is a collection-completion gate + infinite per-level compounding character — no rotation, no skill sequence. Engine cannot represent collection-completion unlock or unbounded per-level Might/Growth escalation. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: the identity is a collection-completion gate + infinite per-level compounding character — no rotation, no skill sequence. Engine cannot represent collection-completion unlock or unbounded per-level Might/Growth escalation. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Victory Sword",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee arc weapon around player. Specific arc dimensions not attested in fetched text. Element = null: VS has no elemental damage-type system. Auto-fires continuously."
+        }
+      ],
+      "motion_frame": "Survive and level; Victory Sword auto-fires melee arc; per-level Might/Growth compound growth is the identity.",
+      "resource_economy": {
+        "ramp_per_s": "per-level Might and Growth compounding — +1% Might +1% Growth per level, no cap (attested)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS character). Unlock = 100% collection completion or cheat. The kit IS the pre-converged investment state — identity is unbounded per-level compounding, not a rotation. GAPPED: no rotation exists; engine has no collection-completion unlock concept; the Golden Eggs rejection interaction adds unrepresentable quirk. MOMENTUM_CASCADE door fits the per-level unbounded ramp shape loosely."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Queen Sigma - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "vs-dlc-era era",
+      "anchor_quote": null,
+      "source_url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Queen Sigma — 100% collection completion reward character; starts with Victory Sword; per-level Might+Growth scaling",
+      "anchor_quote": "She gains +1% Might and +1% Growth every level. There is no cap on these bonuses.",
+      "source_url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Pre-converged-draft economy: 100% completion IS the investment; per-level compound scaling; no rotation",
+      "anchor_quote": "Complete the Collection menu, specifically all items in the Version 1.0 section",
+      "source_url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "All weapon upgrades apply normally per wiki. Golden Eggs notable exception: Queen Sigma launches them away instead of collecting."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+        "anchor_quote": "unique interaction with Golden Eggs, which she launches away instead of collecting",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "small-radius",
+          "note": "Victory Sword melee arc around player. No fetched text on exact arc dimensions."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+        "anchor_quote": "Starting weapon: Victory Sword",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Character kit, not a weapon evolution. Unlock: complete Version 1.0 collection (or spell 'allatonce'). Starts with Victory Sword. Per-level: +1% Might and +1% Growth, no cap. Also has large starting stat bonuses: +50% Move Speed, +50% Might, +50% Duration, -25% Cooldown, +100% Magnet, +50% Luck, +1 Revival. The kit IS the pre-converged state — no rotation, just exponential per-level growth."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Queen_Sigma",
+        "anchor_quote": "She gains +1% Might and +1% Growth every level. There is no cap on these bonuses.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

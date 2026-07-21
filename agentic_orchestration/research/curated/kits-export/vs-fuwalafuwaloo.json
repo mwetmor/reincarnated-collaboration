@@ -1,0 +1,221 @@
+{
+  "kit_id": "vs-fuwalafuwaloo",
+  "spine": {
+    "kit_id": "vs-fuwalafuwaloo",
+    "folk_name": "Fuwalafuwaloo (Vento Sacro+Bloody Tear union)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "vs-base;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Dual geometry (melee_arc + orbit simultaneously) is non-standard; engine skill chains are sequential not simultaneous — approximated as two skill entries. Movement-damage ramp approximated via MOMENTUM_CASCADE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Dual geometry (melee_arc + orbit simultaneously) is non-standard; engine skill chains are sequential not simultaneous — approximated as two skill entries. Movement-damage ramp approximated via MOMENTUM_CASCADE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fuwalafuwaloo (frontal slashes + orbit circle)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dual-pattern: horizontal dark red slashes forward (melee_arc) + orbit ring of slashes cycling around player. VS element-silent. No ailments named in dossier. Movement-speed damage bonus (caps at +40 flat) maps as resource/trait lane, not ailment."
+        },
+        {
+          "source_skill": "Fuwalafuwaloo orbit ring component",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Circle of slashes cycles around player simultaneously with frontal arc. Second geometry slot for the orbit component of the dual-pattern delivery."
+        }
+      ],
+      "motion_frame": "Dual delivery: forward melee-arc slashes + encircling orbit ring; sustain via HP-on-crit; damage ramps with continuous movement",
+      "resource_economy": {
+        "hp_on_crit": "heals 8 HP per crit hit (0.5s cooldown)",
+        "movement_bonus": "damage scales with nonstop movement; caps at +40 flat damage; resets on stop",
+        "crit_explosion": "crit triggers explosion (0.5s cooldown, area-scaled)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-crit",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dual arc+orbit combined delivery"
+          ],
+          "economy": [
+            "movement-ramp bonus",
+            "hp-on-crit sustain"
+          ],
+          "traits_affixes": [
+            "crit explosion scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Union of Vento Sacro + Bloody Tear — dual-pattern delivery confirmed. VS element-silent. Movement-speed damage bonus is the union's signature mechanic (inherited from Vento Sacro component). MOMENTUM_CASCADE T4 fits the continuous-movement damage ramp. Two-skill entry represents the dual geometry pattern."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Fuwalafuwaloo - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://vampire.survivors.wiki/w/Vento_Sacro",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Vento Sacro - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "vs-dlc-era;vs-1.13-14-2025+",
+      "anchor_quote": "Added to game in patch 0.7.2 on June 9, 2022. Vento Sacro is part of the base game, not DLC.",
+      "source_url": "https://vampire.survivors.wiki/w/Vento_Sacro",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fuwalafuwaloo is a union of Vento Sacro + Bloody Tear (both evolutions); most investment-heavy recipe",
+      "anchor_quote": "Fuwalafuwaloo requires both Vento Sacro at max level and Bloody Tear to create this evolved weapon.",
+      "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Whirlwind slash zone; heal-on-hit from Bloody Tear carries through; melee spin AoE",
+      "anchor_quote": "The character can heal 8 points of health if an enemy was damaged by a critical hit. Creates multiple dark red slashes horizontally in front of the character and a circle of slashes that cycle around the character.",
+      "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "vento_sacro_component": "evolved whip; movement-speed damage bonus carries to union",
+          "bloody_tear_component": "evolved whip; lifesteal carries to union",
+          "movement_speed": "damage scales with nonstop movement; caps at +40 flat"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+        "anchor_quote": "Fuwalafuwaloo gains bonus damage from walking nonstop. It caps at 40 flat damage, resetting when movement stops.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "frontal horizontal slash + surrounding orbit circle",
+          "origin": "self-origin / player-centered",
+          "pattern": "dual-pattern: forward cone + orbit ring"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+        "anchor_quote": "Creates multiple dark red slashes horizontally in front of the character and a circle of slashes that cycle around the character.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "union_recipe": "Vento Sacro (max evolved) + Bloody Tear (max evolved) = Fuwalafuwaloo",
+          "delivery": "horizontal dark red slashes in front + circle of slashes cycling around player",
+          "lifesteal": "heals 8 HP on crit hit; 0.5s trigger cooldown",
+          "movement_bonus": "gains bonus flat damage from continuous walking (caps at +40 flat damage); resets on stop",
+          "crit_explosions": "critical hits trigger explosion (0.5s cooldown; area-scaled)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+        "anchor_quote": "Creates multiple dark red slashes horizontally in front of the character and a circle of slashes that cycle around the character. The character can heal 8 points of health if an enemy was damaged by a critical hit.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Fuwalafuwaloo",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

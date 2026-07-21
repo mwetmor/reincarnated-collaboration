@@ -1,0 +1,245 @@
+{
+  "kit_id": "poe1-scourge-arrow",
+  "spine": {
+    "kit_id": "poe1-scourge-arrow",
+    "folk_name": "Scourge Arrow",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY: the TWO-STAGE emission chain — arrow first (laying pods along its wake), pods THEN blooming delayed 9-arrow fans — is flattened to a single multi_projectile volley. The player of the original loses pod-line PLACEMENT (painting a lane of delayed bloomers through/behind the pack) and the stage-dependent pod-count texture; the channel-charge rhythm and the close-range poison-shotgun payoff are intact — 'that build, worse', not 'not that build'.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY: the TWO-STAGE emission chain — arrow first (laying pods along its wake), pods THEN blooming delayed 9-arrow fans — is flattened to a single multi_projectile volley. The player of the original loses pod-line PLACEMENT (painting a lane of delayed bloomers through/behind the pack) and the stage-dependent pod-count texture; the channel-charge rhythm and the close-range poison-shotgun payoff are intact — 'that build, worse', not 'not that build'.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Scourge Arrow",
+          "geometry_value": "multi_projectile",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "CHANNEL to grow thorn stages 1-5 (commit=channel); release fires the arrow, which leaves spore pods in its wake; each pod blooms a fan of 9 short-range thorn arrows; overlapping fans shotgun poison stacks at close range. Volley/fan -> multi_projectile; the pod-line staging is the approximated part"
+        }
+      ],
+      "motion_frame": "channel-and-release bowman: hold to grow thorn stages, release the spore-pod volley, reposition while poison ticks — a rhythmic charge/dump cadence",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile pod-fan volley (9 thorn arrows per pod)",
+            "pod line laid along the arrow's path (approximated as volley spread)"
+          ],
+          "economy": [
+            "channel-stage accumulator (1-5) spent on release",
+            "mana-light"
+          ],
+          "traits_affixes": [
+            "poison damage / duration / faster-poison",
+            "channel + attack speed (stage growth rate)",
+            "projectile count / AoE (pod coverage)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "chaos-poison kit -> EARTH per crosswalks section-1 nature/venom register (thorn arrows, SPORE pods, Pathfinder chassis, Nature's Reprisal — plant-venom themed throughout) — the deliberate counterpoint to poison-bv's shadow read in this same batch; poison ailment lane either way. Channel commit carried by corpus commit_val=channel + the accumulator charge-spend. CAPSTONE ABSTAINED — doors from identity: PERSISTENCE_ENGINE_saturation (poison-stack saturation is the kill mechanism) + MOMENTUM_CASCADE (charge-stages-then-payoff release rhythm; b04 heavy-strike build-up-to-payoff reading). Era 3.0-3.6 + 3.7-3.13."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://pathofexileclub.wordpress.com/2019/10/06/poe-3-8-popular-scourge-arrow-pathfinder-build-fast-tanky-easy-friendly-guide/",
+      "archive_url": null,
+      "site": "pathofexileclub.wordpress.com",
+      "author_handle": "unknown",
+      "title": "POE 3.8 Popular Scourge Arrow Pathfinder Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Scourge_Arrow",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Scourge Arrow — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Scourge Arrow introduced version 3.4.0 (Delve league); immediately used in 3.4-3.6 Pathfinder builds",
+      "source_url": "https://poedb.tw/us/Scourge_Arrow",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "'In 3.7 and 3.8 poison builds received huge buffs... Scourge Arrow was buffed too'; POE 3.8 Scourge Arrow Pathfinder guide confirms meta presence",
+      "source_url": "https://pathofexileclub.wordpress.com/2019/10/06/poe-3-8-popular-scourge-arrow-pathfinder-build-fast-tanky-easy-friendly-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Scourge Arrow' is real community usage",
+      "anchor_quote": "'Scourge Arrow' is the official gem name and primary build identifier; 'Poison Scourge Arrow Pathfinder' is the canonical community name",
+      "source_url": "https://poedb.tw/us/Scourge_Arrow",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Scourge Arrow; channel to grow thorn stages; release spore-pod fan; bow channel-and-release with poison stacking",
+      "anchor_quote": "'channel to infuse an arrow with chaos, gaining stages while it is held... leaves spore pods in its wake... each spore pod blooms, firing thorn arrows'",
+      "source_url": "https://poedb.tw/us/Scourge_Arrow",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com",
+          "note": "TbXie authored Poison Scourge Arrow Pathfinder Build Guide on poe-vault.com"
+        },
+        "source_url": "https://www.poe-vault.com/guides/poison-scourge-arrow-pathfinder-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Anomalous Scourge Arrow (alt quality)",
+              "type": "alt_quality",
+              "effect": "each Spore Pod fires 0.05 additional Thorn Arrows per 1% gem quality",
+              "anchor_quote": "each Spore Pod to fire 0.05 additional Thorn Arrows per 1% gem quality"
+            },
+            {
+              "node": "Scourge Arrow of Menace (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Fires 4 thorn arrows per pod (vs 9 standard); higher mana cost 9-13 at levels 1-20",
+              "anchor_quote": "Fires 4 thorn arrows per pod (versus 9 for standard version)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Scourge_Arrow",
+        "anchor_quote": "each Spore Pod to fire 0.05 additional Thorn Arrows per 1% gem quality",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Scourge Arrow of Menace (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Fires 4 thorn arrows per pod (vs 9 standard); mana cost 9-13",
+              "anchor_quote": "Fires 4 thorn arrows per pod (versus 9 for standard version)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Scourge_Arrow",
+        "anchor_quote": "Fires 4 thorn arrows per pod (versus 9 for standard version)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (arrow flies to target); secondary multi-point (spore pods land in spread pattern along path)",
+          "aoe": "pods fire 9 thorn arrows each in short-range fan; combined footprint is multi-spawn",
+          "notes": "Channel-and-release with delayed pod detonation; effective range is mid-to-long bow range"
+        },
+        "source_url": "https://poedb.tw/us/Scourge_Arrow",
+        "anchor_quote": "'each spore pod blooms, firing thorn arrows, which travel for a short time before dissipating'",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Scourge Arrow to grow thorn charge stages (max 5); release to fire an arrow that leaves spore pods in its wake; each pod blooms firing 9 thorn arrows; poison stacks accumulate from multiple hits"
+        },
+        "source_url": "https://poedb.tw/us/Scourge_Arrow",
+        "anchor_quote": "'channel to infuse an arrow with chaos, gaining stages while it is held... leaves spore pods in its wake'",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pathfinder (primary; flask sustain + poison + Nature's Reprisal)",
+            "Ranger general"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/poison-scourge-arrow-pathfinder-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

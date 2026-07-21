@@ -1,0 +1,233 @@
+{
+  "kit_id": "la-enhanced-weapon-deadeye",
+  "spine": {
+    "kit_id": "la-enhanced-weapon-deadeye",
+    "folk_name": "Enhanced Weapon Deadeye",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "3-weapon stance rotation is the irreducible identity with no dominant mode — per §LA row 3 pre-ruling. Stance-swap → damage window mechanic has no engine token. Filed mode-swap-identity docket.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "3-weapon stance rotation is the irreducible identity with no dominant mode — per §LA row 3 pre-ruling. Stance-swap → damage window mechanic has no engine token. Filed mode-swap-identity docket.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Rotate between Shotgun (close-range burst primary), Handgun (mobility tempo), and Rifle (finisher/disengage) stances; each stance-swap grants +[X]% Damage for next 3 skills; Shotgun primary damage requires back-attack close-range positioning; Buckshot Enhancement node grants Destiny on two Handgun skills",
+      "resource_economy": {
+        "stance_charge": "each stance-swap grants a 3-skill damage window; no explicit gauge meter — stance-rotation cadence IS the economy"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: 3-weapon stance rotation (Shotgun/Handgun/Rifle) is the irreducible identity — no dominant single mode (dossier confirms all three stances load-bearing for the loop: burst, mobility, finisher). The stance-swap buff (+[X]% per swap) and Buckshot Enhancement Destiny trigger are stance-rotation mechanics the engine has no token for. Pre-ruling: mode-swap-identity docket per §LA row 3. Values omitted (stance-swap % flagged via stale-priors; map shape not number). Element null: Judgment Day, Shotgun Rapid Fire, Shotgun Dominator, Sign of Apocalypse, etc. = name-only. Weakness Exposure (Spiral Tracker) = raid-break vocab, not sunder. skills[] left empty: damage skills are stance-gated and cannot be meaningfully decomposed without stance-mode token."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Enhanced Weapon Deadeye Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Author: Raeinor, Last Updated: June 13, 2026 — active maxroll.gg guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Enhanced Weapon Deadeye; three-stance system (Shotgun/Handgun/Rifle); close-range engagement to maximize Shotgun damage",
+      "anchor_quote": "Swapping stances grants you +9% Damage for the next three skills used",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shotgun for burst; Handgun for tempo; Rifle for finishers; unparalleled mobility throughout; close-range engagement required",
+      "anchor_quote": "Shotgun stance: Primary damage dealer for close-range engagements; Handgun stance: Mobility and utility provider; Rifle stance: Secondary damage and disengagement",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+          "last_updated": "2026-06-13"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+        "anchor_quote": "Author: Raeinor, Last Updated: June 13, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_core": [
+            "Bloodhound",
+            "Buckshot Enhancement",
+            "Bullet Explosion",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ],
+          "note": "Buckshot Enhancement: Grants Destiny on using two Handgun skills"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+        "anchor_quote": "Buckshot Enhancement: Grants Destiny on using two Handgun skills",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Adrenaline"
+          ],
+          "gems_damage": [
+            "Judgment Day",
+            "Shotgun Rapid Fire",
+            "Last Request",
+            "Shotgun Dominator",
+            "Sign of Apocalypse",
+            "Desperado"
+          ],
+          "gems_cooldown": [
+            "same list as damage gems"
+          ],
+          "bracelet_rolls": [
+            "Ambush",
+            "Circulate",
+            "Fervor",
+            "Hammer",
+            "Wedge",
+            "Assail",
+            "Precise",
+            "Superiority",
+            "Dexterity",
+            "Weapon Power"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Ambush Master, Keen Blunt Weapon, Cursed Doll, Adrenaline",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "Shotgun_skills": [
+            "Judgment Day",
+            "Shotgun Rapid Fire",
+            "Last Request",
+            "Shotgun Dominator",
+            "Sign of Apocalypse",
+            "Doom Shot"
+          ],
+          "mobility": [
+            "Dexterous Shot",
+            "Somersault Shot"
+          ],
+          "synergy": [
+            "AT02 Grenade",
+            "Spiral Tracker (Weakness Exposure)"
+          ],
+          "counter": "Enforce Execution",
+          "awakening": "Bursting Flare",
+          "range_note": "Shotgun = close-range; Handgun and Rifle enable ranged and mobility options"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+        "anchor_quote": "+10% Crit Rate and +5% Damage when they land on the target's back-side; Shotgun Rapid Fire (close-range primary)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Swap between Shotgun (burst close-range), Handgun (mobility tempo), Rifle (finisher/disengage); each stance-swap grants +9% Damage for next 3 skills; Shotgun primary damage output requires close-range positioning; back attacks yield +10% Crit Rate and +5% Damage; Bursting Flare as preferred Awakening"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+        "anchor_quote": "Swapping stances grants you +9% Damage for the next three skills used; +24% Crit Rate and +14% Crit Damage passively",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/enhanced-weapon-deadeye-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

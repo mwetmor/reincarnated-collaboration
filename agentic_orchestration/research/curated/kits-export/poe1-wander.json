@@ -1,0 +1,263 @@
+{
+  "kit_id": "poe1-wander",
+  "spine": {
+    "kit_id": "poe1-wander",
+    "folk_name": "Wander (Kinetic Blast)",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player of the original would miss blast-OVERLAP tech — point-blank wall/corner shotgunning where multiple explosions stack on one target — and the AoE-spacing scaling knob. The volley approximation spreads damage points but cannot anchor them around an impact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "execute"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player of the original would miss blast-OVERLAP tech — point-blank wall/corner shotgunning where multiple explosions stack on one target — and the AoE-spacing scaling knob. The volley approximation spreads damage points but cannot anchor them around an impact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Kinetic Blast",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "ONE wand bolt whose impact spawns 4 clustered offset AoE explosions (AoE modifiers scale both blast radius AND spacing) — approximated as multi_projectile multi-point volley; alternative reading circle-at-impact noted; physical rule -> element-neutral slot (source builds convert phys to elemental via gear/tree)"
+        },
+        {
+          "source_skill": "Power Siphon",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "execute"
+          ],
+          "delivery_notes": "culling wand shot: destroys low-life targets (cull -> execute_threshold_fraction ~0.10) and generates power charges on kill"
+        }
+      ],
+      "motion_frame": "full-mobility wand cruiser: run and paint the screen with clustered blast explosions, cull the stragglers, never stop moving",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "impact-cluster secondary blasts",
+            "extra-projectile scaling (Dying Sun / Deadeye Endless Munitions)"
+          ],
+          "economy": [
+            "mana-light spend default",
+            "power-charge on-kill cycle (Power Siphon feeds the charge engine)"
+          ],
+          "traits_affixes": [
+            "projectile-count affixes",
+            "crit scaling (ele-crit wander lineage)",
+            "MF-gear flavor (2.x magic-find wander) as gear-numeric lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "KB's signature impact-spawned explosion CLUSTER has no exact enum carrier: multi_projectile honors the multi-point footprint (geo_raw multi-spawn, probe footprint multi-point) but the blasts are impact-anchored AoEs, not travelling bolts. Physical wand -> element-neutral per THE PHYSICAL RULE; the classic ele-crit conversion is exactly the ELEMENT_CONVERSION_PHYSICAL door. Three-era longevity (1.3/2.x through 3.20+) all CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "http://www.pathofexile.com/forum/view-thread/1144534",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[1.3] Elemental Crit Kinetic Blast Wander (Torment League)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/the-fastest-poe-build-kinetic-blast-pathfinder-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "Odealo",
+      "title": "[3.6] The Fastest PoE Build - Kinetic Blast Pathfinder",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe/build-guides/league-starter/kinetic-blast-deadeye-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Kinetic Blast Deadeye League Starter for Path of Exile Mirage 3.28",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Kinetic_Blast",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Kinetic Blast - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "'[1.3] Elemental Crit Kinetic Blast Wander (Torment League)' and '[2.1 Video Guide] Tanky End-Game Kinetic Blast Wander' confirm meta presence through 1.3-2.x; Kinetic Blast introduced 1.3",
+      "source_url": "http://www.pathofexile.com/forum/view-thread/1144534",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "'[3.6] The Fastest PoE Build - Kinetic Blast Pathfinder' Odealo guide documents active meta presence through 3.6",
+      "source_url": "https://odealo.com/articles/the-fastest-poe-build-kinetic-blast-pathfinder-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "'Kinetic Blast Deadeye League Starter for Path of Exile Mirage 3.28' maxroll guide; skill acknowledged as consistently popular across latest leagues",
+      "source_url": "https://maxroll.gg/poe/build-guides/league-starter/kinetic-blast-deadeye-league-starter",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wander (Kinetic Blast)' and alias 'KB wander' are real community usage",
+      "anchor_quote": "'[1.3] Elemental Crit Kinetic Blast Wander (Torment League)' forum title; '[2.1 Video Guide] Tanky End-Game Kinetic Blast Wander' confirm the 'wander' folk name from earliest eras",
+      "source_url": "http://www.pathofexile.com/forum/view-thread/1144534",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Kinetic Blast + Power Siphon; wand shots create clustered secondary explosions at impact zone; screen-paint clear speed archetype",
+      "anchor_quote": "'Fires a projectile from a Wand that causes a series of area explosions in a secondary radius around its point of impact, each damaging enemies'",
+      "source_url": "https://poedb.tw/us/Kinetic_Blast",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Pathfinder: Master Surgeon + Nature's Boon (flask uptime for Dying Sun)",
+            "Deadeye: Ricochet + Endless Munitions (additional projectiles)",
+            "Deadeye: Gathering Winds + Focal Point (3.20+)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/the-fastest-poe-build-kinetic-blast-pathfinder-odealos-crafty-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Cragfall wand (unique)",
+            "Dying Sun flask (more projectiles for KB blasts)",
+            "Goldrim/MF gear in 2.x era for Magic Find variants"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/the-fastest-poe-build-kinetic-blast-pathfinder-odealos-crafty-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (wand)",
+          "secondary_blasts": "4 additional explosions distributed across arcs around impact",
+          "blast_radius": "area of effect affects both explosion radius and spacing between explosions",
+          "movement": "full mobility while firing"
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Blast",
+        "anchor_quote": "'creates 4 additional explosions with each enemy struck... Increases to this skill's area of effect will affect both the radius of the explosions and their spacing apart from each other'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Fire Kinetic Blast from wand; each shot creates 4+ secondary area explosions at impact point spreading in arcs; Power Siphon used for single-target or to build up power charges; screen-paint clear by walking forward firing; Barrage swap for bossing"
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Blast",
+        "anchor_quote": "'fires a projectile from a Wand that causes a series of area explosions in a secondary radius around its point of impact, each damaging enemies'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pathfinder (3.6-3.17 flask-sustain variant)",
+            "Deadeye (3.20+ projectile-stacking; league starter)",
+            "Occultist CI (3.18 high-investment variant)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/the-fastest-poe-build-kinetic-blast-pathfinder-odealos-crafty-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

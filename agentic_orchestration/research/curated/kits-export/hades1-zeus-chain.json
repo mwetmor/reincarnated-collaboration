@@ -1,0 +1,222 @@
+{
+  "kit_id": "hades1-zeus-chain",
+  "spine": {
+    "kit_id": "hades1-zeus-chain",
+    "folk_name": "Zeus Chain-Lightning Core",
+    "game": "hades1",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades1-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Hades boon loadout has no fixed rotation — cannot model a player rotation. Boon-set (Zeus boons on attack+special) IS the kit identity. Jolted status is Hades-specific with no 16-ailment equivalent. T4 doors are authored judgment on the proc-chain + retribution shapes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Hades boon loadout has no fixed rotation — cannot model a player rotation. Boon-set (Zeus boons on attack+special) IS the kit identity. Jolted status is Hades-specific with no 16-ailment equivalent. T4 doors are authored judgment on the proc-chain + retribution shapes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Strike (chain-lightning on attack hit)",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Chain-hop arcing to up to 4 nearby enemies per hit. Not a beam or line — arcing arc-bounce geometry. Lightning Damage attested verbatim in dossier + verify_ledger anchor. Jolted status (enemy self-damages on attack, consuming status) has no §2 equivalent — not in the 16-ailment registry; noted here only. Omitted from ailments per §0-UNIVERSAL (no registry token named)."
+        },
+        {
+          "source_skill": "Thunder Flourish (chain-lightning on special hit)",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Same chain-hop proc as Lightning Strike but triggered on Special use. Lightning Damage 30 base attested."
+        }
+      ],
+      "motion_frame": "on-hit chain-lightning proc bounces to nearby enemies; no player rotation — pure passive boon trigger",
+      "resource_economy": {
+        "proc_trigger_condition": "on-hit",
+        "cost_scale": "none (boon passive — zero cost per chain proc)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "chain-hop bounce count (4-enemy cap)"
+          ],
+          "economy": [
+            "attack frequency maximizes proc rate"
+          ],
+          "traits_affixes": [
+            "lightning damage scaling per rarity tier"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Hades boon loadout has no fixed rotation — boon-set is the build identity. Zeus chain is a passive-proc-on-hit pattern with no player-facing skill sequence. Jolted (enemy self-damage on attack) is a genuinely novel status with no 16-ailment registry equivalent — docketed. Lightning element attested: 'Lightning Strike will deal 10 Lightning Damage' (verify_ledger) and 'Your Attack emits chain-lightning when you damage a foe … Lightning Damage' (dossier). §B5-ROGUELITE (c): boon-typed damage survives roguelite-silencing — lightning EMITS."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+      "archive_url": null,
+      "site": "basicallyaverage.com",
+      "author_handle": null,
+      "title": "Zeus Boons | Hades Guide - Basically Average",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://hades.wiki.fextralife.com/Lightning+Strike",
+      "archive_url": null,
+      "site": "hades.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Lightning Strike | Hades Wiki - FextraLife",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hades1-2020 era.",
+      "anchor_quote": "Lightning Strike will deal 10 Lightning Damage to the first mob",
+      "source_url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Zeus Chain-Lightning Core' — Zeus boon build centered on Lightning Strike and chain-lightning is a real and widely-documented build identity in Hades.",
+      "anchor_quote": "Lightning Strike will deal 10 Lightning Damage to the first mob ... Chain-lightning can bounce between 4 enemies at a time",
+      "source_url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills are Lightning Strike and Thunder Flourish; Zeus chain-lightning procs on hit and forks to nearby enemies; chain-hop geometry NOT a line or beam; Jolted status; proc-chain economy.",
+      "anchor_quote": "Your Attack emits chain-lightning when you damage a foe ... Lightning Damage ... chain-lightning can bounce between 4 enemies at a time",
+      "source_url": "https://hades.wiki.fextralife.com/Lightning+Strike",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Zeus legendary boon (King's Ransom or similar) and high boon rarity are the primary scaling capstones. Jolted status (Static Discharge) is the secondary capstone applying self-damage to chained enemies."
+        },
+        "source_url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+        "anchor_quote": "Jolted is Zeus's signature Status Curse, which causes enemies to inflict damage to themselves when they attack, consuming the Curse",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Lightning Strike rarity tiers increase Lightning Damage: 10 (Common) / 12.5 (Rare) / 15 (Epic) / 20 (Heroic). Thunder Flourish similarly: 30 Lightning Damage base. Static Discharge adds Jolted status. High attack frequency weapons maximize chain proc throughput."
+        },
+        "source_url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+        "anchor_quote": "The Common Lightning Strike will deal 10 Lightning Damage ... The Common Thunder Flourish will deal 30 Lightning Damage",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "chain-hop",
+          "description": "Chain-lightning forks from the hit target to up to 4 nearby enemies. Chain-hop geometry: NOT a line/beam — arcing bounces between pack members. G2 flag confirmed: chain-hop."
+        },
+        "source_url": "https://hades.wiki.fextralife.com/Lightning+Strike",
+        "anchor_quote": "Your Attack emits chain-lightning when you damage a foe ... Lightning Damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Boon passive, not a rotation. Zeus Lightning Strike boon: every attack hit emits chain-lightning that bounces to nearby enemies, dealing Lightning Damage. Thunder Flourish applies similar chain-lightning on Special hits. Jolted status (from Static Discharge upgrade) causes enemies to damage themselves when they attack, consuming the status. Loop: hit frequently → chain-hop lightning procs per hit → pack damage. Economy: pure proc on hit, no extra resource."
+        },
+        "source_url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+        "anchor_quote": "Lightning Strike will deal 10 Lightning Damage to the first mob ... Chain-lightning can bounce between 4 enemies at a time",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "High attack-speed weapon variant (maximizes chain proc rate)",
+            "Zeus+Artemis variant (chain lightning + critical strike)",
+            "Zeus+Ares variant (chain lightning + Doom on-hit)"
+          ]
+        },
+        "source_url": "https://basicallyaverage.com/zeus-boons-hades-guide/",
+        "anchor_quote": "High attack frequency drives high chain proc throughput",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

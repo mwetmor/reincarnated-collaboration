@@ -1,0 +1,261 @@
+{
+  "kit_id": "le-hammer-throw-paladin",
+  "spine": {
+    "kit_id": "le-hammer-throw-paladin",
+    "folk_name": "Hammer Throw Paladin",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/hammerdin",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Orbiting physical hammers map cleanly to orbit. Source player would miss the geometry POLYMORPHISM across variants: the mapped core is orbit, but Nova Hammerdin (Enra's + Avatar of the Spire) converts to a screen-wide nova and DISABLES orbit — the engine picks one geometry, not a stance-swap between orbit and nova. PERSISTENCE_ENGINE_uptime (audit-corrected door) carries the always-on orbit-field identity but not the orbit<->nova fork. Physical-neutral element loses the 'holy hammerdin' flavor (carried in element-slot flavor only).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Orbiting physical hammers map cleanly to orbit. Source player would miss the geometry POLYMORPHISM across variants: the mapped core is orbit, but Nova Hammerdin (Enra's + Avatar of the Spire) converts to a screen-wide nova and DISABLES orbit — the engine picks one geometry, not a stance-swap between orbit and nova. PERSISTENCE_ENGINE_uptime (audit-corrected door) carries the always-on orbit-field identity but not the orbit<->nova fork. Physical-neutral element loses the 'holy hammerdin' flavor (carried in element-slot flavor only).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hammer Throw",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hammers thrown outward then ORBIT/circle the walking Paladin, auto-hitting all enemies in range (fetched: 'hammers orbit the player', 'multiple hammers circle the Paladin hitting all enemies in range', 'auto-hit all nearby enemies'). PHYSICAL element -> no family (THE PHYSICAL RULE): element-neutral, identity via geometry. NO core ailment: bleed appears only in the Bleed-Hammerdin VARIANT ('bleed DoT via spiral'), not the mapped orbit core. Enra's Technique + Avatar of the Spire transform to a screen-wide NOVA but DISABLE orbit/spiral/chain — that is a distinct variant fork, noted."
+        }
+      ],
+      "motion_frame": "Maintain Sigils/Symbols of Hope buffs -> Hammer Throw spam -> hammers orbit/spiral the walking Paladin -> auto-hit all nearby enemies",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast spend (mana-light)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Enra's Technique + Avatar of the Spire (orbit->screen-wide nova, disables spiral/chain/orbit)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Primal Cadence (crit variant)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Classic hammerdin: orbiting physical hammers maps clean to orbit geometry (element-neutral per THE PHYSICAL RULE — lineage=genre/hammerdin, D2 hammerdin ancestor). ERA NAME NOTE (hot-fact): 'Sigils of Hope' (DB/beta name) renamed 'Symbols of Hope' in Season-4/current guides — era-scoped name drift, same buff skill; recorded, not a mapping change. The Enra's Technique + Avatar of the Spire NOVA form (screen-wide AoE, disables orbit) is a major variant fork — T4 CORRECTED at audit: GEOMETRY_PROPAGATION_cascade STRUCK (§5 pins propagation to on-kill/_overkill on-hit; orbiting hammers PROPAGATE nothing) -> PERSISTENCE_ENGINE_uptime — the walking always-on orbit-damage field is RF-class (the §5 DoT/uptime exemplar). [STEWARD AUDIT 2026-07-18] Sigils/Symbols of Hope = buff-maintenance rider (not a delivery). §0 near-miss: bleed WANTED but ONLY variant-scoped (Bleed Hammerdin), not attested for the mapped orbit core -> WITHHELD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forum.lastepoch.com/t/an-s-tier-hammerdin-yes-please-here-ya-go-0-8-1c/32261",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "An S Tier Hammerdin? Yes Please! Here ya go 0.8.1c",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Nova Hammerdin Paladin Last Epoch Build Guide",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/crit-hammerdin-paladin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Crit Hammerdin Paladin Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Viable for 0.8.1c — HAMMERDIN! Throw to your hearts content! — Sigils of Hope a core skill alongside Hammer Throw",
+      "source_url": "https://forum.lastepoch.com/t/an-s-tier-hammerdin-yes-please-here-ya-go-0-8-1c/32261",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Hammer Throw Enrya's Technique Avatar of The Spire Paladin 340+ Corruption — search result title confirms 1.0+ era presence",
+      "source_url": "https://forum.lastepoch.com/t/hammer-throw-enryas-technique-avatar-of-the-spire-paladin-340-corruption/45894",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Crit Hammerdin Paladin Guide for Last Epoch Season 4 — Last Updated: April 27, 2026",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/crit-hammerdin-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hammer Throw Paladin' and alias 'hammerdin LE' are real community usage",
+      "anchor_quote": "An S Tier Hammerdin? Yes Please! — 0.8.1c...HAMMERDIN! Throw to your hearts content!",
+      "source_url": "https://forum.lastepoch.com/t/an-s-tier-hammerdin-yes-please-here-ya-go-0-8-1c/32261",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Hammer Throw and Sigils of Hope; Mana spend; orbit delivery pattern; hammers travel and circle player",
+      "anchor_quote": "Hammer Throw is your main Damage skill...Enra's Technique combined with Avatar of the Spire transforms Hammer Throw into an AoE skill, filling the battlefield with Hammers",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sigils of Hope is a core skill",
+      "anchor_quote": "Sigils of Hope appears in the skills section alongside Hammer Throw, Lunge, Holy Aura, and Smite — indicating it's a core component",
+      "source_url": "https://forum.lastepoch.com/t/an-s-tier-hammerdin-yes-please-here-ya-go-0-8-1c/32261",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "reviewer": "Lizard_IRL"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+        "anchor_quote": "Written by Volca. Content Reviewed by Lizard_IRL.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Symbols of Hope (current name in Season 4 guides) provides buffs; Disintegrating Aura node mana cost adjusted in 1.1 patch (+8 mana cost from 12).",
+          "note_on_name": "DB records 'Sigils of Hope'; current Season 4 maxroll guides show 'Symbols of Hope' — possible rename between patches; beta-era guides confirm 'Sigils of Hope' as the original name."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/crit-hammerdin-paladin-guide",
+        "anchor_quote": "Symbols of Hope provides valuable buffs. Place this Skill on your Action Bar, but do not manually activate it",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Enra's Technique (nova AoE transform)",
+            "Avatar of the Spire (complements Enra's)"
+          ],
+          "notes": "Crit Hammerdin variant uses Primal Cadence; Bleed variant applies bleed DoT via spiraling hammers."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+        "anchor_quote": "Enra's Technique combined with Avatar of the Spire transforms Hammer Throw into an AoE skill",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit-or-nova",
+          "footprint": "multi-point",
+          "description": "Hammers thrown outward; via tree nodes they orbit or nova around the player. Orbit form: multiple hammers circle the Paladin hitting all enemies in range. Nova/AoE form: Enra's Technique + Avatar of the Spire create screen-wide nova. Crit Hammerdin variant disables spiral/orbit for massive single-hit damage."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+        "anchor_quote": "Enra's Technique combined with Avatar of the Spire transforms Hammer Throw into an AoE skill, filling the battlefield with Hammers...Enra's Technique disables spiral, chain and orbit, while granting a huge amount of damage in return",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Throw hammers that travel and then orbit the walking Paladin via tree nodes (Enra's Technique + Avatar of the Spire for nova/AoE form; orbit form in other variants). Sigils of Hope buffed before throwing. Multiple hammers active simultaneously striking all enemies player walks through.",
+          "core_cycle": "Maintain Sigils of Hope -> Hammer Throw spam -> hammers orbit/spiral player -> auto-hit all nearby enemies"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+        "anchor_quote": "Hammer Throw is your main Damage skill...Enra's Technique combined with Avatar of the Spire transforms Hammer Throw into an AoE skill, filling the battlefield with Hammers",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Nova Hammerdin (Enra's Technique + Avatar of Spire, screen-wide AoE)",
+            "Smite Hammerdin (spiraling hammers + lightning Smite)",
+            "Bleed Hammerdin (bleed DoT via spiral)",
+            "Crit Hammerdin (single powerful hit, orbit disabled)",
+            "Beta 0.8.1c hammerdin (classic thrown hammer spiral)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/nova-hammerdin-guide",
+        "anchor_quote": "Nova Hammerdin Paladin...Smite Hammerdin Paladin...Crit Hammerdin Paladin...Bleed Hammerdin Paladin",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 7,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

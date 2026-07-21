@@ -1,0 +1,226 @@
+{
+  "kit_id": "hot-archer",
+  "spine": {
+    "kit_id": "hot-archer",
+    "folk_name": "Archer (multishot)",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-ea-2023;hot-1.0-2024",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element-neutral mapping drops the flavor of the archer ranged-glass-cannon feel; player would notice the absence of any elemental specialization that HoT traits can provide through variants. Core cone+pierce geometry maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element-neutral mapping drops the flavor of the archer ranged-glass-cannon feel; player would notice the absence of any elemental specialization that HoT traits can provide through variants. Core cone+pierce geometry maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Archer cone-arrow auto-attack",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "2-projectile cone (18 deg base), pierce attested; projectile-count scales via Multistrike/Proficient Stance traits; no damage-type descriptor — physical projectiles, element-neutral"
+        }
+      ],
+      "motion_frame": "high-tempo ranged auto-fire; cone of arrows, pierce lane-through; projectile-count is the identity lever",
+      "resource_economy": {
+        "cadence_scale": "high; roguelite auto-fire rate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce lane-through",
+            "projectile count scaling"
+          ],
+          "economy": [
+            "attack rate scaling"
+          ],
+          "traits_affixes": [
+            "Multistrike",
+            "Proficient Stance Projectiles",
+            "Piercing Wind",
+            "Quick Hands"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Variants (Lightning Strike adds electrify to projectiles; Phantom Needles adds bleed needles) are base-kit add-ons not the core identity — dropped per variant-scope ruling. Element-neutral: no damage-type descriptor in fetched text for the base arrow attack."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": null,
+      "title": "Halls of Torment All Characters Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://commonsensegamer.com/halls-of-torment-best-archer-build/",
+      "archive_url": null,
+      "site": "commonsensegamer.com",
+      "author_handle": null,
+      "title": "Halls of Torment: Best Archer Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://lastwordongaming.com/2023/07/10/halls-of-torment-archer-build/",
+      "archive_url": null,
+      "site": "lastwordongaming.com",
+      "author_handle": null,
+      "title": "Halls of Torment Archer Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-ea-2023; hot-1.0-2024",
+      "anchor_quote": "glass-canon hero. A fast-moving, ranged character that shoots multiple piercing arrows",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Archer (multishot) — projectile-count platform, Diablo-3-Demon-Hunter homage, glass-cannon ranged",
+      "anchor_quote": "glass-canon hero. A fast-moving, ranged character that shoots multiple piercing arrows",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fires fan/cone of arrows; Multistrike trait increases arrow count; Pierce adds lane-through behavior; auto-fires on cooldown",
+      "anchor_quote": "default attack sends two arrow projectiles in a cone shape, allowing her to hit multiple enemies at once or a single enemy multiple times",
+      "source_url": "https://commonsensegamer.com/halls-of-torment-best-archer-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "traits": [
+            "Multistrike/Multihit (+arrows/attack rate)",
+            "Piercing Wind (pierce)",
+            "Quick Hands (attack speed)",
+            "Proficient Stance Projectiles (+0.15 projectiles)"
+          ],
+          "notes": "Trait-based scaling; no runes/gems. Roguelite economy."
+        },
+        "source_url": "https://commonsensegamer.com/halls-of-torment-best-archer-build/",
+        "anchor_quote": "Extra Projectiles are always good to have, since you can hit more targets downrange",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-cone",
+          "footprint": "multi-point",
+          "range_m": 6.0,
+          "cone_angle_deg": 18,
+          "projectile_count_base": 2,
+          "pierce": true
+        },
+        "source_url": "https://commonsensegamer.com/halls-of-torment-best-archer-build/",
+        "anchor_quote": "default attack sends two arrow projectiles in a cone shape",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Archer fires a cone of arrows (base: 2 projectiles, 18° cone) auto-targeting enemies at high rate. Core loop: arrow count scales via Projectiles trait; Pierce allows lane-through hitting multiple enemies. Roguelite auto-fire — no manual rotation."
+        },
+        "source_url": "https://commonsensegamer.com/halls-of-torment-best-archer-build/",
+        "anchor_quote": "default attack sends two arrow projectiles in a cone shape, allowing her to hit multiple enemies at once",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Lightning Strike Archer variant (adds electrify to projectiles); Phantom Needles variant (adds bleed needles). Both documented in guide discourse."
+        },
+        "source_url": "https://www.thegamer.com/halls-of-torment-archer-build-best-abilities-guide/",
+        "anchor_quote": "Lightning Strike is highlighted as the most effective ability",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

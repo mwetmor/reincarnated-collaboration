@@ -1,0 +1,221 @@
+{
+  "kit_id": "ud-illusion-family",
+  "spine": {
+    "kit_id": "ud-illusion-family",
+    "folk_name": "Illusion Family (Arrow/Axe/Hook)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "ud-launch-2022;ud-s7-2025",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player expects weapon-type flavor differentiation (Arrow vs Axe vs Hook) with distinct range profiles per variant. Engine maps two geometry slots which captures the ranged/melee split but loses the three-way weapon-type identity granularity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player expects weapon-type flavor differentiation (Arrow vs Axe vs Hook) with distinct range profiles per variant. Engine maps two geometry slots which captures the ranged/melee split but loses the three-way weapon-type identity granularity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Illusion Arrow",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "MECHANICS CONTRADICTED: not echo-copy spawns but stack-proc auto-fire. Stack bow skill hits to threshold → auto-fires Guided Arrow proc (6-projectile burst). Caster-origin proc, not at-target echo spawn. Multi-projectile geometry."
+        },
+        {
+          "source_skill": "Illusion Axe / Illusion Hook",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee proc support variants used in Lightning Vortex melee build as link-rune slots. No independent element attest. Proc on melee trigger."
+        }
+      ],
+      "motion_frame": "Stack bow/melee skill hits to threshold; Illusion variant auto-fires proc burst; weapon-type variants (Arrow/Axe/Hook) swap delivery mode; verity: Arrow gains Multishot Link Effect",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "cost_scale": "proc-free"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_PROPAGATION_cascade",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Multishot Link Rune Effect (verity — Arrow variant)"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MECHANICS CORRECTED by verify. Illusion family is a stack-proc auto-cast, not a persistent echo-copy spawner. No element attested (physical per corpus; no damage-type descriptor in fetched text). Three weapon-variant sub-identities mapped as two skills. proc_trigger_condition approximated as on-ailment-application (nearest available; actual is on-stack-threshold). Family carries proxy-entity door class note filed to steward: Illusion = caster-origin proc burst (not placed proxy)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/IllusionArrow/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Illusion Arrow - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pocketgamer.com/undecember/builds/",
+      "archive_url": null,
+      "site": "pocketgamer.com",
+      "author_handle": "Pocket Gamer staff",
+      "title": "The best Undecember builds in Season 7",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-launch-2022 and ud-s7-2025",
+      "anchor_quote": "This Strength-based melee attack swings the weapon forth to deal Cleave Lightning area DMG, followed by a vortex that inflicts Vortex Lightning DMG. [Support Skills:] Illusion Hook, Illusion Axe",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Illusion Family (Arrow/Axe/Hook) — three weapon-type variants with echo-copy grammar",
+      "anchor_quote": "This Strength-based melee attack swings the weapon forth to deal Cleave Lightning area DMG, followed by a vortex that inflicts Vortex Lightning DMG. [Support Skills:] Illusion Hook, Illusion Axe",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Illusion copies spawn at target positions mirroring player attacks; echo-uptime model",
+      "anchor_quote": "Chance to automatically fire a Guided Arrow upon reaching stack count with Bow Skills",
+      "source_url": "https://undecember.thein.ru/en/runes/IllusionArrow/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Daimonios",
+          "site": "pocketgamer.com/undecember",
+          "context": "Season 7 Lightning Vortex build using Illusion Hook + Illusion Axe as support runes"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "variants": [
+            "Illusion Arrow (bow skill proc)",
+            "Illusion Axe (melee proc support)",
+            "Illusion Hook (melee proc support)"
+          ],
+          "verity": "Gain Multishot Link Rune Effect (Illusion Arrow Verity)"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IllusionArrow/",
+        "anchor_quote": "Gain Multishot Link Rune Effect",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "projectile proc (Arrow) or melee proc (Axe/Hook) from caster; NOT at-target echo copy",
+          "note": "corpus claim of at-target copy spawning is contradicted — these are caster-origin proc skills"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IllusionArrow/",
+        "anchor_quote": "Chance to automatically fire a Guided Arrow upon reaching stack count with Bow Skills",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Illusion Arrow: stack bow skill hits to threshold, then auto-fires Guided Arrow proc (6 projectile burst). Illusion Hook and Illusion Axe used as support slots in Lightning Vortex melee build. NOT a persistent copy-spawn mechanic; each variant is a proc trigger."
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IllusionArrow/",
+        "anchor_quote": "Chance to automatically fire a Guided Arrow upon reaching stack count with Bow Skills",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Illusion Arrow — bow skill stack-proc (ranged)",
+            "Illusion Axe — melee support proc",
+            "Illusion Hook — melee support proc"
+          ]
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IllusionArrow/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

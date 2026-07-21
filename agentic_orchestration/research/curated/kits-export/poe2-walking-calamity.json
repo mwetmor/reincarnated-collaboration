@@ -1,0 +1,251 @@
+{
+  "kit_id": "poe2-walking-calamity",
+  "spine": {
+    "kit_id": "poe2-walking-calamity",
+    "folk_name": "Walking Calamity Shaman",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01 GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Walking Calamity Shaman player would miss TWO things: (1) the two-tier Rage->Glory economy -- Rage OVERFLOW at max feeds a SEPARATE Glory meter that, at cap, ACTIVATES the meteor storm; collapsed to one accumulator + threshold-proc, the 'fill Rage, spill into Glory, Glory caps and the sky falls' rhythm reads as a plain charge-then-proc (same WATCH-ITEM deviation as b02 shaman-bear). (2) the ENEMY-COUNT frequency scaling -- meteor cadence ramps up to 200% MORE frequent the more enemies surround you, a density-reactive output curve the engine's ground_targeted_circle + GEOMETRY_PROPAGATION door approximate as generic on-kill cascade rather than a first-class 'more targets -> faster meteors' coupling. The core (a fire meteor-field autobomber that propagates kills via Herald of Ice) maps recognizably, but the two-tier accrual + density-scaling are the deviations -> APPROX (that build, flatter economy + no density ramp); both are steward candidates, not unmodelable, so APPROX not GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Walking Calamity Shaman player would miss TWO things: (1) the two-tier Rage->Glory economy -- Rage OVERFLOW at max feeds a SEPARATE Glory meter that, at cap, ACTIVATES the meteor storm; collapsed to one accumulator + threshold-proc, the 'fill Rage, spill into Glory, Glory caps and the sky falls' rhythm reads as a plain charge-then-proc (same WATCH-ITEM deviation as b02 shaman-bear). (2) the ENEMY-COUNT frequency scaling -- meteor cadence ramps up to 200% MORE frequent the more enemies surround you, a density-reactive output curve the engine's ground_targeted_circle + GEOMETRY_PROPAGATION door approximate as generic on-kill cascade rather than a first-class 'more targets -> faster meteors' coupling. The core (a fire meteor-field autobomber that propagates kills via Herald of Ice) maps recognizably, but the two-tier accrual + density-scaling are the deviations -> APPROX (that build, flatter economy + no density ramp); both are steward candidates, not unmodelable, so APPROX not GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Walking Calamity (Glory-activated meteor rain)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "ACTIVATED at Glory-cap (Generate Glory by gaining Rage at max Rage; activate to rain meteors); meteors fall in an 8-meter radius AROUND the player, small meteors every 0.15s (60-245% base), large meteors every 15 small (150-612%), frequency scaling up to 200% by nearby enemy count, for 10-20s -> ground_targeted_circle (self-origin meteor-rain patches around the player; the pool/rain phrase-book member). fire (physical-to-fire 100% conversion via Avatar of Evolution). ailment=burn (fire meteors). Self-origin large-surrounding-area 'walk and everything dies' autobomber."
+        },
+        {
+          "source_skill": "Herald of Ice + Polcirkeln (on-freeze/on-kill propagation)",
+          "geometry_value": "ring",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Herald of Ice detonates a cold nova on a shatter/kill; Polcirkeln extends/propagates the freeze-shatter across packs -> ring (nova-around-a-kill). water (cold register). freeze ailment. This is the propagation layer that spreads the meteor kills across the pack (on-kill cascade); secondary stage per 7.2 (the every-3-seconds loop is the Walking Calamity meteor field)."
+        }
+      ],
+      "motion_frame": "Build Rage (Maul/Furious Slam) -> at max Rage generate Glory -> ACTIVATE Walking Calamity to rain meteors in an 8m radius around you for 10-20s (frequency scales with pack size); Herald of Ice + Polcirkeln propagate the freeze-shatter kills across the pack. One-button autobomber once active; Rampage for single-target.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "rage": "built by Maul/Furious Slam (accumulator); at max Rage, overflow generates Glory",
+        "glory": "second-tier accumulator (built by gaining Rage at max Rage); Glory-cap ACTIVATES Walking Calamity (approximated as one accumulator + threshold-proc; second tier fidelity-noted)",
+        "persistent_condition_shape": "proc-loop (Walking Calamity meteor field, 0.15s cadence for 10-20s once activated)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Rage stacks -> (at max) Glory second-tier accumulator -> Glory-cap activates Walking Calamity; Herald of Ice on-freeze-kill nova",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "Walking Calamity 8m ground_targeted_circle meteor field",
+            "Herald of Ice ring nova on freeze-kill",
+            "Rage-builder slams (Maul/Furious Slam)"
+          ],
+          "economy": [
+            "Rage accumulator",
+            "Glory second-tier accumulator (fidelity_note: approximated as threshold-proc)",
+            "enemy-count frequency scaling (up to 200%)"
+          ],
+          "traits_affixes": [
+            "fire damage / burn (Fury of the King Ashbark Talisman fire synergy)",
+            "physical-to-fire conversion (Avatar of Evolution)",
+            "Rage-generation / -effect",
+            "elemental damage reduction defensive (Reactive Growth, Rite of Passage ~20K armor vs elemental)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-01 GX-17 (corpus gx). HOT-FLAG 1 RESOLVED -- ERRATA-19 CORRECTED IDENTITY mapped: folk_name 'Walking Calamity Shaman'; core_skills [Walking Calamity, Herald of Ice, Polcirkeln]; the pre-errata 'Autobomber/Molten Crash' identity was CONTRADICTED (verify_ledger, errata_applied=1) and is NOT mapped. This kit's Walking Calamity is the ACTIVE-cast Glory-payoff ('Activate it to cause large meteors to constantly rain down for over 20 seconds') -- DISTINCT from b02 poe2-shaman-bear, where Walking Calamity appears as a PASSIVE Glory-cap auto-proc sub-skill of a Bear-Form Rage bruiser. RELATIONSHIP: this (Walking Calamity Shaman) and b02 shaman-bear are the SAME shaman/Druid Rage->Glory->Walking-Calamity FAMILY but plausibly DISTINCT kits -- this one is the meteor-autobomber built AROUND Walking Calamity as the active headline (fire meteors + Herald of Ice/Polcirkeln propagation, NO in-form Bear slams as the identity), whereas shaman-bear is a Bear-Form slam bruiser where Walking Calamity is the tail-end payoff. Filed as 'accrual to the shaman-bear Rage->Glory two-tier-accumulator family' WITHOUT number (steward-counted); the two-tier Rage->Glory row (addendum B) applies -> ONE accumulator + threshold-proc + fidelity_note the Glory second tier. Section-B WATCH-ITEM referenced; instance-counting is steward-owned. Physical-to-fire 100% conversion (Avatar of Evolution) -> ELEMENT_CONVERSION_PHYSICAL is a candidate door but GEOMETRY_PROPAGATION (on-kill meteor+Herald cascade) is the DOMINANT identity per 7.2 -> GEOMETRY_PROPAGATION + MOMENTUM_CASCADE (Rage/Glory ramp) chosen; conversion noted in traits. chain_count=3 per R-M2 (Walking Calamity + Herald of Ice propagation + Rage-builder slams). GX-01/GX-17 corpus flags. eras 0.5-ancients CONFIRMED. [STEWARD AUDIT m03: 'burn' stripped (mapper note says 'burn (fire meteors)' -- element-flavor; fetched text attests fire DAMAGE + physical-to-fire conversion, no burn status); 'freeze' stripped (fetched text attests 'Herald of Ice + Polcirkeln propagates KILLS across packs' -- kill-propagation only; 'freeze-shatter' language was poe1 priors). Propagation identity survives in ring geometry + GEOMETRY_PROPAGATION door. RUN-WIDE no-un-named-status law]"
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Walking Calamity Shaman Build Guide for Path of Exile 2 Return of the Ancients 0.5.1",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Walking_Calamity",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Walking Calamity - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mmoexp.com/News/path-of-exile-2-walking-calamity-druid-build-guide.html",
+      "archive_url": null,
+      "site": "mmoexp.com",
+      "author_handle": null,
+      "title": "Path of Exile 2 Walking Calamity Druid Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 1
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.5-ancients",
+      "anchor_quote": "Walking Calamity Shaman Build Guide for Path of Exile 2 Return of the Ancients 0.5.1 | Maxroll.gg... updated June 8, 2026",
+      "source_url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Folk name 'Walking Calamity Autobomber' and aliases 'herald retaliation autobomber', 'Molten Crash autobomb', 'walking calamity herald' are real community usage",
+      "anchor_quote": "Walking Calamity is a skill that summons a meteor to crash into the surrounding area while you move... [Shaman ascendancy, Druid class]... paired with Herald of Ice and Polcirkeln",
+      "source_url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills herald/retaliation procs and Molten Crash(weapon)",
+      "anchor_quote": "Walking Calamity: Generate Glory by gaining Rage while at maximum Rage. Activate it to cause large meteors to constantly rain down from the sky for over 20 seconds.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Shaman (Druid class)",
+          "notables": [
+            "Reactive Growth",
+            "Furious Wellspring",
+            "Avatar of Evolution",
+            "Druidic Champion"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+        "anchor_quote": "Reactive Growth (elemental damage reduction); Furious Wellspring (passive rage regeneration); Avatar of Evolution (physical-to-elemental conversion); Druidic Champion (utility)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Fury of the King Ashbark Talisman (legendary unique) provides significant additional fire damage synergy"
+        },
+        "source_url": "https://www.ezg.com/blog/poe-2-patch-0-5-0-top-5-strongest-builds-for-return-of-the-ancients",
+        "anchor_quote": "paired with the game's strongest legendary Unique Talisman, Fury of the King Ashbark Talisman, you gain a significant amount of additional fire damage",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "walking_calamity": "meteors rain in 8-meter radius around player; small meteors every 0.15s (60-245% base dmg); large meteors every 15 small meteors (150-612%); frequency scales with nearby enemy count up to 200%; self-origin with large surrounding area; physical-to-fire 100% conversion"
+        },
+        "source_url": "https://poe2db.tw/us/Walking_Calamity",
+        "anchor_quote": "meteors fall in 8-meter radius with frequency scaling up to 200% based on enemy count. Small meteors trigger every 0.15 seconds",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Generate Rage via Maul/Furious Slam → build to max Rage → generate Glory → activate Walking Calamity for 10-20s meteor shower around player → use Rampage for single-target bosses. Herald of Ice + Polcirkeln propagates kills across packs. One-button autobomber once activated."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+        "anchor_quote": "Generate Glory by gaining Rage while at maximum Rage. Activate it to cause large meteors to constantly rain down from the sky for over 20 seconds.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Walking Calamity Shaman (meteor autobomber)",
+            "Repulsion Autobomber (separate Druid build using herald retaliation — NOT Walking Calamity)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/walking-calamity-shaman-build-guide",
+        "anchor_quote": "Walking Calamity Shaman Build Guide for Path of Exile 2 Return of the Ancients 0.5.1",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

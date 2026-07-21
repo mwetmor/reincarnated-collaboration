@@ -1,0 +1,216 @@
+{
+  "kit_id": "hades1-beowulf-cast",
+  "spine": {
+    "kit_id": "hades1-beowulf-cast",
+    "folk_name": "Beowulf Cast Build",
+    "game": "hades1",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades1-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-14 GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Finite-ammo-accumulate-burst (bloodstones load into shield, all release on Dragon Rush) has no engine economy equivalent. TEMPORAL_CHARGE is closest but ammo is retrieved via pickup, not time-based. No base-kit element — cast boon determines element per run.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Finite-ammo-accumulate-burst (bloodstones load into shield, all release on Dragon Rush) has no engine economy equivalent. TEMPORAL_CHARGE is closest but ammo is retrieved via pickup, not time-based. No base-kit element — cast boon determines element per run.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cast load (bloodstone accumulation into shield)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pressing Cast loads bloodstones into the shield — no element, no enemy contact. Pure accumulation/charge-load action. NOT a projectile lodging in enemy (mechanics CONTRADICTED). Bloodstones do not detach until Dragon Rush."
+        },
+        {
+          "source_skill": "Dragon Rush (powered Bull Rush + bloodstone AoE release)",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Zagreus dashes forward (Bull Rush) then releases all loaded bloodstones as a radial shockwave/AoE burst at rush destination. Ring/nova geometry at end point. Not single-target; not projectile. Dossier anchor: 'all loaded Casts get fired in rapid sequence at the very end of the Rush movement but the Casts are almost universally changed into a radial shockwave effect'. No element — cast boon variant (Zeus, Poseidon, Athena) determines element per-run, not base kit."
+        }
+      ],
+      "motion_frame": "load casts into shield via Cast button; hold and release Attack to Dragon Rush and detonate all loaded bloodstones as radial AoE",
+      "resource_economy": {
+        "finite_ammo_shape": "bloodstones accumulated into shield; all consumed on Dragon Rush release; no fixed reload rate — Cast button refills on bloodstone pickup",
+        "charge_accumulator": "bloodstone count in shield; higher count = larger burst"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "bloodstone count in shield",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "radial AoE radius at Dragon Rush destination"
+          ],
+          "economy": [
+            "Daedalus Hammer: Unyielding Defense — Sturdy 3s after Dragon Rush",
+            "extra +50 damage per embedded bloodstone"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Beowulf-cast is a weapon-aspect loadout with finite-ammo-accumulate-burst economy. CONTRADICTED mechanics claim (lodging in enemy) corrected to: bloodstones accumulate in shield and release as radial AoE on Dragon Rush. Element null for base kit — cast boon identity (Zeus chain-lightning / Poseidon wave / Athena deflect) is boon-variable per run, not base-kit attested. The finite-ammo-accumulate-burst shape (load, hold, release) has no clean engine economy lane — closest is charge_stack but the ammo retrieval from pickup distinguishes it. Docketed as finite-ammo-accumulate-burst shape. Cast boon variants (Zeus, Poseidon, Athena) are run-variable and dossier-attested as variants."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gamerant.com/hades-the-best-aspect-of-beowulf-build/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Hades: The Best Aspect Of Beowulf Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1145360/discussions/0/5520836869479561976/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Aspect of Beowulf guide? :: Hades General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hades1-2020 era.",
+      "anchor_quote": "After pressing the Cast button to load bloodstones into the shield, the player can then hold and release Attack to deal greater damage than a usual Bull Rush",
+      "source_url": "https://gamerant.com/hades-the-best-aspect-of-beowulf-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Beowulf Cast Build' — Aspect of Beowulf Shield of Chaos with cast-loaded Dragon Rush is a real build identity in Hades.",
+      "anchor_quote": "After pressing the Cast button to load bloodstones into the shield, the player can then hold and release Attack to deal greater damage than a usual Bull Rush, as well as damage from the Cast",
+      "source_url": "https://gamerant.com/hades-the-best-aspect-of-beowulf-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills are Igneus Eden/loaded cast and Aspect of Beowulf; bloodstone lodges in enemy on hit; retrieve bloodstone by bashing the enemy.",
+      "anchor_quote": "bloodstones never (afaik) lodge into enemies, and they fire off alongside your bull rush ... when the casts release at the end of the rush, they'll hit enemies",
+      "source_url": "https://steamcommunity.com/app/1145360/discussions/0/5520836869479561976/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Aspect level upgrades increase Dragon Rush damage amplification (20% per tier progression). Zeus/Poseidon boon synergies on cast are the primary power multipliers."
+        },
+        "source_url": "https://gamerant.com/hades-the-best-aspect-of-beowulf-build/",
+        "anchor_quote": "After pressing the Cast button to load bloodstones into the shield, the player can then hold and release Attack to deal greater damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Any cast boon scales the bloodstone damage (Zeus, Poseidon, Athena, Ares cast boons). Unyielding Defense Daedalus Hammer upgrade grants Sturdy (30% less damage, uninterruptible) for 3 seconds after Dragon Rush. +50 bonus damage per embedded bloodstone. Dragon Rush deals 20% more damage per progressive tier."
+        },
+        "source_url": "https://gamerant.com/hades-the-best-aspect-of-beowulf-build/",
+        "anchor_quote": "extra +50 damage for each embedded Bloodstone ... Sturdy for 3 seconds after utilizing his Dragon Rush",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "radial AoE at rush destination",
+          "description": "Dragon Rush moves Zagreus forward then fires all loaded cast bloodstones as a radial shockwave/AoE burst at the end of the rush. AoE geometry — not single-target projectile lodging in enemy."
+        },
+        "source_url": "https://gamerant.com/hades-the-best-aspect-of-beowulf-build/",
+        "anchor_quote": "all loaded Casts get fired in rapid sequence at the very end of the Rush movement but the Casts are almost universally changed into a radial shockwave effect",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Aspect build, not a rotation. Aspect of Beowulf on Shield of Chaos: pressing Cast loads bloodstones into the shield (no limit on stacking). Holding and releasing Attack triggers Dragon Rush (powered Bull Rush) which fires all loaded bloodstones as a radial AoE burst at the end of the rush movement. Unlike other shield aspects, bloodstones do NOT lodge in enemies — they accumulate in the shield and release together. Loop: load casts, then Dragon Rush to detonate. NOTE: corpus claim that 'bloodstone lodges in enemy, retrieve by bashing' is CONTRADICTED by multiple sources."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/5520836869479561976/",
+        "anchor_quote": "bloodstones never (afaik) lodge into enemies, and they fire off alongside your bull rush ... when the casts release at the end of the rush, they'll hit enemies",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Zeus cast boon variant (chain lightning on bloodstone release)",
+            "Poseidon cast boon variant (wave burst + knockback)",
+            "Athena cast boon variant (deflect on cast)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/5520836869479561976/",
+        "anchor_quote": "Poseidon, Athena, Zeus, Aphrodite, or Ares boons for synergy",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

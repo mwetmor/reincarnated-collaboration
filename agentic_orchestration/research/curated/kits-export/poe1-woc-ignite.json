@@ -1,0 +1,242 @@
+{
+  "kit_id": "poe1-woc-ignite",
+  "spine": {
+    "kit_id": "poe1-woc-ignite",
+    "folk_name": "Wave of Conviction Ignite",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the one-touch-per-wave rule and the single-giant-ignite cap are simplified against engine burn application; exposure timing window approximated by sunder duration band. Identity (walk, cast one wave, one huge burn per body) intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn",
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the one-touch-per-wave rule and the single-giant-ignite cap are simplified against engine burn application; exposure timing window approximated by sunder duration band. Identity (walk, cast one wave, one huge burn per body) intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wave of Conviction",
+          "geometry_value": "cone",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn",
+            "sunder"
+          ],
+          "delivery_notes": "self-origin wave surges forward in a widening cone for a duration, hitting each enemy ONCE per pass; applies exposure (-15 percent resistance to the dominant element) and ONE giant scaled ignite per target; only one wave live at a time (recast cancels the previous). Exposure -> sunder per crosswalk 2 application-shape rule (timed on-hit damage-taken window, not an aura/hex). Source composite phys+fire+lightning -> fire primary by ignite-scaling weight (crosswalk 1 triple rule; dropped components noted)"
+        }
+      ],
+      "motion_frame": "walk, wave, watch it burn: cast one screen-crossing wave into each pack and let the single fat ignite do the killing while you move on",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "widening cone wave",
+            "travel-distance scaling (AoE x duration multiplicative)"
+          ],
+          "economy": [
+            "mana-mid spend (unremarkable chassis)"
+          ],
+          "traits_affixes": [
+            "ignite magnitude/duration — Shaper of Flames ignite-on-everything as trait-lane",
+            "exposure amplification (Mastermind of Discord) as sunder-magnitude affix",
+            "phys-as-extra-fire gear numeric (Ryslatha's-class)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "cone + burn + sunder are all native lanes — the expanding-wave one-big-DoT caster lands cleanly. PERSISTENCE_ENGINE base token per R-M1: single-big-DoT-per-target is neither clearly the uptime-ramp nor the saturation-stack variant, so no variant hint pinned. One-hit-per-pass wave discipline and biggest-ignite-wins single-instance behavior recorded as flavor drift WITHOUT asserting engine burn-stack internals (b01 audit law: engine-truth claims require engine verification). The Squire linked-support item dissolves to chassis numeric."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Wave of Conviction Ignite Elementalist Build Guide (PoE 3.25)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3324120",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.20] Wave of Conviction Build (League Starter) | Elementalist | Forbidden Sanctum",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Wave_of_Conviction",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Wave of Conviction - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "'[3.20] Wave of Conviction Build (League Starter)| Elementalist' forum thread; Wave of Conviction introduced 3.6 and documented as ignite build across 3.14+ eras",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3324120",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wave of Conviction Ignite' and alias 'WoC ignite' are real community usage",
+      "anchor_quote": "'TbXie's Wave of Conviction Ignite Elementalist Build Guide' poe-vault.com; '[3.24] Wave of Conviction Elementalist Build' Odealo — both use 'WoC ignite' shorthand",
+      "source_url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Wave of Conviction; expanding cone wave applies exposure matching highest damage element; single large ignite per target; Elementalist Shaper of Flames enables ignite on all skills",
+      "anchor_quote": "'Sends a rolling wave of energy forward in a widening cone for a duration, dealing physical, fire and lightning damage... applying a debuff which lowers enemy resistances to the element of which the most damage was dealt'",
+      "source_url": "https://poedb.tw/us/Wave_of_Conviction",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com",
+          "note": "authored Wave of Conviction Ignite Elementalist guide; prominent PoE build author"
+        },
+        "source_url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Elementalist: Shaper of Flames (mandatory — enables ignite on all hits)",
+            "Elementalist: Mastermind of Discord (exposure amplification)",
+            "Elementalist: Heart of Destruction (AoE damage bonus)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+        "anchor_quote": "'build is tailored around Elementalist's Shaper of Flames which allows all skills to Ignite'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "The Squire (linked support gems for free 5th link)",
+            "Ryslatha's Coil belt (physical damage conversion for higher ignite)",
+            "Ralakesh's Impatience boots (charge generation)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin; wave expands forward",
+          "shape": "widening cone (arc-shaped advancing line)",
+          "pass_through": "wave may only damage each enemy once per cast",
+          "range": "travel distance determined by AoE and duration modifiers multiplicatively",
+          "constraint": "only one Wave of Conviction active at a time; recasting cancels previous wave"
+        },
+        "source_url": "https://poedb.tw/us/Wave_of_Conviction",
+        "anchor_quote": "'Sends a rolling wave of energy forward in a widening cone for a duration'; 'advancing arc-shaped line of damage, which may only damage an enemy once on pass-through'",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast Wave of Conviction; expanding cone wave surges forward hitting all enemies once per pass; exposure applied (matching highest damage element) reduces resistances by 15%; single large ignite applied per target; Elementalist Shaper of Flames enables ignite on all skills; run into pack, cast, watch ignite proliferate"
+        },
+        "source_url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+        "anchor_quote": "'You just run around and cast a single Wave of Conviction when you see a pack and you see the ignites proliferate around which feels really good to watch'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Elementalist Shaper of Flames (primary and only well-documented variant)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/wave-of-conviction-ignite-elementalist-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

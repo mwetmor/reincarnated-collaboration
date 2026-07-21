@@ -1,0 +1,223 @@
+{
+  "kit_id": "tl2-flame-hammer-engineer",
+  "spine": {
+    "kit_id": "tl2-flame-hammer-engineer",
+    "folk_name": "Flame Hammer Engineer",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flame Hammer",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee strike at target; creates 4 flaming splinters that seek enemies within 5m. 'splinters deal half the skill's listed damage percentage as fire damage' — fire attested as damage-type descriptor on splinters. Charge consumption creates 2 additional fire blasts. No burn ailment explicitly attested in fetched text."
+        },
+        {
+          "source_skill": "Charge mechanic",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Charge bar builds via Dynamo Field; Charge empowers Flame Hammer with 2 extra blasts. Economy-shaping passive state."
+        }
+      ],
+      "motion_frame": "Deliver melee Flame Hammer strikes building Charge via Dynamo Field; Charge-empowered swing creates 2 extra fire blasts plus 4 seeking splinters per hit.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Charge spent on enhanced Flame Hammer swing (2 extra blasts)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Charge bar full",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "seeking_splinters_note"
+          ],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": [
+            "fire_amplifier"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire attested: 'splinters deal fire damage.' No burn explicitly attested. Seeking splinter geometry is hybrid melee_strike + multi_projectile seeking pattern; primary loop is melee_strike; seeking aspect noted in delivery_notes. Charge economy matches TEMPORAL_CHARGE door."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Engineer Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Kardfogu",
+      "title": "Kardfogu's Guide to Emberquakers",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in tl2-2012 era",
+      "anchor_quote": "Flame Hammer and Emberquake; builds focusing on Flame Hammer, Seismic Slam and Emberquake with Onslaught",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Flame Hammer Engineer — community usage name for fire melee Charge-burst Engineer build",
+      "anchor_quote": "Flame Hammer is Emberquake's only real competition; delivers melee strikes that create four flaming splinters that seek out enemies within five meters",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Flame Hammer, Charge mechanic; melee fire burst; Charge-empowered enhanced swing; splinters deal fire damage",
+      "anchor_quote": "Flame Hammer delivers melee strikes that create four flaming splinters that seek out enemies within five meters; splinters deal half the skill's listed damage percentage as fire damage; with charge consumption, it generates two additional blasts",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_title": "Engineer Skill Guide - Torchlight II"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Fire Bash passive amplifies fire damage output; Seismic Slam provides movement/knockback; Dynamo Field builds Charge for enhanced hammer strikes"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": "builds focusing on Flame Hammer, Seismic Slam and Emberquake; Fire Bash is one of the two amplifiers for fire damage",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee",
+          "footprint": "small-radius (5m splinter seek radius)",
+          "range": "melee",
+          "notes": "primary hit at melee range; four fire splinters seek enemies within 5 meters; Charge burst adds 2 extra blasts"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "four flaming splinters that seek out enemies within five meters; with charge consumption, it generates two additional blasts",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Melee enemies with Flame Hammer; build Charge via Dynamo Field; Flame Hammer creates 4 flaming splinters per hit seeking nearby enemies; Charge-empowered swing creates 2 additional fire blasts; spam at melee range"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "Flame Hammer delivers melee strikes that create four flaming splinters that seek out enemies within five meters; with charge consumption, it generates two additional blasts; splinters deal half the skill's listed damage percentage as fire damage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "melee-only Flame Hammer (primary)",
+            "Flame Hammer + Emberquake combo (fire engineer full-fire)",
+            "two-handed melee Flame Hammer build"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166073716",
+        "anchor_quote": "Flame Hammer is Emberquake's only real competition",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

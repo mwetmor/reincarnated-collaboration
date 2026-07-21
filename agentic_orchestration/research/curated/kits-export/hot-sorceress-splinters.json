@@ -1,0 +1,203 @@
+{
+  "kit_id": "hot-sorceress-splinters",
+  "spine": {
+    "kit_id": "hot-sorceress-splinters",
+    "folk_name": "Arcane Splinters Sorceress",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Arcane Splinters",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fan of 8 projectiles per attack (4 above, 4 below player); fires into cone lanes above/below; 'arcane' is skill name only — name-only STRIKE per §0.2; 'elemental damage' from Arcane Elements upgrade is generic tri-element with no dominant → null; no ailment named in fetched text"
+        }
+      ],
+      "motion_frame": "Auto-fire 8-projectile fan above/below; scale projectile count and multistrike; cluster enemies into firing cones for coverage",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Pierce trait adds lane-through behavior",
+            "multistrike (Sorc inherent advantage by leveling)"
+          ],
+          "economy": [
+            "Force scales splinter duration"
+          ],
+          "traits_affixes": [
+            "Force, multistrike, attack speed axes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "'Arcane' in skill name = name-only STRIKE per §0.2 D4 Name-Only Law. 'Arcane Elements adds elemental damage' = generic elemental upgrade, no dominant element specified → null. Fan-above-below delivery is unusual multi_projectile variant — two directional fans; standard multi_projectile geometry is the best fit. No ailments attested in fetched text."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3118978989",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community guide)",
+      "title": "Arcane Splinter and Lightning Strike Specialist",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4033600364205425980/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community discussion)",
+      "title": "Arcane Splinter and Lightning Strike Specialist discussion",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hot-1.0-2024 and hot-1.1-2026.",
+      "anchor_quote": "Agony V Ice Cave Archer/Sorceress Build — Sorceress guides exist across multiple eras of the game",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3878218563598940208/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Arcane Splinters Sorceress; Sorceress class using Arcane Splinters as primary.",
+      "anchor_quote": "Character: Sorceress (Multi-strike)",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3118978989",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Homing arcane splinter projectiles; scaling axis is splinter count and range; screen coverage; forum-paired with Ring Blades.",
+      "anchor_quote": "The ability releases a total of 8 projectiles per attack (4 above and 4 below) despite its base Strikes/Projectiles value of 4.00",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4033600364205425980/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Sorceress gets multistrike by leveling (inherent advantage); force/multistrike/attack-speed are primary upgrade axes; Pierce trait adds lane-through behavior"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4140563711247912515/",
+        "anchor_quote": "Sorc gets multihit by levelling, providing an inherent advantage for this class with Ring Blades and Splinters",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Arcane Elements upgrade adds elemental damage type conversion and applies elemental effects on hit; multi-strike items and force items extend duration and count"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4625853420295715171/",
+        "anchor_quote": "Arcane Elements adds elemental damage and allows the splinters to apply effects on hit",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-fan",
+          "description": "Fan of splinters fires above and below character; enemies must be clustered into firing cones; multi-point simultaneous coverage; Force increases splinter duration"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4033600364205425980/",
+        "anchor_quote": "Arcane Splinters only fires above and below the character; optimal builds involve clustering enemies into its firing cones",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Sorceress auto-fires Arcane Splinters projectiles; scaling axis is projectile count not per-hit amplitude; 8 projectiles per attack (4 above 4 below); stack range and multistrike for screen coverage"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4033600364205425980/",
+        "anchor_quote": "The ability releases a total of 8 projectiles per attack (4 above and 4 below) despite its base Strikes/Projectiles value of 4.00",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Forum-paired with Ring Blades Sage as kill-on-spawn combo; Arcane Elements upgrade adds elemental variant; 1.1-2026 changes unknown"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3878218563598940208/",
+        "anchor_quote": "Agony V Ice Cave Archer/Sorceress Build discussion",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

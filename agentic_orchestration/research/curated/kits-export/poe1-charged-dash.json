@@ -1,0 +1,270 @@
+{
+  "kit_id": "poe1-charged-dash",
+  "spine": {
+    "kit_id": "poe1-charged-dash",
+    "folk_name": "Charged Dash",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The identity is a compound the base geometry flattens: a cursor-STEERED illusion-phantom (not the player) that emits NON-OVERLAPPING lane-pulses (the single-target flaw) then teleports the player to its endpoint UNCANCELLABLY (the danger flaw). Engine dash_attack lands the reposition-as-strike but loses the piloted-phantom feel, the along-path pulse emission, and both flaw-mechanics that make this a NEGATIVE kit. A player of the original would miss the steerable illusion and the exact clunk. Deliberately NOT minted: reproducing a known-bad skill's bespoke awkwardness violates parsimony; the negative-canon value is the record, not a build target.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The identity is a compound the base geometry flattens: a cursor-STEERED illusion-phantom (not the player) that emits NON-OVERLAPPING lane-pulses (the single-target flaw) then teleports the player to its endpoint UNCANCELLABLY (the danger flaw). Engine dash_attack lands the reposition-as-strike but loses the piloted-phantom feel, the along-path pulse emission, and both flaw-mechanics that make this a NEGATIVE kit. A player of the original would miss the steerable illusion and the exact clunk. Deliberately NOT minted: reproducing a known-bad skill's bespoke awkwardness violates parsimony; the negative-canon value is the record, not a build target.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Charged Dash",
+          "geometry_value": "dash_attack",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "channel projects a steerable illusion-of-self that travels the cursor path at 130% move speed emitting NON-OVERLAPPING pulse damage along a lane, accruing stages; on channel-release the player TELEPORTS to the illusion and delivers a stage-scaled burst. dash_attack captures the reposition-strike but is movement-primary; the steerable-phantom + path-pulses + snap-teleport is a compound this base type flattens"
+        }
+      ],
+      "motion_frame": "channel-steer-and-snap: hold to pilot a phantom forward emitting lane-pulses, release to blink to it for a staged burst — a reposition that is also the attack, but clunky and uncancellable (its design flaw)",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dash_attack reposition-strike",
+            "line/lane pulse-emission along the illusion path (secondary read)"
+          ],
+          "economy": [
+            "persistent_condition_shape=tick-cost (mana-per-tick channel)",
+            "stage-accumulation while channelling (stages -> release-burst magnitude)"
+          ],
+          "traits_affixes": [
+            "lightning-penetration",
+            "channel/attack-speed (stage-accrual rate)",
+            "movement-speed (illusion travel scales with it)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE kit (confirmed intrinsic design flaw). The identity is a COMPOUND: (1) a channelled, cursor-STEERED illusion that is NOT the player; (2) pulse damage along its lane path that CANNOT OVERLAP (so single-target is inherently weak — the flaw); (3) a teleport-to-illusion-endpoint burst that CANNOT BE CANCELLED (the danger-flaw). Engine dash_attack is a movement-primary reposition with incidental contact — it lands the 'strike-by-moving' skeleton and the reposition, but FLATTENS the steerable-phantom-you-pilot, the along-the-path pulse emission, and — critically — the two mechanics that MAKE it a negative kit (non-overlapping pulses gating single-target; uncancellable teleport). A Charged Dash player would not recognise the piloted-illusion feel or the exact awkwardness that defined the skill. persistent_condition_shape=tick-cost carries the channel; stage-accumulation is the charge-analog. PHASE_MOMENTUM for the movement-as-offense capstone reading. No mint: the compound is approximable, and minting a 'steerable-phantom-with-non-overlapping-lane-pulses' mechanism to reproduce a KNOWN-BAD negative kit is against parsimony — the flaw is the point of cataloguing it, not of building it."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/charged-dash-raider",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.22] Charged Dash Raider Build - Odealo's Crafty Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2605098",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.14] Spirit Walker | CI Charged Dash HOWA Scion | All Content",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Charged_Dash",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Charged Dash - PoEDB, Path of Exile Wiki",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "[3.3] The Fated & Furious Charged Dash Raider — a great way to start out a league; [3.14] Spirit Walker | CI Charged Dash HOWA Scion — All Content",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2605098",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Charged Dash' is real community usage; no aliases recorded",
+      "anchor_quote": "Channel to project an illusion which you steer. You gain stages while it moves, until it stops at a maximum total distance.",
+      "source_url": "https://poedb.tw/us/Charged_Dash",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Charged Dash: channels an illusion that travels at 130% movement speed; releases pulse damage along path; teleports player to illusion endpoint for final wave",
+      "anchor_quote": "While Channeling this Skill you release an illusion of yourself that follows your cursor, emits damaging pulses, and accumulates stages. Upon ceasing the channel, you will teleport to the location of the illusion and deal additional Damage based on the amount of stages.",
+      "source_url": "https://odealo.com/articles/charged-dash-raider",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Negative kill = intrinsic design flaw (clunky channeling, pulses cannot overlap so single-target is limited, teleport cannot be canceled)",
+      "anchor_quote": "The pulses cannot overlap, so the single-target Damage potential is rather limited. The teleport can't be canceled in case of danger.",
+      "source_url": "https://odealo.com/articles/charged-dash-raider",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Raider",
+          "nodes": [
+            {
+              "name": "Way of the Poacher",
+              "alteration": "Frenzy charge on hit."
+            },
+            {
+              "name": "Avatar of Slaughter",
+              "alteration": "Increased movement speed and attack speed from frenzy charges."
+            },
+            {
+              "name": "Quartz Infusion",
+              "alteration": "Phase through enemies."
+            },
+            {
+              "name": "Avatar of the Veil",
+              "alteration": "Elemental ailment immunity."
+            }
+          ]
+        },
+        "source_url": "https://odealo.com/articles/charged-dash-raider",
+        "anchor_quote": "Way of the Poacher, Avatar of Slaughter, Quartz Infusion, Avatar of the Veil — Raider provides exceptional amounts of Attack and Movement Speed by enhancing Frenzy Charges.",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Voidforge",
+              "slot": "weapon",
+              "alteration": "Primary weapon for elemental conversion scaling."
+            },
+            {
+              "name": "Abyssus",
+              "slot": "helmet",
+              "alteration": "Massive physical damage increase; amplifies both offensive output and self-damage risk."
+            },
+            {
+              "name": "Loreweave",
+              "slot": "body",
+              "alteration": "Elemental resist cap and damage scaling."
+            },
+            {
+              "name": "Ralakesh's Impatience",
+              "slot": "boots",
+              "alteration": "All charge types active while stationary (player is stationary during channel)."
+            }
+          ]
+        },
+        "source_url": "https://odealo.com/articles/charged-dash-raider",
+        "anchor_quote": "Ralakesh's Impatience Boots to have all your Charges active at all times — while Channeling you are considered Stationary.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Pulse damage emitted along the illusion's path (lane-shaped). Pulses cannot overlap — single-target damage is inherently limited. Teleport endpoint deals area damage at final position. Illusion constrained within range of player (~62 units max). Player considered stationary while channeling."
+        },
+        "source_url": "https://odealo.com/articles/charged-dash-raider",
+        "anchor_quote": "The pulses cannot overlap, so the single-target Damage potential is rather limited.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel the skill while steering the cursor to project an illusion forward. The illusion travels at 130% of player movement speed along the cursor path, emitting pulse damage waves along its trajectory and accumulating stages. Releasing the channel teleports the player to the illusion's position and delivers a final damage burst scaled by stages accumulated. Considered channeled movement-attack hybrid."
+        },
+        "source_url": "https://odealo.com/articles/charged-dash-raider",
+        "anchor_quote": "While Channeling this Skill you release an illusion of yourself that follows your cursor, emits damaging pulses, and accumulates stages. Upon ceasing the channel, you will teleport to the location of the illusion.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "CI HOWA Charged Dash Scion",
+              "description": "3.14 Chaos Inoculation + Hand of Wisdom and Action hybrid; all-content variant."
+            },
+            {
+              "name": "Charged Dash Charge Stacking",
+              "description": "3.25 Duelist charge-stacking variant."
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2605098",
+        "anchor_quote": "[3.14] Spirit Walker | CI Charged Dash HOWA Scion | All Content; [3.25] Charged Dash Charge stacking",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

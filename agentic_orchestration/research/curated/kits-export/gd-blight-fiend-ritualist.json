@@ -1,0 +1,221 @@
+{
+  "kit_id": "gd-blight-fiend-ritualist",
+  "spine": {
+    "kit_id": "gd-blight-fiend-ritualist",
+    "folk_name": "Blight Fiend Ritualist",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "MANDATORY (GAPPED): the source player summons autonomous pets and shoves them into packs as walking bombs -- the ENTIRE delivery (an independently-acting summoned combatant) is the engine's deferred summoner-gap, so the loop cannot be delivered as-is. The engine can model the death-explosion burst (ring, on-defender-death) but NOT the autonomous pet that carries it there. Ghol acid-conversion, pet positioning, and resummon-cadence are all pet-substrate the engine does not yet host. terminal MAPPED_DOCKET per R-M7: this is 'not that build' (no pet = no kit), not merely 'that build, worse'.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "MANDATORY (GAPPED): the source player summons autonomous pets and shoves them into packs as walking bombs -- the ENTIRE delivery (an independently-acting summoned combatant) is the engine's deferred summoner-gap, so the loop cannot be delivered as-is. The engine can model the death-explosion burst (ring, on-defender-death) but NOT the autonomous pet that carries it there. Ghol acid-conversion, pet positioning, and resummon-cadence are all pet-substrate the engine does not yet host. terminal MAPPED_DOCKET per R-M7: this is 'not that build' (no pet = no kit), not merely 'that build, worse'.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Blight Fiend",
+          "geometry_value": null,
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "summoned autonomous pet positioned into enemy packs as a disposable mobile bomb ('Blight Fiend pet summon positioned into enemy packs'; 'disposable-bomber pet whose corpse is the payload'). PET DELIVERY IS THE ENGINE GAP (summoner-deferral, §A pet row): the follow/companion summon has NO placement-at-target-position language, so geometry is null-honest per the gapped-pet two-lane ruling. Element shadow: acid damage on a Necromancer corruption pet (Ghol converts Vitality->Acid); §1 acid = earth(nature/venom) OR shadow(necro-corruption) -- necro-summon corruption register chosen, fidelity-noted. NO ailment: acid is DAMAGE-typed (via Ghol conversion), no 'poison' status named in fetched text (§0.1)."
+        },
+        {
+          "source_skill": "Unstable Anomaly (explosion-on-death)",
+          "geometry_value": "ring",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "the pet's death detonates in a burst around its death location ('mobile bomb; explosion on death hits enemies in radius around pet death location'; 'small-radius-explosion-on-death'). ring carries the burst-around-a-point identity (phrase-book nova/burst -> ring); this is the DAMAGE PAYLOAD of the gapped pet -- distinct attested shape (pet-death-payload), filed as its own docket-candidate per §A pet-row trap note. No status named."
+        }
+      ],
+      "motion_frame": "summon Blight Fiend(s), walk them into enemy packs as disposable mobile bombs, trigger the explosion-on-death burst, and resummon into the next pack while acid DoTs from Ghol conversion linger",
+      "resource_economy": {
+        "cost_scale": "summon-cost per Blight Fiend cast (disposable, resummoned frequently)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-defender-death",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "death-explosion radius"
+          ],
+          "economy": [
+            "summon-cost cadence"
+          ],
+          "traits_affixes": [
+            "Ghol's Malice set (Vitality->Acid conversion on Blight Fiend) -> pet-conversion itemization",
+            "acid/vitality pet-damage scaling (pet-stat lane, NOT player-stat)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PET-CORE kit -> GAP (summoner-deferral, §A pet row): the loop-verb IS summon-position-explode, and autonomous-combatant delivery is deferred by engine design. Gapped-pet two-lane geometry ruling: the pet is a follow/companion (no placement-at-target language) -> null geometry honest for the summon; the death-explosion is a real burst payload -> ring. on-defender-death trigger models the corpse-is-the-payload identity. Pet-death-payload ('mobile bomb; explosion on death') is a DISTINCT attested shape -> own docket-candidate (per §A pet-row trap note: 'if the shape stands on its own fetched language'). Ghol's Malice set converts Vitality->Acid ON the pet (pet-stat lane != player-stat lane -- never map player-scaling onto pet payload). Element shadow (necro-corruption acid); the earth/venom branch is the alternative, noted. PROXY_FISSION = closest T4 to the disposable-splitting-bomber-pet identity, but it lands as a GAP question (autonomous-combatant delivery unbuilt), not a clean capstone. No status attestable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-5-2-vid-ghol-set-unstable-blight-fiend-vitality-pet-ritualist-sr-100/95760",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Duskdeep86",
+      "title": "[1.1.5.2][Vid] Ghol Set | Unstable Blight Fiend | Vitality Pet Ritualist | SR 100",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.grimdawn.com/guide/about/ashes-of-malmouth/",
+      "archive_url": null,
+      "site": "grimdawn.com",
+      "author_handle": null,
+      "title": "Guide - About - Ashes of Malmouth - Grim Dawn",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: aom-2017, patch-1.1-1.2",
+      "anchor_quote": "Necromancer introduced in Ashes of Malmouth expansion (October 11, 2017); Blight Fiend is Necromancer skill; aom-2017 era floor is correct",
+      "source_url": "https://www.grimdawn.com/guide/about/ashes-of-malmouth/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blight Fiend Ritualist'; aliases include 'Unstable Anomaly Ritualist', 'minion Ritualist'",
+      "anchor_quote": "Ritualist class... Blight Fiend pet summon with Ghol's Mark conversion... Necromancer + Shaman masteries combined",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-5-2-vid-ghol-set-unstable-blight-fiend-vitality-pet-ritualist-sr-100/95760",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Blight Fiend, Unstable Anomaly (explodes on death, resummoned into packs)",
+      "anchor_quote": "Blight Fiend pet summon... Ghol's Mark 'converts all Vitality dmg on Blight Fiend to Acid'... disposable-bomber pet whose corpse is the payload",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-5-2-vid-ghol-set-unstable-blight-fiend-vitality-pet-ritualist-sr-100/95760",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Duskdeep86",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-2-vid-ghol-set-unstable-blight-fiend-vitality-pet-ritualist-sr-100/95760",
+        "anchor_quote": "Duskdeep86 posted the original build",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Ghol's Malice set is key itemization — converts Vitality to Acid on Blight Fiend; enables permanent-fiend variants"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-6-0-ghol-set-permanent-blight-fiend-acid-pet-ritualist-cloud-build/96748",
+        "anchor_quote": "Ghol Set | Permanent Blight Fiend | Acid | Pet Ritualist",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "pet-summon",
+          "footprint": "small-radius-explosion-on-death",
+          "notes": "Blight Fiend acts as mobile bomb; explosion on death hits enemies in radius around pet death location"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-2-vid-ghol-set-unstable-blight-fiend-vitality-pet-ritualist-sr-100/95760",
+        "anchor_quote": "disposable-bomber pet whose corpse is the payload",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Summon Blight Fiend(s); position into enemy packs; Unstable Anomaly modifier causes explosion on death; resummon into next pack; acid/vitality conversion via Ghol set"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-2-vid-ghol-set-unstable-blight-fiend-vitality-pet-ritualist-sr-100/95760",
+        "anchor_quote": "Ghol's Mark converts all Vitality dmg on Blight Fiend to Acid... Blight Fiend pet summon positioned into enemy packs",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Vitality Blight Fiend Ritualist (SR 100)",
+            "Acid Permanent Blight Fiend Ritualist (Ghol set)",
+            "Spicy Blights 1.2m crit variant (1.2.1.0)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-0-spicy-blights-1-2m-blight-fiend-crits-cr170-sr-80/137144",
+        "anchor_quote": "[1.2.1.0] Spicy Blights - 1.2m Blight Fiend Crits - Cr170, SR 80+",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

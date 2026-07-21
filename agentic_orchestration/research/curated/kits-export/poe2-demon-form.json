@@ -1,0 +1,244 @@
+{
+  "kit_id": "poe2-demon-form",
+  "spine": {
+    "kit_id": "poe2-demon-form",
+    "folk_name": "Demon Form Infernalist",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.4",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The source player would miss (1) the FORM-SWAP itself as a distinct game-state (you BECOME a demon -- a body/moveset change, GX-02) -- rendered as a self_buff it loses the transformation identity; (2) the unbounded Demonflame life-drain ramp -- clamped to hp_cost_scale 0.30, the escalating 'race your own life-loss' tension is capped, losing the run-it-till-you-die brinkmanship; (3) element ambiguity (fire per corpus vs lightning/Spark per attested builds). Form-swap has no engine lane (GX-02 pending) and the drain-ramp is clamped -> APPROX; not GAPPED because a fire-spell self-buff caster with a decaying-HP cost is 'that build, weaker.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The source player would miss (1) the FORM-SWAP itself as a distinct game-state (you BECOME a demon -- a body/moveset change, GX-02) -- rendered as a self_buff it loses the transformation identity; (2) the unbounded Demonflame life-drain ramp -- clamped to hp_cost_scale 0.30, the escalating 'race your own life-loss' tension is capped, losing the run-it-till-you-die brinkmanship; (3) element ambiguity (fire per corpus vs lightning/Spark per attested builds). Form-swap has no engine lane (GX-02 pending) and the drain-ramp is clamped -> APPROX; not GAPPED because a fire-spell self-buff caster with a decaying-HP cost is 'that build, weaker.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "in-form spell (Spark-attested; fire per corpus)",
+          "geometry_value": "self_buff",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "Demon Form is a SELF-ORIGIN transformation (shapeshift into a demon, vastly boosting Spell power) -- primary delivery self-origin; the form radiates boosted spells (large-zone). Mapped the FORM as self_buff (the form-entry buff), with the in-form casting element = fire per corpus (attested builds use Spark/lightning in-form -- element NOT locked; note). burn rider (ignite -> burn per main law)."
+        }
+      ],
+      "motion_frame": "Shapeshift into demon form (self-origin buff: +cast speed, +spell levels, +damage); Demonflame stacks accrue per second raising life-drain rate; cast boosted spells until drain forces exit.",
+      "resource_economy": {
+        "reservation_resource": "spirit",
+        "hp_cost_scale": 0.3,
+        "accumulator": "Demonflame stacks accrue per second (up to 10; Mastered Darkness removes cap)",
+        "ramp_per_s": "life lost at ever-increasing rate while in form"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Demonflame stacks (self, per-second accrual)",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "in-form large-zone spells"
+          ],
+          "economy": [
+            "Demonflame accumulator",
+            "hp_cost_scale life-drain ramp",
+            "spirit reservation for form"
+          ],
+          "traits_affixes": [
+            "fire/spell scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-02 FIRED (addendum C.1 / form-swap): Demon Form ENTRY is the form-swap gate class -- flagged GX-02 in fidelity_notes (no numbering); form itself mapped as self_buff, in-form kit per R-M rules. corpus gx='GX-02 GX-06' confirms. Demonflame ramp + life-drain-in-form (addendum B, C.1): hp_cost_scale CLAMPED to 0.30 LOCKED ceiling -- Demonflame's 'ever-increasing rate' EXCEEDS a fixed 0.30 (it ramps unbounded with Mastered Darkness), so CLAMP + note per addendum (accrues to review-book clamp list); the accumulator + ramp_per_s carry the ramp texture. Spirit -> reservation_resource:spirit (FALSE-FRIEND: poe2 Spirit, NOT engine spirit-guide). ELEMENT: corpus elem=fire mapped primary, BUT dossier skill_loop explicitly notes attested fetched builds use Spark (LIGHTNING) in-form -- 'element is not locked to fire.' Honored corpus fire per row but flagged the ambiguity; per-kit override to lightning would be legal. verify_ledger: mechanics UNSUPPORTED (probe delivery=self-origin conf 0.83; geometry dossier abstained)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/resources/infernalist-ascendancy",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Infernalist Ascendancy Overview - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3656716",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "wishdropper#0634",
+      "title": "[PoE 2] Demon Form Spark Build | Infernalist | Early Access",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3643314",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[POE2 0.1.0d] Demonfernalist - Cold / Crit / Demon Form - Witch Infernalist build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.4",
+      "anchor_quote": "[POE2 0.1.0d] Demonfernalist - Cold / Crit / Demon Form - Witch Infernalist build",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3643314",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Demon Form Infernalist'; aliases 'Demon Form fire spells', 'Infernalist demon stance'",
+      "anchor_quote": "Demon Form — We gain these stats while in Demon Form: (12–25)% increased Cast Speed while in Demon Form",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3656716",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Demon Form, fire spells in-form; Spirit + Life drain while active; fire-focused element",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/poe2/resources/infernalist-ascendancy",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wishdropper#0634",
+          "site": "pathofexile.com/forum",
+          "url": "https://www.pathofexile.com/forum/view-thread/3656716"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3656716",
+        "anchor_quote": "[PoE 2] Demon Form Spark Build | Infernalist | Early Access | Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Infernalist",
+          "fire_nodes": [
+            "Bringer of Flame",
+            "Pyromantic Pact",
+            "Seething Body",
+            "Grinning Immolation"
+          ],
+          "form_nodes": [
+            "Altered Flesh",
+            "Beidat's Gaze",
+            "Beidat's Will",
+            "Beidat's Hand",
+            "Demonic Possession",
+            "Mastered Darkness (unlimited Demonflame stacks)",
+            "Loyal Hellhound"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/resources/infernalist-ascendancy",
+        "anchor_quote": "Demon Form is a skill that 'Shapeshift into a demon, vastly boosting the power of your Spells'",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Infernalist uses Demon Form to shapeshift, gaining increased cast speed, spell level boosts, and damage. Demonflame stacks accumulate per second in form, increasing life drain rate (up to 10 stacks; Mastered Darkness removes cap). Life drain managed via recovery investment. Form enables spell casting with boosted stats. Note: attested builds in fetched sources use Spark (lightning), not fire, in-form — element is not locked to fire."
+        },
+        "source_url": "https://maxroll.gg/poe2/resources/infernalist-ascendancy",
+        "anchor_quote": "Shapeshift into a demon, vastly boosting the power of your Spells... You gain Demonflame every second you remain in demon form, causing your life to be lost at an ever-increasing rate.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Demon Form Spark (lightning, wishdropper#0634, 0.1)",
+            "Arch-Demon Fireball Infernalist (fire, 0.1)",
+            "Demonfernalist Cold/Crit (cold, 0.1.0d)",
+            "Infernalist Summoner (spirit pool variant, no Demon Form emphasis)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3647223",
+        "anchor_quote": "Shin's Arch-Demon Fireball Infernalist",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

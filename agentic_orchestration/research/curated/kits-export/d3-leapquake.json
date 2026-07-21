@@ -1,0 +1,245 @@
+{
+  "kit_id": "d3-leapquake",
+  "spine": {
+    "kit_id": "d3-leapquake",
+    "folk_name": "Leapquake",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the three-jump charge mechanic as a feel-differentiator — engine leap_strike is single-use per cast; multi-charge rhythm of Lut Socks (3 charges on cooldown) has no native analog; (2) the 80% damage-reduction burst-window on Leap landing (Band of Might defensive proc) fusing offense and defense in the same verb.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the three-jump charge mechanic as a feel-differentiator — engine leap_strike is single-use per cast; multi-charge rhythm of Lut Socks (3 charges on cooldown) has no native analog; (2) the 80% damage-reduction burst-window on Leap landing (Band of Might defensive proc) fusing offense and defense in the same verb.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Leap (Call of Arreat rune)",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Movement IS the damage delivery; Might of the Earth set triggers Earthquake on every Leap landing; gap-close traversal fused with landing impact; moving-channel contrast — this is discrete leap-jumps not continuous; attested: 'Leap IS the movement verb and the damage delivery'"
+        },
+        {
+          "source_skill": "Earthquake",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Large-zone AoE eruption on Leap landing; triggered by set bonus; attested: 'every landing triggers Earthquakes' in corpus mech_note"
+        },
+        {
+          "source_skill": "Seismic Slam",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fury dump; secondary damage and cooldown reset for Girdle of Giants proc; used between Leap cooldowns"
+        }
+      ],
+      "motion_frame": "Three-jump cooldown rotation; Leap to target triggering Earthquake on landing; Seismic Slam as Fury dump between jumps; Lut Socks enable multiple Leap charges",
+      "resource_economy": {
+        "resource_type": "Fury",
+        "generator": "passive combat regen + Seismic Slam",
+        "spend_pattern": "Seismic Slam Fury dump between Leap cooldowns; Leap has no resource cost — cooldown-gated"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Leap charges (Lut Socks = 3 charges); landing AoE radius"
+          ],
+          "economy": [
+            "Fury management; Leap cooldown reduction via Lut Socks; 80% DR proc from Band of Might on Leap"
+          ],
+          "traits_affixes": [
+            "physical/earth scaling; cooldown reduction affixes; Earthquake damage; set multiplier scaler (20,000%)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: physical (Leap + Earthquake + Seismic Slam all physical in D3 Barbarian) → THE PHYSICAL RULE applies; element slots null; identity expressed via geometry (leap_strike + ground_slam). TEMPORAL_CHARGE: three-jump charge-consumption rotation with cooldown rhythm. MOMENTUM_CASCADE: the jump-chain builds spatial momentum (each landing procs Earthquake). Set multiplier (20,000%) scaler-only per §B row 1. Blade of the Tribes procs Earthquake on Seismic Slam = trigger rider (on-cast-linked consequence burst-damage) — maps within trigger_grammar. No ailment attested in fetched text; slam does not name stun in any dossier field."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Rob",
+      "title": "Diablo 3 Season 39 MotE Leapquake Barbarian Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "Seasons 16, 22, 23, 30, 31, 32, 33, and 39 are mentioned throughout the guide's development history",
+      "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Might of the Earth is the foundational set, providing a 20,000% damage multiplier at (6) Bonus",
+      "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "Diablo 3 Season 39 MotE 'Leapquake' Barbarian Guide",
+      "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Leapquake'; aliases include 'Leapquake Barbarian', 'Leap Earthquake Barb', 'Seismic Slam Leapquake'",
+      "anchor_quote": "The Leapquake build uses the Might of the Earth set with Leap and Earthquake, earning its gimmicky 'Leapquake' nickname through the supporting item Lut Socks",
+      "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Leap, Earthquake, Seismic Slam; class resource: Fury",
+      "anchor_quote": "Fury serves as the Barbarian's resource pool, managed through Seismic Slam spending",
+      "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Rob",
+          "site": "maxroll.gg",
+          "role": "Guide author",
+          "co_credit": "Chewingnom (Introduction), Northwar and Raxxanterax (Reviewers)"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+        "anchor_quote": "Written by Rob. Introduction by Chewingnom. Reviewed by Northwar & Raxxanterax",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Might of the Earth (6): 20,000% damage multiplier; landing Leap triggers Earthquake",
+          "kanai_cube": null
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+        "anchor_quote": "Might of the Earth is the foundational set, providing a 20,000% damage multiplier at (6) Bonus",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Might of the Earth (6pc set, 20,000% multiplier)",
+            "Lut Socks (extra Leap charges)",
+            "Band of Might (80% DR from Leap)",
+            "Blade of the Tribes (Earthquake proc from Seismic Slam)",
+            "Girdle of Giants"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+        "anchor_quote": "Band of Might is used for its tremendous 80% damage reduction and is procced by using Leap",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (Leap movement)",
+          "range": "large-zone from landing point",
+          "aoe": "large area (Earthquake eruption on landing)",
+          "notes": "Leap IS the movement verb and the damage delivery; landing AoE earthquake"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+        "anchor_quote": "Flavorful, Easy to Play, Unique Playstyle, Have Fun Leaping Around",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Leap (Call of Arreat) to target, triggering Earthquake on landing via Might of the Earth set; three jumps on rotation; Seismic Slam as Fury dump and cooldown reset for Girdle of Giants; Lut Socks enable multiple Leap charges"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+        "anchor_quote": "Might of the Earth makes LEAP the damage engine — every landing triggers Earthquakes; the movement verb IS the build, three jumps on rotation",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard Leapquake (MotE Earthquake, primary)",
+            "Spinquake (alternate variant combining Whirlwind)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/mote-earthquake-barbarian-guide",
+        "anchor_quote": "Spinquake as an alternate variant setup",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

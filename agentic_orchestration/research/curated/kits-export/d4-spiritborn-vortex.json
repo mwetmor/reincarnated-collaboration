@@ -1,0 +1,160 @@
+{
+  "kit_id": "d4-spiritborn-vortex",
+  "spine": {
+    "kit_id": "d4-spiritborn-vortex",
+    "folk_name": "Spiritborn — Vortex",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "pull-tranche-edition2-2026-07-15",
+    "source_date": "2026-07-15",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — zero combat loop evidence in fetched dossier; Vortex is a triggered component of other archetypes, not a standalone build identity. The engine row cannot express a kit with no attested loop. [D-7.3 component-class 2026-07-19: skill, not archetype; Vortex is a triggered component inside Soar/Quill-Volley builds. Kept mapped as component-class.]",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 0,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — zero combat loop evidence in fetched dossier; Vortex is a triggered component of other archetypes, not a standalone build identity. The engine row cannot express a kit with no attested loop. [D-7.3 component-class 2026-07-19: skill, not archetype; Vortex is a triggered component inside Soar/Quill-Volley builds. Kept mapped as component-class.]",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": null,
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Kit-level flag (component-not-archetype): Vortex is a passive/triggered component inside Soar/Quill-Volley Spiritborn builds, not a standalone archetype (steward annotation, INGEST-13). skill_loop abstained; skill_geometry abstained; capstone abstained. item_alterations attests: 'The Kry Runeword casting combination triggers the Spiritborn Vortex skill without needing to add it to the Skill Bar' + 'Scorn of the Earth unique triggers Vortex via Soar/Evade in Soar Swarm builds.' No combat loop, no geometry, no element damage verb in legal store. Empty-projection convention (§D SYSTEM-kit precedent + kit-level-flag guidance §E.5). Review-book decision: relabel vs excise. Identity UNSUPPORTED + mechanics UNSUPPORTED in verify_ledger."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Best Spiritborn Builds – Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "folk_name='Spiritborn — Vortex' is real community usage",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "core_skill Vortex; Spiritborn class; eras NULL",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note_carrier_kits": [
+            "Scorn of the Earth unique triggers Vortex via Soar/Evade in Soar Swarm builds",
+            "Kry Runeword enables passive Vortex proc without skill-bar slot"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+        "anchor_quote": "The Kry Runeword casting combination triggers the Spiritborn Vortex skill without needing to add it to the Skill Bar",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/spiritborn/builds/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

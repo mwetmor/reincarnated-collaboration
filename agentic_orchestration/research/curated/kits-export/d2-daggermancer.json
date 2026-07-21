@@ -1,0 +1,242 @@
+{
+  "kit_id": "d2-daggermancer",
+  "spine": {
+    "kit_id": "d2-daggermancer",
+    "folk_name": "Daggermancer",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "shallow",
+    "eras": "d2r-2.4+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: Crushing Blow identity layer (on-kill threshold mechanic; approximated via execute T4 door note but not mapped as ailment — no fetched 'execute' language); adjacency-only melee range constraint (approximated by melee_strike geometry).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "curse:amplify",
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: Crushing Blow identity layer (on-kill threshold mechanic; approximated via execute T4 door note but not mapped as ailment — no fetched 'execute' language); adjacency-only melee range constraint (approximated by melee_strike geometry).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poison Dagger",
+          "geometry_value": "melee_strike",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Melee stab applying poison DoT; anchor: 'Adds poison to your Dagger attacks... the poison damage is delivered as a damage-over-time effect that spreads across multiple seconds'; 'the higher the Skill Level, the more spread out over time the Poison damage is'; poison DoT = earth (nature/venom-themed — §1 poison/nature/acid → earth or shadow; necro kit: shadow is bone/necrotic lineage, but dagger is venom-themed physical melee → earth preferred; ailment = poison either way per §1)"
+        },
+        {
+          "source_skill": "Amplify Damage curse",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Curse reducing physical resistance; anchor: 'Amplify Damage curse lowers enemy physical resistance'; §2 Amp Damage → curse:amplify per main §2 table ('PoE Vulnerability / D2 Amp Damage → curse:amplify')"
+        }
+      ],
+      "motion_frame": "Adjacent melee stab with Poison Dagger to apply stacking poison DoT; Amplify Damage curse to enable physical/poison penetration; Corpse Explosion for clear speed (variant layer)",
+      "resource_economy": {
+        "cost_scale": "Poison Dagger mana per hit (low); Amplify Damage mana per cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Bone Armor defensive layer (survival in melee range; 'Bone Armor for survival while in melee range' — item_alterations)"
+          ],
+          "traits_affixes": [
+            "Synergies: Poison Explosion +20%/level, Poison Nova +20%/level — §A row 1 scaffold; capstone anchor"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Poison/venom-themed melee → earth element per §1; ailment = poison per §1 (stack-additive). Amp Damage → curse:amplify per §2 main law table directly. Corpse Explosion as PvM clear tool is variant-scope (variant-only mechanism per §E.2 variant-scope law; core identity = Poison Dagger boss-kill via Crushing Blow + DoT). PERSISTENCE_ENGINE_saturation T4 captures the DoT-spread identity. era unsupported pre-2.4 (verify_ledger era UNSUPPORTED noted)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/poison-necro-build-style-what-about-daggermancer-t1049069.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "basicnecromancy; Necrarch (mod)",
+      "title": "Poison Necro build style: What about Daggermancer?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Stormlash (data contributor)",
+      "title": "Poison Dagger — Diablo 2 Resurrected Skill",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in d2r-2.4+",
+      "anchor_quote": null,
+      "source_url": "https://diablo2.io/forums/poison-necro-build-style-what-about-daggermancer-t1049069.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Daggermancer; aliases Poison Dagger Necromancer, Dagger Necro",
+      "anchor_quote": "Daggermancer is discussed as a melee poison necromancer variant",
+      "source_url": "https://diablo2.io/forums/poison-necro-build-style-what-about-daggermancer-t1049069.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Poison Dagger (melee stab, poison DoT), Amplify Damage",
+      "anchor_quote": "Adds poison to your Dagger attacks... the poison damage is delivered as a damage-over-time effect that spreads across multiple seconds",
+      "source_url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Stormlash",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+        "anchor_quote": "Data contributed by Stormlash",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "synergies": [
+            "Poison Explosion (+20% per level)",
+            "Poison Nova (+20% per level)"
+          ],
+          "curses": [
+            "Amplify Damage",
+            "Decrepify",
+            "Lower Resist",
+            "Dim Vision / Confuse"
+          ]
+        },
+        "source_url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+        "anchor_quote": "Synergies: Poison Explosion (+20% per level) and Poison Nova (+20% per level)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Blackbog's Sharp (recommended dagger)",
+            "Trang-Oul's Claws (gloves, +poison skills)",
+            "Homunculus (shield, +skills)"
+          ],
+          "notes": "Stacking Crushing Blow enables faster boss kills; Bone Armor for survival while in melee range"
+        },
+        "source_url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+        "anchor_quote": "can achieve over 10,000 damage with Trang-Oul's Claws... Blackbog's Sharp is recommended",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee stab",
+          "footprint": "point (adjacent single enemy)",
+          "range_type": "melee",
+          "notes": "Short dagger melee range; must be adjacent to target; poison DoT delivers over seconds after initial hit"
+        },
+        "source_url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+        "anchor_quote": "Poison Dagger direct melee stab into targeted adjacent enemy",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Poison Dagger delivers a melee stab applying poison DoT that spreads over multiple seconds; higher skill level = longer duration with same total damage spread over more time. Amplify Damage curse lowers enemy physical resistance. Corpse Explosion serves as primary clear speed tool; Poison Dagger is boss-focused via stacked Crushing Blow."
+        },
+        "source_url": "https://diablo2.io/skills/poison-dagger-t4133.html",
+        "anchor_quote": "Adds poison to your Dagger attacks... the higher the Skill Level, the more spread out over time the Poison damage is",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Daggermancer (pure Poison Dagger melee)",
+            "Poison Necro (Poison Nova primary)",
+            "Hybrid Poison (Dagger + Corpse Explosion)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/poison-necro-build-style-what-about-daggermancer-t1049069.html",
+        "anchor_quote": "Synergizing Poison Dagger, Poison Explosion, and Poison Nova all together",
+        "abstained": 0,
+        "conf": 0.66
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

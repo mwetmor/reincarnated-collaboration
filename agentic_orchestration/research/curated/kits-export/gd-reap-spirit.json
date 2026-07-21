@@ -1,0 +1,237 @@
+{
+  "kit_id": "gd-reap-spirit",
+  "spine": {
+    "kit_id": "gd-reap-spirit",
+    "folk_name": "Reap Spirit (as primary)",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "aom-2017;fg-2019;patch-1.1-1.2",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Autonomous temporary pet combatants are the entire loop; engine has no autonomous-combatant delivery (summoner-deferral, §A pet row). Player test: not that build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Autonomous temporary pet combatants are the entire loop; engine has no autonomous-combatant delivery (summoner-deferral, §A pet row). Player test: not that build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Reap Spirit",
+          "geometry_value": "totem",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons temporary autonomous wendigo spirit at target ('pet lasts only 10 seconds and has similar damage to 1 skeleton'; 'cast it 3 times to get all 3 out'). Autonomous-combatant delivery is the engine gap; totem = nearest stationary placed-proxy token, NOT a claim of fit."
+        }
+      ],
+      "motion_frame": "Recast 10s wendigo spirits on a 6s cooldown, keeping up to three out",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence": "6s-cooldown recast against 10s pet duration"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "cooldown cadence"
+          ],
+          "traits_affixes": [
+            "pet-stat lane (pet bonuses, not player stats — §A trap note)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-CORE kit under §A pet row (summoner-deferral): the loop verb IS recast-autonomous-spirits → honest R-M7 GAPPED. negative_canon ATTESTED: 'Either you're a pet build and the skill does pitiful damage... or you're a caster... and the pet is worthless' — the dual-scale split (death_class extrinsic-split-scaling) is the kit's canonical failure shape; recorded as design context, not mapped mechanics. Aether Spellbinder variant noted (aether → per-kit element; unmapped variant). Recast-count shape files to placed-proxy-count family (accrual, no numbers)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/219990/discussions/0/3182216552781692959/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Reap spirit necro",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/reap-spirit-super-underwhelming-or/41989",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Squib",
+      "title": "Reap Spirit... super underwhelming or???",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/spellbinder-that-uses-reap-spirit-as-main-attack/107054",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "TheFuentes5551",
+      "title": "Spellbinder that uses Reap Spirit as main attack?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: aom-2017, fg-2019, patch-1.1-1.2",
+      "anchor_quote": "this discussion occurred November 1-3, 2017, placing it in the post-Ashes of Malmouth era",
+      "source_url": "https://forums.crateentertainment.com/t/reap-spirit-super-underwhelming-or/41989",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Reap Spirit (as primary); aliases include Reap Spirit Ritualist, spirit summon Ritualist",
+      "anchor_quote": "Reap spirit necro [...] Spellbinder that uses Reap Spirit as main attack",
+      "source_url": "https://steamcommunity.com/app/219990/discussions/0/3182216552781692959/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Reap Spirit. Summons temporary pet spirits, ranged delivery.",
+      "anchor_quote": "you can have up to 2 Wendigos when the skill is at lvl 17 [...] pet lasts only 10 seconds and has similar damage to 1 skeleton",
+      "source_url": "https://steamcommunity.com/app/219990/discussions/0/3182216552781692959/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Negative: Reap Spirit used as primary skill — kit centralizes on a support/proc skill not designed as a primary damage source; over-reliance concern",
+      "anchor_quote": "Either you're a pet build and the skill does pitiful damage to summon a pet that is subpar compared to other pets or you're a caster that focuses on spell damage and the pet is worthless",
+      "source_url": "https://forums.crateentertainment.com/t/reap-spirit-super-underwhelming-or/41989",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handles": [
+            "Squib",
+            "Ptirodaktill",
+            "PrinceXavieR",
+            "Evil_Baka",
+            "TheFuentes5551"
+          ],
+          "sites": [
+            "forums.crateentertainment.com",
+            "steamcommunity.com"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/reap-spirit-super-underwhelming-or/41989",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged targeted summon",
+          "footprint": "single spirit entity per cast at target position",
+          "verbatim": "pet lasts only 10 seconds and has similar damage to 1 skeleton [...] you need to cast it 3 times to get all 3 out"
+        },
+        "source_url": "https://steamcommunity.com/app/219990/discussions/0/3182216552781692959/",
+        "anchor_quote": "pet lasts only 10 seconds and has similar damage to 1 skeleton",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Casts Reap Spirit to summon temporary wendigo spirits (10s duration, up to 3 with repeated casts). Used as primary damage in niche builds but community consensus: skill deals pitiful damage as standalone primary; dual-scale problem (neither pet nor caster build maximizes it). Devotion proc use is secondary role.",
+          "resource": "cooldown (6s recharge)",
+          "loop_verb": "recast spirits"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/reap-spirit-super-underwhelming-or/41989",
+        "anchor_quote": "Either you're a pet build and the skill does pitiful damage to summon a pet that is subpar compared to other pets or you're a caster that focuses on spell damage and the pet is worthless",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Ritualist (Necromancer+Shaman) primary Reap Spirit",
+            "Spellbinder (Necromancer+Arcanist) aether Reap Spirit",
+            "hybrid pet+devotion-proc use"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/spellbinder-that-uses-reap-spirit-as-main-attack/107054",
+        "anchor_quote": "some rough number crunching says that the Aether damage on it comes out to a sheet DPS in the ballpark of 110-130k",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

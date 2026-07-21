@@ -1,0 +1,250 @@
+{
+  "kit_id": "gd-stun-jacks",
+  "spine": {
+    "kit_id": "gd-stun-jacks",
+    "folk_name": "Stun Jacks (launch era)",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "base-2016;aom-2017",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Stun Jacks",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Stun Jacks spread in a 180-degree sector right before the player, with some jacks flying straight forward and some - to the sides' — point-blank shotgun density preferred; Quick Jack transmuter enables spam; Full Spread + '+1 projectile' scepter raise count. NO stun token: the name implies it, nothing fetched attests it (§0.3 poster child)."
+        }
+      ],
+      "motion_frame": "Point-blank spam of 180-degree jack sprays; energy hunger is the throttle",
+      "resource_economy": {
+        "resource": "energy",
+        "cost_shape": "spam-cast, energy-hungry ('caster builds are energy-hungry'; 'building around SJ is a double-edged sword')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "projectile count (Full Spread; +1 scepter)"
+          ],
+          "economy": [
+            "spam cost / energy regen pressure"
+          ],
+          "traits_affixes": [
+            "lightning/electrocute set scalers (Light's Guardian)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Name-collision law's poster child (§0.3): mapped ONLY what fetched text attests — a lightning projectile-spray spammer. 'Electrocute' is GD's lightning-DoT register — no engine token (shock requires CC). negative_canon is UNSUPPORTED in verify_ledger → annotation only, NOT mapping input; excluded. CDR Sorcerer / Purifier / Elementalist variants noted. GEOMETRY_COLLAPSE door carries the point-blank shotgun-density identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-3-2-cdr-stun-jacks-sorcerer-a-gladiator-viable-build/43274",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "x1x1x1x2",
+      "title": "[1.0.3.2] CDR Stun Jacks Sorcerer - A Gladiator Viable Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "afanasenkov26",
+      "title": "[1.1.4.2-1.1.6.2] (Caster) Electrify My Life - Stun Jacks Purifier",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/caster-1-0-6-1-stun-jacks-purifier-lokarr-30-seconds/46116",
+      "archive_url": "http://web.archive.org/web/20220519085600/https://forums.crateentertainment.com/t/caster-1-0-6-1-stun-jacks-purifier-lokarr-30-seconds/46116",
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[Caster][1.0.6.1] Stun Jacks Purifier - Lokarr 30 seconds",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in era: base-2016",
+      "anchor_quote": "[1.0.3.2] CDR Stun Jacks Sorcerer - A Gladiator Viable Build",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-3-2-cdr-stun-jacks-sorcerer-a-gladiator-viable-build/43274",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in era: aom-2017",
+      "anchor_quote": "Ever since the release of AoM [...] Stun Jacks Purifier [...] caster builds are energy-hungry",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-3-2-cdr-stun-jacks-sorcerer-a-gladiator-viable-build/43274",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Stun Jacks (launch era); aliases include Stun Jacks Demolitionist, base-era Stun Jacks, lightning stun trap build",
+      "anchor_quote": "CDR Stun Jacks Sorcerer [...] Stun Jacks Purifier [...] Elementalist was always seen to be the stun jacks class",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-3-2-cdr-stun-jacks-sorcerer-a-gladiator-viable-build/43274",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Stun Jacks. Projectile-spread skill (lightning), spammable, energy-hungry resource.",
+      "anchor_quote": "Stun Jacks spread in a 180-degree sector right before the player, with some jacks flying straight forward and some - to the sides [...] Building around SJ is a double-edged sword",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Negative: Stun Jacks launch/AoM era — trap-skill over-centralization concern in base game; addressed by later patches",
+      "anchor_quote": null,
+      "source_url": "https://forums.crateentertainment.com/t/1-0-3-2-cdr-stun-jacks-sorcerer-a-gladiator-viable-build/43274",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handles": [
+            "afanasenkov26",
+            "x1x1x1x2"
+          ],
+          "sites": [
+            "forums.crateentertainment.com"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "transmuter": "Quick Jack - enables rapid spam casting",
+          "modifier": "Full Spread - increases projectile count and damage"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+        "anchor_quote": "you need to take its Quick Jack transmuter so you can spam it, plus pump both the base skill and its modifier Full Spread",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Light's Guardian set",
+          "alteration": "supports lightning/electrocute Stun Jacks builds; scepter adds +1 projectile to Stun Jacks"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+        "anchor_quote": "Light's Guardian as one of the best sets for lightning/electrocute damage",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile spray (180-degree fan)",
+          "footprint": "multi-point spread; close-range shotgun density",
+          "verbatim": "Stun Jacks spread in a 180-degree sector right before the player, with some jacks flying straight forward and some - to the sides"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+        "anchor_quote": "Stun Jacks spread in a 180-degree sector right before the player, with some jacks flying straight forward and some - to the sides",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Stun Jacks as primary caster spam — projectile spray in 180-degree sector. Quick Jack transmuter enables rapid spam. Energy-hungry; builds require high energy regen. Point-blank effectiveness preferred for shotgun density.",
+          "resource": "energy (spend; energy-hungry spam)",
+          "loop_verb": "spam-cast projectile spread"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-1-1-6-2-caster-electrify-my-life-stun-jacks-purifier-c-sr/89028",
+        "anchor_quote": "Stun Jacks spread in a 180-degree sector right before the player [...] Building around SJ is a double-edged sword",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Stun Jacks Purifier (Inquisitor+Demolitionist) - most common",
+            "Stun Jacks Sorcerer (Arcanist+Demolitionist) - CDR variant",
+            "Stun Jacks Elementalist (Shaman+Demolitionist)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-3-2-cdr-stun-jacks-sorcerer-a-gladiator-viable-build/43274",
+        "anchor_quote": "Elementalist was always seen to be the stun jacks class",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

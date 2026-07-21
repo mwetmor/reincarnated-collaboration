@@ -1,0 +1,247 @@
+{
+  "kit_id": "tq-marksmanship-haruspex",
+  "spine": {
+    "kit_id": "tq-marksmanship-haruspex",
+    "folk_name": "Marksmanship Haruspex",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "immortal-throne-2007;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed",
+      "curse:sap"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Marksmanship (passive amplifier) + bow attack",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Ranged arrow single-target with pierce-through; physical = no-family per THE PHYSICAL RULE; 'adds piercing and bleeding damage' — bleed attested; Marksmanship passive dramatically increases projectile damage and speed"
+        },
+        {
+          "source_skill": "Scatter Shot",
+          "geometry_value": "fork",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fragments on projectile impact — spreading burst; maps fork (splitting into multiple on impact); adds pierce fragments"
+        },
+        {
+          "source_skill": "Study Prey",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Enemy resist reduction debuff; maps curse:sap (defense/resist shred, persistent caster-anchored)"
+        }
+      ],
+      "motion_frame": "Marksmanship passive on every attack; Study Prey resist debuff applied; Call of the Hunt burst window (cooldown reduction gear target); Puncture Shot pierce+bleed; Scatter Shot fragments on impact",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "note": "Cooldown reduction gear highest priority ('most important thing') — keeps Call of the Hunt near-permanent; passive amplifier model"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce count",
+            "fragment spread"
+          ],
+          "economy": [
+            "cooldown reduction",
+            "attack speed"
+          ],
+          "traits_affixes": [
+            "pierce damage %",
+            "bleed chance",
+            "physical damage %"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fully physical+pierce kit — no element family per THE PHYSICAL RULE; identity entirely via geometry (line/fork) + ailment (bleed) + curse:sap. Dream mastery Trance passives available (passive sustain/amplify) but not individually mapped — no specific Trance effect damage-typed in fetched dossier. Call of the Hunt burst mapped via economy (cooldown reduction) not as separate skill — it is a passive-burst activator, not a geometry change."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Haruspex (Hunting / Dream) Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Haruspex/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Haruspex Build Guide - Titan Quest",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mobygames.com/game/26987/titan-quest-immortal-throne/",
+      "archive_url": null,
+      "site": "mobygames.com",
+      "author_handle": "unknown",
+      "title": "Titan Quest: Immortal Throne (2007) - MobyGames",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present from immortal-throne-2007 and anniversary-2016",
+      "anchor_quote": "Titan Quest: Immortal Throne is the official expansion pack for the 2006 action role-playing game Titan Quest, released on March 5, 2007",
+      "source_url": "https://www.mobygames.com/game/26987/titan-quest-immortal-throne/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Marksmanship Haruspex = Hunting+Dream dual mastery, single-target ranged premier archetype",
+      "anchor_quote": "Haruspex is a combination of Hunting and Dream masteries",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Marksmanship, Scatter Shot Arrows, Trance of Wrath; Study Prey debuff; Marksmanship dramatically increases arrow damage",
+      "anchor_quote": "Marksmanship greatly increases projectile speed and adds piercing damage",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Call of the Hunt (Hunting) — damage burst active; Study Prey — enemy resist reduction debuff; Marksmanship passive tree: Puncture Shot Arrows (+pierce/bleed), Scatter Shot (+pierce fragments); Dream Trances available as passive buffs"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+        "anchor_quote": "+% Increased Pierce Damage, +% Increased Pierce Ratio",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Cooldown reduction (-Recharge) gear is highest priority; with enough -Recharge, Call of the Hunt can be kept up 24/7"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+        "anchor_quote": "The most important thing you can get for your character is gear with -Recharge (Cooldown reduction) on it",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "ranged projectile — arrow single-target with pierce potential",
+          "secondary": "Scatter Shot fragments on impact (small AoE burst from projectile hit)",
+          "note": "pierce damage type attested"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+        "anchor_quote": "The Puncture Shot Arrows synergy increases piercing and bleeding damage and adds a chance for arrows to pierce",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Marksmanship passive amplifies all arrow damage; Study Prey reduces enemy resist; use Call of the Hunt for burst window (cooldown reduction gear target); Puncture Shot Arrows for pierce + bleed; Scatter Shot fragments on impact"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+        "anchor_quote": "Marksmanship greatly increases projectile speed and adds piercing damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "bow Haruspex (Marksmanship primary)",
+            "throwing-weapon Haruspex",
+            "spear Haruspex"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2340985692",
+        "anchor_quote": "Using Marksmanship, Puncture Shot and Scatter Shot seem to work well with throwing weapons",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

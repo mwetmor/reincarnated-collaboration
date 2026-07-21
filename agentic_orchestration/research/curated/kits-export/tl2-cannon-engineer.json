@@ -1,0 +1,204 @@
+{
+  "kit_id": "tl2-cannon-engineer",
+  "spine": {
+    "kit_id": "tl2-cannon-engineer",
+    "folk_name": "Cannon Engineer",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blast Cannon",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Long-range piercing projectile pierces all enemies in a line; small AoE blast on impact. Physical weapon-based damage — no element type descriptor attested. 'conveys most weapon effects' confirms physical/weapon scaling."
+        },
+        {
+          "source_skill": "Overload",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Charge-empowered enhanced shot state. Charge consumption for burst window. Treated as self_buff / charge trigger state."
+        }
+      ],
+      "motion_frame": "Build Charge via Dynamo Field; fire Blast Cannon as primary ranged pierce; Charge-enhanced burst shots as damage windows.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Charge builds via Dynamo Field (up to 5 per field hit); spent on Overload enhanced shots"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Charge bar full",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical weapon-based cannon. No element attested. Charge economy is identity-load-bearing — TEMPORAL_CHARGE T4 door fits. Piercing line geometry matches source accurately."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Engineer Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in tl2-2012 era",
+      "anchor_quote": "Torchlight II shipped September 2012; Blast Cannon present at launch as Engineer skill",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Cannon Engineer — community usage name for Blast Cannon Engineer build",
+      "anchor_quote": "Blast Cannon fires a long-range, piercing projectile from your cannon that pierces all enemies in a line and conveys most weapon effects — essential for cannonneer builds",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Blast Cannon, Overload; Charge-powered enhanced shots; projectile delivery, small AoE blast on impact",
+      "anchor_quote": "Blast Cannon functions as a long-range, piercing projectile from your cannon that pierces all enemies in a line; Engineer's charge bar builds primarily through Dynamo Field",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_title": "Engineer Skill Guide - Torchlight II"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "piercing line then small-AoE on impact",
+          "range": "long",
+          "notes": "pierces all enemies in a line; shell explodes in small AoE at end or on impact"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "a long-range, piercing projectile from your cannon that pierces all enemies in a line",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Build Charge via Dynamo Field; fire Blast Cannon as primary ranged attack (piercing line projectile); use Overload or Charge-enhanced shots as burst windows; Cannon enhanced shots spend Charge for bonus effects"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "Blast Cannon functions as a long-range, piercing projectile from your cannon that pierces all enemies in a line; Engineer's charge bar builds primarily through Dynamo Field",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pure cannonneer (Blast Cannon primary)",
+            "cannon + Force Field tanky variant",
+            "cannon + bots hybrid"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496712848",
+        "anchor_quote": "essential for cannonneer builds; conveys most weapon effects",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

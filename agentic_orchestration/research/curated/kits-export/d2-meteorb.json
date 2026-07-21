@@ -1,0 +1,241 @@
+{
+  "kit_id": "d2-meteorb",
+  "spine": {
+    "kit_id": "d2-meteorb",
+    "folk_name": "Meteorb",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Immunity-driven tree-partition motive has no engine lane. Fireball is primary spam; Meteor is secondary burst-on-stationary — skill relative weight noted. Engine loses the 'which element do I cast now?' immunity-check loop that defined meteorb gameplay every 3 seconds.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Immunity-driven tree-partition motive has no engine lane. Fireball is primary spam; Meteor is secondary burst-on-stationary — skill relative weight noted. Engine loses the 'which element do I cast now?' immunity-check loop that defined meteorb gameplay every 3 seconds.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Meteor",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Delayed AoE impact at cursor position; player drops on stationary or mercenary-positioned targets."
+        },
+        {
+          "source_skill": "Fire Ball",
+          "geometry_value": "single_target",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fast projectile spam; primary fire-leg attack against non-immune enemies."
+        },
+        {
+          "source_skill": "Frozen Orb",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile with shard spray; handles fire-immune enemies; dossier: 'Frozen Orb can single-handedly kill crowds.'"
+        }
+      ],
+      "motion_frame": "Stationary caster alternates between fire-leg (Fireball/Meteor) and cold-leg (Frozen Orb) depending on enemy immunity.",
+      "resource_economy": {
+        "cost_scale": "steady-mana",
+        "cost_slope": "flat-per-cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID",
+        "GEOMETRY_COLLAPSE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "cold-leg immune coverage partition"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Cold Mastery synergy scaling (fire tree / cold tree split-investment scaffold)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Dual-tree partition driven by enemy immunity system — fire for normal, cold for fire-immunes. Engine has no immunity partition mechanic; the player's coverage motive is lost. Source kit identity survives as two-element coverage; what the source player felt was tactical necessity (immunity routing) is lost. Verified: dual fire+cold CONFIRMED (verify_ledger). Blizzball listed as distinct variant, not this kit."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: Meteorb Sorceress Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/forums/threads/d2r-frozen-orb-sorceress-guide.20353/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "D2 - D2R:Frozen Orb Sorceress Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod-1.10+",
+      "anchor_quote": "put points in Frozen Orb, Cold Mastery, and Fire Mastery. Beyond lvl 30 put extra points into Cold Mastery and Frozen Orb",
+      "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r",
+      "anchor_quote": "D2 - D2R:Frozen Orb Sorceress Guide",
+      "source_url": "https://www.purediablo.com/forums/threads/d2r-frozen-orb-sorceress-guide.20353/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era token: rotw-s14 (post-cutoff — fetched text defines)",
+      "anchor_quote": null,
+      "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Meteorb' or 'Meteorb Sorceress' is real community usage",
+      "anchor_quote": "Diablo 2 Guide: Meteorb Sorceress Guide",
+      "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Meteor, Fire Ball, Frozen Orb; dual fire+cold element build",
+      "anchor_quote": "most people never use Meteor, opting for Fireball instead. One might cast a Frozen Orb at the beginning of a fight",
+      "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "notes": "Meteor: delayed AoE impact at cursor; Frozen Orb: projectile with shard spray. Fireball: fast projectile. Screen-coverage via combined fire."
+        },
+        "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+        "anchor_quote": "Frozen Orb can single-handedly kill crowds, and Meteor makes short work of larger, meatier targets",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast Frozen Orb at pack entry to chill enemies; spam Fireball at high rate; drop Meteor on stationary targets or mercenary position; Frozen Orb handles fire-immune enemies. Dual-tree partition: fire for normal enemies, cold for fire-immunes.",
+          "source_note": "purediablo.com meteorb guide"
+        },
+        "source_url": "https://www.purediablo.com/strategy/meteorb-sorceress-guide",
+        "anchor_quote": "throw a Meteor right on your mercenary, hold down stand still and spam two or three Fire Balls, another Meteor",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Meteorb (Meteor + Frozen Orb)",
+            "Blizzball (Blizzard + Fireball — distinct kit, mentioned as alternative starter)"
+          ],
+          "source_note": "PureDiablo guide distinguishes Meteorb vs Blizzball as separate sorceress archetypes"
+        },
+        "source_url": "https://www.purediablo.com/strategy/diablo-2-sorceress-guide-blizzball-meteorb",
+        "anchor_quote": "Diablo 2 Sorceress Starter Guide - Blizzball or Meteorb",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

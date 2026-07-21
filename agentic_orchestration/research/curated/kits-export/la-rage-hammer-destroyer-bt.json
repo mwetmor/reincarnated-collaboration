@@ -1,0 +1,256 @@
+{
+  "kit_id": "la-rage-hammer-destroyer-bt",
+  "spine": {
+    "kit_id": "la-rage-hammer-destroyer-bt",
+    "folk_name": "Berserker's Technique vs Mayhem (negative twin note)",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "negative",
+    "eras": "la-t4-ark-passive-2024",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "genre/mayhem",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Negative slot maps ATTESTED BT identity per addendum §E.5 negative-flag caution. Malformed slot (mech_note: 'NOT a record') — the contradiction story rides the review book. Red Dust self_buff direction-tested and correctly NOT emitted as curse. Class is Berserker (BT), not Destroyer despite kit_id containing 'rage-hammer-destroyer-bt' — corpus folk_name confirms Berserker's Technique Berserker class.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Negative slot maps ATTESTED BT identity per addendum §E.5 negative-flag caution. Malformed slot (mech_note: 'NOT a record') — the contradiction story rides the review book. Red Dust self_buff direction-tested and correctly NOT emitted as curse. Class is Berserker (BT), not Destroyer despite kit_id containing 'rage-hammer-destroyer-bt' — corpus folk_name confirms Berserker's Technique Berserker class.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bloody Rush",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; dash-strike melee; highest damage gem priority"
+        },
+        {
+          "source_skill": "Overdrive",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; wide melee arc"
+        },
+        {
+          "source_skill": "Power Break",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; heavy melee strike"
+        },
+        {
+          "source_skill": "Red Dust",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "8-second self-buff damage amplification window pre-cast before Burst Mode dump; DIRECTION TEST: self-cast on player — not enemy-directed debuff; self_buff only (not curse:amplify). Basin-3 precedent: burst_window nested in self_buff is SELF-side shape"
+        }
+      ],
+      "motion_frame": "Build Fury Meter via standard skills; pre-cast Red Dust self-buff (8s damage amplification); enter Burst Mode (Z): +20% Attack/Move Speed, +30% Crit Rate, +36% Damage during activation; dump Bloody Rush, Overdrive, Power Break for maximum damage within window; structured Burst window cadence (slower pace than Mayhem, higher per-window ceiling)",
+      "resource_economy": {
+        "fury_meter": "build via standard skills → controlled Burst Mode activation; Red Dust 8s self-buff pre-positioned before Burst dump; Berserker's Technique loop = structured meter-build → pre-buff → Burst window; higher per-window ceiling vs Mayhem but worse DPS downtime due to high cooldowns; engraving axis DEAD per §LA row 7"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Fury Meter full → Burst Mode; Red Dust self-buff pre-window",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CONTRADICTED-NEGATIVE SLOT: negative=1, verify_ledger negative_canon=CONTRADICTED x2. Per §E.5 addendum: 'Map the kit's ATTESTED identity; the negative story rides the review book, never mapping_json.' Attested identity = Berserker's Technique (BT) — confirmed by dossier (abstained=0 rows) and era verify rows. Both Mayhem and BT are co-viable; no born-bad negative. This slot was misfiled as a rage-hammer-destroyer negative twin (mech_note: 'NOT a record — redundancy note'). Mapping reflects BT identity from attested dossier. RED DUST DIRECTION TEST: 'Red Dust self-buff: 8-second damage amplification window' — SELF-cast buff on player; NOT enemy-directed; maps self_buff in delivery_notes (not curse:amplify). Element null: 'Bloody Rush', 'Overdrive', 'Power Break' = skill proper names; physical/melee; zero damage-typing (D4 NAME-ONLY LAW). Ark Passive (co-viable meta, both identities): capstone_alterations. Engraving axis DEAD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Berserker's Technique Berserker Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgstash.com/blog/lost-ark-mayhem-berserker-build",
+      "archive_url": null,
+      "site": "rpgstash.com",
+      "author_handle": null,
+      "title": "Lost Ark Mayhem Berserker Build (Technique comparison)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.playerauctions.com/lost-ark-guide/class-guides/lost-ark-best-berserker-build/",
+      "archive_url": null,
+      "site": "playerauctions.com",
+      "author_handle": null,
+      "title": "Lost Ark: The Best Berserker Build and Guide 2026",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Last updated January 31, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Berserker's Technique Berserker — negative twin; la-rage-hammer-destroyer-bt slot",
+      "anchor_quote": "Berserker with Berserker's Technique identity — Last updated January 31, 2026. Both Mayhem and Berserker's Technique appear co-viable; no dominance indicated.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "la-rage-hammer-destroyer-bt is negative_canon because Berserker's Technique is the strictly-dominated or off-meta losing side of a Destroyer identity comparison",
+      "anchor_quote": "Berserker's Technique has one of the worst DPS down time due to the high cooldown, while Mayhem is the more popular path since you don't need to build Fury Meter to enter burst mode — but both remain viable options",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "This is a Destroyer identity negative — la-rage-hammer-destroyer-bt references Rage Hammer as the negative twin to a Destroyer identity",
+      "anchor_quote": "la-rage-hammer-destroyer-bt slot — canon_corpus mech_note reads: NOT a record — redundancy note: both Berserker identities are positive canon. No born-bad negative applies to either Berserker identity.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Civo",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "Written by Civo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "guide_updated": "2026-01-31",
+          "meta_note": "Both Mayhem and Berserker's Technique co-viable; BT has higher burst ceiling but worse DPS downtime due to high cooldowns; Mayhem more popular for consistent uptime. No dominance flag in guide."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "Both Mayhem and Berserker's Technique appear co-viable; no dominance indicated. Last updated January 31, 2026.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Keen Blunt Weapon",
+            "Raid Captain",
+            "Cursed Doll",
+            "Mass Increase"
+          ],
+          "stats": "Crit and Specialization prioritized"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Keen Blunt Weapon, Raid Captain, Cursed Doll, Mass Increase",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "key_damage_skills": [
+            "Bloody Rush",
+            "Overdrive",
+            "Power Break"
+          ],
+          "geometry_notes": "Physical/melee; Burst Mode window gameplay; no elemental damage typing — physical only"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "Damage Gems: Bloody Rush, Overdrive, Power Break. Primarily physical/melee-based with emphasis on massive numbers and insane damage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Build Fury Meter via standard skills. On full meter enter Burst Mode (Z): +20% Attack/Move Speed, +30% Crit Rate, +36% Damage during activation. Burst rotation: Red Dust buff pre-cast, then dump maximum damage on boss during window. Berserker's Technique provides a structured meter-build → controlled Burst window loop; slower pace than Mayhem but higher per-window burst ceiling. Both BT and Mayhem co-viable per fetched meta."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "Your goal for this rotation is to buff up using Red Dust (before) then dumping as much damage as possible on the boss during Burst Mode",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Mayhem Berserker (permanent burst mode, consistent damage, HP cap tradeoff)",
+          "meta_discourse": "Mayhem more popular; BT is mechanically demanding alternative with burst spike potential but high DPS downtime"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "if players prefer a more fast-paced and consistent playstyle, they should check out our Mayhem guide",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

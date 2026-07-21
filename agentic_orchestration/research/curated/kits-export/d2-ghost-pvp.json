@@ -1,0 +1,263 @@
+{
+  "kit_id": "d2-ghost-pvp",
+  "spine": {
+    "kit_id": "d2-ghost-pvp",
+    "folk_name": "Ghost Assassin (WW/Trap)",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-1.10+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ghost Assassin's identity fuses trap-zone control + mobility burst + CC-chain in PvP — the PvP meta-context (CC-lock dueling) is texture in fidelity_notes per engine solo-PvE scope. WW + trap combo is well-captured; minor loss on the precision positioning game of PvP dueling. Player feels 'trap-layer who teleports in and CC-bursts' — that build, PvP context excluded.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ghost Assassin's identity fuses trap-zone control + mobility burst + CC-chain in PvP — the PvP meta-context (CC-lock dueling) is texture in fidelity_notes per engine solo-PvE scope. WW + trap combo is well-captured; minor loss on the precision positioning game of PvP dueling. Player feels 'trap-layer who teleports in and CC-bursts' — that build, PvP context excluded.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Sentry",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed-proxy trap at target location; emits 10 radial lightning bolt shots. Placed-proxy (totem lane) per §A ghost-pvp batch hot-fact. PvP context: deploy at key positions in dueling arena."
+        },
+        {
+          "source_skill": "Mind Blast",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Small-AoE stun/convert at target location. Stun attested: fetched skill_loop — 'Mind Blast stuns characters.' PvP opener to CC-lock target. [ERRATA-58 2026-07-19: 'shadow' element STRUCK — it was the Shadow Discipline TREE NAME, a name-only over-attestation under the D4 name-only law (moderate confidence). Mind Blast attests stun (kept), not shadow damage. Blind-rider anchor, D-1.]"
+        },
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spinning melee AoE that hits all adjacent enemies during travel arc. Moving-channel per §CROSS row 5: 'full-move policy while channeling.' WW via oskill/item mechanic for Assassin (Enigma-class item-defined-archetype)."
+        }
+      ],
+      "motion_frame": "Deploy Lightning Sentry traps at key positions; Teleport (via Enigma) to reposition; Mind Blast stun to CC-lock target; Whirlwind through stunned opponent for burst; traps continue firing during WW",
+      "resource_economy": {
+        "cost_scale": "mana-mid",
+        "cadence_scale": "trap-deploy-then-engage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "target-stunned",
+        "mark_identity": "stunned-state",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Teleport (Enigma runeword — defines Ghost identity; item-defined-archetype)"
+          ],
+          "economy": [
+            "Fade DR passive; Charged Bolt Sentry/Shock Web as synergy scaffold for Lightning Sentry"
+          ],
+          "traits_affixes": [
+            "Lightning Sentry synergized by Death Sentry/Charged Bolt Sentry/Shock Web; Bartuc's Cut-Throat/Jade Talon claws for WW"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype (§CROSS row 4): Ghost identity = Enigma Teleport access; map WITH-Enigma form as core. PvP context per §D row 4 (engine scope is solo-PvE; PvP framing = fidelity_notes one-liner). Mind Blast stun attested in fetched anchor ('Mind Blast stuns characters'). Shadow element for Mind Blast (shadow/dark discipline). WW moving-channel delivery noted per §CROSS row 5. Lightning Sentry = placed-proxy (totem lane) per batch hot-fact. Re-key candidate d2-ghost-assassin-pvp parked per gandalf-ruling-17; current kit_id d2-ghost-pvp used as instructed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.purediablo.com/forums/threads/pvp-ww-ghost-assassin-guide-v2-0-by-tienje.1070/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": "TienJe",
+      "title": "PvP WW Ghost Assassin Guide V2.0 by TienJe",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+      "archive_url": null,
+      "site": "mbaker2307.wixsite.com",
+      "author_handle": null,
+      "title": "PvP Lightning Sentry/Whirlwind Assassin",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "archive_url": null,
+      "site": "wikipedia.org",
+      "author_handle": null,
+      "title": "Diablo II: Lord of Destruction - Wikipedia",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.10+ era",
+      "anchor_quote": "Ghost Assassins are Lightning Sentry/Whirlwind hybrid Assassins when they use Enigma",
+      "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ghost Assassin (WW/Trap)' and aliases 'Ghost Assassin', 'WW Trap Assassin PvP' are real community usage",
+      "anchor_quote": "Ghost Assassins are Lightning Sentry/Whirlwind hybrid Assassins when they use Enigma",
+      "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Mind Blast, Whirlwind, Lightning Sentry",
+      "anchor_quote": "20 Lightning Sentry, 20 Charged Bolt Sentry, 20 Shock Web; Whirlwind opponents without losing a significant amount of trap damage; 1 Mind Blast",
+      "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TienJe",
+          "site": "purediablo.com",
+          "note": "PvP WW Ghost Assassin Guide V2.0 — 403 on direct fetch; name confirmed from search result title"
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-ww-ghost-assassin-guide-v2-0-by-tienje.1070/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Enigma (armor — grants Teleport; DEFINING item for Ghost identity)",
+            "Chains of Honor (alt armor)"
+          ],
+          "uniques": [
+            "Bartuc's Cut-Throat",
+            "Jade Talon",
+            "Shadow Dancer"
+          ],
+          "synergies": [
+            "Lightning Sentry synergized by Death Sentry, Charged Bolt Sentry, Shock Web"
+          ],
+          "notes": "Skill allocation: 20 Lightning Sentry, 20 Charged Bolt Sentry, 20 Shock Web (trap stack); 1 Mind Blast (utility); Whirlwind via barbarian skill (WW accessible to Assassin via oskill or specific mechanics — confirm via steward)."
+        },
+        "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+        "anchor_quote": "20 Lightning Sentry, 20 Charged Bolt Sentry, 20 Shock Web",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Enigma runeword (grants Teleport to Assassin — defining the 'Ghost' identity)",
+            "Shadow Dancer boots",
+            "Chains of Honor (armor alt)",
+            "Bartuc's Cut-Throat / Jade Talon (claws for WW)"
+          ],
+          "notes": "Enigma is explicitly the enabling item for the Ghost identity (Teleport). Source noted 'when they use Enigma' as the defining condition."
+        },
+        "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+        "anchor_quote": "Ghost Assassins are Lightning Sentry/Whirlwind hybrid Assassins when they use Teleport from the Enigma runeword",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Lightning Sentry: trap emplaced at target location; emits radial lightning bolts continuously (10 shots). Mind Blast: small-AoE stun/convert at target location. Whirlwind: spinning melee AoE that hits all adjacent enemies during travel arc. Combination: trap zone control + mobility burst."
+        },
+        "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+        "anchor_quote": "Lightning Sentry sends out 10 lightning shots; Whirlwind opponents without losing a significant amount of trap damage",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Deploy Lightning Sentry traps at key positions (sentry emits 10 lightning shots). Use Teleport (via Enigma runeword) to reposition rapidly. When opponent enters range, stun them with Mind Blast. Whirlwind through stunned target for physical/elemental damage burst. Traps continue firing during WW. Control-chain dueling identity."
+        },
+        "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+        "anchor_quote": "Ghost Assassins are Lightning Sentry/Whirlwind hybrid Assassins when they use Teleport from the Enigma runeword; Mind Blast stuns characters; Lightning Sentry sends out 10 lightning shots",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Ghost Assassin (Enigma Teleport + LS traps + WW; PvP-primary; lod-1.10+)",
+            "WW/Trapper Hybrid (non-Ghost; no Enigma Teleport; similar skill build but different positioning mechanic)",
+            "Lightning Sentry Trapper (trap-only; no WW component; distinct kit)"
+          ],
+          "notes": "The 'Ghost' name specifically requires Enigma (Teleport access). Without Enigma it becomes a WW/Trapper Hybrid per community usage."
+        },
+        "source_url": "https://mbaker2307.wixsite.com/diablo2hardcore/pvp-lightning-sentry-whirlwind-assassin",
+        "anchor_quote": "Ghost Assassins are Lightning Sentry/Whirlwind hybrid Assassins when they use Enigma",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

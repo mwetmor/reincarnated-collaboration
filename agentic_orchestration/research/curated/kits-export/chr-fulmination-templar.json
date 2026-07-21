@@ -1,0 +1,220 @@
+{
+  "kit_id": "chr-fulmination-templar",
+  "spine": {
+    "kit_id": "chr-fulmination-templar",
+    "folk_name": "Fulmination Holy Reckoning Templar",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "1.0-2020;ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "mechanics claim UNSUPPORTED at verify; lightning element rests on dossier payload descriptor ('lightning proc events') not a direct 'deals lightning damage' anchor; player familiar with Fulmination's typed identity would recognize but the fetch language is indirect",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "holy",
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "mechanics claim UNSUPPORTED at verify; lightning element rests on dossier payload descriptor ('lightning proc events') not a direct 'deals lightning damage' anchor; player familiar with Fulmination's typed identity would recognize but the fetch language is indirect",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fulmination",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": "holy",
+          "ailments": [],
+          "delivery_notes": "High attack speed melee triggers Fulmination proc-chain; dossier states 'lightning proc events' as damage descriptor on the proc; holy secondary from Lusombra's Boots 'holy damage bonus' item modifier — genuine element modifier on item, not a skill name"
+        },
+        {
+          "source_skill": "Holy Reckoning",
+          "geometry_value": "melee_strike",
+          "element_primary": "holy",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Reckoning's Set multiplies holy lightning proc events; Holy Reckoning is a skill name but 'holy damage bonus' item support confirms holy-element identity; variant: War God's Set (no holy item anchor)"
+        }
+      ],
+      "motion_frame": "High attack speed melee loop triggering Fulmination proc-chain; on-hit self-sustain via Conviction resource",
+      "resource_economy": {
+        "cost_type": "conviction",
+        "on_hit_builder": true
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Fulmination proc event",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESONANCE_LOOP"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "on_hit_builder"
+          ],
+          "traits_affixes": [
+            "holy damage item modifier",
+            "Reckoning's Set proc multiplier"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "mechanics verify UNSUPPORTED — proc-chain details from dossier only; 'lightning proc events' is a descriptor phrase in dossier payload (not anchor_quote), borderline name-vs-descriptor; holy attested via item bonus anchor 'holy damage boosting Lusombra's Boots'; element confidence CLOSE not EXACT. Variant War God's Set has no holy item anchor, maps differently."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/5/3373782431188363985/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Chronicon Fulmination Holy Reckoning Templar T500 (DLC - v1.40.1)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/5/5427423328664578383/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Chronicon T400 Fulmination War God Templar (DLC v1.40.1)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: 1.0-2020, ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "Chronicon Fulmination Holy Reckoning Templar T500 (DLC - v1.40.1)",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/5/3373782431188363985/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Fulmination Holy Reckoning Templar — class=Templar, build=Fulmination+Holy Reckoning skill set",
+      "anchor_quote": "This build is based on high attack speed Fulmination skill with Reckoning's Set",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/5/3373782431188363985/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Proc-chain economy: Fulmination lightning procs from melee hits (on_hit builder); Conviction is Templar resource; WIS primary attribute; block/shield defense",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "War God's Set",
+            "Reckoning's Set"
+          ],
+          "boots": "Lusombra's Boots (holy damage bonus)"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/3373782431188363985/",
+        "anchor_quote": "holy damage boosting Lusombra's Boots",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "High attack speed melee strikes trigger Fulmination proc-chain; Holy Reckoning multiplies lightning proc events; chain procs self-sustain via on-hit builder; Conviction resource not consumed by procs"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/3373782431188363985/",
+        "anchor_quote": "high attack speed Fulmination skill ... Reckoning's Set",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fulmination Holy Reckoning (Reckoning's Set — DLC)",
+            "Fulmination War God (War God's Set)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/5427423328664578383/",
+        "anchor_quote": "Fulmination War God Templar ... Reckoning's Set ... variation",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

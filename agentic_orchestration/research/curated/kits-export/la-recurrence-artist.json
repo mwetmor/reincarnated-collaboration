@@ -1,0 +1,213 @@
+{
+  "kit_id": "la-recurrence-artist",
+  "spine": {
+    "kit_id": "la-recurrence-artist",
+    "folk_name": "Recurrence Artist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "negative",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Skill geometry is attested at class-pose level only; no individual damage-skill geometries named in store. Motion frame reconstructed from loop field verbatim. Core skill set blank (no names in fetched dossier). Player consequence: identity loop and sustained feel correct; specific skill shapes absent.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Skill geometry is attested at class-pose level only; no individual damage-skill geometries named in store. Motion frame reconstructed from loop field verbatim. Core skill set blank (no names in fetched dossier). Player consequence: identity loop and sustained feel correct; specific skill shapes absent.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rising Sun / Waning Moon pose cycle (crit-and-damage buffs)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pose cycle grants 60s crit rate and damage buffs; sustained personal DPS, not party support utility. Name-only element test: no damage-type descriptor found → null."
+        },
+        {
+          "source_skill": "Core damage skills (generic — no explicit skill names attested)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Crit-focused melee output; DPS playstyle with Swiftness priority. No ailment named in store."
+        }
+      ],
+      "motion_frame": "Sustained crit-focused melee DPS; Rising Sun/Waning Moon pose cycle (60s buff) → core damage skill spam; no identity release window — continuous output with Swiftness stat priority",
+      "resource_economy": {
+        "energy_orbs": "build pose cycle to sustain crit/damage buff uptime; no identity gauge expenditure (recurrence = DPS branch forgoing support identity economy)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "self_buff"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Negative canon (D-tier Aug 2025). No explicit skill geometry in store beyond pose-cycle. Element null confirmed (no damage-type descriptor). No named ailments. Brand/debuff check: store does not attest any party Brand or enemy-directed debuff for recurrence DPS lane — if the guide's 'Synergy' line were attested for this kit it would be curse:amplify, but no such line is in fetched text. Ark Passive nodes not enumerated in fetched language; capstone_alterations not populated (no node text in store for this kit beyond general reference to DPS identity)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-editorial",
+      "title": "Community Class Tier List - August 2025",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gamiunity.com/lost-ark-artist-build-guide-2025-builds-ark-passive/",
+      "archive_url": null,
+      "site": "gamiunity.com",
+      "author_handle": "unknown",
+      "title": "Lost Ark — Artist Build Guide 2025: Best builds",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024 era",
+      "anchor_quote": "Community Tier Lists are based on the average encounter of each class while raiding through Party Finder and Match Making — August 2025 list includes Recurrence Artist at D Tier",
+      "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Recurrence Artist — folk name (class Recurrence + identity spec DPS Artist)",
+      "anchor_quote": "Recurrence Artist [icon shown] — D Tier placement in the August 2025 community class tier list, confirming the spec exists as a named community identity",
+      "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Recurrence trades Artist's selfless support utility for personal damage output; core damage skills; optimised for Full Bloom support not DPS",
+      "anchor_quote": "Both are viable in 2025; the choice comes down to whether you want to be the heartbeat of the raid or its scalpel. Recurrence is the artist who paints with black ink — crit and burst are your language. You trade a little of the selfless utility for much higher personal damage output",
+      "source_url": "https://gamiunity.com/lost-ark-artist-build-guide-2025-builds-ark-passive/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Negative kit: Recurrence Artist rated D-tier in August 2025 community poll (Party Finder / matchmaking avg); meta penalises Artist stepping out of full-support role; underperforms dedicated DPS; class optimised for Full Bloom support",
+      "anchor_quote": "Recurrence Artist [listed in D Tier]. Community Tier Lists are based on the average encounter of each class while raiding through Party Finder and Match Making. It doesn't factor in the absolute potential of each class (commonly known as the Skill Ceiling).",
+      "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "maxroll-editorial",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Community Class Tier List - August 2025 [maxroll.gg editorial]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Recurrence identity uses Rising Sun / Waning Moon pose cycle granting crit rate and damage buffs for 60s; DPS playstyle with Swiftness as stat priority; no strict burst window — sustained crit-focused output"
+        },
+        "source_url": "https://gamiunity.com/lost-ark-artist-build-guide-2025-builds-ark-passive/",
+        "anchor_quote": "crit and burst are your language... trade a little of the selfless utility for much higher personal damage output and faster clears",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Full Bloom Artist (support — S tier August 2025)",
+            "Recurrence Artist (DPS — D tier August 2025)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Artist successfully defended her position in the S tier as the most desired support [Full Bloom]; Recurrence Artist [D tier]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

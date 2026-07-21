@@ -1,0 +1,267 @@
+{
+  "kit_id": "la-nights-edge-souleater",
+  "spine": {
+    "kit_id": "la-nights-edge-souleater",
+    "folk_name": "Night's Edge Souleater",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Soul Snatch window CDR-stack mechanism (Spirit-analog) loses quantitative depth; burst_window captures SHAPE. 'Soul Decapitation as terminator' is delivery texture, not mapped as separate grammar node.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Soul Snatch window CDR-stack mechanism (Spirit-analog) loses quantitative depth; burst_window captures SHAPE. 'Soul Decapitation as terminator' is delivery texture, not mapped as separate grammar node.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Guillotine Swing",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ghast skill; area close-range melee swing; primary damage anchor in Soul Snatch window"
+        },
+        {
+          "source_skill": "Lethal Spinning",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ghast skill; spin-to-win melee; 2x per Soul Snatch priority rotation"
+        },
+        {
+          "source_skill": "Harvest",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ghast skill; area melee; 3x per Soul Snatch priority rotation"
+        },
+        {
+          "source_skill": "Reaper's Scythe",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ghast filler damage skill"
+        },
+        {
+          "source_skill": "Vestige",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ghast filler; Soul Decapitation ends Soul Snatch window — mapped as terminator mechanic in economy note"
+        }
+      ],
+      "motion_frame": "Generate Soul Stones via Deathlord Skills to fill Edge Meter; on meter full enter Soul Snatch burst window; cycle Ghast skills for 120% damage; Soul Decapitation terminates window; repeat",
+      "resource_economy": {
+        "edge_meter_gauge": "build via Deathlord Skills (Normal=1 stone, Enhanced=3 stones) → fill Edge Meter → enter Soul Snatch; Night's Edge DISABLES Deathlord Mode (no transformation); Edge Meter depletes slowly during Soul Snatch"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Edge Meter full threshold → Soul Snatch activation",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: no damage-typing in dossier; 'Deathlord' and skill names are proper nouns (D4 NAME-ONLY LAW). No ailments attested. Soul Snatch = TIMED burst_window (meter drains). Night's Edge is the Reflux-style suppression twin of Full Moon Souleater — permanent-suppression of Deathlord Mode, sustained damage loop. TEMPORAL_CHARGE for Edge Meter accumulate cycle; MOMENTUM_CASCADE for CDR-stack inside Soul Snatch window. Ark Passive sets (Standard, Kurzan Front, Deathlord's Call 503) → capstone_alterations; engraving axis DEAD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah; reviewed by Perciculum",
+      "title": "Night's Edge Souleater Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gamiunity.com/lost-ark-soul-eater-build-guide-2025/",
+      "archive_url": null,
+      "site": "gamiunity.com",
+      "author_handle": null,
+      "title": "Lost Ark Soul Eater Build Guide 2025 (Night's Edge / Full Moon co-viability note)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last Updated: June 12, 2026. Ark Passive: Standard (413), Kurzan Front, Deathlord's Call (503)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Night's Edge Souleater — Souleater class, Night's Edge identity spec",
+      "anchor_quote": "Night's Edge Souleater Build Guide — Night's Edge focuses on generating and consuming Soul Stones to fill your Edge Meter",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Night's Edge DISABLES Deathlord Mode entirely; replaces Possession Meter with Edge Meter; Ghast and Deathlord skills gain +20-40% damage passively; sustained damage without transformation",
+      "anchor_quote": "Soul Snatch mode, which provides huge cooldown reduction and extra damage to your Ghast skills, but disables your Deathlord Skills",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+        "anchor_quote": "Written by Sekwah; Reviewed by Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_sets": [
+            "Standard (413)",
+            "Kurzan Front",
+            "Deathlord's Call (503)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+        "anchor_quote": "Ark Passive: Standard (413), Kurzan Front, Deathlord's Call (503)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "gems_damage": [
+            "Guillotine Swing",
+            "Lethal Spinning",
+            "Vestige",
+            "Reaper's Scythe",
+            "Harvest"
+          ],
+          "gems_cooldown": [
+            "Guillotine Swing",
+            "Reaper's Scythe",
+            "Harvest",
+            "Lunatic Edge",
+            "Vestige",
+            "Lethal Spinning"
+          ],
+          "engravings": [
+            "Grudge",
+            "Keen Blunt Weapon",
+            "Adrenaline",
+            "Raid Captain",
+            "Cursed Doll"
+          ],
+          "stats": "Crit and Swiftness prioritized for bracelet rolls"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+        "anchor_quote": "Engravings priority order: Grudge, Keen Blunt Weapon, Adrenaline, Raid Captain, Cursed Doll",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "main_damage_skills": [
+            "Guillotine Swing",
+            "Lethal Spinning",
+            "Reaper's Scythe",
+            "Harvest",
+            "Vestige"
+          ],
+          "geometry_notes": "Ghast skills are area/close-range; Deathlord skills noted as unused; Soul Decapitation terminates Soul Snatch window"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+        "anchor_quote": "ideally cast 2 Lethal Spinning and 3 Harvest, with the rest of the Ghast skills used as fillers",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Generate Soul Stones via Normal (1 stone) and Enhanced (3 stones) Deathlord Skills to fill Edge Meter. On Edge Meter full enter Soul Snatch: 120% damage to Ghast skills, 40% Ghast cooldown reduction, 20% attack speed. During Soul Snatch priority: 2x Lethal Spinning + 3x Harvest + remaining Ghast fillers. Soul Decapitation ends Soul Snatch. Sustained loop without transformation — no Deathlord Mode entered."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+        "anchor_quote": "Soul Snatch mode, which provides huge cooldown reduction and extra damage to your Ghast skills, but disables your Deathlord Skills",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Full Moon Harvester Souleater (burst-oriented via Possession Meter and Deathlord Mode transformation)",
+          "meta_note": "Both Night's Edge and Full Moon co-viable in 2025-2026; choice is playstyle-dependent"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/nights-edge-souleater-raid-build-guide",
+        "anchor_quote": "Full Moon Harvester Souleater (burst-oriented alternative build mentioned)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

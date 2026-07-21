@@ -1,0 +1,169 @@
+{
+  "kit_id": "di-essence-transfer",
+  "spine": {
+    "kit_id": "di-essence-transfer",
+    "folk_name": "Legendary Essence system",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-launch-2022;di-5.0-2026",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "SYSTEM kit: DI's primary item-crafting economy mechanic (Legendary Essence inheritance). No combat loop exists to translate. Honest empty-projection per §D convention. Docket: review-book system-register.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "SYSTEM kit: DI's primary item-crafting economy mechanic (Legendary Essence inheritance). No combat loop exists to translate. Honest empty-projection per §D convention. Docket: review-book system-register.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": null,
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SYSTEM kit per §D SYSTEM-kit convention. 'Essence Transfer = the DI equivalent of Kanai's Cube' (verify_ledger anchor, CONFIRMED). 'When an item inherits a legendary power, it also gets the appearance of the original item that had the legendary attribute and the name as well.' Zero combat skill evidence — honest empty-projection per §D convention. System shape: item-crafting economy; extract legendary power from source item (item destroyed, costs 3000 Gold), inherit into target item (free, reversible); extracted essences reusable across multiple items. Docket destination: review-book system-register. Batch hot-fact §D.3 essence-transfer SYSTEM convention governs."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+      "archive_url": null,
+      "site": "blizzardwatch.com",
+      "author_handle": null,
+      "title": "How and why to extract and inherit legendary powers with Essence Transfer in Diablo Immortal",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "System present in di-launch-2022 and di-5.0-2026",
+      "anchor_quote": "We're happy to see that the ability to transfer legendary powers to new items has made it into Diablo Immortal.",
+      "source_url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Legendary Essence system'; aliases 'Essence Transfer DI', 'Legendary Essence Inheritance DI'",
+      "anchor_quote": "We're happy to see that the ability to transfer legendary powers to new items has made it into Diablo Immortal.",
+      "source_url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: essence extraction/inheritance; system: extract legendary power from item, inherit into another",
+      "anchor_quote": "When an item inherits a legendary power, it also gets the appearance of the original item that had the legendary attribute and the name as well.",
+      "source_url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "system_description": "Essence Transfer = the DI equivalent of Kanai's Cube; extracts/inherits legendary affixes between items; launched at game release 2022; still present in di-5.0-2026 era"
+        },
+        "source_url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+        "anchor_quote": "We're happy to see that the ability to transfer legendary powers to new items has made it into Diablo Immortal.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "mechanism": "extract legendary power from source item (item destroyed); inherit into target item (free; reversible); extracted essence reusable on multiple items"
+        },
+        "source_url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+        "anchor_quote": "When an item inherits a legendary power, it also gets the appearance of the original item that had the legendary attribute and the name as well.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "NPC Zamina in Westmarch performs extraction (destroys item, costs 3000 Gold) and inheritance (free; applies extracted legendary power + appearance to target item); extracted essences reusable across multiple items"
+        },
+        "source_url": "https://blizzardwatch.com/2022/06/13/extract-inherit-legendary-powers-essence-transfer-diablo-immortal/",
+        "anchor_quote": "When an item inherits a legendary power, it also gets the appearance of the original item that had the legendary attribute and the name as well.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

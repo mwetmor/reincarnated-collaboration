@@ -1,0 +1,240 @@
+{
+  "kit_id": "d4-thorns-barb",
+  "spine": {
+    "kit_id": "d4-thorns-barb",
+    "folk_name": "Thorns Barbarian",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the precise Thorns-stat scaling curve via Razorplate Masterwork; (2) Barbed Carapace key-passive interaction as the central trigger condition; (3) the defensive feel of standing still in groups — 'damage-by-getting-hit' loop feel is fidelity texture beyond the reflect-damage lane.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the precise Thorns-stat scaling curve via Razorplate Masterwork; (2) Barbed Carapace key-passive interaction as the central trigger condition; (3) the defensive feel of standing still in groups — 'damage-by-getting-hit' loop feel is fidelity texture beyond the reflect-damage lane.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Thorns (Razorplate)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Reactive damage on being hit; Razorplate grants Thorns stat four times (Masterworkable); stat-is-the-weapon: Thorns stat IS the damage output; no active cast — passive aura-class trigger"
+        },
+        {
+          "source_skill": "Challenging Shout",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Taunt-adjacent: forces enemies to attack player to trigger Thorns; damage mitigation + Thorns grant; 'makes mobs attack you and trigger your thorns'"
+        },
+        {
+          "source_skill": "Hammer of the Ancients",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cast to Overpower; 4-stack Combat Bash is prerequisite; burst-window trigger"
+        },
+        {
+          "source_skill": "Leap",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Landing-spot AoE; gap-close + Earthquake AoE activation; 'Standing in Earthquakes activates global damage multipliers'"
+        }
+      ],
+      "motion_frame": "Group with Steel Grasp, rush in, build 4× Combat Bash stacks, cast HotA to Overpower, let Thorns do the rest while shouts upkeep",
+      "resource_economy": {
+        "fury_cost": "shout/skill activation",
+        "damage_taken_converts_shape": "reflect-damage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Steel Grasp — pull/grouping utility"
+          ],
+          "economy": [
+            "War Cry — fury/damage scalar",
+            "Rallying Cry — resource regen shout"
+          ],
+          "traits_affixes": [
+            "Barbed Carapace key passive — central Thorns trigger",
+            "Razorplate Masterwork — Thorns stat multiplier",
+            "Sabre of Tsagal, Doombringer, Harlequin Crest — numeric scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Stat-as-damage-substrate: Razorplate Thorns stat IS the weapon — accrual to stat-as-damage-substrate docket family (basin-wide standing family; first d4 Thorns attestation). Physical element: no element damage verb in dossier; Thorns is physical-substrate damage. Element null per THE PHYSICAL RULE (Thorns = physical reactive; kit expresses identity via geometry+reflect-damage economy). No ailments named in dossier — near-miss: bleed not attested in this dossier. Earthquakes damage-multiplier = area-effect modifier only, not a separate element. Overpower burst = trigger_grammar consequence_type burst_window (Overpower is a self-side burst state per §C row — not an ailment)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Thorns – Barbarian Build for Diablo 4 (Season 9)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/build-guides/thorns-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Thorns Barbarian Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in launch-s1-3",
+      "anchor_quote": "August 29th 2023: Build Creation Season 1.",
+      "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Thorns Barbarian' is real community usage",
+      "anchor_quote": "Thorns – Barbarian Build for Diablo 4 (Season 9)",
+      "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Challenging Shout and Razorplate; Barbarian class",
+      "anchor_quote": "Razorplate is the must have item for the Thorns Barbarian",
+      "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "key_passive": "Barbed Carapace — central to triggering damage effects",
+          "shouts": [
+            "Challenging Shout (Thorns grant + damage mitigation)",
+            "War Cry",
+            "Rallying Cry"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/thorns-barbarian-guide",
+        "anchor_quote": "Challenging Shout is our most important buff",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Razorplate — must-have item; grants large amounts of Thorns four times, can be Masterworked (Patch 1.4.0 upgrade)",
+            "Sabre of Tsagal",
+            "Battle Trance",
+            "Doombringer",
+            "Harlequin Crest"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/thorns-barbarian-guide",
+        "anchor_quote": "Razorplate is the obvious core of any midgame Thorns build",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Thorns damage triggers on being hit (reactive/melee-radius); Standing in Earthquakes activates global damage multipliers; Leap creates landing-spot AoE effects."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+        "anchor_quote": "Standing in Earthquakes",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Group mobs up with Steel Grasp. Rush into mobs and spam Bash to quickly get 4 stacks of Combat Bash. Cast Hammer of the Ancients to overpower. Use your Challenging Shout to make sure mobs attack you and trigger your thorns."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+        "anchor_quote": "Group mobs up with Steel Grasp. Rush into mobs and spam Bash to quickly get 4 stacks of Combat Bash.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/guides/thorns-barbarian-build/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "kit_id": "tli-iris2-thunder-magus",
+  "spine": {
+    "kit_id": "tli-iris2-thunder-magus",
+    "folk_name": "Iris 2 Thunder Magus Minions",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tli-ss11-12-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Hero-merges-into-proxy form identity not fully expressible; engine has no hero-becomes-spirit-magus mechanism. Approximated as active projectile fighter with PHASE_MOMENTUM door.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Hero-merges-into-proxy form identity not fully expressible; engine has no hero-becomes-spirit-magus mechanism. Approximated as active projectile fighter with PHASE_MOMENTUM door.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Thunder Magus (merged form) — Lightning Star / Thundercloud Surge / Lightning Surge",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hero merges with Spirit Magus to actively fight. Skill_geometry anchor: 'Thunder Magnus has a Base Skill of Lightning Star, an Empower Skill called Thundercloud Surge, an Enhanced Skill called Thunderlight Arrow, and an Ultimate skill called Lightning Surge.' Lightning attested: verify anchor 'Thunder Magnus ultimate skill damage scaling benefits from lightning damage increases.' Multi-projectile (Lightning Star/Arrow projectile type)."
+        },
+        {
+          "source_skill": "Machine Army / Dark Gate (support auras)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Support buff auras. Skill_geometry note: 'Machine Army summons front-line guard. Precise Projectiles and Weapon Amplification as passive auras.' Buff/support layer for the merged Thunder Magus form."
+        }
+      ],
+      "motion_frame": "Hero merges into Thunder Magus form (Vigilant state) and actively fights using Magus projectile skills; cycle attack speed to trigger Lightning Surge ultimate rapidly.",
+      "resource_economy": {
+        "cadence_scale": "attack speed primary scaling (item_alterations anchor: 'attack speed greatly affects Magnus attack speed and ultimate skill cycle speed')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Vigilant merge state",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Machine Army front-guard placement"
+          ],
+          "economy": [
+            "attack speed cadence loop"
+          ],
+          "traits_affixes": [
+            "Nourishment stacks for bonus damage (capstone anchor)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U. Hero-merge identity: Iris 2 is mode-swap (Vigilant = merged fighting form) — PHASE_MOMENTUM is the T4 door for the form cycling; PROXY_ASCENSION for the underlying spirit system. Iris 1 Growing Breeze (passive summon) is a separate identity, correctly excluded. Mode-swap docket candidate."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://tlidb.com/Iris",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Iris - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://vortexgaming.io/en/postdetail/647546",
+      "archive_url": null,
+      "site": "vortexgaming.io",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite Season 11: Iris 2 Minion Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://tlidb.com/Summon_Thunder_Magus",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Summon Thunder Magus - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-ss11-12-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Iris 2 Thunder Magus Minions — Iris Vigilant Breeze hero with Thunder Magus summoner focus",
+      "anchor_quote": "Iris merges with a Spirit Magus to enter the Vigilant state, fighting enemies with Spirit Magus Skills and granting Spirit Magi with Breeze to enhance their damage.",
+      "source_url": "https://tlidb.com/Iris",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: thunder magus summons, lightning damage",
+      "anchor_quote": "Thunder Magnus' ultimate skill damage scaling benefits from lightning damage increases. The build scales with projectile damage, attack speed, and lightning damage.",
+      "source_url": "https://vortexgaming.io/en/postdetail/647546",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Iris 2 Vigilant Breeze: hero merges with Spirit Magus. Iris 1 Growing Breeze: passive summon growth (separate build). Spirit Magi gain Nourishment stacks for bonus damage."
+        },
+        "source_url": "https://tlidb.com/Iris",
+        "anchor_quote": "Iris merges with a Spirit Magus to enter the Vigilant state, fighting enemies with Spirit Magus Skills and granting Spirit Magi with Breeze to enhance their damage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Attack speed scales Magnus attack speed + ultimate cycle speed. Armor stack synergizes with Iris traits for survivability."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/647546",
+        "anchor_quote": "attack speed greatly affects Magnus' attack speed and ultimate skill cycle speed",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Thunder Magus: Lightning Star (base), Thundercloud Surge (empower), Thunderlight Arrow (enhanced), Lightning Surge (ultimate). Projectile-type ultimate. Machine Army summons front-line guard."
+        },
+        "source_url": "https://earlyguides.com/torchlight-infinite/builds",
+        "anchor_quote": "Thunder Magnus has a Base Skill of Lightning Star, an Empower Skill called Thundercloud Surge, an Enhanced Skill named Thunderlight Arrow, and an Ultimate skill called Lightning Surge.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Hero merges with Spirit Magus (Vigilant state) → actively fight using Spirit Magus Skills. Thunder Magus ultimate is primary damage; cycle attack speed to trigger ultimate fast."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/647546",
+        "anchor_quote": "the hero fusing with spirits to actively control the battle rather than passive summon management",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Thunder Magus active-merge (Vigilant Breeze / Iris 2)",
+            "Rock Magus (Iris 2 physical variant SS9)",
+            "Growing Breeze passive-summon (Iris 1)"
+          ]
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/647546",
+        "anchor_quote": "Season 11: Iris 2 Minion Build Guide (New Meta)",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

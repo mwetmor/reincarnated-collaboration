@@ -1,0 +1,274 @@
+{
+  "kit_id": "poe1-caustic-arrow",
+  "spine": {
+    "kit_id": "poe1-caustic-arrow",
+    "folk_name": "Caustic Arrow",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Clean map to ground_targeted_circle + poison (crosswalk-mandated chaos->shadow+poison home); the hit-independent 'only the ground cloud matters' identity is native to a zone-occupancy DoT. Minor drift: PoE Caustic Arrow is a fixed-tick chaos DAMAGE-OVER-TIME cloud, while the engine `poison` ailment is stack-additive (cap 5-10); the DoT-cloud-vs-stacking-ailment nuance is smoothed by the mandated lane. Wither-totem chaos-taken amp routed as ailment-scaling debuff, noted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Clean map to ground_targeted_circle + poison (crosswalk-mandated chaos->shadow+poison home); the hit-independent 'only the ground cloud matters' identity is native to a zone-occupancy DoT. Minor drift: PoE Caustic Arrow is a fixed-tick chaos DAMAGE-OVER-TIME cloud, while the engine `poison` ailment is stack-additive (cap 5-10); the DoT-cloud-vs-stacking-ailment nuance is smoothed by the mandated lane. Wither-totem chaos-taken amp routed as ailment-scaling debuff, noted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Caustic Arrow",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "bow shot that ground-targets; on impact deploys a large caustic cloud that ticks chaos DoT — the cloud IS the primary damage zone, the arrow hit is incidental (build ignores accuracy/crit). chaos -> shadow (corruption/chaos-DoT lineage); the cloud is a ground_targeted_circle DoT. Volley adds overlapping clouds in a fan"
+        }
+      ],
+      "motion_frame": "kite-the-cloud DoT ranger: plant a caustic pool, walk enemies through it, layer Wither totems + curses; fire-and-forget, hit-independent",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle cloud",
+            "Volley-analog overlapping-clouds fan (multi-cloud coverage)"
+          ],
+          "economy": [
+            "mana-light spend (below identity-default; not bar-worthy)"
+          ],
+          "traits_affixes": [
+            "chaos / DoT-multiplier scaling (build scales DoT, not hit)",
+            "DoT-duration (Prolonged-Pain-analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "The original ground-DoT bow archetype, TR's ancestor. ground_targeted_circle + poison ailment is the crosswalk-mandated home (chaos-poison -> shadow family + poison lane, §1/§2). The 'accuracy and crit are irrelevant; only the ground pool matters' identity is NATIVE to a ground_targeted_circle DoT that damages via zone-occupancy. Honest CLOSE-not-EXACT drift: PoE CA is a chaos DAMAGE-OVER-TIME cloud (a persistent-DoT debuff), whereas the engine `poison` ailment is a STACK-ADDITIVE ailment (cap 5-10 stacks per §2). The engine expresses 'caustic DoT' via the poison lane, but PoE CA's cloud is a fixed-tick ground-DoT, not a per-target stacking application — a nuance the poison-ailment mapping smooths. Wither totems (chaos-taken amp linked skill) route as an ailment-scaling support / curse-adjacent debuff, noted; PERSISTENCE_ENGINE_uptime for the maintain-the-DoT-uptime capstone."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2974902",
+      "archive_url": "http://web.archive.org/web/20201027013531/https://www.pathofexile.com/forum/view-thread/2974902",
+      "site": "pathofexile.com/forum",
+      "author_handle": "Scottoria",
+      "title": "[3.12] Scottoria's Caustic Arrow Trickster 7mil Shaper — League Starter — All Content — All Map Mods",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/caustic-arrow-occultist-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "Moon",
+      "title": "Moon's Caustic Arrow Occultist Build Guide (PoE Necropolis 3.24)",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/caustic-arrow-shadow-trickster-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.23] Caustic Arrow Shadow Trickster Build - Odealo's Crafty Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 1.x, 2.x, 3.7-3.13",
+      "anchor_quote": "[3.12] Scottoria's Caustic Arrow Trickster 7mil Shaper — League Starter — All Content — All Map Mods",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2974902",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Caustic Arrow' and alias 'CA' are real community usage",
+      "anchor_quote": "Caustic Arrow can be obtained right from the start so it's good for a Bow Skill, link it with Volley Support to get the overlapping effect.",
+      "source_url": "https://odealo.com/articles/caustic-arrow-shadow-trickster-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: arrow leaves a caustic ground cloud ticking chaos DoT — the original ground-DoT bow archetype",
+      "anchor_quote": "Caustic Arrow, unlike most other bow skills, is a ground-targeting skill and deals damage through its secondary effect — the pool of caustic ground it leaves on impact with the floor.",
+      "source_url": "https://www.poe-vault.com/guides/caustic-arrow-occultist-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": "Scottoria",
+          "real_name_note": "Kevin Rasins",
+          "site": "pathofexile.com/forum"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2974902",
+        "anchor_quote": "Author: Scottoria (Kevin Rasins)",
+        "abstained": 0,
+        "conf": 0.97
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_trickster": [
+            {
+              "name": "Patient Reaper",
+              "alteration": "Life/mana recovery on kill."
+            },
+            {
+              "name": "Prolonged Pain",
+              "alteration": "Increases DoT duration and damage."
+            },
+            {
+              "name": "Ghost Dance",
+              "alteration": "ES recovery on spell dodge."
+            },
+            {
+              "name": "Swift Killer",
+              "alteration": "Frenzy charge generation for attack speed."
+            }
+          ],
+          "ascendancy_occultist": [
+            {
+              "name": "Profane Bloom",
+              "alteration": "Chaos explosions on cursed-enemy death."
+            },
+            {
+              "name": "Void Beacon",
+              "alteration": "Reduces enemy chaos resistance."
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2974902",
+        "anchor_quote": "Trickster — Patient Reaper first, Prolonged Pain second, Ghost Dance third, Swift Killer (Uber). Swift Killer synergizes with Snakebite Gloves and Frenzy Charges magnifying Poison Damage.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Farrul's Fur",
+              "slot": "body",
+              "alteration": "Permanent frenzy charge generation for consistent attack speed."
+            },
+            {
+              "name": "The Covenant",
+              "slot": "body",
+              "alteration": "Linked support gems consume life instead of mana — budget enabling item."
+            },
+            {
+              "name": "Snakebite",
+              "slot": "gloves",
+              "alteration": "Frenzy charges amplify poison damage in Trickster variant."
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2974902",
+        "anchor_quote": "Farrul's Fur for permanent frenzy charge generation; Besides The Covenant Body Armour, the build is not expensive at all.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Projectile bow shot; on ground impact (or enemy impact), deploys a large caustic ground cloud. Ground cloud is the primary damage zone — large area-of-effect pool at landing site. Player does not scale hit/crit; scales chaos damage and DoT multiplier instead. Volley Support adds overlapping caustic clouds in a fan pattern."
+        },
+        "source_url": "https://www.poe-vault.com/guides/caustic-arrow-occultist-build-guide",
+        "anchor_quote": "When building around it, we're not concerned about accuracy, critical strike chance and whether we hit the target with our projectile — but rather about the pool of caustic ground it leaves on impact with the floor.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Caustic Arrow at enemy or ground; on impact the arrow leaves a caustic ground cloud that ticks chaos DoT to enemies standing within it. Player kites enemies through the cloud. Deploy Wither totems for additional chaos damage amplification. Cast curses (Temporal Chains, Despair) while maintaining separation. Build does not require hitting the enemy directly — cloud damage is independent of hit/accuracy."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2974902",
+        "anchor_quote": "A fire and forget playstyle — deploy Wither totems, cast curses, and shoot arrows while focusing on dodging mechanics.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "CA Trickster",
+              "description": "Shadow Trickster — DoT + frenzy charge scaling; primary league-starter path."
+            },
+            {
+              "name": "CA Occultist",
+              "description": "Witch Occultist — ES/CI body with curse scaling; more defensive."
+            },
+            {
+              "name": "CA Ballista Trickster",
+              "description": "3.20 variant using Siege Ballista for additional arrow coverage."
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2974902",
+        "anchor_quote": "[3.12] Scottoria's Caustic Arrow Trickster; Moon's Caustic Arrow Occultist Build Guide (PoE Necropolis 3.24); POE 3.20 Expansion League Start Build: Caustic Arrow Ballista Trickster",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

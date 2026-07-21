@@ -1,0 +1,243 @@
+{
+  "kit_id": "d4-blood-wave",
+  "spine": {
+    "kit_id": "d4-blood-wave",
+    "folk_name": "Blood Wave Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Corpse Tendrils row sparse — no dedicated dossier rows; based solely on verify_ledger core_skills mention. Physical element null across both skills; source player would expect physical/blood identity. Wave geometry uses ground_targeted_circle as best-fit approximation for rolling tidal zone.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Corpse Tendrils row sparse — no dedicated dossier rows; based solely on verify_ledger core_skills mention. Physical element null across both skills; source player would expect physical/blood identity. Wave geometry uses ground_targeted_circle as best-fit approximation for rolling tidal zone.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blood Wave (Hematolagnia Core-converted)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Tidal wave rolling across large zone; skill_geometry anchor: 'doubles your wave by breaking it in half and casting it from both sides of you pulling every monster you are close to'; verify_ledger anchor: 'C variant of the Blood Wave turns Blood Wave into a Core skill from Ultimate skill, removing it's cooldown and adding a resource cost'; screen-filling wave AoE per skill_geometry payload; Kessime's Legacy splits wave to dual-casting per item_alterations anchor; physical = element-neutral (blood/physical; no explicit damage-type element language); no ailment: no bleed/drain language in fetched rows; wave/tidal-roll geometry = ground_targeted_circle (zone rolling across ground)"
+        },
+        {
+          "source_skill": "Corpse Tendrils (secondary in verify_ledger core_skills)",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pull geometry per verify_ledger 'Core skills: Blood Wave, Corpse Tendrils' note — however no independent skill_loop or skill_geometry row for Corpse Tendrils in dossier; vortex_pull phrase-book entry; element null; ailment null (no corpsing language beyond identity note in verify_ledger)"
+        }
+      ],
+      "motion_frame": "Blood Wave spam (cooldown removed via Hematolagnia per verify_ledger anchor); Kessime's Legacy splits wave dual-direction per item_alterations anchor; Tidal walls of blood rolling screen-wide per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Essence; Necromancer class resource; Blood Wave converted to Core skill adds Essence cost per verify_ledger anchor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Kessime's Legacy dual-wave split per item_alterations anchor"
+          ],
+          "economy": [
+            "Hematolagnia Core conversion adds Essence cost; Ring of Starless Skies, Banished Lord's Talisman (scalers)"
+          ],
+          "traits_affixes": [
+            "Juggernaut's Aspect, Hardened Bones, Tidal Aspect (scalers)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype: Hematolagnia removes cooldown and converts Blood Wave to Core skill — the WITH-item form is the kit identity per item_alterations anchor and verify_ledger. Physical = element-neutral: blood/physical domain; element null per THE PHYSICAL RULE; no explicit element-damage language in fetched rows. No ailment attested: no drain/bleed/freeze language in fetched rows. Wave geometry: ground_targeted_circle is the best phrase-book match for a tidal zone-rolling wave (ground pool/zone class). Corpse Tendrils in verify_ledger core_skills list but no independent skill_loop or geometry row in dossier — maps as sparse vortex_pull row with element/ailment null; this row is low-confidence scaffold."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LordxSaura",
+      "title": "Blood Wave Necromancer Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://epiccarry.com/blogs/diablo-iv-season-8-blood-wave-necromancer/",
+      "archive_url": null,
+      "site": "epiccarry.com",
+      "author_handle": null,
+      "title": "Diablo IV Season 8 Blood Wave Necromancer Guide | Epiccarry",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 1
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s7-s12",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Blood Wave Necromancer; aliases: Blood Wave Necro D4, Blood Wave Necromancer s7-s12",
+      "anchor_quote": "Blood Wave Necromancer",
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Blood Wave; resource: cooldown-based (ultimate on rotation); geometry: tidal wave rolling across large zone",
+      "anchor_quote": "C variant of the Blood Wave turns Blood Wave into a Core skill from Ultimate skill, removing it's cooldown and adding a resource cost.",
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LordxSaura",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+        "anchor_quote": "LordxSaura",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Juggernaut's Aspect",
+            "Hardened Bones",
+            "Tidal Aspect"
+          ],
+          "uniques": [
+            "Ring of Starless Skies",
+            "Banished Lord's Talisman",
+            "Kessime's Legacy"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+        "anchor_quote": "Tidal walls of blood roll across the screen back-to-back through cooldown collapse",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Ring of Starless Skies (mythic priority #1)",
+            "Banished Lord's Talisman",
+            "Kessime's Legacy (unique pants — splits wave)"
+          ],
+          "aspects": [
+            "Juggernaut's Aspect (chest)",
+            "Hardened Bones (helmet)",
+            "Tidal Aspect (boots)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+        "anchor_quote": "Ring of Starless Skies, Banished Lord's Talisman, Kessime's Legacy",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "tidal wave rolling from body",
+          "footprint": "large zone / full-screen",
+          "range": "screen-filling",
+          "notes": "Kessime's Legacy splits wave to cast from both sides; Blood Wave rolls across screen; dual-projectile split geometry"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+        "anchor_quote": "doubles your wave by breaking it in half and casting it from both sides of you pulling every monster you are close to.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Hematolagnia upgrade converts Blood Wave from Ultimate to Core skill removing cooldown; spam Blood Wave as primary damage; Kessime's Legacy unique pants double the wave by splitting it to cast from both sides. Tidal walls of blood across screen.",
+          "core_loop": "Blood Wave spam (cooldown-removed via Hematolagnia) -> dual wave via Kessime's -> screen-wide AoE"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+        "anchor_quote": "C variant of the Blood Wave turns Blood Wave into a Core skill from Ultimate skill, removing it's cooldown and adding a resource cost.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Spam variant (Hematolagnia Core-converted, no cooldown)",
+            "Ultimate rotation variant (historical pre-LoH, cooldown collapse)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-wave-necromancer-guide",
+        "anchor_quote": "C variant of the Blood Wave turns Blood Wave into a Core skill from Ultimate skill",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

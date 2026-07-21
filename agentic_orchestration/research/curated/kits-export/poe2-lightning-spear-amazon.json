@@ -1,0 +1,241 @@
+{
+  "kit_id": "poe2-lightning-spear-amazon",
+  "spine": {
+    "kit_id": "poe2-lightning-spear-amazon",
+    "folk_name": "Lightning Spear Amazon",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.2-dawn;0.3-edict",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the secondary-bolt cascade is modeled as a multi_projectile shotgun + on-hit propagation; the source's specific crit-engine-triggers-on-fork-bolts amplification (crit density scaling off the secondaries) is carried in traits, not as a distinct mechanic -- the fanout clear identity is preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the secondary-bolt cascade is modeled as a multi_projectile shotgun + on-hit propagation; the source's specific crit-engine-triggers-on-fork-bolts amplification (crit density scaling off the secondaries) is carried in traits, not as a distinct mechanic -- the fanout clear identity is preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Spear",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "thrown-weapon projectile that travels to impact, then BURSTS into secondary projectiles -- 'these send arcs of lightning to monsters within a large area around the impact' (verbatim). Section-C.4 two-stage impact-fanout: the DOMINANT every-3-seconds loop (7.2) is the throw+impact-fanout that clears the pack, so the primary geometry is the impact SHOTGUN of secondary bolts -> multi_projectile (the fan of secondaries IS the delivery, distinct from PoE1-LA's single-arrow splash). Travel-throw spine folded into this note. shock rider -> sunder."
+        },
+        {
+          "source_skill": "Storm Lance / Explosive Spear (boss single-target rotation)",
+          "geometry_value": "single_target",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "rotated in for boss single-target ('Rotate Storm Lance and Explosive Spear for boss single-target'). Concentrated single-target throw. Secondary boss stage per 7.2."
+        }
+      ],
+      "motion_frame": "thrown-spear cascade: hurl a lightning spear into the pack, it bursts on impact into a fan of forking bolts that arc across a wide area -- the elemental crit engine pops on the fork bolts for explosive amplification",
+      "resource_economy": {
+        "cost_scale": "mana per throw (plain pool)"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "throw -> impact fanout of secondary bolts (multi_projectile shotgun, large area)",
+            "single-target boss throws (Storm Lance / Explosive Spear)"
+          ],
+          "economy": [
+            "mana per throw"
+          ],
+          "traits_affixes": [
+            "critical-strike (Amazon elemental crit engine triggers on fork bolts)",
+            "lightning-penetration",
+            "projectile / additional-projectiles",
+            "shock-effect (sunder analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "No GX flag. Section-C.4 two-stage impact-fanout resolved via 7.2 dominant-loop rule: the impact fan of secondary projectiles is the mapping geometry (multi_projectile); the travel-throw noted as the delivery spine. Distinguished from lightning-arrow-deadeye THIS batch: LA = one arrow, splash-to-3 simultaneous (chain); Lightning Spear = one throw BURSTING into many secondary projectiles over a large area (multi_projectile shotgun). GEOMETRY_PROPAGATION_overkill routes the on-impact secondary-bolt cascade (on-hit scaling). shock->sunder. amp_val=var reflects crit-on-fork-bolt variance."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Crouching_Tuna",
+      "title": "Lightning Spear Amazon Build Guide - Path of Exile 2 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/path-of-exile-2-poe2-huntress-class-ascendancies-guide/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "Huntress Class Guide And Ascendancies In Path Of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "Amazon is the pick of choice for the Huntress ... Ritualist officially released on April 4th as part of the big Dawn of the Hunt update [0.2.0]",
+      "source_url": "https://www.thegamer.com/path-of-exile-2-poe2-huntress-class-ascendancies-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "Lightning Spear Amazon Build Guide ... written for 0.5.2 [changelog shows active across prior patches]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Spear Amazon' and aliases 'Lightning Spear Storm Lance', 'Amazon lightning spear' are real community usage",
+      "anchor_quote": "Lightning Spear Amazon Build Guide for Path of Exile 2 Return of the Ancients 0.5.4 | Maxroll.gg",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Lightning Spear thrown projectile bursts into secondary projectiles on impact; Storm Lance used for single-target rotation; elemental crit engine on fork bolts",
+      "anchor_quote": "When you throw a Lightning Spear primary projectiles burst into secondary projectiles on impact. These send arcs of lighting to monsters within a large area around the impact.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Crouching_Tuna",
+          "site": "maxroll.gg",
+          "role": "PoE Franchise Director"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+        "anchor_quote": "Crouching_Tuna - PoE Franchise Director",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Amazon (Huntress ascendancy)",
+          "notables": [
+            "Predatory Instinct",
+            "In for the Kill",
+            "Critical Strike",
+            "Penetrate",
+            "Mystic Harvest (Life Leech from Elemental Damage)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+        "anchor_quote": "The build scales Damage, Critical Hits and Speed with the Penetrate, In for the Kill and Predatory Instinct Ascendancy notables",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Projectile delivery (thrown weapon). On impact: multi-spawn fanout — secondary projectiles arc to enemies in large area around impact. Chain-hop / fanout footprint.",
+          "range": "ranged thrown projectile → large-radius fanout on impact"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+        "anchor_quote": "primary projectiles burst into secondary projectiles on impact. These send arcs of lighting to monsters within a large area around the impact",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Throw Lightning Spear — projectile travels and bursts into secondary fork bolts on impact, sending lightning arcs to enemies in large area. Rotate Storm Lance and Explosive Spear for boss single-target. Elemental crit engine triggers on fork bolt hits.",
+          "resource": "Mana per throw"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-spear-amazon",
+        "anchor_quote": "When you throw a Lightning Spear primary projectiles burst into secondary projectiles on impact. These send arcs of lighting to monsters within a large area around the impact.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lightning Spear Amazon endgame (current primary form)",
+            "Tanky Lightning Spear Amazon (evasion + Ghost Dance defense emphasis)",
+            "OP Lightning Spear 0.5 league starter"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/poe2/huntress/amazon/lightning-spear-build-guide",
+        "anchor_quote": "Lightning Spear Amazon Endgame Build",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

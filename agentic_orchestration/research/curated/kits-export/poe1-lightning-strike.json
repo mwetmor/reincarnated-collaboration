@@ -1,0 +1,228 @@
+{
+  "kit_id": "poe1-lightning-strike",
+  "spine": {
+    "kit_id": "poe1-lightning-strike",
+    "folk_name": "Lightning Strike",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The strike-spawns-fan identity lands as a two-geometry composite, but the engine expresses two discrete geometries rather than a unified strike-that-emits primitive (same generalization as b04 frost-blades); the ~85-degree forward arc, the fan's 50%-less ratio, and the cannot-miss coupling are un-enumerated properties. A LS player keeps melee-and-ranged-in-one-button.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The strike-spawns-fan identity lands as a two-geometry composite, but the engine expresses two discrete geometries rather than a unified strike-that-emits primitive (same generalization as b04 frost-blades); the ~85-degree forward arc, the fan's 50%-less ratio, and the cannot-miss coupling are un-enumerated properties. A LS player keeps melee-and-ranged-in-one-button.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Strike (melee hit)",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "the primary melee swing on the targeted enemy -- the every-3-seconds dominant action; 50% phys->lightning conversion; applies the shock (-> sunder, s2 false friend). Leads per s7.2"
+        },
+        {
+          "source_skill": "Lightning Strike (projectile fan)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "on the melee hit, 3 base projectiles (quality adds up to 1) shoot FORWARD in a ~85-degree arc, traveling straight until they strike an enemy; 50% less damage than the strike but cannot miss if the melee connects. The ranged-clear half spawned by the hit"
+        }
+      ],
+      "motion_frame": "melee-and-ranged in one button: strike the front enemy, the hit throws a forward fan of lightning bolts through the pack -- close-range commitment with projected clear, at full run between packs",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike primary hit",
+            "multi_projectile forward fan (~85-degree arc; extra-projectiles widen)"
+          ],
+          "economy": [
+            "mana-light attack spend; full-move strike cadence"
+          ],
+          "traits_affixes": [
+            "lightning-penetration",
+            "shock-effect (sunder analog)",
+            "attack-speed",
+            "projectile-count (fan width)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "COMPOSITE melee->projectile STRIKE (b04 frost-blades precedent: one source skill = two engine geometries, melee leads per s7.2). The FORWARD ~85-degree fan (vs frost-blades' behind-target fan) is the directional signature; multi_projectile carries the fan, direction noted. 50% phys->lightning -> ELEMENT_CONVERSION_PHYSICAL (partial-conversion attack, b04 ice-shot/molten-class routing); GEOMETRY_PROPAGATION_cascade routes the hit-spawns-projectiles propagation identity (b04 frost-blades exact precedent). PoE shock -> sunder on both components. Eras 1.x;3.20+ CONFIRMED (introduced 0.9.6; 3.20 reduced projectile count -- the 3-base count mapped is the modern verified number). The cannot-miss-if-melee-connects guarantee and the 50%-less fan damage are behavioral/numeric riders with no carriers (noted)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Lightning_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Lightning Strike — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped eras 1.x and 3.20+",
+      "anchor_quote": "Lightning Strike first added in version 0.9.6. v3.20.0: Reduced projectile count (previously up to 7, now fires 2 additional projectiles)",
+      "source_url": "https://poedb.tw/us/Lightning_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Strike' and alias 'LS' with class Raider/Warden/Champion are real community usage",
+      "anchor_quote": "Lightning Strike was first added in version 0.9.6 of Path of Exile",
+      "source_url": "https://poedb.tw/us/Lightning_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Lightning Strike; direct melee hit on target; simultaneously fires converted-lightning projectiles forward; multi-spawn footprint",
+      "anchor_quote": "a number of lightning projectiles will shoot out in a ~85 degree arc, traveling in a straight line until they strike an enemy. Currently fires 3 projectiles base",
+      "source_url": "https://poedb.tw/us/Lightning_Strike",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Lightning_Strike",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Divergent Lightning Strike (alt quality)",
+              "type": "alt_quality",
+              "effect": "Chance to Shock enemies (0-20% per quality level)",
+              "anchor_quote": "Divergent: Chance to Shock enemies"
+            },
+            {
+              "node": "Lightning Strike of Arcing (transfig)",
+              "type": "transfigured_gem",
+              "effect": "164% Effectiveness of Base and Added Damage at level 1; 377% at level 20; 50% physical-to-lightning conversion retained",
+              "anchor_quote": "164% Effectiveness of Base and Added Damage at gem level 1...scaling up to 377% at gem level 20"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Strike",
+        "anchor_quote": "164% Effectiveness of Base and Added Damage at gem level 1...scaling up to 377% at gem level 20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Lightning Strike of Arcing (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "164-377% Effectiveness at levels 1-20; 50% physical-to-lightning conversion retained",
+              "anchor_quote": "164% Effectiveness...377% at gem level 20"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Strike",
+        "anchor_quote": "164% Effectiveness...377% at gem level 20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (melee hit) with simultaneous projectile fan",
+          "footprint": "multi-point (melee impact + 3 forward projectiles in 85-degree arc)",
+          "projectile_count": "3 base (quality adds up to 1 more)",
+          "range_note": "melee range hit; projectiles travel forward until hitting enemy"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Strike",
+        "anchor_quote": "a number of lightning projectiles will shoot out in a ~85 degree arc. Fires 3 projectiles base, with quality providing up to 1 additional projectile",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "melee swing on target → 50% phys converts to lightning → simultaneously fires 3 base projectiles in ~85-degree arc → projectiles deal 50% less damage but cannot miss if melee connects → shock applies → run to next pack",
+          "dual_component": "melee hit + projectile fan in single button press"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Strike",
+        "anchor_quote": "a number of lightning projectiles will shoot out in a ~85 degree arc, traveling in a straight line until they strike an enemy. Currently fires 3 projectiles base",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Lightning_Strike",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

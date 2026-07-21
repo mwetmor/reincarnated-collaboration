@@ -1,0 +1,229 @@
+{
+  "kit_id": "la-demonic-impulse-shadowhunter",
+  "spine": {
+    "kit_id": "la-demonic-impulse-shadowhunter",
+    "folk_name": "Demonic Impulse Shadowhunter",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Near-permanent demon form economy (Eternal Blood) maps as self_buff steady-state, but the 'enter form → stay in form almost permanently' pattern is a standing transformation not a repeated build-spend cycle — source player would notice the rhythm difference from a standard gauge-release loop. CLOSE: the identity (demon form as primary combat state) maps; the cycle rhythm is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Near-permanent demon form economy (Eternal Blood) maps as self_buff steady-state, but the 'enter form → stay in form almost permanently' pattern is a standing transformation not a repeated build-spend cycle — source player would notice the rhythm difference from a standard gauge-release loop. CLOSE: the identity (demon form as primary combat state) maps; the cycle rhythm is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Intrude skills — Demon Vision, Demon's Grip (Shadowburst Meter builders)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shadowburst Meter builders; melee/close-range in demon form; no explicit positional requirement in fetched text; no elemental damage-typing in store (Blood/Demon are skill name flavor only — NAME-ONLY STRIKE)"
+        },
+        {
+          "source_skill": "Demonize identity (Shadowburst activation — permanent/near-permanent form)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Demonic Impulse spec enables near-permanent transformation via Eternal Blood config; +20% Move Speed, +30% Crit Rate in demon form; raid cinematics interrupt but not normal combat; permanent-form pattern per §LA row 2 (PERMANENT burst = self_buff steady-state + economy note, NOT timed burst_window)"
+        },
+        {
+          "source_skill": "Demon form damage skills — Blood Demon, Blood Vortex, Bloody Piercing, Blood Marsh",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Main demon-form damage delivery; melee AoE; Blood = skill name flavor, not element damage-typing; no shadow/dark damage descriptor in store"
+        }
+      ],
+      "motion_frame": "Build Shadowburst Meter via Demon Vision and Demon's Grip (Intrude skills); activate Demonize; use demon-form skills (Blood Demon, Blood Vortex, Bloody Piercing, Blood Marsh) — Eternal Blood config enables near-permanent transformation",
+      "resource_economy": {
+        "shadowburst_meter": "accumulate via Intrude skills (Demon Vision, Demon's Grip as main builders); activate Demonize; Eternal Blood config = near-permanent demon form (HP-locked-at-threshold economy analog); +20% Move Speed, +30% Crit Rate in form (stale values — shape only)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "self_buff"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee close-range; demon form AoE"
+          ],
+          "economy": [
+            "shadowburst_meter accumulate-release into near-permanent demon form; Eternal Blood = standing self-state economy"
+          ],
+          "traits_affixes": [
+            "Adrenaline, Crit, Destruction Charger, Zealous Smite, Corrosion, Chaos Training (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PERMANENT (near-permanent) burst per §LA row 2: Demonic Impulse = Eternal Blood near-permanent transformation, NOT a timed burst_window. Maps as self_buff steady-state + economy note (Shadowburst Meter accumulate-to-enter, then Eternal Blood maintains near-permanent state). No elemental damage-typing in store: Blood Demon/Blood Vortex/Bloody Piercing/Blood Marsh = skill name flavor, shadow/dark = class theme NOT an attested damage type. Buff values (20% move speed, 30% crit) stale per Ark Passive law — shape only. Raid cinematic interruptions noted as game-system detail but not mapped to engine logic."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Demonic Impulse Shadowhunter Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Adrenaline, Crit, Destruction Charger, Zealous Smite, Corrosion, and Chaos Training.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Demonic Impulse Shadowhunter — class+identity spec name in real LA community usage",
+      "anchor_quote": "Demon Vision and Demon's Grip are your main Shadowburst Meter builders.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Builds Shadowburst Meter using Intrude skills then Demonizes — demon form +20% move speed, +30% crit rate; Eternal Blood near-permanent transformation; Blood Demon/Blood Vortex/Bloody Piercing/Blood Marsh as demon skills; raid cinematics interrupt form",
+      "anchor_quote": "Activating her identity grants you the following: 20% Move Speed, 30% Crit Rate. Blood Demon, Blood Vortex, Bloody Piercing and Blood Marsh are your main Demon form damage skills. Most raid cinematics still kick you out of transformation.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "social": "YouTube and Twitch"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+        "anchor_quote": "Sekwah - listed as Content Creator and guide author, with YouTube and Twitch links provided.",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Adrenaline",
+            "Crit",
+            "Destruction Charger",
+            "Zealous Smite",
+            "Corrosion",
+            "Chaos Training"
+          ],
+          "demonize_bonuses": {
+            "move_speed": "+20%",
+            "crit_rate": "+30%"
+          },
+          "eternal_blood": "Near-permanent transformation config",
+          "raid_interrupt": "Most raid cinematics kick player out of transformation"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+        "anchor_quote": "Activating her identity grants you the following: 20% Move Speed, 30% Crit Rate. Most raid cinematics still kick you out of transformation.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Specific gem/accessory detail not fully captured; includes standard DPS gear"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Melee/close range in demon form; no explicit positional descriptor in fetched text; demon skills are targeted/AoE"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Build Shadowburst Meter via Intrude skills (Demon Vision, Demon's Grip as main builders); activate Demonize identity; use demon-form skills (Blood Demon, Blood Vortex, Bloody Piercing, Blood Marsh); Eternal Blood config enables near-permanent transformation"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+        "anchor_quote": "Demon Vision and Demon's Grip are your main Shadowburst Meter builders. Blood Demon, Blood Vortex, Bloody Piercing and Blood Marsh are your main Demon form damage skills.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Demonic Impulse (Eternal Blood perma-form config)"
+          ],
+          "sibling_spec": "Perfect Suppression Shadowhunter (never transforms, different playstyle)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/demonic-impulse-shadowhunter-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "kit_id": "la-first-intention-wardancer",
+  "spine": {
+    "kit_id": "la-first-intention-wardancer",
+    "folk_name": "First Intention Wardancer",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Esoteric Origin empower window (orb-spend → empowered next-N-skills) is a mark-consume trigger the engine approximates but cannot fully express. Distinction from ESE (window vs per-orb scalar) is fidelity-noted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Esoteric Origin empower window (orb-spend → empowered next-N-skills) is a mark-consume trigger the engine approximates but cannot fully express. Distinction from ESE (window vs per-orb scalar) is fidelity-noted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Energy Combustion",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sustained damage window ~20s; lower cooldown; orb generator"
+        },
+        {
+          "source_skill": "Sweeping Kick",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage dealer; empowered by Esoteric Origin + Enlightened Origin capstone"
+        },
+        {
+          "source_skill": "Leaping Dragon",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Empowered by Esoteric Origin burst window; Dragon = name-only → null"
+        },
+        {
+          "source_skill": "Flash Heat Fang",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Damage skill; Flash Heat = name-only → null"
+        },
+        {
+          "source_skill": "Lightning Kick",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Damage skill; Lightning = name-only → null"
+        },
+        {
+          "source_skill": "Esoteric Origin",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Orb-spend → empower window for Leaping Dragon/Sweeping Kick/Deadly Dive; burst_window trigger"
+        },
+        {
+          "source_skill": "Roar of Courage",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Synergy: Weakness Exposure (raid-break, NOT sunder) + +20% Crit Rate 6s"
+        },
+        {
+          "source_skill": "Wind's Whisper",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self attack power buff; Wind's Whisper = name-only → null; DIRECTION TEST: self deals more → self_buff"
+        },
+        {
+          "source_skill": "Sky Shattering Blow",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Counter + secondary buff; Counter = raid-break vocab"
+        }
+      ],
+      "motion_frame": "Accumulate Esoteric Orbs via normal skills; cast Esoteric Origin to empower Leaping Dragon/Sweeping Kick/Deadly Dive (buff-and-burst window); layer self-buffs: Roar of Courage (+20% Crit Rate 6s), Wind's Whisper (attack power); Energy Combustion for sustained ~20s damage window; Sky Shattering Blow for counter; simpler orb management than ESE",
+      "resource_economy": {
+        "esoteric_orbs": "accumulated via normal skill use; spent via Esoteric Origin to open empowerment burst window (not per-orb damage — orbs fund the window, not scale it per orb as in ESE)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Esoteric Origin + Enlightened Origin capstone Destiny",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_arc",
+            "leap_strike",
+            "melee_strike",
+            "aura",
+            "self_buff"
+          ],
+          "economy": [
+            "esoteric_orbs"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: Leaping Dragon, Flash Heat Fang, Lightning Kick, Sweeping Kick, Wind's Whisper, Sky Shattering Blow — all name-only. Weakness Exposure (Roar of Courage) = raid-break vocab, delivery_notes only. Key identity distinction from ESE Wardancer: FI converts orbs into empowerment windows (orbs → window), ESE scales damage per-orb at cast (orbs → multiplier) — captured in resource_economy note. Ark Passive nodes (Enlightened Origin, Hypercirculation, Dragon Style Enhancement) → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "First Intention Wardancer Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Author: Raeinor, Last Updated: June 13, 2026; initial release November 11, 2024",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=First Intention Wardancer; revolves around stacking personal combat buffs then unleashing flurry; simpler orb management than ESE",
+      "anchor_quote": "First Intention Wardancer — focusing on her martial arts skills and empowering them; Roar of Courage provides +20% Crit Rate for 6 seconds",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Buff-and-burst loop; multitude of self-buffs for concentrated damage window; simpler orb management than ESE at cost of sustained output",
+      "anchor_quote": "sequence that utilizes...buffs to strengthen and unleash powerful skills; ESE: consistently generating Esoteric Orbs vs FI converts orbs into empowerment windows",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+          "last_updated": "2026-06-13",
+          "initial_release": "2024-11-11",
+          "changelog": "2026-01-07 Ark Grid update"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+        "anchor_quote": "Last Updated: June 13, 2026; Changelog: January 7, 2026 (Ark Grid update); November 11, 2024 (initial release)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Enlightened Origin: Increases the damage of Sweeping Kick on Destiny activation",
+            "Hypercirculation: Grants Destiny on using Esoteric Origin",
+            "Dragon Style Enhancement: boosts Sweeping Kick and Leaping Dragon",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+        "anchor_quote": "Enlightened Origin: Increases the damage of Sweeping Kick on Destiny activation; Hypercirculation: Grants Destiny on using Esoteric Origin",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Raid Captain",
+            "Adrenaline",
+            "Keen Blunt Weapon",
+            "MP Efficiency Increase"
+          ],
+          "gems_damage": [
+            "Sweeping Kick",
+            "Energy Combustion",
+            "Leaping Dragon",
+            "Flash Heat Fang",
+            "Lightning Kick"
+          ],
+          "gems_cooldown": [
+            "same list + Wind's Whisper"
+          ],
+          "bracelet_rolls": [
+            "Crit",
+            "Weapon Power",
+            "Additional Damage",
+            "Crit Rate/Damage bonuses"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Raid Captain, Adrenaline, Keen Blunt Weapon, MP Efficiency Increase",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary_damage": [
+            "Sweeping Kick",
+            "Leaping Dragon",
+            "Flash Heat Fang",
+            "Lightning Kick"
+          ],
+          "sustained_buff": "Energy Combustion (~20s duration)",
+          "synergy": "Roar of Courage (Weakness Exposure + Crit buff)",
+          "counter_buff": "Sky Shattering Blow",
+          "note": "Specific range/AoE geometry not enumerated; Wardancer mobile martial arts — melee/short-range implied"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+        "anchor_quote": "Sweeping Kick — primary damage dealer; Energy Combustion — sustained damage ~20s duration, lower cooldown",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Accumulate Esoteric Orbs via normal skills; cast Esoteric Origin to empower Leaping Dragon, Sweeping Kick, or Deadly Dive; layer self-buffs: Roar of Courage (+20% Crit Rate 6s), Wind's Whisper (attack power); Energy Combustion for sustained ~20s damage window; Sky Shattering Blow for counter + secondary buff; unleash empowered skills in burst window; simpler orb management than ESE"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+        "anchor_quote": "focusing on her martial arts skills and empowering them; sequence that utilizes buffs to strengthen and unleash powerful skills",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Esoteric Skill Enhancement Wardancer — consistent orb-cycling for sustained output vs FI's buff-and-burst; ESE is the high-frequency Esoteric twin"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/first-intention-wardancer-raid-guide",
+        "anchor_quote": "ESE: consistently generating Esoteric Orbs and using them to unleash powerful Esoteric Skills",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

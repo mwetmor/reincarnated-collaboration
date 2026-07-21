@@ -1,0 +1,256 @@
+{
+  "kit_id": "di-blood-knight",
+  "spine": {
+    "kit_id": "di-blood-knight",
+    "folk_name": "Blood Knight (vampiric hybrid)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-bk-2023;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) The Blood Knight's PvE sustain-leech defensive identity (vampiric HP recovery as primary defense) is partially captured in Siphon Blood drain but the di-specific Anger meter + Abomination form cooldown cycle has no native lane — mapped to PHASE_MOMENTUM + meter economy; (2) di content is sparse; the full skill suite (Shattering Fists, Blood Rush inside Abomination) mapped only in fidelity_notes; (3) PvP context noted but not mapped (engine scope solo-PvE).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) The Blood Knight's PvE sustain-leech defensive identity (vampiric HP recovery as primary defense) is partially captured in Siphon Blood drain but the di-specific Anger meter + Abomination form cooldown cycle has no native lane — mapped to PHASE_MOMENTUM + meter economy; (2) di content is sparse; the full skill suite (Shattering Fists, Blood Rush inside Abomination) mapped only in fidelity_notes; (3) PvP context noted but not mapped (engine scope solo-PvE).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Siphon Blood",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "Primary life-drain skill; steals health from enemies all around (AoE drain); primary defensive mechanism — vampiric HP recovery; Swarm of Bats essence converts to aura with life drain (item-defined-archetype: maps the essence-transformed form)"
+        },
+        {
+          "source_skill": "Abomination (monster form)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Triggered on Anger threshold: 'Consume all your Anger to transform into an unholy abomination for 15 seconds, increasing your damage done and replacing your skills with Blood Rush and Shattering Fists'; trigger-entered form; economy-agnostic form law applies"
+        },
+        {
+          "source_skill": "Sanguinate",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dash through enemies for gap-close; hybrid melee-or-ranged depending on proximity"
+        },
+        {
+          "source_skill": "Ravage",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Polearm thrusts and sweeps; 100% damage to primary target, 25% to all others; mid-range hybrid attack"
+        }
+      ],
+      "motion_frame": "Siphon Blood as primary life-drain; Sanguinate for gap-close; build Anger to Abomination threshold; Blood Rush and Shattering Fists in Abomination form",
+      "resource_economy": {
+        "anger_meter": "primary resource — Anger consumed to trigger Abomination form; builder/spender meter economy"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": "Anger meter threshold",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Solemn Snare — creates bloody shadowy tornado of bats (proc-spawned hazard rider)",
+            "Obsidian Fang, Waning Crescent — polearm weapon stats"
+          ],
+          "economy": [
+            "Torso of Tenacity, Crimson Veil — survivability layer",
+            "Graves of the Damned, Reaping Mantle — generic gear layers"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "di kit — sparse dossier, honest projection. Drain attested: skill_loop 'Siphon Blood as primary life-drain skill' + item_alterations 'Swarm of Bats essence — converts to aura with life drain.' Essence-transform law (§D row 2): kit identity IS the Swarm of Bats essence-transformed form; maps accordingly. Element shadow: elem_raw=shadow + dossier 'bloody shadowy tornado of bats' (Solemn Snare) — though 'shadowy' in item name is flavor; primary ground is elem_raw corpus AND 'entraps them in deadly shadows summoned with cursed strength' in verify_ledger anchor ('This vanquisher of vampires feeds on enemies life, entraps them in deadly shadows summoned with cursed strength') — WAIT: verify_ledger anchor_quote = fetched-class admissible. 'entraps them in deadly shadows' = shadow language in fetched anchor = valid attestation. Anger meter: skill_loop 'Consumes all Anger to transform' = Anger is the resource; anger_meter key. di resource probe UNRELIABLE — not consulted. Form-law: Abomination = trigger-entered form on Anger threshold. No bleed/fear/poison named in dossier. capstone abstained. [STEWARD-AUDIT MW5: Siphon Blood: shadow->null: shadow = shoulder-legendary flavor (\"shadowy tornado of bats\") not damage-type; drain KEPT] [STEWARD-AUDIT MW5: Abomination (monster form): shadow->null: shadow flavor-only — no enemy-directed shadow-damage verb] [STEWARD-AUDIT MW5: Sanguinate: shadow->null: shadow flavor-only (bats visual)] [STEWARD-AUDIT MW5: Ravage: shadow->null: shadow flavor-only]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pcgamesn.com/diablo-immortal/blood-knight-build",
+      "archive_url": null,
+      "site": "pcgamesn.com",
+      "author_handle": "Lauren Bergin",
+      "title": "Best Diablo Immortal Blood Knight builds",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.dexerto.com/diablo/best-diablo-immortal-blood-knight-build-2211936/",
+      "archive_url": null,
+      "site": "dexerto.com",
+      "author_handle": "Sam Smith",
+      "title": "Best Diablo Immortal Blood Knight builds (2026)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/diablo-immortal/23967323/introducing-the-newest-diablo-immortal-class-blood-knight",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Introducing the Newest Diablo Immortal Class: Blood Knight",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in di-bk-2023 and di-2026-era",
+      "anchor_quote": "The Blood Knight becomes playable on July 13.",
+      "source_url": "https://news.blizzard.com/en-us/diablo-immortal/23967323/introducing-the-newest-diablo-immortal-class-blood-knight",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Blood Knight (vampiric hybrid)' is real community usage",
+      "anchor_quote": "This vanquisher of vampires feeds on enemies' life, entraps them in deadly shadows summoned with cursed strength, and relies on their trusty polearm to maintain distance from danger.",
+      "source_url": "https://news.blizzard.com/en-us/diablo-immortal/23967323/introducing-the-newest-diablo-immortal-class-blood-knight",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills polearm suite, life-feed, monster form; Blood Knight class",
+      "anchor_quote": "Consume all your Anger to transform into an unholy abomination for 15 seconds, increasing your damage done and replacing your skills with Blood Rush and Shattering Fists.",
+      "source_url": "https://news.blizzard.com/en-us/diablo-immortal/23967323/introducing-the-newest-diablo-immortal-class-blood-knight",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "site": "dexerto.com",
+          "handle": "Sam Smith"
+        },
+        "source_url": "https://www.dexerto.com/diablo/best-diablo-immortal-blood-knight-build-2211936/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://www.dexerto.com/diablo/best-diablo-immortal-blood-knight-build-2211936/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "essences": [
+            "Swarm of Bats essence — converts to aura with life drain"
+          ],
+          "gear": [
+            "Obsidian Fang (main weapon)",
+            "Waning Crescent (off-hand)",
+            "Torso of Tenacity",
+            "Crimson Veil",
+            "Graves of the Damned",
+            "Reaping Mantle",
+            "Solemn Snare (shoulder legendary — creates bloody shadowy tornado of bats)"
+          ]
+        },
+        "source_url": "https://www.dexerto.com/diablo/best-diablo-immortal-blood-knight-build-2211936/",
+        "anchor_quote": "Solemn Snare (shoulder legendary creating bloody, shadowy tornado of bats)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Mid-range class; hybrid attack options either melee or ranged depending on proximity to target. Ravage: polearm thrusts and sweeps dealing 100% damage to primary target and 25% to all others. Sanguinate: dash through enemies. Siphon Blood: steals health from enemies all around (AoE drain)."
+        },
+        "source_url": "https://news.blizzard.com/en-us/diablo-immortal/23967323/introducing-the-newest-diablo-immortal-class-blood-knight",
+        "anchor_quote": "The Blood Knight is a mid-range Class with hybrid attack options that are either melee or ranged depending on your proximity to the target.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Siphon Blood as primary life-drain skill. Abomination monster form on resource threshold (consumes all Anger to transform for 15 seconds). Blood Rush and Shattering Fists available during Abomination. Sanguinate for gap-closing dash-through enemies."
+        },
+        "source_url": "https://news.blizzard.com/en-us/diablo-immortal/23967323/introducing-the-newest-diablo-immortal-class-blood-knight",
+        "anchor_quote": "Consume all your Anger to transform into an unholy abomination for 15 seconds, increasing your damage done and replacing your skills with Blood Rush and Shattering Fists.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Essence Sustain Bleed Build (Dexerto 2026 — A-tier PvE, B-tier PvP)",
+            "Swarm of Bats + Sanguinate variant (PCGamesN 2023)"
+          ]
+        },
+        "source_url": "https://www.pcgamesn.com/diablo-immortal/blood-knight-build",
+        "anchor_quote": "Swarm of Bats + Sanguinate focus",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

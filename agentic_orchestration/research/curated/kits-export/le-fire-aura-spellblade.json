@@ -1,0 +1,222 @@
+{
+  "kit_id": "le-fire-aura-spellblade",
+  "spine": {
+    "kit_id": "le-fire-aura-spellblade",
+    "folk_name": "Fire Aura Spellblade",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Aura-pulse damage delivery maps clean. Source player would miss the depth-3 DPS cascade (Firebrand -> Frost Claw -> Ice Barrage), which the engine caps at chain-depth 1 — a real scaling delta, though not the core identity loop. Fire->cold Freezing-Aura conversion is captured by ELEMENT_CONVERSION_MONO. Flame Ward burst-defense button has no aura-identity role and is a rider.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Aura-pulse damage delivery maps clean. Source player would miss the depth-3 DPS cascade (Firebrand -> Frost Claw -> Ice Barrage), which the engine caps at chain-depth 1 — a real scaling delta, though not the core identity loop. Fire->cold Freezing-Aura conversion is captured by ELEMENT_CONVERSION_MONO. Flame Ward burst-defense button has no aura-identity role and is a rider.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fire Aura (passive-emergent, stacked)",
+          "geometry_value": "aura",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Aura radiates from player position dealing damage to anything nearby (fetched: 'the build revolves around stacking Fire Auras, which deal Damage to anything nearby'; delivery 'aura-pulse', footprint 'small-radius'). Aura is PASSIVE-EMERGENT (stacked from Firebrand), NOT Flame Ward (Flame Ward = a separate defensive cooldown — do not conflate, per hot-fact). [STEWARD AUDIT 2026-07-18: freeze + water-secondary STRUCK from the core row — dossier variants list 'fire (default)' with 'cold-conversion via Freezing Aura node' as a VARIANT; §7.2 dominant loop = fire aura. Variant-scoped ailments do not ride the core row (this batch's own hammer-throw bleed discipline). The Freezing Aura conversion (cold pulse, freezing language) lives in the ELEMENT_CONVERSION_MONO door + scaffold geometry lane + this note.] burn NOT emitted for the fire core ('deal Damage' != burn, §0.1)."
+        }
+      ],
+      "motion_frame": "Spam Firebrand -> Fire Auras stack -> auras pulse damage to nearby enemies (fire, or cold via Freezing Aura) -> Flame Ward on-demand for burst defense",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast Firebrand to build/maintain the aura stack (aura itself is passive-emergent once stacked)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Freezing Aura (fire->cold conversion)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Mad Alchemist's Ladle + Transcriber's Graver (dual-wield damage)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Core CORRECTED per hot-fact: the aura is PASSIVE-EMERGENT (Firebrand stacks it), NOT Flame Ward. Flame Ward = defensive cooldown, recorded as a rider only (fidelity, not core geometry). ELEMENT_CONVERSION_MONO T4 for the Freezing Aura fire->cold identity. The advertised DPS cascade 'Firebrand procs Frost Claws that proc Ice Barrage' is a depth-3 proc chain > MAX_CHAIN_DEPTH=1 (LOCKED, §3) — recorded as a scaling rider, NOT the core loop; the DOMINANT loop every 3s (§7.2) is Firebrand-spam -> aura pulse, which maps clean as aura delivery. Low-life enable (Exsanguinous + Last Steps + Mask of Indifference) = item note; this is a Low-Life-Ward variant host (cross-ref le-low-life-ward). §0 near-miss: burn WANTED for the fire aura ('deal Damage to anything nearby') but no fetched status language names burn — WITHHELD; freeze NOT carried on the core row (variant-scoped — struck at audit; hammer-throw parity); the conversion route is door+scaffold-recorded."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "AURA",
+    "group_intent_rationale": "delivery=aura-pulse · amp=flat · geometry=aura · treatment=damage · proxy=solo · commit=instant · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Fire Aura Spellblade Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/lightning-fire-aura-rf-spellblade-build-0-8-1i/36327",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Lightning Fire Aura RF Spellblade Build 0.8.1i",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Fire Aura Spellblade Guide for Last Epoch Season 4 — Last Updated: March 25, 2026",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fire Aura Spellblade' is real community usage",
+      "anchor_quote": "Fire Aura Spellblade Guide for Last Epoch Season 4 — the build revolves around stacking Fire Auras, which deal Damage to anything nearby",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills include Flame Ward/aura suite; fire aura delivery; Mana resource; aura-pulse footprint",
+      "anchor_quote": "Spam Firebrand to proc Frost Claws that proc Ice Barrage...Flame Ward remains your key defensive tool, use it strategically to withstand dangerous bursts",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Lizard_IRL",
+          "site": "maxroll.gg",
+          "reviewer": "Volca"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+        "anchor_quote": "Written by Lizard_IRL. Content Reviewed by Volca.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Exsanguinous",
+            "Last Steps of the Living",
+            "Mask of Indifference",
+            "Mad Alchemist's Ladle",
+            "Transcriber's Graver"
+          ],
+          "notes": "Exsanguinous + Last Steps enable Low Life playstyle; Mad Alchemist's Ladle + Transcriber's Graver dual-wield combo boosts damage."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+        "anchor_quote": "Enable the Low Life playstyle with Exsanguinous and Last Steps of the Living. Pair them with Mask of Indifference to boost your survivability even further",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura-pulse",
+          "footprint": "small-radius",
+          "description": "Fire aura radiates from player position dealing damage to nearby enemies. By conversion (Freezing Aura node) the aura deals Cold damage in a constant pulse around the Spellblade chassis."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+        "anchor_quote": "the build revolves around stacking Fire Auras, which deal Damage to anything nearby...By converting Fire Aura into Cold Damage, this build surrounds you with a constant wave of frost",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Firebrand to generate Fire Auras; Fire Auras radiate damage to nearby enemies (fire/cold via conversion); Flame Ward provides on-demand burst defense; Teleport for repositioning; build enables Low Life via Exsanguinous + Last Steps.",
+          "core_cycle": "Firebrand -> Fire Aura -> aura damage -> Flame Ward (defensive)"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+        "anchor_quote": "Spam Firebrand to proc Frost Claws that proc Ice Barrage to massively increase your DPS thanks to Frost Armor...the build revolves around stacking Fire Auras, which deal Damage to anything nearby",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "fire (default)",
+            "cold-conversion via Freezing Aura node",
+            "Low Life Ward variant with Exsanguinous"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+        "anchor_quote": "By converting Fire Aura into Cold Damage, this build surrounds you with a constant wave of frost, freezing and breaking apart entire packs",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

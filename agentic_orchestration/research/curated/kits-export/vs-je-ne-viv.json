@@ -1,0 +1,213 @@
+{
+  "kit_id": "vs-je-ne-viv",
+  "spine": {
+    "kit_id": "vs-je-ne-viv",
+    "folk_name": "Je-Ne-Viv (Insatiable)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-dlc-era;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Utility-stat-as-damage (Greed→damage, Magnet→range) has no engine analog for non-damage stats becoming damage scalars. World-eater transformation every 6th level has no engine lane. Player would miss the stat-conversion identity specifics.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Utility-stat-as-damage (Greed→damage, Magnet→range) has no engine analog for non-damage stats becoming damage scalars. World-eater transformation every 6th level has no engine lane. Player would miss the stat-conversion identity specifics.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Insatiable (dark aura, utility-stat-as-damage)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dark aura centered on player; radius scales with Magnet stat (normally utility-only); damage scales with Greed stat (normally gold-only). VS element-silent. No ailments named in dossier. Built-in aura uses no weapon slot."
+        },
+        {
+          "source_skill": "Shadow Servant (wandering projectile-entity)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Target-seeking snake-entity wanders toward random enemy and explodes at target. VS element-silent. No ailments named in dossier."
+        }
+      ],
+      "motion_frame": "Utility-stat-as-damage innovation: Magnet scales aura radius; Greed scales aura damage; aura + wandering exploding entity dual identity",
+      "resource_economy": {
+        "greed_scaling": "Insatiable damage scales with Greed stat",
+        "magnet_scaling": "Insatiable radius scales with Magnet stat",
+        "level_scaling": "+1% Might and +0.5% Curse per level (no caps)",
+        "world_eater": "triggers every 6th level-up; enlarges character; wall-eating ability"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura radius via Magnet",
+            "wandering entity target-seeking"
+          ],
+          "economy": [
+            "utility-stat-as-damage conversion (Greed→damage, Magnet→range)"
+          ],
+          "traits_affixes": [
+            "Might+Curse per-level scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. Insatiable = built-in aura (no slot consumed) — unusual mechanic noted. Utility-stat-to-damage conversion (Greed/Magnet) is a form of stat-as-damage-substrate — file accrual to the stat-as-damage-substrate family. RESOURCE_CONVERSION T4 fits the utility→damage channel."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Je-Ne-Viv - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-dlc-era;vs-1.13-14-2025+",
+      "anchor_quote": "Introduced April 13, 2023 via the Tides of the Foscari DLC expansion.",
+      "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Je-Ne-Viv is a DLC character (Tides of Foscari); starting weapons: Insatiable (aura) + Shadow Servant; harvest-stats-as-damage innovation",
+      "anchor_quote": "Je-Ne-Viv is a DLC character from Tides of the Foscari. Je-Ne-Viv begins with Shadow Servant and Insatiable built-in aura, occupies no weapon slot.",
+      "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Insatiable scales with Magnet (range) and Greed (damage); both normally utility stats converted to attack scaling",
+      "anchor_quote": "The range of this effect is based on the size of Insatiable, which is affected by Magnet. Insatiable's damage scales with Greed.",
+      "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "shadow_servant_evolution": "Shadow Servant + Skull O'Maniac (max) = Ophion; not Je-Ne-Viv-specific but available"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+        "anchor_quote": "Its evolution is Ophion, which requires Skull O'Maniac at max level.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "magnet_stat": "scales Insatiable aura radius (normally utility-only stat)",
+          "greed_stat": "scales Insatiable damage (normally gold-only stat)",
+          "skull_omaniac": "required for Shadow Servant evolution to Ophion (max level 5)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+        "anchor_quote": "Insatiable's damage scales with Greed. The range of this effect is based on the size of Insatiable, which is affected by Magnet.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "insatiable_shape": "dark aura centered on player; radius scales with Magnet stat",
+          "shadow_servant_shape": "wanders toward random enemy; target-seeking; explodes at target",
+          "pattern": "aura pulse (persistent) + wandering projectile-entity"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+        "anchor_quote": "The range of this effect is based on the size of Insatiable, which is affected by Magnet.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "character_type": "DLC character (Tides of Foscari, April 13, 2023)",
+          "starting_weapons": {
+            "shadow_servant": "traditional starting weapon slot; spawns snake-like entity that wanders toward random enemy and explodes",
+            "insatiable": "built-in aura; no weapon slot used; dark aura deals damage and triggers timed explosion; Magnet scales range; Greed scales damage"
+          },
+          "world_eater": "triggers every 6th level-up; enlarges character; can eat through wall tiles",
+          "level_scaling": "+1% Might and +0.5% Curse every level (no caps)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+        "anchor_quote": "The range of this effect is based on the size of Insatiable, which is affected by Magnet. Insatiable's damage scales with Greed. Gains +1% Might and +0.5% Curse every level.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Je-Ne-Viv",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

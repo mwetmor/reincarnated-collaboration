@@ -1,0 +1,271 @@
+{
+  "kit_id": "le-skeleton-necro",
+  "spine": {
+    "kit_id": "le-skeleton-necro",
+    "folk_name": "Skeleton Necromancer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test: 'not that build' - the entire kit IS autonomous combatants ('Summon Skeletal Mage is the core of this build, and all other skills revolve around... your Archmage'); engine summoner-deferral gap means no honest delivery token exists. Null geometries + docket per post-W1 gapped-pet lane; autonomy gap filed to mechanic_gap_docket.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test: 'not that build' - the entire kit IS autonomous combatants ('Summon Skeletal Mage is the core of this build, and all other skills revolve around... your Archmage'); engine summoner-deferral gap means no honest delivery token exists. Null geometries + docket per post-W1 gapped-pet lane; autonomy gap filed to mechanic_gap_docket.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Skeletal Mage",
+          "geometry_value": null,
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "autonomous summoned caster, the build's core; 'will impale foes with a barrage of Ice Shards' from mid-distance; no placement language fetched -> null geometry honest (post-W1 two-lane); multi-projectile payload shape recorded here only"
+        },
+        {
+          "source_skill": "Summon Skeleton",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "autonomous melee units; Shambling Steel removes Archers so only Warriors remain, 'ensuring they run toward enemies' - mobile pursuit, not placement -> null geometry honest"
+        }
+      ],
+      "motion_frame": "player positions and resummons while the army fights; buff skills channel damage into the Archmage",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "resummon cadence maintains army"
+          ],
+          "traits_affixes": [
+            "Death Rattle + River of Bones + Forbidden Teachings -> minion-crit numeric lane",
+            "Dread Shade + Infernal Shade minion-buff actives"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Ice Shards payload -> water (ice register); warriors physical -> null. NO chill/freeze emitted - ice flavor never implies a status (0-UNIVERSAL; near-miss logged). Pet-stat lane never mapped onto player-scaling tokens (A pet row trap). Max-Mana-as-minion-damage ('leveraging the power of your own Maximum Mana to bolster your Minion's damage') filed as its OWN stat-as-damage-substrate cluster candidate. Army-count shape filed as placed-proxy-count accrual. Single-Archmage variants (Fred / Roid Mage) inform the PROXY_ASCENSION door only (variant-scoped, W2 ruling 4). Eras beta/1.0/1.4-era-family confirmed by anchors."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "VisionGL",
+      "title": "Skeletal Roid Mage Necromancer Guide - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://icy-veins.com/last-epoch/necromancer-skeletal-frost-mage-endgame-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "GhazzyTV",
+      "title": "Necromancer Skeletal Frost Mage Endgame Build for Last Epoch (Patch 1.0) - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/skeletal-mage-sacrifice-necromancer-300-corruption-last-epoch-build-guide-patch-8-3/45716",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Skeletal Mage Sacrifice Necromancer, 300+ Corruption, Last Epoch Build Guide Patch 8.3",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Necromancer Updates coming in Patch 0.8.3... Skeletal Mage Sacrifice Necromancer, 300+ Corruption, Last Epoch Build Guide Patch 8.3.",
+      "source_url": "https://forum.lastepoch.com/t/skeletal-mage-sacrifice-necromancer-300-corruption-last-epoch-build-guide-patch-8-3/45716",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Necromancer Skeletal Frost Mage Endgame Build for Last Epoch (Patch 1.0)",
+      "source_url": "https://icy-veins.com/last-epoch/necromancer-skeletal-frost-mage-endgame-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Season 3 - Beneath Ancient Skies... changelog entries showing updates through August 27, 2025.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Skeleton Necromancer LE' / 'Summon Skeleton Mage Necro' / 'undead horde Necromancer' are real community usage",
+      "anchor_quote": "Summon Skeletal Mage is the core of this build, and all other skills revolve around increasing or supplying damage for your Archmage.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Skeleton, Summon Skeletal Mage; warriors = melee, mages = ranged caster; resource=Mana; minion-mediated delivery",
+      "anchor_quote": "Shambling Steel removes Archers so only Warriors remain, ensuring they run toward enemies... leveraging the power of your own Maximum Mana to bolster your Minion's damage-dealing capabilities.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "VisionGL",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "River of Bones",
+            "Forbidden Teachings",
+            "Forbidden Arcana",
+            "Revolution"
+          ],
+          "notes": "Maximum Mana is the build's strongest scaling source via Forbidden Arcana; 100% crit achieved through Death Rattle + River of Bones + Forbidden Teachings"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+        "anchor_quote": "Maximum Mana is the build's strongest scaling damage source after Minion Flat Spell Damage... leveraging the power of your own Maximum Mana to bolster your Minion's damage-dealing capabilities.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Death Rattle (Increased Minion Crit Chance)",
+            "Boneclamor Barbute",
+            "Bones of the Ancestral Pack",
+            "Julra's Obsession",
+            "Wall of Nothing",
+            "Ambitions of an Erased Acolyte"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+        "anchor_quote": "Key uniques include Death Rattle, Boneclamor Barbute, Bones of the Ancestral Pack, Julra's Obsession.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "melee warriors close to targets; skeletal mage ranged projectile at mid-distance; collective multi-point coverage across encounter area",
+          "range_class": "melee+ranged (per unit)",
+          "aoe": "multi-point"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+        "anchor_quote": "Shambling Steel removes Archers so only Warriors remain, ensuring they run toward enemies... Skeletal Mage... will impale foes with a barrage of Ice Shards.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Necromancer summons a skeleton army (warriors + skeletal mages). Warriors are melee-focused (Shambling Steel node removes archers). Skeletal Mages are buffed with Dread Shade and Infernal Shade for massive damage. Alternative variant buffs a single Skeletal Mage ('Fred') to extreme output. Player resummoning maintains army.",
+          "core_driver": "minion army maintenance loop"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+        "anchor_quote": "Summon Skeletal Mage is the core of this build, and all other skills revolve around increasing or supplying damage for your Archmage.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Skeletal Roid Mage Necromancer",
+              "notes": "single Archmage buffed to extreme output"
+            },
+            {
+              "name": "Fred Cold Archmage",
+              "notes": "single cryomancer skeleton; pure summoner"
+            },
+            {
+              "name": "Undead horde Necromancer",
+              "notes": "army variant with multiple warriors + mages"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/skeletal-roid-mage-necromancer-guide",
+        "anchor_quote": "Fred! Cold Archmage Skeleton Mage Necromancer... Skeletal Roid Mage Necromancer.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

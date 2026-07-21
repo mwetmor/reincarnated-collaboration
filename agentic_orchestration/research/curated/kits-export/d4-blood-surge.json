@@ -1,0 +1,240 @@
+{
+  "kit_id": "d4-blood-surge",
+  "spine": {
+    "kit_id": "d4-blood-surge",
+    "folk_name": "Blood Surge Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "launch-s1-3;s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blood Surge",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin nova; skill_geometry anchor: 'draws blood in then novas outward'; verify_ledger anchor: 'Core skill: Blood Surge; resource: Essence; geometry: self-origin nova (draw blood in, nova out, large zone)'; large AoE zone per skill_geometry payload; physical = element-neutral (blood/physical — no explicit shadow or physical-damage-as-element language; THE PHYSICAL RULE: element null); no ailment: no burn/bleed/drain explicit language in fetched rows; ring/nova geometry: body-origin expanding blast maps to ring per phrase-book nova/burst-around-self entry"
+        }
+      ],
+      "motion_frame": "Spam Blood Surge to draw blood in and nova outward from player body; Overpower scaling with fortified body; Lord of Hatred expansion re-enabled Overpower scaling; one-button AoE clear per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Essence; verify_ledger confirms 'resource: Essence'; fortify_condition texture per §C.3 Overpower note"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Large AoE nova per skill_geometry payload"
+          ],
+          "economy": [
+            "Essence resource; Juggernaut's Aspect, Tidal Aspect, Exploiter's Aspect (scalers)"
+          ],
+          "traits_affixes": [
+            "Ring of Starless Skies (scaler)",
+            "Blood Moon Breeches (scaler)",
+            "Cruor's Embrace (scaler)",
+            "Crown of Lucion (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Overpower burst_window (§C.3 hot-fact binding): store attests 'Overpower scaling with fortified body' per skill_loop payload and capstone_alterations anchor 'Lord of Hatred expansion made Overpower overpowered again!'; trigger_grammar consequence_type = 'burst_window' per §C.3 ruling. Physical = element-neutral: blood/physical domain; no explicit element-type damage language in fetched rows; element null per THE PHYSICAL RULE. No ailment attested: 'bloody explosions' is flavor text, not ailment language; no bleed/drain/burn named in fetched rows. Nova geometry maps ring per phrase-book (nova/burst-around-self → ring). Fortify-condition note in economy: Overpower scaling requires fortified body state — this is economy texture, not an enemy ailment."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LordxSaura",
+      "title": "Blood Surge Necromancer Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20230921081258/https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "archive_url": "http://web.archive.org/web/20230921081258/https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "site": "maxroll.gg (Wayback 2023-09-21)",
+      "author_handle": null,
+      "title": "Blood Surge Necromancer Build Guide - D4 Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": "Season 1 - The Malignant...Diablo 4 Season 1 introduces a new questline to hunt Malignant Monsters",
+      "source_url": "http://web.archive.org/web/20230921081258/https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s7-s12",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Blood Surge Necromancer; aliases: Blood Surge Necro D4, Blood Surge Necromancer",
+      "anchor_quote": "Blood Surge Necromancer",
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Blood Surge; resource: Essence; geometry: self-origin nova (draw blood in, nova out, large zone)",
+      "anchor_quote": "one button playstyle with bloody explosions",
+      "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LordxSaura",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+        "anchor_quote": "LordxSaura",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Juggernaut's Aspect",
+            "Tidal Aspect",
+            "Exploiter's Aspect"
+          ],
+          "uniques": [
+            "Ring of Starless Skies",
+            "Blood Moon Breeches",
+            "Cruor's Embrace",
+            "Crown of Lucion"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+        "anchor_quote": "Lord of Hatred expansion made Overpower overpowered again!",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Ring of Starless Skies (mythic)",
+            "Blood Moon Breeches",
+            "Cruor's Embrace",
+            "Crown of Lucion"
+          ],
+          "aspects": [
+            "Juggernaut's",
+            "Tidal",
+            "Exploiter's"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+        "anchor_quote": "Mythics: Ring of Starless Skies, Blood Moon Breeches, Cruor's Embrace, Crown of Lucion",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin nova",
+          "footprint": "large AoE zone",
+          "range": "body-origin expanding blast",
+          "notes": "Blood Surge described as strong AoE for high-density speedfarming; draws blood in then novas outward"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+        "anchor_quote": "excels at Speedfarming high density content like The Infernal Hordes",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Blood Surge to draw blood in and nova it outward from player body; Overpower scaling with fortified body; Lord of Hatred expansion re-enabled Overpower scaling; one-button AoE clear.",
+          "core_loop": "Blood Surge cast -> draw blood in -> nova out from body position -> Overpower proc -> AoE clear"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+        "anchor_quote": "one button playstyle with bloody explosions",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/blood-surge-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

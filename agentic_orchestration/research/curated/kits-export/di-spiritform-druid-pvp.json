@@ -1,0 +1,181 @@
+{
+  "kit_id": "di-spiritform-druid-pvp",
+  "spine": {
+    "kit_id": "di-spiritform-druid-pvp",
+    "folk_name": "Spirit-Form Druid (complaint-tier)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-2026-era",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Zero fetched evidence. Kit identity is phantom-spec — the underlying real content (DI Druid PvP CC stack) exists but is mis-specified in this census entry. Cannot map beyond empty projection. [D-7.4 relabel 2026-07-19: the negative claim is RELABELED to its correct target — the underlying real DI Druid PvP content is a sustain-denial / CC-stack mechanic (mis-specified in this census entry), NOT a claim that 'spirit form' is a named DI skill. Negative flag retained on the corrected target; kit kept.]",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 0,
+    "verify_contradicted": 0,
+    "verify_unsupported": 4,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Zero fetched evidence. Kit identity is phantom-spec — the underlying real content (DI Druid PvP CC stack) exists but is mis-specified in this census entry. Cannot map beyond empty projection. [D-7.4 relabel 2026-07-19: the negative claim is RELABELED to its correct target — the underlying real DI Druid PvP content is a sustain-denial / CC-stack mechanic (mis-specified in this census entry), NOT a claim that 'spirit form' is a named DI skill. Negative flag retained on the corrected target; kit kept.]",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "No fetched loop — all dossier families abstained; kit-level flag (spirit-form mechanic unattested)",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Kit-level flag per addendum §E.5. All dossier families abstained=1 (zero payload_json, zero anchor_quotes). verify_ledger: identity/era/mechanics/negative_canon all UNSUPPORTED. 'spirit form' is not a named DI Druid skill in fetched text (mech_note confirmed). Zero store evidence — honest empty projection. Review-book: relabel to sustain-denial CC build (di-druid-pvp-cc-stack-2026) or excise per gandalf-ruling-16 / ERRATA annotation in mech_note."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://us.forums.blizzard.com/en/diablo-immortal/t/druid-still-ruins-the-whole-bg/11238",
+      "archive_url": null,
+      "site": "us.forums.blizzard.com",
+      "author_handle": null,
+      "title": "Druid still ruins the whole bg - General Discussion - Diablo Immortal Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/article/24216435/introducing-diablo-immortals-newest-class-druid",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Introducing Diablo Immortal's Newest Class: Druid",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in di-2026-era",
+      "anchor_quote": null,
+      "source_url": "https://us.forums.blizzard.com/en/diablo-immortal/t/druid-still-ruins-the-whole-bg/11238",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Spirit-Form Druid (complaint-tier)' and aliases 'Spirit Form Druid DI PvP', 'DI Druid PvP negative' are real community usage",
+      "anchor_quote": null,
+      "source_url": "https://us.forums.blizzard.com/en/diablo-immortal/t/druid-still-ruins-the-whole-bg/11238",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: spirit form, silence/CC suite",
+      "anchor_quote": null,
+      "source_url": "https://massivelyop.com/2025/07/18/not-so-massively-diablo-immortals-druid-dunks-on-diablo-ivs/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Spirit-Form Druid di-2026 negative — spirit-form silence/CC suite in PvP identified as complaint-tier over-powered; kit receives outsized CC with minimal counterplay window",
+      "anchor_quote": null,
+      "source_url": "https://us.forums.blizzard.com/en/diablo-immortal/t/druid-still-ruins-the-whole-bg/11238",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

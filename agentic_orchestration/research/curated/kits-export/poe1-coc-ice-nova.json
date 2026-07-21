@@ -1,0 +1,266 @@
+{
+  "kit_id": "poe1-coc-ice-nova",
+  "spine": {
+    "kit_id": "poe1-coc-ice-nova",
+    "folk_name": "CoC Ice Nova",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "on-crit -> linked-cast is native and IS the CoC identity (Cyclone crit machine-guns Ice Nova). Two smoothings: (1) Cospri's Malice is a SECOND parallel on-crit trigger (socketed spells fire too) — parallel depth-1 fan-out, but only one proc_trigger_condition primitive is modelled, so the double-trigger is a noted parallel not a chain; (2) 'attack-rate BECOMES cast-rate' via CDR breakpoints (14% CDR = ~one trigger/server-tick) is carried as cadence_scale, an approximation of a precise server-tick timing mechanic. Identity intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "on-crit -> linked-cast is native and IS the CoC identity (Cyclone crit machine-guns Ice Nova). Two smoothings: (1) Cospri's Malice is a SECOND parallel on-crit trigger (socketed spells fire too) — parallel depth-1 fan-out, but only one proc_trigger_condition primitive is modelled, so the double-trigger is a noted parallel not a chain; (2) 'attack-rate BECOMES cast-rate' via CDR breakpoints (14% CDR = ~one trigger/server-tick) is carried as cadence_scale, an approximation of a precise server-tick timing mechanic. Identity intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cyclone (trigger host)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "channel-move spin whose ONLY job here is to generate attack CRITS as fast as possible; whirlwind is the spin host body. physical/no-family; deals no meaningful damage itself in this build — it is the trigger engine's crank"
+        },
+        {
+          "source_skill": "Ice Nova (triggered payload)",
+          "geometry_value": "ring",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "nova expands from player position on each crit-trigger; multiple Novas per Cyclone revolution blanket a large zone. ring = burst-around-self; cold -> water family; chill/freeze native cold ailments. Frostbolt interaction lets Ice Nova cast at Frostbolt positions (secondary geometry seed)"
+        }
+      ],
+      "motion_frame": "machine-gun trigger caster: cyclone into the pack to farm crits; every crit fires Ice Novas (and Cospri Frostbolts) until attack-rate BECOMES cast-rate at the CDR breakpoints",
+      "resource_economy": {
+        "cadence_scale": 0.75
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-crit",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "whirlwind crit-host",
+            "ring nova payload",
+            "Frostbolt-analog secondary nova-position seed"
+          ],
+          "economy": [
+            "cadence_scale (CDR-breakpoint tuning: attack-rate -> cast-rate; the 14% CDR jump = ~7.57 APS just over one trigger/server-tick)"
+          ],
+          "traits_affixes": [
+            "crit-chance / crit-multi (Assassin's-Mark-analog; the trigger depends on crit rate)",
+            "cold-penetration",
+            "spell-damage (Inner-Conviction-analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Trigger kit — trigger_grammar load-bearing. Native primitive: proc_trigger_condition=on-crit, consequence_type=linked-cast (Cyclone crit triggers Ice Nova). apply-only (the host stamps the trigger; the Nova is the linked cast). THE IDENTITY beyond the primitive: 'attack RATE becomes cast RATE' via CDR breakpoints — I carry it as cadence_scale (0.75 = compressed trigger interval toward the 14% CDR / one-per-server-tick machine-gun). Two nuances the depth-1 primitive smooths: (1) Cospri's Malice is a SECOND parallel trigger (socketed Frostbolt/Ice Nova ALSO fire on crit) — two parallel procs off one crit-event is depth-1 fan-out (within MAX_CHAIN_DEPTH=1, NOT a chain), but the engine models one proc_trigger_condition primitive so the double-source is a noted parallel; (2) the CDR-breakpoint server-tick cadence that defines the machine-gun cadence is a resource_economy approximation of a very specific timing mechanic. Identity (crit-triggered cold nova spam from a spin host) intact -> CLOSE. ELEMENTAL_ECHO for the mono-cold amp; the Low-Life/Shavronne's variant is a resource-warp flavor, noted not core."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "[3.18] Cyclone Cast on Critical Ice Nova Assassin Gear, Jewels, and Flasks (PoE Sentinel)",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/cospris-coc-ice-nova-glacial-cascade-assassin-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.25] Cospri's CoC Ice Nova/Frostbolt Assassin build - Odealo's Crafty Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://pathofexileclub.wordpress.com/2019/07/26/most-popular-poe-37-assassin-build/",
+      "archive_url": null,
+      "site": "pathofexileclub.wordpress.com",
+      "author_handle": null,
+      "title": "Most Popular POE 3.7 Assassin Build – Vaal Ice Nova, CoC Cyclone, DW Cospri Guide",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13, 3.20+",
+      "anchor_quote": "Most Popular POE 3.7 Assassin Build – Vaal Ice Nova, CoC Cyclone, DW Cospri Guide; [3.19] CoC Ice Nova Build | Assassin | Lake of Kalandra",
+      "source_url": "https://pathofexileclub.wordpress.com/2019/07/26/most-popular-poe-37-assassin-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'CoC Ice Nova', aliases 'Cospri's CoC' and 'CoC Frostbolt Nova' are real community usage",
+      "anchor_quote": "Cast on Critical Strike is a support gem which makes an attack trigger a linked spell. The CoC support is triggered by using Cyclone and is used to trigger Ice Novas which are then cast on Frostbolts through the Cospri's Malice unique.",
+      "source_url": "https://odealo.com/articles/cospris-coc-ice-nova-glacial-cascade-assassin-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Cyclone + CoC + Ice Nova: Cyclone crits machine-gun Ice Novas through Cast-on-Crit; Cospri's Malice triggers additional Frostbolts; attack RATE becomes cast RATE via CDR tuning",
+      "anchor_quote": "Cyclone crits machine-gun Ice Novas through Cast-on-Crit and Cospri's Malice. The first jump in power CoC builds get is at 14% CDR, obtained through crafted CDR on your belt (9%) and implicit CDR on boots (5%).",
+      "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": null,
+          "site": "poe-vault.com",
+          "note": "Site editor attribution only; no individual author handle extracted."
+        },
+        "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Assassin",
+          "nodes": [
+            {
+              "name": "Inner Conviction (via Militant Faith jewel)",
+              "alteration": "Replaces Power Charge generation with spell damage multiplier — core damage node."
+            },
+            {
+              "name": "Assassin's Mark",
+              "alteration": "Crit multiplier on cursed enemies."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+        "anchor_quote": "Inner Conviction via Militant Faith jewel transformation, replacing The Agnostic with damage multiplier benefits.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Cospri's Malice",
+              "slot": "weapon",
+              "alteration": "MANDATORY: triggers socketed spells (Frostbolt, Ice Nova) on melee crit — the item that breathes life into the build."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jwels-flasks",
+        "anchor_quote": "Cospri's Malice is mandatory and the item that breathes life into the build.",
+        "abstained": 0,
+        "conf": 0.96
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Self-origin delivery: Ice Nova expands from player position as Cyclone moves. Multiple Ice Novas per revolution create overlapping rings of cold area covering large zone. AoE scaled via cluster jewels and passive tree. Frostbolts travel outward from player to generate additional Ice Nova trigger positions (Frostbolt interaction allows Ice Nova to cast at Frostbolt location)."
+        },
+        "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+        "anchor_quote": "cycloning into packs of monsters to trigger socketed cold spells, making it one of the most satisfying and fastest map-clearing builds in the game.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Cyclone through packs to generate attack crits. Each crit triggers Cast on Critical Strike support, firing Ice Nova and Frostbolt. Cospri's Malice triggers additional Ice Novas from socketed spells on crit. Attack speed is tuned to CDR breakpoints (14% CDR = trigger just over once per server tick). Multiple Ice Novas per Cyclone revolution blanket large areas as player moves."
+        },
+        "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+        "anchor_quote": "Cyclone crits machine-gun Ice Novas through Cast-on-Crit and Cospri's Malice. The first jump in power CoC builds get is at 14% CDR — 7.57 Attacks Per Second on your Cyclone.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Low Life CoC",
+              "description": "Uses Shavronne's Wrappings and ES scaling for massive damage headroom."
+            },
+            {
+              "name": "Life-based CoC",
+              "description": "Standard life build; lower ceiling but more accessible gearing."
+            },
+            {
+              "name": "CoC Ice Nova Elementalist",
+              "description": "Elementalist ascendancy variant (TbXie, PoE Necropolis 3.24)."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/cyclone-cast-on-critical-ice-nova-assassin-gear-jewels-flasks",
+        "anchor_quote": "Two primary variants: Low Life (using Shavronne's Wrappings and energy shield scaling) and Life-based (standard hit point allocation).",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

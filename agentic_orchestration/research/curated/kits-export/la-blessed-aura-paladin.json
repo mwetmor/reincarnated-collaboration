@@ -1,0 +1,224 @@
+{
+  "kit_id": "la-blessed-aura-paladin",
+  "spine": {
+    "kit_id": "la-blessed-aura-paladin",
+    "folk_name": "Blessed Aura Paladin",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Support identity (party buff/heal/shield) has no engine loop analog in the solo combat engine. The party damage amplification (curse:amplify via Sword of Justice brand) is attested and emitted, but the core Holy Aura party-sustain identity cannot be expressed in a solo 1v1 fight loop. Player test: 'not that build' — this is a support-class spec, not 'that build, worse'. Docket filed: support-class-identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Support identity (party buff/heal/shield) has no engine loop analog in the solo combat engine. The party damage amplification (curse:amplify via Sword of Justice brand) is attested and emitted, but the core Holy Aura party-sustain identity cannot be expressed in a solo 1v1 fight loop. Player test: 'not that build' — this is a support-class spec, not 'that build, worse'. Docket filed: support-class-identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Piety Meter generators (normal skills — Heavenly Blessings, Wrath of God, etc.)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee/mid-range; damage role is sparse — skills primarily fill Piety Meter; Holy = skill/class flavor, NOT an attested damage-type (NAME-ONLY STRIKE for element)"
+        },
+        {
+          "source_skill": "Holy Aura (X — party identity buff)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Large AoE party buff window: +10% damage dealt to enemies, -20% damage received, +2% HP/1.5s — in solo projection this is a self_buff aura (party = player), NOT an enemy curse (STEWARD-CORRECTED: 'damage dealt to enemies' is an ally/self damage buff, not damage-taken amplification on the enemy). Enemy-directed curse:amplify belongs solely to the Sword of Justice brand row below"
+        },
+        {
+          "source_skill": "Sword of Justice (brand debuff)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Target enemy receives +10% damage from party — enemy-directed debuff; curse:amplify per §2 damage-taken-amp row; persistent while brand active"
+        }
+      ],
+      "motion_frame": "Fill Piety Meter via skill rotation; activate Holy Aura (X) for party buff window; maintain Sword of Justice brand for +10% party damage; rotate Heavenly Blessings + Wrath of God for attack power uptime",
+      "resource_economy": {
+        "piety_meter": "accumulate via skills; release into Holy Aura (X) party buff window; support orientation — economy serves party utility, not self-damage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": "Sword of Justice brand (+10% party damage to target)",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "RESONANCE_LOOP"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "large AoE Holy Aura; melee/mid-range skill casting"
+          ],
+          "economy": [
+            "piety_meter accumulate-release; party utility loop"
+          ],
+          "traits_affixes": [
+            "Heavenly Agent, True Justice, Divine Cause, Heavenly Resolve (Ark Passive node options → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SUPPORT orientation per addendum §LA row 5. Damage skills[] is sparse; identity is party buff/heal/aura. Holy as element = NAME-ONLY STRIKE — paladin class flavor; no damage-type descriptor in store. curse:amplify attested via Sword of Justice: 'target to receive +10% Damage from party' (enemy-directed damage-taken amplification = amplify class per §2). Holy Aura heal component (+2% HP/1.5s) has no ailment analog — noted in delivery_notes but not an ailment emit. Party-only scope (no solo analog for HP restore) noted; solo engine = single-actor, heal delivered to self only."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Blessed Aura Paladin Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Heavenly Agent / True Justice and Divine Cause / Heavenly Resolve are core options listed.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Blessed Aura Paladin — class+identity spec name in real LA community usage",
+      "anchor_quote": "Paladin is one of the Support classes in Lost Ark... Fulfilling this role is relatively easy, thanks to Holy Aura (X) allowing you to heal your allies",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Piety Meter fills through skills to unlock Holy Aura (X): +10% party damage dealt, -20% damage received, +2% HP/1.5s heal in large AoE; Sword of Justice +10% damage brand; Heavenly Blessings and Wrath of God rotate for attack power",
+      "anchor_quote": "Activating his identity grants your whole party the following effects for its entire duration: +10% Damage dealt to enemies, -20% Damage received, +2% of Maximum HP recovered every 1.5 seconds",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Sekwah (content creator/author attribution)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes_options": [
+            "Heavenly Agent / True Justice",
+            "Divine Cause / Heavenly Resolve"
+          ],
+          "sword_of_justice_effect": "Debuff causes target to receive +10% Damage from party",
+          "identity": "Holy Aura (X) — party +10% dmg dealt, -20% dmg received, +2% HP/1.5s"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Heavenly Agent / True Justice and Divine Cause / Heavenly Resolve are core options listed.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Support-specific gear priorities; specific gem list not fully captured in fetch"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.55
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Support class; Holy Aura described as large AoE — 'in large AoE'; melee/mid-range hybrid; no positional damage requirement"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Holy Aura (X) allowing you to heal your allies while simultaneously increasing their damage output",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Fill Piety Meter through skill rotation; activate Holy Aura (X) for party-wide buff window (+10% dmg, -20% dmg received, +2% HP/1.5s); maintain Sword of Justice brand (+10% party dmg) via rotation; rotate Heavenly Blessings and Wrath of God for attack power uptime"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Activating his identity grants your whole party the following effects for its entire duration: +10% Damage dealt to enemies, -20% Damage received, +2% of Maximum HP recovered every 1.5 seconds",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Blessed Aura (standard support)"
+          ],
+          "notes": "Guide accessed via /support-paladin-raid-guide slug — canonical Blessed Aura content confirmed"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

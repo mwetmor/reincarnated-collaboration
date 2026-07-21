@@ -1,0 +1,263 @@
+{
+  "kit_id": "d2-smiter",
+  "spine": {
+    "kit_id": "d2-smiter",
+    "folk_name": "Smiter",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Auto-hit guarantee (no miss chance) has no engine encoding — engine has standard accuracy model. Crushing blow percent-HP shred maps to execute threshold only approximately (execute is kill-threshold, not damage-as-percent-HP). What the source smiter player felt was the reliable-hit certainty vs uber bosses; engine misses the 'no matter what, this lands' feel.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Auto-hit guarantee (no miss chance) has no engine encoding — engine has standard accuracy model. Crushing blow percent-HP shred maps to execute threshold only approximately (execute is kill-threshold, not damage-as-percent-HP). What the source smiter player felt was the reliable-hit certainty vs uber bosses; engine misses the 'no matter what, this lands' feel.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Smite",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Auto-hit shield bash; cannot miss (no AR check). Dossier: 'Smite functions as a guaranteed hit that cannot miss, bypassing normal attack rating calculations entirely.' Stun: implied by shield bash? NO — §0-UNIVERSAL: theme does not attest. REASSESS: dossier does NOT explicitly name stun for Smite skill text. Crushing blow (gear) = percent-HP kill threshold → execute. Holy element from Fanaticism/Holy Shield aura context."
+        },
+        {
+          "source_skill": "Fanaticism",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Always-on aura; increases attack speed and damage for party/self. No reservation cost (d2 aura free-toggle per §A row 2)."
+        },
+        {
+          "source_skill": "Holy Shield",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Buff: boosts block rate; adds bonus damage to Smite. Self-cast toggle."
+        }
+      ],
+      "motion_frame": "Smite (auto-hit shield bash) single target repeatedly; Fanaticism aura for speed/damage; Holy Shield for block and Smite bonus; crushing blow from gear for boss percent-HP shred.",
+      "resource_economy": {
+        "cost_scale": "spend",
+        "cost_slope": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "PROXY_ASCENSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "auto-hit single-target boss focus"
+          ],
+          "economy": [
+            "Life Tap proc from Dracul's Grasp (item_alterations) for sustain"
+          ],
+          "traits_affixes": [
+            "Fanaticism synergy scaffold; Guillaume's/Gore Riders crushing blow stack",
+            "crushing blow + open wounds (bleed) gear riders — boss %-hp shred [STEWARD-AUDIT addition]"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Stun: §0-UNIVERSAL GOVERNS — Smite dossier does NOT explicitly name stun in fetched text ('auto-hit, stun' in mech_note is a probe/mech_note field = INADMISSIBLE per §0.2 'probe facts are NEVER attestation'). Stun REMOVED from Smite ailments — near-miss logged. Execute attested via crushing blow → percent-HP kill threshold: dossier 'crushing blow, open wounds' from gear (item_alterations). Execute maps per main law §2. Holy element: Paladin + Fanaticism/Holy Shield = holy per main law. Auto-hit guarantee ('cannot miss') noted in delivery — no engine ailment for guaranteed-hit; fidelity note. econ-recrawl verify: flags col 'wave-c-corpus-align-2026-07-17: spend/steady-mana (2 mana fixed cost per use)' — verified mana economy. [STEWARD-AUDIT 2026-07-18 MW2-close: Smite stun/execute STRUCK — store attests 'no ar check — smite cannot miss. crushing blow and open wounds from gear'; cannot-miss ≠ execute (kill-threshold registry row) and stun is unattested ('auto-hit, stun' span was a memory-composite, leak class); gear riders moved to scaffold lane. Elements holy→null ×3 — 'holy' appears only inside the skill NAME Holy Shield (name-collision) + THE PHYSICAL RULE (pure-physical → element-neutral) + MW1-close never-import. Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "azeroti",
+      "title": "Found my favorite uber smiter build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/forums/threads/the-1pt-smiter-guide-to-uber-tristram-v-1-0.86756/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "The 1pt smiter guide to Uber Tristram v 1.0.",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod-1.10+",
+      "anchor_quote": "The 1pt smiter guide to Uber Tristram v 1.0.",
+      "source_url": "https://www.purediablo.com/forums/threads/the-1pt-smiter-guide-to-uber-tristram-v-1-0.86756/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r",
+      "anchor_quote": "I've been trying variations of a dedicated uber smiter build over the last year to find the right one for me.",
+      "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Smiter' or 'Uber Smiter' or 'Smite Paladin' is real community usage",
+      "anchor_quote": "I've been trying variations of a dedicated uber smiter build over the last year to find the right one for me.",
+      "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Smite, Fanaticism, Holy Shield; Smite is auto-hit (no AR check)",
+      "anchor_quote": "Smite functions as a guaranteed hit that cannot miss, bypassing normal attack rating calculations entirely.",
+      "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "azeroti",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Grief",
+              "type": "runeword (phase blade)",
+              "effect": "highest melee damage; works for both Zeal and Smite"
+            },
+            {
+              "name": "Fortitude",
+              "type": "runeword",
+              "effect": "damage, defense, life, resists"
+            },
+            {
+              "name": "Guillaume's Face",
+              "type": "unique helm",
+              "effect": "crushing blow contribution"
+            },
+            {
+              "name": "Gore Riders",
+              "type": "unique boots",
+              "effect": "deadly strike, open wounds, crushing blow"
+            },
+            {
+              "name": "Dracul's Grasp",
+              "type": "unique gloves",
+              "effect": "life tap proc for sustain vs ubers"
+            }
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+        "anchor_quote": "Guillaume's face helm, gore rider boots, Dracul's grasp gloves - these items provide you with all the crushing blow, open wounds and life tap",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "point",
+          "notes": "Single enemy auto-hit on each Smite; no AoE. Designed for boss/uber single-target execution."
+        },
+        "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+        "anchor_quote": "Smite doesn't use AR and doesn't miss. Smite also doesn't benefit from +max or +min dmg.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Smite (auto-hit shield bash) single target repeatedly; Fanaticism aura increases attack speed and damage; Holy Shield boosts block rate and adds bonus to Smite damage. No AR check — Smite cannot miss. Crushing blow and open wounds from gear for boss percent-HP shred.",
+          "source_note": "diablo2.io uber smiter guide"
+        },
+        "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+        "anchor_quote": "Smite functions as a guaranteed hit that cannot miss, bypassing normal attack rating calculations entirely.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Smiter (Smite-20, Fanat-20, Holy Shield-20, Defiance-20)",
+            "1-point Smiter / Zealot-Smiter hybrid (max Zeal main, 1pt Smite for ubers only)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/found-my-favorite-uber-smiter-build-t1509613.html",
+        "anchor_quote": "Max Zeal (main skill, used vs all monsters in the game besides bosses), Max Fanaticism, and Max Holy Shield",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

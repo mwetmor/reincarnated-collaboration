@@ -1,0 +1,197 @@
+{
+  "kit_id": "vs-bloody-tear",
+  "spine": {
+    "kit_id": "vs-bloody-tear",
+    "folk_name": "Bloody Tear (Whip evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-dlc-era;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/whip",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine lacks the precise 'heal-on-crit' trigger chain natively; mapped as on-crit resource-fill which captures intent. Crit system approximated via proc_trigger_condition. No ailments in VS roguelite context.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine lacks the precise 'heal-on-crit' trigger chain natively; mapped as on-crit resource-fill which captures intent. Crit system approximated via proc_trigger_condition. No ailments in VS roguelite context.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bloody Tear (horizontal slash)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Horizontal slash from player torso; single sweep per attack cycle; AoE sweep ignores walls. No element: VS element-silent per §B5-ROGUELITE. No ailments: no status named in fetched dossier text."
+        }
+      ],
+      "motion_frame": "Horizontal melee-arc slash from player; sustain via HP-on-crit lifesteal loop",
+      "resource_economy": {
+        "hp_on_crit": "heals 8 HP per crit hit (10% base crit chance, 2x damage); 1s lifesteal retrigger delay"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-crit",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "hp-on-crit sustain"
+          ],
+          "traits_affixes": [
+            "crit-chance scaling via Luck stat"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent: no element despite 'Bloody' name and whip lineage. HP-on-crit is the distinguishing mechanic. Arcana synergy (Sarabande of Healing doubles healing and adds damage pulse) noted but maps as trait/affix lane — not core skill. Union path to Fuwalafuwaloo noted as variant. Capstone_alterations row present (union path) — populated, not abstained."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Bloody Tear - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022;vs-dlc-era;vs-1.13-14-2025+",
+      "anchor_quote": "Added in the December 24, 2021 update (Patch 0.2.4).",
+      "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Bloody Tear is the evolution of Whip; recipe = Whip + Hollow Heart",
+      "anchor_quote": "Evolution of the whip. Requires Whip and Hollow Heart.",
+      "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Heal-on-hit (survival mechanic); critical hits; horizontal slash from player",
+      "anchor_quote": "Restores 8 HP/attack if it hits any enemies with a crit. By default, it is capable of dealing critical hits, which deal 2x damage and have 10% chance to occur.",
+      "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "union_path": "further unions with Vento Sacro to form Fuwalafuwaloo (both must be evolved first)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+        "anchor_quote": "Vento Sacro + Bloody Tear = Fuwalafuwaloo (requires evolving the whip first).",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "hollow_heart": "required catalyst for evolution; increases max HP",
+          "arcana_synergy": "Sarabande of Healing Arcana doubles healing triggers and creates a damage pulse"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+        "anchor_quote": "Sarabande of Healing Arcana doubles their amount and triggers a pulse dealing the same amount of damage.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "horizontal slash AoE",
+          "origin": "player torso",
+          "pierce": "unblocked by walls",
+          "pattern": "single sweep per attack cycle"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+        "anchor_quote": "Bloody Tear's attack creates a red slash horizontally that originates from the player's torso, damaging all enemies in the area.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "evolution_recipe": "Whip (max) + Hollow Heart = Bloody Tear",
+          "delivery": "horizontal slash from player torso; AoE sweep",
+          "sustain": "heals 8 HP per crit hit; 10% base crit chance (2x damage on crit); Luck improves odds",
+          "special": "ignores Duration and Speed; one-second delay before lifesteal can retrigger"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+        "anchor_quote": "Restores 8 HP/attack if it hits any enemies with a crit. By default, it is capable of dealing critical hits, which deal 2x damage and have 10% chance to occur.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "fuwalafuwaloo_union": "Bloody Tear + Vento Sacro = Fuwalafuwaloo (union, requires both evolved)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Bloody_Tear",
+        "anchor_quote": "Further evolution: Vento Sacro + Bloody Tear = Fuwalafuwaloo.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

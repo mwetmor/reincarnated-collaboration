@@ -1,0 +1,230 @@
+{
+  "kit_id": "d4-tornado-werewolf",
+  "spine": {
+    "kit_id": "d4-tornado-werewolf",
+    "folk_name": "Tornado Werewolf",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02 GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Spirit economy crunch — 2-set talisman is mandatory for smooth gameplay; (2) Tornado drift behavior (seek-then-wild + Fleshrender return arc) is the build's feel differentiator; (3) Werewolf form persistence as loop prerequisite.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Spirit economy crunch — 2-set talisman is mandatory for smooth gameplay; (2) Tornado drift behavior (seek-then-wild + Fleshrender return arc) is the build's feel differentiator; (3) Werewolf form persistence as loop prerequisite.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tornado",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "R-M6 drift-tick entity: transient tornado that naturally seeks enemies then goes wild; Fleshrender causes Tornadoes to race back to player after expiry dealing extra damage along return path; screen-filling drift coverage; moving hazard, not summoner-gap (no HP/commands/persistence)"
+        },
+        {
+          "source_skill": "Hurricane",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Persistent upkeep aura; activated first in rotation; defensive/damage layer"
+        },
+        {
+          "source_skill": "Lightning Storm",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary activation; area damage layer"
+        }
+      ],
+      "motion_frame": "Activate Hurricane then Lightning Storm; upkeep Debilitating Roar and Grizzly Rage; group enemies; spam Tornado continuously",
+      "resource_economy": {
+        "spirit_cost": "primary spender",
+        "storm_shepherds_call": "2-set talisman required for Spirit generation — identity-load-bearing economy note"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Stormchaser Aspect — steers/seeks Tornadoes",
+            "Fleshrender unique — Tornadoes race back after expiry",
+            "Ifeh's Dire Totem — Dire Werewolf form shift"
+          ],
+          "economy": [
+            "Storm Shepherd's Call Talisman 2-set — Spirit generation solution"
+          ],
+          "traits_affixes": [
+            "Debilitating Roar — Werewolf upkeep",
+            "Grizzly Rage — Werewolf form upkeep (wolf-swapped via aspect)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Form-law: Grizzly Rage wolf-swapped via Stormchaser aspect; form-locked in Werewolf for the loop; economy-agnostic form law applies (§CROSS form row). Drift entity per R-M6: Tornado = transient drifting damage entity → circle/zone token + drift note. Fleshrender return path = R-M8 pursuit note: Tornadoes pursue return vector to player after expiry. Element null: elem_raw=physical; no 'wind damage' or 'lightning damage' verb in dossier text for Tornado skill ('naturally seeks out enemies and then goes wild' — no element verb). No ailments named in dossier. Near-miss: chill not attested, knockback not attested (dust devils sibling attests knockback on its OWN language; this kit maps ITS OWN language per hot-fact)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Tornado – Druid Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.wowhead.com/diablo-4/guide/classes/druid/werewolf-tornado-build-overview",
+      "archive_url": null,
+      "site": "wowhead.com",
+      "author_handle": null,
+      "title": "Werewolf Tornado Endgame Build Guide – Wowhead",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in launch-s1-3 and loh-s13-14",
+      "anchor_quote": "revived for Season 13 and Lord of Hatred",
+      "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Tornado Werewolf' is real community usage",
+      "anchor_quote": "Tornado Werewolf Endgame Druid Build for Diablo 4 (Season 3)",
+      "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Tornado and Grizzly Rage(wolf-swapped); Druid class",
+      "anchor_quote": "Activate your Hurricane... Upkeep Grizzly Rage... Cast Tornado to slay your foes!",
+      "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Storm Shepherd's Call Talisman Set (2-piece required for Spirit generation)",
+          "spirit_mechanics": "Spirit is the Druid resource; extensive Spirit management required"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+        "anchor_quote": "The 2-set of Storm Shepherd's Call Talisman Set is required for smooth gameplay and to solve Spirit Generation.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Fleshrender — Tornado Unique; after Tornadoes expire, they race back to the player, dealing extra damage to enemies along their path",
+            "Ifeh's Dire Totem — shapeshifts player into Dire Werewolf form"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+        "anchor_quote": "After Tornadoes would expire, they instead race back to the player, dealing extra damage.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Tornado is screen-filling; naturally seeks out enemies and then goes wild afterwards. Explosive Tornado variant; Fleshrender causes Tornadoes to race back to the player after expiry, dealing extra damage en route."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+        "anchor_quote": "Tornado will naturally seek out enemies and then go wild afterwards.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "1. Activate Hurricane. 2. Activate Lightning Storm. 3. Upkeep Debilitating Roar. 4. Upkeep Grizzly Rage. 5. Group Enemies. 6. Cast Tornado to slay your foes!"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+        "anchor_quote": "Activate your Hurricane... Upkeep Grizzly Rage... Cast Tornado to slay your foes!",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Season 3 variant: Shred+Tornado (Shred-Tornado Druid)",
+            "Season 14 variant: Tornado Werewolf with Ifeh's Dire Totem + Fleshrender"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/tornado-druid-build/",
+        "anchor_quote": "revived for Season 13 and Lord of Hatred",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "kit_id": "poe2-ice-strike-invoker",
+  "spine": {
+    "kit_id": "poe2-ice-strike-invoker",
+    "folk_name": "Ice Strike Invoker",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A minor drift: the two distinct accumulators the source exposes (Combo Points on Ice Strike AND Power Charges spent by Charged Staff) are modeled as one builder-spender accumulator + spend-burst; the player keeps the freeze->shatter payoff and the bank-then-dump feel, so the drift is the second charge-type's separate identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A minor drift: the two distinct accumulators the source exposes (Combo Points on Ice Strike AND Power Charges spent by Charged Staff) are modeled as one builder-spender accumulator + spend-burst; the player keeps the freeze->shatter payoff and the bank-then-dump feel, so the drift is the second charge-type's separate identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "water",
+          "element_secondary": "lightning",
+          "ailments": [
+            "freeze",
+            "chill"
+          ],
+          "delivery_notes": "at-target quarterstaff cold flurry, small close contact -> builds Combo Points (centrality=core for freeze/chill). Rapid ice hits chill then FREEZE packs; a heavy Charged-Staff finisher SPENDS Power Charges to add a lightning shockwave and SHATTERS frozen enemies for a burst multiplier (freeze->shatter is native threshold-burst). water (cold register) primary; lightning secondary via the Charged Staff shockwave."
+        },
+        {
+          "source_skill": "Charged Staff / Herald of Ice (finisher + on-freeze-kill explosion)",
+          "geometry_value": "ring",
+          "element_primary": "water",
+          "element_secondary": "lightning",
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Herald of Ice procs a Cold explosion (nova around a frozen kill) -> ring. The Charged-Staff finisher lightning shockwave rides here too. Secondary stage per 7.2 -- the builder Ice Strike is the every-3-seconds loop; this is the spend-burst payoff."
+        }
+      ],
+      "motion_frame": "builder-spender ice monk: flurry to freeze the pack and bank Combo Points, then dump the charged finisher to shatter everything at once in a cold-then-lightning burst",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "combo_points": "build up to 4 on quarterstaff hits (accumulator)",
+        "cost_scale": "mana per cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Combo Points / Power Charges (accumulated on hits)",
+        "consequence_type": "spend-burst"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "at-target melee flurry (small)",
+            "shatter burst at point of contact",
+            "Herald-of-Ice nova on freeze-kill (ring)"
+          ],
+          "economy": [
+            "Combo Points accumulator (cap 4)",
+            "Power Charge spend on finisher",
+            "mana per cast"
+          ],
+          "traits_affixes": [
+            "freeze-buildup / chill-effect",
+            "cold penetration",
+            "shatter-threshold scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-03. Section-B Combo Points row: accumulator economy + trigger_grammar consequence_type spend-burst (builder-spender native; PoE1 charge precedent carries). chain_count=3 per R-M2 (>=3 load-bearing actives: Ice Strike builder + Charged Staff finisher + Herald of Ice). Dual-element (water primary / lightning secondary) maps both slots -- 7x7 native. GEOMETRY_COLLAPSE routes the freeze->shatter conc-burst; TEMPORAL_CHARGE routes the Combo/Power-Charge engine."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Milkybk_",
+      "title": "Ice Strike Invoker Monk Build Guide - Path of Exile 2 0.5.1",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/ice-strike-invoker-poe2-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[0.1.1]Ice Strike invoker POE2 Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgstash.com/blog/poe-2-020-ice-strike-invoker-build-guide",
+      "archive_url": null,
+      "site": "rpgstash.com",
+      "author_handle": null,
+      "title": "PoE 2 Ice Strike Invoker Build Guide: Shatter Everything in Patch 0.3.0",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": "[0.1.1]Ice Strike invoker POE2 Build Guide",
+      "source_url": "https://odealo.com/articles/ice-strike-invoker-poe2-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "PoE 2 Ice Strike Invoker Build Guide: Shatter Everything in Patch 0.3.0",
+      "source_url": "https://www.rpgstash.com/blog/poe-2-020-ice-strike-invoker-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ice Strike Invoker' and aliases 'Ice Strike monk', 'Charged Staff Invoker', 'Herald of Ice Invoker' are real community usage",
+      "anchor_quote": "[0.1.1]Ice Strike invoker POE2 Build Guide",
+      "source_url": "https://odealo.com/articles/ice-strike-invoker-poe2-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Ice Strike (cold flurry), Charged Staff (sacrifices Power Charges for lightning buff + shockwave), Herald of Ice; combo points system (3-point); freeze/shatter two-phase delivery",
+      "anchor_quote": "Charged Staff sacrifices Power Charges to apply a large Lightning Damage buff and add a shockwave to your Ice Strike. Combine this with Tempest Bell to shred bosses.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Milkybk_",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+        "anchor_quote": "by Milkybk_",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_notables": [
+            "I am the Thunder and I Shall Rage (primary Invoker notables)",
+            "Lead me through Grace",
+            "Sunder my Enemies",
+            "Meditate (optional alternate)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+        "anchor_quote": "I am the Thunder...and I Shall Rage as primary choices, progressing to Lead me through Grace...and potentially Sunder my Enemies...or Meditate",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "At-target melee (quarterstaff close range). Ice Strike is a flurry of rapid close-range hits. Shatter on frozen target = point-of-contact burst. Herald of Ice explosion = medium-radius around frozen kill.",
+          "range": "melee / close contact primary; medium-radius herald secondary"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+        "anchor_quote": "Herald of Ice creates screen-wide Cold explosions",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Hit with Ice Strike to build Combo Points (up to 4). Release Tempest Bell or Charged Staff finisher spending Power Charges for lightning shockwave. Herald of Ice procs Cold explosions on freeze-kill. Two phases: freeze packs with rapid ice hits → shatter for burst multiplier.",
+          "resource": "Mana + Combo Points"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+        "anchor_quote": "Generate 4 combo points with Ice Strike ... Charged Staff sacrifices Power Charges to apply a large Lightning Damage buff and add a shockwave to your Ice Strike",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Ice Strike Invoker (no HoWA)",
+            "Ice Strike + HoWA Invoker (attribute-stacking variant)",
+            "Hardcore SSF Ice Strike Invoker"
+          ]
+        },
+        "source_url": "https://www.mmojugg.com/news/ice-strike-invoker-build-guide-hardcore-ssf.html",
+        "anchor_quote": "Ice Strike Invoker Build Guide - Hardcore SSF",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

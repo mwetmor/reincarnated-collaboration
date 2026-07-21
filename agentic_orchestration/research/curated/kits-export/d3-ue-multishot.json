@@ -1,0 +1,244 @@
+{
+  "kit_id": "d3-ue-multishot",
+  "spine": {
+    "kit_id": "d3-ue-multishot",
+    "folk_name": "UE Multishot",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null. No ailment attested. UE ×2339 magnitude is review-book texture only. Discipline-as-damage-scalar identity preserved via resource_economy key.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null. No ailment attested. UE ×2339 magnitude is review-book texture only. Discipline-as-damage-scalar identity preserved via resource_economy key.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Multishot (Arsenal or Full Broadside rune)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Full-screen fan of arrows covering large AoE per skill_geometry payload ('fans multiple arrows across the screen in an arc; effectively covers full visible area per cast'); 'hold down right-click and kill things' per skill_loop anchor; physical ranged attack → element null per physical rule; UE 6pc scaler only: 'x2339 Multishot damage increase' per capstone anchor (scaler-only per §B.1 + hot-fact binding)"
+        },
+        {
+          "source_skill": "Evasive Fire",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Used 'at least once every 5 seconds to keep up the buffs from Wraps of Clarity' per verify anchor; primary skill builder; Wraps of Clarity proc-condition; Discipline-generating utility"
+        }
+      ],
+      "motion_frame": "Stack Discipline via Preparation and Primary skills; spam Multishot consuming full-screen fan per cast; Vengeance permanent uptime via Dawn; Evasive Fire every 5 seconds for Wraps of Clarity buff",
+      "resource_economy": {
+        "cost_scale": "Discipline (Demon Hunter secondary resource) — 'Multishot damage is increased by 1700% per point of Discipline you currently have' per skill_loop anchor; Discipline stack IS the damage scalar; Preparation refreshes Discipline"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Full-screen fan AoE coverage"
+          ],
+          "economy": [
+            "Preparation CDR for Discipline refresh; Dawn CDR for Vengeance uptime"
+          ],
+          "traits_affixes": [
+            "UE 6pc x2339 scalar (scaler-only per §B.1 + hot-fact)",
+            "Yang's Recurve Multishot bonus (scaler-only)",
+            "1700%-per-Discipline scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical attack → element null per physical rule. UE ×2339 confirmed scaler-only per hot-fact (BINDING): 'scaler-only, zero mapping_json footprint beyond fidelity_notes.' Discipline-as-damage-scalar is the resource identity: attested in skill_loop anchor. No ailment attested (no status word in fetched rows). Evasive Fire Focus rune: 'Evasive Fire: Focus rune mentioned in variants' per verify anchor — variant-scope only, not mapped as core ailment/trigger. Vengeance = self_buff; permanent uptime via CDR noted in economy lane."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "UE Multishot Demon Hunter Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/demon-hunter-unhallowed-essence-multishot-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Demon Hunter Unhallowed Essence Multishot Build (Patch 2.7.8 / Season 39) - Diablo 3",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Unhallowed Essence provides roughly x2339 Multishot damage increase. Previous updates: Season 33, Season 31.",
+      "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Current: Season 39 (Last Updated: June 22, 2026)",
+      "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'UE Multishot' and aliases 'Unhallowed Essence Multishot DH', 'UE DH', 'Multishot Demon Hunter' are real community usage",
+      "anchor_quote": "UE Multishot Demon Hunter — also referenced as \"Unhallowed Essence Multishot\"",
+      "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Multishot, Evasive Fire; resource Hatred+Discipline (DH)",
+      "anchor_quote": "Evasive Fire: Focus rune mentioned in variants; required usage: \"at least once every 5 seconds to keep up the buffs from Wraps of Clarity\"",
+      "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Author; co-author wudijo; updates by wudijo"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+        "anchor_quote": "Written by Northwar & wudijo | Updates by wudijo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Unhallowed Essence 6pc",
+          "set_bonus_summary": "x2339 Multishot damage; 60% dmg reduction; Discipline restoration via Primaries",
+          "legendary_powers": [
+            "Yang's Recurve: Multishot cost reduction and bonus",
+            "Wraps of Clarity: damage reduction on Evasive Fire"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+        "anchor_quote": "Unhallowed Essence provides roughly x2339 Multishot damage increase, 60% damage reduction",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Unhallowed Essence (6pc, ~x2339 Multishot damage, 60% damage reduction)",
+          "key_legendaries": [
+            "Yang's Recurve",
+            "Aquila Cuirass",
+            "Wraps of Clarity",
+            "Bastions of Will (Focus/Restraint)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+        "anchor_quote": "Unhallowed Essence provides roughly x2339 Multishot damage increase, 60% damage reduction and also allows you to restore your Discipline with your Primary skills.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "large-zone (full-screen fan)",
+          "notes": "Multishot fans multiple arrows across the screen in an arc. Effectively covers full visible area per cast."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+        "anchor_quote": "Multishot is a very straightforward build where you hold down right-click and kill things. In Nephalem Rifts up to Torment 16 you can even oneshot everything, instantly clearing entire screens.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stack Discipline via Preparation and Primary skills; Unhallowed Essence 6pc scales Multishot by 1,700% per Discipline point. Spam Multishot (Arsenal or Full Broadside rune). Keep Vengeance up permanently. Evasive Fire maintains Wraps of Clarity buff."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+        "anchor_quote": "Multishot damage is increased by 1700% per point of Discipline you currently have.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "UE Multishot T16",
+            "UE Multishot Bounties",
+            "UE Multishot Solo Push",
+            "UE Multishot Solo Speeds",
+            "UE Multishot Echoing Nightmare"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ue-multishot-demon-hunter-guide",
+        "anchor_quote": "variants: T16, Bounties, Solo Speeds, Solo Push, and Echoing Nightmare versions",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

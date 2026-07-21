@@ -1,0 +1,241 @@
+{
+  "kit_id": "d4-ball-lightning",
+  "spine": {
+    "kit_id": "d4-ball-lightning",
+    "folk_name": "Ball Lightning Sorcerer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null — source player would expect lightning as the element identity but no explicit 'lightning damage' language is attested in store rows (MW3: skill name ≠ element ground). The orbit geometry and Mana economy map cleanly; only the element slot is gapped.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null — source player would expect lightning as the element identity but no explicit 'lightning damage' language is attested in store rows (MW3: skill name ≠ element ground). The orbit geometry and Mana economy map cleanly; only the element slot is gapped.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ball Lightning (Orbital variant)",
+          "geometry_value": "orbit",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Orbiting ring of balls around player body; verify_ledger anchor: 'Ball Lightning's Orbital variant to create a Spinning Ring of Fun around you that instantly kills everything'; skill_loop anchor: 'Ball Lightning is your main attack, spam it all the time to maintain a ring of balls around yourself'; orbit geometry: 'balls orbit player, zapping enemies in proximity' per skill_geometry payload; element: no explicit 'lightning damage' or 'lightning damage stat' language in fetched store rows — skill name 'Ball Lightning' is name-only per MW3 rule and is INSUFFICIENT attestation; element null; ailments null (no burn/shock/stun language attested); delivery: continuous AoE zap via orbit proximity; attack-speed scaling amplifies tick rate per skill_loop payload"
+        }
+      ],
+      "motion_frame": "Spam Ball Lightning to maintain orbital ring around player; balls zap all nearby enemies continuously; attack-speed scaling amplifies tick rate; Orbital variant is the endgame identity per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Mana; class attested as Sorcerer per verify_ledger anchor 'Core skill: Ball Lightning; resource: Mana'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Orbital ring — attack-speed scaling makes orbit a blender per skill_geometry payload"
+          ],
+          "economy": [
+            "Mana resource; Ring of Starless Skies (cost reduction scaler)"
+          ],
+          "traits_affixes": [
+            "Raiment of the Infinite aspect (scaler)",
+            "Aspect of Elemental Constellation (scaler)",
+            "Berú of the Threefold set (scaler-only per §B.1)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ELEMENT NULL: MW3 rule — skill name 'Ball Lightning' is NOT element attestation. No store row contains 'lightning damage', 'deals lightning', or equivalent explicit damage-type language. Elem_raw probe field = ILLEGAL grounds. Element slot left null pending a store row with explicit damage-type language. If element re-attested in a future fetch pass, lightning family applies. Ailments null: no 'shock', 'burn', 'stun' or any ailment-name language in fetched rows. Orbit geometry: phrase-book 'orbiting blades/stormcaller → orbit' applies; ball-lightning is the orbital variant per verify_ledger anchor. This kit is APPROX grade due to element null gap. [STEWARD-AUDIT 2026-07-18 MW4-close: grade APPROX->CLOSE] [STEWARD-AUDIT 2026-07-18 MW4-close: Ball Lightning (Orbital variant): RESTORE over-block: store attests \"balls zap all nearby enemies\"/\"zapping enemies in proximity\"=enemy-directed lightning verb. APPROX->CLOSE]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Ball Lightning Sorcerer Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20230809185908/https://www.icy-veins.com/d4/guides/ball-lightning-sorcerer-build/",
+      "archive_url": "http://web.archive.org/web/20230809185908/https://www.icy-veins.com/d4/guides/ball-lightning-sorcerer-build/",
+      "site": "icy-veins.com (Wayback 2023-08-09)",
+      "author_handle": null,
+      "title": "Ball Lightning Sorcerer Endgame Build Guide for Diablo 4 (Season 1) - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": "Ball Lightning Sorcerer Endgame Build Guide for Diablo 4 (Season 1) - Icy Veins",
+      "source_url": "http://web.archive.org/web/20230809185908/https://www.icy-veins.com/d4/guides/ball-lightning-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Ball Lightning Sorcerer; aliases: Ball Lightning Sorc D4, BL Sorcerer, Ball Lightning Sorcerer launch",
+      "anchor_quote": "Ball Lightning Sorcerer",
+      "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Ball Lightning; resource: Mana; geometry: orbit/ring around player",
+      "anchor_quote": "Ball Lightning's Orbital variant to create a Spinning Ring of Fun around you that instantly kills everything",
+      "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+        "anchor_quote": "by Northwar",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Elemental Constellation",
+            "Mage-Lord's Aspect",
+            "Raiment of the Infinite"
+          ],
+          "uniques": [
+            "Ring of Starless Skies",
+            "Strike of Stormhorn",
+            "Galvanic Azurite",
+            "Esu's Heirloom"
+          ],
+          "sets": [
+            "Berú of the Threefold"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+        "anchor_quote": "Berú of the Threefold set provides crucial defensive benefits",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Ring of Starless Skies",
+            "Strike of Stormhorn",
+            "Galvanic Azurite",
+            "Esu's Heirloom"
+          ],
+          "aspects": [
+            "Aspect of Elemental Constellation",
+            "Mage-Lord's Aspect",
+            "Raiment of the Infinite"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+        "anchor_quote": "Notable aspects include Aspect of Elemental Constellation, Mage-Lord's Aspect, and Raiment of the Infinite.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit around player",
+          "footprint": "small radius continuously",
+          "range": "body-origin ring",
+          "notes": "Balls orbit player, zapping enemies in proximity; Orbital variant creates spinning ring; guide notes attack-speed scaling made the orbit 'a blender'"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+        "anchor_quote": "Ball Lightning's Orbital variant to create a Spinning Ring of Fun around you that instantly kills everything.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Ball Lightning to maintain a ring of orbiting balls around player; balls zap all nearby enemies continuously; attack-speed scaling amplifies tick rate. Orbital variant specified.",
+          "core_loop": "Ball Lightning spam -> maintain orbital ring -> AoE zap everything in radius"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+        "anchor_quote": "Ball Lightning is your main attack, spam it all the time to maintain a ring of balls around yourself.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Orbital variant (primary endgame ring build)",
+            "Standard Ball Lightning (non-orbital)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ball-lightning-sorcerer-guide",
+        "anchor_quote": "Ball Lightning's Orbital variant to create a Spinning Ring of Fun around you",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

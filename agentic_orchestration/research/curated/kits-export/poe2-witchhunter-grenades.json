@@ -1,0 +1,251 @@
+{
+  "kit_id": "poe2-witchhunter-grenades",
+  "spine": {
+    "kit_id": "poe2-witchhunter-grenades",
+    "folk_name": "Grenadier Witchhunter",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A grenade Witchhunter gets the kill-zone loop faithfully -- lob, pre-stack, detonate -- via ground_targeted_circle + ammo economy + burst-damage trigger. Minor drift: the FUSE-TIMING skill expression (grenades that sit and burn down before exploding, rewarding pre-placement) is carried as a burst-damage linked-cast rather than a first-class delayed-detonation timer; the engine has no native fuse-delay primitive, so 'time your throws so they all pop together' is approximated. That build, worse -> CLOSE, playable.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "stun",
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A grenade Witchhunter gets the kill-zone loop faithfully -- lob, pre-stack, detonate -- via ground_targeted_circle + ammo economy + burst-damage trigger. Minor drift: the FUSE-TIMING skill expression (grenades that sit and burn down before exploding, rewarding pre-placement) is carried as a burst-damage linked-cast rather than a first-class delayed-detonation timer; the engine has no native fuse-delay primitive, so 'time your throws so they all pop together' is approximated. That build, worse -> CLOSE, playable.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Explosive Grenade",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "lobbed projectile to a target position with a TIMED FUSE; detonates for 'huge overlapping fire damage explosions' in a large AoE (dossier). The kill-zone identity is 'lay grenades then trigger the zone' -- the detonation is a placed/aimed ground burst, so ground_targeted_circle over multi_projectile (the lob is the delivery, the ground detonation is what the player is doing). fire family (elem: Physical/Fire, fire-scaling via 15-heat +50% Extra Fire). burn from ignite (§A: ignite is never an ailment token -> burn); stun from Flash Grenade stance-break."
+        },
+        {
+          "source_skill": "Oil Grenade",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "spam clear grenade; lobbed to target, ground AoE, applies fire exposure (setup for the Explosive detonation). blind from the fetched control-rider set (probe: blind attested). ground_targeted_circle = the aimed patch."
+        }
+      ],
+      "motion_frame": "kill-zone grenadier: lob timed cluster/oil/flash grenades onto a chokepoint, pre-stack exposure and stuns while the fuses burn, then detonate the overlapping fire explosions all at once",
+      "resource_economy": {
+        "cost_scale": "grenade ammo stock -- limited per-encounter charges, separate stock per grenade type, refills over time or on kill",
+        "on_kill_frac": "grenade stock replenishes on kill",
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "large-zone ground detonation (overlapping explosions)",
+            "cluster-grenade zone-expansion"
+          ],
+          "economy": [
+            "grenade ammo-stock (per-type separate charges; refill on time/kill)",
+            "Heat resource (Rapid Shot builds; Explosive consumes 15 heat for +50% Extra Fire)"
+          ],
+          "traits_affixes": [
+            "fire / area damage scaling",
+            "projectile / grenade-count affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-03 (corpus flag). Three load-bearing actives (Explosive + Oil + Flash grenades) -> chain_count=3 (R-M2). The TIMED-FUSE detonation is skill-NATIVE timing (the fuse IS the grenade), NOT a proc window -- R-M5 considered, not applicable (no accrual token; whispering-ice/§C.3 precedent for native timing). Ammo economy: separate per-type grenade stock refilling on kill/time = a native ammo/charge shape (cost_scale + on_kill_frac + accumulator). Heat is a secondary resource (Explosive Grenade consumes 15 heat for +50% Extra Fire) noted in economy lane. §A carries: ignite -> burn (never an ailment token); shock NOT emitted (no paralysis/CC attestation, and no shock in fetched text). Ascendancy notables (Zealous Inquisition, Pitiless Killer, JJE) route via main-law §5 -> ZONE_CONTROL / GEOMETRY_COLLAPSE (the pre-stacked kill-zone-detonation capstone). evasion/armor defense noted, not a mapping surface. [STEWARD AUDIT m04: Explosive 'burn' stripped (double inference fire->ignite->burn; no ignite/burn in fetched text); Oil 'blind' -> 'sunder' -- blind was probe-derived (kb), while 'Oil Grenade (fire exposure)' IS attested -> main-law hit-proc exposure row -> sunder; stun UPHELD ('Flash Grenade for stance-break stun' attested)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Crouching_Tuna",
+      "title": "Oil Grenade Witchhunter Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/grenade-mercenary-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Grenade Mercenary Leveling Guide – Witchhunter, Tactician and Gemling Legionnaire for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3859536",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "0.3.0 OP Witchhunter Build (Delete Everything) Explosion/Cluster Grenade Combo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta across eras 0.1, 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+      "anchor_quote": "guides are current as of patch 0.5.4 (May-June 2026) ... forum thread 0.3.0 OP Witchhunter Build ... PoE 2 0.2 Mercenary Build",
+      "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Grenadier Witchhunter' and aliases 'Grenadier Mercenary', 'Explosive Grenade Flash Grenade Oil Grenade combo' are real community usage",
+      "anchor_quote": "Oil Grenade Witchhunter Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills are Explosive Grenade, Flash Grenade, Oil Grenade; grenades lobbed as projectiles; ammo stock economy; different grenade types have separate stocks",
+      "anchor_quote": "spam Oil Grenade to clear white and blue monsters and use Explosive Grenade for rares. Flash Grenade serves as an escape tool in dangerous situations",
+      "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Crouching_Tuna",
+          "site": "maxroll.gg",
+          "role_note": "described as PoE Franchise Director in fetched text"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+        "anchor_quote": "Crouching_Tuna (PoE Franchise Director)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_notables": [
+            "Zealous Inquisition",
+            "Pitiless Killer",
+            "Judge Jury and Executioner",
+            "Obsessive Rituals",
+            "Ceremonial Ablution"
+          ],
+          "class": "Witchhunter"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+        "anchor_quote": "Zealous Inquisition, Pitiless Killer, Judge Jury and Executioner (respecced later), Obsessive Rituals, and Ceremonial Ablution for endgame Sorcery Ward scaling",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "heat_resource": "Generated by Rapid Shot; Explosive Grenade consumes 15 heat for 50% of damage as Extra Fire damage",
+          "mana_recovery": "Mana Leech linked to Flash Grenade; Mana gained on kill affixes"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+        "anchor_quote": "Explosive Grenade consumes 15 heat for 50% of damage as Extra Fire damage",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Grenades lobbed as projectiles to target positions; timed fuse detonation; Explosive Grenade causes huge overlapping fire damage explosions; kill-zone setup archetype — lay grenades then trigger the zone. Grenade explosion covers large AoE; cluster grenades expand zone further."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+        "anchor_quote": "deals damage on impact... very high but delayed damage... Explosive Grenade... causing huge overlapping fire damage explosions",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Oil Grenade for clear; Explosive Grenade for rares/bosses (consumes 15 heat for +50% fire damage); Flash Grenade for stance-break stun and mana recovery; boss rotation: Oil Grenade (fire exposure) > Gas Grenade cloud > Flash Grenade stun > Explosive Grenade stack > Explosive Shot detonate."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/oil-grenade-witchhunter-build-guide",
+        "anchor_quote": "spam Oil Grenade to clear white and blue monsters and use Explosive Grenade for rares. Flash Grenade serves as an escape tool",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Oil Grenade primary (spam clear)",
+            "Explosive Grenade boss focus",
+            "Cluster/Flash utility variant (0.3 forum thread)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/grenade-mercenary-leveling-guide",
+        "anchor_quote": "Grenade Mercenary Leveling Guide – Witchhunter, Tactician and Gemling Legionnaire",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

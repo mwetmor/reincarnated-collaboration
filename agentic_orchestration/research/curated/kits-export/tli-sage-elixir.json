@@ -1,0 +1,238 @@
+{
+  "kit_id": "tli-sage-elixir",
+  "spine": {
+    "kit_id": "tli-sage-elixir",
+    "folk_name": "Sage Elixir Kit",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-ss12-lunaria-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-14",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Tri-element identity (all 3 equally weighted) loses one element in 2-slot mapping; fire+water chosen by genre convention (cold and fire as the most common pair). Lightning dropped noted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Tri-element identity (all 3 equally weighted) loses one element in 2-slot mapping; fire+water chosen by genre convention (cold and fire as the most common pair). Lightning dropped noted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Chromatic Shot",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": "water",
+          "ailments": [],
+          "delivery_notes": "Tri-elemental projectile: 3 bolts dealing Cold, Fire, or Lightning. Verify anchor: 'Chromatic Shot: Shoots 3 bolts that deal Cold, Fire or Lightning Damage and offers a chance for enemies to explode when defeated by this skill.' All three elements damage-type attested. Per §1 hybrids rule: triple+ → keep top-2 by scaling weight; per §7.2 dominant loop. No single dominant: fire/water/lightning equally tagged. Fire chosen primary (fire most commonly dominant element in tri-mix + kit description emphasizes tri-element balance); water (cold) secondary per erika3 precedent in this batch; lightning dropped with fidelity note. On-kill explosion: AoE proc on-kill."
+        },
+        {
+          "source_skill": "Elixir skills (Compound Tonic, Swiftness Dew, Thirst Dew)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Economy/consumable buff layer. Item_alterations anchor: 'Compound Tonic, Swiftness Dew, Thirst Dew = elixir skills. Scent Bottle slot with 2 Ingredients.' Elixir skills enhance Chromatic Shot performance. No element attested for elixir skills."
+        }
+      ],
+      "motion_frame": "Tri-elemental ranged caster: fire Chromatic Shot (3-bolt Cold/Fire/Lightning volley) buffed by elixir skill economy. Licorice Note trait places Basic Sand Bottle in slot 2; elixir Ingredients enhance buff effects. On-kill explosion for AoE clear.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "charge_stack_resource": "Elixir charges / Ingredient slots (Licorice Note trait: Basic Sand Bottle auto-granted to slot 2; 2 Ingredient slots for bonus effects)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-defender-death",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "on-kill explosion AoE (Chromatic Shot anchor: 'offers a chance for enemies to explode when defeated')"
+          ],
+          "economy": [
+            "Elixir ingredient charge economy",
+            "Increased Elixir Skill Effect stat priority"
+          ],
+          "traits_affixes": [
+            "Licorice Note (elixir slot grant)",
+            "tri-element tag scaling (Cold/Lightning/Fire all contribute)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U (SS12 Lunaria guide). Tri-element identity: all three elements (cold/fire/lightning) are equally attested as damage types — this IS the kit's point (ELEMENT_CONVERSION_HYBRID). Per §1 triple-drop rule: fire=primary, water=secondary, lightning dropped (fidelity note: kit scales all three equally; tri-element is not reducible to a 2-slot summary without loss). Tangle variant (endgame broken interaction — era-stale) not included per era-U map-shape discipline."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vortexgaming.io/en/postdetail/741729",
+      "archive_url": null,
+      "site": "vortexgaming.io",
+      "author_handle": "unknown",
+      "title": "Torchlight: Infinite Season 12, Sage Lycoris Note Chromatic Shot Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.u4n.com/news/torchlight-infinite-season-12-scent-weaver-sage-builds.html",
+      "archive_url": null,
+      "site": "u4n.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite Season 12: Scent Weaver Sage Builds",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.gametruth.com/guides/torchlight-infinite-ss12-lunaria-best-league-starter-builds/",
+      "archive_url": null,
+      "site": "gametruth.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite SS12 Lunaria Best League Starter Builds Ranked",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-ss12-lunaria-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sage Elixir Kit — elixir/consumable economy with Chromatic Shot",
+      "anchor_quote": "Season 12: Lunaria introduced Sage as the newest hero with the new Trait 'Licorice Note', and if you want to master her playstyle, you'll need a build focused on the Chromatic Shot skill",
+      "source_url": "https://vortexgaming.io/en/postdetail/741729",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Elixir skills, Chromatic Shot — tri-elemental",
+      "anchor_quote": "Chromatic Shot: Shoots 3 bolts that deal Cold, Fire or Lightning Damage and offers a chance for enemies to explode when defeated by this skill.",
+      "source_url": "https://vortexgaming.io/en/postdetail/741729",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Element listed as unknown in corpus (blank __) — Chromatic Shot is tri-elemental",
+      "anchor_quote": "utilizing all of Chromatic Shot's tags (Cold, Lightning, Fire)",
+      "source_url": "https://vortexgaming.io/en/postdetail/741729",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Licorice Note hero trait. Tangle variant: endgame broken interaction. Scent Weaver Sage = class identity in SS12."
+        },
+        "source_url": "https://www.u4n.com/news/torchlight-infinite-season-12-scent-weaver-sage-builds.html",
+        "anchor_quote": "Sage using Chromatic Shot is widely considered the strongest all-around build in Season 12",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Compound Tonic, Swiftness Dew, Thirst Dew = elixir skills. Scent Bottle slot with 2 Ingredients. Increased Elixir Skill Effect as priority stat. Scales STR/DEX/INT."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/741729",
+        "anchor_quote": "Her new Elixir-based skills include Compound Tonic, Swiftness Dew or Thirst Dew, all fantastic skills that can be made even better with the right setup.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Chromatic Shot: 3 bolts (Cold/Fire/Lightning). Projectile-based. Tangle variant = additional mechanic for map-clear. Sage is spell/projectile ranged hero."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/741729",
+        "anchor_quote": "Chromatic Shot: Shoots 3 bolts that deal Cold, Fire or Lightning Damage and offers a chance for enemies to explode when defeated by this skill.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Licorice Note trait: Active Skill Slot 2 becomes Basic Sand Bottle. Add 2 Ingredients to Elixir slot for bonus effects. Fire Chromatic Shot (tri-elemental Cold/Fire/Lightning). Kills trigger enemy explosion chance."
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/741729",
+        "anchor_quote": "grants a Basic Sand Bottle to Active Skill Slot 2 and provides additional effects for Elixir interactions",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Chromatic Shot Tangle (SS12 meta)",
+            "Scent Weaver Sage Tangle (endgame)",
+            "Chromatic Shot standard"
+          ]
+        },
+        "source_url": "https://vortexgaming.io/en/postdetail/741729",
+        "anchor_quote": "A fully built Sage running the Chromatic Shot Tangle variant is producing numbers that would embarrass most endgame builds from previous seasons",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "kit_id": "tq-distortion-templar",
+  "spine": {
+    "kit_id": "tq-distortion-templar",
+    "folk_name": "Distortion Wave Templar",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "immortal-throne-2007;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shadow element derived from vitality→shadow crosswalk which the player would not intuitively recognize as 'shadow' — the game says 'vitality damage.' TQ players would miss the shadow labeling. Physical component (also present on Distortion Wave) is lost at element-slot level; identity is expressed through stun ailment + ring geometry.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shadow element derived from vitality→shadow crosswalk which the player would not intuitively recognize as 'shadow' — the game says 'vitality damage.' TQ players would miss the shadow labeling. Physical component (also present on Distortion Wave) is lost at element-slot level; identity is expressed through stun ailment + ring geometry.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Distortion Wave",
+          "geometry_value": "ring",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Self-origin large-radius burst; 'physical and vitality damage in a circle' — physical no-family per THE PHYSICAL RULE; vitality → shadow per §B5-ELEMENT §1 (life-drain register); stun attested ('also stuns'); Chaotic Resonance synergy reduces cooldown"
+        }
+      ],
+      "motion_frame": "Position in melee range; cast Distortion Wave (~6-8s cooldown) for ring AoE; Defense mastery block/armor tank between casts; Chaotic Resonance synergy for cooldown reduction",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "note": "Energy-expensive per fetched text ('quite expensive in terms of energy'); cooldown-gated rhythm not sustained-spam"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "radius amplification",
+            "cooldown reduction"
+          ],
+          "economy": [
+            "energy cost reduction",
+            "cooldown"
+          ],
+          "traits_affixes": [
+            "vitality/shadow damage",
+            "stun duration"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Distortion Wave mechanics claim (knockback) was CONTRADICTED — fetched anchor is stun, not knockback. Vitality damage → shadow via §B5-ELEMENT correction (do not silence). Physical component present but no-family. Dream mastery secondary provides passive Trance buffs not mapped as primary skills. Identity is shadow-stun frontline tank, not a knockback CCer."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/343786195665623000",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Is Dream still as OP as ever?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/4129305027403460949/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Physical or Elemental?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mobygames.com/game/26987/titan-quest-immortal-throne/",
+      "archive_url": null,
+      "site": "mobygames.com",
+      "author_handle": "unknown",
+      "title": "Titan Quest: Immortal Throne (2007) - MobyGames",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present from immortal-throne-2007 and anniversary-2016",
+      "anchor_quote": "Titan Quest: Immortal Throne is the official expansion pack for the 2006 action role-playing game Titan Quest, released on March 5, 2007",
+      "source_url": "https://www.mobygames.com/game/26987/titan-quest-immortal-throne/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Distortion Wave Templar = Dream+Defense dual mastery, CC-burst frontline archetype",
+      "anchor_quote": "Templar is the combination of Dream + Defense masteries",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/343786195665623000",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Distortion Wave delivers mass knockback clearing large groups; control centrality = CORE; Defense mastery provides Block+armor",
+      "anchor_quote": "Distortion Wave emits a distortion wave with physical and vitality damage in a circle around itself, and also stuns",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/4129305027403460949/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Chaotic Resonance synergy on Distortion Wave strengthens damage and reduces cooldown; Defense mastery provides block as core defensive layer; Dream mastery Trance passives available"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/4754200917402550444/",
+        "anchor_quote": "the best skill for quick killing and crowd control is Distortion Wave, together with Chaotic Resonance",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "self-origin large-radius burst — Distortion Wave radiates in circle from caster; physical + vitality damage type; stun (NOT knockback per fetched text)"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/4129305027403460949/",
+        "anchor_quote": "Distortion Wave emits a distortion wave with physical and vitality damage in a circle around itself, and also stuns",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Position in melee range; cast Distortion Wave (~6-8s cooldown) for AoE physical+vitality damage and stun; Defense mastery provides Block/armor tanking between DW casts; Chaotic Resonance synergy strengthens wave"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/4754200917402550444/",
+        "anchor_quote": "it is great for killing crowds of enemies, but it's quite expensive in terms of energy",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

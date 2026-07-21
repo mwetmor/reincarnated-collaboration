@@ -1,0 +1,267 @@
+{
+  "kit_id": "d2-bonemancer",
+  "spine": {
+    "kit_id": "d2-bonemancer",
+    "folk_name": "Bonemancer",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: Bone Spirit seeking feel (engine delivers seeking via delivery_notes only; no native seeking geometry in 26-enum); Bone Prison cage shape (mapped circle; cage-wall feel partially approximated).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "root"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: Bone Spirit seeking feel (engine delivers seeking via delivery_notes only; no native seeking geometry in 26-enum); Bone Prison cage shape (mapped circle; cage-wall feel partially approximated).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bone Spear",
+          "geometry_value": "line",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Piercing linear projectile; anchor: 'Bone Spear: projectile mechanics — positioning matters significantly'; 'I use Bonespear 99% of the time'; pierces through enemies in a line; magic/bone damage → shadow per §1 (shadow/bone/necrotic)"
+        },
+        {
+          "source_skill": "Bone Spirit",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Homing single-target projectile; anchor: 'Bone Spirit home-seeks single targets'; seeking delivery noted in delivery_notes"
+        },
+        {
+          "source_skill": "Bone Prison",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "root"
+          ],
+          "delivery_notes": "Bone cage immobilization zone placed on target; anchor: 'Bone Prison creates immobilizing bone cage for control'; root attested — 'Bone Prison creates cage AoE zone for immobilization'"
+        },
+        {
+          "source_skill": "Bone Armor",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Absorb-hits defensive self-buff; 'Bone Armor absorbs incoming damage'; self-shield layer"
+        }
+      ],
+      "motion_frame": "Cast Bone Spear from range through crowds; Bone Spirit home-seeks priority targets; Bone Prison cages dangerous enemies; Bone Armor maintained for damage absorption",
+      "resource_economy": {
+        "cost_scale": "Moderate mana per Bone Spear/Spirit cast; FCR breakpoints noted (item_alterations anchor: 'high FCR breakpoints important for cast rate')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bone Spear linear pierce (crowd geometry) vs Bone Spirit seek (single-target)"
+          ],
+          "economy": [
+            "FCR gear breakpoints"
+          ],
+          "traits_affixes": [
+            "Bone Spear ↔ Bone Spirit cross-synergy — §A row 1 scaffold; 'Bone Spear ↔ Bone Spirit cross-synergy' per capstone_alterations anchor"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Magic/bone damage → shadow per §1. Bone Prison root: attested 'bone cage for control' / 'immobilizing'. Seeking Bone Spirit = delivery note (seeking ≠ chain per §C seeking row — single-target redirect). PvM variant uses Corpse Explosion for clear — that verb is corpse-node-docket adjacent (§CROSS row 1) but is a VARIANT not core identity per variant-scope law; core loop = Bone Spear spam. PvP identity (Prison + Spear poke) captured in variant note. FCR breakpoints = economy scaffold texture."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/bonemancer-questions-t1471582.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Johny82PL; Schnorki (mod); Necrarch (mod)",
+      "title": "Bonemancer questions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/bonemancer-necro-success-in-hell-t809922.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "rgp151",
+      "title": "Bonemancer Necro success in Hell",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.10+",
+      "anchor_quote": "Bonemancer - Necromancer build specializing in bone skills... pre-Resurrected era (original D2)",
+      "source_url": "https://diablo2.io/forums/bonemancer-questions-t1471582.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "bonemancer — playing D2R on single-player... Bone Spear Primary damage skill used 99% of the time",
+      "source_url": "https://diablo2.io/forums/bonemancer-necro-success-in-hell-t809922.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Bonemancer; aliases Bone Necromancer, Bone Spear Necro",
+      "anchor_quote": "Bonemancer is confirmed as the colloquial name for this Necromancer build variant",
+      "source_url": "https://diablo2.io/forums/bonemancer-questions-t1471582.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bone Spear, Bone Spirit (projectiles, magic damage), Bone Prison, Bone Armor",
+      "anchor_quote": "I use Bonespear 99% of the time... Bone Spear/Spirit magic-damage caster with Bone Prison control",
+      "source_url": "https://diablo2.io/forums/bonemancer-necro-success-in-hell-t809922.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "White (bone skill bonus)",
+            "Heart of the Oak"
+          ],
+          "synergies": [
+            "Bone Spear ↔ Bone Spirit cross-synergy"
+          ],
+          "curses": [
+            "Lower Resist (group play)",
+            "Amplify Damage",
+            "Life Tap"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/bonemancer-guide-standard-for-wiki.174172/",
+        "anchor_quote": "allocating points into curses like Lower Resist, Amplify Damage, and Life Tap can be helpful",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "White (runeword, +bone skills)",
+            "Heart of the Oak (+skills, FCR, resists)",
+            "Wizardspike (FCR + resists)",
+            "Homunculus (shield +skills)",
+            "Spirit Monarch (FCR)",
+            "Lidless Wall"
+          ],
+          "notes": "Bone armor absorb scales with +bone skills; high FCR breakpoints important for cast rate"
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/bonemancer-guide-standard-for-wiki.174172/",
+        "anchor_quote": "Weapons include White, Heart of the Oak, or Wizardspike",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (Bone Spear pierces line; Bone Spirit seeks target)",
+          "footprint": "linear pierce / point-seek",
+          "range_type": "ranged",
+          "notes": "Bone Spear pierces through enemies in a line; Bone Spirit is homing single-target; Bone Prison creates cage AoE zone for immobilization"
+        },
+        "source_url": "https://diablo2.io/forums/bonemancer-questions-t1471582.html",
+        "anchor_quote": "Bone Spear: projectile mechanics — positioning matters significantly",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Bone Spear is primary damage at range; Bone Spirit home-seeks single targets. Bone Prison creates immobilizing bone cage for control. Bone Armor absorbs incoming damage. Player casts from range, prisons dangerous targets, Bone Spears through crowds (pierces in line)."
+        },
+        "source_url": "https://diablo2.io/forums/bonemancer-necro-success-in-hell-t809922.html",
+        "anchor_quote": "I use Bonespear 99% of the time",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "PvP Bonemancer (Bone Spear/Spirit + Bone Prison for dueling)",
+            "PvM Bonemancer (Bone Spear + Corpse Explosion clear)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-bone-necromancer-v1-10-pvp",
+        "anchor_quote": "Diablo 2 Guide: Bone Necromancer v1.10 PvP",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

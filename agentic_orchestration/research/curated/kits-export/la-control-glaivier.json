@@ -1,0 +1,216 @@
+{
+  "kit_id": "la-control-glaivier",
+  "spine": {
+    "kit_id": "la-control-glaivier",
+    "folk_name": "Control Glaivier",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Single-stance flat-damage approach maps cleanly; CLOSE because the Dual Meter as buff-on-specific-skills (not a full identity release) is an unusual economy shape that the engine's resource_economy doesn't natively express as 'buff three specific skills with meter but do not release the meter as a burst'. Source player would notice the meter's limited/modified role.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Single-stance flat-damage approach maps cleanly; CLOSE because the Dual Meter as buff-on-specific-skills (not a full identity release) is an unusual economy shape that the engine's resource_economy doesn't natively express as 'buff three specific skills with meter but do not release the meter as a burst'. Source player would notice the meter's limited/modified role.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flurry stance skills only (Chain Slash, Half Moon Slash, Blue Dragon's Claw, full Flurry rotation)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Back Attack positional (guide attests 'Back Attack as a positional damage descriptor'); Control spec locks out Focus stance entirely — single-stance flat damage amp; no stance alternation loop; Dual Meter used only to buff Chain Slash/Half Moon Slash/Blue Dragon's Claw (meter-as-buff-on-specific-skills, not identity release)"
+        },
+        {
+          "source_skill": "Dual Meter buff application (on Chain Slash, Half Moon Slash, Blue Dragon's Claw)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Meter applied to specific skills for damage bonus, not as an identity-release Z button; limited buff function only in Control spec"
+        }
+      ],
+      "motion_frame": "All Flurry stance skills; no Focus stance; Dual Meter used only to buff Chain Slash, Half Moon Slash, Blue Dragon's Claw; flat +40% damage to Flurry skills — simpler identity trading stance loop for flat amplification",
+      "resource_economy": {
+        "dual_meter": "buff-application only on three specific skills (not identity-release); Control spec removes the identity meter loop entirely; flat damage approach"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "self_buff"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "back-attack positional; melee close-range; single-stance flurry"
+          ],
+          "economy": [
+            "dual meter as skill buff only; no accumulate-release burst loop"
+          ],
+          "traits_affixes": [
+            "Galewind Barrage, Raging Dragon Energy, Dual Technique, Flashy Attack, Smoldering Strike, Attack (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Buff value (40% damage to Flurry skills) is stale per Ark Passive churn law — map shape only (per addendum §LA row 1 control-glaivier 36→40 flag). Back Attack positional attested in skill_geometry dossier anchor_quote. Stance-lock is the defining identity: Control deliberately removes the identity loop (no Pinnacle stance alternation) in exchange for flat damage. This is the opposite of a mode-swap-identity GAPPED case — the rotation simplification IS the identity. No element damage-typing in store."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Control Glaivier Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Galewind Barrage. Raging Dragon Energy, Dual Technique, Flashy Attack, Smoldering Strike, and Attack.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Control Glaivier — class+identity spec name in real LA community usage",
+      "anchor_quote": "Control locks out stance which removes our identity interaction entirely.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Disables Focus stance entirely; Flurry skills gain passive damage bonus; Dual Meter limited to buffing Chain Slash, Half Moon Slash, Blue Dragon's Claw; simpler single-stance trading identity loop for flat damage amplification",
+      "anchor_quote": "Control locks out stance which removes our identity interaction entirely. 40% Damage Increase to Flurry skills. Dual Meter will only be used to buff skills like Chain Slash, Half Moon Slash, and Blue Dragon's Claw.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+        "anchor_quote": "Civo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Galewind Barrage",
+            "Raging Dragon Energy",
+            "Dual Technique",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ],
+          "engraving_effect": "Control: locks out Focus stance, +40% damage to Flurry skills; identity locked to Flurry stance"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+        "anchor_quote": "Galewind Barrage. Raging Dragon Energy, Dual Technique, Flashy Attack, Smoldering Strike, and Attack.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Specific gem/accessory detail not fully captured in fetch"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "positioning": "Back Attack — +damage on back-side hits",
+          "notes": "Guide mentions 'Back Attack' as positional damage descriptor"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+        "anchor_quote": "Back Attack as a positional damage descriptor",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "All Flurry stance skills only; no Focus stance; Dual Meter used only to buff specific skills (Chain Slash, Half Moon Slash, Blue Dragon's Claw); flat 40% damage increase to Flurry skills; no identity loop rotation"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+        "anchor_quote": "Control locks out stance which removes our identity interaction entirely. 40% Damage Increase to Flurry skills. Dual Meter will only be used to buff skills like Chain Slash, Half Moon Slash, and Blue Dragon's Claw.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Control Glaivier (single-stance, flat damage)"
+          ],
+          "sibling_spec": "Pinnacle Glaivier (dual-stance identity loop, A-tier in Feb 2025)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/control-glaivier-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

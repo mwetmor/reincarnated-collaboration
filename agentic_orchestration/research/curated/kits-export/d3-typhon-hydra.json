@@ -1,0 +1,227 @@
+{
+  "kit_id": "d3-typhon-hydra",
+  "spine": {
+    "kit_id": "d3-typhon-hydra",
+    "folk_name": "Typhon Hydra",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No freeze or chill ailment attested (water element ≠ cold status; no status word in fetched rows). Player would miss ailment synergy hooks. Dual-Hydra multi-head ramp is approximated via PROXY_ASCENSION door; placed-proxy-count accrual filed.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No freeze or chill ailment attested (water element ≠ cold status; no status word in fetched rows). Player would miss ailment synergy hooks. Dual-Hydra multi-head ramp is approximated via PROXY_ASCENSION door; placed-proxy-count accrual filed.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hydra (Frost Hydra rune)",
+          "geometry_value": "totem",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed multi-headed turret emitting single-target projectiles per head; Typhon 6pc: '4,000% damage increase to Hydra for every Hydra head alive' per verify anchor; Serpent's Sparker allows casting two Hydras per capstone anchor; Frost Hydra rune — cold/frost element → water family; Frost Hydra is attested as the primary rune: 'Typhon's Veil works with all Hydra runes besides Mammoth Hydra' = indirectly Frost Hydra primary via exclusion; 'Frost Hydra build' per verify identity anchor"
+        },
+        {
+          "source_skill": "Spectral Blade",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Arcane Power generator per skill_loop payload; utility melee sweep for resource generation; no element named in fetched text for this sub-skill"
+        }
+      ],
+      "motion_frame": "Place two Hydra formations at enemy positions; maximize heads-alive count for Typhon 6pc ramp; Spectral Blade for Arcane Power generation; maintain Squirt's Necklace buff via no-hit positioning",
+      "resource_economy": {
+        "cost_scale": "Arcane Power; placement-economy; 'Serpent's Sparker allows you to cast a second Hydra' per capstone anchor — dual-placement as core economy verb"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Serpent's Sparker dual-Hydra placement; 10 heads maximum for 40,000% cap"
+          ],
+          "economy": [
+            "Tasker and Theo Hydra attack speed (scaler-only)",
+            "Squirt's Necklace damage buff (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Typhon 6pc 4000%-per-head scalar (scaler-only per §B.1)",
+            "Serpent's Sparker 300% multiplier (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Water element: Frost Hydra rune → cold/frost → water family per element crosswalk. Identity anchor confirms 'Frost Hydra build.' Totem geometry: Hydra heads are placed stationary turrets per §CROSS totem-vs-companion law (stationary placed emitter → placed-proxy; they fire projectiles but are not autonomous HP combatants). PROXY_ASCENSION T4 door: heads-alive count is the scaling identity. Typhon 6pc per-head scalar is scaler-only per §B.1. No ailment attested (frost/cold ≠ chill/freeze; no status word in fetched anchor). Mammoth Hydra excluded from Typhon kit per capstone anchor — Frost is the item-defined primary."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Typhon Hydra Wizard Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Introduced Season 20. Season 28: \"the set got some love, with its damage being straight up doubled\"",
+      "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Typhon Hydra' and aliases 'Typhon Wizard', 'Hydra Wizard', 'Typhon's Veil Hydra' are real community usage",
+      "anchor_quote": "Typhon Hydra Wizard (also referenced as \"Frost Hydra build\")",
+      "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Hydra; Arcane Power resource; Typhon's Veil set",
+      "anchor_quote": "Typhon's Veil – \"provides a 4,000% damage increase to Hydra for every Hydra head alive, maxing out at 40,000% with 10 heads\"",
+      "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "role": "Director; updates by Chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+        "anchor_quote": "wudijo (Director), with updates by Chewingnom",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Typhon's Veil 6pc",
+          "set_bonus_summary": "4,000% per Hydra head alive; max 40,000% with 10 heads",
+          "legendary_powers": [
+            "Serpent's Sparker: second Hydra + 300% multiplier",
+            "Tasker and Theo: attack speed"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+        "anchor_quote": "provides a 4,000% damage increase to Hydra for every Hydra head alive, maxing out at 40,000% with 10 heads",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Typhon's Veil (6pc)",
+          "key_legendaries": [
+            "Serpent's Sparker (cast 2nd Hydra, 300% bonus)",
+            "Tasker and Theo (Hydra attack speed)",
+            "Squirt's Necklace",
+            "Ashnagarr's Blood Bracer",
+            "The Magistrate"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+        "anchor_quote": "Tasker and Theo adds a huge bonus to Hydra Attack Speed",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "point-per-head",
+          "notes": "Each hydra head is a placed turret; individual heads fire single-target projectiles. Multiple heads cover zone."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+        "anchor_quote": "Typhon's Veil works with all Hydra runes besides Mammoth Hydra, as it is not a multi-headed Hydra.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Hydra heads (Frost Hydra rune) at enemy positions; Serpent's Sparker allows casting two Hydras. Typhon scales per-head. Spectral Blade generates Arcane Power. Typhon 6pc: 4,000% per head alive (max 40,000% with 10 heads)."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+        "anchor_quote": "Serpent's Sparker allows you to cast a second Hydra, effectively doubling all bonuses gained from The Typhon's Veil set in addition to its 300% separate damage multiplier.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Typhon Hydra Frost (primary)",
+            "LoD Hydra Wizard (LoD variant, separate guide)",
+            "LoD Mammoth Hydra"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/typhon-hydra-wizard-guide",
+        "anchor_quote": "Frost Hydra build emerging as a very solid farming and pushing option; the LoD Mammoth variant rides one giant lava-r.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

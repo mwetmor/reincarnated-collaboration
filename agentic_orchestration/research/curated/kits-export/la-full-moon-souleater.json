@@ -1,0 +1,322 @@
+{
+  "kit_id": "la-full-moon-souleater",
+  "spine": {
+    "kit_id": "la-full-moon-souleater",
+    "folk_name": "Full Moon Harvester Souleater",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-resource chain (Soul Stones → Possession Meter → Deathlord Mode) approximated in resource_economy; the two-step fill relationship is expressed in keys but the sequential dependency is a fidelity-noted approximation. Amplified Damage curse:amplify mapped per DIRECTION LAW (enemies take more) — values omitted (stale).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-resource chain (Soul Stones → Possession Meter → Deathlord Mode) approximated in resource_economy; the two-step fill relationship is expressed in keys but the sequential dependency is a fidelity-noted approximation. Amplified Damage curse:amplify mapped per DIRECTION LAW (enemies take more) — values omitted (stale).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Soul Drain",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stygian generator; builds Soul Stones → Possession Meter"
+        },
+        {
+          "source_skill": "Gluttony",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stygian generator + counter capability; raid-break vocab"
+        },
+        {
+          "source_skill": "Astaros",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stygian generator"
+        },
+        {
+          "source_skill": "Death Order",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stygian generator"
+        },
+        {
+          "source_skill": "Guillotine Swing",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Deathlord primary damage skill; consumed Soul Stones"
+        },
+        {
+          "source_skill": "Reaper's Scythe",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Deathlord skill; scythe spin implied"
+        },
+        {
+          "source_skill": "Vestige",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Deathlord Soul Stone consumer"
+        },
+        {
+          "source_skill": "Fatal Finale",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Deathlord Soul Stone consumer; high-impact finisher"
+        },
+        {
+          "source_skill": "Lunatic Edge",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Movement Speed buff — DIRECTION TEST: self moves faster → self_buff"
+        },
+        {
+          "source_skill": "Deathlord Mode (Z)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Activation: resets Deathlord skill cooldowns; grants 3 Enhanced Soul Stones; 10% Attack Speed, 20% Move Speed, 20% Crit Rate; Amplified Damage on nearby enemies 10s — DIRECTION TEST: 'Amplified Damage on nearby enemies' = enemies take more damage → curse:amplify; values not emitted (% flagged as unverified stale per pre-ruling 'map shape')"
+        }
+      ],
+      "motion_frame": "Generate Soul Stones via Stygian skills (Soul Drain, Gluttony, Astaros, Death Order); consume Soul Stones to fill Possession Meter; activate Deathlord Mode (Z) — resets Deathlord skill cooldowns, grants 3 Enhanced Soul Stones, Amplified Damage on nearby enemies; spend Soul Stones on Deathlord skills during window; Soul Resonance capstone grants 4th Soul Stone",
+      "resource_economy": {
+        "soul_stones": "generated by Stygian skills; consumed to fill Possession Meter AND spent by Deathlord skills during mode",
+        "possession_meter": "filled by Soul Stone consumption; full → activate Deathlord Mode (Z)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Deathlord Mode activation (Z)",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "beam_channel",
+            "melee_strike",
+            "melee_arc",
+            "whirlwind",
+            "ring",
+            "single_target",
+            "self_buff"
+          ],
+          "economy": [
+            "soul_stones",
+            "possession_meter"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: Soul Drain, Gluttony, Astaros, Death Order, Guillotine Swing, Reaper's Scythe, Vestige, Fatal Finale — all name-only. No shadow/dark damage-type descriptor anywhere in store. Amplified Damage on nearby enemies (Deathlord Mode) = DIRECTION TEST → curse:amplify (enemies take more damage; not self-buff). Values omitted: % flags throughout (20% Crit Rate, 10% Attack Speed, etc.) are in the store but the pre-ruling notes unverified % — map shape, not numbers. Two-battery resource chain (Soul Stones → Possession Meter → Deathlord Mode) is a two-tier-accumulator CANDIDATE — however the mechanism maps cleanly as sequential native economy (Stones fill Meter; Meter gates activation); NOT filed as two-tier-accumulator docket per §LA row 1 (clean native map). Ark Passive nodes (Soul Resonance, Soul Guide, Swift Demise, Footsteps of the Dead) → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Full Moon Harvester Souleater Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Author: Sekwah, Last Updated: June 22, 2026 — active maxroll.gg guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Full Moon Harvester Souleater; Deathlord Mode for massive burst; Soul Stone generation; Possession Meter management",
+      "anchor_quote": "Deathlord Skills cooldowns are reset upon entering Deathlord mode, and you gain 3 Enhanced Soul Stones",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Generates and consumes Soul Stones to fill Possession Meter; enters Deathlord Mode for massive burst; +15% Deathlord skill damage; -70% cooldowns; burst identity",
+      "anchor_quote": "Grants 10% Attack Speed, 20% Move Speed, 20% Crit Rate; Applies Amplified Damage to nearby enemies for 10 seconds on activation; Footsteps of the Dead: 50% cooldown reduction on Stygian skills",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+          "last_updated": "2026-06-22"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+        "anchor_quote": "Author: Sekwah, Last Updated: June 22, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Soul Resonance: Grants fourth Soul Stone",
+            "Soul Guide: natural Possession Meter generation",
+            "Swift Demise: 5% Possession meter gain on Destiny activation; skip one Stygian skill per cycle",
+            "Footsteps of the Dead: 50% cooldown reduction on Stygian skills during Deathlord mode"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+        "anchor_quote": "Footsteps of the Dead: 50% cooldown reduction on Stygian skills during Deathlord mode",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Keen Blunt Weapon",
+            "Adrenaline",
+            "Raid Captain",
+            "Cursed Doll"
+          ],
+          "gems_damage": [
+            "Guillotine Swing",
+            "Vestige",
+            "Reaper's Scythe",
+            "Astaros"
+          ],
+          "gems_cooldown": [
+            "Soul Drain",
+            "Death Order",
+            "Astaros",
+            "Vestige"
+          ],
+          "bracelet": [
+            "Crit Rate/Damage",
+            "Weapon Power",
+            "additional damage modifiers"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+        "anchor_quote": "Engravings priority: Grudge, Keen Blunt Weapon, Adrenaline, Raid Captain, Cursed Doll",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "deathlord_skills": [
+            "Guillotine Swing",
+            "Reaper's Scythe",
+            "Vestige",
+            "Fatal Finale"
+          ],
+          "stygian_generators": [
+            "Soul Drain",
+            "Gluttony",
+            "Astaros",
+            "Death Order"
+          ],
+          "synergy": "Lunatic Edge (Movement Speed buff)",
+          "counter": "Gluttony",
+          "note": "Specific AoE geometry not enumerated; scythe-based melee/mid-range implied"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+        "anchor_quote": "Primary damage skills: Guillotine Swing, Reaper's Scythe, Vestige, Fatal Finale (Soul Stone consumers)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Generate Soul Stones via Stygian skills (Soul Drain, Gluttony, Astaros, Death Order); consume Soul Stones to fill Possession Meter; activate Deathlord Mode (Z) — resets Deathlord skill cooldowns on entry, gain 3 Enhanced Soul Stones, 10% Attack Speed, 20% Move Speed, 20% Crit Rate, Amplified Damage on nearby enemies 10s; spend Soul Stones on Deathlord skills (Guillotine Swing, Reaper's Scythe, Vestige, Fatal Finale) for burst window; Soul Resonance node grants 4th Soul Stone; skip Stygian skills via Swift Demise on Destiny"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+        "anchor_quote": "Deathlord Skills cooldowns are reset upon entering Deathlord mode, and you gain 3 Enhanced Soul Stones",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Night's Edge Souleater — alternate Souleater engraving; referenced in same guide as alternative identity path"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/full-moon-harvester-souleater-raid-build-guide",
+        "anchor_quote": "guide references an alternative spec: Night's Edge Souleater",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

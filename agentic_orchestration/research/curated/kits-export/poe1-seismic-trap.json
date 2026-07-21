@@ -1,0 +1,260 @@
+{
+  "kit_id": "poe1-seismic-trap",
+  "spine": {
+    "kit_id": "poe1-seismic-trap",
+    "folk_name": "Seismic Trap",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY: two approximations stack. (a) The trap-arm-then-proximity-fire device is carried by trigger grammar, not a native placed-dormant-device primitive (fire-trap b03 precedent). (b) The SEQUENCED 5-wave timer emission — the overlapping pulse GRID that converts sustained AoE into 32-64-hit boss burst when traps stack — collapses to a single consume-burst (TIMED-WHILE-ACTIVE-APPROX); the player of the original loses the 3.5-second hammering rhythm and the stack-traps-for-overlap optimization. The throw-traps-and-kite zone-hammer identity survives.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY: two approximations stack. (a) The trap-arm-then-proximity-fire device is carried by trigger grammar, not a native placed-dormant-device primitive (fire-trap b03 precedent). (b) The SEQUENCED 5-wave timer emission — the overlapping pulse GRID that converts sustained AoE into 32-64-hit boss burst when traps stack — collapses to a single consume-burst (TIMED-WHILE-ACTIVE-APPROX); the player of the original loses the 3.5-second hammering rhythm and the stack-traps-for-overlap optimization. The throw-traps-and-kite zone-hammer identity survives.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Seismic Trap",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "thrown trap arms at the target location; on trigger releases 5 shockwave WAVES, one every 0.9s over 3.5s; each wave = a series of small bursts in a line ending with a larger burst, AoE radius 12; stacking traps overlaps the pulse grids into a boss-melting hammering zone. Shockwave/quake -> ground_slam (section-6); physical -> element-neutral"
+        },
+        {
+          "source_skill": "Exsanguinate (trap pair)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "second trap thrown for map clear; the dossier attests only its trap-delivery role — geometry beyond at-target placement is UNATTESTED, mapped from probe delivery (at-target) + the trap chassis only (no-fabrication law); physical -> element-neutral"
+        }
+      ],
+      "motion_frame": "trap artillerist: throw traps at the target zone and step back — armed traps hammer the area with sequenced quake pulses while the player pre-lays grids and kites",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "armed trap (placed dormant device; enemy proximity consumes it into the pulse sequence)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_slam pulse waves (line of small bursts + larger terminal burst, radius 12)",
+            "at-target trap placement"
+          ],
+          "economy": [
+            "trap-throw cycle (throw cadence; Trap Support / Cluster Traps grid-building)",
+            "Saboteur chassis: trap-laying speed + recovery-on-trigger (Bomb Specialist / Pyromaniac)"
+          ],
+          "traits_affixes": [
+            "trap throwing speed / additional traps thrown",
+            "physical + AoE damage",
+            "trap cooldown recovery"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA KIT (ingest-3; verify_ledger era CONTRADICTED, errata_applied=1): the unattested 3.7-3.13 era bucket was DROPPED — post-errata truth is 3.14-3.19 ONLY ('all found meta guides begin at 3.16 (Scourge)'); the corpus eras column is already corrected and this mapping treats the kit as a 3.16+ archetype. TRAP CHASSIS mapped per the b03 fire-trap convention (consistency, not re-decided): placed-dormant-device -> apply-consume trigger pair (proximity arm/fire ~= on-hit-threshold, nearest enum to enemy-enters-radius) + activation-toggle throw rhythm; MAX_CHAIN_DEPTH=1 (throw-arm -> proximity-fire is one pair). THE PULSE SEQUENCE — 5 waves on a 0.9s TIMER while the trap lives — is a timed-while-active proc with no enum member: approximated to the apply-event consume (single burst-damage consequence) per R-M5 -> TIMED-WHILE-ACTIVE-APPROX (first accrued instance corpus-wide; steward graduates at 3). Wave numbers use the dossier-verbatim anchor (5 waves / 0.9s / 3.5s, fetched-vdm1) over the coarser mobile mech_note ('8 pulses ~2s') — verified source wins. Geometry section-7.2: ground_slam (the quake-pulse IS the identity; 'shockwave' phrase-book row) chosen over ground_targeted_circle (fire-trap's pick — there the burning GROUND PATCH was the identity; here the placement is chassis and the slam-pulse is the payload); alternative noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/seismic-trap-saboteur-league-starter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Seismic Trap Saboteur League Starter Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3179858",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "unknown",
+      "title": "[3.16] Seismic/Exsanguinate Trap Build | Saboteur | Scourge",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://pathofexilegems.com/builds/3-17-seismic-trap-exsanguinate-saboteur-full-build-guide/",
+      "archive_url": null,
+      "site": "pathofexilegems.com",
+      "author_handle": "unknown",
+      "title": "[3.18] Seismic Trap / Exsanguinate Saboteur | Full Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Seismic_Trap",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Seismic Trap — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "Seismic Trap introduced 3.3.0; all found meta guides begin at 3.16 (Scourge). No guide or attestation found for 3.7-3.13 meta. Earliest confirmed meta is 3.16+.",
+      "source_url": "https://poedb.tw/us/Seismic_Trap",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "'[3.16] Seismic/Exsanguinate Trap Build | Saboteur | Scourge' forum post; '[3.18] Seismic Trap / Exsanguinate Saboteur' guide confirm 3.16-3.18 active",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3179858",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Seismic Trap' is real community usage",
+      "anchor_quote": "'Seismic Trap Saboteur is a league start All-rounder that excels in single target' — maxroll.gg; skill name used identically across all guides",
+      "source_url": "https://maxroll.gg/poe/build-guides/seismic-trap-saboteur-league-starter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Seismic Trap + Exsanguinate(pair); thrown trap releases shockwave pulses over duration; Exsanguinate used for map clear",
+      "anchor_quote": "'it is paired with an Exsanguinate traps which is used to clear packs more efficiently'; trap 'releases a set of 5 waves every 0.9 seconds for a total duration of 3.5 seconds'",
+      "source_url": "https://maxroll.gg/poe/build-guides/seismic-trap-saboteur-league-starter-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com",
+          "note": "TbXie authored Poison Seismic Trap Saboteur Build Guide on poe-vault.com"
+        },
+        "source_url": "https://www.poe-vault.com/guides/seismic-trap-saboteur-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Seismic Trap of Swells (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; damage effectiveness change in v3.25.0; specific mechanic diff not enumerated on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Seismic_Trap",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (trap thrown to location)",
+          "aoe": "large-zone (sequence of shockwave bursts in line ending with larger burst; AoE radius 12)",
+          "notes": "5 waves per trap; each wave deals damage in a series of small bursts in a line ending with a larger burst; AoE modifiers affect targeting radius"
+        },
+        "source_url": "https://poedb.tw/us/Seismic_Trap",
+        "anchor_quote": "'Each wave deals damage in a series of small bursts in a line, ending with a larger burst. The skill has an AoE radius of 12'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Throw Seismic Trap to target location; trap arms and releases 5 shockwave pulse waves every 0.9 seconds over 3.5 second duration; throw Exsanguinate Trap for map clear; stack multiple Seismic Traps against bosses for overlapping pulse grids"
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/seismic-trap-saboteur-league-starter-guide",
+        "anchor_quote": "'releases a set of 5 waves every 0.9 seconds for a total duration of 3.5 seconds'",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Saboteur (primary; trap bonuses, Pyromaniac, Chain Reaction)",
+            "Elementalist (noted in pobarchives)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/seismic-trap-saboteur-league-starter-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

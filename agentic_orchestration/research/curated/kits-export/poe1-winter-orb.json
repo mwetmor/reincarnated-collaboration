@@ -1,0 +1,251 @@
+{
+  "kit_id": "poe1-winter-orb",
+  "spine": {
+    "kit_id": "poe1-winter-orb",
+    "folk_name": "Winter Orb",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.5-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: turret-projectile behavior vs orbit contact presence (noted, R-M6-spirit nearest-geometry call); decay pacing approximated. A Winter Orb player still recognizes channel-charge, run, personal blizzard turret.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: turret-projectile behavior vs orbit contact presence (noted, R-M6-spirit nearest-geometry call); decay pacing approximated. A Winter Orb player still recognizes channel-charge, run, personal blizzard turret.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Winter Orb",
+          "geometry_value": "orbit",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "channel to charge a hovering orb above the caster (max 8 stages; each stage raises fire rate); the orb AUTONOMOUSLY machine-guns frost bolts that explode where they land, targeting nearby enemies while the player runs; stages decay (~1.6s base) once channelling stops. orbit = player-anchored persistent damage entity (probe delivery = orbit); behavioral note: emits exploding projectiles rather than dealing contact damage. NOT the R-M6 drift-tick class — that ruling covers travelling tick-orbs (Ball-Lightning-class); this is a self-anchored turret, so R-M6 is not in play"
+        }
+      ],
+      "motion_frame": "charge-then-cruise: top the orb up with a channel burst, then run the map while your personal turret strafes everything near you; re-channel before the stages bleed out",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "player-anchored auto-firing orb",
+            "projectile-count supports (Awakened GMP-class)",
+            "conc-effect impact AoE"
+          ],
+          "economy": [
+            "channel-builds-stages accumulator; stage DECAY after release is the pacing knob (decay-shape carried as chassis note — R-M4 unsure-include)",
+            "Infused-Channelling-class channel chassis"
+          ],
+          "traits_affixes": [
+            "cold scaling + Hypothermia-class chill-synergy",
+            "cast-speed (stage accrual rate)",
+            "power charges (Occultist / Void Battery) as charge-lane flavor"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "charge-then-cruise identity lands on accumulator + orbit + the uptime door: build stacks, cruise while they last, refresh before empty. Approximations: the orb auto-TARGETS and shoots exploding projectiles — orbit natively models a player-anchored persistent damage presence, not autonomous targeted emission (behavioral note carries it); stage-count-raises-fire-RATE simplified to accumulator ramp. Era ERRATA-corrected at ingest-4: single-era kit (3.5-3.6 Betrayal-Synthesis dominance; 9 percent Betrayal representation), 3.0 floor removed — mapped as its peak-era identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2320561",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "Angry_Roleplayer#6657",
+      "title": "[3.13] WINTER ORB ELEMENTALIST Build. Highest DPS on budget! +VIDEO GUIDE!",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/winter-orb-elementalist-non-crit-poe-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "Odealo",
+      "title": "[3.8] Winter Orb non-crit Elementalist Starter build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://requnix.com/path-of-exile-3-5-betrayal-best-builds/",
+      "archive_url": null,
+      "site": "requnix.com",
+      "author_handle": null,
+      "title": "Path of Exile 3.5 Betrayal Best Builds",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Winter_Orb",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Winter Orb - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Winter Orb 'introduced in version 3.5.0' patch notes; era floor 3.0 predates skill introduction by five patches; Betrayal (3.5) is first era. '9% representation in Betrayal league' per poe.ninja.",
+      "source_url": "https://poedb.tw/us/Winter_Orb",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Winter Orb' is real community usage",
+      "anchor_quote": "'[3.13] WINTER ORB ELEMENTALIST Build. Highest DPS on budget!' forum thread; '[3.8] Winter Orb non-crit Elementalist Starter build' Odealo guide",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2320561",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Winter Orb; channeled spell creates floating orb above caster that auto-fires frost bolt projectiles at nearby enemies; stages build during channel; projectiles explode on impact",
+      "anchor_quote": "'Channel to conjure an orb above you which pelts nearby enemies with projectiles that explode when they hit the ground'",
+      "source_url": "https://poedb.tw/us/Winter_Orb",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Angry_Roleplayer#6657",
+          "site": "pathofexile.com/forum",
+          "note": "authored [3.13] Winter Orb Elementalist guide"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2320561",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Occultist: Power Charges + increased AoE + cold damage",
+            "Elementalist: Mastermind of Discord + Shaper of Storms (shock/chill proliferation)",
+            "Elementalist: Heart of Destruction + Bastion of Elements (non-crit high damage variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2320561",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Void Battery wands (spell damage per power charge)",
+            "The Eternity Shroud (damage scaling with shaper items)",
+            "Awakened Greater Multiple Projectiles support"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2320561",
+        "anchor_quote": "'WORB-Concentrated Effect-Awakened Greater Multiple Projectiles-Infused Channelling-Hypothermia-Awakened Added Cold'",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit/hover above caster; auto-targets nearby enemies",
+          "projectile_behavior": "frost bolts fired automatically at nearby enemies; 'impact the ground and explode' creating AoE cold damage",
+          "stage_scaling": "8 max stages; each stage increases projectile frequency",
+          "decay": "stages decay over 1.6s base duration after channel stops",
+          "movement": "full mobility during and after channeling"
+        },
+        "source_url": "https://poedb.tw/us/Winter_Orb",
+        "anchor_quote": "'Channel to conjure an orb above you... pelts nearby enemies with projectiles that explode when they hit the ground'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Channel Winter Orb to build up stages (max 8); each stage increases projectile fire rate; while channeling and after releasing channel, orb auto-targets and fires frost bolts at nearby enemies; projectiles explode on ground impact; run and re-channel periodically; cast speed improves stage accumulation rate"
+        },
+        "source_url": "https://poedb.tw/us/Winter_Orb",
+        "anchor_quote": "'Channel to conjure an orb above you which pelts nearby enemies with projectiles that explode when they hit the ground'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Occultist (3.5-3.6 original dominant variant)",
+            "Elementalist non-crit (3.6-3.8 starter variant)",
+            "Elementalist crit (3.13+ higher investment)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/winter-orb-occultist-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

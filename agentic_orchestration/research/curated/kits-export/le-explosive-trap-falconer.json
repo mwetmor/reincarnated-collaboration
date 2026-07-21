@@ -1,0 +1,247 @@
+{
+  "kit_id": "le-explosive-trap-falconer",
+  "spine": {
+    "kit_id": "le-explosive-trap-falconer",
+    "folk_name": "Explosive Trap Falconer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.1-harbingers",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Trap+Ballista both map `totem` (placed-proxy) — clean, but the DEPLOY-AND-DETONATE tempo (pre-place, then chain-trigger) is a placed-detonator rhythm that `totem` (a persistent emitter) approximates rather than nails. The falcon companion is a pet-rider gap (autonomous strikes not deliverable). Source player loses the falcon chip-damage and the precise trigger-detonation timing feel, but the trap-carpet identity is deliverable.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Trap+Ballista both map `totem` (placed-proxy) — clean, but the DEPLOY-AND-DETONATE tempo (pre-place, then chain-trigger) is a placed-detonator rhythm that `totem` (a persistent emitter) approximates rather than nails. The falcon companion is a pet-rider gap (autonomous strikes not deliverable). Source player loses the falcon chip-damage and the precise trigger-detonation timing feel, but the trap-carpet identity is deliverable.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Explosive Trap",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Deploy multiple traps at target ground positions (carpet the ground); they chain-detonate when triggered for a massive AoE ('filling it with explosions'). Placed-proxy deploy-detonate. Physical (§1 physical rule; DEX throwing). Explosive Ballista variant: Armed Construction spawns explosive Ballistae from the traps."
+        },
+        {
+          "source_skill": "Ballista (Explosive)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Armed Construction transforms the Ballista into an explosive turret proc'd by the traps ('proc explosive Ballistae in a massive AoE') — placed-proxy turret."
+        }
+      ],
+      "motion_frame": "Carpet the ground with Explosive Traps at target positions; they chain-detonate and (Explosive Ballista variant) spawn explosive Ballistae for a screen of blasts; Sapping Strikes returns Mana on every trap-hit; the falcon supports",
+      "resource_economy": {
+        "resource": "mana",
+        "regen_shape": "Sapping Strikes returns Mana when a trap HITS an enemy; REQUIRES reduced-Mana-cost gear (T6 rings / Bo's Anarchy) or the trap's Mana cost negates the Sapping return"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "GEOMETRY_PROPAGATION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "trap placement count (carpet)",
+            "Ballista proc count",
+            "chain-detonation AoE"
+          ],
+          "economy": [
+            "Sapping Strikes Mana-on-trap-hit",
+            "mandatory reduced-Mana-cost gear"
+          ],
+          "traits_affixes": [
+            "throwing/physical damage scalers",
+            "Armed Construction (Ballista->explosive)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical -> element-neutral (§1 physical rule; DEX throwing). Explosive Trap + Ballista both map `totem` (placed-proxy: traps = placed detonators, Ballistae = placed turrets; §6 totem/sentry/turret -> totem). Multiple traps + procced Ballistae = accrual to placed-proxy-count family (no numbers). NO ailment token: explosions, no burn/named status (§0.1). trigger_grammar: trap-placement -> on-trigger detonation -> proc Ballistae is the on-cast-linked proc engine (depth-1). Falcon (Falconry) is a persistent COMPANION support -> summoner-deferral GAP flavor -> pet-RIDER (falcon's autonomous strikes not deliverable; the trap-carpet loop is the identity + is deliverable). Sibling of le-detonating-arrow-mm's trap-proc chassis but DISTINCT primary (explosive Ballistae vs procced DA explosions). Two doors: PROXY_ASCENSION (placed-proxy carpet) + GEOMETRY_PROPAGATION base [STEWARD AUDIT 2026-07-18: _cascade is pinned on-kill in §5; chain-detonation here is trigger-driven — R-M1 base-when-unclear]."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Explosive Ballista Falconer - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/last-epoch-1-0-patch-notes-released",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Last Epoch 1.0 Patch Notes Released!",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Patch 1.0 introduced the Falconer Mastery — Falconer is the third Rogue class mastery, a master tactician who utilizes traps and their fearsome Falcon companion",
+      "source_url": "https://maxroll.gg/last-epoch/news/last-epoch-1-0-patch-notes-released",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Explosive Trap Falconer'; aliases include 'trap Falconer', 'mine Falconer'",
+      "anchor_quote": "Explosive Ballista Falconer throws Explosive Trap which proc explosive Ballistae... Explosive Trap needs to hit an enemy to give you Mana back",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Explosive Trap, Falconry; trap placement + falcon detonation loop; physical/fire damage; Mana resource",
+      "anchor_quote": "Armed Construction transforms Ballista into an explosive. Explosive Trap needs to hit an enemy to give you Mana back via Sapping Strikes",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "maxroll.gg",
+          "guide_title": "Explosive Ballista Falconer"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "node_armed_construction": "transforms Ballista into explosive — core enabler for Explosive Ballista variant",
+          "node_sapping_strikes": "critical Mana sustain via Trap-hit Mana return"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Armed Construction transforms Ballista into an explosive. Explosive Trap needs to hit an enemy to give you Mana back via Sapping Strikes",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "required_items": [
+            "Tier 6 Rings with Throwing Damage + Reduced Mana Cost",
+            "Bo's Anarchy (alternative for Mana reduction)"
+          ],
+          "power_items": [
+            "Melvern's Writ",
+            "Peak of the Mountain",
+            "Death Rattle",
+            "Woven Flesh",
+            "Apogee of Frozen Light",
+            "Foot of the Mountain",
+            "Cradle of the Erased"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Use Tier 6 Rings with Throwing Damage and Reduced Mana Cost, or Bo's Anarchy. Without this reduced Mana cost, Explosive Trap costs Mana and therefore does not generate any Mana from Sapping Strikes",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target trap placement (multiple pre-placed)",
+          "footprint": "large-AOE chain detonation when triggered",
+          "notes": "Deploy-and-detonate pattern; traps placed at target ground positions; massive AoE on detonation — 'incredible AoE, Damage'"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Explosive Trap which proc explosive Ballistae in a massive AoE... The Explosive Ballista Falconer spreads havoc on the battlefield, filling it with explosions",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Explosive Traps at target positions carpeting the ground; traps chain-detonate when triggered; Explosive Ballista variant uses Armed Construction to spawn explosive Ballistae from traps; Mana cost per trap placement; Sapping Strikes generates Mana when traps hit enemies; Falconry provides falcon combat support",
+          "resource_model": "Mana per trap placement; Sapping Strikes returns Mana on trap hit"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Explosive Trap needs to hit an enemy to give you Mana back via Sapping Strikes... Armed Construction transforms Ballista into an explosive",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Explosive Ballista Falconer (Explosive Trap + Ballista proc)",
+            "Trap-only Falconer (falcon Dive Bomb detonation variant — per KB; separate from Ballista variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/explosive-ballista-falconer-guide",
+        "anchor_quote": "Explosive Ballista Falconer throws Explosive Trap which proc explosive Ballistae in a massive AoE",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

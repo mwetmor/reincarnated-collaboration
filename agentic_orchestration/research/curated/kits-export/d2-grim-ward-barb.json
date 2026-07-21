@@ -1,0 +1,221 @@
+{
+  "kit_id": "d2-grim-ward-barb",
+  "spine": {
+    "kit_id": "d2-grim-ward-barb",
+    "folk_name": "Grim Ward Barbarian",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "lod",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build: Grim Ward Barbarian as a named archetype is unattested; kit identity is partial-recovery only. Even if identity were confirmed, the combat loop (area-denial only, zero damage engine) has no engine lane mapping. Fear is attested and emitted correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "fear"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build: Grim Ward Barbarian as a named archetype is unattested; kit identity is partial-recovery only. Even if identity were confirmed, the combat loop (area-denial only, zero damage engine) has no engine lane mapping. Fear is attested and emitted correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Grim Ward",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "fear"
+          ],
+          "delivery_notes": "Cast on corpse to create placed fear-emitting totem. Totem is stationary; fear aura radiates around placement. Does not function on Super Unique or Boss monsters (boss-immune applies). No primary damage throughput from Grim Ward itself."
+        },
+        {
+          "source_skill": "Combat (implied primary — Grim Ward presupposes a kill verb)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Grim Ward requires a kill to produce a corpse; no attested primary combat skill in this kit's identity (identity UNSUPPORTED in verify_ledger — 'Grim Ward Barbarian as standalone archetype is unattested'). Mapping the kill-verb as honest-unknown melee placeholder."
+        }
+      ],
+      "motion_frame": "Kill enemy to produce corpse; cast Grim Ward on corpse to place fear totem; monsters flee totem; area-denial utility only",
+      "resource_economy": {
+        "corpse_nodes": "identity-load-bearing: corpse is the resource consumed to place the Grim Ward totem"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Identity UNSUPPORTED in verify_ledger (folk name 'Grim Ward Barbarian' as standalone archetype unattested — partial recovery only). Negative_canon also UNSUPPORTED. Era: lod CONFIRMED. Grim Ward mechanics CONFIRMED: 'Use on the corpse of a slain monster to create a frightening totem that causes nearby monster to flee.' Fear attested: 'fear totem; monsters flee' — §0-UNIVERSAL satisfied. Boss-immune: 'will not work against Super Unique Monsters and Bosses' — fear boss-immune law applies. Corpse-node docket: corpse is spatial-consumable-resource-node (§CROSS row 1); corpse_nodes key emitted (R-M4 identity-load-bearing). §A.6 hot-fact: identity/negative UNSUPPORTED → stay honest-U context (§CROSS.1). No damage T4 doors warranted: no damage throughput attested. Accrual to spatial-consumable-resource-node family. [STEWARD-AUDIT 2026-07-18: t4_doors []→null per template null-where-N/A.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.wiki.fextralife.com/Grim+Ward",
+      "archive_url": null,
+      "site": "diablo2.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Grim Ward — Diablo 2 Wiki (Fextralife)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo.fandom.com/wiki/Grim_Ward",
+      "archive_url": null,
+      "site": "diablo.fandom.com",
+      "author_handle": null,
+      "title": "Grim Ward — Diablo Wiki (Fandom)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20090325112811/http://classic.battle.net:80/diablo2exp/skills/barbarian-warcries.shtml",
+      "archive_url": "http://web.archive.org/web/20090325112811/http://classic.battle.net:80/diablo2exp/skills/barbarian-warcries.shtml",
+      "site": "classic.battle.net (Arreat Summit via Wayback)",
+      "author_handle": "Blizzard Entertainment (official)",
+      "title": "The Arreat Summit - Skills: Barbarian Warcries",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Grim Ward [24]...Turns a corpse into a fetish that will frighten monsters away.",
+      "source_url": "http://web.archive.org/web/20090325112811/http://classic.battle.net:80/diablo2exp/skills/barbarian-warcries.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Grim Ward Barbarian' and alias 'Grim Ward Barb' are real community usage as a distinct build",
+      "anchor_quote": null,
+      "source_url": "https://diablo2.wiki.fextralife.com/Grim+Ward",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Grim Ward — totem-fear utility mechanic; creates totem on corpse that causes monsters to flee",
+      "anchor_quote": "Use on the corpse of a slain monster to create a frightening totem that causes nearby monster to flee.",
+      "source_url": "https://diablo2.wiki.fextralife.com/Grim+Ward",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Grim Ward lod negative — totem-fear utility mechanic without damage throughput; functions as support gimmick not viable solo build identity",
+      "anchor_quote": null,
+      "source_url": "https://diablo2.wiki.fextralife.com/Grim+Ward",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "corpse-placed totem",
+          "delivery": "AoE fear aura from corpse location",
+          "footprint": "radial fear effect around totem",
+          "notes": "Passive effect once placed; no projectile; does not work on Super Unique or Boss monsters"
+        },
+        "source_url": "https://diablo2.wiki.fextralife.com/Grim+Ward",
+        "anchor_quote": "will not work against Super Unique Monsters and Bosses, or some monsters like Ghosts.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Kill enemy, cast Grim Ward on corpse to create fear totem; monsters flee the totem; no primary damage throughput loop; purely utility-based area denial"
+        },
+        "source_url": "https://diablo2.wiki.fextralife.com/Grim+Ward",
+        "anchor_quote": "Use on the corpse of a slain monster to create a frightening totem that causes nearby monster to flee.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

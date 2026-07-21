@@ -1,0 +1,259 @@
+{
+  "kit_id": "d4-minion-necro",
+  "spine": {
+    "kit_id": "d4-minion-necro",
+    "folk_name": "Minion Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5;voh-s6+;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Autonomous minion army identity cannot be captured: skeleton warriors, mages, and golem are autonomous combatants with no engine lane (summoner-deferral docket class, §CROSS row 2). R-M7 governs — 'not that build' without proxy lanes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:decrepify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 3,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Autonomous minion army identity cannot be captured: skeleton warriors, mages, and golem are autonomous combatants with no engine lane (summoner-deferral docket class, §CROSS row 2). R-M7 governs — 'not that build' without proxy lanes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Raise Skeleton",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "skeleton warriors and mages attack individual targets autonomously; autonomous combatant = summoner GAP; 25% damage multiplier from commanding warriors"
+        },
+        {
+          "source_skill": "Golem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Golem provides Unstoppable and Ferocity stacks; autonomous combatant = summoner GAP"
+        },
+        {
+          "source_skill": "Decrepify",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:decrepify"
+          ],
+          "delivery_notes": "curses enemies slowing movement and attack; movement-slow per curse register table: decrepify=move/attack slow"
+        }
+      ],
+      "motion_frame": "Cast Decrepify to curse; command Skeleton Warriors for multiplier; activate Golem for buffs; minions deal sustained damage",
+      "resource_economy": {
+        "essence": "primary-spender",
+        "regen_shape": "passive Essence regen"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "point-per-minion footprint"
+          ],
+          "economy": [
+            "Deathgrip",
+            "The Undercrown",
+            "Blood Moon Breeches",
+            "Pact of Bone"
+          ],
+          "traits_affixes": [
+            "Exploiter's Aspect",
+            "Aspect of Reanimation",
+            "Warrior/Mage/Essence/Eliminator/Abyssal paragon glyphs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Autonomous skeleton army + Golem = summoner GAP per §CROSS row 2: pet-core → GAPPED ⟺ MAPPED_DOCKET. Decrepify attests curse:decrepify: MW3 curse register table confirmed — decrepify=move/attack slow; store skill_loop says 'Cast Decrepify for cursing.' Shadow element on Decrepify per main-law element table (shadow/dark/bone/necrotic). t4_doors=null (GAPPED/doorless per standing amendment MW1 — GAPPED kits emit t4_doors null). Geometry=totem for minions is nearest phrase-book fit for placed combatants but loses autonomous-combatant distinction (fidelity layer). Army of the Dead (ultimate): not mapped separately — kit's primary loop is sustained skeleton+golem army, not ultimate cycling. [STEWARD-AUDIT 2026-07-18 MW4-close: Raise Skeleton: shadow name-only (shadow 0 hits; minions \"deal sustained damage\" element-unstated)] [STEWARD-AUDIT 2026-07-18 MW4-close: Golem: shadow name-only] [STEWARD-AUDIT 2026-07-18 MW4-close: Decrepify: shadow name-only; curse:decrepify KEPT (\"cast decrepify to curse enemies\")]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Seroc Ifkre",
+      "title": "Minion Necromancer Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in loh-s13-14",
+      "anchor_quote": "Season 14 - Death Awakening Last Updated: July 14, 2026",
+      "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Minion Necromancer'; aliases 'Minion Necro D4', 'Skeleton Golem Necromancer D4', 'Army Necro D4'",
+      "anchor_quote": "Minion Necromancer... Army Necromancer... (Skeleton Golem variant also mentioned)",
+      "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Raise Skeleton, Golem, Army of the Dead; Necromancer Essence resource",
+      "anchor_quote": "Raise Skeleton (Warriors and Mages variants)... Golem... Army of the Dead... Paragon Glyphs: Warrior, Mage, Essence, Eliminator, Abyssal",
+      "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Seroc Ifkre",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+        "anchor_quote": "Seroc Ifkre (Content Creator)",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Exploiter's Aspect",
+            "Aspect of Reanimation"
+          ],
+          "paragon_glyphs": [
+            "Warrior",
+            "Mage",
+            "Essence",
+            "Eliminator",
+            "Abyssal"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+        "anchor_quote": "Aspects: Exploiter's Aspect, Aspect of Reanimation... Paragon Glyphs: Warrior, Mage, Essence, Eliminator, Abyssal",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Deathgrip",
+            "The Undercrown",
+            "Blood Moon Breeches",
+            "Pact of Bone"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+        "anchor_quote": "Uniques: Deathgrip, The Undercrown, Blood Moon Breeches, Pact of Bone",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-summons",
+          "footprint": "point-per-minion",
+          "note": "skeleton warriors and mages attack individual targets; golem tanks; all minions deal sustained damage"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+        "anchor_quote": "Skeleton Warriors for a 25% multiplier... Golem for Unstoppable and Ferocity stacks",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Decrepify to curse enemies; command Skeleton Warriors for 25% damage multiplier; activate Golem for Unstoppable and Ferocity stacks; minions deal sustained damage; Blood Mist for emergency defense"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+        "anchor_quote": "Cast Decrepify for cursing, command Skeleton Warriors for a 25% multiplier, activate Golem for Unstoppable and Ferocity stacks",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/minion-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

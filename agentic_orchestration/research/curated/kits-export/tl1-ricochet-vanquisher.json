@@ -1,0 +1,218 @@
+{
+  "kit_id": "tl1-ricochet-vanquisher",
+  "spine": {
+    "kit_id": "tl1-ricochet-vanquisher",
+    "folk_name": "Ricochet Vanquisher",
+    "game": "tl1",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tl1-2009",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Wall-bounce detail (angle/reflect mechanic) not directly expressible in engine; ricochet_bounce geometry captures the shape. Explosive Shot secondary loop thinner than source.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Wall-bounce detail (angle/reflect mechanic) not directly expressible in engine; ricochet_bounce geometry captures the shape. Explosive Shot secondary loop thinner than source.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ricochet",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Arrow bounces off walls/environment for multi-hit. Verify anchor: 'The projectiles fired with it will bounce around, and the direction in which you fire it does have an impact on how many opponents it will hit.' Physical ranged — no element damage descriptor attested."
+        },
+        {
+          "source_skill": "Explosive Shot",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "AoE burst projectile. Dossier anchor: 'Both are viable for very hard' (Ricochet vs Explosive Shot). Physical damage — no elemental descriptor attested."
+        }
+      ],
+      "motion_frame": "Ranged physical archer: Ricochet wall-bounce as primary, Explosive Shot AoE flex, Arbiter trap supplements.",
+      "resource_economy": {
+        "mana_resource": "standard mana; no economy keys identity-load-bearing"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "wall-bounce angle manipulation (directional hit-count)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Marksman tree passive investment"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Ricochet wall-bounce claim: verify_ledger mechanics UNSUPPORTED for chain-hop claim specifically ('Ricochet is chain-hop NOT a line'); the confirmed anchor attests directional bounce, not fixed-hop chain. Geometry ricochet_bounce is correct. Chain-hop vs wall-bounce nuance: honest empty on chain vs wall-reflect. tl1 minimal source. Physical primary — no element attested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+      "archive_url": null,
+      "site": "alteredgamer.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Vanquisher Class Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1752066172",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Ranged Vanquisher Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era tl1-2009",
+      "anchor_quote": "The projectiles fired with it will bounce around, and the direction in which you fire it does have an impact on how many opponents it will hit.",
+      "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ricochet Vanquisher — physical ranged class with Ricochet as signature skill",
+      "anchor_quote": "Ricochet is the starting skill of the Vanquisher. DPS scales well, not bad mana wise, can hit multiple targets and its available right away.",
+      "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Ricochet, Explosive Shot — ranged physical",
+      "anchor_quote": "You should either max out this skill or Explosive Shot. Both are viable for very hard. If you go with Ricochet, put points into your passives then drop free points into the skill.",
+      "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Ricochet is chain-hop NOT a line — arrows bounce to nearest target, not fixed line",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Marksman tree (ranged), Rogue tree (melee/mobility), Arbiter tree (traps). Sniper variant uses long-range bow passives."
+        },
+        "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+        "anchor_quote": "The ranged vanquisher supplements their damage with traps from the Arbiter tree",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Projectile bounces off walls/environment — directional angle affects hit count. Ricochet + piercing = wall reflection for double-hit on stationary bosses."
+        },
+        "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+        "anchor_quote": "The projectiles fired with it will bounce around, and the direction in which you fire it does have an impact on how many opponents it will hit.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Ricochet as main skill — projectile bounces off walls for multi-hit. Supplement with traps from Arbiter tree. Passive investment in Marksman tree."
+        },
+        "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+        "anchor_quote": "Ricochet has the highest potential boss-killing DPS, due to the fact that it may be bounced off walls and hit a boss 2 times with each shot at 196%+196% damage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Ricochet wall-bounce (boss-kill focus)",
+            "Explosive Shot (AoE focus)",
+            "Sniper (long-range passives)"
+          ]
+        },
+        "source_url": "https://www.alteredgamer.com/torchlight/60307-character-guide-the-vanquisher/",
+        "anchor_quote": "You should either max out this skill or Explosive Shot. Both are viable for very hard.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

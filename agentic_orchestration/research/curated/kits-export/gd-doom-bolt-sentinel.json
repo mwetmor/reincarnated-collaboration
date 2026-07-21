@@ -1,0 +1,240 @@
+{
+  "kit_id": "gd-doom-bolt-sentinel",
+  "spine": {
+    "kit_id": "gd-doom-bolt-sentinel",
+    "folk_name": "Doom Bolt Sentinel",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: hard-cooldown nuke rhythm + timer-based CDR pulse ride on cadence keys rather than a native cooldown primitive; the acid/chaos DoT carry is element-flavor only (no statuses named -> no tokens).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: hard-cooldown nuke rhythm + timer-based CDR pulse ride on cadence keys rather than a native cooldown primitive; the acid/chaos DoT carry is element-flavor only (no statuses named -> no tokens).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Doom Bolt",
+          "geometry_value": "single_target",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "at-target bolt called from the sky, point impact, single-target nuke on HARD cooldown ('Doom Bolt (100% Fire and Fire FX)'; 'Hard cooldown-based ... single-target nuke'); this build is full fire-conversion of a chaos-base skill."
+        },
+        {
+          "source_skill": "Sigil of Consumption + Curse of Frailty (between-nuke fill)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "fill layer between nukes: Sigil ground zone ('Sigil of Consumption (75% Fire and Fire FX)') + Curse of Frailty resistance shred ('Curse of Frailty for resistance reduction') -> GD RR row, hex application -> curse:sap. 'acid/chaos DoTs carry between nukes' -- DoT statuses NOT named -> no DoT tokens (near-miss)."
+        }
+      ],
+      "motion_frame": "cooldown-gated nuke rhythm: drop Doom Bolt from the sky on the priority target, keep Sigil and Curse of Frailty running, and let the DoT fill carry until the next bolt",
+      "resource_economy": {
+        "cadence_scale": "hard-cooldown nuke rotation accelerated by a periodic cooldown-refund pulse ('every 20 seconds you get -5 seconds on all skills') -- greppable: timed-cooldown-refund-pulse"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Sigil zone size/duration"
+          ],
+          "economy": [
+            "hard-cooldown + periodic CDR-pulse cadence"
+          ],
+          "traits_affixes": [
+            "chaos-to-fire conversion (item-gated: 'Key conversions come from specific items (amulet, medal, weapon, gloves)')",
+            "cooldown-reduction affixes ('cooldown reduction items central to spam potential')"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "element_primary = fire (the build's actual scaling element per main-law 1 conversion judgment: 'Fire-conversion caster ability', '100% Fire and Fire FX'); chaos base -> shadow is the unconverted alternative, noted. Conversion itemization IS the identity -> ELEMENT_CONVERSION_MONO. R-M5 APPLIED: the every-20s CDR pulse is a timed proc -> mapped to nearest apply-event as periodic resource-fill (consequence_type) + greppable token in economy; no proc_trigger_condition enum matches a bare timer (noted, not forced). core_skills lists Dreeg's Evil Eye (support) but THIS kit's fetched loop centers Sigil+CoF as the fill -> mapped from fetched loop language, DEE-support noted here. Judgment '(100% Fire)' appears in the conversion anchor with 'some Judgment AoE' -- not load-bearing in this kit's loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-with-new-story-chapter-and-oathkeeper-mastery/",
+      "archive_url": null,
+      "site": "massivelyop.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn's Forgotten Gods expansion has launched with new story chapter and Oathkeeper mastery",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.4.0] Judgment of Doom (Bolt) - Fire Sentinel",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['fg-2019','patch-1.1-1.2']",
+      "anchor_quote": "Oathkeeper mastery debuted with Forgotten Gods expansion (March 27, 2019). Sentinel = Oathkeeper+Occultist. Era floor fg-2019 is consistent with mastery intro.",
+      "source_url": "https://massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-with-new-story-chapter-and-oathkeeper-mastery/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Doom Bolt Sentinel'; aliases=['chaos Doom Bolt Sentinel']",
+      "anchor_quote": "[1.1.4.0] Judgment of Doom (Bolt) - Fire Sentinel … Doom Bolt (100% Fire and Fire FX) … Oathkeeper + Occultist = Sentinel",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Doom Bolt','Dreeg's Evil Eye(support)']; delivery=at-target targeted bolt single-target nuke; resource=hard cooldown; element=chaos",
+      "anchor_quote": "Fire-conversion caster ability … Hard cooldown-based … every 20 seconds you get -5 seconds on all skills … Curse of Frailty for resistance reduction",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.4.0] Judgment of Doom (Bolt) - Fire Sentinel"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Solael's Witchblade",
+            "Rhowan's Crown",
+            "Meteor Shower proc"
+          ],
+          "notes": "Fire conversion build uses fire/chaos devotion path"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+        "anchor_quote": "Devotions include 'Solael's Witchblade and Rhowan's Crown' plus Meteor Shower proc",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Specific amulet, medal, weapon, gloves provide damage type conversion to fire for Doom Bolt",
+          "keys": "cooldown reduction items central to spam potential"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+        "anchor_quote": "Key conversions come from specific items (amulet, medal, weapon, gloves)",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target bolt from sky",
+          "footprint": "point (single target impact)",
+          "range": "ranged targeted",
+          "aoe": "none at base; some Judgment AoE",
+          "notes": "Single target chaos/fire bolt called from sky; signature GD nuke skill"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+        "anchor_quote": "Doom Bolt (100% Fire and Fire FX) … Hard cooldown-based … single-target nuke",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Doom Bolt on hard cooldown for single-target chaos nuke; Judgment used for AoE proc delivery; Sigil of Consumption/Curse of Frailty provide between-cast damage and resistance shred; acid/chaos DoTs carry between nukes",
+          "resource": "hard cooldown",
+          "tempo": "cooldown-gated nuke with DoT fill"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-judgment-of-doom-bolt-fire-sentinel/50808",
+        "anchor_quote": "Fire-conversion caster ability … Hard cooldown-based … every 20 seconds you get -5 seconds on all skills … Doom Bolt (100% Fire and Fire FX), Sigil of Consumption (75% Fire and Fire FX) Judgment (100% Fire)",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "fire Doom Bolt Sentinel (this version)",
+            "chaos Doom Bolt Warlock",
+            "vitality Doom Bolt Sentinel",
+            "acid Doom Bolt Sentinel",
+            "lightning Doom Bolt Warlock"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-chaos-doom-bolt-warlock-cr-4-28-170ex-6-20-sr110-callagadra-3-23-ravager-1-26-crate-55-sec-mogdrogen-3-07/107739",
+        "anchor_quote": "[1.1.9.0] Chaos Doom Bolt Warlock … [1.1.9.0] Tempest - Lightning Doom Bolt Warlock",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

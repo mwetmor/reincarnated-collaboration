@@ -1,0 +1,208 @@
+{
+  "kit_id": "poe2-supporting-fire",
+  "spine": {
+    "kit_id": "poe2-supporting-fire",
+    "folk_name": "Supporting Fire Tactician",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the kit's minion-mediated delivery (minions physically loose the arrows on command) is compressed into a player-cast ground_targeted_circle with a PROXY_SOVEREIGNTY door -- the player keeps the 'designate zone, arrows rain' loop but loses the visible 'my squad fires on my command' proxy texture. The banner/squad-tactics fantasy (corpus mech_note) is thinner than a true commanded-proxy system would render it, but the every-3-seconds ACTION (place a 14m volley) maps cleanly. Kept CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the kit's minion-mediated delivery (minions physically loose the arrows on command) is compressed into a player-cast ground_targeted_circle with a PROXY_SOVEREIGNTY door -- the player keeps the 'designate zone, arrows rain' loop but loses the visible 'my squad fires on my command' proxy texture. The banner/squad-tactics fantasy (corpus mech_note) is thinner than a true commanded-proxy system would render it, but the every-3-seconds ACTION (place a 14m volley) maps cleanly. Kept CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Supporting Fire (commanded arrow volley)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "commands minions to volley arrows onto a target location; arrows rain down from above over a 14-meter-radius zone -> ground_targeted_circle (arrows-rain-onto-target-zone; the pool/patch phrase-book member for a placed AoE at a chosen point). Physical (arrows) -> element-neutral. The 14m radius is the 'ridiculous base radius' identity. Delivered BY minions but the skill is a player-commanded zone-strike, not an autonomous minion loop -- the volley lands where the player designates."
+        }
+      ],
+      "motion_frame": "Cast Supporting Fire off cooldown to command minions to rain arrows onto a 14-meter target zone; keep the cooldown low (Archon of Undeath 200% recovery) and maintain Clarity/Upwelling buffs -- a one-button zone-nuke.",
+      "resource_economy": {
+        "cost_scale": "mana per cast",
+        "reservation_resource": "spirit",
+        "reservation_percent": "persistent-buff Spirit reservation (A Solid Plan REDUCES it) -- poe2 Spirit reservation pool, NOT spirit-guide",
+        "persistent_condition_shape": "proc-loop (cast-off-cooldown; Archon of Undeath 200% more recovery)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "target-zone designation (arrows rain on the marked 14m location)",
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Supporting Fire 14m ground_targeted_circle arrow-rain"
+          ],
+          "economy": [
+            "Spirit reservation for persistent buffs (A Solid Plan reduces)",
+            "cooldown-recovery scaling (Archon 200%)",
+            "mana per cast"
+          ],
+          "traits_affixes": [
+            "AoE-radius scalers",
+            "cooldown-recovery",
+            "ailment-threshold (Polish That Gear)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-11 (corpus gx). SPIRIT-RESERVATION FALSE FRIEND (addendum B): 'A Solid Plan reduces persistent buff spirit reservation' -> reservation_resource=spirit, reservation_percent; this is the poe2 Spirit RESERVATION POOL, explicitly NOT routed toward any spirit-guide surface (steward addendum-B binding). Geometry = ground_targeted_circle (arrows-onto-designated-zone), NOT totem/proxy: although minions deliver the arrows, the DOMINANT loop (7.2) is the player commanding a zone-strike at a chosen point every few seconds -- it reads as a placed AoE, not an autonomous minion army. Physical -> element-neutral. Tactician ascendancy 'banner/covering-fire' identity -> ZONE_CONTROL (the 14m zone-denial) + PROXY_SOVEREIGNTY (minion-commanded fire) via main-law 5 (R-M1). Support-existence note (C2 corpus): Tactician is the closest PoE2 has to a support kit but is self-buff/zone-strike, not party support -- mapped as the zone-nuke it functionally is in solo scope. eras 0.2-0.5 CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Supporting Fire Tactician Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in eras 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Supporting Fire Tactician' and aliases 'Supporting Fire banner Tactician', 'Tactician banner build' are real community usage",
+      "anchor_quote": "Supporting Fire Tactician Build Guide for Path of Exile 2 Return of the Ancients 0.5.4... Supporting Fire commands minions to shoot volleys of arrows at a target location with a base radius of 14 meters",
+      "source_url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Supporting Fire and banner skills; Tactician ascendancy; covers large zone with arrow volleys",
+      "anchor_quote": "Supporting Fire: command your minions to shoot volleys of arrow at a target location; these arrows have a ridiculous base radius of 14 meters",
+      "source_url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Tactician",
+          "notables": [
+            "Unleash Hell!",
+            "A Solid Plan",
+            "Stay Light Use Cover",
+            "Polish That Gear"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+        "anchor_quote": "Unleash Hell! - enables Supporting Fire itself; A Solid Plan - reduces persistent buff spirit reservation; Stay Light, Use Cover - defensive scaling; Polish That Gear - ailment threshold",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "supporting_fire": "arrow volley onto target location; base radius 14 meters; large-zone area coverage; arrows rain down from above"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+        "anchor_quote": "these arrows have a ridiculous base radius of 14 meters",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Supporting Fire off cooldown to command minions to volley arrows onto a 14-meter radius target zone. Cooldown dramatically reduced via Archon of Undeath node (200% more recovery). Maintain Clarity and Upwelling buffs. Boss: spam Supporting Fire + maintain debuffs."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+        "anchor_quote": "Supporting Fire commands minions to shoot volleys of arrow at a target location; these arrows have a ridiculous base radius of 14 meters",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Supporting Fire only (one-button)",
+            "Supporting Fire + banner hybrid",
+            "CI Energy Shield endgame variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/supporting-fire-tactician-build-guide",
+        "anchor_quote": "Chaos Inoculation + Heroic Tragedy for Energy Shield scaling (10,000+ ES endgame)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

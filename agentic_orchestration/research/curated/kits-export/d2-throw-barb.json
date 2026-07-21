@@ -1,0 +1,245 @@
+{
+  "kit_id": "d2-throw-barb",
+  "spine": {
+    "kit_id": "d2-throw-barb",
+    "folk_name": "Throw Barbarian",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r-2.4+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player gets ranged dual-throw weapon feel with Amplify Damage on-hit as a core tactical layer (weapon choice IS the kit); engine approximates via on-hit trigger rider. Mana leech (gear-sourced) is not a native resource key — noted as gear-mediated sustain.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player gets ranged dual-throw weapon feel with Amplify Damage on-hit as a core tactical layer (weapon choice IS the kit); engine approximates via on-hit trigger rider. Mana leech (gear-sourced) is not a native resource key — noted as gear-mediated sustain.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Double Throw",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dual thrown-weapon projectiles launched simultaneously at target; ranged physical delivery. Physical rule: element-neutral, identity via geometry. Lacerator unique attests 'Amplify Damage' proc — curse:amplify as on-hit rider (item_alterations attested)."
+        },
+        {
+          "source_skill": "Throwing Mastery",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Passive mastery providing damage, AR, crit, pierce, replenishment — scaffold/traits analog."
+        }
+      ],
+      "motion_frame": "Dual-hurl ranged loop: player stands at range and hurls both weapons simultaneously on repeat until packs cleared.",
+      "resource_economy": {
+        "spend": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce via Warshrike"
+          ],
+          "economy": [
+            "mana-leech sustain"
+          ],
+          "traits_affixes": [
+            "Throwing Mastery passive — damage/crit/pierce scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure-physical ranged kit; element-neutral per physical rule. Lacerator's Amplify Damage = curse:amplify on-hit rider (item_alterations source). Faith merc Fanaticism aura = free-toggle persistent self_buff (no reservation). Synergy: Double Swing scaffold support. ELEMENT_CONVERSION_PHYSICAL door is aspirational — build's identity IS the physical ranged output."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Throw Barbarian Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/double-throw-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Double Throw Barbarian Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: lod",
+      "anchor_quote": "This build has been buffed in Diablo 2 Resurrected with improvements to Throw Mastery and Double Throw.",
+      "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: d2r-2.4+",
+      "anchor_quote": "This build has been buffed in Diablo 2 Resurrected with improvements to Throw Mastery and Double Throw. Updates noted through Patch 2.8.",
+      "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Throw Barbarian'; aliases 'Throwing Barb', 'Double Throw Barbarian'",
+      "anchor_quote": "The Throw Barbarian is a heavily gear dependent character that takes advantage of the Double Throw and Throwing Mastery skills.",
+      "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Double Throw, Throwing Mastery",
+      "anchor_quote": "Double Throw is the main damage skill. Throwing Mastery functions as the primary damage mastery and should be maxed before Double Throw.",
+      "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Fortitude",
+            "Faith (merc)"
+          ],
+          "uniques": [
+            "Lacerator",
+            "Warshrike"
+          ],
+          "synergies": [
+            "Double Throw synergy: Double Swing (+12% damage per level)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+        "anchor_quote": "Double Swing provides damage synergy.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_uniques": [
+            "Lacerator (throwing axe, Amplify Damage)",
+            "Warshrike (throwing knife, pierce)"
+          ],
+          "notable_runewords": [
+            "Fortitude (armor)",
+            "Faith (merc, Fanaticism aura)"
+          ],
+          "notable_other": [
+            "Arreat's Face",
+            "Highlord's Wrath",
+            "Raven Frost"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+        "anchor_quote": "Ethereal Lacerator and Ethereal Warshrike. Faith runeword on the Act 1 Cold merc provides a Fanaticism aura.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "point",
+          "notes": "Dual thrown weapon projectiles launched simultaneously at target; ranged physical delivery"
+        },
+        "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+        "anchor_quote": "The Double Throw Barbarian is a weapon-slinging ranged attacker that deals raw Physical Damage while staying safely at distance, hurling two weapons simultaneously.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player dual-wields throwing weapons and hurls them simultaneously at enemies using Double Throw. Throwing Mastery provides passive boosts to damage, attack rating, critical strike, pierce chance, and quantity replenishment. Gear-dependent; requires high IAS and ethereal throwing weapons for endgame viability."
+        },
+        "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+        "anchor_quote": "Throwing Mastery boosts damage, attack rating, critical strike, pierce chance, and quantity replenishment for throwing weapons.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lacerator variant (axe-based)",
+            "Warshrike variant (knife-based, pierce-focused)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/throw-barbarian-build",
+        "anchor_quote": "Best Weapon choices include Lacerator unique throwing axes for 33% Amplify Damage chance and slowing, or Warshrike unique throwing knives for piercing and magic damage.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

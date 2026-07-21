@@ -1,0 +1,245 @@
+{
+  "kit_id": "gd-flames-of-ignaffar-purifier",
+  "spine": {
+    "kit_id": "gd-flames-of-ignaffar-purifier",
+    "folk_name": "Flames of Ignaffar Purifier",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flames of Ignaffar",
+          "geometry_value": "cone",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "channeled widening cone ('Fire ConeMan'; 'widening cone of purging fire that ramps intensity the longer it burns'); rooted while channeling with release-and-reposition kiting ('this kiting channeling skill build'). burn attested VERBATIM with magnitude: '50% of FoI damage is burn'."
+        },
+        {
+          "source_skill": "Inquisitor Seal",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed defensive platform: 'players stand on it during combat'."
+        }
+      ],
+      "motion_frame": "hold the cone: channel FoI as it widens and ramps, release to kite and re-place, standing on the Seal platform whenever possible while feeding a very hungry energy pool",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "ramp_per_s": "channel intensity ramps with hold duration ('ramps intensity the longer it burns')",
+        "cost_scale": "heavy energy drain ('really energy hungry') managed via gear"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "cone width/length growth with hold duration"
+          ],
+          "economy": [
+            "channel tick-cost + intensity ramp"
+          ],
+          "traits_affixes": [
+            "fire scaling",
+            "lightning/cold-to-fire conversion items ('Core Set: Mageslayer ... converting lightning and cold damage into fire')"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "cleanest kit in the batch: cone (exact phrase-book hit), ramp_per_s (native key for the hold-ramp), tick-cost channel, and a 0-clean burn attestation with magnitude. Conversion items -> ELEMENT_CONVERSION_MONO door. Devotion procs listed (Converted Seekers+Torch, Ghoul, Bat, Elemental Storm) with payload behaviors unfetched -> contribute nothing (0.3). R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "archive_url": null,
+      "site": "mmos.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn Ashes Of Malmouth Expansion Coming On October 11th",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.7.2] The fire ConeMan! Fire Flames of Ignaffar Purifier focused on conversion",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['aom-2017','patch-1.1-1.2']",
+      "anchor_quote": "Inquisitor debuted with Ashes of Malmouth (Oct 2017). FoI Purifier era floor aom-2017 is consistent with Inquisitor mastery intro.",
+      "source_url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Flames of Ignaffar Purifier'; aliases=['FoI Purifier','fire channel Purifier']",
+      "anchor_quote": "[1.1.7.2] The fire ConeMan! Fire Flames of Ignaffar Purifier … FoI … 'Fire ConeMan' (referencing cone-shaped attack pattern)",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Flames of Ignaffar','Inquisitor Seal']; delivery=channeled widening cone; ramps intensity with hold duration; resource=mana; rooted while channeling",
+      "anchor_quote": "Flames of Ignaffar (abbreviated as 'FoI') is a channeled ability … 'this kiting channeling skill build' … 'really energy hungry' … build uses Inquisitor Seal … players stand on it during combat",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.7.2] The fire ConeMan! Fire Flames of Ignaffar Purifier"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Seekers (converted)",
+            "Torch",
+            "Ghoul",
+            "Bat",
+            "Elemental Storm"
+          ],
+          "notes": "Fire devotion path; Ghoul for survival"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+        "anchor_quote": "Converted Seekers+Torch, Ghoul, Bat, Elemental Storm",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_set": "Mageslayer set",
+          "notes": "Mageslayer provides core FoI support; conversion items convert lightning/cold to fire to focus damage type"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+        "anchor_quote": "Core Set: Mageslayer … converting lightning and cold damage into fire",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "channeled cone (beam subtype)",
+          "footprint": "widening cone in front of caster",
+          "range": "medium channel range",
+          "aoe": "cone expanding with hold duration",
+          "notes": "Channel is described as a widening cone; FoI folk name 'ConeMan' captures this geometry"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+        "anchor_quote": "Fire ConeMan … widening cone … 50% of FoI damage is burn",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Hold FoI channel; widening fire cone ramps intensity with duration; player rooted but can kite by releasing and repositioning; Inquisitor Seal placed for defensive platform; high energy consumption managed via gear",
+          "resource": "mana channel (heavy energy drain)",
+          "tempo": "channel burst with repositioning pauses"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-2-the-fire-coneman-fire-flames-of-ignaffar-purifier-focused-on-conversion/102294",
+        "anchor_quote": "this kiting channeling skill build … really energy hungry … widening cone of purging fire that ramps intensity the longer it burns … players stand on it during combat",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "fire FoI Purifier (this)",
+            "chaos FoI Purifier (SSF HC variant)",
+            "FoI retaliation Purifier (Hybris set)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-2-ssf-hc-beginner-chaos-foi-purifier-build/137978",
+        "anchor_quote": "[1.2.1.2] SSF HC Beginner Chaos FoI Purifier Build",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "kit_id": "d4-evade-sb",
+  "spine": {
+    "kit_id": "d4-evade-sb",
+    "folk_name": "Evade Spiritborn",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null. No ailment. Evade-as-damage-verb has no direct engine geometry parallel — defensive_dash + trigger_grammar captures intent but the mapped 'Evade IS the attack' identity is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null. No ailment. Evade-as-damage-verb has no direct engine geometry parallel — defensive_dash + trigger_grammar captures intent but the mapped 'Evade IS the attack' identity is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Evade (Rushing Claw / Evasive Swipe variant)",
+          "geometry_value": "defensive_dash",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Evade as primary combat verb: 'With this build you annihilate everything in sight with a barrage of auto-aimed projectiles while your evading around' per identity anchor; 'allows you to HOLD to evade (no scroll wheel needed) and launch Storm Feathers thanks to Eagle Primary/Main Hall' per skill_loop anchor; Evade = defensive_dash per phrase-book (utility/defensive repositioning), but here it IS the trigger for damage; damage delivered through Storm Feathers barrage on each Evade event; element null (physical; no element damage-type language in any anchor)"
+        },
+        {
+          "source_skill": "Storm Feathers (Eagle Main Hall auto-projectiles)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Auto-aimed projectiles launched from Spiritborn body during Evade per skill_geometry payload: 'Storm Feathers from Eagle Main Hall are auto-aimed projectiles launched from Spiritborn body during Evade; each dodge generates projectile barrage'; 'barrage of auto-aimed projectiles' per identity anchor; multi_projectile delivery; element null"
+        }
+      ],
+      "motion_frame": "Evade repeatedly via Rushing Claw Evasive Swipe; Eagle Main Hall Storm Feathers auto-target enemies on each Evade per skill_loop payload; consume minimum 4 Ferocity to refill Evade charges; Berú of Kwatli's Grace 5-piece enables sustained evade-chain loop",
+      "resource_economy": {
+        "cost_scale": "Vigor (Spiritborn class resource); verify mechanics: 'Basic Skills are spammable skills with the primary purpose of generating Vigor, the Resource used by other skills'; 'consume minimum 4 Ferocity to refill Evade charges' per skill_loop payload — Ferocity stack threshold gates Evade charge refill; charge_stack_sub_shape: cycle (4 Ferocity consumed per Evade refill)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Storm Feathers barrage on each Evade event; Berú of Kwatli's Grace 5-piece sustains Evade chain per capstone anchor"
+          ],
+          "economy": [
+            "Temerity (defensive scaler)",
+            "Wushe Nak Pa charm (scaler-only)",
+            "Ferocity-to-Evade-charge refill loop per skill_loop anchor"
+          ],
+          "traits_affixes": [
+            "Loyalty's Mantle (scaler-only)",
+            "Aspect of Supremacy, Aspect of Interdiction, Aspect of Redirected Force (scalers-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MOMENTUM_CASCADE T4 door: Evade-chain identity where each Evade triggers projectile burst — momentum-via-repositioning is the core loop feel. trigger_grammar on-cast-linked: Evade cast → Storm Feathers launch; the trigger chain is one hop (Evade fires Storm Feathers), MAX_CHAIN_DEPTH=1 compliant. Vigor resource attested in verify mechanics anchor. Ferocity charge-stack: 4-threshold consume for Evade refill = cycle sub-shape (consume-to-refill, not accumulator-then-release). Element null: no element damage-type language in any anchor. No ailment attested. Evasive Swipe = LoH-era skill variant replacing scroll-wheel per variants row."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Ignition",
+      "title": "Evade Spiritborn Endgame Build Guide for Diablo IV Season 13 - Season of Reckoning",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://primagames.com/tips/best-spiritborn-builds-in-diablo-4-vessel-of-hatred-season-6",
+      "archive_url": null,
+      "site": "primagames.com",
+      "author_handle": null,
+      "title": "Best Spiritborn Builds in Diablo 4 Vessel of Hatred Season 6",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/spiritborn-skills/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Diablo 4 Spiritborn Skills Guide",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in voh-s6+",
+      "anchor_quote": "Almost every Spiritborn build is exceptionally strong in Diablo 4, but Evade Spiritborn are on another level",
+      "source_url": "https://primagames.com/tips/best-spiritborn-builds-in-diablo-4-vessel-of-hatred-season-6",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Evade Spiritborn; aliases Evade Spiritborn D4, Rushing Claw Evade Spiritborn are real community usage",
+      "anchor_quote": "With this build you annihilate everything in sight with a barrage of auto-aimed projectiles while your evading around.",
+      "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Evade(aspected) + Rushing Claw; Spiritborn resource (Vigor per instrument); Eagle Spirit Hall Storm Feathers mechanic",
+      "anchor_quote": "Basic Skills are spammable skills with the primary purpose of generating Vigor, the Resource used by other skills.",
+      "source_url": "https://www.icy-veins.com/d4/guides/spiritborn-skills/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Ignition",
+          "site": "maxroll.gg",
+          "co_author": null
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Supremacy",
+            "Aspect of Interdiction",
+            "Aspect of Redirected Force",
+            "Falling Feathers"
+          ],
+          "charm_set": [
+            "Berú of Kwatli's Grace (5-piece)"
+          ],
+          "uniques": [
+            "Loyalty's Mantle",
+            "Temerity",
+            "Wushe Nak Pa"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+        "anchor_quote": "5-piece Berú of Kwatli's Grace talisman set",
+        "abstained": 0,
+        "conf": 0.73
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Loyalty's Mantle",
+            "Temerity",
+            "Wushe Nak Pa charm",
+            "Berú of Kwatli's Grace 5-piece"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+        "anchor_quote": "Essential uniques: Loyalty's Mantle, Temerity, and Wushe Nak Pa charm",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "point",
+          "notes": "Storm Feathers from Eagle Main Hall are auto-aimed projectiles launched from Spiritborn body during Evade; each dodge generates projectile barrage"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+        "anchor_quote": "With this build you annihilate everything in sight with a barrage of auto-aimed projectiles while your evading around",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Evade repeatedly via Rushing Claw Evasive Swipe variant; Eagle Main Hall Storm Feathers auto-target enemies on each Evade; consume minimum 4 Ferocity to refill Evade charges; Berú of Kwatli's Grace 5-piece enables sustained loop",
+          "rotation_style": "evade_chain"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+        "anchor_quote": "allows you to HOLD to evade (no scroll wheel needed) and launch Storm Feathers thanks to Eagle Primary/Main Hall",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "VoH Season 6 launch variant centered on Eagle Spirit Hall; Season 13 variant requires LoH-specific Berú of Kwatli's Grace; Evasive Swipe replaces scroll-wheel input in LoH era"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/evade-spiritborn-build-guide",
+        "anchor_quote": "new Lord of Hatred skill variant Rushing Claw, called Evasive Swipe",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

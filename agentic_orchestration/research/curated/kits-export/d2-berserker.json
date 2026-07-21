@@ -1,0 +1,237 @@
+{
+  "kit_id": "d2-berserker",
+  "spine": {
+    "kit_id": "d2-berserker",
+    "folk_name": "Berserker",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: magic damage conversion (engine has no magic element family; approximated as element-neutral physical with DEFENSIVE_TRADEOFF trade); Hork loot-economy identity loop not capturable in engine scope.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "fear"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: magic damage conversion (engine has no magic element family; approximated as element-neutral physical with DEFENSIVE_TRADEOFF trade); Hork loot-economy identity loop not capturable in engine scope.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Berserk",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target single-target magic-damage melee swing; anchor: 'Berserk violently swings your primary weapon at the targeted enemy, dealing Magic Damage. You have 0 Defense while using this Skill.' Physical → magic conversion; engine physical rule applies: element-neutral (magic has no engine family); identity via DEFENSIVE_TRADEOFF T4 (zero-defense trade)"
+        },
+        {
+          "source_skill": "Howl",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "fear"
+          ],
+          "delivery_notes": "Warcry cone scatter; 'Howl used as panic tool to scatter mobs' — fear attested via corpus description 'Howl as panic tool'; §2 fear = boss-immune; utility not damage"
+        }
+      ],
+      "motion_frame": "Stand-and-swing Berserk for max single-target magic damage; defense drops to zero mid-swing; Howl for emergency mob scatter",
+      "resource_economy": {
+        "cost_scale": "Berserk mana per swing; no special economy"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Find Item / Hork loot loop identity — docket: loot-economy-identity (§A row 4, §CROSS row 1 adjacent)"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Magic damage = no engine element family (physical rule extension: magic is also element-neutral); pure-physical → element-neutral crosswalk applied. DEFENSIVE_TRADEOFF T4 covers zero-defense-during-swing identity. Howl fear: §2 attests fear status ('panic tool to scatter mobs' = monsters flee = fear); boss-immune noted. Find-Item/Hork identity: §A row 4 — combat loop maps natively (Berserk swing), loot-economy loop filed to docket-candidate. Synergy chain scaffold per §A row 1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "MacroBioBoi; DarkHumility (orig)",
+      "title": "Berserk Barbarian Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/best-berserk-barb-mf-off-hand-t1037414.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Nate",
+      "title": "Best berserk barb MF off hand?",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod",
+      "anchor_quote": "berserk barb... the build works well solo (P1) but struggles in multiplayer settings",
+      "source_url": "https://diablo2.io/forums/best-berserk-barb-mf-off-hand-t1037414.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "Berserk Barbarian Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Berserker; aliases Berserk Barbarian, Berserker Barb",
+      "anchor_quote": "Zerk Barb... Pit Zerker pays homage to one of his best known specialties",
+      "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Berserk (converts to magic damage, zero defense), Howl",
+      "anchor_quote": "Berserk violently swings your primary weapon at the targeted enemy, dealing Magic Damage. You have 0 Defense while using this Skill.",
+      "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MacroBioBoi",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+        "anchor_quote": "Updated and Maintained by MacroBioBoi",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief (primary weapon)",
+            "Enigma (armor)"
+          ],
+          "notes": "Find Item (Hork) is key mechanic for loot farming; Pit Zerker identity tied to Pit farming loop"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+        "anchor_quote": "Pit Zerker pays homage to one of his best known specialties",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grief Phase Blade (primary damage weapon)",
+            "Enigma (mobility)",
+            "Immortal King's Will (set piece)"
+          ],
+          "notes": "Avoiding cold damage items important to preserve corpses for Find Item/Hork"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+        "anchor_quote": "avoiding cold damage to prevent corpse shattering needed for the Find Item mechanic",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target single swing",
+          "footprint": "point (single enemy)",
+          "range_type": "melee",
+          "notes": "Single-target magic damage melee; no AoE; Howl has warcry AoE but is utility not damage"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+        "anchor_quote": "You have 0 Defense while using this Skill",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Berserk converts all physical weapon damage to magic damage on each swing; defense drops to zero during use. Player targets single enemy, swings Berserk for magic damage to pierce physical immunities; Howl used as panic tool to scatter mobs."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+        "anchor_quote": "Berserk violently swings your primary weapon at the targeted enemy, dealing Magic Damage. You have 0 Defense while using this Skill.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pit Zerker (Pitzerker — Pit farming MF variant)",
+            "Zerk Barb (general label)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/berserk-barbarian",
+        "anchor_quote": "Pit Zerker pays homage to one of his best known specialties",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

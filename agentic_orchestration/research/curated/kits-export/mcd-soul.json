@@ -1,0 +1,274 @@
+{
+  "kit_id": "mcd-soul",
+  "spine": {
+    "kit_id": "mcd-soul",
+    "folk_name": "Soul Build (Corrupted Beacon economy)",
+    "game": "mcd",
+    "corpus_bucket": "mcd",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "mcd-2020-launch;mcd-2022-final-v1.17",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-mcd-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Soul resource has an accumulate-then-spend duality not captured by tick-cost alone; the beam is the drain and killing is the fill — the engine's PERSISTENCE_ENGINE_uptime approximates this but the two-phase loop (gather vs burn) is richer than a simple toggle. Player would feel the core beam+soul-economy identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 5,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Soul resource has an accumulate-then-spend duality not captured by tick-cost alone; the beam is the drain and killing is the fill — the engine's PERSISTENCE_ENGINE_uptime approximates this but the two-phase loop (gather vs burn) is richer than a simple toggle. Player would feel the core beam+soul-economy identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Corrupted Beacon (sustained piercing beam, soul-consuming)",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Linear piercing beam ~40-block range; toggleable; consumes 20 souls/sec; 'cannot penetrate walls'; 'continuously damages all mobs in line'"
+        },
+        {
+          "source_skill": "Harvester artifact (AoE soul burst)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "AoE radial soul-burst on activation; range not quantified in fetched text; soul cost (amount not specified in fetched text)"
+        },
+        {
+          "source_skill": "Soul-gathering auto-weapon (bow/crossbow for soul replenishment)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged weapon used primarily for soul gathering; Soul Siphon enchant adds 20% chance for 1-5 bonus souls per hit"
+        }
+      ],
+      "motion_frame": "Kill packs with weapon to fill soul meter → activate Corrupted Beacon on elites/bosses for sustained beam DPS → Harvester for AoE clear → maintain soul income to sustain beam",
+      "resource_economy": {
+        "soul_drain_per_second": 20,
+        "soul_gather_source": "kill-based soul-gather gear + Soul Siphon 20% chance for 1-5 souls per hit",
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "beam_channel (Corrupted Beacon pierce)",
+            "circle (Harvester AoE burst)"
+          ],
+          "economy": [
+            "persistent_condition_shape: tick-cost (20 souls/sec)",
+            "on_kill soul-gather"
+          ],
+          "traits_affixes": [
+            "Soul Siphon (20% chance +1-5 souls on hit)",
+            "Enigma Resonator (0-25% triple damage by souls held)",
+            "Souldancer Robe (amplifies soul gather + artifact damage)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MCD element-silent — 'shadow beam' and 'soul' are flavor/resource per §B5-MCD; no soul damage family in MCD. No mastery tree: capstone_alterations structurally abstains. Soul resource is analogous to persistent_condition_shape tick-cost drain. Enigma Resonator's triple-damage condition (souls-held threshold) maps as a stat-as-damage-substrate accrual candidate — filed as family accrual."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.windowscentral.com/minecraft-dungeons-soul-guide",
+      "archive_url": null,
+      "site": "windowscentral.com",
+      "author_handle": null,
+      "title": "Minecraft Dungeons Soul Magic Guide – Windows Central",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Soul_Siphon",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Soul Siphon – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Soul",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Soul – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Corrupted_Beacon",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Corrupted Beacon – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Enigma_Resonator",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Enigma Resonator – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era mcd-2020-launch through mcd-2022-final-v1.17 — Corrupted Beacon and Soul Siphon both introduced in Beta phase",
+      "anchor_quote": "Soul Siphon debuted during the Dungeons Beta phase",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Soul_Siphon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Soul Build (Corrupted Beacon economy) — community-named build using Corrupted Beacon artifact as damage anchor fueled by soul-economy from Soul Siphon enchantment and soul-gathering gear",
+      "anchor_quote": "The caster-style soul user uses Soul Robes or the Unique Souldancer Robe... allowing you to shred large groups of enemies using the Corrupted Beacon or the Harvester",
+      "source_url": "https://www.windowscentral.com/minecraft-dungeons-soul-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Corrupted Beacon consumes souls (20/sec) to fire a sustained beam; Harvester provides AoE soul-burst; Soul Siphon enchantment gives 20% chance to grant extra souls on hit; Souldancer Robe / Soul Robe amplify soul gather rate; loop: gather Souls → fire Beacon",
+      "anchor_quote": "A fully charged Corrupted Beacon can provide some of the highest damage-per-second area damage in the game",
+      "source_url": "https://www.windowscentral.com/minecraft-dungeons-soul-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "enchantments": [
+            "Soul Siphon — 20% chance per hit to gain 1-5 bonus souls (T1-T3)",
+            "Enigma Resonator — 0-25% chance to deal triple damage based on souls held",
+            "Anima Conduit — listed in corpus; soul-to-health conversion (not fetched detail)"
+          ],
+          "artifacts": [
+            "Corrupted Beacon — 20 souls/sec; piercing beam; toggleable",
+            "Harvester — AoE soul burst; soul cost",
+            "Torment Quiver — 30 soul cost; listed in Soul Warrior build (thegamer.com)",
+            "Soul Healer — healing artifact"
+          ],
+          "armor": [
+            "Souldancer Robe — unique armor; amplifies soul gather and artifact damage",
+            "Soul Robe — standard soul armor variant"
+          ]
+        },
+        "source_url": "https://www.windowscentral.com/minecraft-dungeons-soul-guide",
+        "anchor_quote": "soul user uses Soul Robes or the Unique Souldancer Robe... allowing you to shred large groups of enemies using the Corrupted Beacon or the Harvester",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "beam": "Corrupted Beacon: piercing linear beam, ~40 block range, continuously damages all mobs in line; cannot penetrate walls; toggleable (no hold required)",
+          "aoe": "Harvester artifact: AoE soul-burst on activation (radial, range not quantified in fetched text)",
+          "delivery": "beam (Corrupted Beacon) + ranged projectile (Feral Soul Crossbow / soul-gathering bow)"
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Corrupted_Beacon",
+        "anchor_quote": "fires a piercing beam with approximately 40-block range that exceeds the boundaries of the screen",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Equip soul-gathering weapons and armor; kill enemies to accumulate souls (+1 per kill per soul-gathering slot; Soul Siphon enchantment adds 20% chance for 1-5 bonus souls per hit); activate Corrupted Beacon to fire sustained beam consuming 20 souls/second; Harvester artifact provides AoE soul-burst on activation. Loop: kill pack → fill soul meter → fire Beacon on elites/bosses.",
+          "resource": "Souls (currency — gathered on kill; consumed at 20/sec by Beacon; replenished by Soul Siphon and soul-gathering gear)"
+        },
+        "source_url": "https://www.windowscentral.com/minecraft-dungeons-soul-guide",
+        "anchor_quote": "A fully charged Corrupted Beacon can provide some of the highest damage-per-second area damage in the game",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Soul Warrior — melee weapon (Soul Scythe) + Soul Siphon + Anima Conduit + Corrupted Beacon + Souldancer Robe",
+            "Soul Fighter — Corrupted Beacon + Harvester + Soul Healer",
+            "Soul Mage — Soul Knife + Soul Crossbow + Soul Robe + soul artifacts"
+          ]
+        },
+        "source_url": "https://www.gamingscan.com/minecraft-dungeons-best-builds/",
+        "anchor_quote": "Corrupted Beacon to fire a powerful beam of energy at a specific target",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

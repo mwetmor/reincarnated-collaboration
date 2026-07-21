@@ -1,0 +1,221 @@
+{
+  "kit_id": "d2-poison-javazon",
+  "spine": {
+    "kit_id": "d2-poison-javazon",
+    "folk_name": "Poison Javazon",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Overlapping-zone stacking identity (throw to two sides simultaneously) has no engine enforcement — player spatial tactic, not a mechanic. Patient kill-confirmation loop (DoT, wait, confirm) is mood/pacing that engine captures only via DoT uptime, not timing UI.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Overlapping-zone stacking identity (throw to two sides simultaneously) has no engine enforcement — player spatial tactic, not a mechanic. Patient kill-confirmation loop (DoT, wait, confirm) is mood/pacing that engine captures only via DoT uptime, not timing UI.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Plague Javelin",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Projectile thrown to landing point, explodes into large poison gas cloud on contact. Dossier: 'projectile leaving a trail of poison gas behind it... throw to one side of the creature pack.'"
+        },
+        {
+          "source_skill": "Poison Javelin",
+          "geometry_value": "line",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Thrown projectile leaving poison trail; dossier: 'Poison Javelin is used to attack monsters on the other side.' Overlapping gas clouds stack DoT."
+        }
+      ],
+      "motion_frame": "Throw Plague Javelin cloud to one side of pack; Poison Javelin to other side; overlapping gas zones stack poison DoT; patient kill-confirmation.",
+      "resource_economy": {
+        "cost_scale": "steady-mana",
+        "cost_slope": "flat-per-cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ZONE_CONTROL",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "cloud overlap zone-stacking tactic"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Plague Javelin synergy scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Earth element (amazon, venom/nature-themed per main-law element table; not corruption-themed → earth not shadow). Poison ailment attested: dossier 'poison gas cloud,' 'Plague Javelin adds poison damage,' verify_ledger CONFIRMED 'poison DoT delivery.' DoT-timing ruling: 'poison DoT' attests delivery timing, not a second ailment. LF/PJ hybrid is a separate variant — pure poison-javazon is the identity mapped here."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: PvM LF/PJ Javazon Guide for v1.10",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/forums/threads/gitos-poison-javazon-guide.30058/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Gito's Poison Javazon Guide!~",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod",
+      "anchor_quote": "PvM LF/PJ Javazon Guide for v1.10",
+      "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Poison Javazon' or 'Plague Javelin Amazon' is real community usage",
+      "anchor_quote": "Gito's Poison Javazon Guide!~",
+      "source_url": "https://www.purediablo.com/forums/threads/gitos-poison-javazon-guide.30058/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Plague Javelin, Poison Javelin; poison DoT delivery",
+      "anchor_quote": "The main skill is Plague Javelin which you throw to one side of the creature pack, and Poison Javelin is used to attack monsters on the other side",
+      "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "notes": "Plague Javelin: projectile thrown to landing point, explodes into large poison gas cloud on contact. Poison Javelin: trail of poison gas behind projectile."
+        },
+        "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+        "anchor_quote": "Plague Javelin adds poison damage to thrown javelins, with the projectile leaving a trail of poison gas behind it",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Throw Plague Javelin to one side of monster pack creating poison gas cloud; throw Poison Javelin at other side. Clouds overlap for stacking poison DoT. Enemies run through gas zones; patient kill-confirmation gameplay.",
+          "source_note": "purediablo.com PvM LF/PJ javazon guide v1.10"
+        },
+        "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+        "anchor_quote": "The main skill is Plague Javelin which you throw to one side of the creature pack, and Poison Javelin is used to attack monsters on the other side",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Poison Javazon (Plague Javelin + Poison Javelin)",
+            "Lightning Fury / Poison Javazon hybrid (LF/PJ — listed in same guide; shares skills, different damage emphasis)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+        "anchor_quote": "PvM LF/PJ Javazon Guide for v1.10",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "kit_id": "poe1-viper-poison",
+  "spine": {
+    "kit_id": "poe1-viper-poison",
+    "folk_name": "Poison Assassin (Viper/Pestilent)",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift only: Pestilent's kill-burst consumes-remaining-poison math simplified to on-kill cascade; poison instance bookkeeping approximated by native stack cap. Identity (stack poison fast, kills pop the pack) intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift only: Pestilent's kill-burst consumes-remaining-poison math simplified to on-kill cascade; poison instance bookkeeping approximated by native stack cap. Identity (stack poison fast, kills pop the pack) intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Pestilent Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "fast chaos-poison melee strike; when a poisoned target DIES the remaining poison bursts to neighbors (27-unit base debuff radius) — on-kill contagion pop, landed on the GEOMETRY_PROPAGATION_cascade door (native on-kill propagation)"
+        },
+        {
+          "source_skill": "Viper Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "single-target boss poison stacker: layers multiple concurrent poison instances (engine poison is stack-additive native, cap 5-10)"
+        }
+      ],
+      "motion_frame": "run-in melee poison stacker: fast strikes layer poison, kills pop contagion across the pack, focus-stack a single target for bosses",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike pair (clear tool + boss tool)",
+            "kill-pop spread radius"
+          ],
+          "economy": [
+            "mana-light spend = default chassis (not identity-load-bearing, R-M4)"
+          ],
+          "traits_affixes": [
+            "poison magnitude/duration/stack-count",
+            "chaos/earth damage scaling",
+            "Coralito-class poisoned-enemies-take-more -> curse:amplify-flavor affix note"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Assassin venom register -> earth family (crosswalk 1 poison row venom side; shadow alternative noted). The contagion-on-kill IS the cascade door — native. Ascendancy prolif/Toxic Delivery = trait lane. Wither scaffold noted as curse:amplify-class. Eras ERRATA-corrected at ingest-4 (3.7-3.13 confirmed; 3.0-3.6 floor removed — Pestilent Strike debuts 3.8)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2646990",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "tylam6746",
+      "title": "[3.8] Pestilent Strike & Viper Strike Poison Assassin | Fast & Deadly | 6M Shaper DPS",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Pestilent_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Pestilent Strike - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Viper_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Viper Strike - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Pestilent Strike 'Added a new Dexterity/Intelligence Skill Gem - Pestilent Strike' in version 3.8.0; skill did not exist in 3.0-3.6. Viper Strike existed but the dual-skill Assassin archetype as stamped requires both.",
+      "source_url": "https://poedb.tw/us/Pestilent_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "'[3.8] Pestilent Strike & Viper Strike Poison Assassin | Fast & Deadly | 6M Shaper DPS' thread by tylam6746 documents the build from patch 3.8",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Poison Assassin (Viper/Pestilent)' is real community usage",
+      "anchor_quote": "'[3.8] Pestilent Strike & Viper Strike Poison Assassin | Fast & Deadly | 6M Shaper DPS' — official forum thread title",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Alias 'Pestilent Strike' is real community usage for this archetype",
+      "anchor_quote": "'[3.8] Assassin Poisonator | Cobra Lash / Venom Gyre' guide and Pestilent Strike forum thread confirm the Assassin poison archetype name",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Pestilent Strike + Viper Strike; chaos melee poison stacking; Pestilent Strike spreads poison to nearby enemies on kill; Viper Strike handles single-target boss damage",
+      "anchor_quote": "'Pestilent Strike clears packs very easily due to the poison prolif... Pest Strike alone needs pretty high-end gear in order to beat Viper Strike in terms of single target damage'",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "tylam6746",
+          "site": "pathofexile.com/forum",
+          "note": "authored [3.8] Pestilent Strike & Viper Strike Poison Assassin guide"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Assassin: Noxious Strike (poison proliferation on kill)",
+            "Assassin: Toxic Delivery (multiplied poison damage)",
+            "Pathfinder: Master Surgeon + Nature's Adrenaline (flask-stacking poison variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Coralito's Signature flask (poisoned enemies take increased damage)",
+            "Dying Sun for additional projectiles on Barrage swap",
+            "Shavronne's Wrappings for CI variant (Chaos Innoculation)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "melee strike (at-target)",
+          "spread_radius": "27 unit base debuff radius on Pestilent Strike kill spread",
+          "range": "melee range strike; no inherent projectile",
+          "viper_strike": "single-target direct melee hit with poison stacking"
+        },
+        "source_url": "https://poedb.tw/us/Pestilent_Strike",
+        "anchor_quote": "'The base debuff radius is 27'; 'Strike an enemy, poisoning them and applying a short duration debuff'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Use Pestilent Strike for pack clearing — chaos melee strike that spreads a chaos DoT debuff to nearby enemies when a poisoned enemy dies; swap to Viper Strike for single-target boss damage via stacking multiple poison instances; both skills on Assassin for maximum poison effect"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+        "anchor_quote": "'Pestilent Strike clears packs very easily due to the poison prolif... use Viper Strike in the chest piece for flexible gameplay'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Assassin (primary; poison stacking focus)",
+            "Pathfinder (flask-poison variant for sustain)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2646990",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

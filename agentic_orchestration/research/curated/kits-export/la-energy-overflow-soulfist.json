@@ -1,0 +1,287 @@
+{
+  "kit_id": "la-energy-overflow-soulfist",
+  "spine": {
+    "kit_id": "la-energy-overflow-soulfist",
+    "folk_name": "Energy Overflow Soulfist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Inner-energy floor mechanic (Energy Overflow = gauge never empties) is a novel resource inversion; resource_economy carries the shape but the floor semantics are imprecise. Hype level-scaling (L2 40s sustained vs L3 20s burst) maps as two-depth burst_window shape in delivery_notes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Inner-energy floor mechanic (Energy Overflow = gauge never empties) is a novel resource inversion; resource_economy carries the shape but the floor semantics are imprecise. Hype level-scaling (L2 40s sustained vs L3 20s burst) maps as two-depth burst_window shape in delivery_notes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shadowbreaker",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Priority damage skill; melee-range ki strike"
+        },
+        {
+          "source_skill": "Merciless Pummel",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Priority damage skill"
+        },
+        {
+          "source_skill": "Lightning Palm",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage + counter — Lightning is name-only (no damage-type descriptor) → null"
+        },
+        {
+          "source_skill": "Celestial Palm",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Priority damage skill; Celestial = name-only → null"
+        },
+        {
+          "source_skill": "Force Orb",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ki orb projectile"
+        },
+        {
+          "source_skill": "Energy Release",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-buff scaling — DIRECTION TEST: self deals more → self_buff, no curse"
+        },
+        {
+          "source_skill": "Bolting Crash",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Destruction + Counter capability — raid-break vocab (NOT sunder); delivery_notes only"
+        },
+        {
+          "source_skill": "Flash Step",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mobility"
+        }
+      ],
+      "motion_frame": "Use skills to maintain Inner Energy above 0 (Energy Overflow prevents depletion to zero); activate Hype (Z) for sustained damage window (Level 2 = 40s primary; Level 3 = 20s burst); bonus Attack Speed + Cooldown Reduction + Increased Damage per level; priority skill rotation: Shadowbreaker, Merciless Pummel, Lightning Palm, Celestial Palm",
+      "resource_economy": {
+        "inner_energy": "sustained above 0 by Energy Overflow identity — floor mechanic prevents empty; Hype activation at threshold",
+        "hype_level": "Level 2 (40s) = primary sustained window; Level 3 (20s) = occasional burst"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike",
+            "melee_arc",
+            "ground_slam",
+            "blink"
+          ],
+          "economy": [
+            "inner_energy",
+            "hype_level"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: Lightning Palm, Celestial Palm, Bolting Crash, Force Orb are skill names — D4 NAME-ONLY LAW. Inner energy floor mechanic (Energy Overflow = never drops to 0) is the identity differentiator from Robust Spirit; mapped as inverted-floor note in resource_economy. Energy Release self-buff is DIRECTION TEST pass (self deals more → not a curse). Bolting Crash Destruction/Counter = raid-break vocab, delivery_notes only."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Energy Overflow Soulfist Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Author: Civo, Last Updated: January 11, 2026 — active maxroll.gg guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Energy Overflow Soulfist; continuous-damage variant; Inner Energy never drops below 1",
+      "anchor_quote": "Energy Overflow allows you to play around unrelenting blows with no penalty",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Inner Energy never drops below 1 with Energy Overflow; high attack and move speed; constant aggressive uptime; forgiving and mobile vs Robust Spirit's burst-window structure",
+      "anchor_quote": "Hype (Z) Level 2 (40s): 5/10/15% Attack Speed, 5/10/25% Cooldown Reduction, 5/25/60% Increased Damage — primary sustained damage window",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+          "last_updated": "2026-01-11"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+        "anchor_quote": "Last Updated: January 11, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Cursed Doll",
+            "Adrenaline",
+            "Raid Captain",
+            "Stabilized Status"
+          ],
+          "gems_damage": [
+            "Shadowbreaker",
+            "Merciless Pummel",
+            "Lightning Palm",
+            "Celestial Palm",
+            "Force Orb"
+          ],
+          "gems_cooldown": [
+            "Shadowbreaker",
+            "Merciless Pummel",
+            "Lightning Palm",
+            "Celestial Palm",
+            "Force Orb",
+            "Energy Release"
+          ],
+          "bracelet_rolls": [
+            "Superiority",
+            "Circulate",
+            "Fervor",
+            "Hammer",
+            "Wedge",
+            "Assail",
+            "Precise",
+            "Weapon Power",
+            "Strength"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Cursed Doll, Adrenaline, Raid Captain, Stabilized Status",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "note": "Geometry specifics sparse in guide; Shadowbreaker/Merciless Pummel/Lightning Palm are melee-range or short-range ki strikes; Lightning Palm doubles as counter; Bolting Crash has Destruction and Counter capability; World Decimation is Awakening"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+        "anchor_quote": "Lightning Palm (primary damage dealers; Lightning Palm doubles as counter); Bolting Crash (Synergy with Destruction and Counter capability)",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use skills to maintain Inner Energy above 0 (Energy Overflow prevents drop to 0); activate Hype (Z) for timed window; target Level 2 window (40s) as primary sustained window; Level 3 (20s) occasional burst; bonus: 5/10/15% Attack Speed, 5/10/25% Cooldown Reduction, 5/25/60% Increased Damage per level; priority skills: Shadowbreaker, Merciless Pummel, Lightning Palm, Celestial Palm; use Energy Release for self-buff scaling; Flash Step for mobility"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+        "anchor_quote": "Level 2 (40s): Primary sustained damage window; 5/10/15% Attack Speed, 5/10/25% Cooldown Reduction, 5/25/60% Increased Damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Robust Spirit Soulfist — burst-window structure contrasted with Energy Overflow's continuous sustained damage"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/energy-overflow-soulfist-raid-guide",
+        "anchor_quote": "forgiving and mobile vs Robust Spirit's burst-window structure",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "kit_id": "gd-trozan-druid",
+  "spine": {
+    "kit_id": "gd-trozan-druid",
+    "folk_name": "Trozan's Sky Shard Druid",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "base-2016;aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold/lightning HYBRID collapsed to element_primary water + secondary lightning per §1 top-2 rule; the Codex hybrid's cold->lightning conversion identity carried by ELEMENT_CONVERSION_HYBRID door. Source player of the pure-cold Skybreach variant loses the lightning slot — noted as variant, dominant published loop is the cold caster.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold/lightning HYBRID collapsed to element_primary water + secondary lightning per §1 top-2 rule; the Codex hybrid's cold->lightning conversion identity carried by ELEMENT_CONVERSION_HYBRID door. Source player of the pure-cold Skybreach variant loses the lightning slot — noted as variant, dominant published loop is the cold caster.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Trozan's Sky Shard",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "At-target ground call: 'three projectiles per cast' rain a large-AoE meteor/blizzard volley on the pack; cooldown-caster (Arcanist CDR the key investment). Cold primary (water ice-register, §1); cold/lightning hybrid variant carries lightning secondary."
+        },
+        {
+          "source_skill": "Wind Devil",
+          "geometry_value": null,
+          "element_primary": "water",
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "Persistent summoned storm-entity dealing 'continuous damage' + devotion-proc carrier (Murmur bound here). [STEWARD AUDIT 2026-07-18: totem projection STRUCK -> null geometry per the two-lane convention — dossier attests 'persistent summons' with NO placement language; 'placed at position' was mapper gloss, not fetched. Summon-autonomy texture rides fidelity_notes; Wind Devil is a secondary/devotion-host, not pet-core, so no GAP flip.]"
+        }
+      ],
+      "motion_frame": "Rain Sky Shard volleys on cooldown while Wind Devils tick as placed storm-emitters; reposition/aim; manage Arcanist CDR",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence_shape": "cooldown-gated caster; heavy CDR investment collapses Sky Shard downtime"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "3-projectile volley count",
+            "large-AoE footprint"
+          ],
+          "economy": [
+            "CDR / cooldown-collapse"
+          ],
+          "traits_affixes": [
+            "cold->lightning conversion (Codex of Eternal Storms hybrid)",
+            "cold/lightning damage scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cold->water (§1 ice-register); cold/lightning hybrid = element_secondary lightning + ELEMENT_CONVERSION_HYBRID door (Codex of Eternal Storms variant converts cold->lightning). Era: corpus stamps base-2016;aom-2017 but verify_ledger CONTRADICTS both (UNSUPPORTED) — patch-1.1-1.2 governs (ledger precedence). NO chill/freeze token: cold is element-flavor only, no chill/freeze STATUS named in fetched text (§0.1 cold != chill/freeze). Wind Devil = §A devotion-proc CARRIER (Murmur bound) — capstone-layer, never rewrites Sky Shard geometry. Eastern Trozan/5-totem hybrid variant noted (out of dominant loop). Wind Devil geometry nulled at audit (two-lane: no placement language fetched); its role survives as secondary-summon + Murmur devotion host in notes."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/trozan-sky-shard-druid-cold-lightning-hybrid-beginner-guide-1-2-1-6/150132",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "Trozan Sky Shard Druid Cold/Lightning Hybrid Beginner Guide 1.2.1.6",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-2-1-6-king-trozan-4-00-crucible-gladiator-150-170-shard-36-all-celestials-cold-caster-druid-by-mad-lee-vid-g4-everything/109750",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "mad_lee",
+      "title": "[1.2.1.6] King Trozan: 4:00 Crucible Gladiator 150-170 cold caster Druid by mad_lee",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-4-0-the-whole-trozan-lightning-skybreach-warlock-druid/86267",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.4.0] The Whole Trozan – Lightning Skybreach Warlock & Druid",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: patch-1.1-1.2",
+      "anchor_quote": "Trozan Sky Shard Druid Cold/Lightning Hybrid Beginner Guide 1.2.1.6 ... [1.1.4.0] The Whole Trozan – Lightning Skybreach Warlock & Druid",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-4-0-the-whole-trozan-lightning-skybreach-warlock-druid/86267",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: aom-2017",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: base-2016",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Trozan's Sky Shard Druid'; aliases include 'Trozan Druid', 'Sky Shard Wind Devil Druid', 'cold aether Druid'",
+      "anchor_quote": "Trozan Sky Shard Druid Cold/Lightning Hybrid Beginner Guide — core skill Trozan's Sky Shard with Wind Devil secondary, Arcanist + Shaman class combination",
+      "source_url": "https://forums.crateentertainment.com/t/trozan-sky-shard-druid-cold-lightning-hybrid-beginner-guide-1-2-1-6/150132",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Trozan's Sky Shard (primary), Wind Devil (secondary); cold damage; ranged large-AoE delivery",
+      "anchor_quote": "The build centers on Trozan's Sky Shard as the primary damage dealer, with Wind Devil serving as a secondary damage source... cold and lightning damage, with cold as the primary focus",
+      "source_url": "https://forums.crateentertainment.com/t/trozan-sky-shard-druid-cold-lightning-hybrid-beginner-guide-1-2-1-6/150132",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "mad_lee",
+          "site": "forums.crateentertainment.com",
+          "guide_title": "[1.2.1.6] King Trozan cold caster Druid"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-king-trozan-4-00-crucible-gladiator-150-170-shard-36-all-celestials-cold-caster-druid-by-mad-lee-vid-g4-everything/109750",
+        "anchor_quote": "Author: mad_lee",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Ultos",
+            "Murmur (attached to Trozan's Sky Shard)",
+            "Behemoth",
+            "Chariot",
+            "Bard's Harp"
+          ],
+          "devotion_function": "CDR synergy and cold/lightning damage amplification"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/trozan-sky-shard-druid-cold-lightning-hybrid-beginner-guide-1-2-1-6/150132",
+        "anchor_quote": "Key constellations include Ultos, Murmur (attached to Trozan's Sky Shard), Behemoth, Chariot, and Bard's Harp, which synergize with cooldown reduction",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Trozan's Skybreach set",
+          "set_function": "primary set enabling the cold caster build; amplifies Sky Shard damage and CDR",
+          "other": "Eastern set transmutation mentioned for endgame optimization"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-king-trozan-4-00-crucible-gladiator-150-170-shard-36-all-celestials-cold-caster-druid-by-mad-lee-vid-g4-everything/109750",
+        "anchor_quote": "Key Set Items: Trozan's Skybreach set pieces",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target ground call",
+          "footprint": "large-AOE meteor volley",
+          "projectile_count": "three projectiles per cast",
+          "range": "ranged",
+          "notes": "Trozan creates three projectiles per cast; Wind Devils are persistent summons dealing continuous damage; 'various storms and blizzards' AoE coverage"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/trozan-sky-shard-druid-cold-lightning-hybrid-beginner-guide-1-2-1-6/150132",
+        "anchor_quote": "Trozan creates three projectiles per cast, while Wind Devils are persistent summons dealing continuous damage... repositioning and aiming",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Trozan's Sky Shard repeatedly as primary damage dealer; use Wind Devil as persistent summon for secondary damage and devotion procs; manage cooldowns (Arcanist CDR is a key investment); Maiven's Sphere for sustain; Nullification for debuff removal",
+          "resource_model": "cooldown-based caster; CDR investment required"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/trozan-sky-shard-druid-cold-lightning-hybrid-beginner-guide-1-2-1-6/150132",
+        "anchor_quote": "The build centers on Trozan's Sky Shard as the primary damage dealer, with Wind Devil serving as a secondary damage source... Arcanist cooldowns are hard to master",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "cold-focused (Trozan's Skybreach set)",
+            "cold/lightning hybrid (Codex of Eternal Storms)",
+            "Eastern Trozan/Totems hybrid (Wind Devil + totem combo)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-eastern-trozan-totems-hybrid-druid-cr-5-03-sr-100-75-76-farmer-crate-boss-killer/104515",
+        "anchor_quote": "Eastern Trozan/Totems hybrid Druid... highly cold-to-lightning converted Trozan Sky Shard and 5 totems",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

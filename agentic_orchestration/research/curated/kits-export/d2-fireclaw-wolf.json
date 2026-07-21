@@ -1,0 +1,260 @@
+{
+  "kit_id": "d2-fireclaw-wolf",
+  "spine": {
+    "kit_id": "d2-fireclaw-wolf",
+    "folk_name": "Fireclaws Wolf",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Body-attached Armageddon (moving meteor circle) and form-lock are texture losses. Feral Rage→Fire Claws switch pattern approximated as self_buff prelude. Player feels 'fire melee werewolf' — that build, slight delivery texture loss on moving Armageddon.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Body-attached Armageddon (moving meteor circle) and form-lock are texture losses. Feral Rage→Fire Claws switch pattern approximated as self_buff prelude. Player feels 'fire melee werewolf' — that build, slight delivery texture loss on moving Armageddon.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fire Claws",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target melee claw strike at adjacent enemy; each hit adds fire damage. Capped at 7 frames in Werewolf form (6 with Thresher). Form-locked — economy-agnostic form law applies."
+        },
+        {
+          "source_skill": "Armageddon",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Body-attached meteor rain during combat; cast before engaging, meteors hit enemies in vicinity."
+        },
+        {
+          "source_skill": "Feral Rage (pre-buff)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stack life-leech charges and velocity buff before switching to Fire Claws burst. §A row 5: stack-ramp self-buff, NOT two-tier-accumulator."
+        }
+      ],
+      "motion_frame": "Shapeshift into Werewolf (form-locked); cast Armageddon; stack Feral Rage pre-buff charges; execute Fire Claws melee burst on target",
+      "resource_economy": {
+        "cost_scale": "form-locked",
+        "cadence_scale": "on-hit-ramp"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Feral Rage stack-ramp: each hit builds leech+velocity buff (sustain-stack, not accumulator)"
+          ],
+          "traits_affixes": [
+            "Fire Claws synergized by Molten Boulder/Firestorm/Armageddon; Infinity merc breaks fire immunity"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Economy-agnostic form law (§CROSS row 3): Werewolf is permanent form; kit maps the in-form loop. No resource swap on form — economy maps the in-form melee economy. Feral Rage is §A row 5 stack-ramp self_buff (NOT two-tier-accumulator — no counted tier to release). Phoenix shield Holy Fire aura (item-layer) = capstone-scaler texture, not a skill row. Fire immunity limitation noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Teo1904",
+      "title": "Fire Claws Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "archive_url": null,
+      "site": "wikipedia.org",
+      "author_handle": null,
+      "title": "Diablo II: Lord of Destruction - Wikipedia",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Lord of Destruction added content in the form of two new character classes",
+      "source_url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Fire Claws Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fireclaws Wolf' and aliases 'Fire Claws Werewolf', 'Fireclaws Druid' are real community usage",
+      "anchor_quote": "Fire Claws Druid Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Werewolf, Fire Claws",
+      "anchor_quote": "Fire Claw is your main Damage Skill; Transform into the Werewolf-form to travel",
+      "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Teo1904",
+          "site": "maxroll.gg",
+          "note": "Fire Claws Druid Endgame Build Guide S14"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+        "anchor_quote": "by Teo1904",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief (weapon)",
+            "Phoenix (shield)",
+            "Enigma (armor)",
+            "Infinity (merc)",
+            "Spirit (budget)"
+          ],
+          "uniques": [
+            "Jalal's Mane",
+            "Raven Frost"
+          ],
+          "synergies": [
+            "Fire Claws synergized by Molten Boulder, Firestorm, Armageddon (all fire elemental tree)"
+          ],
+          "notes": "Build's main weakness noted: numerous fire immune monsters in Hell make it nearly unplayable in pure form without Infinity merc."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+        "anchor_quote": "numerous fire immune monsters in Hell difficulty, thus the build is almost unplayable in higher difficulties",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grief Phase Blade (weapon — flat physical+fire damage)",
+            "Phoenix Monarch (shield — fire aura)",
+            "Enigma Mage Plate (armor — Teleport)",
+            "Infinity (merc weapon — Conviction aura breaks fire resistance)",
+            "Jalal's Mane (helm)",
+            "Raven Frost (ring)",
+            "Magefist (gloves)",
+            "Spirit Monarch (budget shield)"
+          ],
+          "notes": "Phoenix shield provides Holy Fire aura; Infinity merc is key for breaking fire immunities."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+        "anchor_quote": "Grief Phase Blade; Phoenix Monarch; Enigma Mage Plate; Infinity; Jalal's Mane; Raven Frost; Magefist; Spirit Monarch",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Fire Claws: single-target melee claw strike at adjacent enemy (point footprint). Fire Claws adds fire damage to each claw hit. Werewolf form increases attack speed. Fire Claws capped at 7 frames in Werewolf form (6 with Thresher)."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+        "anchor_quote": "Fire Claws is capped at 7 frames while in Werewolf Form (six when using the Thresher)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Shapeshift into Werewolf form (form-locked). Cast Armageddon for body-attached fire meteor aura. Attack enemies with Fire Claws melee strikes (fire-enhanced claw hits). Use Feral Rage for life leech buff charges before switching to Fire Claws burst."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+        "anchor_quote": "cast Armageddon before you hit enemies repeatedly with Fire Claws so that the meteors will hit the monsters in your vicinity",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fireclaws Werewolf (wolf form; higher attack speed cap)",
+            "Fireclaws Werebear (bear form; more survivable; different frame cap)"
+          ],
+          "notes": "Fandom wiki documents both Fireclaws Werewolf and Fireclaws Werebear as distinct named builds."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-claws-druid",
+        "anchor_quote": "Fire Claw is your main Damage Skill; Transform into the Werewolf-form to travel",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

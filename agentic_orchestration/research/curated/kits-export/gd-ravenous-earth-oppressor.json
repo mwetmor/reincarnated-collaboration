@@ -1,0 +1,219 @@
+{
+  "kit_id": "gd-ravenous-earth-oppressor",
+  "spine": {
+    "kit_id": "gd-ravenous-earth-oppressor",
+    "folk_name": "Ravenous Earth Oppressor",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:sap",
+      "drain"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ravenous Earth",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "'Erupts at target position; hungering terrain that ticks vitality rot across its patch' — large decay-zone patch, cooldown-gated placement. drain per §2 deterministic row (fetched words 'decay'/'rot' name the life-drain register status)."
+        },
+        {
+          "source_skill": "Celestial Presence + Spectral Wrath (mastery RR passives)",
+          "geometry_value": "aura",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "'Both classes reduce vitality resistance of monsters' — caster-anchored persistent RR (§2 GD-RR row, aura shape → curse:sap)."
+        }
+      ],
+      "motion_frame": "Paint hungering decay patches on cooldown while mastery RR passives deepen the rot",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence": "cooldown-gated zone placement; 'Energy consumption is high'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "patch size"
+          ],
+          "economy": [
+            "cooldown cadence"
+          ],
+          "traits_affixes": [
+            "vitality RR stacking (curse lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "drain emission is a judgment call flagged for steward audit: §2 row lists 'decay' verbatim and the fetched zone behavior ticks 'vitality decay/rot' — deterministic row applied, not element-flavor inference. Twin Fangs devotion proc named ('wonderful combo') but payload behavior unfetched — contributes nothing (§A devotion row)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Nery",
+      "title": "[1.1.1.2-1.1.6.2] Beginner's vitality Ravenous Earth Oppressor with leveling guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: fg-2019, patch-1.1-1.2",
+      "anchor_quote": "Oppressor (Oathkeeper + Necromancer) [...] guide explicitly covers patch versions [1.1.1.2-1.1.6.2], anchored to May 2019",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Ravenous Earth Oppressor; aliases include RE Oppressor, Ravenous Earth vitality Oppressor, Necromancer Oathkeeper Oppressor",
+      "anchor_quote": "Beginner's vitality Ravenous Earth Oppressor with leveling guide",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Ravenous Earth. At-target eruption, vitality decay zone, cooldown resource.",
+      "anchor_quote": "Ravenous earth + Twin fangs proc is wonderful combo [...] dps looks low, but is for single fragment and RE hits with many",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Nery",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Both Oathkeeper and Necromancer reduce vitality resistance (Celestial Presence + Spectral Wrath); vitality builds are stronger by default for Oppressor"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+        "anchor_quote": "Both classes reduce vitality resistance of monsters, and this nice overall synergy makes Oppressor a premier class for a vitality caster",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target eruption",
+          "footprint": "large decay zone patch",
+          "verbatim": "Ravenous Earth erupts at target position; hungering terrain that ticks vitality rot across its patch"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+        "anchor_quote": "Ravenous earth + Twin fangs proc is wonderful combo capable of speed leveling",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Ravenous Earth zones at target position repeatedly; each eruption ticks vitality decay across a patch. Cooldown-gated placement. Necromancer+Oathkeeper RR stacks synergize for vitality damage.",
+          "resource": "cooldown + energy secondary",
+          "loop_verb": "cooldown-place zone"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+        "anchor_quote": "dps looks low, but is for single fragment and RE hits with many [...] Energy consumption is high",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "vitality Ravenous Earth (primary)",
+            "vitality/acid hybrid Oppressor"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-6-2-beginners-vitality-ravenous-earth-oppressor-with-leveling-guide/50493",
+        "anchor_quote": "Beginner's vitality Ravenous Earth Oppressor",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

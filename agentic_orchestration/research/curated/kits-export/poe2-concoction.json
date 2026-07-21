@@ -1,0 +1,239 @@
+{
+  "kit_id": "poe2-concoction",
+  "spine": {
+    "kit_id": "poe2-concoction",
+    "folk_name": "Concoction Pathfinder",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-14",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the flask-charge-as-ammo economy (your damage skill literally spends flask charges, gated by charge-recovery mods) maps to a cycle-shape + note but loses the tight flask-sustain-vs-fire-rate tension that IS the Pathfinder identity; the RNG element-variant framing (Poison/Fire/Ice from one Concoction chassis) is collapsed to the confirmed poison variant. Core throw-poison loop maps cleanly, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the flask-charge-as-ammo economy (your damage skill literally spends flask charges, gated by charge-recovery mods) maps to a cycle-shape + note but loses the tight flask-sustain-vs-fire-rate tension that IS the Pathfinder identity; the RNG element-variant framing (Poison/Fire/Ice from one Concoction chassis) is collapsed to the confirmed poison variant. Core throw-poison loop maps cleanly, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poisonous Concoction",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Throws a bottle projectile to target that applies a strong poison + poison cloud on impact (at-target thrown-flask -> ground_targeted_circle for the cloud AoE). Scattershot support fires 3 simultaneous instances (multi-point). poison is the core ailment. Chaos-poison -> earth (venom-themed, main-law poison row) with poison lane."
+        }
+      ],
+      "motion_frame": "Throw Poisonous Concoction bottles (auto-leveled main skill from Brew Concoction node); Scattershot triples the throw; scale via flask mods + Widowhail quiver 300% breakpoint.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "cost_scale": "flask-charge ammo (bottles consume flask charges; 0.25 charges/sec recovery)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Scattershot 3x multi-point"
+          ],
+          "economy": [
+            "flask-charge ammo cycle"
+          ],
+          "traits_affixes": [
+            "poison/chaos DoT scalers",
+            "flask-effect scalers (Widowhail quiver 300%)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE=1 (attested trap-kit) -- mapped HONESTLY: era was ERRATA-17 floor-extended (corpus eras 0.1-0.5-ancients; verify_ledger era CONTRADICTED errata_applied=1, anchor references 0.1.0e Chaos-Inoculation-low-life bugfix). The attested identity is the poison-flask-throw + flask-charge-ammo economy; mapped that, not laundered. Chaos-poison -> earth family (venom-themed, main-law poison row; ailment=poison either way). Flask-charge-ammo economy -> charge_stack_sub_shape:cycle + cost_scale note (bottles draw flask charges -- a consumable ammo cycle, native-adjacent). Fire/Ice Concoction variants exist in aliases but 'not found in separate guide' (dossier) -- mapped the poison variant (dominant/confirmed). Widowhail quiver (300% quiver-effect breakpoint) + life flask -> gear-affix/flask-effect lanes (item dissolves, mechanic lands). Late-game Chaos Inoculation -> DEFENSIVE_TRADEOFF-adjacent (not a core-loop skill; noted not door-listed to keep t4 to identity). death_class=extrinsic-content-mix."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Poisonous Concoction Pathfinder Build Guide - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3635301",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Poisonous Concoction Pathfinder is hitting REALLY HARD - A SMALL GUIDE",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe2/builds/dawn?class=Pathfinder&skills=Poisonous+Concoction",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Pathfinder Poisonous Concoction builds - Dawn of the Hunt - Path of Exile 2",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in eras 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+      "anchor_quote": "Adjusted build for patch 0.1.0e Hotfix 6. This patch fixes a bug where Chaos Inoculation was counted as being on Low Life.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Concoction Pathfinder'; aliases 'Poisonous Concoction Pathfinder', 'Fire Concoction', 'Ice Concoction'",
+      "anchor_quote": "Poisonous Concoction Pathfinder is hitting REALLY HARD - A SMALL GUIDE",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3635301",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Poisonous/Fire/Ice Concoction; flask-scaling archetype via Brew Concoction ascendancy node",
+      "anchor_quote": "Brew Concoction gives you the option to pick Poisonous Concoction. This provides you with your main skill so is the backbone of your entire build.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Concoction flask-scaling archetype identified as negative — kit-family over-centralization concern per corpus triage",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Pathfinder",
+          "nodes": [
+            "Brew Concoction (grants Poisonous Concoction as main skill, auto-levels)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+        "anchor_quote": "Brew Concoction gives you the option to pick Poisonous Concoction. This provides you with your main skill so is the backbone of your entire build.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Widowhail (quiver effect scaling — at least 220%, hits 300% breakpoint)",
+            "Life flask with recovery mods (0.25 charges/sec, increased amount/rate)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+        "anchor_quote": "Grab a Widowhail with as much Quiver Effect as possible, at least 220% is highly recommended as this makes you hit the 300% breakpoint",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry_verbatim": "Poisonous Concoction throws a bottle projectile to target; Scattershot support fires 3 instances simultaneously for multi-point application. AoE radius of explosion/poison cloud not specified in fetched text."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+        "anchor_quote": "Poisonous Concoction throws a bottle to apply a strong poison on the enemy.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Poisonous Concoction throws a bottle applying strong poison; provided by Brew Concoction Pathfinder ascendancy node (auto-levels with character). Link with Scattershot for 3 simultaneous poisons. Scale via flask mods and Widowhail quiver for 300% quiver effect breakpoint. Late game: Chaos Inoculation for energy shield defense."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonous-concoction-pathfinder-build-guide",
+        "anchor_quote": "Brew Concoction gives you the option to pick Poisonous Concoction. This provides you with your main skill so is the backbone of your entire build.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Poisonous Concoction Pathfinder (poison chaos)",
+            "Fire Concoction variant (mentioned in aliases; not found in separate guide)",
+            "Ice Concoction variant (mentioned in aliases; not found in separate guide)"
+          ]
+        },
+        "source_url": "https://poe.ninja/poe2/builds/dawn?class=Pathfinder&skills=Poisonous+Concoction",
+        "anchor_quote": "Pathfinder Poisonous Concoction builds - Dawn of the Hunt - Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "kit_id": "la-berserkers-technique",
+  "spine": {
+    "kit_id": "la-berserkers-technique",
+    "folk_name": "Berserker's Technique",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/mayhem",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Normal skill rotation (Fury Meter generators; greatsword melee skills)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee range; sword/greatsword attacks; no positional requirement stated in fetched text; no elemental damage-typing in store"
+        },
+        {
+          "source_skill": "Burst Mode (Z — timed identity burst)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Timed burst window: +30% crit rate, +20% attack speed, +36% damage; Bloody Rush replaces Dark Rush as burst-mode signature skill; no Exhaustion on exit per Berserker's Technique spec identity"
+        }
+      ],
+      "motion_frame": "Build Fury Meter through skill rotation; activate Burst Mode (Z) for timed damage window (+30% crit, +20% attack speed, +36% damage, no Exhaustion on exit); repeat cycle",
+      "resource_economy": {
+        "fury_meter": "accumulate via normal skill rotation; release into timed Burst Mode (Z) window; no Exhaustion penalty on Burst Mode exit (Berserker's Technique spec identity); stale buff values not carried — shape only"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee range; greatsword arc attacks"
+          ],
+          "economy": [
+            "fury_meter build-spend; no Exhaustion on exit is the spec's defining economy trait vs Mayhem"
+          ],
+          "traits_affixes": [
+            "Overpower, Blood Circulation, Order Star Core: Overflow, Flashy Attack, Smoldering Strike, Attack (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Timed Burst Mode maps as burst_window per §LA row 2 (not PERMANENT — that is Mayhem's pattern; Berserker's Technique explicitly is the timed sibling). Buff values (30% crit, 20% ATK speed, 36% damage) are stale per Ark Passive law — shape only captured. No elemental damage-typing in fetched text. Bloody Rush is a named skill replacement (engraving-era name carried into Ark Passive era as a skill identity); no game-engine fabrication — just a skill name noted. Exhaustion-removal IS the attested spec differentiator."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Berserker's Technique Berserker Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Overpower, Blood Circulation, Order Star Core: Overflow, Flashy Attack, Smoldering Strike, and Attack",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Berserker's Technique — class+identity spec name in real LA community usage",
+      "anchor_quote": "once you have a full meter you will unleash Burst Mode (Z) gaining massive buffs",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fury Meter fills via normal skills then enters timed Burst Mode: +30% crit rate, +20% attack speed, +36% damage, immune to Exhaustion on exit; Bloody Rush replaces Dark Rush; build-spend sibling to Mayhem",
+      "anchor_quote": "20% Attack and Movement Speed, 30% Crit Rate, 36% Damage Increase. When Burst Mode (Z) ends, ignore Exhaustion. Replace Dark Rush with Bloody Rush.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "by Civo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Overpower",
+            "Blood Circulation",
+            "Order Star Core: Overflow",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ],
+          "burst_mode_bonuses": {
+            "crit_rate": "+30%",
+            "attack_speed": "+20%",
+            "damage": "+36%"
+          },
+          "bloody_rush": "Replaces Dark Rush; core burst mode skill"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "20% Attack and Movement Speed, 30% Crit Rate, 36% Damage Increase. Replace Dark Rush with Bloody Rush.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Specific gem and accessory details not fully captured in fetch — guide covers standard Lost Ark gear progression"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.55
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "No positional requirement explicitly stated in fetched guide; melee range; sword/greatsword attacks"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Build Fury Meter through normal skill rotation; activate Burst Mode (Z) for timed window with massive damage buffs; skills during burst window maximized; exit without Exhaustion; repeat meter fill"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "once you have a full meter you will unleash Burst Mode (Z) gaining massive buffs. When Burst Mode (Z) ends, ignore Exhaustion.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Berserker's Technique (timed burst, build-spend)"
+          ],
+          "sibling_spec": "Mayhem Berserker (permanent burst, always-on, HP/defense tradeoff)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/berserkers-technique-berserker-raid-guide",
+        "anchor_quote": "If you want a more fast-paced and consistent playstyle, check out our Mayhem guide.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

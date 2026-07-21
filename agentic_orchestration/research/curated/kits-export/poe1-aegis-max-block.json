@@ -1,0 +1,235 @@
+{
+  "kit_id": "poe1-aegis-max-block",
+  "spine": {
+    "kit_id": "poe1-aegis-max-block",
+    "folk_name": "Aegis Max Block",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.7-3.13;3.14-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Block-chance stacking to a ~75% cap and 'ES recovered per block' are numeric magnitudes the engine expresses via def-bin block rider + on-block trigger, not a bespoke mechanism; identity intact, the exact 'infinite shield vs blockable damage' feel is a numeric-tuning outcome. Delivery-agnostic offense means the offensive geometry is a placeholder, not a source-fixed skill.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Block-chance stacking to a ~75% cap and 'ES recovered per block' are numeric magnitudes the engine expresses via def-bin block rider + on-block trigger, not a bespoke mechanism; identity intact, the exact 'infinite shield vs blockable damage' feel is a numeric-tuning outcome. Delivery-agnostic offense means the offensive geometry is a placeholder, not a source-fixed skill.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tempest Shield",
+          "geometry_value": "self_buff",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "persistent block-chance buff that returns a lightning chain to attackers on each successful block; the returned zap is a defensive-proc consequence, not a targeted offensive geometry"
+        },
+        {
+          "source_skill": "delivery-agnostic offense (Retaliation / attached spell / totem)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "the kit is delivery-agnostic — any offense sits atop the block engine; single_target placeholder for the on-block Retaliation payload. Offense identity is subordinate to the defensive loop"
+        }
+      ],
+      "motion_frame": "stationary bruiser: tank in melee, block rate passively sustains and retaliates while any offense rides on top",
+      "resource_economy": {
+        "damage_taken_converts_shape": "resource-fill",
+        "persistent_condition_shape": "proc-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-block-successful",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "RETRIBUTION_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "reservation-free defensive chassis; block-chance as def-bin rider"
+          ],
+          "traits_affixes": [
+            "block-chance",
+            "max-block-cap",
+            "armour-scaling (feeds ES-recovery-per-block)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Aegis Aurora's 'ES recovered = 2% armour on block' is the identity; engine expresses it as on-block-successful trigger -> resource-fill consequence, paired with damage_taken_converts_shape=resource-fill in TH lane. Block-chance-cap (~75%) is a numeric def-bin rider (deflect_condition family), not an ailment. elem_raw=cold is flavor (Aegis cold-res grant); Tempest Shield return-damage is lightning; kit is functionally element-neutral defensive. Offense is delivery-agnostic so no dominant offensive geometry — single_target placeholder noted. RETRIBUTION_ENGINE routes the Retaliation block-to-damage conversion variant."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/868996",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "ComradeSerge#4604",
+      "title": "[3.1] GLADIATOR 1H+Shield Max Block & Spell Block Tank",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Aegis_Aurora",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Aegis Aurora - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.7-3.13, 3.14-3.19, 3.20+",
+      "anchor_quote": "updates 'from 1.0.6 to this day for each patch,' indicating continuous maintenance across multiple game versions",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/868996",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Aegis Max Block' and alias 'Aegis Aurora archetype' are real community usage",
+      "anchor_quote": "Aegis Aurora replenishes your energy shield each time you block",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/868996",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core mechanic: Aegis Aurora restores ES per block; Tempest Shield as persistent buff; delivery-agnostic (any skill can use the block sustain engine)",
+      "anchor_quote": "Recover Energy Shield equal to 2% of Armour when you Block",
+      "source_url": "https://poedb.tw/us/Aegis_Aurora",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "ComradeSerge#4604",
+          "site": "pathofexile.com/forum",
+          "thread": "https://www.pathofexile.com/forum/view-thread/868996"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/868996",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Gladiator",
+          "keystone_nodes": [
+            "Versatile Combatant (max spell block = attack block)",
+            "Violent Retaliation (+damage per block charge)",
+            "Outmatch and Outlast"
+          ],
+          "note": "Gladiator provides attack+spell block cap synergy; Inquisitor and Necromancer variants use different ascendancies but same block-as-ES-recovery engine."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/868996",
+        "anchor_quote": "Versatile Combatant + Violent Retaliation + Outmatch and Outlast",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_unique": "Aegis Aurora",
+          "alteration": "Block event triggers instant ES recovery equal to 2% of Armour value. Also grants +5% max cold resist and +6% block chance.",
+          "secondary_item": "Tempest Shield (skill gem)",
+          "tempest_shield_alteration": "Grants block chance as a buff; zaps attacker with chain lightning on each block."
+        },
+        "source_url": "https://poedb.tw/us/Aegis_Aurora",
+        "anchor_quote": "Recover Energy Shield equal to 2% of Armour when you Block",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "at-target delivery with small-radius; melee hit small radius; Aegis Aurora block is at-target (no projectile, no AoE emitted — block is defensive proc)",
+          "geometry_note": "delivery-agnostic: any skill can sit on top of the block engine; Tempest Shield chains lightning to nearby on block"
+        },
+        "source_url": "https://poedb.tw/us/Aegis_Aurora",
+        "anchor_quote": "Recover Energy Shield equal to 2% of Armour when you Block",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Player attacks or uses any skill (delivery-agnostic); each block triggers Aegis Aurora's instant ES recovery (2% of armour); at high block chance and armour, ES refills faster than boss damage can deplete it. Tempest Shield provides persistent block chance buff and returns lightning damage on block. The loop is: hit → block → ES recovered → continue attacking."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/868996",
+        "anchor_quote": "Aegis Aurora replenishes your energy shield each time you block",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Gladiator (Versatile Combatant block cap)",
+            "Inquisitor (Consecrated Ground + Battlemage)",
+            "Necromancer (minion hybrid)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/868996",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

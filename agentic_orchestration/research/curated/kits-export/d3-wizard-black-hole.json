@@ -1,0 +1,176 @@
+{
+  "kit_id": "d3-wizard-black-hole",
+  "spine": {
+    "kit_id": "d3-wizard-black-hole",
+    "folk_name": "Wizard — Black Hole",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "vanilla;set-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "pull-tranche-edition2-2026-07-15",
+    "source_date": "2026-07-15",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Utility-only kit with no standalone build identity — player expecting a build would find only a grouping tool. No ailment mapped (knockback inadmissible from probe-only; no anchor verbatim). Arcane/cold element texture partially mapped (shadow default for arcane; cold rune-variant only). No T4 doors: no capstone identity to map.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Utility-only kit with no standalone build identity — player expecting a build would find only a grouping tool. No ailment mapped (knockback inadmissible from probe-only; no anchor verbatim). Arcane/cold element texture partially mapped (shadow default for arcane; cold rune-variant only). No T4 doors: no capstone identity to map.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Black Hole",
+          "geometry_value": "vortex_pull",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target gravitational pull zone drawing enemies to target location per skill_geometry payload ('pulls enemies to target location; Absolute Zero rune adds Cold damage and grouping' — at-target placement, pull-to-center geometry); 'Black Hole… draws enemies in' per skill_loop payload; pull = vortex_pull per phrase-book; deals Arcane damage over 2s within 15y per mech_note (probe-class: inadmissible for ailment; Arcane → shadow); element: 'Arcane' attested in corpus mech_note — probe class; skill_geometry payload 'Absolute Zero rune adds Cold damage' — rune-variant cold; primary is Arcane; arcane→shadow default; 'Black Hole Absolute Zero is used as one of two primary abilities for grouping enemies effectively' per verify identity anchor"
+        }
+      ],
+      "motion_frame": "Place Black Hole at target position to pull and cluster enemies; utility grouping/setup skill in Wizard builds (DMO Frozen Orb, Typhon Hydra); not a standalone damage-primary build per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Arcane Power (20 Arcane Power per skill_loop payload from mech_note; probe-class — unatttested in anchor; class-convention assignment) + cooldown gate (12s per mech_note probe; '5 second cooldown' for Impactful Wave rune in WoF anchor; Black Hole's own CD not verbatim in anchor_quotes)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Pull-cluster setup for secondary damage delivery (Frozen Orb / Hydra / Twister)"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Utility-only kit — no standalone build identity per skill_loop payload ('not a standalone damage dealer'). t4_doors null: no build capstone identity (GAPPED/doorless convention; kit is utility). Arcane→shadow: element table default; 'Arcane' appears in corpus mech_note (probe, inadmissible) but Absolute Zero rune cold attested in skill_geometry payload (store-not-style: payload_json is legal store). Cold = water family but rune-variant only; primary identity is Arcane pull utility → shadow default. No ailment attested: pull = vortex_pull geometry, not knockback ailment (inward direction confirmed in mech_note — inadmissible for ailment; no 'knockback' word in anchor_quotes). In-engine 'counts as Knockback' (mech_note probe) — probe-class, do not emit knockback token. NEAR-MISS: knockback token blocked per probe-only grounds. vortex_pull is geometry not ailment."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/dmo-frozen-orb-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Season 39 DMO Frozen Orb Wizard Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wizard — Black Hole' and aliases 'Black Hole Wizard D3', 'Black Hole Wizard' are real community usage",
+      "anchor_quote": "Black Hole Absolute Zero is used as one of two primary abilities for grouping enemies effectively, and is very important to give you enough time to throw Orbs.",
+      "source_url": "https://maxroll.gg/d3/guides/dmo-frozen-orb-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Black Hole; Arcane Power resource; grouping/control utility",
+      "anchor_quote": "The basic idea is to trap enemies inside your Slow Time bubble, stack them up by kiting and the use of Black Hole or the Energy Twister + Ranslor's Folly combo.",
+      "source_url": "https://maxroll.gg/d3/guides/dmo-frozen-orb-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "gravitational pull zone",
+          "notes": "Black Hole pulls enemies to target location; Absolute Zero rune adds Cold damage and grouping."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-frozen-orb-wizard-guide",
+        "anchor_quote": "Black Hole Absolute Zero is used as one of two primary abilities for grouping enemies effectively",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Black Hole functions as a utility/grouping skill in Wizard builds (DMO Frozen Orb, Typhon Hydra), not a standalone damage dealer. Used to pull and cluster enemies before main skill damage."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-frozen-orb-wizard-guide",
+        "anchor_quote": "stack them up by kiting and the use of Black Hole or the Energy Twister + Ranslor's Folly combo and unleash devastating icy explosions onto them",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

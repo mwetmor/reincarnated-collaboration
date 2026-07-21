@@ -1,0 +1,248 @@
+{
+  "kit_id": "d3-sotl-hammer",
+  "spine": {
+    "kit_id": "d3-sotl-hammer",
+    "folk_name": "SotL Blessed Hammer",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 30-hammer density orbit has no direct engine orbit-count analog (numbers are steward-owned family accruals). PERSISTENCE_ENGINE_uptime approximates the 'maintain orbital hammer field' loop. Faithful Memory stacking damage marks approximate via trigger_grammar; no native 'stack-per-orbit-pass' engine mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 30-hammer density orbit has no direct engine orbit-count analog (numbers are steward-owned family accruals). PERSISTENCE_ENGINE_uptime approximates the 'maintain orbital hammer field' loop. Faithful Memory stacking damage marks approximate via trigger_grammar; no native 'stack-per-orbit-pass' engine mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blessed Hammer",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hammers spiral outward from cast point in radial arcs; self-origin multi-spawn orbital pattern; approximately 30 hammers orbiting — attested: 'approximately 30 hammers orbiting you while bonking denizens of hell on the head'; holy element confirmed in corpus elem_raw; spiral-orbit emission per §A row 6 precedent attested independently"
+        },
+        {
+          "source_skill": "Falling Sword",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Repositioning blink; cast conservatively to refresh SotL 4pc bonus (Hammer Jammers + Faithful Memory); triggers stacking damage marks per set; utility-repositioning role"
+        }
+      ],
+      "motion_frame": "Hold down Blessed Hammer to spam spiraling hammers; use Falling Sword only to refresh SotL 4pc bonus (Hammer Jammers / Faithful Memory) or reposition; Akarat's Champion always active; health fluctuates rapidly from hammer density",
+      "resource_economy": {
+        "resource": "Wrath",
+        "cooldown": "Falling Sword conservatively managed; SotL 2pc provides CDR",
+        "cost_note": "Blessed Hammer spam drains Wrath continuously; sustained via Johanna's Argument attack speed and Wrath regen"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Hammer Jammers / Faithful Memory stacking marks",
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Akkhan's Leniency — bonus damage per nearby enemy hit by hammers (item rider)"
+          ],
+          "economy": [
+            "SotL 2pc — CDR for Falling Sword; Johanna's Argument — attack speed for Wrath sustain; SotL 4pc — triggers Hammer Jammers + Faithful Memory on Falling Sword cast"
+          ],
+          "traits_affixes": [
+            "Seeker of the Light 6pc — Blessed Hammers marked with Faithful Memory for stacking damage (scaler per §B row 1); Fate of the Fell flail damage (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SotL-hammer 30-orbit + PERSISTENCE precedent from batch hot-facts honored. orbit geometry from §A row 6 spiral-orbit emission (attested independently: 'approximately 30 hammers orbiting you' — verbatim in sotl-hammer skill_loop). Holy element confirmed in corpus elem_raw = 'holy'. Falling Sword trigger for set bonus = trigger_grammar rider (mark_identity = Faithful Memory / Hammer Jammers). PERSISTENCE_ENGINE_uptime door: uptime maintenance of orbiting hammer field is the loop identity. [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #11 holy->null x2: store contains ZERO element tokens (holy/fire/lightning/physical/arcane all x0); summary's 'holy element attested' claim is fabricated-attestation. Class-thematic import banned (MW2 holy strikes; m03 hammerdin hot-fact: 'holy is probe fabrication — never import'). Physical rule: element-neutral; spiral-orbit geometry carries identity.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Crusader Hammerdin Build With Blessed Hammer and Seeker of the Light Set (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/guides/sotl-blessed-hammer-crusader-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Season 38 Blessed Hammer Crusader Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Crusader debuted Reaper of Souls March 25, 2014. Seeker of the Light set marks the return of the Hammerdin build, focusing on bringing Blessed Hammer to competitive DPS in Greater Rifts.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Crusader Hammerdin Build With Blessed Hammer and Seeker of the Light Set (Patch 2.7.8 / Season 39) — classified as a low-tier endgame build suitable for Greater Rift progression.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'SotL Blessed Hammer' and aliases 'Seeker of the Light Blessed Hammer', 'SotL Crusader', 'Blessed Hammer Falling Sword' are real community usage",
+      "anchor_quote": "Crusader Hammerdin Build With Blessed Hammer and Seeker of the Light Set — spiritual successor of the famous Hammerdin build from Diablo II. The set is colloquially called Hammerdin.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Blessed Hammer and Falling Sword; Crusader resource (Wrath); spiral-orbiter delivery",
+      "anchor_quote": "Blessed Hammer is the main damage skill and you should always hold it down to deal damage. Falling Sword is required for the set bonuses. The Seeker of the Light set marks the return of the Hammerdin build.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Seeker of the Light (6pc) — core set; 2pc CDR; 4pc triggers Hammer Jammers + Faithful Memory on Falling Sword cast; 6pc damage multiplier",
+          "kanai_cube": [],
+          "legendary_powers": [
+            "Akkhan's Leniency",
+            "Johanna's Argument"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+        "anchor_quote": "The Seeker of the Light set marks the return of the Hammerdin build, decidedly focusing on bringing Blessed Hammer to competitive DPS in Greater Rifts.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Seeker of the Light set (6pc) — marks Blessed Hammers with Hammer Jammers + Faithful Memory",
+            "Fate of the Fell (two-handed flail)",
+            "Johanna's Argument (1-handed flail)",
+            "Akkhan's Leniency",
+            "Shame of Delsere equivalent for Hammers"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+        "anchor_quote": "The Seeker of the Light set marks the return of the Hammerdin build, decidedly focusing on bringing Blessed Hammer to competitive DPS in Greater Rifts.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Blessed Hammers spiral outward from cast point in radial arcs; multi-projectile orbital pattern; Falling Sword repositioning; self-origin multi-spawn",
+          "range": "self-origin spiral multi-spawn radial"
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+        "anchor_quote": "you just spam all the buttons — approximately 30 hammers orbiting you while bonking denizens of hell on the head.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Hold down Blessed Hammer to spam spiraling hammers; use Falling Sword conservatively to refresh SotL 4pc bonus and reposition; Akarat's Champion Prophet always active; Seeker of the Light set marks Hammers with Faithful Memory and Hammer Jammers for stacking damage; health fluctuates rapidly."
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-hammerdin-build-with-blessed-hammer-and-seeker-of-the-light-set",
+        "anchor_quote": "Falling Sword is the only skill you need to be conservative with. Only cast it when you need to refresh Seeker of the Light (4) Bonus, Hammer Jammers or Faithful Memory or when you want to reposition.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "SotL Blessed Hammer speed farm",
+            "SotL fresh 70 starter"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/blessed-hammer-crusader-speed-farming-build",
+        "anchor_quote": "Blessed Hammer Crusader Speed Farming Variation.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

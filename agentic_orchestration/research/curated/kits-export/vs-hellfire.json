@@ -1,0 +1,194 @@
+{
+  "kit_id": "vs-hellfire",
+  "spine": {
+    "kit_id": "vs-hellfire",
+    "folk_name": "Hellfire (Fire Wand evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "vs-1.0-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Identity maps well to placed_lane large-projectile delivery. Primary fidelity loss: fire+burn theme is visible to players but structurally absent from mapping per law. Engine representation is geometry-pure, missing the expected elemental feel.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Identity maps well to placed_lane large-projectile delivery. Primary fidelity loss: fire+burn theme is visible to players but structurally absent from mapping per law. Engine representation is geometry-pure, missing the expected elemental feel.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hellfire (piercing flame meteors)",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Large flaming meteors traverse full screen length; infinite pierce; pass through walls. VS element-silent: 'fire' in name and visual but dossier skill_loop row explicitly notes 'element-law: UNSUPPORTED' — wiki does not state fire damage type. placed_lane confirmed by verify: 'screen-length flame lance stream... Lane footprint (piercing projectile traverses full-screen linear path).' No ailments named in dossier text — no burn attested despite fire theme."
+        }
+      ],
+      "motion_frame": "Slow large meteors traverse full-screen linear path with infinite pierce; wall-pass; area-stat amplifies meteor size",
+      "resource_economy": {
+        "tempo": "slow-moving large projectiles; area bonuses amplify size"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "area-stat scaling on meteor size"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. Dossier explicitly flags element-law UNSUPPORTED for fire — correct silence. No burn attested despite fire lineage name — §0-UNIVERSAL requires status NAMED in dossier text. §0 near-miss: wanted to emit fire+burn but both blocked by element-law and §0-UNIVERSAL. placed_lane geometry confirmed by verify anchor. DLC union (Kardía Phlegeton, Oct 2025) noted in capstone row."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Hellfire",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Hellfire - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022",
+      "anchor_quote": "Added to game in the 27 October 2021 update.",
+      "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Hellfire is the evolution of Fire Wand; recipe = Fire Wand + Spinach; screen-length flame lance stream",
+      "anchor_quote": "Evolved Fire Wand. Passes through enemies. Hellfire shoots large flaming meteors at nearby enemies that move slowly in a given direction and Pierce infinitely.",
+      "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Lane footprint (piercing projectile traverses full-screen linear path); delivery=projectile (not sustained beam); burn rider on fire element",
+      "anchor_quote": "Hellfire shoots large flaming meteors at nearby enemies that move slowly in a given direction and Pierce infinitely. Passes through walls.",
+      "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "dlc_union": "unions with Aura Blast to form Kardía Phlegeton (added October 28, 2025)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+        "anchor_quote": "October 28, 2025 introduced its union capability with Aura Blast to form Kardía Phlegeton.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "spinach": "required catalyst (increases Might/damage)",
+          "area_items": "particularly effective due to meteor size scaling with area"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+        "anchor_quote": "Benefits greatly from Area bonuses because of the already large size of the meteors.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "full-screen linear pierce; lane footprint",
+          "origin": "projectile; launches toward nearby enemies in fixed direction",
+          "pattern": "slow large meteors; wall-pass; area stat amplifies size"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+        "anchor_quote": "Benefits greatly from Area bonuses because of the already large size of the meteors.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "evolution_recipe": "Fire Wand (max) + Spinach = Hellfire",
+          "delivery": "large piercing projectiles (flaming meteors) traverse full screen length; infinite pierce; pass through walls",
+          "tempo": "slow-moving projectiles; large size benefits from area bonuses",
+          "element_note": "named fire lineage and visual fire theme; wiki does NOT explicitly state fire damage type — element-law: UNSUPPORTED"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+        "anchor_quote": "Hellfire shoots large flaming meteors at nearby enemies that move slowly in a given direction and Pierce infinitely. Passes through walls.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "kardia_phlegeton_union": "Hellfire + Aura Blast (DLC, October 2025)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Hellfire",
+        "anchor_quote": "Union capability with Aura Blast to form Kardía Phlegeton.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "kit_id": "la-phantom-beast-awakening-wildsoul",
+  "spine": {
+    "kit_id": "la-phantom-beast-awakening-wildsoul",
+    "folk_name": "Phantom Beast Awakening Wildsoul",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-wildsoul-2025-02-26;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "GX-02 form-swap gap applies (Fox/Bear dual-skill-family identity may have deeper form-mechanic than attested in dossier). Spirit stack CDR mechanism loses quantitative depth. Mapped SHAPE: burst_window with CDR-stack cycling.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "GX-02 form-swap gap applies (Fox/Bear dual-skill-family identity may have deeper form-mechanic than attested in dossier). Spirit stack CDR mechanism loses quantitative depth. Mapped SHAPE: burst_window with CDR-stack cycling.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ursine Windup",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Awakening window; hard-hitting Bear-family melee"
+        },
+        {
+          "source_skill": "Boulder Bear",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Awakening; Bear-family slam"
+        },
+        {
+          "source_skill": "Fox Flame",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Awakening; Fox-family skill — 'Fox Flame' is a skill PROPER NAME; zero fire damage-typing in dossier; element null (D4 NAME-ONLY LAW)"
+        },
+        {
+          "source_skill": "Swish Bear",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Awakening; Bear-family melee arc"
+        },
+        {
+          "source_skill": "Fox Leap",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Awakening; Fox-family leap strike"
+        }
+      ],
+      "motion_frame": "Fill Phantom Beast Awakening gauge; activate state (Z): +20% attack/move speed, meter drains over time; generate Phantom Beast Spirit stacks (each +5% CDR + 2% mana recovery); use stacks to cycle 3 full skill rotations per single Awakening window; exit via X or meter drain; repeat fill",
+      "resource_economy": {
+        "phantom_beast_awakening_gauge": "fill gauge via pre-Awakening skills → activate state (Z); during Awakening generate Spirit stacks; each stack provides 5% CDR + 2% mana recovery; stacks spent to cycle skills rapidly (3 rotations per window); meter drains over time (TIMED burst)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Phantom Beast Spirit stacks (CDR/mana per stack); consumed on skill cycling during Awakening window",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null throughout: 'Fox Flame' is a skill proper name with zero fire damage-typing in dossier (D4 NAME-ONLY LAW applied). 'Fox and Bear skill sets' imply two animal-themed families but zero element damage descriptors in fetched text. No ailments attested. Phantom Beast Awakening = TIMED burst_window (meter drains). Spirit stacks provide CDR cycling — MOMENTUM_CASCADE shape. GX-02/GX-19 gap_refs noted (form-swap mechanic pending). Post-cutoff class (February 26, 2025). Ark Passive sets (Standard, Kurzan Front) → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah; reviewed by Perciculum",
+      "title": "Phantom Beast Awakening Wildsoul Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://digitalchumps.com/2025/02/25/lost-arks-call-of-the-wildsoul-update-launches-tomorrow/",
+      "archive_url": null,
+      "site": "digitalchumps.com",
+      "author_handle": null,
+      "title": "Lost Ark's Call of the Wildsoul update launches tomorrow",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.playlostark.com/en-us/game/releases/call-of-the-wildsoul",
+      "archive_url": null,
+      "site": "playlostark.com",
+      "author_handle": "Amazon Games",
+      "title": "Call of the Wildsoul — Official Release Page",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-wildsoul-2025-02-26;la-global-2026",
+      "anchor_quote": "The Wildsoul class was released on February 26, 2025. Last Updated: June 12, 2026.",
+      "source_url": "https://www.playlostark.com/en-us/game/releases/call-of-the-wildsoul",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Phantom Beast Awakening Wildsoul — Wildsoul class, Phantom Beast Awakening identity spec",
+      "anchor_quote": "Wildsoul with Phantom Beast Awakening identity",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Focuses on filling and entering Phantom Beast Awakening state (Z): +20% attack/move speed, meter drains over time, up to 20 stacks of Phantom Beast Spirit each reducing remaining skill cooldowns by 5%; burst gameplay within Awakening window",
+      "anchor_quote": "generate Phantom Beast Spirit stacks which can be used to regenerate mana and reduce all your cooldowns. Each stack provides 5% Cooldown Reduction per stack and 2% Mana recovery per stack.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "burst-window twin to Ferality's rotation-based approach",
+      "anchor_quote": "Want a slower and burstier playstyle focused on Shapeshifting? Check out our Ferality guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+        "anchor_quote": "by Sekwah with review credit to Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_sets": [
+            "Standard",
+            "Kurzan Front"
+          ],
+          "ship_date": "2025-02-26",
+          "ship_patch": "Call of the Wildsoul"
+        },
+        "source_url": "https://www.playlostark.com/en-us/game/releases/call-of-the-wildsoul",
+        "anchor_quote": "The Wildsoul class was released on February 26, 2025. Last Updated: June 12, 2026.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Raid Captain",
+            "Cursed Doll",
+            "Hit Master"
+          ],
+          "gems": "Prioritize damage gems for five main skills, then cooldown gems",
+          "stats": "Target as close to 100% Crit Rate as possible without going over"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+        "anchor_quote": "You want to be as close to 100% Crit Rate as possible, without going over",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "main_damage_skills": [
+            "Ursine Windup",
+            "Boulder Bear",
+            "Fox Flame",
+            "Swish Bear",
+            "Fox Leap"
+          ],
+          "geometry_notes": "Hard-hitting physical attacks within identity state; Fox and Bear skill sets imply two animal-themed skill families; no elemental damage typing in text"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+        "anchor_quote": "Main damagers are Ursine Windup, Boulder Bear, Fox Flame, Swish Bear, and Fox Leap",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fill Phantom Beast Awakening gauge, then activate state (Z). During Awakening: generate Phantom Beast Spirit stacks (each gives 5% CDR + 2% mana recovery). Use stacks to cycle skills rapidly — three rotation cycles per single Awakening activation. Two optimal stack-usage approaches: spaced evenly or concentrated burst. Exit manually via X or let meter drain. Main damage skills during Awakening: Ursine Windup, Boulder Bear, Fox Flame, Swish Bear, Fox Leap."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+        "anchor_quote": "generate Phantom Beast Spirit stacks which can be used to regenerate mana and reduce all your cooldowns. Each stack provides 5% Cooldown Reduction per stack and 2% Mana recovery per stack.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Ferality Wildsoul (shapeshifting emphasis, slower rotation-based playstyle)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/phantom-beast-awakening-wildsoul-build-guide",
+        "anchor_quote": "Want a slower and burstier playstyle focused on Shapeshifting? Check out our Ferality guide",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

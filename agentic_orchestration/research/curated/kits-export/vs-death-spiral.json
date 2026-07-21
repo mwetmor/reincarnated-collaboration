@@ -1,0 +1,201 @@
+{
+  "kit_id": "vs-death-spiral",
+  "spine": {
+    "kit_id": "vs-death-spiral",
+    "folk_name": "Death Spiral (Axe evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine orbit geometry maps the delivery well. Pool-limit saturation mechanic (50 active persistent projectiles) approximated via PERSISTENCE_ENGINE_saturation — engine has no direct pool-limit analog; fidelity note required.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine orbit geometry maps the delivery well. Pool-limit saturation mechanic (50 active persistent projectiles) approximated via PERSISTENCE_ENGINE_saturation — engine has no direct pool-limit analog; fidelity note required.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Death Spiral (orbiting scythes)",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Nine red spinning scythes orbit player in fixed pattern; infinite pierce (pierce value 1000); pool limit 50 active projectiles creates wall-of-damage wall presence. No element: VS element-silent. No ailments named in fetched dossier."
+        }
+      ],
+      "motion_frame": "Persistent orbit ring of scythes around player; wall-of-damage saturation via high pierce + large pool",
+      "resource_economy": {
+        "pool_limit": "50 active projectiles max",
+        "pierce": "extreme (1000); indefinite duration projectiles"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "orbit radius / scythe count"
+          ],
+          "economy": [
+            "pool-limit saturation"
+          ],
+          "traits_affixes": [
+            "crit via Slash Arcana (30% crit chance)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. Orbit geometry confirmed by dossier: 'nine red spinning scythes around the player in a fixed orbital pattern.' Pool-limit saturation is the identity mechanic. Candelabrador catalyst (area bonus) maps as geometry support. DLC union path (Legacy of Death: Soul River) noted in capstone row — populated."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Death_Spiral",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Death Spiral - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022;vs-1.13-14-2025+",
+      "anchor_quote": "Added to game on October 27, 2021.",
+      "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Death Spiral is the evolution of Axe; recipe = Axe + Candelabrador",
+      "anchor_quote": "Death Spiral is the evolution of Axe, and requires the Candelabrador.",
+      "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Orbit delivery: nine red spinning scythes around player; arc-throw promoted to whole-ring orbit; ring footprint",
+      "anchor_quote": "Death Spiral fires nine red spinning scythes around the player in a fixed orbital pattern.",
+      "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "dlc_union": "unions with Dark Rift to form Legacy of Death: Soul River (requires Ode to Castlevania DLC)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+        "anchor_quote": "Combines with Dark Rift to form Legacy of Death: Soul River (requires Ode to Castlevania DLC).",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "candelabrador": "required catalyst; increases area by 10% per level",
+          "slash_arcana": "30% critical chance when Slash Arcana acquired"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+        "anchor_quote": "30% critical chance when Slash Arcana is acquired.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "full orbit ring around player",
+          "origin": "self-origin",
+          "speed": "0.8x speed multiplier (slower than Axe arc); scythes maintain screen presence longer",
+          "pattern": "consistent directional orbit, not arc throws"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+        "anchor_quote": "Scythes travel in consistent directions rather than arcing, creating what players can stack into a wall of damage up until the weapon's Pool Limit.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "evolution_recipe": "Axe (max) + Candelabrador = Death Spiral",
+          "delivery": "nine red spinning scythes orbit around player",
+          "pierce": "extremely high pierce (1000); passes through enemies; indefinite duration",
+          "pool_limit": "50 active projectiles; creates wall of damage"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+        "anchor_quote": "Death Spiral fires nine red spinning scythes around the player in a fixed orbital pattern. Extremely high Pierce values. Pool limit of 50 active projectiles.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "soul_river_union": "Death Spiral + Dark Rift = Legacy of Death: Soul River (DLC only)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Death_Spiral",
+        "anchor_quote": "Combines with Dark Rift to form Legacy of Death: Soul River (requires Ode to Castlevania DLC).",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

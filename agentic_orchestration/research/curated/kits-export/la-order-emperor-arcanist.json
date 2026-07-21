@@ -1,0 +1,270 @@
+{
+  "kit_id": "la-order-emperor-arcanist",
+  "spine": {
+    "kit_id": "la-order-emperor-arcanist",
+    "folk_name": "Order of the Emperor Arcanist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Delayed-damage timing window (buff pre-load → detonation) has no direct engine grammar slot; captured in delivery_notes. Card-draw card-type system (Emperor/Chancellor/Royal identity) loses card-type granularity — map shape as card_deck_meter gauge cycle.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Delayed-damage timing window (buff pre-load → detonation) has no direct engine grammar slot; captured in delivery_notes. Card-draw card-type system (Emperor/Chancellor/Royal identity) loses card-type granularity — map shape as card_deck_meter gauge cycle.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightstream",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Crit buff pre-load before damage window; non-damaging buff skill"
+        },
+        {
+          "source_skill": "Evoke",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Core damage skill with delayed damage; pre-loaded with Lightstream buff"
+        },
+        {
+          "source_skill": "Dark Resurrection",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Delayed damage core; high gem priority"
+        },
+        {
+          "source_skill": "Return",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Creates damage timing window for pre-buffed delayed damage resolution"
+        },
+        {
+          "source_skill": "Celestial Rain",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Area damage skill in core rotation"
+        },
+        {
+          "source_skill": "Mysterious Stampede",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Destruction damage tag (boss-break Weak-Point/Destruction vocab — §LA row 4; NOT an ailment; delivery_notes only). Delayed damage; buff pre-load required."
+        }
+      ],
+      "motion_frame": "Constant card-draw loop: generate Card Deck meter via Normal skills; hold up to 2 cards; use Chancellor+Royal (draw 2 cards) before damage window; Emperor card increases Deck Meter gain and overall damage; damage resolves on delayed-hit timing after buff pre-load",
+      "resource_economy": {
+        "card_deck_meter": "generated via Normal skill casts; card draws (Chancellor, Royal, Emperor) are spending events; Emperor card = primary cash-in for Deck Meter gain amplification; high APM card-cycle loop; engraving axis REMOVED 2025 — spec identity is the PLAYSTYLE not engraving name"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Emperor card draw as Deck Meter amplifier; Chancellor+Royal 2-card pre-window draw",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null throughout: 'Dark Resurrection', 'Celestial Rain', 'Mysterious Stampede' are skill proper names; zero damage-typing in fetched language (D4 NAME-ONLY LAW). Engraving axis DEAD per §LA row 7 + pre-ruling — 'Order of the Emperor' was the engraving name; now the SPEC/playstyle is the identity. Ark Passive Enlightenment tree → capstone_alterations (Standard, Kurzan Front sets). Destruction on Mysterious Stampede = raid-break boss-encounter vocab (§LA row 4) — NOT sunder or any ailment. Delayed-damage timing (buff pre-load before damage resolves) is an ORDER-EMPEROR signature noted in delivery_notes. TEMPORAL_CHARGE for card meter cycle; RESOURCE_CONVERSION for card-draw cash-in economy."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Order of the Emperor Arcanist Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/grace-empress-arcanist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Grace of the Empress Arcanist Build Guide (cross-reference)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last Updated: June 12, 2026. As some cores were upgraded with the balance patch in October 2025, new builds began to be studied",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Order of the Emperor Arcanist — Arcanist class, Order of the Emperor identity spec",
+      "anchor_quote": "Order of the Emperor Arcanist Build Guide — focuses on generating and using as many Cards as possible, while dealing delayed damage",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Boosts Card Deck meter gain; Emperor, Royal, Chancellor cards; faster APM than Grace of the Empress with Emperor card serving as big-damage cash-in; constant card draws amplify normal skill damage rather than Ruin detonations",
+      "anchor_quote": "Order of the Emperor constantly draws cards and is overall even faster APM than its counterpart, with Emperor increasing your Deck Meter gain and overall damage",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+        "anchor_quote": "Sekwah (Content Creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_notes": "Class engravings Empress's Grace and Order of the Emperor removed; replaced by Enlightenment tree in Ark Passive. Arcanist now uses Ark Passive by default. October 2025 balance patch added Normal Enhance - Heart of the Emperor - Shuffle Dance combination.",
+          "ark_passive_sets": [
+            "Standard",
+            "Kurzan Front"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+        "anchor_quote": "class engravings Empress's Grace and Order of the Emperor were removed and replaced by the Enlightenment tree, with Arcanist now using the Ark Passive by default",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Raid Captain",
+            "Cursed Doll",
+            "Hit Master"
+          ],
+          "gems_priority": [
+            "Dark Resurrection",
+            "Evoke",
+            "Unlimited Shuffle"
+          ],
+          "stats": "Swiftness/Crit priority"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Adrenaline, Raid Captain, Cursed Doll, Hit Master",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "key_skills": [
+            "Lightstream",
+            "Evoke",
+            "Dark Resurrection",
+            "Return",
+            "Celestial Rain",
+            "Mysterious Stampede",
+            "Unlimited Shuffle",
+            "Dancing of Spineflower"
+          ],
+          "geometry_notes": "Mysterious Stampede tagged as Destruction damage; Return creates damage timing window; skills deal delayed damage requiring buff pre-loading"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+        "anchor_quote": "Destruction damage (Mysterious Stampede); delayed damage requiring careful timing with buffs applied before damage resolves",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Constant card-draw loop: generate Card Deck meter via Normal skills with delayed damage. Hold up to 2 cards simultaneously. Core rotation: Lightstream (crit buff) → Evoke + Dark Resurrection → Return → Celestial Rain → Mysterious Stampede. Use Chancellor + Royal (draw 2 cards) before damage window. Emperor card increases Deck Meter gain and overall damage as the primary cash-in. Prioritize Cull/Twisted Fate/Sovereign for damage increases; Joy reduces cooldowns; Wheel of Fortune resets next skill cooldown."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+        "anchor_quote": "Order of the Emperor constantly draws cards and is overall even faster APM than its counterpart, with Emperor increasing your Deck Meter gain and overall damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Grace of the Empress Arcanist (Ruin detonation focus; slower APM)",
+          "core_variants": [
+            "Spineflower core variant",
+            "Normal Enhance - Heart of the Emperor - Shuffle Dance (post Oct 2025 patch)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/order-of-the-emperor-arcanist-raid-guide",
+        "anchor_quote": "Spineflower core variant; alternative engraving setups; dungeon/raid-specific skill configurations",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

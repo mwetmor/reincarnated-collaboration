@@ -1,0 +1,257 @@
+{
+  "kit_id": "poe1-armageddon-brand",
+  "spine": {
+    "kit_id": "poe1-armageddon-brand",
+    "folk_name": "Armageddon Brand",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The attach-emitter-mark + periodic meteor lands via trigger-grammar (mark_identity + burst-damage) and ground_targeted_circle, but the meteor's TIMED proc-while-attached has no exact proc_trigger_condition enum member (approximated to on-mark-apply). The distinctive 'run freely while brands auto-bombard the marked target' feel is preserved; the exact cadence-while-attached timing is a numeric property the trigger enum doesn't name.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The attach-emitter-mark + periodic meteor lands via trigger-grammar (mark_identity + burst-damage) and ground_targeted_circle, but the meteor's TIMED proc-while-attached has no exact proc_trigger_condition enum member (approximated to on-mark-apply). The distinctive 'run freely while brands auto-bombard the marked target' feel is preserved; the exact cadence-while-attached timing is a numeric property the trigger enum doesn't name.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Armageddon Brand",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "brand is applied as a mark on a nearby enemy; while attached it periodically drops a meteor (small-radius fire AoE) at the marked enemy's position while the player moves freely. Meteor = ground_targeted_circle at the mark's location. Shaper-of-Flames variant guarantees ignite -> burn"
+        },
+        {
+          "source_skill": "Brand Recall",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "recalls all active brands to the player and immediately re-attaches them to nearby enemies — a mark-relocation utility, not an offensive geometry; blink used as the reposition-of-marks utility handle"
+        }
+      ],
+      "motion_frame": "full-move caster: attach brand, run freely while meteors auto-fall on the marked target, Brand Recall to re-seed — never rooted",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-mark-apply",
+        "mark_identity": "Armageddon Brand attached to enemy — a persistent emitter-mark that periodically procs a meteor while attached",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle meteor",
+            "brand-attachment-count (more brands)"
+          ],
+          "economy": [
+            "brand activation cadence"
+          ],
+          "traits_affixes": [
+            "fire-penetration",
+            "ignite/burn-scaling",
+            "area-of-effect (meteor radius)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MARK-kit: the brand is a mark applied to an enemy that acts as a persistent emitter, periodically calling a meteor (ground_targeted_circle) on the marked target while the player is free to move. trigger_grammar carries mark_identity + burst-damage consequence. FRICTION: the meteor procs on a TIMER while the mark is attached; the proc_trigger_condition enum has no 'timed-while-marked' member — approximated to on-mark-apply (the meteor-stream flows from the mark's active state). trigger_chain_shape=apply-consume-pair reflects Brand-Recall's re-attach cycle (apply brand -> consume/relocate -> re-apply), respecting MAX_CHAIN_DEPTH=1 (single mark, no nested chain). Brand Recall itself is a mark-relocation utility (blink handle). Burn from the guaranteed-ignite Elementalist variant."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.16] Armageddon Brand Elementalist Build",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3229636",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.19] Armageddon Brand Build (League Starter) | Elementalist",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Armageddon_Brand",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Armageddon Brand - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Armageddon Brand has been added to the game in patch 3.5.0",
+      "source_url": "https://poedb.tw/us/Armageddon_Brand",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Armageddon Brand' (no aliases) is real community usage; class Hierophant/Elementalist",
+      "anchor_quote": "[3.16] Armageddon Brand Elementalist build",
+      "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Armageddon Brand + Brand Recall; brand attaches to enemy and periodically calls meteors on it while player moves; recall and re-throw mechanic",
+      "anchor_quote": "Creates a magical brand which can attach to a nearby enemy. It periodically activates while attached, causing a fiery meteor to fall from the sky.",
+      "source_url": "https://poedb.tw/us/Armageddon_Brand",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Brand Recall reattaches brands to new enemies",
+      "anchor_quote": "Brand Recall 'teleports them to your position, immediately attaching them to nearby enemies.'",
+      "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Odealo editorial (no individual author credited)",
+          "site": "odealo.com",
+          "url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide"
+        },
+        "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Elementalist",
+          "nodes_in_order": [
+            "Shaper of Flames",
+            "Mastermind of Discord",
+            "Heart of Destruction",
+            "Bastion of Elements"
+          ],
+          "note": "Hierophant variant uses brand-attachment nodes for more brands simultaneously."
+        },
+        "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+        "anchor_quote": "Shaper of Flames → Mastermind of Discord → Heart of Destruction → Bastion of Elements",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "The Searing Touch (staff)",
+          "alteration": "BiS for the build; provides significant fire damage scaling for meteors.",
+          "secondary_item": "Replica Emberwake (ring)",
+          "secondary_alteration": "Synergizes with ignite/fire damage output.",
+          "tertiary_item": "Malachai's Artifice (ring)",
+          "tertiary_alteration": "Sockets a Lightning Golem for its buff."
+        },
+        "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+        "anchor_quote": "The Searing Touch — the BiS item for this build",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "At-target delivery (brand attached to enemy); meteor strike AoE on impact. Base radius 2.2 metres. Meteors fall at the attached enemy's position, not the player's.",
+          "geometry_note": "Brand itself is point delivery to enemy; each activation creates a small-radius fire AoE impact."
+        },
+        "source_url": "https://poedb.tw/us/Armageddon_Brand",
+        "anchor_quote": "Base radius is 2.2 metres",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast Armageddon Brand near an enemy to attach it; brand periodically calls a meteor AoE while the player moves freely. On enemy death or movement away, use Brand Recall to recall all active brands to the player's feet and immediately re-attach to nearby enemies. Loop: attach brand → run → Brand Recall → reattach. Full-move playstyle: no rooting required."
+        },
+        "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+        "anchor_quote": "Brand attaches to an enemy and periodically calls meteors on it while you run; recall and re-throw",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Armageddon Brand Elementalist (Odealo, 3.16)",
+            "Armageddon Brand Elementalist League Starter (3.19)",
+            "Armageddon Brand Hierophant (extra brand attachment count)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/armageddon-brand-elementalist-build-odealos-crafty-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "kit_id": "poe1-warchief",
+  "spine": {
+    "kit_id": "poe1-warchief",
+    "folk_name": "Ancestral Warchief",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the proximity-coaching buff becomes flavor (engine has no player-adjacency-buffs-proxy primitive); multi-totem count rides the proxy door rather than an Ancestral Bond analog. A Warchief player still recognizes plant-stand-slam.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the proximity-coaching buff becomes flavor (engine has no player-adjacency-buffs-proxy primitive); multi-totem count rides the proxy door rather than an Ancestral Bond analog. A Warchief player still recognizes plant-stand-slam.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ancestral Warchief",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed ancestor totem that independently performs small-AoE melee slams (ground_slam-class reach ~ weapon range +10) on enemies near it; the player is a COACH — standing within ~80 units grants the totem a more-melee-damage buff; physical rule -> element-neutral slot (Chieftain canonical variant converts phys to fire)"
+        }
+      ],
+      "motion_frame": "plant-and-coach: drop the totem on the pack, stand beside it for the proximity buff while it slams, reposition and replant — melee outsourced to a deployed ancestor",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem placed autonomous melee-slam proxy",
+            "2-3 totem multiplication (Ancestral Bond / Hierophant) expressed via the proxy door, not literal keystones"
+          ],
+          "economy": [
+            "placement-cadence / cooldown chassis (probe econ model = cooldown)",
+            "Rage build + Berserk burst window (Berserker variant) as charge-flavor note"
+          ],
+          "traits_affixes": [
+            "Facebreaker-class unarmed phys multiplier = gear-affix numeric lane (600-800 percent more unarmed)",
+            "totem-life / totem-damage supports as trait-rank analogs",
+            "hp-stack defense (Kaom's) as def-lane flavor"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "totem geometry + PROXY_ASCENSION are native — the melee-outsourced-to-deployed-ancestors identity lands almost whole. No lane for the player-position-buffs-proxy coaching mechanic (proximity buff carried as flavor note; the stand-near incentive survives loosely via placement discipline). Facebreaker dissolves to gear numeric per crosswalk 4. Probe ailments empty -> no stun asserted (no invented facts)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1694250",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "guggelhupf#2310",
+      "title": "[3.17] The Warchief | [Facebreaker] Ancestral Warchief | Uber Boss Farmer | Beginner -> Expert",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/3-0-anc-warchief-berseker-starter-and-uber-farmer-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "Odealo",
+      "title": "[3.7] Ancestral Warchief Berserker Starter build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Ancestral_Warchief",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Ancestral Warchief - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "'Ancestral Warchief Introduced to the game in version 2.3.0'; forum thread by guggelhupf posted June 2016 during 2.x era confirms early meta presence",
+      "source_url": "https://poedb.tw/us/Ancestral_Warchief",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "'[3.7] Ancestral Warchief Berserker Starter build' Odealo guide; thread guggelhupf 'Facebreaker Warchief Chieftain' documented in Harvest 3.11 for PoE Vault",
+      "source_url": "https://odealo.com/articles/3-0-anc-warchief-berseker-starter-and-uber-farmer-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ancestral Warchief' and alias 'Facebreaker Warchief' are real community usage",
+      "anchor_quote": "'[3.17] The Warchief | [Facebreaker] Ancestral Warchief | Uber Boss Farmer' — forum thread by guggelhupf#2310 active since June 2016",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1694250",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Ancestral Warchief; totem placed at location performs melee slams independently; player stands near totem for melee damage buff; Facebreaker gloves provide unarmed damage multiplier",
+      "anchor_quote": "'Ancestral Warchief is a Totem build. It uses Melee Physical attacks instead of Spells... Facebreaker enables efficient leveling... (600-800)% more Unarmed Physical Damage'",
+      "source_url": "https://odealo.com/articles/3-0-anc-warchief-berseker-starter-and-uber-farmer-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "guggelhupf#2310",
+          "site": "pathofexile.com/forum",
+          "note": "authored The Warchief guide, first posted June 2016, updated through 3.17"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1694250",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Chieftain: Ngamahu (phys-to-fire conversion + life regen from totems)",
+            "Berserker: Crave the Slaughter + War Bringer (Rage generation and Berserk activation)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1694250",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Facebreaker unique gloves (core item — unarmed damage multiplier)",
+            "Kaom's Heart (large life pool)",
+            "Tombfist gloves (alternative for abyss jewel scaling)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1694250",
+        "anchor_quote": "'play UNARMED' with Facebreaker gloves providing 'adds # - # physical dmg to attacks' scaling",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "totem placed at location; totem performs melee AoE slam",
+          "slam_reach": "weapon range + range modifiers from totem position",
+          "radius": "small-AoE slam; radius expands with AoE modifiers",
+          "melee_range_note": "gained +10 melee range at all levels in 2.5.0; slam center fixed to be near totem range"
+        },
+        "source_url": "https://poedb.tw/us/Ancestral_Warchief",
+        "anchor_quote": "'fixed behaviour with the center of the slam being significantly further away than the totem melee range... +10 melee range at all levels'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Place Ancestral Warchief totem; totem independently performs melee slam attacks; player stands within 80 units to receive increased melee damage buff; Facebreaker gloves provide unarmed damage multiplier (600-800% more); use Cyclone or other skill to generate Rage (Berserker); Berserk activated for burst"
+        },
+        "source_url": "https://odealo.com/articles/3-0-anc-warchief-berseker-starter-and-uber-farmer-odealos-crafty-guide",
+        "anchor_quote": "'Ancestral Warchief is a Totem build. It uses Melee Physical attacks instead of Spells... Facebreaker enables efficient leveling... (600-800)% more Unarmed Physical Damage'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Chieftain (primary for fire conversion + life leech from totems)",
+            "Berserker (physical damage + Rage burst variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1694250",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

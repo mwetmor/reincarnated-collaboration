@@ -1,0 +1,187 @@
+{
+  "kit_id": "hot-blood-catcher",
+  "spine": {
+    "kit_id": "hot-blood-catcher",
+    "folk_name": "Blood Catcher (pre-fix)",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "negative",
+    "eras": "hot-1.0-2024",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — the exploited mechanism is patched and no post-patch identity exists in the dossier. Structural GAPPED: no skill loop to map.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — the exploited mechanism is patched and no post-patch identity exists in the dossier. Structural GAPPED: no skill loop to map.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "pre-patch exploit: relic stacking at 1 HP triggers multiplicative damage amplification per damage instance; patched 2025-12-04 — post-patch identity non-viable",
+      "resource_economy": {
+        "hp_cost_scale": 0.99
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": "1-HP threshold trigger",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE kit (negative=1, confirmed-genuine per basin-5 addendum §E): patched relic exploit. skill_geometry abstained at crawl — no viable post-patch damage loop to map. Trigger grammar captures the pre-patch mechanism shape for record. Map attested identity only; negative story rides review book."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/2/4845400399763203062/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Blood Catcher needs diminishing returns :: Halls of Torment Feedback",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4692279523717383923/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "How to become immortal after BloodCatcher nerfs :: Halls of Torment General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-1.0-2024",
+      "anchor_quote": "Blood Catcher needs diminishing returns",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/2/4845400399763203062/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Blood Catcher (pre-fix) — relic with compounding interaction; hundred-billion damage from bug; developer patched",
+      "anchor_quote": "1B dmg per shot 5 minutes in ... It's a joke. It's unfun ... makes it by far best in slot for most if not all builds",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/2/4845400399763203062/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Pre-patch relic interaction: 1hp triggers Blood Catcher on every damage instance; exponential stacking via fast-tick abilities",
+      "anchor_quote": "Do you know how fast blood catcher ticks when you have 1hp? Correct, literally every instance of dmg I do ticks it",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/2/4845400399763203062/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Non-canon because: pre-patch broken relic interaction patched; not a viable mechanic post-fix; community flagged as trap/exploit",
+      "anchor_quote": "fix for Blood Catcher and Twisted Chaplet Regeneration variant was applied ... After this nerf, with blood catcher nerf, you will never be immortal",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4692279523717383923/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Was paired with Arcane Rift (fast-tick ability) to maximize Blood Catcher trigger rate. Low-HP items to maintain 1 HP threshold."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/2/4845400399763203062/",
+        "anchor_quote": "using arcane rift you can get 20,000% on blood catcher in minutes",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Blood Catcher relic: stacks multiplicatively on each damage instance. Pre-patch exploit: at 1 HP every damage tick triggered BC, enabling 20,000%+ damage amplification and billion-damage numbers in minutes. Developer patched 2025-12-04 to add diminishing returns. Post-patch: no longer viable as primary scaling mechanism."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/2/4845400399763203062/",
+        "anchor_quote": "Do you know how fast blood catcher ticks when you have 1hp? Correct, literally every instance of dmg I do ticks it",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

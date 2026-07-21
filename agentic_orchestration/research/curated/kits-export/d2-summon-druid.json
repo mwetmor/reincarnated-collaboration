@@ -1,0 +1,236 @@
+{
+  "kit_id": "d2-summon-druid",
+  "spine": {
+    "kit_id": "d2-summon-druid",
+    "folk_name": "Summon Druid",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;rotw;d2r-2.4+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Kit identity is full autonomous-pet menagerie command — the player's loop is 'summon, reposition, maintain.' No engine lane for autonomous combatants. Oak Sage aura maps as stand-alone but the kit without its summoned army is not the kit.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Kit identity is full autonomous-pet menagerie command — the player's loop is 'summon, reposition, maintain.' No engine lane for autonomous combatants. Oak Sage aura maps as stand-alone but the kit without its summoned army is not the kit.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Grizzly",
+          "geometry_value": "totem",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "GAP — autonomous pet combatant (§CROSS row 2 summoner-deferral). Placed at targeted position; acts as tank. Filed to MAPPED_DOCKET."
+        },
+        {
+          "source_skill": "Dire Wolves",
+          "geometry_value": "totem",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "GAP — autonomous pet combatants. Wolf pack for damage output."
+        },
+        {
+          "source_skill": "Ravens",
+          "geometry_value": "totem",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "GAP — autonomous pets. Attack rating debuff (blind flavor); dossier 'Ravens for attack rating debuff.' §0-UNIVERSAL: dossier does not name 'blind' explicitly in fetched text; attack rating debuff = accuracy-tax analog → blind is nearest but note: only 'attack rating debuff' in dossier, not 'blind' by name. Near-miss: blind not attested by name."
+        },
+        {
+          "source_skill": "Oak Sage",
+          "geometry_value": "aura",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spirit summon — life-bonus aura for entire party/self. Totem-vs-companion: Oak Sage is stationary placed emitter = maps as aura (not summoner GAP). Dossier: 'maintain Oak Sage or Heart of Wolverine spirit.'"
+        }
+      ],
+      "motion_frame": "Summon Grizzly tank + Dire Wolf pack + Ravens support; maintain Oak Sage spirit; recast fallen summons; player repositions around pet wall.",
+      "resource_economy": {
+        "cost_scale": "spend",
+        "cost_slope": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "distributed multi-point coverage via pet AI movement"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: core identity is autonomous pet-combatant army (Grizzly + Dire Wolves) — summoner-deferral applies (§CROSS row 2). Placed-proxy-count accrual: menagerie diversity (bear + wolves + ravens) = accrual to placed-proxy-count family. Oak Sage is totem-vs-companion two-lane winner (stationary placed emitter = aura, not summoner GAP). Ravens blind: §0-UNIVERSAL GOVERNS — dossier says 'attack rating debuff,' does NOT name blind; near-miss logged. Earth element: druid nature-themed. ERRATA-54 did not apply to this kit (no NULL-era backfill needed; verify_ledger shows d2r-2.4+ era confirmed). [STEWARD-AUDIT 2026-07-18 MW2-close: Ravens 'blind' STRUCK — store attests only 'attack rating debuff'; AR-debuff ≠ blind (adjacent-status substitution). Return-prose had this blocked; file now matches. Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "tmGrunty",
+      "title": "3.2 RotW Summon Druid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/strategy/diablo-2-guide-druid-summoner",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: Druid Summoner",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod",
+      "anchor_quote": "Diablo 2 Guide: Druid Summoner",
+      "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-druid-summoner",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r-2.4+",
+      "anchor_quote": "summons have twice the life they had in earlier patches with the improvement to Summon Dire Wolf's passive bonus",
+      "source_url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Summon Druid' or 'Bear Summon Druid' is real community usage",
+      "anchor_quote": "You have your own zoo! Seriously, who doesn't love pets?",
+      "source_url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Grizzly, Dire Wolves, Ravens, Oak Sage; menagerie summoner playstyle",
+      "anchor_quote": "Summon Grizzly (a big tank with lots of life whose synergy buffs the damage of all other summons)",
+      "source_url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "tmGrunty",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "point",
+          "notes": "Summon skills each place one creature at targeted position. Combined effect = distributed multi-point coverage via pet AI movement."
+        },
+        "source_url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+        "anchor_quote": "You have your own zoo! Seriously, who doesn't love pets?",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Summon Grizzly bear as primary tank; summon Dire Wolf pack for damage; summon Ravens for attack rating debuff and early-game clear; maintain Oak Sage or Heart of Wolverine spirit. Player repositions and recasts fallen summons. Full menagerie playstyle.",
+          "source_note": "diablo2.io 3.2 RotW Summon Druid Guide"
+        },
+        "source_url": "https://diablo2.io/forums/2-7-summon-druid-guide-t903558.html",
+        "anchor_quote": "Summon Grizzly (a big tank with lots of life whose synergy buffs the damage of all other summons)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Summon Druid (all summoning skills + Oak Sage/Heart of Wolverine)",
+            "Fire/Summoner hybrid (summoning + fire skills — separate PureDiablo guide title confirms this sub-variant exists)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/strategy/druid-fire-summoner-sp-hc-v1-2",
+        "anchor_quote": "Diablo 2 Guide: Druid Fire/Summoner [SP/HC] V1.2",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

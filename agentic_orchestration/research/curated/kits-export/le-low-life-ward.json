@@ -1,0 +1,256 @@
+{
+  "kit_id": "le-low-life-ward",
+  "spine": {
+    "kit_id": "le-low-life-ward",
+    "folk_name": "Low-Life Ward (archetype)",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "GX-05 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Source player would lose the ENTIRE identity: the whole build IS 'drop HP to near-zero, convert missing-health into a giant Ward wall.' Engine has no ward-from-missing-health generation and no low-life inversion economy — nothing of the loop survives. DEFENSIVE_TRADEOFF is the nearest T4 door but only gestures at 'trade life for defense'; it does not reproduce the inverted-stat scaler.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Source player would lose the ENTIRE identity: the whole build IS 'drop HP to near-zero, convert missing-health into a giant Ward wall.' Engine has no ward-from-missing-health generation and no low-life inversion economy — nothing of the loop survives. DEFENSIVE_TRADEOFF is the nearest T4 door but only gestures at 'trade life for defense'; it does not reproduce the inverted-stat scaler.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "(archetype — no rankable skill; host-class delivery)",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Item-defined archetype (Exsanguinous chest + Last Steps of the Living boots) — NOT a skill with its own geometry (fetched skill_geometry: 'not a skill with its own geometry — it is an archetype defined by items'). Delivery is whatever the host class uses (Spellblade melee-mage most common). WITH-items form mapped as core per item-defined-archetype law (§B row); the identity is the item set, not a delivery shape."
+        }
+      ],
+      "motion_frame": "HP drained to low-life threshold by uniques -> Ward generated per missing HP point -> Ward wall absorbs all incoming damage -> repeat",
+      "resource_economy": {
+        "defense_source": "ward-from-missing-health (decaying overshield scaled by the missing-HP gap: fetched '3000 max health... stable at 500 health, means you are regenning 2500 ward per second')",
+        "health_role": "inverted-scaler (higher max HP + Intelligence = larger missing-health gap = more Ward/sec; Vitality/health investment SCALES the Ward pool — self-depletion as a SCALER not a cost)",
+        "resource": "health-as-reserved-resource (n/a element)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "ward-from-missing-health inversion"
+          ],
+          "traits_affixes": [
+            "Experimental Ward per Missing Health gloves affix",
+            "Intelligence (Ward Retention)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: defense-from-inverted-stat (ward gained per point of MISSING health) has NO native engine lane. §B ward-from-missing-health row governs; this kit is the row's first mapping exercise. Docket-candidate filed — CONSOLIDATES the basin-1 overheal-above-cap docket class (ward = decaying overshield; missing-health inversion is the docket-worthy economy: intentional self-depletion as a SCALER, not a cost). R-M7 player-test: the inversion IS the entire build — an engine player has neither ward-from-missing-health nor a low-life-inversion economy, so this is 'NOT that build' not 'that build worse' -> GAPPED (honest, per hot-fact). Item-defined-archetype law applied: no rankable skill, so mapped the WITH-items form (Exsanguinous + Last Steps of the Living) as core; era claims pin poorly for item-archetypes (honest-U precedent) but eras CONFIRMED across beta-0.8/1.0/1.4. Do NOT merge with GD retaliation-substrate or the armour cluster (§B trap) — inversion-of-own-resource is its own mechanism. Distinct from self-cost: self-cost SPENDS life; this SCALES on absent life."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Need expert info on \"Low Life\" aka Exsanguinous/Last Steps gear",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/spark-charge-runemaster-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Spark Charge Runemaster Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Fire Aura Spellblade Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Discussion occurs during Last Epoch Beta 0.8.1e (May 2021)...Exanguinous, Last Step Of The Living and Shroud Of Obscrurity are Low Life Ward Builds",
+      "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Spark Charge Runemaster: Exsanguinous and Last Steps of the Living allow the build to get the most out of the Low Life setup",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/spark-charge-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/spark-charge-runemaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Fire Aura Spellblade Build Guide: Enable the Low Life playstyle with Exsanguinous and Last Steps of the Living. Pair them with Mask of Indifference",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/fire-aura-spellblade-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Low-Life Ward (archetype)' and aliases 'low life ward stacker LE' are real community usage",
+      "anchor_quote": "Exanguinous, Last Step Of The Living and Shroud Of Obscrurity are Low Life Ward Builds...community uses: 'low life,' 'LL,' and 'Low Life Ward Builds' interchangeably",
+      "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core mechanic: Exsanguinous + Last Steps of the Living drain HP; Ward generated from missing HP; self-cost economy; host-flexible class delivery",
+      "anchor_quote": "Exsanguinous and Last Steps of the Living allow the build to get the most out of the Low Life setup...Vitality/health scale really nicely with these two uniques. A simple 10 HP can convert to something like 35 ward",
+      "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Zaodon",
+          "site": "forum.lastepoch.com",
+          "note": "thread OP"
+        },
+        "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+        "anchor_quote": "Need expert info on \"Low Life\" aka Exsanguinous/Last Steps gear — posted by Zaodon, May 8, 2021",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Vitality/health stat investment scales Ward pool — counterintuitive but correct. Intelligence scales Ward Retention. Experimental Ward per Missing Health gloves affix is key scaling item. Transition threshold: should have 2x gloves with Experimental Ward before switching to low life."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/spark-charge-runemaster-guide",
+        "anchor_quote": "You shouldn't switch to low life until you have at least two gloves with Experimental Ward per Missing Health and enough Intelligence to at least double your health with Ward when out of combat",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Exsanguinous (chest — drains HP, generates Ward)",
+            "Last Steps of the Living (boots — drains HP, generates Ward)",
+            "Shroud of Obscurity (alternative)",
+            "Mask of Indifference (boosts survivability in Fire Aura variant)"
+          ],
+          "defining_note": "The archetype IS defined by these items — no Exsanguinous/Last Steps = not a low-life-ward build."
+        },
+        "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+        "anchor_quote": "Exanguinous, Last Step Of The Living and Shroud Of Obscrurity are Low Life Ward Builds",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "archetype-dependent",
+          "footprint": "archetype-dependent",
+          "description": "Low-life-ward is not a skill with its own geometry — it is an archetype defined by items. Primary delivery and footprint are whatever the host class/mastery uses. Common Spellblade: at-target melee; Runemaster: spell caster; Acolyte minion builds: minion proxy."
+        },
+        "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+        "anchor_quote": "Acolyte and Mage maximize the benefit of ward generation...the Acolyte is an ideal candidate",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Equip Exsanguinous (chest) and Last Steps of the Living (boots) — these unique items drain HP to near-zero and generate Ward per missing HP point. Primary skill loop is class-dependent (Spellblade melee-mage most common). The Ward wall absorbs all incoming damage. Higher max health = larger missing-health gap = more Ward per second.",
+          "core_cycle": "HP drained to low life threshold -> Ward generated per missing HP -> Ward absorbs damage -> repeat"
+        },
+        "source_url": "https://forum.lastepoch.com/t/need-expert-info-on-low-life-aka-exsanguinous-last-steps-gear/36700",
+        "anchor_quote": "gain ward per second = missing health. So 3000 max health for instance where you become stable at 500 health, means you are regenning 2500 ward per second",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fire Aura Spellblade Low Life (Exsanguinous + Mask of Indifference)",
+            "Spark Charge Runemaster Low Life",
+            "Wraith Necromancer Low Life (Architects of Astral Blood alternative)",
+            "Bleed Warlock Low Life DoT",
+            "ExplodyMinion Lowlife Acolyte (0.9 era)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/wraith-necromancer-guide",
+        "anchor_quote": "Low Life is enabled thanks to Exsanguinous or Architects of Astral Blood, allowing you to generate tons of Armor",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

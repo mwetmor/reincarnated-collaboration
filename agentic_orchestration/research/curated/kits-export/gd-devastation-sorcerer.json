@@ -1,0 +1,243 @@
+{
+  "kit_id": "gd-devastation-sorcerer",
+  "spine": {
+    "kit_id": "gd-devastation-sorcerer",
+    "folk_name": "Devastation Sorcerer",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: discrete falling-meteor impacts homogenize to zone-tick damage in ground_targeted_circle; the devotion-proc layer is empty (payloads unfetched).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: discrete falling-meteor impacts homogenize to zone-tick damage in ground_targeted_circle; the devotion-proc layer is empty (payloads unfetched).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Devastation",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "lightning",
+          "element_secondary": "fire",
+          "ailments": [],
+          "delivery_notes": "call a meteor storm on a target zone; falling meteors blanket a large AoE for 8 seconds ('targeted meteor strike with an 8-second duration'; 'meteor shower falls for 8 seconds blanketing area in aether-fire'); hard-cooldown big button. NAME-COLLISION LAW honored: 'Devastation' the name implies nothing -- mapped ONLY from fetched meteor-rain behavior."
+        },
+        {
+          "source_skill": "Blackwater Cocktail (support)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "support cast for resistance reduction ('Blackwater Cocktail for resistance reduction') -> GD RR per main-law 2 RR row, persistent zone-debuff application shape -> curse:sap (hex side, not on-hit sunder side)."
+        }
+      ],
+      "motion_frame": "cooldown-gated big button: drop the 8-second meteor storm on a zone, shred resistances with BWC, and ride Mirror plus Blast Shield through the storm window",
+      "resource_economy": {
+        "cadence_scale": "hard-cooldown-gated rotation ('the duration of devastation is 8 seconds, and the duration of blast shield + Mirror combined together is 7 seconds' -- offense window managed against defense windows)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "large meteor-storm zone radius; items SHRINK it into a single-target nuke ('3 items which reduce the target area of devastation, turning it into a powerful single-target nuking skill') -> GEOMETRY_COLLAPSE evidence"
+          ],
+          "economy": [
+            "hard-cooldown cadence"
+          ],
+          "traits_affixes": [
+            "aether/fire zone damage scaling",
+            "Mythical Apocalypse / Stormfire / Herald of the Apocalypse -> numeric itemization lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "aether -> lightning-primary per main-law aether row (energy register: arcane meteor bombardment) with fire secondary from fetched 'aether-fire' blanketing + BWC fire support; shadow-aether corruption read is the noted alternative. Devotion procs named (elemental devotion procs, Widow constellation) with payload behaviors UNFETCHED -> contribute nothing (0.3 + A row-1 discipline); Time Dilation named-not-taken AND behavior-unfetched (A residual) -> nothing. R-M5 considered, not applicable (the 8s storm is skill-native zone duration, not a timed proc)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.7.0] The Tiny Devastation Sorcerer - SR75+",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-7-sorcerer-devastation-mortar-build-pyran-set-sr80/126856",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.9.7] Sorcerer Devastation & Mortar Build (Pyran Set) SR80+",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['base-2016','patch-1.1-1.2']",
+      "anchor_quote": "Version: [1.1.7.0] … Arcanist + Demolitionist are both base-game masteries; build is a Sorcerer",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Devastation Sorcerer'; aliases=['BWC Devastation combo','Arcanist Demolitionist Sorcerer']",
+      "anchor_quote": "[1.1.7.0] The Tiny Devastation Sorcerer … Arcanist + Demolitionist = Sorcerer class",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Devastation','Blackwater Cocktail(support)']; delivery=at-target meteor storm; resource=cooldown; element=aether",
+      "anchor_quote": "Devastation functions as a targeted meteor strike with an 8-second duration … Blackwater Cocktail (referred to as BWC) appears in the build … cooldown-based … the duration of devastation is 8 seconds",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.7.0] The Tiny Devastation Sorcerer - SR75+"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Widow constellation",
+            "elemental devotion procs",
+            "Time Dilation (alternative path)"
+          ],
+          "notes": "Elemental devotion procs preferred over Time Dilation in this version"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+        "anchor_quote": "elemental devotion procs rather than going for Time Dilation … Widow constellation in later discussion",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Mythical Apocalypse",
+            "Stormfire",
+            "Herald of the Apocalypse"
+          ],
+          "notes": "Items can reduce Devastation's AoE radius to increase single-target density"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+        "anchor_quote": "Stormfire, and Herald of the Apocalypse are itemization anchors",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target zone",
+          "footprint": "large AoE zone",
+          "range": "ranged placed",
+          "aoe": "large zone blanketed by falling meteors",
+          "notes": "Radius reduced by specific items to single-target nuke variant"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+        "anchor_quote": "3 items which reduce the target area of devastation, turning it into a powerful single-target nuking skill",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Call Devastation at target zone; meteor shower falls for 8 seconds blanketing area in aether-fire; player manages Mirror+Blast Shield defensive cooldowns during storm; Blackwater Cocktail for resistance reduction",
+          "resource": "hard cooldown per Devastation cast",
+          "tempo": "cooldown-gated big button"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-tiny-devastation-sorcerer-sr75/100740",
+        "anchor_quote": "Devastation functions as a targeted meteor strike with an 8-second duration … the duration of devastation is 8 seconds, and the duration of blast shield + Mirror combined together is 7 seconds",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "aether Devastation (base)",
+            "fire/lightning partial-conversion variant",
+            "Pyran set variant (fire-themed Sorcerer with Mortar support)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-sorcerer-devastation-mortar-build-pyran-set-sr80/126856",
+        "anchor_quote": "[1.1.9.7] Sorcerer Devastation & Mortar Build (Pyran Set) SR80+",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

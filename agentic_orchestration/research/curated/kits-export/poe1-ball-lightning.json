@@ -1,0 +1,255 @@
+{
+  "kit_id": "poe1-ball-lightning",
+  "spine": {
+    "kit_id": "poe1-ball-lightning",
+    "folk_name": "Ball Lightning",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ball Lightning's signature 'slow drift + 150ms tick + inverse-velocity (slower = more hits)' has no matching 26-geometry — approximated as a circle tick-AoE, same as the archmage BL delivery. The mine throw/detonate chassis is modeled via trigger-grammar + activation-toggle. A player would keep the orb-zap and mine-laying feel but lose the fine positional skill of drifting the orb slowly through a pack to maximize hits.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "blind",
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ball Lightning's signature 'slow drift + 150ms tick + inverse-velocity (slower = more hits)' has no matching 26-geometry — approximated as a circle tick-AoE, same as the archmage BL delivery. The mine throw/detonate chassis is modeled via trigger-grammar + activation-toggle. A player would keep the orb-zap and mine-laying feel but lose the fine positional skill of drifting the orb slowly through a pack to maximize hits.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ball Lightning (via mines)",
+          "geometry_value": "circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder",
+            "blind"
+          ],
+          "delivery_notes": "slow orb drifts forward zapping a small AoE every 150ms; slower orb = more hits per target (inverse-velocity). Deployed via mines (throw + detonate) in the Saboteur variant. Modeled as a circle tick-AoE around the orb's dwell; the drift + inverse-velocity is a behavioral property the geometry enum doesn't carry. shock->sunder; Saboteur 'Born in the Shadows' grants blind"
+        }
+      ],
+      "motion_frame": "mine-layer caster: throw mines that each spawn a drifting zap-orb, detonate to trigger; pre-plant for bosses, re-throw to sustain",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "circle tick-AoE orb",
+            "mine placement/detonation chassis"
+          ],
+          "economy": [
+            "mine-throw cadence",
+            "detonate-all activation",
+            "Machina-Mitts mine-leech sustain"
+          ],
+          "traits_affixes": [
+            "lightning-penetration",
+            "slower-projectile (increases dwell/hit-count)",
+            "shock/blind scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Same GEOMETRY FRICTION as archmage (kit-4): the slow-drift + 150ms-tick + inverse-velocity orb has no clean 26-type; approximated as 'circle' tick-AoE. Here the orb IS the identity (contrast archmage where mana-scaling is the identity). Deployed via the MINE chassis (throw+detonate) — modeled with trigger_grammar (on-cast-linked -> linked-cast: mine-throw links the BL cast; detonate = activation) + resource activation-toggle for the throw/detonate rhythm; this is a delivery-chassis approximation, not a source-fact mint. Ailments: shock->sunder (false-friend) + blind (Saboteur 'Born in the Shadows' blinds nearby = engine blind, accuracy-tax). Slower-Projectiles support -> traits (increases dwell => hit-count). The mine-detonate loop is DEPTH-1 (throw links, detonate fires) — within MAX_CHAIN_DEPTH."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2755952",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "g00fy_goober#7177",
+      "title": "[3.16] g00fy_goober's Ball Lightning Miner Saboteur",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgstash.com/blog/ball-lightning-miner-shadow-saboteur-guide",
+      "archive_url": null,
+      "site": "rpgstash.com",
+      "author_handle": null,
+      "title": "Ball Lightning Miner Build - Path of Exile 3.25 Ready",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Ball_Lightning",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Ball Lightning - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "[3.16] g00fy_goober's Ball Lightning Miner Saboteur",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ball Lightning', aliases 'BL mines (Sabo)', 'Archmage BL host' are real community usage; class Hierophant/Saboteur",
+      "anchor_quote": "[3.16] g00fy_goober's Ball Lightning Miner Saboteur (Easily clear all content)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Ball Lightning: slow-moving orb projectile drifts forward, zaps everything near it multiple times per second (every 150ms); slower = more hits",
+      "anchor_quote": "Fires a slow-moving projectile that damages each enemy in an area around it repeatedly with bolts of lightning.",
+      "source_url": "https://poedb.tw/us/Ball_Lightning",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Hits every 150ms; inverse-velocity damage oddity",
+      "anchor_quote": "Ball lightning has a certain amount of times it can hit per second. Every 150ms to be precise.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "g00fy_goober#7177",
+          "site": "pathofexile.com/forum",
+          "url": "https://www.pathofexile.com/forum/view-thread/2755952"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_primary": "Saboteur",
+          "saboteur_nodes": [
+            "Demolitions Specialist (doubles mine aura, 100% chance for double damage with 20 mines)",
+            "Born in the Shadows (blind nearby enemies)",
+            "Chain Reaction (detonation chains)"
+          ],
+          "ascendancy_secondary": "Hierophant",
+          "hierophant_note": "Ball Lightning of Orbiting Hierophant is distinct build using Archmage scaling (see archmage kit)."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+        "anchor_quote": "Demolitions Specialist passive is considered the best for mines, doubling the aura effect and giving up to a 100% chance to deal double damage with 20 mines active",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Crown of the Inward Eye (helmet)",
+          "alteration": "Provides trinitarian devotion scaling for ES/life pool.",
+          "secondary_item": "Shav's Wrappings (chest)",
+          "secondary_alteration": "CI (Chaos Inoculation) low-life ES setup.",
+          "tertiary_item": "Machina Mitts (gloves)",
+          "tertiary_alteration": "Only source of mine leech in game — unique to mine builds."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+        "anchor_quote": "Machina Mitts are a unique choice allowing you to leech damage dealt by your mines",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Projectile delivery with small-radius AoE. Base projectile speed ~48 units/sec. Base radius 18 units (post-3.12 nerf from 22). Lightning bolts strike every 150ms inside the AoE. Slower Projectiles increases dwell time, increasing hits per target.",
+          "geometry_note": "Inverse-velocity damage: slower orb = more hits = more damage."
+        },
+        "source_url": "https://poedb.tw/us/Ball_Lightning",
+        "anchor_quote": "Lightning bolts will strike nearby targets every 150 milliseconds while they are inside the area of effect.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Throw mines with right-click; each mine generates a Ball Lightning orb that drifts and zaps nearby enemies every 150ms. Detonate mines (key 'd') to trigger them simultaneously. For bosses, pre-plant mines before spawn. Slower Projectiles makes the orb drift more slowly, increasing hit count per target. Loop: throw mines → detonate → re-throw."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+        "anchor_quote": "Right clicking once at mid of pack to throw mines and then clicking 'd' for detonate is pretty easy.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "BL Mines Saboteur (g00fy_goober lineage)",
+            "Archmage BL Hierophant (mana-scaling variant, see archmage kit)",
+            "Ball Lightning of Orbiting Hierophant (transfigured gem, 3.24+)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2755952",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

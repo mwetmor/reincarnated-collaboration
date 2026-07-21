@@ -1,0 +1,314 @@
+{
+  "kit_id": "poe1-spectres",
+  "spine": {
+    "kit_id": "poe1-spectres",
+    "folk_name": "Spectre Necromancer",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-13",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Player test fails: hand a Spectre Necromancer a fixed generic minion squad and they say 'this is a summoner, but this is not Spectres.' The defining identity — choosing WHICH world monster to enslave (Solar Guards vs Slave Drivers vs Syndicate Operatives) and inheriting its ability kit — has no engine mechanism class.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "shadow"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Player test fails: hand a Spectre Necromancer a fixed generic minion squad and they say 'this is a summoner, but this is not Spectres.' The defining identity — choosing WHICH world monster to enslave (Solar Guards vs Slave Drivers vs Syndicate Operatives) and inheriting its ability kit — has no engine mechanism class.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Raise Spectre",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "permanent independent minion entities raised at corpse position; 3-5 powerful ranged proxies spread across the combat area and fight autonomously (multi-entity footprint). Fire per the Solar Guard era-variant (corpus element); later-era spectre pools drift physical/lightning."
+        },
+        {
+          "source_skill": "Desecrate",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "utility corpse-generation patch: desecrated ground spawning the corpses that fuel Raise Spectre — summon-ritual support, not a damage skill."
+        }
+      ],
+      "motion_frame": "army-anchor: the permanent monster army fights independently while the player walks, buffs, and Desecrates fresh corpses",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "persistent multi-entity proxy squad (totem lane)",
+            "corpse-patch utility circle"
+          ],
+          "economy": [
+            "corpse-bind-permanent: summon once, army persists (no recast cadence)",
+            "+spectre-count items (Soul's Wick +2, Wraithlord, Midnight Bargain) -> proxy-count affix lane"
+          ],
+          "traits_affixes": [
+            "minion-damage/minion-life intrinsic traits",
+            "+proxy-count gear affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "The runtime loop (permanent ranged proxy army + support caster) lands on totem/proxy lanes. THE GAP: spectres are raised copies of MAP MONSTERS — the minion pool is the game's enemy roster, and each spectre RETAINS ITS NATIVE MONSTER ABILITIES ('Raise permanent copy of map monster'). Engine proxies are kit-generated content; there is no world-entity-capture or monster-ability-inheritance lane. Docket filed (batch flag e applied)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 7,
+      "mechanism_class": "world-entity-capture minion pool (spectre-class)",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/the-spectre-summoner-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "GhazzyTV",
+      "title": "GhazzyTV's Spectre Summoner Necromancer Build Guide (PoE Mirage 3.28)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2094035",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "(3.2) All Map Mod Solar Guard Spectre LEAGUE START",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2989420",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.13] Spectre necro. syndicate operatives. All gear explained",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/3-1-starter-spectre-summoner-necromancer-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.26] Raise Spectre Necromancer Summoner build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Raise_Spectre",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Raise Spectre — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6 (Solar Guards)",
+      "anchor_quote": "(3.2) All Map Mod Solar Guard Spectre LEAGUE START (SSF Viable/End Game Viable)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2094035",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13 (Syndicate Operatives)",
+      "anchor_quote": "[3.13] Spectre necro. The tanky HC purity version. syndicate operatives. All gear explained",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2989420",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Spectre Necromancer' is real community usage; aliases 'Solar Guards era' and 'Syndicate Operatives era' are real community usage",
+      "anchor_quote": "(3.2) All Map Mod Solar Guard Spectre LEAGUE START; [3.13] Spectre necro. syndicate operatives. All gear explained",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2094035",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Raise Spectre and Desecrate; Necromancer class",
+      "anchor_quote": "Raise Spectre is the best and most popular Minion Spell; Desecrate included as utility gem for creating corpses; Necromancer ascendancy",
+      "source_url": "https://odealo.com/articles/3-1-starter-spectre-summoner-necromancer-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "GhazzyTV",
+          "site": "poe-vault.com",
+          "note": "primary Spectre Summoner guide author; guide maintained from 3.7+ era through 3.28"
+        },
+        "source_url": "https://www.poe-vault.com/guides/the-spectre-summoner-build-guide",
+        "anchor_quote": "GhazzyTV's Spectre Summoner Necromancer Build Guide",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Anomalous Raise Spectre (alt quality)",
+              "type": "alt_quality",
+              "effect": "1% increased Minion Maximum Life and Minions deal 1% increased Melee Damage per 1% quality",
+              "anchor_quote": "1% increased Minion Maximum Life and Minions deal 1% increased Melee Damage (per 1% quality)"
+            },
+            {
+              "node": "Divergent Raise Spectre (alt quality)",
+              "type": "alt_quality",
+              "effect": "Minions have 0.5% reduced Enemy Stun Threshold per 1% quality",
+              "anchor_quote": "Minions have 0.5% reduced Enemy Stun Threshold (per 1% quality)"
+            },
+            {
+              "node": "Phantasmal Raise Spectre (alt quality)",
+              "type": "alt_quality",
+              "effect": "Minions are Created with maximum Frenzy Charges",
+              "anchor_quote": "Minions are Created with maximum Frenzy Charges"
+            },
+            {
+              "node": "Raise Spectre of Transience (transfig)",
+              "type": "transfigured_gem",
+              "effect": "0.6s cast time vs 0.85s standard; 800-1180% increased Critical Strike Chance; up to 4-6 spectres",
+              "anchor_quote": "Base cast time of 0.6 seconds (versus standard 0.85)...Minions gain 800-1180% increased Critical Strike Chance"
+            },
+            {
+              "node": "Soul's Wick (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "jewel",
+              "effect": "+2 to maximum number of Spectres; 40-50% reduced Mana Cost; spectres gain 800-1000% increased Critical Strike Chance; Base Duration of 20 seconds; do not travel between Areas",
+              "anchor_quote": "+2 to maximum number of Spectres...Raised Spectres have (800—1000)% increased Critical Strike Chance"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Raise_Spectre",
+        "anchor_quote": "+2 to maximum number of Spectres...Raised Spectres have (800—1000)% increased Critical Strike Chance",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Soul's Wick (+2 spectres)",
+            "Wraithlord (+1 per jewel in sockets)",
+            "Midnight Bargain (+1 spectre)"
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Raise_Spectre",
+        "anchor_quote": "Soul's Wick (+2), Wraithlord (+1 per jewel), and Midnight Bargain (+1)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "at-target cast on corpse; permanent spectre entity spawned at corpse location; spectres spread across combat area independently; multi-entity footprint"
+        },
+        "source_url": "https://poedb.tw/us/Raise_Spectre",
+        "anchor_quote": "Raise permanent copy of map monster at corpse position; spectre fights independently",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Raise permanent copies of map monsters from their corpses. Spectres retain all their monster abilities and attack/cast independently. Use Desecrate to generate fresh corpses of specific monsters (including those not normally in zone). Army fights while you position and buff."
+        },
+        "source_url": "https://www.poe-vault.com/guides/the-spectre-summoner-build-guide",
+        "anchor_quote": "Raise Spectre is the best and most popular Minion Spell; you don't want to transition to full Spectres until you have a minimum of three",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Solar Guards era (3.0-3.6) — fire projectile spectres",
+            "Syndicate Operatives era (3.7-3.13) — physical ranged",
+            "Slave Drivers — lightning AoE, popular starter",
+            "Wretched Defilers — current meta (3.26+)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2094035",
+        "anchor_quote": "Solar Guard Spectre LEAGUE START; syndicate operatives…default melee attack and a ranged spell",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

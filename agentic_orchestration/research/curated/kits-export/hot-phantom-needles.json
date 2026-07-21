@@ -1,0 +1,202 @@
+{
+  "kit_id": "hot-phantom-needles",
+  "spine": {
+    "kit_id": "hot-phantom-needles",
+    "folk_name": "Phantom Needles",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-1.0-2024",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Phantom Needles",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Physical/Projectile; straight-line pierce through all enemies in lane; high-tempo auto-fire; physical = no element family per THE PHYSICAL RULE"
+        }
+      ],
+      "motion_frame": "Continuous auto-fire pierce needles in straight lane; secondary/filler slot role",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "GEOMETRY_PROPAGATION_overkill"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce count (Reverberant Tincture doubles Pierce 4 class trait)"
+          ],
+          "economy": [
+            "high-tempo auto-fire cadence"
+          ],
+          "traits_affixes": [
+            "crit scaling (Pinpoint upgrades +50% crit at L3/6/10)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical pierce line. No ailments named in fetched text (bleed not attested despite physical substrate). Element = null (physical = no-family per THE PHYSICAL RULE). Clean line-pierce geometry."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community build post)",
+      "title": "[Build] Phantom Needles Archer Agony 4.6 FH PB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://thenerdstash.com/halls-of-torment-ability-tier-list-traits-ranked/",
+      "archive_url": null,
+      "site": "thenerdstash.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment Ability Tier List and Traits Ranked",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hot-1.0-2024.",
+      "anchor_quote": "guide focuses on Agony 4.6 FH PB build for Phantom Needles Archer",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Phantom Needles is a pierce-line ability used notably on Archer class; community calls it a pierce-line filler.",
+      "anchor_quote": "Phantom Needles is the core ability for the Archer class... 'a must have on Archer because of its sheer potential for massive DPS in higher agony'",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Needles travel in a straight line hitting all enemies in their path via pierce; projectile delivery; secondary/filler slot role.",
+      "anchor_quote": "Phantom Needles is a Physical/Projectile ability that quickly fires needles that damage random nearby enemies",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/3943524562534907897/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Pinpoint upgrade at Phantom Needles Level 3, 6, 10 (+50% crit chance each); Spin upgrades at odd levels"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+        "anchor_quote": "grab every Pinpoint upgrade for Phantom Needles (+50% crit chance, available at Phantom Needles Level 3, 6 and 10 if mastery III is unlocked)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Reverberant Tincture to double Pierce 4 class trait; Potion of Memories + Reverberant Tincture + class traits as holy trinity; Blood Catcher amulet for survivability"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+        "anchor_quote": "Doubling the Pierce 4 class trait using Reverberant Tincture",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-pierce",
+          "description": "Straight-line pierce projectiles; each needle hits all enemies in a linear lane; ranged, high-tempo"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+        "anchor_quote": "Phantom Needles is a Physical/Projectile ability that quickly fires needles that damage random nearby enemies",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Phantom Needles auto-fires continuously; pierce-through needle volleys hit all enemies in a lane; primary role is secondary/filler slot that stacks quietly under any main. High DPS in higher agony via pierce chipping."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/5/3875967769028274131/",
+        "anchor_quote": "a must have on Archer because of its sheer potential for massive DPS in higher agony",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Archer is the primary class for Phantom Needles; ability can be added as secondary on other classes"
+        },
+        "source_url": "https://thenerdstash.com/halls-of-torment-ability-tier-list-traits-ranked/",
+        "anchor_quote": "For Archer, recommended abilities include Phantom Needles, Astronomer's Orbs, and Ring Blades",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

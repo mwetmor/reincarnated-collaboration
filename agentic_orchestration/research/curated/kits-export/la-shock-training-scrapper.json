@@ -1,0 +1,238 @@
+{
+  "kit_id": "la-shock-training-scrapper",
+  "spine": {
+    "kit_id": "la-shock-training-scrapper",
+    "folk_name": "Shock Training Scrapper",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shock gauge builder/spender correctly modeled. The '5/10/20% Shock Energy return' is a number (stale-SHAPE only per §LA §0.1); shape is 'partial refund on consumption' → modeled in resource_economy. Dual Stamina/Shock gauge nature of Scrapper noted in economy; Stamina not independently modeled as the fetched text focuses on Shock gauge.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shock gauge builder/spender correctly modeled. The '5/10/20% Shock Energy return' is a number (stale-SHAPE only per §LA §0.1); shape is 'partial refund on consumption' → modeled in resource_economy. Dual Stamina/Shock gauge nature of Scrapper noted in economy; Stamina not independently modeled as the fetched text focuses on Shock gauge.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Roundup Sweep / Charging Blow / Judgment (Shock gauge generators)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shock gauge generators; melee range. 'Judgment' also provides Synergy (debuff on enemies). No element attested. TRAP CHECK: 'Shock' here = Scrapper class skill-category / gauge name, NOT the 16-ailment shock (paralysis). Do NOT emit shock ailment."
+        },
+        {
+          "source_skill": "Fist of the Wind God / Shredding Strike / Death Rattle / Supernova (burst Shock Skills)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Burst Shock Skills fired during Tenacity Release (Z) window. Named in gems_damage. Back Attack affix: +10% Crit Rate, +5% Damage. 'Shock Skills' = Scrapper skill category, NOT ailment. No element descriptor."
+        },
+        {
+          "source_skill": "Tenacity Release (Z identity window)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Identity window: Z activates burst phase for Shock Skills. Shock Training: recovers 5/10/20% Shock Energy on consumption; Z duration reduced 5s vs base. Timed window."
+        }
+      ],
+      "motion_frame": "Generate Shock Gauge via Roundup Sweep/Charging Blow/Judgment → activate Tenacity Release (Z) burst window → unleash Shock Skills (Fist of the Wind God, Shredding Strike, Death Rattle, Supernova) → Shock Energy recovery (5/10/20% on consumption) enables extended Z; repeat cycle",
+      "resource_economy": {
+        "shock_gauge": "built via generator skills (Roundup Sweep, Charging Blow, Judgment); spent during Tenacity Release (Z) on Shock Skills; 5/10/20% partial refund on consumption (Shock Training identity bonus); Z duration -5s as tradeoff",
+        "stamina_gauge": "dual-gauge class (Stamina/Shock); Stamina fills complementary generator skills; not explicitly modeled separately in store for this spec"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Shock Gauge full → Tenacity Release (Z) → burst Shock Skills window",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CRITICAL TRAP (per hot-facts): 'Shock' in Shock Training Scrapper = Scrapper class skill-category and gauge name, NOT the 16-ailment shock (paralysis). No shock ailment emitted. 'Shock Skills' appear 4× in store text as category labels, not as applied statuses. Element null throughout — no damage-type descriptors. Boss-break trap: Stagger appears in taijutsu sibling notes; map delivery_notes only if attested for this kit (Roundup Sweep stagger property not named in fetched text for shock-training specifically). Synergy via Judgment: 'provides Synergy' appears in taijutsu notes, same source author — not explicitly attested in shock-training's own fetched lines; do NOT cross-attribute."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Shock Training Scrapper Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Author: Civo. Last Updated: January 11, 2026 — active Ark Passive era guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shock Training Scrapper — folk name (class Scrapper + Shock Training identity spec)",
+      "anchor_quote": "Shock Scrapper receives 5/10/20% of Shock Energy back whenever it is consumed, but the duration of Tenacity Release (Z) is reduced by 5 seconds.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Generates Shock Gauge via normal skills then spends it on Shock Skills for burst; builder-spender vs Taijutsu identity-uptime; more gauge management complexity with higher burst ceiling",
+      "anchor_quote": "Shock Scrapper receives 5/10/20% of Shock Energy back whenever it is consumed... Generate meter via Roundup Sweep, Charging Blow, Judgment; unleash burst skills during Tenacity Release (Z) window",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg",
+          "updated": "2026-01-11"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+        "anchor_quote": "Author: Civo. Site: Maxroll.gg. Last Updated: January 11, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Adrenaline"
+          ],
+          "gems_damage": [
+            "Death Rattle",
+            "Supernova",
+            "Fist of the Wind God",
+            "Shredding Strike",
+            "Potent Rising Fist",
+            "Judgment"
+          ],
+          "bracelet_stats": "Specialization, Crit",
+          "bracelet_specials": [
+            "Ambush",
+            "Circulate",
+            "Fervor",
+            "Hammer",
+            "Wedge",
+            "Assail",
+            "Precise",
+            "Superiority",
+            "Strength",
+            "Weapon Power"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Ambush Master, Keen Blunt Weapon, Cursed Doll, Adrenaline",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Melee back-attack dependent — +10% Crit Rate and +5% Damage on back-side hits; no explicit AoE geometry in source"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+        "anchor_quote": "All attacks with a Back Attack affix receive +10% Crit Rate and +5% Damage when they land on the target's back-side indicator.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Generate Shock Gauge via Roundup Sweep, Charging Blow, Judgment; activate Tenacity Release (Z) identity window; unleash burst Shock Skills (Fist of the Wind God, Shredding Strike, Death Rattle, Supernova); Shock Scrapper recovers 5/10/20% Shock Energy on consumption — Z duration reduced 5s as trade. Repeat gauge-fill → burst cycle.",
+          "tenacity_z_energy_return": "5/10/20% Shock Energy back on consumption",
+          "z_duration_penalty": "-5 seconds on Tenacity Release duration"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+        "anchor_quote": "Shock Scrapper receives 5/10/20% of Shock Energy back whenever it is consumed, but the duration of Tenacity Release (Z) is reduced by 5 seconds.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Shock Training (gauge-builder/spender, burst ceiling higher)",
+            "Taijutsu (identity-uptime, sustained output)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/shock-training-scrapper-raid-guide",
+        "anchor_quote": "the builder-spender Scrapper versus Taijutsu's identity-uptime approach",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

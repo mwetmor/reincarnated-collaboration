@@ -1,0 +1,258 @@
+{
+  "kit_id": "poe1-crackling-lance",
+  "spine": {
+    "kit_id": "poe1-crackling-lance",
+    "folk_name": "Crackling Lance",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.12-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "beam_channel + lightning + sunder lands the base skill, but the IDENTITY is Intensity — a stand-still stack ramp (max 3, +35% dmg/stack) that SIMULTANEOUSLY morphs the geometry: each stack widens the beam +0.3m AND narrows branching 33%, transforming a wide frontal fan into a focused lance. The engine carries the damage-ramp (accumulator) OR the beam, but no lane represents 'stack count continuously reshapes beam width + branching.' A player would lose the signature beam-tightening-as-you-hold-ground AoE-vs-damage trade. Not minted (geometry-morph-by-stacks is an evidence-gated qualitative mechanism; flagged if it recurs). Era 3.12-3.13 per verify_ledger errata, respected.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "beam_channel + lightning + sunder lands the base skill, but the IDENTITY is Intensity — a stand-still stack ramp (max 3, +35% dmg/stack) that SIMULTANEOUSLY morphs the geometry: each stack widens the beam +0.3m AND narrows branching 33%, transforming a wide frontal fan into a focused lance. The engine carries the damage-ramp (accumulator) OR the beam, but no lane represents 'stack count continuously reshapes beam width + branching.' A player would lose the signature beam-tightening-as-you-hold-ground AoE-vs-damage trade. Not minted (geometry-morph-by-stacks is an evidence-gated qualitative mechanism; flagged if it recurs). Era 3.12-3.13 per verify_ledger errata, respected.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Crackling Lance",
+          "geometry_value": "beam_channel",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "forward lightning beam with smaller beams branching off at an angle to hit enemies to the sides. beam_channel = the forward beam; lightning family; PoE shock -> sunder (damage-taken amp, FALSE-FRIEND handled). Intensity RESHAPES the geometry (wide-branching -> narrow-forward), which the base type cannot express"
+        }
+      ],
+      "motion_frame": "stand-your-ground ramp caster: root in place and cast continuously to build Intensity (more damage, narrower beam); moving bleeds Intensity off — the anti-mobility damage-vs-AoE trade",
+      "resource_economy": {
+        "persistent_condition_shape": "proc-loop",
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_max": 3,
+        "accumulator_fill_trigger": "on-hit-dealt"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "beam_channel forward beam",
+            "branching side-beams (fork/multi-beam read — not the dominant loop)"
+          ],
+          "economy": [
+            "Intensity stack accumulator (max 3; +35% damage/stack)",
+            "reset-on-move persistence (stand-to-hold; -1 stack/0.5s moving) — a stationary-uptime condition"
+          ]
+        },
+        "traits_affixes": [
+          "lightning-penetration",
+          "shock-scaling (sunder magnitude)",
+          "cast-speed (Intensity-accrual rate)"
+        ]
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERA NOTE per batch instruction: era is 3.12-3.13 (errata_applied=1 in verify_ledger; canon_corpus already stamps 3.12-3.13; the stage-1 3.7-3.13 stamp was CONTRADICTED — skill debuted 3.12 Heist). Respected. beam_channel + lightning + sunder is the base identity and lands. THE APPROX driver — a COMPOUND that no single lane holds: Intensity is (a) a stand-still stacking ramp (max 3, +35% more damage/stack — a charge-stack accumulator, native) that (b) SIMULTANEOUSLY reshapes the geometry: +0.3m beam width AND 33% LESS branching angle per stack, so the beam morphs from wide-frontal-fan (0 stacks) to narrow-focused-lance (3 stacks). The engine can carry the DAMAGE ramp (accumulator) OR the beam geometry, but NOT 'the stack count continuously reshapes the beam's width and branching.' A Crackling Lance player would lose the signature feel of the beam TIGHTENING as they hold their ground — the AoE-vs-damage geometry trade IS the skill's identity, and it maps to no lane. Reset-on-move carried as a stationary-uptime persistent condition (proc-loop placeholder for the hold-to-maintain). No mint proposed: geometry-morph-driven-by-stacks is a qualitative mechanism (would need evidence-gating); flagged for steward as a candidate if it recurs. ELEMENTAL_ECHO for mono-lightning; TEMPORAL_CHARGE for the stack-engine capstone. Golem-stacking (Primordial Chain) is an external buff-multiplier variant, noted not core."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 2,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "Stack-parameterizes-geometry: an accumulator whose stack count reshapes the skill's LIVE geometry/emission, not just its damage. Three attested bindings: intensity-stacks narrow+intensify a beam (crackling-lance); stacks morph placed-AoE arc coverage (pizza-sticks); stored catch-count sets release projectile COUNT (venom-gyre). Engine accumulator scales magnitude only."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/crackling-lance-elementalist-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.25] Crackling Lance Elementalist Build - Odealo's Crafty Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mmogah.com/news/poe/poe-3-12-builds-crackling-lance-build-guide",
+      "archive_url": null,
+      "site": "mmogah.com",
+      "author_handle": null,
+      "title": "PoE 3.12 Builds: Crackling Lance Build Guide",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Crackling_Lance",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Crackling Lance - PoEDB, Path of Exile Wiki",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 3.7-3.13 — BUT: DB stamps 3.7-3.13; skill was introduced in 3.12 (Heist)",
+      "anchor_quote": "Introduced in patch 3.12.0 (Heist). Multiple build guides confirm 3.12 as skill debut: 'PoE 3.12 Builds: Crackling Lance Build Guide'; 'Path of Exile Heist: New Crackling Lance Build!'",
+      "source_url": "https://www.mmogah.com/news/poe/poe-3-12-builds-crackling-lance-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Crackling Lance' is real community usage; class Elementalist/Occultist",
+      "anchor_quote": "Release a beam which deals lightning damage to enemies in a long area in front of you, and has several smaller beams branch off from it at an angle, hitting more enemies to the sides.",
+      "source_url": "https://poedb.tw/us/Crackling_Lance",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Crackling Lance: branching lightning beam; intensity ramps while standing (up to 3 stacks, 35% more damage per stack); loses intensity on movement",
+      "anchor_quote": "Gain Intensify stacks by simply Casting your Spell continuously, but you will also quickly lose them upon moving or using a Movement Spell. Intensify transforms the attack into focused damage — greatly improving the Damage but shrinking the large AoE into a narrow beam.",
+      "source_url": "https://odealo.com/articles/crackling-lance-elementalist-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": null,
+          "site": "odealo.com",
+          "note": "Odealo Crafty Guides — no individual author handle extracted."
+        },
+        "source_url": "https://odealo.com/articles/crackling-lance-elementalist-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.55
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Elementalist",
+          "nodes": [
+            {
+              "name": "Liege of Primordial",
+              "alteration": "First ascendancy: enables Golem summoning for damage buff stacking."
+            },
+            {
+              "name": "Elemancer",
+              "alteration": "Additional golem slots and buff potency."
+            }
+          ]
+        },
+        "source_url": "https://odealo.com/articles/crackling-lance-elementalist-build",
+        "anchor_quote": "Liege of Primordial is the first ascendancy allocation, enabling Golem summoning mechanics that scale damage through buff multiplicity.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Primordial Chain",
+              "slot": "amulet",
+              "alteration": "Allows up to 9 Golems simultaneously, each providing multiplicative buffs to damage, cast speed, and survivability — fundamental build-definer for Golem Elementalist variant."
+            }
+          ]
+        },
+        "source_url": "https://odealo.com/articles/crackling-lance-elementalist-build",
+        "anchor_quote": "The Primordial Chain amulet fundamentally alters the build, allowing summoning of up to 9 Golems simultaneously, each providing multiplicative buffs to damage, cast speed, and survivability.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Primary beam fires forward in a long trajectory, dealing lightning damage to enemies in a long area in front. Secondary branches angle outward from the primary beam catching enemies to the sides. At full Intensity (3 stacks): beam width +0.9m, branching angle compressed 99% — near-forward narrow beam. At zero Intensity: wide branching pattern covering broad frontal lane."
+        },
+        "source_url": "https://poedb.tw/us/Crackling_Lance",
+        "anchor_quote": "Release a beam which deals lightning damage to enemies in a long area in front of you, and has several smaller beams branch off from it at an angle. 33% less branching angle per Intensity; +0.3 metres to Beam Width Per Intensity.",
+        "abstained": 0,
+        "conf": 0.94
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Stand still and cast Crackling Lance continuously. Each cast gains 1 Intensity stack (max 3). Intensity grants 35% more damage with hits and ailments per stack, and +0.3m beam width per stack, but also narrows branching angle by 33% per stack — damage concentrates forward as intensity rises. Lose 1 Intensity every 0.5s while moving, or immediately on teleport. Requires stationary positioning to maintain ramp."
+        },
+        "source_url": "https://poedb.tw/us/Crackling_Lance",
+        "anchor_quote": "Gain Intensify stacks by simply Casting your Spell continuously, but you will also quickly lose them upon moving or using a Movement Spell. 35% more Damage with Hits and Ailments per Intensity.",
+        "abstained": 0,
+        "conf": 0.94
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Crackling Lance Elementalist (Golem stacking)",
+              "description": "Primordial Chain + Liege of Primordial; highest damage ceiling."
+            },
+            {
+              "name": "Crackling Lance Assassin (3.14)",
+              "description": "PoE Vault guide — crit-scaling Assassin variant."
+            }
+          ]
+        },
+        "source_url": "https://odealo.com/articles/crackling-lance-elementalist-build",
+        "anchor_quote": "Crackling Lance Assassin Build Guide (PoE Ultimatum 3.14) — PoE Vault",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

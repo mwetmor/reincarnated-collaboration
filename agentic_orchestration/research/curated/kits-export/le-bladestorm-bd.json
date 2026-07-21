@@ -1,0 +1,214 @@
+{
+  "kit_id": "le-bladestorm-bd",
+  "spine": {
+    "kit_id": "le-bladestorm-bd",
+    "folk_name": "Bladestorm Bladedancer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Bladestorm's placed spinning-blade entity is not a perfect 26-enum fit — `totem` captures placed-emitter honesty but loses the spinning/whirlwind visual texture (whirlwind rejected: it implies player-centered spin, fetched explicitly denies this). Source player loses no mechanic, only the geometry-flavor precision. Low-Life stacking mapped as economy note, not a §B inversion row (attestation gap).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Bladestorm's placed spinning-blade entity is not a perfect 26-enum fit — `totem` captures placed-emitter honesty but loses the spinning/whirlwind visual texture (whirlwind rejected: it implies player-centered spin, fetched explicitly denies this). Source player loses no mechanic, only the geometry-flavor precision. Low-Life stacking mapped as economy note, not a §B inversion row (attestation gap).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bladestorm",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cast 3 Bladestorms deployed at positions; each is a PLACED spinning-blade AoE entity that persists (fetched: 'spinning placed AoE, NOT a pure orbit-of-player') and generates Shuriken Blade Shields via the Shuriken Storm Node. Placed-emitter -> totem projection (whirlwind/orbit both wrongly imply player-centered spin). Physical (§1 physical rule, element-neutral)."
+        },
+        {
+          "source_skill": "Shurikens",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Manually cast Shuriken projectiles: the build's main damage ('Shurikens cast by Bladestorm'), also stack Blade Shields on self and generate Mana via Sapping Strikes. Physical."
+        }
+      ],
+      "motion_frame": "Cast 3 Bladestorms to carpet the fight with spinning blade-emitters; manually spam Shurikens to stack Blade Shields + regen Mana; Synchronized Strike for burst; sit in Smoke Bomb; Shift to reposition",
+      "resource_economy": {
+        "resource": "mana",
+        "regen_shape": "Sapping Strikes generates Mana on manual Shuriken cast; Low Life setup (Death's Door passive)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "3 simultaneous Bladestorm placements",
+            "Shuriken projectile count"
+          ],
+          "economy": [
+            "Sapping Strikes mana-on-cast",
+            "Low Life stacking"
+          ],
+          "traits_affixes": [
+            "throwing/physical damage scalers",
+            "Blade Shield self-stack"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical -> element-neutral (§1 physical rule; DEX throwing build). Bladestorm mapped `totem` (placed spinning-blade emitter) per fetched 'placed spinning AoE, not orbit-of-player' — the two-lane geometry: placement-attested -> placement projection. NO bleed token: physical spinning blades / Shurikens, no bleed/lacerate STATUS named (§0.1). Low Life setup (Architects of Astral Blood 'enables Low Life') noted as an item-defined economy in fidelity_notes ONLY — the §B ward-from-missing-health inversion is NOT fetched for this kit (no 'ward per missing health' language), so that row does NOT apply; mapped as generic Low-Life stacking economy. Blade Shields = self-stacking defensive buff. PROXY_ASCENSION: 3 placed blade-emitters are the delivery core."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LizardIRL",
+      "title": "Bladestorm Bladedancer Guide for Last Epoch Season 4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Bladestorm Bladedancer Guide for Last Epoch Season 4 - Shattered Omens (updated March 30, 2026)",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bladestorm Bladedancer'; aliases include 'bladestorm melee Bladedancer', 'spinning blade LE build'",
+      "anchor_quote": "Bladestorm Bladedancer Guide for Last Epoch Season 4... triggers tons of Shurikens to destroy its foes and has amazing clear speed",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Bladestorm; melee spinning AoE; physical damage; Mana resource; high tempo",
+      "anchor_quote": "Cast 3 Bladestorms and let them generate Shuriken Blade Shields thanks to the Shuriken Storm Node... manually casting Shurikens to sustain Mana thanks to Sapping Strikes",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LizardIRL",
+          "site": "maxroll.gg",
+          "role": "Team Lead",
+          "guide_title": "Bladestorm Bladedancer Guide for Last Epoch Season 4"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+        "anchor_quote": "Author: LizardIRL (Team Lead)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "required_unique": "Architects of Astral Blood (enables Low Life setup)",
+          "power_items": [
+            "Traitor's Tongue",
+            "Peak of the Mountain",
+            "Li'raka's Claws",
+            "Shattered Worlds"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+        "anchor_quote": "Items like Traitor's Tongue, Peak of the Mountain, Li'raka's Claws and Shattered Worlds turn this build into an absolute powerhouse",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "spinning AoE deployed around cast positions; Bladestorms persist as placed spinning entities",
+          "footprint": "small-AOE spinning vortex per Bladestorm instance; 3 simultaneous instances for coverage",
+          "notes": "Bladestorm generates Shurikens as projectile throws; the storm itself is a spinning placed AoE, not a pure orbit-of-player"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+        "anchor_quote": "Cast 3 Bladestorms and let them generate Shuriken Blade Shields... This build's main Damage comes from Shurikens cast by Bladestorm",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast 3 Bladestorms which generate Shuriken Blade Shields via Shuriken Storm Node; manually cast Shurikens to stack Blade Shields and sustain Mana via Sapping Strikes; use Synchronized Strike for burst; stay inside Smoke Bomb for buffs; use Shift for mobility",
+          "resource_model": "Mana; Sapping Strikes generates Mana on manual Shuriken cast; Low Life setup with Death's Door passive"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/bladestorm-bladedancer-guide",
+        "anchor_quote": "Cast 3 Bladestorms and let them generate Shuriken Blade Shields thanks to the Shuriken Storm Node, while manually casting Shurikens to stack Blade Shields on yourself and generate Mana thanks to Sapping Strikes",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

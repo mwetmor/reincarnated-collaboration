@@ -1,0 +1,238 @@
+{
+  "kit_id": "d3-lon-bombardment",
+  "spine": {
+    "kit_id": "d3-lon-bombardment",
+    "folk_name": "LoN Bombardment",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the off-screen boulder drop identity — Bombardment's visual and feel is boulders falling from above at cursor, which engine ground_targeted_circle approximates but doesn't distinguish from other ground abilities; (2) Norvald's Fervor mounted-set mobility burst (15-second Steed Charge windows) as a distinct speed-phase identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the off-screen boulder drop identity — Bombardment's visual and feel is boulders falling from above at cursor, which engine ground_targeted_circle approximates but doesn't distinguish from other ground abilities; (2) Norvald's Fervor mounted-set mobility burst (15-second Steed Charge windows) as a distinct speed-phase identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bombardment (Barrels of Spikes rune)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Off-screen boulder barrage falls at cursor; large zone impact; attested: 'Bombardment Barrels of Spikes is the main source of damage'; Belt of the Trove applies automatically — item-defined-archetype maps with-item form"
+        },
+        {
+          "source_skill": "Steed Charge",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mobility in speed variants; attested: 'Steed Charge for mobility in speed variants'; traversal utility"
+        },
+        {
+          "source_skill": "Punish",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Stack Bane of the Stricken via Punish; generator for Wrath; secondary in loop"
+        }
+      ],
+      "motion_frame": "Activate Akarat's Champion and Laws of Valor; cast Bombardment Barrels of Spikes as primary damage on cooldown; Lord Commander passive reduces Bombardment cooldown; Steed Charge mobility; maintain all-ancient Legacy of Nightmares ring set",
+      "resource_economy": {
+        "resource_type": "Wrath",
+        "generator": "Punish generator",
+        "spend_pattern": "Bombardment primary spend; cooldown-gated primary loop; Lord Commander passive cooldown-reduction via hits"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "element_rotation_window",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bombardment off-screen large-zone; Steed Charge traversal"
+          ],
+          "economy": [
+            "Wrath generation via Punish; cooldown reduction via Lord Commander; LoN ring set scaling (scaler only)"
+          ],
+          "traits_affixes": [
+            "physical/holy scaling; cooldown reduction affixes; LoN ancient-item multiplier (scaler, fidelity-layer)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: physical (Bombardment = physical in D3 Crusader) → THE PHYSICAL RULE; element slots null. Belt of the Trove item — attested: 'Belt of the Trove uses the equipped rune, so we must have this on the skillbar'; item-defined-archetype law applies: the WITH-Trove (auto-firing) form is the kit identity. TEMPORAL_CHARGE: cooldown-rotation identity with Lord Commander passive reducing Bombardment cooldown per hit — charge/cooldown rhythm dominant. ZONE_CONTROL: large ground-zone barrage positioning. LoN set (two rings) is capstone-layer scaler per §B row 1 sibling; ×0.75% per legendary stacking = multiplier only, no mechanism addition. CoE in item_alterations → R-M5 element_rotation_window. No ailments attested in fetched text."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Diablo 3 Season 38 LoN Bombardment Crusader Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "Seasons 5-8 (original META period)",
+      "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Season 22 (massive buff from multiplier additions)",
+      "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'LoN Bombardment'; aliases include 'Legacy of Nightmares Bombardment', 'LoN Bombardment Crusader', 'Steed Charge Bombardment'",
+      "anchor_quote": "Diablo 3 Season 38 LoN Bombardment Crusader Guide",
+      "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bombardment, Steed Charge; class resource: Wrath; key mechanic: Legacy of Nightmares ring set",
+      "anchor_quote": "Bombardment Barrels of Spikes is the main source of damage. Wrath is the Crusader's primary resource management mechanic",
+      "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "co_credit": "mawbs (contributions)"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+        "anchor_quote": "Northwar — Content Creator (with contributions by mawbs)",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Legacy of Nightmares (2): 0.75% damage per legendary/set item equipped; maximum with all ancients ~10,000%+",
+          "note": "LoN is the ring set (two ring slots); not to be confused with LoD gem"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+        "anchor_quote": "All damage done by your skills is increased by 0.75% for each Legendary and Set item equipped",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Legacy of Nightmares (2-piece ring set)",
+            "Akarat's Champion Prophet",
+            "Belt of the Trove",
+            "Lord Commander (passive)",
+            "Norvald's Fervor (mounted set)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+        "anchor_quote": "Legacy of Nightmares ancient-item stacking turns Bombardment's off-screen boulder barrage into a one-cooldown build — ride Norvald's charge",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (off-screen boulder barrage)",
+          "range": "large-zone at target",
+          "aoe": "large zone",
+          "notes": "Bombardment calls off-screen boulders to fall at cursor; large impact area"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+        "anchor_quote": "Bombardment Barrels of Spikes is the main source of damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Akarat's Champion and Laws of Valor; cast Bombardment Barrels of Spikes as primary damage; Lord Commander passive massively reduces Bombardment cooldown; Steed Charge for mobility in speed variants; Punish to stack Bane of the Stricken; all ancient legendaries via Legacy of Nightmares ring set"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+        "anchor_quote": "Bombardment Barrels of Spikes is the main source of damage. Belt of the Trove uses the equipped rune, so we must have this on the skillbar",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "LoN Bombardment (GR primary)",
+            "LoD Bombardment Solo Speeds",
+            "LoN Thorns Bombardment (alternate)",
+            "Obsidian Ring of the Zodiac version"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/lon-bombardment-crusader-guide",
+        "anchor_quote": "LoD Bombardment Solo Speeds; LoN Thorns Bombardment Crusader",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

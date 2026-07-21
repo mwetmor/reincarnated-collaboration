@@ -1,0 +1,308 @@
+{
+  "kit_id": "le-wraithlord-necro",
+  "spine": {
+    "kit_id": "le-wraithlord-necro",
+    "folk_name": "Wraithlord Necromancer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.1-harbingers;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Nothing of the loop survives natively: autonomous-combatant delivery is a known engine gap (summoner-deferral), and the consumption-feed economy (sacrifice summon stock to empower one capped boss-proxy) has no lane. PROXY_ASCENSION gestures at the ascended-proxy fantasy but cannot host the wraith-stream harvest. Source player would find no wraiths, no Wraithlord, no feed loop -- not that build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Nothing of the loop survives natively: autonomous-combatant delivery is a known engine gap (summoner-deferral), and the consumption-feed economy (sacrifice summon stock to empower one capped boss-proxy) has no lane. PROXY_ASCENSION gestures at the ascended-proxy fantasy but cannot host the wraith-stream harvest. Source player would find no wraiths, no Wraithlord, no feed loop -- not that build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Wraith (fed)",
+          "geometry_value": null,
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Summon smaller Wraiths continuously' -- summon stream with NO placement language fetched -> null geometry is honest per the gapped-pet two-lane convention (follow/companion lane). The wraiths are consumable stock: fed to the Wraithlord via the Harbour helm."
+        },
+        {
+          "source_skill": "Wraithlord (Harbour-enabled)",
+          "geometry_value": null,
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single empowered boss-proxy: 'Wraithlord's Harbour helm channels wraith deaths/consumption into empowering a single Wraithlord proxy'; 'autonomously seeks and attacks enemies' (follow-class, no placement language -> null geometry). Consumption bonus is CAPPED ('a cap on maximum damage bonus it can get from eating other minions'). Player kites while the proxy dominates melee."
+        },
+        {
+          "source_skill": "Drain Life",
+          "geometry_value": null,
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'cast Drain Life on top of your Summon Wraiths to generate Mana' (+ buff generation) -- the player's mana-engine button targeted onto own minion cluster; no delivery shape fetched -> null geometry, economy carries it. Name-collision guard: engine 'drain' ailment NOT emitted (skill name + mana-gen behavior, no status language)."
+        },
+        {
+          "source_skill": "Dread Shade / Aura of Decay",
+          "geometry_value": null,
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Cast Dread Shade and Aura Of Decay to buff your Summon Wraith's Damage' -- minion-buff layer; Aura of Decay payload note says 'DoT + buff' -- damage-type-over-time RULING: DoT phrasing attests timing only, no status -> no poison token."
+        }
+      ],
+      "motion_frame": "stream Summon Wraiths -> Harbour helm consumes them to empower the single Wraithlord -> buff it with Dread Shade / Aura of Decay -> Drain Life on own wraiths for mana -> kite while the Wraithlord fights",
+      "resource_economy": {
+        "resource": "mana ('I run about +50% mana regen and +50 mana' -- verify anchor)",
+        "regen_shape": "drain-life-on-own-minions resource-fill (fetched verbatim)",
+        "harvest_economy": "minion-consumption feed: wraith stock -> Wraithlord empowerment, CAPPED -- no native key exists; this key is descriptive only and is the docketed gap"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-defender-death (nearest apply-event for wraith-death/consumption feed; greppable: MINION_CONSUME -- own-minion consumption has no native enum)",
+        "mark_identity": "summoned wraith (consumable stock)",
+        "consequence_type": "resource-fill (Wraithlord empowerment, capped)"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Wraithlord's Harbour helm (core enabling item -- item-defined archetype)",
+            "Drain Life mana loop"
+          ],
+          "traits_affixes": [
+            "'get the wraithlord, as many more multis as you can, and buff him with solo shades' (minion-mod affix lane)",
+            "Ash Wake / Aberrant Call (pre-nerf) / Exsanguinous low-life transition (variant-scoped)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PET-CORE -> summoner-deferral GAP (SB companions row): the ENTIRE damage loop lives in autonomous combatants; player contributes summon-stream + buffs + kiting. R-M7 player test: engine build has no autonomous proxies at all -- 'NOT that build' -> GAPPED / MAPPED_DOCKET (biconditional). Two-lane convention applied: no placement language anywhere ('summon... continuously', 'autonomously seeks') -> null geometry on all four rows is the honest lane (totem-projection NOT taken). Steward hot-fact honored: mapped the ATTESTED summon-harvest loop, not the folk-name 'Wraithlord skill' ambiguity; Wraithlord's Harbour ITEM enables the archetype -> item-defined-archetype law (SB low-life row): WITH-item form mapped as core. Docket-candidate FILED: minion-consumption harvest economy (feed lesser summons to empower a single capped boss-proxy) -- distinct attested shape, sibling of the A pet-death-payload precedent. Era note: 1.0-launch CONFIRMED; 1.1/1.2 UNSUPPORTED (annotation). Necrotic -> shadow per main-law 1. Near-misses: poison (Aura of Decay DoT-phrasing, ruling withholds), drain (skill-name collision)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/wraith-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-staff",
+      "title": "Wraith Necromancer Endgame Build Guide - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/wraithlord-is-busted/63932",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "multiple-community",
+      "title": "Wraithlord is busted - General - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/in-search-of-flame-wraiths/70666",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "multiple-community",
+      "title": "In search of Flame Wraiths - Acolyte - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/need-help-understanding-top-1-necromancer-build-on-let/66838",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "multiple-community",
+      "title": "Need help understanding top 1 necromancer build on LET - Acolyte - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "a wraithlord build has passed the abom guy [on leaderboard] ... Release / 1.0.1 ... March 2024",
+      "source_url": "https://forum.lastepoch.com/t/need-help-understanding-top-1-necromancer-build-on-let/66838",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": null,
+      "source_url": "https://forum.lastepoch.com/t/wraithlord-is-busted/63932",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/wraith-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wraithlord Necromancer' and aliases 'Wraithlord Necro', 'Summon Wraith Wraithlord', 'spectral minion Necromancer' are real community usage.",
+      "anchor_quote": "Wraithlord is busted ... Most necros for ladder seem to run either wraithlord who you build pretty much the same as abom, get the wraithlord, as many more multis as you can",
+      "source_url": "https://forum.lastepoch.com/t/wraithlord-is-busted/63932",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Wraith (fed), Wraithlord. Smaller wraiths sacrificed via Wraithlord's Harbour helm to empower/maintain a single Wraithlord proxy.",
+      "anchor_quote": "Wraithlord's Harbour is all you need to make this build game breaking ... They might put a cap on maximum damage bonus it can get from eating other minions",
+      "source_url": "https://forum.lastepoch.com/t/wraithlord-is-busted/63932",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Resource: Mana + Wraith Consumption (harvest model — consume wraith minions to sustain/power the Wraithlord).",
+      "anchor_quote": "I have no issues. I run about +50% mana regen and +50 mana ... a cap on maximum damage bonus it can get from eating other minions",
+      "source_url": "https://forum.lastepoch.com/t/in-search-of-flame-wraiths/70666",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "maxroll-staff",
+          "site": "maxroll.gg",
+          "role": "Season 4 Wraith Necromancer endgame guide author"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/wraith-necromancer-guide",
+        "anchor_quote": "Wraith Necromancer Endgame Build Guide - Last Epoch Maxroll.gg",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "secondary_skills": [
+            "Dread Shade (minion damage buff)",
+            "Aura of Decay (DoT + buff)",
+            "Drain Life (Mana sustain + buff generation)",
+            "Transplant (mobility)"
+          ],
+          "notes": "No specific passive keystone names confirmed from fetched text. Guide mentions 'Low Life setup' via Exsanguinous as late-game transition."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/wraith-necromancer-guide",
+        "anchor_quote": "Cast Dread Shade and Aura Of Decay to buff your Summon Wraith's Damage ... cast Drain Life on top of your Summon Wraiths to generate Mana",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Wraithlord's Harbour (helm — core enabling item)",
+            "Aberrant Call (pre-nerf power item)",
+            "Ash Wake",
+            "Phantom Grip",
+            "Evolution's End",
+            "Ambitions of an Erased Acolyte",
+            "Julra's Obsession",
+            "Boneclamor Barbute",
+            "Exsanguinous",
+            "Strands of Souls"
+          ],
+          "notes": "Wraithlord's Harbour is the build-enabling unique helm. Aberrant Call nerfed context noted."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/wraith-necromancer-guide",
+        "anchor_quote": "Ash Wake to properly scale Flame Wraiths ... Aberrant Call to unleash the true power of Summon Wraith",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary_geometry": "at-target proxy (Wraithlord autonomously seeks and attacks enemies)",
+          "range": "melee (Wraithlord is melee proxy); player kites at range",
+          "aoe_shape": "small-radius around each targeted enemy (Wraithlord melee strikes)"
+        },
+        "source_url": "https://forum.lastepoch.com/t/need-help-understanding-top-1-necromancer-build-on-let/66838",
+        "anchor_quote": "get the wraithlord, as many more multis as you can, and buff him with solo shades",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Summon smaller Wraiths continuously. Wraithlord's Harbour helm channels wraith deaths/consumption into empowering a single Wraithlord proxy. Buff minions with Dread Shade and Aura of Decay. Cast Drain Life for Mana regeneration and buffs. Player kites while Wraithlord dominates melee range.",
+          "resource": "Mana (Drain Life sustains; Wraith consumption feeds Wraithlord scaling)",
+          "loop_type": "harvest-proxy-minion"
+        },
+        "source_url": "https://forum.lastepoch.com/t/wraithlord-is-busted/63932",
+        "anchor_quote": "Wraithlord's Harbour is all you need to make this build game breaking ... a cap on maximum damage bonus it can get from eating other minions",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Wraithlord Necro (Wraithlord's Harbour single-proxy)",
+            "Flame Wraith Necro (Ash Wake + Aberrant Call)",
+            "Abomination Necro (ladder competitor noted in same era)",
+            "Low Life Wraith variant (Exsanguinous transition)"
+          ]
+        },
+        "source_url": "https://forum.lastepoch.com/t/in-search-of-flame-wraiths/70666",
+        "anchor_quote": "Wraithlord's Harbour was introduced ... Wraithlord beams itself as a playstyle focus",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

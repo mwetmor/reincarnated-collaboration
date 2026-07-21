@@ -1,0 +1,207 @@
+{
+  "kit_id": "vs-gatti-amari",
+  "spine": {
+    "kit_id": "vs-gatti-amari",
+    "folk_name": "Gatti Amari (as drafted)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "negative",
+    "eras": "vs-1.0-2022",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-12",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pickup-consumption anti-harvest economy has no engine lane; friendly-fire mechanic has no engine lane. Wandering-proxy delivery differs from fixed-totem engine model. 'Not that build' criterion for the anti-harvest identity. Map the attested delivery shape; negative-canon story rides review book.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pickup-consumption anti-harvest economy has no engine lane; friendly-fire mechanic has no engine lane. Wandering-proxy delivery differs from fixed-totem engine model. 'Not that build' criterion for the anti-harvest identity. Map the attested delivery shape; negative-canon story rides review book.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Gatti Amari (wandering cats)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cats spawn from screen-edge hexagram; wander in straight lines; attack by proximity (scuffle cloud AoE when cat clusters meet enemies). VS element-silent. No ailments named in fetched dossier. Wandering autonomous cats closest to totem (placed-proxy) not companion — they are spawned at fixed edge-origin, not following player. Pickup-consumption and friendly-fire are behavioral identity, not engine ailments."
+        }
+      ],
+      "motion_frame": "Autonomous wandering cats spawned from screen-edge hexagram; attack by proximity; pickup-consumption = anti-harvest economy identity",
+      "resource_economy": {
+        "pickup_consumption": "cats consume floor pickups — anti-harvest economy; different pickups affect cats differently",
+        "friendly_fire": "cats deal 2x damage to player on contact"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "screen-edge spawn origin"
+          ],
+          "economy": [
+            "pickup-consumption behavioral economy"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. Corpus negative=1 (review-book negative candidate per brief). Map attested identity: wandering summons with anti-harvest pickup consumption + friendly fire. Summoner-deferral does NOT apply — cats are weapons (spawned proxy entities), not pet-core summons driving all damage. However, the anti-harvest economy (pickup-consumption, friendly fire) has no engine lane — maps as behavioral descriptor in resource_economy. Capstone row populated (Vicious Hunger evolution note; wiki recommends unevolved with Gemini Arcana)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Gatti Amari - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022",
+      "anchor_quote": "Added April 12, 2022 (Patch 0.5.0).",
+      "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Gatti Amari (as drafted) — summoned cats wander, eat your pickups, occasionally attack enemies; arsenal chaos archetype; anti-harvest economy",
+      "anchor_quote": "If a cat walks over a Pickup on the screen, it gets automatically consumed, affecting the cat in different ways.",
+      "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Cats wander in straight lines, change direction; pickup consumption; friendly fire (can damage player 2x)",
+      "anchor_quote": "The cats can also occasionally hurt the player character when they are close to it, dealing twice the usual damage.",
+      "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Non-canon because anti-synergistic weapon that consumes player pickups; reverse-harvest economy; proves engine can express deliberately anti-synergistic weapons",
+      "anchor_quote": null,
+      "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "gemini_arcana": "with Gemini (I) Arcana, keeping Gatti Amari unevolved is stronger than Vicious Hunger evolution",
+          "vicious_hunger": "evolution (Stone Mask catalyst); wiki notes it is usually best to keep unevolved"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+        "anchor_quote": "Unless you specifically need gold, it is usually best to keep Gatti Amari unevolved.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "floor_chicken": "permanently boosts chance and base damage for all cats",
+          "nduja_fritta_tanto": "detonates consuming cat with explosion",
+          "clovers": "doubles cat movement speed (catnip)",
+          "stone_mask": "required catalyst for Vicious Hunger evolution"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+        "anchor_quote": "Floor Chicken permanently boosts chance and base damage for all cats. Nduja Fritta Tanto detonates the consuming cat with an explosion.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "wandering cats; no fixed AoE footprint; scuffle cloud at cat-encounter positions",
+          "origin": "screen-edge spawn (hexagram)",
+          "pattern": "random walk; combat is incidental proximity"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+        "anchor_quote": "Summons cats from a hexagram on the edge of the screen. These cats mostly walk around in a straight line and may change direction after a while.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "delivery": "summons wandering cats that emerge from screen-edge hexagram; cats wander in straight lines, occasionally change direction",
+          "attack": "cats attack with claws when close to enemies; scuffle cloud AoE when multiple cats meet",
+          "pickup_consumption": "cats consume floor pickups; different pickups affect cats differently",
+          "friendly_fire": "cats deal 2x damage to player character on contact",
+          "evolution": "Vicious Hunger (+ Stone Mask); wiki recommends keeping unevolved with Gemini Arcana"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+        "anchor_quote": "The cats can also occasionally hurt the player character when they are close to it, dealing twice the usual damage. Gatti Amari is among the most powerful weapons in the game, outclassing most evolved weapons as well as its own evolution.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "vicious_hunger": "Gatti Amari + Stone Mask; generally considered downgrade per wiki consensus"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gatti_Amari",
+        "anchor_quote": "It is usually best to keep Gatti Amari unevolved.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

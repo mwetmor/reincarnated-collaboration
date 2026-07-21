@@ -1,0 +1,211 @@
+{
+  "kit_id": "ud-toxic-flame",
+  "spine": {
+    "kit_id": "ud-toxic-flame",
+    "folk_name": "Toxic Flame DoT",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "ud-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Corpus claimed small-AOE and dual-element (poison+fire); attested identity is piercing-line poison-only. Source player would recognize the hit-and-walk DoT pattern but the range/spread difference from AOE splash is material.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Corpus claimed small-AOE and dual-element (poison+fire); attested identity is piercing-line poison-only. Source player would recognize the hit-and-walk DoT pattern but the range/spread difference from AOE splash is material.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Toxic Flame",
+          "geometry_value": "line",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Piercing projectile (pierce=true), NOT a small-AOE splash. 3-7 flame projectiles at level 1-45. POISON ONLY — errata confirmed: 'Fires a piercing toxic flame that deals Poison DoT. Is not affected by Projectile DMG.' Fire element NOT attested in rune description; 'toxic flame' is a skill name; poison DoT stacking confirmed. Earth family: poison/venom-themed (not corruption/necro register) per §1."
+        }
+      ],
+      "motion_frame": "Fire Toxic Flame piercing poison-DoT projectiles; hit-and-walk; DoT ticks unattended; 80%-345% poison DoT multiplier per rune level",
+      "resource_economy": {
+        "cost_scale": "mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Poison DoT multiplier scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA APPLIED: toxic-flame is POISON-ONLY; fire element is NAME-ONLY (skill named 'toxic flame'; rune page attests only poison DoT). §0 NEAR-MISS: fire element wanted (name evokes it), cannot attest. Geometry corrected from corpus 'small-AOE' to 'line' (piercing projectile confirmed). Earth family per §1 poison-nature-venom register."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/ToxicFlame/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Toxic Flame - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://showgamer.com/en/guides/887-gayd-luchshie-startovye-bildy-v-undecember",
+      "archive_url": null,
+      "site": "showgamer.com",
+      "author_handle": "Showgamer staff",
+      "title": "Guide. Best Starting Builds and Runes in Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-launch-2022",
+      "anchor_quote": "unleash a series of flames that fly in front of you and deal poison damage over time",
+      "source_url": "https://showgamer.com/en/guides/887-gayd-luchshie-startovye-bildy-v-undecember",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Toxic Flame DoT — classless dual-element (poison + fire) DoT build",
+      "anchor_quote": "Fires a piercing toxic flame that deals Poison DoT. Is not affected by Projectile DMG",
+      "source_url": "https://undecember.thein.ru/en/runes/ToxicFlame/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Instant cast applies poison and fire DoT; small AOE splash; hit-and-walk loop",
+      "anchor_quote": "Fires a piercing toxic flame that deals Poison DoT. Is not affected by Projectile DMG",
+      "source_url": "https://undecember.thein.ru/en/runes/ToxicFlame/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "ailment": "Poison DoT (4 second duration on hit)",
+          "damage_mode": "DoT only — not affected by Projectile DMG",
+          "note": "corpus elem_raw=poison/fire hybrid; source attests POISON ONLY; fire element not attested in rune description"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/ToxicFlame/",
+        "anchor_quote": "Fires a piercing toxic flame that deals Poison DoT. Is not affected by Projectile DMG",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "piercing projectile (NOT small-radius AOE splash)",
+          "pierce": true,
+          "projectiles_base": 3,
+          "projectiles_max": 7,
+          "cannot_link": [
+            "Quick Cast Link Rune",
+            "Parallel Multishot Link Rune"
+          ]
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/ToxicFlame/",
+        "anchor_quote": "Fires a piercing toxic flame that deals Poison DoT. Is not affected by Projectile DMG",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Toxic Flame — piercing projectile that applies poison DoT stacks on hit. Hit-and-walk pattern: single mana spend per cast, DoT ticks without player attention. Scales poison DoT multiplier with rune level (80% to 345% at level 45). 3-7 flame projectiles depending on level."
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/ToxicFlame/",
+        "anchor_quote": "Fires a piercing toxic flame that deals Poison DoT. Is not affected by Projectile DMG",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

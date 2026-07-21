@@ -1,0 +1,238 @@
+{
+  "kit_id": "poe1-molten-strike",
+  "spine": {
+    "kit_id": "poe1-molten-strike",
+    "folk_name": "Molten Strike",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-geometry composite generalization (as frost-blades/lightning-strike): no unified strike-emits-projectiles primitive. The ball-overlap boss-shotgun (the identity payoff) is an emergent splash-overlap behavior the engine's multi_projectile does not guarantee; the 2-25-unit variable scatter and 60%-less ball ratio are un-enumerated numerics. A Molten Strike player keeps hammer-the-boss-under-a-magma-fountain.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-geometry composite generalization (as frost-blades/lightning-strike): no unified strike-emits-projectiles primitive. The ball-overlap boss-shotgun (the identity payoff) is an emergent splash-overlap behavior the engine's multi_projectile does not guarantee; the 2-25-unit variable scatter and 60%-less ball ratio are un-enumerated numerics. A Molten Strike player keeps hammer-the-boss-under-a-magma-fountain.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Molten Strike (melee hit)",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "the primary melee swing on the targeted enemy -- 60% phys->fire conversion; the every-3-seconds dominant action; leads per s7.2. Since 3.7, projectiles ONLY spawn on a connecting hit (whiff spawns nothing)"
+        },
+        {
+          "source_skill": "Molten Strike (magma-ball rain)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "on the hit, 4 base magma-ball projectiles launch in varied directions, travel 2-25 units, and land SIMULTANEOUSLY, each hitting a circular splash area around its landing point (60% less damage per ball); against a big single target the balls OVERLAP on it -- the boss-shotgun identity"
+        }
+      ],
+      "motion_frame": "planted lava brawler: stand on the boss and hammer it -- every hit erupts a fountain of magma balls that rain back down around the target and shotgun-overlap on big bodies; low mobility, all commitment (mob_raw=low, movement rooted)",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike primary hit",
+            "multi_projectile magma rain (ball-count scaling = the classic support lane)",
+            "splash-circle overlap on large targets"
+          ],
+          "economy": [
+            "mana-light attack spend",
+            "attack-speed = ball-fountain rate"
+          ],
+          "traits_affixes": [
+            "fire-penetration",
+            "projectile-count (ball count -- the build's defining scaling axis)",
+            "burn/ignite-scaling",
+            "attack-speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "COMPOSITE melee->projectile-RAIN strike (b04 frost-blades two-geometry precedent; melee leads per s7.2). The Uber-Elder-era boss-killer identity is the OVERLAP: 4+ balls landing in overlapping splash circles on a single large target multiply single-target damage -- an emergent property of multi_projectile + splash noted, not enumerated. 60% phys->fire (dossier verbatim) -> ELEMENT_CONVERSION_PHYSICAL; hit-spawns-projectiles -> GEOMETRY_PROPAGATION_cascade (b04 frost-blades exact routing). Era 3.0-3.6 CONFIRMED (added 1.1.3; the 3.7 hit-requirement redesign postdates the kit's throne era but is the verified modern mechanism -- mapped with the hit-gated spawn per dossier). Rooted movement posture (movement facts: 'stand'/rooted) folded into motion_frame; commit stays instant (the melee swing commits, the rain is automatic)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Molten_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Molten Strike — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped era 3.0-3.6",
+      "anchor_quote": "Molten Strike added in version 1.1.3. v3.7.0: Redesigned to require hitting enemies to generate projectiles",
+      "source_url": "https://poedb.tw/us/Molten_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Molten Strike' with alias 'MS jugg' and Juggernaut class is real community usage",
+      "anchor_quote": "Melee hit sprays fire projectiles that rain back down around the target — strike-emits-projectiles; the Uber Elder era's boss-killer throne",
+      "source_url": "https://poedb.tw/us/Molten_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Molten Strike; melee hit on targeted enemy; fire projectiles spray from impact and rain back down; multi-spawn footprint; 60% phys to fire conversion",
+      "anchor_quote": "60% of Physical Damage Converted to Fire Damage. Launches a number of projectiles a variable distance in different directions before each lands simultaneously",
+      "source_url": "https://poedb.tw/us/Molten_Strike",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Molten_Strike",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Molten Strike of the Zenith (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Every fifth Attack, Projectiles deal 600% more Damage with Hits and Ailments; 60% less damage baseline",
+              "anchor_quote": "Every fifth Attack, Projectiles now deal 600% more Damage with Hits and Ailments"
+            },
+            {
+              "node": "Vaal Molten Strike (vaal)",
+              "type": "vaal_variant",
+              "effect": "87-199% effectiveness scaling at levels 1-20",
+              "anchor_quote": "87% at gem level 1 to 199% at level 20"
+            },
+            {
+              "node": "Wildfire (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Strength in Radius",
+              "effect": "Molten Strike Projectiles Chain +1 times; Molten Strike fires 50% less Projectiles",
+              "anchor_quote": "Molten Strike Projectiles Chain +1 times...Molten Strike fires 50% less Projectiles"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Molten_Strike",
+        "anchor_quote": "Every fifth Attack, Projectiles now deal 600% more Damage with Hits and Ailments",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Wildfire (threshold jewel)",
+              "type": "threshold_jewel",
+              "effect": "Molten Strike Projectiles Chain +1 times; fires 50% less Projectiles",
+              "anchor_quote": "Molten Strike Projectiles Chain +1 times...Molten Strike fires 50% less Projectiles"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Molten_Strike",
+        "anchor_quote": "Molten Strike Projectiles Chain +1 times",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (melee hit)",
+          "footprint": "multi-point (4 base projectiles travel 2-25 units and land simultaneously in circular area around each)",
+          "projectile_count": 4,
+          "range_note": "melee contact + projectile rain zone; projectiles travel 2-25 units",
+          "aoe_note": "circular area around each projectile landing point"
+        },
+        "source_url": "https://poedb.tw/us/Molten_Strike",
+        "anchor_quote": "launches a number of projectiles a variable distance in different directions before each lands simultaneously, hitting in a circular area around each projectile. Fires 4 projectiles that travel between 2 and 25 units",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "melee swing on target → 60% phys converts to fire → upon hitting: 4 fire projectiles launch in varied directions → projectiles land simultaneously in circular area around each impact point → projectiles deal 60% less damage → run to next target",
+          "era_note": "3.7 rework required hitting enemies to generate projectiles (previously could spawn on whiff)"
+        },
+        "source_url": "https://poedb.tw/us/Molten_Strike",
+        "anchor_quote": "Melee hit on targeted enemy; fire projectiles spray from impact and rain back down. v3.7.0: Redesigned to require hitting enemies to generate projectiles",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Molten_Strike",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

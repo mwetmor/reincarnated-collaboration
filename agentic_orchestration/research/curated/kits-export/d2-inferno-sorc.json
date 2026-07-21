@@ -1,0 +1,245 @@
+{
+  "kit_id": "d2-inferno-sorc",
+  "spine": {
+    "kit_id": "d2-inferno-sorc",
+    "folk_name": "Inferno Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "classic;lod",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) rooted-during-channel creates total positional vulnerability — a design texture approximated by delivery_notes but not an engine constraint; (2) fire immune hard-stop creates a secondary-skill requirement that has no engine analog in this mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) rooted-during-channel creates total positional vulnerability — a design texture approximated by delivery_notes but not an engine constraint; (2) fire immune hard-stop creates a secondary-skill requirement that has no engine analog in this mapping.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Inferno",
+          "geometry_value": "beam_channel",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Channeled directional fire stream from caster. Caster is ROOTED during channel ('rooting your Character in place' — dossier skill_loop, verify_ledger anchor_quote). Short-range cone in front of caster (narrow stream, §CROSS row 5 rooted-channel contrast case). Per-frame damage tick delivery. Fire immune enemies are hard-stop."
+        }
+      ],
+      "motion_frame": "Channel Inferno at enemy; caster rooted; continuous fire stream per-frame; reposition between channels; secondary skill for fire immune mobs",
+      "resource_economy": {
+        "cost_scale": "mana-drain: Inferno continuous mana drain per second; 'mana-drain' per corpus econ_raw. Warmth synergy reduces cost."
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Warmth synergy = mana cost reduction → traits-affixes/economy lane per §A row 1"
+          ],
+          "traits_affixes": [
+            "Warmth synergy (+6% fire damage per level) — traits-affixes scaffold lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "APPROX: beam_channel geometry maps the rooted fire-stream correctly. §CROSS row 5 rooted-channel law: delivery_notes MUST state rooted — done ('caster is ROOTED during channel'). Fire element confirmed: 'continuous stream of Fire' (dossier). Ailments: DoT-timing law — 'continuous jet of flame' is delivery timing flavor, not an attested burn status. No 'burn' or burn status named in dossier or verify_ledger — §0-UNIVERSAL bars burn emission. Negative kit (canon_corpus.negative=1): identity CONFIRMED, negative_canon CONFIRMED ('Not very strong, sometimes annoying to play'). Eras: classic + lod both CONFIRMED. Inferno's infamous per-frame breakpoint bug (mech_note) is review-book texture. T4 PERSISTENCE_ENGINE_uptime: uptime of the channel IS the loop. Deviation: the rooted-ness and the fire-immune hard wall are the build's defining failure points — approximation captures channel shape but not the mobility-deprivation penalty."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/blaze-sorceress",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Blaze Sorceress Guide — Diablo II: Resurrected Season 11 — Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.wiki.fextralife.com/Inferno",
+      "archive_url": null,
+      "site": "diablo2.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Inferno — Diablo 2 Wiki (Fextralife)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/skills/inferno-t4099.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": null,
+      "title": "Inferno — Diablo 2 Resurrected Skill — diablo2.io",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20090324044015/http://classic.battle.net:80/diablo2exp/skills/sorceress-fire.shtml",
+      "archive_url": "http://web.archive.org/web/20090324044015/http://classic.battle.net:80/diablo2exp/skills/sorceress-fire.shtml",
+      "site": "classic.battle.net (Arreat Summit via Wayback)",
+      "author_handle": "Blizzard Entertainment (official)",
+      "title": "The Arreat Summit - Skills: Sorceress Fire Spells",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in classic era",
+      "anchor_quote": "Inferno [6]...A spout of flame that burns your enemies.",
+      "source_url": "http://web.archive.org/web/20090324044015/http://classic.battle.net:80/diablo2exp/skills/sorceress-fire.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Creates a continuous jet of flame to scorch your enemies",
+      "source_url": "https://diablo2.wiki.fextralife.com/Inferno",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Inferno Sorceress' and aliases 'Inferno Sorc', 'Fire Channel Sorceress' are real community usage",
+      "anchor_quote": "play an alternative Fire Sorc...Not very strong, sometimes annoying to play, but definitely something new!",
+      "source_url": "https://diablo2.io/skills/inferno-t4099.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Inferno — short-range channeled fire stream that roots caster",
+      "anchor_quote": "Creates a continuous jet of flame to scorch your enemies...3.3-yard range at level 1",
+      "source_url": "https://diablo2.wiki.fextralife.com/Inferno",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Inferno classic/lod negative — short-range channeled fire stream; fire immune enemies create hard-stop; range and immunity wall define the negative kit identity",
+      "anchor_quote": "Not very strong, sometimes annoying to play...Channeling this Skill emits a continuous stream of Fire...rooting your Character in place.",
+      "source_url": "https://maxroll.gg/d2/guides/blaze-sorceress",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "synergies": "Warmth synergizes powerfully with Inferno damage",
+          "patch_notes": "D2R 2.4: mana cost reduced 7 to 4/sec; range increased 75%; free-aim added",
+          "notes": "Pre-2.4 (classic/lod era) Inferno was strictly short-range, single-target-locked, high mana drain"
+        },
+        "source_url": "https://diablo2.io/skills/inferno-t4099.html",
+        "anchor_quote": "Patch 2.4 increased range baseline by 75%...mana cost baseline reduced from 7 to 4 mana per second",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "short-range linear stream",
+          "delivery": "channeled directional fire stream from caster",
+          "range_base": "3.3 yards at level 1; scales to 17.1 yards at level 20",
+          "footprint": "narrow cone in front of caster",
+          "notes": "Pre-2.4: locked onto single target; post-2.4: free-aim direction; historically caster-rooted"
+        },
+        "source_url": "https://diablo2.wiki.fextralife.com/Inferno",
+        "anchor_quote": "Creates a continuous jet of flame to scorch your enemies...3.3-yard range at level 1",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Inferno at enemy; continuous fire stream applies per-frame damage; caster is rooted during channel; fire immune enemies are hard-stop; reposition between channels; secondary skill required for fire immune mobs"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blaze-sorceress",
+        "anchor_quote": "Channeling this Skill emits a continuous stream of Fire from your Character in the direction of your cursor, while rooting your Character in place.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Inferno-Blaze hybrid (Blaze primary, Inferno for stragglers)",
+            "Pure Inferno challenge build"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blaze-sorceress",
+        "anchor_quote": "Inferno is effective against Single Targets and tightly clustered enemies. You can use it to kill stragglers",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

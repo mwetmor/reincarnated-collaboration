@@ -1,0 +1,223 @@
+{
+  "kit_id": "gd-bwc-demolitionist",
+  "spine": {
+    "kit_id": "gd-bwc-demolitionist",
+    "folk_name": "Blackwater Cocktail Demolitionist",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player lays overlapping burning ground carpets and debuffs with fumble + RR -- blind (fumble) is captured, but the fire-DoT's 'burn' flavor is withheld (not named as a status) and Thermite's RR token is withheld (application shape unanchored). The molotov-carpet ground zone maps cleanly to ground_targeted_circle; the two withholds are near-misses, not silent drops.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "blind",
+      "burn"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player lays overlapping burning ground carpets and debuffs with fumble + RR -- blind (fumble) is captured, but the fire-DoT's 'burn' flavor is withheld (not named as a status) and Thermite's RR token is withheld (application shape unanchored). The molotov-carpet ground zone maps cleanly to ground_targeted_circle; the two withholds are near-misses, not silent drops.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blackwater Cocktail",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "blind",
+            "burn"
+          ],
+          "delivery_notes": "lobbed projectile that deposits a burning tar carpet / large ground-DoT zone on impact ('BWC deposits burning tar carpet on impact; ground DoT zone covers large area' — kit_dossier skill_geometry). ground_targeted_circle carries the molotov-carpet zone. [STEWARD AUDIT 2026-07-18: original citation quoted canon_probe_facts prose ('fumble transmuters' line) — kb-derived, INADMISSIBLE per §0.2; STRUCK. blind re-grounded below.] [ERRATA-59 2026-07-19: +burn — the burning-tar ground-DoT is an explicitly attested engine BURN (union with existing blind; curse:sap from Thermite RR unchanged). Reverses the mapping-time withhold ('burning tar' now ruled a named DoT status, not mere zone description). Blind-rider anchor, D-1.]"
+        }
+      ],
+      "motion_frame": "lob Blackwater Cocktail to lay down a large burning-tar ground-DoT carpet with fumble transmuters, place Thermite Mines for resistance reduction, and kite enemies through the DoT zones on a cooldown rhythm",
+      "resource_economy": {
+        "cadence_scale": "cooldown-based lob rhythm (BWC + Thermite placement)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground-DoT carpet radius",
+            "Thermite Mine placement zone"
+          ],
+          "economy": [
+            "cooldown lob cadence"
+          ],
+          "traits_affixes": [
+            "fire DoT scaling",
+            "Thermite Mine -> percentage resistance-reduction support lane (RR; specific curse token WITHHELD -- shape unanchored)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ground_targeted_circle for the molotov-carpet ground-DoT. blind RE-GROUNDED at steward audit: emitted via the §A GD fumble/attack-miss row on the verify_ledger identity ANCHOR 'BWC provide[s] a significant OA reduction to enemies' (fetched-class, CONFIRMED) — OA-reduction IS GD's accuracy-tax substrate, within the widened blind register (m02 ruling). Original probe-cited ground struck (first §0.2 leak of the basin-2 mapping wave, caught at audit). burn withheld ('burning tar' = zone description, not a named enemy status) + Thermite RR shape-silent withhold both UPHELD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-8-1-watch-cairn-burn-infernal-knight-blackwater-cocktail-thermite-mines-canister-bombs-grenade-purifier-celestial-killer-crate-ravager-mogdrogen-calla-cruci-150-170-sr-75-76/106390",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": null,
+      "title": "[1.1.8.1] Watch Cairn burn! Infernal Knight BWC + Thermite Mines",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": null,
+      "title": "Blackwater Cocktail or Thermite Mines (Aug 2016)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "Discussion from August 2, 2016 confirms BWC and Thermite Mine are Demolitionist skills in base game era",
+      "source_url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blackwater Cocktail Demolitionist'; aliases include 'BWC Demolitionist', 'fire/acid cocktail build', 'Thermite Mine BWC'",
+      "anchor_quote": "Discussion from August 2016 references BWC provide[s] a significant OA reduction to enemies... Thermite Mines as resistance reduction support",
+      "source_url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Blackwater Cocktail (lobbed ground DoT), Thermite Mine (resistance reduction support)",
+      "anchor_quote": "Thermite Mine is used for debuffing resist reduction while Blackwater Cocktail with Demonfire and High Potency reduces opponent armor and physical damage",
+      "source_url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handles": [
+            "Norzan",
+            "TomoDaK",
+            "sfbistimg",
+            "Dioarchet"
+          ],
+          "site": "forums.crateentertainment.com",
+          "post_type": "community discussion"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+        "anchor_quote": "Contributors include Norzan, TomoDaK, sfbistimg, and Dioarchet discussing build optimization",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "lobbed-projectile",
+          "footprint": "large-ground-zone",
+          "notes": "BWC deposits burning tar carpet on impact; ground DoT zone covers large area; Thermite Mine placed at location"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+        "anchor_quote": "Blackwater Cocktail's ground DoT with fumble transmuters; molotov-carpet casting",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Lob Blackwater Cocktail at target to deposit burning tar ground zone; place Thermite Mines for resistance reduction; kite enemies through DoT zones; cooldown-based rhythm"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/blackwater-cocktail-or-thermite-mines/33838",
+        "anchor_quote": "BWC provides significant OA reduction to enemies... Thermite Mines offers percentage-based resistance reduction that stacks with other debuffs",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Infernal Knight BWC Purifier (BWC+Thermite+Canister)",
+            "HC Fire BWC+Grenado Sorcerer",
+            "Solo Demolitionist BWC builds"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-watch-cairn-burn-infernal-knight-blackwater-cocktail-thermite-mines-canister-bombs-grenade-purifier-celestial-killer-crate-ravager-mogdrogen-calla-cruci-150-170-sr-75-76/106390",
+        "anchor_quote": "[1.1.8.1] Watch Cairn burn! Infernal Knight BWC + Thermite Mines + Canister Bombs",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

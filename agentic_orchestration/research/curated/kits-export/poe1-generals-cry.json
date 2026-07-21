@@ -1,0 +1,262 @@
+{
+  "kit_id": "poe1-generals-cry",
+  "spine": {
+    "kit_id": "poe1-generals-cry",
+    "folk_name": "General's Cry",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.11-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The corpse-summon -> transient-proxies-execute-your-linked-strike identity lands via PROXY_FISSION + on-cast-linked/linked-cast trigger-grammar at depth-1, but two properties generalize: (a) the mirages perform an EXERTED (warcry-boosted) copy of the player's SPECIFIC linked skill -- the engine models a generic linked-cast, not a faithful clone of an arbitrary chosen strike; (b) the corpse-consumption gate (no corpses = no warriors) is a resource dependency the economy lane approximates rather than a hard summon-fuel primitive. A player keeps the 'warcry erupts a mirage squad that all attack at once' feel; the exact skill-cloning and corpse-gating are abstracted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The corpse-summon -> transient-proxies-execute-your-linked-strike identity lands via PROXY_FISSION + on-cast-linked/linked-cast trigger-grammar at depth-1, but two properties generalize: (a) the mirages perform an EXERTED (warcry-boosted) copy of the player's SPECIFIC linked skill -- the engine models a generic linked-cast, not a faithful clone of an arbitrary chosen strike; (b) the corpse-consumption gate (no corpses = no warriors) is a resource dependency the economy lane approximates rather than a hard summon-fuel primitive. A player keeps the 'warcry erupts a mirage squad that all attack at once' feel; the exact skill-cloning and corpse-gating are abstracted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "General's Cry (warcry)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "a warcry (3s cooldown) that consumes nearby CORPSES to summon Mirage Warriors (2 corpses per 5 Power, up to ~5-6); the cry itself is a self-origin proc-trigger, not damage. self_buff = the warcry activation handle; the summoned warriors carry the offense"
+        },
+        {
+          "source_skill": "Mirage Warrior (linked strike executor)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "each Mirage Warrior spawns at a corpse position and immediately performs ONE exerted cast of the player's LINKED strike skill (e.g. Blade Flurry/Cyclone/Boneshatter), then vanishes. Transient melee proxy executing a linked-cast. melee_arc = the wide frontal strike the linked skill typically delivers; physical melee -> element-neutral (flavor); bleed is the common linked-skill ailment rider"
+        }
+      ],
+      "motion_frame": "corpse-fuelled burst summoner: press the warcry, a squad of mirage warriors erupts from nearby corpses and all simultaneously slam the pack with YOUR linked attack, then disappear -- repeat on cooldown",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_FISSION",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "self_buff warcry trigger",
+            "melee_arc (mirage-executed linked strike)",
+            "warrior-count scaling (Power/corpse-count)"
+          ],
+          "economy": [
+            "corpse-consumption + 3s warcry cooldown cycle",
+            "Power accumulation from nearby enemies/corpses -> more warriors"
+          ],
+          "traits_affixes": [
+            "physical/attack scaling (feeds the linked strike)",
+            "exerted-attack-damage",
+            "warcry-effect"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TRIGGER+PROXY hybrid: warcry -> summon transient proxies that each fire a LINKED-CAST of the player's strike. trigger_grammar carries proc_trigger_condition=on-cast-linked + consequence_type=linked-cast (the mirages execute the linked skill); trigger_chain_shape=apply-only at DEPTH-1 (warcry triggers the mirage-cast; the mirage's own hit is the terminal step, NOT a further nested trigger -- respects MAX_CHAIN_DEPTH=1). PROXY_FISSION is the exact door: ONE action (the cry) -> MANY transient proxies. Physical melee (mirages) -> element-neutral (flavor); bleed as the typical linked-skill ailment (Blade Flurry variant). ERRATA NOTE: era floor corrected to 3.11 at ingest (skill added patch 3.11); verify_ledger authoritative. charge_stack_sub_shape=cycle models the Power->warrior-count accumulate/spend rhythm. The corpse-consumption gate (needs corpses to summon) is a resource dependency noted in the economy lane; the 'mirages copy YOUR exact linked skill' is captured by linked-cast though the engine abstracts WHICH skill to a generic linked strike."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2998167",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "wishdropper#0634",
+      "title": "[3.16] General's Cry Blade Flurry Build | Berserker | Scourge",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Generals_Cry",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "General's Cry — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in eras: 3.7-3.13, 3.20+",
+      "anchor_quote": "General's Cry was added in patch 3.11.0. Era bucket 3.7-3.13 has floor 3.7 but skill did not exist until 3.11 within that bucket.",
+      "source_url": "https://poedb.tw/us/Generals_Cry",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'General's Cry' and alias 'Blitz mirage army' are real community usage",
+      "anchor_quote": "Performs a warcry, taunting nearby enemies to attack the user, and summoning Mirage Warriors from nearby corpses.",
+      "source_url": "https://poedb.tw/us/Generals_Cry",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills General's Cry and host attack; warcry summons mirage warriors from corpses; each executes player linked attack",
+      "anchor_quote": "Mirage warriors deliver an exerted attack once with the linked trigger skill then disappear.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2998167",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "wishdropper#0634",
+              "site": "pathofexile.com/forum",
+              "note": "[3.16] General's Cry Blade Flurry Berserker guide"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2998167",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Anomalous General's Cry (alt quality)",
+              "type": "alt_quality",
+              "effect": "2% increased Warcry Speed per 1% quality",
+              "anchor_quote": "2% increased Warcry Speed (per 1% quality)"
+            },
+            {
+              "node": "Divergent General's Cry (alt quality)",
+              "type": "alt_quality",
+              "effect": "Mirage Warriors have 2% increased Movement Speed per 1% quality",
+              "anchor_quote": "Mirage Warriors have 2% increased Movement Speed (per 1% quality)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Generals_Cry",
+        "anchor_quote": "Mirage Warriors have 2% increased Movement Speed (per 1% quality)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Anomalous General's Cry (alt quality gem)",
+              "type": "alt_quality_gem",
+              "effect": "2% increased Warcry Speed per 1% quality",
+              "anchor_quote": "2% increased Warcry Speed (per 1% quality)"
+            },
+            {
+              "item": "Divergent General's Cry (alt quality gem)",
+              "type": "alt_quality_gem",
+              "effect": "Mirage Warriors have 2% increased Movement Speed per 1% quality",
+              "anchor_quote": "Mirage Warriors have 2% increased Movement Speed (per 1% quality)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Generals_Cry",
+        "anchor_quote": "Mirage Warriors have 2% increased Movement Speed (per 1% quality)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "mirage warriors at corpse positions — multi-point melee zone",
+          "footprint": "multi-point — each warrior at a corpse position, attacks in melee range",
+          "aoe": null,
+          "range_text": "Summons Mirage Warriors from 2 corpses per 5 Power, minimum 1 corpse... Supported Strike Skills cannot target additional Enemies",
+          "projectile": false
+        },
+        "source_url": "https://poedb.tw/us/Generals_Cry",
+        "anchor_quote": "Summons Mirage Warriors from 2 corpses per 5 Power, minimum 1 corpse. Supported Strike Skills cannot target additional Enemies.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player activates General's Cry warcry (3s cooldown); skill counts power from nearby enemies and corpses; summons Mirage Warriors from nearby corpses (up to 5-6) each of which immediately performs one exerted linked attack then dissipates; linked strike skill is supported and exerted."
+        },
+        "source_url": "https://poedb.tw/us/Generals_Cry",
+        "anchor_quote": "Performs a warcry, taunting nearby enemies to attack the user, and summoning Mirage Warriors from nearby corpses. Mirage warriors deliver an exerted attack once with the linked trigger skill then disappear.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "General's Cry Berserker (Blade Flurry linked, 3.16)",
+            "General's Cry Champion (Champion variant referenced as alternative)",
+            "Chieftain variant mentioned in spec but not attested in sources reviewed"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2998167",
+        "anchor_quote": "A Champion variant is mentioned as an alternative.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

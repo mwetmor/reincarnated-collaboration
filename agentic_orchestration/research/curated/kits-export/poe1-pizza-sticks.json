@@ -1,0 +1,302 @@
+{
+  "kit_id": "poe1-pizza-sticks",
+  "spine": {
+    "kit_id": "poe1-pizza-sticks",
+    "folk_name": "Pizza Sticks",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03 GAP-P1-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The per-stage EXPANDING blast radius (the circle visibly grows 3m per stage as the totem channels, and early detonation at partial stages trades size for cadence) has no live stack->geometry carrier — folded into circle + accumulator with notes; a player of the original loses watching the pizza slices grow and the partial-stage detonation texture. Place-totems-they-nuke identity fully intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The per-stage EXPANDING blast radius (the circle visibly grows 3m per stage as the totem channels, and early detonation at partial stages trades size for cadence) has no live stack->geometry carrier — folded into circle + accumulator with notes; a player of the original loses watching the pizza slices grow and the partial-stage detonation texture. Place-totems-they-nuke identity fully intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flameblast",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "charged detonation: the totem channels stages 1-10, the blast circle GROWS from 2m base +3m per stage, then detonates one big fire burst (spiky amp). Expanding circle -> circle (crosswalk section-6 exemplar). The live stage->radius growth is behavioral (see mint accrual)"
+        },
+        {
+          "source_skill": "Spell Totem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed proxy that performs the channel FOR the player — the channel commitment is outsourced; 2-4 totems clustered (the 'pizza sticks' minimap visual); Ancestral Bond frame: the player deals no damage, ever"
+        }
+      ],
+      "motion_frame": "place-and-reposition totemist: drop 2-4 Flameblast totems, they channel to max stages and detonate on their own, over and over; the player never presses a damage button — runs freely placing the next cluster",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_CONVERGENCE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "circle expanding-stage detonation (2m base +3m/stage, max 10 stages)",
+            "totem proxy placement, 2-4 clustered overlapping"
+          ],
+          "economy": [
+            "totem-cycle: place -> auto-channel -> detonate -> re-place; totem death restarts on recast",
+            "stage-accumulator charge-to-burst rhythm (spiky amp)"
+          ],
+          "traits_affixes": [
+            "fire damage + AoE scaling",
+            "totem life / placement speed (Hierophant primary, Chieftain alternate)",
+            "no-personal-damage trade (Ancestral Bond register)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "THE totem-channel archetype at its purest ('never press a damage button — place totems and reposition', mech_note). Geometry both-native: circle (expanding-circle detonation) delivered via totem proxies. Stage-channel = accumulator (charge_stack_sub_shape); the CHANNEL itself lives on the proxy, so the player-side commit stays instant (corpus commit_val=instant is the PLAYER's experience — engine-consistent). CAPSTONE ABSTAINED — doors routed from proxy identity: PROXY_ASCENSION (totem-hiero register, section-5) + PROXY_CONVERGENCE (2-4 clustered totems with overlapping blast coverage; golementalist b03 precedent). Stage->radius live growth filed as ACCRUAL #2 to the b02 crackling-lance stack-driven-geometry-morph qualitative candidate (kit graded as-if-un-minted). Era 3.0-3.6."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 2,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "Stack-parameterizes-geometry: an accumulator whose stack count reshapes the skill's LIVE geometry/emission, not just its damage. Three attested bindings: intensity-stacks narrow+intensify a beam (crackling-lance); stacks morph placed-AoE arc coverage (pizza-sticks); stored catch-count sets release projectile COUNT (venom-gyre). Engine accumulator scales magnitude only."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1730745/page/1",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "unknown",
+      "title": "Pizza Sticks: Flameblast Totem Hierophant",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=6rfRecXbIM4",
+      "archive_url": null,
+      "site": "youtube.com",
+      "author_handle": "unknown",
+      "title": "Flameblast Totems (aka Pizza Sticks) Is Looking PREEEEEETTY Starter Viable",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Ancestral_Bond",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Spell_Totem_Support",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Flameblast",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Flameblast — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Forum thread 'Pizza Sticks: Flameblast Totem Hierophant' authored for patch 3.2; guide marked active through 3.4",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1730745/page/1",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Pizza Sticks' is real community usage for Flameblast Totem builds",
+      "anchor_quote": "'Pizza Sticks: Flameblast Totem Hierophant' — official forum thread title; YouTube titles also use this name",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1730745/page/1",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Alias 'Flameblast Totems' is real community usage",
+      "anchor_quote": "'Flameblast Totems (aka Pizza Sticks) Is Looking PREEEEEETTY Starter Viable' — YouTube title confirming both names in tandem",
+      "source_url": "https://www.youtube.com/watch?v=6rfRecXbIM4",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Flameblast + Spell Totem; totems channel Flameblast to full stages and detonate at placed position; player mobile while totems absorb channel commitment",
+      "anchor_quote": "'This build does away with that by having totems do it for us, letting us run around at our leisure while our totems blow up the whole screen'",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1730745/page/1",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1730745/page/1",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Divergent Flameblast (alt quality)",
+              "type": "alt_quality",
+              "effect": "grants 1% less cast speed per 1% gem quality (from 2% per 1% gem quality)",
+              "anchor_quote": "grants 1% less cast speed per 1% gem quality"
+            },
+            {
+              "node": "Vaal Flameblast (vaal)",
+              "type": "vaal_variant",
+              "effect": "200% more Spell Damage for each stage",
+              "anchor_quote": "200% more Spell Damage for each stage"
+            },
+            {
+              "node": "Ancestral Bond (keystone — totem context)",
+              "type": "keystone",
+              "effect": "You can't deal Damage with Skills yourself; +1 to maximum number of Summoned Totems",
+              "anchor_quote": "You can't deal Damage with Skills yourself...+1 to maximum number of Summoned Totems"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Flameblast",
+        "anchor_quote": "200% more Spell Damage for each stage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Spell Totem Support (quality)",
+              "type": "support_gem",
+              "effect": "Supported Skills have (0-10)% increased Totem Placement speed",
+              "anchor_quote": "Supported Skills have (0—10)% increased Totem Placement speed"
+            },
+            {
+              "item": "Ancestral Bond (keystone)",
+              "type": "keystone",
+              "effect": "You can't deal Damage with Skills yourself; +1 to maximum number of Summoned Totems",
+              "anchor_quote": "You can't deal Damage with Skills yourself...+1 to maximum number of Summoned Totems"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Spell_Totem_Support",
+        "anchor_quote": "You can't deal Damage with Skills yourself...+1 to maximum number of Summoned Totems",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (totem placed at target location)",
+          "aoe": "large expanding circle; base radius 2m expanding 3m per stage up to 10 stages",
+          "notes": "Full-stage circle from each totem = large zone; pizza-slice detonation pattern per totem"
+        },
+        "source_url": "https://poedb.tw/us/Flameblast",
+        "anchor_quote": "'base radius is 2 meters, expanding by 3 meters per stage (maximum 10 stages)'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Place Spell Totems; totems auto-channel Flameblast to max stages and detonate; player runs around freely placing more totems; totem death restarts cycle on recast"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1730745/page/1",
+        "anchor_quote": "'having totems do it for us, letting us run around at our leisure while our totems blow up the whole screen'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Hierophant (primary)",
+            "Chieftain (alternate totem ascendancy)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3137168",
+        "anchor_quote": "'[3.14] Return of Pizza Sticks -- Totem Flameblast Hiero/Chief' — forum thread title confirming both variants",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

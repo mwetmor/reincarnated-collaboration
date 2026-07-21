@@ -1,0 +1,237 @@
+{
+  "kit_id": "d2-blade-sin",
+  "spine": {
+    "kit_id": "d2-blade-sin",
+    "folk_name": "Blade Fury sin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "lod",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: fixed-6fps IAS-immune cadence feel — engine cadence_scale approximates but lacks the hard-cap IAS-ignore mechanic; blade-sentinel dual role (placed lane + synergy scalar) partially approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: fixed-6fps IAS-immune cadence feel — engine cadence_scale approximates but lacks the hard-cap IAS-ignore mechanic; blade-sentinel dual role (placed lane + synergy scalar) partially approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blade Fury",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged thrown spinning blades; anchor: 'Throw spinning blades to slice up your enemies'; 'will attack constantly with 6 frames per attack. It does not work with Burst of Speed or any other increased (or decreased) attack speed. Doesn't use up the durability of weapons.' Fixed 6fps cadence IAS-immune; physical element-neutral; projectile linear."
+        },
+        {
+          "source_skill": "Blade Sentinel",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed traversing sentinel blade; synergy-only per §A row 1 (scaffold role, +10% damage per level); also kit capstone anchor: 'Blade Sentinel: listed as both a prerequisite and synergy (+10% Damage per Level)'"
+        }
+      ],
+      "motion_frame": "Mid-range: deploy Blade Fury at fixed 6fps rate; Blade Sentinel as passive lane hazard and damage synergy scaffold",
+      "resource_economy": {
+        "cadence_scale": "fixed-6fps-IAS-immune",
+        "cost_scale": "mana per blade"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Blade Sentinel placed-lane scaffold"
+          ],
+          "economy": [
+            "Ethereal weapon viability (no durability loss) — item fidelity note"
+          ],
+          "traits_affixes": [
+            "Blade Sentinel synergy: +10% damage per level — §A row 1 scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "negative=1 kit; maps on fetched evidence per §E.3 falsified-negative law: dossier CONFIRMED, verify_ledger negative_canon CONFIRMED. Fixed IAS-immune cadence is distinctive identity texture — cadence_scale key captures it. Physical = element-neutral. Blade Sentinel is hybrid (placed-lane sentinel + scaffold synergy); mapped as placed_lane with scaffold note. §A row 1 synergy = scaffold.support_lanes.traits_affixes."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.purediablo.com/strategy/diablo-2-guide-the-furysin-blade-fury",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: The Furysin (Blade Fury)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/skills/blade-fury-t4001.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Stormlash (data contributor)",
+      "title": "Blade Fury — Diablo 2 Resurrected Skill",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod",
+      "anchor_quote": "Throw spinning blades to slice up your enemies",
+      "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Blade Fury sin; aliases Blade Fury Assassin, Blade Sin",
+      "anchor_quote": "The Furysin is an Assassin build concentrated around the use of Blade Fury",
+      "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-the-furysin-blade-fury",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Blade Fury (throws spinning blades, fixed 6fps, no IAS interaction, no durability use), Blade Sentinel",
+      "anchor_quote": "will attack constantly with 6 frames per attack. It does not work with Burst of Speed or any other increased (or decreased) attack speed. Doesn't use up the durability of weapons",
+      "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Blade Fury lod-era negative — blade-skill over-centralization concern; kit lacks late-game viability / depth relative to alternatives",
+      "anchor_quote": "This is considered by many to be one point wonder skill... it is not viable in PvP",
+      "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Stormlash",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+        "anchor_quote": "Data contributed by Stormlash",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "synergies": [
+            "Blade Sentinel (+10% damage per level)"
+          ],
+          "notes": "Venom and Fade are standard support skills; Shadow Master for distraction"
+        },
+        "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+        "anchor_quote": "Blade Sentinel: listed as both a prerequisite and synergy (+10% Damage per Level)",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Stormlash (recommended weapon; Crushing Blow, Static Field proc)",
+            "Ethereal weapons (no durability loss via Blade Fury)"
+          ],
+          "notes": "Blade Fury's no-durability property makes ethereal weapons viable; Stormlash named as best-in-slot"
+        },
+        "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-the-furysin-blade-fury",
+        "anchor_quote": "Stormlash is suggested as the best weapon for a Blade Fury Assassin",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged projectile (thrown blades)",
+          "footprint": "linear/point",
+          "range_type": "ranged",
+          "notes": "Blades travel toward target; no AoE; fixed 6fps fire rate independent of IAS"
+        },
+        "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+        "anchor_quote": "Throw spinning blades to slice up your enemies",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Blade Fury fires spinning blades at a fixed 6fps regardless of IAS; blades do not consume weapon durability enabling ethereal weapons. Blade Sentinel serves as prerequisite and damage synergy (+10% per level). Player typically prepares with Venom/Fade/Shadow Master then deploys Blade Fury from medium range."
+        },
+        "source_url": "https://diablo2.io/skills/blade-fury-t4001.html",
+        "anchor_quote": "will attack constantly with 6 frames per attack. It does not work with Burst of Speed or any other increased (or decreased) attack speed.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Furysin (PvM Blade Fury focused)",
+            "PvM Hybrid Furysin (Dual Dream kicking hybrid)",
+            "Pure Blade Fury (primary skill build)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/the-pvm-hybrid-furysin-guide-dual-dream-kicking-furysin.120210/",
+        "anchor_quote": "The PvM Hybrid Furysin Guide (Dual Dream Kicking Furysin)",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

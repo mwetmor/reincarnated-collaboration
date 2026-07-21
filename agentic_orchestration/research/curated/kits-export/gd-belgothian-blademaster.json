@@ -1,0 +1,222 @@
+{
+  "kit_id": "gd-belgothian-blademaster",
+  "spine": {
+    "kit_id": "gd-belgothian-blademaster",
+    "folk_name": "Belgothian Blademaster",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the WPS suite is the source player's core texture (a rotating pool of weapon procs firing every swing) but the engine models it as a single on-hit-threshold burst rider rather than a named pool of distinct procs, since no individual WPS payload was fetched. Blade Spirit's autonomy is under-attested, mapped as orbit rather than pet. No status lost.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the WPS suite is the source player's core texture (a rotating pool of weapon procs firing every swing) but the engine models it as a single on-hit-threshold burst rider rather than a named pool of distinct procs, since no individual WPS payload was fetched. Blade Spirit's autonomy is under-attested, mapped as orbit rather than pet. No status lost.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cadence (default) / WPS suite",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "default dual-wield melee attack-replacer with a Weapon Pool Skill (WPS) suite proccing off each auto-attack ('Default dual-wield melee swings with WPS pool skills proccing off each auto-attack; 100%+ WPS chance means every swing fires a WPS proc'; 'Belgothian set fills the primary attack slot, modified by WPS abilities (currently at 117% WPS chance)'). Replacer maps NATIVE per §A row: at-target-melee, single-target-per-hit, attack-speed tempo. Each WPS hit is single-target ('Each WPS hit is single target'). WPS chance-procs = weapon-layer trigger riders (§A) -- see trigger_grammar. Pierce/physical: no element family; NO ailment named."
+        },
+        {
+          "source_skill": "Blade Spirit",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "summoned blade companion providing additional AoE pressure ('Blade Spirit can provide additional AoE pressure'). Only 'additional AoE pressure' is fetched -- mapped as an orbiting-blade proxy (phrase-book orbiting blades -> orbit); autonomous-combatant depth NOT attested, so no pet-gap flag, treated as a supplemental AoE rider."
+        }
+      ],
+      "motion_frame": "dual-wield melee swings at 117% WPS chance so every auto-attack fires a Weapon Pool Skill proc, grinding through packs in pierce single-target hits with Blade Spirit adding orbiting AoE pressure",
+      "resource_economy": {
+        "cadence_scale": "attack-speed-governed swing tempo (attack-replacer; WPS procs ride each swing)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "WPS proc payloads (weapon-layer riders)",
+            "Blade Spirit orbit count"
+          ],
+          "economy": [
+            "attack-speed swing cadence"
+          ],
+          "traits_affixes": [
+            "pierce damage scaling",
+            "Belgothian set primary-attack + WPS structure -> gear-affix / mechanic-gated lane",
+            "WPS chance -> proc-rate trait analog"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§A default-attack-replacer + WPS row: Cadence-default replacer maps NATIVE (melee_strike, attack-speed tempo); WPS suite = weapon-layer trigger riders (sibling of devotion-proc row), modeled as on-hit-threshold burst-damage since every swing at 117% fires a proc. Each WPS proc's own payload needs its own fetched behavior (§0.4) -- none individually fetched, so no per-WPS skill rows. Pierce = physical-substrate, element-neutral (THE PHYSICAL RULE); ELEMENT_CONVERSION_PHYSICAL fits the pierce-conversion identity. Belgothian set is load-bearing itemization -> ITEM dissolves, mechanic lands on kit (item->lane law). No ailment attestable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "lMarcusl",
+      "title": "[1.1.9.8 - 1.2.0.2] Build Overview - Belgothian Blademaster (SR75-80)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/build-compendium-ix-ashes-of-malmouth/47681",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Stupid_Dragon",
+      "title": "Build Compendium IX (Ashes of Malmouth)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: aom-2017, fg-2019, patch-1.1-1.2",
+      "anchor_quote": "Back in vanilla GD, there was little decision making to do... multiple Belgothian Blademaster builds appear in Build Compendium IX (AoM era)",
+      "source_url": "https://forums.crateentertainment.com/t/build-compendium-ix-ashes-of-malmouth/47681",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Belgothian Blademaster'; aliases include 'Belgothian's Carnage Blademaster', 'WPS Blademaster', 'dual-wield Nightblade Soldier'",
+      "anchor_quote": "Blademaster... Soldier + Nightblade... focusing on pierce damage... Belgothian set fills primary attack slot modified by WPS abilities",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Cadence(default)/WPS suite, Blade Spirit",
+      "anchor_quote": "Soldier does offer Cadence but that was already something I had planned for my sword 'n board character — WPS abilities at 117% WPS chance",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "lMarcusl",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+        "anchor_quote": "author lMarcusl — Belgothian Blademaster build overview",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Belgothian's set is load-bearing — provides the primary attack identity and WPS pool structure; shoulder nerfs noted in patch 1.2.0.2"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+        "anchor_quote": "Belgothian shoulder nerfs discussed in 1.2.0.2 update",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-melee",
+          "footprint": "single-target-per-hit",
+          "weapon_type": "dual-wield",
+          "notes": "Each WPS hit is single target; Blade Spirit can provide additional AoE pressure"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+        "anchor_quote": "I knew I wanted to be a dual-wielding melee fighter, so Nightblade was the clear first choice",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Default dual-wield melee swings with WPS pool skills proccing off each auto-attack; 100%+ WPS chance means every swing fires a WPS proc; pierce damage focus"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-8-1-2-0-2-build-overview-belgothian-blademaster-sr75-80/127760",
+        "anchor_quote": "Belgothian set fills the primary attack slot, modified by WPS abilities (currently at 117% WPS chance)",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "DW Pierce WPS Reaper (Tainted Belgothian)",
+            "Luminari Belgothian Infiltrator",
+            "Belgothian Blademaster 100 SR/Celestials variant"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-2-5-luminari-godkiller-ravager-mogdrogen-crucible-6-30m-belgothian-infiltrator-blademaster/46649",
+        "anchor_quote": "Luminari Godkiller: Belgothian Infiltrator/Blademaster... The Tainted Belgothian - DW Pierce WPS Reaper",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

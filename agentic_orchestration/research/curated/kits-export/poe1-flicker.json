@@ -1,0 +1,246 @@
+{
+  "kit_id": "poe1-flicker",
+  "spine": {
+    "kit_id": "poe1-flicker",
+    "folk_name": "Flicker Strike",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-02 GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The teleport-strike + charge-fuelled auto-chaining lands via dash_attack + charge-cycle economy + TEMPORAL_CHARGE, but two behavioral signatures generalize: (a) Flicker teleports to a RANDOM nearby enemy each hop (dash_attack models a directed reposition, not random target-hop selection); (b) the hard dependency where running out of charges STOPS the build cold is a numeric-sustain property, not a bespoke mechanism. A player keeps the 'blink-strike a screen while holding one button' feel; the frantic random-hop chaos and the charge-starvation failure state are approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The teleport-strike + charge-fuelled auto-chaining lands via dash_attack + charge-cycle economy + TEMPORAL_CHARGE, but two behavioral signatures generalize: (a) Flicker teleports to a RANDOM nearby enemy each hop (dash_attack models a directed reposition, not random target-hop selection); (b) the hard dependency where running out of charges STOPS the build cold is a numeric-sustain property, not a bespoke mechanism. A player keeps the 'blink-strike a screen while holding one button' feel; the frantic random-hop chaos and the charge-starvation failure state are approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flicker Strike",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "teleport-strike: the player vanishes and reappears in melee range of a nearby enemy AND lands the hit in one action, then auto-repeats target-to-target while Frenzy Charges last. Physical melee -> element-neutral (physical rule; elem_raw=physical is flavor only). Engine's own derivation rule (physical + teleport-effect -> dash_attack) corroborates dash_attack over teleport (which is the non-physical reposition member). The 'random nearby target each hop' auto-chaining is a behavioral property of the repeated dash, not a distinct 26-geometry"
+        }
+      ],
+      "motion_frame": "movement-IS-attack: hold one button, the character blinks enemy-to-enemy striking on each arrival; positioning is automatic, the loop is charge-fuelled teleport-strikes",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "dash_attack teleport-strike",
+            "multistrike/attack-speed (hop cadence)"
+          ],
+          "economy": [
+            "Frenzy-charge cycle: kills/Blood-Rage/Raider generate, each Flicker spends one to bypass the 2s cooldown",
+            "charge-sustain is the entire viability gate"
+          ],
+          "traits_affixes": [
+            "frenzy-charge-max",
+            "attack-speed",
+            "evasion (Raider defensive)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CHARGE-CYCLE teleport-striker. Identity = 'spend a Frenzy Charge to bypass cooldown and teleport-strike; sustain charges via kills to hold the loop'. charge_stack_sub_shape=cycle (accumulate-then-spend rhythm, not a pure accumulator) captures the generate/consume treadmill; TEMPORAL_CHARGE is the charge-engine T4 door. PHASE_MOMENTUM as secondary (the repeated blink-reposition reads as phase-cycling movement). Physical rule: physical melee -> element-neutral; Terminus Est / Oro's / Blood Rage are the charge-sustain items (economy lane, not element). The auto-teleport-to-a-RANDOM-nearby-enemy is the signature feel; dash_attack carries the reposition-strike but not the randomness of target selection (a behavioral property). Slayer/Raider variants swap the sustain source (ignite vs frenzy-passive) but keep the identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2731202",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Spacefight0r#5392",
+      "title": "[3.9] Raider Flicker Strike (10-15 million Shaper DPS)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3325373",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "ACGIFT#1167",
+      "title": "[3.20] Oro's Flickering Flame Slayer: League-start-capable Flicker Strike",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Flicker_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Flicker Strike — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 1.x, 2.x, 3.0-3.6, 3.7-3.13, 3.20+",
+      "anchor_quote": "[3.9] Raider Flicker Strike (10-15 million Shaper DPS) ... [3.20] Oro's Flickering Flame Slayer: League-start-capable Flicker Strike",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2731202",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Flicker Strike' and alias 'Terminus Est flicker' are real community usage",
+      "anchor_quote": "Raider has innate Frenzy charge generation, high movement speed, and high evasion. [Terminus Est enables early gameplay]",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2731202",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Flicker Strike and Frenzy; frenzy charges sustain teleporting melee chain",
+      "anchor_quote": "Teleports the character to a nearby monster and attacks with a melee weapon... Cooldown: 2.00 seconds (bypassed by spending a Frenzy Charge)",
+      "source_url": "https://poedb.tw/us/Flicker_Strike",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "Spacefight0r#5392",
+              "site": "pathofexile.com/forum",
+              "note": "3.9 Raider Flicker Strike guide"
+            },
+            {
+              "handle": "ACGIFT#1167",
+              "site": "pathofexile.com/forum",
+              "note": "3.20 Oro's Flickering Flame Slayer guide"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2731202",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Flicker Strike of Power (transfig)",
+              "type": "transfigured_gem",
+              "effect": "50% increased Critical Strike Chance per Power Charge",
+              "anchor_quote": "50% increased Critical Strike Chance per Power Charge"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Flicker_Strike",
+        "anchor_quote": "50% increased Critical Strike Chance per Power Charge",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Terminus Est (frenzy charge on kill — enables early sustain)",
+            "Farrul's Fur (Frenzy and Power charge sustain alternative)",
+            "Oro's Sacrifice (frenzy charge on ignite — alternative sustain)",
+            "Blood Rage (life flask generating frenzy charges)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2731202",
+        "anchor_quote": "Terminus Est enables early gameplay... Farrul's Fur to be able to sustain Frenzy and Power charges.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "teleport to target enemy (melee range on arrival)",
+          "footprint": "single target only",
+          "aoe": null,
+          "range_text": "Teleports the character to a nearby monster... Increases or reductions to Melee Strike Range have no special interaction with flicker",
+          "projectile": false
+        },
+        "source_url": "https://poedb.tw/us/Flicker_Strike",
+        "anchor_quote": "Increases or reductions to Melee Strike Range have no special interaction with flicker — you neither land farther away nor initiate from farther away.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player activates Flicker Strike consuming one Frenzy Charge to bypass 2s cooldown and teleport-strike a random nearby enemy; skill chains automatically from target to target as long as Frenzy Charges are generated via kills, Blood Rage, or Raider passives; screen clears itself while player holds one button."
+        },
+        "source_url": "https://poedb.tw/us/Flicker_Strike",
+        "anchor_quote": "Cooldown: 2.00 seconds (bypassed by spending a Frenzy Charge). Raider has innate Frenzy charge generation.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Terminus Est frenzy-on-kill (classic league starter)",
+            "Oro's Sacrifice ignite-sustain Slayer (3.20+)",
+            "Raider (frenzy passive generation, evasion focus)",
+            "Slayer (Bane of Legends boss DPS, Brutal Charge)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3325373",
+        "anchor_quote": "Slayer ascendancy... recommended over Raider due to lower investment requirements.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

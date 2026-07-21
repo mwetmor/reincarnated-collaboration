@@ -1,0 +1,228 @@
+{
+  "kit_id": "d3-lod-archetype",
+  "spine": {
+    "kit_id": "d3-lod-archetype",
+    "folk_name": "Legacy of Dreams (setless archetype)",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No fixed primary skill identity — this kit is a hosting chassis, not a build. Every specific LoD variant (Death Nova, Bazooka, Wave of Light, etc.) is a separate mappable kit. The archetype-wrapper itself has no engine coordinates.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "No fixed primary skill identity — this kit is a hosting chassis, not a build. Every specific LoD variant (Death Nova, Bazooka, Wave of Light, etc.) is a separate mappable kit. The archetype-wrapper itself has no engine coordinates.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Skill loop varies by primary skill chosen; Legacy of Dreams gem is the damage engine — scales per legendary item count with no fixed hosted skill identity",
+      "resource_economy": {
+        "resource_type": "varies_by_hosted_skill",
+        "spend_pattern": "depends on primary skill hosted; Legacy of Dreams gem contributes no resource constraint"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "host-flexible — determined by primary skill selected"
+          ],
+          "economy": [
+            "host-flexible — determined by class/skill selected"
+          ],
+          "traits_affixes": [
+            "Legacy of Dreams scaling: 3.75% per legendary multiplicatively (doubled for ancient); max 9,750% + 52% DR; no sets permitted"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-COUNT-MULTIPLIER ARCHETYPE: kit identity is the LoD gem meta-system (no fixed primary skill; any class, any skill can host). R-M7 biconditional: there is no fixed dominant skill loop to map against engine skill coordinates — this is not 'that build, worse,' this is 'not that build' for any specific skill choice. GAPPED → MAPPED_DOCKET. Dossier attests the host-flexible identity: 'skill loop varies by primary skill chosen — the gem is the damage engine across any class/skill.' System shape: the kit is an archetype wrapper, not a build. is_system=0 in corpus but functional identity is meta-system. corpus negative=0 confirmed. Accrual: file to 'item-count-multiplier' docket class; destination = review-book meta-game register. No-set constraint attested: 'Make sure to not have any Set Bonuses equipped or the gem will be nullified.' Empty skills[] = honest: no specific source skill to extract geometry from."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Rob",
+      "title": "Diablo 3 Legendary Gem Mechanics - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://blizzardwatch.com/2019/07/25/diablo-season-18-legacy-of-dreams-legendary-gem/",
+      "archive_url": null,
+      "site": "blizzardwatch.com",
+      "author_handle": null,
+      "title": "Diablo 3 Season 18 adds the Legacy of Dreams Legendary gem",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "Diablo 3 Season 18 adds the Legacy of Dreams Legendary gem",
+      "source_url": "https://blizzardwatch.com/2019/07/25/diablo-season-18-legacy-of-dreams-legendary-gem/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Legacy of Dreams provides up to 9,750% increased damage and 52% damage reduction (with 13 Ancient items equipped)",
+      "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "Make sure to not have any Set Bonuses equipped or the gem will be nullified",
+      "source_url": "https://maxroll.gg/d3/guides/lod-death-nova-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Legacy of Dreams (setless archetype)'; aliases include 'LoD setless build', 'LoD gem archetype'",
+      "anchor_quote": "The ANTI-SET: a gem that pays you a massive multiplier for wearing NO set at all, scaling per ancient legendary",
+      "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills host-flexible; key item: Legacy of Dreams gem (setless mechanic, ancient item scaling)",
+      "anchor_quote": "While you have no set bonuses equipped, every legendary item increases your damage dealt by 3.75% multiplicatively and reduces all damage taken by 2%",
+      "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Rob",
+          "site": "maxroll.gg",
+          "co_credit": "Northwar (special help)"
+        },
+        "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+        "anchor_quote": "Written by Rob with special help from Northwar",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "gem_power": "Legacy of Dreams: 3.75% damage per legendary (no set), doubled for ancient at rank 25; max 9,750% damage + 52% DR with 13 ancients"
+        },
+        "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+        "anchor_quote": "This effect is very similar to the Legacy of Nightmares set, but it has the benefit of granting you half the bonus for non-ancient items and it only costs you one Gem instead of two Rings",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Legacy of Dreams (legendary gem, core item)",
+            "13 legendary/ancient items (no sets)",
+            "Specific items vary by hosted skill"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+        "anchor_quote": "the maximum total bonus from this Gem is 13 x 750% = 9750% damage and 13 x 4% = 52% damage reduction",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "varies by primary skill",
+          "range": "varies by primary skill",
+          "aoe": "varies",
+          "notes": "Class-agnostic archetype; geometry is determined by whichever primary skill is hosted"
+        },
+        "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+        "anchor_quote": "Legacy of Dreams is the Legacy of Nightmares Set in a gem, which frees up two ring slots at the cost of removing a legendary gem",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Equip all legendaries with NO set bonuses; Legacy of Dreams gem scales damage per legendary item equipped (3.75% per item, doubled for ancient at rank 25); skill loop varies by primary skill chosen — the gem is the damage engine across any class/skill"
+        },
+        "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+        "anchor_quote": "While you have no set bonuses equipped, every legendary item increases your damage dealt by 3.75% multiplicatively and reduces all damage taken by 2%",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "LoD Death Nova Necro",
+            "LoD Bazooka Wizard",
+            "LoD Wave of Light Monk",
+            "LoD Rapid Fire DH",
+            "LoD HotA Barbarian",
+            "LoD Spirit Barrage WD",
+            "LoD Blessed Shield Crusader",
+            "LoD Corpse Explosion Necro"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/resources/legendary-gem-mechanics",
+        "anchor_quote": "Make sure to not have any Set Bonuses equipped or the gem will be nullified and you will deal no damage",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

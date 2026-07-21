@@ -1,0 +1,266 @@
+{
+  "kit_id": "d3-rolands",
+  "spine": {
+    "kit_id": "d3-rolands",
+    "folk_name": "Roland's Sweep",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Roland's 375% AS engine reaching attack-speed cap has no exact engine analog. The Sweep Attack identity is sound but the attack-speed-cap-as-identity feel cannot be fully reproduced without a matching AS ceiling mechanic. Source player would miss the 'everything blurs into a spin' sensation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Roland's 375% AS engine reaching attack-speed cap has no exact engine analog. The Sweep Attack identity is sound but the attack-speed-cap-as-identity feel cannot be fully reproduced without a matching AS ceiling mechanic. Source player would miss the 'everything blurs into a spin' sensation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sweep Attack",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": "fire",
+          "ailments": [],
+          "delivery_notes": "360-degree arc from player body; self-origin small-radius AoE; melee range; Blazing Sweep rune (fire damage, attested as 'deals more than double damage of other runes'); physical primary → element-neutral; fire elem_s from 'Blazing Sweep' rune"
+        },
+        {
+          "source_skill": "Shield Bash",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Directional charge-projectile; hits single target in front; limited AoE on Pound rune; secondary burst skill within same Roland's 6pc set"
+        },
+        {
+          "source_skill": "Akarat's Champion",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sustained combat buff; Prophet rune for survivability; Crusader champion self-buff; holy element from Crusader class flavor — checked against physical rule; Akarat's is not physical damage"
+        }
+      ],
+      "motion_frame": "Activate Akarat's Champion; spam Sweep Attack using Roland's 375% Attack Speed engine; use Laws of Valor or Laws of Hope for utility; Iron Skin Flash for mobility; Shield Bash for burst windows",
+      "resource_economy": {
+        "resource": "Wrath",
+        "cost_note": "Sweep Attack spends Wrath; attack speed cap via Roland's 6pc 375% AS bonus; even with Two-Handed Mace"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PERSISTENCE_ENGINE_uptime",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Flail of the Ascended — Shield Bash specific empowerment (item rider)"
+          ],
+          "economy": [
+            "Roland's 6pc — 375% AS bonus reaching attack speed cap; Captain Crimson's Trimmings CDR; Laws of Valor / Laws of Hope utility"
+          ],
+          "traits_affixes": [
+            "Roland's Legacy 6pc — equal damage buffs to Sweep Attack and Shield Bash (scaler per §B row 1)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical element → element-neutral for Sweep Attack. elem_s=fire from attested 'Blazing Sweep' rune language in dossier. Shield Bash included as secondary skill within the same Roland's set — Roland's splits bonuses evenly between both (attested: 'boosts Sweep Attack and Shield Bash with equal numbers'). Akarat's Champion holy element: Crusader class-thematic but not a class-thematic-without-attestation import — holy is a named element in the skill context; however no explicit 'holy damage' line in Akarat's dossier text — mapped as self_buff with holy noted as class-flavor fidelity note only; elem_p=null for Akarat's Champion row to be safe (no specific damage-type attestation for that skill's damage output). [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #13 Akarat's Champion holy->null: batch summary itself says holy was blocked to 'class-flavor fidelity note only' yet the row emitted it (blocked-token-emitted class, 3rd instance). Store has zero holy language. Sweep Attack elem_s=fire KEPT — attested via 'stack dps stats wherever possible: fire damage' + blazing sweep usage (stat-language, not name-only).]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/roland-sweep-attack-crusader-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Roland Sweep Attack Crusader Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Crusader Roland's Sweep Attack Build (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Diablo_III:_Reaper_of_Souls",
+      "archive_url": null,
+      "site": "wikipedia.org",
+      "author_handle": null,
+      "title": "Diablo III: Reaper of Souls",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Crusader class debuted in Reaper of Souls March 25, 2014. Roland's set listed across multiple build listings including Crusader Roland's Sweep Attack Build, remaining effective through set-gear era.",
+      "source_url": "https://en.wikipedia.org/wiki/Diablo_III:_Reaper_of_Souls",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Roland Sweep Attack Crusader Guide for Diablo III Season 39 — build remains effective in the set-gear era through current seasons (Season 39, Patch 2.7.8).",
+      "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/guides/roland-sweep-attack-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Roland's Sweep' and aliases 'Roland's Crusader', 'Sweep Attack Crusader', 'Roland's Legacy Crusader' are real community usage",
+      "anchor_quote": "Roland Sweep Attack Crusader Guide for Diablo III Season 39 — Roland's Legacy Sweep Attack Crusader build is a very fun build to play.",
+      "source_url": "https://maxroll.gg/d3/guides/roland-sweep-attack-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Sweep Attack and Shield Bash; Crusader resource (Wrath); attack-speed-engine delivery",
+      "anchor_quote": "Sweep Attack and Shield Bash are the primary abilities. The build utilizes Wrath as its primary resource. Roland's Legacy (6) Bonus provides a massive 375% Attack Speed bonus.",
+      "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Roland's Legacy (6pc) — 375% AS bonus; boosts both Sweep Attack and Shield Bash equally",
+          "kanai_cube": [],
+          "legendary_powers": [
+            "Flail of the Ascended (Shield Bash specific)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+        "anchor_quote": "The Roland's set splits its damage bonuses evenly between a sustain damage and a burst damage skill, boosting Sweep Attack and Shield Bash with equal numbers.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Roland's Legacy set (6pc) — 375% AS + dual Sweep/Shield Bash buffs",
+            "Two-handed weapon (highest base damage)",
+            "Laws of Valor or Laws of Hope",
+            "Akarat's Champion Prophet"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+        "anchor_quote": "Stack DPS stats wherever possible: Fire Damage, Sweep Attack Damage, Critical Hit Damage, Critical Hit Chance and Area Damage.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Sweep Attack 360-degree arc from player body; small-radius self-origin AoE; rooted/stand-still burst; melee range",
+          "range": "self-origin 360-degree small-radius arc"
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+        "anchor_quote": "Blazing Sweep is used because it deals more than double the damage of other runes. Sweep Attack spam under Roland's attack-speed engine.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Akarat's Champion; spam Sweep Attack using Roland's 6pc attack-speed engine (375% AS bonus); use Laws of Valor or Laws of Hope for utility; Iron Skin Flash for mobility and damage reduction; Shield Bash is secondary burst option within same set."
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-rolands-sweep-attack-build",
+        "anchor_quote": "Roland's Legacy (6) Bonus provides a massive 375% Attack Speed bonus, which lets you easily reach the Attack Speed cap, even when using a Two-Handed Mace, the slowest weapon in the game.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Roland's Shield Bash variant",
+            "Roland's speed farm",
+            "Roland's fresh 70 starter"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/crusader-shield-bash-build-with-rolands-set",
+        "anchor_quote": "Crusader Shield Bash Build with Roland's Set (Patch 2.7.8 / Season 38).",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

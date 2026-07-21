@@ -1,0 +1,233 @@
+{
+  "kit_id": "gd-forcewave-warlord",
+  "spine": {
+    "kit_id": "gd-forcewave-warlord",
+    "folk_name": "Forcewave Warlord",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lane-wave spam loop, cast-root rhythm, casting-speed tempo land natively; Internal Trauma DoT layer now ROUTED (bleed) under the m02-audit steward ruling (GD trauma -> bleed, phys-DoT lineage). Residual drift: bleed-vs-trauma flavor register + ZONE_CONTROL door weak fit (accepted-weak at audit). [STEWARD AUDIT 2026-07-18: regraded APPROX->CLOSE in-place; the sole stated deviation was the pending row ruling, now resolved.]",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lane-wave spam loop, cast-root rhythm, casting-speed tempo land natively; Internal Trauma DoT layer now ROUTED (bleed) under the m02-audit steward ruling (GD trauma -> bleed, phys-DoT lineage). Residual drift: bleed-vs-trauma flavor register + ZONE_CONTROL door weak fit (accepted-weak at audit). [STEWARD AUDIT 2026-07-18: regraded APPROX->CLOSE in-place; the sole stated deviation was the pending row ruling, now resolved.]",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Forcewave",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "self-origin ground shockwave traveling a forward lane, widening slightly as it travels ('Forcewave sends a widening shockwave down the lane'; 'Shockwave travels in lane direction of facing'); spam-cast via Tremor transmuter; brief self-root per cast. Pure-physical -> element-neutral per THE PHYSICAL RULE; cone alternative for the widening noted (7.2: the lane read is dominant). [STEWARD AUDIT 2026-07-18: bleed EMITTED under the m02-audit trauma ruling — 'physical damage and Internal Trauma' NAMED in fetched text; GD internal trauma → bleed row added to addendum §A (phys-DoT lineage).]"
+        }
+      ],
+      "motion_frame": "wave metronome: face the pack and hammer Forcewave down the lane cast after cast (Tremor spam), briefly rooted each cast, with Ascension and Vire's Might covering defense and repositioning",
+      "resource_economy": {
+        "cost_scale": "energy per cast ('Tremor enables spam casting' -- the transmuter trades into spam)",
+        "cadence_scale": "casting-speed-governed wave frequency ('prioritizes casting speed through gear and components')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "lane length/width; slight widening over travel"
+          ],
+          "economy": [
+            "spam cadence via casting speed"
+          ],
+          "traits_affixes": [
+            "physical damage scaling (str/gear)",
+            "Internal Trauma DoT emphasis -- held in traits lane pending steward row (see fidelity)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PHYSICAL RULE applied: element-neutral, identity via geometry; NO conversion attested -> no ELEMENT_CONVERSION_PHYSICAL door. 'Internal Trauma' IS NAMED in fetched text ('physical damage with an emphasis on internal trauma' / 'physical damage and Internal Trauma') but NO ailment row exists for GD trauma (main-law bleed row lists bleed/lacerate/rupture only; addendum silent) -> both-silent law: token WITHHELD, FILED TO STEWARD as a crosswalk-row question (GD Internal Trauma -> bleed?). ZONE_CONTROL is the nearest 5 door for a spam lane-wave -- weak fit, flagged. Era: verify_ledger restamp governs (fg-2019 floor via Oathkeeper, errata over kb base-2016). Devotions (Azrakaa, Oleron, Dire Bear, Scales, Solemn Watcher) = physical/leech/defense scalers -> traits lane. R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-with-new-story-chapter-and-oathkeeper-mastery/",
+      "archive_url": null,
+      "site": "massivelyop.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn's Forgotten Gods expansion has launched with new story chapter and Oathkeeper mastery",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.8.0] Budget physical Forcewave Warlord",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "era floor base-2016 — Warlord = Soldier+Oathkeeper; Oathkeeper debuted fg-2019",
+      "anchor_quote": "Forgotten Gods expansion has launched with new story chapter and Oathkeeper mastery … released March 27, 2019",
+      "source_url": "https://massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-with-new-story-chapter-and-oathkeeper-mastery/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Forcewave Warlord'; aliases=['physical Forcewave Warlord','two-hand Forcewave soldier']",
+      "anchor_quote": "'Forcewave Warlord' / 'Physical Forcewave Warlord' … Soldier (primary) and Oathkeeper (secondary), creating the Warlord class",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Forcewave']; delivery=self-origin ground shockwave in lane; resource=mana/energy; element=physical",
+      "anchor_quote": "Forcewave is described as a ground-based damage skill that can be cast repeatedly … physical damage with an emphasis on internal trauma … energy/cooldown system",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.8.0] Budget physical Forcewave Warlord"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Azrakaa",
+            "Oleron",
+            "Dire Bear",
+            "Scales of Ulcama",
+            "Solemn Watcher"
+          ],
+          "notes": "Physical damage, life leech, and defensive constellation path; Dire Bear preferred over Kraken in this version"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+        "anchor_quote": "Azrakaa, Oleron, Dire Bear (rather than the typical Kraken), Scales of Ulcama, and Solemn Watcher",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Casting speed gear to maximize wave frequency; physical damage scaling via str/gear",
+          "key_items": [
+            "two-handed weapon for full transmit",
+            "Azrakaa / Oleron devotion items"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+        "anchor_quote": "prioritizes casting speed through gear and components to maximize damage output",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin ground shockwave",
+          "footprint": "forward lane from player",
+          "range": "mid-range wave",
+          "aoe": "lane/cone expanding forward",
+          "notes": "Shockwave travels in lane direction of facing; widens slightly as it travels"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+        "anchor_quote": "ground-based damage skill … Forcewave sends a widening shockwave down the lane",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Forcewave repeatedly (Tremor transmuter enables spam); shockwave travels lane from player; physical+internal trauma damage; player briefly rooted per cast; Oathkeeper support skills (Ascension, Vire's Might) provide defense and mobility",
+          "resource": "energy per cast (spammable with Tremor)",
+          "tempo": "spam wave"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-budget-physical-forcewave-warlord/104493",
+        "anchor_quote": "Forcewave is described as a ground-based damage skill that can be cast repeatedly … Tremor enables spam casting … physical damage and Internal Trauma",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "physical 2H Forcewave Warlord (this)",
+            "Forcewave pure Soldier (pre-FG)",
+            "Forcewave Tactician (Soldier+Inquisitor)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/2h-melee-1-1-9-8-physical-forcewave-warlord-build-sr90-superbosses/127749",
+        "anchor_quote": "[2H Melee] [1.1.9.8] Physical Forcewave Warlord Build SR90+ Superbosses",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

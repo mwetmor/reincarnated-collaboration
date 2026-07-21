@@ -1,0 +1,251 @@
+{
+  "kit_id": "d2-bowazon",
+  "spine": {
+    "kit_id": "d2-bowazon",
+    "folk_name": "Bowazon",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "classic;lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: IAS breakpoint identity (weapon-speed-as-identity not directly mappable; approximated via cadence_scale economy note); Strafe animation-lock feel; Valkyrie companion pet layer (GAP-noted but rider not core loop).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: IAS breakpoint identity (weapon-speed-as-identity not directly mappable; approximated via cadence_scale economy note); Strafe animation-lock feel; Valkyrie companion pet layer (GAP-noted but rider not core loop).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Multiple Shot",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fan-spread arrow volley; anchor: 'Multishot fans arrows for density'; 'most effects work just for the middle few Arrows with Multiple Shot'; up to 24 arrows at level 20; physical = element-neutral"
+        },
+        {
+          "source_skill": "Strafe",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Autotarget sequential shots against multiple enemies or same target; anchor: 'Strafe autotargets sequential shots'; fixed 11 shots; channel-like commitment during animation (delivery note)"
+        },
+        {
+          "source_skill": "Guided Arrow",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Homing single-target arrow; seeking delivery noted; physical single-target"
+        }
+      ],
+      "motion_frame": "Multishot for group density; Strafe for sustained sequential targeting; Guided Arrow for pursuing single targets; physical damage weapon-and-attack-speed dependent",
+      "resource_economy": {
+        "cost_scale": "Mana per shot (low); attack speed breakpoints critical — weapon IAS identity-load-bearing"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Pierce (arrow penetration — Razortail belt item fidelity; geometry modifier per §3)",
+            "Valkyrie companion (pet-rider — autonomous combatant per §CROSS row 2 gap; utility-light)"
+          ],
+          "economy": [
+            "IAS gear breakpoints; Faith runeword Fanaticism aura (item fidelity)"
+          ],
+          "traits_affixes": [
+            "Penetrate passive AR boost"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical = element-neutral per main law §1 physical rule. Guided Arrow seeking delivery = delivery note (same treatment as Bone Spirit). Strafe's commitment/lock animation = fidelity texture (channel-like but not a channel economy; R-M4 not triggered). Valkyrie is autonomous combatant (pet-rider) → §CROSS row 2 GAP treatment noted in scaffold but does not elevate to GAPPED grade since combat identity (bow shots) maps fully. Pierce = geometry-modifier scaffold per §3."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "louner; undertow; mhlg; Janet the Java",
+      "title": "General thoughts and tips on physical Bowazon",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in classic",
+      "anchor_quote": "bowazons were the supreme subclass in classic D2 and early LoD",
+      "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod",
+      "anchor_quote": "bowazons were the supreme subclass in classic D2 and early LoD",
+      "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "the game shift[ed] towards favoring elemental over physical damage, making modern D2R bowazons comparatively weaker for endgame content",
+      "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Bowazon; aliases Bow Amazon, Multiple Shot Amazon, Strafe Amazon",
+      "anchor_quote": "Bowazon — Amazon archer specialization... bowazons were the supreme subclass in classic D2 and early LoD",
+      "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Multiple Shot (fan spread), Strafe (autotarget sequential), Guided Arrow",
+      "anchor_quote": "most effects work just for the middle few Arrows with Multiple Shot",
+      "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "louner",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+        "anchor_quote": "louner (original poster)",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Faith (Amazon bow, Fanaticism aura)",
+            "Harmony (utility)"
+          ],
+          "skills": [
+            "Valkyrie (tank companion)",
+            "Penetrate (AR boost)",
+            "Pierce"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+        "anchor_quote": "bowazons were the supreme subclass in classic D2 and early LoD",
+        "abstained": 0,
+        "conf": 0.66
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Amazon-specific bows (Faith runeword for IAS+Fanaticism aura)",
+            "Windforce (physical bow)",
+            "Razortail belt (pierce)",
+            "Unique quivers"
+          ],
+          "notes": "Physical damage entirely weapon-and-attack-speed dependent; no elemental scaling"
+        },
+        "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+        "anchor_quote": "damage entirely weapon-and-attack-speed dependent",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (ranged bow attacks)",
+          "footprint": "multi-point spread (Multishot), sequential (Strafe), homing (Guided Arrow)",
+          "range_type": "ranged",
+          "notes": "Multishot fan can hit up to 24 arrows at level 20; Strafe fires fixed 11 shots autotargeting"
+        },
+        "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+        "anchor_quote": "Multishot fans arrows for density, Strafe autotargets sequential shots",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Multiple Shot fans arrows in a spread hitting groups; Strafe autotargets sequential shots against multiple enemies or the same target repeatedly; Guided Arrow homes on a single target. Physical damage entirely dependent on weapon base + attack rating. Pierce adds arrow penetration."
+        },
+        "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+        "anchor_quote": "most effects work just for the middle few Arrows with Multiple Shot",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Multishot Bowazon",
+            "Strafezon (Strafe primary)",
+            "Freezeazon (Freezing Arrow + physical hybrid)",
+            "Classic Bowazon (pre-LoD, physical focus)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/general-thoughts-and-tips-on-physical-bowazon-t1111426.html",
+        "anchor_quote": "A classic FA/Multi/Guide build is mentioned as a favorite bowazon variant",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

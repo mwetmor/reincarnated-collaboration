@@ -1,0 +1,220 @@
+{
+  "kit_id": "poe2-perfect-strike-01",
+  "spine": {
+    "kit_id": "poe2-perfect-strike-01",
+    "folk_name": "Perfect Strike (launch)",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "0.1",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A 0.1-launch player would 'miss' the specific pre-nerf degeneracy (always-Ignite at 45% base speed on a trivially-timed window) -- but that is a TUNING artifact, not a mappable mechanism; the engine has no 'trivially-timed window' anti-pattern to reproduce. The channel-charge-release fire-wave mechanism maps cleanly (CLOSE); the deviation is that the trap was balance, not a missing feature.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A 0.1-launch player would 'miss' the specific pre-nerf degeneracy (always-Ignite at 45% base speed on a trivially-timed window) -- but that is a TUNING artifact, not a mappable mechanism; the engine has no 'trivially-timed window' anti-pattern to reproduce. The channel-charge-release fire-wave mechanism maps cleanly (CLOSE); the deviation is that the trap was balance, not a missing feature.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Perfect Strike (0.1 launch pre-nerf state)",
+          "geometry_value": "melee_arc",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "channeled melee heavy-strike: channel to charge the weapon with Fire, then RELEASE with Perfect Timing (a skill-native timing indicator) to create a damaging wave of intense Fire in a forward melee arc. commit=wind-up, amp=spiky. In 0.1 (mapped era) it ALWAYS applied Ignite on hit and had 45% base attack speed -- the always-Ignite + fast base was the degenerate charge loop nerfed to 35% + conditional-Ignite in 0.2. burn ailment (always-Ignite, 0.1). Physical->fire conversion is the point. Forward arc + charged wave -> melee_arc (not ground_slam; fetched text is a forward WAVE, no downward quake)."
+        }
+      ],
+      "motion_frame": "wind-up timing-strike: hold to charge the weapon with fire, release ON the perfect-timing beat for a spiky fire wave that (in 0.1) always ignites -- the whole trap was that the beat was trivial and the always-ignite made it a degenerate one-button charge loop",
+      "resource_economy": {
+        "cost_scale": "mana per cast",
+        "persistent_condition_shape": "activation-toggle (channel-to-charge, then release)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "forward charged fire wave (melee_arc)"
+          ],
+          "economy": [
+            "channel-to-charge activation cadence",
+            "mana per cast"
+          ],
+          "traits_affixes": [
+            "ignite / burning %",
+            "physical-to-fire conversion",
+            "attack-speed (the 45%-base was the 0.1 exploit lever)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "negative=1 TRAP KIT mapped HONESTLY. The Perfect Timing window is SKILL-NATIVE (a built-in release beat), NOT a proc window -- R-M5 considered, not applicable (the accrual token is deliberately NOT emitted; whispering-ice precedent). PERSISTENCE_ENGINE_uptime routes the always-Ignite DoT-uptime that WAS the trap (0.1 always-Ignite + fast base = permanent burn on a trivial loop); ELEMENT_CONVERSION_PHYSICAL routes the phys->fire slam. verify_ledger: era-0.1 UNSUPPORTED but negative_canon CONFIRMED (launch loop trivially degenerate; reworked by 0.2). GX-03."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.mmojugg.com/news/poe2-warrior-league-starter-build-perfect-strike.html",
+      "archive_url": null,
+      "site": "mmojugg.com",
+      "author_handle": null,
+      "title": "PoE2 Warrior League Starter Build - Perfect Strike",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Perfect_Strike",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Perfect Strike - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": null,
+      "source_url": "https://poe2db.tw/us/Perfect_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Perfect Strike (launch)' and aliases 'Perfect Strike titan launch', 'charged heavy strike' are real community usage",
+      "anchor_quote": "PoE2 Warrior League Starter Build - Perfect Strike",
+      "source_url": "https://www.mmojugg.com/news/poe2-warrior-league-starter-build-perfect-strike.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Channel/charge attack that releases with timed window for massive fire damage multiplier; converts physical to fire",
+      "anchor_quote": "Channel to charge up your weapon with Fire Damage. Releasing with Perfect Timing will create a damaging wave of intense Fire Damage.",
+      "source_url": "https://poe2db.tw/us/Perfect_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Perfect Strike launch-state charge loop identified as trivially degenerate in 0.1; mechanism reworked by 0.2",
+      "anchor_quote": "Perfect Strike no longer always Ignites, and now has an Attack Speed of 35% of base (previously 45%)",
+      "source_url": "https://poe2db.tw/us/Perfect_Strike",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Titan (Warrior ascendancy)",
+          "note": "Titan passive nodes enhance slam/heavy attack interactions"
+        },
+        "source_url": "https://poe2db.tw/us/Perfect_Strike",
+        "anchor_quote": "Perfect Strike Titan launch",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "At-target melee channeled release. Damaging wave extends +35 metres melee strike range on perfect release (0.3+ value; 0.1 range unknown but present). Single target / close forward arc.",
+          "range": "melee forward arc"
+        },
+        "source_url": "https://poe2db.tw/us/Perfect_Strike",
+        "anchor_quote": "Channel to charge up your weapon with Fire Damage. Releasing with Perfect Timing will create a damaging wave of intense Fire Damage.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel to charge weapon with fire. Release at timed window (Perfect Timing indicator) for 363-1132% attack damage fire wave at 0.2+ stats. In 0.1: always applied Ignite on hit, faster attack speed base (45% vs later 35%). The always-Ignite + high base speed = degenerate charge loop that was nerfed in 0.2.",
+          "era": "0.1 launch state (pre-nerf)"
+        },
+        "source_url": "https://poe2db.tw/us/Perfect_Strike",
+        "anchor_quote": "Perfect Strike no longer always Ignites, and now has an Attack Speed of 35% of base (previously 45%)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

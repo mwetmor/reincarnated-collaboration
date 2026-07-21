@@ -1,0 +1,253 @@
+{
+  "kit_id": "poe1-discharge",
+  "spine": {
+    "kit_id": "poe1-discharge",
+    "folk_name": "Discharge",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-02 GAP-D2-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 'build the stack, dump the stack' charge-consume-all identity lands NATIVELY via accumulator + discharge_threshold, and ring nova is exact. Minor drift: Discharge is intrinsically TRI-element (lightning-per-power / fire-per-endurance / cold-per-frenzy, each charge-count scaling its own damage type simultaneously) — the engine's 2 element slots keep the top-2 (fire+lightning), dropping the cold-per-frenzy contribution. A player keeps the charge-dump nova feel; the three-elements-at-once-partitioned-by-charge-type flavor is compressed to a dual-element nova.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 'build the stack, dump the stack' charge-consume-all identity lands NATIVELY via accumulator + discharge_threshold, and ring nova is exact. Minor drift: Discharge is intrinsically TRI-element (lightning-per-power / fire-per-endurance / cold-per-frenzy, each charge-count scaling its own damage type simultaneously) — the engine's 2 element slots keep the top-2 (fire+lightning), dropping the cold-per-frenzy contribution. A player keeps the charge-dump nova feel; the three-elements-at-once-partitioned-by-charge-type flavor is compressed to a dual-element nova.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Discharge",
+          "geometry_value": "ring",
+          "element_primary": "fire",
+          "element_secondary": "lightning",
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "self-origin nova burst around the player body; consumes ALL accumulated charges at once, damage scaled per charge consumed; large-zone footprint. Multi-element by charge TYPE: lightning per power charge, fire per endurance charge, cold per frenzy charge — top-2 by build weight kept (fire endurance + lightning power); the ignite variant (probe 'burn', mech_note fire) is the reference build so fire leads. ring = burst-around-self (§6 nova->ring)"
+        }
+      ],
+      "motion_frame": "build-the-stack-dump-the-stack caster: generate max charges (Farrul's Aspect of the Cat / Voll's Devotion), Discharge fires a self-origin nova consuming all charges, repeat on ~2s cooldown",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-kill",
+        "accumulator_max": 15,
+        "accumulator_discharge_threshold": 15
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ring self-origin nova"
+          ],
+          "economy": [
+            "charge accumulator (build-then-dump-all; the reference resource-dump skill)",
+            "Farrul's Fur Aspect-of-the-Cat / Voll's Devotion charge generation",
+            "Void Battery +power-charge-max (raises accumulator cap)"
+          ],
+          "traits_affixes": [
+            "lightning/fire penetration",
+            "charge-max scaling (accumulator cap)",
+            "ignite/shock scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "THE reference charge-dump: 'consumes ALL charges at once for a nova scaled per charge consumed — build the stack, dump the stack' (mech_note verbatim). This maps NATIVELY — charge_stack_sub_shape=accumulator + accumulator_discharge_threshold (verified engine enum, resource_economy.py:70-74; 'AM spend to fire'). The build-to-cap-then-consume-all rhythm IS the accumulator-discharge primitive. T4 TEMPORAL_CHARGE (charge/stack engine, §5) with MOMENTUM_CASCADE alt. Geometry ring (self-origin nova, §6). CAPSTONE ABSTAINED — t4 routed from core identity (charge-stack dump engine) + probe (charge meter economy) per fallback. ELEMENT FRICTION: Discharge deals THREE elements simultaneously partitioned by charge type (lightning/fire/cold), each charge-count scaling its own element. Engine element slots hold top-2 (fire endurance + lightning power per §1 hybrids-keep-top-2); the reference ignite-Elementalist build (probe 'burn', mech_note fire) makes fire dominant. Cold (frenzy) dropped, noted. shock->sunder NOT added: the ignite variant is fire-ignite-led, not shock-led; sunder would be a per-charge lightning rider only in the lightning-scaling variant."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/discharge-assassin-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.22] Discharge Assassin Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2680909",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[3.12 Ready] CoC Discharge Assassin - 10M+ Shaper DPS (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Discharge",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Discharge - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in eras 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Discharge' is real community usage; aliases Voll's CoC Discharge, Endless Discharge",
+      "anchor_quote": "[3.12 Ready] CoC Discharge Assassin - 10M+ Shaper DPS",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2680909",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Discharge consumes ALL charges at once for a nova scaled per charge consumed; charge-generator build model; fire/cold/lightning per charge type",
+      "anchor_quote": "It deals a lot of damage around your character and consumes all your Charges.",
+      "source_url": "https://odealo.com/articles/discharge-assassin-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Discharge (quality)",
+              "type": "alt_quality",
+              "effect": "(0-10)% chance to deal Damage without removing Charges",
+              "anchor_quote": "(0—10)% chance to deal Damage without removing Charges"
+            },
+            {
+              "node": "Discharge of Misery (transfig)",
+              "type": "transfigured_gem",
+              "effect": "20% more Area of Effect per charge removed versus base 15%",
+              "anchor_quote": "20% more Area of Effect per charge removed"
+            },
+            {
+              "node": "Endless Misery (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40+ Intelligence in radius",
+              "effect": "Cooldown reduced to 250ms; Area of Effect decreased by 60%; Damage decreased by 60%",
+              "anchor_quote": "Cooldown reduced from 2 seconds to 250ms"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Discharge",
+        "anchor_quote": "(0—10)% chance to deal Damage without removing Charges",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Voll's Devotion (amulet — power charges -> endurance charges on discharge)",
+            "Farrul's Fur (chest — Aspect of the Cat charge generation)",
+            "Void Battery (wand — +2 power charges each)"
+          ],
+          "function": "charge generation and maximisation"
+        },
+        "source_url": "https://odealo.com/articles/discharge-assassin-build",
+        "anchor_quote": "Voll's Devotion … whenever you Discharge and have your Power Charges consumed, you will generate your maximum number of Endurance Charges",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "self-origin nova; large-zone AoE around player body; nova expands from player position; no directional component",
+          "damage_per_type": "lightning per power charge, fire per endurance charge, cold per frenzy charge"
+        },
+        "source_url": "https://poedb.tw/us/Discharge",
+        "anchor_quote": "Lightning damage scales from Power Charges; Fire from Endurance; Cold from Frenzy Charges … 3.23.0: 15% more Area of Effect per charge consumed",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Generate maximum Power + Frenzy + Endurance charges via Farrul's Fur Aspect of the Cat (or Voll's Devotion) -> Discharge fires self-origin nova consuming ALL charges -> repeat on 2-second cooldown; charge count determines nova damage; CoC variant triggers Discharge via critical strike hits"
+        },
+        "source_url": "https://odealo.com/articles/discharge-assassin-build",
+        "anchor_quote": "It deals a lot of damage around your character and consumes all your Charges.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "CoC Discharge Assassin (triggered via critical-strike Cospri's Malice)",
+            "Ignite Discharge Elementalist (Voll's Devotion + Farrul's Fur ignite variant)",
+            "Cast on Death Discharge Occultist",
+            "Mjolner Discharge Ascendant"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/discharge-assassin-build",
+        "anchor_quote": "[3.22] Discharge Assassin … [3.16] Ignite Discharge Elementalist … [3.20] Cast on Death Discharge Occultist",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "kit_id": "d2-fishyzon",
+  "spine": {
+    "kit_id": "d2-fishyzon",
+    "folk_name": "Fishyzon",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-1.09",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The javelin-lightning-arc shape of Lightning Fury (thrown javelin that spawns radiating lightning bolts) approximates as fork geometry — no exact 'thrown-projectile-spawns-radial-bolts' token. The physical javelin delivery vehicle is minor texture. Player feels 'lightning javelin thrower who freezes immunes' — that build, slight lightning-arc-spawn texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The javelin-lightning-arc shape of Lightning Fury (thrown javelin that spawns radiating lightning bolts) approximates as fork geometry — no exact 'thrown-projectile-spawns-radial-bolts' token. The physical javelin delivery vehicle is minor texture. Player feels 'lightning javelin thrower who freezes immunes' — that build, slight lightning-arc-spawn texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Fury",
+          "geometry_value": "fork",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Thrown javelin; on impact fires chain lightning bolts at nearby enemies — multi-target fork/chain AoE in radius. ERRATA-51 governs: core skill IS Lightning Fury (not Guided Arrow)."
+        },
+        {
+          "source_skill": "Charged Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target melee javelin strike with lightning discharge bolts. Single-target DPS burst."
+        },
+        {
+          "source_skill": "Freezing Arrow",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Bow projectile with cold AoE burst on impact; used on lightning-immune monsters. Freeze attested: 'Freezing Arrow detonates into a massive ice explosion, dealing cold damage in a large radius and freezing every enemy caught in the blast.'"
+        }
+      ],
+      "motion_frame": "Hurl Lightning Fury javelins into packs (chain lightning on impact); use Charged Strike for single-target lightning; switch to Freezing Arrow for lightning-immune enemies",
+      "resource_economy": {
+        "cost_scale": "mana-light",
+        "cadence_scale": "javelin-throw-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Lightning Fury synergized by Lightning Bolt/Power Strike per era mechanics; Freezing Arrow provides LI coverage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-51 (errata_applied=1) governs core_skills: corrected to Lightning Fury/Charged Strike/Freezing Arrow — Guided Arrow/Valkyrie alias is a spec-error MISATTRIBUTION per fetched dossier. Freeze attested explicitly in skill_loop+skill_geometry fetched text. Element: Lightning Fury/Charged Strike = lightning; Freezing Arrow = water (cold register). Hybrid two-element kit. Dossier anchor: 'A Fishyzon is an Amazon character that utilizes Freezing Arrow and Lightning Fury/Charged Strike attacks.' [STEWARD-AUDIT 2026-07-18 MW2-close: RETRO Freezing Arrow 'freeze' STRUCK — all 10 freeze-family occurrences in this kit's OWN store are the skill name (name-collision, §0-UNIVERSAL); no freeze/frozen status language; the prior 'attested explicitly' fidelity claim is FALSE (cross-kit import from d2-frost-bowazon store — splice class). Cold-burst delivery + element water unaffected. Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+      "archive_url": null,
+      "site": "blogspot.com",
+      "author_handle": "Silverbolt",
+      "title": "Diablo II: Fishyzon Skill Layout",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/plan-for-first-build-mavs-mf-zon-t8575.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": null,
+      "title": "Plan for First Build: Mavs MF Zon",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20090324044010/http://classic.battle.net:80/diablo2exp/skills/amazon-javelin.shtml",
+      "archive_url": "http://web.archive.org/web/20090324044010/http://classic.battle.net:80/diablo2exp/skills/amazon-javelin.shtml",
+      "site": "classic.battle.net (Arreat Summit via Wayback)",
+      "author_handle": "Blizzard Entertainment (official)",
+      "title": "The Arreat Summit - Skills: Amazon Javelin and Spear Skills",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.09 era",
+      "anchor_quote": "Lightning Fury [30]...Lightning Bolt: +10% Lightning Damage Per Level",
+      "source_url": "http://web.archive.org/web/20090324044010/http://classic.battle.net:80/diablo2exp/skills/amazon-javelin.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fishyzon' and aliases 'Valkyrie Amazon', 'Fishyzon Amazon', 'Guided Arrow Valkyrie build' are real community usage",
+      "anchor_quote": "A Fishyzon is an Amazon character that utilizes Freezing Arrow and Lightning Fury/Charged Strike attacks to deal damage to her enemies.",
+      "source_url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills: Guided Arrow, Valkyrie",
+      "anchor_quote": "A Fishyzon is an Amazon character that utilizes Freezing Arrow and Lightning Fury/Charged Strike attacks to deal damage to her enemies.",
+      "source_url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Nightfish",
+          "site": "diablo2.diablowiki.net (original guide)",
+          "note": "Guide:Magic Find Amazon v1.10 by Nightfish; 'Fishyzon' build named after Nightfish"
+        },
+        "source_url": "https://diablo2.diablowiki.net/Guide:Magic_Find_Amazon_v1.10,_by_Nightfish",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Melody runeword bow (recommended by Nightfish for the Freezing Arrow component)"
+          ],
+          "notes": "1.09 era — limited runeword availability. Nightfish recommended Melody. Full 1.09 item list not retrieved; one source cited item."
+        },
+        "source_url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+        "anchor_quote": "Nightfish recommended using Melody as an awesome runeword made in the right bow",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Lightning Fury: thrown javelin that on impact fires chain lightning bolts at nearby enemies; multi-target AoE in radius. Charged Strike: single-target melee javelin strike with lightning discharge bolts. Freezing Arrow: bow projectile with cold AoE burst at impact. Hybrid javelin/bow geometry."
+        },
+        "source_url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+        "anchor_quote": "A Fishyzon is an Amazon character that utilizes Freezing Arrow and Lightning Fury/Charged Strike attacks",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Per fetched text: Fishyzon uses Lightning Fury (thrown javelins, chain lightning) and Charged Strike for single-target lightning damage, with Freezing Arrow as a secondary cold bow skill to handle lightning-immune monsters. Bow and javelin hybrid — NOT a Guided Arrow + Valkyrie build. NOTE: spec core_skills field is CONTRADICTED."
+        },
+        "source_url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+        "anchor_quote": "A Fishyzon is an Amazon character that utilizes Freezing Arrow and Lightning Fury/Charged Strike attacks to deal damage to her enemies.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Classic Fishyzon (LF/CS/FA — Lightning Fury primary, Charged Strike single-target, Freezing Arrow for LI mobs; Nightfish's original build)",
+            "Modern Javazon/Freezing Arrow hybrid (D2R era descendant)"
+          ],
+          "notes": "The spec aliases include 'Valkyrie Amazon' and 'Guided Arrow Valkyrie build' — these are NOT the Fishyzon. They describe different Amazon builds (Furyzon/ValkyRie-tank variants). This is a spec error; flagged as red-flag for erratum queue."
+        },
+        "source_url": "https://silverboltsplayground.blogspot.com/2009/05/diablo-ii-fishyzon-skill-layout.html",
+        "anchor_quote": "A Fishyzon is an Amazon character that utilizes Freezing Arrow and Lightning Fury/Charged Strike attacks",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "kit_id": "poe1-srs",
+  "spine": {
+    "kit_id": "poe1-srs",
+    "folk_name": "Summon Raging Spirits",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the SRS player would miss: the 20-skull machine-gun swarm scale, the flight/homing delivery, and minion untargetability. On engine lanes this lands as a small persistent proxy set — 'SRS, worse' but recognizably the summon-spam loop.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the SRS player would miss: the 20-skull machine-gun swarm scale, the flight/homing delivery, and minion untargetability. On engine lanes this lands as a small persistent proxy set — 'SRS, worse' but recognizably the summon-spam loop.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Raging Spirit",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "temporary homing minion: each cast spawns a flying flaming skull that seeks an enemy and strikes repeatedly; 5s base decay, max 20 active, minions untargetable ('enemies pass through them'). Mapped on the persistent-proxy (totem) lane with short-decay swarm semantics noted — the engine lane has no 20-count decaying-swarm chassis."
+        }
+      ],
+      "motion_frame": "machine-gun caster: constant skull-summoning while walking; the swarm chases and strikes while the player keeps stacking casts",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_FISSION",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "homing swarm proxies (totem lane, decay-noted)"
+          ],
+          "economy": [
+            "cast-to-spawn-decay: the live-skull stack IS the accumulator — casting fills it, 5s decay drains it; sustain = cast cadence vs decay race"
+          ],
+          "traits_affixes": [
+            "minion-damage traits",
+            "cast-speed",
+            "skull-duration"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "'Converts all of their Damage to Fire' -> ELEMENT_CONVERSION_MONO (Avatar-of-Fire-class mono conversion on the proxies); PROXY_FISSION = many-small-proxies strategy. accumulator key used for the live-minion stack per R-M4 (identity-load-bearing; noted as unconventional use — the stack is entity-count, not a player meter). Quantitative mint-candidate filed: temporary-minion swarm count ~20 with per-entity decay (graded as if un-minted)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 4,
+      "evidence_tier": "B-quantitative",
+      "mint_class": "quantitative",
+      "build_authorized": 1,
+      "description": "Temporary-minion swarm count extension: ~20 simultaneous short-lived (5s decay) proxy entities sustained by cast cadence (SRS machine-gun swarm). Count/duration range extension on the persistent-proxy lane."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/summon-raging-spirit-guardian-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Summon Raging Spirit Guardian League Starter — Maxroll",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1427765",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[2.1 Video Guide] Tanky Beginners SRS/Summon Raging Spirit Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2983747",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.13] SRS (Summon Raging Spirit) 11+ Aura Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Minion_Instability",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Summon_Raging_Spirit",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Summon Raging Spirit — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 1.x",
+      "anchor_quote": "Summon Raging Spirit was introduced in version 1.0.6",
+      "source_url": "https://poedb.tw/us/Summon_Raging_Spirit",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "[2.1 Video Guide] Tanky Beginners SRS/Summon Raging Spirit Build [Atziri & HC/SC Viable]",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1427765",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "[3.13] SRS (Summon Raging Spirit) 11+ Aura Build! Double Your Party's DPS! Fun League Starter",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2983747",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Summon Raging Spirits' is real community usage; alias 'SRS' is real community usage",
+      "anchor_quote": "[2.1 Video Guide] Tanky Beginners SRS/Summon Raging Spirit Build; SRS (Summon Raging Spirit) 11+ Aura Build (3.13)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1427765",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Summon Raging Spirit; temporary flaming skulls; fly at enemies; fire damage conversion; Necromancer/Guardian class",
+      "anchor_quote": "summons temporary flying skulls engulfed in flames that charge toward foes and strike them repeatedly; converts all physical damage output to fire damage; Guardian ascendancy",
+      "source_url": "https://poedb.tw/us/Summon_Raging_Spirit",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Summon Raging Spirit (quality)",
+              "type": "base_quality",
+              "effect": "(0-30)% chance to summon an extra Minion",
+              "anchor_quote": "(0—30)% chance to summon an extra Minion"
+            },
+            {
+              "node": "Summon Raging Spirit of Enormity (transfig)",
+              "type": "transfigured_gem",
+              "effect": "0-10% more Minion Movement Speed per quality; +40-78% to Critical Strike Multiplier at levels 1-20",
+              "anchor_quote": "Quality now provides 0-10% more Minion Movement Speed...Minions have +40-78% to Critical Strike Multiplier at gem levels 1-20"
+            },
+            {
+              "node": "Minion Instability (keystone)",
+              "type": "keystone",
+              "effect": "Minions Explode when reduced to Low Life, dealing 33% of their Life as Fire Damage to surrounding Enemies",
+              "anchor_quote": "Minions Explode when reduced to Low Life, dealing 33% of their Life as Fire Damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Summon_Raging_Spirit",
+        "anchor_quote": "(0—30)% chance to summon an extra Minion",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Summon Raging Spirit of Enormity (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "+40-78% to Critical Strike Multiplier; quality provides 0-10% more Minion Movement Speed",
+              "anchor_quote": "Minions have +40-78% to Critical Strike Multiplier at gem levels 1-20"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Summon_Raging_Spirit",
+        "anchor_quote": "Minions have +40-78% to Critical Strike Multiplier at gem levels 1-20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "at-target cast; each skull flies to single enemy on summon; constant stream of skulls from player; skulls cannot be targeted by enemies; point footprint per skull"
+        },
+        "source_url": "https://poedb.tw/us/Summon_Raging_Spirit",
+        "anchor_quote": "Enemies cannot directly engage these spirits; they pass through them instead; each summoned spirit persists for base duration of 5 seconds",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Rapidly cast temporary flaming skull minions that fly toward enemies and strike repeatedly. Each skull lasts 5s (base); max 20 active. Constant recast maintains stack. Skulls convert all damage to fire. Machine-gun playstyle: keep casting while moving."
+        },
+        "source_url": "https://poedb.tw/us/Summon_Raging_Spirit",
+        "anchor_quote": "summons temporary flying skulls engulfed in flames that charge toward foes and strike them repeatedly; converts all of their Damage to Fire Damage; maximum cap of 20 active spirits simultaneously",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Poison SRS — post 3.16 variant using poison scaling",
+            "Fire SRS — classic 1.x/2.x/3.x fire damage variant",
+            "Guardian SRS — aura stacking support variant",
+            "Necromancer SRS — minion damage scaling variant"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/balormage-summon-raging-spirits-necromancer-build-guide",
+        "anchor_quote": "Summon Raging Spirit is noted as the best candidate for applying poisons rapidly",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 7,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

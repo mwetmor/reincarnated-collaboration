@@ -1,0 +1,202 @@
+{
+  "kit_id": "vs-heaven-sword",
+  "spine": {
+    "kit_id": "vs-heaven-sword",
+    "folk_name": "Heaven Sword (Cross evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "out-and-return boomerang double-pierce is approximated via placed_lane — engine does not natively distinguish outbound vs return-path pierce. Extreme knockback is attested and emitted. Minor fidelity loss on the double-traversal nuance.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "out-and-return boomerang double-pierce is approximated via placed_lane — engine does not natively distinguish outbound vs return-path pierce. Extreme knockback is attested and emitted. Minor fidelity loss on the double-traversal nuance.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Heaven Sword (boomerang sword projectile)",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "Throws sword at nearest enemy; projectile boomerangs back — two linear passes through enemy cluster (out + return). Extreme knockback on contact confirmed: 'extreme knockback to compensate for reduced projectile amount.' VS element-silent — 'holy' in name only (skill-name → null per §0.2). placed_lane fits double linear traversal return-path footprint."
+        }
+      ],
+      "motion_frame": "Out-and-return single projectile: sword thrown to nearest enemy, boomerangs back; two linear pierce passes; extreme knockback",
+      "resource_economy": {
+        "pool_limit": "20 active projectiles max",
+        "speed": "2x speed vs base Cross"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_INVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce both out and return path",
+            "knockback on contact"
+          ],
+          "economy": [
+            "pool-limit 20"
+          ],
+          "traits_affixes": [
+            "crit 2.5x multiplier; Luck scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. 'Cross' and 'Heaven' in lineage/name — no holy damage type in dossier; element-law: name-only → null (dossier element_note confirms UNSUPPORTED). Knockback attested: 'extreme knockback' in skill_geometry dossier row. out-and-return geometry filed as accrual candidate (out-and-return family — placed-proxy-count class). GEOMETRY_INVERSION T4 fits the return-path reversal identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Heaven Sword - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022;vs-1.13-14-2025+",
+      "anchor_quote": "Added December 24, 2021 (Patch 0.2.4).",
+      "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Heaven Sword is the evolution of Cross; recipe = Cross + Clover; boomerang return-path archetype",
+      "anchor_quote": "Requires Cross + Clover to evolve into Heaven Sword. Throws a giant sword projectile at the closest enemy, which then starts spinning and boomerangs in the opposite direction.",
+      "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Return-path = lane geometry; linear pierce out and back; NOT a true beam; footprint=lane due to double linear traversal",
+      "anchor_quote": "A giant sword projectile at the closest enemy, which then starts spinning and boomerangs in the opposite direction. The weapon pierces enemies and has Area of Effect damage.",
+      "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "clover": "required catalyst (increases Luck)",
+          "luck_scaling": "crit chance scales with Luck stat"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+        "anchor_quote": "10% base chance affected by Luck stat.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "linear pierce out + boomerang return; lane footprint",
+          "origin": "projectile; self-aimed at nearest target",
+          "pattern": "one throw = two linear passes through enemy cluster",
+          "knockback": "extreme knockback on contact"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+        "anchor_quote": "A giant sword projectile at the closest enemy, which then starts spinning and boomerangs in the opposite direction. Extreme knockback to compensate for reduced projectile amount.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "evolution_recipe": "Cross (max) + Clover = Heaven Sword",
+          "delivery": "throws sword projectile at closest enemy; projectile boomerangs back after contact",
+          "pierce": "pierces enemies on outward AND return path; double linear traversal = lane footprint",
+          "crit": "2.5x crit multiplier; 10% base crit chance; affected by Luck",
+          "special": "ignores Duration stat; pool limit 20; speed doubled vs base Cross"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+        "anchor_quote": "Throws a giant sword projectile at the closest enemy, which then starts spinning and boomerangs in the opposite direction. The weapon pierces enemies.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Heaven_Sword",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "kit_id": "poe1-spark",
+  "spine": {
+    "kit_id": "poe1-spark",
+    "folk_name": "Spark",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.14-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Terrain-aware bouncing + stochastic wander — the properties that make ROOM GEOMETRY the build's real damage variable (corridors strong, open fields weak) — are behavioral with no 26-type carrier; a player keeps the spark-flood but loses the walls mattering. Duration/150-unit travel caps are numeric notes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Terrain-aware bouncing + stochastic wander — the properties that make ROOM GEOMETRY the build's real damage variable (corridors strong, open fields weak) — are behavioral with no 26-type carrier; a player keeps the spark-flood but loses the walls mattering. Duration/150-unit travel caps are numeric notes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spark",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "sprays a volley of duration-projectiles that WANDER randomly ('launches unpredictable sparks that move randomly until they hit an enemy or expire'), bounce off terrain and walls, persist ~2s, self-destruct at 150 units or on hit; floods enclosed corridors where bounces trap the swarm onto flesh"
+        }
+      ],
+      "motion_frame": "corridor-flooder: stream volleys of wandering sparks that ricochet around the room until everything is dead; the player streams casts while repositioning to bank the swarm off walls",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile volley spray",
+            "terrain-bounce behavior (bounces off WALLS, not between targets)"
+          ],
+          "economy": [
+            "mana-mid streaming cast",
+            "projectile duration + count scaling (the flood density dials)"
+          ],
+          "traits_affixes": [
+            "lightning damage",
+            "projectile count / speed / duration",
+            "cast speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FALSE-FRIEND LAW APPLIED: probe control 'shock' is PoE shock (increased damage taken) -> engine SUNDER, never engine shock (section-2 warning row). Geometry section-7.2 competition resolved: the phrase-book 'bouncing -> ricochet_bounce' row was considered and REJECTED — Spark bounces off TERRAIN, while ricochet_bounce is target-to-target hopping; the dominant loop is a many-projectile spray -> multi_projectile, with wall-bounce + stochastic wander as behavioral notes (flicker b04 random-hop precedent: randomness is a behavioral property, not an enum). Inquisitor consecrated-ground variant (consecrate register) noted, not pinned — R-M1. CAPSTONE ABSTAINED — doors from identity: ZONE_CONTROL (fill the room with hazard) + PERSISTENCE_ENGINE_saturation (duration-projectile swarm saturating space). Era span 1.x/2.x/3.14+/3.20+ — 'one of the oldest skills in Path of Exile', reborn repeatedly."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.rpgstash.com/blog/326-spark-inquisitor-build-poe-secrets-of-the-atlas",
+      "archive_url": null,
+      "site": "rpgstash.com",
+      "author_handle": "unknown",
+      "title": "[3.27] Spark Inquisitor Build — POE Keepers of the Flame",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/spark-inquisitor-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "unknown",
+      "title": "[3.20] Spark Inquisitor Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Spark",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Spark — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 1.x",
+      "anchor_quote": "Spark introduced patch 0.8.3; one of the game's earliest skills; documented meta across 1.x era",
+      "source_url": "https://poedb.tw/us/Spark",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "Vaal Spark variant existed and used for Atziri farming in 2.x era; Spark builds active through 2.x",
+      "source_url": "https://poedb.tw/us/Spark",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "'[3.14] Spark Inquisitor - Tanky, great clear speed' pathofexile.com forum post; Goratha 3.18 league starter video confirms meta presence",
+      "source_url": "https://www.pathofexile.com/forum",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "'[3.20] Spark Inquisitor Build Guide' poe-vault.com confirms modern continued meta",
+      "source_url": "https://www.poe-vault.com/guides/spark-inquisitor-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Spark' and aliases 'Vaal Spark(2.x Atziri farmer)' and 'Spark Inquis(modern)' are real community usage",
+      "anchor_quote": "'Spark is one of the oldest skills... Spark Inquisitor is an excellent league starter'; 'Goratha's Inquis SPARK League Starter' confirms Inquis alias",
+      "source_url": "https://www.rpgstash.com/blog/326-spark-inquisitor-build-poe-secrets-of-the-atlas",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Spark; sprays multiple wandering projectiles bouncing randomly until hitting enemies; corridor-flooding stochastic swarm",
+      "anchor_quote": "'Launches unpredictable sparks that move randomly until they hit an enemy or expire... projectiles bounce off terrain and environmental obstacles'",
+      "source_url": "https://poedb.tw/us/Spark",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Spark (quality)",
+              "type": "base_quality",
+              "effect": "Fires +(0-2) Projectiles",
+              "anchor_quote": "Fires +(0—2) Projectiles"
+            },
+            {
+              "node": "Spark of Unpredictability (transfig)",
+              "type": "transfigured_gem",
+              "effect": "190% Effectiveness of Added Damage (previously 160%); 1 to 28 Lightning Damage at level 1 (previously 1 to 24)",
+              "anchor_quote": "190% Effectiveness of Added Damage (previously 160%)"
+            },
+            {
+              "node": "Hazardous Research (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Intelligence in Radius",
+              "effect": "Spark fires additional Projectiles; Spark fires Projectiles in a circle",
+              "anchor_quote": "Spark fires additional Projectiles...Spark fires Projectiles in a circle"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Spark",
+        "anchor_quote": "Spark fires Projectiles in a circle",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Hazardous Research (threshold jewel)",
+              "type": "threshold_jewel",
+              "effect": "Spark fires additional Projectiles; Spark fires Projectiles in a circle",
+              "anchor_quote": "Spark fires additional Projectiles...Spark fires Projectiles in a circle"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Spark",
+        "anchor_quote": "Spark fires Projectiles in a circle",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (multiple wandering lightning projectiles scatter in all directions)",
+          "aoe": "multi-spawn scatter pattern; projectiles bounce off terrain",
+          "notes": "Stochastic coverage pattern; highly effective in enclosed corridors; projectiles self-destruct after 150 units or on enemy hit"
+        },
+        "source_url": "https://poedb.tw/us/Spark",
+        "anchor_quote": "'projectiles bounce off terrain and environmental obstacles... persist for a base duration of 2 seconds... After traveling 150 units from the caster, projectiles self-destruct'",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Spark to spray wandering lightning projectiles in all directions; projectiles bounce off walls and terrain, moving randomly until hitting enemies or expiring after 2 seconds / 150 units; flood corridors and tight maps for maximum coverage; Inquisitor variant uses Consecrated Ground for ES/life regen"
+        },
+        "source_url": "https://poedb.tw/us/Spark",
+        "anchor_quote": "'Launches unpredictable sparks that move randomly until they hit an enemy or expire'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Inquisitor (modern primary; Consecrated Ground + Inevitable Judgement)",
+            "Vaal Spark self-cast (2.x Atziri farming)"
+          ]
+        },
+        "source_url": "https://www.rpgstash.com/blog/326-spark-inquisitor-build-poe-secrets-of-the-atlas",
+        "anchor_quote": "'Spark is one of the oldest skills in Path of Exile and has weaved its way in and out of many metas, from totem builds to self-cast variants'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "kit_id": "poe1-righteous-fire",
+  "spine": {
+    "kit_id": "poe1-righteous-fire",
+    "folk_name": "Righteous Fire",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;3.0-3.6;3.7-3.13;3.14-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Self-burn intensity clamped by the LOCKED 0.30 hp-cost ceiling: the source's knife-edge 'your own skill is actively killing you and one gear mistake means you burn to death' tension softens to a strong-but-survivable tick. Walk-forward burning-aura identity, zero-button loop, and the regen race itself are intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 7,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Self-burn intensity clamped by the LOCKED 0.30 hp-cost ceiling: the source's knife-edge 'your own skill is actively killing you and one gear mistake means you burn to death' tension softens to a strong-but-survivable tick. Walk-forward burning-aura identity, zero-button loop, and the regen race itself are intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Righteous Fire",
+          "geometry_value": "aura",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "toggle self-immolation: constant fire DoT in a small radius (base 1.8-2.3m, gem-scaled) around the walking body; costs the caster's own life per second; sustained by out-regenerating the self-burn — activate once per zone, never press it again"
+        },
+        {
+          "source_skill": "Fire Trap",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "the boss/single-target supplement and the only button the build actually presses: thrown eruption + burning-ground patch (b03 fire-trap geometry convention)"
+        }
+      ],
+      "motion_frame": "walk-forward tank: activate RF once and simply walk — everything near the burning body melts while regen races the self-burn; throw Fire Trap at tougher targets ('For tougher targets, we'll be cursing with our Flammability & Throwing Fire Trap')",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "hp_cost_scale": 0.3
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura radius (small, gem-scaled — proximity IS the aim)",
+            "ground_targeted_circle supplement (Fire Trap)"
+          ],
+          "economy": [
+            "tick-cost toggle paid in life; regen must permanently out-heal it",
+            "once-per-zone activation — effectively zero cast loop"
+          ],
+          "traits_affixes": [
+            "life-regeneration stacking (Juggernaut primary chassis)",
+            "fire/burning damage ('affects Righteous Fire' spell-damage register)",
+            "max-res / fire-res (self-burn mitigation)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "The crosswalk section-5 NAMES this kit for PERSISTENCE_ENGINE_uptime ('DoT/uptime ramps (RF...)') — door assignment is law-direct. DEFENSIVE_TRADEOFF carries the life/defense-trade half: the build IS the regen-vs-self-burn race. Toggle -> persistent_condition_shape=tick-cost (section-3 stance/toggle lane), the tick paid from life. SOURCE MAGNITUDE CLAMPED: the source burn is near-lethal (~90% of life+ES per second, out-regenned by stacked regen); engine hp_cost_scale is LOCKED at 0.30 max — mapped at the cap (aurabot b01 clamp precedent), so the race survives at lower stakes. Ailment burn native (fire family). Variants (Chieftain / Inquisitor / historical low-life Occultist+Guardian) collapse to the same chassis with different sustain sources. Longest-lived kit in the batch (1.x through 3.20+, 'most durable SSF progression curve of any skill gem')."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "AURA",
+    "group_intent_rationale": "delivery=aura-pulse · amp=flat · geometry=aura · treatment=damage · proxy=solo · commit=instant · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "Pohx",
+      "title": "Pohx's Righteous Fire Juggernaut Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/the-burning-man-righteous-fire-juggernaut-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "unknown",
+      "title": "[3.19] The Burning Man - Righteous Fire Juggernaut Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Righteous_Fire",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Righteous Fire — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 1.x",
+      "anchor_quote": "Righteous Fire introduced version 0.9.9 (Closed Beta); listed as original skill available from Act 2 quest in base game",
+      "source_url": "https://poedb.tw/us/Righteous_Fire",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "'It has had many variations ranging from Occultist to low life Guardians, Hybrid Inquisitors' — spanning 3.x eras",
+      "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "Righteous Fire documented as perpetual league-starter across all 3.x eras; no gap found in community coverage",
+      "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "'[3.19] The Burning Man - Righteous Fire (RF) Juggernaut Build Guide' on poe-vault.com confirms 3.19 active",
+      "source_url": "https://www.poe-vault.com/guides/the-burning-man-righteous-fire-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "Pohx's RF Juggernaut and Chieftain guides on poe-vault.com for 3.26 confirm ongoing meta as league-starter",
+      "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Righteous Fire' and alias 'RF' are real community usage",
+      "anchor_quote": "'Righteous Fire has been in Path of Exile since Closed Beta... Today, Righteous Fire is the easiest League starter in Path of Exile'",
+      "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Self-burn aura radiates constant fire DoT around walking body; life cost mechanic; Fire Trap used as single-target supplement outside aura radius",
+      "anchor_quote": "'For tougher targets, we'll be cursing with our Flammability & Throwing Fire Trap... keep them on the edge of your ring from Righteous Fire'",
+      "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Pohx",
+          "site": "poe-vault.com",
+          "note": "Pohx is the long-running primary author of RF Juggernaut/Chieftain guides; known as 'RF guy' in community"
+        },
+        "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Righteous Fire (quality)",
+              "type": "base_quality",
+              "effect": "Base radius is (0-0.3) metres per quality",
+              "anchor_quote": "Base radius is (0—0.3) metres"
+            },
+            {
+              "node": "Righteous Fire of Arcane Devotion (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Grants 15-25% more Cast Speed at gem levels 1-20",
+              "anchor_quote": "Now grants 15-25% more Cast Speed at gem levels 1-20"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Righteous_Fire",
+        "anchor_quote": "Now grants 15-25% more Cast Speed at gem levels 1-20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Righteous Fire of Arcane Devotion (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Grants 15-25% more Cast Speed at gem levels 1-20",
+              "anchor_quote": "Now grants 15-25% more Cast Speed at gem levels 1-20"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Righteous_Fire",
+        "anchor_quote": "Now grants 15-25% more Cast Speed at gem levels 1-20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura-pulse (self-burn ring radiates around walking body)",
+          "aoe": "small radius 1.8-2.3 meters base; scales with gem level",
+          "notes": "Circular aura around player; Fire Trap provides at-target ranged supplement for bosses"
+        },
+        "source_url": "https://poedb.tw/us/Righteous_Fire",
+        "anchor_quote": "'The skill affects a base radius of 1.8–2.3 meters, scaling with gem level'",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Righteous Fire once per zone; self-burn aura continuously damages nearby enemies while regen and reduced-cost items out-heal the self-damage; walk forward through packs; throw Fire Trap for single-target or kiting ranged threats"
+        },
+        "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+        "anchor_quote": "'For tougher targets, we'll be cursing with our Flammability & Throwing Fire Trap'",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Juggernaut (primary; life regen + phys mitigation)",
+            "Chieftain (totem + fire conversion)",
+            "Inquisitor (crit/consecrated ground variant)",
+            "Occultist (low-life historical)",
+            "Guardian (low-life historical)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/righteous-fire-juggernaut-build-guide",
+        "anchor_quote": "'many variations ranging from Juggernaut, Occultist, low life Guardians, Hybrid Inquisitors'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 7,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

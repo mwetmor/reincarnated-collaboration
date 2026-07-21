@@ -1,0 +1,173 @@
+{
+  "kit_id": "chr-bee-warden",
+  "spine": {
+    "kit_id": "chr-bee-warden",
+    "folk_name": "Bee Swarm Warden",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "1.0-2020;ancient-beasts-dlc",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Fully unattested — no dossier content to map. Structural docket: thin-source UNSUPPORTED.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Fully unattested — no dossier content to map. Structural docket: thin-source UNSUPPORTED.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": null,
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "All dossier rows abstained (6/6); identity+mechanics UNSUPPORTED in verify_ledger; no fetched source text available. Honest empty-projection: cannot attest skills, geometry, element, ailments, resource, or economy. corpus_raw flags poison/large-AOE/summon-uptime but these are probe-heuristics (ILLEGAL mapping grounds). Era confirmed (Steam EA 2015, Ancient Beasts DLC 2022). Recommend steward flag for re-crawl if scope permits."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/0/144512526675925166/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "community",
+      "title": "Strongest warden build? :: Chronicon General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/news/app/375480/view/3139575590468360988",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "official",
+      "title": "Chronicon - Ancient Beasts DLC launches on February 25th!",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "1.0-2020; ancient-beasts-dlc",
+      "anchor_quote": "Chronicon entered Steam Early Access in August 2015... Ancient Beasts DLC launches on February 25th!",
+      "source_url": "https://store.steampowered.com/news/app/375480/view/3139575590468360988",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Bee Swarm Warden deploys swarms of poisonous bees that spread from caster position; heavy proxy delivering poison DoT",
+      "anchor_quote": null,
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/144512526675925166/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "core skills: bee swarm suite, nature passives; poison damage; Focus reserve; self-origin large-zone",
+      "anchor_quote": null,
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/144512526675925166/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

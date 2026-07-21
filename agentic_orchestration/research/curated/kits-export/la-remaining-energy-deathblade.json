@@ -1,0 +1,258 @@
+{
+  "kit_id": "la-remaining-energy-deathblade",
+  "spine": {
+    "kit_id": "la-remaining-energy-deathblade",
+    "folk_name": "Remaining Energy Deathblade",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/dash-melee",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "30s Death Trance maps as burst_window (timed) — player consequence correct. Orb tier attack-power scaling is number (stale-SHAPE only; do not map the specific percentages). Ark Passive Destiny riders in trigger mark_identity note only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "30s Death Trance maps as burst_window (timed) — player consequence correct. Orb tier attack-power scaling is number (stale-SHAPE only; do not map the specific percentages). Ark Passive Destiny riders in trigger mark_identity note only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Deathblade Surge (Z identity skill)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cast immediately on Death Trance activation; grants 30s +12% move/attack speed and +16/32/48% Attack Power per orb tier; wide blade-sweep geometry inferred from Deathblade class. No element attested — name-only (Deathblade Surge = proper skill name, no damage-type descriptor)."
+        },
+        {
+          "source_skill": "Fatal Wave → Turning Slash rotation",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pre-Surge sequence: Maelstrom buff maintained; Fatal Wave before Turning Slash. Back Attack affix: +10% Crit Rate, +5% Damage on back-side landing. Geometry: wide melee arc. No element descriptor."
+        },
+        {
+          "source_skill": "Death Sentence / Soul Absorber / Void Strike (gems_damage)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target melee strikes; named in gems_damage only. Back-attack positioning dependent. No ailments named in store."
+        },
+        {
+          "source_skill": "Maelstrom (buff skill)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Maintained pre-window buff; in gems_cooldown. No damage geometry or element attested."
+        }
+      ],
+      "motion_frame": "Maintain Maelstrom buff → Fatal Wave → Turning Slash → activate Death Trance (Z) → cast Deathblade Surge for 30s attack/speed buff → cycle Death Trance on short cooldown for consistent buff uptime; back-attack positioning throughout",
+      "resource_economy": {
+        "death_orbs": "consumed to enter Death Trance (identity activation); 30s duration window; short cooldown allows consistent re-entry; orb count sets attack-power tier (+16/32/48% per orb tier)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Death Trance (Z) — 30s attack/speed buff window; Destiny activation triggers Art Master damage boost on Death Sentence/Twin Shadows/Turning Slash (Ark Passive node)",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Ark Passive nodes: Art Master (damage boost on Destiny for named skills) and Levin Slash (Fatal Wave cooldown reset on Destiny) → capstone_alterations shape. Consequence_type burst_window because Death Trance is TIMED 30s window (not permanent HP-lock like mayhem). Element null throughout — no damage-type descriptors for any skill. Back Attack delivery note applies across all melee skills. 'Deathblade Surge' is a proper skill name → element null per D4 NAME-ONLY LAW."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Remaining Energy Deathblade Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-editorial",
+      "title": "Community Class Tier List - August 2025",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Author: Raeinor. Last updated June 13, 2026 — guide covers Ark Passive nodes (Art Master, Levin Slash) confirming Ark Passive era active",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Remaining Energy Deathblade — folk name (class Deathblade + Remaining Energy identity spec)",
+      "anchor_quote": "Remaining Energy Deathblade — Alternative build available: Surge Deathblade (referenced as contrasting playstyle)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Activates Death Trance consuming Death Orbs to cast Deathblade Surge; grants 30s attack/move speed buffs; consistent uptime; reliable mobile sibling to Surge's extreme burst; rated S+ Aug 2025",
+      "anchor_quote": "Activating her identity immediately casts the Surge (Z) skill... 30-second duration buffs: +12% movement/attack speed, +16/32/48% Attack Power per orb tier",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg",
+          "updated": "2026-06-13"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+        "anchor_quote": "Author: Raeinor (Content Creator). Last updated June 13, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_standard": "Art Master — Increases the damage of Death Sentence, Twin Shadows, and Turning Slash on Destiny activation",
+          "ark_passive_alternate": "Levin Slash — On Destiny activation, resets the cooldown of Fatal Wave"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+        "anchor_quote": "Art Master: Increases the damage of Death Sentence, Twin Shadows, and Turning Slash on Destiny activation. Levin Slash: On Destiny activation, resets the cooldown of Fatal Wave.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Adrenaline"
+          ],
+          "gems_damage": [
+            "Surge",
+            "Death Sentence",
+            "Soul Absorber",
+            "Void Strike"
+          ],
+          "gems_cooldown": [
+            "Maelstrom",
+            "Soul Absorber",
+            "Void Strike",
+            "Death Sentence"
+          ],
+          "bracelet_stats": "Specialization/Crit main stats",
+          "bracelet_specials": [
+            "Ambush",
+            "Circulate",
+            "Fervor",
+            "Hammer",
+            "Wedge"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+        "anchor_quote": "Engravings (5 max): Grudge, Ambush Master, Keen Blunt Weapon, Cursed Doll, Adrenaline (priority order)",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Back Attack positioning required — +10% Crit Rate and +5% Damage landing on target back-side; melee range; no explicit AoE/range data in source"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+        "anchor_quote": "All attacks with a Back Attack affix receive +10% Crit Rate and +5% Damage when they land on the target's back-side",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Maintain Maelstrom buff active before core damage abilities; cast Fatal Wave before Turning Slash; activate identity (Death Trance) to cast Deathblade Surge — grants 30s speed/attack buffs; cycle identity on short cooldown for consistent uptime. Standard: Identity → Surge (Z) → full rotation → re-enter Death Trance when orbs full.",
+          "identity_buff_duration": "30 seconds",
+          "attack_power_buff": "+16/32/48% Attack Power per orb tier",
+          "speed_buff": "+12% movement/attack speed"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/remaining-energy-deathblade-raid-guide",
+        "anchor_quote": "Activating her identity immediately casts the Surge (Z) skill... 30-second duration buffs: +12% movement/attack speed, +16/32/48% Attack Power per orb tier",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Remaining Energy (consistent uptime, S+ Aug 2025)",
+            "Surge (extreme burst ceiling, A tier Aug 2025)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Remaining Energy Deathblade: S+ Tier. Surge Deathblade: A Tier [August 2025 community tier list]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "kit_id": "poe1-hoag",
+  "spine": {
+    "kit_id": "poe1-hoag",
+    "folk_name": "Herald of Agony",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The your-hits-only-feed-a-pet-that-does-everything identity lands via PROXY_ASCENSION/PROXY_SOVEREIGNTY + the Virulence accumulator + two skill-entries (crawler proxy + Cyclone feeder), but the specific coupling -- the Agony Crawler's attack-speed/damage scaling CONTINUOUSLY off the live Virulence count, and the crawler DYING the instant Virulence hits 0 -- is a behavioral property of the accumulator noted in economy rather than a bespoke 'stack-count-drives-proxy-power-and-lifespan' primitive. A player keeps the feed-the-scorpion identity; the exact stack-to-proxy-power curve and the death-at-empty failure state are abstracted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The your-hits-only-feed-a-pet-that-does-everything identity lands via PROXY_ASCENSION/PROXY_SOVEREIGNTY + the Virulence accumulator + two skill-entries (crawler proxy + Cyclone feeder), but the specific coupling -- the Agony Crawler's attack-speed/damage scaling CONTINUOUSLY off the live Virulence count, and the crawler DYING the instant Virulence hits 0 -- is a behavioral property of the accumulator noted in economy rather than a bespoke 'stack-count-drives-proxy-power-and-lifespan' primitive. A player keeps the feed-the-scorpion identity; the exact stack-to-proxy-power curve and the death-at-empty failure state are abstracted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Herald of Agony (Agony Crawler proxy)",
+          "geometry_value": "totem",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "summons an Agony Crawler minion (proxy) that uses projectile and area attacks and does ALL the killing; its attack speed and damage scale off the player's Virulence stack count (max 40); the crawler DIES if Virulence hits 0. totem = the autonomous placed proxy; shadow (chaos) family + poison (the damage register). The proxy is the entire offense"
+        },
+        {
+          "source_skill": "Cyclone (Virulence feeder)",
+          "geometry_value": "whirlwind",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "the player spins with Cyclone (or Caustic Arrow) purely to POISON enemies rapidly; each poison inflicted grants a Virulence stack that feeds the crawler. whirlwind = the Cyclone spin; the player's hits do ~no killing, they only build virulence. Ball Lightning is a common secondary poison-applier"
+        }
+      ],
+      "motion_frame": "proxy-feeder: the player's only job is to spin through the pack applying poisons that stack Virulence; the Agony Crawler pet does 100% of the actual killing and lives only as long as Virulence is fed",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem (Agony Crawler proxy)",
+            "whirlwind (Cyclone feeder)"
+          ],
+          "economy": [
+            "Virulence accumulator (max 40 stacks; poison-applications build it, decay drops it, 0 = crawler dies)",
+            "The Golden Rule (self-poison also feeds Virulence, doubling stack rate)"
+          ],
+          "traits_affixes": [
+            "minion-damage (crawler)",
+            "poison-chance / poison-scaling (feeds Virulence rate)",
+            "minion-attack-speed (scales off Virulence)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PROXY-FEEDER build -- PROXY_ASCENSION (the summoner archetype where a proxy does the killing) + PROXY_SOVEREIGNTY (a single dominant super-proxy, the Agony Crawler, whose power scales with the feed). shadow (chaos) family + poison (crosswalk s1: chaos-poison -> shadow, ailment poison; s2 stack-additive native). TWO skill-entries: the crawler proxy (totem, the offense) + the player's Cyclone feeder (whirlwind, pure virulence-generation). THE IDENTITY = 'your hits do nothing but feed Virulence stacks to a scorpion pet that does everything, and the pet dies without the feed'. Virulence -> charge_stack_sub_shape=accumulator (build via poison-applications, decays, crawler-power scales off the count, 0=death). The Golden Rule (self-poison feeds virulence too) is an economy accelerant. PROXY_SOVEREIGNTY captures the single-super-minion-fed-by-player-actions structure; the 'proxy DIES if the stack empties' dependency is a behavioral property of the accumulator noted in economy. Cyclone-feeder = whirlwind geometry (the player's actual input). Clean proxy-feeder map."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Herald of Agony Juggernaut Build Guide (3.25)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Plague_Bearer",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Cyclone",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Herald_of_Agony",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Herald of Agony — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/dev-tracker/content-update-340-path-of-exile-delve",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "Content Update 3.4.0 Path of Exile: Delve (official patch notes)",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Added a new Dexterity Skill Gem - Herald of Agony ... [3.4 Delve patch notes]",
+      "source_url": "https://www.poe-vault.com/dev-tracker/content-update-340-path-of-exile-delve",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Herald of Agony' and alias 'HoAG crawler' are real community usage",
+      "anchor_quote": "TbXie's Herald of Agony Juggernaut Build Guide ... HoAG crawler",
+      "source_url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Herald of Agony and poison applier (Cyclone/CA); player poison hits feed virulence stacks; Agony Crawler does all killing",
+      "anchor_quote": "You are going to be using Cyclone to get through maps... Both the Cyclone and Ball Lightning will poison the enemy, for which you will gain Virulence.",
+      "source_url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "TbXie",
+              "site": "poe-vault.com",
+              "note": "TbXie's Herald of Agony Juggernaut Build Guide (3.25)"
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Cyclone of Tumult (transfig — poison applier)",
+              "type": "transfigured_gem",
+              "effect": "180% Attack Speed of Base; maximum 5 Stages; 25% more Attack Speed per Stage; 20% more Damage",
+              "anchor_quote": "180% Attack Speed of Base (previously 160%)...maximum of 5 Stages"
+            },
+            {
+              "node": "Plague Bearer — Divergent (alt quality)",
+              "type": "alt_quality",
+              "effect": "Plague Bearer buff gains +0.5% to Poison Damage over Time multiplier while Infecting per 1% gem quality",
+              "anchor_quote": "causes the Plague Bearer buff to have +0.5% to Poison Damage over Time multiplier while Infecting per 1% gem quality"
+            },
+            {
+              "node": "Plague Bearer — Anomalous (alt quality)",
+              "type": "alt_quality",
+              "effect": "0.25% increased movement speed while Infecting per 1% gem quality",
+              "anchor_quote": "0.25% increased movement speed while Infecting per 1% gem quality"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Plague_Bearer",
+        "anchor_quote": "Plague Bearer buff gains +0.5% to Poison Damage over Time multiplier while Infecting",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Cold Iron Point (dagger — +3 gem levels for HoAG)",
+            "The Golden Rule jewel (self-inflicted poisons contribute virulence — doubles stacking rate)",
+            "Pierce support (improves crawler clear)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+        "anchor_quote": "Cold Iron Point provides +3 gem levels. The Golden Rule jewel allows self-inflicted poisons to contribute to Virulence stacks, effectively doubling the rate.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "proxy minion (Agony Crawler) — player actions summon and fuel minion; crawler attacks independently",
+          "footprint": "crawler melee and projectile AoE at crawler position",
+          "aoe": "crawler uses projectile and area attacks",
+          "range_text": "Grants a buff... summon an Agony Crawler minion that uses projectile and area attacks. The minion will die when you have no Virulence.",
+          "projectile": true
+        },
+        "source_url": "https://poedb.tw/us/Herald_of_Agony",
+        "anchor_quote": "Grants a buff giving more poison damage and a chance to inflict poison... summon an Agony Crawler minion that uses projectile and area attacks.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player maintains Herald of Agony buff; uses Cyclone (or Caustic Arrow) to rapidly poison enemies, gaining virulence stacks (up to 40 max) per poison inflicted; Agony Crawler minion gains attack speed and damage from virulence count and dies if virulence reaches 0; player functions purely as virulence feeder."
+        },
+        "source_url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+        "anchor_quote": "You are going to be using Cyclone to get through maps... Both the Cyclone and Ball Lightning will poison the enemy, for which you will gain Virulence.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "HoAG Juggernaut (primary TbXie guide — Cyclone feeder, 3.25)",
+            "HoAG Necromancer (DB spec class — not attested in sources reviewed)",
+            "HoAG Pathfinder — Caustic Arrow feeder (3.4 launch variant via forum)",
+            "HoAG Champion (3.28 PoEVault guide)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/herald-of-agony-juggernaut-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

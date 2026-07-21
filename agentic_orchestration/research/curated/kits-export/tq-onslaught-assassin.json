@@ -1,0 +1,244 @@
+{
+  "kit_id": "tq-onslaught-assassin",
+  "spine": {
+    "kit_id": "tq-onslaught-assassin",
+    "folk_name": "Onslaught Dual-Wield Assassin",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine lacks the WPS-proc-pool mechanism (weighted auto-attack variant pool); mapped as on-hit-threshold trigger chain. Player would feel loss of the 'multiple weapon-swap variants' feel but core 'fast melee + poison overlay' identity is captured.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine lacks the WPS-proc-pool mechanism (weighted auto-attack variant pool); mapped as on-hit-threshold trigger chain. Player would feel loss of the 'multiple weapon-swap variants' feel but core 'fast melee + poison overlay' identity is captured.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Onslaught",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "3 rapid melee strikes as default-attack; physical damage; minor cleave to adjacent enemies; THE PHYSICAL RULE applies — no element family; identity via geometry+ailment substrate"
+        },
+        {
+          "source_skill": "Dual Wield WPS procs",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "WPS pool procs fire between Onslaught activations; physical; passive proc chain"
+        },
+        {
+          "source_skill": "Envenom Weapon",
+          "geometry_value": "self_buff",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "buff applied to self; adds poison damage overlay to melee strikes; poison is damage-typed per skill_loop 'adds poison layer'; earth per §1 nature/venom-themed rogue lineage"
+        }
+      ],
+      "motion_frame": "rapid dual-wield melee attacker — Onslaught default-attack loop with WPS procs and poison overlay",
+      "resource_economy": {
+        "cost_scale": "spend",
+        "cost_slope": "low-flat",
+        "cadence_scale": "fast-autoattack"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce-weapon footprint (blade-honing passive modifies pierce ratio — gear-affix lane)"
+          ],
+          "economy": [
+            "Dual Wield WPS proc cadence (trait/gear lane)"
+          ],
+          "traits_affixes": [
+            "Blade Honing pierce ratio",
+            "Dodge Attack passive"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical/pierce primary — no engine element family (THE PHYSICAL RULE). Envenom Weapon adds genuine poison (earth) as secondary overlay. Dual-wield WPS proc chain is a trigger-grammar loop but mapped as passive proc at depth ≤1. No stun in attested skills for this kit (stun appears in Conqueror/Dreamkiller, not Onslaught Assassin)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gamerofpassion.com/titan-quest-builds/",
+      "archive_url": null,
+      "site": "gamerofpassion.com",
+      "author_handle": null,
+      "title": "5 Titan Quest Builds To Start Out With",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/141136086924458850/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Assassin Build :: Titan Quest Anniversary Edition General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016 eras",
+      "anchor_quote": "Assassin is the class combination of Warfare and Rogue ... one of the most offensive melee classes",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/141136086924458850/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Onslaught Dual-Wield Assassin — Warfare+Rogue combo; community folk name Assassin",
+      "anchor_quote": "The Assassin is the class combination of Warfare and Rogue and is one of the most offensive melee classes out there",
+      "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Onslaught is primary melee skill (3 rapid strikes); dual-wield synergy; Envenom Weapon adds poison layer",
+      "anchor_quote": "the skill itself should be your Default-Attack-Skill of choice ... Dual Wield passive and all the synergies are extremely useful and maxing them is a must",
+      "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": null,
+          "site": "gamerofpassion.com",
+          "note": "anonymous community guide; Steam discussion contributes community consensus"
+        },
+        "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery_combo": "Warfare + Rogue = Assassin",
+          "stat_orientation": "STR+DEX; no INT investment",
+          "endgame_note": "Dexterity becomes dominant at endgame for pierce scaling; squishy — Dodge Attack passive mandatory"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/141136086924458850/",
+        "anchor_quote": "Int doesn't boost poison damage. Dex does",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "gems_passives": [
+            "Blade Honing (pierce ratio buff)",
+            "Dual Wield passive tree",
+            "Dodge Attack passive"
+          ],
+          "notes": "Swords required to satisfy both Rogue pierce focus and Warfare weapon group overlap"
+        },
+        "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+        "anchor_quote": "To get the best of both masteries, you are forced to pick the sword, since Rogue Mastery relies on Piercing Damage while Warfare favors axes, clubs, and swords",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee",
+          "footprint": "point with minor cleave to adjacent enemies",
+          "movement": "standard-move"
+        },
+        "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+        "anchor_quote": "Onslaught delivers rapid melee strikes at primary target; attack reaches nearby enemies",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Onslaught as default-attack left-click (3 rapid strikes); dual-wield WPS procs fire between activations; Envenom Weapon buff active for poison overlay; Blade Honing passive for pierce ratio improvement"
+        },
+        "source_url": "https://gamerofpassion.com/titan-quest-builds/",
+        "anchor_quote": "the skill itself should be your Default-Attack-Skill of choice ... Dual Wield passive and all the synergies are extremely useful and maxing them is a must",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "melee dual-wield sword (primary)",
+            "throwing-weapon dual-wield (alternate)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/141136086924458850/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "kit_id": "gd-mortar-purifier",
+  "spine": {
+    "kit_id": "gd-mortar-purifier",
+    "folk_name": "Mortar Trap Purifier",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: turret aggro-targeting autonomy and overlap-count multiplication are softened onto the native placed-emitter; the exact count-stacking shape lives in the filed accrual.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: turret aggro-targeting autonomy and overlap-count multiplication are softened onto the native placed-emitter; the exact count-stacking shape lives in the filed accrual.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Mortar Trap",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed autonomous artillery emitter: drop trap(s), they lob shells at the aggro target while the player relocates ('stationary artillery trap that the player places and leaves behind'; 'Mortar Trap artillery entities placed at target positions; fire shells automatically'); each shell = small blast AoE; overlapping traps stack coverage ('overlapping trap fire'; 'overlapping traps multiply coverage')."
+        },
+        {
+          "source_skill": "Inquisitor Seal",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "defensive platform the player stands in ('player stands in Inquisitor Seal platform for defense'); absorption stacking with Blast Shield per item notes."
+        }
+      ],
+      "motion_frame": "deploy-and-relocate: drop mortars, step into the Seal, let the kill box fire; re-place on cooldown and shuffle position while the guns work",
+      "resource_economy": {
+        "cadence_scale": "cooldown-gated trap placement with an eager re-place loop ('spam these skills as often as I can')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "placed-emitter count + shell blast radius (overlap-stacking; placed_lane_* key family)"
+          ],
+          "economy": [
+            "placement-cooldown cadence"
+          ],
+          "traits_affixes": [
+            "fire scaling",
+            "Defensive Ability + flat absorption stacking (Oldenar's belt, Dagallon's faceguard; Seal + Blast Shield) -> defensive lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "HOT-FACT APPLIED: placement + count both attested -> accrual to the placed-proxy-count family FILED (mint-candidates-batch-02, WITHOUT numbers, C.2). totem = native placed-emitter token (6 totem/sentry/turret row); the shells' aggro-target AUTONOMY slightly exceeds the engine placed-emitter (noted -- B totem row is SHAPE precedent only per C.4; this GD kit's own fetched language carries the lane). Totem-not-companion: stationary placed emitter -> maps; NOT the autonomous-combatant gap. Flames of Ignaffar appears in core_skills as support but THIS kit's dossier gives it no shape and no status ('BWC/FoI for additional debuffing' -- nothing named) -> not mapped as a skill entry, no tokens (0.2/0.3; near-miss noted). 'The kill box' (identity anchor) -> ZONE_CONTROL door. Era: verify_ledger restamp governs (aom-2017 floor via Inquisitor, errata over kb base-2016). R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "archive_url": null,
+      "site": "mmos.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn Ashes Of Malmouth Expansion Coming On October 11th",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.0.4.1] Tears of Fire - (Mortar Trap/Immortal Purifier/170 Crucible)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "era floor base-2016 — Purifier = Inquisitor+Demolitionist; Inquisitor debuted aom-2017",
+      "anchor_quote": "Ashes of Malmouth expansion was released on October 11th 2017 … introduced two new Masteries: the Inquisitor and the Necromancer",
+      "source_url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Mortar Trap Purifier'; aliases=['trap turret Purifier']",
+      "anchor_quote": "'The Immortal Mortar,' 'Tears of Fire,' 'the kill box' … Inquisitor + Demolitionist = Purifier … Mortar Trap artillery trap",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Mortar Trap','Flames of Ignaffar(support)']; delivery=placed artillery trap fires shells; resource=cooldown; player free-move after placing",
+      "anchor_quote": "stationary artillery trap that the player places and leaves behind … players can move freely after placing traps … Cooldown-based … spam these skills as often as I can",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.0.4.1] Tears of Fire - Mortar Trap/Immortal Purifier/170 Crucible"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Oldenar's belt",
+            "Dagallon's faceguard",
+            "high Defensive Ability gear"
+          ],
+          "notes": "Inquisitor Seal + Blast Shield absorption stacking is core defensive itemization"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+        "anchor_quote": "Oldenar's belt, Dagallon's faceguard, high Defensive Ability stacking with flat absorption from seals and Blast Shield",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "trap placement (at-target drop)",
+          "footprint": "small-radius per shell impact",
+          "range": "artillery/long range (trap fires autonomously)",
+          "aoe": "each shell has small blast AoE",
+          "notes": "Trap placed at caster's position; shells lobbed at aggro target autonomously; overlapping traps multiply coverage"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+        "anchor_quote": "Mortar Trap artillery entities placed at target positions; fire shells automatically … overlapping trap fire",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Mortar Trap(s) at position; mortars fire shells autonomously while player relocates; player stands in Inquisitor Seal platform for defense; spam cooldown to re-place traps; BWC/FoI for additional debuffing",
+          "resource": "cooldown per trap placement",
+          "tempo": "deploy-and-relocate"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-4-1-tears-of-fire-mortar-trap-immortal-purifier-170-cruicible/44138",
+        "anchor_quote": "stationary artillery trap that the player places and leaves behind … spam these skills as often as I can … player relocating while the guns fire",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "fire mortar Purifier (this)",
+            "lightning mortar Purifier (ZAP CANNONS)",
+            "mortar Shieldbreaker (Oathkeeper+Demolitionist)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-1-2-1-1-2-0-zap-cannons-lightning-mortar-trap-purifier-6-10-150-170-4b-b/50476",
+        "anchor_quote": "[1.1.1.2/1.1.2.0] ZAP CANNONS! - Lightning Mortar Trap Purifier",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

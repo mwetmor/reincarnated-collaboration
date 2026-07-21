@@ -1,0 +1,242 @@
+{
+  "kit_id": "poe2-howa-invoker",
+  "spine": {
+    "kit_id": "poe2-howa-invoker",
+    "folk_name": "HoWA Invoker",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A HoWA player would get flat-lightning melee that scales on GEAR AFFIXES rather than on an attribute-TOTAL -- the identity 'my stat page is my weapon' (damage as a linear function of stacked INT+DEX) is softened to a static added-damage affix. Playable output preserved (CLOSE); the missing coupling is a qualitative mint-candidate for steward review, kit graded un-minted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A HoWA player would get flat-lightning melee that scales on GEAR AFFIXES rather than on an attribute-TOTAL -- the identity 'my stat page is my weapon' (damage as a linear function of stacked INT+DEX) is softened to a static added-damage affix. Playable output preserved (CLOSE); the missing coupling is a qualitative mint-candidate for steward review, kit graded un-minted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tempest Flurry / Ice Strike host, empowered by Hand of Wisdom and Action",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "at-target quarterstaff melee, small contact, no AoE from HoWA itself -- damage concentrated at target position (melee_strike; the flurry is attack-speed cadence, not a distinct 26-geometry). HoWA adds 1-10 flat Lightning per 20 INT and per 20 DEX; the Invoker stacks all attributes to maximize per-hit conversion. label_verbatim 'Lightning (converted from attribute stacking)'. shock rider (centrality=rider) is PoE damage-amp shock -> sunder (FALSE FRIEND; engine shock is arc-CC)."
+        }
+      ],
+      "motion_frame": "attribute-stacking melee striker: every point of INT and DEX poured in becomes flat lightning on the quarterstaff -- the character sheet IS the damage skill, hits land fast at-contact",
+      "resource_economy": {
+        "cost_scale": "mana spend per attack (plain pool)"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "at-target quarterstaff contact (small)"
+          ],
+          "economy": [
+            "mana-per-attack spend; full-move"
+          ],
+          "traits_affixes": [
+            "attribute-stacking (INT/DEX/all) -> flat added lightning per hit",
+            "attack-speed",
+            "lightning-penetration",
+            "shock-effect (sunder-magnitude analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-07. Section-B HoWA row: attribute-stacking -> flat DAMAGE is NOT an accrual to docket #8 (siege-ballista is stat->proxy-COUNT; HoWA is stat->DAMAGE -- distinct). Engine expresses added-flat-damage via trait/affix rolls but has NO lane for 'ALL damage is a linear function of stacked primary attributes' -- that stat->damage COUPLING is the identity; affix flat-damage rolls approximate the OUTPUT without the coupling. Own mint-candidate FILED (not merged into docket #8)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 9,
+      "evidence_tier": "C-provisional",
+      "mint_class": "qualitative",
+      "build_authorized": 0,
+      "description": "HoWA attribute-total-as-flat-damage: total of a primary attribute (e.g. Dexterity via Hand of Wisdom and Action) converts directly to flat added elemental damage on hits — a qualitative stat->damage coupling, not a numeric range extension of an existing damage source."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/flicker-strike-invoker-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Flicker Strike Invoker Build Guide - Path of Exile 2",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-gemling-legionnaire-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Tempest Flurry Gemling Legionnaire Build Guide - Path of Exile 2",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Hand_of_Wisdom_and_Action",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Hand of Wisdom and Action - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": "Version 0.1.0. In version 0.2.0, the lightning damage calculation changed from per 10 Intelligence to per 20 Intelligence.",
+      "source_url": "https://poe2db.tw/us/Hand_of_Wisdom_and_Action",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "stacks strength, dexterity and intelligence to scale your Pillar of the Caged God and Hand of Wisdom and Action, resulting in rapid fast, devastating attacks",
+      "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-gemling-legionnaire-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'HoWA Invoker' and aliases 'Hand of Wisdom and Action Invoker', 'Tempest Flurry HoWA', 'Ice Strike HoWA' are real community usage",
+      "anchor_quote": "Hand of Wisdom and Action are the best in slot late game gloves that grant a massive amount of attack speed and flat lightning damage, scaling with your Dexterity and Intelligence.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/flicker-strike-invoker-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "HoWA unique gloves convert INT+DEX to lightning melee damage; Invoker stacks all three primary attributes for maximum per-hit conversion",
+      "anchor_quote": "Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence. Adds 1 to 10 Lightning Damage to Attacks per 20 Dexterity.",
+      "source_url": "https://poe2db.tw/us/Hand_of_Wisdom_and_Action",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_notables": [
+            "Invoker ascendancy notables referenced: I am the Thunder, Shall Rage (primary); Lead me through Grace; Sunder my Enemies or Meditate"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker-leveling-guide",
+        "anchor_quote": "I am the Thunder...and I Shall Rage as primary choices, progressing to Lead me through Grace",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Hand of Wisdom and Action (unique Spiral Wraps gloves)",
+          "requirement": "Level 33, 24 Dex, 24 Int",
+          "acquisition": "Genesis Tree via Ancient Wombgift; Hive Fortress Grasping Coffers; drop from It That Was Esh/Tul"
+        },
+        "source_url": "https://poe2db.tw/us/Hand_of_Wisdom_and_Action",
+        "anchor_quote": "Hand of Wisdom and Action Unique ... Spiral Wraps ... Level 33, 24 Dex, 24 Int",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "At-target melee (quarterstaff range). Small-radius contact. No AoE component from HoWA itself; damage is concentrated at target position.",
+          "range": "melee / close contact"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/flicker-strike-invoker-build-guide",
+        "anchor_quote": "Hand of Wisdom and Action grant a massive amount of attack speed and flat lightning damage, scaling with your Dexterity and Intelligence",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Stack INT + DEX on Invoker. HoWA unique gloves convert per-20 INT and per-20 DEX to flat lightning damage per attack. Quarterstaff melee attacks deliver lightning hits. Each stat point invested translates directly to damage.",
+          "resource": "Mana per attack"
+        },
+        "source_url": "https://poe2db.tw/us/Hand_of_Wisdom_and_Action",
+        "anchor_quote": "Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence. Adds 1 to 10 Lightning Damage to Attacks per 20 Dexterity.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Tempest Flurry HoWA (quarterstaff flurry primary)",
+            "Flicker Strike HoWA (frenzy/power charge engine)",
+            "Gemling Legionnaire HoWA (Pillar + HoWA hybrid)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/flicker-strike-invoker-build-guide",
+        "anchor_quote": "Hand of Wisdom and Action are the best in slot late game gloves ... represent around a 20% damage increase over a rare pair of gloves",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

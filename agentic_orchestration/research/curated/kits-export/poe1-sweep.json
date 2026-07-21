@@ -1,0 +1,233 @@
+{
+  "kit_id": "poe1-sweep",
+  "spine": {
+    "kit_id": "poe1-sweep",
+    "folk_name": "Sweep",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: 360-degree full circle rendered as wide melee arc (nearest member, noted); hit-cap and leveling-skill register are flavor. The stand-and-sweep knockback loop lands.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: 360-degree full circle rendered as wide melee arc (nearest member, noted); hit-cap and leveling-skill register are flavor. The stand-and-sweep knockback loop lands.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sweep",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "melee 360-degree full-circle swing around the player with guaranteed knockback (post-3.7); fixed radius, two-handed weapon required, 100-target hit cap. melee_arc is the honest nearest member — engine arc is a wide swing, source is the full circle; noted as arc-extended-to-360."
+        }
+      ],
+      "motion_frame": "low-mobility circle-swinger: stand in the pack and sweep full-circle knockback swings with a two-hander",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "full-circle melee radius",
+            "AoE-size scaling (meme MAX-AOE variant)"
+          ],
+          "economy": [
+            "mana-light spend (chassis default)"
+          ],
+          "traits_affixes": [
+            "two-handed physical rolls",
+            "AoE-radius ranks",
+            "knockback-distance"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure-physical -> element-neutral per THE PHYSICAL RULE; identity = geometry + knockback. ZONE_CONTROL door carries the push-the-pack space-making identity. Negative=1 lives on the corpus row (trap-canon exemplar: Cyclone owned the niche; never sustained meta) — flag is NOT a mapping surface, kit mapped normally per batch instruction."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1583197",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "Blackdepp",
+      "title": "[2.1.2] Blackdepp's Sweep Marauder Video Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3143065",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.14] MEME build Sweep Berserker MAX AOE STACKING",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1490076",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "Why Sweep nerf? — Path of Exile Forum",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Sweep",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Sweep — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": "Sweep was introduced in version 0.8.0; guides present in 1.x, 2.x (2.1.2 guide), 3.14 meme build — skill present across eras but never sustained meta",
+      "source_url": "https://poedb.tw/us/Sweep",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Sweep' is real community usage; Marauder lineage",
+      "anchor_quote": "[2.1.2] Blackdepp's Sweep Marauder Video Build Guide; MEME build Sweep Berserker, MAX AOE STACKING",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1583197",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Sweep; 360-degree melee AoE; two-handed weapon requirement",
+      "anchor_quote": "Sweep is a melee attack that deals damage to enemies in a full 360-degree circle area around the player and requires a two-handed melee weapon",
+      "source_url": "https://poedb.tw/us/Sweep",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sweep was not a sustained meta build — community labelled it non-meta or 'meme' even in its active eras",
+      "anchor_quote": "sweep isnt like sweep was meta before (forum post confirming non-meta status pre-nerf); labeled MEME build Sweep Berserker in 3.14",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1490076",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Blackdepp",
+          "site": "pathofexile.com/forum",
+          "note": "2.1.2 Sweep Marauder guide author"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1583197",
+        "anchor_quote": "[2.1.2] Blackdepp's Sweep Marauder Video Build Guide",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "melee 360-degree full circle AoE; fixed radius around player; hit cap 100 targets (post 3.15); knockback on all hits"
+        },
+        "source_url": "https://poedb.tw/us/Sweep",
+        "anchor_quote": "hits in a full circle again (rather than a 300 degree arc); knockback from 30% chance to guaranteed; hit cap raised from 30 to 100 targets",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Melee attack hitting all enemies in a 360-degree circle around the player. Requires two-handed weapon. Guaranteed knockback (post 3.7). Never a sustained meta build — used in Marauder leveling and meme AoE stacking contexts. Cyclone dominated the same niche."
+        },
+        "source_url": "https://poedb.tw/us/Sweep",
+        "anchor_quote": "Sweep is a melee attack that deals damage to enemies in a full 360-degree circle area around the player; requires a two-handed melee weapon; always knocks enemies back on hit",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Sweep Marauder/Berserker — standard form; never meta",
+            "Sweep as leveling skill — common early-game use"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3143065",
+        "anchor_quote": "MEME build Sweep Berserker MAX AOE STACKING",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

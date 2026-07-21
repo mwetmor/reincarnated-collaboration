@@ -1,0 +1,254 @@
+{
+  "kit_id": "mcd-dynamo-torment",
+  "spine": {
+    "kit_id": "mcd-dynamo-torment",
+    "folk_name": "Dynamo Roll-Shoot (Standstill/Rolling Torment)",
+    "game": "mcd",
+    "corpus_bucket": "mcd",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "mcd-2022-final-v1.17",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-mcd-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MCD enchantment-loadout identity lacks mastery/ascendancy layer; stack-unload approximates TEMPORAL_CHARGE but MCD has no on-kill propagation, chain, or node-tree depth. A player familiar with PoE Seismic Trap or D4 charge builders would recognize the core pattern but miss the enchantment-slot granularity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MCD enchantment-loadout identity lacks mastery/ascendancy layer; stack-unload approximates TEMPORAL_CHARGE but MCD has no on-kill propagation, chain, or node-tree depth. A player familiar with PoE Seismic Trap or D4 charge builders would recognize the core pattern but miss the enchantment-slot granularity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dynamo stack + attack unload (bow/crossbow primary)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged projectile, standard arrow arc; stack count tracked via roll count; unloads accumulated bonus on next attack"
+        },
+        {
+          "source_skill": "Torment Quiver artifact (soul-seeking arrows, straight trajectory, pass-through)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "'travel slowly and follow a straight trajectory... can pass through walls'; heavy knockback per dossier; 30-soul cost; fires 3 torment arrows"
+        },
+        {
+          "source_skill": "Melee variant (Great Axeblade / melee weapon with Dynamo)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee weapon option; Dynamo applies to both melee and ranged weapon types"
+        }
+      ],
+      "motion_frame": "Roll to stack Dynamo (up to 20x) then release in a single amplified attack; Torment Quiver fires between stacking cycles",
+      "resource_economy": {
+        "stack_resource": "Dynamo stacks (roll-count tracked, no mana cost; max 20)",
+        "soul_cost_torment_quiver": 30,
+        "cd_reduction_source": "Refreshment enchantment (armor); no direct mana gating"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "consume-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "line (Torment Quiver straight-pierce pass-through)"
+          ],
+          "economy": [
+            "charge_stack_sub_shape: accumulator (20-stack Dynamo)",
+            "soul_cost 30 Torment Quiver"
+          ],
+          "traits_affixes": [
+            "Burst Bowstring (extra arrows on charged shots)",
+            "Refreshment (CD reduction)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MCD element-silent — 'soul' is a resource not a damage family; 'torment' is flavor. No mastery tree: capstone_alterations structurally abstains (correct per §B5-MCD). Knockback attested from dossier: 'heavy knockback'. Stack-unload is a charge accumulator pattern. Two weapon-mode variants (bow vs melee) map to same geometry family with different delivery notes."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Dynamo",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Dynamo – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraftdungeons.wiki.fextralife.com/Dynamo",
+      "archive_url": null,
+      "site": "minecraftdungeons.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Dynamo - Minecraft Dungeons Wiki - Fextralife",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:1.4.3.0",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:1.4.3.0 – Minecraft Wiki",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era mcd-2022-final-v1.17 (Dynamo introduced v1.4.3.0 — September 2020; build exists through final v1.17 November 2022)",
+      "anchor_quote": "Dynamo (Ranged & Melee) [introduced in version 1.4.3.0, released September 8, 2020]",
+      "source_url": "https://minecraft.wiki/w/Dungeons:1.4.3.0",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Dynamo Roll-Shoot (Standstill/Rolling Torment) — community build around Dynamo enchantment with two named variants",
+      "anchor_quote": "Adds damage to the next attack after rolling, with multiple rolls stacking the damage effect",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Dynamo",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Dynamo enchantment stacks up to 20x on rolls; loop is ROLL to stack then ATTACK to unload; Torment Quiver fires soul-seeking arrows between rolls; Burst Bowstring and Refreshment in support",
+      "anchor_quote": "increases the damage of the next attack after rolling, with effects stacking up to twenty times and displayed as a status indicator",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Dynamo",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "enchantments": [
+            "Dynamo (melee or ranged) — core stack mechanic",
+            "Burst Bowstring — fires extra arrows on charged shots",
+            "Refreshment — unclear wiki confirmation for this specific kit; listed in corpus mech_note"
+          ],
+          "artifacts": [
+            "Torment Quiver — 30 soul cost; fires 3 torment arrows; soul gathering +1"
+          ],
+          "weapons": [
+            "Great Axeblade (Dynamo T1 built-in)",
+            "Corrupted Crossbow (Dynamo T1 built-in)",
+            "Ancient Bow (Dynamo T1 built-in)"
+          ]
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Dynamo",
+        "anchor_quote": "Three weapons come pre-enchanted with Dynamo Tier I: Great Axeblade, Corrupted Crossbow, and Ancient Bow",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged (bow/crossbow) OR melee depending on weapon choice; Dynamo applies to both",
+          "projectile": "arrows (standard trajectory); Torment Quiver arrows travel slowly in straight trajectory, pass through walls, heavy knockback, can hit same enemy multiple times",
+          "aoe": null,
+          "range": "Torment Quiver: 'can pass through walls'; no explicit range cap stated"
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Torment_Quiver",
+        "anchor_quote": "travel slowly and follow a straight trajectory... can pass through walls",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Roll to accumulate Dynamo stacks (up to 20x per roll sequence), then attack to unload accumulated damage bonus in one hit; re-roll to restart stack accumulation. Torment Quiver artifact activates between rolls to fire soul-seeking torment arrows. Standstill variant: stay rooted to maximize stack count before release. Rolling variant: continuous movement with partial stacks sustained. Burst Bowstring enchantment fires extra arrows on charged shots.",
+          "resource": "Souls (for Torment Quiver activation — 30 souls cost); Dynamo stacks are roll-count tracked (no soul cost)"
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Dynamo",
+        "anchor_quote": "increases the damage of the next attack after rolling, with effects stacking up to twenty times",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standstill — rooted, maximizes stack accumulation before unload",
+            "Rolling Torment — mobile, continuous partial stacks via repeated roll-attack rhythm"
+          ]
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Dynamo",
+        "anchor_quote": "multiple rolls stacking the damage effect",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

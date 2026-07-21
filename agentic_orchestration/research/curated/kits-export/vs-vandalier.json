@@ -1,0 +1,184 @@
+{
+  "kit_id": "vs-vandalier",
+  "spine": {
+    "kit_id": "vs-vandalier",
+    "folk_name": "Vandalier (Peachone+Ebony Wings union)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: orbit + companion geometry captures the flying-bird-with-bomb-zones identity. What source player misses: slot liberation (freeing a weapon slot by fusing two weapons into one) is a VS-specific loadout-economy mechanic with no engine analog; the dual CW/CCW bomb zones create a symmetric orbit pattern the engine orbit geometry does not distinguish.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: orbit + companion geometry captures the flying-bird-with-bomb-zones identity. What source player misses: slot liberation (freeing a weapon slot by fusing two weapons into one) is a VS-specific loadout-economy mechanic with no engine analog; the dual CW/CCW bomb zones create a symmetric orbit pattern the engine orbit geometry does not distinguish.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Vandalier",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Companion bird flies around player; two circling bomb zones (one CW, one CCW); each zone fires projectiles (4 sets of 20 bomb projectiles); bomb projectiles detonate small-radius AoE on impact. Element = null: VS has no elemental damage-type system; 'multicolored' is visual flavor. Companion entity (following player) per totem-vs-companion law — not a placed totem."
+        }
+      ],
+      "motion_frame": "Vandalier companion orbits player; two bomb zones auto-fire projectiles; slot liberation frees one weapon slot.",
+      "resource_economy": {
+        "charge_note": "slot liberation = frees weapon slot for additional weapon (attested: 'Acquisition will free a weapon slot')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "DUAL_PROXY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS weapon union). Vandalier is a companion (following), not a placed totem. Two bomb zones = dual proxy shape (DUAL_PROXY T4 door). Slot liberation is an economy-adjacent benefit — the weapon slot freed can accommodate an additional weapon in the loadout. No element, no ailments. Orbit geometry from 'flies around player / two circling zones.'"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Vandalier",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Vandalier - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "21 January 2022 (Update): Added to game.",
+      "source_url": "https://vampire.survivors.wiki/w/Vandalier",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Vandalier — Peachone + Ebony Wings union (no passive catalyst); both bird weapons fuse into one; slot liberation",
+      "anchor_quote": "Acquisition will free a weapon slot",
+      "source_url": "https://vampire.survivors.wiki/w/Vandalier",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Two circling bomb zones; projectile output; one clockwise one counterclockwise; slot liberation as economy bonus",
+      "anchor_quote": "Vandalier is a vibrant, multicolored bird that flies around the player and bombards two circling zones with projectiles.",
+      "source_url": "https://vampire.survivors.wiki/w/Vandalier",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Scales with all stat bonuses per wiki. Area items increase bomb AoE. Power items increase damage. Slot liberation = frees one weapon slot for additional weapon."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vandalier",
+        "anchor_quote": "Scales with all stat bonuses.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "small-radius",
+          "note": "Bomb projectiles in circular patterns from two orbiting zones. Detonation = small-radius AoE on impact. Two zones: one CW, one CCW."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vandalier",
+        "anchor_quote": "Two zones revolve around the player, one moves clockwise, and the other counterclockwise.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Union weapon (no passive catalyst). Recipe: Peachone (maxed) + Ebony Wings (maxed). Multicolored bird flies around player. Two circling zones: one clockwise, one counterclockwise. Fires 4 sets of 20 projectiles (bomb projectiles). Fusing frees a weapon slot (slot liberation)."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vandalier",
+        "anchor_quote": "Vandalier is a vibrant, multicolored bird that flies around the player and bombards two circling zones with projectiles.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

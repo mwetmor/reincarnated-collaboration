@@ -1,0 +1,266 @@
+{
+  "kit_id": "poe1-cyclone",
+  "spine": {
+    "kit_id": "poe1-cyclone",
+    "folk_name": "Cyclone",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cyclone",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "channel-move spin dealing weapon hits in a radius while walking freely through packs; whirlwind is the purpose-built '360-degree spin = radial melee AoE' type — a lossless fit. physical -> no element family; full-movement-during-channel is native to whirlwind. leech sustains from physical hits"
+        }
+      ],
+      "motion_frame": "spin-to-win channel bruiser: hold and steer into packs, hit everything in the spin radius continuously while moving, overleech keeps you topped; the genre's modern spin reference",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "whirlwind spin-radius",
+            "AoE-radius (Increased AoE / Conc Effect)"
+          ],
+          "economy": [
+            "persistent_condition_shape=tick-cost (mana-per-tick channel)",
+            "leech/overleech sustain (Slayer Endless-Hunger-analog regen; leech-continues-at-full-life)"
+          ]
+        },
+        "traits_affixes": [
+          "physical / melee-damage (Starforge-analog weapon scaling)",
+          "life-leech / attack-speed",
+          "fortify-on-hit (defensive channel layer)"
+        ]
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cleanest map alongside cleave. whirlwind IS Cyclone — the engine type is literally the spin-to-win archetype, and channel-move + radius-weapon-hits + full-movement-during-channel are all native to it. physical -> no element family (crosswalk §1). leech-sustain is a standard regen/sustain shape (Slayer overleech = leech-continues-at-full-life, a regen flavor). persistent_condition_shape=tick-cost carries the channel cost. NOTHING identity-bearing is lost for the CORE Cyclone. The Fire (Ngamahu) and CoC (Cospri) variants are SEPARATE kits/roles — Ngamahu = ELEMENT_CONVERSION_PHYSICAL fire-conversion flavor; CoC-host = the coc-ice-nova kit's chassis — noted as variants, NOT folded into the core physical-Cyclone identity (which is the reference here). ZONE_CONTROL / MOMENTUM_CASCADE for the spin-through-packs momentum capstone."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+      "archive_url": null,
+      "site": "overgear.com",
+      "author_handle": "Nurseos",
+      "title": "Cyclone Slayer Build Guide (PoE Mirage 3.28)",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/ultimate-cyclone-slayer-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "[3.20] Ultimate Cyclone Slayer Build Guide (PoE The Forbidden Sanctum 3.20)",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3078559",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.15] Cyclone Build (League Starter) | Berserker | Expedition | Path of Exile 3.15",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 2.x, 3.0-3.6, 3.7-3.13, 3.20+",
+      "anchor_quote": "[3.15] Cyclone Build (League Starter) | Berserker | Expedition; [3.20] Ultimate Cyclone Slayer Build Guide (PoE The Forbidden Sanctum 3.20)",
+      "source_url": "https://www.poe-vault.com/guides/ultimate-cyclone-slayer-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Cyclone', alias 'Ngamahu Cyclone (budget variant)' are real community usage",
+      "anchor_quote": "Channel-move spin dealing weapon hits in a radius while walking; the genre's modern spin-to-win reference. Ngamahu's Flame is an excellent starter build weapon for Fire Cyclone.",
+      "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Cyclone + Fortify: channel-move spin dealing weapon hits in a radius while walking; Fortify provides key defensive layer",
+      "anchor_quote": "Cyclone utilizes 'Attack, AoE, Channelling, Physical, Melee' tags. Fortify incorporated as a gem in the main 6-link skill setup, providing a core defensive layer.",
+      "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": "Nurseos",
+          "site": "overgear.com"
+        },
+        "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+        "anchor_quote": "Author: Nurseos (from Overgear Guides). Last Updated: December 6, 2023.",
+        "abstained": 0,
+        "conf": 0.97
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_slayer": [
+            {
+              "name": "Endless Hunger",
+              "alteration": "Overleech — life recovery continues even at full life, strongest defensive layer."
+            },
+            {
+              "name": "Headsman",
+              "alteration": "Increased damage against full-life/low-life enemies."
+            }
+          ],
+          "ascendancy_berserker": [
+            {
+              "name": "Rage Vortex of Berserking",
+              "alteration": "Highest single-target damage variant."
+            }
+          ]
+        },
+        "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+        "anchor_quote": "Slayer ascendancy provides 'powerful Life Leech ascendancy nodes' — Overleech with 6k life pool combined with Slayer's Endless Hunger for sustained life recovery.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Ngamahu's Flame",
+              "slot": "axe",
+              "alteration": "Budget fire Cyclone enabler — converts physical to fire, fires molten burst projectiles."
+            },
+            {
+              "name": "Starforge",
+              "slot": "weapon (endgame)",
+              "alteration": "Top physical two-hander for Slayer Cyclone."
+            },
+            {
+              "name": "Cospri's Malice",
+              "slot": "weapon (CoC variant)",
+              "alteration": "Triggers socketed cold spells on crit — transforms Cyclone into CoC trigger body."
+            }
+          ]
+        },
+        "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+        "anchor_quote": "Ngamahu's Flame — excellent starter build weapon for Fire Cyclone; Starforge (endgame weapon scaling).",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Self-origin delivery: spinning radius around moving player body. Small AoE radius (hits everything within weapon swing distance during channel). Player moves freely while attacking — full movement during channel. AoE scales via Increased AoE or Concentrated Effect gems."
+        },
+        "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+        "anchor_quote": "Cyclone utilizes 'Attack, AoE, Channelling, Physical, Melee' tags. Self-origin delivery with small-radius footprint.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Hold Cyclone button and steer into packs. Spin attacks hit all enemies within weapon radius continuously while moving. Leech sustains life from physical hits (Slayer overleech). Fortify gem in main link provides defensive buff. Leap Slam for mobility between packs. CoC variant: Cyclone crits trigger socketed spells (Ice Nova, etc.) — Cyclone serves as trigger host body."
+        },
+        "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+        "anchor_quote": "Channel-move spin dealing weapon hits in a radius while walking; pressing Cyclone and spinning around to eliminate enemy packs while moving.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Physical Cyclone Slayer",
+              "description": "Core archetype — overleech + physical DPS."
+            },
+            {
+              "name": "Ngamahu Fire Cyclone Chieftain",
+              "description": "Budget starter converting physical to fire."
+            },
+            {
+              "name": "Cyclone CoC Assassin",
+              "description": "Cyclone as crit host for Cast on Critical Strike (Ice Nova, Frostbolt)."
+            },
+            {
+              "name": "Shockwave Cyclone Slayer",
+              "description": "3.27 variant leveraging Shockwave support for supplemental AoE."
+            }
+          ]
+        },
+        "source_url": "https://overgear.com/guides/poe/cyclone-slayer-build-guide/",
+        "anchor_quote": "The Fire Cyclone Chieftain converts physical damage to fire damage with Ngamahu's Flame; [3.27] Shockwave Cyclone Slayer Build; [3.20] Ultimate Cyclone Slayer Build Guide.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "kit_id": "d3-invoker-thorns",
+  "spine": {
+    "kit_id": "d3-invoker-thorns",
+    "folk_name": "Thorns Invoker",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the Thorns-stat-as-primary-weapon scaling architecture — engine reflect-damage is a modifier on top of skill damage; here the stat IS the weapon with skill as trigger only; (2) set multiplier 675× Thorns via Punish — magnitude of stat-amplification dwarfs normal reflect; (3) standing-still-and-tanking as the intended loop feel is approximated but the survivability-as-offense identity doesn't emerge from engine primitives.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the Thorns-stat-as-primary-weapon scaling architecture — engine reflect-damage is a modifier on top of skill damage; here the stat IS the weapon with skill as trigger only; (2) set multiplier 675× Thorns via Punish — magnitude of stat-amplification dwarfs normal reflect; (3) standing-still-and-tanking as the intended loop feel is approximated but the survivability-as-offense identity doesn't emerge from engine primitives.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Punish",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Physical melee; player spams Punish; Thorns of the Invoker set causes Punish to deal 675× the Thorns stat as damage — the stat IS the weapon; melee_strike is the delivery form"
+        },
+        {
+          "source_skill": "Thorns (passive aura-reactive return)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Damage-taken triggers Thorns return to each attacker; stand in crowd and punish every swing against you; damage-taken-converts-shape: reflect-damage"
+        }
+      ],
+      "motion_frame": "Stand in enemy cluster; hold Punish to proc Thorns-based damage on every enemy attack; stack Physical Damage and Thorns on gear",
+      "resource_economy": {
+        "resource_type": "Wrath",
+        "generator": "Punish (generator)",
+        "spend_pattern": "Bombardment swap on cooldown for defensive bonuses; primary loop is Punish spam with no significant Wrath spend",
+        "damage_taken_converts_shape": "reflect-damage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee proximity required; AoE reach via Thorns return fires at each attacker position"
+          ],
+          "economy": [
+            "Wrath passively sustained; damage absorption via Laws of Valor and Akarat's Champion"
+          ],
+          "traits_affixes": [
+            "Thorns-stat scaling gear; physical damage affixes; 900% Thorns bonus via set scaler"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: physical (Thorns = physical return damage; Punish = physical melee) → no element family per THE PHYSICAL RULE; element slots null; identity expressed via geometry+stat-as-damage-substrate. Hot-fact ratified: stat-as-damage-substrate cluster (retaliation-substrate SHAPE precedent). RETRIBUTION_ENGINE T4 covers damage-taken → reflect-damage shape. Thorns-stat amplification (675× via set, 900% increased Thorns) is scaler-only at capstone/fidelity layer; the ENGINE mapping approximates the reflect-damage pattern. APPROX grade: 'that build, worse' — the Thorns-stat-as-weapon identity (stat IS the offense, not a rider on top of skill damage) is not natively engine-expressible; RETRIBUTION_ENGINE covers the shape but misses the scaling architecture. Accrual: file to stat-as-damage-substrate family (C.2 no-merge; retaliation-substrate SHAPE precedent; own kit per hot-fact direction)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Diablo 3 Season 38/39 Invoker Thorns Crusader Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/resources/crusader",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Crusader Class Overview - Maxroll.gg",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "Bombardment changes made Akkhan/Invoker Bombardment build incredibly overpowered",
+      "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "Thorns of the Invoker set provides 50% damage reduction, 100% Punish attack speed, 900% increased Thorns",
+      "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: s39",
+      "anchor_quote": "Season 39 represents the current iteration",
+      "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Thorns Invoker'; aliases include 'Invoker Thorns Crusader', 'Thorns Crusader', 'Punish Invoker'",
+      "anchor_quote": "Thorns of the Invoker Crusader build utilizes Thorns to deal damage",
+      "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Punish, Bombardment (swap); class resource: Wrath",
+      "anchor_quote": "99.7% of your damage comes from Punish, effectively turning this build into Generator Crusader. Wrath functions as the class resource, referenced in 'Wrath regeneration'",
+      "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+        "anchor_quote": "Northwar authored this guide, identified as a Content Creator",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Thorns of the Invoker (6): 675x Thorns via Punish; 900% increased Thorns stat; 50% damage reduction",
+          "kanai_cube": null
+        },
+        "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+        "anchor_quote": "lets your Punish deal 675 times your Thorns as damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Thorns of the Invoker (6pc set)",
+            "Akarat's Champion Prophet (staple)",
+            "Laws of Valor Unstoppable Force (50% DR, 15% AS)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+        "anchor_quote": "Thorns of the Invoker set provides 50% damage reduction, 100% Punish attack speed, 900% increased Thorns",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura-reactive",
+          "range": "melee (attacker-position)",
+          "aoe": "single attacker per hit",
+          "notes": "Thorns returns damage to each attacker individually; damage occurs at point of attacker"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+        "anchor_quote": "Thorns of the Invoker set provides 50% damage reduction, 100% Punish attack speed, 900% increased Thorns, and also lets your Punish deal 675 times your Thorns as damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Stand in enemy clusters; hold Punish to proc Thorns damage on every enemy attack; Thorns of the Invoker converts Thorns stat into offense via Punish; stack Physical Damage and Thorns on gear; Bombardment used as cooldown swap for defensive bonuses"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+        "anchor_quote": "The only thing you do in this build is stand still and hold down your attack button",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Invoker Solo Push (primary)",
+            "Akkhan/Invoker Bombardment (S22 hybrid, overpowered then nerfed)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/invoker-thorns-crusader-guide",
+        "anchor_quote": "Season 22, when 'Bombardment changes made Akkhan/Invoker Bombardment build incredibly overpowered'",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

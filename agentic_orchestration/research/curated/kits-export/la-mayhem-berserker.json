@@ -1,0 +1,257 @@
+{
+  "kit_id": "la-mayhem-berserker",
+  "spine": {
+    "kit_id": "la-mayhem-berserker",
+    "folk_name": "Mayhem Berserker",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/mayhem",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: the permanent HP-lock economy (HP locked at 25% as a standing identity constraint) is a novel self-state the engine self_buff key captures in shape but not specificity — source player would note the HP-floor constraint and its -60% healing cost are absent from the mapping. The nested Red Dust timed burst_window inside a permanent buff state is a two-layer structure the trigger_grammar flattens to one consequence_type. Dominant loop (permanent damage identity + nested timed burst) lands correctly. DEFENSIVE_TRADEOFF + SACRIFICE_ASCENDANCY T4 doors capture the HP-trade identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: the permanent HP-lock economy (HP locked at 25% as a standing identity constraint) is a novel self-state the engine self_buff key captures in shape but not specificity — source player would note the HP-floor constraint and its -60% healing cost are absent from the mapping. The nested Red Dust timed burst_window inside a permanent buff state is a two-layer structure the trigger_grammar flattens to one consequence_type. Dominant loop (permanent damage identity + nested timed burst) lands correctly. DEFENSIVE_TRADEOFF + SACRIFICE_ASCENDANCY T4 doors capture the HP-trade identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Burst Mode (Z — permanent identity; HP locked at 25% max)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "PERMANENT self_buff (not timed burst_window): HP locked at 25% max (-60% healing reduction), +18% Damage, +15% Attack/Move Speed, +72% Damage Reduction, +30% Crit Rate. HP-lock is a standing self-state (economy cost-note), NOT a resource spend. Hot-fact: PERMANENT -> self_buff steady-state per LA row 2."
+        },
+        {
+          "source_skill": "Red Dust (8-second damage amplification window — NESTED timed burst inside Mayhem state)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Timed 8s damage amplification window inside Burst Mode; Red Dust activates Destiny; doubles Dark Rush damage and cooldown (Dark Power Ark node). NESTED burst_window inside the permanent self_buff state. Hot-fact: the nested Red Dust 8s window = burst_window."
+        },
+        {
+          "source_skill": "Priority burst skills (Overdrive, Finish Strike, Hell Blade — inside Red Dust window)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee greatsword skills fired inside Red Dust 8s window for peak damage; no elemental damage-typing in store; back-attack modifier via Dark Power node (delivery texture)"
+        },
+        {
+          "source_skill": "Mob-clearing rotation (Sword Storm, Whirlwind, Tempest Slash, Brave Slash)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Area melee skills for mob clearing; Whirlwind = spin-to-win geometry; Sword Storm / Tempest Slash / Brave Slash = melee arc mob clear; no elemental damage-typing in store"
+        }
+      ],
+      "motion_frame": "Permanently maintain Burst Mode (HP locked at 25%, +18% Damage steady-state); prioritize Red Dust window (8s) for Overdrive, Finish Strike, Hell Blade burst rotation; rotate mob-clear skills (Whirlwind, Sword Storm) outside Red Dust; Dark Rush doubled on Dark Power Destiny proc",
+      "resource_economy": {
+        "burst_mode_permanent": "HP locked at 25% max — standing self-state; -60% healing received; +18% Damage, +15% ATK/Move Speed, +72% Damage Reduction, +30% Crit Rate active permanently. NOT a resource spend — HP-lock is an economy cost-note on a permanently-active self_buff",
+        "red_dust_window": "8s damage amplification nested burst_window inside Burst Mode; activates Destiny proc; Dark Power node doubles Dark Rush damage and cooldown on Destiny proc"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee close-range; greatsword arc and whirlwind; sustained melee identity"
+          ],
+          "economy": [
+            "burst_mode_permanent: HP-lock steady-state (not a spend); red_dust_window: 8s nested timed burst; Crit + Swiftness primary stats"
+          ],
+          "traits_affixes": [
+            "Dark Power (Dark Rush damage increase + global damage buff + back-attack modifier on Destiny) — Ark Passive node -> capstone_alterations"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PERMANENT Burst Mode maps as self_buff steady-state per LA row 2 hot-fact and addendum (HP-locked-at-25% is economy cost-note, NOT a resource spend). NESTED Red Dust 8s window maps as burst_window consequence_type inside the permanent state — trigger_grammar captures the nested burst. DEFENSIVE_TRADEOFF + SACRIFICE_ASCENDANCY T4 doors: HP-lock-as-identity-trade is the defining capstone shape. No element or ailment attestation: Dark Rush/Hell Blade/Overdrive are skill names (D4 NAME-ONLY STRIKE). Whirlwind geometry for spin-clearing skills. Back-attack modifier (Dark Power node) is delivery texture (delivery_notes). Stale buff values not carried per Ark Passive law. GX-19 gap_ref noted. Engravings DEAD axis."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Mayhem Berserker Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Last updated January 31, 2026; Ark Grid information added January 16, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last updated January 31, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Mayhem Berserker — class + identity spec, community name",
+      "anchor_quote": "Mayhem Berserker — a permanent Burst Mode specialization focusing on sustained rage state and consistent damage output.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Enters permanent Burst Mode locking HP at 25% of max for -60% healing, gaining 18% damage and 15% attack/move speed; rotation delivers burst inside the Red Dust self-buff window using Overdrive, Finish Strike, Hell Blade; sustained-damage twin of Berserker's Technique, trading mobility for consistency",
+      "anchor_quote": "18% Damage Increase, 15% Attack and Movement Speed Increase, 72% Damage Reduction, 30% Crit Rate, Health is locked to 25% Maximum. Red Dust provides an 8-second damage amplification window.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Civo",
+          "site": "maxroll.gg",
+          "last_updated": "2026-01-31"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+        "anchor_quote": "Civo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Dark Power (Dark Rush damage increase; global damage buff with back-attack modifier)"
+          ],
+          "destiny_trigger": "Red Dust activates Destiny; doubles the damage and cooldown of Dark Rush"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+        "anchor_quote": "Dark Power capstone node increases Dark Rush damage and applies global damage buff with back-attack modifier. Red Dust activates Destiny. Doubles the damage and cooldown of Dark Rush.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Keen Blunt Weapon",
+            "Raid Captain",
+            "Master's Tenacity",
+            "Cursed Doll"
+          ],
+          "gems_priority": [
+            "Overdrive",
+            "Finish Strike",
+            "Hell Blade",
+            "Sword Storm",
+            "Red Dust"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Crit",
+              "Swiftness"
+            ],
+            "special_rolls": [
+              "Superiority",
+              "Circulate"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+        "anchor_quote": "Grudge, Keen Blunt Weapon, Raid Captain, Master's Tenacity, Cursed Doll",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Melee-range attacks; area-effect capability implied by Whirlwind, Tempest Slash, Brave Slash, Sword Storm described as best for mob clearing. No explicit AoE radii or dash distances stated."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+        "anchor_quote": "Whirlwind, Tempest Slash, Brave Slash, and Sword Storm are your best skills for dealing with mobs",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Activate Burst Mode (Z) — permanent identity locking HP at 25% max. Buffs: +18% Damage, +15% Attack/Move Speed, +72% Damage Reduction, +30% Crit Rate. Red Dust self-buff: 8-second damage amplification window. Priority rotation inside Red Dust: Overdrive, Finish Strike, Hell Blade. Sword Storm/Whirlwind/Tempest Slash/Brave Slash for mob clearing. Dark Power capstone: Dark Rush damage increase + global damage buff with back-attack modifier on Destiny."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+        "anchor_quote": "18% Damage Increase, 15% Attack and Movement Speed Increase, 72% Damage Reduction, 30% Crit Rate, Health is locked to 25% Maximum. Red Dust provides an 8-second damage amplification window.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Berserker's Technique (mobility-focused burst; trades Mayhem's HP lock for controlled Burst Mode activation)",
+          "note": "No sub-variants within Mayhem documented in guide"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/mayhem-berserker-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

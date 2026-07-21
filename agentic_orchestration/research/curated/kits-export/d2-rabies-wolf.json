@@ -1,0 +1,256 @@
+{
+  "kit_id": "d2-rabies-wolf",
+  "spine": {
+    "kit_id": "d2-rabies-wolf",
+    "folk_name": "Rabies Wolf",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Contagious spread mechanic (poison hops via target contact) has no engine geometry analogue — melee_strike + delivery note is 'that build, worse.' The defining loop feel (bite one, poison cascades through touching pack) cannot map without a chain-hop spread geometry or mechanic. Docket candidate filed for contact-propagation-DoT. GX-02 form-swap docket also relevant.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Contagious spread mechanic (poison hops via target contact) has no engine geometry analogue — melee_strike + delivery note is 'that build, worse.' The defining loop feel (bite one, poison cascades through touching pack) cannot map without a chain-hop spread geometry or mechanic. Docket candidate filed for contact-propagation-DoT. GX-02 form-swap docket also relevant.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Werewolf",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Form-transformation into Werewolf; permanent form-lock for this kit. Economy-agnostic per §CROSS form law; in-form stats rewritten. Dossier flags: mana cost 15/40s base; flags.econ-recrawl attests 'spend/steady-mana + SS-overlay.'"
+        },
+        {
+          "source_skill": "Rabies",
+          "geometry_value": "melee_strike",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Melee bite on single target; contagious poison spreads to adjacent enemies on contact. Dossier: 'infected opponents can infect team members if they touch.' Chain-hop spread delivery — novel shape; mapped to melee_strike with spread in delivery_notes. Mana 10 per bite attested (econ-recrawl flags)."
+        }
+      ],
+      "motion_frame": "Shapeshift into Werewolf (permanent form); bite primary target with Rabies; poison spreads contact-to-contact through pack; stationary targets take maximum DoT.",
+      "resource_economy": {
+        "cost_scale": "spend",
+        "cost_slope": "steady-mana",
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "PERSISTENCE_ENGINE_saturation",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "contact-spread chain-hop delivery (novel — docket candidate)"
+          ],
+          "economy": [
+            "Werewolf form toggle economy (SS-overlay)"
+          ],
+          "traits_affixes": [
+            "Rabies synergy scaffold; Carrion Wind ring provides synergy points (item_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Form-lock: Werewolf is dominant/permanent form — §CROSS form law maps in-form loop. Economy-agnostic ruling: d2 wereform swaps no resource; persistent_condition_shape=activation-toggle captures form entry. Earth element: druid/nature/venom-themed — earth not shadow per main law. Poison ailment attested: verify_ledger CONFIRMED 'contagious poison spreading.' Contact-spread chain-hop ('infected opponents can infect team members if they touch') is a novel delivery shape not in the 26-enum; docket candidate filed. GX-02 flag in corpus: form-swap pending GX-02 per flags column — noted for review-book. Econ-recrawl flags (wave-c-corpus-align) provide 'spend/steady-mana' verified attestation."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/mld-rabies-druid-t1063773.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Deleted User 632",
+      "title": "MLD Rabies Druid",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/strategy/diablo-2-guide-druid-rabies-wolf-v1-10",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: Druid Rabies Wolf v1.10",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: lod",
+      "anchor_quote": "Diablo 2 Guide: Druid Rabies Wolf v1.10",
+      "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-druid-rabies-wolf-v1-10",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r",
+      "anchor_quote": "Patriarch Isenhart, Rabies Druid (D2R)",
+      "source_url": "https://www.purediablo.com/forums/threads/patriarch-isenhart-rabies-druid-d2r.196313/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Rabies Wolf' or 'Rabies Werewolf' or 'Rabies Druid' is real community usage",
+      "anchor_quote": "Complete Rabies Druid Build Guide",
+      "source_url": "https://www.purediablo.com/forums/threads/complete-rabies-druid-build-guide.142197/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Werewolf, Rabies; Druid class; contagious poison spreading to adjacent enemies",
+      "anchor_quote": "In team versus team contest infected opponents can infect team members if they touch",
+      "source_url": "https://diablo2.io/forums/mld-rabies-druid-t1063773.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deleted User 632",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/mld-rabies-druid-t1063773.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Jalal's Mane",
+              "type": "unique helm",
+              "effect": "+skills, +resists, +strength, attack rating, 30% FHR — can socket Shael"
+            },
+            {
+              "name": "Trang Oul's Claws",
+              "type": "set gloves",
+              "effect": "25% Poison skill damage bonus to Rabies"
+            },
+            {
+              "name": "Carrion Wind",
+              "type": "unique ring",
+              "effect": "level 21 Poison Creeper charges — provides 21 synergy points to Rabies (mutually exclusive with invested Poison Creeper points)"
+            },
+            {
+              "name": "Gore Riders",
+              "type": "unique boots",
+              "effect": "deadly strike, open wounds, crushing blow; 30% FRW"
+            }
+          ]
+        },
+        "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-druid-rabies-wolf-v1-10",
+        "anchor_quote": "Trang Oul's Claws offer 25% Poison skill damage to increase your Rabies",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "chain-hop",
+          "notes": "Melee bite on single target; poison contagion jumps to adjacent enemies on contact. Spreading DoT chain mechanic — unique among D2 skills."
+        },
+        "source_url": "https://diablo2.io/forums/mld-rabies-druid-t1063773.html",
+        "anchor_quote": "In team versus team contest infected opponents can infect team members if they touch",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Shapeshift into Werewolf form; bite primary target with Rabies to apply contagious poison DoT; poison spreads via contact to adjacent enemies who touch infected targets, chaining through packs. Stationary targets take maximum DoT damage.",
+          "source_note": "diablo2.io MLD Rabies Druid guide"
+        },
+        "source_url": "https://diablo2.io/forums/mld-rabies-druid-t1063773.html",
+        "anchor_quote": "Rabies does more damage to a stationary target then one that is moving",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fury/Rabies hybrid (Werewolf melee with both Fury and Rabies for physical + poison dual damage)",
+            "Pure Rabies (single target bite, chain-propagation focus)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/mld-rabies-druid-t1063773.html",
+        "anchor_quote": "Fury/Rabies Wolves work well because they deal in two forms of damage (physical and poison)",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

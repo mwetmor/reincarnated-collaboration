@@ -1,0 +1,224 @@
+{
+  "kit_id": "ud-ice-crystal-arrow",
+  "spine": {
+    "kit_id": "ud-ice-crystal-arrow",
+    "folk_name": "Ice Crystal Arrow Bow",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "ud-s7-2025",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Crystal Arrow",
+          "geometry_value": "chain",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "Ranged cold arrow projectile with chain-bounce (Chain link rune, max_chain=1). Cold element attested: 'Shoots a Cold Arrow... Gain Scaling Cold effect on hit'. Water family (cold/ice register). Chill+freeze attested explicitly: item_alterations 'Chill Chance +20%, Freeze Chance +10%'. Movement-interaction: strafing generates Cold Crystal stacks (up to 6) feeding +attack speed and +chain count."
+        }
+      ],
+      "motion_frame": "Fire Ice Crystal Arrow; Cold Crystal stack accumulation from strafing; chain-bounce between enemies for clear; verity awakening variant → tracking (homing) projectile",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "cost_scale": "mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Illusion Arrow (stack-proc bow additional arrow)"
+          ],
+          "economy": [
+            "Cold Crystal stack → attack speed ramp"
+          ],
+          "traits_affixes": [
+            "Chill/freeze chance scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cold element genuinely attested. Chain geometry confirmed (bouncing projectile). TEMPORAL_CHARGE T4 door for Cold Crystal stack-accumulator identity. Illusion Arrow = proc-trigger support in geometry lane."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Ice Crystal Arrow - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pocketgamer.com/undecember/builds/",
+      "archive_url": null,
+      "site": "pocketgamer.com",
+      "author_handle": "Pocket Gamer staff",
+      "title": "The best Undecember builds in Season 7",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-s7-2025 (Season 7)",
+      "anchor_quote": "It's all about high clear speed and mobility as the Ice Crystal Arrow chain effect (plus Illusion Arrow) can clear hordes of mobs.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ice Crystal Arrow Bow — cold arrow projectile with chain-bounce, Illusion Arrow layered, Season 7 meta",
+      "anchor_quote": "It's all about high clear speed and mobility as the Ice Crystal Arrow chain effect (plus Illusion Arrow) can clear hordes of mobs.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Projectile with chain-bounce (Chain link rune); chill/freeze ailments; NOT a line/beam — bouncing projectile",
+      "anchor_quote": "Shoots a Cold Arrow that can be Chained. Gain Scaling Cold effect on hit and fires additional arrow(s) upon moving based on the number of Cold Crystal stack(s)",
+      "source_url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Zismoo",
+          "site": "pocketgamer.com/undecember",
+          "context": "Season 7 Ice Crystal Arrow build guide creator"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "verity_awakening": "Change Ice Crystal Arrow to enemy Tracking Projectile (homing variant)"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+        "anchor_quote": "Change Ice Crystal Arrow to enemy Tracking Projectile",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "support": "Illusion Arrow (proc additional arrows on stack; bow skill interaction)",
+          "ailments": [
+            "Chill (+20% chance)",
+            "Freeze (+10% chance)"
+          ]
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+        "anchor_quote": "Chill Chance +20%, Freeze Chance +10%",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "ranged projectile with chain-bounce",
+          "max_chain": 1,
+          "pierce": false,
+          "movement_interaction": "kite/strafe; movement generates Cold Crystal stacks"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+        "anchor_quote": "Shoots a Cold Arrow that can be Chained. Gain Scaling Cold effect on hit and fires additional arrow(s) upon moving based on the number of Cold Crystal stack(s)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Ice Crystal Arrow; gains Scaling Cold buff on hit; movement generates Cold Crystal stacks (up to 6); stacks feed back into +attack speed and +chain count; chain effect bounces between nearby enemies for AoE clear"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+        "anchor_quote": "Shoots a Cold Arrow that can be Chained. Gain Scaling Cold effect on hit and fires additional arrow(s) upon moving based on the number of Cold Crystal stack(s)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variant": "Verity homing projectile variant (enemy Tracking Projectile via awakening)"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/IceCrystalArrow/",
+        "anchor_quote": "Change Ice Crystal Arrow to enemy Tracking Projectile",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

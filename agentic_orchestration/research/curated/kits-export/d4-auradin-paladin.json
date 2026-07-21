@@ -1,0 +1,250 @@
+{
+  "kit_id": "d4-auradin-paladin",
+  "spine": {
+    "kit_id": "d4-auradin-paladin",
+    "folk_name": "Auradin Paladin",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Paladin resource (Faith/Resolve) contested — resource_economy empty per do-not-populate erratum; player would notice the missing economy spec. Arbiter Form amplification captured only as fidelity note — insufficient fetched language for independent row.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "holy"
+    ],
+    "ailments_attested": [
+      "consecrate"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Paladin resource (Faith/Resolve) contested — resource_economy empty per do-not-populate erratum; player would notice the missing economy spec. Arbiter Form amplification captured only as fidelity note — insufficient fetched language for independent row.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Holy Light Aura + Fanaticism (aura suite)",
+          "geometry_value": "aura",
+          "element_primary": "fire",
+          "element_secondary": "holy",
+          "ailments": [],
+          "delivery_notes": "Aura-pulse body-origin geometry; item-defined-archetype: Dawnfire converts Holy Light Aura to fire AoE per item_alterations anchor ('Dawnfire (required Mythic)'); skill_geometry anchor: 'The AoE visual looks very small but it actually hits almost the entire screen once it's ramped'; fire element primary: Dawnfire conversion is the kit's damage identity; holy secondary: verify_ledger anchor 'Holy Light Aura will be our primary source of damage' attests holy sourcing pre-conversion — secondary slot; no ailment: no explicit burn/stun/fear language in fetched text; movement-IS-the-engine loop"
+        },
+        {
+          "source_skill": "Consecration (via Sundered Night)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "holy",
+          "element_secondary": null,
+          "ailments": [
+            "consecrate"
+          ],
+          "delivery_notes": "Sundered Night item casts Consecration on aura cast per item_alterations anchor; ground zone under player feet; consecrate ailment: 'consecrated ground' matches consecrate registry entry; holy element for consecration delivery; item-defined rider on aura cast"
+        }
+      ],
+      "motion_frame": "Toggle Holy Light + Fanaticism auras permanently; Dawnfire converts Holy Light passive to fire AoE around player; walk through packs for passive kill; Consecration zone under feet via Sundered Night per skill_loop payload",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "NETWORK_AMPLIFIER",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aura hits near full-screen when ramped per skill_geometry anchor"
+          ],
+          "economy": [
+            "Aura toggle free — no reservation cost (fetched-only kit; resource do-not-populate per §C.5)"
+          ],
+          "traits_affixes": [
+            "Cathan's Iron Conviction 5pc — 55% Aura Potency (scaler-only)",
+            "Aspect of Celestial Strife, Aspect of Ascension (scalers)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fetched-only kit (Paladin post-cutoff class) — resource_economy left empty per §C.5 do-not-populate erratum; Paladin resource contested (Faith/Resolve per capstone anchor). Item-defined-archetype: Dawnfire converts Holy Light to fire AoE — the WITH-Dawnfire form is the kit identity. holy secondary slot: verify_ledger anchor 'Holy Light Aura will be our primary source of damage' confirms holy sourcing pre-conversion; fire primary = Dawnfire conversion. Consecrate ailment: Consecration is a holy-zone ground effect matching consecrate registry entry. No burn despite fire element: no 'burn' or 'ignite' language in fetched text. Arbiter Form (Falling Star) is a trigger-entered form rider per §CROSS form-law; insufficient fetched language to map as independent skill row."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "AURA",
+    "group_intent_rationale": "delivery=aura-pulse · amp=flat · geometry=aura · treatment=damage · proxy=solo · commit=instant · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/guides/auradin-paladin-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Auradin – Paladin Build for Diablo 4 (Season 14) - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chronikz",
+      "title": "Auradin Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in loh-s13-14",
+      "anchor_quote": "Auradin Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Auradin Paladin; aliases: Auradin Paladin D4, D4 Aura Paladin, Paladin Aura Build",
+      "anchor_quote": "Auradin – Paladin Build for Diablo 4",
+      "source_url": "https://www.icy-veins.com/d4/guides/auradin-paladin-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: aura suite (Holy Light Aura, Fanaticism, Defiance); Paladin class resource",
+      "anchor_quote": "Holy Light Aura will be our primary source of damage",
+      "source_url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "co_author": "Mathris",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/auradin-paladin-build/",
+        "anchor_quote": "MrLlamaSC",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Celestial Strife",
+            "Aspect of Ascension",
+            "Aspect of Holy Punishment",
+            "Aspect of Interdiction",
+            "Indomitable",
+            "Bulwark's Aspect"
+          ],
+          "uniques": [
+            "Dawnfire",
+            "Sundered Night"
+          ],
+          "paragon_glyphs": null,
+          "notes": "Paladin resource is Faith (icy-veins) or Resolve (maxroll) — source conflict, flag for steward"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/auradin-paladin-build/",
+        "anchor_quote": "Defiance Aura recovers health and generates Resolve.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Dawnfire (mythic gloves) — converts Holy Light aura to fire AoE",
+            "Sundered Night — casts Consecration on aura cast, 200% Aura Potency in Consecration",
+            "Griswold's Opus (mythic)"
+          ],
+          "talisman_set": "Cathan's Iron Conviction (5pc) — 55% Aura Potency"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+        "anchor_quote": "Dawnfire (required Mythic)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura pulse / passive AoE from body",
+          "footprint": "full-screen fire AoE (with Dawnfire)",
+          "range": "body-origin expanding ring",
+          "notes": "AoE visual looks small but hits almost entire screen when ramped per guide; Consecration zone under feet"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+        "anchor_quote": "The AoE visual looks very small but it actually hits almost the entire screen once it's ramped.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Toggle Fanaticism + Holy Light Auras permanently; Dawnfire converts Holy Light passive to fire AoE around player each second. Falling Star enters Arbiter Form for further amplification. Defiance provides crowd-control immunity. Rally for Faith/movement.",
+          "core_loop": "Aura toggle (Holy Light + Fanaticism) -> walk through packs -> passive AoE kill"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+        "anchor_quote": "Holy Light Aura will be our primary source of damage",
+        "abstained": 0,
+        "conf": 0.77
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "2H Speed variant (Torment 4 farming, high mobility)",
+            "Boss/Push variant (Torment 7, single-target sustain)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/auradin-guide",
+        "anchor_quote": "The 2H Speed variant is best for Torment 4 farming with highest mobility",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

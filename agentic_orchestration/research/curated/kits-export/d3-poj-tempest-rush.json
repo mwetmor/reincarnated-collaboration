@@ -1,0 +1,255 @@
+{
+  "kit_id": "d3-poj-tempest-rush",
+  "spine": {
+    "kit_id": "d3-poj-tempest-rush",
+    "folk_name": "PoJ Tempest Rush",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Flurry 100-stack→release approximated as whirlwind+TEMPORAL_CHARGE; no exact engine moving-channel-with-stack-release-AoE. The moving-channel feel (PoJ's identity) maps well but losing the Flurry stack-to-icy-explosion rhythm degrades the fantasy.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "blind"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Flurry 100-stack→release approximated as whirlwind+TEMPORAL_CHARGE; no exact engine moving-channel-with-stack-release-AoE. The moving-channel feel (PoJ's identity) maps well but losing the Flurry stack-to-icy-explosion rhythm degrades the fantasy.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tempest Rush",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": "water",
+          "ailments": [],
+          "delivery_notes": "Moving channel through enemy packs; self-origin AoE around moving body; Flurry rune builds 100 stacks then releases icy explosion; delivery: moving-channel (not rooted) per §CROSS row 5; icy explosion release = secondary AoE burst; elem_s=water from attested 'icy explosion'"
+        },
+        {
+          "source_skill": "Sweeping Wind",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Small-radius self-origin persistent wind ring; provides Spirit regen (Inner Storm rune) to sustain Tempest Rush channel; Sunwuko sibling geometry"
+        },
+        {
+          "source_skill": "Blinding Flash",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "blind"
+          ],
+          "delivery_notes": "Flash AoE around caster; attested blind status via 'Blinding Flash' + buff context"
+        }
+      ],
+      "motion_frame": "Channel Tempest Rush continuously through enemy packs; build 100 Flurry stacks; release icy explosion; sustain via Sweeping Wind Spirit regen; dash around with Epiphany CDR immunity",
+      "resource_economy": {
+        "resource": "Spirit",
+        "cost_note": "Tempest Rush channels drain Spirit continuously; Sweeping Wind Inner Storm rune provides Spirit regeneration to sustain channel; Patterns of Justice 4pc provides 50 Spirit Regeneration"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "MOMENTUM_CASCADE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Won Khim Lau — physical/lightning bonus on Tempest Rush (item rider)"
+          ],
+          "economy": [
+            "Patterns of Justice 4pc — 50 Spirit Regeneration; Captain Crimson's Trimmings — CDR and resource cost reduction; In-Geom — CDR for skill resets; Cesar's Memento — enemies take increased damage after Tempest Rush channel"
+          ],
+          "traits_affixes": [
+            "Patterns of Justice 6pc — damage multiplier for Tempest Rush (scaler); Balance — damage bonus (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical-tagged source; elem_p=null (no element family). elem_s=water assigned from attested 'icy explosion' in Flurry rune description — contiguous in skill_loop fetched text. Moving-channel law applied per §CROSS row 5. Flurry 100-stack build→release is two-tier-accumulator shape (accumulate-then-spend) — accrual to two-tier-accumulator family (§A row 5 contrast: this IS a counted-tier release, not sustain-stack like Frenzy). Blind attested via 'Blinding Flash' skill name + combat context — §0.4 skill-name-collision trap: blind IS named in the skill name and combat usage attests debuff function; legal attestation."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Patterns of Justice PoJ Tempest Rush Monk Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/monk-tempest-rush-build-with-patterns-of-justice",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Monk Tempest Rush Build with Patterns of Justice (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Introduced in Season 19 with Won Khim Lau. This guide covers Season 39, with the build remaining competitive throughout multiple seasons.",
+      "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'PoJ Tempest Rush' and aliases 'Patterns of Justice Monk', 'PoJ Monk', 'Tempest Rush Sweeping Wind Monk' are real community usage",
+      "anchor_quote": "Patterns of Justice PoJ Tempest Rush Monk Guide for Diablo III Season 39 — PoJ Tempest Rush Monk and Spin to Win used as build descriptors.",
+      "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Tempest Rush and Sweeping Wind; Monk resource (Spirit); movement-channel delivery",
+      "anchor_quote": "Tempest Rush Flurry is our damage dealer. Sweeping Wind Inner Storm gives us increased spirit regeneration. Patterns of Justice (4) Bonus providing 50 Spirit Regeneration.",
+      "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Patterns of Justice (6pc) — core set; 4pc provides 50 Spirit Regeneration",
+          "kanai_cube": [
+            "In-Geom"
+          ],
+          "legendary_powers": [
+            "Cesar's Memento",
+            "Won Khim Lau",
+            "Balance"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+        "anchor_quote": "Patterns of Justice (4) Bonus providing 50 Spirit Regeneration.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Patterns of Justice set (6pc)",
+            "Won Khim Lau (offhand)",
+            "Captain Crimson's Trimmings (2pc)",
+            "Cesar's Memento",
+            "Balance",
+            "In-Geom"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+        "anchor_quote": "Introduced in Season 19 with Won Khim Lau. Patterns of Justice set (full 6-piece), Won Khim Lau (offhand), Captain Crimson's Trimmings, Cesar's Memento and Balance as crucial legendaries.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Tempest Rush channels player movement through packs; self-origin AoE around moving body; Flurry release is wider explosion; small-radius continuous AoE while moving",
+          "range": "self-origin movement-channel small-radius"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+        "anchor_quote": "Tempest Rush is a solid option for solo XP farming on monk that provides high damage with a good amount of speed to farm GR100+ in under 3 minutes on any map.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Tempest Rush Flurry continuously through enemy packs; build 100 Flurry stacks from channeling; release to unleash icy explosion AoE; use Sweeping Wind Inner Storm for Spirit regen to sustain channel; use Blinding Flash for damage buff and Epiphany for CDR immunity."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/patterns-of-justice-tempest-rush-monk-guide",
+        "anchor_quote": "Tempest Rush Flurry is our damage dealer that blows up everything around you when you choose to release it, and you will channel this skill until you have 100 stacks of Flurry.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sunwuko Tempest Rush Monk",
+            "PoJ Wave of Light",
+            "PoJ Lashing Tail Kick"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-tempest-rush-build-with-patterns-of-justice",
+        "anchor_quote": "Monk Tempest Rush Build with Patterns of Justice (Patch 2.7.8 / Season 39).",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

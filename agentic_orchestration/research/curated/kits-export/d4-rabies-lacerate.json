@@ -1,0 +1,221 @@
+{
+  "kit_id": "d4-rabies-lacerate",
+  "spine": {
+    "kit_id": "d4-rabies-lacerate",
+    "folk_name": "Rabies Lacerate Druid",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the precise Spirit-cost curve; (2) the Debilitating Roar upkeep shout as a support action in the rotation; (3) Hurricane as persistent defensive layer — these are scaffold/fidelity texture, not identity loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the precise Spirit-cost curve; (2) the Debilitating Roar upkeep shout as a support action in the rotation; (3) Hurricane as persistent defensive layer — these are scaffold/fidelity texture, not identity loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rabies",
+          "geometry_value": "chain",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Melee-range application; spreads to one target at a time via Superinfection; multiple Rabies casts stack Poison DoT on each target"
+        },
+        {
+          "source_skill": "Lacerate (Toxin Outburst)",
+          "geometry_value": "melee_strike",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Melee detonation; critically detonates accumulated Poisoning damage; item-defined form (Mad Wolf's Glee removes cooldown, makes Lacerate a Core Skill — maps the no-cooldown Core-skill form as the kit identity)"
+        }
+      ],
+      "motion_frame": "Apply Rabies stack to cluster then Lacerate-detonate accumulated Poison on repeat; Hurricane upkeep throughout",
+      "resource_economy": {
+        "spirit_cost": "primary spender per cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Rabies Poison stack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Writhing Aspect — spread geometry modifier"
+          ],
+          "economy": [
+            "Wildheart Hunger — 100% faster spread, 10% bonus damage"
+          ],
+          "traits_affixes": [
+            "Werewolf paragon glyph (defensive scaffold; taken over Headhunter)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype: Mad Wolf's Glee removes Lacerate cooldown + makes it Core Skill — the kit identity IS this transformed form; maps accordingly. Werewolf form-law: Rabies Lacerate is played in Werewolf form; form-locked skill access is fidelity texture, not a lane. Element earth: poison/nature druid archetype; no alternate element damage verb in dossier. Poison attested: 'Apply Rabies Superinfection to spread Poisoning, then critically detonate the accumulated Poisoning damage with Lacerate Toxin Outburst.'"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Rabies Lacerate – Druid Build for Diablo 4 (Legacy)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in loh-s13-14",
+      "anchor_quote": "Guide created for Season 13 and Lord of Hatred",
+      "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Rabies Lacerate Druid' is real community usage",
+      "anchor_quote": "Rabies Lacerate – Druid Build for Diablo 4 (Legacy)",
+      "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Rabies and Lacerate; Druid class",
+      "anchor_quote": "Apply Rabies Superinfection to spread Poisoning, then critically detonate the accumulated Poisoning damage with Lacerate Toxin Outburst.",
+      "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "site": "icy-veins.com",
+          "handle": null,
+          "note": "no author byline visible in fetched content"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Writhing Aspect",
+            "Aspect of Disobedience"
+          ],
+          "paragon_glyphs": [
+            "Werewolf (taken over Headhunter for extra defense)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+        "anchor_quote": "Werewolf is taken over Headhunter for extra defense.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Mad Wolf's Glee — removes the cooldown of Lacerate and makes Lacerate a Core Skill",
+            "Wildheart Hunger — Rabies spreads 100% faster, and deals 10% bonus damage",
+            "Dark Howl — makes Debilitating Roar a Werewolf Skill"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+        "anchor_quote": "removes the cooldown of Lacerate and makes Lacerate a Core Skill",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Rabies spreads to one target at a time. Melee range combo setup. Multiple applications of Rabies from additional Casts can stack."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+        "anchor_quote": "Rabies spreads to one target at a time",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Apply Rabies Superinfection to spread Poisoning, then critically detonate the accumulated Poisoning damage with Lacerate Toxin Outburst. Rotation: Activate Hurricane. Upkeep Debilitating Roar. Apply Rabies to enemies in a cluster. Once enemies are Poisoned with Rabies, Lacerate to explode the Poisoning damage."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+        "anchor_quote": "Apply Rabies Superinfection to spread Poisoning, then critically detonate the accumulated Poisoning damage with Lacerate Toxin Outburst.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://www.icy-veins.com/d4/guides/rabies-lacerate-druid-build/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

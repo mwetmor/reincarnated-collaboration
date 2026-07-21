@@ -1,0 +1,365 @@
+{
+  "kit_id": "la-evolutionary-legacy-machinist",
+  "spine": {
+    "kit_id": "la-evolutionary-legacy-machinist",
+    "folk_name": "Evolutionary Legacy Machinist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "negative",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Sync Zero cooldown-reset-on-use mechanic (Quantum Assembly Beam resets other Sync skill cooldowns) has no direct engine token — expressed in delivery_notes. Two-battery system (Core → Sync Zero Battery) approximated in resource_economy keys.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Sync Zero cooldown-reset-on-use mechanic (Quantum Assembly Beam resets other Sync skill cooldowns) has no direct engine token — expressed in delivery_notes. Two-battery system (Core → Sync Zero Battery) approximated in resource_economy keys.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Command: Baby Drones",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Human-form generator skill; builds Battery (Core energy); drone = totem-class placed proxy"
+        },
+        {
+          "source_skill": "Command: Raid Missile",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Human-form generator; builds Battery"
+        },
+        {
+          "source_skill": "Avalanche",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Human-form skill"
+        },
+        {
+          "source_skill": "Mobile Shot",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mobility + counter"
+        },
+        {
+          "source_skill": "Laser Blade",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync skill; used in Hypersync mode"
+        },
+        {
+          "source_skill": "Surge Blow",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync skill"
+        },
+        {
+          "source_skill": "Crimson Breaker",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync skill; Crimson = name-only → null"
+        },
+        {
+          "source_skill": "Echelon Beam",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync skill"
+        },
+        {
+          "source_skill": "Quantum Assembly Beam",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync Zero skill; resets cooldowns + amplifies targeted skills"
+        },
+        {
+          "source_skill": "Sonic Impact",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync Zero skill"
+        },
+        {
+          "source_skill": "EX - Zero Point",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sync Zero skill; high-impact finisher"
+        }
+      ],
+      "motion_frame": "Build Battery (Core energy) via human-form skills (Command: Baby Drones, Command: Raid Missile as generators); activate identity to enter Hypersync mode (15% Attack Speed, 30% Move Speed; Battery becomes Sync Zero Battery 1000 units); use Sync combos then Sync Zero skills to reset cooldowns; identity transformation IS the damage window",
+      "resource_economy": {
+        "battery_core": "generated by human-form skills; full → activate identity → Hypersync mode",
+        "sync_zero_battery": "1000 units unlocked in Hypersync; consumed by Sync Zero skills to reset cooldowns and amplify"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Hypersync activation",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem",
+            "beam_channel",
+            "multi_projectile",
+            "ring",
+            "line",
+            "single_target"
+          ],
+          "economy": [
+            "battery_core",
+            "sync_zero_battery"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Negative=1 (D-tier Aug 2025); negative attested CONFIRMED — map attested identity regardless. Mechanics verdict: CONTRADICTED for drone conflation with arthetinean — this kit's identity is Hypersync transformation (battery→Sync mode), NOT drone-based. Baby Drones is a human-form generator skill only (not the identity core). No element throughout: Laser Blade, Crimson Breaker, Quantum Assembly Beam, EX-Zero Point, Sonic Impact = name-only. Sync Zero cooldown-reset mechanic is a novel loop element; approximated via trigger_grammar consequence_type. Ark Grid variants (Standard 112 Core / Blade Suit 333 Core) → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Evolutionary Legacy Machinist Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Community Class Tier List — August 2025",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/tierlists/community-class-tier-list-february-2025",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Community Class Tier List — February 2025",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Author: Sekwah, Last Updated: June 12, 2026 — active maxroll.gg guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Evolutionary Legacy Machinist; identity spec for Machinist class",
+      "anchor_quote": "Activating his identity grants you the following effects for its entire duration: 15% Attack Speed, 30% Move Speed. You also unlock Sync and Sync Zero skills",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Evolutionary Legacy drone-evolution identity — mech_note describes 'drone-evolution' but fetched text describes Hypersync transformation (robot-suit) with Sync/Sync Zero skills, not drone evolution",
+      "anchor_quote": "Activating his identity grants you...Sync and Sync Zero skills, and your Battery becomes a 'Sync Zero Battery' with 1000 units — transformation mode, no drone mechanic",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "D-tier community rating; guild of underperforming drone evolution builds in Ark Passive meta; negative-twin to Arthetinean Skill Machinist; born-bad class per tier community consensus",
+      "anchor_quote": "Evolutionary Legacy Machinist: D Tier — August 2025 Community Class Tier List (maxroll.gg; community-weighted ~3000 votes per poll)",
+      "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+          "last_updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+        "anchor_quote": "Sekwah, Last Updated: June 12, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_grid_variants": [
+            "Standard (112 Core)",
+            "Blade Suit (333 Core)"
+          ],
+          "key_nodes": [
+            "Astral Suit",
+            "Titan Suit",
+            "Assault Titan",
+            "Artillery Stance"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+        "anchor_quote": "Two grid variants: Standard (112 Core) and Blade Suit (333 Core); key nodes: Astral Suit, Titan Suit, Assault Titan, Artillery Stance",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Raid Captain",
+            "Keen Blunt Weapon",
+            "Cursed Doll"
+          ],
+          "gems": {
+            "damage_and_cooldown": [
+              "Sonic Impact",
+              "Laser Blade",
+              "Quantum Assembly Beam",
+              "Surge Blow",
+              "Echelon Beam",
+              "Crimson Breaker",
+              "EX - Zero Point",
+              "Comet Strike"
+            ]
+          },
+          "bracelet": [
+            "Crit Rate",
+            "Crit Damage",
+            "Weapon Power",
+            "Additional Damage",
+            "Skill Cooldown"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Adrenaline, Raid Captain, Keen Blunt Weapon, Cursed Doll",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "sync_skills": [
+            "Laser Blade",
+            "Surge Blow",
+            "Crimson Breaker",
+            "Echelon Beam",
+            "Point Exclusion",
+            "Comet Strike (synergy + cast speed buff)"
+          ],
+          "sync_zero": [
+            "Quantum Assembly Beam",
+            "Sonic Impact",
+            "EX - Zero Point"
+          ],
+          "human_form": [
+            "Command: Baby Drones",
+            "Command: Raid Missile",
+            "Avalanche",
+            "Mobile Shot (mobility/counter)"
+          ],
+          "note": "Geometry specifics (range/AoE) not enumerated in guide"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+        "anchor_quote": "Sync skills: Laser Blade, Surge Blow, Crimson Breaker, Echelon Beam, Point Exclusion; Sync Zero: Quantum Assembly Beam, Sonic Impact, EX-Zero Point",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Build Battery (Core energy) via human-form skills (Command: Baby Drones, Command: Raid Missile as generators); activate identity to enter Hypersync mode (15% Attack Speed, 30% Move Speed, Battery becomes Sync Zero Battery 1000 units); use Sync skill combos (Laser Blade, Surge Blow, Crimson Breaker, Echelon Beam, Point Exclusion, Comet Strike); weave Sync Zero skills (Quantum Assembly Beam, Sonic Impact, EX-Zero Point) to reset cooldowns and amplify targeted skills"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/evolutionary-legacy-machinist-raid-guide",
+        "anchor_quote": "Activating his identity grants you: 15% Attack Speed, 30% Move Speed; unlock Sync and Sync Zero skills; Battery becomes Sync Zero Battery with 1000 units",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Arthetinean Skill Machinist — skill-focused non-transformation build; higher damage ceiling, more expensive/squishy; C-tier vs EL D-tier (Aug 2025)",
+          "tier_trajectory": "B-tier Feb 2025 → D-tier Aug 2025 (decline over 2025)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Evolutionary Legacy Machinist: D Tier; Arthetinean Skill Machinist: C Tier — August 2025 Community Tier List",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

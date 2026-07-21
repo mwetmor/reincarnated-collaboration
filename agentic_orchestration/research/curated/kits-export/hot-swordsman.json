@@ -1,0 +1,212 @@
+{
+  "kit_id": "hot-swordsman",
+  "spine": {
+    "kit_id": "hot-swordsman",
+    "folk_name": "Swordsman (starter slash)",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-ea-2023;hot-1.0-2024",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frontal Slash",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Frontal slash arc sweeps forward from player body in movement direction; small-radius forward cone; AOE sword attack; physical melee = no element family per THE PHYSICAL RULE; no ailments named in fetched text despite physical substrate"
+        }
+      ],
+      "motion_frame": "High-tempo auto-fire frontal melee arc; starter class; teaches basics; scale Health and Damage",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Ring Blades + Phantom Needles as add-on ability slots"
+          ],
+          "economy": [
+            "Area, Movespeed, Pickup Range as primary stats"
+          ],
+          "traits_affixes": [
+            "Multistrike for additional slash swings per cycle; Health and Damage scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Straightforward physical melee arc. Element = null (physical no-family). No ailments named (bleed/stun unattested). Flexible build path — no dominant capstone; multiple add-on abilities viable. '100 piercing stat as most important stat' noted in skill_geometry anchor; this refers to a base pierce stat, not ailment."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-classes-unlock-guide/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": "(staff)",
+      "title": "How to Unlock All Classes In Halls Of Torment",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Halls_of_Torment",
+      "archive_url": null,
+      "site": "en.wikipedia.org",
+      "author_handle": "(wiki editors)",
+      "title": "Halls of Torment - Wikipedia",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://lastwordongaming.com/2023/07/13/halls-of-torment-swordsman-build/",
+      "archive_url": null,
+      "site": "lastwordongaming.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment Swordsman Build Guide (2023)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hot-ea-2023 (early access, May 2023) and hot-1.0-2024.",
+      "anchor_quote": "The game entered early access on May 24, 2023; Swordsman is the starting class available at launch",
+      "source_url": "https://en.wikipedia.org/wiki/Halls_of_Torment",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Swordsman is the default/starting class; teaches basics; community name 'Swordsman starter slash'.",
+      "anchor_quote": "The Swordsman is the only available class upon startup; the default character class in Halls of Torment",
+      "source_url": "https://www.thegamer.com/halls-of-torment-classes-unlock-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Frontal slash arc attack; physical damage; high-tempo auto-fire; melee range.",
+      "anchor_quote": "tanky melee hero with an AOE sword attack; scales with Health and Damage",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Multistrike adds additional slash swings per cycle; slash damage and arc width increase per tier; flexible build path — no single dominant capstone unlike more specialized classes"
+        },
+        "source_url": "https://lastwordongaming.com/2023/07/13/halls-of-torment-swordsman-build/",
+        "anchor_quote": "well-rounded class that doesn't excel in any particular area, but doesn't lack in any either",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Ring Blades and Phantom Needles recommended as ability additions; Area, Movespeed, and Pickup Range as stat priorities; Multistrike trait for additional slash swings per cycle"
+        },
+        "source_url": "https://lastwordongaming.com/2023/07/13/halls-of-torment-swordsman-build/",
+        "anchor_quote": "He will benefit most from Area, Movespeed, and Pickup Range general stats",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin-frontal-arc",
+          "description": "Frontal slash arc sweeps forward from player body; small-radius cone in movement direction; 100 pierce stat as base"
+        },
+        "source_url": "https://lastwordongaming.com/2023/07/13/halls-of-torment-swordsman-build/",
+        "anchor_quote": "AOE sword attack; balanced character with 100 piercing stat as most important stat to build around",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Frontal slash arc fires continuously while moving; default starter class; teaches core mechanics; high-tempo melee physical damage; AOE forward arc cleave"
+        },
+        "source_url": "https://lastwordongaming.com/2023/07/13/halls-of-torment-swordsman-build/",
+        "anchor_quote": "tanky melee hero with an AOE sword attack; scales with Health and Damage",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Ring Blades add-on variant; Phantom Needles + slash hybrid; Swordsman described as flexible — any ability combination viable given well-rounded base stats"
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+        "anchor_quote": "scales with Health and Damage, making him suitable for various build paths combining survivability with raw damage output",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

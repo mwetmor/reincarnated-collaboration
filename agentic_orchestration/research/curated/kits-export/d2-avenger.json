@@ -1,0 +1,248 @@
+{
+  "kit_id": "d2-avenger",
+  "spine": {
+    "kit_id": "d2-avenger",
+    "folk_name": "Avenger",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: cold as third simultaneous element (mapped fire+lightning only); engine 7×7 covers two; tri-ele simultaneous feel is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: cold as third simultaneous element (mapped fire+lightning only); engine 7×7 covers two; tri-ele simultaneous feel is approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Vengeance",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "At-target melee swing applying tri-element (fire+cold+lightning) damage simultaneously; anchor: 'Fire, lightning and cold damage are added to each successful attack'; cold is third element — dropped to secondary note per triple-element rule; dominant scaling = fire/lightning by convention [ERRATA-56 2026-07-19: cold (the explicit third element of the tri-element 'Fire, lightning and cold' attack) attests engine WATER; added to attested set via attested_elements_errata (primary/secondary provenance preserved). Blind-rider anchor, D-1.]",
+          "attested_elements_errata": [
+            "water"
+          ]
+        },
+        {
+          "source_skill": "Conviction aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Persistent caster-anchored resistance-reduction aura enabling elemental damage to penetrate immunities; anchor: 'Conviction reduces enemy resistances. Player positions next to target and attacks'; §A row 2 + §2 aura/hex → curse:sap"
+        }
+      ],
+      "motion_frame": "Position next to target, swing Vengeance for tri-element melee hits; Conviction always-on passive resistance debuff",
+      "resource_economy": {
+        "cost_scale": "Vengeance mana per swing (moderate); aura free toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Insight merc for mana support"
+          ],
+          "traits_affixes": [
+            "Synergy: Resist Fire/Cold/Lightning +10% elemental per level; Salvation +2% elemental per level — §A row 1 scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Triple-element conversion (fire+cold+lightning) exceeds dual-element engine native; mapped top-2 (fire+lightning) per main-law hybrid rule; cold = fidelity_note drop. Verify_ledger anchor for Vengeance mechanics CONFIRMED. Conviction = curse:sap per §A row 2 + main §2. Synergies in scaffold per §A row 1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/vengeance-pally-advice-please-t1463261.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": null,
+      "title": "Vengeance pally advice please",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/skills/vengeance-t4185.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Stormlash (data contributor)",
+      "title": "Vengeance — Diablo 2 Resurrected Skill",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod",
+      "anchor_quote": "Fire, lightning and cold damage are added to each successful attack",
+      "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "Vengeance pally advice please — the problem with Avenger is that the skill falters against multiple targets",
+      "source_url": "https://diablo2.io/forums/vengeance-pally-advice-please-t1463261.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Avenger; aliases Vengeance Paladin, Conviction Avenger",
+      "anchor_quote": "Fire, lightning and cold damage are added to each successful attack",
+      "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Vengeance (tri-element conversion), Conviction",
+      "anchor_quote": "At level 1, it would be +70% Fire, +70% Cold, and +70% Lightning. Monster resistances have the ability to reduce the additional elemental damage.",
+      "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Stormlash",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+        "anchor_quote": "Description credited to Trang Oul; data contributed by Stormlash",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "EbotD (endgame weapon)"
+          ],
+          "synergies": [
+            "Resist Fire/Cold/Lightning (+10% elemental per level)",
+            "Salvation (+2% elemental per level)"
+          ]
+        },
+        "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+        "anchor_quote": "Resist Fire/Cold/Lightning: +10% elemental damage per level",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "EbotD (weapon base damage scales Vengeance elemental)",
+            "Fine/Sharp charms (+min/max damage)",
+            "Insight merc (mana support)"
+          ],
+          "notes": "Vengeance bases elemental damage on weapon base damage, not flat bonuses like Grief"
+        },
+        "source_url": "https://diablo2.io/forums/vengeance-pally-advice-please-t1463261.html",
+        "anchor_quote": "Vengeance bases its elemental damage on the base damage of the weapon and doesn't take into account Grief's flat damage",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee swing",
+          "footprint": "point (single enemy)",
+          "range_type": "melee",
+          "notes": "Single enemy contact per swing; elemental damage applied on-hit"
+        },
+        "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+        "anchor_quote": "Vengeance melee converts each swing into tri-element damage under Conviction",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Vengeance converts each melee swing into tri-element (fire+cold+lightning) damage; Conviction aura reduces enemy resistances. Player positions next to target and attacks; all three elemental damage types apply simultaneously on each hit."
+        },
+        "source_url": "https://diablo2.io/skills/vengeance-t4185.html",
+        "anchor_quote": "Fire, lightning and cold damage are added to each successful attack",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Avenger Holy Fire hybrid (Conviction + Holy Fire aura)",
+            "Pure Avenger (Conviction only)"
+          ]
+        },
+        "source_url": "https://diablo2.io/forums/advice-avenger-holy-fire-paladin-t1355190.html",
+        "anchor_quote": "Advice avenger holy fire paladin",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

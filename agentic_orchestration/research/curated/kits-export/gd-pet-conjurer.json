@@ -1,0 +1,244 @@
+{
+  "kit_id": "gd-pet-conjurer",
+  "spine": {
+    "kit_id": "gd-pet-conjurer",
+    "folk_name": "Pet Conjurer",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "base-2016;fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build (R-M7): the entire damage layer is autonomous pets scaled by pet-only stats; the engine's player-delivery surface would leave only the buff/debuff shell with nobody fighting for you.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build (R-M7): the entire damage layer is autonomous pets scaled by pet-only stats; the engine's player-delivery surface would leave only the buff/debuff shell with nobody fighting for you.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Briarthorn + Summon Familiar (pet core)",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "PET CORE -- persistent autonomous combatants: 'Summon Briarthorn and Familiar once (persist until death); pets fight autonomously while player kites or stands.' Autonomous-combatant delivery is the known engine GAP (summoner-deferral, A pet row) -> no 26-token carries it (totem is stationary placed-emitter and does NOT apply; companion-vs-totem two-lane split); geometry_value null by law."
+        },
+        {
+          "source_skill": "Blood of Dreeg",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "player-surface self-buff ('Blood of Dreeg for self-buff') -- the mappable player layer of the kit."
+        }
+      ],
+      "motion_frame": "passive menagerie: summon the pair once, keep Wind Devil and Curse of Frailty ticking and Blood of Dreeg up, and let the pets fight while you kite",
+      "resource_economy": {
+        "cadence_scale": "summon-once persistence + periodic rebuff ('cooldown per summon placement; low resource overhead')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "DUAL_PROXY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "low-overhead rebuff cadence"
+          ],
+          "traits_affixes": [
+            "NO player-scaling tokens mapped: 'All devotion selections target pet bonuses' + 'Player stats irrelevant; all itemization targets pet bonuses' -- pet-stat lane is NOT the player-stat lane (A row-3 trap note honored)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PET-CORE kit under the honest R-M7 player test: the loop-verb IS 'pets fight autonomously' -> without autonomous combatants this is NOT that build -> GAPPED, terminal MAPPED_DOCKET (A row-3 terminal law; docket-candidate filed batch-02). Per-pet attack behaviors (Briarthorn/Familiar/Hellhound) are not fetched and land inside the gap regardless. Call of the Beast = temporary PET buff -> pet-lane, gap side. Wind Devil + Curse of Frailty: 'for debuffs' with NO status named and no shape fetched -> contribute nothing (0 near-miss: curse-variant unattestable HERE -- contrast gd-doom-bolt-sentinel where CoF's resistance reduction WAS fetched and routed curse:sap). Maintenance-reservation NOT filed on this kit: no reservation language in THIS dossier ('low resource overhead') -- that candidate class stays with its skeleton-ritualist evidence (A trap note). No placed-proxy-count accrual: two named persistent pets, no army-count language. DUAL_PROXY = 5 GD-pets row door as the two-pet shape hint only, under the gap. Nightbringer weapon + pet gear = pet-lane itemization, unmappable to player scalers."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/birbbringer-pet-conjurer/93504",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "BirbBringer - Pet Conjurer",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/atomic-emu-pet-conjurer-callagadra-facetank-edition/122714",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "Atomic Emu, Pet Conjurer - Callagadra Facetank Edition",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=473961455",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Pure pet conjurer build with itemization (B28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['base-2016','fg-2019','patch-1.1-1.2']",
+      "anchor_quote": "Tagged as [1.1.6.2] … Occultist and Shaman are both base-game masteries; Conjurer predates any expansion",
+      "source_url": "https://forums.crateentertainment.com/t/birbbringer-pet-conjurer/93504",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Pet Conjurer'; aliases=['Briarthorn Familiar Conjurer','minion Occultist Shaman']",
+      "anchor_quote": "Occultist + Shaman masteries … Summon Familiar, Summon Hellhound, Summon Briarthorn … commonly referred to as a pet conjurer or minion build",
+      "source_url": "https://forums.crateentertainment.com/t/birbbringer-pet-conjurer/93504",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "core_skills=['Summon Briarthorn','Summon Familiar','Call of the Grave']; delivery=at-target summon; resource=cooldown; player moves freely",
+      "anchor_quote": "Call of the Grave is not listed in the guide's skill recommendations … Occultist and Shaman masteries [only] … Call of the Grave is exclusive to the Necromancer mastery",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=473961455",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "BirbBringer - Pet Conjurer"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/birbbringer-pet-conjurer/93504",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Bonds of Bysmiel",
+            "Mogdrogen's Pact",
+            "Primal Bond",
+            "Mogdrogen's Ardor",
+            "Presence of Might (x2)"
+          ],
+          "notes": "All devotion selections target pet bonuses; Mogdrogen's Pact is core Shaman pet constellation"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/atomic-emu-pet-conjurer-callagadra-facetank-edition/122714",
+        "anchor_quote": "Bonds of Bysmiel, Mogdrogen's Pact, Primal Bond … Mogdrogen's Ardor, Presence of Might (x2)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Nightbringer weapon",
+            "pet-scaling gear (pet% damage, pet OA/DA)",
+            "Bonds of Bysmiel for devotion pets"
+          ],
+          "notes": "Player stats irrelevant; all itemization targets pet bonuses"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/birbbringer-pet-conjurer/93504",
+        "anchor_quote": "pet conjurer … centered around the thematic Nightbringer weapon … physical resistance and health bonuses from the Nightbringer weapon being key stats",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target summon (each pet placed individually)",
+          "footprint": "point per pet summoned",
+          "range": "varies per pet AI",
+          "aoe": "pets each attack independently",
+          "notes": "Conjurer uses Occultist+Shaman pets only; Call of the Grave NOT available (Necromancer skill); Call of the Beast (Shaman) is the correct buff skill"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/atomic-emu-pet-conjurer-callagadra-facetank-edition/122714",
+        "anchor_quote": "Summon Familiar, Summon Hellhound, Summon Briarthorn, Wind Devil, Curse of Frailty, Blood of Dreeg, Wendigo Totem, Call of the Beast",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Summon Briarthorn and Familiar once (persist until death); cast Wind Devil and Curse of Frailty for debuffs; Blood of Dreeg for self-buff; pets fight autonomously while player kites or stands; Call of the Beast for temporary pet buff",
+          "resource": "cooldown per summon placement; low resource overhead",
+          "tempo": "passive menagerie + periodic rebuff"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/birbbringer-pet-conjurer/93504",
+        "anchor_quote": "Summon Familiar, Summon Hellhound, Summon Briarthorn … Kite him away from his Crates and you will be fine … pet conjurer or minion build",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Dark One's set Pet Conjurer (budget)",
+            "Callagadra-facetank Pet Conjurer (tankiest)",
+            "Briarthorn-focused Pet Conjurer"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/dark-rose-lazy-dark-one-s-set-budget-pet-conjurer/130818",
+        "anchor_quote": "Dark Rose - Lazy Dark One's Set Budget Pet Conjurer",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

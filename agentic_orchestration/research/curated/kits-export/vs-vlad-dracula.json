@@ -1,0 +1,187 @@
+{
+  "kit_id": "vs-vlad-dracula",
+  "spine": {
+    "kit_id": "vs-vlad-dracula",
+    "folk_name": "Vlad Tepes Dracula",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "vs-dlc-era;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: character identity is a damage-cap survivability + Curse-inversion-as-Might economy — no rotation; engine cannot represent damage-cap-at-10 mechanic or the Curse-as-Might inversion. Wine Glass delivery geometry unattested in fetched text. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: character identity is a damage-cap survivability + Curse-inversion-as-Might economy — no rotation; engine cannot represent damage-cap-at-10 mechanic or the Curse-as-Might inversion. Wine Glass delivery geometry unattested in fetched text. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wine Glass",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Starting weapon. Delivery geometry not explicitly attested in fetched text ('at-target, large-zone' is dossier probe inference — probe facts ILLEGAL as mapping grounds per §0.3). Only attested: 'Starting weapon: Wine Glass.' Single_target is the most conservative honest geometry given the lack of fetched geometry evidence. Element = null: VS has no elemental damage-type system."
+        }
+      ],
+      "motion_frame": "Survive; Wine Glass auto-fires; incoming damage capped at 10; Curse investment builds Might multiplicatively.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Revival stock: +1 Revival per 100 levels (attested); Curse scales Might (+1% Might per 1% Curse attested) — unusual economy pairing"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS character, DLC). Identity: damage-cap survivability + Curse-as-Might scaling. Incoming damage cap at 10 (Crimson Shroud equivalent, attested) = DEFENSIVE_TRADEOFF door — trading normal damage reduction for a hard-cap. Curse mechanic: each 1% Curse = +1% Might is atypical (Curse is normally a difficulty increase in VS; here it's Might-amplifying). Wine Glass geometry not attested in fetched text — probe large-zone claim ILLEGAL; single_target is honest minimal geometry. GAPPED: DLC character loadout identity with Curse-inversion economy; no rotation."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Vlad Tepes Dracula - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-dlc-era era",
+      "anchor_quote": "31 October 2024 (Vampire Survivors: Ode to Castlevania update)",
+      "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Vlad Tepes Dracula — Ode to Castlevania DLC character; secret unlock; starting weapon Wine Glass",
+      "anchor_quote": "Find and open the third coffin in Ode to Castlevania.",
+      "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Incoming damage capped at 10 (Crimson Shroud equivalent); +1% Might per level; +1 Revival per 100 levels; Curse scales Might",
+      "anchor_quote": "Incoming damage is capped at 10 (like Crimson Shroud, without retaliation). Immune to Health Drain.",
+      "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Curse mechanic unusually beneficial: each 1% Curse = +1% Might. Standard stat items apply. DLC-specific weapon interactions not detailed in fetched text."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+        "anchor_quote": "Each extra 1% of Curse Dracula possesses will increase his Might stat by 1%.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "note": "Wine Glass weapon — specific delivery geometry not described in fetched text. Probe facts suggest large-AoE zone; not confirmed from fetched text."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+        "anchor_quote": "Starting weapon: Wine Glass",
+        "abstained": 0,
+        "conf": 0.55
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Character kit (Ode to Castlevania DLC). Unlock: open third coffin in Ode to Castlevania stage (as Richter Belmont), OR spell 'notinthisgame'. Starting weapon: Wine Glass (alt skin: Ebony Diabologue if unlocked). Passive: +1% Might/level; +1 Revival per 100 levels; Curse scales Might (+1% Might per 1% Curse). Incoming damage capped at 10. Immune to Health Drain. Starting stats: 666 Max HP, +100% Might, +100% Greed, +10 Rerolls/Banishes/Skips."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+        "anchor_quote": "Find and open the third coffin in Ode to Castlevania.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Alt skin with Ebony Diabologue starting weapon if that weapon is unlocked."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Vlad_Tepes_Dracula",
+        "anchor_quote": "Alternative: Ebony Diabologue (via skin selection if unlocked)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

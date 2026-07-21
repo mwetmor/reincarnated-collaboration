@@ -1,0 +1,245 @@
+{
+  "kit_id": "poe1-tectonic-slam",
+  "spine": {
+    "kit_id": "poe1-tectonic-slam",
+    "folk_name": "Tectonic Slam",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.2-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: every-3rd-slam charge cadence and the random branch-fissure spray are behavioral; charge-fed converted fire slam lands on native slam + charge-cycle + conversion lanes.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: every-3rd-slam charge cadence and the random branch-fissure spray are behavioral; charge-fed converted fire slam lands on native slam + charge-cycle + conversion lanes.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tectonic Slam",
+          "geometry_value": "ground_slam",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "at-target slam: primary fissure 15-radius length x 7-radius width plus RANDOMLY BRANCHING secondary fissures that scale with endurance charges; consumes a charge every third slam for the empowered branch-spray. 60% phys-to-fire conversion is the damage identity."
+        }
+      ],
+      "motion_frame": "rooted slam cadence: build endurance charges, slam; every third slam spends a charge for branched fissures",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "primary fissure + charge-scaled branch count",
+            "AoE size per charge"
+          ],
+          "economy": [
+            "endurance-charge cycle: Chieftain passives generate, every-3rd-slam consumes"
+          ],
+          "traits_affixes": [
+            "fire conversion rolls",
+            "charge-maximum ranks",
+            "slam damage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Phys-to-fire conversion -> ELEMENT_CONVERSION_PHYSICAL door (the conversion IS the build's point); charge engine -> TEMPORAL_CHARGE + cycle sub-shape. Every-3rd-hit consume cadence is behavioral (b04 glacial-hammer every-Nth precedent); random fissure branching has no geometry parameter — folded into delivery note."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/tectonic-slam-juggernaut-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "Tectonic Slam Chieftain Build Guide (PoE Harvest 3.11)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/tectonic-slam-chieftain-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.18] Tectonic Slam Chieftain Build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Tectonic_Slam",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Tectonic Slam — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6 (intro 3.2.0)",
+      "anchor_quote": "Tectonic Slam was introduced in patch 3.2.0 as a new Strength Skill Gem; Tectonic Slam has been a very solid melee skill since its release",
+      "source_url": "https://poedb.tw/us/Tectonic_Slam",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Tectonic Slam' is real community usage; Chieftain class",
+      "anchor_quote": "[3.18]Tectonic Slam Chieftain Build; Tectonic Slam Chieftain Build Guide (PoE Harvest 3.11)",
+      "source_url": "https://odealo.com/articles/tectonic-slam-chieftain-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Tectonic Slam; endurance charge consumption; fire damage conversion; fissure AoE",
+      "anchor_quote": "a Melee Slam that consumes one of your Endurance Charges every third time you attack with this Skill; converts 60% of physical damage to fire damage; primary 15-radius fissure with branching secondary fissures",
+      "source_url": "https://poedb.tw/us/Tectonic_Slam",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Tectonic Slam (quality)",
+              "type": "base_quality",
+              "effect": "+(0-30)% Fissure branching chance",
+              "anchor_quote": "+(0—30)% Fissure branching chance"
+            },
+            {
+              "node": "Tectonic Slam of Cataclysm (transfig)",
+              "type": "transfigured_gem",
+              "effect": "257-472% Effectiveness of Base and Added Damage at levels 1-20 (v3.25.0 values)",
+              "anchor_quote": "257% Effectiveness of Base and Added Damage at gem level 1...scaling up to 472% at gem level 20"
+            },
+            {
+              "errata": "ERRATA-14",
+              "note": "Introduced in patch 3.2.0 (Bestiary league)",
+              "anchor_quote": "Added a new Strength Skill Gem - Tectonic Slam in patch 3.2.0"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Tectonic_Slam",
+        "anchor_quote": "Added a new Strength Skill Gem - Tectonic Slam in patch 3.2.0",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Tectonic Slam of Cataclysm (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "257-472% Effectiveness of Base and Added Damage at levels 1-20",
+              "anchor_quote": "257% Effectiveness of Base and Added Damage at gem level 1...scaling up to 472% at gem level 20"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Tectonic_Slam",
+        "anchor_quote": "257% Effectiveness of Base and Added Damage at gem level 1...472% at gem level 20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "at-target ground slam; primary fissure 15-radius length, 7-radius width; random branching secondary fissures scale with endurance charges; large-zone AoE footprint"
+        },
+        "source_url": "https://poedb.tw/us/Tectonic_Slam",
+        "anchor_quote": "primary 15-radius length fissure with 7-radius width, plus randomly branching secondary fissures that scale with endurance charges",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Ground slam that consumes an endurance charge every third hit, gaining bonus AoE and branching fissures per charge. 60% physical-to-fire conversion. Chieftain ascendancy synergizes via Endurance Charge generation passives and fire damage boosts. Primary fissure plus random branching secondary fissures."
+        },
+        "source_url": "https://poedb.tw/us/Tectonic_Slam",
+        "anchor_quote": "consumes an Endurance Charge every third time you slam the ground; 60% of Physical Damage Converted to Fire Damage; primary 15-radius fissure with randomly branching secondary fissures",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Tectonic Slam Chieftain — canonical form with endurance charge engine",
+            "Tectonic Slam Berserker — rage+charge hybrid variant"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/tectonic-slam-chieftain-build",
+        "anchor_quote": "Chieftain gained amazing perks for Slam-based Attack builds via Tawhoa, Forest's Strength; synergizes with Endurance Charge notable and Fire-themed ones",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

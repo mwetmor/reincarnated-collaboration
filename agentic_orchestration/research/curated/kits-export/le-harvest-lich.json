@@ -1,0 +1,284 @@
+{
+  "kit_id": "le-harvest-lich",
+  "spine": {
+    "kit_id": "le-harvest-lich",
+    "folk_name": "Harvest Death Seal Lich",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-variant identity (Harvest Flay cold vs Death Seal necrotic) means any single motion_frame undersells one variant. The combined folk name is a mapping convenience, not a verified single build. DEFENSIVE_TRADEOFF covers Death Seal's Low Life tradeoff identity; cold melee Reaper Form maps cleanly to water + melee_arc. Grade CLOSE reflects good geometry and element coverage but the split-build nature introduces fidelity loss. [D-7.5 chimera-split 2026-07-19 — SUB-KIT 1 of 2 :: HARVEST FLAY :: cold-melee Reaper Form loop; maps to WATER + melee_arc (per basin-2 LE dossier skill_geometry anchor). This is the cold variant of the conflated folk name.] [D-7.5 chimera-split 2026-07-19 — SUB-KIT 2 of 2 :: DEATH SEAL LICH :: necrotic Low-Life tradeoff loop; maps to DEFENSIVE_TRADEOFF (per basin-2 LE dossier capstone_alterations anchor). This is the necrotic variant.] [D-7.5 note: annotation refinement on HELD basin-2 evidence — NO legolas re-fire (Matt: 'split at migration time, no legolas re-fire'). The kit_id remains one row; any true two-kit split defers to VDM-2 LE re-crawl.]",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 0,
+    "verify_contradicted": 0,
+    "verify_unsupported": 5,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-variant identity (Harvest Flay cold vs Death Seal necrotic) means any single motion_frame undersells one variant. The combined folk name is a mapping convenience, not a verified single build. DEFENSIVE_TRADEOFF covers Death Seal's Low Life tradeoff identity; cold melee Reaper Form maps cleanly to water + melee_arc. Grade CLOSE reflects good geometry and element coverage but the split-build nature introduces fidelity loss. [D-7.5 chimera-split 2026-07-19 — SUB-KIT 1 of 2 :: HARVEST FLAY :: cold-melee Reaper Form loop; maps to WATER + melee_arc (per basin-2 LE dossier skill_geometry anchor). This is the cold variant of the conflated folk name.] [D-7.5 chimera-split 2026-07-19 — SUB-KIT 2 of 2 :: DEATH SEAL LICH :: necrotic Low-Life tradeoff loop; maps to DEFENSIVE_TRADEOFF (per basin-2 LE dossier capstone_alterations anchor). This is the necrotic variant.] [D-7.5 note: annotation refinement on HELD basin-2 evidence — NO legolas re-fire (Matt: 'split at migration time, no legolas re-fire'). The kit_id remains one row; any true two-kit split defers to VDM-2 LE re-crawl.]",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Harvest (primary damage — scythe sweeps at melee range, cold)",
+          "geometry_value": "melee_arc",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Main damage skill; 'sweeping Cold melee attacks'; melee close-range; Reaper Form transform identity for Harvest Flay variant"
+        },
+        {
+          "source_skill": "Flay (melee clear in Harvest Flay variant)",
+          "geometry_value": "melee_arc",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Used for pack clear in Harvest Flay variant; melee arc delivery"
+        },
+        {
+          "source_skill": "Death Seal (toggle — enables Low Life playstyle, pulsing Waves of Death)",
+          "geometry_value": "aura",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "When active: 33% Damage Reduction + 66% Damage Multiplier (Deadlock node); releases pulsing Waves of Death around player; enables Low Life playstyle; 'small radius' pulse"
+        },
+        {
+          "source_skill": "Rip Blood / Reap / Bone Curse (Death Seal variant support skills)",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Support skills in Death Seal Lich variant; Bone Curse applies curse; Rip Blood/Reap are necrotic delivery skills"
+        },
+        {
+          "source_skill": "Reaper Form (transform — Harvest Flay variant identity)",
+          "geometry_value": "self_buff",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Transform into Reaper Form for cold sweeping melee; economy-agnostic form law applies — form is delivery context, not separate skill identity"
+        }
+      ],
+      "motion_frame": "[Harvest Flay variant] Transform into Reaper Form → sweep Cold melee attacks with Harvest/Flay → sustain cold melee DPS. [Death Seal variant] Activate Death Seal (Deadlock) → maintain Low Life state → pulse Waves of Death around self → supplement with Rip Blood/Reap/Bone Curse",
+      "resource_economy": {
+        "death_seal_trade": "33% Damage Reduction + 66% Damage Multiplier when Death Seal active (Low Life tradeoff)",
+        "form_shift": "Reaper Form in Harvest Flay variant (economy-agnostic)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Bone Curse (Death Seal variant)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_arc (Harvest/Flay cold sweeps)",
+            "aura (Death Seal pulsing Waves)"
+          ],
+          "economy": [
+            "Low Life tradeoff (Death Seal Deadlock node)",
+            "Reaper Form transform"
+          ],
+          "traits_affixes": [
+            "Grimoire of Necrotic Elixirs",
+            "Grasp of the Blood Mage",
+            "Red Ring of Atlaria",
+            "Omnis",
+            "Nihilis (Death Seal variant)",
+            "Traitor's Tongue, Siphon of Anguish, Exulis (Harvest Flay variant)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Two-build folk name: Harvest Flay Lich (cold melee, Reaper Form) and Death Seal Lich (necrotic, Low Life, pulsing aura) are confirmed by maxroll as SEPARATE builds. The combined folk name 'Harvest Death Seal Lich' is not attested as a single guide. Mapped as a two-variant kit with both represented. Element_primary = water (cold — 'sweeping Cold melee attacks' is a genuine damage-type descriptor in dossier skill_loop). Death Seal variant: 'pulsing Waves of Death' — necrotic register maps to shadow per §1. Reaper Form: economy-agnostic form law; form is delivery context, not separate element identity. Verify_ledger shows UNSUPPORTED on era/identity/mechanics for le-harvest-lich — dossier populated in basin-2; mapping proceeds on dossier content as directed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Harvest Flay Lich Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/death-seal-lich-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Death Seal Lich Guide",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Harvest Death Seal Lich' and alias 'Death Seal Harvest Lich' are real community usage",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Harvest and Death Seal together; life self-cost economy via Death Seal; necrotic damage; melee scythe delivery",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "reviewer": "Lizard_IRL"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Written by Volca. Reviewed by Lizard_IRL.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "death_seal_notes": "Deadlock node provides 33% Damage Reduction and 66% Damage Multiplier when Death Seal active; enables Low Life playstyle."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/death-seal-lich-guide",
+        "anchor_quote": "Death Seal is a core part of the build and it enables the Low Life playstyle thanks to Deadlock...When active it provides 33% Damage Reduction and a 66% Damage Multiplier",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items_harvest_flay": [
+            "Traitor's Tongue",
+            "Siphon of Anguish",
+            "Exulis"
+          ],
+          "items_death_seal": [
+            "Grimoire of Necrotic Elixirs",
+            "Grasp of the Blood Mage",
+            "Red Ring of Atlaria",
+            "Omnis",
+            "Nihilis"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/death-seal-lich-guide",
+        "anchor_quote": "Items like Grimoire of Necrotic Elixirs, Grasp of the Blood Mage, Red Ring of Atlaria, Omnis and Nihilis turn this build into an absolute powerhouse",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-melee",
+          "footprint": "small-radius",
+          "description": "Harvest delivers scythe sweeps at melee range. Death Seal (separate build) releases pulsing Waves of Death around the player in a small radius. Harvest Flay Lich: melee close-range sweeps."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/death-seal-lich-guide",
+        "anchor_quote": "releases pulsing Waves of Death around you while it's active that deal massive Damage",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Two separate maxroll builds found. (A) Harvest Flay Lich: Harvest is main damage skill with Flay for clear; transforms into Reaper Form for sweeping Cold melee; converts to Cold damage. (B) Death Seal Lich: Death Seal enables Low Life playstyle via Deadlock node; Waves of Death pulse necrotic damage; Rip Blood/Reap/Bone Curse are skills. The folk name 'Harvest Death Seal Lich' (combining both) is NOT a named build on maxroll — these are two separate builds.",
+          "note": "KB records this as a combined Harvest+Death Seal kit. Fetched sources show them as separate builds. Mechanics source is SILENT on the combined form."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Harvest is your main Damage Skill...The Harvest Flay Lich transforms into its horrific Reaper Form to unleash sweeping Cold melee attacks",
+        "abstained": 0,
+        "conf": 0.55
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Harvest Flay Lich (Cold, Reaper Form, Flay for clear)",
+            "Death Seal Lich (Necrotic, Low Life, pulsing Waves of Death)",
+            "note: these are separate builds on maxroll; the combined 'Harvest Death Seal Lich' folk name is not attested as a single guide"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/harvest-lich-guide",
+        "anchor_quote": "Harvest Flay Lich Build Guide...Death Seal Lich Guide — listed as separate guides",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

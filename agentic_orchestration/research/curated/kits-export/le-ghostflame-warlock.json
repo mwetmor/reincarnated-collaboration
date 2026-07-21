@@ -1,0 +1,243 @@
+{
+  "kit_id": "le-ghostflame-warlock",
+  "spine": {
+    "kit_id": "le-ghostflame-warlock",
+    "folk_name": "Ghostflame Warlock",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "1.0-launch;1.1-harbingers",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Channeled fire+necrotic cone maps clean (cone + channel tick-cost economy carry the sustained-DoT identity; PERSISTENCE_ENGINE_uptime door). [STEWARD REGRADE 2026-07-18: APPROX -> CLOSE — the APPROX rationale rested on the withheld ailment ('the ailment-free row does not carry the DoT payload'), which the m04-audit damage-type-over-time RULING dissolves: 'fire and necrotic damage over time' attests delivery TIMING, not a status; dossier attests DoT only to 'enemies in cone path' during the stream (no lingering/stacking-beyond-channel language) — the engine channel-tick cone IS that shape. Forcewave-regrade precedent.] Remaining texture drift: the defensive-channel inversion (Disdain damage-reduction-while-channeling) and the Bone Curse variant-silent aura (no curse effect fetched) are riders the engine gestures at — noted, minor.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Channeled fire+necrotic cone maps clean (cone + channel tick-cost economy carry the sustained-DoT identity; PERSISTENCE_ENGINE_uptime door). [STEWARD REGRADE 2026-07-18: APPROX -> CLOSE — the APPROX rationale rested on the withheld ailment ('the ailment-free row does not carry the DoT payload'), which the m04-audit damage-type-over-time RULING dissolves: 'fire and necrotic damage over time' attests delivery TIMING, not a status; dossier attests DoT only to 'enemies in cone path' during the stream (no lingering/stacking-beyond-channel language) — the engine channel-tick cone IS that shape. Forcewave-regrade precedent.] Remaining texture drift: the defensive-channel inversion (Disdain damage-reduction-while-channeling) and the Bone Curse variant-silent aura (no curse effect fetched) are riders the engine gestures at — noted, minor.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ghostflame",
+          "geometry_value": "cone",
+          "element_primary": "shadow",
+          "element_secondary": "fire",
+          "ailments": [],
+          "delivery_notes": "Channeled jet directed at target ('Channel to unleash the souls of the dead in a hellish torrent!', 'a channeled jet of horrid flames'); sustained directional stream covering a cone in front of the Warlock. Geometry = CONE per hot-fact geo-erratum ('channeled jet'/'hellish torrent' -> cone-projection reading; erratum pending). element_primary=shadow (necrotic register), secondary=fire ('both fire and necrotic damage over time'). NO status ailment emitted: 'fire and necrotic damage over time' names damage-TYPE-over-time, not a NAMED status (§0.1 fire != burn; strict m02 frostburn/electrocute precedent) — withheld."
+        },
+        {
+          "source_skill": "Bone Curse",
+          "geometry_value": "aura",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Applied to bosses as an aura-debuff via Signet of Agony (fetched: 'Bone Curse is used as an aura with Signet of Agony'). The curse-APPLICATION-as-aura is fetched, but NO curse EFFECT (amplify/weaken/decrepify/sap) is fetched -> curse variant WITHHELD per §2 shape-silent rule + §0.4 (skill NAME != status/effect attestation). Recorded as a curse-aura rider without a pinned variant."
+        }
+      ],
+      "motion_frame": "Apply Bone Curse (aura, Signet of Agony) -> Channel Ghostflame (cone jet) -> fire+necrotic DoT to enemies in front -> damage reduction while channeling (Disdain)",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "channel drain (1.1 restamp: channel cost 48; 1.0 base 40) — continuous mana consumption while held",
+        "persistent_condition_shape": "channel-maintain (tick-cost)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "channel tick-cost drain"
+          ],
+          "traits_affixes": [
+            "Disdain (damage-reduction-while-channeling: 6% per pt from ignited/damned/bleeding enemies, 1.1 restamp from 10%)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Channeled cone-jet DoT maps as cone (hot-fact geo-erratum) + channel tick-cost economy; PERSISTENCE_ENGINE_uptime T4 for the sustained-channel DoT identity. Defensive damage-reduction-while-channeling (Disdain) recorded as a trait rider — the channel is unusually a DEFENSIVE stance ('with proper investment you can shrug off even the mightiest of blows'). verify_ledger 1.1 restamp governs cost (48, not 40). §0 near-misses (TWO, notable): (1) burn/fire-DoT WANTED ('fire damage over time') but not a NAMED status -> WITHHELD (strict §0.1); (2) necrotic-DoT has no registry home (drain requires leech/decay language, not present) -> WITHHELD; (3) Bone Curse curse:variant WITHHELD (no effect fetched, shape-silent §2). Element carries all three flavors; the DoT-ness is captured by geometry+economy, not by an ailment token. [STEWARD 2026-07-18: grade APPROX->CLOSE per the damage-type-over-time ruling (m04 addendum); withholds all UPHELD — burn, necrotic-DoT (no registry home), curse-variant (shape-silent §2).]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Torment Warlock Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Warlock Mastery Reveal",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/1-1-patch-notes",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Last Epoch 1.1 Patch Notes",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "With our release of Last Epoch on February 21st...Ghostflame is listed as a Warlock skill: Channel to unleash the souls of the dead in a hellish torrent!",
+      "source_url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": "1.1 patch notes (July 9 2024): Ghostflame — No longer prevents mana regeneration while channeling. Channel cost is now 48 (from 40). Disdain now grants 6% less damage taken per point from ignited, damned, or bleeding enemies while channeling Ghostflame (from 10%)",
+      "source_url": "https://maxroll.gg/last-epoch/news/1-1-patch-notes",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ghostflame Warlock' and alias 'Bone Curse Ghostflame' are real community usage",
+      "anchor_quote": "Channel to unleash the souls of the dead in a hellish torrent! Normally channeling leaves you vulnerable, but with proper investment you can shrug off even the mightiest of blows when using Ghostflame",
+      "source_url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Ghostflame (channel) and Bone Curse; Mana channel-drain reserve; beam/cone delivery; necrotic/fire hybrid DoT; rooted while channeling",
+      "anchor_quote": "Ghostflame is a channeled jet of horrid flames dealing both fire and necrotic damage over time, though it comes at the cost of mana regeneration while channeling...Bone Curse is used as an aura with Signet of Agony",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "reviewer": "Lizard_IRL"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+        "anchor_quote": "Written by Volca. Content Reviewed by Lizard_IRL.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "1.1 nerfs: Disdain node 10%->6% damage reduction per point; Ghostflame channel cost 40->48; Spirit of Dread movespeed 20%->10%. Changes reduce survivability of channel."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/news/1-1-patch-notes",
+        "anchor_quote": "Disdain now grants 6% less damage taken per point from ignited, damned, or bleeding enemies while channeling Ghostflame (from 10%)...Channel cost is now 48 (from 40)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "channel-directional",
+          "footprint": "cone-channel",
+          "description": "Ghostflame is a channeled jet directed at targeted position. Functions as a sustained stream of spectral fire covering a directional cone area in front of the Warlock. Enemies in cone path receive fire+necrotic DoT."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+        "anchor_quote": "Channel to unleash the souls of the dead in a hellish torrent!...Ghostflame is a channeled jet of horrid flames dealing both fire and necrotic damage over time",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Ghostflame to deal fire+necrotic DoT to enemies in front. Bone Curse applied to bosses as aura-debuff via Signet of Agony. Channeling provides defensive damage reduction while held. Mana drains continuously during channel.",
+          "core_cycle": "Apply Bone Curse (aura) -> Channel Ghostflame -> fire+necrotic DoT -> damage reduction while channeling"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/torment-warlock-guide",
+        "anchor_quote": "Channel to unleash the souls of the dead in a hellish torrent! Normally channeling leaves you vulnerable, but with proper investment you can shrug off even the mightiest of blows when using Ghostflame...Bone Curse is used as an aura with Signet of Agony",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Ghostflame as leveling tool (1.0 Warlock leveling)",
+            "Ghostflame defensive channel in Torment Warlock support role",
+            "Lowlife DoT Warlock with Ghostflame as defense button"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/news/warlock-wrap-up-falconer-teaser",
+        "anchor_quote": "with proper investment you can shrug off even the mightiest of blows when using Ghostflame",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

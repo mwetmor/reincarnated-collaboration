@@ -1,0 +1,197 @@
+{
+  "kit_id": "vs-gorgeous-moon",
+  "spine": {
+    "kit_id": "vs-gorgeous-moon",
+    "folk_name": "Gorgeous Moon (Pentagram evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Global-screen erasure with max-HP damage scalar and gem-vacuum combo has no close engine analog. ring geometry approximates the outward pulse shape but misses the 'global' scale and the harvest-integration vacuum mechanic. Player would miss the one-button screen-wipe + instant-harvest fusion identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Global-screen erasure with max-HP damage scalar and gem-vacuum combo has no close engine analog. ring geometry approximates the outward pulse shape but misses the 'global' scale and the harvest-integration vacuum mechanic. Player would miss the one-button screen-wipe + instant-harvest fusion identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Gorgeous Moon (screen erase + gem vacuum)",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Global screen-wide erasure pulse + immediate gem vacuum. 100% area coverage. Deals damage equal to enemy max HP. VS element-silent. No ailments named in dossier. Hardcoded 15s cooldown floor constrains cadence. 'ring' is closest geometry (expanding pulse erasing screen); global erasure is distinct from standard ring but ring is the nearest of 26 types."
+        }
+      ],
+      "motion_frame": "Low-tempo global screen-clear pulse: erase all enemies + vacuum all gems simultaneously; max-HP damage scalar",
+      "resource_economy": {
+        "cooldown_floor": "hardcoded 15s minimum cooldown (non-reducible below this)",
+        "stat_interaction": "only Cooldown stat affects weapon; Might/Speed/Area/Amount all ignored"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "global coverage — area stat locked out"
+          ],
+          "economy": [
+            "cooldown-gated tempo identity"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. Gem-vacuum = harvest mechanic (not an ailment). Max-HP damage scalar has no direct engine lane — notes as delivery_note. Hardcoded 15s floor is identity-defining economy constraint. Cooldown-only stat interaction (all other stats locked) is unusual and maps as resource_economy note. GEOMETRY_PROPAGATION_cascade fits the on-kill chain-kill shape of screen erasure."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Gorgeous Moon - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022;vs-1.13-14-2025+",
+      "anchor_quote": "Added to game in the March 12, 2022 patch (v0.3.1).",
+      "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Gorgeous Moon is the evolution of Pentagram; recipe = Pentagram + Crown; erase screen AND vacuum every gem simultaneously",
+      "anchor_quote": "Requires Pentagram (base weapon) + Crown (passive item) to evolve into Gorgeous Moon. Shatters, erasing all enemies on the screen like Pentagram, attracting all the gems on the level, identically to the Vacuum effect.",
+      "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Screen erasure + gem vacuum are simultaneous; harvest-deletion fusion; low tempo (hardcoded 15s cooldown min)",
+      "anchor_quote": "A hardcoded limit of 15 seconds restricts cooldown reduction effectiveness, preventing Gorgeous Moon from activating more frequently than this threshold allows.",
+      "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "crown": "required catalyst (increases XP gain per level)",
+          "stat_interaction": "only Cooldown stat affects weapon; Might/Speed/Area/Amount ignored"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+        "anchor_quote": "Ignores everything but Cooldown for stat interactions.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "global screen-wide erasure pulse + global gem vacuum",
+          "origin": "self-origin / global",
+          "area": "100% coverage; ignores everything but Cooldown for stat interactions"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+        "anchor_quote": "Area coverage 100%. The weapon ignores everything but Cooldown for stat interactions.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "evolution_recipe": "Pentagram (max) + Crown = Gorgeous Moon",
+          "phases": {
+            "generation": "moon beam erases enemies, generating colored XP gems (orange/yellow/magenta)",
+            "erasure": "shatters, erasing all enemies on screen (0% item destruction chance)",
+            "vacuum": "immediately attracts all gems on level (Vacuum effect)"
+          },
+          "damage": "deals damage equal to max health of enemy",
+          "cooldown_floor": "hardcoded 15-second minimum cooldown"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+        "anchor_quote": "Shatters, erasing all enemies on the screen like Pentagram, attracting all the gems on the level, identically to the Vacuum effect. A hardcoded limit of 15 seconds restricts cooldown reduction effectiveness.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Gorgeous_Moon",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

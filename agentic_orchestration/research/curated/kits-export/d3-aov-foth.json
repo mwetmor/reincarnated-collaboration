@@ -1,0 +1,229 @@
+{
+  "kit_id": "d3-aov-foth",
+  "spine": {
+    "kit_id": "d3-aov-foth",
+    "folk_name": "AoV Fist of the Heavens",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Holy/lightning element unatttested in dossier text; player loses element-family flavor label. No ailments mapped. Heaven's Fury secondary beam fidelity limited by probe-class sourcing of the beam-swap detail.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Holy/lightning element unatttested in dossier text; player loses element-family flavor label. No ailments mapped. Heaven's Fury secondary beam fidelity limited by probe-class sourcing of the beam-swap detail.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fist of the Heavens",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target strike with large AoE; unlimited range; Darklight and Khassett's Cord multiply damage; holy/lightning thematic unatttested in fetched text; item-defined-archetype maps the near-infinite-Wrath form (Aegis 4pc negates Wrath cost)"
+        },
+        {
+          "source_skill": "Heaven's Fury",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sustained beam secondary; used for additional DPS layer; no ailment named in fetched dossier text"
+        }
+      ],
+      "motion_frame": "Spam Fist of the Heavens at unlimited range; Heaven's Fury beam as sustained secondary; Steed Charge for mobility; Aegis of Valor 4pc removes Wrath cost, 6pc provides 15000% multiplier",
+      "resource_economy": {
+        "cost_scale": "Wrath; Aegis of Valor 4pc negates FotH Wrath cost — effectively free spam; Steed Charge CDR via Norvald's Fervor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "FotH large AoE + unlimited range"
+          ],
+          "economy": [
+            "Aegis 4pc Wrath cost negation; Norvald's Fervor Steed Charge CDR"
+          ],
+          "traits_affixes": [
+            "Darklight 1000% FotH scalar (scaler-only)",
+            "Aegis 6pc 15000% scalar (scaler-only)",
+            "Khassett's Cord amplifier (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null — FotH is holy-lightning themed per mech_note (probe-class, inadmissible as attestation); no 'holy' or 'lightning' in any fetched dossier row. No ailment attested. CoE = R-M5 token (element_rotation_window); Crusader arcane cycle burst rides fidelity only. Heaven's Fury as secondary beam per 'beam swaps' in mech_note (probe); dossier maps it as secondary. Set scalers (15000%) are scaler-only per §B.1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Diablo 3 Season 39 AoV Fist of the Heavens Crusader Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Season 27 and Sanctified Items surprisingly buffed the build to an incredible level",
+      "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "AoV Fist of the Heavens Crusader Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'AoV Fist of the Heavens' and aliases 'AoV FotH Crusader', 'Aegis of Valor FotH', 'Heaven's Fury FotH' are real community usage",
+      "anchor_quote": "AoV Fist of the Heavens Crusader Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Fist of the Heavens and Heaven's Fury; Wrath resource; at-target delivery; small AoE",
+      "anchor_quote": "Fist of the Heavens' large area of effect and unlimited range, combined with mobility granted by Steed Charge",
+      "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+        "anchor_quote": "Written by Northwar",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Aegis of Valor",
+          "set_bonus_4pc": "negates FotH Wrath cost",
+          "set_bonus_6pc": "15000% FotH damage increase, 50% damage reduction",
+          "kanais_cube": [
+            "Darklight",
+            "Khassett's Cord of Righteousness"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+        "anchor_quote": "Aegis of Valor set provides 50% damage reduction, nearly infinite Wrath and 15,000% Fist of the Heavens damage increase",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Darklight",
+            "Khassett's Cord of Righteousness",
+            "Norvald's Fervor"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+        "anchor_quote": "Darklight increases Fist of the Heavens damage by 1,000%",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-area",
+          "notes": "FotH has large AoE and unlimited range; Heaven's Fury beam as secondary"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+        "anchor_quote": "Fist of the Heavens' large area of effect and unlimited range",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Aegis of Valor negates FotH Wrath cost (4pc); 15000% FotH damage increase (6pc); Steed Charge for mobility; Darklight and Khassett's Cord amplify FotH; perma-uptime via CDR"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+        "anchor_quote": "Aegis of Valor set provides 50% damage reduction, nearly infinite Wrath and 15,000% Fist of the Heavens damage increase",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "AoV Fist of the Heavens",
+            "AoV Heaven's Fury (separate guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/aov-fist-of-the-heavens-crusader-guide",
+        "anchor_quote": "Diablo 3 Season 39 AoV Fist of the Heavens Crusader Guide",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "kit_id": "d3-zero-dogs",
+  "spine": {
+    "kit_id": "d3-zero-dogs",
+    "folk_name": "Zero Dogs",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "vanilla",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04 GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "CDR-zero summon-and-sacrifice harvest loop has no direct engine equivalent — minion-consumption harvest docket class. Player would miss the infinite-consume identity. Apply-consume-pair trigger grammar approximates the intent but not the CDR-zero mechanism. No T4 doors (no dedicated set, no capstone identity attested).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "CDR-zero summon-and-sacrifice harvest loop has no direct engine equivalent — minion-consumption harvest docket class. Player would miss the infinite-consume identity. Apply-consume-pair trigger grammar approximates the intent but not the CDR-zero mechanism. No T4 doors (no dedicated set, no capstone identity attested).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Zombie Dogs",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons pack of autonomous combat dogs; CDR-zeroed cooldown per identity anchor ('achieve a 0 second cooldown for endless resummons'); autonomous combatants = summoner GAP per §CROSS row 2; HOWEVER the kit identity IS the consume-and-resummon cycle, not permanent pet army — dogs are consumed immediately; minion-consumption harvest docket class (basin-2 docket class per hot-fact; first d3 attestation); placed totem geometry for each dog (pre-consumption)"
+        },
+        {
+          "source_skill": "Sacrifice",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Explodes all of your Zombie Dogs for high damage in a pretty good-sized area around them' per verify mechanics anchor; small per-dog explosion radius per skill_geometry payload; physical explosion → element null; this is the CONSUMPTION verb of the harvest loop; AoE per dog = circle per phrase-book"
+        }
+      ],
+      "motion_frame": "Stack CDR via legendaries to zero Zombie Dogs cooldown; summon pack → Sacrifice for explosions → immediate resummon; infinite cycle with WD Mana economy per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Mana (Witch Doctor resource) + cooldown gate; CDR legendaries (Stone of Jordan, Homunculus, Visage of Giyua) per item_alterations anchor; cooldown zeroed to achieve infinite loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "zombie_dog_pack",
+        "consequence_type": "consume-mark"
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Per-dog explosion radius (small circle per skill_geometry payload)"
+          ],
+          "economy": [
+            "CDR stacking across three legendary slots to achieve zero-cooldown; Tribal Rites passive CDR"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Minion-consumption harvest docket class (first d3 attestation per hot-fact BINDING): 'summon, SACRIFICE the pack for explosions, resummon instantly' per corpus mech_note (probe) — verify anchor confirms: 'Sacrifice… explodes all of your Zombie Dogs for high damage in a pretty good-sized area around them.' Loop verb IS summon→consume→resummon = harvest cycle. This is DISTINCT from basin-2 docket (consuming YOUR summons = same; environment-node corpses = §CROSS different). Accrual to minion-consumption harvest docket class filed (first d3 attestation). Dogs are autonomous combatants = summoner GAP WHEN they persist; but the kit does not USE them as persistent fighters — they are immediately sacrificed. The loop is CDR-zeroed summon→sacrifice→summon. R-M7: dominant loop is the sacrifice cycle, not the pet combat. Grade: APPROX because the engine has no CDR-zero summon-and-consume loop lane; closest = trigger grammar apply-consume-pair. t4_doors null: no capstone (vanilla era, no dedicated set per capstone_alterations payload). Physical explosion → element null. [STEWARD-AUDIT 2026-07-18 MW3-close: grade APPROX->GAPPED: file-slip — mapper's own summary correction + return adjudicate GAPPED ('the identity is not-that-build at the pure combat layer, forcing honest GAPPED'); file carried APPROX. Return-vs-file contradiction class, resolved toward the mapper's stated adjudication; GAPPED<=>MAPPED_DOCKET restored.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+      "archive_url": null,
+      "site": "slashnblast.wordpress.com",
+      "author_handle": "Thander",
+      "title": "The Zero Dogs Witch Doctor",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/d3/t/zombie-dogsacrife-build/1606",
+      "archive_url": null,
+      "site": "us.forums.blizzard.com",
+      "author_handle": null,
+      "title": "Zombie Dog/Sacrifice build - Witch Doctor - Diablo 3 Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in vanilla",
+      "anchor_quote": "Post date October 14, 2013 — pre-Reaper of Souls launch. Core mechanic: stacking cooldown reductions to achieve \"a 0 second cooldown for endless resummons.\"",
+      "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Zero Dogs' and aliases 'Zero Dogs Witch Doctor', 'Sacrifice Zero Dogs WD', 'Zombie Dogs Sacrifice' are real community usage",
+      "anchor_quote": "The Zero Dogs Witch Doctor. Build tags: 0dogs",
+      "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Zombie Dogs, Sacrifice; cooldown-reduction stacking to zero cooldown; Mana resource (WD)",
+      "anchor_quote": "Summon Zombie Dogs is the fuel for this build paired with Sacrifice, which \"explodes all of your Zombie Dogs for high damage in a pretty good-sized area around them.\"",
+      "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Thander",
+          "site": "slashnblast.wordpress.com",
+          "role": "Author (2013 vanilla-era guide)"
+        },
+        "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+        "anchor_quote": "Thander (posting author credited in the byline)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "No class set for Zero Dogs in vanilla era. Legendary CDR items are the itemization lever. Post-vanilla CDogs variant used reworked Homunculus (2.2 patch) spawning 1 dog every 2 seconds."
+        },
+        "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+        "anchor_quote": "CDogs does a similar thing but based around the remake of homunculus, and with the remake now spawning a dog every 2 seconds (as of 2.2 patch)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_legendaries": [
+            "Stone of Jordan (CDR up to 8s)",
+            "Homunculus Mojo (CDR up to 20s; later reworked to spawn dog every 2s)",
+            "Visage of Giyua (CDR up to 9s)"
+          ]
+        },
+        "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+        "anchor_quote": "Stone of Jordan Ring – reduces cooldown by up to 8 sec, Homunculus Mojo – reduces cooldown by up to 20 seconds",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target summon + small explosion radius",
+          "footprint": "small-radius per-dog explosion",
+          "notes": "Each Sacrifice detonates individual dogs in small radius AoE. Dogs summoned at/near player position."
+        },
+        "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+        "anchor_quote": "Sacrifice, which \"explodes all of your Zombie Dogs for high damage in a pretty good-sized area around them\"",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stack CDR via Tribal Rites passive + Stone of Jordan + Homunculus Mojo + Visage of Giyua to achieve 0-second Summon Zombie Dogs cooldown. Summon pack, Sacrifice for explosion, resummon immediately. Infinite loop with WD Mana."
+        },
+        "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+        "anchor_quote": "Cooldown-reduction stacking until Summon Zombie Dogs hits ZERO cooldown — summon, SACRIFICE the pack for explosions, resummon instantly",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Zero Dogs (vanilla CDR legendaries)",
+            "CDogs (post-2.2 Homunculus rework variant)"
+          ]
+        },
+        "source_url": "https://slashnblast.wordpress.com/2013/10/14/the-zero-dogs-witch-doctor/",
+        "anchor_quote": "CDogs does a similar thing but based around the remake of homunculus",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

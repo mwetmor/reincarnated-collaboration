@@ -1,0 +1,241 @@
+{
+  "kit_id": "d4-kick",
+  "spine": {
+    "kit_id": "d4-kick",
+    "folk_name": "Kick Barbarian",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "launch-s1-3;loot-reborn-s4-5;voh-s6+",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fury-scaled spike finisher has no direct engine primitive for 'entire pool as damage multiplier'; TEMPORAL_CHARGE approximates the accumulate-to-release shape. Stack-ramp rotation → finisher cycle loses some precision vs APPROX threshold but player would recognize it as 'that build, somewhat worse' — CLOSE holds.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fury-scaled spike finisher has no direct engine primitive for 'entire pool as damage multiplier'; TEMPORAL_CHARGE approximates the accumulate-to-release shape. Stack-ramp rotation → finisher cycle loses some precision vs APPROX threshold but player would recognize it as 'that build, somewhat worse' — CLOSE holds.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Kick (Power Kick)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "direct melee kick; Brawling category; finisher executed after rotation builds Chainscourged Mail stacks; entire Fury pool exchanged for damage spike via Ramaladni's Magnum Opus"
+        },
+        {
+          "source_skill": "Brawling rotation builders",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "sequence of Brawling skills building Chainscourged Mail stacks before Kick; variant-scope: rotation builders are scaffold, Kick is dominant loop verb"
+        }
+      ],
+      "motion_frame": "Cast Brawling skills in rotation to build Chainscourged stacks, then unleash Kick for massive Fury-scaled spike",
+      "resource_economy": {
+        "fury": "primary-spender",
+        "regen_shape": "Brawling rotation refills; Melted Heart of Selig doubles max Fury (Selig variant)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "consume-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee rotation sequence"
+          ],
+          "economy": [
+            "Ramaladni's Magnum Opus Fury-as-damage-multiplier",
+            "Ring of Red Furor guaranteed crits",
+            "Melted Heart of Selig max Fury doubling (Selig variant)"
+          ],
+          "traits_affixes": [
+            "Crown of Lucion x105% damage multiplier",
+            "Chainscourged Mail stack mechanics",
+            "Weapon Master/Anger Management/Conceited/Crushing aspects"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Falsified-negative redeemed: negative_canon CONTRADICTED (verify_ledger: 'Crown of Lucion: Highest damage multiplier (x105% with the S12 changes)'). Mapped redeemed S12-era form. Physical element: no fire/cold/lightning damage language in store; element-neutral per THE PHYSICAL RULE. No ailment attested in fetched store text. Fury-as-damage-multiplier via Ramaladni's = RESOURCE_CONVERSION door candidate (Fury pool size → damage output, not just cost). Rotation-builders mapped as scaffold support per variant-scope law."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Beatdropper",
+      "title": "Kick Barbarian Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": "Kick Barbarian Endgame Build Guide for Diablo IV Season 12 - Slaughter... Strong for both pushing and bossing",
+      "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Kick Barbarian'; aliases 'Kick Barb D4', 'Kick Barbarian D4 negative'",
+      "anchor_quote": "Kick Barbarian Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Kick; Barbarian Fury resource",
+      "anchor_quote": "Stack as much maximum Fury as possible to greatly increase your Power Kick damage... Exchange our entire Fury pool",
+      "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Kick Barbarian launch-s6 negative — unique ability occupies a slot without scaling into endgame content; damage ceiling bounded by base kick tuning; never received set-equivalent amplification",
+      "anchor_quote": "Crown of Lucion: Highest damage multiplier (x105% with the S12 changes)... Ring of Red Furor: massive damage multiplier and guaranteed critical strikes",
+      "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Beatdropper",
+          "site": "maxroll.gg",
+          "role": "Content Creator",
+          "reviewer": "Snail"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+        "anchor_quote": "Written by Beatdropper, reviewed by Snail",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "No dedicated Kick-specific aspects cited; Fury-scaling mechanics via paragon and uniques serve as primary amplification"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+        "anchor_quote": "Ramaladni's Magnum Opus offers massive Fury based damage multiplier",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Chainscourged Mail",
+            "Crown of Lucion",
+            "Ring of Red Furor",
+            "Ramaladni's Magnum Opus",
+            "Melted Heart of Selig"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+        "anchor_quote": "Crown of Lucion: Highest damage multiplier (x105% with the S12 changes)... Ring of Red Furor: massive damage multiplier and guaranteed critical strikes",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "melee-target",
+          "footprint": "point",
+          "note": "direct melee kick skill; Brawling category; final hit in a rotation sequence"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+        "anchor_quote": "Stack as much maximum Fury as possible to greatly increase your Power Kick damage",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Brawling skills in sequence to build Chainscourged Mail stacks, then unleash Kick (Power Kick) for massive damage; Fury pool maximized for damage scaling via Ramaladni's; rotation repeats after Kick's damage spike"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+        "anchor_quote": "Kick (specifically Spartan Kick and Power Kick) as the final Brawling skill in the rotation sequence",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/kick-barbarian-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "kit_id": "hot-astronomer-orbs",
+  "spine": {
+    "kit_id": "hot-astronomer-orbs",
+    "folk_name": "Astronomer's Orbs",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-1.0-2024",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Movement-speed orbit coupling is unusual and not expressible in current geometry vocabulary — player would miss the movement-build synergy path. Otherwise orbit geometry maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Movement-speed orbit coupling is unusual and not expressible in current geometry vocabulary — player would miss the movement-build synergy path. Otherwise orbit geometry maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Orbiting orbs (Summon type)",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "3 concentric orbital shells; contact damage to enemies entering path; classified Summon in HoT for trait synergy; orbit speed couples to player movement speed — unusual geometry parameter"
+        }
+      ],
+      "motion_frame": "passive orbital summon; orbs perpetually circle the player dealing contact damage; no rotation — auto-deliver",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle",
+        "cadence_scale": "continuous contact while enemies in range"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "orbit shell count",
+            "orbit speed via movement"
+          ],
+          "economy": [
+            "summon trait bonuses"
+          ],
+          "traits_affixes": [
+            "Summon traits",
+            "Movement Speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Movement-speed-driven orbit speed is a novel coupling not in engine geometry parameters; noted in delivery_notes. No element attested — contact damage type not specified. Placed-proxy-count accrual: 3-shell orbital structure is a counted-proxy shape — file accrual to placed-proxy-count family WITHOUT numbers."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "archive_url": null,
+      "site": "progameguides.com",
+      "author_handle": null,
+      "title": "Halls of Torment Ability Tier List",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "Halls of Torment: The 10 Best Abilities",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-1.0-2024",
+      "anchor_quote": "constantly orbit around your character, dealing with enemies that get too close",
+      "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Astronomer's Orbs — celestial orbs orbiting player in layered orbital shells",
+      "anchor_quote": "three orbs that constantly orbit around your character, dealing damage to anything in their path",
+      "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Orbs persist in concentric orbital shells; classified as Summon; orbit speed scales with movement speed",
+      "anchor_quote": "constantly orbit around your character, dealing with enemies that get too close ... count as a Summon, for Traits and Items that care about such things",
+      "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "traits": [
+            "Summon traits (all applicable)",
+            "Movement Speed (increases orbit speed)"
+          ],
+          "notes": "Orbit speed scales with movement speed — unusual coupling."
+        },
+        "source_url": "https://www.thegamer.com/halls-of-torment-archer-build-best-abilities-guide/",
+        "anchor_quote": "they only work once enemies close in a little bit, but they scale off of Movement Speed",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit",
+          "footprint": "ring",
+          "orbit_shells": 3,
+          "orbit_speed": "scales with player movement speed",
+          "notes": "Concentric ring coverage; proximity-range only."
+        },
+        "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "anchor_quote": "three orbs that constantly orbit around your character",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Passive orbital summons: three metal orbs perpetually orbit the player, dealing contact damage to any enemy entering their path. Classified as Summon type — benefits from all summon trait bonuses. Roguelite auto-deliver — no rotation."
+        },
+        "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+        "anchor_quote": "constantly orbit around your character, dealing with enemies that get too close ... count as a Summon",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Warlock and Beast Huntress are primary class hosts due to summon synergies; Swordsman also documented."
+        },
+        "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+        "anchor_quote": "Optimal for dedicated Summon builds (Warlock, Beast Huntress)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

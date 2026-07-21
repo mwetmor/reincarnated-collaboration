@@ -1,0 +1,206 @@
+{
+  "kit_id": "tl2-arc-beam",
+  "spine": {
+    "kit_id": "tl2-arc-beam",
+    "folk_name": "Arc Beam Embermage (as primary)",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "negative",
+    "eras": "tl2-2012",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: the kit's negative identity and absence of element make it a real but thin mapping — no T4 doors, no ailments, no element. The source player would expect an Embermage kit and find a beam with no elemental scaling — which is exactly the attested identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: the kit's negative identity and absence of element make it a real but thin mapping — no T4 doors, no ailments, no element. The source player would expect an Embermage kit and find a beam with no elemental scaling — which is exactly the attested identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Arc Beam",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Channeled beam in forward lane; split on enemy death to nearby targets. Element-silent: verify_ledger anchor explicitly states 'all Embermage damage is purely elemental, except for poor lil’ Arc Beam' — no elemental damage type attested. NAME-ONLY rule not needed; source itself excludes element."
+        }
+      ],
+      "motion_frame": "Channel a forward beam continuously; beam splits on enemy death to hit nearby targets.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "poor charge generation attested; primary weakness of the build"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE kit (canon_corpus.negative=1). Arc Beam is confirmed off-meta trap — dominated by Prismatic Bolt and all other Embermage options. Identity mapped as attested; negative story rides the review book. No element: source itself flags Arc Beam as the exception to Embermage's elemental damage. No ailments attested in any store."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Kardfogu",
+      "title": "Kardfogu's Guide to Prismatic Bolt Embermage",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496769114",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Embermage Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in tl2-2012 era (Torchlight 2 shipped 2012)",
+      "anchor_quote": "Torchlight II shipped September 2012; Arc Beam is an Embermage skill present at launch; discussed in 2012-2013 community guides",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Arc Beam Embermage (as primary) — community usage name for a channeled beam build",
+      "anchor_quote": "Arc Beam is described as 'a very weak skill unfortunately' and listed among the 'meh' Embermage skills; 'noone likes it anyways'",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Arc Beam — true beam delivery (channel), lane/beam footprint, no chain-hop",
+      "anchor_quote": "Arc Beam allows you to pierce foes with a channeled beam of energy from your weapons, and destroyed enemies split the beam and strike nearby targets",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496769114",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Arc Beam as primary Embermage build is off-meta / trap — strictly dominated by Prismatic Bolt and other options",
+      "anchor_quote": "poor range, lack of charge generation, and low damage scaling; 'noone likes it anyways'; listed among 'underwhelming Embermage skills'; 'all Embermage damage is purely elemental, except for poor lil\\u2019 Arc Beam'",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Kardfogu",
+          "site": "steamcommunity.com",
+          "guide_title": "Kardfogu's Guide to Prismatic Bolt Embermage"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam",
+          "footprint": "lane",
+          "range": "short (poor range noted by community)",
+          "notes": "channeled beam in a forward lane; split on enemy death to nearby targets"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496769114",
+        "anchor_quote": "Arc Beam allows you to pierce foes with a channeled beam of energy from your weapons; poor range",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Arc Beam is a channeled beam skill; player channels beam continuously at enemies; destroyed enemies split the beam to hit nearby targets; no rotation — single sustained channel"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496769114",
+        "anchor_quote": "Arc Beam allows you to pierce foes with a channeled beam of energy from your weapons, and destroyed enemies split the beam and strike nearby targets",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "no viable build variants documented — Arc Beam universally considered off-meta; some mods (SynergiesMOD) altered Arc Beam to gain Charge on hit but this is not vanilla"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": "noone likes it anyways; listed among underwhelming Embermage skills",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

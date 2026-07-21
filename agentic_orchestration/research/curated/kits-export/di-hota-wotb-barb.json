@@ -1,0 +1,205 @@
+{
+  "kit_id": "di-hota-wotb-barb",
+  "spine": {
+    "kit_id": "di-hota-wotb-barb",
+    "folk_name": "HotA Burst Barbarian",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Maps cleanly. Minor loss: WotB item variant (Broken Soul crit-chance swap) and Lasting Hate duration extension are item-layer scalers not in skills[]. HotA magnitude and WotB duration purely numeric; fidelity notes carry.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Maps cleanly. Minor loss: WotB item variant (Broken Soul crit-chance swap) and Lasting Hate duration extension are item-layer scalers not in skills[]. HotA magnitude and WotB duration purely numeric; fidelity notes carry.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hammer of the Ancients",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target ground slam; small AoE at impact point. 'Shakes the earth at impact point.' Physical delivery; no element damage verb. No ailment named."
+        },
+        {
+          "source_skill": "Wrath of the Berserker",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "30s cooldown speed-amplifier buff. 'Its attack and movement speed increases are amazing by default.' Burst-window enabler. No ailment."
+        },
+        {
+          "source_skill": "Ground Stomp",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Self-origin AoE control. 9s cooldown. Stun attested: skill_loop store 'Ground Stomp (9s cooldown) provides AoE stun/control' — 'stun' named in payload_json store."
+        }
+      ],
+      "motion_frame": "HotA burst at target; WotB amplifies attack and movement speed on 30s cooldown; Ground Stomp AoE stun on 9s cooldown; weave spend-cooldown for burst windows",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical element across all skills; element null per physical rule. WotB = self_buff geometry (burst window enabler not an attack). Stun attested only for Ground Stomp ('AoE stun/control' in skill_loop payload_json). Capstone: 'Lasting Hate increases Wrath of the Berserker duration by 30%' — item-defined-archetype scaler; fidelity note only. 'Broken Soul makes WotB increase Critical Hit Chance instead of Attack Speed' — item variant. HotA 'shakes the earth' = physical flavor, no 'earth damage' verb; element null. WotB Overpower layer: mech_note references 'WotB burst window pattern' — ILLEGAL; skill_loop store: 'WotB… attack and movement speed increases' only; consequence_type burst_window captures the WotB burst identity per §C Overpower row (burst_window maps burst-multiplier alignment). DI resource probe UNRELIABLE; Fury UNSUPPORTED; cooldown economy per §D."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Barbarian Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-2026-era",
+      "anchor_quote": "When it comes to general farming, few buffs compare to the ubiquitous Wrath of the Berserker; its attack and movement speed increases are amazing by default.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'HotA Burst Barbarian'; aliases 'HotA WotB Barbarian DI', 'Hammer Ancients Wrath Berserker DI'",
+      "anchor_quote": "This is one of the stronger skills in the Barbarian arsenal for all forms of content.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Hammer of the Ancients, Wrath of the Berserker, Ground Stomp; resource: Fury",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "lasting_hate": "legendary item; increases Wrath of the Berserker duration by 30%",
+          "broken_soul": "off-hand item; makes WotB increase Critical Hit Chance instead of Attack Speed"
+        },
+        "source_url": "https://gamerdigest.com/diablo-immortal-barbarian-build/",
+        "anchor_quote": "Lasting Hate increases Wrath of the Berserker duration by 30%, and the off-hand item Broken Soul makes Wrath of the Berserker increase Critical Hit Chance instead of Attack Speed.",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "hammer_of_the_ancients": "at-target ground slam; small AoE; shakes the earth at impact point",
+          "ground_stomp": "self-origin AoE control"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+        "anchor_quote": "This is one of the stronger skills in the Barbarian arsenal for all forms of content.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "HotA delivers burst at target; WotB (30s cooldown) amplifies attack/movement speed; Ground Stomp (9s cooldown) provides AoE stun/control; weave spend+cooldown for burst windows"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+        "anchor_quote": "When it comes to general farming, few buffs compare to the ubiquitous Wrath of the Berserker; its attack and movement speed increases are amazing by default.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

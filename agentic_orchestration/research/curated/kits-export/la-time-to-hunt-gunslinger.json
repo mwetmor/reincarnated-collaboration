@@ -1,0 +1,230 @@
+{
+  "kit_id": "la-time-to-hunt-gunslinger",
+  "spine": {
+    "kit_id": "la-time-to-hunt-gunslinger",
+    "folk_name": "Time to Hunt Gunslinger",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-stance identity maps cleanly without mode-swap-identity docket (dominant loop exists). Quick Scope accumulator + Rose Blossom threshold correctly modeled. Handgun CDR economy noted. Crit Rate value not modeled (number = stale-SHAPE; shape captured as 'significant crit-focus').",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two-stance identity maps cleanly without mode-swap-identity docket (dominant loop exists). Quick Scope accumulator + Rose Blossom threshold correctly modeled. Handgun CDR economy noted. Crit Rate value not modeled (number = stale-SHAPE; shape captured as 'significant crit-focus').",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rifle skills (Quick Scope stack generators + core damage)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Each Rifle skill cast gives 1 Quick Scope stack; 20 stacks → Rose Blossom cast. Long-range attacks. No element attested — name-only check passes (no damage-type descriptor on any rifle skill in store). No Shotgun stance (disabled by Time to Hunt identity)."
+        },
+        {
+          "source_skill": "Rose Blossom (20 Quick Scope stacks finisher)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Consumed at 20 Quick Scope stacks; Rose Blossom replaces Shotgun-stance finisher. High-damage volley. No element descriptor. 'Rose Blossom' = proper skill name → D4 NAME-ONLY LAW null."
+        },
+        {
+          "source_skill": "Handgun skills (Rifle Cooling / mobility tempo)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Handgun skills provide Rifle Cooling (4s cooldown reduction on rifles) — economy role. Mobility via Somersault Shot / Quick Step dashes. No element attested. No Shotgun stance."
+        }
+      ],
+      "motion_frame": "Two-stance rotation: Handgun skills (mobility + 4s Rifle Cooling CDR) → Rifle skills (stack Quick Scope per cast) → Rose Blossom at 20 stacks; +45% Crit Rate from Time to Hunt identity; Shotgun disabled; long-range crit-finisher playstyle",
+      "resource_economy": {
+        "quick_scope_stacks": "1 stack per Rifle skill cast; threshold 20 → Rose Blossom trigger; stack-accumulator economy",
+        "rifle_cooling": "Handgun skills reduce remaining Rifle cooldowns by 4s — CDR economy for sustained Rifle cast frequency"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Quick Scope at 20 stacks → Rose Blossom cast (stack-threshold consume)",
+        "consequence_type": "burst_damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Time to Hunt = two-stance (Handgun + Rifle only; Shotgun DISABLED) — this is NOT the irreducible 3-stance mode-swap-identity docket of Peacemaker (n04). Two stances have a dominant loop (Rifle for damage; Handgun for CDR/mobility) → maps cleanly with a dominant mode + delivery note. No docket needed. Ark Passive nodes: Midnight Rose, Armor-Piercing Shell, Precision Fire, Flashy Attack, Smoldering Strike → capstone_alterations shape (scaling + trigger riders). '+45% Crit Rate' from Time to Hunt identity is a number → map SHAPE only (significant crit-focus identity). Element null throughout — no damage-type descriptors for any skill or stance."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Time to Hunt Gunslinger Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Author: Raeinor on Maxroll.gg — Ark Passive capstone nodes (Midnight Rose, Armor-Piercing Shell, Precision Fire) listed as active build content",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Time to Hunt Gunslinger — folk name (class Gunslinger + Time to Hunt identity spec)",
+      "anchor_quote": "Time to Hunt Gunslinger focuses on rifle and handgun stances, with shotgun disabled.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Disables Shotgun stance; boosts Handgun and Rifle crit rates; two-stance rotation; Rose Blossom replaces Shotgun; easier weapon management than Peacemaker; high crit-scaled ranged damage",
+      "anchor_quote": "+45% Crit Rate and +15% Stagger bonuses. -12% MP Cost for Rifle Skills. Shotgun stance unavailable; handgun provides mobility while rifles deliver damage. Rose Blossom [listed as primary damage skill]",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+        "anchor_quote": "Raeinor on Maxroll.gg (maxroll.gg/lost-ark)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Midnight Rose",
+            "Armor-Piercing Shell",
+            "Precision Fire",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+        "anchor_quote": "Midnight Rose, Armor-Piercing Shell, Precision Fire, plus general damage nodes (Flashy Attack, Smoldering Strike, Attack).",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Hit Master",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Adrenaline"
+          ],
+          "bracelet_specials": [
+            "Superiority",
+            "Dexterity",
+            "Fervor"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Hit Master, Keen Blunt Weapon, Cursed Doll, Adrenaline. Recommended bracelet effects include Superiority, Dexterity, and Fervor for damage scaling.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Long-range rifle attacks; mobility via Handgun skills and dashes (Somersault Shot, Quick Step); ranged DPS — no melee positioning requirement noted"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+        "anchor_quote": "Long-range rifle-focused attacks with mobility via handgun skills and dashes (Somersault Shot, Quick Step).",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Each Rifle skill gives a stack of Quick Scope on cast; use Rose Blossom when at 20 stacks; Handgun skills provide Rifle Cooling effect (4s cooldown reduction on rifles); two-stance rotation: Handgun tempo mobility → Rifle crit finishers. No Shotgun stance.",
+          "quick_scope_threshold": "20 stacks → Rose Blossom",
+          "rifle_cooling": "4 seconds remaining cooldown reduction from Handgun skills"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/time-to-hunt-gunslinger-raid-guide",
+        "anchor_quote": "Each Rifle skill gives you a stack of Quick Scope on cast... Rose Blossom should be used when you have 20 stacks. Handgun skills provide Rifle Cooling effect for 4 seconds, reducing the remaining cooldowns.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Time to Hunt (Shotgun disabled, Handgun+Rifle two-stance, +45% Crit Rate, S tier Aug 2025)",
+            "Peacemaker (three-stance with Shotgun, higher complexity)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Time to Hunt Gunslinger: S Tier [August 2025 community tier list]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

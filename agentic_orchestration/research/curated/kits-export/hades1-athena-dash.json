@@ -1,0 +1,195 @@
+{
+  "kit_id": "hades1-athena-dash",
+  "spine": {
+    "kit_id": "hades1-athena-dash",
+    "folk_name": "Athena Divine Dash Core",
+    "game": "hades1",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades1-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Deflect (projectile reflection + melee counter-damage) has no engine lane. defensive_dash geometry captures movement shape only. Single-boon identity with no rotation. RETRIBUTION_ENGINE is the closest T4 (damage-reflection pattern) but Hades deflect is projectile-targeted, not area-reflect.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Deflect (projectile reflection + melee counter-damage) has no engine lane. defensive_dash geometry captures movement shape only. Single-boon identity with no rotation. RETRIBUTION_ENGINE is the closest T4 (damage-reflection pattern) but Hades deflect is projectile-targeted, not area-reflect.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Divine Dash (Athena boon — deflect on every dash)",
+          "geometry_value": "defensive_dash",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dash with Deflect applied along the dash path hitbox. Deflect reflects all incoming projectiles back at their source and deflects melee counter-damage. Deflect is a Hades-specific defensive mechanic — not in the 16-ailment registry (it is a defensive property, not an enemy-directed status). No element typed. The dash IS the delivery verb (skill = movement). No cooldown beyond dash cooldown."
+        }
+      ],
+      "motion_frame": "dash through projectile plane to deflect; no separate activation; skill IS movement — dash cadence is the economy unit",
+      "resource_economy": {
+        "cadence_scale": "no resource cost; dash cooldown is the economy unit; Hermes Stutter Step enables back-to-back dashes"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": null,
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Hermes Stutter Step: back-to-back dash frequency"
+          ],
+          "traits_affixes": [
+            "boon rarity tiers: deflect damage multiplier + dash damage 10/12/14/16"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Athena-dash is a single-boon loadout identity — Divine Dash is both the skill and the movement verb. Deflect (projectile reflection + counter-damage) is a Hades-exclusive mechanic with no 16-ailment registry equivalent and no engine geometry lane (defensive_dash covers the movement shape but not the deflect reflection mechanic). Docketed as deflect-mechanic gap. No element attested. Note: deflect_condition referenced in §2 as a def-bin rider — this kit is the primary evidence for that note; the mechanism is outside the 16-ailment space."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://basicallyaverage.com/athena-hades-guide/",
+      "archive_url": null,
+      "site": "basicallyaverage.com",
+      "author_handle": null,
+      "title": "Athena Boons | Hades Guide - Basically Average",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hades1-2020 era.",
+      "anchor_quote": "Divine Dash provides Deflect for a moment on every dash with no cooldown",
+      "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Athena Divine Dash Core' — Athena's Divine Dash boon is a real and widely-used boon identity in Hades.",
+      "anchor_quote": "Divine Dash provides Deflect for a moment on every dash with no cooldown, making it one of Athena's most popular boons",
+      "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill is Divine Dash; the dash deflects projectiles back at enemies; mobility = skill-IS-movement; deflect is the complete kit thesis.",
+      "anchor_quote": "anytime the player Dashes not only will they be able to protect themselves from all incoming damage, but they will also be able to Deflect all projectiles thrown at them",
+      "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Merciful End duo boon (Ares+Athena) is the primary capstone: Divine Dash as deflect source triggers instant Doom detonation. Athena's dash also qualifies as the Athena-line boon required for Merciful End alongside any Ares Doom boon."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+        "anchor_quote": "Yes, Divine Dash counts as a valid Deflect source for triggering Merciful End",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Divine Dash pairs with Hermes Stutter Step for back-to-back dashes increasing deflect frequency. Boon rarity tiers increase deflect damage multiplier and dash damage values (10/12/14/16 by rarity). No extra resource cost — dash cooldown is the economy unit."
+        },
+        "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+        "anchor_quote": "Divine Dash has no cooldown, so it pairs perfectly with Hermes Stutter Step for back-to-back dashes",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (dash path)",
+          "description": "Deflect applies along the dash path/hitbox during the dash animation. Contact-based: the player body moving through the projectile plane is the hitbox. Not a zone or AoE — the dash trajectory IS the deflect geometry."
+        },
+        "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+        "anchor_quote": "Deflect is a mechanic unique to Athena boons which allows an ability to repel projectiles and damage back at the attacker",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Boon passive, not a rotation. Divine Dash adds Deflect to every dash — no cooldown beyond dash cooldown. While dashing, all incoming projectiles are reflected back at attackers. Melee attacks can also be deflected for counter-damage. Skill IS movement: the dash is the delivery verb. Loop: dash through projectile plane to deflect; no separate activation required."
+        },
+        "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+        "anchor_quote": "anytime the player Dashes not only will they be able to protect themselves from all incoming damage, but they will also be able to Deflect all projectiles thrown at them",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standalone survivability build (deflect-only)",
+            "Merciful End combo build (Athena dash + Ares Doom)"
+          ]
+        },
+        "source_url": "https://basicallyaverage.com/athena-hades-guide/",
+        "anchor_quote": "Divine Dash provides Deflect for a moment on every dash with no cooldown, making it one of Athena's most popular boons",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "kit_id": "d4-blazing-abyss-warlock",
+  "spine": {
+    "kit_id": "d4-blazing-abyss-warlock",
+    "folk_name": "Blazing Abyss Warlock",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Warlock resource economy empty (cooldown-only; contested-field erratum). Shadowform invisibility/immortality frame not mapped as ailment — no ailment registry entry for stealth/invisibility. Player would miss the Shadowform defensive texture.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Warlock resource economy empty (cooldown-only; contested-field erratum). Shadowform invisibility/immortality frame not mapped as ailment — no ailment registry entry for stealth/invisibility. Player would miss the Shadowform defensive texture.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blazing Scream",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Area damage around target; skill_geometry anchor: 'Blazing Scream – One of our main damage sources by dealing damage around it'; zone/area footprint per skill_geometry payload; fire element: skill_geometry payload_json notes field states 'fire damage element' — admissible store text per store-not-style ruling; no ailment: no burn/stun/fear explicit language attested in fetched rows; Warlock post-cutoff class, fetched-only per §C.5"
+        },
+        {
+          "source_skill": "Profane Sentinel",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary damage source per skill_loop payload ('Profane Sentinel secondary source'); totem/sentry geometry as placed emitter; fire element follows kit primary; no independent ailment language attested"
+        }
+      ],
+      "motion_frame": "Maintain Shadowform via Nether Step for damage buff and near-immortality; Blazing Scream area damage primary; Profane Sentinel secondary source; duration-based damage delivery per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "cooldown; Warlock = cooldown-only economy per §C.5 hot-fact"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Blazing Scream area damage + Profane Sentinel secondary zone coverage"
+          ],
+          "economy": [
+            "Cooldown-only Warlock economy; Footfalls of the Waning World required per item_alterations anchor"
+          ],
+          "traits_affixes": [
+            "Crown of Lucion (scaler)",
+            "Chains of Horazon 5pc talisman set (scaler-only per §B.1)",
+            "Aspect of Deeper Shadows, Insidious Aspect (scalers)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fetched-only post-cutoff Warlock class per §C.5; resource = cooldown-only per §D cooldown-only economy row. Fire element: skill_geometry payload_json notes field contains 'fire damage element' — this is admissible store text (store-not-style: admissibility = which store; payload_json IS in the kit_dossier store). No burn ailment: fire element ≠ burn per §0-UNIVERSAL. Skill name erratum: fetched text attests 'Blazing Scream' not 'Blazing Abyss' per capstone_alterations anchor ERRATA-51 note — kit_id retained for continuity, mapping uses correct 'Blazing Scream' as source_skill. Shadowform = near-immortal mobility frame, not a mapped ailment. Profane Sentinel = placed totem emitter (stationary placed emitter per totem-vs-companion ruling)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "GhazzyTV",
+      "title": "Infinistep Blazing Abyss – Warlock Build for Diablo 4 (Season 14) - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in loh-s13-14",
+      "anchor_quote": "June 26th, 2026: Guide updated for Season 14.",
+      "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Blazing Abyss Warlock; aliases: Blazing Abyss Warlock D4, Warlock Blazing Abyss Build",
+      "anchor_quote": "Infinistep Blazing Abyss – Warlock Build for Diablo 4 (Season 14)",
+      "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skill: Blazing Abyss; Warlock resource (post-cutoff)",
+      "anchor_quote": "Blazing Scream – One of our main damage sources by dealing damage around it",
+      "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "GhazzyTV",
+          "co_author": "Cashlarond",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+        "anchor_quote": "GhazzyTV",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Deeper Shadows",
+            "Insidious Aspect"
+          ],
+          "uniques": [
+            "Crown of Lucion",
+            "Seal of the Ophanim",
+            "Footfalls of the Waning World",
+            "Seed of Horazon"
+          ],
+          "talisman_set": "Chains of Horazon (5pc)",
+          "notes": "skill_name core_skills error: Blazing Abyss is build-name not skill name; actual skill is Blazing Scream — erratum candidate HIGH"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+        "anchor_quote": "Aspect of Deeper Shadows",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Crown of Lucion",
+            "Seal of the Ophanim",
+            "Footfalls of the Waning World (required)",
+            "Seed of Horazon"
+          ],
+          "talisman_set": "Chains of Horazon (5pc)"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+        "anchor_quote": "Footfalls of the Waning World is required to make the build function properly",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "area damage around player/target",
+          "footprint": "zone/area",
+          "range": "area-of-effect",
+          "notes": "Blazing Scream deals damage around a target; Profane Sentinel secondary source; fire damage element"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+        "anchor_quote": "Blazing Scream – One of our main damage sources by dealing damage around it",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Infinistep Blazing Abyss: build uses Blazing Scream (not Blazing Abyss) as primary damage source + Profane Sentinel as secondary. Near-permanent Shadowform via Nether Step for damage buff and near-immortality. Duration-based damage delivery.",
+          "core_loop": "Maintain Shadowform -> Blazing Scream area damage -> Profane Sentinel secondary -> Nether Step invisibility loop"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+        "anchor_quote": "Blazing Scream – One of our main damage sources by dealing damage around it",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Infinistep Blazing Abyss (near-immortal mobility variant)",
+            "Abyss Rampage (separate Warlock archetype on icy-veins)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/blazing-abyss-warlock-build/",
+        "anchor_quote": "Infinistep Blazing Abyss",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -5,3 +5,8 @@
 # scripts/stage-assets.mjs. Single source of truth stays upstream; a committed copy here
 # would drift (the exact failure this project fights). Regenerated on every build.
 public/atlas/
+# DERIVED per-kit "single source of truth" JSON — staged (byte-copied) at build time from
+# elrond's vendored corpus→JSON export (agentic_orchestration/research/curated/kits-export/,
+# the committed upstream render). Same law as public/atlas/: single source of truth stays
+# upstream; a committed copy here would drift. Regenerated on every build.
+public/kits/

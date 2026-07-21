@@ -1,0 +1,260 @@
+{
+  "kit_id": "d2-fire-druid",
+  "spine": {
+    "kit_id": "d2-fire-druid",
+    "folk_name": "Fire Druid",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r-2.4+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Body-attached Armageddon (meteor shower that moves with caster) has no direct engine analog; circle+moving-emitter note carries it as texture rather than a distinct geometry. Player feels 'zone fire caster who walks into packs' — that build, slight delivery texture loss on the moving meteor rain.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Body-attached Armageddon (meteor shower that moves with caster) has no direct engine analog; circle+moving-emitter note carries it as texture rather than a distinct geometry. Player feels 'zone fire caster who walks into packs' — that build, slight delivery texture loss on the moving meteor rain.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fissure",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Large zone of erupting ground vents at targeted location; pack-clearing ground DoT eruption. Primary damage verb."
+        },
+        {
+          "source_skill": "Armageddon",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Body-attached meteor rain in radius around the Druid during movement; duration aura shape. Cast-and-move DPS layer."
+        },
+        {
+          "source_skill": "Molten Boulder",
+          "geometry_value": "line",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rolling boulder projectile with physical+fire damage; used on fire-immune packs."
+        }
+      ],
+      "motion_frame": "Cast Armageddon for body-attached meteor shower; cast Fissure under enemy packs; move through density using Armageddon coverage; Boulder on fire-immunes",
+      "resource_economy": {
+        "cost_scale": "mana-mid",
+        "cadence_scale": "cooldown-gated-between-Fissure-casts"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Flame Rift sunder charm (patch 2.6) removes fire-immunity wall — item-economy texture in fidelity"
+          ],
+          "traits_affixes": [
+            "Fissure synergized by Firestorm/Volcano/Molten Boulder; Armageddon by same fire tree"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Armageddon is a body-attached persistent aura-zone (circle geometry, moving emitter) — closest mapping is circle + moving-emitter note. Flame Rift sunder charm (post-2.6) removes hard immunity wall; maps as item-economy texture, not a lane. Fire-immune fallback via Molten Boulder (physical+fire split) noted. Fissure-primary vs Armageddon-primary variant scope: both map the same loop; variant-scope law governs (neither variant-only mechanism enters core skills[])."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/fire-druid-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Fire Druid Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "archive_url": null,
+      "site": "wikipedia.org",
+      "author_handle": null,
+      "title": "Diablo II: Lord of Destruction - Wikipedia",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Lord of Destruction added content in the form of two new character classes",
+      "source_url": "https://en.wikipedia.org/wiki/Diablo_II:_Lord_of_Destruction",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r-2.4+ era",
+      "anchor_quote": "Fire Druid Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Fire Druid' and aliases 'Fissure Druid', 'Armageddon Druid', 'Firestorm Druid' are real community usage",
+      "anchor_quote": "Fire Druid Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Fissure, Armageddon, Molten Boulder",
+      "anchor_quote": "20 points to Fissure — Invest immediately. This is your main damage skill",
+      "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com",
+          "note": "Updated May 22, 2026"
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+        "anchor_quote": "Last updated on May 22, 2026 at 10:00 by MrLlamaSC",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Heart of the Oak",
+            "Phoenix",
+            "Enigma",
+            "Flickering Flame (runeword helm)"
+          ],
+          "uniques": [
+            "Ravenlore",
+            "Mara's Kaleidoscope"
+          ],
+          "synergies": [
+            "Fissure synergized by Firestorm, Volcano, Molten Boulder (all fire elemental tree)",
+            "Armageddon synergized by same elemental tree"
+          ],
+          "notes": "Flame Rift sunder charm (patch 2.6) removed hard fire immunity wall; enabled S14 viability."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+        "anchor_quote": "With the introduction of the Flame Rift sunder charm in patch 2.6, fire immunities are no longer a hard wall",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Heart of the Oak (weapon)",
+            "Phoenix (shield)",
+            "Enigma (armor)",
+            "Flickering Flame (helm)",
+            "Ravenlore (helm alt)",
+            "Mara's Kaleidoscope (amulet)",
+            "Flame Rift sunder charm (post-2.6, breaks fire immunity)"
+          ],
+          "notes": "Phoenix shield and Flickering Flame are primary endgame investments for FCR and fire skills."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+        "anchor_quote": "Weapon: Heart of the Oak; Shield: Phoenix; Body Armor: Enigma; Helm: Flickering Flame or Ravenlore",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Fissure: large zone of erupting vents at target ground location. Armageddon: body-attached continuous meteor rain in radius around Druid. Molten Boulder: rolling boulder projectile (physical/fire). Large-zone footprint overall."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+        "anchor_quote": "20 points to Fissure — Invest immediately. This is your main damage skill",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Maintain Armageddon aura (body-attached meteor shower). Cast Fissure at enemy packs to erupt ground vents under them. On cooldown between casts, use Firestorm or Molten Boulder on fire-immune packs (physical/reduced-fire damage). Movement-based density clearing."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+        "anchor_quote": "Fissure erupts volcanic vents beneath a section of ground that deal massive fire damage; Armageddon is a duration-based skill that surrounds the Druid in a meteor shower",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Fissure-primary (max Fissure first; standard elemental druid)",
+            "Armageddon-primary (Armageddon main damage source with Fissure support)",
+            "Fissure/Armageddon hybrid (both maxed; S14 endgame standard)"
+          ],
+          "notes": "Spec aliases 'Armageddon Druid' and 'Fissure Druid' separately — both are real named community variants."
+        },
+        "source_url": "https://www.icy-veins.com/d2/fire-druid-build",
+        "anchor_quote": "Fire Druid Build for Diablo 2 Resurrected",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

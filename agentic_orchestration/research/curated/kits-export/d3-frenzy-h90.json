@@ -1,0 +1,247 @@
+{
+  "kit_id": "d3-frenzy-h90",
+  "spine": {
+    "kit_id": "d3-frenzy-h90",
+    "folk_name": "Frenzy H90",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Permanent autonomous CotA ancestor squad (pet-rider) has no engine equivalent — player would miss the ghost-ancestor assist layer. Physical element unatttested (null). Stack-ramp self_buff texture preserved but chain-to-15-yards AoE cleave approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Permanent autonomous CotA ancestor squad (pet-rider) has no engine equivalent — player would miss the ghost-ancestor assist layer. Physical element unatttested (null). Stack-ramp self_buff texture preserved but chain-to-15-yards AoE cleave approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frenzy",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target melee strike; Bastion's Revered chains Frenzy damage to enemies within 15 yards (melee_strike + chain rider); stacks to 10 via Bastion's Revered for ramp; physical weapon damage → element null per physical rule; §A row 5: Frenzy ramp = self_buff sustain stack NOT two-tier-accumulator (stack IS the steady state, no spend event)"
+        },
+        {
+          "source_skill": "Sprint",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "ERRATA-51 core_skills addition; mobility skill providing movement speed; utility layer in H90 rotation; no damage geometry"
+        },
+        {
+          "source_skill": "Call of the Ancients (H90 rider)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "H90 set makes CotA permanent (spectral ancestor melee strikers who share Frenzy buff aura); autonomous combatants = pet-rider (not core identity here) → APPROX + gap note per §CROSS row 2 army GAP; CotA's autonomous fighting is unengineable"
+        }
+      ],
+      "motion_frame": "Maintain max Frenzy stacks on single elite target; H90 2pc doubles Shout effectiveness; Oathkeeper 200% multiplier; Bastion's Revered chains to 15 yards; permanent CotA via H90 set for spectral assist",
+      "resource_economy": {
+        "cost_scale": "Fury (Barbarian class resource); Fury-generating playstyle per skill_loop payload; H90 4pc CDR via Fury management"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bastion's Revered 15-yard chain rider on Frenzy hits"
+          ],
+          "economy": [
+            "Oathkeeper 200% damage multiplier (scaler-only)",
+            "Depth Diggers primary skill boost (scaler-only)"
+          ],
+          "traits_affixes": [
+            "H90 6pc Frenzy scalar (scaler-only per §B.1)",
+            "H90 2pc Shout doubling (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical weapon damage → element null per physical rule. Frenzy stacks = §A row 5 self_buff ramp (NOT two-tier-accumulator — no spend event). CotA permanent via H90 = pet-rider gap noted (autonomous combatants unengineable); APPROX grade driven by this rider. H90 scalers scaler-only per §B.1. Sprint added per ERRATA-51 (DB state governs). No ailment attested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Rob",
+      "title": "Diablo 3 Season 39 Savage Frenzy Barbarian Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "The Horde of the Ninety Savages (H90) Set was introduced with Season 20",
+      "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "Savage Frenzy Barbarian Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frenzy H90' and aliases 'Horde of the Ninety Savages Frenzy', 'H90 Frenzy Barbarian', 'Frenzy Barbarian D3' are real community usage",
+      "anchor_quote": "The Horde of the Ninety Savages (H90) Set was introduced with Season 20",
+      "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Frenzy as primary damage dealer; Fury resource (generator); single-target with 15-yard chain via Bastion's Revered",
+      "anchor_quote": "Frenzy is your main damage dealer",
+      "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Rob",
+          "site": "maxroll.gg",
+          "reviewers": [
+            "Northwar",
+            "Raxxanterax"
+          ],
+          "updater": "Chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+        "anchor_quote": "Written by Rob. Updated by Chewingnom. Reviewed by Northwar & Raxxanterax",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Horde of the Ninety Savages",
+          "set_introduced": "Season 20",
+          "set_bonus_note": "2pc doubles Shout effectiveness; 6pc tied to Frenzy stack count and Bastion's Revered; 17500% to 10000% damage variants",
+          "kanais_cube": [
+            "Bastion's Revered",
+            "Depth Diggers",
+            "Oathkeeper"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+        "anchor_quote": "The Horde of the Ninety Savages (H90) Set was introduced with Season 20",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Bastion's Revered",
+            "Oathkeeper",
+            "The Undisputed Champion",
+            "Depth Diggers"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+        "anchor_quote": "Bastion's Revered is the core item",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee",
+          "footprint": "point with 15-yard chain",
+          "notes": "Direct single-target Frenzy hits; Bastion's Revered chains damage to enemies within 15 yards"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+        "anchor_quote": "High Single Target Damage / Lack of AoE Damage",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Frenzy stacks to 10 via Bastion's Revered; H90 2pc doubles Shout effectiveness; Oathkeeper grants 200% damage multiplier; single-target focus with 15-yard chain; Fury-generating playstyle"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+        "anchor_quote": "Frenzy is your main damage dealer",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "H90 Solo Push (Bastion's Revered damage variant)",
+            "Speed Farming variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/savage-frenzy-barbarian-guide",
+        "anchor_quote": "Savage Frenzy Barbarian Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

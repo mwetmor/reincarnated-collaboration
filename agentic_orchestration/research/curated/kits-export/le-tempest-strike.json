@@ -1,0 +1,260 @@
+{
+  "kit_id": "le-tempest-strike",
+  "spine": {
+    "kit_id": "le-tempest-strike",
+    "folk_name": "Tempest Strike",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-12",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss the fixed 3-beat combo rhythm -- the deterministic HIT-HIT-TEMPEST cadence has no native beat-counter; nearest-mapped as on-hit-threshold + accumulator, which reads as threshold/chance rather than counted beats. Fixed-attack-speed -> crit overflow conversion also lost (noted in economy). Loop skeleton (melee -> periodic self-AoE lightning -> stack payoff) survives: that build, worse.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss the fixed 3-beat combo rhythm -- the deterministic HIT-HIT-TEMPEST cadence has no native beat-counter; nearest-mapped as on-hit-threshold + accumulator, which reads as threshold/chance rather than counted beats. Fixed-attack-speed -> crit overflow conversion also lost (noted in economy). Loop skeleton (melee -> periodic self-AoE lightning -> stack payoff) survives: that build, worse.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tempest Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'you HIT, HIT, TEMPEST, so you get two melee attacks and then one aoe lightning' -- 3-beat melee combo; beats 1-2 melee strikes, beat 3 a self-origin AoE lightning tempest burst. Post-1.0 rework (capstone anchor): 'a powerful high-cost combo ability which triggers a Tempest with each strike, rather than a chance for a spell effect it had previously' -- determinized; the kb 'proc-gamble' econ descriptor is era-superseded."
+        },
+        {
+          "source_skill": "Sky Opener (Storm Stack spender)",
+          "geometry_value": null,
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Generates Storm Stacks expended via Sky Opener for Storm Bolt procs' -- stack-spender payoff tier; Storm Bolt proc shape not fetched beyond 'procs' -> null geometry is the honest carrier (payload maps only by its own fetched behavior)."
+        }
+      ],
+      "motion_frame": "melee combo HIT-HIT-TEMPEST -> self-AoE lightning on the tempest beat -> Storm Stacks accrue -> spend via Sky Opener for Storm Bolt procs",
+      "resource_economy": {
+        "resource": "mana ('can reach zero cost via specialization' -- dossier)",
+        "cadence_scale": "FIXED attack speed; excess attack speed converts to crit chance (fetched oddity -- stat-overflow conversion, flagged for steward)",
+        "charge_stack_sub_shape": "accumulator (Storm Stacks built by combo, spent via Sky Opener)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold (nearest apply-event for the counted combo beat + stack generation; greppable: COMBO_BEAT_NTH -- fixed 3-beat cadence has no native trigger enum)",
+        "mark_identity": "Storm Stacks",
+        "consequence_type": "burst-damage (Storm Bolt procs on stack-spend)"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "zero-cost specialization path"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Class CORRECTED per steward hot-fact -- corpus governs: Primalist/Shaman (verify identity anchor 'Tempest Strike Shaman'); Acolyte dropped. kb negative_canon is ERA-SCOPED ('fixed attack speed... falls off a bit at end game' -- real but era-bounded; ANNOTATION only, never mapping input; kit mapped at full identity). Beta-0.7.7F identity anchor 'all about lightning, cold' is the era/variant-scoped Shaman build listed in variants -> cold withheld from core row (7.2 variant-scoped attributes never ride core). Totem-conversion + transformation-support (Druid's Call) rework nodes = variant hints only. Two-tier-accumulator accrual FILED (mint-candidates): BOTH the counted combo-beat (HIT-HIT-TEMPEST) and the Storm Stack -> Sky Opener -> Storm Bolt spend are two-tier shapes; A-row Cadence clause cited as GD SHAPE precedent only (C.4) -- LE fetched language carries. Near-miss: shock never named in fetched text (lightning theme alone routes nothing; engine shock additionally requires CC semantics)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forum.lastepoch.com/t/tempest-strike-shaman-build-last-epoch-patch-0-7-7f/19451",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "unknown-op",
+      "title": "Tempest Strike Shaman Build - Last Epoch - Patch 0.7.7F - Primalist - Last Epoch Forums",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/question-for-a-build-lightning-primalist-shaman-with-tempest-strike/79364",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "multiple-community",
+      "title": "Question for a build: Lightning Primalist (Shaman?) with Tempest Strike? - Primalist - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/gathering-storm-tempest-strike-rework",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-staff",
+      "title": "Gathering Storm & Tempest Strike Rework - Last Epoch Maxroll.gg",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Tempest Strike Shaman Build - Last Epoch - Patch 0.7.7F ... This confirms Tempest Strike existed pre-1.0 during the developmental phase.",
+      "source_url": "https://forum.lastepoch.com/t/tempest-strike-shaman-build-last-epoch-patch-0-7-7f/19451",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "These changes will be live on February 21st when 1.0 releases. [Tempest Strike rework at 1.0]",
+      "source_url": "https://maxroll.gg/last-epoch/news/gathering-storm-tempest-strike-rework",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": "Question for a build: Lightning Primalist (Shaman?) with Tempest Strike? [September 2025, current season gameplay]",
+      "source_url": "https://forum.lastepoch.com/t/question-for-a-build-lightning-primalist-shaman-with-tempest-strike/79364",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Tempest Strike Shaman' and aliases 'Tempest Strike primalist melee', 'storm melee LE' are real community usage.",
+      "anchor_quote": "Tempest Strike Shaman Build - Last Epoch - Patch 0.7.7F ... This guy is all about lightning, cold, slamming their foes with Tempest Strike.",
+      "source_url": "https://forum.lastepoch.com/t/tempest-strike-shaman-build-last-epoch-patch-0-7-7f/19451",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Tempest Strike. Lightning-oriented melee combo on Shaman/Primalist.",
+      "anchor_quote": "Tempest Strike is now a powerful high-cost combo ability which triggers a Tempest with each strike, rather than a chance for a spell effect it had previously.",
+      "source_url": "https://maxroll.gg/last-epoch/news/gathering-storm-tempest-strike-rework",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Tempest Strike LE negative — kit-family scaling or centralization concern identified at corpus triage.",
+      "anchor_quote": "It has a fixed attack speed. There's no clear best route ... while Tempest Strike falls off a bit at end game ... not a build that crushes end-game",
+      "source_url": "https://forum.lastepoch.com/t/tempest-strike-shaman-build-last-epoch-patch-0-7-7f/19451",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Post-1.0 rework added nodes: tempest sacrificing, totem conversion, transformation support (Druid's Call). No unique set identity confirmed."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/news/gathering-storm-tempest-strike-rework",
+        "anchor_quote": "Tempest Strike is now a powerful high-cost combo ability which triggers a Tempest with each strike",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary_geometry": "self-origin melee + AoE tempest burst",
+          "range": "melee + short AoE",
+          "aoe_shape": "AoE lightning burst on Tempest beat",
+          "notes": "Two melee hits followed by one AoE lightning event per combo cycle"
+        },
+        "source_url": "https://forum.lastepoch.com/t/question-for-a-build-lightning-primalist-shaman-with-tempest-strike/79364",
+        "anchor_quote": "you HIT, HIT, TEMPEST, so you get two melee attacks and then one aoe lightning",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Melee combo: HIT, HIT, TEMPEST sequence triggers elemental tempests on each Tempest beat. Generates Storm Stacks expended via Sky Opener for Storm Bolt procs. Fixed attack speed — excess speed converts to crit chance. High skill-point investment required.",
+          "resource": "Mana (can reach zero cost via specialization)",
+          "loop_type": "melee-combo-proc"
+        },
+        "source_url": "https://forum.lastepoch.com/t/question-for-a-build-lightning-primalist-shaman-with-tempest-strike/79364",
+        "anchor_quote": "you HIT, HIT, TEMPEST, so you get two melee attacks and then one aoe lightning",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Shaman melee Tempest Strike (beta era, 0.7.7F)",
+            "Tempest Earthquake Beastmaster (post-1.0 — Tempest Strike + Earthquake cross-class)",
+            "Totem-conversion Tempest Strike (1.0 rework node)"
+          ],
+          "notes": "Primary dedicated Shaman build is beta-era. Post-1.0 most visible as Beastmaster hybrid."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tempest-earthquake-beastmaster-guide",
+        "anchor_quote": "Tempest Earthquake Beastmaster ... heads into battle with Tempest Strike, rapidly hitting all enemies caught in its path, then finishing them with a massively damaging Earthquake",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

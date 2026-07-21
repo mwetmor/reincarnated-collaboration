@@ -1,0 +1,241 @@
+{
+  "kit_id": "tq-battlemage-warfare-earth",
+  "spine": {
+    "kit_id": "tq-battlemage-warfare-earth",
+    "folk_name": "Battlemage",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical melee component is present (Onslaught strikes) but maps no-family; a player used to a pure fire caster identity would feel the melee-physical half under-represented if engine surfaces only fire. T4 ELEMENT_CONVERSION_PHYSICAL captures the hybrid conversion door but the physical output itself is lost at element level.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical melee component is present (Onslaught strikes) but maps no-family; a player used to a pure fire caster identity would feel the melee-physical half under-represented if engine surfaces only fire. T4 ELEMENT_CONVERSION_PHYSICAL captures the hybrid conversion door but the physical output itself is lost at element level.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Onslaught",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "Melee strike primary; Volatility passive procs fire DoT on every melee hit — fire damage on-hit attested via passive"
+        },
+        {
+          "source_skill": "Volcanic Orb",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile travels to target then explodes; fire+physical in small radius (physical no-family per THE PHYSICAL RULE)"
+        },
+        {
+          "source_skill": "Fire Nova",
+          "geometry_value": "ring",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Short-cooldown self-centered burst; fire damage; ~10s cooldown"
+        }
+      ],
+      "motion_frame": "Melee-forward hybrid: Onslaught sustained left-click, Volcanic Orb right-click, Fire Nova cooldown burst; Earth buffs persistent",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "regen_shape": "passive",
+        "note": "Energy Cost reduction gear priority; Earth Enchantment + Ring of Flame persistent buffs active"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Volcanic Orb AoE radius"
+          ],
+          "economy": [
+            "Energy Cost reduction",
+            "Energy Regen"
+          ],
+          "traits_affixes": [
+            "fire damage %",
+            "physical damage %"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire is dual-typed (melee + spell); physical component present on Volcanic Orb but maps no-family per THE PHYSICAL RULE; identity is fire+physical hybrid but fire is the scaling element. Burn on melee-hits via Volatility passive — attested as 'boost both your physical and fire damage' plus 'Onslaught bound to left click'; burn ailment carried by melee loop, not a separate delivery."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Battlemage Build Guide - Titan Quest",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Elementalist Build Guide - Titan Quest",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016 eras",
+      "anchor_quote": "prior to the Atlantis/Ragnarok/Anniversary Edition of the game it was one of the most powerful caster builds",
+      "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Battlemage = Warfare+Earth dual mastery, melee-caster hybrid",
+      "anchor_quote": "Battlemage is the combination of Warfare and Earth masteries",
+      "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Onslaught, Earth Enchantment, Volcanic Orb; Earth Volatility passive adds fire dot on melee hits; Warfare melee strikes deal bonus fire damage",
+      "anchor_quote": "Volcanic Orb deals half fire and half Physical Damage -- which makes it an ideal spell to use for builds like this one that deal both Fire and Physical damage",
+      "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Almar",
+          "site": "almarsguides.com"
+        },
+        "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Volatility passive (Earth) — flat % boost to physical and fire damage; Earth Enchantment tree maxed for passives; Warfare mastery passives for melee speed"
+        },
+        "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+        "anchor_quote": "Volativity: One of the most important passives you can get, it'll boost both your physical and fire damage by flat %s",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Stonebinder's Cuffs (+3 Skills); Helm of the Conqueror (+2 Warfare skills); Huo Qubing's Helm (Energy Cost reduction); Legguards of the Flameborn (% Fire Damage +1 Skills); stats: +Skills / % Physical Damage / -Energy Cost / % Energy Regen"
+        },
+        "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+        "anchor_quote": "Important stats are +Skills, % Physical Damage increase and -Energy Cost along with %Energy Regeneration",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "at-target melee",
+          "secondary": "projectile AoE — Volcanic Orb travels to target then explodes fire+physical damage in small radius",
+          "tertiary": "self-origin AoE — Fire Nova short-cooldown self-centered burst"
+        },
+        "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+        "anchor_quote": "Volcanic Orb lobs a burning orb of fiery brimstone that explodes when it hits the ground inflicting fire and physical damage to enemies in a small radius",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Left-click Onslaught for rapid melee strikes; right-click Volcanic Orb for fire AoE; keep Earth Enchantment + Ring of Flame + Heat Shield active as buffs; use Fire Nova on ~10s cooldown for AoE burst; Volatility passive procs fire dot on all melee hits"
+        },
+        "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+        "anchor_quote": "Onslaught should be bound to left click and Volcanic Orb to right click as these are the 2 main attacks",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "fire-caster variant (Volcanic Orb primary, melee secondary)",
+            "physical-melee variant (Onslaught primary, fire as rider)"
+          ]
+        },
+        "source_url": "https://almarsguides.com/computer/games/titanquest/builds/battlemage/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

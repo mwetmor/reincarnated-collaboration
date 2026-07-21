@@ -1,0 +1,262 @@
+{
+  "kit_id": "poe1-storm-brand",
+  "spine": {
+    "kit_id": "poe1-storm-brand",
+    "folk_name": "Storm Brand",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: 80%-more-to-branded-target split, 0.5s activation cadence, and multi-brand juggling are behavioral; the set-and-forget chained-lightning-while-you-move identity lands on chain + proc-loop + full-move chassis (mine/brand-chassis-via-trigger-grammar per b04 precedent).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: 80%-more-to-branded-target split, 0.5s activation cadence, and multi-brand juggling are behavioral; the set-and-forget chained-lightning-while-you-move identity lands on chain + proc-loop + full-move chassis (mine/brand-chassis-via-trigger-grammar per b04 precedent).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Storm Brand",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "brand attaches to an enemy and periodically activates (0.5s post-3.11), firing beams to the branded target (80% more) and up to 2 nearby enemies — a persistent attached emitter whose damage arrives as 3-target chain-hops. Chain carries the damage shape; the attached-turret persistence is chassis (see trigger_grammar + notes)."
+        },
+        {
+          "source_skill": "Brand Recall",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "utility: summons all brands back to the player for re-attachment — the reposition half of the brand cycle, not a damage skill."
+        }
+      ],
+      "motion_frame": "throw-brands-and-run: full-move while attached brands zap on their own cadence; Brand Recall re-anchors the turrets",
+      "resource_economy": {
+        "persistent_condition_shape": "proc-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-passive-tick",
+        "mark_identity": "brand attached to enemy (persistent emitter-mark)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "3-target chain beams from attachment point",
+            "brand-attachment range"
+          ],
+          "economy": [
+            "brand-attach-recall cycle: cadence lives on the brand, not the cast",
+            "activation-frequency scaling"
+          ],
+          "traits_affixes": [
+            "lightning damage",
+            "brand-activation-frequency ranks",
+            "crit"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TIMED-WHILE-ACTIVE-APPROX — the brand's periodic self-activation is a timed-while-active proc; no such enum member exists (R-M5), approximated to on-passive-tick as the nearest apply-event member (R-M5 accrual instance; steward counts toward the >=3 graduation bar). PoE shock -> sunder (§2 false-friend). Attached-to-enemy persistence approximated as mark + proc-loop; brand count cap (~3 active) noted as behavioral."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/storm-brand-inquisitor-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Storm Brand Inquisitor League Starter — Maxroll",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/storm-brand-inquisitor",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.23] Storm Brand Shocking Inquisitor Build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/storm-brand-hierophant-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.18] Storm Brand Hierophant Build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Storm_Brand",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Storm Brand — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6 (intro 3.5.0)",
+      "anchor_quote": "Storm Brand is one of the skills added in Patch 3.5 and Betrayal League, which brought around a completely new playstyle",
+      "source_url": "https://odealo.com/articles/storm-brand-inquisitor",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "[3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]; [3.18]Storm Brand Hierophant build (Odealo — cross-confirmed guide persistence into this era)",
+      "source_url": "https://odealo.com/articles/storm-brand-hierophant-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Storm Brand' is real community usage; Hierophant/Inquisitor class",
+      "anchor_quote": "[3.18]Storm Brand Hierophant build; Storm Brand Inquisitor League Starter — Hierophant is one of the Ascendancy Classes with a specific Keystone dedicated just for this type of Spells",
+      "source_url": "https://odealo.com/articles/storm-brand-hierophant-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Storm Brand and Brand Recall; brand attaches to enemy; periodically triggers chaining lightning",
+      "anchor_quote": "Storm Brand was introduced in patch 3.5.0; brand attaches to a nearby enemy, periodically activates firing beams which deal damage to nearby enemies; Brand Recall is core Spell for this playstyle",
+      "source_url": "https://poedb.tw/us/Storm_Brand",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com",
+          "note": "primary Storm Brand Hierophant guide author for 3.24"
+        },
+        "source_url": "https://www.poe-vault.com/guides/storm-brand-hierophant-build-guide",
+        "anchor_quote": "TbXie's Storm Brand Hierophant Build Guide (PoE Necropolis 3.24)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Storm Brand of Indecision (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not available on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Storm_Brand",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "brand attaches to single enemy entity; periodically activates firing beams to branded target (80% more damage) and up to 2 additional nearby enemies; chain-hop footprint; activation frequency 0.5s (post 3.11)"
+        },
+        "source_url": "https://poedb.tw/us/Storm_Brand",
+        "anchor_quote": "periodically activates while attached, firing beams which deal damage to nearby enemies; sends beams to three enemies including the branded target; 80% more damage to the attached enemy",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast Storm Brand to attach to a nearby enemy. The brand periodically activates, firing lightning beams to the branded target and up to two nearby enemies. Use Brand Recall to retrieve brands to your position and attach to new targets. Set-and-forget attached-turret playstyle — move freely while brands deal damage."
+        },
+        "source_url": "https://poedb.tw/us/Storm_Brand",
+        "anchor_quote": "Brand attaches and periodically zaps nearby enemies with chaining lightning while you keep moving; Brand Recall is core Spell for this playstyle, allows you to summon all summoned Brands to your position",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Storm Brand Hierophant — totem+brand keystone variant",
+            "Storm Brand Inquisitor — elemental crit variant (canonical modern form)",
+            "Storm Brand Assassin — crit shadow variant"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/storm-brand-hierophant-build-odealos-crafty-guide",
+        "anchor_quote": "Hierophant is one of the Ascendancy Classes with a specific Keystone dedicated just for this type of Spells; Inquisitor is overall much better with Elemental Damage and Critical Strikes",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

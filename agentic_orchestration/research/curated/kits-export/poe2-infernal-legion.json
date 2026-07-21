@@ -1,0 +1,252 @@
+{
+  "kit_id": "poe2-infernal-legion",
+  "spine": {
+    "kit_id": "poe2-infernal-legion",
+    "folk_name": "Infernal Legion Minions",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.2-dawn;0.3-edict;0.4",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The self-immolation-as-damage-source flavor (minions burn THEMSELVES to deal damage; their deaths are the payoff) is softened -- engine minion-proxy damage is the minion's own attacks, not a self-sacrifice burn loop. Proxy identity is expressible (CLOSE); the deviation is the suicide-burn mechanism reading as ordinary proxy damage.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The self-immolation-as-damage-source flavor (minions burn THEMSELVES to deal damage; their deaths are the payoff) is softened -- engine minion-proxy damage is the minion's own attacks, not a self-sacrifice burn loop. Proxy identity is expressible (CLOSE); the deviation is the suicide-burn mechanism reading as ordinary proxy damage.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Infernal Legion (support gem on minions -> self-immolation fire aura)",
+          "geometry_value": "aura",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "the MINIONS are the delivery vehicle: Infernal Legion makes supported minions take 10% of max life/sec as fire and radiate it to nearby enemies -- each burning minion carries a small self-origin fire aura, and multiple minions create overlapping distributed coverage. damage_mode=dot. Geometry is per-minion aura (presence), not a player-aimed shape; the player positions the swarm. ignite rider."
+        }
+      ],
+      "motion_frame": "burning-swarm proxy: reserve Spirit to field self-immolating minions, then push the swarm into packs -- the minions burn themselves down while radiating fire, their deaths ARE the damage",
+      "resource_economy": {
+        "reservation_resource": "spirit",
+        "reservation_percent": "per-minion permanent Spirit reservation (Infernalist enhanced Spirit capacity) -- Spirit-reservation FALSE FRIEND, NOT engine spirit_guide",
+        "persistent_condition_shape": "proc-loop (minions self-immolate at 10% max-life/sec continuously)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "apply-mark"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "per-minion small fire aura (distributed multi-point presence)"
+          ],
+          "economy": [
+            "Spirit permanent reservation per minion",
+            "minion self-immolation proc-loop (10% max-life/sec)"
+          ],
+          "traits_affixes": [
+            "minion fire damage / ignite",
+            "minion life (fuels the self-immolation burn duration)",
+            "burning-damage %"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-06. Spirit-reservation FALSE FRIEND FIRED: reservation_resource=spirit is the poe2 reservation pool; NOT engine spirit_guide. R-M7 minion-persistence player test: engine HAS proxy T4 (PROXY_ASCENSION) -> maps as a proxy kit, player gets 'that build, worse' not 'not that build'. verify_ledger: Infernalist->Lich lineage shift at 0.3 respected -- eras 0.2/0.3/0.4 all CONFIRMED (no errata), mapped the persistent-fire-minion identity common to the band. [STEWARD AUDIT: ailment token 'ignite' -> 'burn' -- 'ignite' is source vocabulary, not a 16-registry member; main-law §2 row 1 (PoE ignite -> burn) is deterministic.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/infernal-legion-lich-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Shayd",
+      "title": "Infernal Legion Lich Build Guide - Path of Exile 2 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3856260",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Lich Chaos Infernal Legion / RF Companion - Path of Exile Forum",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/news/0-5-0-patch-notes-return-of-the-ancients",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "0.5.0 Patch Notes - Return of the Ancients - Path of Exile 2",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "NEW Kripp's Infernal Legion Infernalist - PoE 2 Witch Build Guide",
+      "source_url": "https://mobalytics.gg/poe-2/builds/kripp-infernal-legion-infernalist",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "Path of Exile 2 Builds - Lich Chaos Infernal Legion / RF Companion - Forum - Path of Exile (September 2025)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3856260",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.4",
+      "anchor_quote": "Infernal Legion Lich Build Guide for Path of Exile 2 Return of the Ancients 0.5.4 | Maxroll.gg",
+      "source_url": "https://maxroll.gg/poe2/build-guides/infernal-legion-lich-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Infernal Legion Minions' and aliases 'Infernal Legion SRS', 'skeleton Infernal Legion hosts' are real community usage",
+      "anchor_quote": "NEW Kripp's Infernal Legion Infernalist - PoE 2 Witch Build Guide",
+      "source_url": "https://maxroll.gg/poe2/build-guides/infernal-legion-lich-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Infernal Legion support gem sets own minions on fire; they self-immolate radiating fire damage to nearby enemies; Spirit-reserved minion upkeep",
+      "anchor_quote": "Infernal Legion I: Now grants Minions from Supported Skills take 10% of their maximum Life as Fire Damage per second (previously 20%)",
+      "source_url": "https://maxroll.gg/poe2/news/0-5-0-patch-notes-return-of-the-ancients",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Shayd",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/infernal-legion-lich-build-guide",
+        "anchor_quote": "by Shayd",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_note": "Current guide uses Lich ascendancy (Witch). Earlier versions used Infernalist. Multiple ascendancies noted viable: Ritualist, Wild Speaker also referenced.",
+          "note": "Ascendancy shift from Infernalist (0.1/0.2) to Lich (0.3+) is a meaningful lineage inflection."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/infernal-legion-lich-build-guide",
+        "anchor_quote": "other Ascendancies like Ritualist and Wild Speaker have potential",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Multi-point distributed radius. Each burning minion radiates a small fire AoE around its own position. Multiple minions create overlapping coverage across encounter area.",
+          "range": "distributed small-radius per minion"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/infernal-legion-lich-build-guide",
+        "anchor_quote": "burn enemies in a large radius around you through the companion's self-immolation effect",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Reserve Spirit to maintain minions. Infernal Legion support gem causes supported minions to self-immolate at 10% max life/sec as fire damage to nearby enemies. Minions are both the damage source and the buff carrier. Current endgame form uses Plague Harvester tame beast companion.",
+          "resource": "Spirit (permanent reservation per minion)"
+        },
+        "source_url": "https://maxroll.gg/poe2/news/0-5-0-patch-notes-return-of-the-ancients",
+        "anchor_quote": "Infernal Legion I: Now grants Minions from Supported Skills take 10% of their maximum Life as Fire Damage per second (previously 20%)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Infernal Legion Infernalist (0.1/0.2 Kripp variant)",
+            "Infernal Legion Lich (0.3+ current dominant)",
+            "Lich Chaos Infernal Legion + RF Companion (forum variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3856260",
+        "anchor_quote": "Lich Chaos Infernal Legion / RF Companion",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

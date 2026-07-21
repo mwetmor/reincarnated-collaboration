@@ -1,0 +1,264 @@
+{
+  "kit_id": "la-arthetinean-skill-machinist",
+  "spine": {
+    "kit_id": "la-arthetinean-skill-machinist",
+    "folk_name": "Arthetinean Skill Machinist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine has no battery-drone-weave analog; constant-rotation weave without a meter-activate Z-button maps reasonably to TEMPORAL_CHARGE build-momentum pattern but the source player would note absence of the transformation/identity burst button (Hypersync is attested but suboptimal — the identity is genuinely the weave, not a burst release). CLOSE not EXACT: economy key is novel-vocabulary ('battery') and drone/joint skill distinction has no direct geometry analog.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine has no battery-drone-weave analog; constant-rotation weave without a meter-activate Z-button maps reasonably to TEMPORAL_CHARGE build-momentum pattern but the source player would note absence of the transformation/identity burst button (Hypersync is attested but suboptimal — the identity is genuinely the weave, not a burst release). CLOSE not EXACT: economy key is novel-vocabulary ('battery') and drone/joint skill distinction has no direct geometry analog.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Normal skill rotation (Energy Buster, Command: Baby Drones, Command: Raid Missile, Command: Carpet, Annihilation Mode)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged drone/joint skill weave; no positional requirement attested; element names appear in skill/gem names only (NAME-ONLY STRIKE per §0.4); no damage-typing descriptor in store"
+        },
+        {
+          "source_skill": "Drone/Joint skills (alternating with Normal skills)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Joint skills paired with Normal skills to maintain cooldown alignment; no elemental damage-typing in fetched text"
+        }
+      ],
+      "motion_frame": "Alternate Normal and Drone/Joint skills in constant weave; avoid Hypersync (damage loss); Battery management critical",
+      "resource_economy": {
+        "battery_management": "identity load-bearing; 332 variant increases Battery consumption pressure; Hypersync transformation available but suboptimal — omitting it is the attested build pattern"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ranged drone skills; no AoE shape descriptor beyond ranged projectile"
+          ],
+          "economy": [
+            "Battery management; 332 variant high-consumption rotation"
+          ],
+          "traits_affixes": [
+            "Keen Sense, Zealous Smite, Destruction Charger, Optimization Mode, Blunt Thorn (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Negative-flag CONTRADICTED (B-tier per verify_ledger anchor: 'Arthetinean Skill Machinist: B Tier') — mapped to attested B-tier DPS identity, not sub-floor. No element damage-typing in store; Energy Buster/Baby Drones/Annihilation Mode are gem+skill names only. Hypersync transformation present but explicitly flagged as damage loss; attested loop is the Normal+Drone weave without transformation. Battery resource is the load-bearing economy key."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Arthetinean Skill Machinist Raid Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/tierlists/community-class-tier-list-february-2025",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-community",
+      "title": "Community Class Tier List - February 2025",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/lost-ark/tierlists/community-tier-list-february",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "maxroll-community",
+      "title": "Community Class Tier List - February 2024",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "Keen Sense, Zealous Smite, Destruction Charger, Optimization Mode, Blunt Thorn",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Arthetinean Skill Machinist — class+identity spec name with Arthetinean enhanced skill suite, drone skills, Hypersync as real LA community usage",
+      "anchor_quote": "This build focuses on dealing constant damage by alternating your Normal and Drone/Joint skills properly.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Arthetinean Skill boosts individual skill damage and enables enhanced skill sequences; Hypersync available but suboptimal; more skill-interaction focused versus Evolutionary Legacy drone-evolution loop",
+      "anchor_quote": "Hypersync is still available to Arthetinean Skill Machinists, but it's actually a damage loss to use it.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Arthetinean Skill Machinist is C-tier and below floor for positive canon — ranked below Evolutionary Legacy's D-tier placement; underperforms other DPS classes",
+      "anchor_quote": "Arthetinean Skill Machinist: B Tier. Evolutionary Legacy Machinist: B Tier.",
+      "source_url": "https://maxroll.gg/lost-ark/tierlists/community-class-tier-list-february-2025",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Sekwah",
+          "site": "maxroll.gg",
+          "reviewer": "Perciculum"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+        "anchor_quote": "Sekwah (content creator); reviewed by Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Keen Sense",
+            "Zealous Smite",
+            "Destruction Charger",
+            "Optimization Mode",
+            "Blunt Thorn"
+          ],
+          "class_engraving": "No dedicated class-specific engraving — spec identity is through skill selection and Arthetinean Skill system"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+        "anchor_quote": "Keen Sense, Zealous Smite, Destruction Charger, Optimization Mode, Blunt Thorn",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "gems": [
+            "Energy Buster",
+            "Command: Baby Drones",
+            "Command: Raid Missile",
+            "Command: Carpet",
+            "Annihilation Mode"
+          ],
+          "tripods": [
+            "Swift Preparation",
+            "Condense",
+            "Railgun",
+            "Galewind"
+          ],
+          "engravings": [
+            "Grudge",
+            "Keen Blunt Weapon",
+            "Adrenaline",
+            "Raid Captain",
+            "Mass Increase"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+        "anchor_quote": "Gems: Energy Buster, Command: Baby Drones, Command: Raid Missile, Command: Carpet, Annihilation Mode.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Skill geometry not explicitly detailed in fetched guide; drone skills and Energy Buster are ranged; no positional requirement mentioned"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Alternate Normal and Drone/Joint skills in rotation to maintain cooldown alignment; Hypersync available but is a damage loss; Battery management critical especially in 332 variant",
+          "core_pattern": "Normal skill → Drone/Joint skill weave, repeat; avoid Hypersync transformation"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+        "anchor_quote": "This build focuses on dealing constant damage by alternating your Normal and Drone/Joint skills properly.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard build",
+            "332 variant (higher DPS ceiling, higher Battery consumption, more punishing rotation)",
+            "SMG Agent Ark Grid variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/arthetinean-skill-machinist-raid-guide",
+        "anchor_quote": "The 332 build variant comes with a potential higher DPS ceiling at the cost of increased Battery consumption",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "kit_id": "poe1-dark-pact",
+  "spine": {
+    "kit_id": "poe1-dark-pact",
+    "folk_name": "Dark Pact",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "chain + shadow(chaos) + drain lands the chaining sacrifice-nova, but the SIGNATURE is an INVERSION of the proxy pattern: skeletons are CONSUMABLE BATTERIES whose MAX LIFE is the ammo Dark Pact spends — Minion Life supports scale YOUR damage by inflating the battery. No engine lane represents 'proxy max-life as a consumable per-cast ammo pool'; the PROXY family models proxies that attack + are sustained, not consumed as fuel. Mapped as chain-nova + totem-battery-field + minion-life-consume note + hp_cost_scale no-skeleton fallback (native); captures the chain-chaos feel but loses the battery-inversion substrate. Docket filed (proxy-max-life-as-ammo, shared with animate-weapon + this batch's bladefall field-consume). Engine chain decays 0.7x/hop (arc precedent) — acceptable since Dark Pact propagates not grows, hop-count capped vs PoE noted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "chain + shadow(chaos) + drain lands the chaining sacrifice-nova, but the SIGNATURE is an INVERSION of the proxy pattern: skeletons are CONSUMABLE BATTERIES whose MAX LIFE is the ammo Dark Pact spends — Minion Life supports scale YOUR damage by inflating the battery. No engine lane represents 'proxy max-life as a consumable per-cast ammo pool'; the PROXY family models proxies that attack + are sustained, not consumed as fuel. Mapped as chain-nova + totem-battery-field + minion-life-consume note + hp_cost_scale no-skeleton fallback (native); captures the chain-chaos feel but loses the battery-inversion substrate. Docket filed (proxy-max-life-as-ammo, shared with animate-weapon + this batch's bladefall field-consume). Engine chain decays 0.7x/hop (arc precedent) — acceptable since Dark Pact propagates not grows, hop-count capped vs PoE noted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dark Pact",
+          "geometry_value": "chain",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "chaos nova that originates at a skeleton and CHAINS between skeletons (>=3 present), each hop a fresh nova; SACRIFICES skeleton max-life as the damage fuel (or the player's own life if no skeletons). chain geometry; chaos -> shadow; drain carries the life-sacrifice-as-damage register. Note: engine chain DECAYS 0.7x/hop (arc precedent)"
+        },
+        {
+          "source_skill": "Summon Skeletons (fuel/proxy source)",
+          "geometry_value": "totem",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "populate the field with skeleton minions whose MAX LIFE is the ammo pool Dark Pact spends; totem = placed proxy entities. They are NOT autonomous attackers here — they are consumable batteries, dying rapidly and needing constant resummon"
+        }
+      ],
+      "motion_frame": "battery-and-detonate caster: summon skeletons as a life-battery field, cast Dark Pact to chain-nova between them spending their life as damage; two-button resummon rotation as they burn down",
+      "resource_economy": {
+        "reservation_resource": "hp",
+        "hp_cost_scale": 0.3
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_FISSION",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "chain nova (skeleton-to-skeleton hops)",
+            "totem/proxy skeleton-battery field"
+          ],
+          "economy": [
+            "minion-life-consume (skeleton MAX LIFE = the spent damage fuel)",
+            "hp_cost_scale fallback (player life spent when no skeletons — the self-cost mode)"
+          ],
+          "traits_affixes": [
+            "minion-life scaling (Minion Life supports RAISE the battery = RAISE Dark Pact damage — the signature inversion)",
+            "chaos/spell-damage",
+            "resummon-cadence (skeletons die fast)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "chain + shadow(chaos) is the base geometry/element and lands; drain for the life-sacrifice register (poison is the alt chaos-DoT read, but the DOMINANT loop is a hit-nova that DRAINS minion life, not a stacking DoT — §7.2 dominant-loop wins). THE IDENTITY MISS: minions-as-CONSUMABLE-BATTERIES. Dark Pact's soul is an INVERSION of the normal proxy pattern — you don't direct skeletons to attack; you CONSUME their max-life as ammunition (Minion Life supports scale YOUR damage BY raising the battery capacity). The engine PROXY family + resource_economy models proxies that ATTACK and are sustained; it has no lane for 'proxy max-life is a consumable ammo pool the caster spends per cast.' Mapped as chain-nova + a totem-proxy field + minion-life-consume note + hp_cost_scale for the no-skeleton self-cost fallback (native), which captures the chain-chaos-nova + self-cost feel but LOSES the minion-as-battery consumption substrate. A Dark Pact player would notice their skeletons no longer FUNCTION as a spendable life-pool that Minion-Life gear inflates — the battery inversion is what made this kit unique. Docket candidate filed (proxy-max-life-as-consumable-ammo, shared family with animate-weapon batch-01 + bladefall-bladeblast field-resource-consume this batch). Engine chain DECAYS 0.7x/hop (arc-audit precedent): acceptable here since Dark Pact's chain PROPAGATES the sacrifice-nova rather than growing per-hop — but hop-count is capped at engine default (primary+3) vs PoE scaling to more skeletons; noted. PROXY_FISSION (one action -> many proxy interactions) + SACRIFICE_ASCENDANCY (life-as-fuel) are the closest capstones."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 1,
+      "mechanism_class": "entity-as-consumable-resource-pool",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1954194",
+      "archive_url": "http://web.archive.org/web/20170817003830/http://www.pathofexile.com:80/forum/view-thread/1954194",
+      "site": "pathofexile.com/forum",
+      "author_handle": "poetech#3681",
+      "title": "[3.0] Beginners Friendly: Dark Pact Skeleton Necromancer [Build in Progress]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/dark-pact-necromancer-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "GhazzyTV",
+      "title": "GhazzyTV's Dark Pact Necromancer Build Guide (PoE Mirage 3.28)",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "[3.0] Beginners Friendly: Dark Pact Skeleton Necromancer [Build in Progress] — posted 2017 (3.0 era)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1954194",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Dark Pact' is real community usage; class Necromancer/Berserker",
+      "anchor_quote": "Chaining chaos nova that SACRIFICES skeleton life to fuel its damage — or your own life if no skeletons; minions as batteries.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1954194",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Dark Pact + Summon Skeletons: chaining chaos nova that sacrifices skeleton life to fuel damage; chains between skeletons; or uses player life if no skeletons",
+      "anchor_quote": "The playstyle is based around summoning your skeletons on the field and then directly connecting them by casting Dark Pact, chaining between your skeletons. Rather than directing minions as autonomous attackers, Dark Pact converts their maximum life into waves of chaos damage.",
+      "source_url": "https://www.poe-vault.com/guides/dark-pact-necromancer-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": "GhazzyTV",
+          "site": "poe-vault.com",
+          "note": "3.0 era forum guide author: poetech#3681"
+        },
+        "source_url": "https://www.poe-vault.com/guides/dark-pact-necromancer-build-guide",
+        "anchor_quote": "GhazzyTV's Dark Pact Necromancer Build Guide",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_3_0": "Necromancer (Witch)",
+          "nodes_3_0": [
+            {
+              "name": "Spirit Eater",
+              "alteration": "Consumes summoned monster spirits for power."
+            },
+            {
+              "name": "Beacon of Corruption",
+              "alteration": "Caustic cloud on death of minions/nearby monsters."
+            },
+            {
+              "name": "Commander of Darkness",
+              "alteration": "Damage and resistance buff to minions and player."
+            },
+            {
+              "name": "Mistress of Sacrifice",
+              "alteration": "Bone offering also applies to player."
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1954194",
+        "anchor_quote": "Ascendancy Progression: Spirit Eater → Beacon of Corruption → Commander of Darkness → Mistress of Sacrifice",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Amplification Rod",
+              "slot": "wand",
+              "alteration": "Pseudo 6-link functionality with built-in support gems — budget early enabler."
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1954194",
+        "anchor_quote": "Amplification Rod unique wand provides pseudo 6-link functionality with built-in supports.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Chain-hop delivery: chaos nova originates at skeleton position, chains to nearby skeletons. Each chain hop generates a new nova at the next skeleton. Coverage scales with number of skeletons and their distribution across the battlefield. When cast without skeletons: nova originates at player's own position (self-damage mode). Area of effect at each hop is small blast radius."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1954194",
+        "anchor_quote": "The 6% removed life is added to the base damage so the skill does scale with minion life. The skill chains between skeletons when at least three are present, enabling area-of-effect coverage across enemy packs.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use Spell Totem or self-cast Summon Skeletons to populate the field with skeleton minions. Cast Dark Pact on clustered skeletons — the spell chains between them, sacrificing skeleton life to deal chaos damage in chaining novas. Skeletons die rapidly, requiring constant resummoning (two-button rotation). When no skeletons are present, Dark Pact damages the player's own life instead. Minion Life support gems on skeletons increase their life pool to amplify Dark Pact damage."
+        },
+        "source_url": "https://www.poe-vault.com/guides/dark-pact-necromancer-build-guide",
+        "anchor_quote": "summon skeletons on the field and then directly connecting them by casting Dark Pact, chaining between your skeletons. The skill chains between skeletons when at least three are present.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Dark Pact Skeleton Necromancer (3.0 classic)",
+              "description": "Original archetype — skeleton summoning + Dark Pact chaining. poetech's 3.0 guide."
+            },
+            {
+              "name": "Dark Pact CI Elementalist (high-budget)",
+              "description": "Mentioned in GhazzyTV guide as high-budget alternative with Chaos Inoculation."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/dark-pact-necromancer-build-guide",
+        "anchor_quote": "A separate high-budget guide using Dark Pact Elementalist with CI (Chaos Inoculation) is mentioned as an alternative path.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

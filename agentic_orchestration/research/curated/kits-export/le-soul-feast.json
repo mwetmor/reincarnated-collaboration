@@ -1,0 +1,241 @@
+{
+  "kit_id": "le-soul-feast",
+  "spine": {
+    "kit_id": "le-soul-feast",
+    "folk_name": "Soul Feast (as primary)",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "1.0-launch;1.1-harbingers;1.2-woven",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The automated multi-skill chain compresses to carrier + linked-cast grammar because the proc skills' own behaviors are unfetched - source player would miss the distinct fissure/bolt/blood visuals and coverage; the felt loop (one button, curse-fed drain, Ward stream) carries via grammar + proc-loop economy.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 3,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The automated multi-skill chain compresses to carrier + linked-cast grammar because the proc skills' own behaviors are unfetched - source player would miss the distinct fissure/bolt/blood visuals and coverage; the felt loop (one button, curse-fed drain, Ward stream) carries via grammar + proc-loop economy.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Soul Feast",
+          "geometry_value": "single_target",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "mid-range necrotic drain on cursed targets: 'feasts on the souls of cursed enemies, dealing necrotic damage to them and drawing fragments of their souls back to you'; each returning fragment grants Ward (5 per fragment, verify-anchor attested); sole pressed button - carrier for the automated chain"
+        }
+      ],
+      "motion_frame": "one-button ranged loop: press Soul Feast; curses and damage procs (Chthonic Fissure, Chaos Bolts, Rip Blood) fire automatically around it",
+      "resource_economy": {
+        "persistent_condition_shape": "proc-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "cursed-state precondition (curse variant unattested - no curse token emitted)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "RESONANCE_LOOP",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "soul-fragment return -> Ward overshield fill"
+          ],
+          "traits_affixes": [
+            "Torment passive tree (Warlock mastery) governs curse synergies"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "necrotic -> shadow (crosswalk 1); drain emitted from fetched behavior ('necrotic drain... drawing fragments of their souls back'). B single-button-carrier law: one button is NOT one mechanic - automated riders kept distinct in grammar; but Chthonic Fissure / Chaos Bolts / Rip Blood / Bone Curse are name-only here (no fetched geometry) -> riders contribute no skill rows (0.4). Curse variant (R-M3) unattested -> mark_identity records the cursed-state precondition instead; near-miss logged. corpus negative=1 but kb negative framing is UNATTESTED (verify honest-U) - annotation only. Eras: 1.1 confirmed; 1.0/1.2 honest-U."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "GhazzyTV",
+      "title": "Warlock Soul Feast Torment Endgame Build for Last Epoch (Patch 1.1) - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://progameguides.com/last-epoch/warlock-skills-tier-list-in-last-epoch/",
+      "archive_url": null,
+      "site": "progameguides.com",
+      "author_handle": null,
+      "title": "Warlock Skills Tier List in Last Epoch - Pro Game Guides",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": "Warlock Soul Feast Torment Endgame Build for Last Epoch (Patch 1.1) - Last Updated July 14, 2024.",
+      "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Soul Feast Warlock primary' / 'Soul Feast as primary skill' / 'void soul drain build' are real community usage",
+      "anchor_quote": "This entire build runs off a single button, Soul Feast.",
+      "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Soul Feast; Warlock class; single-target necrotic drain; resource=Mana/Ward; feasts on cursed enemies; mid-range delivery",
+      "anchor_quote": "Soul Feast feasts on the souls of cursed enemies, dealing necrotic damage to them and drawing fragments of their souls back to you, with each soul fragment granting 5 Ward when they reach you.",
+      "source_url": "https://progameguides.com/last-epoch/warlock-skills-tier-list-in-last-epoch/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Soul Feast used as primary skill is negative — support/proc skill over-utilized as primary damage source",
+      "anchor_quote": null,
+      "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "GhazzyTV",
+          "site": "icy-veins.com",
+          "co_author": "Lavender"
+        },
+        "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Bone Curse + Transplant + Chthonic Fissure + Profane Veil are the support skills; Chaos Bolts and Rip Blood auto-proc; passive tree governs curse synergies. Torment passive tree (Warlock mastery) is the capstone system."
+        },
+        "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+        "anchor_quote": "Soul Feast, Bone Curse, Transplant, Chthonic Fissure, Profane Veil, with automated contributions from Chaos Bolts and Rip Blood.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "mid-range necrotic drain on cursed target; draws soul fragments back to player; single-target focus",
+          "range_class": "ranged (mid)",
+          "aoe": "single"
+        },
+        "source_url": "https://progameguides.com/last-epoch/warlock-skills-tier-list-in-last-epoch/",
+        "anchor_quote": "Soul Feast feasts on the souls of cursed enemies, dealing necrotic damage to them and drawing fragments of their souls back to you.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Warlock uses Soul Feast as the trigger/enabler skill button, which damages cursed enemies and draws soul fragments back for Ward. The build's actual heavy damage comes from automated Chthonic Fissure, Chaos Bolts, and Rip Blood procs generated through Soul Feast's curse-interaction chain. Soul Feast is the sole button pressed but functions as enabler, not primary damage source.",
+          "core_driver": "Soul Feast as automation trigger for curse-proc chain"
+        },
+        "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+        "anchor_quote": "Soul Feast is the enabler for the build, automating several skills and Curses to make the build work.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Soul Feast Torment Warlock (Patch 1.1)",
+              "notes": "GhazzyTV; Soul Feast as enabler-button; Chthonic Fissure + Chaos Bolts do damage"
+            }
+          ]
+        },
+        "source_url": "https://icy-veins.com/last-epoch/warlock-soul-feast-torment-endgame-build",
+        "anchor_quote": "This entire build runs off a single button, Soul Feast.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

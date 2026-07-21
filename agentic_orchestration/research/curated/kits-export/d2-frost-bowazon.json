@@ -1,0 +1,244 @@
+{
+  "kit_id": "d2-frost-bowazon",
+  "spine": {
+    "kit_id": "d2-frost-bowazon",
+    "folk_name": "Frostmaiden",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Pierce-enabled chain detonation (each pierced enemy independently detonates the AoE) is a geometry-multiply texture with no direct engine token; carried in delivery_notes. Player feels 'freeze-and-shatter ranged cold controller' — that build, minor pierce-chain texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Pierce-enabled chain detonation (each pierced enemy independently detonates the AoE) is a geometry-multiply texture with no direct engine token; carried in delivery_notes. Player feels 'freeze-and-shatter ranged cold controller' — that build, minor pierce-chain texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Freezing Arrow",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Bow projectile that on impact produces cold AoE burst in radius, freezing all enemies caught. Pierce (via Razortail belt) enables single arrow to pass through multiple enemies, each triggering independent AoE detonation. Freeze attested: 'Freezing Arrow fires an arrow that detonates on impact into a massive ice explosion, dealing cold damage in a large radius and freezing every enemy caught in the blast.'"
+        },
+        {
+          "source_skill": "Cold Arrow",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Synergy for Freezing Arrow; single-target fallback cold bow shot."
+        }
+      ],
+      "motion_frame": "Fire Freezing Arrow into packs; arrow detonates cold AoE burst freezing all enemies in radius; Pierce enables multi-target chain detonation; Cold Arrow as single-target fallback",
+      "resource_economy": {
+        "cost_scale": "mana-hungry",
+        "cadence_scale": "bow-fire-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Pierce skill/Razortail belt: piercing projectile through multiple targets, each triggering independent detonation"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Cold Arrow synergy; Ice runeword weapon is item-defined BIS (Holy Freeze aura on weapon = item-layer)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Freeze attested explicitly in fetched skill_loop anchor. Pierce mechanic (Razortail + Pierce skill enabling multi-target detonation chain) is a geometry-modifier (support lane: geometry); it approximates as AoE-multiplication texture in delivery_notes. Ice runeword Holy Freeze aura = item-layer capstone texture (§CROSS row 4), not a skill row. Pure cold control ranged build. No burn/poison/bleed attested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Freezing Arrow Frostmaiden Amazon Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Freezing Arrow Frostmaiden Amazon Build",
+      "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Freezing Arrow Frostmaiden Amazon Build",
+      "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frostmaiden' and aliases 'Frost Bowazon', 'Freezing Arrow Amazon', 'Cold Arrow Amazon' are real community usage",
+      "anchor_quote": "Freezing Arrow Frostmaiden Amazon Build",
+      "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Freezing Arrow, Cold Arrow",
+      "anchor_quote": "With strong crowd control thanks to Freezing Arrow, the Frostmaiden crushes any area without Cold Immune monsters.",
+      "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com",
+          "note": "Updated May 22, 2026 through Patch 2.8"
+        },
+        "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+        "anchor_quote": "MrLlamaSC is a professional twitch broadcaster that has been streaming since 2014",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Ice (weapon)",
+            "Faith (alt weapon)",
+            "Chains of Honor (armor)",
+            "Call to Arms (swap)"
+          ],
+          "uniques": [
+            "Razortail (belt — critical pierce enabler)"
+          ],
+          "synergies": [
+            "Cold Arrow is Freezing Arrow's primary synergy (each point increases FA cold damage)",
+            "Pierce skill multiplies effective AoE coverage"
+          ],
+          "notes": "Pierce is the force multiplier described as making 100% pierce achievable via Razortail + Pierce skill."
+        },
+        "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+        "anchor_quote": "Pierce is the force multiplier for this build; 100% pierce chance achievable via Razortail + Pierce skill",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Ice runeword Matriarchal or Grand Matron Bow (BIS for cold bowazon — Holy Freeze aura, cold skill damage)",
+            "Faith runeword bow (alt — for balanced physical/elemental)",
+            "Razortail belt (pierce mechanic — up to 100% pierce chance)",
+            "Chains of Honor (armor)",
+            "Call to Arms (swap weapon for BO)",
+            "Mavina's set (budget option)"
+          ],
+          "notes": "Ice runeword in correct base is the defining BIS; Razortail is the critical pierce-enabler that multiplies AoE value."
+        },
+        "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+        "anchor_quote": "Ice Matriarchal Bow — specifically made for a frostmaiden or cold bowazon; Chains of Honor; Call to Arms",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Freezing Arrow: bow projectile (single arrow) that on impact produces cold AoE burst in radius. Pierce allows projectile to pass through multiple targets, each triggering independent detonation. Small-to-medium AoE radius at impact. Point delivery with radius footprint."
+        },
+        "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+        "anchor_quote": "When a Freezing Arrow passes through enemies, each target it hits can trigger the ice explosion independently",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Freezing Arrow as primary attack — arrow detonates on impact with cold AoE burst, freezing all enemies in radius. Cold Arrow provides synergy. Pierce (via Razortail belt or skill) enables single arrow to pass through multiple enemies, each triggering independent AoE explosion. Cold Arrow as fallback single-target."
+        },
+        "source_url": "https://www.icy-veins.com/d2/freezing-arrow-frostmaiden-amazon-build",
+        "anchor_quote": "Freezing Arrow fires an arrow that detonates on impact into a massive ice explosion, dealing cold damage in a large radius and freezing every enemy caught in the blast",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Frostmaiden (Freezing Arrow + Cold Arrow; Ice runeword bow)",
+            "Freezing Arrow/Strafe hybrid (cold + physical; Faith bow)",
+            "Poor Man's Freezing Arrow/Strafezon (budget; Dacar92 guide v1.12)"
+          ],
+          "notes": "PureDiablo hosts a 'Poor Man's Freezing Arrow/Strafezon' guide — confirms budget variant existed in earlier patches."
+        },
+        "source_url": "https://www.purediablo.com/strategy/diablo-2-guide-poor-mans-freezing-arrow-strafezon-amazon-v1-12",
+        "anchor_quote": "Diablo 2 Guide: Poor Man's Freezing Arrow/Strafezon Amazon v1.12",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

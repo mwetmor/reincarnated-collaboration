@@ -1,0 +1,217 @@
+{
+  "kit_id": "poe1-incinerate",
+  "spine": {
+    "kit_id": "poe1-incinerate",
+    "folk_name": "Incinerate",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cone-vs-beam: the stage-expanding cone footprint is folded into beam_channel (channel dominance per s7.2) -- a player would see a straighter stream than the source's widening fan. Stage count, per-stage cone-angle growth, and the release-wave multiplier are numeric properties with no enum carriers. 1.x-era 3-stage vs modern 8-stage numeric drift noted (mechanism identical).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cone-vs-beam: the stage-expanding cone footprint is folded into beam_channel (channel dominance per s7.2) -- a player would see a straighter stream than the source's widening fan. Stage count, per-stage cone-angle growth, and the release-wave multiplier are numeric properties with no enum carriers. 1.x-era 3-stage vs modern 8-stage numeric drift noted (mechanism identical).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Incinerate",
+          "geometry_value": "beam_channel",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "channeled flamethrower held on the aim direction: flames spread wider close to you and longer directly in front (a cone-shaped footprint riding a channel spine); stages ramp to 8 (25% more damage per stage; cone angle +100% per stage up to 300%), releasing at max stages fires a final wave at 500% more damage. beam_channel = the channel-maintain delivery; cone is the noted footprint alternative (s7.2)"
+        }
+      ],
+      "motion_frame": "rooted channel-mage: plant your feet and hose the pack with a ramping flame-stream, sweep the aim, release for the payoff wave, re-plant",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "beam_channel flame-stream (cone-spread footprint)",
+            "stage-expanding cone angle (+100%/stage to 300%)"
+          ],
+          "economy": [
+            "mana-per-tick channel drain; rooted while channeling",
+            "stage ramp to 8 -> release-wave payoff"
+          ],
+          "traits_affixes": [
+            "fire-penetration",
+            "cast-speed (faster stage gain)",
+            "burn-scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FOUNDING-ERA SUSTAINED-CHANNEL kit (eras 1.x;2.x CONFIRMED -- introduced 0.10.2). Geometry judgment s7.2: the dominant every-3-seconds act is HOLDING THE CHANNEL -> beam_channel (commit_val=channel corroborates); the dossier footprint is a stage-expanding cone ('flames spread wider close to you and spread longer directly in front') recorded as the alternative. Stage-ramp mechanism -> MOMENTUM_CASCADE: engine Layer-2 (verified t4_catalog_v2/layer2_dimensions) is ON_HIT stacking-capped(10) -> THRESHOLD_BURST -- the same build-stacks-then-burst shape as ramp-to-8-then-release-wave; stack cap 8-vs-10 and the 500%-wave magnitude are Layer-2-pinned territory (mapping never re-pins). persistent_condition_shape=tick-cost carries mana-per-tick channel economy (magnitude unattested, shape only per R-M4). ERA-DRIFT note: 8 stages / release wave / expanding cone are the MODERN gem's numbers (dossier verbatim); the 1.x/2.x-era gem ramped 3 stages with no release wave -- same channel-ramp MECHANISM, numbers era-drifted, mapped on mechanism."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Incinerate",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Incinerate — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped eras 1.x and 2.x",
+      "anchor_quote": "Incinerate was introduced in patch 0.10.2. Version 1.0.4: Cast time adjusted; Version 2.0.0: ~100% damage increase",
+      "source_url": "https://poedb.tw/us/Incinerate",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Incinerate' with class Witch/Shadow lineage is real community usage",
+      "anchor_quote": "Continuously launches a torrent of fire from your hand, repeatedly damaging enemies",
+      "source_url": "https://poedb.tw/us/Incinerate",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Incinerate; channeled flamethrower; damage ramps in stages; rooted while channeling; mana-per-tick resource model",
+      "anchor_quote": "Channeled fire beam extending from player toward target; ramps in damage stages. Stage progression operates on up to 8 maximum stages",
+      "source_url": "https://poedb.tw/us/Incinerate",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Incinerate",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "helmet enchantment extends max stages from 8 to 10"
+        },
+        "source_url": "https://poedb.tw/us/Incinerate",
+        "anchor_quote": "up to 8 maximum stages (expandable to 10 with helmet enchantments)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Incinerate of Venting (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Maximum of 15 Stages (previously 12); quality grants +0-3 to maximum Stages",
+              "anchor_quote": "maximum of 15 Stages (previously 12)"
+            },
+            {
+              "item": "Incinerate of Expanse (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Wider area coverage; adjusted cast time and mana costs",
+              "anchor_quote": "Wider area coverage with adjusted cast time and mana costs"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Incinerate",
+        "anchor_quote": "maximum of 15 Stages (previously 12)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam (channeled cone from player)",
+          "footprint": "cone (narrow at start, expands with stages)",
+          "range_note": "extends directly in front of player; cone angle expands per stage",
+          "aoe_radius": null
+        },
+        "source_url": "https://poedb.tw/us/Incinerate",
+        "anchor_quote": "flames spread wider close to you and spread longer directly in front of you",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "hold button to channel → stages ramp (up to 8) → each stage adds 25% more damage → at max stages, release for final wave (500% more damage hit) → restart",
+          "movement": "rooted while channeling",
+          "ramp_mechanic": "cone angle expands 100% per stage up to 300%"
+        },
+        "source_url": "https://poedb.tw/us/Incinerate",
+        "anchor_quote": "flames spread wider close to you and spread longer directly in front of you. 25% more Damage with Hits and Ailments for each stage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Incinerate",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

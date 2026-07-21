@@ -1,0 +1,259 @@
+{
+  "kit_id": "poe1-divine-ire",
+  "spine": {
+    "kit_id": "poe1-divine-ire",
+    "folk_name": "Divine Ire",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The channel-gather-then-release-beam identity lands cleanly: beam_channel geometry + native accumulator-discharge (stage-build via on-hit-dealt, fire at 10-stage cap) + tick-cost channel + shock->sunder. Minor drift: the beam's fixed-length-immune-to-area-mods property and the secondary on-release damage-bubble are behavioral details the geometry enum doesn't separately model. A player keeps the full gather-then-lance rhythm; only the beam's area-scaling-immunity nuance is generalized.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The channel-gather-then-release-beam identity lands cleanly: beam_channel geometry + native accumulator-discharge (stage-build via on-hit-dealt, fire at 10-stage cap) + tick-cost channel + shock->sunder. Minor drift: the beam's fixed-length-immune-to-area-mods property and the secondary on-release damage-bubble are behavioral details the geometry enum doesn't separately model. A player keeps the full gather-then-lance rhythm; only the beam's area-scaling-immunity nuance is generalized.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Divine Ire",
+          "geometry_value": "beam_channel",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "channel gathers charge by zapping nearby enemies (accumulating up to 10 stages), then on release fires a screen-length forward annihilation beam along the lane axis (fixed length, cannot be area-scaled) plus a damage bubble from the player on release; rooted while channeling. shock (PoE damage-amp) -> sunder (false-friend, §2). beam_channel = the channel+beam identity"
+        }
+      ],
+      "motion_frame": "gather-then-lance channeler: root in place, channel to zap nearby and build up to 10 stages, release a screen-length lightning beam that annihilates the lane",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-hit-dealt",
+        "accumulator_max": 10,
+        "accumulator_discharge_threshold": 10,
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "beam_channel screen-length lane"
+          ],
+          "economy": [
+            "stage accumulator (zap-to-build, release-to-fire; on-hit-dealt fill)",
+            "channel tick-cost (mana-per-tick while channeling)",
+            "release-burst at stage cap"
+          ],
+          "traits_affixes": [
+            "lightning-penetration",
+            "crit + Inevitable Judgement (Inquisitor pen scaling)",
+            "shock/sunder scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GATHER-THEN-LANCE channel-beam: channel to accumulate stages by zapping nearby enemies, release a screen-length beam (dossier skill_loop). NATIVE mapping on two lanes: (1) beam_channel geometry (§6 beam/ray/channel) is exact; (2) the stage-accumulation-then-release IS the accumulator-discharge primitive (charge_stack_sub_shape=accumulator, fill on-hit-dealt = the channel zaps, discharge_threshold=10 = the 10-stage cap; verified engine enum). Channel-maintain = persistent_condition_shape=tick-cost (mana-per-tick, probe economy). shock->sunder (false-friend §2; probe control lists 'shock' as a rider). T4 TEMPORAL_CHARGE (stage/charge engine) + ELEMENTAL_ECHO (mono-lightning amp). CAPSTONE ABSTAINED — t4 routed from core identity (stage-charge-then-release engine) + probe (mana-spend + shock-rider) per fallback. Minor: the beam's 'fixed length, cannot be area-scaled' + the on-release damage bubble are behavioral properties beam_channel doesn't separately carry; the dominant loop (channel->beam) leads per §7.2."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/divine-ire-templar-inquisitor-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.6] DBZ Divine Ire Templar Inquisitor Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2925066",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Bergerbrush",
+      "title": "[3.14 UPDATED] Bergerbrush's Divine Ire Inquisitor - HADOUKEN BUILD! (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Divine_Ire",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Divine Ire - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Divine Ire was added in patch 3.6.0 … [3.14 UPDATED] Bergerbrush's Divine Ire Inquisitor",
+      "source_url": "https://poedb.tw/us/Divine_Ire",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Divine Ire' is real community usage; alias DI CwC variant",
+      "anchor_quote": "[3.6] DBZ Divine Ire Templar Inquisitor Build",
+      "source_url": "https://odealo.com/articles/divine-ire-templar-inquisitor-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Channel gathers charge by zapping nearby enemies; release fires screen-length annihilation beam; geometry: lane/beam; mana spend resource",
+      "anchor_quote": "channeling skill, that after drawing enough energy from surroundings unleashes powerful energy beam",
+      "source_url": "https://odealo.com/articles/divine-ire-templar-inquisitor-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Bergerbrush",
+          "site": "pathofexile.com/forum"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2925066",
+        "anchor_quote": "[3.14 UPDATED] Bergerbrush's Divine Ire Inquisitor - HADOUKEN BUILD!",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Divine Ire (quality)",
+              "type": "base_quality",
+              "effect": "(0-20)% increased beam width",
+              "anchor_quote": "(0—20)% increased beam width"
+            },
+            {
+              "node": "Divine Ire of Holy Lightning (transfig)",
+              "type": "transfigured_gem",
+              "effect": "140% more Damage with Hits per Stage; 20% less Area of Effect",
+              "anchor_quote": "140% more Damage with Hits per Stage...20% less Area of Effect"
+            },
+            {
+              "node": "Divine Ire of Disintegration (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Higher effectiveness (130% vs 50%); slower cast time (0.26s vs 0.22s)",
+              "anchor_quote": "130% vs 50% effectiveness; 0.26s cast time vs 0.22s"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Divine_Ire",
+        "anchor_quote": "(0—20)% increased beam width",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Divine Ire gem — base",
+              "type": "gem_base",
+              "effect": "(0-20)% increased beam width from quality",
+              "anchor_quote": "(0—20)% increased beam width"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Divine_Ire",
+        "anchor_quote": "(0—20)% increased beam width",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "lane/beam; fixed length and width; channel zap radius around player; release beam fires forward along lane axis; also releases damage bubble from player on release",
+          "beam_note": "screen-length forward beam; cannot be scaled by area modifiers (fixed length)"
+        },
+        "source_url": "https://poedb.tw/us/Divine_Ire",
+        "anchor_quote": "The beam has fixed length and width that cannot be affected by area modifiers",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Divine Ire -> skill zaps nearby enemies accumulating up to 10 charge stages -> release channel -> screen-length beam fires forward annihilating targets; rooted while channeling; Inquisitor Righteous Providence + Inevitable Judgement for crit/pen scaling"
+        },
+        "source_url": "https://odealo.com/articles/divine-ire-templar-inquisitor-build",
+        "anchor_quote": "channeling skill, that after drawing enough energy from surroundings unleashes powerful energy beam",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Divine Ire Inquisitor (3.6 origin, 3.14 updated — primary meta form)",
+            "Divine Ire Elementalist (3.24 modern version)",
+            "DI CwC variant (Cast while Channelling trigger variant)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/divine-ire-elementalist-build-guide",
+        "anchor_quote": "TbXie's Divine Ire Elementalist Build Guide (PoE Necropolis 3.24)",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

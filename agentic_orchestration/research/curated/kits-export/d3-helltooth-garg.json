@@ -1,0 +1,243 @@
+{
+  "kit_id": "d3-helltooth-garg",
+  "spine": {
+    "kit_id": "d3-helltooth-garg",
+    "folk_name": "Helltooth Gargantuan",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-18-proposed",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — engine has no autonomous pet combatant lane. Gargantuan army identity (three cleave-bots) entirely unrepresentable. Wall of Death placed_lane activator pattern preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — engine has no autonomous pet combatant lane. Gargantuan army identity (three cleave-bots) entirely unrepresentable. Wall of Death placed_lane activator pattern preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Gargantuan (Humongoid rune)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Three autonomous Gargantuans with Cleave (tripled by Short Man's Finger: 'splits your Gargantuan into three, each dealing 750%' per verify anchor); autonomous combatants = summoner GAP per §CROSS row 2 army GAP hot-fact BINDING; fight within melee range autonomously; garg-split ×3 = placed-proxy-count accrual filed per hot-fact §CROSS.2"
+        },
+        {
+          "source_skill": "Wall of Death",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Activator for Helltooth 6pc 17500% bonus; 'Wall of Death is the activator for the Helltooth Harness set' per verify anchor; placed wall/lane geometry; no element attested in fetched text"
+        }
+      ],
+      "motion_frame": "Summon Gargantuans (tripled via Short Man's Finger); apply Wall of Death to activate Helltooth 6pc; passive playstyle while pets deal damage autonomously; Tasker and Theo for pet attack speed",
+      "resource_economy": {
+        "cost_scale": "Mana (Witch Doctor class resource); summon + Wall of Death cast costs"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Three Gargantuans melee cleave area"
+          ],
+          "economy": [
+            "Shukrani's Triumph mobility",
+            "Wall of Death activation timing for 6pc uptime"
+          ],
+          "traits_affixes": [
+            "Helltooth 6pc 17500% pet scalar (scaler-only per §B.1)",
+            "Mask of Jeram 200% pet damage (scaler-only)",
+            "Tasker and Theo 50% pet attack speed (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SUMMONER GAP — three autonomous Gargantuan combatants have no engine lane per §CROSS row 2 (army GAP hot-fact BINDING). Kit's loop IS the garg army: R-M7 biconditional → GAPPED. Garg-split ×3 (Short Man's Finger) = placed-proxy-count accrual filed per §CROSS.2 hot-fact. Gear-stat-as-minion-scaling accrual filed (Mask of Jeram pet-damage + Tasker and Theo pet-attack-speed). Helltooth scalers scaler-only per §B.1. t4_doors null per GAPPED/doorless rule. Element null — no element attested in any anchor."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Diablo 3 Season 39 Helltooth Gargantuan Witch Doctor Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Helltooth Gargantuan Witch Doctor Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "the Season 30 offers a massive (6) Bonus damage multiplier buff to 37,500%",
+      "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "Helltooth Gargantuan Witch Doctor Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Helltooth Gargantuan' and aliases 'Helltooth Gargantuan WD', 'Helltooth WD', 'Gargantuan Witch Doctor' are real community usage",
+      "anchor_quote": "The Gargantuan Witch Doctor is one of the classic pet builds in Diablo 3",
+      "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Gargantuan and Wall of Death; Mana resource; three Gargantuans via Short Man's Finger; Wall of Death as set activator",
+      "anchor_quote": "Wall of Death is the activator for the Helltooth Harness set",
+      "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "reviewers": [
+            "Northwar",
+            "Raxxanterax"
+          ],
+          "updater": "Chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+        "anchor_quote": "Written by wudijo with help from Rob. Reviewed by Northwar, Raxxanterax. Updated by Chewingnom",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Helltooth Harness",
+          "set_bonus_6pc": "17500% damage increase to Gargantuans after using Wall of Death (buffed to 37500% in Season 30)",
+          "kanais_cube": [
+            "The Short Man's Finger",
+            "Mask of Jeram",
+            "Lakumba's Ornament"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+        "anchor_quote": "Helltooth Harness set is the core of the build, giving 17,500% damage increase to your Gargantuans after using Wall of Death",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "The Short Man's Finger",
+            "Mask of Jeram",
+            "Tasker and Theo",
+            "Lakumba's Ornament",
+            "Shukrani's Triumph"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+        "anchor_quote": "Mask of Jeram adds 200% damage bonus to your Pets. Tasker and Theo give 50% Attack Speed to your Pets",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "summon-at-target",
+          "footprint": "melee cleave (Gargantuans)",
+          "notes": "Three Gargantuans with Cleave ability via Humongoid rune; fight within melee range of target autonomously"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+        "anchor_quote": "The Short Man's Finger splits your Gargantuan into three, each dealing 750% of the original damage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Summon Gargantuans (tripled by Short Man's Finger); apply Wall of Death to activate Helltooth 6pc (17500% damage); Gargantuans fight autonomously; Tasker and Theo for pet attack speed; passive playstyle"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+        "anchor_quote": "Gargantuans are our core damage in this setup",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Helltooth Garg Solo Push",
+            "Speed Farming T16",
+            "Helltooth Zombie Bears (separate guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/helltooth-gargantuan-witch-doctor-guide",
+        "anchor_quote": "Helltooth Zombie Bears Witch Doctor Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

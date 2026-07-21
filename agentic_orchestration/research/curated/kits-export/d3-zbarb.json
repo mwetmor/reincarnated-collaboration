@@ -1,0 +1,244 @@
+{
+  "kit_id": "d3-zbarb",
+  "spine": {
+    "kit_id": "d3-zbarb",
+    "folk_name": "zBarb",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-16",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Support-role approximation: engine has no party-support lane natively; solo-PvE scope means party utility is context-only. curse:weaken attested for Falter. Rage Flip 'pull and gather' identity preserved via vortex_pull. Globe generation has no engine lane (loot-economy adjacent).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Support-role approximation: engine has no party-support lane natively; solo-PvE scope means party utility is context-only. curse:weaken attested for Falter. Rage Flip 'pull and gather' identity preserved via vortex_pull. Globe generation has no engine lane (loot-economy adjacent).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Threatening Shout (Falter rune)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "AoE debuff aura; '50% from Threatening Shout Falter' per verify mechanics anchor — 50% additive damage debuff; Falter rune attested as debuff rune; 'curse:weaken' — damage debuff on enemies = weaken class per §2 ailment table (enemy takes more damage = weaken-class debuff); no element; physical context"
+        },
+        {
+          "source_skill": "Ground Stomp (Wrenching Smash rune)",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Rune pull per EDITION-II ENRICHMENT in mech_note: 'Ground Stomp WRENCHING SMASH (a RUNE = intrinsic) — pull radius 24y, radial-nova pull-to-self, instant, rooted during cast' — mech_note is probe-class, inadmissible for ailment; BUT dossier skill_loop payload: 'pixelpull them tightly together using Ground Stomp Wrenching Smash' per anchor — pull geometry attested; vortex_pull per phrase-book; rooted during cast = delivery_note; no ailment word in anchor"
+        },
+        {
+          "source_skill": "Ancient Spear (Rage Flip rune)",
+          "geometry_value": "knockback",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Ancient Spear Rage Flip throws AWAY (outward displacement to a convergence point = knockback geometry)' per mech_note (probe) — dossier anchor: 'zBarb really shines is its unparalleled capacity to pull and gather monsters through Ancient Spear Rage Flip' — pull-to-gather per anchor; however Rage Flip mechanics are described in mech_note as knockback-outward then gather; anchor says 'pull and gather' via Rage Flip; map per anchor: vortex_pull OR knockback contested; dominant loop from skill_loop anchor: 'Ancient Spear Rage Flip pulls enemies' → vortex_pull"
+        },
+        {
+          "source_skill": "Ignore Pain (Mob Rule rune)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "CC immunity and party utility; 'Ignore Pain Mob Rule makes it so allies cannot be knocked back, stunned, frozen or feared' per verify mechanics anchor; self_buff with party radius; no damage component"
+        }
+      ],
+      "motion_frame": "Zero-damage support: Rage Flip gathers packs; Ground Stomp Wrenching Smash pixelpulls tightly; Threatening Shout Falter debuffs; Ignore Pain Mob Rule provides party CC immunity; globe generation for group",
+      "resource_economy": {
+        "cost_scale": "Fury (Barbarian resource); 'Stamina makes it so that Furious Charge generates 15 Fury + 10 Fury per monster hit' per capstone anchor; Furious Charge for Fury and mobility"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Furious Charge mobility + Fury generation (Raekor's set)"
+          ],
+          "economy": [
+            "Chilanik's Chain movement speed; Strongarm Bracers 30% damage (scaler-only)"
+          ],
+          "traits_affixes": [
+            "90-100% additive damage buff breakdown per verify anchor (Falter+Strongarm+Toxin gem — all scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Zero-damage support kit. curse:weaken attested for Threatening Shout Falter: anchor confirms '50% additive damage debuff' — persistent AoE debuff aura = curse:weaken per §2 table (enemy-damage-taken debuff, aura/hex → curse per §2 exposure split). Ancient Spear Rage Flip: anchor says 'pull and gather' → vortex_pull governs over mech_note knockback-outward description (mech_note probe-class; anchor is admissible). No ailment for pulls — vortex_pull is geometry. Ignore Pain: stun/freeze/fear resistance attested in verify anchor — these are party buffs, not enemy ailments; do not emit ailments. NETWORK_AMPLIFIER T4 door: support-buff-network shape. t4_doors not null (has real support mechanics with T4 equivalents). No damage verbs → no combat element. [STEWARD-AUDIT 2026-07-18 MW3-close: REGISTER-SWAP curse:weaken -> curse:amplify: store attests 'threatening shout falter provides 50% additive damage debuff' within the damage-TAKEN amp trio ('90-100% total additive damage comprising: 50% falter, 30% strongarm bracers, 10% efficacious toxin'). Weaken = damage-DEALT reduction (unattested); amplify = damage-taken amplification (attested). First register-swap correction of the run.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewingnom",
+      "title": "Support zBarb Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "one of the strongest supports in the game since Season 4 and the addition of Crowd Control Resistance",
+      "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Guide updated October 2024 / Season 33; current Season 39.",
+      "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'zBarb' and aliases 'Support Barbarian D3', 'zBarb Barbarian', 'Threatening Shout Barb support' are real community usage",
+      "anchor_quote": "Support Barbarian (usually called the zBarb because they do \"zero\" damage) is one of the strongest supports in the game since Season 4.",
+      "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Threatening Shout: Falter, Ignore Pain, Ground Stomp; group-support role; Fury resource",
+      "anchor_quote": "50% from Threatening Shout Falter, 30% from Strongarm Bracers, 10% from Gem of Efficacious Toxin. Ignore Pain Mob Rule makes it so allies cannot be knocked back, stunned, frozen or feared.",
+      "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewingnom",
+          "site": "maxroll.gg",
+          "role": "Author; written by Rob and Chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+        "anchor_quote": "Written by Rob & Chewingnom. Updated by Chewingnom.",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "No single damage set. Support itemization: Raekor's for mobility, Chilanik's Chain, Strongarm Bracers. Group-utility not set-damage paradigm."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+        "anchor_quote": "Stamina makes it so that Furious Charge generates 15 Fury + 10 Fury per monster hit",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_legendaries": [
+            "Chilanik's Chain (movement speed)",
+            "Strongarm Bracers (30% dmg bonus)",
+            "Raekor's set (Furious Charge mobility)",
+            "Band of Might"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+        "anchor_quote": "Between the Crowd Control Immunity from Ignore Pain Mob Rule and the Movement Speed from Chilanik's Chain, zBarb offers a wide variety of utility bonuses",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-position + targeted pulls",
+          "footprint": "large group coverage",
+          "notes": "Rage Flip pulls enemies to player; Ground Stomp AoE. Coverage spans pack-wide area. Zero personal damage output."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+        "anchor_quote": "90-100% total additive damage comprising: 50% from Threatening Shout Falter, 30% from Strongarm Bracers, 10% from Gem of Efficacious Toxin",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Zero-damage support. Ancient Spear Rage Flip pulls enemies; Ground Stomp Wrenching Smash pixelpulls. Threatening Shout Falter provides 50% additive damage debuff. Ignore Pain Mob Rule grants CC immunity to party. Globe generation for group via Ground Stomp Jarring Slam."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-zbarb-guide",
+        "anchor_quote": "zBarb really shines is its unparalleled capacity to pull and gather monsters through Ancient Spear Rage Flip and then pixelpull them tightly together using Ground Stomp Wrenching Smash",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "zBarb 4-player push meta",
+            "zBarb 2-player push meta",
+            "zBarb 3-player push meta"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/meta/4-player-push-meta",
+        "anchor_quote": "zBarb appears in 4-player push meta",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

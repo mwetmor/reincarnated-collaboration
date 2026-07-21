@@ -1,0 +1,232 @@
+{
+  "kit_id": "chr-thorns-templar",
+  "spine": {
+    "kit_id": "chr-thorns-templar",
+    "folk_name": "Thorns Barrier Templar",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical thorns reflect has no direct engine geometry (self_buff approximates); health-stat-as-damage-substrate formula (Retaliator: 50% dmg stat + 30% max HP → thorns) has no current engine analog; lightning conversion variant is a major player identity not represented in primary mapping; taunt (central to loop) has no solo ailment lane",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical thorns reflect has no direct engine geometry (self_buff approximates); health-stat-as-damage-substrate formula (Retaliator: 50% dmg stat + 30% max HP → thorns) has no current engine analog; lightning conversion variant is a major player identity not represented in primary mapping; taunt (central to loop) has no solo ailment lane",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Thorns (passive reflect)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Base Thorns element is physical' — THE PHYSICAL RULE: physical = no-family (ailment-substrate only); thorns reflect = damage_taken_converts_shape reflect; Retaliator set: '50% of damage stat + 30% max health as additional Thorns'; health-stat-as-damage-substrate pattern"
+        },
+        {
+          "source_skill": "Chain Lightning / Avenger passive",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Optional element conversion: Lightning Thorns + Avenger passive converts Thorns output to lightning; 'chain lightning thorns' attested as major variant; lightning element attested ('Chain Lightning from Templar... base their damage on your Thorns amount'); this is VARIANT identity, not primary attested build"
+        }
+      ],
+      "motion_frame": "Stack Thorns (health + Retaliator set formula); enemies strike Templar → Thorns reflect activates; optional chain lightning conversion via Avenger passive",
+      "resource_economy": {
+        "damage_taken_converts_shape": "reflect-damage",
+        "hp_cost_scale": 0.0,
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Thorns nova via Shrank's shield (Reckoning Set)"
+          ],
+          "economy": [
+            "Nemesis shield health-to-Thorns conversion"
+          ],
+          "traits_affixes": [
+            "Retaliator's set 3-piece",
+            "Lightning Thorns + Avenger passives",
+            "Thundering Wrath mastery"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Primary attested identity = physical thorns (no family); health-stat-as-damage-substrate accrual candidate (Retaliator formula: 50% damage + 30% health → thorns). Lightning Thorns Avenger variant is major but SECONDARY to the physical base; ELEMENT_CONVERSION_PHYSICAL as T4 door captures the conversion potential. Taunt centrality noted (mechanics claim confirmed) but taunt has no solo ailment lane — delivery_note only. Reckoning Vindicator Fulmination is a separate crossover variant (thorns + Fulmination hybrid, 300 hits/s) — not mapped here."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=937088894",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Tonnes of Health and Thorns! (200K Health and 3M Thorns!!!)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/0/3192486635093069037/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "chain lightning thorns is nuts, NUTS! — Chronicon General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "Can a thorn build take you to 1200+",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/1693795812291960551/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Thorns Barrier Templar — class=Templar, build=thorns passive + barrier suite",
+      "anchor_quote": "Tonnes of Health and Thorns! (200K Health and 3M Thorns!!!)",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=937088894",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Physical damage-reflect on hit; enemy attacks trigger Thorns; taunt centrality; block/armor/shield-absorb defense; proc on damage-taken; DLC-only",
+      "anchor_quote": "Base Thorns element is physical (flat thorns * physical % * thorns %)",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/3192486635093069037/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "mastery": "Lightning Thorns passive + Avenger passive required for thorns-focused build; Thundering Wrath mastery increases thorns effectiveness"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=937088894",
+        "anchor_quote": "Lightning Thorns and Avenger passive abilities that are REQUIRED for a thorns-focused build",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "Retaliator's set (3-piece)",
+            "Reckoning Set (Thorns nova on hit)"
+          ],
+          "shield": "Nemesis shield (convert health to Thorns)",
+          "armor": "Elementium Armour (resistances to damage)",
+          "boots": "Lusombra boots (damage conversion)",
+          "cape": "Battlemaster's Cape"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=937088894",
+        "anchor_quote": "Retaliators ... 50% of your damage stat in additional thorns ... Nemesis shield to convert health into Thorns",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "trigger": "self-origin — enemies must strike Templar to trigger",
+          "contact_radius": "melee contact range",
+          "nova_variant": "Thorns nova via Shrank's shield (AoE proc on hit with Reckoning Set)",
+          "chain_variant": "Chain Lightning (scales from Thorns, direct hit, requires Overpower for crit)"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3192486635093069037/",
+        "anchor_quote": "Chain Lightning from Templar ... base their damage on your Thorns amount ... direct hits themselves",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Stack Thorns damage (from health and Retaliator set: 50% damage stat + 30% max health as Thorns); enemies attack Templar and receive Thorns reflect damage; optionally convert Thorns to chain lightning via Avenger passive; Reprisal aura +25% total thorns"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3192486635093069037/",
+        "anchor_quote": "Retaliators set grant 50% of your damage stat in additional thorns, and 30% of your maximum health in additional thorns",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Physical Thorns (base — health stack)",
+            "Lightning Thorns Avenger (element conversion)",
+            "Chain Lightning Thorns (Avenger + scaling)",
+            "Reckoning Vindicator Fulmination (Thorns+Fulmination hybrid — 300 hits/s)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3192486635093069037/",
+        "anchor_quote": "chain lightning thorns is nuts, NUTS!",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "kit_id": "poe1-edc",
+  "spine": {
+    "kit_id": "poe1-edc",
+    "folk_name": "Essence Drain + Contagion",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6;3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The two-button DoT-plague maps via drain ailment + on-defender-death trigger (native) + GEOMETRY_PROPAGATION_cascade, but the SIGNATURE is an UNBOUNDED cascading room-clear — each death spreads the ED DoT, those spread-DoTs kill, which spread again, rippling across the whole pack. Engine MAX_CHAIN_DEPTH=1 is LOCKED, so the map expresses a single on-death->spread hop — the chain-reaction is truncated to one propagation, never minted deeper per charter law. A player of the original would notice the screen-wide spreading plague becomes a bounded single-hop spread; the 'cast twice and watch the room dissolve in ripples' identity is intact but its unlimited-cascade magnitude is capped.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The two-button DoT-plague maps via drain ailment + on-defender-death trigger (native) + GEOMETRY_PROPAGATION_cascade, but the SIGNATURE is an UNBOUNDED cascading room-clear — each death spreads the ED DoT, those spread-DoTs kill, which spread again, rippling across the whole pack. Engine MAX_CHAIN_DEPTH=1 is LOCKED, so the map expresses a single on-death->spread hop — the chain-reaction is truncated to one propagation, never minted deeper per charter law. A player of the original would notice the screen-wide spreading plague becomes a bounded single-hop spread; the 'cast twice and watch the room dissolve in ripples' identity is intact but its unlimited-cascade magnitude is capped.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Essence Drain",
+          "geometry_value": "multi_projectile",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "a single projectile fired from player to target that applies a heavy chaos DoT debuff on hit (AoE radius 8 at the hit). chaos->shadow (§1 chaos = drain-DoT lineage); the chaos DoT = drain ailment (§2 essence-drain/decay -> drain, the literal namesake). Modeled multi_projectile as the fired-bolt delivery (single bolt; the DoT is the payload)"
+        },
+        {
+          "source_skill": "Contagion",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "AoE chaos debuff zone cast on a pack; its function is the SPREAD engine — when a Contagion-debuffed enemy DIES, the Essence Drain DoT jumps to nearby living enemies (chain-hop room-clear). ground_targeted_circle = the placed debuff-zone footprint; the on-death spread is trigger-grammar"
+        }
+      ],
+      "motion_frame": "two-button plague caster: Contagion a pack, fire Essence Drain into it, then the DoT spreads on each death and the room dissolves; high mobility (run while it ticks)",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-defender-death",
+        "mark_identity": "mark:consumption",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile (ED bolt)",
+            "ground_targeted_circle (Contagion debuff zone)",
+            "spread-hop on death (Contagion propagation)"
+          ],
+          "economy": [
+            "mana-light spend (probe 'mana/spend'; chassis default, no deviation)"
+          ],
+          "traits_affixes": [
+            "chaos/DoT scaling",
+            "Ghost Shroud tankiness (Trickster; survivability, not offense)",
+            "area-of-effect (Contagion + spread radius)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TWO-BUTTON DoT-PLAGUE: Essence Drain ticks a chaos DoT; Contagion makes that DoT JUMP to neighbors on death, clearing rooms by spreading (mech_note; dossier skill_loop). Element chaos->shadow (§1); the DoT is literally 'Essence Drain' = the DRAIN ailment (§2 life-drain/essence-drain/decay -> drain; probe guessed 'poison,wither' but this is a hex-DoT namesake-drain, not stacking-venom). ED geometry multi_projectile (the fired bolt); Contagion geometry ground_targeted_circle (the placed debuff zone; probe footprint 'chain-hop' describes the SPREAD, not the cast). The ON-DEATH SPREAD has a NATIVE trigger: proc_trigger_condition=on-defender-death (engine enum, distinct from on-kill, resource_economy.py:134) -> consequence burst-damage/spread (trigger_chain_shape apply-consume-pair: Contagion applies the mark:consumption, death consumes+spreads). CHAIN-DEPTH TRUNCATION: the source is a CASCADING room-clear — death spreads DoT -> that spread DoT kills -> which spreads again -> unbounded across the room. Engine MAX_CHAIN_DEPTH=1 LOCKED: the map expresses ONE on-defender-death->spread step; the unbounded cascade is truncated to single-hop, NOT minted deeper (charter law). T4 GEOMETRY_PROPAGATION_cascade (on-death propagation, §5) + PERSISTENCE_ENGINE_saturation (the DoT-saturation reading). CAPSTONE ABSTAINED — t4 routed from core identity (on-death DoT-propagation) + probe (mana-spend, chain-hop footprint) per fallback."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/essence-drain-contagion-trickster-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Essence Drain Contagion Trickster Build Guide (PoE Trial of the Ancestors 3.22)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/3-1-essence-drain-occultist-starter-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.8] Essence Drain Occultist Starter Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Essence_Drain",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Essence Drain - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2333065",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[3.13] ESSENCE DRAIN / BANE / SOULREND Occultist / Trickster Build (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 2.x, 3.0-3.6, 3.7-3.13, 3.14-3.19",
+      "anchor_quote": "Essence Drain … added to the game in patch 2.1.0 … [3.13] ESSENCE DRAIN / BANE / SOULREND Occultist / Trickster Build",
+      "source_url": "https://poedb.tw/us/Essence_Drain",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Essence Drain + Contagion' is real community usage; alias 'ED/C' is real community shorthand",
+      "anchor_quote": "TbXie's Essence Drain Contagion Trickster Build Guide … ED/C",
+      "source_url": "https://www.poe-vault.com/guides/essence-drain-contagion-trickster-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Essence Drain projectile applies chaos DoT; Contagion makes the DoT jump to neighbors on death; two-button plague; mana spend resource",
+      "anchor_quote": "Contagion - AoE spell that deals Chaos Damage, and spreads your Essence Drain DoT effect on all enemies in the radius",
+      "source_url": "https://odealo.com/articles/3-1-essence-drain-occultist-starter-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com"
+        },
+        "source_url": "https://www.poe-vault.com/guides/essence-drain-contagion-trickster-build-guide",
+        "anchor_quote": "TbXie's Essence Drain Contagion Trickster Build Guide",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Essence Drain of Desperation (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Transfigured variant listed; mechanical details not fully enumerated on poedb page",
+              "anchor_quote": null
+            },
+            {
+              "node": "Essence Drain of Wickedness (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Transfigured variant listed; mechanical details not fully enumerated on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Essence_Drain",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "ED: single projectile from player to target, DoT debuff applied at hit; Contagion: AoE zone debuff at cast location; spread: chain-hop from dead enemy to nearby living enemies",
+          "radius": "ED AoE radius 8 (poedb); spread range dependent on Contagion area"
+        },
+        "source_url": "https://poedb.tw/us/Essence_Drain",
+        "anchor_quote": "fires a projectile that applies a damage over time debuff when it hit … area-of-effect radius of 8",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Contagion on pack (AoE chaos debuff area) -> fire Essence Drain projectile at one target -> ED DoT ticks chaos damage on target -> when enemy dies while debuffed by Contagion, ED DoT spreads to nearby enemies -> chain clear; boss mode: repeat ED cast + Blight channel"
+        },
+        "source_url": "https://www.poe-vault.com/guides/essence-drain-contagion-trickster-build-guide",
+        "anchor_quote": "Contagion will expand as monsters die while being influenced by it … requires you to press two buttons almost all the time",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "ED/C Trickster (primary — Ghost Shroud tankiness, DoT scaling)",
+            "ED/C Occultist (ES variant, strong curses)",
+            "Essence Drain of Desperation Trickster (3.25 transfigured gem variant)",
+            "ED/Bane/Soulrend Occultist (Bane hybridisation)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/essence-drain-contagion-trickster-build-guide",
+        "anchor_quote": "TbXie's … Trickster … Occultist … [3.25] Essence Drain of Desperation Trickster Build",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

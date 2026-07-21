@@ -1,0 +1,225 @@
+{
+  "kit_id": "hades2-medea-skull-cast",
+  "spine": {
+    "kit_id": "hades2-medea-skull-cast",
+    "folk_name": "62-Fear Medea Skull Build",
+    "game": "hades2",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades2-post1.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-14",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Medea skull player gets a heavy AoE lobber, but the DEFINING throw-and-physically-retrieve loop is lost: the engine has no out-and-return projectile path AND no 'spent-ammo-you-must-go-collect' economy, so 'throw shells, then lunge in to pick them up and reload' collapses to a finite-ammo multi_projectile with a note. The retrieve-lunge (which is also the evasion/graze tool) and the risk/reward of running back into the pack to rearm are the identity, and they're approximated away (R-M8 out-and-return is the sole delivery-shape identity here, not a mobile-AoE rider). Filed to the out-and-return family (steward-owned count) + docket-candidate. That is largely 'not that build' for the retrieval rhythm -> APPROX with docket.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Medea skull player gets a heavy AoE lobber, but the DEFINING throw-and-physically-retrieve loop is lost: the engine has no out-and-return projectile path AND no 'spent-ammo-you-must-go-collect' economy, so 'throw shells, then lunge in to pick them up and reload' collapses to a finite-ammo multi_projectile with a note. The retrieve-lunge (which is also the evasion/graze tool) and the risk/reward of running back into the pack to rearm are the identity, and they're approximated away (R-M8 out-and-return is the sole delivery-shape identity here, not a mobile-AoE rider). Filed to the out-and-return family (steward-owned count) + docket-candidate. That is largely 'not that build' for the retrieval rhythm -> APPROX with docket.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Revaal cast/lob (throw shells) + special lunge retrieve",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "the Skull (Revaal) THROWS shells that explode on hit for a heavy large-AoE detonation; the SPECIAL is a lunge that RETRIEVES the thrown shells (a second ACTION, not auto-return -- FLAG 5). Approximated as multi_projectile (the thrown exploding shells) + note the out-and-return retrieve loop. element-neutral (elem_raw=n/a, 'chaos/skull' -- no engine family; identity via geometry + the finite-payload loop). sunder from Static Shock Armor removal (FLAG 7 + §D row: Zeus on Special + Static Shock removes armor -> sunder, hit-proc shape). Aspect of Medea: 90% attack+special bonus; special doubles as evasion (graze while avoiding hitboxes)."
+        }
+      ],
+      "motion_frame": "finite-payload skull-lobber: throw a limited stock of heavy exploding shells at the pack, then lunge in (special) to physically retrieve your spent shells and reload -- a throw-out, dash-back-to-collect rhythm verified clearing 62 Fear",
+      "resource_economy": {
+        "model": "ammo",
+        "resource_verbatim": "finite cast-charge payload (limited shells per cast); the special lunge RETRIEVES thrown shells to reload (retrieve is a second action, not auto-return)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "thrown exploding shells (large-AoE detonation on hit)",
+            "lunge retrieve (out-and-return second action)"
+          ],
+          "economy": [
+            "finite shell payload (ammo)",
+            "special-lunge retrieval reload"
+          ],
+          "traits_affixes": [
+            "attack+special damage (Aspect of Medea 90%)",
+            "detonation radius/damage (Medea upgrades)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-14 (corpus flag). FLAG 5 + §D throw-retrieve row: approximate as multi_projectile (thrown exploding shells) + note; the retrieve LUNGE is a SECOND action (not auto-return). ACCRUAL CANDIDATE to the out-and-return (spectral-throw/boomerang) family -- filed WITHOUT number (steward counts; §D row + FLAG 14). FLAG 7 + §D: Static Shock armor removal (Zeus Special) -> sunder, hit-proc shape (main-law exposure row). element-neutral (n/a/chaos-skull; no family) -- identity via geometry + finite-payload loop. The 'two curse types active for Origination (XIV arcana)' is a Hades ARCANA-gating mechanic (not engine ailment-curses) -- noted, NOT mapped as curse:<variant>. Aspect of Medea = the item/weapon-alteration analog (§D). RESOURCE_CONVERSION (the finite-payload-and-retrieve economy identity) + GEOMETRY_COLLAPSE (heavy concentrated detonation). glass defense not a surface. Docket-candidate filed for the throw-retrieve (out-and-return + finite-payload-reload) mechanism accrual. [STEWARD AUDIT m04: sunder UPHELD ('Static Shock for Armor removal' attested verbatim, SD row); Fear-62 correctly read as difficulty meter, Origination curses correctly NOT emitted. terminal MAPPED_DOCKET -> MAPPED per R-M7 biconditional; SD law itself prescribes approximate+note for throw-retrieve]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://brokenbuilds.gg/hades-ii/guides/argent-skull-build-guide",
+      "archive_url": null,
+      "site": "brokenbuilds.gg",
+      "author_handle": "BrokenBuilds Wiki",
+      "title": "Argent Skull Build Guide -- Revaal, All Aspects -- Hades II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://brokenbuilds.gg/hades-ii/best-builds/aspect-of-medea-build",
+      "archive_url": null,
+      "site": "brokenbuilds.gg",
+      "author_handle": "BrokenBuilds Wiki",
+      "title": "Aspect of Medea Build Guide -- Skull Speed-Crit -- Hades II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era hades2-post1.0-2026",
+      "anchor_quote": "guides were updated on May 4, 2026... 62 Fear clear and 67 Fear unseeded ceiling",
+      "source_url": "https://brokenbuilds.gg/hades-ii/best-builds/aspect-of-medea-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name '62-Fear Medea Skull Build' and aliases 'Medea skull cast build', '62 fear stack Medea', 'Revaal cast lob loop' are real community usage",
+      "anchor_quote": "The Aspect of Medea is the best weapon in the game and the easiest weapon to clear 62 Fear with... in-game name: Revaal",
+      "source_url": "https://brokenbuilds.gg/hades-ii/guides/argent-skull-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Revaal cast/lob loop; skull throws explode on hit and special retrieves them; large AOE detonation on impact",
+      "anchor_quote": "The Skull throws shells that explode on hit, and the special is a lunge that retrieves them",
+      "source_url": "https://brokenbuilds.gg/hades-ii/guides/argent-skull-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "BrokenBuilds Wiki",
+          "site": "brokenbuilds.gg"
+        },
+        "source_url": "https://brokenbuilds.gg/hades-ii/guides/argent-skull-build-guide",
+        "anchor_quote": "By BrokenBuilds Wiki",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Medea (90% attack+special bonus; special is evasion lunge)"
+          ]
+        },
+        "source_url": "https://brokenbuilds.gg/hades-ii/guides/argent-skull-build-guide",
+        "anchor_quote": "90% bonus to attack and special damage. Special doubles as evasion (graze targets to deal damage while avoiding their hitboxes)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "arcana_cards": [
+            "Cloud Bangle (Arcana) — high fear start",
+            "The Lovers (XV) — for Guardian encounters",
+            "Origination (XIV) — fires when two curse types active"
+          ],
+          "note": "Jeweled Pom start mentioned in updated version"
+        },
+        "source_url": "https://brokenbuilds.gg/hades-ii/best-builds/aspect-of-medea-build",
+        "anchor_quote": "start with Cloud Bangle if going for a High Fear run... add The Lovers (XV) because 62 Fear Guardian encounters are brutal",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "The Skull throws shells that explode on hit; special is a lunge that retrieves shells (ammo-loop); Aspect of Medea special doubles as evasion (graze targets while avoiding hitboxes); large AOE detonation on impact from corpus corroborated by explosive-on-hit description."
+        },
+        "source_url": "https://brokenbuilds.gg/hades-ii/guides/argent-skull-build-guide",
+        "anchor_quote": "The Skull throws shells that explode on hit, and the special is a lunge that retrieves them",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Equip Revaal (Argent Skull); Aspect of Medea gives 90% attack+special bonus at base; throw attack (shells explode on hit) + special lunge retrieves them. For 62 Fear: Zeus on Special + Static Shock for Armor removal; high-damage Attack boon; Origination (XIV arcana) via two curses; then build defense."
+        },
+        "source_url": "https://brokenbuilds.gg/hades-ii/best-builds/aspect-of-medea-build",
+        "anchor_quote": "Lock Hera Attack first, Zeus Special second, layer Heaven Flourish or Blitz, and keep two curse types active so item:origination fires on schedule",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "62 Fear Medea skull (Origination + Zeus Special)",
+            "67 Fear unseeded ceiling variant",
+            "Skull Speed-Crit (separate BrokenBuilds entry)"
+          ]
+        },
+        "source_url": "https://brokenbuilds.gg/hades-ii/best-builds/aspect-of-medea-build",
+        "anchor_quote": "67 Fear unseeded ceiling... started speedrunning Aspect of Medea for 62 Fear",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "kit_id": "gd-panettis-mage-hunter",
+  "spine": {
+    "kit_id": "gd-panettis-mage-hunter",
+    "folk_name": "Panetti's Missile Mage Hunter",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-15",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: equal-thirds tri-elemental compresses to a 2-slot hybrid (cold dropped per hybrid law -- the source player would see one-third of the rainbow missing its color, damage carried but flavor narrowed).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: equal-thirds tri-elemental compresses to a 2-slot hybrid (cold dropped per hybrid law -- the source player would see one-third of the rainbow missing its color, damage carried but flavor narrowed).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Panetti's Replicating Missile",
+          "geometry_value": "fork",
+          "element_primary": "fire",
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "spam replicating projectile: missiles fork and multiply through packs ('projectiles fork and multiply across target groups'; 'missiles multiply across enemy packs'; 'a huge amount of AoE through replication mechanics'); tri-elemental base per ERRATA-36 ('Elemental damage is dealt as 1/3 fire, 1/3 cold, 1/3 lightning'); casting-speed-maxed rapid fire."
+        },
+        {
+          "source_skill": "Inquisitor Seal",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "survivability platform ('Inquisitor passive/Seal for survivability')."
+        }
+      ],
+      "motion_frame": "rapid-fire replication: hose the pack with Panetti's missiles at max cast speed and watch them fork through everything; energy never runs dry",
+      "resource_economy": {
+        "cost_scale": "spam caster with energy pressure REMOVED ('Will never have energy issues even as a spam caster')",
+        "cadence_scale": "casting-speed-maxed rapid fire ('rapid-fire spam caster with maxed casting speed')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "fork/replication multiplication through packs"
+          ],
+          "economy": [
+            "max cast-speed cadence"
+          ],
+          "traits_affixes": [
+            "tri-elemental conversion global modifiers ('tri-elemental conversion via chest/shoulder/ring global modifiers')",
+            "elemental percent scaling; Mythical Invoker's rings"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-36 GOVERNS: damage profile mixed(fire/cold/lightning); the kb mono-lightning read + its downstream shock framing were CONTRADICTED -> shock NOT emitted (0 near-miss: zero fetched shock language; the kb ailment rode the wrong element read). 1 hybrid law: triple -> top-2 at equal thirds -> fire primary (GD tri-element row default 'dominant OR fire'), lightning secondary; COLD DROPPED and noted -- the water-secondary alternative is equally legal at equal weights (slot choice flagged for steward preference). fork over chain per 7.2 ('fork and multiply' = splitting-dominant; kb chain-hop framing is the noted alternative). Aether-to-tri conversion IS the identity ('Shaper of Elements'; 'converting aether damage to fire, lightning, and cold') -> ELEMENT_CONVERSION_HYBRID. Era: verify_ledger restamp governs (aom-2017 floor via Inquisitor, errata over kb base-2016). R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "archive_url": null,
+      "site": "mmos.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn Ashes Of Malmouth Expansion Coming On October 11th",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.8.1] Shaper of Elements - Elemental PRM Mage Hunter",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "era floor base-2016 — Mage Hunter = Arcanist+Inquisitor; Inquisitor debuted aom-2017",
+      "anchor_quote": "Ashes of Malmouth expansion was released on October 11th 2017 … introduced two new Masteries: the Inquisitor and the Necromancer",
+      "source_url": "https://mmos.com/news/grim-dawn-ashes-of-malmouth-october-11",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Panetti\\'s Missile Mage Hunter'; aliases=['PRM Mage Hunter','aether missile Mage Hunter']",
+      "anchor_quote": "[1.1.8.1] Shaper of Elements - Elemental PRM Mage Hunter … Arcanist + Inquisitor = Mage Hunter class … 'PRM Mage Hunter,' 'Panetti Spaghetti'",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "core_skills=['Panetti\\'s Replicating Missile']; delivery=projectile fork/chain; resource=mana spam; element=lightning; ailment=shock",
+      "anchor_quote": "Elemental damage is dealt as 1/3 fire, 1/3 cold, 1/3 lightning … missiles multiply across enemy packs … tri-elemental focus converting aether damage to fire, lightning, and cold",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.8.1] Shaper of Elements - Elemental PRM Mage Hunter"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Blind Sage",
+            "Attak Seru",
+            "Leviathan",
+            "Alladrah's Phoenix"
+          ],
+          "notes": "Rare tier-3 devotion path; elemental-focused constellations"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+        "anchor_quote": "Blind Sage, Attak Seru, Leviathan (three 'rarely used tier 3 Devotions'), plus Alladrah's Phoenix",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Mythical Invoker's rings (2-piece)"
+          ],
+          "notes": "Tri-elemental conversion via chest/shoulder/ring global modifiers; minimal set dependency"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+        "anchor_quote": "Mythical Invoker's rings … Only 2 set pieces used",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "chain-hop (missiles fork and replicate through packs)",
+          "range": "ranged",
+          "aoe": "replication multiplies coverage across multiple targets",
+          "notes": "Base damage is tri-elemental not mono-lightning; KB element label 'lightning' is inaccurate"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+        "anchor_quote": "Elemental damage is dealt as 1/3 fire, 1/3 cold, 1/3 lightning … missiles multiply across enemy packs",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Panetti's Replicating Missile; projectiles fork and multiply across target groups; base damage is tri-elemental (fire/cold/lightning); energy managed via gear; Inquisitor passive/Seal for survivability",
+          "resource": "mana spend (spam)",
+          "tempo": "rapid-fire spam caster"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-shaper-of-elements-elemental-prm-mage-hunter/106609",
+        "anchor_quote": "a huge amount of AoE through replication mechanics … rapid-fire spam caster with maxed casting speed … Will never have energy issues even as a spam caster",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "elemental tri-damage PRM (this)",
+            "aether PRM (base, pre-conversion)",
+            "cold PRM Mage Hunter"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-beginner-panettis-mage-hunter-the-javazon-of-grim-dawn/142560",
+        "anchor_quote": "[1.2.1.6] Beginner Panetti's Mage Hunter - The Javazon of Grim Dawn",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

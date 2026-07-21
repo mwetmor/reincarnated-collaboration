@@ -1,0 +1,247 @@
+{
+  "kit_id": "poe1-earthquake",
+  "spine": {
+    "kit_id": "poe1-earthquake",
+    "folk_name": "Earthquake",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The plant-and-payoff delayed-aftershock slam lands well: ground_slam + native `delayed` timing (delay_seconds, engine-verified) whose non-stacking single-delayed-hit matches EQ's one-aftershock-per-slam exactly + physical-neutral + stun. Minor drift: the aftershock's LARGER radius than the initial hit is a behavioral property carried by the geometry+timing note rather than a separate scaled-geometry field; and physical is element-neutral (flavor only) per the physical rule. A player keeps the slam-then-delayed-bigger-boom rhythm faithfully.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The plant-and-payoff delayed-aftershock slam lands well: ground_slam + native `delayed` timing (delay_seconds, engine-verified) whose non-stacking single-delayed-hit matches EQ's one-aftershock-per-slam exactly + physical-neutral + stun. Minor drift: the aftershock's LARGER radius than the initial hit is a behavioral property carried by the geometry+timing note rather than a separate scaled-geometry field; and physical is element-neutral (flavor only) per the physical rule. A player keeps the slam-then-delayed-bigger-boom rhythm faithfully.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Earthquake",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "at-target melee slam; immediate AoE hit covers the base area, then after a short delay an aftershock fires a LARGER-radius second hit at the same location (150% more damage). PHYSICAL RULE: physical melee -> element-neutral (element carries flavor only); identity via geometry (ground_slam = slam/quake, §6) + stun (heavy physical slam). The delayed aftershock is a native `delayed` timing primitive (delay_seconds)"
+        }
+      ],
+      "motion_frame": "plant-and-payoff slammer: slam at the target for an immediate hit, brief root while swinging, then the delayed aftershock detonates a bigger second hit at the same spot",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_slam (immediate slam)",
+            "aftershock = delayed second hit at same location (native `delayed` timing, delay_seconds; larger radius, 150% more)"
+          ],
+          "economy": [
+            "mana-light spend (probe 'mana/spend'; no identity-load-bearing deviation — chassis default)"
+          ],
+          "traits_affixes": [
+            "physical/melee scaling",
+            "area-of-effect (aftershock radius)",
+            "endurance-charge / stun-immunity (Juggernaut Unrelenting/Unflinching survivability, not offense)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PLANT-AND-PAYOFF slam: 'slam now, aftershock later — a delayed second larger hit' (mech_note). The two-hit-with-delay identity has a NATIVE lane: ability_grammar timing name='delayed' with delay_seconds (0.5-2.0s uniform, engine-verified ability_grammar.py:551-552) — EQ's sub-second-to-1s aftershock sits inside that range, and the engine's 'one delayed hit, non-stacking' matches EQ's 'one aftershock per slam, no stacking pre-3.25' exactly. Geometry ground_slam (§6 slam/quake). PHYSICAL RULE (§1): physical -> element-neutral, geometry+stun carry identity (probe control lists NO ailment, but a heavy physical slam is the stun archetype; stun is the honest physical-slam ailment — kept minimal). GEOMETRY nuance: the aftershock's larger radius is a behavioral property (the delayed hit covers a wider zone) that ground_slam + the delayed-timing note carries. T4 GEOMETRY_COLLAPSE (the concentrated-slam-zone reading; §5 AoE/geometry warps) — the two-stage same-location detonation is a geometry-warp identity more than a charge engine. CAPSTONE ABSTAINED — t4 routed from core identity (delayed two-stage slam geometry) + probe (physical/rooted/large-zone) per fallback. resource_economy empty: mana-light is the chassis default, no identity-load-bearing deviation (R-M4)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/earthquake-juggernaut-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "[3.17] EQ (Earthquake) Juggernaut Build Guide (PoE Archnemesis)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/earthquake-juggernaut-starter-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.5] Earthquake Juggernaut Starter build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Earthquake",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Earthquake - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2149501",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[3.13] EQ JUGG EARTHQUAKE JUGGERNAUT Build 2021 Edition (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 2.x, 3.0-3.6",
+      "anchor_quote": "Earthquake was introduced in patch 2.2.0 … [3.5] Earthquake Juggernaut Starter build",
+      "source_url": "https://poedb.tw/us/Earthquake",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Earthquake' / alias 'EQ' is real community usage for Juggernaut/Berserker slam build",
+      "anchor_quote": "[3.17] EQ (Earthquake) Juggernaut Build Guide",
+      "source_url": "https://www.poe-vault.com/guides/earthquake-juggernaut-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "At-target slam with immediate hit + delayed aftershock second hit; large AoE zone; mana spend resource",
+      "anchor_quote": "Earthquake is a Melee Area attack that deals initial damage in an area and after a short delay, a shockwave is created which deals 60% increased damage.",
+      "source_url": "https://odealo.com/articles/earthquake-juggernaut-starter-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Phantasmal Earthquake (alt quality)",
+              "type": "alt_quality",
+              "effect": "Increases and Reductions to Spell Damage also apply to Attack Damage at 0-50% of their value",
+              "anchor_quote": "grants 'Increases and Reductions to Spell Damage also apply to Attack Damage from this Skill at 0-50% of their value'"
+            },
+            {
+              "node": "Earthquake of Amplification (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Aftershock deals 5% more Damage with Ailments per 0.1 seconds Duration",
+              "anchor_quote": "Aftershock now deals 5% more Damage with Ailments per 0.1 seconds Duration"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Earthquake",
+        "anchor_quote": "Aftershock now deals 5% more Damage with Ailments per 0.1 seconds Duration",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Phantasmal Earthquake (alt quality gem)",
+              "type": "alt_quality_gem",
+              "effect": "Spell Damage applies to Attack Damage at 0-50% of value",
+              "anchor_quote": "Increases and Reductions to Spell Damage also apply to Attack Damage from this Skill at 0-50% of their value"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Earthquake",
+        "anchor_quote": "Increases and Reductions to Spell Damage also apply to Attack Damage from this Skill at 0-50% of their value",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target slam; large AoE zone; initial hit covers base area; aftershock covers larger radius than initial; physical damage type",
+          "aftershock_note": "150% more damage with hits and ailments; one aftershock per slam; no stacking pre-3.25"
+        },
+        "source_url": "https://poedb.tw/us/Earthquake",
+        "anchor_quote": "The aftershock applies a significant damage amplifier, dealing 150% more Damage with Hits and Ailments. The aftershock covers a larger radius than the initial strike.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Slam with Earthquake at target -> immediate AoE hit -> delayed aftershock fires larger AoE hit at same location; 150% more damage on aftershock; Juggernaut Unrelenting + Unflinching for Endurance charges + immunity to stun; rooted briefly while swinging"
+        },
+        "source_url": "https://odealo.com/articles/earthquake-juggernaut-starter-build-odealos-crafty-guide",
+        "anchor_quote": "Earthquake is a Melee Area attack that deals initial damage in an area and after a short delay, a shockwave is created which deals 60% increased damage.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "EQ Juggernaut (primary — lab farmer, tankiest)",
+            "EQ Berserker (more damage, less tank)",
+            "Vaal Earthquake (Vaal version for burst burst windows)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/earthquake-juggernaut-build-guide",
+        "anchor_quote": "[3.17] EQ (Earthquake) Juggernaut Build Guide … [3.13] EQ JUGG EARTHQUAKE JUGGERNAUT",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

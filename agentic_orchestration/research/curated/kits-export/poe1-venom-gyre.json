@@ -1,0 +1,288 @@
+{
+  "kit_id": "poe1-venom-gyre",
+  "spine": {
+    "kit_id": "poe1-venom-gyre",
+    "folk_name": "Venom Gyre",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.8-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player of the original would miss: the literal caught-projectile MAGAZINE (burst size equals number caught; engine accumulator carries damage ramp instead) and the out-and-back catch geometry (line + note). Whirling-Blades-as-release-valve approximated as dash_attack with burst note; the two-button couple (thrower feeds, dash spends) survives as accumulator fill/spend.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player of the original would miss: the literal caught-projectile MAGAZINE (burst size equals number caught; engine accumulator carries damage ramp instead) and the out-and-back catch geometry (line + note). Whirling-Blades-as-release-valve approximated as dash_attack with burst note; the two-button couple (thrower feeds, dash spends) survives as accumulator fill/spend.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Venom Gyre",
+          "geometry_value": "line",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "thrown poison projectile pierces out along an axis then RETURNS piercing everything again (out-and-back double-pierce; no boomerang enum -> line + behavioral return note); returning projectiles are CAUGHT and stored, up to 30"
+        },
+        {
+          "source_skill": "Whirling Blades",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "movement dash that RELEASES all caught projectiles spiraling outward in a shotgun burst (multi_projectile-class release footprint); 25-40 percent catch retention on release (lab enchant / 3.13+ baseline)"
+        }
+      ],
+      "motion_frame": "throw-catch-dash rhythm: hurl returners, catch them into a stored magazine, then dash through the pack dumping the whole magazine as a poison shotgun burst",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "line out-and-back returner (pierce both ways)",
+            "dash_attack release burst",
+            "extra-projectile scaling (Dying Sun)"
+          ],
+          "economy": [
+            "caught-projectile accumulator: catches fill the stack, the dash spends it",
+            "40 percent retention keeps the magazine partially loaded"
+          ],
+          "traits_affixes": [
+            "poison magnitude/duration scaling",
+            "claw/dagger crit (Nightblade elusive as trait-lane flavor)",
+            "wither scaffold -> curse:amplify-class chaos-damage-taken affix note"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "catch-and-release ammo economy approximated as accumulator + dash release. The stack-count -> release-burst-SIZE binding (N caught = N released) has no lane: engine accumulator scales magnitude, not emission count — 2nd accrual of the crackling-lance stack-parameterizes-geometry mint family; qualitative mint-candidate filed, kit graded as un-minted per R-M7. Chaos-poison VENOM register -> earth family (crosswalk 1 poison row, venom/nature side; shadow-corruption alternative noted — Assassin 3.8-3.13 is the poison identity, Deadeye 3.20+ elemental variant recorded). Eras ERRATA-corrected at ingest-4 (3.8 floor; corpus row is post-errata truth)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 2,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "Stack-parameterizes-geometry: an accumulator whose stack count reshapes the skill's LIVE geometry/emission, not just its damage. Three attested bindings: intensity-stacks narrow+intensify a beam (crackling-lance); stacks morph placed-AoE arc coverage (pizza-sticks); stored catch-count sets release projectile COUNT (venom-gyre). Engine accumulator scales magnitude only."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2634104",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "ezyanfarihin#5882",
+      "title": "[3.8] Venom Gyre Assassin done right",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/venom-gyre-deadeye-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "Odealo",
+      "title": "[3.22] Elemental Venom Gyre Deadeye Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2626271",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "loczek123",
+      "title": "[3.8] Assassin Poisonator | Cobra Lash / Venom Gyre | All Content | Uber Elder Video",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3343381",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "[3.22] Vaal Venom Gyre - Pathfinder",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Venom_Gyre",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Venom Gyre - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "'[3.8] Venom Gyre Assassin done right' posted September 2019 — Venom Gyre introduced in patch 3.8.0; era floor 3.7 predates skill introduction",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2634104",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": "'[3.22] Vaal Venom Gyre - Pathfinder' forum thread; [3.23] league starter Venom Gyre Deadeye YouTube guide; Deadeye most prominent class 3.20-3.23",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3343381",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Venom Gyre' is real community usage for this throwing-projectile build",
+      "anchor_quote": "'[3.8] Venom Gyre Assassin done right' — official forum thread title; guides universally use 'Venom Gyre' as build name",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2634104",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Alias 'Whirling Blades VG' is real community usage",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Venom Gyre + Whirling Blades; thrown poison projectiles return to player and are caught; stored projectiles released via Whirling Blades dash in shotgun burst",
+      "anchor_quote": "'Fired projectiles will always return to the character, piercing all enemies on the way back, and can be caught and stored... fire the stored projectiles by using a separate movement ability - Whirling Blades'",
+      "source_url": "https://odealo.com/articles/venom-gyre-deadeye-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "ezyanfarihin#5882",
+          "site": "pathofexile.com/forum",
+          "note": "3.8 era guide author; loczek123 authored companion Assassin Poisonator guide same era"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2634104",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "lab_enchant": "25% chance to keep caught Projectiles shot by using Whirling Blades (helmet enchant); 40% catch-retention baseline at 3.13+"
+        },
+        "source_url": "https://odealo.com/articles/venom-gyre-deadeye-build",
+        "anchor_quote": "'The Labyrinth enchant you require for this build is either Venom Gyre, which has a 25% chance to keep caught Projectiles shot by using Whirling Blades'",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "required_weapon": "claw or dagger",
+          "notable_items": [
+            "Nightblade support gem for elusive on crit",
+            "Dying Sun flask for additional projectiles"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/venom-gyre-deadeye-build",
+        "anchor_quote": "requires claws or daggers to use",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "return_mechanic": "projectile returns to caster piercing all targets on return path",
+          "release": "burst shotgun via Whirling Blades dash — all caught projectiles released simultaneously",
+          "range": "ranged throw + return arc",
+          "aoe": "none on individual projectile; shotgun burst coverage on release"
+        },
+        "source_url": "https://poedb.tw/us/Venom_Gyre",
+        "anchor_quote": "'Hurl a poisonous projectile that will return to you'; 'Caught projectiles spiral outwards when you use Whirling Blades and do not return'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Throw Venom Gyre projectile; it returns piercing all targets; player catches it (stored up to 30); use Whirling Blades to dash through enemies releasing all stored projectiles in shotgun burst; 40% chance to retain caught projectiles after release; cycle repeats"
+        },
+        "source_url": "https://odealo.com/articles/venom-gyre-deadeye-build",
+        "anchor_quote": "'Fired projectiles will always return to the character, piercing all enemies on the way back, and can be caught and stored... fire the stored projectiles by using Whirling Blades... powerful shotgun effect'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Assassin (3.8-3.13 poison focus)",
+            "Deadeye (3.20+ elemental/cold; primary post-3.20 class)",
+            "Pathfinder (3.22 Vaal variant)",
+            "Raider (documented but less guide coverage)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3343381",
+        "anchor_quote": "[3.22] Vaal Venom Gyre - Pathfinder; [3.22] Elemental Venom Gyre Deadeye as primary modern class",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

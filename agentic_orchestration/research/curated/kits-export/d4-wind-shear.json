@@ -1,0 +1,222 @@
+{
+  "kit_id": "d4-wind-shear",
+  "spine": {
+    "kit_id": "d4-wind-shear",
+    "folk_name": "Wind Shear Druid",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "launch-s1-3;loot-reborn-s4-5",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) element null is counter-intuitive given Storm tag — but no lightning/wind damage verb in dossier; (2) tag-inheritance scalar chain (Storm+Basic enabling Moonrise/Adaptability/Thunderstruck) is the identity differentiator; (3) Werebear-form upkeep requirement is a secondary loop prerequisite.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) element null is counter-intuitive given Storm tag — but no lightning/wind damage verb in dossier; (2) tag-inheritance scalar chain (Storm+Basic enabling Moonrise/Adaptability/Thunderstruck) is the identity differentiator; (3) Werebear-form upkeep requirement is a secondary loop prerequisite.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wind Shear (Calm Breeze aspected)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Basic Skill ranged projectile; Aspect of the Calm Breeze inflicts Poison Damage over Time to all mobs it passes through (pierce/line geometry); inherits Storm and Basic Skill tags enabling Moonrise/Adaptability/Thunderstruck scalars; single-target primary with incidental DoT pierce; item-defined-archetype (kit IS the Calm Breeze aspected form)"
+        }
+      ],
+      "motion_frame": "Spam Wind Shear as primary; Blood Howl on cooldown for Attack Speed; Pulverize/Debilitating Roar every 5s for Werebear bonus upkeep",
+      "resource_economy": {
+        "spirit_cost": "generator — Wind Shear is a Basic Skill; spirit generation role"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENT_CONVERSION_HYBRID"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Shard of Verathiel — projectile enhancement",
+            "Tempest Roar — Werewolf/Storm tag interaction"
+          ],
+          "economy": [
+            "Moonrise, Adaptability — tag-inheritance scalars",
+            "Creeping Death — DoT damage scalar",
+            "Wildheart Hunger — bonus damage scalar"
+          ],
+          "traits_affixes": [
+            "Aspect of the Calm Breeze — core identity aspect (reworked; DoT + tag inheritance)",
+            "Thunderstruck — activated via Bad Omen passive/Electrocution procs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FALSIFIED-NEGATIVE: ERRATA-43 contradicts the negative claim; Aspect of the Calm Breeze provides proc identity (Poison DoT + tag-inheritance scalars); kit maps as positive. Item-defined-archetype: kit identity IS the Calm Breeze aspected form. Element null: elem_raw=lightning in corpus but corpus provenance is NEVER attestation; no 'lightning damage' or 'wind damage' verb in dossier legal store. Poison attested: 'Aspect of the Calm Breeze...inflicts Poison Damage over Time to all mobs it passes through.' Tag-inheritance scalars (Storm/Basic tag) = fidelity texture enabling multiple scalar aspects — not an element assertion. Thunderstruck activation via Electrocution procs is a scalar-proc note, not a lightning-element attestation for Wind Shear itself."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Wind Shear Druid Endgame Build Guide for Diablo IV Season 5 - Infernal",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present in launch-s1-3 and loot-reborn-s4-5",
+      "anchor_quote": "Wind Shear Druid Endgame Build Guide for Diablo IV Season 5 - Infernal",
+      "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Wind Shear Druid' is real community usage",
+      "anchor_quote": "Wind Shear Druid Endgame Build Guide for Diablo IV Season 5 - Infernal",
+      "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skill Wind Shear; Druid class",
+      "anchor_quote": "a solid Pit Pusher and Bosser for Druids in Season 5",
+      "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Wind Shear launch/s4-5 negative — wind-school basic attack without speed-build scaling path; no proc identity or ramping mechanic; consistently bottom-tier Druid skill at all tested eras",
+      "anchor_quote": "inflicts Poison Damage over Time to all mobs it passes through...inherits the Storm and Basic Skill tags from the initial cast of Wind Shear, which allows for some incredible scalars",
+      "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "scalars": [
+            "Moonrise",
+            "Adaptability",
+            "Thunderstruck — activated via Bad Omen passive interaction / Electrocution procs"
+          ],
+          "key_mechanic": "DoT inherits Storm and Basic Skill tags from Wind Shear cast, enabling multiple damage multipliers"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+        "anchor_quote": "inherits the Storm and Basic Skill tags from the initial cast of Wind Shear, which allows for some incredible scalars in the form of Moonrise, Adaptability, and Thunderstruck",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Shard of Verathiel",
+            "Tempest Roar",
+            "Wildheart Hunger"
+          ],
+          "aspects": [
+            "Aspect of the Calm Breeze (core — reworked; DoT + tag inheritance)",
+            "Moonrise",
+            "Adaptability",
+            "Creeping Death"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+        "anchor_quote": "Aspect of the Calm Breeze...inflicts Poison Damage over Time to all mobs it passes through",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Wind Shear is a Basic Skill (single-target primary). Aspect of the Calm Breeze inflicts Poison DoT to all mobs it passes through — projectile geometry. Lacks AoE: insufficient area-of-effect coverage limits performance in horizontal-wave content."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+        "anchor_quote": "inflicts Poison Damage over Time to all mobs it passes through",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Blood Howl on Cooldown to bolster Attack Speed. Use either Pulverize or Debilitating Roar at least every 5 seconds to maintain the Werebear bonus. Spam Wind Shear as primary damage dealer triggering Calm Breeze DoT."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+        "anchor_quote": "Cast Blood Howl on Cooldown to bolster your Attack Speed. Use either Pulverize or Debilitating Roar at least every 5 seconds to maintain the Werebear bonus.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/wind-shear-druid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

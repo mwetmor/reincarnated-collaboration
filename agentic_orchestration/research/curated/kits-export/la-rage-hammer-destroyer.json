@@ -1,0 +1,264 @@
+{
+  "kit_id": "la-rage-hammer-destroyer",
+  "spine": {
+    "kit_id": "la-rage-hammer-destroyer",
+    "folk_name": "Rage Hammer Destroyer",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "'Gravity' mechanic vocabulary (Gravity Cores, Gravity Release) is class-specific and maps to accumulate-spend cycle; not an element family. 3-core threshold spend is a compact RESOURCE_CONVERSION shape. Mobile identity (vs GT locked Hypergravity) is economy texture only — noted in motion_frame.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "'Gravity' mechanic vocabulary (Gravity Cores, Gravity Release) is class-specific and maps to accumulate-spend cycle; not an element family. 3-core threshold spend is a compact RESOURCE_CONVERSION shape. Mobile identity (vs GT locked Hypergravity) is economy texture only — noted in motion_frame.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Perfect Swing",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary Gravity Release damage; front-attack forced via Ark Passive node (Perfect Swing always considered front attack with increased damage); animation-cancel-capable"
+        },
+        {
+          "source_skill": "Seismic Hammer",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary Gravity Release damage; animation-cancelled with spacebar for faster rotation; heavy hammer slam"
+        },
+        {
+          "source_skill": "Earth Eater",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Gravity Release damage; 'Earth' is skill proper name — zero earth element damage-typing in dossier; element null (D4 NAME-ONLY LAW)"
+        },
+        {
+          "source_skill": "Full Swing",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Gravity Release damage; wide hammer arc"
+        },
+        {
+          "source_skill": "Heavy Crush",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Blue builder skill; generates Gravity Core (1 per cast)"
+        },
+        {
+          "source_skill": "Endure Pain",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Blue builder skill; defensive self-buff that generates Gravity Core; cooldown gem priority"
+        }
+      ],
+      "motion_frame": "Cast blue builder skills (Heavy Crush, Power Shoulder, Dreadnaught, Endure Pain) to generate 3 Gravity Cores; activate Gravity Release skills (Perfect Swing, Seismic Hammer, Earth Eater, Full Swing) for empowered damage; Rage Hammer increases Gravity Release skill damage; identity use optional and forfeited for sustained Gravity Release damage; mobile throughout vs GT locked Hypergravity",
+      "resource_economy": {
+        "gravity_cores": "3-core accumulate-spend cycle: blue builder skills generate Gravity Cores; at 3 cores activate Gravity Release skills for empowered damage; Rage Hammer identity increases Gravity Release damage; identity gauge activation is optional (contrast Gravity Training); Ark Passive: Singularity (Core Order Sun) with Perfect Swing front-attack forced node"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "3 Gravity Core threshold → Gravity Release skill activation",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: 'Earth Eater', 'Gravity Release', 'Gravity Cores' are class-mechanic and skill proper names — 'Gravity' is NOT an engine element family; zero damage-typing in fetched dossier (D4 NAME-ONLY LAW). No ailments attested. 3-core builder-spender = TEMPORAL_CHARGE (accumulate) + RESOURCE_CONVERSION (spend at threshold). Seismic Hammer animation-cancel = delivery texture noted. GX-19 gap_ref noted. Ark Passive: Singularity (Core Order Sun) → capstone_alterations with Perfect Swing forced-front-attack node."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo; reviewed by Perciculum",
+      "title": "Rage Hammer Destroyer Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last updated: January 31, 2026 (initial release November 11, 2024)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rage Hammer Destroyer — Destroyer class, Rage Hammer identity spec",
+      "anchor_quote": "Rage Hammer Destroyer Build Guide — Destroyer class using the Rage Hammer identity/engraving",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Same 3-core builder-spender loop as Gravity Training; Seismic Hammer, Perfect Swing, Earth Eater are main damage; mobile throughout compared to GT's locked Hypergravity phase — consistent damage over identity burst",
+      "anchor_quote": "Rage Hammer significantly increases the damage of your Gravity Release skills which gives you a playstyle of playing around generating cores for big empowered hits. Primary damage: Perfect Swing, Seismic Hammer, Full Swing, Earth Eater (Gravity Release skills). Core generation: Heavy Crush, Dreadnaught, Endure Pain, Power Shoulder.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Civo",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+        "anchor_quote": "Written by Civo / Reviewed by Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_set": "Singularity (Core Order Sun)",
+          "key_nodes": [
+            "Perfect Swing always considered front attack with increased damage"
+          ],
+          "guide_released": "2024-11-11",
+          "guide_updated": "2026-01-31"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+        "anchor_quote": "Ark Passive: Singularity (Core Order Sun) with nodes including Perfect Swing will always be considered a front attack and have increased damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Barricade",
+            "Super Charge",
+            "Cursed Doll",
+            "Master Brawler"
+          ],
+          "gems_damage": [
+            "Perfect Swing",
+            "Seismic Hammer",
+            "Full Swing",
+            "Earth Eater"
+          ],
+          "gems_cooldown": [
+            "Endure Pain (priority)"
+          ],
+          "stats": "Crit, Specialization, Weapon Power; bracelet: Crit Damage + Damage against Staggered"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+        "anchor_quote": "Engravings: Grudge, Barricade, Super Charge, Cursed Doll, Master Brawler",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "gravity_release_skills": [
+            "Perfect Swing",
+            "Seismic Hammer",
+            "Full Swing",
+            "Earth Eater"
+          ],
+          "core_builder_skills": [
+            "Heavy Crush",
+            "Dreadnaught",
+            "Endure Pain",
+            "Power Shoulder"
+          ],
+          "geometry_notes": "Front-attack/positional focus; Perfect Swing has front-attack forced via Ark Passive node; heavy hammer melee range; no elemental damage type — Gravity typed (Gravity Release, Gravity Cores)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+        "anchor_quote": "Perfect Swing will always be considered a front attack and have increased damage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "3-core builder-spender loop: cast blue builder skills (Heavy Crush, Power Shoulder, Dreadnaught, Endure Pain) to generate Gravity Cores. At 3 cores activate Gravity Release skills for empowered damage. Rage Hammer increases Gravity Release skill damage. Seismic Hammer animation-cancelled with spacebar for faster rotation. Primary damage (Gravity Release): Perfect Swing, Seismic Hammer, Full Swing, Earth Eater. Builders: Heavy Crush, Dreadnaught, Endure Pain, Power Shoulder. Consistent damage throughout — no locked Hypergravity phase unlike Gravity Training."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+        "anchor_quote": "Rage Hammer significantly increases the damage of your Gravity Release skills which gives you a playstyle of playing around generating cores for big empowered hits. Seismic Hammer should be animation cancelled using spacebar for a faster rotation.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Gravity Training Destroyer (burst-focused, locked Hypergravity phase)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/destroyer-raid-guide",
+        "anchor_quote": "If you want a more burst focused playstyle, check out our Gravity Training guide",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

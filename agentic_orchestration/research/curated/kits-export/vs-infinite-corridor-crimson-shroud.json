@@ -1,0 +1,233 @@
+{
+  "kit_id": "vs-infinite-corridor-crimson-shroud",
+  "spine": {
+    "kit_id": "vs-infinite-corridor-crimson-shroud",
+    "folk_name": "Infinite Corridor + Crimson Shroud (Death-kill tech)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-18",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "HP-halving screen effect and 10-damage-cap mechanic have no engine analogs. The dual-weapon Reaper-kill tech is a structural gap — 'not that build.' freeze emission is correct and grounded. DEFENSIVE_TRADEOFF + RETRIBUTION_ENGINE T4 doors approximate the identity direction.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "HP-halving screen effect and 10-damage-cap mechanic have no engine analogs. The dual-weapon Reaper-kill tech is a structural gap — 'not that build.' freeze emission is correct and grounded. DEFENSIVE_TRADEOFF + RETRIBUTION_ENGINE T4 doors approximate the identity direction.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Infinite Corridor (rotating freeze beam, HP-halving)",
+          "geometry_value": "beam_channel",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "White beam fires in 12 directions clockwise sequentially; TRUE BEAM delivery confirmed by verify. After full rotation: HP-halving aura hits all enemies on screen. Freeze attested as enemy-directed status: dossier skill_loop 'enemies hit by beam are frozen.' VS exception to element-silence: freeze is an enemy STATUS verb, not a flavor element (§B5-ROGUELITE law). element_primary still null — freeze is the status; no elemental damage-type system in VS."
+        },
+        {
+          "source_skill": "Crimson Shroud (damage-cap aura + retaliation)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Player-centered protective aura; caps incoming damage at 10; retaliation burst when shield charges lost. VS element-silent. No ailments emitted — retaliation burst is a damage source, not a status on enemies."
+        }
+      ],
+      "motion_frame": "Dual-weapon death-kill tech: rotating freeze beam (12-direction sweep → HP-halving) + damage-cap aura (10 max per hit) = can kill otherwise unkillable Reaper",
+      "resource_economy": {
+        "armor_scaling": "each Armor point increases Crimson Shroud retaliation damage by 10% additively",
+        "crimson_shroud_charges": "damage cap expires as charges lost; retaliation fires on charge loss",
+        "infinite_corridor_duration": "6.0s base; extendable to 10s via Limit Break"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": "shield-charge",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "RETRIBUTION_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "12-direction beam sweep",
+            "player-centered aura"
+          ],
+          "economy": [
+            "damage-cap economy",
+            "Armor-scaling retaliation"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Dual-weapon kit — two skills warranted. Freeze attested per §B5-ROGUELITE exception (enemy status verb, not element type). HP-halving mechanic has no engine lane — noted as delivery. Damage cap at 10 has no engine lane — noted as resource_economy. This is the most mechanically novel VS kit in the batch: a two-weapon defensive-offense combo for specific boss-kill. Capstone row populated with Reaper-kill tech detail."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Infinite Corridor - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://vampire.survivors.wiki/w/Crimson_Shroud",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Crimson Shroud - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022;vs-1.13-14-2025+",
+      "anchor_quote": "Infinite Corridor was introduced in patch 0.6.1 on May 23, 2022. Crimson Shroud added to the game in Patch 0.6.1 (May 23, 2022).",
+      "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Infinite Corridor = Clock Lancet evo (+ Silver Ring + Gold Ring); Crimson Shroud = Laurel evo (+ Metaglio Left + Metaglio Right); death-kill tech combo",
+      "anchor_quote": "To obtain Infinite Corridor, players must evolve Clock Lancet while holding both Silver Ring and Gold Ring at maximum level. Crimson Shroud evolution: Laurel + Metaglio Left + Metaglio Right at max level.",
+      "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "TRUE BEAM: Clock Lancet fires sustained directional freeze beams across screen; HP-halving effect + Crimson Shroud damage cap = can kill Reaper",
+      "anchor_quote": "Fires a white beam around the player in twelve directions clockwise one at a time. Creates a spinning, shining rainbow aura around the player, halving the health of every enemy on screen. Caps incoming damage at 10.",
+      "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "reaper_kill_tech": "Infinite Corridor (HP-halving) + Crimson Shroud (damage cap 10) = can defeat Reaper to obtain Golden Eggs",
+          "intangible_enemies": "Infinite Corridor can damage otherwise intangible enemies (Stalkers, Drowners)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+        "anchor_quote": "Can damage otherwise intangible enemies like Stalkers and Drowners. Pairs effectively with Infinite Corridor for defeating The Reaper and obtaining Golden Eggs.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "silver_ring_gold_ring": "both required at max level for Infinite Corridor evolution (alongside Clock Lancet)",
+          "metaglio_left_right": "both required at max level for Crimson Shroud evolution (alongside Laurel)",
+          "laurel": "Crimson Shroud base weapon; passive invulnerability frames",
+          "armor_scaling": "each Armor point increases Crimson Shroud retaliation damage by 10% additively"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Crimson_Shroud",
+        "anchor_quote": "Each Armor point also increases the damage by 10% additively.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "infinite_corridor_shape": "radial beam sweep (12 directions); sustained directional beam per lane; TRUE BEAM delivery",
+          "crimson_shroud_shape": "player-centered protective aura; melee retaliation burst on charge loss",
+          "combined_footprint": "global HP-halving + damage cap barrier"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+        "anchor_quote": "Fires a white beam around the player in twelve directions clockwise one at a time.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "infinite_corridor": {
+            "evolution_recipe": "Clock Lancet (max) + Silver Ring (max) + Gold Ring (max)",
+            "delivery": "white freeze beam fires in 12 directions clockwise; after full rotation creates HP-halving aura",
+            "hp_halving": "halves health of every enemy on screen after beam rotation complete",
+            "freeze": "enemies hit by beam are frozen",
+            "duration": "6.0s (extendable to 10s with Limit Break)"
+          },
+          "crimson_shroud": {
+            "evolution_recipe": "Laurel (max) + Metaglio Left (max) + Metaglio Right (max)",
+            "damage_cap": "caps incoming damage at 10; prevents Reaper one-shots",
+            "retaliation": "retaliates when losing shield charges; damage scales with Might, Curse, Armor"
+          },
+          "combo": "Infinite Corridor HP-halving + Crimson Shroud damage cap = can kill Reaper (otherwise unkillable)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+        "anchor_quote": "Fires a white beam around the player in twelve directions clockwise one at a time. Creates a spinning, shining rainbow aura around the player, halving the health of every enemy on screen. Caps incoming damage at 10.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/Infinite_Corridor",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

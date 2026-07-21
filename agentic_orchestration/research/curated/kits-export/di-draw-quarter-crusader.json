@@ -1,0 +1,200 @@
+{
+  "kit_id": "di-draw-quarter-crusader",
+  "spine": {
+    "kit_id": "di-draw-quarter-crusader",
+    "folk_name": "Draw and Quarter Horse Crusader",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Draw and Quarter maps well as dash_attack + root. Minor loss: the 6-second mounted-state duration and persistent drag-while-riding texture have no engine lane (movement channel with sustained damage = gap note). Engine maps the hit-and-drag as a dash_attack but the sustained drag is a delivery texture deviation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "root"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Draw and Quarter maps well as dash_attack + root. Minor loss: the 6-second mounted-state duration and persistent drag-while-riding texture have no engine lane (movement channel with sustained damage = gap note). Engine maps the hit-and-drag as a dash_attack but the sustained drag is a delivery texture deviation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Draw and Quarter",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "root"
+          ],
+          "delivery_notes": "Horse charge movement skill; holy chains bind up to 8 enemies dragged along charge path. 'Holy chains will bind up to 8 nearby monsters, dragging them as you ride and repeatedly dealing damage.' 'Mount a celestial war horse for 6 seconds, dispelling all movement impairing effects, increasing your movement speed by 65%.' Root attested: 'bind up to 8 nearby monsters' — bind = root/immobilize. Element null: 'holy chains' = mechanism noun with no explicit 'deals holy damage' verb; 'holy' as adjective on 'chains' is insufficient per MW3/MW4 name-only law."
+        },
+        {
+          "source_skill": "Sweep Attack",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary AoE melee skill. No further store detail beyond core_skills listing."
+        }
+      ],
+      "motion_frame": "Draw and Quarter mounts horse for 6s; drags enemies via holy chains while riding; loop = charge, drag, reposition into next pull",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Movement-identity kit: skill_is_movement=True per mech_note (ILLEGAL ground, but verify_ledger identity CONFIRMED: 'Draw and Quarter is the focal point of Crusader builds that enables mobility'). The horse-charge IS the kit identity, not a utility dash. Item_alterations abstained; capstone abstained. Sweep Attack secondary with minimal store evidence. Mech_note 'D1: Crusader has BLOCK defense' = ILLEGAL probe field; no block ailment. No taunt in registry (solo scope). Root from 'bind' is the one attested ailment. Accrual: no accrual warranted (root is in registry). Line geometry considered for the charge path but dash_attack preferred as the traversal-strike composite matches the 'movement IS the hit' pattern (§A row 3 analogy; shape precedent only, own-store carries)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/crusader",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Crusader Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Crusader Draw and Quarter Build Guide for Dungeons and Group Farming - Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-2026-era",
+      "anchor_quote": "Draw and Quarter is the focal point of Crusader builds that enables mobility, allowing you to drag them towards the next pull with Draw and Quarter, beginning the cycle anew.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/crusader-draw-and-quarter-build-guide-for-dungeons-and-group-farming",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Draw and Quarter Horse Crusader'; aliases 'Draw and Quarter Crusader DI', 'Horse Crusader DI'",
+      "anchor_quote": "Mount a celestial war horse for 6 seconds, dispelling all movement impairing effects, increasing your movement speed by 65%, and replacing your Primary Attack with a strike.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/crusader",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Draw and Quarter, Sweep Attack; resource: Wrath",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/crusader",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "draw_and_quarter": "self-origin movement; charge lane; holy chains bind up to 8 enemies dragged along charge path; direction player-controlled; 65% movement speed buff"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/crusader",
+        "anchor_quote": "Holy chains will bind up to 8 nearby monsters, dragging them as you ride and repeatedly dealing damage.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Draw and Quarter mounts horse for 6s; drags enemies via holy chains while riding; Sweep Attack secondary; loop = charge, drag, repeat into next pull"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/crusader",
+        "anchor_quote": "Mount a celestial war horse for 6 seconds, dispelling all movement impairing effects, increasing your movement speed by 65%, and replacing your Primary Attack with a strike.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

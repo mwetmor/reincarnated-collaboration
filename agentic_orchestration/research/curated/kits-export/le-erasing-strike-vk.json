@@ -1,0 +1,243 @@
+{
+  "kit_id": "le-erasing-strike-vk",
+  "spine": {
+    "kit_id": "le-erasing-strike-vk",
+    "folk_name": "Erasing Strike Void Knight",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Core loop (one telegraphed void cleave, spammed via cooldown-removal + Mana regen) maps cleanly as melee_arc + RESOURCE_CONVERSION. Two texture losses: (a) Mark of Rot's boss-hit payload is un-tokened (name-only, unfetched); (b) Anomaly's time-replay/echo utility has no engine analog and maps only as a generic self_buff — a source player loses the 'replay your interactions' feel, but it is buff-utility, not damage identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Core loop (one telegraphed void cleave, spammed via cooldown-removal + Mana regen) maps cleanly as melee_arc + RESOURCE_CONVERSION. Two texture losses: (a) Mark of Rot's boss-hit payload is un-tokened (name-only, unfetched); (b) Anomaly's time-replay/echo utility has no engine analog and maps only as a generic self_buff — a source player loses the 'replay your interactions' feel, but it is buff-utility, not damage identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Erasing Strike",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "One colossal telegraphed void cleave in the strike direction (large-zone arc, massive wind-up before the swing; low cadence — a single devastating strike per cycle). 'Obliterate enemies from the battlefield.' Void -> shadow (§1 void register). Cooldown REMOVED via Shattered Continuity, so it is freely spammed despite high Mana cost."
+        },
+        {
+          "source_skill": "Anomaly",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Creates a Time Bubble providing buffs; 'void echoes / time copies replay interactions'; activates Mark of Rot on boss hits. Utility, not the damage core."
+        }
+      ],
+      "motion_frame": "Wind up and unleash one huge void cleave per cycle; Shattered Continuity removes its cooldown + Mana-stacking (Void Well regen) lets you spam it; Anomaly Time Bubble for buffs; Devouring Orb auto-casts for Void Essences; Healing Hands to move",
+      "resource_economy": {
+        "resource": "mana",
+        "regen_shape": "Void Well Passive: regain 30% max Mana every 4s given enough Void Essences (Devouring Orb auto-casts to feed essences); Mana-stacking build enables spam of a high-cost strike"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": "Mark of Rot (named; payload UNFETCHED -> no ailment token)",
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "colossal cleave arc footprint"
+          ],
+          "economy": [
+            "Void Well 30%/4s Mana regen",
+            "Void Essence feed (Devouring Orb)",
+            "cooldown-removal (Shattered Continuity)"
+          ],
+          "traits_affixes": [
+            "void/shadow damage scalers",
+            "World Splitter mandatory weapon (item dissolves; enables build)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Void -> shadow (§1). Resource is MANA (hot-fact: Void Well = Mana, no spirit/focus resource) — Void Essences are a proc-fuel counter for the regen passive, not a separate resource type. World Splitter (mandatory unique) DISSOLVES to the kit per §4 (its mechanic = enables the Mana-stack spam). RESOURCE_CONVERSION door: Mana-stacking-as-damage-enabler (huge-cost strike freely spammed via 30%/4s regen) is the build's engine. NO ailment token: 'obliterate'/'oblivion' are flavor; Mark of Rot NAMED but payload UNFETCHED (§0.4 name != payload) -> withheld (recorded as mark_identity annotation only). Anomaly's 'time copies replay interactions' is a novel time-echo utility with no clean engine lane — mapped as self_buff (Time Bubble), replay-flavor noted; NOT docket-worthy (it is a rider-utility, not the kit's identity loop; kit identity is the cleave, which maps cleanly)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Volca",
+      "title": "Erasing Strike Void Knight Guide for Last Epoch Season 4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Erasing Strike Void Knight Guide for Last Epoch Season 4 | Maxroll.gg — Void Knight confirmed as Sentinel mastery with 1.0-era presence",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Erasing Strike Void Knight — Season 4 - Shattered Omens (Last Updated April 27, 2026)",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Erasing Strike Void Knight'; aliases include 'Erasing Strike VK', 'Anomaly Void Knight', 'void melee VK'",
+      "anchor_quote": "Erasing Strike Void Knight uses Erasing Strike to completely obliterate enemies from the battlefield",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Erasing Strike, Anomaly; void melee large-zone delivery; Mana resource (Void Well passive); armor/block defense",
+      "anchor_quote": "Erasing Strike has a high Mana cost, but you can freely spam it thanks to the Void Well Passive and Mana stacking... Anomaly provides Time Bubble buffs",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg",
+          "guide_title": "Erasing Strike Void Knight Guide for Last Epoch Season 4"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+        "anchor_quote": "Author: Volca (content creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_void_well": "Void Well Passive: regain 30% max Mana pool every 4 seconds with enough Void Essences",
+          "passive_shattered_continuity": "Shattered Continuity: removes Erasing Strike cooldown",
+          "abyssal_juggernaut": "Devouring Orb auto-cast source of void essences"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+        "anchor_quote": "Void Well Passive allows you to regain 30% of your maximum Mana pool every 4 seconds, as long as you have enough Void Essences",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "required_unique": "World Splitter (mandatory weapon)",
+          "power_items": [
+            "Siphon of Anguish",
+            "Shattered Chains",
+            "Anchor of Oblivion",
+            "Nihilis",
+            "Immortal Vise (30% of hit damage from Bosses/Rares dealt over 4s — survivability)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+        "anchor_quote": "The build needs World Splitter to function, and items like Siphon of Anguish, Shattered Chains, Anchor of Oblivion and Nihilis turn this build into an absolute powerhouse",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aimed void cleave at targeted direction (melee, large-zone)",
+          "footprint": "colossal cleave arc in strike direction (large-AOE)",
+          "echo_mechanic": "Anomaly creates Time Bubble; void echoes/time copies replay interactions",
+          "notes": "Low cadence — single devastating strike per cycle; massive telegraphed wind-up before cleave"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+        "anchor_quote": "Erasing Strike to completely obliterate enemies from the battlefield, sending even the strongest foes into oblivion... Anomaly provides Time Bubble buffs",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Execute one massive telegraphed void cleave (Erasing Strike) after wind-up; remove cooldown via Shattered Continuity passive; Anomaly provides Time Bubble buffs and activates Mark of Rot on boss hits; Devouring Orb auto-casts for void essences via Abyssal Juggernaut; Healing Hands as movement and utility; Void Well Passive regenerates 30% max Mana every 4s with enough void essences",
+          "resource_model": "Mana; Void Well Passive: 'you can regain 30% of your maximum Mana pool every 4 seconds, as long as you have enough Void Essences'"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/erasing-strike-void-knight-guide",
+        "anchor_quote": "Erasing Strike has a high Mana cost, but you can freely spam it thanks to the Void Well Passive and Mana stacking. Remove its cooldown with Shattered Continuity",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Erasing Strike VK (World Splitter, Mana-stack variant)",
+            "Warpath Void Knight (different primary skill)",
+            "Rive Void Knight (different primary skill)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/echo-warpath-void-knight-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

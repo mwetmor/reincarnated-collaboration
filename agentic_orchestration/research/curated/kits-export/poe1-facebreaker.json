@@ -1,0 +1,240 @@
+{
+  "kit_id": "poe1-facebreaker",
+  "spine": {
+    "kit_id": "poe1-facebreaker",
+    "folk_name": "Facebreaker Unarmed",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The unarmed physical-punch identity lands via melee_strike + physical-neutral (physical rule) + ELEMENT_CONVERSION_PHYSICAL, with the Facebreaker 600-1000%-more-unarmed multiplier expressed as the dominant unarmed-physical gear-affix/trait scaler. Minor drift: 'no weapon equipped, the gloves ARE the weapon' is abstracted to a large unarmed-damage affix rather than a bespoke empty-weapon-slot primitive; and physical is element-neutral. A player keeps the bare-fisted-bruiser feel and the item-defines-everything scaling, though the empty-weapon-slot flavor is generalized to an affix.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The unarmed physical-punch identity lands via melee_strike + physical-neutral (physical rule) + ELEMENT_CONVERSION_PHYSICAL, with the Facebreaker 600-1000%-more-unarmed multiplier expressed as the dominant unarmed-physical gear-affix/trait scaler. Minor drift: 'no weapon equipped, the gloves ARE the weapon' is abstracted to a large unarmed-damage affix rather than a bespoke empty-weapon-slot primitive; and physical is element-neutral. A player keeps the bare-fisted-bruiser feel and the item-defines-everything scaling, though the empty-weapon-slot flavor is generalized to an affix.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Infernal Blow",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "unarmed direct melee strike on the target with a small melee-splash AoE; on kill, explodes the corpse for a small fire AoE. PHYSICAL RULE: unarmed physical -> element-neutral (the Facebreaker gloves multiply PHYSICAL unarmed damage; element is flavor). melee_strike = single-target unarmed hit (§6). stun = the heavy-physical-punch archetype; corpse-explode-on-kill is a rider (on-defender-death)"
+        },
+        {
+          "source_skill": "Ancestral Warchief",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "a placed ancestor totem that slams and grants the player an on-hit melee-damage buff while active. totem geometry (§6 totem/sentry); a support proxy that buffs the unarmed punches, not the dominant offense itself"
+        }
+      ],
+      "motion_frame": "no-weapon puncher: equip Facebreaker gloves (empty weapon slot), punch with Infernal Blow, drop a Warchief totem for the damage buff; the gloves ARE the build",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike (unarmed punch)",
+            "totem (Ancestral Warchief buff-totem)",
+            "small fire AoE on Infernal-Blow kill (on-defender-death rider)"
+          ],
+          "economy": [
+            "mana-light spend (probe 'mana/spend'; chassis default, no deviation)"
+          ],
+          "traits_affixes": [
+            "unarmed-physical MULTIPLIER (Facebreaker 600-1000% more phys unarmed — the gear-affix that IS the build)",
+            "melee/attack-speed scaling",
+            "physical-damage scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-IS-THE-BUILD unarmed: Facebreaker (Strapped Mitts) grants 600-1000% MORE physical damage with unarmed melee, no weapon equipped (item_alterations, mech_note). PHYSICAL RULE (§1/§4): (1) physical -> element-neutral (element flavor only; identity via geometry+stun); (2) the item DISSOLVES to its mechanic (§4 numeric-modulation uniques -> gear-affix lane) — the 600-1000%-more-unarmed multiplier lands as an unarmed-physical gear-affix/trait scaler, the single largest scaler in the build. melee_strike geometry (§6 single unarmed hit; probe delivery 'at-target' small-radius). stun = physical-punch archetype (probe control lists none; kept minimal). Infernal Blow's corpse-explode-on-kill is a small on-defender-death fire-AoE rider (noted, not the dominant loop). Ancestral Warchief = totem buff-proxy support. T4 ELEMENT_CONVERSION_PHYSICAL (§5 physical rule: the phys-scaling identity; the build IS pure-physical unarmed) + GEOMETRY_PROPAGATION_cascade (the Infernal-Blow corpse-explode-chain reading, secondary). CAPSTONE ABSTAINED — t4 routed from core identity (pure-physical unarmed scaling) + probe (physical/at-target/mana) per fallback. The 'no weapon slot; gloves are the whole weapon' identity is captured as the unarmed-physical multiplier being the dominant scaler, though the engine abstracts it as a gear-affix rather than a bespoke empty-weapon-slot mechanic."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/445390",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "KorgothBG#4084",
+      "title": "[2.4] How to smash Heads. Extremely detailed guide about the Facebreaker gloves and builds!",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Facebreaker",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Facebreaker - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe1/builds/keepers?items=Facebreaker",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Facebreaker builds - Keepers - poe.ninja",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": "Introduced to the game [version 0.9.11g] … guide covers patch 2.1 / 2.4 era use",
+      "source_url": "https://poedb.tw/us/Facebreaker",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Facebreaker Unarmed' is real community usage; alias 'Facebreaker Infernal Blow/Warchief'",
+      "anchor_quote": "How to smash Heads. Extremely detailed guide about the Facebreaker gloves and builds!",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/445390",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Unique gloves multiply unarmed damage (600-1000% more Physical Damage); no weapon equipped; item IS the build; skills Infernal Blow / Ancestral Warchief",
+      "anchor_quote": "Facebreaker grants up to 1000% more Physical Damage with Unarmed Melee Attacks … Introduced to the game [version 0.9.11g]",
+      "source_url": "https://poedb.tw/us/Facebreaker",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "KorgothBG#4084",
+          "site": "pathofexile.com/forum"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/445390",
+        "anchor_quote": "KorgothBG#4084 … June 30, 2013 … How to smash Heads",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Facebreaker (item modifier)",
+              "type": "item_mod",
+              "effect": "(600-1000)% more Physical Damage with Unarmed Melee Attacks",
+              "anchor_quote": "(600—1000)% more Physical Damage with Unarmed Melee Attacks"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Facebreaker",
+        "anchor_quote": "(600—1000)% more Physical Damage with Unarmed Melee Attacks",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_unique": "Facebreaker (Strapped Mitts)",
+          "multiplier": "600-1000% more Physical Damage with Unarmed Melee Attacks",
+          "note": "item IS the build enabler; no weapon slot"
+        },
+        "source_url": "https://poedb.tw/us/Facebreaker",
+        "anchor_quote": "Introduced to the game [version 0.9.11g] … 600-1000% more Physical Damage with Unarmed Melee Attacks",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target direct melee; small AoE from punch (melee splash range); unarmed melee range = very short; physical damage type",
+          "note": "Infernal Blow variant adds corpse explosion small AoE on kill"
+        },
+        "source_url": "https://poedb.tw/us/Facebreaker",
+        "anchor_quote": "600-1000% more Physical Damage with Unarmed Melee Attacks",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Equip Facebreaker gloves (no weapon) -> use Infernal Blow or Ancestral Warchief as primary attack skill -> 600-1000% more physical unarmed damage multiplier drives high melee damage; Warchief totem provides on-hit buff; Infernal Blow explodes corpses on kill"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/445390",
+        "anchor_quote": "the Facebreaker gloves provide a huge physical damage boost to your unarmed attacks",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Facebreaker Infernal Blow Gladiator (1.x-2.x era primary)",
+            "Facebreaker Ancestral Warchief Berserker",
+            "Facebreaker Cyclone Champion (3.26+)",
+            "Facebreaker Earthshatter Champion"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/445390",
+        "anchor_quote": "guide covers seven compatible attack skills … Infernal Blow, Warchief, Cyclone …",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

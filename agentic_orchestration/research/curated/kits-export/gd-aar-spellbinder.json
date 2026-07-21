@@ -1,0 +1,226 @@
+{
+  "kit_id": "gd-aar-spellbinder",
+  "spine": {
+    "kit_id": "gd-aar-spellbinder",
+    "folk_name": "Albrecht's Aether Ray Spellbinder",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player experiences a hard energy-management pressure and a rooted-while-channeling commitment; PERSISTENCE_ENGINE_uptime approximates the sustained-beam identity but the engine has no literal aether-ray, so the beam is mapped as a channeled piercing line. No status lost (none attested).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player experiences a hard energy-management pressure and a rooted-while-channeling commitment; PERSISTENCE_ENGINE_uptime approximates the sustained-beam identity but the engine has no literal aether-ray, so the beam is mapped as a channeled piercing line. No status lost (none attested).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Albrecht's Aether Ray",
+          "geometry_value": "beam_channel",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "continuous channeled beam that pierces enemies in a straight line and scales with casting speed ('channeling type of skill with ability to pierce enemies in straight line that scales with casting speed'; 'AAR is also pretty energy hungry skill'); rooted while channeling; stand-in-place-and-melt. beam_channel carries the ray identity (phrase-book beam/ray/channel); straight-line pierce is footprint flavor. aether -> lightning per main-law aether row (energy-ray register). NO ailment named (aether/energy theme never implies shock -- §0.1)."
+        },
+        {
+          "source_skill": "Mirror of Ereoctes",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "defensive panic cooldown ('Mirror of Ereoctes (defensive)'; 'activate Mirror of Ereoctes as panic defensive'); self_buff identity, no offensive delivery."
+        }
+      ],
+      "motion_frame": "channel Albrecht's Aether Ray as a piercing straight-line beam, standing rooted to melt targets, popping Mirror of Ereoctes as a panic defensive when overwhelmed",
+      "resource_economy": {
+        "cost_scale": "high energy drain while channeling ('pretty energy hungry skill, that's the main challenge'); sustained through energy-sustain items",
+        "persistent_condition_shape": "tick-cost (channel-maintain drain)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "beam length / pierce depth"
+          ],
+          "economy": [
+            "energy-sustain items (channel drain offset)",
+            "casting-speed -> beam tick rate"
+          ],
+          "traits_affixes": [
+            "aether/lightning damage scaling (lightning-family gated)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "aether -> lightning (energy-ray register) per main-law §1; the aether-corruption->shadow branch does not fit a straight energy beam. Era CORRECTED per verify_ledger errata (errata_applied=1): available since Ashes of Malmouth (Necromancer DLC), NOT base-2016 -- errata governs over corpus era column. Mirror of Ereoctes is a defensive cooldown, not offensive. PERSISTENCE_ENGINE_uptime = closest T4 to a stand-and-channel loop; no conversion/propagation capstone attested. Energy-hungry channel is the load-bearing economy constraint. No ailment attestable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Nery",
+      "title": "[1.1.9.3] Beginner's Albrecht's Aether Ray Spellbinder",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/all-of-my-friends-are-dead-and-i-have-a-laser-spellbinder-1-0-2-1/41696",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": null,
+      "title": "All of my friends are dead...and I have a laser. [Spellbinder] [1.0.2.1]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Present in eras: base-2016, aom-2017, fg-2019, patch-1.1-1.2",
+      "anchor_quote": "Spellbinder has been 'available since Ashes of Malmouth expansion' — Necromancer mastery came with that DLC, not the base game",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Albrecht's Aether Ray Spellbinder'; aliases include 'AAR Spellbinder', 'Aether Ray Spellbinder', 'Mirror of Ereoctes build'",
+      "anchor_quote": "Spellbinder (Arcanist+Necromancer) represents the class combination for this build... guide centers on Albrecht's Aether Ray as the main damage dealer",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Albrecht's Aether Ray (channel beam), Mirror of Ereoctes (defensive)",
+      "anchor_quote": "Albrecht's Aether Ray functions as a 'channeling type of skill with ability to pierce enemies in straight line' that 'scales with casting speed'",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Nery",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+        "anchor_quote": "guide was created by Nery, posted November 28, 2021",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Mirror of Ereoctes as defensive cooldown; energy sustain items critical; no specific set itemization extracted from fetched text"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+        "anchor_quote": "Mirror of Ereoctes (defensive)... Mark of Torment and Ill Omen as supporting abilities",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam-channel",
+          "origin": "player",
+          "footprint": "piercing-line",
+          "range": "long",
+          "notes": "Continuous beam piercing enemies in straight line; ~6m or longer effective range; rooted while channeling"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+        "anchor_quote": "channeling type of skill with ability to pierce enemies in straight line that scales with casting speed",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Albrecht's Aether Ray as primary left-click; sustain energy through support items; activate Mirror of Ereoctes as panic defensive; stand in place and melt targets"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-3-beginners-albrechts-aether-ray-spellbinder/112241",
+        "anchor_quote": "AAR is also pretty energy hungry skill, that's the main challenge... channeling type of skill with ability to pierce enemies in straight line",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "fire AAR + OFF Sorcerer (Albrecht the Freezer)",
+            "lightning AAR mini guide variant"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-0-albrecht-the-freezer-fire-aar-off-sorcerer-with-massive-cdr-and-rr-extremely-funny-build-sr-65/98125",
+        "anchor_quote": "Lightning Albrecht's Aether Ray for everyone (mini guide)... Albrecht the Freezer - Fire AAR + OFF Sorcerer",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

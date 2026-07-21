@@ -1,0 +1,221 @@
+{
+  "kit_id": "poe2-titan-hotg",
+  "spine": {
+    "kit_id": "poe2-titan-hotg",
+    "folk_name": "Hammer of the Gods Titan",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.1;0.2-dawn;0.3-edict",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: HotG's identity is a SETUP-GATED single nuke -- its full damage REQUIRES a fully-broken-armor + heavy-stunned target, a cross-skill prerequisite chain (Armour Breaker + Earthshatter + warcries -> then Hammer). The engine maps the pieces (ground_slam + sunder + stun + a GEOMETRY_COLLAPSE door) but expresses the 'HotG deals MORE into broken armor' coupling as a generic burst rather than a first-class conditional-damage gate; the player keeps the slow-wind-up-into-massive-slam feel and the break-then-hammer sequence, but the precise 'broken-armor multiplier' is door/trait-level. The colossal-slam core maps cleanly -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun",
+      "sunder"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: HotG's identity is a SETUP-GATED single nuke -- its full damage REQUIRES a fully-broken-armor + heavy-stunned target, a cross-skill prerequisite chain (Armour Breaker + Earthshatter + warcries -> then Hammer). The engine maps the pieces (ground_slam + sunder + stun + a GEOMETRY_COLLAPSE door) but expresses the 'HotG deals MORE into broken armor' coupling as a generic burst rather than a first-class conditional-damage gate; the player keeps the slow-wind-up-into-massive-slam feel and the break-then-hammer sequence, but the precise 'broken-armor multiplier' is door/trait-level. The colossal-slam core maps cleanly -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hammer of the Gods (colossal falling-hammer slam)",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "a colossal hammer falling from above onto a TARGETED zone; the slowest, most devastating single-hit in the warrior toolkit -> ground_slam (slam/quake phrase-book; HOT-FLAG 8 -- checked the phrase-book before defaulting: 'slam/quake -> ground_slam', and HotG is a downward overhead SLAM, the falling-from-sky is the delivery arc of a slam, not a rain-of-projectiles). Physical -> element-neutral (physical rule). ailment=stun (physical heavy-hit; the loop lands a Heavy Stun via Earthshatter BEFORE the Hammer -- stun is core to the setup). Rooted during the slow wind-up."
+        },
+        {
+          "source_skill": "Armour Breaker / warcry setup (armor-shred prerequisite)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "armor-break setup (Armour Breaker skill + Seismic/Infernal Cry) that FULLY BREAKS the target's armor as a prerequisite for HotG's full damage -> the shred is a hit-proc armor-break window -> sunder (main-law exposure: hit-proc -> sunder, not curse). Melee/warcry delivery -> melee_arc for the Armour Breaker swing. Physical -> element-neutral. control=core (corpus): without broken armor, HotG does less damage."
+        }
+      ],
+      "motion_frame": "Set up the kill: pre-stack Earthshatter spikes, land a Heavy Stun, break armor (Armour Breaker + Seismic/Infernal Cry), THEN drop the colossal Hammer of the Gods on the stunned, armor-broken target for the biggest single hit in the toolkit.",
+      "resource_economy": {
+        "cost_scale": "mana/rage per slam; warcry cadence",
+        "persistent_condition_shape": "proc-loop (warcry cycling -- Seismic Cry / Infernal Cry buff-and-shred before the Hammer)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "armor-break (sunder) + Heavy Stun applied to the target as prerequisites; HotG cashes the broken+stunned state",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "Hammer of the Gods ground_slam (targeted-zone colossal slam)",
+            "Armour Breaker melee_arc (shred setup)",
+            "Earthshatter stun-setup"
+          ],
+          "economy": [
+            "rage/mana per slam",
+            "warcry cadence (Seismic/Infernal Cry)"
+          ],
+          "traits_affixes": [
+            "aftershock chance (Earthbreaker 20% more)",
+            "armor-break effectiveness (Anvil-class)",
+            "stun-threshold / heavy-stun scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-03 (corpus gx). HOT-FLAG 8 RESOLVED: HotG -> ground_slam (phrase-book 'slam/quake -> ground_slam'; a falling overhead hammer-slam IS the ground_slam member, the from-above delivery is the slam's arc, distinct from a projectile-rain which would be ground_targeted_circle). Armor-break setup -> sunder (main-law exposure: HIT-PROC armor-break window -> sunder, NOT curse:sap -- it's an on-hit shred, not an aura/hex; and the Armour Breaker swing itself -> melee_arc). stun kept for HotG (fetched loop: 'wait to land a Heavy Stun with Earthshatter, then... dropping the Hammer' -- stun is a load-bearing prerequisite). Physical -> element-neutral throughout (physical rule; elem_raw=physical). chain_count=3 per R-M2 (>=3 load-bearing actives: HotG + Armour Breaker + Earthshatter stun-setup; corpus core_skills lists HotG+Armour Breaker+Perfect Strike). GEOMETRY_COLLAPSE routes the conc single-huge-hit identity; SACRIFICE_ASCENDANCY routes the Titan all-in-on-one-hit tradeoff (slowest attack, highest impact). Titan ascendancy -> t4 via 5 (R-M1). D2 Leap-Attack-barb correlate (corpus mech_note) noted. eras 0.1-0.3 CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Hammer of the Gods Titan Build Guide (Archived, Early Access)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.3-edict",
+      "anchor_quote": "Hammer of the Gods Titan Build Guide - Archived - Updated for Early Access Start December 30, 2024... [0.1.1]Hammer of the Gods Titan POE2 Build Guide",
+      "source_url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Hammer of the Gods Titan' and aliases 'HotG Titan', 'Hammer of the Gods Warrior', 'Armour Breaker combo' are real community usage",
+      "anchor_quote": "Hammer of the Gods Titan Build Guide - Path of Exile 2... Titan executes armor-break setup, then calls down the Hammer of the Gods",
+      "source_url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Hammer of the Gods, Armour Breaker, Perfect Strike; armour-break setup into colossal AoE slam",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Titan",
+          "notables": [
+            "Hulking Form",
+            "Earthbreaker",
+            "Mysterious Lineage"
+          ],
+          "note": "Armour Breaker / Perfect Strike not listed in archived guide's ascendancy; those are skill gem selections, not ascendancy notables"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+        "anchor_quote": "Hulking Form (massive bonus to small passives allocated); Earthbreaker (20% more damage from additional aftershock chance); Mysterious Lineage (survivability boost)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "hammer_of_the_gods": "large-zone AoE overhead slam; falls from sky onto targeted zone; slowest but most devastating single-hit in warrior toolkit; rooted during cast"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+        "anchor_quote": "the Hammer of the Gods — a colossal hammer falling from above onto a targeted zone for the slowest, most devastating single-hit in PoE2's warrior toolkit",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Clear with Stampede into packs + warcry cycling. For bosses: pre-stack Earthshatter spikes, land Heavy Stun, trigger Seismic Cry + Infernal Cry, then drop Hammer of the Gods on stunned target."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+        "anchor_quote": "Against bosses, you want to wait to land a Heavy Stun with Earthshatter, then use Seismic Cry and Infernal Cry before dropping the Hammer.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "HotG Titan (EA/0.1-0.3)",
+            "Boneshatter Titan (later eras)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/hammer-of-the-gods-titan-build-guide",
+        "anchor_quote": "Boneshatter Titan Build Guide for Path of Exile 2 Return of the Ancients 0.5.1",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

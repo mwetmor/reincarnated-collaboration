@@ -1,0 +1,255 @@
+{
+  "kit_id": "poe1-deaths-oath",
+  "spine": {
+    "kit_id": "poe1-deaths-oath",
+    "folk_name": "Death's Oath",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The reserved-aura constant-chaos-DoT identity + zero-button uptime lands cleanly via aura geometry + drain ailment + PERSISTENCE_ENGINE_uptime + reservation economy. Minor drift: the item's signature 'chaos-damage-to-wearer-per-kill' self-harm loop (which forces the chaos-res investment that defines gearing) is expressed as a defensive-tax trait rather than a bespoke self-damage primitive; and the probe-attested 'wither' amp-debuff has no clean ailment lane. A player keeps the walk-and-melt feel; the self-damage-gearing-tension is generalized.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The reserved-aura constant-chaos-DoT identity + zero-button uptime lands cleanly via aura geometry + drain ailment + PERSISTENCE_ENGINE_uptime + reservation economy. Minor drift: the item's signature 'chaos-damage-to-wearer-per-kill' self-harm loop (which forces the chaos-res investment that defines gearing) is expressed as a defensive-tax trait rather than a bespoke self-damage primitive; and the probe-attested 'wither' amp-debuff has no clean ailment lane. A player keeps the walk-and-melt feel; the self-damage-gearing-tension is generalized.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Death Aura (item-granted)",
+          "geometry_value": "aura",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "small-radius aura ring radiating from the walking body; constant chaos DoT to all enemies within radius; no projectile, no directional cast, zero button presses. chaos->shadow (crosswalk §1 chaos = drain-DoT lineage). The chaos DoT is a life-decay tick -> drain ailment (§2 life-drain/decay/chaos-DoT -> drain), NOT poison (this is a reserved-aura DoT field, not a stacking-venom skill)"
+        }
+      ],
+      "motion_frame": "zero-button aura-walker: equip the armour, walk into packs, chaos DoT clears at range with no active input (RF's chaos cousin)",
+      "resource_economy": {
+        "reservation_percent": 0.35,
+        "reservation_resource": "mana"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura radius"
+          ],
+          "economy": [
+            "aura reservation (reserved-aura chassis; the aura is the whole offense)",
+            "chaos-resist investment to offset the item's self-damage-per-kill (a defensive tax, not an offensive lane)"
+          ],
+          "traits_affixes": [
+            "chaos/DoT scaling",
+            "area-of-effect (aura radius)",
+            "chaos-resistance (self-damage offset)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-IS-THE-BUILD reserved-aura DoT: Death's Oath armour grants Death Aura, a persistent reserved aura dealing constant chaos DoT from the walking body (item_alterations dossier). Element chaos->shadow (§1); the constant life-decay DoT maps to DRAIN (§2), not poison (probe-facts guessed 'poison,wither' but the skill is a reserved-aura chaos-DoT field = drain lineage; poison is stacking-venom, which this is not). PERSISTENCE_ENGINE_uptime is the exact T4 door (zero-button always-on DoT uptime engine; RF/Death's-Aura archetype per §5 DoT/uptime ramps). CAPSTONE ABSTAINED (batch-03 100% guide-silent) — t4_door routed from core identity (reserved-aura constant-DoT = uptime engine) + probe economy fact (reserve model) per template fallback clause. WITHER NOTE: probe-facts lists 'wither' (a chaos-DoT-amp debuff stacking on enemies); no clean 16-ailment lane for wither-as-damage-amp (it is a taken-more-chaos-DoT stacking hex-adjacent effect) — nearest is curse:amplify but wither is self-applied-on-hit not a cast hex; recorded here, not minted (single instance). The item's self-damage-per-kill is a defensive tax expressed as chaos-resist investment, not an offensive mechanism. Era errata acknowledged (floor 1.x, verify_ledger authoritative)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "AURA",
+    "group_intent_rationale": "delivery=aura-pulse · amp=flat · geometry=aura · treatment=damage · proxy=solo · commit=instant · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/deaths-oath-occultist-build",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "[3.20] Death's Oath Occultist Build Guide (PoE The Forbidden Sanctum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1974718/page/1",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Is the new Death's Oath armour bugged? (Forum thread, Aug 2017)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://www.pathofexile.com/forum/view-thread/651516",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Death's Oath + 1.0.2 DoT mechanics? (Forum thread, Nov 2013)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/death-aura-occultist",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.28] Death Aura Occultist Build - Odealo's Crafty Guides",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Death_Aura",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in eras 2.x, 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Death's Oath question … DoT mechanics? [thread dated November 26, 2013, version 1.0.2]",
+      "source_url": "http://www.pathofexile.com/forum/view-thread/651516",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Death's Oath' is real community usage for the Occultist/Juggernaut build centred on the Death's Oath unique armour",
+      "anchor_quote": "Death's Oath grants a skill called Death's Aura which deals chaos damage over time to enemies within a radius",
+      "source_url": "https://www.poe-vault.com/guides/deaths-oath-occultist-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill is Death Aura (item-granted), an aura that radiates constant chaos DoT from the walking body; aura reservation resource model",
+      "anchor_quote": "It's just Area Chaos Damage over Time. Being a DoT effect, it does not deal Attack or Spell Damage.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1974718/page/1",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Death Aura (item-granted skill)",
+              "type": "item_trigger",
+              "effect": "Trigger Level 20 Death Aura when Equipped. Deals 1250 Base Chaos Damage per second. This skill cannot be cast by Totems.",
+              "anchor_quote": "Trigger Level 20 Death Aura when Equipped"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Death_Aura",
+        "anchor_quote": "Trigger Level 20 Death Aura when Equipped",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_unique": "Death's Oath (unique Vaal Regalia / Astral Plate-base armour)",
+          "grants": "Death Aura skill",
+          "self_damage": "deals chaos damage to wearer per kill",
+          "chaos_resistance_investment": "required to offset self-damage"
+        },
+        "source_url": "https://www.poe-vault.com/guides/deaths-oath-occultist-build",
+        "anchor_quote": "Death Aura makes you take quite a lot of Chaos Damage as you kill enemies, so naturally, you will need to invest in Chaos Resistance",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "small-radius aura ring around player body; chaos DoT affects all enemies within the aura radius; no projectile; no directional cast",
+          "radius_note": "aura radius; no explicit metre value found"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1974718/page/1",
+        "anchor_quote": "It's just Area Chaos Damage over Time. Being a DoT effect, it does not deal Attack or Spell Damage.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Equip Death's Oath armour -> Death Aura activates passively (reserved aura) -> walk into packs -> Chaos DoT clears at range; no button presses required; Profane Bloom triggers corpse explosions on Occultist for supplementary clear; single-target supplemented by Soulrend or similar"
+        },
+        "source_url": "https://www.poe-vault.com/guides/deaths-oath-occultist-build",
+        "anchor_quote": "gameplay consists mostly of running into a pack of monsters and killing them instantly via Death Aura, combined with Profane Bloom",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Death's Oath Occultist (primary variant — chaos DoT aura)",
+            "Caustic Arrow / Death Aura Occultist (Caustic Arrow + Death's Oath hybrid)",
+            "Death's Oath Soulrend Occultist (Soulrend single-target)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/deaths-oath-occultist-build",
+        "anchor_quote": "[3.24] Caustic Arrow/Death Aura Occultist Build … [3.20] Death's Oath Soulrend Occultist",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

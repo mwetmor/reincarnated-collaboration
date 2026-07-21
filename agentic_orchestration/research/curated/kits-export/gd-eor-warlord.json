@@ -1,0 +1,246 @@
+{
+  "kit_id": "gd-eor-warlord",
+  "spine": {
+    "kit_id": "gd-eor-warlord",
+    "folk_name": "Eye of Reckoning Warlord",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/spin",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A GD EoR Warlord keeps the spin loop, movement-while-channel, the conversion identity, and the Judgment tap rhythm -- but every devotion-proc payload (Maul and the whole bound-devotion damage layer that Judgment exists to fire) is EMPTY under 0.3: names fetched, payloads not. The source player would miss the proc-damage layer that motivates casting Judgment at all; its consequence slot is lawfully null. That build, worse (R-M7: still that build -- spin + convert + tap remains playable) -> APPROX, un-minted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A GD EoR Warlord keeps the spin loop, movement-while-channel, the conversion identity, and the Judgment tap rhythm -- but every devotion-proc payload (Maul and the whole bound-devotion damage layer that Judgment exists to fire) is EMPTY under 0.3: names fetched, payloads not. The source player would miss the proc-damage layer that motivates casting Judgment at all; its consequence slot is lawfully null. That build, worse (R-M7: still that build -- spin + convert + tap remains playable) -> APPROX, un-minted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Eye of Reckoning",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "spin channel: self-origin moving cyclone, small radius around the player, full movement while spinning ('spin2win ... cyclone-style ability where the character spins and damages nearby enemies'; 'Player moves freely while spinning'). Physical-converted build -> element-neutral per THE PHYSICAL RULE."
+        },
+        {
+          "source_skill": "Judgment",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "at-target AoE cast whose fetched ROLE is proc-vehicle ('Judgment cast for AoE proc and devotion triggers'; 'Judgment is used as a proc vehicle for binding devotions'); AoE shape underspecified in fetched text -> minimal at-target burst token (circle) with this note."
+        }
+      ],
+      "motion_frame": "spin and juggle: hold the EoR cyclone while moving through packs, tap Judgment to fire the bound devotion procs, Vire's Might to gap-close, watching energy so the Beronath conversion aura never drops",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "cost_scale": "energy-hungry spin channel + aura upkeep ('when you run out of energy, you lose Beronath conversion aura and need to recast it' -- energy management identity-load-bearing)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "spin radius around moving player"
+          ],
+          "economy": [
+            "energy sustain for channel + Beronath aura upkeep"
+          ],
+          "traits_affixes": [
+            "physical + life-leech devotion-path scalers ('constellation path prioritizes physical and life leech')",
+            "elemental-to-physical conversion (Korvan Spaulders early; Beronath aura from item)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "A ROW-1 EVIDENCE KIT (devotion-proc rider): 'Maul proc bound to Judgment' maps as trigger-rider STRUCTURE only -- on-cast-linked to the carrier skill; the proc PAYLOAD is not fetched, so per the row law it contributes NOTHING to mapping_json (consequence_type lawfully null; the name 'Maul' implies no stun/no anything, 0.3/0.4). elem_raw=fire (kb) vs fetched PHYSICAL identity ('SSF Physical Eye of Reckoning Warlord'; physical+leech devotions; elemental-to-physical conversion items) -> physical rule: element-neutral, conversion-is-the-point -> ELEMENT_CONVERSION_PHYSICAL door. Judgment 'circle' is a minimal token; shape unfetched. ADCtH/leech = sustain scaler -> traits lane, NOT drain (no enemy-status language). R-M5 considered, not applicable. Basin-1 whirlwind/spin shape precedent cited for the geometry read only; this kit's own fetched cyclone language carries (C.4)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-with-new-story-chapter-and-oathkeeper-mastery/",
+      "archive_url": null,
+      "site": "massivelyop.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn's Forgotten Gods expansion has launched with new story chapter and Oathkeeper mastery",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.9.7] SSF Physical Eye of Reckoning Warlord | leveling and beginner build | HC friendly",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['fg-2019','patch-1.1-1.2']",
+      "anchor_quote": "Oathkeeper mastery debuted with Forgotten Gods expansion (March 27, 2019). Warlord = Soldier+Oathkeeper. Era floor fg-2019 is consistent with mastery intro.",
+      "source_url": "https://massivelyop.com/2019/03/29/grim-dawns-forgotten-gods-expansion-has-launched-with-new-story-chapter-and-oathkeeper-mastery/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Eye of Reckoning Warlord'; aliases=['EoR Warlord','Eye of Reckoning spin build','physical spin Warlord']",
+      "anchor_quote": "'Physical EoR Warlord' or referenced as 'spin2win' gameplay … [1.1.9.7] SSF Physical Eye of Reckoning Warlord",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Eye of Reckoning','Judgment']; delivery=self-origin spinning cyclone; resource=mana spend; movement=full-move while spinning",
+      "anchor_quote": "Eye of Reckoning (EoR) is described as a spinning melee attack … 'spin2win' … cyclone-style ability where the character spins and damages nearby enemies … Judgment is used as a proc vehicle",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.9.7] SSF Physical Eye of Reckoning Warlord"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Bull",
+            "Assassin",
+            "Lion",
+            "Bear (Maul proc on Judgment)",
+            "Crab",
+            "Stag",
+            "Turtle",
+            "Wraith",
+            "Hammer"
+          ],
+          "notes": "Maul proc bound to Judgment; constellation path prioritizes physical and life leech"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+        "anchor_quote": "Bull, Assassin, Lion, Bear (Maul proc), Crab, Stag, Turtle, Wraith, Hammer",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Korvan Spaulders (elemental-to-physical conversion early)",
+            "Beronath conversion aura (from item)",
+            "Kaisan's Eldritch Eye amulet",
+            "Conduit of Divine Whispers belt"
+          ],
+          "notes": "Energy management critical; Beronath aura requires mana or it drops"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+        "anchor_quote": "when you run out of energy, you lose Beronath conversion aura and need to recast it",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin moving cyclone",
+          "footprint": "small-radius around moving player",
+          "range": "melee/close",
+          "aoe": "small ring around player during spin",
+          "notes": "Player moves freely while spinning; hits all nearby in radius continuously"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+        "anchor_quote": "spinning melee attack … cyclone-style ability where the character spins and damages nearby enemies",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Activate Eye of Reckoning channel; character moves while spinning, hitting all nearby enemies in small radius; Judgment cast for AoE proc and devotion triggers; Vire's Might used for mobility and gap-close; Ascension toggles for defense",
+          "resource": "mana spend (channel)",
+          "tempo": "continuous spin + proc juggle"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-ssf-physical-eye-of-reckoning-warlord-leveling-and-beginner-build-hc-friendly/124405",
+        "anchor_quote": "spin2win … cyclone-style ability where the character spins and damages nearby enemies … Judgment is used as a proc vehicle for binding devotions",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "physical EoR Warlord (this version)",
+            "lightning EoR Warlord (Soulare's Helm)",
+            "fire EoR Warlord"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/ultimate-hardcore-lightning-eye-of-reckoning-warlord-soulara-of-teslaria/124549",
+        "anchor_quote": "Ultimate Hardcore Lightning Eye of Reckoning Warlord - Soulara of Teslaria",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

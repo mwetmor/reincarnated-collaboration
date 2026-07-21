@@ -1,0 +1,318 @@
+{
+  "kit_id": "poe1-poison-bv",
+  "spine": {
+    "kit_id": "poe1-poison-bv",
+    "folk_name": "Poison Blade Vortex",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6;3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Blade-COUNT-scales-HIT-FREQUENCY (each added blade makes everyone in radius get hit FASTER, not harder) is a bespoke cadence coupling the engine orbit does not carry — landed as accumulator + notes. Plague Bearer's store-fraction-then-release pool is approximated as accumulator-spend into an aura (the incubate/release toggle rhythm noted). Walk-the-blender identity intact.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 6,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Blade-COUNT-scales-HIT-FREQUENCY (each added blade makes everyone in radius get hit FASTER, not harder) is a bespoke cadence coupling the engine orbit does not carry — landed as accumulator + notes. Plague Bearer's store-fraction-then-release pool is approximated as accumulator-spend into an aura (the incubate/release toggle rhythm noted). Walk-the-blender identity intact.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blade Vortex",
+          "geometry_value": "orbit",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "recast to stack up to 10 ethereal blades ORBITING the body; more blades = higher hit frequency against everything in the orbit radius ('blades now increase the frequency at which all enemies in the radius take damage'); walk into packs — phys-to-chaos poison stacking on every hit"
+        },
+        {
+          "source_skill": "Plague Bearer",
+          "geometry_value": "aura",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "stores a fraction of poison damage dealt into a plague pool while incubating, then toggles to release: an aura that burns the stored pool as chaos DoT around the player while active — store-then-spend"
+        }
+      ],
+      "motion_frame": "whirling poison core: keep 10 blades spinning and simply walk through packs — everything near the body is hit and poisoned continuously; toggle Plague Bearer to dump the stored plague pool on dense packs",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "orbit radius (AoE-scaled; the walk-into-packs footprint)",
+            "aura release zone (Plague Bearer)"
+          ],
+          "economy": [
+            "stack-refresh cycle: recast cadence keeps 10 blades + duration topped up",
+            "plague pool: store fraction of poison dealt -> spend as release aura"
+          ],
+          "traits_affixes": [
+            "poison damage/duration + chance-to-poison",
+            "cast speed (stack rebuild rate)",
+            "AoE (orbit radius)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "chaos-poison kit -> SHADOW per crosswalks section-1 (corruption/plague register: Assassin chassis, Plague Bearer pestilence frame — NOT nature/venom; contrast scourge-arrow this batch which reads earth). Poison ailment lane either way. Orbit is a NATIVE geometry (orbiting blades -> orbit, section-6) — the signature footprint lands losslessly. 10-blade stack + stored-poison pool both ride charge_stack accumulator (stack-refresh-cycle econ). Probe lists a wither rider: wither (stacking chaos damage-TAKEN amp) maps nearest to the section-2 exposure shape-rule (timed on-hit -> sunder register) — carried as a trait/affix-lane note only, rider centrality, not a skill ailment. Occultist Profane Bloom on-kill chain-explosion variant would open GEOMETRY_PROPAGATION_cascade — variant door noted, NOT pinned (R-M1: dominant identity is Assassin poison saturation). CAPSTONE ABSTAINED — doors from identity: saturation (poison-stack DoT uptime) + RESOURCE_CONVERSION (Plague Bearer store-then-spend pool)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/poison-blade-vortex-assassin-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Poison BV Assassin Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/blade-vortex-poison-assassin-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "odealo",
+      "title": "[3.28] Poison Blade Vortex Assassin Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2723275",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "unknown",
+      "title": "[3.9] Poisonous Blade Vortex with Plague Bearer",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3168707",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "unknown",
+      "title": "[3.19] Poison Blade Vortex Assassin | Early To Endgame",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Blade_Vortex",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Blade Vortex — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Plague_Bearer",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Plague Bearer — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "Blade Vortex introduced version 2.1.0; physical BV builds documented from 2.x forward",
+      "source_url": "https://poedb.tw/us/Blade_Vortex",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": "Poison BV builds documented across 3.x; Pathfinder/Occultist/Assassin variants active through 3.6",
+      "source_url": "https://www.poe-vault.com/guides/poison-blade-vortex-assassin-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "Plague Bearer introduced 3.8 (Blight); '[3.9] Poisonous Blade Vortex with Plague Bearer' forum thread confirms 3.9 active meta",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2723275",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.14-3.19",
+      "anchor_quote": "'[3.19] Poison Blade Vortex Assassin | Early To Endgame' forum thread confirms continued meta presence",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3168707",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Poison Blade Vortex' and aliases 'BV', 'Phys/Ele BV(era variants)' are real community usage",
+      "anchor_quote": "'TbXie's Poison BV Assassin Build Guide' and '[3.28] Poison Blade Vortex Assassin Build' confirm community shorthand BV in wide use",
+      "source_url": "https://odealo.com/articles/blade-vortex-poison-assassin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Blade Vortex (up to 10 spinning blades orbiting body) + Plague Bearer; chaos damage via poison stacking; player runs into packs while maintaining stack",
+      "anchor_quote": "'By casting Blade Vortex, you will spawn up to 10 blades which circle and stay around you for a Duration'",
+      "source_url": "https://www.poe-vault.com/guides/poison-blade-vortex-assassin-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TbXie",
+          "site": "poe-vault.com",
+          "note": "TbXie authored Poison BV Assassin Build Guide on poe-vault.com"
+        },
+        "source_url": "https://www.poe-vault.com/guides/poison-blade-vortex-assassin-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Blade Vortex of the Scythe (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Slower cast time; higher mana cost; increased effectiveness of added damage",
+              "anchor_quote": "Blade Vortex of the Scythe: slower cast time, higher mana cost, increased effectiveness of added damage"
+            },
+            {
+              "node": "Plague Bearer — Divergent (alt quality)",
+              "type": "alt_quality",
+              "effect": "Plague Bearer buff gains +0.5% to Poison Damage over Time multiplier while Infecting per 1% gem quality",
+              "anchor_quote": "causes the Plague Bearer buff to have +0.5% to Poison Damage over Time multiplier while Infecting per 1% gem quality"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Blade_Vortex",
+        "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Blade Vortex of the Scythe (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Slower cast time; higher mana cost; increased effectiveness of added damage vs base Blade Vortex",
+              "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage"
+            },
+            {
+              "item": "Plague Bearer — Divergent (alt quality gem)",
+              "type": "alt_quality_gem",
+              "effect": "Plague Bearer buff gains +0.5% Poison DoT multiplier while Infecting per 1% quality",
+              "anchor_quote": "causes the Plague Bearer buff to have +0.5% to Poison Damage over Time multiplier while Infecting per 1% gem quality"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Blade_Vortex",
+        "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit (blades circle player body continuously)",
+          "aoe": "small-radius ring around player; each blade hits all enemies within orbit radius",
+          "notes": "Orbit radius scales with AoE; player walks into packs rather than aiming"
+        },
+        "source_url": "https://poedb.tw/us/Blade_Vortex",
+        "anchor_quote": "'blades now increase the frequency at which all enemies in the radius take damage'",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Blade Vortex repeatedly to stack up to 10 blades orbiting body; walk into enemy packs; blades hit all enemies in orbit radius each rotation; Plague Bearer stores and releases accumulated poison damage as chaos DoT aura"
+        },
+        "source_url": "https://www.poe-vault.com/guides/poison-blade-vortex-assassin-build-guide",
+        "anchor_quote": "'By casting Blade Vortex, you will spawn up to 10 blades which circle and stay around you for a Duration'",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Assassin (current primary)",
+            "Occultist (Profane Bloom + Plague Bearer clear)",
+            "Pathfinder (3.7-3.8 era; flask sustain + Nature's Reprisal)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/poison-blade-vortex-occultist-league-starter-guide",
+        "anchor_quote": "'Poison Blade Vortex Occultist offers one of the smoothest mapping experiences... thanks to Profane Bloom explosion chains and Plague Bearer'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 6,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

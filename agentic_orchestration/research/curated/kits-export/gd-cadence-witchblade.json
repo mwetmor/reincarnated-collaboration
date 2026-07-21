@@ -1,0 +1,228 @@
+{
+  "kit_id": "gd-cadence-witchblade",
+  "spine": {
+    "kit_id": "gd-cadence-witchblade",
+    "folk_name": "Cadence Witchblade",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player feels the swing-count rhythm building to a periodic detonation (every 3rd swing) -- the engine has no native every-Nth-swing accumulator, so it is filed as a two-tier-accumulator family accrual and approximated via trigger_grammar, not delivered natively. Curse of Frailty's RR token is withheld (shape unanchored). No status emitted. Stays terminal MAPPED (CLOSE with a family-accrual candidate) per R-M7.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the source player feels the swing-count rhythm building to a periodic detonation (every 3rd swing) -- the engine has no native every-Nth-swing accumulator, so it is filed as a two-tier-accumulator family accrual and approximated via trigger_grammar, not delivered natively. Curse of Frailty's RR token is withheld (shape unanchored). No status emitted. Stays terminal MAPPED (CLOSE with a family-accrual candidate) per R-M7.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cadence",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "default single-target melee with a rhythm where every 3rd swing triggers a detonation hit ('Single target per cadence hit; detonation hit on every 3rd swing'; 'proc based build focusing on physical dmg 1hand cadence/blitz'; 'Every third swing DETONATES'). melee_strike carries the single-target-per-swing delivery; the every-3rd-swing detonation is a two-tier-accumulator shape (counted tier on swing cadence) -> family-accrual candidate (docket), NOT a native geometry. Physical: no element family; NO ailment named."
+        },
+        {
+          "source_skill": "Blitz",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "charge/gap-close into the pack ('Blitz charge for gap-close'; 'charge into the middle of stuff and face roll'). dash_attack carries the charge-strike identity (phrase-book dash-strike/charge)."
+        }
+      ],
+      "motion_frame": "charge into the pack with Blitz, then melee in Cadence rhythm so every third swing detonates, popping Curse of Frailty as a resistance-reduction debuff and face-rolling through packs",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator (Cadence's every-3rd-swing detonation = a counted swing accumulator; 'rhythm/recipe' economy)",
+        "cadence_scale": "attack-speed swing tempo"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "swing-count accumulator (every 3rd swing)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Cadence swing radius",
+            "Blitz dash reach"
+          ],
+          "economy": [
+            "swing-count accumulator cadence",
+            "attack-speed tempo"
+          ],
+          "traits_affixes": [
+            "physical damage scaling",
+            "Curse of Frailty -> resistance-reduction debuff lane (RR; specific curse token WITHHELD -- shape unanchored)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cadence's every-3rd-swing detonation FILES an accrual to the TWO-TIER-ACCUMULATOR family (counted tier on swing cadence) per m01 hot-fact -- this is the #3 attestation of the mechanism (WATCH-ITEM was fired at 2), and krieg-m02 already filed the SAME Cadence mechanism (cite as same-mechanism evidence line). Filed WITHOUT numbers (steward owns counts). Modeled in trigger_grammar as apply-consume-pair (accumulate swings -> consume on 3rd -> burst) + charge_stack accumulator economy, but the FAMILY-MINT stays a steward call -- graded un-minted. Blitz -> dash_attack. Physical = element-neutral (THE PHYSICAL RULE). Curse of Frailty RR: §2 RR-branch shape-silent -> WITHHOLD curse token (consistent with bloody-pox + m03 5x withholds). MOMENTUM_CASCADE = closest T4 to the swing-accumulator-detonation identity. CLOSE: the detonation-accumulator maps as note + accrual, not as a native engine mechanic."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "jajaja",
+      "title": "[1.0.0.4] Cadence Witchblade - 100% unkillable, 100% faceroll build (Jul 2016)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-1-budget-physical-cadence-blitz-s-b-witchblade/111542",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": null,
+      "title": "[1.1.9.1] Budget Physical Cadence-Blitz S&B Witchblade",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "Post is dated July 8, 2016 and references patch [1.0.0.4] — confirms base-2016 era presence",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Cadence Witchblade'; aliases include 'physical Cadence Witchblade', 'Soldier Occultist Cadence'",
+      "anchor_quote": "Witchblade, combining Soldier and Occultist masteries... focusing on physical dmg 1hand cadence/blitz",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Cadence (every-3rd-swing detonation rhythm), Curse of Frailty (debuff)",
+      "anchor_quote": "proc based build focusing on physical dmg 1hand cadence/blitz... pop CoF, charge into the middle of stuff and face roll",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "jajaja",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+        "anchor_quote": "jajaja (forum username displayed as original poster)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-melee",
+          "footprint": "single-target-per-swing",
+          "notes": "Single target per cadence hit; detonation hit on every 3rd swing; Blitz charge for gap-close"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+        "anchor_quote": "proc based build focusing on physical dmg 1hand cadence/blitz",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Default melee with Cadence rhythm; every 3rd swing triggers detonation hit; Curse of Frailty applied as RR debuff; charge in, melee through pack"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-4-cadence-witchblade-100-unkillable-100-faceroll-build/33398",
+        "anchor_quote": "proc based build focusing on physical dmg 1hand cadence/blitz... pop CoF, charge into the middle of stuff and face roll",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Chaos Cadence S&B Witchblade (Surtr)",
+            "Chaos DW Cadence Witchblade (The Faceless Void)",
+            "Budget Physical Cadence-Blitz S&B Witchblade"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-3-1-surtr-chaos-cadence-s-b-witchblade-glad-certified/42978",
+        "anchor_quote": "Surtr - Chaos Cadence S&B Witchblade... The Faceless Void - Chaos Cadence Witchblade",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "kit_id": "d3-uliana-ep",
+  "spine": {
+    "kit_id": "d3-uliana-ep",
+    "folk_name": "Uliana Exploding Palm",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03 GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null. No ailment attested. Mark-detonate identity well-captured via trigger_grammar apply-consume-pair. Teleporting SSS multi-hop approximated as dash_attack; exact D3 hop-to-each-target mechanic has no direct equivalent.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null. No ailment attested. Mark-detonate identity well-captured via trigger_grammar apply-consume-pair. Teleporting SSS multi-hop approximated as dash_attack; exact D3 hop-to-each-target mechanic has no direct equivalent.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Exploding Palm",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mark applied to target; Uliana 2pc + Way of the Hundred Fists auto-apply EP per capstone anchor ('making our Way of the Hundred Fists apply Exploding Palm'); Gungdo Gear spreads EP explosion to nearby enemies on detonation per item_alterations anchor; physical attack → element null per physical rule; mark identity = exploding_palm_mark"
+        },
+        {
+          "source_skill": "Seven-Sided Strike",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Teleporting multi-hop strike detonating all EP marks; 'Seven-Sided Strike detonates all marks' per skill_loop payload; Lion's Claw doubles SSS hits per item_alterations anchor; teleport-chain to marked targets = consume-mark consequence; physical attack → element null"
+        }
+      ],
+      "motion_frame": "Way of the Hundred Fists auto-applies Exploding Palm marks to all enemies; Seven-Sided Strike detonates all marks in teleporting multi-hop chain; Gungdo Gear spreads explosions to additional nearby targets",
+      "resource_economy": {
+        "cost_scale": "Spirit (Monk class resource) per verify anchor ('Monks use Spirit as their primary resource'); Shenlong's Spirit set interaction per verify mechanics anchor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "exploding_palm_mark",
+        "consequence_type": "consume-mark"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Gungdo Gear EP spread on explosion (chain-propagation rider)",
+            "Lion's Claw doubles SSS hits (geometry multiplier)"
+          ],
+          "economy": [
+            "Shenlong's Spirit set Spirit management (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Uliana 6pc 12500% EP scalar (scaler-only per §B.1)",
+            "Fist of Az'Turrasq 500% EP scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Mark-and-detonate identity: 'the genre's cleanest mark-then-mass-detonate loop' per corpus mech_note (probe-class, inadmissible as attestation) — but skill_loop payload confirms it: 'Way of the Hundred Fists applies Exploding Palm automatically (Uliana 2pc). Seven-Sided Strike detonates all marks.' apply-consume-pair trigger grammar is the correct shape. Physical attack → element null per physical rule. No ailment attested (no status word in fetched rows). GEOMETRY_PROPAGATION_cascade T4 door: EP spreads on detonation to additional targets (on-kill-adjacent propagation). Uliana scalers scaler-only per §B.1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Uliana Exploding Palm Monk Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/monk-uliana-seven-sided-strike-build-with-exploding-palm",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Monk Uliana Seven-Sided Strike Build With Exploding Palm (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Released: Season 4. Major Buff: Season 22 – \"Uliana's Stratagem has been buffed in Season 22\"",
+      "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Current Guide: Season 39 (Last Updated: June 21, 2026)",
+      "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Uliana Exploding Palm' and aliases 'Uliana Monk', 'Exploding Palm Monk', 'Seven-Sided Strike Monk D3' are real community usage",
+      "anchor_quote": "Uliana's Stratagem Exploding Palm Monk (also referenced as \"Uliana Exploding Palm Solo Push\")",
+      "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Exploding Palm, Seven-Sided Strike; Monk resource is Spirit",
+      "anchor_quote": "Monks use Spirit as their primary resource. The build emphasizes Spirit management through Shenlong's Spirit set interactions.",
+      "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Author; co-author Raxxanterax; updates by Northwar and wudijo"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+        "anchor_quote": "Written by Northwar & Raxxanterax. Updated by Northwar & wudijo.",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Uliana's Stratagem 6pc",
+          "set_bonus_summary": "12,500% Exploding Palm damage; WotHF auto-applies EP; SSS detonates EP",
+          "legendary_powers": [
+            "Fist of Az'Turrasq: 500%",
+            "Lion's Claw: double SSS hits",
+            "Gungdo Gear: EP spread"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+        "anchor_quote": "Uliana's Stratagem grants our Exploding Palm 12,500% damage as well as making our Way of the Hundred Fists apply Exploding Palm",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Uliana's Stratagem (6pc, 12,500% EP damage)",
+          "key_legendaries": [
+            "The Fist of Az'Turrasq (500% EP damage)",
+            "Lion's Claw (SSS ×7 more hits)",
+            "Gungdo Gear (EP spread on explosion, +100%)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+        "anchor_quote": "Fist of Az'Turrasq increases Exploding Palm damage by 500%. Lion's Claw allows Seven-Sided Strike to attack seven more times.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (mark) + teleport-chain (detonate)",
+          "footprint": "chain-hop across marked targets",
+          "notes": "SSS teleports player to multiple targets; EP spreads on detonation via Gungdo Gear."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+        "anchor_quote": "Lion's Claw allows Seven-Sided Strike to attack seven more times, effectively doubling damage output",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Way of the Hundred Fists applies Exploding Palm automatically (Uliana 2pc). Seven-Sided Strike detonates all marks; Gungdo Gear spreads EP on explosion. Cycle: WotHF to mark, SSS to detonate across chained enemies."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+        "anchor_quote": "Uliana's Stratagem grants our Exploding Palm 12,500% damage as well as making our Way of the Hundred Fists apply Exploding Palm.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Uliana Exploding Palm Solo Push",
+            "Uliana Speed Variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/uliana-exploding-palm-monk-guide",
+        "anchor_quote": "Uliana Exploding Palm Solo Push",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

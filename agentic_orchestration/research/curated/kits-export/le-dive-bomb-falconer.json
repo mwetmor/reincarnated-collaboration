@@ -1,0 +1,249 @@
+{
+  "kit_id": "le-dive-bomb-falconer",
+  "spine": {
+    "kit_id": "le-dive-bomb-falconer",
+    "folk_name": "Dive Bomb Falconer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.2-woven;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11 GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY (APPROX): the falcon is a persistent autonomous companion — its between-command autonomous Falcon Strikes and the shadow-falcon phantom overlaps are core to the build's sustained DPS but fall in the engine summoner-deferral GAP (autonomous-combatant delivery deferred). Mapped the COMMANDED Dive Bomb strike as the deliverable core; a source player would MISS the constant falcon-autonomy chip damage and the boss-phase phantom-overlap burst that our single commanded-strike mapping cannot express. APPROX not GAPPED — the commanded strike IS deliverable (R-M7 player-test: 'that build, worse', not 'not that build'); terminal MAPPED not DOCKET.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY (APPROX): the falcon is a persistent autonomous companion — its between-command autonomous Falcon Strikes and the shadow-falcon phantom overlaps are core to the build's sustained DPS but fall in the engine summoner-deferral GAP (autonomous-combatant delivery deferred). Mapped the COMMANDED Dive Bomb strike as the deliverable core; a source player would MISS the constant falcon-autonomy chip damage and the boss-phase phantom-overlap burst that our single commanded-strike mapping cannot express. APPROX not GAPPED — the commanded strike IS deliverable (R-M7 player-test: 'that build, worse', not 'not that build'); terminal MAPPED not DOCKET.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dive Bomb",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": "shadow",
+          "ailments": [],
+          "delivery_notes": "At-target command: the falcon streaks from the sky and impacts the targeted enemy zone for a small radial AoE burst ('huge burst Damage with amazing AoE'). Player stays mobile while the falcon executes. Physical (§1 physical rule); On Wings of Shadow overlaps shadow phantom-falcon copies at bosses -> shadow secondary flavor."
+        },
+        {
+          "source_skill": "Aerial Assault",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Alt movement skill (swap for Shift); traversal utility."
+        }
+      ],
+      "motion_frame": "Issue Dive Bomb; the falcon dives to the target zone for a burst while you kite freely; Smoke Bomb for buffs/shadow-creation; Shift or Aerial Assault to reposition; Decoy for breathing room",
+      "resource_economy": {
+        "resource": "mana",
+        "cadence_shape": "Mana per command + per-command falcon cooldown; Cooldown Recovery Speed investment closes the gap"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "COMPANION_CONTRACT"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "radial impact AoE",
+            "shadow-falcon overlap count (On Wings of Shadow)"
+          ],
+          "economy": [
+            "falcon cooldown / CDR investment",
+            "Mana per command"
+          ],
+          "traits_affixes": [
+            "falcon-linked damage (Trained to Hunt / Go For the Eyes link player stats to falcon)",
+            "physical/shadow scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical -> element-neutral (§1 physical rule, DEX); shadow secondary from On Wings of Shadow phantom-falcon overlaps (shadow-themed node). Dive Bomb is a player-COMMANDED strike at a target zone -> maps as at-target radial impact; the FALCON is a persistent companion (Falconry on the Action Bar; autonomous Falcon Strikes between commands) = summoner-deferral GAP flavor -> pet-RIDER kit (§A: pet-rider -> APPROX with gap in fidelity_notes; the falcon's own autonomous strikes are NOT deliverable). proxy_val=heavy reflects the companion weight. COMPANION_CONTRACT door (LE Falconer companion pact). NO ailment token: burst impact, no status named (§0.1). 'Go For the Eyes' node NAME echoes blind but is a damage/stat-link node, NOT a fumble/vision status (§0.4 name-collision) -> blind WITHHELD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LizardIRL",
+      "title": "Dive Bomb Falconer Build Guide - Last Epoch Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/news/last-epoch-1-0-patch-notes-released",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Last Epoch 1.0 Patch Notes Released!",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Patch 1.0 introduced the Falconer Mastery... Falconer is the third Rogue class mastery",
+      "source_url": "https://maxroll.gg/last-epoch/news/last-epoch-1-0-patch-notes-released",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": "Lizard_IRL DIVE BOMB FALCONER 1.1 planner on maxroll attests 1.1 era presence; Dive Bomb Falconer guide confirmed live Season 4",
+      "source_url": "https://maxroll.gg/last-epoch/planner/8y13r0oc",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Dive Bomb Falconer Build Guide - Last Epoch Maxroll.gg — Season 4 content confirmed",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Dive Bomb Falconer'; aliases include 'Aerial Assault Falconer', 'falcon strike Falconer'",
+      "anchor_quote": "Dive Bomb Falconer calls down your Falcon from the skies for huge burst Damage with amazing AoE",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Dive Bomb, Falconry, Aerial Assault; command-falcon at-target delivery; small splash AoE; physical damage; Mana + falcon cooldown resource",
+      "anchor_quote": "Dive Bomb summons your falcon to strike enemies from range... amazing Added Damage Effectiveness... Falconry needs to be on your Action Bar in order to use Falcon Strikes and Dive Bomb",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LizardIRL",
+          "site": "maxroll.gg",
+          "role": "Team Lead",
+          "guide_title": "Dive Bomb Falconer Build Guide"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+        "anchor_quote": "Author: LizardIRL (Team Lead)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Devastating Dive",
+            "Rushing Wings",
+            "Focused Hunter",
+            "Trained to Hunt",
+            "Go For the Eyes",
+            "Relentless Talons",
+            "Finesse Them"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+        "anchor_quote": "Boost its Damage with Devastating Dive, Rushing Wings and Focused Hunter... Trained to Hunt and Go For the Eyes link your stats to the falcon's damage output",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target command; falcon physically dives to targeted enemy zone",
+          "footprint": "small radial AoE on impact; multiple shadow falcon overlaps for boss damage via On Wings of Shadow node",
+          "notes": "Player remains mobile while falcon executes; shadow synergy enables phantom strike copies overlapping at boss"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+        "anchor_quote": "Dive Bomb summons your falcon to strike enemies from range... amazing Added Damage Effectiveness... shadow falcons to overlap for increased damage on bosses",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Issue Dive Bomb command; falcon streaks from position and impacts targeted enemy zone; small radial AoE on impact; player kites freely while falcon executes; Smoke Bomb for buffs and shadow creation; Shift (or Aerial Assault) for mobility; Decoy for breathing room; health sustain via Relentless Talons/Finesse Them on falcon hits",
+          "resource_model": "Mana cost per command + per-command falcon cooldown; Cooldown Recovery Speed investment to close cooldown gap"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+        "anchor_quote": "Dive Bomb summons your falcon to strike enemies from range... Falconry needs to be on your Action Bar in order to use Falcon Strikes and Dive Bomb",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Dive Bomb (primary falcon strike)",
+            "Aerial Assault swap variant (alt movement skill)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/dive-bomb-falconer",
+        "anchor_quote": "Swap Shift for Aerial Assault if you're more comfortable with it",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

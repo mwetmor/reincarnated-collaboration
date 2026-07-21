@@ -1,0 +1,244 @@
+{
+  "kit_id": "poe2-blood-mage",
+  "spine": {
+    "kit_id": "poe2-blood-mage",
+    "folk_name": "Blood Mage",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the 150%-of-max-life OVERHEAL buffer (the survivability core of the build -- you bank effective HP above your bar) is not expressible as a native key, so it degrades to a note + docket-candidate; the clamp of hp_cost_scale to 0.30 may under-state the source's Life pressure. Geometry+ailment+on-kill loop otherwise map cleanly, so CLOSE not APPROX.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed",
+      "sunder"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the 150%-of-max-life OVERHEAL buffer (the survivability core of the build -- you bank effective HP above your bar) is not expressible as a native key, so it degrades to a note + docket-candidate; the clamp of hp_cost_scale to 0.30 may under-state the source's Life pressure. Geometry+ailment+on-kill loop otherwise map cleanly, so CLOSE not APPROX.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bonestorm",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "sunder",
+            "bleed"
+          ],
+          "delivery_notes": "Channel to conjure a swarm of bone spikes, release to fire them as a physical multi-point projectile spray that explodes on impact. Physical -> element-neutral per THE PHYSICAL RULE; identity via geometry+ailment. Impale-> sunder (hit-applied damage-taken amp); bleed rider per probe. commit=wind-up (channel-then-release)."
+        }
+      ],
+      "motion_frame": "Channel-release Bonestorm spray; spells cost Life+Mana (Sanguimancy); Life Remnants drop on hit/kill and overheal to 150% max, refunding the Life spent.",
+      "resource_economy": {
+        "hp_cost_scale": 0.3,
+        "on_kill": "Life Remnants generated on hit and on kill (heal above max life, up to 150%)",
+        "on_kill_frac": "life-remnant vacuum pickup"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": "Life Remnants (Sanguimancy on-hit/on-kill drops)",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "RETRIBUTION_ENGINE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bonestorm shard-count / multi_projectile spread"
+          ],
+          "economy": [
+            "hp_cost_scale (Life-on-cast)",
+            "on_kill Life-Remnant recovery"
+          ],
+          "traits_affixes": [
+            "physical-crit scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "elem 'physical' -> THE PHYSICAL RULE: element-neutral (both slots null), identity carried by multi_projectile geometry + sunder/bleed ailments. Sanguimancy 'spells cost Life in addition to Mana' -> hp_cost_scale, CLAMPED to 0.30 LOCKED ceiling (source rate unquantified in fetched text; clamp+note per addendum B/review-book clamp list). Life-remnant kill-vacuum (addendum B) -> on_kill recovery keys; pickup-radius flavor noted. WATCH-ITEM FIRED: ES-overleech-above-cap -- 'healing above max life to 150%' is an above-max-life buffer; NO native economy key expresses an above-cap overheal reservoir -> docket-candidate filed (steward consolidates with grim-feast b02). Bonestorm is a general witch skill, NOT a Blood Mage capstone node (dossier source_note). Grasping Wounds (stagger damage over 4s) -> RETRIBUTION_ENGINE-adjacent defensive door. Impale->sunder per addendum A."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/resources/bloodmage-ascendancy",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Bloodmage Ascendancy Overview - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3592603",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "DrugaddictMenemist#6176",
+      "title": "My Bonestorm/Reap Blood Mage starter for PoE 2 - THE JOURNEY PAID OFF",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Bonestorm",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Bonestorm - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe2/builds/vaal?class=Blood+Mage&skills=Life+Remnants",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Blood Mage Life Remnants builds - Fate of the Vaal - Path of Exile 2",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.3-edict, 0.4",
+      "anchor_quote": "Bonestorm introduced in version 0.1.0d (with support updates). Version 0.2.0 redesigned its impale mechanic",
+      "source_url": "https://poe2db.tw/us/Bonestorm",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blood Mage'; aliases 'Bonestorm life remnants', 'self-flagellate Blood Mage'",
+      "anchor_quote": "Blood Mage Life Remnants builds - Fate of the Vaal - Path of Exile 2",
+      "source_url": "https://poe.ninja/poe2/builds/vaal?class=Blood+Mage&skills=Life+Remnants",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bonestorm, Life Remnants; spells cost Life in addition to Mana; Life recovered from kills via Life Remnants",
+      "anchor_quote": "Life Remnants are generated through Sanguimancy 'on hit and on kill.' They heal based on character level and can restore health 'above your Maximum Life, up to 150%'",
+      "source_url": "https://maxroll.gg/poe2/resources/bloodmage-ascendancy",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "DrugaddictMenemist#6176",
+          "site": "pathofexile.com/forum",
+          "url": "https://www.pathofexile.com/forum/view-thread/3592603"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3592603",
+        "anchor_quote": "My Bonestorm/Reap Blood Mage starter for PoE 2 - THE JOURNEY PAID OFF",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Blood Mage",
+          "nodes": [
+            "Sanguimancy (Life Remnants on hit and on kill; spells cost Life in addition to Mana)",
+            "Grasping Wounds (prevents portion of damage taken, staggers over 4 seconds)"
+          ],
+          "source_note": "Bonestorm not listed as Blood Mage capstone node — it is a general witch skill used in conjunction with Blood Mage ascendancy."
+        },
+        "source_url": "https://maxroll.gg/poe2/resources/bloodmage-ascendancy",
+        "anchor_quote": "Grasping Wounds prevents a portion of the damage taken from hits, and staggers it over the next 4 seconds.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry_verbatim": "Bonestorm: channels then releases bone shard projectiles; multi-point impact spray. Confirmed: 'Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode.'"
+        },
+        "source_url": "https://poe2db.tw/us/Bonestorm",
+        "anchor_quote": "Channel to conjure a swarm of bone spikes in the air, then release to fire them at enemies and explode.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Cast Bonestorm (channels bone shard projectiles; costs Life + Mana via Sanguimancy). On kill, Life Remnants drop from Sanguimancy passive, healing above max life to 150%. Sustained kill cadence refunds Life spent on casts."
+        },
+        "source_url": "https://maxroll.gg/poe2/resources/bloodmage-ascendancy",
+        "anchor_quote": "spending life on top of mana... Life Remnants are generated through Sanguimancy 'on hit and on kill'",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Bonestorm Blood Mage (physical crit, early access)",
+            "Fireball Blood Mage (0.4, maxroll endgame guide)",
+            "Lightning Spear Bleed Blood Mage (0.4 endgame)",
+            "Detonate Dead Blood Mage (0.5 era)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides",
+        "anchor_quote": "Fireball Blood Mage Build Guide for Path of Exile 2 The Last of the Druids 0.4.0",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

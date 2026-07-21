@@ -1,0 +1,213 @@
+{
+  "kit_id": "ud-seal-veil-daimonios",
+  "spine": {
+    "kit_id": "ud-seal-veil-daimonios",
+    "folk_name": "Seal/Veil Resource Build (Daimonios)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "ud-s7-2025",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Kit identity is the reservation-economy lattice supporting Lightning Vortex; standalone mapping without the LV primary damage loop gives an incomplete player picture. Source player would miss that this is a support-system kit, not a standalone build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Kit identity is the reservation-economy lattice supporting Lightning Vortex; standalone mapping without the LV primary damage loop gives an incomplete player picture. Source player would miss that this is a support-system kit, not a standalone build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Seal skills (Seal of Persistence / Striking / Dodge / Elemental Domain)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Multiple Seal skills running as reservation-based persistent effects (aura-class). Seal geometry per-type is at-target small AOE per dossier but the build identity is the stacked-reservation economy, not individual seal cast geometry. Veil of Protection = self-origin aura toggle. Element = null: no damage-type descriptor in fetched text; elem_raw='unknown'. Note: primary damage skill is Lightning Vortex [Origin] (cross-kit; see ud-lightning-vortex)."
+        },
+        {
+          "source_skill": "Veil of Protection",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin aura toggle (mana reservation). Pairs with Improved Technique link rune to reduce reservation cost across all active Seals."
+        }
+      ],
+      "motion_frame": "Stack Seal skills + Veil toggle; Improved Technique link shared across all Seals lowers reservation floor; Lightning Vortex [Origin] as primary damage output (cross-kit); sustain mana economy via reservation management",
+      "resource_economy": {
+        "reservation_percent": null,
+        "persistent_condition_shape": "activation-toggle",
+        "cost_scale": "mana",
+        "reservation_resource": "mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "RESOURCE_CONVERSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Improved Technique (shared reservation reduction link rune)",
+            "Veil of Protection (mana reservation toggle)"
+          ],
+          "traits_affixes": [
+            "Seal count scaling",
+            "reservation cost reduction"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Economy-identity kit. Primary damage deferred to ud-lightning-vortex (cross-kit dependency). Element=null: no element typed in this kit's fetched text; sole-source flag on corpus (mh-v3-high-recrawl-verified-sole-source). Reservation economy is identity-load-bearing. NETWORK_AMPLIFIER T4 door for multi-seal stacking identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pocketgamer.com/undecember/builds/",
+      "archive_url": null,
+      "site": "pocketgamer.com",
+      "author_handle": "Pocket Gamer staff",
+      "title": "The best Undecember builds in Season 7",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-s7-2025 (Season 7)",
+      "anchor_quote": "Since we are running many seal skills plus Veil, it's very important to get a high-level Improved Technique rune and link them together to lower the resource cost.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Seal/Veil Resource Build (Daimonios) — Seal skills + Veil toggle + Improved Technique link; reservation economy",
+      "anchor_quote": "Since we are running many seal skills plus Veil, it's very important to get a high-level Improved Technique rune and link them together to lower the resource cost.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Veil reserves mana; Seal skills spend from remaining pool; Improved Technique link shared across Seal skills",
+      "anchor_quote": "Since we are running many seal skills plus Veil, it's very important to get a high-level Improved Technique rune and link them together to lower the resource cost.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Daimonios",
+          "site": "pocketgamer.com/undecember",
+          "context": "Season 7 build; Seal/Veil economy archetype named after creator"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_link": "Improved Technique (shared across all Seal skills; lowers reservation cost)",
+          "seal_list": [
+            "Seal of Persistence",
+            "Seal of Striking",
+            "Seal of Dodge",
+            "Seal of Elemental Domain"
+          ],
+          "veil": "Veil of Protection"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Since we are running many seal skills plus Veil, it's very important to get a high-level Improved Technique rune and link them together to lower the resource cost.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "seal_geometry": "at-target small AOE (per seal type)",
+          "veil_geometry": "self-origin aura toggle"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Since we are running many seal skills plus Veil",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Stack multiple Seal skills (Seal of Striking, Seal of Persistence, Seal of Elemental Domain, etc.) alongside Veil toggles; high-level Improved Technique link lowers reservation cost across all Seals; sustains mana economy with reservation floor. Lightning Vortex [Origin] is the primary damage skill wrapping this support lattice."
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Since we are running many seal skills plus Veil, it's very important to get a high-level Improved Technique rune and link them together to lower the resource cost.",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

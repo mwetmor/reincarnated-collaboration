@@ -1,0 +1,227 @@
+{
+  "kit_id": "gd-retaliation-warlord",
+  "spine": {
+    "kit_id": "gd-retaliation-warlord",
+    "folk_name": "Retaliation Warlord",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The loop-verb is stand-and-tank-return: passive per-attacker damage return with stat-stacked magnitude has no player-initiated delivery token (§A row — the absence IS the gap). Player test: not that build. EoR spin + Counter Strike trigger + TH reflect economy map as riders only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The loop-verb is stand-and-tank-return: passive per-attacker damage return with stat-stacked magnitude has no player-initiated delivery token (§A row — the absence IS the gap). Player test: not that build. EoR spin + Counter Strike trigger + TH reflect economy map as riders only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Eye of Reckoning (retaliation-added-to-attack)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Active spin 'used with retaliation-added-to-attack to convert thorns into active spinning AoE' — the RATA conversion is part of the same §A retaliation-substrate mechanism, not a separate lane. Physical rule: element-neutral."
+        },
+        {
+          "source_skill": "Counter Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Procs a counter hit on being attacked — §A inverse trigger edge (on-damage-taken), mapped in trigger_grammar; also 'procs shield-devotion chains' whose payloads are unfetched (contribute nothing, §0.4)."
+        }
+      ],
+      "motion_frame": "Stand and face-tank; every hit taken returns stacked retaliation damage; EoR spins the thorns outward",
+      "resource_economy": {
+        "resource": "energy",
+        "damage_taken_converts_shape": "reflect-damage",
+        "note": "energy is secondary slow-drain; retaliation magnitude is stat-stacked ('maximising % retaliation damage and flat retaliation damage... scales on resistance reduction') — engine TH reflect cap <=1.0 cannot express the stat-stacked magnitude model; part of the gap"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "EoR spin radius"
+          ],
+          "economy": [
+            "TH damage-taken-converts lane"
+          ],
+          "traits_affixes": [
+            "flat + % retaliation stat-stacking; RR scaling of retaliation"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§A retaliation-substrate row (4th distinct stat-as-damage mechanism) — this kit is the row's evidence kit. Loop-verb IS stand-and-tank-return ('every hit taken returns damage to attacker'); no player-initiated delivery token exists for passive per-attacker return, and per the §A trap note aura-pulse tokens were NOT stretched onto it — that absence is the gap. TH economy lane + trigger grammar + EoR/Counter Strike riders carry what maps; the identity does not. Own docket-candidate filed; NOT merged with armour-cluster mechanisms (steward-held). Variants (acid/fire retal) are flavor — physical rule keeps element-neutral."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-6-just-another-physical-retaliation-s-b-warlord-sr85-ravager-of-souls-callagadra/115298",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.9.6] Just Another Physical Retaliation S&B Warlord",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/drunken-fwuffy-lazy-retaliation-warlord/83654",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "Drunken Fwuffy - Lazy Retaliation Warlord",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: fg-2019, patch-1.1-1.2",
+      "anchor_quote": "Warlord (Soldier + Oathkeeper) [...] dated June 26, 2019 and references Patch 1.1.9.8",
+      "source_url": "https://forums.crateentertainment.com/t/drunken-fwuffy-lazy-retaliation-warlord/83654",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Retaliation Warlord; aliases include Retal Warlord, Counter Strike EoR Warlord, damage-taken-converts Warlord",
+      "anchor_quote": "Just Another Physical Retaliation S&B Warlord",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-6-just-another-physical-retaliation-s-b-warlord-sr85-ravager-of-souls-callagadra/115298",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Counter Strike, Eye of Reckoning (retal-added). Retaliation aura, damage returned when hit, stacked retaliation stats.",
+      "anchor_quote": "maximising % retaliation damage and flat retaliation damage [...] Counter Strike addition is fun on the warlord side",
+      "source_url": "https://forums.crateentertainment.com/t/drunken-fwuffy-lazy-retaliation-warlord/83654",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "note": "Drunken Fwuffy thread author handle not captured from fetch"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/drunken-fwuffy-lazy-retaliation-warlord/83654",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Targo's Hammer",
+            "Autumn Boar"
+          ],
+          "note": "Shield devotions benefit from Overguard on Warlord side; Counter Strike procs shield-devotion chains"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/drunken-fwuffy-lazy-retaliation-warlord/83654",
+        "anchor_quote": "Counter Strike addition is fun on the warlord side [...] overguard you get to have greater benefit of shield devotions as warlord, like Targo's hammer and Autumn Boar",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "aura-pulse / retaliation on-hit",
+          "footprint": "per-attacker contact point; Eye of Reckoning adds spinning AoE",
+          "retaliation_mechanics_verbatim": "maximising % retaliation damage and flat retaliation damage - partly via conversion from other damage types [...] retaliation still scales on resistance reduction [...] Counter Strike addition is fun on the warlord side"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-6-just-another-physical-retaliation-s-b-warlord-sr85-ravager-of-souls-callagadra/115298",
+        "anchor_quote": "maximising % retaliation damage and flat retaliation damage - partly via conversion from other damage types",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Passive retaliation loop: player stacks flat and % retaliation damage stats; every hit taken returns damage to attacker. Counter Strike procs on being attacked. Eye of Reckoning used with retaliation-added-to-attack to convert thorns into active spinning AoE. Full face-tank playstyle.",
+          "resource": "energy secondary (slow drain from skill rotation; occasional elixir needed)",
+          "loop_verb": "stand-and-tank with passive retaliation return"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/drunken-fwuffy-lazy-retaliation-warlord/83654",
+        "anchor_quote": "maximising % retaliation damage and flat retaliation damage [...] added retaliation damage compensates for the lack of additional weapon damage in some of the skills",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "physical retaliation S+B Warlord",
+            "acid retaliation",
+            "fire retaliation (Shieldbreaker)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-6-just-another-physical-retaliation-s-b-warlord-sr85-ravager-of-souls-callagadra/115298",
+        "anchor_quote": "Retaliation still scales on resistance reduction, so if you go acid get acid resist reduction, if you go physical or fire get their types",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

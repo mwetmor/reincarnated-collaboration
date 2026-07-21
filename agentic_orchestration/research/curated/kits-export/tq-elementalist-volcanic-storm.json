@@ -1,0 +1,252 @@
+{
+  "kit_id": "tq-elementalist-volcanic-storm",
+  "spine": {
+    "kit_id": "tq-elementalist-volcanic-storm",
+    "folk_name": "Elementalist Nuker",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "base-2006;anniversary-2016;ragnarok-2017",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lightning from Storm mastery (Storm Surge passive procs) is not emitted — no damage-type descriptor found in fetched text for lightning on this kit specifically. A player would miss the Storm mastery feel. Stun from Fragmentation fragments is a real secondary output not carried in ailment list.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "water"
+    ],
+    "ailments_attested": [
+      "burn",
+      "chill"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lightning from Storm mastery (Storm Surge passive procs) is not emitted — no damage-type descriptor found in fetched text for lightning on this kit specifically. A player would miss the Storm mastery feel. Stun from Fragmentation fragments is a real secondary output not carried in ailment list.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Volcanic Orb",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "Projectile travels forward and explodes in small radius; fire+physical (physical no-family); burn DoT from Conflagration synergy attested ('burn damage over time'); Fragmentation synergy adds stun fragments on explosion"
+        },
+        {
+          "source_skill": "Squall",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Debuff zone; element-silent on Squall per §0.2 (no explicit fire/lightning damage-type on Squall in fetched text — same ruling as druid-squall)"
+        },
+        {
+          "source_skill": "Ice Shard (close-range fallback)",
+          "geometry_value": "line",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "Spam when enemies close; cold damage attested via skill_loop ('spamming Ice Shard when they get close enough') + water family; 'temporarily slowing them' → chill; secondary loop skill"
+        }
+      ],
+      "motion_frame": "Throw Volcanic Orbs at approaching groups; Squall right-click for debuff zone; spam Ice Shard when enemies close; Storm Surge passive procs; glass cannon — high INT/resist investment",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "note": "Glass defense — minimal armor; energy management for Volcanic Orb spam"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENTAL_ECHO",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Volcanic Orb radius",
+            "Ice Shard pierce count"
+          ],
+          "economy": [
+            "cast speed",
+            "energy pool"
+          ],
+          "traits_affixes": [
+            "fire damage %",
+            "cold damage %",
+            "burn duration"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Dual-element build (fire primary + water secondary via Ice Shard). Stun from Fragmentation synergy attested but not mapped as primary ailment — secondary effect on Volcanic Orb explosion, noted only. Lightning from Storm mastery (Thunderball, Storm Surge) not explicitly damage-typed in fetched text → null per §0.2."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/343785380903915329/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Elementalist (Storm + Earth)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/343786746013474385/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Volcanic Orb vs Thunderblast as Elementalist",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+      "archive_url": null,
+      "site": "almarsguides.com",
+      "author_handle": "Almar",
+      "title": "Elementalist Build Guide - Titan Quest",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Viable from base game through Ragnarok; base-2006, anniversary-2016, ragnarok-2017",
+      "anchor_quote": "prior to the Atlantis/Ragnarok/Anniversary Edition of the game it was one of the most powerful caster builds",
+      "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Elementalist Nuker = Earth+Storm dual mastery, archetypal dual-caster",
+      "anchor_quote": "An Elementalist is a combination of the Storm and Earth masteries",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/343785380903915329/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Volcanic Orb, Thunderball, Squall; Volcanic Orb travels to target and explodes AoE; Storm adds lightning; glass defense",
+      "anchor_quote": "Volcanic Orb lobs a burning orb of fiery brimstone that explodes when it hits the ground inflicting fire and physical damage to enemies in a small radius",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/343786746013474385/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Almar",
+          "site": "almarsguides.com"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Conflagration synergy on Volcanic Orb adds burn DoT and radius increase; Fragmentation synergy adds pierce/stun fragments; glass defense — high INT/resist investment, minimal armor"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/343786746013474385/",
+        "anchor_quote": "Conflagration modifies Volcanic Orb, adding a 3.0 meter radius increase and burn damage over time",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "projectile AoE — Volcanic Orb travels forward and explodes fire+physical in small radius",
+          "secondary": "targeted zone — Squall large debuff AoE",
+          "note": "Thunderball mentioned in AE patch context but damage type not directly attested in fetched text"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/343786746013474385/",
+        "anchor_quote": "Volcanic Orb lobs a burning orb of fiery brimstone that explodes when it hits the ground inflicting fire and physical damage to enemies in a small radius",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Throw Volcanic Orbs at approaching groups; spam Ice Shard when enemies close; Fire Nova for close-range burst; Squall on right-click for debuff zone; Storm Surge passive procs lightning on casts"
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+        "anchor_quote": "opening up with throwing Volcanic Orbs at groups of enemies as they run to you and then spamming Ice Shard when they get close enough",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Volcanic Orb primary + Storm secondary",
+            "Ice Shard primary caster variant",
+            "Squall debuffer hybrid"
+          ]
+        },
+        "source_url": "https://almarsguides.com/Computer/Games/TitanQuest/Builds/Elementalist/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

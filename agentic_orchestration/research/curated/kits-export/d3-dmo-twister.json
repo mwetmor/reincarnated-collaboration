@@ -1,0 +1,225 @@
+{
+  "kit_id": "d3-dmo-twister",
+  "spine": {
+    "kit_id": "d3-dmo-twister",
+    "folk_name": "DMO Energy Twister",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null means player loses arcane/shadow flavor labeling. Wandering twister drift feel preserved via R-M6 circle geometry + drift notes but no direct engine equivalent for merging-twisters mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null means player loses arcane/shadow flavor labeling. Wandering twister drift feel preserved via R-M6 circle geometry + drift notes but no direct engine equivalent for merging-twisters mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Energy Twister (Raging Storm rune)",
+          "geometry_value": "circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "R-M6 drift-tick entity: spawned transient twisters wander independently; Raging Storm rune merges up to 5 twisters; twisters despawn if stationary per verify anchor; Ranslor's Folly pixelpull vacuums enemies into twister path; arcane→shadow default would apply if 'arcane' were attested in fetched text; not attested"
+        },
+        {
+          "source_skill": "Slow Time",
+          "geometry_value": "placed_lane",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed temporal bubble trapping packs; Delsere DMO 6pc requires Slow Time activation for full multiplier; no ailment attested (slow = movement but 'chill' not named; 'Slow Time' is skill-name = §0.3 leak class)"
+        }
+      ],
+      "motion_frame": "Activate Slow Time bubble to enable DMO 6pc; spam Energy Twisters to wander through trapped packs; Ranslor's Folly pixelpull concentrates enemies; CoE arcane cycle burst window",
+      "resource_economy": {
+        "cost_scale": "Arcane Power (Wizard class resource); unatttested in fetched anchor quotes — class-convention assignment with fidelity note"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "element_rotation_window",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Ranslor's Folly vortex_pull rider pulling enemies into twisters"
+          ],
+          "economy": [
+            "Deathwish+Twisted Sword damage multipliers (scaler-only)",
+            "CoE element_rotation_window (R-M5 token)"
+          ],
+          "traits_affixes": [
+            "DMO 6pc 20000% scalar (scaler-only per §B.1)",
+            "Valthek's Rebuke 400% scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null — arcane→shadow default row applies only when 'arcane' is attested in fetched text; no dossier anchor_quote names 'arcane' or any element for Energy Twister or Slow Time. No ailment attested (chill unatttested; 'slow' in skill-name = collision/leak). R-M6 drift-tick lane governs twisters (not summoner GAP — no HP, no commands, no persistence per §B.3). CoE = R-M5 token. DMO 20000% and all scalers are scaler-only per §B.1. [STEWARD-AUDIT 2026-07-18 MW2-close: Energy Twister element null→shadow — dossier payload attests 'rotation-based burst on coe arcane cycle' → arcane→shadow default (law element table); anchor-quote-only reading too narrow. Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "sVr",
+      "title": "Diablo 3 Season 39 DMO Twister Wizard Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Delsere's Magnum Opus Set (DMO) has been introduced to Diablo III in Season 5",
+      "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'DMO Energy Twister' and aliases 'DMO Energy Twister Wizard', 'Delsere Energy Twister', 'Slow Time Twister' are real community usage",
+      "anchor_quote": "Delseres Magnum Opus set grants 75% damage reduction to our character as well as a massive 20,000% separate damage multiplier",
+      "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Energy Twister and Slow Time; Arcane Power resource; wandering projectile delivery",
+      "anchor_quote": "Energy Twister has always been the skill of choice for DMO",
+      "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "sVr",
+          "site": "maxroll.gg",
+          "updater": "Chewingnom"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+        "anchor_quote": "Written by sVr. Updated by Chewingnom",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Delsere's Magnum Opus",
+          "set_bonus_summary": "75% damage reduction, 20000% separate damage multiplier; requires Slow Time activation",
+          "kanais_cube": [
+            "Deathwish",
+            "Twisted Sword",
+            "Convention of Elements"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+        "anchor_quote": "Delseres Magnum Opus set grants 75% damage reduction to our character as well as a massive 20,000% separate damage multiplier",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Ranslor's Folly",
+            "Twisted Sword",
+            "Deathwish",
+            "Valthek's Rebuke"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+        "anchor_quote": "Valtheks Rebuke is purely included for its 400% separate damage multiplier",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-summon",
+          "footprint": "multi-point wandering",
+          "notes": "Energy Twisters wander independently; Raging Storm rune merges up to 5 twisters; despawn if stationary"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+        "anchor_quote": "Energy Twisters were changed to no longer stack in corners and instead despawn if they stop moving",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Slow Time bubbles trap packs; Energy Twisters wander and merge; Ranslor's Folly pixelpull vacuums enemies into twisters; Deathwish+Twisted Sword provide massive multipliers; rotation-based burst on CoE Arcane cycle"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+        "anchor_quote": "Ranslors Folly provides us with one of the strongest pixelpulls in the game",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "DMO Solo Push",
+            "LoD Energy Twister (separate guide, currently stronger per maxroll)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/dmo-twister-wizard-guide",
+        "anchor_quote": "mainly played with Legacy of Dreams (LoD) instead of its dedicated Delseres Magnum Opus (DMO) Set",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

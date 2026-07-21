@@ -1,0 +1,226 @@
+{
+  "kit_id": "tli-moto-bots",
+  "spine": {
+    "kit_id": "tli-moto-bots",
+    "folk_name": "Moto Bot Commander",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-live-2022+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — all damage from placed Spider Tank army; no player damage rotation expressible. Summoner architecture required. Erosion element unresolvable without steward ruling.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — all damage from placed Spider Tank army; no player damage rotation expressible. Summoner architecture required. Erosion element unresolvable without steward ruling.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Spider Tank (×6)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed mechanical minions. Skill_loop anchor: 'The strategy involves summoning six upgraded Spider Tanks to inflict harm while you move quickly avoiding enemy attacks.' Placed (stationary deployment) = totem per totem-vs-companion law. Decayed Mind ring converts Spider Tank physical to Erosion — Erosion element is TLI-specific ambiguous bucket (erosion→FILE TO STEWARD per §B5-ELEMENT); null emission here."
+        },
+        {
+          "source_skill": "Machine Army / Dark Gate (buffs)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hero buff auras. Skill_geometry anchor: 'Machine Army = buff aura. Dark Gate = utility/buff skill.' No element attested for hero skills."
+        }
+      ],
+      "motion_frame": "Bot commander: place 6 Spider Tanks, enhance via Machine Army and Dark Gate, hero kites while tanks do all damage. Decayed Mind ring (erosion convert) is item-layer.",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Spider Tank explosion AoE variant (bomb radius)"
+          ],
+          "economy": [
+            "attack speed bonus 100% transferred to minions (item_alterations anchor)"
+          ],
+          "traits_affixes": [
+            "Overload trait (minion crit + attack speed + skill range)",
+            "Commander trait (group buffs)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U. Pet-core summoner: Spider Tanks do all damage; hero has no primary damage rotation. Summoner-deferral. Decayed Mind Erosion conversion: erosion is TLI-specific damage type not in §1 family table — filed to steward (likely earth/shadow-register; cannot assert). Placed-proxy-count accrual: file 'accrual to placed-proxy-count family' (tli-moto-bots: 6 Spider Tanks). PROXY_SOVEREIGNTY over PROXY_ASCENSION (network of 6 placed units, not single ascended proxy)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "MINION-PET",
+    "group_intent_rationale": "movement=full-move · amp=flat · treatment=damage · function=taunt · economy=reserve · proxy=heavy · tempo=med · commit=instant · activation=active · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.gfinityesports.com/article/torchlight-infinite-moto-build",
+      "archive_url": null,
+      "site": "gfinityesports.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite Moto build guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/torchlight-infinite/build-guides/order-calling-moto-decayed-mind-spider-tank-guide/variants",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "unknown",
+      "title": "Order Calling Moto Decayed Mind Summon Spider Tank Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://earlyguids.com/torchlight-infinite/builds",
+      "archive_url": null,
+      "site": "earlyguides.com",
+      "author_handle": "unknown",
+      "title": "Best Torchlight Infinite Builds: Ranked & Explained",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-live-2022+",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Moto Bot Commander — mechanical/bot commander hero",
+      "anchor_quote": "Commander Moto is the minion-based character in Torchlight Infinite, and he's the only S-tier character on the tier list due to his strong damage and very safe playstyle.",
+      "source_url": "https://earlyguides.com/torchlight-infinite/builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: bot suite, shield skills",
+      "anchor_quote": "The strategy involves summoning six upgraded Spider Tanks to inflict harm while you move quickly avoiding enemy attacks, and you enhance your Spider Tanks using Machine Army and Dark Gate.",
+      "source_url": "https://maxroll.gg/torchlight-infinite/build-guides/order-calling-moto-decayed-mind-spider-tank-guide/variants",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Commander trait: group buffs. Overload trait: minion crit rating + attack speed + skill range. Warrior trait: personal damage. Shield tree nodes for defense."
+        },
+        "source_url": "https://www.gfinityesports.com/article/torchlight-infinite-moto-build",
+        "anchor_quote": "The recommended hero trait is Overload, which gives minions critical strike rating, attack speed and skill range.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Decayed Mind ring: converts 100% minion physical damage to Erosion. Two-ring variant: each converts 50%. Attack speed bonus 100% transferred to minions."
+        },
+        "source_url": "https://maxroll.gg/torchlight-infinite/build-guides/order-calling-moto-decayed-mind-spider-tank-guide/variants",
+        "anchor_quote": "the Decayed Mind ring, which grants an affix that converts 100% of minions' Physical Damage to Erosion Damage",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Spider Tank = mechanical minion. Machine Army = buff aura. Dark Gate = utility/buff skill. Precise Projectiles and Weapon Amplification as passive auras. Spider Tank explosion variant: AoE radius bomb."
+        },
+        "source_url": "https://maxroll.gg/torchlight-infinite/build-guides/order-calling-moto-decayed-mind-spider-tank-guide/variants",
+        "anchor_quote": "passive auras used early game are basically Precise Projectiles and Weapon Amplification",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Summon 6 Spider Tanks. Enhance via Machine Army and Dark Gate. Use Decayed Mind ring to convert Spider Tank physical damage to Erosion. Hero provides buffs/auras; Spider Tanks do all damage."
+        },
+        "source_url": "https://maxroll.gg/torchlight-infinite/build-guides/order-calling-moto-decayed-mind-spider-tank-guide/variants",
+        "anchor_quote": "The strategy involves summoning six upgraded Spider Tanks to inflict harm while you move quickly avoiding enemy attacks, and you enhance your Spider Tanks using Machine Army and Dark Gate.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Decayed Mind Erosion-convert (standard)",
+            "Charge Calling Bomber (explosion AoE)",
+            "Commander group-buff tank variant"
+          ]
+        },
+        "source_url": "https://maxroll.gg/torchlight-infinite/build-guides/order-calling-moto-decayed-mind-spider-tank-guide/variants",
+        "anchor_quote": "Spider Tank explosions deal massive damage to enemies in a radius, with damage scaling based on minions' base damage, max life, and max energy shield.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

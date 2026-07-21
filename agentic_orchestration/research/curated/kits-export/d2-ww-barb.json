@@ -1,0 +1,276 @@
+{
+  "kit_id": "d2-ww-barb",
+  "spine": {
+    "kit_id": "d2-ww-barb",
+    "folk_name": "Whirlwind Barbarian",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "classic;lod;d2r;rotw-s14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving-channel spin through packs dealing weapon-scaled physical damage to all enemies in path along movement. Full-move policy while channeling per batch hot-fact §CROSS.5. Physical rule: element-neutral. Path-swath delivery noted."
+        },
+        {
+          "source_skill": "Battle Orders",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Party-wide percentage boost to Life/Mana/Stamina. Free persistent toggle (no reservation cost). Party-buff aura."
+        }
+      ],
+      "motion_frame": "Spin-to-win moving channel: player holds WW and steers through packs, dealing weapon-scaled physical hits along movement path; Battle Orders active for party sustain.",
+      "resource_economy": {
+        "spend": "steady-mana",
+        "leech": "mana leech via ring/weapon covering WW sustain cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Grief Phase Blade mandatory weapon (item-defined output scale)"
+          ],
+          "economy": [
+            "mana leech gear sustain"
+          ],
+          "traits_affixes": [
+            "Berserk variant for physical-immune — scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Moving-channel: geometry = whirlwind (spin-to-win per phrase-book); delivery_notes state moving-vs-rooted per §CROSS.5 batch hot-fact. Physical rule: element-neutral. Grief Phase Blade is near-mandatory (item_alterations) — numeric scaler per §4, not a mechanism rewrite. Battle Orders free-toggle aura (no reservation). MOMENTUM_CASCADE for the moving-through-packs velocity-damage loop identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Whirlwind Barbarian Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablobytes.com/d2-resurrected/builds/whirlwind-barb/",
+      "archive_url": null,
+      "site": "diablobytes.com",
+      "author_handle": null,
+      "title": "Whirlwind Barbarian Build Guide — WW Barb — Diablo 2 Resurrected (D2R)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://classic.battle.net/diablo2exp/skills/barbarian-combatskills.shtml",
+      "archive_url": null,
+      "site": "classic.battle.net",
+      "author_handle": null,
+      "title": "The Arreat Summit - Skills: Barbarian Combat Skills",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: classic",
+      "anchor_quote": "A fierce spinning attack.",
+      "source_url": "https://classic.battle.net/diablo2exp/skills/barbarian-combatskills.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: lod",
+      "anchor_quote": "The WW Barb has been a staple of the game since its original release, and Patch 2.4's Whirlwind rework made it smoother and more reliable than ever.",
+      "source_url": "https://diablobytes.com/d2-resurrected/builds/whirlwind-barb/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: d2r",
+      "anchor_quote": "Season 14 Last Updated: May 22, 2026. No changes for Season 14.",
+      "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era: rotw-s14",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Whirlwind Barbarian'; aliases 'WW Barb', 'Berserk WW hybrid'",
+      "anchor_quote": "the iconic Whirlwind Barbarian, also known as the WW Barb",
+      "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Whirlwind, Battle Orders",
+      "anchor_quote": "makes your character spin and deal Physical Damage when phasing through enemies. Battle Orders grants you and your party a percentage based amount of Life, Mana, and Stamina.",
+      "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief",
+            "Fortitude",
+            "Enigma",
+            "Breath of the Dying",
+            "Death",
+            "Beast"
+          ],
+          "synergies": [
+            "Battle Orders: percentage boost to party Life/Mana/Stamina"
+          ],
+          "notable_oskills": []
+        },
+        "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+        "anchor_quote": "Battle Orders grants you and your party a percentage based amount of Life, Mana, and Stamina.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Grief Phase Blade (mandatory damage)",
+            "Fortitude (armor)",
+            "Enigma",
+            "Breath of the Dying",
+            "Death",
+            "Beast",
+            "Last Wish",
+            "Insight (merc)",
+            "Obedience"
+          ],
+          "notable_uniques": []
+        },
+        "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+        "anchor_quote": "Grief Phase Blade is effectively mandatory for competitive damage output.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (spinning body)",
+          "footprint": "small-radius (AoE around player path)",
+          "notes": "Player moves while spinning; hits all enemies in radius along movement path. Full-move policy while channeling."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+        "anchor_quote": "makes your character spin and deal Physical Damage when phasing through enemies",
+        "abstained": 0,
+        "conf": 0.89
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Whirlwind channels player into spinning movement that deals weapon-scaled physical damage to all enemies in path. Entire output is physical/weapon-scaled. Battle Orders provides party-wide HP and mana buff. Mana leech via ring/weapon covers sustained WW cost. Grief Phase Blade is near-mandatory endgame weapon."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+        "anchor_quote": "makes your character spin and deal Physical Damage when phasing through enemies",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "WW Barb (pure Whirlwind)",
+            "Berserk WW hybrid (WW for packs, Berserk for physical-immune bosses)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+        "anchor_quote": "Berserk: Magical damage, required for breaking Physical Immune monsters",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

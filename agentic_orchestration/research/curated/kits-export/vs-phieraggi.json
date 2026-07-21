@@ -1,0 +1,187 @@
+{
+  "kit_id": "vs-phieraggi",
+  "spine": {
+    "kit_id": "vs-phieraggi",
+    "folk_name": "Phieraggi (guns union)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: engine orbit geometry captures rotating laser ring well. What source player misses: the revive-stock-as-power economy has no direct engine analog — the nearest T4 (RESOURCE_CONVERSION) approximates the conversion shape but not the stock-as-amplitude escalation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: engine orbit geometry captures rotating laser ring well. What source player misses: the revive-stock-as-power economy has no direct engine analog — the nearest T4 (RESOURCE_CONVERSION) approximates the conversion shape but not the stock-as-amplitude escalation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Phieraggi (rotating lasers)",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Four blue lasers rotate clockwise around player at fixed radius; slight offset from player body creating inner blind spot. Continuous sweep during uptime. With sufficient cooldown reduction — permanent. Element: 'blue lasers' is color/visual flavor — no damage-type descriptor; VS has no elemental system → null."
+        }
+      ],
+      "motion_frame": "Rotating laser fan orbits player body; revive-stock amplification increases beam count and base damage; cooldown reduction sustains permanent uptime.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "each Revival grants +1 Amount +1 Base Damage; cap +10 each — Tiragisu catalyst contributes Revivals as damage resource"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS weapon evolution). Revive-stock-as-power is identity-load-bearing: Tiragisu catalyst supplies Revivals which convert to +Amount/+Damage — atypical resource economy (RESOURCE_CONVERSION T4 door). Orbit geometry confirmed by rotating laser ring description. No ailments, no element attested. Capstone/variants dossier-abstain = correct."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Phieraggi",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Phieraggi - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "Added March 25, 2022 (Patch 0.3.2)",
+      "source_url": "https://vampire.survivors.wiki/w/Phieraggi",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Phieraggi — union of Phiera Der Tuphello + Eight The Sparrow + Tiragisu catalyst; rotating laser fans; ring footprint; true beam delivery",
+      "anchor_quote": "Phieraggi shoot four blue lasers that rotate clockwise around the character.",
+      "source_url": "https://vampire.survivors.wiki/w/Phieraggi",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Revive-stock-as-power: each Revival gives +1 Amount and +1 Base Damage (caps at +10 each)",
+      "anchor_quote": "Each Revival gives Phieraggi +1 Amount and +1 Base Damage, caps at +10 each.",
+      "source_url": "https://vampire.survivors.wiki/w/Phieraggi",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Amount items increase beam count additively. Tiragisu (catalyst) contributes Revivals which scale damage and amount. Cooldown reduction causes permanent beam uptime."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Phieraggi",
+        "anchor_quote": "Each Revival gives Phieraggi +1 Amount and +1 Base Damage, caps at +10 each.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam",
+          "footprint": "ring",
+          "note": "Rotating beams sweep a ring around the player. 'The lasers does not start at the character and is a little bit away, forming a circle of a blind spot.' Beams pass through walls."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Phieraggi",
+        "anchor_quote": "The lasers does not start at the character and is a little bit away, forming a circle of a blind spot.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Union weapon (Phiera Der Tuphello + Eight The Sparrow + Tiragisu catalyst). Fires four rotating blue lasers clockwise around character. Lasers retract between fires; with enough cooldown reduction they stay up permanently. Revive-stock economy: each Revival grants +1 Amount + +1 Base Damage (cap +10 each). More Revivals = more beams and more damage."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Phieraggi",
+        "anchor_quote": "Phieraggi shoot four blue lasers that rotate clockwise around the character.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

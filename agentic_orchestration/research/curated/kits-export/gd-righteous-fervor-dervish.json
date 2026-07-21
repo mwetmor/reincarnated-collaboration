@@ -1,0 +1,232 @@
+{
+  "kit_id": "gd-righteous-fervor-dervish",
+  "spine": {
+    "kit_id": "gd-righteous-fervor-dervish",
+    "folk_name": "Righteous Fervor Dervish",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "curse:sap"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Righteous Fervor",
+          "geometry_value": "melee_strike",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Default-attack replacer (§A replacer row — this kit is the row's verbatim evidence): 'a fast single target attack that can have (nearly) 100% acid damage right at the start'; 100% conversion via Venomblade set. WPS riders: 'area of effect attacks that can be activated off of your main attack' — 'fast hits mean more chance of activating the AoE-skill'."
+        },
+        {
+          "source_skill": "Night's Chill (aura)",
+          "geometry_value": "aura",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "'An effect of an aura that decreases the resistances of enemies by a staggering 30%' — caster-anchored persistent RR → curse:sap (§2 GD-RR row). Name-collision guarded: NO chill token; fetched behavior is resistance reduction only (§0.3)."
+        }
+      ],
+      "motion_frame": "Fast acid swings; WPS AoE procs ride each hit while the fervor meter ramps",
+      "resource_economy": {
+        "resource": "energy",
+        "charge_stack_sub_shape": "accumulator",
+        "note": "fervor meter ramps with attack speed (ramp-meter economy)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "WPS proc splash radius"
+          ],
+          "economy": [
+            "ramp accumulator"
+          ],
+          "traits_affixes": [
+            "100% acid conversion (Venomblade set); -30% acid RR (Night's Chill)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Replacer native + WPS as trigger-grammar riders per §A (WPS chance-per-swing → nearest enum on-hit-threshold; proc payloads fetched only generically as 'area of effect attacks', so no per-proc payload invention). Acid → earth (venom register: Venomblade/Dreeg's Reproach, §1 acid row). NO poison token: acid is damage-type language throughout; no stacking-DoT status behavior fetched. Cold Deathmarked variant noted, unmapped."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-8-1-edgyswingsetacid-dw-righteous-fervor-dervish-sr-90-4-50-crucible-avatar-ravager-crate/99684",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.8.1] Edgyswingsetacid - DW Righteous Fervor Dervish [SR 90]",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1781921985",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "The Acid Dervish - an invincible dance of blades",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: fg-2019, patch-1.1-1.2",
+      "anchor_quote": "build is tagged as [1.1.8.1], placing it in the Forgotten Gods expansion era (post-2019) [...] references the Build Compendium X (Forgotten Gods)",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-edgyswingsetacid-dw-righteous-fervor-dervish-sr-90-4-50-crucible-avatar-ravager-crate/99684",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Righteous Fervor Dervish; aliases include RF Dervish, acid RF Dervish, Righteous Fervor Oathkeeper Nightblade",
+      "anchor_quote": "Edgyswingsetacid - DW Righteous fervor Dervish",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-edgyswingsetacid-dw-righteous-fervor-dervish-sr-90-4-50-crucible-avatar-ravager-crate/99684",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Righteous Fervor. Melee default attack with acid conversion, fast single-target swing, WPS interactions.",
+      "anchor_quote": "a fast single target attack that can have (nearly) 100% acid damage right at the start of the game [...] fast hits mean more chance of activating the AoE-skill",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1781921985",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com / forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-edgyswingsetacid-dw-righteous-fervor-dervish-sr-90-4-50-crucible-avatar-ravager-crate/99684",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "skill_mod": "Dreeg's Reproach (acid conversion of Righteous Fervor)",
+          "aura": "Night's Chill reduces enemy acid resistance by 30%",
+          "set": "Venomblade set"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1781921985",
+        "anchor_quote": "Night's Chill is an effect of an aura that decreases the resistances of enemies by a staggering 30%",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Venomblade set",
+          "alteration": "100% conversion of damage types to acid for Righteous Fervor"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-8-1-edgyswingsetacid-dw-righteous-fervor-dervish-sr-90-4-50-crucible-avatar-ravager-crate/99684",
+        "anchor_quote": "100% conversion via Venomblade set pieces",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target melee single-target per swing",
+          "footprint": "point (single target); WPS procs add small-radius splash",
+          "verbatim": "fast single target attack [...] Nightblades have area of effect attacks that can be activated off of your main attack"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1781921985",
+        "anchor_quote": "fast single target attack that can have (nearly) 100% acid damage [...] fast hits mean more chance of activating the AoE-skill",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Default-attack replacement: Righteous Fervor is primary melee swing. Acid conversion applied to each hit. WPS skills (Nightblade passives) activate off Righteous Fervor swings for AoE spread. Fast attack speed stacks fervor meter.",
+          "resource": "energy (spend)",
+          "loop_verb": "default-attack spam with WPS procs"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?l=german&id=1781921985",
+        "anchor_quote": "a fast single target attack that can have (nearly) 100% acid damage right at the start of the game [...] fast hits mean more chance of activating the AoE-skill",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "DW acid Dervish (main)",
+            "cold Righteous Fervor Dervish (Deathmarked set)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/dw-melee-1-1-2-4-cold-righteous-fervor-deathmarked-dervish-sr-75-viable/51045",
+        "anchor_quote": "COLD Righteous Fervor Deathmarked Dervish",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

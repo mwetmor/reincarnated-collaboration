@@ -1,0 +1,192 @@
+{
+  "kit_id": "di-frenzy-barb",
+  "spine": {
+    "kit_id": "di-frenzy-barb",
+    "folk_name": "Frenzy Barbarian",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-20",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Maps well. Minor loss: Restless Demon ultimate uptime noted in verify_ledger anchor ('Frenzy seems to be designed to be played around high Restless Demon uptime') but ultimate/ability name only with no mechanics in store — omitted per name-only law. Sprint ERRATA-52 excluded correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Maps well. Minor loss: Restless Demon ultimate uptime noted in verify_ledger anchor ('Frenzy seems to be designed to be played around high Restless Demon uptime') but ultimate/ability name only with no mechanics in store — omitted per name-only law. Sprint ERRATA-52 excluded correctly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frenzy",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target melee strike; discrete hits at target. 'Launch a frenzied attack for X damage. Each hit increases Frenzy's attack speed by 8% for 3 seconds, stacking up to 5 times.' No element damage verb (physical). No ailment named."
+        }
+      ],
+      "motion_frame": "Frenzy primary: each hit stacks attack speed 8% for 3s up to 5 stacks; sustain around high-attack-tempo boss kill",
+      "resource_economy": {
+        "ramp_per_s": "attack speed stack ramp; 5-stack cap; 8% per stack per 3s window"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "self_buff_attack_speed_ramp"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-52 governs: alias 'DI Frenzy Sprint Barb' and core_skills Sprint are UNATTESTED in fetched DI text — Sprint is d3/d2 Barbarian skill, not DI. Only Frenzy attested in dossier store; Furious Charge noted in corpus but abstained in dossier. Ramp economy: 'Each hit increases Frenzy's attack speed by 8% for 3 seconds, stacking up to 5 times' — ramp_per_s captures stack-based tempo escalation (R-M4, identity-load-bearing). §A row 5 carry: sustain-stack ramp IS NOT two-tier-accumulator (no counted tier→release; the stack IS the steady state). Self_buff route per traits_affixes lane. TEMPORAL_CHARGE T4 door: stack-ramp attack speed escalation. DI resource probe fields UNRELIABLE — Fury resource UNSUPPORTED in verify_ledger; cooldown not used here (ramp economy is the primary gate). Physical element null."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Barbarian Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/barbarian-frenzy-boss-killer-build-guide-for-raids",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Barbarian Frenzy Boss Killer Build Guide for Raids - Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022",
+      "anchor_quote": "Frenzy seems to be designed to be played around high Restless Demon uptime, offering a consistently available Ultimate asset with legendary gem combinations.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian-frenzy-boss-killer-build-guide-for-raids",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frenzy Barbarian'; aliases 'Frenzy Barbarian DI', 'DI Frenzy Sprint Barb'",
+      "anchor_quote": "Launch a frenzied attack for X damage. Each hit increases Frenzy's attack speed by 8% for 3 seconds, stacking up to 5 times.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Frenzy, Sprint; resource: Fury",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "frenzy": "single-target melee strike; point footprint; each blow discrete hit at target"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+        "anchor_quote": "Launch a frenzied attack for X damage. Each hit increases Frenzy's attack speed by 8% for 3 seconds, stacking up to 5 times.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Frenzy as primary: each hit stacks attack speed 8% for 3s up to 5 stacks; sustain around Restless Demon uptime; high-attack-tempo boss killer"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/barbarian",
+        "anchor_quote": "Launch a frenzied attack for X damage. Each hit increases Frenzy's attack speed by 8% for 3 seconds, stacking up to 5 times.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "kit_id": "hades1-aspect-guan-yu",
+  "spine": {
+    "kit_id": "hades1-aspect-guan-yu",
+    "folk_name": "Aspect of Guan Yu Spear",
+    "game": "hades1",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "hades1-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Self-cost-contract (permanent max-HP penalty as aspect equipment cost) has no engine economy lane equivalent. Closest T4 is SACRIFICE_ASCENDANCY but the penalty is on equip, not on cast. Lifesteal restoration to player is not a drain ailment (drain = enemy-directed status). Frost Fair Blade name-only trap avoided.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Self-cost-contract (permanent max-HP penalty as aspect equipment cost) has no engine economy lane equivalent. Closest T4 is SACRIFICE_ASCENDANCY but the penalty is on equip, not on cast. Lifesteal restoration to player is not a drain ailment (drain = enemy-directed status). Frost Fair Blade name-only trap avoided.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Life-stealing Spin Attack (charged attack, Frost Fair Blade)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee AoE spin around Zagreus — whirlwind geometry. Restores HP per enemy hit (lifesteal on player, not a drain ailment applied to enemy). 'Frost Fair Blade' = moveset/aspect NAME — element null per §0.2 name-only law and §p12 hot-fact explicit. No cold element typed in dossier or verify rows. Note: CONTRADICTED mechanics claim (corpus said lifesteal-on-special is wrong; lifesteal is on the spin/charged attack per verify_ledger anchor 'Spin Attack steals health from the enemy')."
+        },
+        {
+          "source_skill": "Crackling Skewer (Special — ranged thrown attack)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged forward-line thrown spear. Dossier notes Poseidon boon synergy for knockback. No element or ailment attested."
+        }
+      ],
+      "motion_frame": "spin attack to leech HP and deal melee AoE; special as ranged throw; self-cost-contract: max HP reduced 50–70% as the aspect penalty",
+      "resource_economy": {
+        "hp_cost_scale": "max HP penalty 0.50–0.70 (Aspect level 5 = 0.50, level 1 = 0.70); healing also reduced by same fraction",
+        "lifesteal_per_hit": "HP restored per enemy hit on spin attack (source: 'Spin Attack steals health from the enemy')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "SACRIFICE_ASCENDANCY",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Daedalus Hammer: charge speed upgrade for faster spin trigger"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Aspect-of-Guan-Yu is a weapon-aspect loadout with self-cost-contract economy. 'Frost Fair Blade' is the aspect/moveset name — element null per §0.2 (name-only law) + §p12 hot-fact. The self-cost-contract (max HP cut 50–70%) is a novel economy shape — hp_cost_scale closest key but the PERMANENT max-HP reduction differs from per-cast HP cost; docketed as self-cost-contract. CONTRADICTED: lifesteal is on the spin/charged attack, not the Special — mapping follows CONTRADICTED-corrected dossier text. Aspect level upgrades (reducing penalty from 70% to 50%) are variant-scope."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://hades.wiki.fextralife.com/Eternal+Spear",
+      "archive_url": null,
+      "site": "hades.wiki.fextralife.com",
+      "author_handle": null,
+      "title": "Eternal Spear - Hades Wiki - Fextralife",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1145360/discussions/0/3008934419470349673/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "guan yu... what's the point? :: Hades General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/1145360/discussions/0/1736636051412077314/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "can someone school me on how to use the guan yu spear effectively :: Hades General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hades1-2020 era.",
+      "anchor_quote": "The weapon transforms into the formidable Frost Fair Blade, significantly enhancing its power, albeit at the cost of reduced HP",
+      "source_url": "https://hades.wiki.fextralife.com/Eternal+Spear",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Aspect of Guan Yu Spear' — Eternal Spear with Aspect of Guan Yu (Frost Fair Blade) is a real build identity in Hades.",
+      "anchor_quote": "The weapon transforms into the formidable Frost Fair Blade, significantly enhancing its power, albeit at the cost of reduced HP",
+      "source_url": "https://hades.wiki.fextralife.com/Eternal+Spear",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Core skills are Frost Fair Blade and lifesteal special; self-cost-contract: max HP reduced permanently; spin drains HP during use while leeching HP from enemies.",
+      "anchor_quote": "The biggest thing ... about the Guan Yu aspect is the Spin Attack steals health from the enemy ... Frost Fair Blade Alternate Move Set; Heavy Attack, explosive Special, Life-stealing Spin Attack",
+      "source_url": "https://steamcommunity.com/app/1145360/discussions/0/3008934419470349673/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Aspect level upgrades reduce the max HP penalty: level 1 = -70% health and regen; level 5 = -50% health and regen. Higher aspect levels make the self-cost-contract less severe."
+        },
+        "source_url": "https://hades.wiki.fextralife.com/Eternal+Spear",
+        "anchor_quote": "Level 1-2: '-70% Health & Regen' ... Level 5: '-50% Health & Regen'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Daedalus Hammer can improve charge speed for the spin attack, making the lifesteal trigger faster. HP-recovery boons and +health items help offset the max-HP penalty. Poseidon boons on Special synergize with the explosive knockback throw."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/1736636051412077314/",
+        "anchor_quote": "The charged attack, the life stealing one, becomes incredibly useful once you find a Daedalus Hammer to improve the charge speed",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "small-radius AoE (spin)",
+          "description": "Life-stealing Spin Attack is a melee AoE around Zagreus — small-radius whirlwind geometry. Special (Crackling Skewer) is a ranged forward-line throw. Primary damage/sustain verb is the spin AoE."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/3008934419470349673/",
+        "anchor_quote": "The biggest thing ... about the Guan Yu aspect is the Spin Attack steals health from the enemy",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Aspect passive, not a rotation. Frost Fair Blade (Aspect of Guan Yu on Eternal Spear): equipping reduces max HP and healing by 70% (to 50% at max level). The Life-stealing Spin Attack (charged attack) deals melee AoE damage while restoring HP per enemy hit. Special (Crackling Skewer) is a separate ranged thrown attack. Loop: spin to deal damage and leech back health to offset the HP penalty. NOTE: corpus labels this 'lifesteal special' — CONTRADICTED; lifesteal is on the spin/attack, not the Special."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/3008934419470349673/",
+        "anchor_quote": "Frost Fair Blade Alternate Move Set; Heavy Attack, explosive Special, Life-stealing Spin Attack",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Spin-focused sustain build (Daedalus Hammer charge speed)",
+            "Poseidon Special + Guan Yu (knockback throw + sustain)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/1736636051412077314/",
+        "anchor_quote": "pairs awesomely with Poseidon Boon's and knockback effect",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

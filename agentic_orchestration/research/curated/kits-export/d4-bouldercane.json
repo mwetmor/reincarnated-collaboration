@@ -1,0 +1,261 @@
+{
+  "kit_id": "d4-bouldercane",
+  "spine": {
+    "kit_id": "d4-bouldercane",
+    "folk_name": "Bouldercane Druid",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null on both skills (physical/earth boulders — no explicit element-damage language attested; THE PHYSICAL RULE applies). Hurricane ailment (chill) not attested — demoted to null. Source player would expect earth or physical element identity and a chill/slow from Hurricane.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null on both skills (physical/earth boulders — no explicit element-damage language attested; THE PHYSICAL RULE applies). Hurricane ailment (chill) not attested — demoted to null. Source player would expect earth or physical element identity and a chill/slow from Hurricane.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Boulder (Dolmen orbit)",
+          "geometry_value": "orbit",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Boulders orbit player in spinning ring; verify_ledger anchor: 'Boulder becomes a Core Skill, spinning around the player without Collision. Up to 5 Boulders can be maintained'; skill_geometry anchor same text; Dolmen's Will/Dolmen Stone enables orbit per item_alterations anchor; physical = element-neutral (boulders are physical impact; no explicit earth-damage or physical-damage-as-element language; THE PHYSICAL RULE: element null); no ailment: no stun/knockback explicit language in fetched rows; orbit geometry: phrase-book 'orbiting blades/stormcaller → orbit' applies directly; item-defined-archetype: Dolmen Stone is the orbit-enabler per item_alterations anchor"
+        },
+        {
+          "source_skill": "Hurricane",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Concentric ring around player simultaneously with boulder orbit; skill_loop anchor: 'Hurricane active simultaneously for concentric ring'; ring geometry = persistent spinning ring effect; chill ailment: verify_ledger anchor and skill_geometry confirm Hurricane as a ring/AoE — Hurricane in D4 Druid is attested as slowing/crippling movement (chill register); however no explicit 'chill', 'slow movement', or 'cripple' language found in the fetched store rows; chill must be held pending explicit language — demote to null; physical/wind element: no explicit element-damage language in rows; element null"
+        }
+      ],
+      "motion_frame": "Cast Boulder which orbits player via Dolmen's Will; maintain up to 5-Boulder ring; Hurricane active simultaneously for concentric ring; Spirit management primary per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Spirit; skill_loop anchor: 'Spirit management is primary resource challenge'; verify_ledger anchor: 'Core skills: Boulder, Hurricane; resource: Spirit'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "5-Boulder ring + Hurricane concentric shell; Cyclone Armor groups enemies per skill_loop payload"
+          ],
+          "economy": [
+            "Spirit resource; Spirit Regeneration aspects priority per item_alterations anchor"
+          ],
+          "traits_affixes": [
+            "Dolmen's Will amulet (orbit-enabler — item-defined-archetype)",
+            "Tibault's Will, Ring of Starless Skies, Might of the Ursine (scalers)",
+            "Spirit, Outmatch, Fang and Claw paragon glyphs (scalers)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "YouTube-grounded rows legal per hot-fact. Orbit geometry: directly attested per verify_ledger and skill_geometry anchor 'spinning around the player without Collision'. Physical = element-neutral: boulders are physical projectiles; no earth-family or element-type damage language in any fetched row; element null per THE PHYSICAL RULE. Hurricane ailment: re-evaluated — no explicit 'slow', 'chill', or 'cripple movement' language in the fetched Hurricane rows; chill demoted to null. Dolmen Stone/Dolmen's Will is the orbit-enabler (item-defined-archetype). Spirit resource: explicitly attested. The walk-through-packs loop is clean but element/ailment gap prevents EXACT. Accrual: placed-proxy-count family (5 boulders concurrently). [STEWARD-AUDIT 2026-07-18 MW4-close: Hurricane: chill unattested (chill/cold/freeze 0 hits in store)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "TheSteve",
+      "title": "Boulder - Druid Build Guide for Diablo 4 (Season 14) - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=vX-4ImB4ACo",
+      "archive_url": null,
+      "site": "youtube.com",
+      "author_handle": null,
+      "title": "Diablo 4 - BOULDERCANE Endgame Druid Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GXJPuC1l2j8",
+      "archive_url": null,
+      "site": "youtube.com",
+      "author_handle": null,
+      "title": "Bouldercane Shred Druid - The Perfect Gauntlet Druid Build! - Diablo 4 Season3 Endgame Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": "Bouldercane Shred Druid is one of the best Druid Build in Season 3 in Diablo 4",
+      "source_url": "https://www.youtube.com/watch?v=GXJPuC1l2j8",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Bouldercane Druid; aliases: Boulder Hurricane Druid D4, Bouldercane Druid launch",
+      "anchor_quote": "Diablo 4 - BOULDERCANE Endgame Druid Build Guide",
+      "source_url": "https://www.youtube.com/watch?v=vX-4ImB4ACo",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Boulder, Hurricane; resource: Spirit; geometry: boulders orbit player (via Dolmen Stone), Hurricane spins ring",
+      "anchor_quote": "Boulder becomes a Core Skill, spinning around the player without Collision. Up to 5 Boulders can be maintained.",
+      "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "TheSteve",
+          "site": "icy-veins.com",
+          "role": "Writer"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+        "anchor_quote": "TheSteve",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Dolmen's Will",
+            "Tibault's Will",
+            "Ring of Starless Skies",
+            "Might of the Ursine"
+          ],
+          "paragon_glyphs": [
+            "Spirit",
+            "Outmatch",
+            "Fang and Claw"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+        "anchor_quote": "Paragon glyphs include Spirit, Outmatch, and Fang and Claw.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Dolmen Stone / Dolmen's Will (amulet — enables boulder orbit)",
+            "Tibault's Will",
+            "Ring of Starless Skies",
+            "Might of the Ursine (mythic)"
+          ],
+          "aspects": [
+            "Spirit Regeneration aspects priority until mythics found"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+        "anchor_quote": "Spirit Regeneration and Resource Cost Reduction are high priorities until you begin to find Mythic items.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "orbit around player",
+          "footprint": "small radius ring (multiple boulders)",
+          "range": "body-origin spinning ring",
+          "notes": "5 orbiting boulders + Hurricane ring = concentric damage shells; Dolmen Stone/Dolmen's Will is the orbit-enabler; Cyclone Armor groups enemies"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+        "anchor_quote": "Boulder becomes a Core Skill, spinning around the player without Collision. Up to 5 Boulders can be maintained.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Boulder which via Dolmen's Will becomes a Core skill spinning around the player; maintain up to 5 orbiting Boulders; Hurricane active simultaneously for concentric ring; Spirit management is primary resource challenge.",
+          "core_loop": "Boulder cast -> Dolmen's Will converts to orbit -> maintain 5-Boulder ring -> Hurricane active -> walk through packs"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+        "anchor_quote": "Boulder becomes a Core Skill, spinning around the player without Collision. Up to 5 Boulders can be maintained.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Boulder Druid (solo endgame, Dolmen orbit)",
+            "Bouldercane Shred variant (hybrid with Shred skill)",
+            "Bear-form (Vasily's Prayer) variant"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/boulder-druid-build/",
+        "anchor_quote": "Boulder Druid Endgame Build Guide",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

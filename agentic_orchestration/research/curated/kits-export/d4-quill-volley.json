@@ -1,0 +1,213 @@
+{
+  "kit_id": "d4-quill-volley",
+  "spine": {
+    "kit_id": "d4-quill-volley",
+    "folk_name": "Quill Volley Spiritborn",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Spiritborn spirit-guardian stacking mechanic (Berú of the Multitude 4-guardian synergy) has no engine primitive; scaffold records item-defined identity but engine cannot reproduce the 4-guardian combo bonus. Partial Vigor restore (40-50%, not 100%) means this is a less extreme version of payback-sb's inverted loop — economy approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Spiritborn spirit-guardian stacking mechanic (Berú of the Multitude 4-guardian synergy) has no engine primitive; scaffold records item-defined identity but engine cannot reproduce the 4-guardian combo bonus. Partial Vigor restore (40-50%, not 100%) means this is a less extreme version of payback-sb's inverted loop — economy approximated.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Quill Volley",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "multiple feather projectiles in fan pattern; Rod of Kepeleke adds 2 feathers at max Vigor; physical element per THE PHYSICAL RULE; no element damage language in store"
+        },
+        {
+          "source_skill": "The Hunter",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "spirit guardian mechanic via Berú of the Multitude; all four spirit guardian types stacked; verify_ledger mechanics UNSUPPORTED for The Hunter specifically — carrier mapped as scaffold only"
+        }
+      ],
+      "motion_frame": "Stack all four spirit guardians via Berú of the Multitude; spam Quill Volley; Rod of Kepeleke adds feathers at max Vigor; Ring of the Midnight Sun restores 40-50% Vigor per cast",
+      "resource_economy": {
+        "vigor": "inverted-loop",
+        "regen_shape": "Ring of the Midnight Sun restores 40-50% Vigor per Quill Volley cast; Rod of Kepeleke adds feathers at max resource"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Rod of Kepeleke +2 feathers at max Vigor; fan pattern"
+          ],
+          "economy": [
+            "Rod of Kepeleke (feather add at max resource)",
+            "Ring of the Midnight Sun 40-50% Vigor restore",
+            "Harmony of Ebewaka",
+            "Hesha e Kesungi"
+          ],
+          "traits_affixes": [
+            "Berú of the Multitude 4-guardian stack",
+            "Scourge/Evasive Swipe cooldown buffs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Inverted-resource no-merge (basin-2 ruling): Vigor restore 40-50% per cast is partial inverted loop (contrast with payback-sb 100% full restore). Physical element: no damage-type language attested in store. No ailment attested. Verify_ledger mechanics UNSUPPORTED for 'The Hunter' spirit guardian component — The Hunter mapped as scaffold/self_buff rider only, not as independent skills[] contributor. Rod of Kepeleke item-defined-archetype: max-Vigor feather bonus is identity-load-bearing; mapped in economy+geometry scaffold."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "KattKills",
+      "title": "Quill Volley Spiritborn Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": "The Spiritborn class was introduced in the Vessel of Hatred expansion... Season 14 - Death Awakening (Last Updated: June 30, 2026).",
+      "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Quill Volley Spiritborn'; aliases 'Quill Volley Spiritborn D4', 'Quill Volley Hunter Spiritborn'",
+      "anchor_quote": "Quill Volley Spiritborn Endgame Build... Ring of the Midnight Sun which restores 40 - 50% of the Vigor spent",
+      "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Quill Volley and The Hunter; Spiritborn Vigor resource; feather volley projectiles",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "KattKills",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+        "anchor_quote": "Created by KattKills, listed as Content Creator.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Rod of Kepeleke",
+            "Ring of the Midnight Sun",
+            "Harmony of Ebewaka",
+            "Hesha e Kesungi"
+          ],
+          "charm_set": "Berú of the Multitude"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+        "anchor_quote": "Essential uniques include Rod of Kepeleke, Ring of the Midnight Sun, Harmony of Ebewaka, and Hesha e Kesungi.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile-fan",
+          "footprint": "multi-point",
+          "note": "multiple feather projectiles in fan pattern; Rod of Kepeleke adds feathers at max Vigor; Eaglehorn-style bounce not confirmed for this kit"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+        "anchor_quote": "Quill Volley fires projectiles as feathered attacks",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stack all four spirit guardian types via Berú of the Multitude; spam Quill Volley as primary damage; Rod of Kepeleke adds 2 feathers at max resource; Ring of the Midnight Sun restores 40-50% Vigor per cast; Scourge and Evasive Swipe on cooldown for buffs"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+        "anchor_quote": "With Rod of Kepeleke, it Adds 2 feathers to Quill Volley at maximum resource, enabling ranged burst damage.",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/quill-volley-spiritborn-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

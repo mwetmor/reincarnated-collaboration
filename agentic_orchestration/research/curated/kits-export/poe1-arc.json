@@ -1,0 +1,252 @@
+{
+  "kit_id": "poe1-arc",
+  "spine": {
+    "kit_id": "poe1-arc",
+    "folk_name": "Arc",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "STEWARD AUDIT (DRIFT-CRITIC 25% sample): downgraded EXACT->CLOSE. Engine chain fan-out DECAYS per hop (_CHAIN_DEFAULT_DECAY=0.7, primary+3 arcs default); PoE Arc GROWS damage per remaining chain (+15% more) across 7-10 hops. Scaling direction inverted + hop count compressed — the player of the original would feel pack-clear invert (engine chain strongest on first target; Arc strongest deep in the pack). Identity (chaining lightning bolt + sunder) intact. Quantitative mint-candidate ledgered: per-kit chain-decay override >1.0.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "STEWARD AUDIT (DRIFT-CRITIC 25% sample): downgraded EXACT->CLOSE. Engine chain fan-out DECAYS per hop (_CHAIN_DEFAULT_DECAY=0.7, primary+3 arcs default); PoE Arc GROWS damage per remaining chain (+15% more) across 7-10 hops. Scaling direction inverted + hop count compressed — the player of the original would feel pack-clear invert (engine chain strongest on first target; Arc strongest deep in the pack). Identity (chaining lightning bolt + sunder) intact. Quantitative mint-candidate ledgered: per-kit chain-decay override >1.0.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Arc",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "bolt reaches from caster to a target then hops enemy-to-enemy across the pack; per-chain damage growth (+15% more per remaining chain) is a native chain-geometry scaling property; shock (PoE damage-amp) maps to sunder — guaranteed via the Shaper-of-Storms variant, chance-based on the base skill"
+        }
+      ],
+      "motion_frame": "stationary lightning caster: cast into a pack, one bolt chains a screen; Orb of Storms seeds reliable chain-starts",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "chain-count",
+            "fork (secondary-split support)",
+            "chain-range"
+          ],
+          "economy": [
+            "Divine Guidance / MoM mana-buffer (Hierophant variant)"
+          ],
+          "traits_affixes": [
+            "lightning-penetration",
+            "shock-scaling (sunder magnitude)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Textbook-clean map: chain geometry is native (the engine's chain type IS the Arc identity, per the 2026-07-12 chain-geometry-rename that de-welded chain from lightning); per-chain damage growth is a chain-scaling property. FALSE-FRIEND handled: PoE shock = increased-damage-taken = engine SUNDER, NOT engine shock (which is paralysis-CC). The Shaper-of-Storms 'guaranteed shock' variant is guaranteed sunder application. Elementalist variant is the reference; Hierophant/Totem/Mines variants swap delivery chassis but keep the chain identity. t4 ELEMENTAL_ECHO for the mono-lightning amp; GEOMETRY_PROPAGATION_cascade candidate for the chain-as-propagation reading (noted alt). [STEWARD AUDIT AMENDMENT: per-chain damage GROWTH is NOT native — engine chain decays 0.7x/hop, default 3 arcs; grade CLOSE; quantitative mint-candidate (decay>1.0 override) ledgered in mint-candidates-batch-01.jsonl.]"
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 1,
+      "evidence_tier": "B-quantitative",
+      "mint_class": "quantitative",
+      "build_authorized": 1,
+      "description": "Per-kit chain fan-out decay override permitting values >1.0 (per-hop damage GROWTH). Engine _CHAIN_DEFAULT_DECAY=0.7 is decay-only; PoE Arc's identity signature is +15% more damage per remaining chain. Range extension of an existing parameter — no new mechanism."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3824370",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "3.27 Arc Elementalist Non-Crit 10+ Mil DPS",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://pobarchives.com/build/iLtcmwee",
+      "archive_url": null,
+      "site": "pobarchives.com",
+      "author_handle": null,
+      "title": "Enki's Arc Witch is back",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Arc",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Arc - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 1.x, 2.x, 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "A notable 3.9.0 change increased chaining range: 'The range at which Arc can chain to another enemy is now 35 units (from 25)'",
+      "source_url": "https://poedb.tw/us/Arc",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Arc' and aliases 'Enki's Arc Witch (guide lineage)', 'Arc totems/mines variants' are real community usage",
+      "anchor_quote": "Enki's Arc Witch is back",
+      "source_url": "https://pobarchives.com/build/iLtcmwee",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Arc is a chain-lightning projectile that hops target to target with per-chain damage growth; classes Elementalist/Hierophant",
+      "anchor_quote": "An arc of lightning reaches from the caster to a targeted enemy and chains to other enemies, but not immediately back.",
+      "source_url": "https://poedb.tw/us/Arc",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Per-chain damage growth mechanic",
+      "anchor_quote": "15% more Damage with Hits and Ailments for each remaining Chain",
+      "source_url": "https://poedb.tw/us/Arc",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Enki (EnkiVT)",
+          "site": "pathofexile.com/forum",
+          "guide_lineage": "Enki's Arc Witch — maintained across multiple leagues, memorial page at forum",
+          "note": "Enki's Arc Witch is THE canonical Arc guide lineage in community usage"
+        },
+        "source_url": "https://pobarchives.com/build/iLtcmwee",
+        "anchor_quote": "Enki's Arc Witch is back",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_primary": "Elementalist",
+          "elementalist_nodes": [
+            "Mastermind of Discord (shock/chill penetration)",
+            "Shaper of Storms (guaranteed shock)"
+          ],
+          "ascendancy_secondary": "Hierophant",
+          "hierophant_nodes": [
+            "Divine Guidance (unreserved mana for MoM)",
+            "Arcane Blessing (arcane surge on allies)"
+          ],
+          "note": "Enki's guide specifically used Hierophant for arcane surge support role."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+        "anchor_quote": "Conviction of Power ... Divine Guidance ... Arcane Blessing ... Illuminated Devotion",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "No single defining unique item alteration for Arc; build uses various supports (Fork, Chain, Slower Projectiles) and ascendancy nodes. Pledge of Hands is referenced in Archmage builds but not Arc-specific."
+        },
+        "source_url": "https://poedb.tw/us/Arc",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Projectile delivery with chain-hop footprint. Chain range 35 units (post-3.9.0, up from 25). Each chain also splits to a second nearby enemy.",
+          "geometry_note": "Not a traditional AoE circle — chains propagate hop-by-hop across the enemy graph."
+        },
+        "source_url": "https://poedb.tw/us/Arc",
+        "anchor_quote": "The range at which Arc can chain to another enemy is now 35 units (from 25).",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Cast Arc at a target; a bolt hops from that enemy to nearby targets chaining up to the gem's max chain count; each successive chain deals more damage (15% more per remaining chain). In map clear, one cast clears a screen of chained enemies. Enki's Arc Witch guide lineage popularized pairing with Orb of Storms for reliable chain-starting."
+        },
+        "source_url": "https://poedb.tw/us/Arc",
+        "anchor_quote": "An arc of lightning reaches from the caster to a targeted enemy and chains to other enemies, but not immediately back.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Arc Elementalist (non-Crit, 3.27+)",
+            "Enki's Arc Witch (Elementalist/Hierophant lineage)",
+            "Arc Totems (Hierophant)",
+            "Arc Mines (Saboteur)"
+          ]
+        },
+        "source_url": "https://pobarchives.com/build/iLtcmwee",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

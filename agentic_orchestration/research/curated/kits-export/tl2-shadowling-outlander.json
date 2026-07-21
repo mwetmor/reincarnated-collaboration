@@ -1,0 +1,231 @@
+{
+  "kit_id": "tl2-shadowling-outlander",
+  "spine": {
+    "kit_id": "tl2-shadowling-outlander",
+    "folk_name": "Shadowling Outlander",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "APPROX: The identity IS the kill-to-spawn shadowling swarm. Engine maps the player projectile loop + on-kill trigger for spawn consequence, but the dynamic swarm-size-as-DPS mechanic (shadowlings are the primary damage delivery at high kill-chain) is not natively representable. Source player would recognize the skeleton but miss the swarm-scaling experience. Not GAPPED because the player's own ranged attack loop remains the trigger mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "APPROX: The identity IS the kill-to-spawn shadowling swarm. Engine maps the player projectile loop + on-kill trigger for spawn consequence, but the dynamic swarm-size-as-DPS mechanic (shadowlings are the primary damage delivery at high kill-chain) is not natively representable. Source player would recognize the skeleton but miss the swarm-scaling experience. Not GAPPED because the player's own ranged attack loop remains the trigger mechanic.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shadowling Ammo",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cursed projectile ranged attack. 'shadow magic that has a chance of converting slain enemies into Shadowling bats' — shadow here describes the curse mechanism, not a damage type. No shadow damage-type descriptor attested. On kill → shadowling spawn (trigger consequence). Element-silent."
+        },
+        {
+          "source_skill": "Shadowling Brute",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'call forth a terrifying Shadowling Brute at the target location' — placed-proxy at target. Totem geometry per totem-vs-companion law (placed at location, not following companion)."
+        },
+        {
+          "source_skill": "Death Ritual",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Passive: Shadowling allies last longer and deal more damage. Scaling passive — self_buff / traits lane."
+        }
+      ],
+      "motion_frame": "Shoot Shadowling Ammo-cursed projectiles to kill enemies; on-kill converts enemies into Shadowling bats (10s swarm); Shadowling Brute as direct placed summon; maintain kill-chain to sustain swarm.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Charge built from attacks; full bar grants passive bonuses"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": "Shadowling spawn",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": [
+            "shadowling_duration",
+            "shadowling_damage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: 'shadow magic' is mechanism-flavor, not damage-type descriptor — element-silent per D4 NAME-ONLY LAW (shadow used adjectivally to describe the curse, not as 'deals shadow damage'). Kit is pet-rider (player shoots to generate kills; shadowlings supplement) not pure pet-core — player damage loop exists. APPROX-grade because shadowling swarm is a significant identity dimension the engine cannot fully represent; the on-kill spawn trigger is approximated via trigger_grammar. Near-miss §0: wanted shadow element — 'shadow magic' is the closest text but fails damage-type-descriptor test."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "MINION-PET",
+    "group_intent_rationale": "movement=full-move · amp=flat · treatment=damage · function=taunt · economy=reserve · proxy=heavy · tempo=med · commit=instant · activation=active · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Outlander Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gameslikefinder.com/article/torchlight-2-outlander-build/",
+      "archive_url": null,
+      "site": "gameslikefinder.com",
+      "author_handle": "unknown",
+      "title": "Torchlight 2 Outlander Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in tl2-2012 era",
+      "anchor_quote": "Shadowling Ammo is an Outlander skill from Torchlight II launch (2012); discussed in launch-era Outlander guides",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shadowling Outlander — community usage name for kill-to-summon proxy Outlander build",
+      "anchor_quote": "Shadowling Ammo: You curse your projectiles with shadow magic that has a chance of converting slain enemies into Shadowling bats that fight for you for ten seconds",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Shadowling Ammo, Shadowling Brute, Death Ritual; shadowlings spawn from killed enemies; heavy proxy swarm; Charge economy",
+      "anchor_quote": "Sigil tree turns slain enemies into shadow bats; Death Ritual: Your Shadowling allies last longer and deal more damage; Shadowling damage scales only with minion damage bonuses",
+      "source_url": "https://gameslikefinder.com/article/torchlight-2-outlander-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_title": "Outlander Skill Guide - Torchlight II"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Death Ritual passive: Shadowling allies last longer and deal more damage; Shadowling damage scales only with minion damage bonuses (not Focus or Strength); Bane Breath supplements Shadowling builds"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "Death Ritual: Your Shadowling allies last longer and deal more damage; Shadowling damage scales only with minion damage bonuses, not Focus, Strength or any other +% damage bonuses",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (ranged projectile triggers shadowling spawn from kill location)",
+          "footprint": "large-zone (swarm dispersed across combat area)",
+          "range": "ranged",
+          "notes": "Shadowlings spawn at kill location; dispersed swarm attacks nearby enemies; Shadowling Brute placed at target location"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "Shadowling Brute: call forth a terrifying Shadowling Brute at the target location, which lays waste to your enemies",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Attack enemies with Shadowling Ammo-cursed projectiles; on kill enemies convert into Shadowling bats (10s duration) that fight for you; Shadowling Brute as direct summon supplement; Death Ritual passive extends Shadowling duration and damage; maintain Shadowling swarm via kill-chain"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "Shadowling Ammo: curse your projectiles with shadow magic that has a chance of converting slain enemies into Shadowling bats that fight for you for ten seconds; Sigil tree turns slain enemies into shadow bats",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pure Shadowling Ammo (kill-to-spawn focus)",
+            "Shadowling + Glaive hybrid",
+            "Shotgonne + Shadowling combo (HubPages documented)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "if you plan on using Shadowling Ammo, Bane Breath and Shadowling Brute, you should max Death Ritual",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

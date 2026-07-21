@@ -1,0 +1,263 @@
+{
+  "kit_id": "la-wind-fury-aeromancer",
+  "spine": {
+    "kit_id": "la-wind-fury-aeromancer",
+    "folk_name": "Wind Fury Aeromancer",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Multiple element near-misses (Thunderwind, Tornado, Piercing Wind, Gale Slash, Wind Gimlet) all null — correct per D4 NAME-ONLY LAW but the player would feel wind-themed. Sun Shower enemy slow → chill is the only ailment attested for this kit. Party speed buff modeled as self_buff (DIRECTION LAW), not a curse. Raindrop Meter economy correctly typed.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "chill",
+      "curse:amplify"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Multiple element near-misses (Thunderwind, Tornado, Piercing Wind, Gale Slash, Wind Gimlet) all null — correct per D4 NAME-ONLY LAW but the player would feel wind-themed. Sun Shower enemy slow → chill is the only ailment attested for this kit. Party speed buff modeled as self_buff (DIRECTION LAW), not a curse. Raindrop Meter economy correctly typed.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Umbrella skills — paired for meter recovery (12% Raindrop per chained Umbrella)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "ELEMENT DISCIPLINE EXEMPLAR: Aeromancer = wind-themed class, but NO attested wind damage-type descriptor for any Umbrella skill in store. 'Thunderwind' is a skill name only — no 'wind' or 'lightning' damage-type descriptor → null. 12% Raindrop Meter per chained Umbrella skill is the economy key. Geometry: umbrella-based melee arc / swing."
+        },
+        {
+          "source_skill": "Space Cleave (on cooldown priority)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "On-cooldown priority skill. 'Space Cleave' = proper skill name; no element descriptor → null. Melee sweep."
+        },
+        {
+          "source_skill": "Thunderwind (on cooldown priority)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "NAME-ONLY STRIKE: 'Thunderwind' contains 'wind' but appears as a proper skill name with ZERO damage-type descriptor in store → element null per D4 NAME-ONLY LAW / wind-fury exemplar ruling. Do NOT emit wind or lightning from the skill name."
+        },
+        {
+          "source_skill": "Tornado / Tornado Dance (Synergy)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "DIRECTION TEST: 'Synergy maintained via Tornado' — same basin ruling, Synergy = enemy-directed damage-received debuff → curse:amplify. 'Tornado' is expanding circle geometry. Name-only element: no wind damage-type descriptor in store."
+        },
+        {
+          "source_skill": "Sun Shower (Z identity) — party speed buff + enemy slow",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "DIRECTION TEST for -20% Move Speed to enemies: enemy movement reduction = chill (movement-impair ailment, §2 crosswalk). +12% Attack/Move Speed to party = SELF/ALLY side → self_buff, NOT a curse. The enemy slow IS enemy-directed movement debuff → chill attested. Duration: 8s (Wind Fury variant). Geometry: aura radius."
+        }
+      ],
+      "motion_frame": "Chain Umbrella skills for 12% Raindrop Meter recovery each → Space Cleave and Thunderwind on cooldown → Synergy via Tornado (curse:amplify) → activate Sun Shower (Z) for 8s: party +12% attack/move speed (self_buff) + enemy -20% move speed (chill aura); Raindrop Meter economy drives loop",
+      "resource_economy": {
+        "raindrop_meter": "12% recovery per chained Umbrella skill; identity meter for Sun Shower (Z) activation; Specialization scales buff magnitude"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Raindrop Meter → Sun Shower (Z) 8s window: party speed aura + enemy slow aura",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ELEMENT NEAR-MISS (§0 flag — wind-fury exemplar): Aeromancer is wind-themed; 'Thunderwind', 'Tornado', 'Whirlpool', 'Piercing Wind', 'Wind Gimlet', 'Gale Slash' (Ark node) all appear in store — ZERO carry a damage-type descriptor pairing element word with a generic effect noun. All are proper skill/node names → D4 NAME-ONLY LAW governs → element_primary null on every skill. This is the discipline exemplar: class-level element-POTENTIAL ≠ attested damage. Sun Shower enemy slow -20% Move Speed → chill (movement ailment) per §2 crosswalk. Party +12% speed → self_buff per DIRECTION LAW (ally deals/moves more, not enemy takes more). Ark Passive capstone nodes: Wind Blade, Swift, Gale Slash → capstone_alterations shape. Wind Fury 8s Z (vs Drizzle 24s) confirmed in variants."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Wind Fury Aeromancer Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.playlostark.com/en-us/news/articles/lost-ark-academy-aeromancer",
+      "archive_url": null,
+      "site": "playlostark.com",
+      "author_handle": "Amazon-Games-official",
+      "title": "Lost Ark Academy - Aeromancer",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Author: Raeinor on Maxroll.gg — Wind Blade, Swift, Gale Slash Ark Passive nodes listed as active build capstones",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Wind Fury Aeromancer — folk name (class Aeromancer + Wind Fury identity spec)",
+      "anchor_quote": "Wind Fury Aeromancer — no aliases provided in document [guide exists under this name on maxroll]",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sun Shower lasts 8s and boosts ally attack/move speed by 12%; Supersonic Breakthrough skill requirement; Weather damage-focused with party speed synergy during narrow windows",
+      "anchor_quote": "+12% Attack Speed and +12% Movement Speed to party members inside the aura. -20% Movement Speed to enemies inside the aura. Each Umbrella Skill used after another recovers 12% of your Raindrop Meter",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+        "anchor_quote": "Author: Raeinor. Site: Maxroll.gg",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Wind Blade",
+            "Swift",
+            "Gale Slash"
+          ],
+          "identity_effect": "Sun Shower (Z): +12% Attack/Move Speed to party, -20% Move Speed to enemies; Drizzle engraving increases Weather skill damage by 7/15/30% (Wind Fury uses different engraving path)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+        "anchor_quote": "Wind Blade, Swift, Gale Slash listed as core nodes",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings_general": [
+            "Grudge",
+            "Raid Captain",
+            "Master of Strike"
+          ],
+          "ark_passive_capstone_nodes": [
+            "Wind Blade",
+            "Swift",
+            "Gale Slash"
+          ],
+          "stat_primary": "Swiftness"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+        "anchor_quote": "Wind Blade, Swift, Gale Slash listed as core nodes; Grudge, Raid Captain recommended as general engravings",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Umbrella-based skill set; skills include Piercing Wind, Wind Gimlet, Rage, Tornado Dance, Space Cleave, Thunderwind, Whirlpool, Spread, Downward Strike, Tornado; no explicit range/AoE geometry data in guide"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+        "anchor_quote": "Skills listed: Piercing Wind, Wind Gimlet, Rage, Tornado Dance, Space Cleave, Thunderwind, Whirlpool, Spread, Downward Strike, Tornado, Storm's Approach (Awakening)",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Pair Umbrella skills for maximal meter recovery (12% Raindrop Meter per Umbrella skill used after another); Space Cleave and Thunderwind on cooldown; Synergy maintained via Tornado; activate Sun Shower (Z) for party speed/attack buff window — +12% Attack Speed and Move Speed to party, -20% Move Speed to enemies.",
+          "raindrop_recovery": "12% Raindrop Meter per chained Umbrella skill",
+          "sun_shower_buffs": {
+            "ally_attack_speed": "+12%",
+            "ally_move_speed": "+12%",
+            "enemy_move_speed": "-20%"
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/windfury-aeromancer-raid-build-guide",
+        "anchor_quote": "Pair one of the skills on the left with one of the skills on the right, to maximize damage output. Each Umbrella Skill used after another recovers 12% of your Raindrop Meter",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Wind Fury (8s Sun Shower, burst/coordinated, B tier Aug 2025)",
+            "Drizzle (24s Sun Shower, sustained party buff, separate guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/news/community-class-tier-list-august-2025",
+        "anchor_quote": "Wind Fury Aeromancer: B Tier [August 2025 community tier list]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

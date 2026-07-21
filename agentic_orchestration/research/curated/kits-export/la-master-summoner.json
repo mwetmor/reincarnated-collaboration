@@ -1,0 +1,243 @@
+{
+  "kit_id": "la-master-summoner",
+  "spine": {
+    "kit_id": "la-master-summoner",
+    "folk_name": "Master Summoner",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/summoner",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: Ancient Elemental spirits as primary damage delivery mechanism is companion-as-primary-damage — no solo combat loop can express this identity without the summoner-communication seam. Player test: 'not that build' — the Ancient Spear burst and Phoenix AoE require orb management across 5 spirit types cycling via X/Z; the coordination overhead and proxy-entity damage model have no engine analog. Docket: summoner-deferral (companion-as-primary, pet-core class).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: Ancient Elemental spirits as primary damage delivery mechanism is companion-as-primary-damage — no solo combat loop can express this identity without the summoner-communication seam. Player test: 'not that build' — the Ancient Spear burst and Phoenix AoE require orb management across 5 spirit types cycling via X/Z; the coordination overhead and proxy-entity damage model have no engine analog. Docket: summoner-deferral (companion-as-primary, pet-core class).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Manage 7 Ancient Orbs + 5 Ancient Elementals (cycle via X, cast via Z); spend Ancient Energy on Ancient Spear for primary burst damage; Phoenix (5 orbs) for Destruction AoE; timing coordinated with party buff windows; Ancient Legacy Ark node: Destiny proc greatly increases next Ancient Spear damage",
+      "resource_economy": {
+        "ancient_orbs": "7-orb pool (Ancient Energy); spent on Ancient Elementals (Osh 3, Alimaji 4, Phoenix 5, Jahia & Ligheas 6, Akir 7 orbs); Ancient Spear primary burst damage; Ancient Legacy capstone amplifies Spear after Destiny proc",
+        "note": "summoner-deferral GAPPED — companion-as-primary-damage-vehicle (Ancient Elemental spirits as summon proxies delivering burst) has no solo loop expression; empty-projection per §E.3 empty-projection convention"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "AoE burst (Phoenix 3-zone); Ancient Spear ranged burst; wide-area Ancient Elementals"
+          ],
+          "economy": [
+            "ancient_orbs 7-unit pool; elemental cycle via X/Z; Specialization primary stat; Ancient Legacy Destiny proc amplifies Spear"
+          ],
+          "traits_affixes": [
+            "Ancient Legacy (Destiny -> Ancient Spear amp), Osh's Support, Power of Creation, Flashy Attack, Smoldering Strike, Attack (Ark Passive nodes -> capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Summoner-deferral GAPPED per hot-fact and §E.3 (companion-as-primary-damage-vehicle, communication-overflow pattern extended to master-summoner). Ancient Elemental spirits (Osh, Alimaji, Phoenix, Jahia, Akir) are summoned proxy entities delivering primary damage — no solo loop expression without companion communication seam. Ancient Orbs resource is noted in economy but skills[] empty per empty-projection convention. PROXY_ASCENSION T4 door acknowledges the summon-proxy identity. GX-13 gap_ref noted. Stagger/Destruction per dossier (Phoenix Destruction, Alimaji Stagger, Jahia Stagger, Akir Stagger) = boss-break vocabulary (LA row 4) — NOT sunder/stun. Engravings DEAD axis. No element or ailment attestation: Ancient Elemental/Phoenix/Earth Collapse are proper names (D4 NAME-ONLY STRIKE)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Master Summoner Raid Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Last Updated June 12, 2026; Phoenix update September 13, 2025; Ark Grid added December 16, 2025",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last Updated June 12, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Master Summoner — class + identity spec, community name",
+      "anchor_quote": "7 Ancient Orbs, also called Ancient Energy, and 5 different Ancient Elementals. You cycle through your Elementals with the X key, and you cast the desired one with the Z key.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ancient Spirits gain secondary effects and visual amplification; Phoenix and Ancient Spear are burst damage anchors released in coordinated party windows; burst twin to Communication Overflow's sustained companion uptime — spirit orbs spent for maximum Ancient payoff",
+      "anchor_quote": "You use your Ancient Energy to greatly increase Ancient Spear damage. Phoenix Costs 5 Orbs, Deals Destruction and decent AoE damage. Ancient Legacy: Destiny proc greatly increases the damage of the next Ancient Spear.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+        "anchor_quote": "Sekwah — Content Creator",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Ancient Legacy (Destiny proc greatly increases next Ancient Spear damage)",
+            "Osh's Support",
+            "Power of Creation",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ],
+          "stagger_destruction_notes": {
+            "destruction": [
+              "Osh (3 orbs)",
+              "Alimaji (4 orbs)",
+              "Phoenix (5 orbs)"
+            ],
+            "stagger": [
+              "Alimaji (4 orbs)",
+              "Jahia & Ligheas (6 orbs, max Stagger)",
+              "Akir (7 orbs)"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+        "anchor_quote": "Ancient Legacy, Osh's Support, Power of Creation, Flashy Attack, Smoldering Strike, Attack. Destiny proc greatly increases the damage of the next Ancient Spear.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Keen Blunt Weapon",
+            "Adrenaline",
+            "Cursed Doll",
+            "Hit Master"
+          ],
+          "gems_damage": [
+            "Ancient Elemental Skill",
+            "Ancient Spear",
+            "Earth Collapse",
+            "Steed Charge"
+          ],
+          "gems_cooldown": [
+            "Ancient Spear",
+            "Electric Storm",
+            "Earth Collapse",
+            "Water Elemental",
+            "Steed Charge"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Specialization",
+              "Crit",
+              "Swiftness (Ancient Spear build)"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+        "anchor_quote": "Grudge, Keen Blunt Weapon, Adrenaline, Cursed Doll, Hit Master",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Phoenix deals Destruction AoE damage in 3 different places in a wide area. Positioning note: for small bosses, position to hit at least 2 explosions. No explicit range/radius values stated."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+        "anchor_quote": "Phoenix: Deals Destruction and decent AoE damage with 3 different places in a wide area. For small Bosses, position yourself to hit at least 2 explosions most of the time.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Manage 7 Ancient Orbs + 5 Ancient Elementals. Cycle Elementals via X key, cast with Z. Phoenix (5 orbs): Destruction + AoE burst. Ancient Spear: primary damage, orbs amplify damage. Opener: 3 Phoenix + Mariposa in sequence within Atropine Potion window. Ark node: Ancient Legacy (Destiny proc greatly increases next Ancient Spear damage). Contrast to Communication Overflow: Ancient burst spend vs sustained pet uptime."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+        "anchor_quote": "7 Ancient Orbs, also called Ancient Energy, and 5 different Ancient Elementals. You cycle through your Elementals with the X key, and you cast the desired one with the Z key.",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Communication Overflow Summoner (sustained pet uptime; most damage from summons with micromanagement)",
+          "note": "No sub-variants within Master Summoner documented in guide"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/master-summoner-raid-build-guide",
+        "anchor_quote": "Communication Overflow Summoner bases most of its damage on her Pets (Summons) with micromanagement, versus Master's focus on Ancient Spear spending.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

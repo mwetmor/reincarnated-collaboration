@@ -1,0 +1,233 @@
+{
+  "kit_id": "poe2-gas-arrow-ignite",
+  "spine": {
+    "kit_id": "poe2-gas-arrow-ignite",
+    "folk_name": "Gas Arrow Detonation",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.3-edict",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the two-stage place-then-detonate mechanic (a cloud you plant and then must IGNITE with a second skill) maps to a single ground_targeted_circle (the detonation) + an arming-stage note -- the source player loses the deliberate two-input setup/payoff rhythm and the cloud-expansion-over-time window (1.8m growing +80%). The detonation blast, hybrid fire/poison, and conversion all map cleanly, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth",
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn",
+      "poison"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the two-stage place-then-detonate mechanic (a cloud you plant and then must IGNITE with a second skill) maps to a single ground_targeted_circle (the detonation) + an arming-stage note -- the source player loses the deliberate two-input setup/payoff rhythm and the cloud-expansion-over-time window (1.8m growing +80%). The detonation blast, hybrid fire/poison, and conversion all map cleanly, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Gas Arrow (detonation)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": "earth",
+          "ailments": [
+            "burn",
+            "poison"
+          ],
+          "delivery_notes": "Two-stage: arrow projectile places a poison gas cloud at ground target (1.8m -> +80% radius over 4s; limit 6 clouds); any fire/ignited-enemy contact DETONATES the cloud in a large fire explosion (100% phys-to-fire on detonation). Dominant every-3s loop is the DETONATION -- the large-zone fire blast at cloud position -> ground_targeted_circle. The cloud-placement projectile is the arming stage (noted). fire primary (detonation) + earth secondary (poison gas). burn (ignite) + poison ailments."
+        }
+      ],
+      "motion_frame": "Fire Gas Arrow to place a flammable poison-gas cloud; ignite it (Flame Wall / any fire source / ignited enemy) to detonate a large fire explosion; chain clouds for screen-clear.",
+      "resource_economy": {
+        "cost_scale": "two-mana cycle: Gas Arrow places cloud + separate ignition source cast",
+        "charge_stack_sub_shape": "cycle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "gas cloud (placed; consumed/detonated by ignite contact)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "cloud placement projectile (stage 1)",
+            "detonation ground_targeted_circle (stage 2)"
+          ],
+          "economy": [
+            "two-mana place+ignite cycle"
+          ],
+          "traits_affixes": [
+            "fire/ignite scalers",
+            "phys-to-fire conversion"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TWO-STAGE cloud->detonate (addendum C.4 / main-law 7.2 dominant loop): DOMINANT geometry = the DETONATION (large-zone fire blast, probe footprint=large-zone, geo_raw large-AOE) -> ground_targeted_circle; the Gas-Arrow cloud-placement projectile is the ALTERNATIVE/arming stage, NOTED (mid-range projectile). Hybrid element: fire primary (100% phys-to-fire on detonation IS the damage) + earth secondary (poison gas -- venom-themed, main-law poison row); ailments burn (ignite->burn) + poison. The place->ignite->detonate is an apply-consume pair (cloud is the mark; ignition consumes it -> burst) but proc_trigger on-ailment-application (ignite triggers detonation). ELEMENT_CONVERSION_PHYSICAL door: 100% phys-to-fire conversion on detonation is a build-defining conversion. Guide archived after 0.3 ignite changes (dossier) -- mapped the attested 0.1-0.3 place+Flame-Wall-detonate identity. verify_ledger: identity+mechanics+era CONFIRMED 0.1-0.3-edict."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/deadeye-gas-arrow-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Gas Arrow Deadeye Leveling Guide - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3632515",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Poison Gas Arrow Pathfinder",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Gas_Arrow",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Gas Arrow - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.3-edict",
+      "anchor_quote": "April 4, 2025 - Verified and updated for patch 0.2.0 / December 9, 2024 - Article Published for Path of Exile 2 Early Access",
+      "source_url": "https://maxroll.gg/poe2/build-guides/deadeye-gas-arrow-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Gas Arrow Detonation'; aliases 'Gas Arrow ignite', 'Flame Wall detonation', 'Gas Arrow fire trigger'",
+      "anchor_quote": "combo your Gas Arrow once or twice into Flame Wall to detonate the gas for multiple explosions",
+      "source_url": "https://maxroll.gg/poe2/build-guides/deadeye-gas-arrow-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Gas Arrow (cloud placement), Flame Wall / fire trigger detonation; chaos+fire hybrid DoT; screen-clearing explosion",
+      "anchor_quote": "Fire a noxious arrow at the ground, creating a cloud of flammable poisonous gas at the end of its flight. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it.",
+      "source_url": "https://poe2db.tw/us/Gas_Arrow",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Deadeye (Ranger)",
+          "notes": [
+            "Endless Munitions (additional projectiles)",
+            "Gathering Winds (speed bonuses)",
+            "Guide archived after 0.3 Ignite changes — Radiant Grief no longer enables easy detonation in maps"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/deadeye-gas-arrow-leveling-guide",
+        "anchor_quote": "Deadeye ascendancy grants massive damage boosts through additional projectiles from Endless Munitions and great speed bonuses through Gathering Winds.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry_verbatim": "Gas Arrow: projectile to ground target, cloud expands from 1.8m radius to 80% larger over 4 seconds. Explosion on detonate: 'large AoE' (screen-clearing at scale). Two-stage geometry: cloud placement (mid-range projectile) + explosion (large-zone at cloud position)."
+        },
+        "source_url": "https://poe2db.tw/us/Gas_Arrow",
+        "anchor_quote": "Gains +20% more Radius per second, up to a maximum of +80%... Converts 100% of Physical damage to Fire damage [on detonation]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Fire Gas Arrow at ground to create poison gas cloud (4-second duration, expands over time, limit 6 clouds). Any fire damage or ignited enemy contact detonates cloud in large fire explosion (100% phys-to-fire conversion on detonation). Standard 0.1-0.2 loop: cast Gas Arrow then Flame Wall to ignite and detonate."
+        },
+        "source_url": "https://poe2db.tw/us/Gas_Arrow",
+        "anchor_quote": "Fire a noxious arrow at the ground, creating a cloud of flammable poisonous gas at the end of its flight. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Gas Arrow Deadeye (0.1 launch, archived after 0.3)",
+            "Gas Arrow Pathfinder (Poisonous Concoction cross-over variant; poe.ninja Dawn of Hunt)",
+            "Gas Arrow Amazon (0.2 Dawn of Hunt guide on maxroll)",
+            "Gas Grenade Deadeye (grenade variant available 0.5)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/gas-arrow-amazon-build-guide",
+        "anchor_quote": "Gas Arrow Amazon Build Guide Dawn of the Hunt - Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

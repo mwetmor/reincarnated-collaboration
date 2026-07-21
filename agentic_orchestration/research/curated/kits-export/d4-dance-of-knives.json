@@ -1,0 +1,229 @@
+{
+  "kit_id": "d4-dance-of-knives",
+  "spine": {
+    "kit_id": "d4-dance-of-knives",
+    "folk_name": "Dance of Knives Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Poison ailment not mapped (skill-name only, no verbatim poison-status language). Physical element null. Fan of Knives shotgun burst variant approximated in scaffold; core loop is channel-spin identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Poison ailment not mapped (skill-name only, no verbatim poison-status language). Physical element null. Fan of Knives shotgun burst variant approximated in scaffold; core loop is channel-spin identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dance of Knives (channel)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving channel spin: verify mechanics anchor 'Dance of Knives is channeled for the majority of combat' + identity anchor 'Hold down Dance of Knives to Spin to Win!'; full mobility while channeling per skill_mechanics anchor: 'Dark Shroud, Cold Imbuement, Shadow Clone, and Concealment can all be cast without interrupting channeling'; §CROSS row 5 moving-channel law applies; orbiting knives spray outward from moving Rogue body per skill_geometry payload; physical attack → element null per physical rule; Fan of Knives modifier: 'Dance of Knives is converted with the Fan of Knives modifier to shotgun enemies' per capstone anchor — multi_projectile burst variant noted in fidelity_notes as item-defined-archetype variant"
+        },
+        {
+          "source_skill": "Poison Imbuement (support buff)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'cast Poison Imbuement while spinning' per skill_loop payload; 'Poison Imbuement' = skill NAME only — §0 skill-name collision law applies; 'Poison' as element/ailment token requires damage/stat language in fetched stores, not a skill name; no verbatim 'poison damage' or 'poisoned' status word in any anchor quote; map as self_buff scaffold support; element null; no ailment emitted"
+        }
+      ],
+      "motion_frame": "Hold Dance of Knives to channel spin-to-win mobile AoE continuously; cast Poison Imbuement and other non-interrupting support skills while spinning; rotate back to channel per identity anchor",
+      "resource_economy": {
+        "cost_scale": "Energy (Rogue class resource inferred from d4 class convention; no verbatim energy economy anchor in this kit's dossier; omit verbatim key — rotation_style channel_sustain per skill_loop payload); persistent_condition_shape: tick-cost channel"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Fan of Knives multi_projectile shotgun burst variant (capstone anchor, item-defined-archetype via Writhing Aspect + Aspect of Channeling)"
+          ],
+          "economy": [
+            "Aspect of Channeling (channel economy scaler)",
+            "Berú of Spellbound Steel grants all three imbuements simultaneously per item_alterations anchor"
+          ],
+          "traits_affixes": [
+            "Sea Lord's Fine Gloves (scaler-only)",
+            "Etna's Lost Dagger (scaler-only)",
+            "Berú of Spellbound Steel set (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§0 near-miss — Poison Imbuement: 'Poison' in skill NAME is a §0.3 skill-name collision candidate; no 'poison damage' or poisoned-status language verbatim in any anchor_quote — poison ailment blocked per MW3 attestation law (element attestation requires damage/stat language, not skill name). Moving-channel per §CROSS row 5: delivery_notes carry full-move differentiator. Physical element null per physical rule (Rogue melee/ranged physical). Fan of Knives variant: item-defined-archetype (§CROSS row 4) where variant identity IS the transformed form — noted as variant but core loop is the channel spin identity. Resource economy key omitted for non-verbatim class-convention deduction (R-M4: economy keys iff identity-load-bearing)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Avarilyn",
+      "title": "Dance of Knives Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in s7-s12",
+      "anchor_quote": "Hold down Dance of Knives to Spin to Win!",
+      "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Dance of Knives Rogue; alias DoK Rogue s7-s12 are real community usage",
+      "anchor_quote": "Hold down Dance of Knives to Spin to Win!",
+      "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Dance of Knives; resource Energy (Rogue); channeled while moving",
+      "anchor_quote": "Dance of Knives is channeled for the majority of combat. Dark Shroud, Cold Imbuement, Shadow Clone, and Concealment can all be cast without interrupting channeling.",
+      "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Avarilyn",
+          "site": "maxroll.gg",
+          "co_author": null
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Writhing Aspect",
+            "Aspect of Channeling"
+          ],
+          "uniques": [
+            "Sea Lord's Fine Gloves",
+            "Etna's Lost Dagger"
+          ],
+          "charm_set": [
+            "Berú of Spellbound Steel"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+        "anchor_quote": "Berú of Spellbound Steel set",
+        "abstained": 0,
+        "conf": 0.77
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Berú of Spellbound Steel set",
+            "Writhing Aspect",
+            "Aspect of Channeling",
+            "Buffered Battery",
+            "Sea Lord's Fine Gloves",
+            "Etna's Lost Dagger"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+        "anchor_quote": "Berú of Spellbound Steel set (prioritized early): Grants all three imbuements simultaneously with increased potency",
+        "abstained": 0,
+        "conf": 0.79
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "multi-point",
+          "notes": "Orbiting knives spray outward from moving Rogue body; spin-channel while fully mobile; Fan of Knives modifier available for shotgun burst variant"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+        "anchor_quote": "Dance of Knives is converted with the Fan of Knives modifier to shotgun enemies with multiple projectiles",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Hold Dance of Knives continuously for spin-to-win AoE; cast Poison Imbuement while spinning; Dark Shroud, Cold Imbuement, Shadow Clone, Concealment all non-interrupting; channel is primary combat mode",
+          "rotation_style": "channel_sustain"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+        "anchor_quote": "Hold down Dance of Knives to Spin to Win! The build rotates between holding this skill and casting Poison Imbuement while spinning.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Fan of Knives modifier converts to shotgun burst variant; Star Shards variant noted alongside Sea Lord's Fine Gloves"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dance-of-knives-rogue-guide",
+        "anchor_quote": "Dance of Knives is converted with the Fan of Knives modifier to shotgun enemies with multiple projectiles",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

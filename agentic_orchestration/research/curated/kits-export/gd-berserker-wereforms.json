@@ -1,0 +1,173 @@
+{
+  "kit_id": "gd-berserker-wereforms",
+  "spine": {
+    "kit_id": "gd-berserker-wereforms",
+    "folk_name": "Berserker (FoA mastery)",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "foa-pending",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "MANDATORY (GAPPED): the entire kit is unmappable because the source content does not yet exist -- Fangs of Asterkarn is unshipped and every dossier family abstained. The source player would experience a wereform/transformation ARPG loop (per folk-name aliases) but zero mechanics are attested, so nothing beyond the identity placeholder can be translated. This is a content-availability gap, NOT an engine-capability gap. See docket: unshipped-content class.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 1,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "MANDATORY (GAPPED): the entire kit is unmappable because the source content does not yet exist -- Fangs of Asterkarn is unshipped and every dossier family abstained. The source player would experience a wereform/transformation ARPG loop (per folk-name aliases) but zero mechanics are attested, so nothing beyond the identity placeholder can be translated. This is a content-availability gap, NOT an engine-capability gap. See docket: unshipped-content class.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "UNMAPPABLE -- content unshipped; no fetched skill_loop language exists to describe a motion frame",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "DOSSIER THIN BY DESIGN: all six kit_dossier families ABSTAINED (skill_loop, skill_geometry, item_alterations, capstone_alterations, author_credit, variants) -- verify_ledger identity + mechanics both UNSUPPORTED. Fangs of Asterkarn (FoA) mastery is UNSHIPPED as of crawl date ('Grim Dawn: Fangs of Asterkarn Hits PC July 23 -- expansion not yet shipped'; era stamp foa-pending is accurate). elem_raw=cold (corpus) would route water, but corpus columns are NOT fetched attestation -- per §0.1 there is no fetched language to map from, so no skill/element/ailment is emitted. Wereform/transformation shape is a KNOWN candidate for the engine spirit-swap/form axis but NOTHING is attested to place it. BACKFILL-2 pending (re-crawl once FoA ships). Row emitted per m01 hot-fact directive ('map what exists, note the gap') rather than skipped -- the gap IS the mapping."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://wccftech.com/grim-dawn-fangs-of-asterkarn-release-date-july-2026/",
+      "archive_url": null,
+      "site": "wccftech.com",
+      "author_handle": null,
+      "title": "Grim Dawn: Fangs of Asterkarn Hits PC July 23",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.grimdawn.com/guide/about/fangs-of-asterkarn/",
+      "archive_url": null,
+      "site": "grimdawn.com",
+      "author_handle": null,
+      "title": "Guide - About - Fangs of Asterkarn - Grim Dawn",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in era: foa-pending",
+      "anchor_quote": "Grim Dawn: Fangs of Asterkarn Hits PC July 23 — expansion not yet shipped as of crawl date 2026-07-18; foa-pending era stamp is accurate",
+      "source_url": "https://wccftech.com/grim-dawn-fangs-of-asterkarn-release-date-july-2026/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Berserker (FoA mastery)'; aliases include 'FoA Berserker wereform', 'Forgotten Gods werewolf build', 'wereraven Berserker'",
+      "anchor_quote": null,
+      "source_url": "https://www.grimdawn.com/guide/about/fangs-of-asterkarn/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: wereform suite(TBD)",
+      "anchor_quote": null,
+      "source_url": "https://www.grimdawn.com/guide/about/fangs-of-asterkarn/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

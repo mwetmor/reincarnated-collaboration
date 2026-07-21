@@ -1,0 +1,224 @@
+{
+  "kit_id": "chr-mechanist-rocketeer",
+  "spine": {
+    "kit_id": "chr-mechanist-rocketeer",
+    "folk_name": "Rocketeer Mechanist",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rocketeer",
+          "geometry_value": "single_target",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile rocket at range; burst AoE explosion on impact; attested 'fire attribute damage' and 'fires missiles ... deals fire attribute damage' from mechanics anchor; impact footprint = small-radius AoE but delivery is projectile-to-burst pattern; 'fire Pyrotechnics skill trees' confirms fire element identity"
+        },
+        {
+          "source_skill": "Rocket Drone",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Drone variant: deploys drone unit that fires Rocketeer rockets; placed proxy fires same fire rockets; treated as totem (placed, not following companion); Rocket Drone rune converts projectiles to missile fire"
+        }
+      ],
+      "motion_frame": "Range-fire rocket salvos; reload cycle between salvos (ammo economy); drone variant deploys proxy that repeats the rocket delivery",
+      "resource_economy": {
+        "cost_type": "ammo",
+        "cadence_scale": "med",
+        "ramp_per_s": null
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Rocket Drone rune — converts to placed proxy"
+          ],
+          "economy": [
+            "ammo reload cycle"
+          ],
+          "traits_affixes": [
+            "Rocketeer set 3-piece (infinite stacking damage)",
+            "fire attribute scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire element directly attested: 'fire attribute damage' + 'fire Pyrotechnics skill trees'; dual-set variants (Rocketeer 3-piece vs 2+2 Drone Pilot) map same fire element; Poison Gas variant (fire+poison) would add earth secondary — separate variant. Drone proxy is placed totem shape."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "(v1.52.0+DLC) My Mechanist's Build for MythicXV Endless Tier400-600",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/app/2206120/Chronicon__The_Mechanist/",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "Subworld",
+      "title": "Chronicon - The Mechanist (official DLC Steam page)",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "(v1.52.0+DLC) My Mechanist's Build for MythicXV Endless Tier400-600",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Rocketeer Mechanist — Mechanist subclass, Pyrotechnics/Rocketeer skill set",
+      "anchor_quote": "the fire Pyrotechnics ... skill trees",
+      "source_url": "https://store.steampowered.com/app/2206120/Chronicon__The_Mechanist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Explosive rockets at range; fire damage; burst AoE on impact; ammo resource; DLC-only",
+      "anchor_quote": "Rocketeer — Fire-based skill that fires missiles. The guide notes it deals 'fire attribute' damage",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "Rocketeer set (3-piece)",
+            "Rocketeer 2pc + Drone Pilot 2pc hybrid"
+          ],
+          "rune": "Rocket Drone rune (drones fire Rocketeer rockets)"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+        "anchor_quote": "rocketeering build with the rocketeering set bonus ... infinite stacking damage increases on the rockets",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile at range",
+          "impact": "small-radius AoE explosion",
+          "notes": "Rocket Drone variant fires rockets from deployed drone units"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+        "anchor_quote": "Rocket Drone variants that convert projectiles to missiles",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Launch rocket salvo at range; each rocket explodes on impact dealing fire damage AoE burst; rockets reload over time (ammo economy); high alpha per salvo window"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+        "anchor_quote": "Rocketeer — Fire-based skill that fires missiles ... deals 'fire attribute' damage",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Direct Rocketeer (3-piece set)",
+            "Drone Rocketeer hybrid (2+2 set)",
+            "Poison Gas Rocketeer (fire+poison)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+        "anchor_quote": "3-piece Rocketeer set or 2/4 Rocketeer combined with 2/4 Drone Pilot",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

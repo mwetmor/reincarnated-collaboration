@@ -1,0 +1,282 @@
+{
+  "kit_id": "poe1-earthshatter",
+  "spine": {
+    "kit_id": "poe1-earthshatter",
+    "folk_name": "Earthshatter",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The plant-then-detonate identity lands via ground_slam + apply-consume-pair trigger grammar (spikes = mark:consumption applied by slam, consumed by warcry for burst-damage) + spike-count accumulator, at chain-depth 1. Minor drift: the source has TWO valid detonators (warcry OR a follow-up slam) — the map fixes on the warcry-cast trigger (on-cast-linked), the dominant Berserker loop; and physical is element-neutral. [D-7.6 / poe1-REVIEW-1 STRUCK 2026-07-19: the phantom alias 'Foulborn Ghostwrithe zerker(3.28)' is STRICKEN as a confabulated alias (no source fact); REVIEW-1 resolved.] A player keeps the raise-spikes-then-shatter payoff rhythm.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 6,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The plant-then-detonate identity lands via ground_slam + apply-consume-pair trigger grammar (spikes = mark:consumption applied by slam, consumed by warcry for burst-damage) + spike-count accumulator, at chain-depth 1. Minor drift: the source has TWO valid detonators (warcry OR a follow-up slam) — the map fixes on the warcry-cast trigger (on-cast-linked), the dominant Berserker loop; and physical is element-neutral. [D-7.6 / poe1-REVIEW-1 STRUCK 2026-07-19: the phantom alias 'Foulborn Ghostwrithe zerker(3.28)' is STRICKEN as a confabulated alias (no source fact); REVIEW-1 resolved.] A player keeps the raise-spikes-then-shatter payoff rhythm.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Earthshatter",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "at-target slam that sends 5 rectangular fissures from the slam point; spikes erupt at fissure endpoints (max 15-18 simultaneous, 6s duration). The spikes are inert until DETONATED by a warcry (or a follow-up slam), which shatters all nearby spikes for a large-zone AoE. Two-step plant-then-detonate. PHYSICAL RULE -> element-neutral; ground_slam = the slam/quake geometry (§6). The plant->warcry-detonate is a mark-apply/consume pair"
+        },
+        {
+          "source_skill": "Warcry (War Bringer)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "the detonation trigger: a warcry shatters all planted spikes AND grants Rage (Berserker War Bringer keystone). self_buff = the warcry's self-centered buff+detonate pulse; it is the consume half of the plant-then-detonate loop, not an offensive geometry itself"
+        }
+      ],
+      "motion_frame": "two-step plant-then-detonate slammer: slam to raise a field of rock spikes, then warcry to shatter them all at once for the payoff burst; Rage builds on each warcry",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-hit-dealt",
+        "accumulator_max": 15
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "mark:consumption",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_slam (spike-raising slam)",
+            "spike-field placement (up to 15-18 spikes at fissure endpoints)",
+            "self_buff (warcry detonate pulse)"
+          ],
+          "economy": [
+            "spike accumulator (raise-spikes-then-shatter; on-hit-dealt fill, warcry consumes)",
+            "warcry cooldowns (probe 'cooldown' model)",
+            "Rage-on-warcry (War Bringer Berserker; a rage-builder rider)"
+          ],
+          "traits_affixes": [
+            "physical/melee scaling",
+            "warcry-effect / exerted-attack scaling",
+            "area-of-effect (shatter zone)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TWO-STEP PLANT-THEN-DETONATE: slam raises rock spikes -> warcry detonates all spikes for the payoff (dossier skill_loop; mech_note 'plant-then-detonate slam loop'). This maps as a mark-apply/consume PAIR: the spikes are placed markers (mark:consumption) applied by the slam, then consumed by the warcry for burst-damage (trigger_grammar apply-consume-pair, consequence burst-damage; proc_trigger_condition on-cast-linked = the warcry-cast triggers the consume). MAX_CHAIN_DEPTH=1 respected: slam-applies -> warcry-consumes is a single apply-consume pair, not a nested chain. The spike-COUNT accumulation (up to 15-18) is also an accumulator (fill on-hit-dealt per fissure). Geometry ground_slam (§6). PHYSICAL RULE -> element-neutral; stun (physical-slam archetype, minimal). T4 GEOMETRY_PROPAGATION_cascade (the shatter-all-spikes-at-once propagation across the field) + GEOMETRY_COLLAPSE alt. CAPSTONE ABSTAINED — t4 routed from core identity (spike-field-then-shatter propagation) + probe (physical/cooldown) per fallback. PHANTOM ALIAS: verify_ledger/item_alterations logs 'Foulborn Ghostwrithe zerker(3.28)' as an unadjudicated alias with NO matching item found — NOT treated as a source fact (per batch-03 note 2); no mapping consequence. Warcry+Rage is the Berserker delivery flavor (self_buff + rage-builder rider), the two-step slam is the dominant loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/earthshatter-berserker-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.27] Earthshatter Berserker Build - Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2887937",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[3.11] Earthshatter - Berserker, Max Rage, 10-40mil DPS (Forum)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Earthshatter",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Earthshatter - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Earthshatter_of_Fragility",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Earthshatter_of_Prominence",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe1/builds/keepers?class=Berserker&skills=Earthshatter",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Berserker Earthshatter builds - Keepers - poe.ninja",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.7-3.13, 3.20+",
+      "anchor_quote": "The skill debuted in patch 3.11.0 … [3.27] Earthshatter Berserker Build",
+      "source_url": "https://poedb.tw/us/Earthshatter",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Earthshatter' is real community usage; alias 'Foulborn Ghostwrithe zerker(3.28)' for Berserker class",
+      "anchor_quote": "[3.27] Earthshatter Berserker Build … [3.11] Earthshatter - Berserker, Max Rage",
+      "source_url": "https://odealo.com/articles/earthshatter-berserker-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "At-target slam raises rock spikes (fissures); warcry detonates all spikes; two-step plant-then-detonate slam loop; Berserker warcry integration",
+      "anchor_quote": "Fissures summon Spikes that can be detonated by using Slam Attack or Warcry. Warcry Integration: War Bringer Keystone granting Rage after performing a Warcry",
+      "source_url": "https://poedb.tw/us/Earthshatter",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Earthshatter of Fragility (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Attack Damage scales to 612% of base at gem level 20 (vs standard ~315%)",
+              "anchor_quote": "(137—612)% of base"
+            },
+            {
+              "node": "Earthshatter of Prominence (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Reaches 346% base damage at level 20 (vs standard 170%); spike area 202% (vs 157%)",
+              "anchor_quote": "346% of base damage; spike area scaling 202%"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Earthshatter_of_Fragility",
+        "anchor_quote": "(137—612)% of base",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_alias_item": "Foulborn Ghostwrithe (3.28 alias in search spec) — no item with that exact name found; may be a build alias for a specific chest item combination in 3.28"
+        },
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.4
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target slam; sends 5 rectangular fissures from slam point; spikes erupt at fissure endpoints; warcry detonation is large zone covering all spike positions; physical damage",
+          "spike_note": "max 15 spikes; 6-second duration before expiry; 3.11 debut"
+        },
+        "source_url": "https://poedb.tw/us/Earthshatter",
+        "anchor_quote": "Slam the ground, sending out rectangular fissures that deal area damage to enemies … Fissures summon Spikes … Warcries or other Slam Attacks … will cause them to shatter",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Slam with Earthshatter -> creates 5 fissures radiating outward -> fissure endpoints generate rock spikes (max 15-18 simultaneously) -> activate warcry -> all nearby spikes shatter dealing AoE damage; Berserker War Bringer grants Rage on warcry; Exerted attacks boosted"
+        },
+        "source_url": "https://odealo.com/articles/earthshatter-berserker-build",
+        "anchor_quote": "Warcries or other Slam Attacks performed by you or allied players near any spike will cause them to shatter, damaging surrounding enemies",
+        "abstained": 0,
+        "conf": 0.89
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Earthshatter Berserker (primary — max rage warcry)",
+            "General's Cry Earthshatter Berserker (triggered via General's Cry)",
+            "Earthshatter Champion (Facebreaker variant)",
+            "Earthshatter Slayer (3.28 league starter)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/earthshatter-berserker-build",
+        "anchor_quote": "[3.27] Earthshatter Berserker … [3.21] General's Cry Earthshatter Berserker … Earthshatter Slayer League Starter 3.28",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 6,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

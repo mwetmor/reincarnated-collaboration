@@ -1,0 +1,229 @@
+{
+  "kit_id": "d3-akkhan-condemn",
+  "spine": {
+    "kit_id": "d3-akkhan-condemn",
+    "folk_name": "Akkhan Condemn",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Holy element unatttested in dossier text (probe-only); player would miss the holy-damage flavor label. No ailments attested — player building ailment synergies would find none mapped. Avatar-trigger (Phalanx→Condemn) approximated via trigger_grammar; no full proxy-fidelity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Holy element unatttested in dossier text (probe-only); player would miss the holy-damage flavor label. No ailments attested — player building ailment synergies would find none mapped. Avatar-trigger (Phalanx→Condemn) approximated via trigger_grammar; no full proxy-fidelity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Condemn",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin nova charges around Crusader body; Blade of Prophecy doubles explosion radius and count; item-defined-archetype is the spammable-Wrath form (Frydehr's Wrath removes cooldown, adds Wrath cost); holy-damage thematic unatttested in fetched dossier text"
+        },
+        {
+          "source_skill": "Phalanx (avatar trigger)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Phalanx avatars are transient proxies that cast Condemn on hit — trigger_grammar rider; avatar behavior maps per trigger_grammar, not as autonomous pets"
+        }
+      ],
+      "motion_frame": "Maintain perma-Akarat's Champion via Armor of Akkhan CDR; cast Condemn (spammable) while avatars proc additional Condemn explosions on contact",
+      "resource_economy": {
+        "cost_scale": "Wrath; Frydehr's Wrath converts to spammable Wrath-cost form; Akarat's Champion CDR gated by Armor of Akkhan 4pc"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Blade of Prophecy doubles explosions/radius"
+          ],
+          "economy": [
+            "In-Geom CDR; Captain Crimson's Trimmings resource/CDR; Ring of Royal Grandeur set-reduction"
+          ],
+          "traits_affixes": [
+            "Frydehr's Wrath 800% Condemn scalar (scaler-only per §B.1)",
+            "Armor of Akkhan 1500% damage scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null — holy thematic but unatttested in any fetched dossier row (mech_note is probe-class, inadmissible). No ailment attested (Condemn damage verb only). Akarat's Champion = self_buff burst layer; permanent uptime via CDR is the loop identity. Set multipliers (1500%, 800%) are scaler-only per §B.1. Trigger-avatar (Phalanx→Condemn-on-hit) maps as trigger_grammar rider per §B.4 hot-fact. CoE = R-M5 token (element_rotation_window) — arcane cycle is fire/lightning/cold/arcane for Crusader; burst window rides fidelity only."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Diablo 3 Season 39 Akkhan Condemn Crusader Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Season 27 patch changed that with Akkhan rework",
+      "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Akkhan Condemn Crusader Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Akkhan Condemn' and aliases 'Condemn Crusader', 'Akkhan Condemn Crusader', 'Akarat's Condemn' are real community usage",
+      "anchor_quote": "Akkhan Condemn Crusader Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Condemn and Akarat's Champion; Wrath resource; self-origin nova delivery via Blade of Prophecy; large-zone AoE",
+      "anchor_quote": "Frydehr's Wrath increases Condemn damage by another 800% and also turns it into a spammable skill with a Wrath cost",
+      "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+        "anchor_quote": "Written by Northwar",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Armor of Akkhan",
+          "set_bonus_6pc": "50% damage reduction, 1500% damage increase, reduces Akarat's Champion cooldown, Phalanx avatars cast Condemn on hit",
+          "kanais_cube": [
+            "In-Geom",
+            "Ring of Royal Grandeur"
+          ],
+          "supplemental_set": "Captain Crimson's Trimmings"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+        "anchor_quote": "Armor of Akkhan set provides 50% damage reduction, 1,500% damage increase, reduces cooldown of Akarat's Champion to just a few seconds",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Blade of Prophecy",
+            "Frydehr's Wrath",
+            "Ring of Royal Grandeur",
+            "In-Geom"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+        "anchor_quote": "Frydehr's Wrath increases Condemn damage by another 800% and also turns it into a spammable skill with a Wrath cost",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "large-zone",
+          "notes": "Condemn charges a nova around the Crusader's body; Blade of Prophecy doubles explosion radius"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+        "anchor_quote": "Blade of Prophecy increases Condemn damage by 800% and also doubles the amount of explosions",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Maintain perma-Akarat's Champion via Armor of Akkhan 4pc CDR; Phalanx avatars cast Condemn on hit; Blade of Prophecy doubles explosions; Frydehr's Wrath makes Condemn spammable at Wrath cost"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+        "anchor_quote": "Armor of Akkhan set...lets our Phalanx avatars cast Condemn when they hit an enemy",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Akkhan Condemn Solo Push",
+            "Akkhan Invoker Bombardment (separate build)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/akkhan-condemn-crusader-guide",
+        "anchor_quote": "Akkhan Condemn Crusader Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

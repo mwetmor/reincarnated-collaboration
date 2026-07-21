@@ -1,0 +1,222 @@
+{
+  "kit_id": "poe2-spark-stormweaver",
+  "spine": {
+    "kit_id": "poe2-spark-stormweaver",
+    "folk_name": "Spark Stormweaver",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: (1) poe2 shock's damage-amp identity maps to sunder, so a Stormweaver player loses the specific 'shock = more-damage-taken from a lightning ailment' flavor read (functionally preserved as sunder's damage_taken_percent, the exact PoE band). (2) Archmage's 'my entire mana bar IS my damage number' coupling is expressed as a RESOURCE_CONVERSION door + an anti-reservation economy note rather than a bespoke mana-total->spell-damage scaler; the build's headline fantasy (stack mana, watch damage soar) is recognizable but its precise magnitude-coupling is door-level, not a first-class economy key. Kept CLOSE (not APPROX): the bouncing-projectile-flood core maps EXACT and the mana-coupling is a genuine strategy door, not an unmodelable gap.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: (1) poe2 shock's damage-amp identity maps to sunder, so a Stormweaver player loses the specific 'shock = more-damage-taken from a lightning ailment' flavor read (functionally preserved as sunder's damage_taken_percent, the exact PoE band). (2) Archmage's 'my entire mana bar IS my damage number' coupling is expressed as a RESOURCE_CONVERSION door + an anti-reservation economy note rather than a bespoke mana-total->spell-damage scaler; the build's headline fantasy (stack mana, watch damage soar) is recognizable but its precise magnitude-coupling is door-level, not a first-class economy key. Kept CLOSE (not APPROX): the bouncing-projectile-flood core maps EXACT and the mana-coupling is a genuine strategy door, not an unmodelable gap.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spark (bouncing lightning projectiles)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "fires 6-20 bouncing lightning projectiles per cast that flood corridors and open areas, chaining/bouncing off walls for multi-hit coverage -> multi_projectile (mirrors poe1-spark precedent: bouncing spark = multi_projectile, NOT ricochet_bounce). lightning primary. ailment = sunder: poe2 shock is damage-amp ('Strike Twice applies two shocks simultaneously' = stacking damage-taken amp) with NO fetched paralysis/CC attestation -> S-A BINDING routes shock->sunder (never engine `shock`, the arc-CC false friend). Rooted while casting."
+        }
+      ],
+      "motion_frame": "Cast Spark to flood the room with bouncing lightning projectiles; keep mana UNRESERVED so Archmage converts it to spell damage -- mana is simultaneously the damage stat and the defensive layer.",
+      "resource_economy": {
+        "cost_scale": "mana per cast",
+        "reservation_percent": "0.0 by design -- Archmage rewards UNRESERVED mana (anti-reservation economy); high unreserved mana pool couples to spell damage",
+        "regen_shape": "mana-as-damage: unreserved mana total scales Spark damage (Archmage)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "sunder (damage-taken amp from shock-band hits; Scouring Winds adds -20% lightning res)",
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "GEOMETRY_PROPAGATION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Spark 6-20 bouncing projectile flood (multi_projectile + chain/bounce)"
+          ],
+          "economy": [
+            "Archmage unreserved-mana -> damage coupling (RESOURCE_CONVERSION)",
+            "mana per cast"
+          ],
+          "traits_affixes": [
+            "lightning penetration (Scouring Winds -20% res)",
+            "cast speed (Constant Gale)",
+            "mana-scaling affixes (Force of Will)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-07 (corpus gx; attribute/resource-scaling gate). HOT-FLAG 5 RESOLVED: engine `shock` requires POSITIVE fetched paralysis/CC attestation (S-A BINDING m01 audit); the dossier describes Spark shock as coverage+damage-amp ('Strike Twice applies two shocks', 'hit like a truck') with ZERO paralysis/immobilize language -> shock ALWAYS routes `sunder`. Never emitted engine `shock`. ARCHMAGE MANA-AS-DAMAGE: mapped to RESOURCE_CONVERSION door + reservation_percent 0.0 anti-reservation economy note; this is a native-ish resource-coupling (unreserved-pool -> damage), NOT the poe2-Spirit false friend and NOT a docket gap (the engine's resource_economy chassis expresses cost/reservation; the unreserved-mana-scales-damage coupling is the RESOURCE_CONVERSION strategy's remit). poe1-spark geometry precedent (multi_projectile) mirrored for bounce consistency. Stormweaver ascendancy -> t4 via 5 (R-M1). eras 0.1-0.5 CONFIRMED (long-lived staple)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Archmage Spark Stormweaver Build Guide (Archived, patch 0.1.1)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://timesaver.gg/poe-2/builds/sorceress",
+      "archive_url": null,
+      "site": "timesaver.gg",
+      "author_handle": null,
+      "title": "PoE 2 Sorceress Build (Patch 0.5.4) – Spark Archmage Stormweaver",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+      "anchor_quote": "Up to date for patch 0.1.1... [0.1.0] Spark Archmage Stormweaver - POE2 Build Guide... In 0.5.4 Return of the Ancients, the Spark Archmage Stormweaver is the strongest and most reliable Sorceress build",
+      "source_url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Spark Stormweaver' and aliases 'Spark Archmage Stormweaver', 'Spark storm meta', 'Spark chain build' are real community usage",
+      "anchor_quote": "Archmage Spark Stormweaver Build Guide for Path of Exile 2... the Spark Archmage Stormweaver is the strongest and most reliable Sorceress build, rated S-tier for mapping",
+      "source_url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Spark and Archmage; Spark fires bouncing projectiles; Archmage scales damage from unreserved mana",
+      "anchor_quote": "Spark offers projectiles that hit everything on screen multiple times and hit like a truck thanks to Archmage, which gives you the opportunity to invest into mana giving damage and defense simultaneously",
+      "source_url": "https://timesaver.gg/poe-2/builds/sorceress",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Stormweaver",
+          "notables": [
+            "Constant Gale",
+            "Force of Will",
+            "Strike Twice",
+            "Scouring Winds"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+        "anchor_quote": "Constant Gale (cast speed, mana regeneration); Force of Will (scales arcane surge benefits with mana); Strike Twice (applies two shocks simultaneously); Scouring Winds (additional -20% enemy Lightning resistance)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "spark": "fires 6-20 bouncing lightning projectiles per cast; projectiles chain (+1 chain from Branching Bolts passive); flood corridors and open areas; multi-hit possible on same target via duration and speed scaling; multi-point coverage"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+        "anchor_quote": "fires numerous erratic bouncing projectiles that provide excellent coverage for mapping",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Spark to fill area with bouncing lightning projectiles. Archmage support scales damage from unreserved mana. Mana is both offensive stat and defense investment. Keep mana unreserved (no aura reservation) to maximize Archmage bonus."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+        "anchor_quote": "Spark offers projectiles that hit everything on screen multiple times and hit like a truck thanks to Archmage, which gives you the opportunity to invest into mana giving damage and defense simultaneously",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Archmage Spark (mana-stack)",
+            "Spark Lightning Conduit (CoC trigger variant)",
+            "Spark Cast on Shock / Lightning Conduit combo"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+        "anchor_quote": "currency-rich players transition into Cast on Critical Comet for the most brain-dead endgame clear in the game",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "kit_id": "le-shadow-bladedancer",
+  "spine": {
+    "kit_id": "le-shadow-bladedancer",
+    "folk_name": "Shadow Bladedancer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shadows echoing the player's own attacks in sync is approximated as placed emitters striking nearby - source player would miss the mirror-choreography feel; Shadow Daggers stacking payoff is unexpressed (no registry home).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "execute"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shadows echoing the player's own attacks in sync is approximated as placed emitters striking nearby - source player would miss the mirror-choreography feel; Shadow Daggers stacking payoff is unexpressed (no registry home).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Synchronized Strike",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "deploys/extends shadow copies at map positions (placement attested) that strike nearby targets; shadows mirror the player's attacks ('Your Shadows use it when you do'); Perfect Coordination raises shadows-hit count; applies Shadow Daggers stacks (no registry home - withheld)"
+        },
+        {
+          "source_skill": "Shift",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "execute"
+          ],
+          "delivery_notes": "traversal proc-hub: triggers Shadow Cascade on use, casts Umbral Blades, recovers Mana on use; execute payload rides via Consumed by Shadow node (capstone-attested); payloads stay riders, never traversal geometry"
+        }
+      ],
+      "motion_frame": "mobile melee: Shift repositions while placed shadow mirrors cover multiple points; player moves freely",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Shadow Daggers stack (registry no-home, steward-flagged)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_FISSION",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Mana recovered via Shift node"
+          ],
+          "traits_affixes": [
+            "Siphon of Anguish / Traitor's Tongue / Shattered Chains / Gambit of an Erased Rogue -> numeric gear lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "physical -> null element (THE PHYSICAL RULE). Post-W1 two-lane: shadow copies are placement-ATTESTED ('deploys shadow copies at positions... placed at different map positions') -> totem projection, not companion gap. Mirror-sync semantics (shadows repeat the player's skill use) exceed placed-emitter fidelity - noted as the core drift. Shadow Cascade payload behavior unfetched here beyond trigger role -> rider only. Shadow-count extension filed as placed-proxy-count accrual. Shadow Daggers stacking language flagged to steward (LE ailment-stack-count open question)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "BinaQc",
+      "title": "Shadow Cascade Bladedancer Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "McFluffin (reviewed by Lizard_IRL)",
+      "title": "Shadow Daggers Bladedancer Last Epoch Build Guide - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Season 4 - Shattered Omens... Last Updated: April 19, 2026.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shadow Bladedancer' / 'Synchronized Strike Bladedancer' / 'Shadow Cascade Umbral Blades BD' are real community usage",
+      "anchor_quote": "The Shadow Cascade Bladedancer uses Synchronized Strike and Shift to trigger powerful chains of Shadow Cascade.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Synchronized Strike, Shadow Cascade, Umbral Blades; shadows mirror player attacks at placed positions; resource=Mana",
+      "anchor_quote": "Shadow Cascade is triggered by using Synchronized Strike and Shift... This setup maximizes your damage and recovers Mana on use.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "BinaQc",
+          "site": "maxroll.gg",
+          "guide": "Shadow Cascade Bladedancer"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Perfect Coordination (increases shadows that hit per Synchronized Strike)",
+            "Dancing Shadows (enables shadow casting through Shift)",
+            "Consumed by Shadow (execute via Shift)"
+          ],
+          "notes": "Synchronized Strike + Shift rotation is the build's capstone interaction"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "When used correctly, Synchronized Strike can apply a very large number of Shadow Daggers to a single target by using Perfect Coordination.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Siphon of Anguish (23.8% of tracked builds)",
+            "Traitor's Tongue (22.5%)",
+            "Shattered Chains (21.3%)",
+            "Gambit of an Erased Rogue (18.8%)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "Siphon of Anguish (23.8%), Traitor's Tongue (22.5%), Shattered Chains (21.3%), and Gambit of an Erased Rogue (18.8%).",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "multi-point: shadow copies placed at different map positions each strike nearby targets independently; player moves freely while shadows cover their positions",
+          "range_class": "melee",
+          "aoe": "multi-point"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+        "anchor_quote": "Your Shadows use it when you do... Shadow Daggers Bladedancer is a great build for any type of content that excels at clearing Monolith Echoes fast.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Player deploys shadow copies at positions via Shadow Cascade proc (triggered by Synchronized Strike and Shift). Each shadow mirrors the player's attacks. Umbral Blades are cast through Shift. The loop is: Shift triggers Shadow Cascade; Synchronized Strike extends shadow count and applies Shadow Daggers stacks. Mana recovered via Shift node.",
+          "core_driver": "shadow-mirror proc chain"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+        "anchor_quote": "Shadow Cascade is triggered by using Synchronized Strike and Shift... This setup maximizes your damage and recovers Mana on use.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Shadow Cascade Bladedancer",
+              "notes": "Synchronized Strike + Shift proc chain; shadow mirror"
+            },
+            {
+              "name": "Shadow Daggers Bladedancer",
+              "notes": "Shadow Daggers stacking via Umbral Blades + Shift + Synchronized Strike"
+            },
+            {
+              "name": "Dancing Strikes Bladedancer",
+              "notes": "Dancing Strikes fills downtime; similar core loop"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-cascade-bladedancer-guide",
+        "anchor_quote": "Shadow Cascade Bladedancer... Shadow Daggers Bladedancer... Dancing Strikes Bladedancer.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

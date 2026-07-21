@@ -1,0 +1,271 @@
+{
+  "kit_id": "la-predator-slayer",
+  "spine": {
+    "kit_id": "la-predator-slayer",
+    "folk_name": "Predator Slayer",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/mayhem",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fatigue→Exhaustion reduction mechanic (stacks shortening downtime, not amplifying burst) is an unusual inverted-ramp shape; MOMENTUM_CASCADE captures it imperfectly — noted. 'Volcanic Eruption'/'Flame Deathblade' element strictly struck by D4 NAME-ONLY LAW (no damage-typing in text).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fatigue→Exhaustion reduction mechanic (stacks shortening downtime, not amplifying burst) is an unusual inverted-ramp shape; MOMENTUM_CASCADE captures it imperfectly — noted. 'Volcanic Eruption'/'Flame Deathblade' element strictly struck by D4 NAME-ONLY LAW (no damage-typing in text).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Brutal Impact",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; highest gem priority; Standard Ark Grid core"
+        },
+        {
+          "source_skill": "Volcanic Eruption",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; 'Volcanic' is skill proper name — zero fire damage-typing in dossier; element null (D4 NAME-ONLY LAW)"
+        },
+        {
+          "source_skill": "Flame Deathblade",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; 'Flame' is part of skill proper name — zero fire damage-typing; element null (D4 NAME-ONLY LAW)"
+        },
+        {
+          "source_skill": "Guillotine",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage during Burst Mode; melee arc execution skill"
+        },
+        {
+          "source_skill": "Wild Rush",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Mana rune skill; mobility/filler during rotation"
+        },
+        {
+          "source_skill": "Wild Stomp",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Support skill; no ailment attested in dossier"
+        }
+      ],
+      "motion_frame": "Fill Fury Meter via standard skills; activate Burst Mode (Z): +20% Attack Speed, +20% Move Speed, +30% Crit Rate, +48% Crit Damage, +10% Fury recovery on hit; spam damage skills; every 3s generates Fatigue stack (+10% Fury consumption); on meter depletion 30s Exhaustion reduced by 1s per Fatigue stack; sustained Burst uptime emphasis",
+      "resource_economy": {
+        "fury_meter": "fill via standard skills → Burst Mode activation; +10% Fury recovered on hit (1s CD) during Burst; every 3s generates Fatigue stack that increases Fury consumption by 10%; on depletion: 30s Exhaustion, each Fatigue stack reduces by 1s; Predator identity = maximize Burst uptime via Fatigue management"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Fury Meter full → Burst Mode activation; Fatigue stacks as Exhaustion-reduction riders",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null throughout: 'Volcanic Eruption' and 'Flame Deathblade' are skill proper names — zero fire damage-typing in any fetched dossier line (D4 NAME-ONLY LAW strictly applied). No ailments attested. Burst Mode = TIMED burst_window (Fury meter depletes). Fatigue stacks that reduce Exhaustion = MOMENTUM_CASCADE shape (stacks modify the downtime cycle). Ark Grid variants (Standard / Spin to Win Hurricane Sword) → capstone_alterations. Swiftness-based back-attack positioning noted in motion_frame via mech_note."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor; reviewed by Perciculum",
+      "title": "Predator Slayer Raid Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last Updated: June 13, 2026 with Ark Grid system update noted December 22, 2025",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Predator Slayer — Slayer class, Predator identity spec",
+      "anchor_quote": "Slayer class with Predator identity/specialization",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Builds Fatigue stacks during Burst Mode to reduce Exhaustion duration, enabling prolonged Burst Mode uptime; Swiftness-based back-attack playstyle with spammy rotations while in Burst",
+      "anchor_quote": "Every 3 seconds in Burst Mode generates a Fatigue stack, increasing natural Fury Meter consumption by 10%. This eventually depletes the meter, triggering a 30-second Exhaustion phase where each stack of Fatigue reducing this duration by 1 second.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Raeinor",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+        "anchor_quote": "Written by Raeinor. Reviewed by Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_grid_variants": [
+            "Standard (Brutal Impact focus)",
+            "Spin to Win (Hurricane Sword)"
+          ],
+          "ark_grid_update": "December 22, 2025"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+        "anchor_quote": "Ark Grid system update noted December 22, 2025",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Raid Captain",
+            "Mass Increase",
+            "MP Efficiency Increase"
+          ],
+          "gems_damage": [
+            "Brutal Impact",
+            "Volcanic Eruption",
+            "Guillotine"
+          ],
+          "gems_cooldown": [
+            "Brutal Impact",
+            "Volcanic Eruption",
+            "Guillotine",
+            "Fatal Sword",
+            "Punishing Draw"
+          ],
+          "stats": "Swiftness and Crit primary; Weapon Power secondary"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+        "anchor_quote": "Engravings priority order: Grudge, Ambush Master, Raid Captain, Mass Increase, MP Efficiency Increase",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "main_damage_skills": [
+            "Brutal Impact",
+            "Volcanic Eruption",
+            "Flame Deathblade",
+            "Guillotine"
+          ],
+          "mana_rune_skills": [
+            "Wild Rush",
+            "Furious Claw"
+          ],
+          "support_skills": [
+            "Wild Stomp"
+          ],
+          "geometry_notes": "Melee back-attack focus; sustained Burst uptime emphasis; two Ark Grid variants: Standard (Brutal Impact focus) and Spin to Win (Hurricane Sword emphasis)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+        "anchor_quote": "Standard (Brutal Impact focus) and Spin to Win (Hurricane Sword emphasis)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fill Fury Meter then enter Burst Mode (Z): +20% Attack Speed, +20% Movement Speed, +30% Crit Rate, +48% Crit Damage, +10% Fury Meter recovered on hit. Every 3s in Burst generates Fatigue stack (+10% Fury consumption). On meter depletion: 30-second Exhaustion phase, each Fatigue stack reduces Exhaustion by 1s. Core damage during Burst: Brutal Impact, Volcanic Eruption, Flame Deathblade, Guillotine. Wild Stomp for Burst maintenance. Conviction+Judgment runes on Wild Rush/Furious Claw for mana."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+        "anchor_quote": "While in Burst Mode, you gain: +20% Attack Speed +20% Movement Speed +30% Crit Rate +48% Crit Damage +10% of Fury Meter recovered on hit (1s cooldown)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "ark_grid_approaches": [
+            "Standard (Brutal Impact)",
+            "Spin to Win (Hurricane Sword)"
+          ],
+          "sibling_spec": "Punisher Slayer (burst-damage focus, check Punisher guide)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/predator-slayer-raid-build-guide",
+        "anchor_quote": "If you want a playstyle based more around burst damage, check out our Punisher guide",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

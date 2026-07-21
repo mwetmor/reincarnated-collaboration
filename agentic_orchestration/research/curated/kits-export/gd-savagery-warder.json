@@ -1,0 +1,214 @@
+{
+  "kit_id": "gd-savagery-warder",
+  "spine": {
+    "kit_id": "gd-savagery-warder",
+    "folk_name": "Savagery Warder",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Savagery",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "2H default-attack replacer (§A replacer row): 'Savagery charges stack per swing', each stack increasing damage until max. Upheaval passive adds AoE rider (footprint verbatim)."
+        },
+        {
+          "source_skill": "Wendigo Totem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed sustain emitter — 'Wendigo Totem complements Savagery well'; HP sustain payload. Native placed-emitter fit."
+        }
+      ],
+      "motion_frame": "Two-handed swings stack Savagery charges to max; Wendigo Totem sustains the tank",
+      "resource_economy": {
+        "resource": "energy",
+        "charge_stack_sub_shape": "accumulator",
+        "note": "Savagery charges stack per swing to max (ramp-meter economy)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Upheaval AoE rider"
+          ],
+          "economy": [
+            "charge accumulator"
+          ],
+          "traits_affixes": [
+            "Kraken 2H bonuses (devotion numeric lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Single-tier accumulator (stacks → damage) — deliberately NOT filed to the two-tier-accumulator family; no second counted tier in fetched language. bleed WITHHELD as variant-scoped: 'lightning/bleeding build' + 'Bull/Bear for physical/bleed' attest the status only for the physical variant, not the mapped lightning primary loop (§7.2 dominant loop). 'Totem Wendigo is our chill' is colloquial — obviously no chill token."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Archangel2245",
+      "title": "Warder (Soldier/Shaman)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "I only have a soldier + a shaman [...] post dated July 8, 2018",
+      "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Savagery Warder; aliases include Wendigo Totem Savagery Warder, lightning Savagery build",
+      "anchor_quote": "Warder (Soldier/Shaman) [...] Savagery charges stack per swing",
+      "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Savagery (stacking charge auto-attack), Wendigo Totem (support). Two-handed melee, lightning/physical.",
+      "anchor_quote": "Kraken - additional bonuses to two-handed weapons [...] Savagery, Blade Arc with the transmuter [...] Wendigo Totem complements Savagery well",
+      "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Archangel2245",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotion": "Kraken - additional bonuses to two-handed weapons",
+          "note": "Spear of Heaven, Tempest for lightning variant; Bull/Bear for physical/bleed"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+        "anchor_quote": "Kraken - additional bonuses to two-handed weapons",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target single-target melee swing",
+          "footprint": "point; Upheaval passive adds AoE",
+          "verbatim": "2H Warder Cadence or Savagery [...] Savagery charges stack per swing"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+        "anchor_quote": "I only have a soldier + a shaman [...] Totem Wendigo is our chill",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Two-handed auto-attack loop: Savagery stacks charges per swing, each stack increasing damage until max stacks. Wendigo Totem placed for HP sustain. Physical or lightning damage focus.",
+          "resource": "charge-stacking meter (Savagery charges); energy secondary",
+          "loop_verb": "auto-attack stack"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+        "anchor_quote": "Kraken - additional bonuses to two-handed weapons [...] Wendigo Totem complements Savagery well",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "lightning Savagery Warder (Ultos set)",
+            "physical Savagery Warder (two-handed mace)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/warder-soldier-shaman/46257",
+        "anchor_quote": "lightning/bleeding build, Savagery is recommended [...] most benefits from Savagery come when focusing on Physical or Lightning damage",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

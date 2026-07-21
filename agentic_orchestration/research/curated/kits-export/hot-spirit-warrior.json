@@ -1,0 +1,196 @@
+{
+  "kit_id": "hot-spirit-warrior",
+  "spine": {
+    "kit_id": "hot-spirit-warrior",
+    "folk_name": "Spirit Warrior",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-1.0-2024",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner: Spirit Warrior is the full damage identity with no player damage loop. Engine has no persistent-placed-melee-proxy archetype — summoner-deferral per basin-2 ruling. The build cannot be approximated as 'that build, worse'; it is a structurally absent mechanism class.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner: Spirit Warrior is the full damage identity with no player damage loop. Engine has no persistent-placed-melee-proxy archetype — summoner-deferral per basin-2 ruling. The build cannot be approximated as 'that build, worse'; it is a structurally absent mechanism class.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Summon stationary Spirit Warrior(s) that auto-attack nearby enemies with magic melee; stack multiples for coverage; body-block bosses",
+      "resource_economy": {
+        "summon_duration": "persistent (no duration timeout — stays until player leaves range)",
+        "leash_mechanic": "dashes to player when player moves away"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Soul Orb upgrade: orbiting damage orb"
+          ],
+          "economy": [
+            "Range stat extends leash radius; stack summon-spawn percentage bonuses for multi-Spirit count"
+          ],
+          "traits_affixes": [
+            "Strength and Coverage traits; avoid Crit Chance (not applicable to Magic Melee)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-core kit: Spirit Warrior IS the primary damage source with no player-originated damage loop. Summoner-deferral applies. GAPPED per R-M7: 'not that build' test — engine has no persistent-proxy melee archetype. Element = null: 'Magic Melee attacks' = generic magic → element-neutral per §B5-ELEMENT. Era: UNSUPPORTED in verify_ledger for hot-1.0-2024 — era unresolved. Filed: accrual to the placed-proxy-count family (stack multiple Spirit Warriors)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment Ability Tier List",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442315058121/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community discussion)",
+      "title": "About Spirit Warrior's summons",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in hot-1.0-2024 only.",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Spirit Warrior is a summon ability — a phantom blade-wielder that fights alongside the player; ghost-proxy archetype.",
+      "anchor_quote": "Spirit Warrior summons a stationary Spirit Warrior that fights nearby enemies with Magic Melee attacks. It performs a dash attack towards you when you move away",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Phantom persists and auto-attacks independently; light-proxy summon; magic melee damage type; can maintain multiple Spirit Warriors.",
+      "anchor_quote": "Spirit Warrior (main attack) - Melee + Magic; you can use your Spirit Warrior summons as body blockers against bosses to easily kite",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442315058121/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "With Warlock synergy: can maintain 6x Spirit Warriors at once with maxed range and area; Strength and Coverage traits recommended; avoid Crit Chance"
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+        "anchor_quote": "shines with Warlock summoner build when maxing out range and area, allowing for 6x Spirit Warriors out at once with huge attack range",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Soul Orb upgrade summons orbiting orb dealing damage; Charge Shock upgrade creates physical shockwave on dash; Soul Needle adds secondary needle fire; Range stat increases leash radius before dash"
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+        "anchor_quote": "Charge Shock makes the Spirit Warrior create a Physical shockwave that damages and slows enemies when his charge ends",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-small-radius",
+          "description": "Phantom melee zone around spirit position; small contact radius for melee attacks; dashes to reposition when player moves out of range"
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-ability-tier-list",
+        "anchor_quote": "Spirit Warrior summons a stationary Spirit Warrior that fights nearby enemies with Magic Melee attacks. It performs a dash attack towards you when you move away",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Spirit Warrior summons a stationary phantom that auto-attacks nearby enemies with magic melee; dashes to player when player moves away; persistent summon uptime; can stack multiple Spirit Warriors simultaneously"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442315058121/",
+        "anchor_quote": "Spirit Warrior (main attack) - Melee + Magic; you can use your Spirit Warrior summons as body blockers against bosses",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Spirit Warrior as standalone class identity (kit identity); Soul Orb + Soul Needle sub-variants via upgrade path; Warlock synergy variant with multi-Spirit stacking"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442315058121/",
+        "anchor_quote": "3-4 Spirit Warriors out at the same time by stacking summon spawn percentage bonuses",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

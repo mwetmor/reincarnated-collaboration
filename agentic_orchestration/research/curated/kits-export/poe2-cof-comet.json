@@ -1,0 +1,234 @@
+{
+  "kit_id": "poe2-cof-comet",
+  "spine": {
+    "kit_id": "poe2-cof-comet",
+    "folk_name": "Cast on Freeze Comet",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.4",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the two-layer trigger-ENERGY economy (freeze builds trigger energy that discharges Comet -- the exact mechanic 0.1.0d nerfed) is expressed only as 'free proc-cast', losing the energy-accumulation gate between freezes. The freeze->trigger->Comet loop and shatter payoff otherwise map cleanly via R-M9, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the two-layer trigger-ENERGY economy (freeze builds trigger energy that discharges Comet -- the exact mechanic 0.1.0d nerfed) is expressed only as 'free proc-cast', losing the energy-accumulation gate between freezes. The freeze->trigger->Comet loop and shatter payoff otherwise map cleanly via R-M9, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cast on Freeze (meta gem)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Trigger-chassis meta-gem (R-M9): geometry self_buff, the chassis lives in trigger_grammar. Auto-fires the socketed Comet when the player freezes an enemy."
+        },
+        {
+          "source_skill": "Comet (triggered)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Meteor-grade large-zone impact at frozen target position (at-target placement). Cold -> water family (ice register). freeze ailment core."
+        },
+        {
+          "source_skill": "Frostbolt",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze",
+            "chill"
+          ],
+          "delivery_notes": "Projectile that travels and freezes on contact -- the freeze SOURCE that arms the CoF proc. Maps as core skill (line/single-target cold projectile)."
+        }
+      ],
+      "motion_frame": "Cast Frostbolt to freeze; freeze procs Cast on Freeze which auto-rains Comet on the frozen target at no extra mana; shatter payoff.",
+      "resource_economy": {
+        "cost_scale": "primary cold skill costs mana; Comet fires free on proc",
+        "persistent_condition_shape": "proc-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "Freeze (Frostbolt applies; CoF consumes the freeze event)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "Frostbolt projectile",
+            "Comet ground_targeted_circle"
+          ],
+          "economy": [
+            "free proc-cast (no-mana Comet)"
+          ],
+          "traits_affixes": [
+            "cold/freeze scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "R-M9 trigger-chassis (addendum C.2): Cast on Freeze -> geometry self_buff + chassis in trigger_grammar; MAX_CHAIN_DEPTH=1 LOCKED -- the chain is Frostbolt-freeze -> Comet (depth 1), NOT deeper. Cold -> water family (ice register). Two-stage geometry (frostbolt->Comet, addendum C.4 / main-law 7.2): dominant loop is the Comet impact (what the player watches every 3s); Frostbolt is the arming stage, noted as its own skill entry. proc_trigger_condition on-ailment-application (freeze is the trigger event). chain_count=3 (Frostbolt + CoF chassis + Comet all load-bearing). ERA note: era 0.1;0.4 -- 0.1 original was nerfed by 0.1.0d trigger-energy recalc (dossier); map the attested freeze->comet identity (not the post-nerf energy math). verify_ledger: identity+mechanics+era CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Cast On Freeze Comet Stormweaver Leveling Guide - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3612731",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Stormweaver - Crit Eye of Winter + Cast on Freeze Comet (Brainstorm with me)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.4",
+      "anchor_quote": "Patch 0.1.0d changed how Trigger Skills calculate Energy which nerfed the build significantly.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Cast on Freeze Comet'; aliases 'CoF Comet', 'Frostbolt CoF', 'freeze comet chain'",
+      "anchor_quote": "Freeze your enemies with Frostbolt and cause devastating Comets to automatically rain from the sky shattering your enemies.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Cast on Freeze, Comet, Frostbolt; freeze proc triggers Comet automatically",
+      "anchor_quote": "It allows you to automate Cold Snap by casting it anytime you freeze an enemy.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Cast on Freeze Comet has been executed on Stormweaver (0.1), Chronomancer (0.4 — Frostbolt Cast on Crit variant), and Oracle (0.5 — Cast on Crit Comet variant). Ascendancy is not locked to one. In 0.1 the trigger energy calculation was nerfed in patch 0.1.0d, leading to archival of the original guide."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+        "anchor_quote": "Patch 0.1.0d changed how Trigger Skills calculate Energy which nerfed the build significantly.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry_verbatim": "Comet: meteor-grade AoE impact on frozen target position, large-zone splash. Frostbolt: projectile that travels and freezes on contact. Combined: ranged projectile placement + triggered large-zone impact."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+        "anchor_quote": "Freeze your enemies with Frostbolt and cause devastating Comets to automatically rain from the sky shattering your enemies.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Cast Frostbolt to freeze enemies, triggering Cast on Freeze meta gem, which automatically fires Comet at frozen target position. Two-layer economy: primary cold skill costs Mana; Comet fires automatically on freeze proc at no additional Mana cost."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/cast-on-freeze-comet-stormweaver-leveling-guide",
+        "anchor_quote": "It allows you to automate Cold Snap by casting it anytime you freeze an enemy. Freeze your enemies with Frostbolt and cause devastating Comets to automatically rain from the sky shattering your enemies.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Cast on Freeze Comet Stormweaver (0.1 — archived after 0.1.0d nerf)",
+            "Frostbolt Cast on Crit Comet Chronomancer (0.4)",
+            "Frostbolt Cast on Crit Comet Oracle (0.5)",
+            "Frostbolt Cast on Crit Comet Stormweaver (0.5)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/frostbolt-cast-on-crit-comet-chronomancer-build-guide",
+        "anchor_quote": "Frostbolt Cast On Crit Comet Chronomancer Build Guide for Path of Exile 2 The Last of the Druids 0.4.0",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "kit_id": "d3-znec",
+  "spine": {
+    "kit_id": "d3-znec",
+    "folk_name": "zNec",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-16",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Party-support mechanics approximated in solo scope (party buffs become self-applicable mechanical analogs). Command Skeletons pet-rider unengineable (summoner GAP) — approximated as totem. Freeze-screen CDR-loop identity well-captured via cooldown economy + freeze ailment.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "curse:decrepify",
+      "execute",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Party-support mechanics approximated in solo scope (party buffs become self-applicable mechanical analogs). Command Skeletons pet-rider unengineable (summoner GAP) — approximated as totem. Freeze-screen CDR-loop identity well-captured via cooldown economy + freeze ailment.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frailty (Aura of Frailty rune)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "execute"
+          ],
+          "delivery_notes": "Aura form covering large radius around player per skill_geometry payload ('Frailty: Aura of Frailty rune; coverage spans full-screen per L'); execute: execution threshold = attested in identity anchor ('Frailty curse execution thresholds' per verify identity anchor) — execute ailment; curse:amplify: 'providing incredible offensive buffs for party members' per verify identity anchor — Frailty's Aura of Frailty increases party damage = curse:amplify class (damage-taken amp)"
+        },
+        {
+          "source_skill": "Land of the Dead (Frozen Lands rune)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Full-screen freeze coverage per verify mechanics anchor ('freezing entire screens of enemies' per zNec identity anchor); freeze attested: 'Land of the Dead: Frozen Lands rune' per verify mechanics anchor + 'freezing entire screens of enemies' in verify identity anchor; freeze = hard immobilize, cold → water family; CDR-stacked for continuous uptime per skill_loop payload"
+        },
+        {
+          "source_skill": "Decrepify",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:decrepify"
+          ],
+          "delivery_notes": "Debuff application per skill_loop payload ('Decrepify applies debuffs'); curse:decrepify = Temporal Chains/movement-slow class per §2 table; 'Decrepify' name is also the D2-sourced ailment variant cursor:decrepify in the engine registry — perfect name match; aura/hex → curse lane per §2 exposure split"
+        },
+        {
+          "source_skill": "Command Skeletons (utility)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Globe generation layer per skill_loop payload ('globe generation via Life from Death + Command Skeletons'); no damage primary; autonomous skeletons = summoner GAP but this is pet-RIDER in a support kit (zNec's loop is not their damage); approximated as totem for placed-proxy classification"
+        }
+      ],
+      "motion_frame": "Maintain continuous Land of the Dead (Frozen Lands) uptime via CDR; Frailty Aura of Frailty provides execution threshold and damage amp; Decrepify debuffs; group support via globe generation and Corpse Lance Brittle Touch crit bonus",
+      "resource_economy": {
+        "cost_scale": "Essence (Necromancer resource) + cooldown gating; 'significant investment into Cooldown Reduction due to its requirement to keep up Land of the Dead Frozen Lands at all times' per capstone_alterations anchor; In-geom + Messerschmidt's Reaver CDR per item_alterations anchor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Full-screen freeze coverage area; Frailty Aura large radius"
+          ],
+          "economy": [
+            "CDR investment: In-geom + Messerschmidt's Reaver (scaler-only)",
+            "Krysbin's Sentence group damage multiplier (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Corpse Lance Brittle Touch 5% crit bonus per lance (scaler-only)",
+            "Reaper's Wraps health globe energy (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Freeze attested: 'Frozen Lands rune' per verify mechanics anchor + 'freezing entire screens of enemies' per identity anchor — this is verbatim-contiguous freeze language (not chill; MW1-close amendment governs: 'freeze language attests freeze NOT chill'). Water element for Land of the Dead Frozen Lands = cold/ice register → water family. Execute attested: 'Frailty curse execution thresholds' per verify identity anchor. curse:decrepify: Decrepify is the D3 name that maps directly to the cursor:decrepify registry variant. curse:amplify: 'providing incredible offensive buffs for party members' = damage amplification per Frailty Aura — damage-taken amp = curse:amplify. Solo-PvE scope: party utility is context; engine maps the mechanics. Zero-damage support: no damage element on primary skills. Command Skeletons = pet-rider, not core loop; approximated as totem (placed-proxy). [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #8 Frailty curse:amplify OUT: no amplify register in store — 'brittle touch increases a monster's chance to be critically hit by 5%' is a CRIT-CHANCE debuff (and belongs to Corpse Lance besides), not damage-taken amplification. Frailty's attested register is 'provides execution threshold' -> execute KEPT.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Northwar",
+      "title": "Support zNecromancer Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://news.blizzard.com/en-gb/article/20845159/rise-of-the-necromancer-pack-arrives-june-27",
+      "archive_url": null,
+      "site": "news.blizzard.com",
+      "author_handle": null,
+      "title": "Rise of the Necromancer Pack Arrives June 27!",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Last Updated: June 22, 2026. Current Season: Season 39. \"zNecromancer is one of the strongest supports in the game\"",
+      "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'zNec' and aliases 'Support Necromancer D3', 'zNec Necromancer', 'Frailty Decrepify support Necro' are real community usage",
+      "anchor_quote": "zNecromancer (also called \"zNecro\" because they do \"zero\" damage)",
+      "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Frailty, Land of the Dead, Decrepify; Necromancer resource (Essence)",
+      "anchor_quote": "Land of the Dead: Frozen Lands rune. Frailty: Aura of Frailty rune. Corpse Lance Brittle Touch increases a monsters chance to be critically hit by 5% for each lance.",
+      "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Northwar",
+          "site": "maxroll.gg",
+          "role": "Author; contributions from Raxxanterax, sVr, Rob; updates by wudijo"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+        "anchor_quote": "Written by Northwar; contributions from Raxxanterax, sVr & Rob; updates by wudijo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "No single primary set; support itemization. Key CDR items + Dayntee's Binding for survival. Group-utility paradigm: LotD freeze, Frailty execution, globe gen for Reaper's Wraps."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+        "anchor_quote": "main challenge of zNec is its significant investment into Cooldown Reduction due to its requirement to keep up Land of the Dead Frozen Lands at all times",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_legendaries": [
+            "In-geom (CDR)",
+            "Messerschmidt's Reaver (CDR)",
+            "Krysbin's Sentence (damage multiplier on controlled enemies)",
+            "Reaper's Wraps (health globe energy)",
+            "Dayntee's Binding"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+        "anchor_quote": "In-geom and Messerschmidt's Reaver help significantly, it still requires substantial time and resource investment",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target curses + self-position utility",
+          "footprint": "large zone (curse + freeze area)",
+          "notes": "Frailty Aura covers large radius around player. Land of the Dead freeze covers full screen. Zero direct damage."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+        "anchor_quote": "Frailty: Aura of Frailty rune. Corpse Lance Brittle Touch increases a monsters chance to be critically hit by 5% for each lance.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stack CDR to maintain continuous Land of the Dead (Frozen Lands rune) uptime. Frailty (Aura of Frailty) provides execution threshold. Decrepify applies debuffs. Corpse Lance Brittle Touch increases party crit chance. Globe generation via Life from Death + Command Skeletons."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+        "anchor_quote": "zNecromancer is one of the strongest supports in the game, with a specialty of flying through rifts while freezing entire screens of enemies while providing incredible offensive buffs for party members.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "zNec Rat Run (2x LoD Rat + zBarb + zNec)",
+            "zNec with GoD HA DH combos",
+            "zNec with AoV FotH Crusader combos"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/support-znecromancer-guide",
+        "anchor_quote": "most commonly used in \"Rat Run\" groups with 2x LoD Rat Necromancers and one zBarb, though these days it can be used with different DPS combos",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

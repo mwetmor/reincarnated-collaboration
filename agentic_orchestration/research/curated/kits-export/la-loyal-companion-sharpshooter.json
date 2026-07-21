@@ -1,0 +1,238 @@
+{
+  "kit_id": "la-loyal-companion-sharpshooter",
+  "spine": {
+    "kit_id": "la-loyal-companion-sharpshooter",
+    "folk_name": "Loyal Companion Sharpshooter",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "negative",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: companion-uptime-as-damage-delivery has no engine companion loop analog beyond COMPANION_CONTRACT T4 door — source player would note the hawk's persistent damage contribution is not modeled. The self-buff package (+12% boss damage self-only) maps as a conditional self_buff but the companion-presence condition (hawk must be summoned) is lost. Negative kit distinction (C-tier community rating) rides the review book per negative-flag caution.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: companion-uptime-as-damage-delivery has no engine companion loop analog beyond COMPANION_CONTRACT T4 door — source player would note the hawk's persistent damage contribution is not modeled. The self-buff package (+12% boss damage self-only) maps as a conditional self_buff but the companion-presence condition (hawk must be summoned) is lost. Negative kit distinction (C-tier community rating) rides the review book per negative-flag caution.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hawk Shot + Deadly Slash (meter generation skills)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged projectile skills; fill Silverhawk meter; no elemental damage-typing in store; ranged identity"
+        },
+        {
+          "source_skill": "Fenrir's Messenger (instant meter fill for Silverhawk)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Instantly fills Silverhawk identity meter; enables immediate companion summoning; no geometry described in dossier beyond ranged"
+        },
+        {
+          "source_skill": "Wings of Storm (Silverhawk identity — companion uptime maintenance)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Silverhawk companion uptime: +8% Party Move Speed, +12% Damage to boss (only for yourself), +10% Attack Power (self). DIRECTION TEST on the +12% Damage to boss: 'only for yourself' = ally/self deals more damage = self_buff in solo projection (NOT curse:amplify — the enemy's damage-taken is not increased; the player's outgoing damage is). ATB-03 Bolt Raptor Ark node: Destiny -> Hawk Shot resets Wings of Storm cooldown"
+        }
+      ],
+      "motion_frame": "Maintain Silverhawk companion uptime via Fenrir's Messenger instant fill and Hawk Shot/Deadly Slash meter sustain; fire ranged skills while hawk is active for self damage buffs; ATB-03 node resets Wings of Storm on Destiny proc",
+      "resource_economy": {
+        "silverhawk_meter": "fill instantly via Fenrir's Messenger; sustain via Hawk Shot and Deadly Slash meter-gen skills; uptime maintenance is the dominant loop identity; companion active = self-buffs active"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-mark-apply",
+        "mark_identity": "Silverhawk companion active — triggers self-buff package (+12% damage to boss self-only, +10% ATK power, +8% party move speed)",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "COMPANION_CONTRACT",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ranged projectile skills; companion-uptime as primary damage delivery vehicle"
+          ],
+          "economy": [
+            "silverhawk_meter: instant-fill via Fenrir's Messenger + sustain via meter-gen skills; Wings of Storm cooldown reset via ATB-03 Destiny proc"
+          ],
+          "traits_affixes": [
+            "ATB-03 Bolt Raptor (Destiny -> Hawk Shot resets Wings of Storm), HSU-99 Avian Storm (damage amp), HSU-06 Laser Sight (damage amp) — Ark Passive nodes -> capstone_alterations"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Negative kit (negative_canon UNSUPPORTED per verify_ledger — exact claim unsupported, but identity confirmed). Mapped to attested identity per negative-flag caution. DIRECTION TEST on Silverhawk +12% Damage to boss: 'only for yourself' = self/ally deals more (outgoing damage buff on player) = self_buff in solo projection — NOT curse:amplify. Contrast: Death Strike Sharpshooter (n01) Silverhawk '27% Increased Damage to the Boss' from verify_ledger was the n01 curse:amplify correction; LC dossier attests 'only for yourself' (self-directed buff), defeating the enemy-direction test for curse:amplify. COMPANION_CONTRACT T4 door: companion-uptime-as-damage-vehicle. Engravings DEAD axis."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Loyal Companion Sharpshooter Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Last Updated January 25, 2026; ATB-03 Bolt Raptor Ark Passive node listed",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last Updated January 25, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Loyal Companion Sharpshooter — class + identity spec, community name",
+      "anchor_quote": "Having the hawk Summoned will have these effects: 8% Increased Party Movement Speed; 12% Damage Increase to the boss, only for yourself; 10% Attack Power increase to yourself.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Silverhawk companion contributes significant portion of damage and provides massive buffs; more consistent and relaxed playstyle than Death Strike with fewer timing demands; rated C-tier because Death Strike's debuff-uptime window approach consistently outperforms LC's passive companion reliance in endgame raids",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Silverhawk mechanic: companion contributes significant damage share and party buffs; consistent relaxed playstyle vs Death Strike",
+      "anchor_quote": "Having the hawk Summoned will have these effects: 8% Increased Party Movement Speed; 12% Damage Increase to the boss, only for yourself; 10% Attack Power increase to yourself.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Loyal Companion Sharpshooter is non-canon: rated C-tier, Death Strike's debuff-uptime window approach consistently outperforms LC's passive companion reliance in endgame raids",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Civo",
+          "site": "maxroll.gg",
+          "last_updated": "2026-01-25"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+        "anchor_quote": "Civo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "ATB-03 Bolt Raptor (Destiny → Hawk Shot resets Wings of Storm cooldown)",
+            "HSU-99 Avian Storm (damage amplification)",
+            "HSU-06 Laser Sight (damage amplification)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+        "anchor_quote": "ATB-03 Bolt Raptor - When Destiny activates your next Hawk Shot will reset the cooldown of Wings of Storm",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Maintain Silverhawk uptime: instantly fill meter using Fenrir's Messenger, sustain via Hawk Shot and Deadly Slash meter-gen skills. Silverhawk active: +8% Party Move Speed, +12% Damage to boss (self), +10% Attack Power (self). Core Ark node: ATB-03 Bolt Raptor (on Destiny, next Hawk Shot resets Wings of Storm cooldown)."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+        "anchor_quote": "Having the hawk Summoned will have these effects: 8% Increased Party Movement Speed; 12% Damage Increase to the boss, only for yourself; 10% Attack Power increase to yourself.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Death Strike Sharpshooter (burst-focused, more intense playstyle)",
+          "note": "Guide references Death Strike as the alternative; no further LC sub-variants documented"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/sharpshooter-raid-guide",
+        "anchor_quote": "If you want a more burst focused and intense playstyle, check out our Death Strike guide.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "kit_id": "d2-charger",
+  "spine": {
+    "kit_id": "d2-charger",
+    "folk_name": "Charger",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-pvp",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: must-create-separation-before-recharge constraint (loop-pacing texture unique to Charge; engine dash_attack approximates but lacks re-trigger gate); Fanaticism IAS non-interaction detail.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: must-create-separation-before-recharge constraint (loop-pacing texture unique to Charge; engine dash_attack approximates but lacks re-trigger gate); Fanaticism IAS non-interaction detail.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Charge",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Traversal-strike composite: §A row 3 + §6 dash/blink: 'Charge moves character to target; the movement verb delivers the damage'; anchor: 'Charge is used for closing the gap and ensures that enemies will die with one hit'; single point impact; physical = element-neutral; must have separation distance to reactivate (loop-constraint fidelity note)"
+        },
+        {
+          "source_skill": "Fanaticism aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Always-on aura boosting damage and attack rating; §A row 2: free persistent toggle, no reservation; anchor: 'Being a physical damage skill, Charge can greatly benefit from Fanaticism... the increased attack speed doesn't benefit the Charge skill'; IAS non-interaction is distinctive fidelity note"
+        }
+      ],
+      "motion_frame": "Charge from distance to target at high speed for single massive physical hit; requires separation distance before re-charging; Fanaticism aura always-on damage amplifier",
+      "resource_economy": {
+        "cost_scale": "Charge mana per use (low); Fanaticism free toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Vigor aura movement speed (mobility scaffold)"
+          ],
+          "economy": [
+            "Angelic amulet+rings AR stack (item fidelity)"
+          ],
+          "traits_affixes": [
+            "Fanaticism damage boost — scaffold passive; Might aura alternative"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§A row 3 traversal-strike composite: dash_attack geometry captures movement-IS-damage. Fanaticism IAS non-interaction is a distinctive limitation (attested anchor); engine doesn't model this distinction — fidelity note only. Physical = element-neutral. Must-separate-before-recharge loop constraint noted in delivery_notes. PvP identity: one-shot burst potential captured via GEOMETRY_COLLAPSE T4."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.purediablo.com/forums/threads/pvp-charger-guide-ver-5.22670/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "PVP Charger Guide ver .5",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://eu.forums.blizzard.com/en/d2r/t/how-to-build-highest-damage-charge-paladin/11238",
+      "archive_url": null,
+      "site": "eu.forums.blizzard.com",
+      "author_handle": null,
+      "title": "How to build highest damage Charge Paladin — Official Blizzard D2R Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgstash.com/blog/d2r-season-9-charger-paladin-build",
+      "archive_url": null,
+      "site": "rpgstash.com",
+      "author_handle": null,
+      "title": "D2R Charger Paladin Build for Season 9",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 1
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-pvp",
+      "anchor_quote": "PVP Charger Guide ver .5 — a PvP charger build capable of one-hit killing almost all casters",
+      "source_url": "https://www.purediablo.com/forums/threads/pvp-charger-guide-ver-5.22670/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Charger; aliases Charge Paladin, Charger PvP Paladin",
+      "anchor_quote": "The Chargerdin is a Paladin build that primarily utilizes the Charge skill, which allows the Paladin to rush towards an enemy and deliver a powerful melee attack",
+      "source_url": "https://www.rpgstash.com/blog/d2r-season-9-charger-paladin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Charge (gap-close, movement IS damage delivery), Fanaticism",
+      "anchor_quote": "Charge is used for closing the gap and ensures that enemies will die with one hit... Being a physical damage skill, Charge can greatly benefit from Fanaticism",
+      "source_url": "https://www.rpgstash.com/blog/d2r-season-9-charger-paladin-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "skills": [
+            "Fanaticism (primary aura, damage + AR)",
+            "Vigor (movement speed)",
+            "Might (alternative damage aura)",
+            "Holy Shield (1pt for blocking)"
+          ],
+          "notes": "Fanaticism IAS bonus does not affect Charge attack speed"
+        },
+        "source_url": "https://eu.forums.blizzard.com/en/d2r/t/how-to-build-highest-damage-charge-paladin/11238",
+        "anchor_quote": "Being a physical damage skill, Charge can greatly benefit from Fanaticism... the increased attack speed doesn't benefit the Charge skill",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Goreriders or Sandstorm Trek (boots)",
+            "Angelic amulet + rings (Attack Rating)",
+            "Verdungo's belt (PDR, FHR, vitality)",
+            "Shaftstop (vs melee)"
+          ],
+          "notes": "Charger has two distinct gear setups: anti-melee (damage reduction) and anti-elemental (resistances)"
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-charger-guide-ver-5.22670/",
+        "anchor_quote": "Goreriders or Sandstorm Trek for boots, Angelic amulet for attack rating",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "gap-close charge (movement IS damage skill)",
+          "footprint": "point (single target impact)",
+          "range_type": "melee-gap-close",
+          "notes": "Charge moves character to target; the movement verb delivers the damage; must have separation distance to reactivate; Fanaticism does not speed up the Charge action itself"
+        },
+        "source_url": "https://eu.forums.blizzard.com/en/d2r/t/how-to-build-highest-damage-charge-paladin/11238",
+        "anchor_quote": "Charge gap-closes with a massive single hit; PvP burst identity where the movement verb IS the damage skill",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Charge closes the gap to target at high speed delivering a single massive physical hit; Fanaticism aura boosts damage and attack rating. PvP identity: one-shot burst potential on casters. Must create separation before re-charging (Charge requires distance to trigger movement)."
+        },
+        "source_url": "https://www.rpgstash.com/blog/d2r-season-9-charger-paladin-build",
+        "anchor_quote": "Charge is used for closing the gap and ensures that enemies will die with one hit",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "PvP Charger (one-shot burst PvP)",
+            "Charge/Smite hybrid (Fanaticism dual-function)",
+            "PvM Charge (boss-burst)",
+            "LLD Charger (level-limited dueling)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-charger-guide-ver-5.22670/",
+        "anchor_quote": "PVP Charger Guide... capable of one-hit killing almost all casters",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

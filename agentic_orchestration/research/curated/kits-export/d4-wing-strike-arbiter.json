@@ -1,0 +1,250 @@
+{
+  "kit_id": "d4-wing-strike-arbiter",
+  "spine": {
+    "kit_id": "d4-wing-strike-arbiter",
+    "folk_name": "Wing Strike Arbiter Paladin",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "s7-s12;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) holy element feel is intuitive but unattested — element null is the honest call; (2) near-passive playstyle ('Wing Strikes do all the work') is the loop feel differentiator; (3) resource identity (Faith vs Resolve) remains contested — do-not-populate per erratum.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) holy element feel is intuitive but unattested — element null is the honest call; (2) near-passive playstyle ('Wing Strikes do all the work') is the loop feel differentiator; (3) resource identity (Faith vs Resolve) remains contested — do-not-populate per erratum.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wing Strike",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Auto-seeking area attack during Arbiter form; 'Wing Strikes seeks and zaps enemies, dealing area of effect damage at their location'; Aspect of Tyrael's Jurisdiction makes Wing Strikes auto-target closest enemies; short range; prefers grouped targets; auto-cast during Arbiter form — player loop is near-passive"
+        },
+        {
+          "source_skill": "Arbiter of Justice (Arbiter form)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Trigger-entered form via Disciple skills on cooldown (Disciple Oath); Arbiter form provides 50% increased damage to Disciple Skills; 'Cast Arbiter of Justice to enter and maintain a longer Arbiter form'; passive playstyle — all damage dealt while permanently in Arbiter form"
+        },
+        {
+          "source_skill": "Condemn",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Groups enemies; refreshes Arbiter form duration; cast to maintain form; secondary damage layer"
+        }
+      ],
+      "motion_frame": "Enter Arbiter form via Condemn/Arbiter of Justice; maintain form permanently; Wing Strikes auto-cast and auto-target",
+      "resource_economy": {
+        "cooldown": "primary-gate — Arbiter form triggered by Disciple skills on cooldown; resource contested (Faith/Resolve per verify anchor); do-not-populate per §C erratum"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Arbiter form active state",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aspect of Tyrael's Jurisdiction — Wing Strike auto-seek + seeking delivery modifier"
+          ],
+          "economy": [
+            "Sanctis of Kethamar — damage multiplier amulet"
+          ],
+          "traits_affixes": [
+            "Light's Epiphany Talisman Set 5-piece — 500% damage boost",
+            "Wing Strikes S11-extension era (ERRATA-50): meta S11-S12 + loh-s13-14 confirmed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: elem_raw=holy in corpus but corpus provenance NEVER attests; 'Wing Strikes seeks and zaps enemies, dealing area of effect damage' — 'zaps' is an enemy-directed damage verb (MW4 edge 1) but does NOT name an element ('zap' ≠ 'holy damage'/'lightning damage'). No element damage verb in dossier. Resource contested: Faith/Resolve; §C do-not-populate erratum applied (cooldown key only). Form-law: Arbiter form is trigger-entered (Disciple skills on cooldown) per §CROSS form row — maps as trigger_grammar carrier→form rider. ERRATA-45: Paladin debut S11 correction noted; ERRATA-50: S11 era extension confirmed. Cooldown-only economy: §D row 1 governs (Disciple skills on cooldown IS the economy gate)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Wing Strikes Paladin Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/arbiter-paladin-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Arbiter Disciple – Paladin Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/resources/paladin-class-overview",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Paladin Class Overview for Diablo IV Season 11",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.wowhead.com/diablo-4/build/wing-strike-arbiter-paladin-endgame-season-11-51561",
+      "archive_url": null,
+      "site": "wowhead.com",
+      "author_handle": null,
+      "title": "Wing Strike Arbiter Paladin Endgame Season 11 - Build - Diablo 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in loh-s13-14",
+      "anchor_quote": "Wing Strikes Paladin Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Wing Strike Arbiter Paladin' is real community usage",
+      "anchor_quote": "Wing Strikes Paladin Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Wing Strike and Arbiter spec; Paladin class",
+      "anchor_quote": "This build has a passive playstyle, dealing all of its damage while permanently maintaining in Arbiter form.",
+      "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "oaths": "Disciple Oath — transforms into Arbiter form via Disciple skills on cooldown; Arbiter form provides 50% increased damage to Disciple Skills",
+          "resource_note": "Resource contested: maxroll page references Resolve stacks; icy-veins Arbiter guide references both Faith and Resolve; maxroll class overview says Fueled by Faith"
+        },
+        "source_url": "https://maxroll.gg/d4/resources/paladin-class-overview",
+        "anchor_quote": "fueled by Faith which comes from using Basic Skills and Rally, and also slowly regenerates over time.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Sanctis of Kethamar amulet (damage multiplier)",
+            "Light's Epiphany Talisman Set (5-piece, 500% damage boost)"
+          ],
+          "aspects": [
+            "Aspect of Tyrael's Jurisdiction — mandatory; Wing Strikes auto-targets closest enemies and gains increased damage"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+        "anchor_quote": "Aspect of Tyrael's Jurisdiction...Wing Strikes auto-targets the closest enemies",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Wing Strikes seeks and zaps enemies, dealing area of effect damage at their location. Short range; prefers grouped targets. Aspect of Tyrael's Jurisdiction makes Wing Strikes auto-seek nearby enemies."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+        "anchor_quote": "Wing Strikes does all the work for you by seeking and zapping enemies, dealing area of effect damage at their location.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Arbiter of Justice to enter and maintain a longer Arbiter form without the need to spam cast Condemn. Cast Condemn to group enemies together and refresh Arbiter form if the duration is running low. Wing Strikes auto-cast and auto-target enemies during Arbiter form."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/wing-strikes-paladin-guide",
+        "anchor_quote": "Cast Arbiter of Justice to enter and maintain a longer Arbiter form without the need to spam cast Condemn.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Arbiter Evade Blessed Hammer variant (icy-veins)",
+            "Auradin variant (icy-veins)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/arbiter-paladin-build/",
+        "anchor_quote": "Arbiter Evade Blessed Hammer – Paladin Build for Diablo 4 (Season 14)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

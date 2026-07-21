@@ -1,0 +1,241 @@
+{
+  "kit_id": "poe1-totem-hierophant",
+  "spine": {
+    "kit_id": "poe1-totem-hierophant",
+    "folk_name": "Totem Hierophant",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": null,
+    "canon_tier": null,
+    "eras": null,
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the Hierophant would miss: six simultaneous totems (engine proxy counts are lower), the hard you-cannot-deal-damage keystone contract, and the 40%-slower proxy-cast tax as an explicit chassis parameter. Place-totems-and-kite with fewer proxies reads 'totem hiero, worse' — identity approximated, not absent.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the Hierophant would miss: six simultaneous totems (engine proxy counts are lower), the hard you-cannot-deal-damage keystone contract, and the 40%-slower proxy-cast tax as an explicit chassis parameter. Place-totems-and-kite with fewer proxies reads 'totem hiero, worse' — identity approximated, not absent.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spell Totem (linked spell)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed proxy caster: totem at target location independently casts the player's LINKED spell (Arc / Holy Flame / Freezing Pulse / Forbidden Rite era-variants); ~8s lifetime, casts 40% slower than the player, 60-unit range, up to 6 active (Multiple Totems 3.5+). Element slots neutral — the chassis takes whatever spell is socketed; variant elements live on the linked spell."
+        }
+      ],
+      "motion_frame": "place-and-reposition: drop spell totems that cast for you (Ancestral Bond — you never deal damage directly), then kite",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_CONVERGENCE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem placement spread as AoE coverage",
+            "totem range"
+          ],
+          "economy": [
+            "placement cadence vs totem lifetime",
+            "Ancestral Bond: ALL damage outsourced to proxies"
+          ],
+          "traits_affixes": [
+            "totem-damage passives (Pursuit of Faith / Ritual of Awakening analog ranks)",
+            "totem-count affixes",
+            "cast-speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Proxy-executes-your-linked-skill = on-cast-linked/linked-cast at DEPTH-1 (b04 generals-cry precedent; MAX_CHAIN_DEPTH=1 holds — the totem's cast is terminal). Ancestral Bond's player-damage-PROHIBITION has no hard lane; its strategic content (proxy supremacy for count/power) is expressed by PROXY_ASCENSION + PROXY_CONVERGENCE. Eras NULL (Unattested Register, DB-only census) — not a mapping surface. Quantitative mint-candidate filed: simultaneous totem count to 6 (graded as if un-minted)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 5,
+      "evidence_tier": "B-quantitative",
+      "mint_class": "quantitative",
+      "build_authorized": 1,
+      "description": "Simultaneous placed-proxy (totem) count extension to 6 with per-proxy cast-rate penalty (~0.6x) and ~8s lifetime (Ancestral-Bond hexa-totem chassis). Count-range extension on the placed-proxy lane."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/arc-hexa-spell-totem-hierophant-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.6] Arc Hexa-Spell Totem Hierophant Build — Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Hierophant",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Spell_Totem_Support",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Spell Totem Support — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era stamps absent from DB — cannot verify era claims",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Totem Hierophant' is real community usage; aliases 'Spell Totem Hiero', 'Totems Hiero', 'Ancestral Bond' are real community usage",
+      "anchor_quote": "Arc Hexa-Spell Totem Hierophant build; Assistance with Ancestral Bond Hierophant build — Hierophant is perfectly suited for Spell Totems",
+      "source_url": "https://odealo.com/articles/arc-hexa-spell-totem-hierophant-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Spell Totem and Ancestral Warchief; Hierophant class; Ancestral Bond keystone",
+      "anchor_quote": "take Ancestral Bond in the Passive Skill Tree; Hierophant chosen because Pursuit of Faith and Ritual of Awakening Passives provide totem benefits; Spell Totem Support confirmed",
+      "source_url": "https://odealo.com/articles/arc-hexa-spell-totem-hierophant-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "keystone": "Ancestral Bond — prevents player from dealing damage directly; enables maximum totem count; core keystone for this build archetype"
+        },
+        "source_url": "https://odealo.com/articles/arc-hexa-spell-totem-hierophant-build-odealos-crafty-guide",
+        "anchor_quote": "Ancestral Bond — This prevents YOU from dealing damage, but not your proxies, such as mines and totems",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Pursuit of Faith (Hierophant ascendancy node)",
+              "type": "ascendancy_node",
+              "effect": "100% increased Totem Duration; +1 to maximum number of Summoned Totems; 100% increased Totem Placement speed",
+              "anchor_quote": "100% increased Totem Duration, +1 to maximum number of Summoned Totems, 100% increased Totem Placement speed"
+            },
+            {
+              "item": "Ritual of Awakening (Hierophant ascendancy node)",
+              "type": "ascendancy_node",
+              "effect": "5% more Damage per Summoned Totem; Regenerate 0.5% Mana per second per Totem; 1% Life regen per second per Totem",
+              "anchor_quote": "5% more Damage per Summoned Totem, Regenerate 0.5% of Mana per second for each Summoned Totem"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Hierophant",
+        "anchor_quote": "100% increased Totem Duration, +1 to maximum number of Summoned Totems",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "totem placed at target location; casts supported spell independently; totem range 60 units; totems last ~8 seconds; cast 40% slower than player; multiple totem placements spread AoE coverage"
+        },
+        "source_url": "https://poedb.tw/us/Spell_Totem_Support",
+        "anchor_quote": "totems last approximately 8 seconds while casting 40% slower; base range of 60 units",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Place Spell Totems that cast your linked spell independently while you reposition. Take Ancestral Bond keystone to prevent self-damage in exchange for up to 6 active totems (with Multiple Totems Support, 3.5+). Hierophant's Pursuit of Faith and Ritual of Awakening passives boost totem damage and count."
+        },
+        "source_url": "https://odealo.com/articles/arc-hexa-spell-totem-hierophant-build-odealos-crafty-guide",
+        "anchor_quote": "take Ancestral Bond in the Passive Skill Tree; Hierophant chosen because Pursuit of Faith and Ritual of Awakening Passives provide totem benefits; patch 3.5 adds Multiple Totems Support Gem, increasing summoned Totem cap by 2",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Arc Hexa-Totem Hiero — 3.5/3.6 canonical form",
+            "Holy Flame Totem Hiero — modern league starter form",
+            "Freezing Pulse Totem Hiero — cold variant",
+            "Forbidden Rite Totem Hiero — 3.15 chaos variant"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/arc-hexa-spell-totem-hierophant-build-odealos-crafty-guide",
+        "anchor_quote": "[3.22]Holy Flame Totem Hierophant Starter Build; [3.22]Freezing Pulse Totem Hiero; [3.15]Forbidden Rite Totem Hierophant",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

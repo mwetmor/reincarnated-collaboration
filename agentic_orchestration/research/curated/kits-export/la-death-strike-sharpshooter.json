@@ -1,0 +1,223 @@
+{
+  "kit_id": "la-death-strike-sharpshooter",
+  "spine": {
+    "kit_id": "la-death-strike-sharpshooter",
+    "folk_name": "Death Strike Sharpshooter",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Silverhawk as deployed debuff-hawk has partial totem fit but differs in that the hawk also defines the 'NOT summoned' damage window as its own separate state (12% damage while hawk absent creates a second timing loop the engine doesn't directly express). Source player would notice the 'hawk absent = bonus' logic is lost. CLOSE: dominant loop (build meter, deploy hawk for debuff burst, rebuild) maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "curse:amplify"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Silverhawk as deployed debuff-hawk has partial totem fit but differs in that the hawk also defines the 'NOT summoned' damage window as its own separate state (12% damage while hawk absent creates a second timing loop the engine doesn't directly express). Source player would notice the 'hawk absent = bonus' logic is lost. CLOSE: dominant loop (build meter, deploy hawk for debuff burst, rebuild) maps cleanly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hawk Meter generator skills (normal ranged skills — TA-12 Bursting Arrow, HSU-98 Avian Strike, HSU-04 Smart Scope skill suite)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged; no positional descriptor in fetched text; Death Strike passive provides significantly increased meter recovery — rapid Hawk Meter fill; no elemental damage-typing in store (skill/node names only)"
+        },
+        {
+          "source_skill": "Silverhawk Assault (Z — identity hawk deployment)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Deploy Silverhawk Assault: hawk applies debuff on boss — 27% increased damage to boss while active + 12% increased damage while hawk NOT summoned; enemy-directed damage-taken amplification (target takes +27% damage) = curse:amplify (Vulnerability-class per §2 line 52/53; NOT sap — 'increased damage to boss' raises damage taken, no armor/defense shred in store); burst damage window built around this debuff"
+        }
+      ],
+      "motion_frame": "Build Hawk Meter rapidly via Death Strike passive enhanced meter recovery; deploy Silverhawk Assault (Z) to maintain 27% boss damage debuff; send heavily buffed skills during debuff window; rebuild meter; repeat",
+      "resource_economy": {
+        "hawk_meter": "accumulate via normal skills — Death Strike passive accelerates meter gain; release into Silverhawk Assault (Z) for debuff window; timed burst cycle around Silverhawk uptime"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Silverhawk Assault hawk debuff (27% increased damage to boss)",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ranged; Silverhawk as deployed proxy/totem for debuff uptime"
+          ],
+          "economy": [
+            "hawk_meter accumulate-release; Death Strike passive = faster regen shape"
+          ],
+          "traits_affixes": [
+            "TA-12 Bursting Arrow, HSU-98 Avian Strike, HSU-04 Smart Scope, Flashy Attack, Smoldering Strike, Attack (Ark Passive nodes → capstone_alterations)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "curse:amplify for Silverhawk Assault debuff: store '27% Increased Damage to the Boss' (skill_loop anchor) = enemy damage-taken amplification (Vulnerability-class, §2 line 52). STEWARD-CORRECTED from curse:sap per the b01 Despair precedent (§2 line 53 — 'raises damage taken; does not shred defenses' → amplify): sap is reserved for explicit armor/defense/resistance shred, absent in store. Debuff values (27%, 12%) are stale per Ark Passive law — shape only. Silverhawk as deployed hawk entity maps as totem-analog (proxy entity, not self-buff). No elemental damage-typing in store; hawk/bird theme is class flavor not element."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Death Strike Sharpshooter Raid Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in la-t4-ark-passive era",
+      "anchor_quote": "TA-12 Bursting Arrow, HSU-98 Avian Strike, HSU-04 Smart Scope, Flashy Attack, Smoldering Strike, Attack",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Death Strike Sharpshooter — class+identity spec name in real LA community usage",
+      "anchor_quote": "Death Strike allows you to get significantly increased meter recovery to play around the massive debuff provided by Silverhawk Assault (Z)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Builds Hawk Meter rapidly via Death Strike passive; deploys Silverhawk Assault (Z) maintaining damage debuff on target; burst cycle around debuff windows; higher DPS ceiling than Loyal Companion",
+      "anchor_quote": "Using his identity Silverhawk Assault (Z) with Death Strike will provide 27% Increased Damage to the Boss, 12% Increased Damage while Hawk is NOT Summoned",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg",
+          "reviewer": "Perciculum"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+        "anchor_quote": "Civo (Content Creator, reviewed by Perciculum)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "TA-12 Bursting Arrow",
+            "HSU-98 Avian Strike",
+            "HSU-04 Smart Scope",
+            "Flashy Attack",
+            "Smoldering Strike",
+            "Attack"
+          ],
+          "silverhawk_assault_debuff": {
+            "boss_damage_increase": "27%",
+            "hawk_absent_damage_increase": "12%"
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+        "anchor_quote": "TA-12 Bursting Arrow, HSU-98 Avian Strike, HSU-04 Smart Scope, Flashy Attack, Smoldering Strike, Attack",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Specific gem/accessory detail not fully captured; standard ranged DPS gear"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Ranged — Sharpshooter class; no positional descriptor mentioned for core skills in fetched text"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Death Strike passive provides significantly increased meter recovery; deploy Silverhawk Assault (Z) for 27% increased damage to boss + 12% increased damage while Hawk not summoned; send heavily buffed damage skills during debuff window; rebuild meter; repeat"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+        "anchor_quote": "Death Strike allows you to get significantly increased meter recovery to play around the massive debuff provided by Silverhawk Assault (Z). 27% Increased Damage to the Boss, 12% Increased Damage while Hawk is NOT Summoned",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Death Strike (high DPS ceiling, tight timing)"
+          ],
+          "sibling_spec": "Loyal Companion Sharpshooter (relaxed/simple playstyle, lower ceiling)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/death-strike-sharpshooter-raid-build-guide",
+        "anchor_quote": "a more relaxed and simple playstyle versus this higher-ceiling variant",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

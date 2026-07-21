@@ -1,0 +1,245 @@
+{
+  "kit_id": "gd-drain-essence-spellbinder",
+  "spine": {
+    "kit_id": "gd-drain-essence-spellbinder",
+    "folk_name": "Drain Essence Spellbinder",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-06",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "drain"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Drain Essence",
+          "geometry_value": "beam_channel",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain"
+          ],
+          "delivery_notes": "channel a drain beam on the primary target; chains to nearby extra targets via gear ('+2 extra targets to drain essence'; 'channelling skill capable of hitting multiple targets'); rooted while channeling. drain attested BEHAVIORALLY ('built-in life leech, which can be further boosted to 26%') per main-law life-drain row -- not from the skill name (0.3 honored)."
+        },
+        {
+          "source_skill": "Mark of Torment",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "defensive cooldown: 'Mark of Torment provides timed immunity window'; Mirror of Ereoctes as second defensive layer (noted)."
+        }
+      ],
+      "motion_frame": "plant and drink: channel the essence beam into the pack, gear-chained to extra targets, facetanking on built-in leech with Mark of Torment and Mirror immunity windows",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "+N extra beam targets (item-granted chain-hop: amulet modifier)"
+          ],
+          "economy": [
+            "channel tick-cost; Eternity relic energy sustain ('survivability + energy + more sustain')"
+          ],
+          "traits_affixes": [
+            "vitality/aether drain scaling",
+            "leech-percent boost (26% fetched)",
+            "Uroboruuk's Guise set numeric lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "elem_raw=vitality (kb) vs verified identity 'Aether DE Spellbinder' -- BOTH registers land shadow (main-law 1: vitality = life-drain register -> shadow; aether-corruption -> shadow), so the tension is moot at family level; cold Gravechill variant noted in variants. 'Mark' of Torment is a NAME, not a mark mechanic -- behavior = immunity window -> self_buff, no mark_identity (0.3). Rooted-while-channeling = native channel commit. R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gametyrant.com/news/grim-dawn-ashes-of-malmouth-is-a-necromancers-dream",
+      "archive_url": null,
+      "site": "gametyrant.com",
+      "author_handle": "unknown",
+      "title": "GRIM DAWN: ASHES OF MALMOUTH is a Necromancer's Dream",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-4-2-aether-drain-essence-spellbinder/89110",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.4.2] Aether Drain Essence Spellbinder",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-7-1-bro-do-you-even-leech-drain-essence-spellbinder-facetank-all-ravagers-sr80/100976",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.7.1] Bro, do you even leech? | Drain essence spellbinder | Facetank all Ravagers | SR80+",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['aom-2017','patch-1.1-1.2']",
+      "anchor_quote": "Necromancer mastery debuted with Ashes of Malmouth (October 2017). Spellbinder = Arcanist+Necromancer. Era floor aom-2017 is consistent with mastery intro.",
+      "source_url": "https://gametyrant.com/news/grim-dawn-ashes-of-malmouth-is-a-necromancers-dream",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Drain Essence Spellbinder'; aliases=['DE Spellbinder','vitality channel Spellbinder']",
+      "anchor_quote": "'Aether DE Spellbinder,' 'aether caster' … [1.1.4.2] Aether Drain Essence Spellbinder … Arcanist + Necromancer = Spellbinder",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-aether-drain-essence-spellbinder/89110",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Drain Essence','Mark of Torment']; delivery=beam/channel; chains to nearby targets; resource=mana spend; movement=rooted while channeling",
+      "anchor_quote": "Drain Essence is a 'channelling skill' capable of hitting multiple targets … +2 extra targets to drain essence … I use mark of torment and mirror of ereoctes … built-in life leech",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-7-1-bro-do-you-even-leech-drain-essence-spellbinder-facetank-all-ravagers-sr80/100976",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.1.7.1] Bro, do you even leech? | Drain essence spellbinder"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-1-bro-do-you-even-leech-drain-essence-spellbinder-facetank-all-ravagers-sr80/100976",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_set": "Uroboruuk's Guise set",
+          "notes": "Eternity relic for energy + survivability; items that add extra targets to Drain Essence",
+          "amulet_modifier": "+2 extra targets to drain essence"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-4-2-aether-drain-essence-spellbinder/89110",
+        "anchor_quote": "Uroboruuk's Guise set featured prominently … Eternity relic for 'survivability + energy + more sustain'",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam/channel",
+          "footprint": "chain-hop (primary + extra targets)",
+          "range": "medium channel range",
+          "aoe": "chain to additional nearby targets (gear-augmented)",
+          "notes": "Base DE hits one target; +2 extra targets available via item modifier"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-1-bro-do-you-even-leech-drain-essence-spellbinder-facetank-all-ravagers-sr80/100976",
+        "anchor_quote": "+2 extra targets to drain essence … channelling skill capable of hitting multiple targets",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Drain Essence beam on primary target; skill chains to nearby additional targets; built-in life leech sustains survivability; Mark of Torment provides timed immunity window; Mirror of Ereoctes as second defensive layer",
+          "resource": "mana spend (channel)",
+          "tempo": "channel/facetank"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-7-1-bro-do-you-even-leech-drain-essence-spellbinder-facetank-all-ravagers-sr80/100976",
+        "anchor_quote": "channelling skill capable of hitting multiple targets … built-in life leech, which can be further boosted to 26% … I use mark of torment and mirror of ereoctes",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "vitality DE Spellbinder (all-aether-to-vitality convert)",
+            "aether DE Spellbinder (base)",
+            "cold DE Spellbinder (Gravechill transmuter variant)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/cold-caster-gravechill-spellbinder-cold-based-drain-essence-necromancer/43000",
+        "anchor_quote": "[Cold Caster] Gravechill Spellbinder - Cold based Drain Essence Necromancer",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

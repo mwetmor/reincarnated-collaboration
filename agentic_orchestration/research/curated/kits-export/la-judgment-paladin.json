@@ -1,0 +1,233 @@
+{
+  "kit_id": "la-judgment-paladin",
+  "spine": {
+    "kit_id": "la-judgment-paladin",
+    "folk_name": "Judgment Paladin",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "negative",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "APPROX: Judgment Paladin is a DPS shell built on a support chassis — the attested identity (sub-par personal damage via Punishment skills) maps as a generic melee-arc kit with meter economy, losing the critical context that this is class-design off-path use. The engine would represent a fully functional melee DPS loop that the source player would experience as a mediocre personal-damage build. Source player note: the meaningful identity signal here is what Judgment GIVES UP (the Blessed Aura party-buff loop), not what it does. Deviation: no party-buff or support payload exists in Judgment spec to map; the absence is the identity. Grade APPROX not GAPPED because a playable attested loop exists (Punishment DPS); it is not 'not that build', it is 'that build, worse by design intent'.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "APPROX: Judgment Paladin is a DPS shell built on a support chassis — the attested identity (sub-par personal damage via Punishment skills) maps as a generic melee-arc kit with meter economy, losing the critical context that this is class-design off-path use. The engine would represent a fully functional melee DPS loop that the source player would experience as a mediocre personal-damage build. Source player note: the meaningful identity signal here is what Judgment GIVES UP (the Blessed Aura party-buff loop), not what it does. Deviation: no party-buff or support payload exists in Judgment spec to map; the absence is the identity. Grade APPROX not GAPPED because a playable attested loop exists (Punishment DPS); it is not 'not that build', it is 'that build, worse by design intent'.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Punishment skills (Hammer of Judgment, Wrath of God — Piety Meter generators used for DPS)",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Judgment spec uses Punishment skills for personal DPS rather than filling Piety Meter for Holy Aura support; Holy = class/skill-name flavor (NAME-ONLY STRIKE); no elemental damage-typing in store; the DPS loop is attested but the community consensus is sub-par personal damage (negative-flag canon CONFIRMED)"
+        },
+        {
+          "source_skill": "Piety Meter (fills via Light of Judgment / Wrath of God) → Holy Aura (X — Blessed Aura loop, NOT Judgment's dominant use)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Judgment abandons the Holy Aura party-buff loop; dossier describes Holy Aura as the Blessed Aura canonical identity that Judgment steps away from. In Judgment spec the Piety Meter is directed toward Punishment DPS rather than support activation. No curse:amplify attested here — Judgment dossier describes abandoning Brand/debuff payloads in favor of personal damage. No enemy-directed debuff language found in Judgment-specific dossier text."
+        }
+      ],
+      "motion_frame": "Use Punishment skills for personal DPS; Judgment engraving directs Piety Meter toward self-damage rather than Holy Aura support; rarely seen in endgame party raids (solo content use case per verify_ledger)",
+      "resource_economy": {
+        "piety_meter": "Judgment spec redirects meter toward personal DPS use; Holy Aura (X) is the Blessed Aura loop not Judgment's dominant identity; economy serves sub-par personal damage output in Judgment config"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee Punishment skills; no support payload in Judgment spec"
+          ],
+          "economy": [
+            "piety_meter directed to personal DPS; Judgment abandons party-buff economy of Blessed Aura"
+          ],
+          "traits_affixes": [
+            "Judgment Paladin Ark Passive nodes not found — Blessed Aura nodes only in dossier (Heavenly Agent/True Justice, Divine Cause/Heavenly Resolve, Prayer of Light)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Negative kit (negative_canon CONFIRMED): class design is support; Judgment DPS path delivers sub-par personal damage; rarely seen in endgame raids; Blessed Aura is the canonical identity twin. Mapped to attested Judgment identity (Punishment DPS with Piety Meter) per negative-flag caution (map attested identity, not the negative story). Ark Passive nodes not found for Judgment — Blessed Aura nodes only in dossier; capstone_alterations sparse. No curse:amplify: Judgment dossier does not attest enemy-directed debuff language (the Brand belongs to Blessed Aura/Sword of Justice, not Judgment spec). Engravings DEAD axis."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Blessed Aura Paladin Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.dexerto.com/lost-ark/lost-ark-tier-list-best-characters-and-classes-pve-pvp-1795257/",
+      "archive_url": null,
+      "site": "dexerto.com",
+      "author_handle": null,
+      "title": "Lost Ark tier list: Best characters and classes for PvE and PvP (2025)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Support Paladin guide Last Updated June 12, 2026; Ark Passive nodes listed for Blessed Aura build",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Support Paladin guide Last Updated June 12, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Judgment Paladin — class + identity spec, community name",
+      "anchor_quote": "It is extremely rare to see a Paladin in endgame who is playing in a party as a DPS. Judgment is mainly used when doing solo content such as Chaos Dungeons or Thronespire.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Attempts DPS with Punishment Paladin skills; abandons group buffs, shields, and heals for sub-par personal damage; Blessed Aura support wins handily over Judgment detour",
+      "anchor_quote": "It strays away from the norm of group buffs, shields, and healing, and instead looks to take hard hitting Punishment abilities to maximize the Paladin's sub-par damage potential.",
+      "source_url": "https://www.dexerto.com/lost-ark/lost-ark-tier-list-best-characters-and-classes-pve-pvp-1795257/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Judgment Paladin is non-canon: class design is support, Judgment DPS path delivers sub-par personal damage versus Blessed Aura's party utility; rarely seen in endgame raid parties",
+      "anchor_quote": "It is extremely rare to see a Paladin in endgame who is playing in a party as a DPS. It strays away from group buffs, shields, and healing to maximize the Paladin's sub-par damage potential.",
+      "source_url": "https://www.dexerto.com/lost-ark/lost-ark-tier-list-best-characters-and-classes-pve-pvp-1795257/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-12",
+          "note": "Blessed Aura guide only; no Judgment-specific guide found on maxroll"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Sekwah (content creator; updated guide June 12, 2026)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "blessed_aura_nodes_only": [
+            "Heavenly Agent/True Justice",
+            "Divine Cause/Heavenly Resolve",
+            "Prayer of Light/Prayer of Divine Surge/Sword's Prayer",
+            "Faith Enhancement",
+            "Echoing Steel",
+            "Weapon nodes"
+          ],
+          "note": "Judgment Paladin Ark Passive nodes not found — maxroll covers Blessed Aura only"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Core nodes: Heavenly Agent/True Justice, Divine Cause/Heavenly Resolve, Prayer of Light",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Judgment Paladin uses Punishment skills to deal DPS, prioritizing Hammer of Judgment and Punishment-engraved skills over Blessed Aura's Holy Aura support loop. The Blessed Aura loop (Fill Piety Meter via Light of Judgment/Wrath of God → activate Holy Aura X → extend via Wrath of God/Heavenly Blessings/Divine Justice/Divine Wave) is the canonical paladin identity; Judgment abandons this for sub-par personal damage. Maxroll covers only Blessed Aura; no Judgment-specific skill loop guide found."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": "Fill the meter through skills like Light of Judgment and Wrath of God, then activate Holy Aura to grant party members +10% Damage dealt, -20% Damage received, +2% of Maximum HP recovered every 1.5s",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/support-paladin-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

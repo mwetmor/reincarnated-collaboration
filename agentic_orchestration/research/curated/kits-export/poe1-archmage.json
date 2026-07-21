@@ -1,0 +1,268 @@
+{
+  "kit_id": "poe1-archmage",
+  "spine": {
+    "kit_id": "poe1-archmage",
+    "folk_name": "Archmage Mana Stacker",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-08",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The mana-stack resource identity (RESOURCE_CONVERSION) and MoM/Indigon economy warps land cleanly, but Ball Lightning's signature 'slow-drift + 150ms tick + inverse-velocity (slower orb = more hits = more damage)' has no matching 26-geometry; approximated as a circle tick-AoE. A player would keep the mana-as-weapon feel but lose the positional skill of drifting the orb through a pack for max hits.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The mana-stack resource identity (RESOURCE_CONVERSION) and MoM/Indigon economy warps land cleanly, but Ball Lightning's signature 'slow-drift + 150ms tick + inverse-velocity (slower orb = more hits = more damage)' has no matching 26-geometry; approximated as a circle tick-AoE. A player would keep the mana-as-weapon feel but lose the positional skill of drifting the orb through a pack for max hits.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ball Lightning (+ Archmage Support)",
+          "geometry_value": "circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "slow orb drifts and zaps a small AoE every 150ms; Archmage adds flat lightning = % of unreserved mana on each cast. Modeled as a tick-AoE (circle) around the orb's dwell point; the projectile-drift itself is not a distinct 26-type. Shock->sunder from the lightning damage. Manabond variant is a line hit (line geometry) — same resource identity"
+        }
+      ],
+      "motion_frame": "stationary mana-caster: cast drains the pool, regen refills it, cast again — the mana bar is both cannon and shield (MoM)",
+      "resource_economy": {
+        "regen_shape": "flat-per-second",
+        "cost_scale": "high",
+        "cost_slope": "escalating"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "circle tick-AoE",
+            "line (Manabond variant)"
+          ],
+          "economy": [
+            "large mana pool as damage-source",
+            "MoM mana-as-defensive-buffer",
+            "Indigon escalating-cost feedback",
+            "high regen sustain"
+          ],
+          "traits_affixes": [
+            "added-lightning-per-mana (Archmage analog)",
+            "mana-max scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "IDENTITY = resource-as-weapon: unreserved mana drives flat lightning damage; RESOURCE_CONVERSION is the exact T4 door (resource pool converted to weapon output). MoM (mana-as-life-buffer) and Indigon (spend-more-mana -> higher-cost -> more damage feedback loop) are the economy-warping items that land in resource_economy (cost_slope escalating captures the Indigon feedback). GEOMETRY FRICTION: Ball Lightning — a slow drifting projectile that ticks a small AoE every 150ms with inverse-velocity damage — has NO clean 26-type. Mapped as 'circle' (tick-AoE around the dwell point); the drift-and-inverse-velocity is a numeric/behavioral property the geometry enum doesn't carry. Manabond variant = line. Shock->sunder (false-friend). Delivery is subordinate to the mana-stack identity per §7.2."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3147914",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "EnkiVT#6435",
+      "title": "[3.16] Enki's Archmage Hierophant - a beginner-friendly Lightning Caster",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://mobalytics.gg/poe/builds/mana-stacker-hierophant-comprehensive-leaguestart-guide",
+      "archive_url": null,
+      "site": "mobalytics.gg",
+      "author_handle": null,
+      "title": "Mana Stacker Hierophant - Comprehensive Leaguestart Guide PoE 3.28",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/ball-lightning-hierophant-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Archmage Ball Lightning of Orbiting Hierophant Build Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Archmage_Support",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Archmage Support - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.7-3.13, 3.20+",
+      "anchor_quote": "Enki's Archmage Hierophant - a beginner-friendly Lightning Caster [3.16]",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Archmage Mana Stacker', aliases 'Manabond Hiero (variant)', 'Indigon interactions' are real community usage",
+      "anchor_quote": "Mana Stacker Hierophant - Comprehensive Leaguestart Guide",
+      "source_url": "https://mobalytics.gg/poe/builds/mana-stacker-hierophant-comprehensive-leaguestart-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Archmage Support + Ball Lightning/Manabond; lightning spell damage scales off unreserved mana; class Hierophant",
+      "anchor_quote": "Supported Skills gain Added Lightning Damage equal to (10-16)% of Unreserved Maximum Mana",
+      "source_url": "https://poedb.tw/us/Archmage_Support",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Archmage damage mechanic: adds flat lightning damage based on mana cost / unreserved mana",
+      "anchor_quote": "It increases mana cost and adds flat lightning damage based on mana cost, in this case at 50% value because of Ball Lightning's damage effectiveness.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": [
+          {
+            "handle": "EnkiVT#6435",
+            "site": "pathofexile.com/forum",
+            "url": "https://www.pathofexile.com/forum/view-thread/3147914"
+          },
+          {
+            "handle": "TbXie",
+            "site": "poe-vault.com",
+            "url": "https://www.poe-vault.com/guides/ball-lightning-hierophant-build-guide"
+          }
+        ],
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Hierophant",
+          "nodes_in_order": [
+            "Conviction of Power",
+            "Divine Guidance",
+            "Arcane Blessing",
+            "Illuminated Devotion"
+          ],
+          "key_benefit": "Divine Guidance reserves mana from energy shield, preserving unreserved mana pool for Archmage scaling."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+        "anchor_quote": "Conviction of Power (normal), Divine Guidance (cruel), Arcane Blessing (merciless), and Illuminated Devotion (eternal)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Pledge of Hands (staff)",
+          "alteration": "Grants +2 to socketed spell gems and Great Old One's Tentacles effect, enabling 7-link setup for Ball Lightning.",
+          "secondary_item": "Indigon (helmet)",
+          "indigon_alteration": "Increases mana cost of spells the more mana recently spent, creating feedback loop that amplifies Archmage damage at expense of mana sustainability.",
+          "tertiary_item": "Atziri's Foible (amulet)",
+          "foible_alteration": "Massively reduces attribute requirements and increases mana regeneration."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+        "anchor_quote": "Pledge of Hands staff, Cloak of Defiance body armor, Atziri's Foible amulet",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Ball Lightning: slow-moving projectile with small AoE radius; fires at target and drifts, zapping nearby enemies every 150ms. Manabond variant: projectile that hits in a line. Archmage damage is applied at point of impact/dwell.",
+          "geometry_detail": "Ball Lightning base projectile speed ~48 units/sec; base radius 18 units (post-3.12)."
+        },
+        "source_url": "https://poedb.tw/us/Ball_Lightning",
+        "anchor_quote": "Fires a slow-moving projectile that damages each enemy in an area around it repeatedly with bolts of lightning.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Stack unreserved mana via passive tree (Hierophant), gear, and reservation skills. Cast Ball Lightning or Manabond; Archmage Support converts % of unreserved mana into added lightning damage flat on each cast. Mind over Matter converts mana into a defensive buffer. Arcane Cloak spends mana for a shield burst boosting both offense and defense simultaneously. Loop: cast → mana depleted → regeneration fills it → cast again."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3147914",
+        "anchor_quote": "Mechanic-modifier archetype: lightning spell damage scales off unreserved MANA",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Archmage Ball Lightning Hierophant",
+            "Manabond Hierophant",
+            "Spark Archmage Hierophant (3.28, Big Ducks)",
+            "Archmage Ball Lightning of Orbiting Hierophant"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/ball-lightning-hierophant-build-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

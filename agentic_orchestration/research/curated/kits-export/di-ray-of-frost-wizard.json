@@ -1,0 +1,215 @@
+{
+  "kit_id": "di-ray-of-frost-wizard",
+  "spine": {
+    "kit_id": "di-ray-of-frost-wizard",
+    "folk_name": "Ray of Frost Wizard",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-21",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Freeze and stun unattested in core channel loop (near-misses). Chill-stacking-to-Freeze is the experiential identity but only chill maps honestly. Ice Crystal AoE reflection is item-defined; fidelity note only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Freeze and stun unattested in core channel loop (near-misses). Chill-stacking-to-Freeze is the experiential identity but only chill maps honestly. Ice Crystal AoE reflection is item-defined; fidelity note only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ray of Frost",
+          "geometry_value": "beam_channel",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "Sustained channel beam of frost; 'continually dealing damage to all enemies caught in the beam and inflicting 12% Chill' per anchor. Chill stacks to 6 per skill_loop. Ice Crystal item interaction (reflects beam to proximate enemies) = item-defined AoE spread, noted in fidelity_notes only."
+        }
+      ],
+      "motion_frame": "Channel Ray of Frost beam → stack Chill toward Freeze; Ice Crystal for AoE reflection; Teleport to reposition",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEAR-MISSES: (1) freeze — payload_json summary says 'Chill stack → Freeze CC' but no anchor_quote attests 'freeze' verbatim; blocked. (2) stun — skill_loop anchor has 'modified Ray of Frost stun' but qualifier 'modified' places this in PvP variant scope; variant-scope law excludes from core skills[] row. Ice Crystal item interaction: 'reflecting their beams to enemies in the Crystal proximity' attests AoE reflection — item-defined archetype; if kit identity were redefined as Ice Crystal build, water+ZONE_CONTROL would strengthen. DI resource (Arcane Power) probe unreliable per ERRATA sweep. [STEWARD-AUDIT MW5: Ray of Frost: +freeze: freeze cc attested (\"chill stack -> freeze cc -> burst\"; \"freeze cc\") — over-block restore (mapper cited payload-no-anchor = MW2 violation)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.diablofans.com/builds/109423-arcanist-ray-of-frost",
+      "archive_url": null,
+      "site": "diablofans.com",
+      "author_handle": null,
+      "title": "Arcanist Ray of Frost - Wizard - Diablo Immortal Builds",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://game8.co/games/Diablo-Immortal/archives/379544",
+      "archive_url": null,
+      "site": "game8.co",
+      "author_handle": null,
+      "title": "Diablo Immortal - Wizard Ray of Frost PvP Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022",
+      "anchor_quote": "Last updated on: July 14, 2022 03:34 AM",
+      "source_url": "https://game8.co/games/Diablo-Immortal/archives/379544",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ray of Frost Wizard' and aliases 'Ray of Frost DI Wizard', 'RoF Wizard DI' are real community usage",
+      "anchor_quote": "Ray of Frost channels a beam of frost in a direction, continually dealing 562 damage to all enemies caught in the beam",
+      "source_url": "https://www.diablofans.com/builds/109423-arcanist-ray-of-frost",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Ray of Frost, Arcane Wind/Meteor burst; Wizard resource Arcane Power",
+      "anchor_quote": null,
+      "source_url": "https://game8.co/games/Diablo-Immortal/archives/379544",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "legendaries": [
+            "Ice Crystal (reflects Ray of Frost beam to nearby enemies — converts lane to AoE)"
+          ],
+          "notes": "Ice Crystal has notable interaction: when targeted by channeled skills like Ray of Frost, reflects the beam to enemies in proximity."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/wizard-ice-crystal-build-guide-for-raids",
+        "anchor_quote": "Ice Crystal has a notable interaction when targeted by Channeled skills like Ray of Frost and Disintegrate, reflecting their beams to enemies in the Crystal's proximity.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "beam (sustained channel)",
+          "footprint": "lane (narrow beam from caster to target)",
+          "notes": "Ray of Frost channels a beam of frost in a direction, dealing damage to all enemies caught in the beam. Inflicts 12% Chill per tick, stacking to 6. Ice Crystal interaction: beam reflects to proximate enemies."
+        },
+        "source_url": "https://www.diablofans.com/builds/109423-arcanist-ray-of-frost",
+        "anchor_quote": "channels a beam of frost in a direction, continually dealing 562 damage to all enemies caught in the beam and inflicting 12% Chill",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Ray of Frost beam on target, stacking Chill (up to 6 stacks) leading to Freeze. Ice Crystal reflects Ray of Frost beam to nearby enemies for AoE spread. PvP: burst via modified Ray of Frost stun + loss-of-control damage buffs.",
+          "core_combo": "Ray of Frost channel -> Chill stack -> Freeze CC -> burst",
+          "source_note": "diablofans + game8 DI RoF Wizard"
+        },
+        "source_url": "https://game8.co/games/Diablo-Immortal/archives/379544",
+        "anchor_quote": "A skillshot build that allows you to burst down enemies using a modified Ray of Frost stun while stacking loss of control damage buffs.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "PvP freeze/stun burst (game8 build)",
+            "Raid Ice Crystal reflection AoE (icy-veins Ice Crystal guide)",
+            "Solo arcanist (diablofans arcanist build)"
+          ]
+        },
+        "source_url": "https://game8.co/games/Diablo-Immortal/archives/379544",
+        "anchor_quote": "PvP Freeze - Wizard - Diablo Immortal Builds",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

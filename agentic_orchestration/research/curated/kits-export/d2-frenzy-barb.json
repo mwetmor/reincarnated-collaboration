@@ -1,0 +1,250 @@
+{
+  "kit_id": "d2-frenzy-barb",
+  "spine": {
+    "kit_id": "d2-frenzy-barb",
+    "folk_name": "Frenzy Barbarian",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical melee with speed-ramp self-buff is well-covered; minor texture loss on the dual-weapon alternating-hit feel and the 'frenzy state' escalating intensity. No ailment attestation means the on-hit bleed possibility from Gore Rider (item-layer) doesn't enter mapping_json. Player feels 'fast physical dual-wield melee brawler' — that build, slight intensity-escalation texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical melee with speed-ramp self-buff is well-covered; minor texture loss on the dual-weapon alternating-hit feel and the 'frenzy state' escalating intensity. No ailment attestation means the on-hit bleed possibility from Gore Rider (item-layer) doesn't enter mapping_json. Player feels 'fast physical dual-wield melee brawler' — that build, slight intensity-escalation texture loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Frenzy",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dual-wield at-target melee; each hit stacks attack speed AND movement speed self-buff. §A row 5: Frenzy speed-stack IS the steady state (NOT two-tier-accumulator — no counted-tier release). Sprint alias confirmed as Frenzy (batch hot-fact)."
+        },
+        {
+          "source_skill": "Double Swing",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Dual-hit at-target melee; Frenzy's primary synergy. Leveling and synergy scaffold."
+        }
+      ],
+      "motion_frame": "Stack Frenzy attack-speed+movement-speed self-buff via hits; sustain dual-wield melee burst; life leech from hits sustains HP",
+      "resource_economy": {
+        "cost_scale": "on-hit-ramp",
+        "cadence_scale": "frenzy-speed-stack-ramp"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Life leech via Dracul's Grasp item (life tap proc) — item-layer; Frenzy ramp is the sustain-stack steady state"
+          ],
+          "traits_affixes": [
+            "Double Swing synergy; Blade Mastery passive damage/AR; Doom offhand variant adds Holy Freeze aura (item-defined)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical build — THE PHYSICAL RULE: no element_primary (element-neutral). Identity via geometry+ailment+ramp. No ailments attested in fetched dossier (no bleed/stun named in skill_loop or skill_geometry). §A row 5: Frenzy stacked speed = sustain-stack ramp, NOT two-tier-accumulator (the stack IS the steady state; no counted-tier-to-release signature). Sprint/Frenzy alias confirmed per batch hot-fact. Doom offhand (Holy Freeze) = item-defined variant; variant-scope law governs."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Frenzy Barbarian Build for Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Frenzy Barbarian Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Frenzy takes advantage of dual weapons and fast Attack Speed to quickly crush his enemies.",
+      "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Frenzy Barbarian' and aliases 'Frenzy Barb', 'Double Swing Frenzy Barb' are real community usage",
+      "anchor_quote": "Frenzy Barbarian Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Frenzy, Double Swing",
+      "anchor_quote": "20 points to Frenzy — main damage dealer, required; 20 points to Double Swing — Synergy of Frenzy",
+      "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MrLlamaSC",
+          "site": "icy-veins.com",
+          "note": "Updated May 22, 2026"
+        },
+        "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+        "anchor_quote": "MrLlamaSC is a professional twitch broadcaster that has been streaming since 2014",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief (weapon)",
+            "Oath (budget weapon)",
+            "Breath of the Dying (alt weapon)",
+            "Death (offhand)",
+            "Doom (offhand — Holy Freeze aura)"
+          ],
+          "uniques": [
+            "Arreat's Face",
+            "Dracul's Grasp",
+            "Gore Rider",
+            "Raven Frost",
+            "Highlord's Wrath"
+          ],
+          "synergies": [
+            "Double Swing is Frenzy's primary synergy",
+            "Blade Mastery (weapon mastery) increases damage/AR"
+          ],
+          "notes": "Physical build — no elemental synergy. Sustain via life leech gear (Dracul's)."
+        },
+        "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+        "anchor_quote": "20 points to Frenzy — main damage dealer, required; 20 points to Double Swing — Synergy of Frenzy",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grief Phase Blade (BIS — up to +800 flat damage, physical-defense-ignoring)",
+            "Oath Runeword (budget alt in Ettin Axe or War Sword)",
+            "Breath of the Dying (alternate BIS in offhand)",
+            "Death (runeword offhand option)",
+            "Doom (offhand for Holy Freeze aura)",
+            "Arreat's Face (helm)",
+            "Dracul's Grasp (gloves — life tap proc)",
+            "Gore Rider (boots)",
+            "Raven Frost (ring — cannot be frozen)",
+            "Highlord's Wrath (amulet)"
+          ],
+          "notes": "Dual Grief Phase Blades are the iconic endgame setup; flat damage bypasses enemy defense."
+        },
+        "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+        "anchor_quote": "Weapon: Grief; Weapon Offhand: Breath of the Dying, Death, Grief, Doom",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Frenzy: direct at-target dual-wield melee swings on adjacent enemy. Point footprint — single enemy contact per swing sequence. Each Frenzy hit stacks self-buff (speed). Double Swing: similar at-target dual-hit melee on adjacent enemy."
+        },
+        "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+        "anchor_quote": "20 points to Frenzy — main damage dealer, required; 20 points to Double Swing — Synergy of Frenzy",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Begin with Double Swing (available level 6) to level. At level 24 unlock Frenzy — each Frenzy hit stacks attack speed and movement speed buff. Dual-wield weapons; alternate attacks via Frenzy's dual-hit mechanic. Life leech from hits sustains HP. High attack speed cap via stacked Frenzy charges."
+        },
+        "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+        "anchor_quote": "Frenzy takes advantage of dual weapons and fast Attack Speed to quickly crush his enemies; each successful hit puts the Barbarian into a Frenzied state causing faster movement and attack speed",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Dual Grief Frenzy Barb (endgame standard; pure physical)",
+            "Doom offhand variant (Holy Freeze aura; hybrid physical+slowing)",
+            "Frenzy/WW hybrid (niche; not standard)"
+          ],
+          "notes": "Spec alias 'Double Swing Frenzy Barb' confirmed — Double Swing is both leveling primary and endgame synergy."
+        },
+        "source_url": "https://www.icy-veins.com/d2/frenzy-barbarian-build",
+        "anchor_quote": "This build begins with Double Swing at level 6 and can be very solid for leveling throughout the game",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

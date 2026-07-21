@@ -1,0 +1,262 @@
+{
+  "kit_id": "d3-s6-impale",
+  "spine": {
+    "kit_id": "d3-s6-impale",
+    "folk_name": "Shadow Impale",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-16",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Karlei's Point near-infinite Hatred sustain (refund on cast = resource-neutral loop) approximated; no engine exact analog for 'cost refunded on each cast.' Shadow 6pc first-hit multiplier is set-scaler only. The melee-DH identity (close-range knife assassin) maps well to single_target geometry.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Karlei's Point near-infinite Hatred sustain (refund on cast = resource-neutral loop) approximated; no engine exact analog for 'cost refunded on each cast.' Shadow 6pc first-hit multiplier is set-scaler only. The melee-DH identity (close-range knife assassin) maps well to single_target geometry.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Impale",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Thrown knife at single targeted enemy; melee-range single-target; at-target point delivery; short-range; Shadow 6pc massively boosts first-hit damage; physical → element-neutral; no elemental damage type attested"
+        },
+        {
+          "source_skill": "Shadow Power",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Gloom rune defensive self-buff; damage reduction and Life on Hit; permanent uptime via Dawn CDR; shadow element attested via ability identity and Shadow's Mantle set"
+        },
+        {
+          "source_skill": "Vengeance",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent x1.4 damage multiplier via Dawn CDR; self-buff layer; same Dawn CDR as Natalya variant"
+        }
+      ],
+      "motion_frame": "Cast Impale for single-target execution; Shadow 6pc massively boosts first-hit damage; Karlei's Point refunds Hatred on each cast for near-infinite sustain; Vengeance permanent via Dawn; Sprint/Vault for mobility between targets",
+      "resource_economy": {
+        "resource": "Hatred",
+        "cost_note": "Impale costs Hatred; Karlei's Point refunds Hatred on Impale cast for near-infinite sustain; Dawn reduces Vengeance CDR to permanent"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE",
+        "PERSISTENCE_ENGINE_uptime",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Holy Point Shot quiver — triples damage output, Impale skill damage (item rider — item-defined-archetype: kit identity IS with HPS)"
+          ],
+          "economy": [
+            "Karlei's Point — Hatred refund on each Impale cast; Dawn — permanent Vengeance; Ring of Royal Grandeur — set reduction for Aughild's 2pc inclusion"
+          ],
+          "traits_affixes": [
+            "Shadow's Mantle 6pc — massively boosts Impale first-hit damage (scaler per §B row 1); Aughild's Authority 2pc via RoRG (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical element → element-neutral for Impale. Shadow Power elem_p=shadow: Shadow Power is named shadow + the Shadow's Mantle set context makes this a legitimate shadow-family skill. Holy Point Shot is item-defined-archetype (kit-as-specified IS the with-HPS form: 'mandatory piece that practically triples output' — attested in dossier). No ailment emitted: no status named in fetched text for Impale delivery. 'Assassination-oriented' is flavor, not a status."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Demon Hunter Shadow Impale Build (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/guides/shadow-impale-demon-hunter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Shadow Impale Demon Hunter Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Shadow's Mantle Impale is a classic for Demon Hunter, allowing since its redesign in Season 5 for a melee playstyle similar to Assassin in Diablo II.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Demon Hunter Shadow Impale Build (Patch 2.7.8 / Season 39) — remained a solid starter choice the Seasons following for its consistency and easy gearing.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/guides/shadow-impale-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shadow Impale' and aliases 'S6 Impale Demon Hunter', 'Shadow Power Impale DH', 'Shadow Set Impale' are real community usage",
+      "anchor_quote": "Shadow Impale Demon Hunter Guide for Diablo III Season 39 — Shadow's Mantle Impale is a classic for Demon Hunter, allowing since its redesign in Season 5 for a melee playstyle.",
+      "source_url": "https://maxroll.gg/d3/guides/shadow-impale-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Impale and Shadow Power; Demon Hunter resource (Hatred); single-target melee-range knife execution delivery",
+      "anchor_quote": "Impale is the primary damage dealer, augmented by the Shadow set 6-piece bonus to inflict massively boosted damage on the first target hit. The build consumes Hatred as its primary resource.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Shadow's Mantle (5-6pc) — core set; redesigned Season 5",
+          "kanai_cube": [
+            "Dawn (CDR)",
+            "Ring of Royal Grandeur"
+          ],
+          "legendary_powers": [
+            "Karlei's Point",
+            "Holy Point Shot"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+        "anchor_quote": "Reworked into a definite best-in-slot for Impale builds in Patch 2.5, the Holy Point Shot quiver is a mandatory piece.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Shadow's Mantle set (5pc) — 6pc boosts Impale first-hit damage massively",
+            "Aughild's Authority (2pc) via RoRG",
+            "Karlei's Point dagger — Hatred refund on Impale",
+            "Holy Point Shot quiver — triples damage output, Impale skill damage",
+            "Dawn — Vengeance CDR",
+            "Ring of Royal Grandeur"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+        "anchor_quote": "Holy Point Shot quiver is a mandatory piece that practically triples your damage output, along with a smattering of Impale skill damage on top.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Impale thrown knife at single targeted enemy; melee-range single-target; at-target point delivery; short range knife throw",
+          "range": "at-target point melee-range"
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+        "anchor_quote": "Shadow's Mantle Impale is a classic for Demon Hunter, allowing since its redesign in Season 5 for a melee playstyle similar to Assassin in Diablo II.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Impale (Shadow Power: Gloom for defense) for single-target execution; Shadow's Mantle 6pc massively boosts Impale damage on first hit; Karlei's Point refunds Hatred on each cast for near-infinite sustain; Vengeance via Dawn for permanent x1.4 damage multiplier; Sprint/Vault for mobility."
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-shadow-impale-build",
+        "anchor_quote": "Impale is the primary damage dealer of the build, augmented by the Shadow set 6-piece bonus to inflict massively boosted damage on the first target hit, resulting in the signature assassination playstyle.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Shadow Impale group GR progression",
+            "Shadow Impale speed farm",
+            "Shadow Impale elite-killer variant"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/shadow-impale-demon-hunter-group-progression-build",
+        "anchor_quote": "Shadow Impale Demon Hunter Group Progression Variation.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

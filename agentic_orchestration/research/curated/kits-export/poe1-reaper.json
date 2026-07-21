@@ -1,0 +1,271 @@
+{
+  "kit_id": "poe1-reaper",
+  "spine": {
+    "kit_id": "poe1-reaper",
+    "folk_name": "Summon Reaper",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "3.14-3.19",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The signature sustain — the Reaper passively weakens and CONSUMES YOUR OTHER MINIONS to heal and temporarily empower itself (+30% AoE when fed) — has no engine lane: proxy sustain draws from resummon/upkeep, never from eating sibling entities (entity-as-consumable-resource-pool family, 4th accrual; docket filed). A player of the original keeps the sovereign commanded pet; loses the feed-it-minions husbandry AND its starvation failure state — which is precisely the trap-canon signal the corpus negative flag records.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The signature sustain — the Reaper passively weakens and CONSUMES YOUR OTHER MINIONS to heal and temporarily empower itself (+30% AoE when fed) — has no engine lane: proxy sustain draws from resummon/upkeep, never from eating sibling entities (entity-as-consumable-resource-pool family, 4th accrual; docket filed). A player of the original keeps the sovereign commanded pet; loses the feed-it-minions husbandry AND its starvation failure state — which is precisely the trap-canon signal the corpus negative flag records.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Reaper",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "summons ONE persistent slashing shadow-beast proxy that auto-fights with 'a variety of slashing area attacks' near its position; RECAST = command: it dashes to the targeted location and performs a powerful attack; gains 30% increased AoE when it has consumed other minions. Physical -> element-neutral (physical rule); no ailment attested (probe facts absent, dossier silent)"
+        }
+      ],
+      "motion_frame": "pet-commander: keep the single Reaper up and recast to dash-command it into position for its heavy slash; the player positions and commands while the sovereign proxy does all the damage",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_arc slashing AoE at the proxy's position",
+            "command-dash reposition (recast-as-command; dash_attack-like proxy behavior, behavioral)"
+          ],
+          "economy": [
+            "single-proxy upkeep (resummon on death)",
+            "UNMAPPED: minion-consumes-minions sustain — see docket candidate"
+          ],
+          "traits_affixes": [
+            "minion damage / minion life (Necromancer chassis, sole documented class)",
+            "minion AoE"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "DATA-STATE: canon_probe_facts has ZERO rows for this kit — dossier + corpus mech_note are the entire source surface; mapped from those only (no probe fallback exists). negative=1 (trap-canon exemplar: 'the anti-synergy killed it; clunky, starving, never found a meta') lives on the CORPUS row, not here — this mapping records the build as it was, honestly (glacial-hammer b04 precedent). Physical rule: element-neutral, identity via geometry + proxy frame. The recast-command dash is a behavioral property of the proxy (the nearest single-geometry carrier is the melee_arc it delivers on arrival). R-M7 player test ran: the visible loop (one big commanded slashing pet) is intact -> APPROX/MAPPED, not GAPPED (dark-pact b02 precedent: consumable-substrate approximated, identity kept)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 1,
+      "mechanism_class": "entity-as-consumable-resource-pool",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "engine-design-intake",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3155821",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "cheapbunny",
+      "title": "[3.17] Cheapbunny's Summon Reaper Build (Hit based + Bleed + Poison)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/reaper-summoner-necromancer-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "odealo",
+      "title": "[3.15] Reaper Summoner Necromancer Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3157877",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "community",
+      "title": "Skill Gem Feedback - Summon Reaper",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Summon_Reaper",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Summon Reaper — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era 3.14-3.19",
+      "anchor_quote": "Summon Reaper introduced patch 3.15.0 (Expedition league); build guides from 3.15-3.17 confirmed on pathofexile.com and odealo",
+      "source_url": "https://poedb.tw/us/Summon_Reaper",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Summon Reaper' matches the gem name used by community",
+      "anchor_quote": "Summon Reaper introduced patch 3.15.0; all community guides and feedback threads use 'Summon Reaper' as primary identifier",
+      "source_url": "https://poedb.tw/us/Summon_Reaper",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Summon Reaper; single powerful reaper consumes other minions; slashing area attacks; player recasts to trigger dash-attack at target",
+      "anchor_quote": "'The Reaper's presence weakens your other minions, and it will consume them to temporarily empower and heal itself'",
+      "source_url": "https://poedb.tw/us/Summon_Reaper",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Summon Reaper is a negative kit — fell out of meta due to insufficient damage scaling, power-creep, and lack of DoT multiplier support for minions",
+      "anchor_quote": "'Build guide update is discontinued because I dont't feel comfortable to recommend this build anymore... the power of this build is no longer enough for the new content introduced since then'",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3155821",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "cheapbunny",
+          "site": "pathofexile.com",
+          "note": "cheapbunny authored Summon Reaper build guide on official forum (3.15-3.17)"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3155821",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Summon Reaper of Revenants (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Maximum of 3-4 Summoned Reapers at gem levels 1-20 (previously 3 at all gem levels)",
+              "anchor_quote": "Maximum of 3-4 Summoned Reapers at gem levels 1-20 (previously 3 at all gem levels)"
+            },
+            {
+              "node": "Summon Reaper of Eviscerating (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Minions have 0-20% chance to Aggravate Bleeding on targets they Hit with Attacks",
+              "anchor_quote": "Minions have 0-20% chance to Aggravate Bleeding on targets they Hit with Attacks"
+            },
+            {
+              "node": "Summon Reaper (quality)",
+              "type": "base_quality",
+              "effect": "Minion's Attacks have (0-20)% chance to inflict Bleeding",
+              "anchor_quote": "Minion's Attacks have (0—20)% chance to inflict Bleeding"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Summon_Reaper",
+        "anchor_quote": "Maximum of 3-4 Summoned Reapers at gem levels 1-20 (previously 3 at all gem levels)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Summon Reaper of Revenants (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Maximum of 3-4 Summoned Reapers (previously 3 at all levels)",
+              "anchor_quote": "Maximum of 3-4 Summoned Reapers at gem levels 1-20 (previously 3 at all gem levels)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Summon_Reaper",
+        "anchor_quote": "Maximum of 3-4 Summoned Reapers at gem levels 1-20",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "small-AoE (slashing area attacks from positioned minion)",
+          "aoe": "melee-range slashing; 30% increased AoE when consuming minions",
+          "notes": "Reaper attacks enemies near its current position; player commands dash for repositioning"
+        },
+        "source_url": "https://poedb.tw/us/Summon_Reaper",
+        "anchor_quote": "'a variety of slashing area attacks... gains 30% increased Area of Effect when consuming other minions'",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Summon single Reaper minion; Reaper auto-attacks with slashing AoE; player recasts skill to command Reaper to dash to location and perform powerful attack; Reaper passively weakens and consumes other minions to heal and empower itself"
+        },
+        "source_url": "https://poedb.tw/us/Summon_Reaper",
+        "anchor_quote": "'it will dash to the targeted location and perform a powerful attack... will consume them to temporarily empower and heal itself'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Necromancer (primary; minion support passives)"
+          ],
+          "note": "No significant variant diversity found; Necromancer is the dominant and near-only documented class"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3155821",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

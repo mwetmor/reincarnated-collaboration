@@ -1,0 +1,244 @@
+{
+  "kit_id": "poe2-galvanic-shards",
+  "spine": {
+    "kit_id": "poe2-galvanic-shards",
+    "folk_name": "Galvanic Shards Merc",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the two-stage projectile->beam transformation (bolts that BECOME chaining beams mid-flight) has no single 26-geometry member that carries both the fan-out AND the beam-chain, so fork (stage 1, dominant) + a GEOMETRY_PROPAGATION door (stage 2) approximate it -- the source player loses the visual of fragments morphing into forking beams as one continuous emission. The shotgun fan, lightning, shock, and armour-break-sunder all map cleanly, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the two-stage projectile->beam transformation (bolts that BECOME chaining beams mid-flight) has no single 26-geometry member that carries both the fan-out AND the beam-chain, so fork (stage 1, dominant) + a GEOMETRY_PROPAGATION door (stage 2) approximate it -- the source player loses the visual of fragments morphing into forking beams as one continuous emission. The shotgun fan, lightning, shock, and armour-break-sunder all map cleanly, so CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Galvanic Shards",
+          "geometry_value": "fork",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "Load crossbow with charged bolts (8 fragments/shot) that fragment in flight, releasing chaining lightning beams on hit (beams chain to 1 enemy). Two-stage: fragments fan out (cone spread) -> fragment into chaining beams. Dominant every-3s loop is the fragment fan-out shotgun -> fork (splitting projectiles); the beam-chain is the second stage (noted). 60% phys-to-lightning on bolts, 100% on beams. shock rider."
+        },
+        {
+          "source_skill": "Armour Piercing Rounds",
+          "geometry_value": "multi_projectile",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "Single-target clip fired rapidly, breaking enemy armour -> armour-break -> SUNDER (hit-proc). Rapid-fire bolt stream (multi_projectile). Used for single-target vs the AoE Galvanic fan."
+        }
+      ],
+      "motion_frame": "Load Galvanic Shards (8 fragments/shot); fragments fan out and split into chaining lightning beams on hit; Armour Piercing Rounds for single-target armour-break; Shockburst Rounds on shock.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "cost_scale": "mana + ammo (crossbow load-then-fire cycle)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "shock (Galvanic Shards shock enables Shockburst Rounds)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "8-fragment fork fan-out",
+            "beam chain (2nd stage)"
+          ],
+          "economy": [
+            "crossbow ammo cycle"
+          ],
+          "traits_affixes": [
+            "lightning/shock scalers",
+            "phys-to-lightning conversion"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ARMOUR-BREAK -> SUNDER (addendum A / C.4): 'Armour Piercing Rounds' breaks enemy armour = hit-proc shred -> sunder (hit-proc, NOT curse:sap -- main-law exposure row, hit-window not aura). Two-stage fragments->beams (addendum C.4 / main-law 7.2 dominant loop): the every-3s action is the 8-fragment SHOTGUN FAN (probe footprint=cone; geo_raw multi-spawn) -> mapped geometry fork (splitting projectiles best carries 'fragment in flight'; cone-spread noted); the chaining-beam second stage is the alternative stage, noted + reinforced by GEOMETRY_PROPAGATION door. Shock: fetched text names shock explicitly (enables Shockburst Rounds) -- STEWARD RULING at audit: routed to SUNDER per main-law §2 deterministic row (poe2 shock is the damage-amp class; 'arc-CC-adjacent' is not attested CC behavior). Shockburst apply-consume preserved in trigger_grammar. Kit is a double-sunder source (shock + armour-break) -- honest. Crossbow ammo -> charge_stack_sub_shape:cycle (load-then-fire). verify_ledger: identity+mechanics+era CONFIRMED 0.1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3705011",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Help with Galvantic Shards Mercenary please",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Galvanic_Shards",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Galvanic Shards - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Armour_Piercing_Rounds",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Armour Piercing Rounds - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe2/builds/dawn?skills=Galvanic+Shards",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Galvanic Shards builds - Dawn of the Hunt - Path of Exile 2",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": "Galvanic Shards builds - Dawn of the Hunt - Path of Exile 2 (also poe.ninja data for Dawn = 0.2)",
+      "source_url": "https://poe.ninja/poe2/builds/dawn?skills=Galvanic+Shards",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Galvanic Shards Merc'; aliases 'Galvanic Shards Mercenary', 'Armour Piercing Rounds combo'",
+      "anchor_quote": "Help with Galvantic Shards Mercenary please",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3705011",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Galvanic Shards (lightning crossbow), Armour Piercing Rounds; lightning shotgun fragmentation spread",
+      "anchor_quote": "Load your Crossbow with charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies.",
+      "source_url": "https://poe2db.tw/us/Galvanic_Shards",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Galvanic Shards Mercenary ascendancy is flexible — original 0.1 Merc builds, later Witchhunter and Amazon variants. No single capstone node locks to Galvanic Shards."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/galvanic-shards-witchhunter-build-guide",
+        "anchor_quote": "Galvanic Shards Witchhunter Build Guide - Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry_verbatim": "Fragments fan out and fragment mid-flight into chaining lightning beams. Hybrid projectile/beam mechanic. 8 fragments per shot spread across a wide cone area. Screen-clearing at close-medium range."
+        },
+        "source_url": "https://poe2db.tw/us/Galvanic_Shards",
+        "anchor_quote": "Load your Crossbow with charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. Fires 8 fragments per shot. Released beams chain to 1 enemy.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Load Galvanic Shards into crossbow (8 fragments per shot). Bolts fragment in flight, releasing chaining lightning beams on enemy contact. Lightning damage (60% phys-to-lightning conversion for bolts; 100% for beams). Armour Piercing Rounds used for single-target: loads clip of bolts fired rapidly, breaking enemy armor. Shock from Galvanic Shards enables Shockburst Rounds (powerful shock-activated pulse)."
+        },
+        "source_url": "https://poe2db.tw/us/Galvanic_Shards",
+        "anchor_quote": "Load your Crossbow with charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Galvanic Shards Mercenary (0.1 launch meta)",
+            "Galvanic Shards Witchhunter (0.3 guide)",
+            "Galvanic Shards Amazon (Ranger-side crossbow variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/galvanic-shards-witchhunter-build-guide",
+        "anchor_quote": "Galvanic Shards Witchhunter Build Guide - Path of Exile 2 / Galvanic Shards Amazon Build Guide - Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "kit_id": "poe1-lightning-arrow",
+  "spine": {
+    "kit_id": "poe1-lightning-arrow",
+    "folk_name": "Lightning Arrow",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Simultaneous-splash-to-3 vs sequential decaying chain hops is the visible drift (pack-clear cadence, not per-target damage, is what a LA player would notice); the 18u fixed splash radius and up-to-3 cap are numeric properties chain does not enumerate.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Simultaneous-splash-to-3 vs sequential decaying chain hops is the visible drift (pack-clear cadence, not per-target damage, is what a LA player would notice); the 18u fixed splash radius and up-to-3 cap are numeric properties chain does not enumerate.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Arrow",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "bow projectile; on hit, a lightning bolt ALSO strikes up to 3 additional enemies within 18 units of the target -- a one-hop SIMULTANEOUS splash-fan modeled as chain (the arrow delivery spine is folded into this note per b04 ice-shot composite precedent); 50% phys->lightning conversion; PoE shock -> engine sunder (damage-taken amp; s2 FALSE FRIEND, engine shock is paralysis CC)"
+        }
+      ],
+      "motion_frame": "run-and-gun bow mapper: fire on the full move, every arrow forks lightning into the pack around its target -- whole screens light up with chained splashes",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "chain splash-to-3 around primary hit (18u radius)",
+            "extra-projectiles + chain supports extend to screen-wide clear"
+          ],
+          "economy": [
+            "mana-light attack spend; full-move fire"
+          ],
+          "traits_affixes": [
+            "shock-effect (sunder-magnitude analog)",
+            "lightning-penetration",
+            "projectile/attack-speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MODERN MAPPING-ARCHETYPE bow kit (eras 1.x;3.20+ CONFIRMED -- introduced 0.9.7, modernized 3.25). s2 FALSE FRIEND applied: PoE shock (increased damage taken) -> sunder, never engine shock. Splash-shape judgment: the source strikes up to 3 enemies SIMULTANEOUSLY within 18u of the primary hit -- chain is the honest 26-type (arcing to nearby targets), with the verified drift that engine chain hops SEQUENTIALLY and DECAYS 0.7x/hop (arc-b01 audit precedent -- engine truth, checked) while LA's splash is simultaneous at full splash damage. multi_projectile rejected (one arrow; the fan is the SPLASH, not the projectile). 50% phys->lightning -> ELEMENT_CONVERSION_PHYSICAL (b04 ice-shot precedent for partial-conversion bow attacks); ELEMENTAL_ECHO mono-lightning amp."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Lightning_Arrow",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Lightning Arrow — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped eras 1.x and 3.20+",
+      "anchor_quote": "Lightning Arrow was present during the 1.x era. Recent patches (3.25.0) modernized the gem's effectiveness",
+      "source_url": "https://poedb.tw/us/Lightning_Arrow",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Arrow' and alias 'LA' are real community usage for a Deadeye bow build",
+      "anchor_quote": "Lightning Arrow was introduced in version 0.9.7 of Path of Exile",
+      "source_url": "https://poedb.tw/us/Lightning_Arrow",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Lightning Arrow; bow projectile; lightning splash to nearby enemies per hit; chain/AoE scaling",
+      "anchor_quote": "Causes enemies to be struck by a bolt of lightning, which also damages a number of surrounding enemies. Hits up to 3 additional enemies near the target",
+      "source_url": "https://poedb.tw/us/Lightning_Arrow",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Lightning_Arrow",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Lightning Arrow (quality)",
+              "type": "base_quality",
+              "effect": "Hits up to (0-2) additional enemies near the target",
+              "anchor_quote": "Hits up to (0—2) additional enemies near the target"
+            },
+            {
+              "node": "Lightning Arrow of Electrocution (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Arrows Damage final target 4 additional times after sticking in (previously 3)",
+              "anchor_quote": "Arrows now Damage final target 4 additional times after sticking in (previously 3)"
+            },
+            {
+              "node": "Vaal Lightning Arrow (vaal)",
+              "type": "vaal_variant",
+              "effect": "72% Effectiveness of Base and Added Damage at level 1; no longer has Added Lightning Damage",
+              "anchor_quote": "No longer has Added Lightning Damage at all gem levels"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Arrow",
+        "anchor_quote": "Arrows now Damage final target 4 additional times after sticking in (previously 3)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Lightning Arrow of Electrocution (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Arrows Damage final target 4 additional times after sticking in (previously 3)",
+              "anchor_quote": "Arrows now Damage final target 4 additional times after sticking in (previously 3)"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Arrow",
+        "anchor_quote": "Arrows now Damage final target 4 additional times after sticking in (previously 3)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (bow shot)",
+          "footprint": "chain-hop (lightning splashes to up to 3 nearby enemies from primary hit)",
+          "aoe_radius": 18,
+          "aoe_unit": "units",
+          "range_note": "bow range; splash radius 18 units around primary hit"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Arrow",
+        "anchor_quote": "damages a number of surrounding enemies. Area of effect radius: 18",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "fire bow shot → primary projectile hits target → lightning bolt also strikes up to 3 nearby enemies simultaneously → shock applied → chain/AoE supports extend clear",
+          "resource": "mana spend per shot",
+          "scaling": "50% phys to lightning conversion; shock magnitude scales with gem level"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Arrow",
+        "anchor_quote": "Causes enemies to be struck by a bolt of lightning, which also damages a number of surrounding enemies. Hits up to 3 additional enemies near the target",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Lightning_Arrow",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

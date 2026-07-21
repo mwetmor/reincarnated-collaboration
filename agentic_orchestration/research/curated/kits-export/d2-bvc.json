@@ -1,0 +1,269 @@
+{
+  "kit_id": "d2-bvc",
+  "spine": {
+    "kit_id": "d2-bvc",
+    "folk_name": "BvC",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-pvp;d2r-pvp",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: PvP context (engine is solo PvE — WW mechanics map but caster-hunting purpose is context); Enigma teleport repositioning layer (item-dependent mobility).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: PvP context (engine is solo PvE — WW mechanics map but caster-hunting purpose is context); Enigma teleport repositioning layer (item-dependent mobility).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving-channel: character IS carried to target point while spinning; anchor: 'it will take your character to the selected point while performing a spinning attack'; §CROSS row 5 moving-channel law: delivery_notes MUST state moving-vs-rooted: MOVING; physical = element-neutral; footprint = path-swath around spin"
+        },
+        {
+          "source_skill": "Leap",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "Gap-close leap; knockback payload; anchor: 'Leap gap-closes with knockback effect'; PvP role: Leap stun then WW; §2 knockback attested via 'knockback effect' in dossier skill_loop"
+        },
+        {
+          "source_skill": "Battle Orders",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Warcry self+party HP/mana buff; 'Battle Orders stacks HP/mana for survivability'; self_buff / aura economy layer"
+        }
+      ],
+      "motion_frame": "PvP: Leap to gap-close with knockback, immediately Whirlwind through caster target for burst physical damage; Battle Orders maintained for HP stack; Enigma teleport for repositioning (item fidelity)",
+      "resource_economy": {
+        "cost_scale": "WW mana per spin; Battle Orders warcry mana; no special economy"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "DEFENSIVE_TRADEOFF"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Enigma teleport repositioning (item fidelity note)"
+          ],
+          "economy": [
+            "Battle Orders HP/mana stack (warcry economy layer)"
+          ],
+          "traits_affixes": [
+            "Berserk 1-3 pt magic-damage finisher — scaffold skill; Weapon Mastery passive"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PvP context per §D PvP row: mechanics map natively; PvP meta framing = fidelity note. Moving-channel §CROSS row 5: WW IS the movement delivery — MOVING noted. Knockback from Leap: attested 'knockback effect' in dossier. Physical = element-neutral. §A row 3 charge-composite precedent applies analogously to Leap gap-close (traversal-strike composite). MOMENTUM_CASCADE T4 captures aggressive pursuit identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "WHIRLWIND",
+    "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": "Yuqing",
+      "title": "PvP BvC Guide by Yuqing & Co.",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/forums/threads/pvp-barb-vs-caster-guide-bvc-by-ling.1064/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": "Ling",
+      "title": "PvP Barb vs Caster Guide (BvC) by Ling",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Whirlwind Barbarian Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-pvp",
+      "anchor_quote": "Whirlwind (20), Leap (14-20), Berserk (1-3), Weapon Mastery (20), Battle Orders (20) — PvP Barb vs Caster Guide (BvC) by Ling",
+      "source_url": "https://www.purediablo.com/forums/threads/pvp-barb-vs-caster-guide-bvc-by-ling.1064/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r-pvp",
+      "anchor_quote": "Whirlwind Barbarian Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name BvC; aliases Barbarian vs Caster, BvC Barbarian PvP, WW Leap BvC",
+      "anchor_quote": "Although the name BvC shouldn't be taken too literally, they are great at what they're built to do: Kill Casters",
+      "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Whirlwind (moves character, spinning attack), Leap (knockback), Battle Orders",
+      "anchor_quote": "Whirlwind is the primary attack of the build and arguably the best physical attack skill because it moves — it will take your character to the selected point while performing a spinning attack",
+      "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Yuqing",
+          "site": "purediablo.com",
+          "secondary": "Ling (separate guide)"
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+        "anchor_quote": "PvP BvC Guide by Yuqing & Co.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Grief (weapon)",
+            "Enigma (armor)",
+            "Fortitude (armor alt)"
+          ],
+          "skills": [
+            "Berserk (1-3 pts for magic damage vs high-def targets)",
+            "Weapon Mastery (20)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+        "anchor_quote": "Whirlwind (20), Leap (14-20), Berserk (1-3), Weapon Mastery (20), Battle Orders (20)",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Grief (primary damage axe/sword)",
+            "Enigma (teleport for caster hunting)",
+            "Arreats Face (helmet)",
+            "Verdungo's Heartcoil (belt, PDR)"
+          ],
+          "notes": "One of most expensive builds in D2; Enigma teleport enables aggressive caster pursuit"
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+        "anchor_quote": "due to the nature of this build, it tends to be one of the most expensive builds to use",
+        "abstained": 0,
+        "conf": 0.74
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin spinning (Whirlwind moves character)",
+          "footprint": "small-radius around spinning body",
+          "range_type": "self-origin",
+          "notes": "Whirlwind carries character to target point while spinning — delivery IS movement; Leap provides gap-close with knockback; no stand-still casting required"
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+        "anchor_quote": "it will take your character to the selected point while performing a spinning attack",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Whirlwind moves the Barbarian through enemies dealing spinning physical hits; Leap gap-closes with knockback effect; Battle Orders stacks HP/mana for survivability. PvP role: pursue casters, use Leap stun then WW through them for burst physical damage."
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-bvc-guide-by-yuqing-co.1065/",
+        "anchor_quote": "Whirlwind is the primary attack of the build and arguably the best physical attack skill because it moves",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "BvC (Barbarian vs Caster, anti-caster PvP)",
+            "BvB (Barbarian vs Barbarian, different gearing)",
+            "WW Barb PvM (non-PvP variant)"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/pvp-barb-vs-caster-guide-bvc-by-ling.1064/",
+        "anchor_quote": "Although the name BvC shouldn't be taken too literally",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

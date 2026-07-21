@@ -1,0 +1,224 @@
+{
+  "kit_id": "poe2-archmage-totems",
+  "spine": {
+    "kit_id": "poe2-archmage-totems",
+    "folk_name": "Archmage Totems Oracle",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The source player would miss that this is a mana-STACKING archmage build where max-mana IS the damage stat funneled THROUGH totems -- we express the totem proxy cleanly but the mana-as-weapon coupling degrades to a cost_scale note (no native key couples max-mana-pool to spell damage). Joint attestation weakness means the specific Oracle+Archmage+Totem synergy is not source-confirmed as one loop; if that synergy proves phantom the kit collapses toward a plain totem-Spark build. Because a plausible weaker version of that build survives, APPROX.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The source player would miss that this is a mana-STACKING archmage build where max-mana IS the damage stat funneled THROUGH totems -- we express the totem proxy cleanly but the mana-as-weapon coupling degrades to a cost_scale note (no native key couples max-mana-pool to spell damage). Joint attestation weakness means the specific Oracle+Archmage+Totem synergy is not source-confirmed as one loop; if that synergy proves phantom the kit collapses toward a plain totem-Spark build. Because a plausible weaker version of that build survives, APPROX.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spark (cast by Spell Totem)",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed-proxy: Spell Totem (Grim Pillars meta-gem) casts Spark; Spark is a bouncing lightning projectile. Player places totems (proxy delivery); totems emit the projectiles. proxy_val=heavy."
+        }
+      ],
+      "motion_frame": "Place Spell Totems that autonomously cast mana-scaled Spark; player repositions while totems work (mob 'high-while-totems-work').",
+      "resource_economy": {
+        "reservation_resource": "mana",
+        "cost_scale": "mana-as-weapon (Archmage couples spell damage to max mana investment)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 3,
+        "support_lanes": {
+          "geometry": [
+            "totem placement counts",
+            "Spark ricochet_bounce sub-projectiles"
+          ],
+          "economy": [
+            "mana-investment damage coupling (Archmage)"
+          ],
+          "traits_affixes": [
+            "mana-scaling damage scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "3-way combo (Oracle chassis + Archmage + Spell-Totem+Spark) is SINGLE-SOURCE-UNCONFIRMED, conf 0.45 (addendum C.8): skill_loop dossier verbatim states 'Specific loop synergy not confirmed in a single source -- component skills confirmed individually.' Mapped components per dossier; JOINT ATTESTATION IS WEAK -- flagged. elem 'lightning' per corpus; shock rider REMOVED at steward audit (mapper's own note conceded fetched text names no status -- addendum §0 bars un-attested riders; engine shock=arc-CC paralysis, not a lightning flavor tag). Archmage 'mana-as-weapon' -> mana-investment damage coupling has no clean native key; approximated to reservation_resource:mana + cost_scale note. chain_count=3 justified by 3 load-bearing actives (totem+Spark+Archmage-buff). verify_ledger: mechanics UNSUPPORTED (probe economy/element deferred POST-CUTOFF conf 0.47); identity+era CONFIRMED 0.5-ancients."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/grim-pillars-spell-totem-oracle-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Grim Pillars Spell Totem Oracle Build Guide for Path of Exile 2 Return of the Ancients 0.5.3",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/archmage-spark-stormweaver-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Archmage Spark Stormweaver Build Guide - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe2/builds/runesofaldur?class=Oracle&skills=Spell+Totem",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Oracle Spell Totem builds - Runes of Aldur - Path of Exile 2",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe.ninja/poe2/builds/runesofaldur?class=Oracle&skills=Spark",
+      "archive_url": null,
+      "site": "poe.ninja",
+      "author_handle": null,
+      "title": "Oracle Spark builds - Runes of Aldur - Path of Exile 2",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.5-ancients",
+      "anchor_quote": "Oracle Spark builds - Runes of Aldur - Path of Exile 2",
+      "source_url": "https://poe.ninja/poe2/builds/runesofaldur?class=Oracle&skills=Spark",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Archmage Totems Oracle'; aliases 'Spark Archmage Totem', 'Oracle Totem build'",
+      "anchor_quote": "Oracle Spell Totem builds - Runes of Aldur - Path of Exile 2",
+      "source_url": "https://poe.ninja/poe2/builds/runesofaldur?class=Oracle&skills=Spell+Totem",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Spark, Spell Totem, Archmage; totems cast mana-scaled Spark spells",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/poe2/build-guides/grim-pillars-spell-totem-oracle-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop_verbatim": "Totems placed by Oracle cast Spark; Archmage multiplies damage based on mana investment; Oracle chassis enables totem-sustained mana economy. Specific loop synergy (Oracle+Archmage+Totem+Spark combo) not confirmed in a single source — component skills confirmed individually."
+        },
+        "source_url": "https://poe.ninja/poe2/builds/runesofaldur?class=Oracle&skills=Spark",
+        "anchor_quote": "Oracle Spark builds - Runes of Aldur - Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.45
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Oracle Spell Totem (Grim Pillars — dominant 0.5 variant per Maxroll guide)",
+            "Stormweaver Archmage Spark (0.1 variant — different class; class shift across eras possible)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/grim-pillars-spell-totem-oracle-build-guide",
+        "anchor_quote": "Spell Totem is a Meta Gem. After you equip it, you can socket another skill into it, which in this case is Grim Pillars.",
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

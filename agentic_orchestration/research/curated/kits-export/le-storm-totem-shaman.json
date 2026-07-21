@@ -1,0 +1,251 @@
+{
+  "kit_id": "le-storm-totem-shaman",
+  "spine": {
+    "kit_id": "le-storm-totem-shaman",
+    "folk_name": "Storm Totem Shaman",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19 GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: tornado-as-mobile-weather flavor rides a stationary placed-emitter token (no wandering behavior attested, so no pursuit delta); autonomous per-zone bolt targeting is texture inside the emitter grammar. Placement loop, multi-zone coverage, and lightning payload are native.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "wind"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 3,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: tornado-as-mobile-weather flavor rides a stationary placed-emitter token (no wandering behavior attested, so no pursuit delta); autonomous per-zone bolt targeting is texture inside the emitter grammar. Placement loop, multi-zone coverage, and lightning payload are native.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tornado",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": "wind",
+          "ailments": [],
+          "delivery_notes": "placement ATTESTED ('Place down long lasting Tornados on the battlefield') -> placed-emitter lane; each tornado rapidly auto-casts Storm Bolts (lightning strikes) in its own zone via Charged Storm; multiple simultaneous tornadoes cover the encounter area"
+        }
+      ],
+      "motion_frame": "stand-your-ground placement cycle: seed the battlefield with tornado emitters, hold position while zones melt the screen",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Foot of the Mountain: Mana cost reduction -> gear lane"
+          ],
+          "traits_affixes": [
+            "Gathering Storm: Storm Bolt damage amplifier -> numeric lane",
+            "Mad Alchemist's Ladle / Tempest Maw / Eye of Storms offensive uniques"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "B totem lane: placed emitter MAPS (placement language checked and present). Storm Bolt emission kept inside the placement row + grammar (emitter payload), not a second delivery. Spriggan Form Totem-Shaman variant is variant-scoped (W2 ruling 4): Stormcarved Testament makes Summon Storm Totem proc-cast from Spirit Thorns in-form ('can't be manually cast in Spriggan Form') = trigger rider on the in-form loop per B form law, and the form economy would govern that variant - none of it rides the core row; Rage NOT attested for this kit, not mapped. Multi-totem count filed as placed-proxy-count accrual. NO shock/sunder - lightning flavor never implies a status (0-UNIVERSAL; near-miss). Eras: all era verifies honest-U; corpus columns beta;1.0;1.2 retained as-ingested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "BinaQc",
+      "title": "Tornado Shaman Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/totem-shaman-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "BinaQc",
+      "title": "Totem Shaman Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Storm Totem Shaman LE' / 'Tornado Shaman' / 'lightning totem Shaman' are real community usage",
+      "anchor_quote": "Tornado Shaman... Place down long lasting Tornados on the battlefield that rapidly cast Storm Bolts thanks to Charged Storm for huge Lightning damage.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Storm Totem, Tornado; multi-point area coverage; lightning damage; resource=Mana; totems placed at target positions channel autonomously",
+      "anchor_quote": "Place down long lasting Tornados on the battlefield that rapidly cast Storm Bolts thanks to Charged Storm for huge Lightning damage.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "BinaQc",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Charged Storm (Storm Bolt proc from Tornado)",
+            "Gathering Storm (Storm Bolt damage amplifier)"
+          ],
+          "set_identities": [
+            "Stormcarved Testament (Totem Shaman variant: Storm Totem procs from Healing Totem in Spriggan Form)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+        "anchor_quote": "Gathering Storm allows you to drastically increase the damage of those storm bolts... Summon Storm Totem can't be manually cast in Spriggan Form, but procs from using Spirit Thorns while in Spriggan Form thanks to Stormcarved Testament.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Mad Alchemist's Ladle (offensive)",
+            "Tempest Maw (offensive)",
+            "Eye of Storms (offensive)",
+            "Wall of Nothing (defensive)",
+            "Twisted Heart of Uhkeiros (defensive)",
+            "Stormcarved Testament (Storm Totem proc in Spriggan Form)",
+            "Foot of the Mountain (Mana cost reduction)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+        "anchor_quote": "Items like Mad Alchemist's Ladle, Tempest Maw and Eye of Storms offer great offensive options while Wall of Nothing and Twisted Heart of Uhkeiros are must-haves.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "multi-point: multiple tornadoes placed across encounter area; each tornado covers its own lightning-strike zone; enormous area coverage via Charged Storm",
+          "range_class": "ranged (totem/tornado placement)",
+          "aoe": "multi-point large-area"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+        "anchor_quote": "long lasting Tornados on the battlefield that rapidly cast Storm Bolts... stand your ground and unleash a storm of Tornados as everything melts around you.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Shaman places Tornados which autonomously call Storm Bolts (lightning) via Charged Storm node. Gathering Storm amplifies Storm Bolt damage. Summon Spriggan Form variant uses Healing Totem spam to proc Storm Totem via Stormcarved Testament. Multiple simultaneous totems/tornadoes cover the encounter area.",
+          "core_driver": "tornado-to-storm-bolt proc chain; totem placement loop"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+        "anchor_quote": "Place down long lasting Tornados on the battlefield that rapidly cast Storm Bolts thanks to Charged Storm for huge Lightning damage.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Tornado Shaman",
+              "notes": "Tornado placement + Storm Bolt proc via Charged Storm; primary variant"
+            },
+            {
+              "name": "Totem Shaman (Spriggan Form)",
+              "notes": "Healing Totem spam in Spriggan Form procs Storm Totem via Stormcarved Testament; plays like a caster"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/tornado-shaman-guide",
+        "anchor_quote": "Tornado Shaman... Totem Shaman... Summon Storm Totem.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

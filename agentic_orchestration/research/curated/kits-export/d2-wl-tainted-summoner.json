@@ -1,0 +1,225 @@
+{
+  "kit_id": "d2-wl-tainted-summoner",
+  "spine": {
+    "kit_id": "d2-wl-tainted-summoner",
+    "folk_name": "Tainted Summoner Warlock",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Kit identity is autonomous-demon-army summoner (Bind Demon accumulate + Summon Tainted autonomous combatants). Both are summoner-GAP territory. ERRATA-55 unattested folk-name adds identity uncertainty. The kit as described is 'not that build' in engine without autonomous-combatant support.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Kit identity is autonomous-demon-army summoner (Bind Demon accumulate + Summon Tainted autonomous combatants). Both are summoner-GAP territory. ERRATA-55 unattested folk-name adds identity uncertainty. The kit as described is 'not that build' in engine without autonomous-combatant support.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bind Demon",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "10% chance to bind injured non-boss demon at enemy position. Single-target conversion. ERRATA-55 / UNATTESTED-REGISTER: folk-name 'Tainted Summoner' not a named guide archetype in primary sources (honest-U per corpus mech_note). Mechanics attested via Blood Boil guide. Converted demon retains affixes."
+        },
+        {
+          "source_skill": "Summon Tainted",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged fireball summon companion. Autonomous combatant = summoner-GAP; mapped APPROX as totem with gap noted. Kit identity centers on accumulating bound-demon army."
+        }
+      ],
+      "motion_frame": "Bind Demon to convert enemy uniques; accumulate bound-demon army; Summon Tainted provides supplemental ranged fireball summons. Overlaps significantly with Blood Boil Warlock.",
+      "resource_economy": {
+        "spend": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Enigma teleport for positioning",
+            "Infinity merc curse:sap rider"
+          ],
+          "traits_affixes": [
+            "Blood Boil synergy with Summon Tainted — scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-55 UNATTESTED REGISTER: 'Tainted Summoner' is not an independently named guide archetype in primary sources (maxroll uses 'Summoner Warlock'). Honest-U register governs — mechanics attested via Blood Boil guide overlap. Identity is UNSUPPORTED in verify_ledger. Summoner-deferral accrual: autonomous-combatant army is the loop identity — GAPPED terminal for the autonomous-army core. Bind Demon conversion maps as companion-pact APPROX; PROXY_ASCENSION door covers the accumulate-allies identity. Source player gets a full autonomous demon army; engine gives proxy entities."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/summoner-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Summoner Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Blood Boil Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: rotw-s13+",
+      "anchor_quote": "Summon Tainted deals considerable AoE Fire Damage with its primary ranged attack. This quickly kills any enemies who are not naturally Fire Resistant.",
+      "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Tainted Summoner Warlock'; aliases 'Tainted Summoner Warlock D2R', 'Bind Demon Warlock'",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d2/guides/summoner-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Bind Demon, Summon Tainted",
+      "anchor_quote": "Bind Demon is crucial, as it allows you to convert a Unique monster to your side. Blood Boil causes % Loss of Maximum Life to all summoned and bound demons.",
+      "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Enigma",
+            "Infinity",
+            "Call to Arms",
+            "Spirit"
+          ],
+          "synergies": [
+            "Blood Boil synergy with Summon Tainted for fire damage scaling"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+        "anchor_quote": "Summon Tainted: Massive synergy boost with Blood Boil for large Fire damage.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Enigma",
+            "Call to Arms",
+            "Spirit",
+            "Infinity",
+            "Heart of the Oak"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+        "anchor_quote": "Enigma, Call to Arms, Infinity Cryptic Axe, Heart of the Oak, Spirit",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (Bind Demon targets enemy at its position)",
+          "footprint": "point (single enemy conversion)",
+          "notes": "Summon Tainted = ranged fireball summon. Bind Demon = single-target conversion at enemy location."
+        },
+        "source_url": "https://gurugamer.com/pc-console/complete-list-of-warlock-skills-in-diablo-2-resurrected-26393",
+        "anchor_quote": "Bind Demon: 10% chance bind injured non-boss demon. Summon Tainted: Ranged fireball summon.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Warlock converts enemies using Bind Demon (10% chance to bind injured non-boss demon; demon retains affixes). Summon Tainted provides ranged fireball summon allies. Build identity centers on accumulating bound demons as army. Overlaps significantly with Blood Boil Warlock; 'Tainted Summoner' is not an independently named guide archetype in primary sources."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/summoner-warlock-guide",
+        "anchor_quote": "Bind Demon allows you to convert a Unique monster to your side. They retain their Affixes and grant additional bonuses when they become your ally.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

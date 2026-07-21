@@ -1,0 +1,234 @@
+{
+  "kit_id": "poe2-grim-feast",
+  "spine": {
+    "kit_id": "poe2-grim-feast",
+    "folk_name": "Grim Feast Overleech",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.2-dawn",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "An ES-overleech (0.2-dawn) player would get a worse version: the engine expresses the on-kill life-remnant INTAKE (recovery keys) but NOT the ABOVE-MAX overflow buffer that IS the durability identity -- ES tops off toward the cap instead of overflowing to 2x. 'That build, worse' (R-M7) -> APPROX, kit stays MAPPED (playable worse-version); the above-cap MECHANISM gap is carried in the docket-candidate for steward consolidation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 2,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "An ES-overleech (0.2-dawn) player would get a worse version: the engine expresses the on-kill life-remnant INTAKE (recovery keys) but NOT the ABOVE-MAX overflow buffer that IS the durability identity -- ES tops off toward the cap instead of overflowing to 2x. 'That build, worse' (R-M7) -> APPROX, kit stays MAPPED (playable worse-version); the above-cap MECHANISM gap is carried in the docket-candidate for steward consolidation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Grim Feast (0.2-dawn ES-overleech variant)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "self-origin presence buff, no aim: reserves Spirit to grant a passive that vacuums life remnants dropped by dying enemies within a small radius and converts them to Energy Shield OVERLEECH above maximum (up to 2x ES cap). NOT a damage skill -- a defensive sustain layer. Small-radius vacuum + no directional aim = aura (presence) over ground_targeted_circle (which implies a placed/aimed patch). verify_ledger governs: 0.2-dawn CONFIRMED, 0.3-edict/0.4 CONTRADICTED+errata (minion-revival rework trimmed per ERRATA-18); mapped identity is the ES-overleech era."
+        }
+      ],
+      "motion_frame": "run-and-vacuum sustain aura: keep clearing, every kill's life remnant is sucked in and stacked onto an above-max Energy Shield buffer -- the more you kill, the tankier you get",
+      "resource_economy": {
+        "reservation_resource": "spirit",
+        "reservation_flat": "30 (Spirit-reservation FALSE FRIEND -- poe2 Spirit is a reservation pool, NOT the engine spirit_guide system)",
+        "on_kill_frac": "life-remnant harvest on enemy death feeds the overleech buffer (kill-density-scaled intake)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "self-origin small vacuum radius (aura presence)"
+          ],
+          "economy": [
+            "Spirit-reservation cost (flat 30)",
+            "on-kill life-remnant harvest -> ES overleech above cap"
+          ],
+          "traits_affixes": [
+            "energy-shield %",
+            "overleech / recovery-rate affixes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-05 (identity flagged in corpus). Section-B ES-overleech-ABOVE-CAP watch-item FIRED: engine economy has on_kill recovery keys but NO key expressing an ABOVE-MAXIMUM ES buffer (overleech past cap is the kit's whole point). Mapped on_kill_frac to nearest recovery key and DOCKETED the above-cap-buffer gap (docket-candidate filed). Spirit-reservation FALSE FRIEND applied: reservation_resource=spirit is the poe2 reservation pool, NOT any engine spirit_guide surface. Element-neutral (defensive buff)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/explosive-shot-deadeye-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Explosive Shot Deadeye Build Guide - Path of Exile 2",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/shattering-palm-invoker-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Shattering Palm Invoker Build Guide - Path of Exile 2",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Grim_Feast",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Grim Feast - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "Grim Feast has been completely reworked and re-enabled. Instead of granting energy shield, it now allows you to collect remnants from your dead Reviving Minions",
+      "source_url": "https://poe2db.tw/us/Grim_Feast",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "Grim Feast has been completely reworked and re-enabled. Instead of granting energy shield, it now allows you to collect remnants from your dead Reviving Minions",
+      "source_url": "https://poe2db.tw/us/Grim_Feast",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in era 0.4",
+      "anchor_quote": "Grim Feast has been completely reworked and re-enabled. Instead of granting energy shield, it now allows you to collect remnants from your dead Reviving Minions",
+      "source_url": "https://poe2db.tw/us/Grim_Feast",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Grim Feast Overleech' and aliases 'Grim Feast ES recovery', 'overleech Grim Feast' are real community usage",
+      "anchor_quote": "Grim Feast reserves 30 Spirit in order to grant you a Passive Buff that lets you collect Grim Remnants from killed enemies, regaining a bunch of Energy Shield for each of them.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/explosive-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Grim Feast is a Spirit-reserved buff that collects life remnants from enemy deaths and converts them to ES overleech above the maximum",
+      "anchor_quote": "Grim Feast reserves 30 Spirit in order to grant you a Passive Buff that lets you collect Grim Remnants from killed enemies, regaining a bunch of Energy Shield for each of them.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/shattering-palm-invoker-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Self-origin small-radius vacuum aura. Life remnants within a small radius of the player are collected automatically. No directional aim required.",
+          "era_note": "0.1-0.2 ES variant geometry"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/shattering-palm-invoker-build-guide",
+        "anchor_quote": "Grim Feast allows you to overflow your Energy Shield in maps to up to 2x the value making you much more durable to ground effects",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Reserve 30 Spirit for Grim Feast buff. Kill enemies to drop life remnants. Remnants are automatically vacuumed and converted to Energy Shield overleech (above maximum cap). High kill density = sustained ES buffer above max.",
+          "era_note": "0.1-0.2 only. In 0.3.0 the skill was completely reworked to minion-revival mechanic."
+        },
+        "source_url": "https://poe2db.tw/us/Grim_Feast",
+        "anchor_quote": "Grim Feast has been completely reworked and re-enabled. Instead of granting energy shield, it now allows you to collect remnants from your dead Reviving Minions",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Acolyte of Chayula Grim Feast (ES-stacking summoner build)",
+            "Support role across multiple build archetypes as a defensive Spirit reservation layer"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/pob/te2q9076",
+        "anchor_quote": "Level 94 Grim Feast Acolyte of Chayula",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

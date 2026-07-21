@@ -1,0 +1,238 @@
+{
+  "kit_id": "d4-dread-claws-warlock",
+  "spine": {
+    "kit_id": "d4-dread-claws-warlock",
+    "folk_name": "Dread Claws Warlock",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Greater Demon autonomous companion loop has no engine lane (summoner GAP rider); player loses demon AI positioning mechanic. Element null — shadow/abyssal flavor absent. Wrath resource texture absent (cooldown framing only per §C.5). Core Dread Claws AoE identity and Shadowform-stack-to-burst loop preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Greater Demon autonomous companion loop has no engine lane (summoner GAP rider); player loses demon AI positioning mechanic. Element null — shadow/abyssal flavor absent. Wrath resource texture absent (cooldown framing only per §C.5). Core Dread Claws AoE identity and Shadowform-stack-to-burst loop preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dread Claws - Enveloping Terror",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin circular AoE per skill_geometry payload: 'Circular AoE around both Warlock and Greater Demon summon; Enveloping Terror variant doubles AoE zones; abyssal claw theme'; 'summons a circular AoE around both yourself and your Greater Demon summons' per verify mechanics anchor; element null: no 'shadow damage' or element damage-type language verbatim in any legal store (mech_note 'shadow' is probe-class; 'abyssal claw theme' is probe language; 'Aspect of Deeper Shadows' = item name, not damage attestation); no ailment word in any anchor"
+        },
+        {
+          "source_skill": "Nether Step (mobility + Shadowform)",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'fly around with non-stop Nether Step, automatically moving your summoned demons with you' per skill_loop payload; mobility blink that maintains demon positioning; Shadowform stacks generation context; blink geometry; element null"
+        }
+      ],
+      "motion_frame": "Gain Shadowform stacks via Metamorphosis, Nether Step, Command Laalish, Sigil of Subversion; cast Dread Claws - Enveloping Terror for dual AoE (self + Greater Demon); fly with non-stop Nether Step per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "cooldown (Warlock post-cutoff class; §C.5 do-not-populate contested resource key; variants attests 'Wrath resource confirmed' but §C.5 governs — cooldown-only framing applied per addendum)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "shadowform_stack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Enveloping Terror variant doubles AoE zones (self + Greater Demon positions) per verify mechanics anchor"
+          ],
+          "economy": [
+            "Footfalls of the Waning World (mobility scaler)",
+            "Chains of Horazon (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Shadow of Harash set 5-piece (scaler-only)",
+            "Litany of Sable core item (scaler-only)",
+            "Aspect of Deeper Shadows (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§C.5 applied: Warlock cooldown-only framing per do-not-populate erratum; 'Wrath resource confirmed' per variants text is attested in kit's own dossier but §C.5 governs mapping lane — cooldown key used. Element null: 'abyssal claw theme' is mech_note probe-class language; no verbatim 'shadow damage' or elemental damage word in skill_geometry/skill_loop/capstone_alterations anchor_quotes; item names ('Aspect of Deeper Shadows', 'Shadow of Harash set') are skill/item names — §0.3 collision law (name alone inadmissible). SUMMONER GAP RIDER: 'your summoned demons' per skill_loop payload — Greater Demon is an autonomous companion; per §CROSS summoner-GAP law, autonomous combatant = summoner GAP; the kit's identity is Dread Claws AoE + Shadowform stacking, not demon AI; demon = rider. APPROX + gap note per R-M7 biconditional: player would find 'that build, worse' (demon companion loop absent) but core Dread Claws AoE + Shadowform identity maps. Shadowform stacks = trigger_grammar apply-only (stack → burst_window when spending). No ailment attested."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Dread Claws Warlock Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/dread-claws-warlock-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "GhazzyTV",
+      "title": "Dread Claws - Warlock Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in loh-s13-14",
+      "anchor_quote": "Dread Claws Warlock Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Dread Claws Warlock; aliases Dread Claws Warlock D4, Warlock Dread Claws Build are real community usage",
+      "anchor_quote": "Dread Claws deals x#% increased damage and additional claws fire out when you gain a stack of Shadowform.",
+      "source_url": "https://www.icy-veins.com/d4/guides/dread-claws-warlock-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Dread Claws; Warlock class resource (post-cutoff); Shadowform mechanic",
+      "anchor_quote": "Dread Claws - Enveloping Terror summons a circular AoE around both yourself and your Greater Demon summons, allowing you to double up on your damage",
+      "source_url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "co_author": "GhazzyTV (icy-veins)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Deeper Shadows"
+          ],
+          "uniques": [
+            "Litany of Sable",
+            "Footfalls of the Waning World",
+            "Chains of Horazon"
+          ],
+          "set": [
+            "Shadow of Harash (5 pieces)"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/dread-claws-warlock-build/",
+        "anchor_quote": "The best set to use is Shadow of Harash (5 pieces)",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Litany of Sable",
+            "Footfalls of the Waning World",
+            "Chains of Horazon",
+            "Shadow of Harash set (5 pieces)",
+            "Aspect of Deeper Shadows"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/dread-claws-warlock-build/",
+        "anchor_quote": "Litany of Sable is a core item for Dread Claws",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "small-radius",
+          "notes": "Circular AoE around both Warlock and Greater Demon summon; Enveloping Terror variant doubles AoE zones; abyssal claw theme"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+        "anchor_quote": "Dread Claws - Enveloping Terror summons a circular AoE around both yourself and your Greater Demon summons, allowing you to double up on your damage",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Gain Shadowform stacks via Metamorphosis, Nether Step, Command Laalish, Sigil of Subversion; cast Dread Claws - Enveloping Terror for AoE around self and Greater Demon; fly with non-stop Nether Step",
+          "rotation_style": "shadowform_buff_spending"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+        "anchor_quote": "in the lategame you fly around with non-stop Nether Step, automatically moving your summoned demons with you while blowing up entire screens",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Encircling Terror (self-only AoE) vs Enveloping Terror (self+demon AoE) upgrade path; Wrath resource confirmed; post-cutoff loh-s13-14 class"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dread-claws-warlock-guide",
+        "anchor_quote": "Dread Claws - Enveloping Terror summons a circular AoE around both yourself and your Greater Demon summons",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

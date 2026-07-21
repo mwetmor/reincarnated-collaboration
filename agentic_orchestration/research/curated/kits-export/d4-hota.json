@@ -1,0 +1,301 @@
+{
+  "kit_id": "d4-hota",
+  "spine": {
+    "kit_id": "d4-hota",
+    "folk_name": "HotA Barbarian",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5;voh-s6+;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ancients as cast-mimicking proxy approximated as totem; full autonomous-combatant Ancients behavior has no engine lane (summoner-GAP partial rider). Overpower burst_window not an ailment. Aspect of Limitless Rage 900% cap is scaler-only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Ancients as cast-mimicking proxy approximated as totem; full autonomous-combatant Ancients behavior has no engine lane (summoner-GAP partial rider). Overpower burst_window not an ailment. Aspect of Limitless Rage 900% cap is scaler-only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Hammer of the Ancients",
+          "geometry_value": "ground_slam",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target small-radius slam per skill_geometry payload: 'HotA slams target location with small AoE impact; Aspect of Ancestral Force extends shockwave to larger radial burst in launch era; fully generatorless'; fire element attested: identity anchor 'Fire-based melee and Ancients build' — 'Fire-based' is fire-register language attesting fire element family (not a skill name; it is a damage characterization of the kit); Fury dump per verify anchor: 'Spend Fury with Hammer of the Ancients as often as possible'; no ailment word in any anchor"
+        },
+        {
+          "source_skill": "War Cry / Rallying Cry / Challenging Shout (shout stack)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'War Cry + Rallying Cry + Challenging Shout provide damage/resource buffs' per skill_loop payload; shout triplet as resource/damage buff rotation; aura geometry (AoE buff emanating from Barbarian body); element null; 'rotation_style shout_spam' per skill_loop payload confirms shout layer identity"
+        },
+        {
+          "source_skill": "Ancients (Bul-Kathos' Pride item-defined combatants)",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Fire-based melee and Ancients build (aka: Barbarian's minions)' per identity anchor; 'Bul-Kathos' Pride set and Arreat's Bearing to gain +2 Ancients mimicking each of your casts' per item_alterations anchor; Ancients are autonomous combatants = summoner GAP per §CROSS; BUT the item-defined-archetype law (§CROSS row 4): HotA kit identity IS the Ancients-with-HotA form — Ancients here are cast-mirrors, not independent HP combatants with behaviors; they 'mimic each of your casts' = cast-proxy, not autonomous AI; map as totem-proxy (stationary cast-mirroring entity closer to placed-proxy than autonomous combatant); fire element from kit identity; summoner-GAP noted in fidelity_notes as contested"
+        }
+      ],
+      "motion_frame": "Spam Hammer of the Ancients as Fury dump; War Cry + Rallying Cry + Challenging Shout for damage/resource buffs per skill_loop payload; Igni-Gar + Cir-Vex runeword for permanent +3 skills uptime; stack Overpower via Banished Lord's Talisman + Ring of Red Furor per hot-fact BINDING",
+      "resource_economy": {
+        "cost_scale": "Fury (Barbarian class resource); verify anchor: 'Spend Fury with Hammer of the Ancients as often as possible'; 'Fury powers this build, managed through skill usage and damage taken mechanics' per verify mechanics anchor; generatorless: 'remains fully generatorless' per identity anchor — Fury generated via shouts and damage taken, not generator attacks"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "overpower_burst_state",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Ancients mimic HotA casts (placed-proxy cast-mirror per item_alterations anchor)",
+            "Tidal Aspect AoE extension (scaler-only)"
+          ],
+          "economy": [
+            "Shout triplet Fury generation; Igni-Gar + Cir-Vex runeword for +3 skills uptime (capstone anchor)",
+            "The Relentless Heart (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Aspect of Limitless Rage up to 900% stacking multiplier (scaler-only per §B.1)",
+            "Bul-Kathos' Pride set + Arreat's Bearing (item-defined-archetype for Ancients per item_alterations anchor)",
+            "Banished Lord's Talisman + Ring of Red Furor Overpower stack mechanism (§C.3 hot-fact BINDING)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "§C.3 hot-fact BINDING: 'stack Overpower via Banished Lord's Talisman + Ring of Red Furor' per skill_loop payload — Overpower = burst_window trigger per addendum §C.3 (self-side burst state, NOT an ailment token). No ailment emitted for Overpower. Fire element attested: 'Fire-based melee and Ancients build' per identity anchor — 'Fire-based' is damage characterization (not a skill name); fire family. TEMPORAL_CHARGE door: Aspect of Limitless Rage ramp stacking identity (up to 900% per capstone anchor; ramp-to-cap = temporal charge shape). Ancients summoner-GAP ruling: 'Ancients mimicking each of your casts' per item_alterations anchor — 'mimic casts' is cast-proxy behavior, closer to placed-proxy than autonomous AI; totem lane applied with summoner-GAP note (the full autonomous-Ancients identity still has a partial gap; APPROX decision on this sub-skill). Overall kit grade: CLOSE (HotA core maps cleanly; Ancients proxy approximated)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Beatdropper",
+      "title": "Hammer of the Ancients Barbarian Endgame Build Guide for Diablo IV Season 13 - Season of Reckoning",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/hammer-of-the-ancients-barbarian-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Mathris",
+      "title": "Hammer of the Ancients - Barbarian Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://next.icy-veins.com/d4/guides/berserk-hammer-of-the-ancients-barbarian-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Mathris",
+      "title": "Overpower Berserk HotA Endgame Barbarian Build Guide for Diablo 4 (Season 5)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.dexerto.com/diablo/ultra-powerful-barbarian-build-in-diablo-4-has-its-wings-clipped-by-bug-fix-2216646/",
+      "archive_url": null,
+      "site": "dexerto.com",
+      "author_handle": null,
+      "title": "Ultra-powerful Barbarian build in Diablo 4 has its wings clipped by bug fix",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in launch-s1-3",
+      "anchor_quote": "ultra-powerful Barbarian build in Diablo 4 has its wings clipped by bug fix",
+      "source_url": "https://www.dexerto.com/diablo/ultra-powerful-barbarian-build-in-diablo-4-has-its-wings-clipped-by-bug-fix-2216646/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in loot-reborn-s4-5",
+      "anchor_quote": "Spend Fury with Hammer of the Ancients as often as possible",
+      "source_url": "https://next.icy-veins.com/d4/guides/berserk-hammer-of-the-ancients-barbarian-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in voh-s6+",
+      "anchor_quote": "Hammer of the Ancients Barbarian Endgame Build Guide for Diablo IV Season 13 - Season of Reckoning",
+      "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in loh-s13-14",
+      "anchor_quote": "Hammer of the Ancients Barbarian Endgame Build Guide for Diablo IV Season 13 - Season of Reckoning",
+      "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name HotA Barbarian; aliases Hammer of the Ancients Barbarian D4, HotA Barb D4 are real community usage",
+      "anchor_quote": "Fire-based melee and Ancients build (aka: Barbarian's 'minions') that remains fully 'generatorless'",
+      "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Hammer of the Ancients + War Cry; resource Fury; Overpower/Berserk scaling",
+      "anchor_quote": "Fury powers this build, managed through skill usage and damage taken mechanics.",
+      "source_url": "https://www.icy-veins.com/d4/guides/hammer-of-the-ancients-barbarian-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Beatdropper",
+          "site": "maxroll.gg",
+          "co_author": "Mathris (icy-veins)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Limitless Rage (up to 900% stack)",
+            "Tidal Aspect"
+          ],
+          "uniques": [
+            "Banished Lord's Talisman",
+            "Ring of Red Furor",
+            "The Relentless Heart"
+          ],
+          "sets": [
+            "Bul-Kathos' Pride",
+            "Arreat's Bearing"
+          ],
+          "runes": [
+            "Igni-Gar",
+            "Cir-Vex"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+        "anchor_quote": "Aspect of Limitless Rage (stacking multiplier up to 900%)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Bul-Kathos' Pride set",
+            "Arreat's Bearing",
+            "Aspect of Limitless Rage",
+            "Banished Lord's Talisman",
+            "Ring of Red Furor",
+            "The Relentless Heart",
+            "Tidal Aspect"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+        "anchor_quote": "Bul-Kathos' Pride set and Arreat's Bearing to gain +2 Ancients mimicking each of your casts",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "small-radius",
+          "notes": "HotA slams target location with small AoE impact; Aspect of Ancestral Force extends shockwave to larger radial burst in launch era; fully generatorless"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/hammer-of-the-ancients-barbarian-guide",
+        "anchor_quote": "Fire-based melee and Ancients build (aka: Barbarian's 'minions') that remains fully 'generatorless'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Hammer of the Ancients as Fury dump; War Cry + Rallying Cry + Challenging Shout provide damage/resource buffs; Igni-Gar + Cir-Vex runeword for permanent +3 skills uptime; stack Overpower via Banished Lord's Talisman + Ring of Red Furor",
+          "rotation_style": "shout_spam"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/hammer-of-the-ancients-barbarian-build/",
+        "anchor_quote": "Hammer of the Ancients as often as possible and Use War Cry and Rallying Cry for resources and their buffs",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Launch era used Aspect of Ancestral Force shockwave (bugged outer edge, patched 1.1.0 July 2023); S5 Overpower variant (Banished Lord's + Red Furor); S13 LoH expansion Fire Ancients generatorless variant; build has persisted launch through loh-s13-14"
+        },
+        "source_url": "https://www.dexerto.com/diablo/ultra-powerful-barbarian-build-in-diablo-4-has-its-wings-clipped-by-bug-fix-2216646/",
+        "anchor_quote": "ultra-powerful Barbarian build in Diablo 4 has its wings clipped by bug fix",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "kit_id": "poe1-golementalist",
+  "spine": {
+    "kit_id": "poe1-golementalist",
+    "folk_name": "Golementalist",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 8-golem menagerie (flame golems kill, other golem types buff the squad via jewels) maps via PROXY_ASCENSION + PROXY_CONVERGENCE + two proxy skill-entries, but the SPECIFIC engine of it -- Primordial Harmony cooldown-resets as the flame-golem DPS multiplier and Primordial Eminence as a per-golem-type effectiveness aura -- is abstracted to minion-cast-speed + golem-effectiveness affixes rather than a bespoke 'jewel-driven cooldown-reset + menagerie-buff' primitive. A player keeps the 'command a diverse golem squad where support-golems empower the killers' identity; the exact Primordial-jewel scaling loop is generalized to proxy traits.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The 8-golem menagerie (flame golems kill, other golem types buff the squad via jewels) maps via PROXY_ASCENSION + PROXY_CONVERGENCE + two proxy skill-entries, but the SPECIFIC engine of it -- Primordial Harmony cooldown-resets as the flame-golem DPS multiplier and Primordial Eminence as a per-golem-type effectiveness aura -- is abstracted to minion-cast-speed + golem-effectiveness affixes rather than a bespoke 'jewel-driven cooldown-reset + menagerie-buff' primitive. A player keeps the 'command a diverse golem squad where support-golems empower the killers' identity; the exact Primordial-jewel scaling loop is generalized to proxy traits.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Flame Golem (primary damage proxy, x4)",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "4 Flame Golems are the entire damage engine; each is an autonomous proxy casting fire spray / fire wave / explosive arcing projectile in its own area, scaled almost entirely by Primordial Harmony jewels (cooldown resets). totem = placed autonomous proxy entity; fire family + burn (ignite rider)"
+        },
+        {
+          "source_skill": "Summon Ice/Lightning/Stone/Chaos Golem (support menagerie)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "one each of Ice/Lightning/Stone/(Chaos) Golem summoned NOT for damage but for the aura-buffs they grant while alive (Primordial Eminence = Golem Effectiveness: damage/life-regen/phys-reduction to the whole menagerie). Support-proxies whose value is the network buff, not their attacks"
+        }
+      ],
+      "motion_frame": "passive golem-commander: summon the 8-golem menagerie once, reposition while the flame golems do all the killing and the other golem types buff the whole squad -- the player never attacks",
+      "resource_economy": {
+        "reservation_percent": 0.35,
+        "reservation_resource": "mana"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_CONVERGENCE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem (per-golem autonomous proxy)",
+            "golem-count scaling (Anima Stone extra slot)"
+          ],
+          "economy": [
+            "golem summon-upkeep / reserve",
+            "Primordial Harmony cooldown-reset (the flame-golem DPS multiplier)"
+          ],
+          "traits_affixes": [
+            "minion-damage / minion-cast-speed (scales flame golems)",
+            "golem-effectiveness (Primordial Eminence menagerie buff)",
+            "minion-life"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PROXY-MENAGERIE build -- PROXY_ASCENSION (the summoner minion archetype) + PROXY_CONVERGENCE (multiple proxy TYPES converging into one build where the menagerie's combined effect drives output; the support-golems buff the damage-golems). fire family (Flame Golems are the damage), burn as the ignite rider (probe control=burn). Geometry totem for each golem (autonomous placed proxy). THE IDENTITY = 'Primordial jewels turn a menagerie of golem types into the whole build' -- Harmony jewels reset flame-golem cooldowns (the DPS driver -> minion-cast-speed/cooldown trait) and Eminence jewels grant Golem Effectiveness across the squad (the network-buff -> golem-effectiveness affix). This is captured by the two-proxy-entry + PROXY_CONVERGENCE reading: damage-proxies (flame) + support-proxies (ice/lightning/stone) as one convergent engine. Physical rule N/A (fire-scaled). Player has no personal attack (dossier: 'player repositions while golem army kills'). Carrion Golem is a later-era evolution variant (noted)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2146515",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Angry_Roleplayer#6657",
+      "title": "[3.13] GOLEMENTALIST (Flame Golems Elementalist) Build — Easy and Safe for Everyone",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Summon_Flame_Golem",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Summon Flame Golem — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 2.x, 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "GOLEMENTALIST Build update history tracking back to 3.3, covering multiple game versions from 2018-2021 ... Summon Flame Golem added version 2.0.0",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Golementalist' and alias 'Primordial golems' are real community usage",
+      "anchor_quote": "GOLEMENTALIST (Flame Golems Elementalist) Build ... Primordial jewels turn the golem menagerie into the whole build",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Flame/Ice/Lightning/Stone Golem; Primordial jewels make golem menagerie the whole build; golems grant aura-buffs while fighting",
+      "anchor_quote": "Flame Golems damage is scaled mostly by generic Minion Damage / Minion Cast Speed and through their skill cooldowns via Primordial Harmony Jewels.",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "Angry_Roleplayer#6657",
+              "site": "pathofexile.com/forum",
+              "note": "[3.13] GOLEMENTALIST (Flame Golems Elementalist) Build — Easy and Safe for Everyone"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Summon Flame Golem of the Meteor (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Meteor Skill now deals approximately 30% more Damage",
+              "anchor_quote": "Meteor Skill now deals approximately 30% more Damage"
+            },
+            {
+              "node": "Summon Flame Golem of Hordes (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanic diff not detailed on poedb page",
+              "anchor_quote": null
+            },
+            {
+              "node": "Summon Flame Golem (quality)",
+              "type": "base_quality",
+              "effect": "(0-20)% increased Buff Effect",
+              "anchor_quote": "(0—20)% increased Buff Effect"
+            },
+            {
+              "node": "Minion Instability (keystone)",
+              "type": "keystone",
+              "effect": "Minions Explode when reduced to Low Life, dealing 33% of their Life as Fire Damage to surrounding Enemies",
+              "anchor_quote": "Minions Explode when reduced to Low Life, dealing 33% of their Life as Fire Damage to surrounding Enemies"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Summon_Flame_Golem",
+        "anchor_quote": "Minions Explode when reduced to Low Life, dealing 33% of their Life as Fire Damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "The Anima Stone (extra golem slot)",
+            "Primordial Might (golems gain Rampage)",
+            "Primordial Harmony jewels (cooldown resets, primary DPS driver)",
+            "Primordial Eminence jewels (Golem Effectiveness — damage/life regen/phys reduction)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+        "anchor_quote": "Endgame: The Anima Stone, Primordial Might, two Primordial Harmonys, and as many Primordial Eminence jewels as possible, with Eminences providing Golem Effectiveness.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "summoned golem entities at various positions — proxy/minion delivery",
+          "footprint": "multi-point — golems spread across area independently",
+          "aoe": "each golem has own attack patterns (fire spray, wave, arcing projectile)",
+          "range_text": "Golem entities summoned at various positions; each golem type fights independently in their area",
+          "projectile": true
+        },
+        "source_url": "https://poedb.tw/us/Summon_Flame_Golem",
+        "anchor_quote": "The Flame Golem can cast a fire spray, a wave of fire damage, and an explosive arcing projectile.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player summons 8 golems (4 Flame, 1 Ice, 1 Lightning, 1 Stone, 1 Chaos) scaled by Primordial jewels; Flame Golems handle all damage via Primordial Harmony cooldown resets; other golem types provide defensive immunities via jewel aura effects; player repositions while golem army does the killing."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+        "anchor_quote": "Primordial jewels turn the golem menagerie into the whole build — each golem type contributes while fighting. Flame Golems damage scaled by Primordial Harmony Jewels.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Golementalist Elementalist (primary — Primordial jewel stack, 2.x-3.13)",
+            "Carrion Golem Elementalist (later evolution — TbXie's Golemancer 3.23)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2146515",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "kit_id": "d2-kicksin",
+  "spine": {
+    "kit_id": "d2-kicksin",
+    "folk_name": "Kicksin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Crushing Blow percent-HP shred is the boss-kill engine — approximated via melee_strike but the percent-HP damage mechanic has no ailment analog; (2) Mosaic runeword charge-maintenance shifts the kit from LoD to D2R identity significantly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Crushing Blow percent-HP shred is the boss-kill engine — approximated via melee_strike but the percent-HP damage mechanic has no ailment analog; (2) Mosaic runeword charge-maintenance shifts the kit from LoD to D2R identity significantly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dragon Talon",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "Rapid consecutive multi-kick sequence on single target; each kick is a separate hit triggering on-hit effects. Crushing Blow (percent-HP physical damage) procs with each kick. Open Wounds attested in item_alterations ('Gore Rider boots (Crushing Blow + Open Wounds)'). Physical damage. Bleed: Open Wounds IS the d2 bleed status analog — attested in item_alterations dossier as on-hit proc payload."
+        },
+        {
+          "source_skill": "Fade",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Activation-toggle self-buff; damage reduction and resistances. Fade does not function as mana reservation (econ recrawl note: 'Fade and Cobra Strike don't function as mana reservations' — Icy-Veins verbatim). Persistent toggle during combat."
+        },
+        {
+          "source_skill": "Cobra Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Charge-stack finisher: on-hit fills Cobra Strike charges; discharge on-hit finisher (Dragon Talon as delivery vehicle). Charge-stack-cycle economy per econ recrawl (am-cobra-strike-charge-stack-2026-07-17)."
+        }
+      ],
+      "motion_frame": "Maintain Fade toggle; engage with Dragon Talon multi-kick for Crushing Blow percent-HP shred; Cobra Strike charges build on-hit and discharge; boss-kill identity",
+      "resource_economy": {
+        "cost_scale": "steady-mana: mana spend per Dragon Talon kick sequence; econ recrawl confirms spend/steady-mana",
+        "charge_stack_sub_shape": "cycle: Cobra Strike on-hit fill / on-hit finisher discharge — cycle shape, not accumulator (R-M4; econ recrawl anchor)",
+        "persistent_condition_shape": "activation-toggle: Fade is activation-toggle self-buff (not tick-cost, not reservation — Icy-Veins verbatim)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Cobra Strike charge stack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Mosaic runeword (D2R 2.5+): charge-maintenance without consuming — economy modifier; item-defined-archetype layer (§CROSS row 4)"
+          ],
+          "traits_affixes": [
+            "Crushing Blow gear stacking (Guillaume's Face, Gore Rider, Dracul's Grasp) — traits-affixes / gear-affix lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CLOSE: Dragon Talon multi-kick maps to melee_strike; physical (THE PHYSICAL RULE; element null). Open Wounds attested in item_alterations dossier for bleed emission — §0-UNIVERSAL: 'Open Wounds' is the d2 bleed status analog and is named in fetched dossier text as item_alterations payload. Cobra Strike charge-cycle correctly maps as cycle economy (not accumulator: no counted tier → release; Frenzy-class law §A.5 distinguished — Cobra is charge-fill/discharge, not sustain-stack). Fade is activation-toggle per recrawl, not reservation. Mosaic runeword: item-defined-archetype for charge-maintenance at D2R 2.5+; maps as economy modifier in scaffold. Eras: lod and d2r both CONFIRMED. T4 TEMPORAL_CHARGE + MOMENTUM_CASCADE: charge-cycle and on-hit proc chain identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Dragon Talon Assassin (Kicksin) Build — Diablo 2 Resurrected — Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo.fandom.com/wiki/Dragon_Talon_Kicksin",
+      "archive_url": null,
+      "site": "diablo.fandom.com",
+      "author_handle": null,
+      "title": "Dragon Talon Kicksin — Diablo Wiki (Fandom)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Dragon Talon Kicksin, or Kicker, is one of the most popular martial arts builds for the Assassin class in Diablo II: Lord of Destruction",
+      "source_url": "https://diablo.fandom.com/wiki/Dragon_Talon_Kicksin",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "Dragon Talon Assassin (Kicksin) Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Kicksin' and aliases 'Dragon Talon Assassin', 'Kick Assassin', 'Talon Kicksin' are real community usage",
+      "anchor_quote": "Dragon Talon Assassin (Kicksin) Build for Diablo 2 Resurrected",
+      "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Dragon Talon, Fade; Dragon Talon multi-kick with crushing-blow stacking",
+      "anchor_quote": "20 points to Dragon Talon — Main single-target damage skill, required...1 point to Fade — Buffs damage reduction and Resistances, required.",
+      "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Mosaic runeword added in D2R 2.5 — enables charge-maintenance without consuming charges; major D2R-specific enhancement. In LoD era, basic Dragon Talon with Crushing Blow gear was the build without Mosaic."
+        },
+        "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+        "anchor_quote": "Patch 2.5 introduced buffs to the Martial Arts Skill Tree...dual-wielding the new Mosaic Runeword, granting a 100% Chance to not consume charges",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": "Guillaume's Face helm (Crushing Blow); Fortitude runeword armor; Dracul's Grasp gloves (Life Tap + Crushing Blow); Gore Rider boots (Crushing Blow + Open Wounds); Mosaic runeword (D2R 2.5+ for charge maintenance)",
+          "notes": "Crushing Blow gear stacking is the core gearing strategy"
+        },
+        "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+        "anchor_quote": "Guillaume's Face for Crushing Blow; Fortitude Runeword for enhanced damage; Dracul's Grasp for Life leech and Crushing Blow",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target point",
+          "delivery": "direct melee multi-kick sequence on single target",
+          "footprint": "single target; multiple kicks per cast",
+          "notes": "Dragon Talon delivers rapid consecutive kicks; each kick is a separate hit triggering on-hit effects"
+        },
+        "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+        "anchor_quote": "Main single-target damage skill...known for its high single-target damage",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Maintain Fade buff for damage reduction and resist; engage enemy with Dragon Talon multi-kick sequence; on-hit effects (Crushing Blow, Open Wounds) proc with each kick; boss-kill identity via Crushing Blow percent-HP damage"
+        },
+        "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+        "anchor_quote": "20 points to Dragon Talon — Main single-target damage skill, required...1 point to Fade — Buffs damage reduction and Resistances, required.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Dragon Talon Kicksin (primary DT kick)",
+            "Hybrid Kicksin with Death Sentry (traps support)",
+            "Uber Kicksin (Crushing Blow stacking for Uber Tristram)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/dragon-talon-assassin-kicksin-build",
+        "anchor_quote": "capable of successfully handling the dangers of Über Tristram",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

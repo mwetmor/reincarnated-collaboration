@@ -1,0 +1,277 @@
+{
+  "kit_id": "d3-raiment-shenlong",
+  "spine": {
+    "kit_id": "d3-raiment-shenlong",
+    "folk_name": "Raiment Generator",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shenlong's Spirit inverted-resource (full-bar depletion triggers damage burst) approximated via RESOURCE_CONVERSION + TEMPORAL_CHARGE; no exact engine 'Spirit-bar-dumps-to-zero-for-multiplier' analog. Crippling Wave Mangle rune adds fire damage — secondary element not loaded (only top-2 by scaling weight; lightning is the corpus-confirmed primary).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shenlong's Spirit inverted-resource (full-bar depletion triggers damage burst) approximated via RESOURCE_CONVERSION + TEMPORAL_CHARGE; no exact engine 'Spirit-bar-dumps-to-zero-for-multiplier' analog. Crippling Wave Mangle rune adds fire damage — secondary element not loaded (only top-2 by scaling weight; lightning is the corpus-confirmed primary).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Crippling Wave",
+          "geometry_value": "melee_arc",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sweeping arc AoE; self-origin melee range; Mangle rune (fire damage per dossier); but kit elem_p=lightning per corpus; chill from 'Crippling Wave' — dossier: 'wide sweeping motions'; ailment requires explicit name check — cripple/slow = chill per law row 41; 'Crippling' in skill name + movement-slow semantic = chill; contiguous in skill identity"
+        },
+        {
+          "source_skill": "Way of the Hundred Fists",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Multi-hit cone; self-origin melee range; generator; drives Spirit to cap via Assimilation rune"
+        },
+        {
+          "source_skill": "Dashing Strike",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Repositioning dash; delivery: traversal; Raiment 6pc buffs generators after Dashing Strike use"
+        },
+        {
+          "source_skill": "Epiphany",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "CDR immunity buff; Spirit per second sustained; Raiment loop enabler"
+        }
+      ],
+      "motion_frame": "Spam generators (Crippling Wave + Way of the Hundred Fists) to fill Spirit bar to cap; Shenlong's Spirit 2pc converts full-Spirit-bar dump to damage burst; use Dashing Strike to reposition and trigger Raiment set buffs; Epiphany sustains Spirit",
+      "resource_economy": {
+        "resource": "Spirit",
+        "charge_stack_sub_shape": "accumulator",
+        "ramp_per_s": "generators fill Spirit to cap; Shenlong's 2pc fires damage burst on Spirit depletion then refills",
+        "cost_note": "Spirit dumps to zero on Shenlong burst trigger; generators refill; inverted-resource rhythm"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Cyclone Strike — vacuum pull to group enemies (utility geometry)"
+          ],
+          "economy": [
+            "Shenlong's Spirit 2pc — full Spirit depletion → damage multiplier; Epiphany — Spirit per second; Captain Crimson's Trimmings — CDR + resource cost reduction; Endless Walk set — stationary damage ramp"
+          ],
+          "traits_affixes": [
+            "Raiment 5-6pc — boosts generators via Dashing Strike interaction (scaler); Mask of the Searing Sky + Heart of the Crashing Wave (scalers)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Lightning element attested in corpus elem_raw. Chill token: 'Crippling Wave' attests movement-slow/cripple semantic directly in skill name; law row 41 confirms chill=slow/cripple movement; contiguous in this kit's dossier. Shenlong's Spirit dump-and-refill is inverted-resource shape (DO-NOT-MERGE per basin-2 bank) — noted as economy texture in resource_economy. Full-Spirit-dump → burst = two-tier accumulator candidate (fill-to-cap then release) — accrual to two-tier-accumulator family. [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #9 chill OUT (Crippling Wave is a skill NAME; store's only 'slow' is 'set... slowly increases your damage' — player-side adverb; name-collision law) + STRIKE #15 lightning x3: 'lightning' x0 in store (Shenlong set-theme import). Crippling Wave prim -> fire per ATTESTED 'preferred with the fire rune mangle'; WotHF + Dashing Strike -> null (unattested).]"
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Monk Raiment Shenlong Generator Build With Crippling Wave (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/guides/raiment-generator-monk-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Raiment Generator Monk Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Monk Dashing Strike Cold Build with the Raiment of a Thousand Storms Set (Patch 2.4) — build has been updated continuously from Season 14 through Season 39, demonstrating sustained viability.",
+      "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "The build has been updated continuously from Season 14 through Season 39 (Patch 2.7.8), demonstrating sustained viability across multiple expansions.",
+      "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Raiment Generator' and aliases 'Raiment Shenlong Monk', 'Generator Monk', 'Way of Hundred Fists Monk' are real community usage",
+      "anchor_quote": "Monk Raiment Shenlong Generator Build With Crippling Wave — build is colloquially referred to as Gen Monk. Raiment Generator Monk used as the primary guide title.",
+      "source_url": "https://maxroll.gg/d3/guides/raiment-generator-monk-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Way of the Hundred Fists and Epiphany; Monk resource (Spirit); generator delivery with Spirit-dump rhythm",
+      "anchor_quote": "Way of the Hundred Fists and Epiphany serve as primary abilities. Spirit is the primary resource, generated through abilities and converted into damage through the Shenlong's Spirit set mechanic.",
+      "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Raiment of a Thousand Storms (5-6pc) + Shenlong's Spirit (2pc fist weapons)",
+          "kanai_cube": [],
+          "legendary_powers": [
+            "Shenlong's Fist of Legend",
+            "Shenlong's Relentless Assault"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+        "anchor_quote": "The build incorporates the complete Raiment of a Thousand Storms set bonuses, taking five of the six available Raiment set pieces, and then adding two pieces of the craftable Captain Crimson's Trimmings set.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Raiment of a Thousand Storms (5pc) — boosts Spirit Generators via Dashing Strike interaction",
+            "Shenlong's Spirit set (2pc fist weapons) — Spirit depletion/refill damage multiplier",
+            "Captain Crimson's Trimmings (2pc)",
+            "Mask of the Searing Sky",
+            "Heart of the Crashing Wave",
+            "Eight-Demon Boots"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+        "anchor_quote": "You should obtain the Raiment of a Thousand Storms and Shenlong's Spirit sets in full before trying this build out.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Crippling Wave sweeping arc AoE; Way of the Hundred Fists multi-hit cone; both self-origin melee range; at-target single-enemy punch rhythm with cleave",
+          "range": "self-origin melee-range sweeping arc"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+        "anchor_quote": "Crippling Wave is the primary damage dealer of the build, preferred with the fire rune Mangle, winning over the competition with its wide, sweeping motions and consistency in delivering DPS.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Spam generators (Crippling Wave Mangle + Way of the Hundred Fists Assimilation) to generate Spirit; Shenlong's Spirit set converts full-Spirit-bar to damage burst; use Dashing Strike + Cyclone Strike to group enemies; Epiphany for CDR immunity; alternate generator hits with Spirit-drain rhythm."
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-raiment-shenlong-generator-build-with-crippling-wave",
+        "anchor_quote": "Group up enemies by running around and then using Dashing Strike and Cyclone Strike before unleashing with your Spirit Generators. The Endless Walk set adds a mechanic that slowly increases your damage by up to 100% if you remain stationary.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Inna Shenlong variation",
+            "Raiment speed farm",
+            "Raiment Rift Guardian Killer"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/raiment-shenlong-generator-monk-inna-shenlong-variation-variation",
+        "anchor_quote": "Raiment Shenlong Generator Monk Inna Shenlong Variation.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

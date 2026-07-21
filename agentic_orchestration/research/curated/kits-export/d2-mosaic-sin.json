@@ -1,0 +1,243 @@
+{
+  "kit_id": "d2-mosaic-sin",
+  "spine": {
+    "kit_id": "d2-mosaic-sin",
+    "folk_name": "Mosaic Assassin",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "rotw-s13+;d2r-2.6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "d2/phoenix-strike",
+    "gx": "GAP-D2-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player felt: build charges, finisher persists them, never deplete = sustained power ramp with no resource valley. Engine has no charge-persistence-on-finisher mechanic — the Mosaic identity (charges never consumed = always-on elemental burst) cannot fully map. Closest: TEMPORAL_CHARGE + cycle shape. 'That build, worse' — the perpetual-charge feel is the identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player felt: build charges, finisher persists them, never deplete = sustained power ramp with no resource valley. Engine has no charge-persistence-on-finisher mechanic — the Mosaic identity (charges never consumed = always-on elemental burst) cannot fully map. Closest: TEMPORAL_CHARGE + cycle shape. 'That build, worse' — the perpetual-charge feel is the identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Phoenix Strike",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "Charge-3 release: elemental bolt spray to multiple adjacent targets. Charge-1 (Meteor shower), Charge-2 (lightning), Charge-3 (ice orb per claw) per dossier charge composite."
+        },
+        {
+          "source_skill": "Claws of Thunder",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Charge-up skill contributing lightning element to charge stack."
+        },
+        {
+          "source_skill": "Dragon Claw",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": "lightning",
+          "ailments": [],
+          "delivery_notes": "Finisher; with dual Mosaic runeword has 100% chance to NOT consume charges and refreshes charge timer — enabling indefinite charge maintenance. Item-defined-archetype (§CROSS row 4): map WITH-Mosaic form."
+        }
+      ],
+      "motion_frame": "Build elemental charges with Phoenix Strike / Claws-of-Thunder hits; Dragon Claw finisher maintains charges via Mosaic charge-persistence — indefinite charge-sustained melee loop.",
+      "resource_economy": {
+        "cost_scale": "steady-mana",
+        "cost_slope": "flat-per-cast",
+        "charge_stack_sub_shape": "cycle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "elemental-charge-stack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ELEMENT_CONVERSION_HYBRID",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi-point charge-hit delivery"
+          ],
+          "economy": [
+            "Mosaic charge-persistence item (item-defined-archetype)"
+          ],
+          "traits_affixes": [
+            "charge-count scaling; Phoenix Strike synergy scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Mosaic runeword identity: '+50% chance for finishing moves to not consume charges... refreshes the expiration timer' (dossier anchor_quote, fetched). Item-defined-archetype — mapping reflects WITH-Mosaic form per §CROSS row 4. ERA NOTE: dossier mech_note flags Mosaic as Non-Ladder-only in RotW S13+; NL qualifier not representable in token structure; noted for review-book. Charge accumulate→maintain pattern differs from classic accumulate→release (two-tier-accumulator accrual candidate filed). Multi-element (fire/lightning primary across charges) — tri-element at full Phoenix Strike stack; top-2 kept (fire+lightning); ice shard drop noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Teebling",
+      "title": "Mosaic — Diablo 2 Resurrected Runeword",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/forums/mosaic-for-beginners-t1453557.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Schnorki",
+      "title": "Mosaic for beginners",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era token: rotw-s13+ (post-cutoff — fetched text defines)",
+      "anchor_quote": null,
+      "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era token: d2r-2.6+",
+      "anchor_quote": "New in 2.6",
+      "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Mosaic Assassin' or 'Mosaic Sin' is real community usage",
+      "anchor_quote": "finisher never uses charges and always refreshes the duration of existing charges.",
+      "source_url": "https://diablo2.io/forums/mosaic-for-beginners-t1453557.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Phoenix Strike, Claws of Thunder, Dragon Claw; charge-persistence via Mosaic runeword",
+      "anchor_quote": "+50% chance for finishing moves to not consume charges. When a finisher is executed this way, it now refreshes the expiration timer of the stack.",
+      "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Teebling",
+          "site": "diablo2.io",
+          "role": "Admin"
+        },
+        "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+        "anchor_quote": "Description by Teebling",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            {
+              "name": "Mosaic",
+              "effect": "+50% per claw chance for finishing moves to not consume charges; refreshes charge expiration timer. Dual Mosaic = effectively 100% charge persistence.",
+              "patch": "2.6",
+              "source": "diablo2.io"
+            }
+          ]
+        },
+        "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+        "anchor_quote": "+50% chance for finishing moves to not consume charges. When a finisher is executed this way, it now refreshes the expiration timer of the stack.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "multi-point",
+          "notes": "Charge-up skills hit targeted enemy; Phoenix Strike releases elemental bolts to multiple adjacent targets on charge 3."
+        },
+        "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+        "anchor_quote": "Charge-up skills (Tiger Strike, Cobra Strike, Phoenix Strike, Fists of Fire, Claws of Thunder, Blades of Ice) and finishing move skills",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Build elemental charges with charge-up skills (Phoenix Strike, Claws of Thunder); use Dragon Claw as finisher. With dual Mosaic runeword equipped, finisher has 100% chance to not consume charges and refreshes charge timer — enabling indefinite charge maintenance.",
+          "source_note": "diablo2.io Mosaic runeword page + mosaic-for-beginners"
+        },
+        "source_url": "https://diablo2.io/runewords/mosaic-t1282119.html",
+        "anchor_quote": "+50% chance for finishing moves to not consume charges. When a finisher is executed this way, it now refreshes the expiration timer of the stack.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

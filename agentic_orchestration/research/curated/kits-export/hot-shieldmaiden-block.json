@@ -1,0 +1,232 @@
+{
+  "kit_id": "hot-shieldmaiden-block",
+  "spine": {
+    "kit_id": "hot-shieldmaiden-block",
+    "folk_name": "Block-Stack Shieldmaiden",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Stat-as-damage-substrate (Block Strength → Shield Bash damage) is a steward-accrual shape with no exact engine lane. Player building for block-conversion offense will notice the stat-to-damage translation is approximated. Burn is item-sourced; chill is sourced from a block-charge interaction note, making both ailment attributions indirect.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "burn",
+      "chill"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Stat-as-damage-substrate (Block Strength → Shield Bash damage) is a steward-accrual shape with no exact engine lane. Player building for block-conversion offense will notice the stat-to-damage translation is approximated. Burn is item-sourced; chill is sourced from a block-charge interaction note, making both ailment attributions indirect.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "War Hammer",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "War Hammer attacks in a circle (small-radius ring AoE) as primary; physical melee = no element family. Burn attested via Blazing Shell item: '+6 block strength + burn' — burn is named as an effect on the build's core item; attested in item_alterations anchor quote"
+        },
+        {
+          "source_skill": "Shield Bash",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "Shield Bash = cone at range 6.0m; damage = 2x Block Strength stat; physical = no family. Chill: item_alterations anchor 'Charge Shock makes the Spirit Warrior create a Physical shockwave that damages and slows enemies' — slows enemies = chill per source-mechanism-not-token-word; block-charge interaction on Shieldmaiden build"
+        }
+      ],
+      "motion_frame": "Stack Block Strength into hundreds; Shield Bash damage = 2x Block Strength; at Level 60 take x2 Hammer Splash (War Hammer AOE proc doubles)",
+      "resource_economy": {
+        "stat_as_damage_substrate": "block_strength → shield bash damage (Block Strength IS the damage scalar)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-block-successful",
+        "mark_identity": "block proc",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Hammer Splash x2 at L60 (doubles ring AoE proc)"
+          ],
+          "economy": [
+            "Potion of Memories to copy block-chance stacking; Parry II +4 Block Strength"
+          ],
+          "traits_affixes": [
+            "Fencer Gauntlets (counter-damage on block); Elven Slippers (block strength while moving); Defiant Plate (regen)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Stat-as-damage-substrate: Block Strength IS the damage output (Shield Bash = 2x Block Strength). Filed: accrual to the stat-as-damage-substrate family. Burn attested via Blazing Shell item in the build. Chill attested via Charge Shock interaction ('slows enemies') on build. RETRIBUTION_ENGINE maps the block-proc-as-offense identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4360121479829769384/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "(community discussion)",
+      "title": "Pushing The Limits (BLOCK)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://thenerdstash.com/best-shieldmaiden-build-in-halls-of-torment/",
+      "archive_url": null,
+      "site": "thenerdstash.com",
+      "author_handle": "(staff)",
+      "title": "Best Shieldmaiden Build in Halls of Torment",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-classes-unlock-guide/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": "(staff)",
+      "title": "How to Unlock All Classes In Halls Of Torment",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hot-1.0-2024 and hot-1.1-2026.",
+      "anchor_quote": "Shieldmaiden is unlocked by defeating the Wraith Horseman elite enemy; guides from 2023 EA through 1.0 2024 cover this build",
+      "source_url": "https://www.thegamer.com/halls-of-torment-classes-unlock-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Block-Stack Shieldmaiden; community identity is Shieldmaiden/Shield Maiden stacking block stat for both defense and offense.",
+      "anchor_quote": "shield attack triggers every few hits; its damage depends on her Block Strength; damage output scales directly with the Block Strength stat",
+      "source_url": "https://thenerdstash.com/best-shieldmaiden-build-in-halls-of-torment/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Stack block into hundreds; 'hammer splash x2' at level 60 does clearing; block is both defensive stat and offensive trigger.",
+      "anchor_quote": "gather all block you can and take x2 hammer splash at level 60",
+      "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4360121479829769384/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Level 60 class upgrade: x2 Hammer Splash (doubles hammer proc damage); Parry II (+4 Block Strength) as key trait; block chance stacking via Potion of Memories"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4360121479829769384/",
+        "anchor_quote": "gather all block you can and take x2 hammer splash at level 60",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Fencer Gauntlets (core — enables counter-damage on block); Elven Slippers (block strength while moving); Defiant Plate (regen); Blazing Shell (+6 block strength + burn); Bloodcatcher (healing+damage scaling)"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4845400828051793666/",
+        "anchor_quote": "Fencer Gloves THE core item enables counter-damage through blocking; Bloodcatcher secondary core item",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin-small-radius",
+          "description": "War Hammer attacks in a circle (small-radius AoE); Shield Bash attacks in a cone at range 6.0m; both originate from player body"
+        },
+        "source_url": "https://thenerdstash.com/best-shieldmaiden-build-in-halls-of-torment/",
+        "anchor_quote": "War Hammer, which attacks in a circle as her primary means of attack; Shield has base damage of 2 x Block Strength with an attack speed of 0.3/s and range of 6.0m",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Stack Block Strength stat into hundreds; Shield Bash damage = 2x Block Strength; at level 60 take x2 Hammer Splash (War Hammer AOE proc); defensive investment becomes offensive output. Fencer Gauntlets enable counter-damage through blocking."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4360121479829769384/",
+        "anchor_quote": "gather all block you can and take x2 hammer splash at level 60",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Shieldwall build (crit + block hybrid) as alternative; pure block build (500+ block) for near-unkillable variant; Dragon's Breath + Radiant Aura ability variants exist"
+        },
+        "source_url": "https://gamertweak.com/best-shieldmaiden-build-halls-of-torment/",
+        "anchor_quote": "If you max out block, she's virtually unkillable and can run right into hordes without taking damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

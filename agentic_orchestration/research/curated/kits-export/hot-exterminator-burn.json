@@ -1,0 +1,232 @@
+{
+  "kit_id": "hot-exterminator-burn",
+  "spine": {
+    "kit_id": "hot-exterminator-burn",
+    "folk_name": "Burn Exterminator",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-21",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flame Caster (flamethrower)",
+          "geometry_value": "cone",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "fire attested: 'Flame Caster that emits flames within a small cone' + 'Apply burn to 10,000 enemies' achievement + 'fire damage' descriptor; burn attested: 'Flames have 10% Burn Chance' — explicit Burn Chance percentage; small-cone footprint; Exterminator's base stats: Great Burn Damage and Burn Chance"
+        }
+      ],
+      "motion_frame": "high-tempo flamethrower cone; single-axis burn-stacking strategy; Exterminator class locks BURN stat as primary scaling axis; max burn chance → add survivability floor",
+      "resource_economy": {
+        "cadence_scale": "high; continuous flamethrower emission"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Range (extends cone)",
+            "Multistrike (hit frequency)"
+          ],
+          "economy": [
+            "burn stack throughput"
+          ],
+          "traits_affixes": [
+            "Affliction",
+            "Range",
+            "Multistrike",
+            "Fragile effects"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Structurally near-identical to hot-dragons-breath in engine coordinates (both fire+burn cone); distinguishing features: Exterminator's class-level BURN stat axis (single-axis philosophy) and smaller base cone. Variants include Dragon's Breath as secondary ability — variant-scope, not base."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "archive_url": null,
+      "site": "fantasywarden.com",
+      "author_handle": null,
+      "title": "Halls of Torment All Characters Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3005633351",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "A Comprehensive Guide to 100% Halls of Torment",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442313449171/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Current Exterminator Builds :: Halls of Torment General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-1.0-2024; hot-1.1-2026",
+      "anchor_quote": "Apply burn to 10,000 enemies",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3005633351",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Burn Exterminator — flamethrower class; single-axis burn scaling; cone beam delivery",
+      "anchor_quote": "flamethrowers and mages character ... Great Burn Damage and Burn Chance",
+      "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Flame Caster/flamethrower emits flames in small cone; fire damage type; burn DoT; single-axis BURN stat scaling",
+      "anchor_quote": "Flame Caster that emits flames within a small cone ... Flames have 10% Burn Chance",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3005633351",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "traits": [
+            "Affliction (burn-stack multiplier)",
+            "Range (extends flame cone)",
+            "Multistrike (hit frequency)",
+            "Fragile effects"
+          ],
+          "notes": "Single-axis philosophy: stack BURN; survivability behind it."
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+        "anchor_quote": "Focus: Range, Multistrike, Affliction, Fragile effects",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "cone/beam (flamethrower)",
+          "footprint": "small-cone",
+          "facing": "player facing",
+          "damage_type": "fire",
+          "ailment": "burn",
+          "notes": "ELEMENT LAW: fire attested — fetched text states 'fire damage', 'Flame Caster', 'Burn Chance'. 'Apply burn to 10,000 enemies' achievement confirms fire/burn damage typing."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3005633351",
+        "anchor_quote": "Apply burn to 10,000 enemies ... Increasing burn chance",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Exterminator's Flame Caster emits flames in a small cone continuously; 10% base Burn Chance per tick. Strategy: max the BURN stat (single-axis), then add survivability floor. Fire damage type confirmed."
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3005633351",
+        "anchor_quote": "Flame Caster that emits flames within a small cone ... Flames have 10% Burn Chance",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Exterminator with Dragon's Breath + Refined Flame as secondary ability. Meteor Strike + Fireball upgrade also documented as Exterminator option."
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442313449171/",
+        "anchor_quote": "Dragon's Breath ... Refined Flame upgrade that increase Burn Damage ... Meteor Strike with Fireball upgrade",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "kit_id": "di-cyclone-strike-monk-base",
+  "spine": {
+    "kit_id": "di-cyclone-strike-monk-base",
+    "folk_name": "DI Monk — Cyclone Strike (base)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "di-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "pull-tranche-edition2-2026-07-15",
+    "source_date": "2026-07-15",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Single-skill base cell maps cleanly. Minor loss: Monk Spirit resource economy unnamed (UNSUPPORTED). Pull geometry maps to vortex_pull which is the closest 26-enum approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Single-skill base cell maps cleanly. Minor loss: Monk Spirit resource economy unnamed (UNSUPPORTED). Pull geometry maps to vortex_pull which is the closest 26-enum approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cyclone Strike",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin vortex; charged cast increases radius and damage output; rooted while charging. 'Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.' Wind noun, no damage verb — element null per MW4. Pull attested ('pulls in enemies'). Commit = wind-up (charged); rooted-while-charging noted."
+        }
+      ],
+      "motion_frame": "Cyclone Strike charge-based pull vortex; charging longer increases range and damage; serves as gather and burst in Monk rotation",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "BACKFILL INSERT: base-skill row, separate cell from di-cyclone-monk-pvp. Verify_ledger identity CONFIRMED: 'Generate a vortex of wind which pulls in enemies and deals X damage. Charging longer increases range, and damage.' Mechanics CONFIRMED same quote. Rooted-while-charging: attested via mech_note but mech_note is ILLEGAL — attested via corpus key commit_val=wind-up and verify_ledger anchor 'Charging longer increases range, and damage' which implies sustained charge delivery. Delivery note captures rooted per §CROSS row 5 discipline. Essence variants (Storm Spirit/Driven Thunder/Tempest's Heart/Frigid Cyclone/Mystic Winds/Sandstorm) gear-assembled → excluded per evidence bar (mech_note dossier excludes them; mech_note ILLEGAL but the exclusion is reinforced by abstained item_alterations + variants dossier). Spirit resource: verify_ledger mechanics UNSUPPORTED; cooldown used per §D convention. t4_doors null (no capstone language attested)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/monk",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Monk Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://game8.co/games/Diablo-Immortal/archives/377790",
+      "archive_url": null,
+      "site": "game8.co",
+      "author_handle": null,
+      "title": "Cyclone Strike Skill Info and How to Use | Diablo Immortal",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'DI Monk — Cyclone Strike (base)'; aliases 'Cyclone Strike Monk DI base', 'DI Cyclone Monk base'",
+      "anchor_quote": "Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/monk",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Cyclone Strike pull/vortex mechanic + Monk Spirit resource",
+      "anchor_quote": "Generate a vortex of wind which pulls in enemies and deals X damage. Charging longer increases range, and damage.",
+      "source_url": "https://game8.co/games/Diablo-Immortal/archives/377790",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "cyclone_strike": "self-origin vortex; pulls nearby enemies inward; charged cast increases radius and damage output"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk",
+        "anchor_quote": "Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cyclone Strike: charge-based pull vortex; charging longer increases range and damage; serves as gather + burst in Monk rotation"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk",
+        "anchor_quote": "Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "kit_id": "mcd-speed",
+  "spine": {
+    "kit_id": "mcd-speed",
+    "folk_name": "Speed Build (Speedy Steve / Speedy Assassin)",
+    "game": "mcd",
+    "corpus_bucket": "mcd",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "mcd-2020-launch;mcd-2022-final-v1.17",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-mcd-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine has no first-class movement-speed-as-identity lane: movement speed is a stat not a geometry or economy key in the engine. PHASE_MOMENTUM approximates the shape/phase-cycling identity but movement doubling + near-permanent uptime via CD cycling is a distinct pattern not native to the engine. A player familiar with this build would recognize the dash+melee combo but the core movement-speed experience has no engine analog.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Engine has no first-class movement-speed-as-identity lane: movement speed is a stat not a geometry or economy key in the engine. PHASE_MOMENTUM approximates the shape/phase-cycling identity but movement doubling + near-permanent uptime via CD cycling is a distinct pattern not native to the engine. A player familiar with this build would recognize the dash+melee combo but the core movement-speed experience has no engine analog.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Boots of Swiftness artifact (movement speed doubling)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Doubles movement speed for buff duration; 5s base CD; stacks with Swiftness Potion for multiplicative speed; toggleable via artifact activation"
+        },
+        {
+          "source_skill": "Light Feather artifact (dash with knockback)",
+          "geometry_value": "defensive_dash",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "Dash with pushback; 'provides pushback on dash'; used for gap-opening and cancel-combos"
+        },
+        {
+          "source_skill": "Dagger/sickle melee attack",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "High attack-speed short-range melee; primary damage delivery while cycling movement buffs"
+        }
+      ],
+      "motion_frame": "Activate Boots of Swiftness → sprint at double speed → Light Feather dash-cancel for knockback + repositioning → auto-attack with fast daggers/sickles → Evocation Robe cycles Boots CD to ~1.25s for near-permanent uptime",
+      "resource_economy": {
+        "cd_gated": true,
+        "artifact_cd_base_seconds": 5,
+        "cd_reduction_source": "Evocation Robe (up to 75% artifact CD reduction = ~1.25s effective CD)",
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "defensive_dash (Light Feather knockback dash)",
+            "self_buff (Boots of Swiftness speed double)"
+          ],
+          "economy": [
+            "artifact CD: Evocation Robe 75% reduction",
+            "activation-toggle movement state"
+          ],
+          "traits_affixes": [
+            "Cool Down enchantment",
+            "Swiftfooted (speed on dodge)",
+            "Speed Synergy"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MCD element-silent — no damage-type language. No mastery tree: capstone_alterations structurally abstains. Defense = evasion entirely; no attested ailments on enemies. Movement-identity build is an APPROX fit: engine has self_buff + defensive_dash but lacks a first-class movement-as-offense loop — PHASE_MOMENTUM is the closest capstone analog. The identity ('defense is entirely evasion-based') has no ailment emission and thin skills[]."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.gamepur.com/guides/best-minecraft-dungeons-builds",
+      "archive_url": null,
+      "site": "gamepur.com",
+      "author_handle": null,
+      "title": "The 5 best Minecraft Dungeons builds – Gamepur",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.gamingscan.com/minecraft-dungeons-best-builds/",
+      "archive_url": null,
+      "site": "gamingscan.com",
+      "author_handle": null,
+      "title": "Minecraft Dungeons Guide: Best Builds [2025] – GamingScan",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Boots_of_Swiftness",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Boots of Swiftness – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era mcd-2020-launch through mcd-2022-final-v1.17 — Boots of Swiftness present from Beta phase",
+      "anchor_quote": "Boots of Swiftness appeared in the Minecraft Dungeons gameplay trailer on June 9, 2019, and were added during the Dungeons Beta phase",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Boots_of_Swiftness",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Speed Build (Speedy Steve / Speedy Assassin) — named build focusing on movement speed via Boots of Swiftness artifact cycling with cooldown-reduction armor",
+      "anchor_quote": "Speedy Steve is a speed run build that is all about keeping up a high pace",
+      "source_url": "https://www.gamepur.com/guides/best-minecraft-dungeons-builds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Evocation Robe / Ember Robe provides artifact cooldown reduction enabling Boots of Swiftness to cycle near-permanently; Light Feather for dash-cancels; daggers/sickles as weapons; Cool Down enchantment supplements; loop is movement-as-defense",
+      "anchor_quote": "artifact cooldown can be reduced with the Cool Down enchantment and certain armors that give artifact cooldown reduction, such as the evocation robe",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Boots_of_Swiftness",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "artifacts": [
+            "Boots of Swiftness — doubles movement speed; 5s base CD",
+            "Light Feather — dash with knockback",
+            "Iron Hide Amulet — defensive option"
+          ],
+          "enchantments": [
+            "Cool Down (armor enchant) — reduces artifact CD",
+            "Swiftfooted (armor enchant) — listed in corpus; speed-on-dodge",
+            "Speed Synergy (armor enchant) — noted by gamepur"
+          ],
+          "weapons": [
+            "Daggers — high attack speed, short range",
+            "Sickles — high attack speed alternative",
+            "Fangs of Frost — unique dagger variant noted by gamepur"
+          ],
+          "armor": [
+            "Evocation Robe — up to 75% artifact CD reduction; canonical loop anchor",
+            "Ember Robe — alternative CD-reduction armor"
+          ]
+        },
+        "source_url": "https://www.gamepur.com/guides/best-minecraft-dungeons-builds",
+        "anchor_quote": "Evocation Robe or Ember Robe with enchantments including Speed Synergy",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "movement": "Swiftness buff doubles movement speed; stacks with Swiftness Potion for additional multiplicative speed",
+          "knockback": "Light Feather provides pushback on dash",
+          "melee_range": "daggers/sickles: short melee range (not quantified in fetched text)",
+          "aoe": null
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Boots_of_Swiftness",
+        "anchor_quote": "doubles the hero's movement speed and stacks with the buff from Swiftness Potion",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Boots of Swiftness to gain Swiftness buff (doubles movement speed; stacks with Swiftness Potion); use Evocation Robe or Ember Robe artifact-cooldown reduction (up to 75% = 1.25s CD) to cycle Boots near-permanently; Light Feather dash-cancels provide knockback. Attack with high-speed daggers/sickles. Defense is entirely evasion-based. Loop: sprint → dodge → auto-attack → re-activate boots.",
+          "resource": "no soul cost; cooldown-gated (Boots of Swiftness 5s base CD, reduced to ~1.25s with Evocation Robe)"
+        },
+        "source_url": "https://www.gamepur.com/guides/best-minecraft-dungeons-builds",
+        "anchor_quote": "Speedy Steve is a speed run build that is all about keeping up a high pace",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Speedy Steve — Gamepur naming; daggers/Fangs of Frost + Evocation Robe + Boots of Swiftness + Light Feather + Iron Hide Amulet",
+            "Speedy Assassin — GamingScan naming; Daggers + Sickles focus"
+          ]
+        },
+        "source_url": "https://www.gamingscan.com/minecraft-dungeons-best-builds/",
+        "anchor_quote": "Melee Weapon: Daggers, Sickles... fleet-footed rogue capable of getting in and out with ease",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

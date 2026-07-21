@@ -1,0 +1,215 @@
+{
+  "kit_id": "ud-summon-strand",
+  "spine": {
+    "kit_id": "ud-summon-strand",
+    "folk_name": "Summoner (Rune Knight + Abyssling)",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "ud-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner: the player has no direct damage loop. Engine cannot currently model the summon-fusion mechanic (Abyssling→Abyss Knight absorption). Source player's entire identity (managing two minion types, fusing them) has no engine analog.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-core summoner: the player has no direct damage loop. Engine cannot currently model the summon-fusion mechanic (Abyssling→Abyss Knight absorption). Source player's entire identity (managing two minion types, fusing them) has no engine analog.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Bursting Rune Knight",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed following-companion minion (pursuit behavior). 'Summons a Rune Knight of Fire that periodically breathes Fire and enhances nearby Abysslings.' Rune Knight behavior: pursues enemies, periodically breathes Fire, enhances Abysslings, fuses into Abyss Knight (absorbs Abysslings on Melody High Tone). Fire element: 'breathes Fire' = behavioral delivery verb on a minion unit — per §B5-ELEMENT the element word is applied as a behavior verb. Mapped as companion (following), not stationary totem. Summoner-deferral applies."
+        },
+        {
+          "source_skill": "Summon Abyssling",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Physical melee-charge minion pursuit. 'Summons an Abyssling that charges toward the enemy and deals Physical DMG.' Physical=no-family. Up to 2 Abysslings active."
+        }
+      ],
+      "motion_frame": "Summon Rune Knight + Abysslings; caster repositions while minions pursue; Rune Knight fuses Abysslings into Abyss Knight; fire breath periodically from Rune Knight; caster invests in Minion HP/Armor links",
+      "resource_economy": {
+        "cost_scale": "mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "DUAL_PROXY",
+        "COMPANION_CONTRACT"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Minion HP / Minion Armor link runes",
+            "Knight's Authority (Abyssling buff)"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SUMMONER-DEFERRAL: pet-core identity (player damage loop absent — caster is repositioning support). Fire element attested on Rune Knight via 'breathes Fire' behavioral verb. GAPPED grade applies per pet-core law. DUAL_PROXY T4 door for two-minion-type identity. Companion (following) not totem (placed stationary) per totem-vs-companion law."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/SummonBurstingRuneKnight/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Summon Bursting Rune Knight - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://undecember.thein.ru/en/runes/SummonImp/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Summon Abyssling - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "ud-launch-2022",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Summoner build — Summon Bursting Rune Knight + Summon Abyssling; classless minion lane",
+      "anchor_quote": "Summons a Rune Knight of Fire that periodically breathes Fire and enhances nearby Abysslings.",
+      "source_url": "https://undecember.thein.ru/en/runes/SummonBurstingRuneKnight/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Summon Rune Knight + Abyssling minions; minions pursue enemies; caster repositions; Minion HP/Armor links critical",
+      "anchor_quote": "Summons a Rune Knight of Fire that periodically breathes Fire and enhances nearby Abysslings.",
+      "source_url": "https://undecember.thein.ru/en/runes/SummonBurstingRuneKnight/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "links": [
+            "Minion HP link runes (durability)",
+            "Minion Armor link runes (durability)",
+            "Knight's Authority (buff to Abysslings)"
+          ],
+          "note": "Rune Knight absorbs Abysslings during Melody High Tone to fuse into Abyss Knight"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/SummonBurstingRuneKnight/",
+        "anchor_quote": "Summons a Rune Knight of Fire that periodically breathes Fire and enhances nearby Abysslings.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "summon_origin": "self-origin (minions spawn from caster position)",
+          "minion_behavior": "pursue enemies independently",
+          "abyssling_max": 2,
+          "rune_knight_max": 1
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/SummonImp/",
+        "anchor_quote": "Summons an Abyssling that charges toward the enemy and deals Physical DMG.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Summon Bursting Rune Knight (fire element; breathes fire, enhances Abysslings, absorbs Abysslings to fuse into Abyss Knight) + Summon Abyssling (physical melee minion; charges at enemies). Caster repositions while minions pursue enemies. Minion HP/Armor links reinforce durability."
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/SummonBurstingRuneKnight/",
+        "anchor_quote": "Summons a Rune Knight of Fire that periodically breathes Fire and enhances nearby Abysslings.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

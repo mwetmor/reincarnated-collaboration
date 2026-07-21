@@ -1,0 +1,247 @@
+{
+  "kit_id": "la-robust-spirit-soulfist",
+  "spine": {
+    "kit_id": "la-robust-spirit-soulfist",
+    "folk_name": "Robust Spirit Soulfist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Conviction/Judgment synergy pair is attested but has no direct engine lane (resource_economy partial capture); fidelity_notes carry. Lightning Palm name-only element null confirmed. Hype 3 burst_window shape correct; player consequence: correct feel of instant-access burst vs Energy Overflow's ramp identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Conviction/Judgment synergy pair is attested but has no direct engine lane (resource_economy partial capture); fidelity_notes carry. Lightning Palm name-only element null confirmed. Hype 3 burst_window shape correct; player consequence: correct feel of instant-access burst vs Energy Overflow's ramp identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Illusion Strike (Conviction) → Celestial Palm (Judgment) opener",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Conviction/Judgment pairing: Illusion Strike applies Conviction, Celestial Palm applies Judgment — synergy trigger for cooldown/resource economy. No element attested. Melee range explicit."
+        },
+        {
+          "source_skill": "Flash Step (single tap for buff)",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-tap for self-buff; not full dash. Utility/economy role in loop."
+        },
+        {
+          "source_skill": "World Decimation (awakening)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Awakening ultimate; timed with cooldown reduction alignment from Hype 3 window. No element. High single-hit damage."
+        },
+        {
+          "source_skill": "Merciless Pummel / Energy Blast / Tempest Blast / Lightning Palm (gems_damage)",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage skills in gems list. NAME-ONLY element check: Lightning Palm = skill name only, no 'lightning' damage-type descriptor in store → null. Non-positional gameplay per source."
+        }
+      ],
+      "motion_frame": "Illusion Strike (Conviction) → Celestial Palm (Judgment) → damage skills → Flash Step buff tap → World Decimation awakening aligned with Hype 3 window; Robust Spirit instantly grants Hype Level 3 (100% damage, 15% attack speed, 25% CDR, 20s window)",
+      "resource_economy": {
+        "hype_orbs": "Robust Spirit identity instantly enters Hype Level 3 (vs Energy Overflow's gradual build); 20s window; orb cost consumed on activation; Specialization stat scales buff magnitude"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Hype Level 3 (Robust Spirit identity) — 20s burst window: 100% Increased Damage, 15% Attack Speed, 25% CDR",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "RESOURCE_CONVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Hype 3 is TIMED 20s → burst_window (not permanent). Element null throughout: 'Lightning Palm' is a skill name, no damage-type descriptor → D4 NAME-ONLY LAW applies. 'Energy Blast / Tempest Blast' = skill names only. Conviction/Judgment synergy pair noted in delivery_notes — not a mapped mechanic (no trigger lane for this in-basin). Non-positional confirmed in verify_ledger notes. Ark Passive nodes not enumerated in fetched text; capstone_alterations not populated (source silent on specific nodes for this kit beyond general reference)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Civo",
+      "title": "Robust Spirit Soulfist Build Guide - Lost Ark",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in la-t4-ark-passive-2024; la-global-2026",
+      "anchor_quote": "Author: Civo. Last Updated: January 11, 2026 — live Ark Passive era guide",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Robust Spirit Soulfist — folk name (class Soulfist + Robust Spirit identity spec)",
+      "anchor_quote": "Soulfist class using the Robust Spirit engraving as primary identity. Alternative playstyle mentioned: Energy Overflow Soulfist.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Robust Spirit allows bursting into Level 3 Hype immediately; damage buffs in short window; more forgiving than Energy Overflow APM but with clear power spikes",
+      "anchor_quote": "Robust Spirit allows you to instantly enter Hype 3... 15% Attack Speed, 25% Cooldown Reduction, 100% Increased Damage for 20 seconds, scaled with Specialization",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Civo",
+          "site": "maxroll.gg",
+          "updated": "2026-01-11"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+        "anchor_quote": "Author: Civo (Content Creator). Last Updated: January 11, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Cursed Doll",
+            "Adrenaline",
+            "Keen Blunt Weapon",
+            "Stabilized Status"
+          ],
+          "gems_damage": [
+            "Merciless Pummel",
+            "Energy Blast",
+            "Tempest Blast",
+            "Celestial Palm",
+            "Illusion Strike",
+            "Lightning Palm"
+          ],
+          "bracelet_stats": "Crit/Specialization",
+          "bracelet_specials": [
+            "Superiority",
+            "Circulate",
+            "Fervor",
+            "Hammer",
+            "Wedge",
+            "Assail",
+            "Precise",
+            "Weapon Power"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+        "anchor_quote": "Engravings (5 slots): Grudge, Cursed Doll, Adrenaline, Keen Blunt Weapon, Stabilized Status",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Non-positional gameplay; good mobility despite melee range requirement — source text explicit"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+        "anchor_quote": "Classified as Non-positional gameplay with good mobility despite melee range requirement",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Illusion Strike (Conviction) → Celestial Palm (Judgment) → primary damage skills → Flash Step (single tap for buff); World Decimation awakening timed with cooldown reduction alignment. Hype Level 3 activated on demand via Robust Spirit — all buffs available in 20s window.",
+          "hype_l3_buffs": {
+            "attack_speed": "15%",
+            "cooldown_reduction": "25%",
+            "damage": "100%",
+            "duration": "20 seconds"
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+        "anchor_quote": "Robust Spirit allows you to instantly enter Hype 3... 15% Attack Speed, 25% Cooldown Reduction, 100% Increased Damage for 20 seconds, scaled with Specialization",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Robust Spirit (instant Hype 3, burst-window focused)",
+            "Energy Overflow (more fast-paced and dynamic playstyle)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/robust-spirit-soulfist-raid-guide",
+        "anchor_quote": "Energy Overflow offers more fast-paced and dynamic playstyle",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

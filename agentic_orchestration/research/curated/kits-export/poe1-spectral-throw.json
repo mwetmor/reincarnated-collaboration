@@ -1,0 +1,272 @@
+{
+  "kit_id": "poe1-spectral-throw",
+  "spine": {
+    "kit_id": "poe1-spectral-throw",
+    "folk_name": "Spectral Throw",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the Ele Buzzsaw player would miss: the return pass — hitting enemies BEHIND you on the way back, the double-hit overlap zone at the deceleration point, and the stutter-step rhythm of standing inside overlapping out-and-return copies. Engine expresses a one-way piercing line only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning",
+      "water"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "What the Ele Buzzsaw player would miss: the return pass — hitting enemies BEHIND you on the way back, the double-hit overlap zone at the deceleration point, and the stutter-step rhythm of standing inside overlapping out-and-return copies. Engine expresses a one-way piercing line only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spectral Throw",
+          "geometry_value": "line",
+          "element_primary": "lightning",
+          "element_secondary": "water",
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "piercing weapon-copy projectile along a throw axis (100% intrinsic pierce -> line). SOURCE PATH IS A BOOMERANG: outward, decelerate, RETURN through enemies, hitting on BOTH passes with ~0.3s per-enemy re-hit cooldown — the return-pass double-hit is identity-bearing and no 26-enum carries an out-and-return path; engine line pierce is one-way. Ele Buzzsaw variant: physical weapon copy scaled by flat-added elemental (added lightning + added cold + Trinity)."
+        }
+      ],
+      "motion_frame": "high-cadence walk-and-throw buzzsaw: weapon copies stream out and return while the player strafes between throws",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "line pierce projectile",
+            "projectile-speed shapes the turnaround distance (source behavior, noted)"
+          ],
+          "economy": [
+            "mana-light spend, high attack cadence (chassis default)"
+          ],
+          "traits_affixes": [
+            "added-elemental flat rolls (lightning/cold)",
+            "attack-speed",
+            "crit"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element per corpus/probe: lightning primary; water (added cold) secondary per hybrid top-2 rule; Trinity's third-element resonance dropped (crosswalks §1 triple+ rule). PoE shock rider -> sunder (§2 false-friend). Qualitative mint-candidate filed: out-and-return boomerang projectile path (graded as if un-minted)."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 3,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "Out-and-return (boomerang) projectile path: projectile travels outward, decelerates, and returns through enemies along the same axis, hitting on both passes (per-enemy re-hit cooldown). New path-shape mechanism — no 26-geometry member carries a return pass."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1839087",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "g00fy_goober",
+      "title": "[3.25] g00fy_goober's EleBuzzsaw Deadeye (Easily Clear All Content)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1531912",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "Spectral Throw Returns ELE BUZZSAW 50k+ DPS Ele Atziri Capable 2.1",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Spectral_Throw",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Spectral Throw — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 1.x",
+      "anchor_quote": "Spectral Throw has been added to the game (version 1.0.0); EleBuzzsaw guides span 1.x through 2.x",
+      "source_url": "https://poedb.tw/us/Spectral_Throw",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "Spectral Throw Returns ELE BUZZSAW 50k+ DPS Ele Atziri Capable/High End Mapping 2.1",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1531912",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Spectral Throw' is real community usage; alias 'Ele Buzzsaw(1.x named)' is real community usage",
+      "anchor_quote": "g00fy_goober's EleBuzzsaw Deadeye (Easily Clear All Content); also: 'Ele Buzzsaw 50k+ DPS Ele Atziri Capable' (2.1 Scion thread)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1839087",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Spectral Throw; weapon copy projectile; projectile returns (boomerang behavior)",
+      "anchor_quote": "projectiles follow a 'boomerang' path: they start at high speed, slow to a stop, and return to the thrower",
+      "source_url": "https://poedb.tw/us/Spectral_Throw",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "g00fy_goober",
+          "site": "pathofexile.com/forum",
+          "note": "primary EleBuzzsaw guide author; thread 1839087 active since 1.x era through 3.25"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1839087",
+        "anchor_quote": "g00fy_goober's EleBuzzsaw Deadeye",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Spectral Throw (quality)",
+              "type": "base_quality",
+              "effect": "Projectiles that have Pierced deal (0-20)% more Damage",
+              "anchor_quote": "Projectiles that have Pierced deal (0—20)% more Damage"
+            },
+            {
+              "node": "Spectral Throw of Materialising (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Higher effectiveness 240-340% vs 100-150%",
+              "anchor_quote": "Higher effectiveness (240-340% vs 100-150%)"
+            },
+            {
+              "node": "Spectral Throw of Trarthus (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Same quality scaling as base",
+              "anchor_quote": null
+            },
+            {
+              "node": "Steel Spirit (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Dexterity in Radius",
+              "effect": "Each Spectral Throw Projectile gains 5% increased Damage each time it Hits; baseline 7-10% projectile damage bonus",
+              "anchor_quote": "Each Spectral Throw Projectile gains 5% increased Damage each time it Hits"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Throw",
+        "anchor_quote": "Each Spectral Throw Projectile gains 5% increased Damage each time it Hits",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Steel Spirit (threshold jewel)",
+              "type": "threshold_jewel",
+              "effect": "Each Spectral Throw Projectile gains 5% increased Damage each time it Hits",
+              "anchor_quote": "Each Spectral Throw Projectile gains 5% increased Damage each time it Hits"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Throw",
+        "anchor_quote": "Each Spectral Throw Projectile gains 5% increased Damage each time it Hits",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "piercing projectile that travels outward in a boomerang arc and returns; hits on both outward and return pass; 100% pierce chance intrinsic; enemies hit with ~0.3s cooldown between strikes from same attack"
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Throw",
+        "anchor_quote": "Spectral Throw has a 100% chance to pierce enemies; Enemies can be struck multiple times by the same projectile with a cooldown of approximately 0.3 seconds",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Throw a spectral copy of your melee weapon. The projectile travels outward, decelerates, then returns through enemies on both passes (boomerang). Hits pierce automatically. Scales with elemental damage on hits in the Ele Buzzsaw variant."
+        },
+        "source_url": "https://poedb.tw/us/Spectral_Throw",
+        "anchor_quote": "projectiles follow a 'boomerang' path: they start at high speed, slow to a stop, and return to the thrower",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "Ele Buzzsaw — elemental crit variant dominant in 1.x/2.x; Ranger/Scion/Deadeye",
+            "Physical Spectral Throw — less common",
+            "Venom Spectral Throw — minor variant"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1839087",
+        "anchor_quote": "Added cold - Added Lightning - EDWAS - Trinity in the primary 6-link setup",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

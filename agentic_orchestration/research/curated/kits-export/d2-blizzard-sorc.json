@@ -1,0 +1,303 @@
+{
+  "kit_id": "d2-blizzard-sorc",
+  "spine": {
+    "kit_id": "d2-blizzard-sorc",
+    "folk_name": "Blizzard Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.10+;d2r;rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blizzard",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Large falling-ice zone centered on cursor; anchor: 'Creates a damaging blizzard in a circle centered on cursor location when the Skill is cast... Size 2 shards begin to fall every 4 frames (0.16 seconds)'; fire-hail tick cadence; cold/ice → water family per §1"
+        },
+        {
+          "source_skill": "Glacial Spike",
+          "geometry_value": "single_target",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Single-target freeze bolt; freeze attested in kit description 'Glacial Spike supplement single-target and freeze utility'; §2 freeze = hard immobilize cold"
+        },
+        {
+          "source_skill": "Ice Blast",
+          "geometry_value": "line",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Straight-line ice projectile; chill attested by kit identity (cold slow); supporting damage skill"
+        },
+        {
+          "source_skill": "Teleport",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Offensive repositioning; anchor: 'Player teleports to maintain positioning, places Blizzard zone between self and melee enemies'; utility mobility skill — teleport geometry per §6"
+        }
+      ],
+      "motion_frame": "Teleport to safe position; cast Blizzard zone between self and enemies; force melee to walk through; supplement with Glacial Spike/Ice Blast",
+      "resource_economy": {
+        "cost_scale": "Blizzard moderate mana per cast; Teleport mana per jump; FCR breakpoints critical (cap-noted in item_alterations)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Teleport repositioning lane"
+          ],
+          "economy": [
+            "FCR gear (FCR breakpoints identity-load-bearing; multiple items listed)",
+            "Cold sunder charm (breaks immunities — item fidelity note)"
+          ],
+          "traits_affixes": [
+            "Ice Blast + Glacial Spike synergies to Blizzard — §A row 1 scaffold; 5%/5% per level"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cold → water per §1. Freeze attested for Glacial Spike ('freeze utility'). Chill attested for Ice Blast by cold-slow identity. FCR breakpoint identity = economy texture (cadence_scale implicit). Teleport is mobility utility, not a damage skill; mapped geometry captures repositioning identity. ZONE_CONTROL T4 captures zone-placement gameplay identity. [STEWARD-AUDIT 2026-07-18: Ice Blast chill→freeze — store attests 'freeze utility'; adjacent-status substitution strike, grade unchanged.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Teo1904; BTNeandertha1 (orig); MacroBioBoi (reviewer)",
+      "title": "Blizzard Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.wowhead.com/diablo-2/guide/blizzard-sorc-sorceress-build-skills-gear",
+      "archive_url": null,
+      "site": "wowhead.com",
+      "author_handle": "CinereousStyx",
+      "title": "Blizzard Sorc Sorceress Build Guide Diablo II: Resurrected Season 13",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d2/blizzard-sorceress-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "MrLlamaSC",
+      "title": "Blizzard Sorceress Build — Diablo 2 Resurrected",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo.fandom.com/wiki/Patch_1.10_(Diablo_II)",
+      "archive_url": null,
+      "site": "diablo.fandom.com",
+      "author_handle": null,
+      "title": "Patch 1.10 (Diablo II) — Diablo Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.10+",
+      "anchor_quote": "Blizzard received increased cold damage and added skill synergy bonuses in Patch 1.10",
+      "source_url": "https://diablo.fandom.com/wiki/Patch_1.10_(Diablo_II)",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r",
+      "anchor_quote": "Blizzard Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14 Last Updated: May 22, 2026",
+      "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in rotw-s13+",
+      "anchor_quote": "By CinereousStyx Diablo II: Resurrected Season 13",
+      "source_url": "https://www.wowhead.com/diablo-2/guide/blizzard-sorc-sorceress-build-skills-gear",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Blizzard Sorceress; aliases Blizzard Sorc, Cold Sorc Blizzard",
+      "anchor_quote": "Blizz Sorc... Blizzard Sorceress",
+      "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Blizzard, Ice Blast, Glacial Spike, Teleport",
+      "anchor_quote": "Creates a damaging blizzard in a circle centered on cursor location when the Skill is cast... Size 2 shards begin to fall every 4 frames (0.16 seconds) for the entire duration of the blizzard.",
+      "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Teo1904",
+          "site": "maxroll.gg",
+          "secondary": "BTNeandertha1 (orig); MrLlamaSC (icy-veins); CinereousStyx (wowhead)"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+        "anchor_quote": "Season 14 Last Updated: May 22, 2026",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Doom Double Axe (Holy Freeze merc)",
+            "Spirit (caster weapon)",
+            "Chains of Honor (armor)"
+          ],
+          "synergies": [
+            "Ice Blast (Blizzard synergy)",
+            "Glacial Spike (Blizzard synergy)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+        "anchor_quote": "Blizzard... synergizes with Glacial Spike by 5%",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Death's Fathom (cold skills +%)",
+            "Heart of the Oak",
+            "Spirit Monarch (FCR)",
+            "Chains of Honor",
+            "Nightwing's Veil",
+            "Arachnid Mesh",
+            "Mara's Kaleidoscope",
+            "Tal Rasha's set pieces (budget option)",
+            "Cold sunder charm (breaks cold immunities in D2R)"
+          ],
+          "notes": "Sunder charm changed meta significantly — pure blizzard became viable across more areas"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+        "anchor_quote": "Since the introduction of Sunder Charms most players focus on one element",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-cursor zone placement",
+          "footprint": "large zone (circle at cursor)",
+          "range_type": "large-aoe",
+          "notes": "Teleport is full mobility skill enabling kiting; Blizzard is a zone spell not a projectile"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+        "anchor_quote": "Cast Blizzard between yourself and melee enemies to force them to walk through the Area of Effect",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Blizzard creates a large falling-ice zone centered on cursor; shards fall every 4 frames (0.16s) for the spell's duration. Player teleports to maintain positioning, places Blizzard zone between self and melee enemies, forces enemies to walk through. Ice Blast and Glacial Spike supplement single-target and freeze utility."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blizzard-sorceress",
+        "anchor_quote": "Creates a damaging blizzard in a circle centered on cursor location when the Skill is cast... Size 2 shards begin to fall every 4 frames (0.16 seconds)",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Blizzard (cold sunder + all-in)",
+            "Blizzballer (Blizzard + Fireball hybrid v1.10)",
+            "Blizz/Orb (Blizzard + Frozen Orb dual-element)"
+          ]
+        },
+        "source_url": "https://diablo2.diablowiki.net/Guide:Blizzballer_v1.10,_by_Miladys-Knight",
+        "anchor_quote": "Guide: Blizzballer v1.10 by Miladys-Knight",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

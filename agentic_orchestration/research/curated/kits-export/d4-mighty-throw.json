@@ -1,0 +1,254 @@
+{
+  "kit_id": "d4-mighty-throw",
+  "spine": {
+    "kit_id": "d4-mighty-throw",
+    "folk_name": "Mighty Throw Barbarian",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "voh-s6+;s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Auto-throw every 0.5s via item interaction has no direct engine primitive; trigger_grammar approximates the periodic proc. Placed pulsing zone shape is CLOSE to ground_targeted_circle but loses the 'shockwave radiates from point' texture. Player would feel the zone placement identity is present but the rhythmic auto-throw loop is underweighted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Auto-throw every 0.5s via item interaction has no direct engine primitive; trigger_grammar approximates the periodic proc. Placed pulsing zone shape is CLOSE to ground_targeted_circle but loses the 'shockwave radiates from point' texture. Player would feel the zone placement identity is present but the rhythmic auto-throw loop is underweighted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Mighty Throw",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "weapon hurled to plant shockwave-pulsing zone at landing point; Bane of Ahjad-Den triggers fire-damage detonation of pulses; auto-throw every 0.5s via Weapon Master's Aspect interaction in S14 form; Whirlwind carrier sustains Fury and buff stacks"
+        },
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "carrier skill maintaining Fury and triggering Weapon Master's Aspect interaction; auto-fires Mighty Throw every 0.5s in S14 variant-scope"
+        }
+      ],
+      "motion_frame": "Whirlwind to maintain Fury and buffs; Bane of Ahjad-Den auto-throws Mighty Throw every 0.5s planting pulsing fire-damage zones",
+      "resource_economy": {
+        "fury": "primary-spender",
+        "regen_shape": "Whirlwind sustained; Melted Heart of Selig doubles max Fury (Selig variant)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "shockwave-pulse zone radius; Weapon Master's Aspect auto-throw"
+          ],
+          "economy": [
+            "Ring of Starless Skies",
+            "Ramaladni's Magnum Opus Fury scaling",
+            "Melted Heart of Selig max Fury (Selig variant)"
+          ],
+          "traits_affixes": [
+            "Weapon Master's/Anger Management/Conceited/Crushing aspects",
+            "Wrath/Might/Undaunted/Crusher/Challenger paragon glyphs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire element attested via item_alterations: 'Bane of Ahjad-Den causes instant detonation of pulses as fire damage' — fire DAMAGE language attested (MW3 element law: store DAMAGE language required). Whirlwind as carrier: item-defined-archetype law governs S14 auto-throw form mapped here (store variants confirm 'this is a new form returning with Lord of Hatred expansion'). No ailment attested in store. ZONE_CONTROL door: planted zone is identity-load-bearing. Whirlwind carrier skill geometry=whirlwind per phrase-book."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Beatdropper",
+      "title": "Mighty Throw Barbarian Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/mighty-throw-barbarian-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Mathris",
+      "title": "Mighty Throw - Barbarian Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/news/best-builds-vessel-of-hatred-season-6/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Dominate Diablo 4 Season 6: Best Class Builds and Vessel of Hatred Tier Lists!",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": "January 13th 2025: Guide updated for Season 7",
+      "source_url": "https://www.icy-veins.com/d4/guides/mighty-throw-barbarian-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Mighty Throw Barbarian'; aliases 'Mighty Throw Barb D4', 'Mighty Throw Barbarian s7-s12'",
+      "anchor_quote": "Mighty Throw Barbarian Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Mighty Throw; weapon throw with shockwave zone; Barbarian Fury resource",
+      "anchor_quote": "Hurl the weapon to plant a SHOCKWAVE-PULSING ZONE where it lands... Fury (with Selig variant doubling max Fury via Melted Heart of Selig)",
+      "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Beatdropper",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+        "anchor_quote": "Beatdropper (Content Creator)",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Weapon Master's Aspect",
+            "Aspect of Anger Management",
+            "Conceited Aspect",
+            "Crushing Aspect"
+          ],
+          "paragon_glyphs": [
+            "Wrath",
+            "Might",
+            "Undaunted",
+            "Crusher",
+            "Challenger"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+        "anchor_quote": "Aspects: Weapon Master's Aspect, Aspect of Anger Management, Conceited Aspect, Crushing Aspect... Paragon Glyphs: Wrath, Might, Undaunted, Crusher, Challenger",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Bane of Ahjad-Den",
+            "The Grandfather",
+            "Ring of Starless Skies",
+            "Ramaladni's Magnum Opus",
+            "Melted Heart of Selig"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+        "anchor_quote": "Bane of Ahjad-Den, The Grandfather, Ring of Starless Skies, Ramaladni's Magnum Opus",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-throw",
+          "footprint": "shockwave-pulse-zone",
+          "note": "weapon hurl plants shockwave-pulsing zone; Bane of Ahjad-Den causes instant detonation of pulses as fire damage"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+        "anchor_quote": "Hurl the weapon to plant a SHOCKWAVE-PULSING ZONE where it lands",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Whirlwind constantly to maintain Fury and buff stacks; Bane of Ahjad-Den triggers Mighty Throw automatically every 0.5s via Weapon Master's Aspect interaction; throw detonates with pulse/shockwave at landing zone"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+        "anchor_quote": "automatically rapid fires a barrage of homing rockets, on top of your Whirlwind and related projectiles' damage",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "current_variant": "Auto-throw via Bane of Ahjad-Den (S14); prior: manual shockwave throw (S7-S12)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/mighty-throw-barbarian-guide",
+        "anchor_quote": "this is a new form returning with Lord of Hatred expansion",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

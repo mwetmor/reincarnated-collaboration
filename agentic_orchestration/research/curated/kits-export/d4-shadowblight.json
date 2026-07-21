@@ -1,0 +1,237 @@
+{
+  "kit_id": "d4-shadowblight",
+  "spine": {
+    "kit_id": "d4-shadowblight",
+    "folk_name": "Shadowblight Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "s7-s12;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Shadowblight pulse threshold mechanic (8th hit count) is identity-core but maps only as trigger note; (2) corpse-node economy gap — the spatial-consumable-resource-node docket class has no native lane; (3) Shroud of False Death + Heir of Perdition mythic defense layers are scaler-only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) Shadowblight pulse threshold mechanic (8th hit count) is identity-core but maps only as trigger note; (2) corpse-node economy gap — the spatial-consumable-resource-node docket class has no native lane; (3) Shroud of False Death + Heir of Perdition mythic defense layers are scaler-only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blight",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Small initial hit then leaves AoE ground DoT pool; stacks on enemies within range increasing damage 10%; shadow DoT accumulates Shadowblight key-passive charge (every 8th instance of Shadow Damage triggers pulse)"
+        },
+        {
+          "source_skill": "Corpse Tendrils",
+          "geometry_value": "vortex_pull",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pulls enemies into cluster; re-groups between Corpse Explosion casts; no root language in dossier text"
+        },
+        {
+          "source_skill": "Corpse Explosion",
+          "geometry_value": "ring",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cast on freshly formed Corpses non-stop; consumes corpse node; Shadowblight pulse triggered by accumulated shadow damage instances"
+        }
+      ],
+      "motion_frame": "Blight pools into cluster, Corpse Tendrils re-pull, Corpse Explosion on fresh corpses non-stop; Shadowblight pulses on 8th shadow damage instance",
+      "resource_economy": {
+        "essence_cost": "primary spender (Essence)",
+        "corpse_nodes": "identity-load-bearing — Corpse Explosion and Corpse Tendrils both consume corpse nodes; loop cannot sustain without fresh corpses"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Shadowblight stack (8th shadow damage instance)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aspect of Decay — shadow DoT area modifier",
+            "Blighted Aspect — Blight pool enhancement"
+          ],
+          "economy": [
+            "Grim Harvest — essence/corpse economy",
+            "Umbral — resource on crowd-control (Corpse Tendrils pull)"
+          ],
+          "traits_affixes": [
+            "Aspect of Grasping Veins",
+            "Aspect of the Cursed Aura",
+            "Abhorrent Decrepify — aspect name only; no movement-slow language in dossier text"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Corpse-node economy: spatial-consumable-resource-node docket class (§CROSS row 1); corpse_nodes key populated as identity-load-bearing. ERRATA-51: Reap attested as core generation skill alongside Decompose — both are valid corpse-generation tools; Reap not mapped as separate skill row because dossier loop text focuses on Blight+CE as the damage verbs. Element shadow: 'shadow damage-over-time detonating Shadowblight key-passive pulses.' Ailments: no root language in dossier (Corpse Tendrils pull text only); no freeze/bleed/stun named. 'Abhorrent Decrepify' is an aspect NAME — skill-name collision law (§0.4) blocks curse:decrepify without explicit movement-slow language. Drain not named. Near-miss list: root (Corpse Tendrils pull attested, root word absent), curse:decrepify (Abhorrent Decrepify name only)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Shadowblight Necromancer Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/shadowblight-necromancer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Shadowblight – Necromancer Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in s7-s12 and loh-s13-14",
+      "anchor_quote": "April 26th, 2025: Guide updated for Season 8.",
+      "source_url": "https://www.icy-veins.com/d4/guides/shadowblight-necromancer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Shadowblight Necromancer' is real community usage",
+      "anchor_quote": "Shadowblight Necromancer Endgame Build Guide for Diablo IV Season 12 - Slaughter",
+      "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "core_skills Blight, Decompose, Shadowblight; Necromancer class",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Blighted Aspect",
+            "Aspect of Decay",
+            "Aspect of Grasping Veins",
+            "Aspect of the Cursed Aura",
+            "Abhorrent Decrepify",
+            "Grim Harvest"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+        "anchor_quote": "Blighted, Decay, Umbral, Abhorrent Decrepify, and Grim Harvest",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "mythics": [
+            "Shroud of False Death",
+            "Heir of Perdition"
+          ],
+          "other": [
+            "Blood Moon Breeches (Best in Slot)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/shadowblight-necromancer-build/",
+        "anchor_quote": "Blood Moon Breeches (Best in Slot)",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Blight deals a small amount of initial damage then leaves behind a pool of AoE damage that stacks on top of any enemies within range, increasing damage by 10%. Shadowblight triggers every 8th instance of Shadow Damage on a target."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+        "anchor_quote": "Blight deals a small amount of initial damage then leaves behind a pool of AoE damage that stacks on top of any enemies within range",
+        "abstained": 0,
+        "conf": 0.93
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use Corpse Tendrils and throw a few Blights into the pulled enemies. Cast Corpse Explosions non stop on freshly formed Corpses, while re-grouping enemies with Corpse Tendrils between casts."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+        "anchor_quote": "Use Corpse Tendrils and throw a few Blights into the pulled enemies. Cast Corpse Explosions non stop on freshy formed Corpses",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/shadowblight-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

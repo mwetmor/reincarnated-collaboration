@@ -1,0 +1,230 @@
+{
+  "kit_id": "ud-lightning-vortex",
+  "spine": {
+    "kit_id": "ud-lightning-vortex",
+    "folk_name": "Lightning Vortex Mapper",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "ud-s7-2025",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lightning element cannot be attested from the rune page; source player of this build expects a lightning identity. Melee-arc+zone is a genuine map of the swing+vortex mechanic but the absence of lightning element loses the elemental flavor the build creator intends.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Lightning element cannot be attested from the rune page; source player of this build expects a lightning identity. Melee-arc+zone is a genuine map of the swing+vortex mechanic but the absence of lightning element loses the elemental flavor the build creator intends.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Vortex",
+          "geometry_value": "melee_arc",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "MELEE errata: 'Swings weapon to damage multiple enemies and create a vortex. The vortex deals additional damage to nearby enemies.' Strength-based weapon swing (cleave) — NOT a ranged cast. Self-origin melee arc + vortex zone at impact (AOE radius 700, vortex range 260). Lightning = NAME-ONLY: 'Cleave Lightning area DMG' from pocketgamer is a build-description compound; the rune page 'Swings weapon to damage multiple enemies' carries no element qualifier → element_primary=null per §0.2. Shock (10% chance at rune grade) is a named ailment in item_alterations link-rune data — attested as status."
+        }
+      ],
+      "motion_frame": "Melee weapon swing (cleave) creates vortex zone at impact; vortex zone deals bonus damage; Strength-based attack loop; support lattice of Seal/Veil skills maintained in background",
+      "resource_economy": {
+        "cost_scale": "mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_PROPAGATION_cascade",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Seal/Veil reservation economy (see ud-seal-veil-daimonios)"
+          ],
+          "traits_affixes": [
+            "Iron Will, Focus, Fighting Spirit link runes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA APPLIED: lightning-vortex is MELEE (weapon swing), not ranged cast. Element=null: 'lightning' appears only as name-qualifier in pocketgamer build-description; rune page description has no damage-type qualifier. §0 NEAR-MISS: lightning element wanted (name, meta context), cannot attest from rune page. Shock ailment attested in item_alterations link rune data (10% chance rune grade)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/LightningVortex/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Lightning Vortex - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pocketgamer.com/undecember/builds/",
+      "archive_url": null,
+      "site": "pocketgamer.com",
+      "author_handle": "Pocket Gamer staff",
+      "title": "The best Undecember builds in Season 7",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ud-s7-2025 (Season 7)",
+      "anchor_quote": "This Strength-based melee attack swings the weapon forth to deal Cleave Lightning area DMG, followed by a vortex that inflicts Vortex Lightning DMG.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Lightning Vortex Mapper — large-zone lightning AOE mapping build, Season 7",
+      "anchor_quote": "This Strength-based melee attack swings the weapon forth to deal Cleave Lightning area DMG, followed by a vortex that inflicts Vortex Lightning DMG.",
+      "source_url": "https://www.pocketgamer.com/undecember/builds/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Lightning AOE cast at target; large zone; shock/stun riders; mana spend",
+      "anchor_quote": "Swings weapon to damage multiple enemies and create a vortex. The vortex deals additional damage to nearby enemies",
+      "source_url": "https://undecember.thein.ru/en/runes/LightningVortex/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Daimonios",
+          "site": "pocketgamer.com/undecember",
+          "context": "Season 7 Lightning Vortex build guide creator"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "origin_grade": "Lightning Vortex [Origin] — upgraded form used in S7 meta build"
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Lightning Vortex [Origin]",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "link_runes": [
+            "Iron Will",
+            "Focus",
+            "Fighting Spirit",
+            "Warrior's Shadow",
+            "Extract Energy",
+            "Smash"
+          ],
+          "support_skills": [
+            "Illusion Hook",
+            "Illusion Axe",
+            "Seal of Persistence",
+            "Seal of Striking",
+            "Seal of Dodge",
+            "Seal of Elemental Domain",
+            "Fighter's Wrath",
+            "Weaken Totem",
+            "Siphon Life",
+            "Shout of Justice"
+          ],
+          "ailments": [
+            "Shock (10% chance at rune grade)"
+          ]
+        },
+        "source_url": "https://www.pocketgamer.com/undecember/builds/",
+        "anchor_quote": "Link Runes: Iron Will, Focus, Fighting Spirit, Warrior's Shadow, Extract Energy, Smash",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "self-origin melee cleave (weapon swing)",
+          "secondary": "vortex zone at impact point (AOE radius 700, vortex range 260)",
+          "type": "melee not ranged cast"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/LightningVortex/",
+        "anchor_quote": "Swings weapon to damage multiple enemies and create a vortex. The vortex deals additional damage to nearby enemies",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Melee weapon swing (cleave) creates a Lightning Vortex zone at impact; vortex deals additional lightning damage to nearby enemies for brief duration. Strength-based attack skill — NOT a ranged cast. Multiple Seal + Veil support skills maintained via Improved Technique link."
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/LightningVortex/",
+        "anchor_quote": "Swings weapon to damage multiple enemies and create a vortex. The vortex deals additional damage to nearby enemies",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

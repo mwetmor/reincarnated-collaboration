@@ -1,0 +1,215 @@
+{
+  "kit_id": "gd-blade-arc-warder",
+  "spine": {
+    "kit_id": "gd-blade-arc-warder",
+    "folk_name": "Blade Arc Warder",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blade Arc",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "bleed"
+          ],
+          "delivery_notes": "wide self-origin melee arc sweep applying stacking bleed damage-over-time ('melee attack that deals damage in an arc pattern'; 'entire build revolves around scaling bleed damage as a damage-over-time effect with big numbers'); bleed continues ticking after moving past targets. melee_arc carries the wide-swing identity (phrase-book wide melee swing). bleed NAMED explicitly in fetched text ('scaling bleed damage as a damage-over-time'). Physical/bleed damage -> no element family (THE PHYSICAL RULE); the bleed ailment IS the identity."
+        }
+      ],
+      "motion_frame": "swing a two-handed weapon in a wide bleed-arc through the pack, then keep moving while stacked bleed DoTs tick down enemies from behind",
+      "resource_economy": {
+        "cost_scale": "light per-swing energy (melee attack; the bleed DoT stack carries damage between swings)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "arc width / radius"
+          ],
+          "economy": [
+            "light-cost melee cadence"
+          ],
+          "traits_affixes": [
+            "bleed damage + duration scaling",
+            "Devouring Swarm / primal support -> resistance-reduction lane (RR debuff)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "melee_arc for the wide-arc sweep; bleed is the load-bearing ailment (explicitly named, phys-DoT per THE PHYSICAL RULE / §A Internal-Trauma-as-bleed lineage confirms bleed = the phys ailment-substrate). Element-neutral: bleed/physical carries no 7-family slot; Lightning Blade Arc variant exists (variants list) but this kit's fetched identity is the 2H bleed build (Guillotine). PERSISTENCE_ENGINE_saturation = the bleed-DoT-uptime identity ('big numbers' DoT that ticks after moving past). Devouring Swarm noted as an RR support-lane, not emitted as its own skill (single-active kit). EXACT: clean arc + named bleed with no forcing."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-2-0-3-big-bleed-easy-blade-arc-warder-ravager-callagadra-sr90/133802",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "Allan_Ashcroft",
+      "title": "[1.2.0.3] Big Bleed - Easy Blade Arc Warder. Ravager, Callagadra, SR90",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-7-1-1-9-8-budget-physical-blade-arc-s-b-warder-sr80-ravager-of-minds/127745",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "The_Coyote",
+      "title": "[1.1.9.7 - 1.1.9.8] Budget Physical Blade Arc S&B Warder [SR80]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in eras: base-2016, patch-1.1-1.2",
+      "anchor_quote": "Blade Arc requires the Soldier mastery bar at level 10 — treated as a core Soldier skill in this build; Soldier is a base-game mastery",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-1-1-9-8-budget-physical-blade-arc-s-b-warder-sr80-ravager-of-minds/127745",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blade Arc Warder'; aliases include 'physical Blade Arc Warder', 'two-hand Blade Arc'",
+      "anchor_quote": "Warder = Soldier + Shaman... centers on scaling bleed effects... utilizes the Guillotine two-handed weapon",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-0-3-big-bleed-easy-blade-arc-warder-ravager-callagadra-sr90/133802",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Blade Arc (wide arc sweep dealing bleed DoT)",
+      "anchor_quote": "skill functions as a melee attack that deals damage in an arc pattern... entire build revolves around scaling bleed damage as a damage-over-time effect",
+      "source_url": "https://forums.crateentertainment.com/t/1-2-0-3-big-bleed-easy-blade-arc-warder-ravager-callagadra-sr90/133802",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Allan_Ashcroft",
+          "site": "forums.crateentertainment.com",
+          "post_type": "build guide",
+          "secondary_handle": "The_Coyote"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-0-3-big-bleed-easy-blade-arc-warder-ravager-callagadra-sr90/133802",
+        "anchor_quote": "Allan_Ashcroft — Big Bleed Blade Arc Warder; The_Coyote — Budget Physical Blade Arc S&B Warder",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin-arc",
+          "footprint": "wide-arc-small-radius",
+          "weapon_requirement": "two-handed or one-handed-with-shield",
+          "notes": "Arc sweep from player; both 2H and S&B variants documented"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-1-1-9-8-budget-physical-blade-arc-s-b-warder-sr80-ravager-of-minds/127745",
+        "anchor_quote": "Blade Arc requires the Soldier mastery bar at level 10... melee attack that deals damage in an arc pattern",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Swing two-handed weapon in wide arc applying bleed DoT; bleed continues ticking after moving past targets; Shaman Devouring Swarm or primal support adds resistance reduction"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-0-3-big-bleed-easy-blade-arc-warder-ravager-callagadra-sr90/133802",
+        "anchor_quote": "entire build revolves around scaling bleed damage as a damage-over-time effect with big numbers... utilizes Guillotine two-handed weapon",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Lightning Blade Arc Warder",
+            "S&B Physical Blade Arc Warlord",
+            "2H Bleed Blade Arc Warder (Guillotine)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-4-lightning-blade-arc-warder-sr-75-76-85ish/113492",
+        "anchor_quote": "[1.1.9.4] Lightning Blade Arc Warder SR 75-76... [1.1.9.6] No-Set! S&B Physical Blade Arc Warlord",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

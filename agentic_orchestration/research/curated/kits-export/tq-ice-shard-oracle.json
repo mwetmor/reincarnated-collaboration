@@ -1,0 +1,232 @@
+{
+  "kit_id": "tq-ice-shard-oracle",
+  "spine": {
+    "kit_id": "tq-ice-shard-oracle",
+    "folk_name": "Ice Shard Oracle",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "anniversary-2016;ragnarok-2017",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "curse:weaken"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Shard",
+          "geometry_value": "line",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "Piercing cold projectile; 'inflicting cold damage and temporarily slowing them' — cold → water, slow → chill per source-mechanism; no cooldown spam; Torrent synergy converts to frontal cone (multi-projectile) — base form is line"
+        },
+        {
+          "source_skill": "Deathchill Aura",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:weaken"
+          ],
+          "delivery_notes": "Spirit mastery aura debuffs enemy speed and health; enemy speed reduction = chill-adjacent but Deathchill's key mechanic is health reduction on enemies — maps curse:weaken (attack power / health reduction on enemy)"
+        }
+      ],
+      "motion_frame": "Hold right-click to spam Ice Shard continuously (no cooldown); Torrent synergy unlocks multi-projectile cone; Deathchill Aura active for melee crowd control; 300% casting speed target",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "cadence_scale": "high",
+        "note": "Energy cost reduction gear mandatory for infinite shard spam; '300% casting speed target without running out of mana'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_INVERSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce count",
+            "Torrent projectile count",
+            "cone conversion"
+          ],
+          "economy": [
+            "energy cost reduction",
+            "cast speed"
+          ],
+          "traits_affixes": [
+            "cold damage %",
+            "pierce ratio",
+            "projectile speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Dominant geometry is line (base form) with Torrent synergy converting to cone/multi_projectile — mapped as line with delivery_note; steward may want a fork-geometry consideration for Torrent build variant. Deathchill Aura health reduction on enemies = curse:weaken (enemy attack power/damage reduction class). Ternion triple-projectile variant noted in dossier but not mapped separately — variants row covers it."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=767826166",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "IceSharding your way",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/3127163422372303058/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Trying to decide Second mastery for Ice Shard",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Present in anniversary-2016 and ragnarok-2017",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ice Shard Oracle = Storm+Spirit dual mastery, cold projectile caster",
+      "anchor_quote": "Oracle (Storm+Spirit) fires Ice Shards as the primary damage vehicle — piercing cold projectiles that deal cold damage",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=767826166",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ice Shard cold projectile with pierce; Deathchill Aura support; Ternion variant or life-leech support",
+      "anchor_quote": "Ice Shard projects a deadly shard of ice at the target inflicting cold damage and temporarily slowing them",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/3127163422372303058/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Torrent synergy — increases projectile count; Velocity synergy — adds pierce + cold damage + speed; Heart of Frost synergy — buffs frost damage; Deathchill Aura (Spirit) debuffs enemy speed and health"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/3127163422372303058/",
+        "anchor_quote": "Max out the Torrent synergy skill to increase the number of Ice Shard's projectiles turning it into a frontal conal anti-group attack",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Casting speed gear priority; -Energy Cost items for infinite shard spam; 300% casting speed target"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/3127163422372303058/",
+        "anchor_quote": "Your goal should be to be able to spam infinite Ice Shards with 300% casting speed without running out of mana",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "ranged piercing projectile — cold damage; single-target with pierce-through; Torrent synergy converts to frontal cone (AoE)",
+          "note": "max Torrent = frontal conal anti-group attack"
+        },
+        "source_url": "https://steamcommunity.com/app/475150/discussions/0/3127163422372303058/",
+        "anchor_quote": "Projects a deadly shard of ice at the target inflicting cold damage and temporarily slowing them",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Hold RMB to spam Ice Shard (no cooldown) as primary attack; unlock Torrent synergy for multi-projectile cone; max Velocity for pierce + cold damage + speed; Deathchill Aura for melee crowd control support; Ternion alternative for triple-projectile variant"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=767826166",
+        "anchor_quote": "Fire up to 5~6 Shards of awesomeness",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Ice Shard + Ternion triple-projectile Oracle",
+            "Ice Shard pure caster (Storm solo before second mastery)",
+            "Oracle with Spirit life drain support"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=767826166",
+        "anchor_quote": "Able to Respec to Ternion if you find this build lacking",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

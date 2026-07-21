@@ -1,0 +1,243 @@
+{
+  "kit_id": "d3-firebird",
+  "spine": {
+    "kit_id": "d3-firebird",
+    "folk_name": "Firebird Ignite",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire/arcane element unatttested. Burn ailment not mapped (Firebird Ignite is a proprietary mark, not the burn status). Player loses element flavor and ailment synergy hooks.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Fire/arcane element unatttested. Burn ailment not mapped (Firebird Ignite is a proprietary mark, not the burn status). Player loses element flavor and ailment synergy hooks.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Disintegrate",
+          "geometry_value": "beam_channel",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sustained channeled beam; applies Firebird set Ignite mark to targets; Combustion stacks build via 4pc bonus; fire element thematic but unatttested in any fetched anchor_quote; set Ignite = mark mechanic, not the burn ailment (burn ailment unatttested in anchor text)"
+        },
+        {
+          "source_skill": "Explosive Blast (modern variant)",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Secondary modern variant per guide; self-origin nova; used with Etched Sigil for auto-proc during Disintegrate channel; no element named in dossier anchor"
+        }
+      ],
+      "motion_frame": "Channel Disintegrate to apply Firebird Ignite mark and build Combustion stacks; 6pc Ignite procs deal massive damage against marked/burning targets; CoE arcane cycle burst window via Convention of Elements",
+      "resource_economy": {
+        "cost_scale": "Arcane Power; APoC (Arcane Power on Critical Hit) on Off-Hand per item_alterations anchor; Teleport CDR via Combustion stacks (4pc)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "firebird_ignite_mark",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Explosive Blast ring secondary; Etched Sigil auto-proc during channel"
+          ],
+          "economy": [
+            "Aquila Cuirass damage buff at full Arcane Power; CoE element_rotation_window (R-M5 token)",
+            "Deathwish multiplier during channel (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Firebird 6pc Ignite damage scalar (scaler-only per §B.1)",
+            "4pc Combustion CDR mechanic"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null — fire/arcane unatttested in fetched anchor_quotes (mech_note probe inadmissible); APoC anchor attests arcane_power as a STAT not an element. Burn ailment near-miss: 'Ignite' in Firebird context is a set-specific mark mechanic, not the burn status ailment — no 'burning' status attested in anchor text. CoE = R-M5 token. Mark-and-execute loop: Ignite mark applied → 6pc proc on burning targets = apply-consume-pair trigger grammar. All set scalers scaler-only per §B.1. [STEWARD-AUDIT 2026-07-18 MW2-close: Disintegrate element null→fire — dossier payload attests 'large-zone fire spread' + 'applies ignite to target'; the anchor-quote-only admissibility reading was too narrow (STORE-NOT-STYLE: payload_json is equally legal store). Mark-lane handling of firebird_ignite RATIFIED as m-precedent (set-mark-DoT → mark lane, not ailment lane). Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewingnom",
+      "title": "Diablo 3 Season 39 Firebird Explosive Blast Wizard Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Firebird Explosive Blast Wizard Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Firebird Explosive Blast Wizard Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "Firebird Explosive Blast Wizard Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Firebird Ignite' and aliases 'Firebird Wizard', 'Firebird Disintegrate', 'Ignite Wizard' are real community usage",
+      "anchor_quote": "Firebird Explosive Blast Wizard Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Disintegrate and Ignite set mechanic; Arcane Power resource; fire application and Combustion stacks",
+      "anchor_quote": "Disintegrate is the cornerstone of the reworked Firebird's Finery set",
+      "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewingnom",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+        "anchor_quote": "by Chewi / Content Creator Chewingnom",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Firebird's Finery",
+          "set_bonus_4pc": "Combustion stacks reduce Teleport CDR and buff Ignite damage",
+          "set_bonus_6pc": "Ignite procs deal massive fire damage to burning targets",
+          "kanais_cube": [
+            "Deathwish",
+            "Aquila Cuirass",
+            "Convention of Elements"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+        "anchor_quote": "Combustion stacks decay at the rate of 2 per second",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Aquila Cuirass",
+            "Convention of Elements",
+            "Deathwish",
+            "Etched Sigil"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+        "anchor_quote": "Arcane Power on Critical Hit (APoC) on your Off-Hand",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target channeled",
+          "footprint": "large-zone fire spread",
+          "notes": "Disintegrate channel applies Ignite to target; Combustion spreads Ignite AoE; 6pc Ignite procs cover large area"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+        "anchor_quote": "You gain Combustion stacks from Firebird's Finery (4) Bonus very quickly when channeling Disintegrate",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Channel Disintegrate to apply Ignite to targets; build Combustion stacks via 4pc bonus (reduces Teleport CDR); 6pc Ignite procs deal massive damage against burning enemies; Explosive Blast or Flame Blades as secondary in modern variants"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+        "anchor_quote": "Disintegrate is the cornerstone of the reworked Firebird's Finery set",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Firebird Explosive Blast",
+            "Firebird Flame Blades",
+            "Firebird Meteor",
+            "Firebird Mirror Image (older, Season 24)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/firebird-explosive-blast-wizard-guide",
+        "anchor_quote": "Firebird Explosive Blast Wizard Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

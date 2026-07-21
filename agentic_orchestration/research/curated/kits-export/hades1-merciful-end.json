@@ -1,0 +1,221 @@
+{
+  "kit_id": "hades1-merciful-end",
+  "spine": {
+    "kit_id": "hades1-merciful-end",
+    "folk_name": "Merciful End (Ares+Athena duo)",
+    "game": "hades1",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades1-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01 GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Duo-boon pair-capstone identity (requires both Ares and Athena boon lines) has no engine capstone equivalent. The instant-Doom-on-Deflect trigger requires both a delayed-burst tag mechanic AND a deflect mechanic — neither exists in the engine. The build IS the cross-boon interaction, not a skill rotation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Duo-boon pair-capstone identity (requires both Ares and Athena boon lines) has no engine capstone equivalent. The instant-Doom-on-Deflect trigger requires both a delayed-burst tag mechanic AND a deflect mechanic — neither exists in the engine. The build IS the cross-boon interaction, not a skill rotation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Divine Dash (Athena — Deflect source)",
+          "geometry_value": "defensive_dash",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Same as hades1-athena-dash: deflect along dash path, projectile reflection. No element. Deflect is not in 16-ailment registry."
+        },
+        {
+          "source_skill": "Curse of Agony (Ares — Doom on Attack)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Same as hades1-ares-doom: Doom tag on hit; normally 1.1s delay. In this duo build, Merciful End removes the delay when Deflect is active."
+        },
+        {
+          "source_skill": "Merciful End (Duo boon — instant Doom on Deflect)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Duo boon capstone: any attack with Deflect property immediately triggers all active Doom effects. Bypasses normal 1.1-second delay. Grants +50 bonus damage per trigger. The duo boon IS the build identity — its mechanic integrates the Ares and Athena skill lines. No element."
+        }
+      ],
+      "motion_frame": "apply Doom via Ares boon; deflect via Athena boon to fire instant Doom detonation; Doom delay bypassed entirely on deflect contact",
+      "resource_economy": {
+        "proc_trigger_condition": "on-ailment-application (deflect trigger fires Doom)",
+        "bonus_damage_per_trigger": "+50 damage per Merciful End proc (dossier: item_alterations)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "Doom tag on target; Deflect property on attack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RETRIBUTION_ENGINE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Ares boon rarity increases Doom damage; Athena boon rarity increases deflect damage multiplier"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: Merciful End is a duo-boon build requiring two specific boon lines (Ares + Athena). The kit IS the boon-pair capstone interaction — no fixed rotation, only the pairing of Doom-application and Deflect-trigger that fires instant detonation. This pair-grain-capstone pattern has no engine lane (capstone IS two-boon pairing, not a mastery tree node). Docket: duo-boon pair-capstone identity + deflect mechanic. Cross-kit relationship: this kit's capstone synergy overlaps with both hades1-ares-doom and hades1-athena-dash — all three share components, but Merciful End is the combined identity. Twin Fists / Sword / Shield variants are weapon-variable executions of the same duo pattern."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Clarity on Merciful End mechanics :: Hades General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://basicallyaverage.com/duo-boons-guide-hades/",
+      "archive_url": null,
+      "site": "basicallyaverage.com",
+      "author_handle": null,
+      "title": "Duo Boons Guide | Hades - Basically Average",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hades1-2020 era.",
+      "anchor_quote": "Merciful End causes your attacks that Deflect to immediately trigger Doom effects",
+      "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Merciful End (Ares+Athena duo)' — Merciful End is a real Duo boon requiring both Ares and Athena boon lines in Hades.",
+      "anchor_quote": "Merciful End causes your attacks that Deflect to immediately trigger Doom effects",
+      "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills are Divine Dash (Athena), Curse of Agony (Ares), and Merciful End duo boon; Doom delay removed, detonation immediate on deflect contact; requires both Ares-line and Athena-line boons.",
+      "anchor_quote": "Merciful End causes your attacks that Deflect to immediately trigger Doom effects ... reduces the normal 1.1-second Doom delay",
+      "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "Merciful End IS the capstone for both Ares Doom and Athena Dash kits. No further capstone above this duo boon for this specific kit identity."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+        "anchor_quote": "Merciful End causes your attacks that Deflect to immediately trigger Doom effects",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Merciful End upgrade path: upgrade both underlying boon lines independently. Ares Doom boon tier increases burst damage; Athena deflect boon tier increases deflect damage multiplier. Both lines feed the duo boon output."
+        },
+        "source_url": "https://basicallyaverage.com/duo-boons-guide-hades/",
+        "anchor_quote": "Upgrade both underlying boon lines (Ares Doom level + Athena deflect level) to amplify the detonation burst and deflect frequency",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin (deflect contact point)",
+          "description": "Doom detonates at the enemy that triggered the deflect — point delivery on the deflect-source enemy. Deflect itself is contact-based (dash/attack path). The combined effect is: dash/deflect hits a projectile source → Doom on that enemy detonates instantly."
+        },
+        "source_url": "https://basicallyaverage.com/duo-boons-guide-hades/",
+        "anchor_quote": "With Merciful end players will be able to apply Doom by using any attacks that can Deflect",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Duo boon, not a rotation. Merciful End requires both an Ares Doom boon (Curse of Agony or Curse of Pain on attack/special) and an Athena boon with Deflect (Divine Strike, Divine Flourish, or Divine Dash). When any attack with Deflect property is used, Doom effects trigger INSTANTLY — bypassing the normal 1.1-second delay. Grants +50 bonus damage per trigger (per source). Loop: apply Doom via Ares boon, then deflect via Athena boon to fire instant detonation."
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+        "anchor_quote": "Merciful End causes your attacks that Deflect to immediately trigger Doom effects ... reduces the normal 1.1-second Doom delay",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Twin Fists variant (alternating Curse of Pain + Divine Strike)",
+            "Sword variant (Curse of Agony + Divine Dash)",
+            "Shield Zeus Aspect variant (Doom on Attack + Deflect on Special)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1145360/discussions/0/2275953283838348435/",
+        "anchor_quote": "Twin Fists: alternating Curse of Pain + Divine Strike ... Sword: Curse of Agony/Pain + Divine Dash",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

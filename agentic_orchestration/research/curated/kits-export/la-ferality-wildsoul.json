@@ -1,0 +1,323 @@
+{
+  "kit_id": "la-ferality-wildsoul",
+  "spine": {
+    "kit_id": "la-ferality-wildsoul",
+    "folk_name": "Ferality Wildsoul",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-wildsoul-2025-02-26;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Dual-form stack-build economy (Fox/Bear both feeding same Ferality stack cap) approximated via resource_economy; form-specific skill availability is a delivery constraint the engine cannot express natively. Ark Passive fox/bear node paths → capstone_alterations.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Dual-form stack-build economy (Fox/Bear both feeding same Ferality stack cap) approximated via resource_economy; form-specific skill availability is a delivery constraint the engine cannot express natively. Ark Passive fox/bear node paths → capstone_alterations.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fox Flame",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fox Form transformation skill; builds Ferality stacks; Fox = name-only → null"
+        },
+        {
+          "source_skill": "Fox Illusion",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fox Form skill; stack builder"
+        },
+        {
+          "source_skill": "Fox Orb",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fox Form skill; stack builder"
+        },
+        {
+          "source_skill": "Boulder Bear",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Bear Form skill; builds Ferality stacks"
+        },
+        {
+          "source_skill": "Swish Bear",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Bear Form skill; stack builder"
+        },
+        {
+          "source_skill": "Forbidden Sorcery: Fox Star Rainstorm",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fox finisher at max 3 Ferality stacks"
+        },
+        {
+          "source_skill": "Forbidden Sorcery: Ripping Bear",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Bear finisher at max 3 Ferality stacks"
+        },
+        {
+          "source_skill": "Vulpine Velocity",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Armor Destruction synergy skill — raid-break vocab (NOT sunder); bridges form transitions"
+        },
+        {
+          "source_skill": "Claw",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Counter skill; form-transition bridge"
+        }
+      ],
+      "motion_frame": "Shapeshift between Fox Form (+20% Attack Speed/Move Speed) and Bear Form (+10% Damage Reduction) using Phantom Beast Energy; cast transformation skills to build Ferality stacks (max 3); execute finishers at max stacks: Forbidden Sorcery: Fox Star Rainstorm (Fox) or Ripping Bear (Bear); bridge form transitions with Vulpine Velocity/Claw",
+      "resource_economy": {
+        "phantom_beast_energy": "fuels Fox/Bear form shapeshifting; form state determines available skill set",
+        "ferality_stacks": "built by casting transformation skills (max 3); consumed by finisher skills at cap"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Ferality stack cap (3)",
+        "consequence_type": "burst_damage"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike",
+            "melee_arc",
+            "ground_slam",
+            "ground_targeted_circle",
+            "ring",
+            "dash_attack"
+          ],
+          "economy": [
+            "phantom_beast_energy",
+            "ferality_stacks"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: Fox Flame, Fox Orb, Fox Illusion, Boulder Bear, Swish Bear, Fox Star Rainstorm, Ripping Bear — all name-only per D4 NAME-ONLY LAW. Armor Destruction (Vulpine Velocity) = raid-break vocab (§LA row 4), delivery_notes only. Fox/Bear form duality is a TWO-MODE mechanic — NOT filed as mode-swap-identity docket because the dominant loop is ATTESTED: build Ferality stacks in either form → finisher at 3; the form-selection is delivery texture with a dominant economy loop, not an irreducible stance-rotation with no dominant mode (contrast Enhanced Weapon Deadeye 3-stance). PHASE_MOMENTUM T4 captures the form-cycle shape. Slug note: dossier attested as Ferality Wildsoul; wild-instincts slug is URL artifact."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Ferality Wildsoul Build Guide (Wild Instincts slug)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mmorpg.com/news/lost-ark-adds-the-wildsoul-class-ark-passive-overhaul-and-more-on-february-26th-2000134179",
+      "archive_url": null,
+      "site": "mmorpg.com",
+      "author_handle": null,
+      "title": "Lost Ark Adds the Wildsoul Class, Ark Passive Overhaul, and More on February 26th",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.playlostark.com/en-us/game/releases/call-of-the-wildsoul",
+      "archive_url": null,
+      "site": "playlostark.com",
+      "author_handle": null,
+      "title": "Call of the Wildsoul — Release Page",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-wildsoul-2025-02-26;la-global-2026",
+      "anchor_quote": "The Wildsoul class arrived in Arkesia on February 26, 2025. Server downtime began on February 26 at 12 a.m. PT / 8 a.m. UTC",
+      "source_url": "https://www.playlostark.com/en-us/game/releases/call-of-the-wildsoul",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Ferality Wildsoul; Fox/Bear form shapeshifter; Phantom Beast Energy as resource; Ferality stacks",
+      "anchor_quote": "Ferality Wildsoul — shapeshifting between Fox and Bear forms using Phantom Beast Energy. Fox Form grants +20% Attack Speed and Move Speed; Bear Form grants +10% Damage Reduction",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shapeshifts between Fox and Bear forms; Phantom Beast Energy as resource; Vulpine Velocity/Tailwind/Claw bridge pairs of three; finishers on Phantom Beast Energy peak",
+      "anchor_quote": "Casting transformation skills builds Ferality stacks (max 3), enabling finisher conditions: Forbidden Sorcery: Fox Star Rainstorm (Fox) and Forbidden Sorcery: Ripping Bear (Bear)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+          "last_updated": "2026-07-16"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+        "anchor_quote": "Raeinor; Last Updated July 16, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_fox": [
+            "Fox-To-Be! (3,000 Fox Energy on Destiny)",
+            "Strong Fox",
+            "Starlight Fox"
+          ],
+          "ark_passive_bear": [
+            "Bear Frenzy",
+            "Strong Bear",
+            "Deadly Bear"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+        "anchor_quote": "Fox-To-Be! (3,000 Fox Energy on Destiny), Strong Fox, Starlight Fox — or Bear equivalents: Bear Frenzy, Strong Bear, Deadly Bear",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Keen Blunt Weapon",
+            "Cursed Doll",
+            "Hit Master"
+          ],
+          "bracelet": {
+            "stats": [
+              "Specialization/Crit"
+            ]
+          },
+          "note": "No transcendence or elixirs specified in guide"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+        "anchor_quote": "Engravings: Grudge, Adrenaline, Keen Blunt Weapon, Cursed Doll, Hit Master",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "fox_skills": [
+            "Fox Flame",
+            "Fox Illusion",
+            "Fox Orb"
+          ],
+          "bear_skills": [
+            "Boulder Bear",
+            "Swish Bear"
+          ],
+          "shared": [
+            "Claw (counter)",
+            "Vulpine Velocity (Armor Destruction synergy)",
+            "finishers: Fox Star Rainstorm / Ripping Bear"
+          ],
+          "note": "Specific range/AoE not enumerated in guide"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+        "anchor_quote": "Fox Flame, Boulder Bear, Fox Illusion, Fox Orb, Swish Bear (damage); Claw (counter); Vulpine Velocity (Armor Destruction synergy)",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Shapeshift between Fox Form (+20% Attack Speed/Move Speed) and Bear Form (+10% Damage Reduction) using Phantom Beast Energy; cast transformation skills to build Ferality stacks (max 3); execute finishers at max stacks: Forbidden Sorcery: Fox Star Rainstorm (Fox) or Forbidden Sorcery: Ripping Bear (Bear); priority rotation in pairs of three, bridged by Vulpine Velocity/Tailwind/Claw transformation skills"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+        "anchor_quote": "Casting transformation skills builds Ferality stacks (max 3), enabling finisher conditions: Forbidden Sorcery: Fox Star Rainstorm (Fox) and Forbidden Sorcery: Ripping Bear (Bear)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Phantom Beast Awakening Wildsoul — Spirit Beast Summoning specialization (separate engraving/identity path); S-tier Aug 2025 vs Ferality also S+ tier",
+          "slug_note": "maxroll slug is wild-instincts-wildsoul-build-guide; 'Wild Instincts' may be the identity/Ark Passive path name; engraving name confirmed as Ferality in guide text"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/wild-instincts-wildsoul-build-guide",
+        "anchor_quote": "Ferality Wildsoul — no aliases mentioned in the guide",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

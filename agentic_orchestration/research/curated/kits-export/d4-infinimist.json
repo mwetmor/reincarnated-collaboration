@@ -1,0 +1,247 @@
+{
+  "kit_id": "d4-infinimist",
+  "spine": {
+    "kit_id": "d4-infinimist",
+    "folk_name": "Infinimist Necromancer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-17 GX-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Corpse-core loop identity cannot be captured: kill-produces-corpse-node consumed by CE inside Blood Mist has no native lane (spatial-consumable-resource-node docket class, §CROSS row 1). The near-permanent invulnerability cycling identity is not that build in engine — engine has no untouchable-loop primitive. R-M7 governs.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Corpse-core loop identity cannot be captured: kill-produces-corpse-node consumed by CE inside Blood Mist has no native lane (spatial-consumable-resource-node docket class, §CROSS row 1). The near-permanent invulnerability cycling identity is not that build in engine — engine has no untouchable-loop primitive. R-M7 governs.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blood Mist",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "player-side incorporeal invulnerability state; NOT an enemy status; Decrepify Lucky Hits inside mist refresh cooldowns enabling near-permanent re-entry; §C.4 cooldown_refresh_on_proc"
+        },
+        {
+          "source_skill": "Corpse Explosion",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "small-radius CE blast around body while inside Blood Mist; consumes corpse node; spatial-consumable-resource-node gap applies to corpse-core loop"
+        }
+      ],
+      "motion_frame": "Maintain near-permanent Blood Mist invulnerability; Decrepify Lucky Hit procs refresh cooldowns; CE and shadow DoTs deal damage while untouchable",
+      "resource_economy": {
+        "cooldown": "primary-gate",
+        "corpse_nodes": "identity-load-bearing"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "lucky_hit",
+        "mark_identity": null,
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "small-radius body-origin CE blast"
+          ],
+          "economy": [
+            "Decrepify Lucky Hit cooldown refresh loop",
+            "Explosive Mist aspect",
+            "Abhorrent Decrepify aspect"
+          ],
+          "traits_affixes": [
+            "Scourge/Exploit/Sacrificial/Eliminator/Abyssal paragon glyphs",
+            "Black River",
+            "Howl from Below"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Blood Mist invulnerability is PLAYER-SIDE defense, not an enemy status (hot-fact §C.4 note). corpse_nodes key added as identity-load-bearing (R-M4): loop verb IS corpse consumption (CE blasts while inside mist). §CROSS row 1 spatial-consumable-resource-node docket: corpse-CORE kit. §C.4 cooldown_refresh_on_proc: Decrepify Lucky Hits refresh Blood Mist cooldown enabling the infinite loop. No ailment tokens emitted: store names Decrepify (curse:decrepify, movement slow) but the build's primary loop is Blood Mist cycling, not curse application as combat verb; Decrepify is economy texture. GAPPED_DOCKET for spatial-consumable-resource-node."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "MacroBioBoi",
+      "title": "Infinimist Necromancer Endgame Build Guide for Diablo IV Season 8 - Belial's Return",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/exploding-shadow-mist-necromancer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "GhazzyTV",
+      "title": "Infinimist - Necromancer Build for Diablo 4 (Legacy)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/seasonal-endgame-necromancer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "GhazzyTV",
+      "title": "Infinimist Shadow Necromancer Abattoir of Zir (AoZ) Build Guide for Diablo 4 (Season 2)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": "Infinimist Shadow Necromancer is a late endgame setup, focused on performance in the most difficult content in Season 2.",
+      "source_url": "https://www.icy-veins.com/d4/guides/seasonal-endgame-necromancer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Infinimist Necromancer'; aliases 'Infinimist Necro D4', 'Blood Mist Corpse Explosion Necro', 'Infinimist launch'",
+      "anchor_quote": "also known as 'Infinimist' or 'Shadowblight Stacker'... The first build to finish Tier 100 Nightmare Dungeons in the game",
+      "source_url": "https://www.icy-veins.com/d4/guides/exploding-shadow-mist-necromancer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Blood Mist and Corpse Explosion; near-permanent incorporeal state",
+      "anchor_quote": "Enter Blood Mist and run through packs of monsters. Your build handles the rest for you.",
+      "source_url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "MacroBioBoi",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+        "anchor_quote": "Written by MacroBioBoi, a content creator with YouTube and Twitch presence.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Explosive Mist",
+            "Cursed Aura",
+            "Abhorrent Decrepify"
+          ],
+          "paragon_glyphs": [
+            "Scourge",
+            "Exploit",
+            "Sacrificial",
+            "Eliminator",
+            "Abyssal"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+        "anchor_quote": "Aspects: Explosive Mist, Cursed Aura, Abhorrent Decrepify... Paragon Glyphs: Scourge, Exploit, Sacrificial, Eliminator, Abyssal",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Black River",
+            "Howl from Below",
+            "Shroud of False Death",
+            "Heir of Perdition"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+        "anchor_quote": "Black River, Howl from Below, Shroud of False Death, Heir of Perdition",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin",
+          "footprint": "small-radius",
+          "note": "Blood Mist incorporeal state from body; CE blast in small radius around body; shadow DoTs from inside mist form"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+        "anchor_quote": "Decrepify's Lucky Hit procs refresh cooldowns, allowing immediate re-casting",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Maintain near-permanent Blood Mist invulnerability; Decrepify Lucky Hits refresh cooldowns for immediate re-entry; Corpse Explosion and shadow DoTs deal damage while inside Mist; completely untouchable loop"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/infinimist-necromancer-guide",
+        "anchor_quote": "Enter Blood Mist and run through packs of monsters. Your build handles the rest for you.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "legacy_variant": "Abattoir of Zir Season 2 variant (GhazzyTV/Garm Z, icy-veins)"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/seasonal-endgame-necromancer-build/",
+        "anchor_quote": "The Abattoir of Zir (AoZ) variant build for Infinimist Shadow Necromancer is a late endgame setup.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

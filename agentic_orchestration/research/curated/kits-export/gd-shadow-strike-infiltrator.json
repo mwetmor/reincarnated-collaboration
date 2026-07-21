@@ -1,0 +1,223 @@
+{
+  "kit_id": "gd-shadow-strike-infiltrator",
+  "spine": {
+    "kit_id": "gd-shadow-strike-infiltrator",
+    "folk_name": "Shadow Strike Infiltrator",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Movement and nuke are fused in one button; engine teleport is an offensive reposition whose strike payload on arrival is noted, not asserted native (arc-b01 discipline). Fusion texture may render as reposition-then-hit.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Movement and nuke are fused in one button; engine teleport is an offensive reposition whose strike payload on arrival is noted, not asserted native (arc-b01 discipline). Fusion texture may render as reposition-then-hit.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shadow Strike (+Nightfall)",
+          "geometry_value": "teleport",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Movement and nuke fused in one button' — teleport-to-target as the attack verb; 'Nightfall spreading the hit' as small-radius splash on landing. Offensive-reposition token per §6 blink/teleport split; strike-on-arrival payload noted, not asserted as native engine behavior."
+        }
+      ],
+      "motion_frame": "Teleport-nuke onto the target on cooldown; Nightfall spreads the hit; CDR shortens the wait",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence": "cooldown burst; 'maximum CDR on Soulrend to reduce ability wait times'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Nightfall landing splash"
+          ],
+          "economy": [
+            "CDR stacking"
+          ],
+          "traits_affixes": [
+            "lightning-to-cold conversion (Morgoneth set)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era restamped: base-2016 CONTRADICTED (errata applied); mapped from aom-2017+ dossier language. 'Get as max lightning>cold conversion as possible' → ELEMENT_CONVERSION_MONO is the item-driven door. NO chill/freeze token — cold is element flavor only, no status behavior fetched (§0.1). mob_raw 'skill-IS-movement' matches the fused verb."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.5.1] Demorgogoneth - 2H/DW Cold Shadow Strike Infiltrator",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "Crate Entertainment",
+      "title": "Grim Dawn - Ashes of Malmouth Expansion on Steam",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Present as build in era: base-2016",
+      "anchor_quote": "Unleash your vengeance upon the enemies of humanity with two new Masteries: the Inquisitor and the Necromancer",
+      "source_url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: aom-2017, patch-1.1-1.2",
+      "anchor_quote": "dated December 2019 post references patch 1.1.5.1, placing this within Grim Dawn's post-expansion content period",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Shadow Strike Infiltrator; aliases include Nightfall SS Infiltrator, cold Shadow Strike Infiltrator",
+      "anchor_quote": "2H/DW Cold Shadow Strike Infiltrator",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Shadow Strike (teleport-to-target attack), Nightfall modifier. Cold damage, cooldown resource.",
+      "anchor_quote": "Shadow Strike is movement and nuke fused in one button [...] consistent clearer with the character Shadow Strike / movement rune in to engage enemies",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Morgoneth armor set",
+          "alteration": "lightning-to-cold conversion; maximizes cold Shadow Strike with Night's Embrace"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+        "anchor_quote": "Get as max lightning>cold conversion as possible [...] Mythical Night's Embrace",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "teleport-to-target (movement + attack fused)",
+          "footprint": "small-radius splash on landing (Nightfall)",
+          "verbatim": "Shadow Strike is movement and nuke fused in one button, Nightfall spreading the hit"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+        "anchor_quote": "Shadow Strike is movement and nuke fused in one button, Nightfall spreading the hit",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cooldown burst loop: Shadow Strike teleports player to target as the attack verb (movement and nuke fused). Nightfall modifier spreads cold damage. High CDR reduces wait between strikes.",
+          "resource": "cooldown; energy secondary",
+          "loop_verb": "cooldown burst teleport-strike"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+        "anchor_quote": "Shadow Strike / movement rune in to engage enemies [...] maximum CDR on Soulrend to reduce ability wait times",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "cold Shadow Strike DW (Morgoneth)",
+            "cold/lightning Shadow Strike 2H",
+            "pierce Shadow Strike Infiltrator"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-5-1-demorgogoneth-2h-dw-cold-shadow-strike-infiltrator/93574",
+        "anchor_quote": "2H/DW Cold Shadow Strike Infiltrator",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

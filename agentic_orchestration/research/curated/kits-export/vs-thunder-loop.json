@@ -1,0 +1,180 @@
+{
+  "kit_id": "vs-thunder-loop",
+  "spine": {
+    "kit_id": "vs-thunder-loop",
+    "folk_name": "Thunder Loop (Lightning Ring evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "vs-1.0-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-12",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: single_target geometry captures at-target random-strike delivery. What source player misses: the double-hit 'loop' mechanic (second strike same location with delay) has no engine analog — it reads as doubled hit-count, but the spatial lingering creates a zone-presence effect the engine cannot represent.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: single_target geometry captures at-target random-strike delivery. What source player misses: the double-hit 'loop' mechanic (second strike same location with delay) has no engine analog — it reads as doubled hit-count, but the spatial lingering creates a zone-presence effect the engine cannot represent.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Thunder Loop",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Lightning strikes from sky at random enemy positions; each bolt strikes TWICE (initial + delayed repeat same location). Point delivery at random target. Element = null: VS has no elemental damage-type system; 'Thunder Loop' and 'lightning' in name/description are flavor/delivery-descriptor — no damage-type descriptor on a generic effect noun; NAME-ONLY STRIKE per VS element law. No ailments: 'shock/stun riders not attested in fetched text' per verify_ledger."
+        }
+      ],
+      "motion_frame": "Thunder bolts auto-fire at random enemy positions; each bolt hits twice at same point; no player aiming required.",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS weapon evolution). Double-hit-loop is identity mechanic: second strike lingers at same location (orange circle hitbox). 'Lightning' name-only — VS has no elemental damage-type system; no 'deals lightning damage' descriptor attested → null. No shock/stun attested per verify_ledger mechanics verdict. Thin mapping — random targeting, no element, no ailments, double-hit note in delivery_notes is the identity differentiator."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Thunder Loop - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022 era",
+      "anchor_quote": "Added to game in Patch 0.2.12 (February 13, 2022)",
+      "source_url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Thunder Loop — Lightning Ring evolution; Lightning Ring + Duplicator catalyst; double-hit per bolt; random sky-strike at-target delivery",
+      "anchor_quote": "the lightning strikes again in the same location after a small delay, effectively doubling the attack rate",
+      "source_url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Double-hit loop mechanic; off-screen random-enemy targeting; shock/stun riders (not attested in fetched text)",
+      "anchor_quote": "Thunder Loop summons lightning strikes from the sky to deal damage to random enemies, and the lightning strikes again in the same location after a small delay",
+      "source_url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Duplicator (catalyst) contributes Amount (more bolts per fire). Cooldown items increase bolt frequency. Amount items increase simultaneous strikes."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+        "anchor_quote": "Thunder Loop does not attack with a small Interval between each strike anymore",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "point",
+          "note": "Each bolt hits at point location on a random enemy. Strikes twice per bolt event. No player-facing aiming."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+        "anchor_quote": "summons lightning strikes from the sky to deal damage to random enemies",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Evolution weapon. Recipe: Lightning Ring (maxed) + Duplicator. Summons lightning strikes from sky at random enemy positions. Each strike hits TWICE: initial hit + second strike same location after small delay ('the loop'). Random targeting — no player aim control. Orange circle hitbox lingers until second hit."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Thunder_Loop",
+        "anchor_quote": "the lightning strikes again in the same location after a small delay, effectively doubling the attack rate",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

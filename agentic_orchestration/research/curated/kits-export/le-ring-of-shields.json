@@ -1,0 +1,201 @@
+{
+  "kit_id": "le-ring-of-shields",
+  "spine": {
+    "kit_id": "le-ring-of-shields",
+    "folk_name": "Ring of Shields / Sentinel Guard",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": null,
+    "canon_tier": null,
+    "eras": "1.0-launch;1.1-harbingers",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shields-as-HP-entities absorbing hits and redirecting enemy aggression are not natively modeled; engine approximation = defensive self-buff + deflect rider. Source player would miss the bodyguard-entity feel and per-shield attrition.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Shields-as-HP-entities absorbing hits and redirecting enemy aggression are not natively modeled; engine approximation = defensive self-buff + deflect rider. Source player would miss the bodyguard-entity feel and per-shield attrition.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ring of Shields",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "manifests a set of shield entities ringing the player; each blocks damage and projectiles, draws enemy aggression, has its own health and finite duration; no outgoing damage projection"
+        }
+      ],
+      "motion_frame": "defensive support layer inside Forge Guard melee builds; player fights from inside the shield ring",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Defensive Shields node: +Block Chance (numeric lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "physical -> null element (THE PHYSICAL RULE). Aggro-draw is taunt-class: no taunt ailment in solo scope (crosswalk 2), recorded here per law. Projectile-block approximated by def-bin deflect_condition rider (deflect is not an ailment). 'Can proc through the Shield Crafter' -> trigger rider whose firing condition is unfetched, so no enum token emitted. Shield-count shape filed as placed-proxy-count accrual (side-file). Support-skill kit (no rankable damage skill); eras backfilled 1.0-launch;1.1-harbingers per corpus. [STEWARD AUDIT 2026-07-18: door re-routed ZONE_CONTROL->PROXY_FISSION on the mapper's own forced-feel flag #4 (invited adjudication). Store grounds: 'manifests multiple shield entities... absorb incoming damage, block projectiles, and draw enemy aggro' - entities with own health/duration/count-scaling are proxy-class; the T4 vector is entity multiplication (placed-proxy-count accrual already filed), not offensive-zone warp (ZONE_CONTROL's crosswalk 5 class is offensive AoE/geometry - mapper correctly flagged 'no offensive zone exists').]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://icy-veins.com/last-epoch/forge-guard-overview",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Forge Guard Overview - Last Epoch - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://estnn.com/all-sentinel-builds-in-last-epoch/",
+      "archive_url": null,
+      "site": "estnn.com",
+      "author_handle": null,
+      "title": "All Sentinel Builds in Last Epoch",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/ring-of-shields-and-forge-guard-interactions/71851",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Ring of Shields and Forge Guard interactions - Sentinel - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ring of Shields / Sentinel Guard' / 'Sentinel Guard shield wall' / 'LE shield ring skill' are real community usage",
+      "anchor_quote": "Ring of Shields: Manifest a set of shields around you that blocks damage.",
+      "source_url": "https://estnn.com/all-sentinel-builds-in-last-epoch/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ring of Shields is a Forge Guard / Sentinel skill that manifests defensive shields blocking projectiles and drawing enemy aggro; physical damage layer",
+      "anchor_quote": "Shields draw enemy aggression and block projectiles. Each shield has 75 base health and lasts up to 10 seconds.",
+      "source_url": "https://icy-veins.com/last-epoch/forge-guard-overview",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Shield Crafter (procs Ring of Shields)",
+            "Defensive Shields (adds Block Chance)"
+          ],
+          "notes": "Forge Guard passive tree nodes interact with Ring of Shields; Defensive Shields is the key capstone-adjacent node"
+        },
+        "source_url": "https://icy-veins.com/last-epoch/forge-guard-overview",
+        "anchor_quote": "Defensive Shields grants additional Block Chance, and it can proc through the Shield Crafter.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "ring of manifested shields surrounding the player character; radial defensive formation; no outgoing damage projection",
+          "range_class": "self-origin",
+          "aoe": "self-centered ring"
+        },
+        "source_url": "https://icy-veins.com/last-epoch/forge-guard-overview",
+        "anchor_quote": "Ring of Shields: Manifest a set of shields around you that blocks damage.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Ring of Shields manifests multiple shield entities around the Sentinel/Forge Guard that absorb incoming damage, block projectiles, and draw enemy aggro. Used as a defensive layer in Forge Guard builds alongside primary damage skills (Shield Bash, Shield Rush, Smelter's Wrath). Can proc through Shield Crafter passive or be manually activated.",
+          "core_driver": "passive defensive shield uptime"
+        },
+        "source_url": "https://icy-veins.com/last-epoch/forge-guard-overview",
+        "anchor_quote": "Shields draw enemy aggression and block projectiles. Each shield has 75 base health and lasts up to 10 seconds.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

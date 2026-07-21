@@ -1,0 +1,188 @@
+{
+  "kit_id": "vs-out-of-bounds-freeze",
+  "spine": {
+    "kit_id": "vs-out-of-bounds-freeze",
+    "folk_name": "Out of Bounds freeze build",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "vs-0.6.1-arcana-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-15",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: the identity is a passive arcana modifier reshaping a freeze-weapon loadout — no player rotation exists. Engine cannot represent arcana-slot investment + weapon-loadout fusion. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "GAPPED: the identity is a passive arcana modifier reshaping a freeze-weapon loadout — no player rotation exists. Engine cannot represent arcana-slot investment + weapon-loadout fusion. 'Not that build.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Out of Bounds (Arcana XII)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Passive arcana modifier: all freeze effects detonate a small-radius explosion at frozen enemy position. Freeze ailment attested via enemy-directed status verb 'Freezing enemies generates explosions' — VS exception (enemy-status KEEPS). Element = null: VS has no elemental damage-type system; 'explosion' is delivery-flavor only."
+        }
+      ],
+      "motion_frame": "Equip arcana; freeze-capable weapons apply freeze to enemies; each frozen enemy triggers an automatic small-radius explosion at its position.",
+      "resource_economy": {
+        "ramp_per_s": "base damage + (seconds_survived / 30) per fetched note — temporal ramp on explosion damage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "freeze applied to enemy",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Roguelite-park (VS): arcana slot investment with freeze weapons (Clock Lancet, Infinite Corridor, Celestial Voulge attested). No rotation — arcana modifies freeze-delivery weapons passively. Loadout identity: freeze-weapon package + Out of Bounds arcana. GAPPED: the identity is an arcana-modified weapon-loadout, not a skill rotation; engine has no arcana-slot concept. Freeze ailment emission is the VS exception rule (enemy-directed status verb). Temporal ramp attested from fetched note."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "Out of Bounds (XII) - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "vs-1.13-14-2025+ as ONLY era",
+      "anchor_quote": null,
+      "source_url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Out of Bounds freeze build — arcana card that converts freeze into damage-delivery trigger",
+      "anchor_quote": "Freezing enemies generates explosions.",
+      "source_url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Out of Bounds arcana converts freeze into explosion burst; works with Clock Lancet and freeze weapons; arcana slot investment",
+      "anchor_quote": "Freezing enemies generates explosions. Orologions are easier to find.",
+      "source_url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Arcana is itself the item layer; modifies all freeze-capable weapons. Scales with: base damage + (seconds survived / 30). Compatible weapons listed include Clock Lancet, Infinite Corridor, Celestial Voulge."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+        "anchor_quote": "affects 14 weapons including Clock Lancet, Infinite Corridor, Celestial Voulge",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "small-radius",
+          "note": "Explosion detonates at frozen enemy position; small-radius AoE. No player-aiming component."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+        "anchor_quote": "Freezing enemies generates explosions.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Arcana card (slot XII). Equipping causes all freeze effects to generate explosions at the frozen enemy's location. Not a weapon rotation — passive arcana modifier that reshapes freeze-delivery weapons (Clock Lancet, Infinite Corridor, etc.) into burst-damage tools. The 'loop' is: apply freeze → explosion triggers automatically."
+        },
+        "source_url": "https://vampire.survivors.wiki/w/Out_of_Bounds",
+        "anchor_quote": "Freezing enemies generates explosions.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "kit_id": "le-flame-reave-spellblade",
+  "spine": {
+    "kit_id": "le-flame-reave-spellblade",
+    "folk_name": "Flame Reave Spellblade",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cone melee AoE maps directly. Source player would miss (1) the Sunwreath cone->giant-circle transform that redefines clear geometry (approximated by GEOMETRY_COLLAPSE, not a native cone->ring swap), and (2) the aura-consume-for-mana self-refund loop (Flame Drinker) — an unusual sustain cadence the engine notes but does not natively model as an aura-spend.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cone melee AoE maps directly. Source player would miss (1) the Sunwreath cone->giant-circle transform that redefines clear geometry (approximated by GEOMETRY_COLLAPSE, not a native cone->ring swap), and (2) the aura-consume-for-mana self-refund loop (Flame Drinker) — an unusual sustain cadence the engine notes but does not natively model as an aura-spend.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flame Reave",
+          "geometry_value": "cone",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Default shape is a CONE AoE in front of the player from melee contact point (fetched: 'Flame Reave default shape is a cone AoE in front of the player', 'Close melee range'). Sunwreath unique transforms the cone into 'a giant circle that expands around you' — an item geometry-transform recorded as a rider (§4 mechanic-granting item); the DEFAULT cone is core. No status ailment fetched (burn not named; 'fire hit damage' is claim_text)."
+        },
+        {
+          "source_skill": "Firebrand",
+          "geometry_value": "self_buff",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Buff/stack builder cast prior to Flame Reave burst (fetched: 'Firebrand buffs and stacks prior to Flame Reave burst'). Fire Auras generated on hit are consumed for Mana via Flame Drinker."
+        }
+      ],
+      "motion_frame": "Firebrand stacks -> Enchant Weapon buff -> Flame Reave spam (cone, or circle w/ Sunwreath) -> Fire Aura consumption -> Mana regeneration",
+      "resource_economy": {
+        "resource": "mana",
+        "cost_shape": "per-cast Flame Reave spend; REFUNDED by consuming stacked Fire Auras via Flame Drinker node (aura-consume-for-mana builder — 'Generate Fire Auras to consume them and generate Mana')"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Sunwreath (cone->giant circle transform)"
+          ],
+          "economy": [
+            "Flame Drinker (aura-consume-for-mana)"
+          ],
+          "traits_affixes": [
+            "Jasper's Searing Pride",
+            "Titan Heart"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cone melee-caster delivery maps clean. GEOMETRY_COLLAPSE T4 for the Sunwreath cone->circle build-defining transform (the AoE-shape warp IS the clear identity). The aura-consume-for-mana economy (generate Fire Auras on hit, spend them for Mana via Flame Drinker) is a distinctive builder recorded in resource_economy — a self-refunding cadence, not a standard cost. Fire Auras here are a SPENT resource (contrast le-fire-aura-spellblade where they are the DAMAGE delivery). §0 near-miss: burn WANTED but not named in fetched text — WITHHELD."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Flame Reave Spellblade Guide for Last Epoch Season 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/1-to-75-flame-reave-spellblade-leveling-guide-0-8-4f/47091",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "1 to 75 Flame Reave SpellBlade | Leveling Guide | 0.8.4F",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/searing-blade-pure-flame-reave-spellblade-build-showcase-1-1-7-8/74646",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": null,
+      "title": "Searing Blade Pure Flame Reave Spellblade Build Showcase [1.1.7.8]",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "1 to 75 Flame Reave SpellBlade | Leveling Guide | 0.8.4F — Using flame ward for defense and enchant weapon and firebrand for offense then flame reave",
+      "source_url": "https://forum.lastepoch.com/t/1-to-75-flame-reave-spellblade-leveling-guide-0-8-4f/47091",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Searing Blade Pure Flame Reave Spellblade Build Showcase [1.1.7.8]",
+      "source_url": "https://forum.lastepoch.com/t/searing-blade-pure-flame-reave-spellblade-build-showcase-1-1-7-8/74646",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.4-omens",
+      "anchor_quote": "Flame Reave Spellblade Guide for Last Epoch Season 4 — Last Updated: April 8, 2026",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Flame Reave Spellblade' and alias 'Firebrand Flame Reave' are real community usage",
+      "anchor_quote": "Flame Reave Spellblade Guide...Flame Reave is your main Damage Skill",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Flame Reave and Firebrand; Mana spend; at-target melee delivery; fire hit damage; Firebrand stacks convert to Ward",
+      "anchor_quote": "Generate Fire Auras to consume them and generate Mana thanks to Flame Drinker...Sunwreath completely empowers Flame Reave by changing its default cone shape into a giant circle",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Lizard_IRL",
+          "site": "maxroll.gg",
+          "reviewer": "Volca"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+        "anchor_quote": "Written by Lizard_IRL. Content Reviewed by Volca.",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Sunwreath (cone-to-circle transform)",
+            "Jasper's Searing Pride",
+            "Boneclamor Barbute",
+            "Siphon of Anguish",
+            "Titan Heart",
+            "Truesight Glass"
+          ],
+          "notes": "Sunwreath is the build-defining AoE transform item."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+        "anchor_quote": "Sunwreath completely empowers Flame Reave by changing its default cone shape into a giant circle",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "cone-default-or-circle-with-sunwreath",
+          "description": "Flame Reave default shape is a cone AoE in front of the player from melee contact point. With Sunwreath unique, cone transforms into a giant circle expanding around the player. Close melee range."
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+        "anchor_quote": "Sunwreath completely empowers Flame Reave by changing its default cone shape into a giant circle that expands around you; greatly increasing its clear potential",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Flame Reave is the primary damage skill. Hit enemies to generate Fire Auras; consume Fire Auras for Mana via Flame Drinker node. Firebrand buffs and stacks prior to Flame Reave burst. Enchant Weapon provides damage buff. Flame Ward for emergency defense.",
+          "core_cycle": "Firebrand stacks -> Enchant Weapon buff -> Flame Reave spam -> Fire Aura consumption -> Mana regeneration"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/flame-reave-spellblade-guide",
+        "anchor_quote": "Generate Fire Auras to consume them and generate Mana thanks to Flame Drinker...Flame Reave is your main Damage Skill",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Firebrand Flame Reave (standard)",
+            "Searing Blade Pure Flame Reave (forum variant 1.1.7.8)",
+            "beta leveling variant 0.8.4F"
+          ]
+        },
+        "source_url": "https://forum.lastepoch.com/t/searing-blade-pure-flame-reave-spellblade-build-showcase-1-1-7-8/74646",
+        "anchor_quote": "Searing Blade Pure Flame Reave Spellblade Build Showcase [1.1.7.8]",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

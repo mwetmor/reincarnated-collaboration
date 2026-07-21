@@ -1,0 +1,260 @@
+{
+  "kit_id": "la-grace-empress-arcanist",
+  "spine": {
+    "kit_id": "la-grace-empress-arcanist",
+    "folk_name": "Grace of the Empress Arcanist",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: Card Deck stochastic-variance layer (up to 2 simultaneous cards, 3 card types each modifying detonation differently) has no engine expression — source player would notice the probabilistic shortcut (Judgment card = instant 4-stack) and crit amplifier (Cull) are absent from the mapping. The core apply-consume-pair loop lands correctly; the variance texture is lost.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: Card Deck stochastic-variance layer (up to 2 simultaneous cards, 3 card types each modifying detonation differently) has no engine expression — source player would notice the probabilistic shortcut (Judgment card = instant 4-stack) and crit amplifier (Cull) are absent from the mapping. The core apply-consume-pair loop lands correctly; the variance texture is lost.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Stacking Skills (Spiral Edge, Scratch Dealer, Call of Destiny, Lightstream — Ruin mark generators)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Apply 1 Ruin mark per cast; 4 marks needed before detonation; self-buff (Move Speed, Crit Rate, Crit Damage) accrues per stack; no elemental damage-typing in store — Ruin/Celestial/Lightstream are skill names (D4 NAME-ONLY STRIKE)"
+        },
+        {
+          "source_skill": "Ruin Skills (Celestial Rain, Secret Garden, Four of a Kind, Serendipity, The Devil — detonation)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Consume 4 Ruin marks for amplified burst; Card draw between stacks: Judgment card makes any Ruin skill act as 4-stack hit (reset trigger); Cull card +100% Crit Rate +50% Crit Damage 4s; Royal draws 2 cards — stochastic variance layered on detonation"
+        },
+        {
+          "source_skill": "Card Deck draw (between stacking cycles)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Random card draw on stacking skill use; cards modify detonation outcome; no damage geometry — pure variance modifier on the mark-consume event"
+        }
+      ],
+      "motion_frame": "Stack 4 Ruin marks via Stacking Skills drawing cards between stacks; detonate with Ruin Skill for amplified burst; repeat cycle with stochastic card-bonus variance",
+      "resource_economy": {
+        "ruin_stacks": "build to 4 via Stacking Skills; consume on Ruin Skill detonation; Judgment card shortcuts to 4-stack-equivalent hit, enabling off-cycle detonation"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-mark-consume",
+        "mark_identity": "4 Ruin marks on target — detonation fires burst damage on consume",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "single-target burst; no AoE shape attested in dossier"
+          ],
+          "economy": [
+            "ruin_stacks: 4-stack accumulate-detonate; Card Deck introduces stochastic shortcut via Judgment card"
+          ],
+          "traits_affixes": [
+            "Infinity Deck (gains 1 card on Destiny), Ruin Full Set (Destiny on 4-hit Ruin skill), Ruin Minor Set (Spiral Edge CD, Serendipity/Four of a Kind enhance) — Ark Grid nodes → capstone_alterations"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Mark-apply/mark-consume chassis maps cleanly as apply-consume-pair with on-mark-consume trigger. Card Deck stochastic layer (Judgment shortcut, Cull crit-amp, Royal card-draw) has no direct engine analog — the variance modifier layer is noted but not emitted as a mechanic token (no mint candidate; it compresses into the mark-consume burst-damage consequence). Ruin/Celestial/Emperor/Royal/Chancellor are all proper names — zero element or ailment attestation. Self-buff stack (Move Speed/Crit Rate/Crit Damage per Ruin stack) maps as an economy self-buff rider on the stack accumulation, not a separate ailment. GX-03 gap_ref noted (mark/detonate family). Ark Grid nodes → capstone_alterations; engravings DEAD axis."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Grace of the Empress Arcanist Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Ark Grid information added December 20, 2025; Ark Passive Rework February 26, 2025",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last Updated: June 12, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Grace of the Empress Arcanist — class + identity spec, community name",
+      "anchor_quote": "Generates 4 Ruin Stacks, self-buffing your Move Speed, Crit Rate and Crit Damage, and using your Ruin Skills to detonate burst Ruin Damage.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Stacks 4 Ruin marks via normal skills, detonates with Ruin Skill for amplified burst; draws Card Deck between stacks for random card bonuses (Emperor, Royal, Chancellor cards add damage multipliers); build-spend loop with stochastic card variance",
+      "anchor_quote": "players can hold up to 2 cards simultaneously. Key cards include Judgment (all Ruin skills act as if hitting with 4 stacks), Royal (draws 2 cards), Cull (Crit Rate +100%, Crit Damage +50% for 4s)",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+        "anchor_quote": "Author: Sekwah (Content Creator); Reviewer: Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_grid_nodes": [
+            "Infinity Deck (gains 1 card on Destiny activation)",
+            "Ruin Full Set (activates Destiny on 4 Ruin skill hits)",
+            "Ruin Minor Set (reduces Spiral Edge cooldown, enhances Serendipity/Four of a Kind)"
+          ],
+          "configs": [
+            "Standard",
+            "Kurzan Front"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+        "anchor_quote": "Infinity Deck gains 1 card on Destiny activation; Ruin Full Set activates Destiny on 4 Ruin skill hits",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Raid Captain",
+            "Cursed Doll",
+            "MP Efficiency Increase"
+          ],
+          "gems_damage": [
+            "Celestial Rain",
+            "Secret Garden",
+            "Four of a Kind",
+            "Serendipity"
+          ],
+          "gems_cooldown": [
+            "Spiral Edge",
+            "Lightstream",
+            "Scratch Dealer",
+            "Call of Destiny"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Specialization",
+              "Crit"
+            ],
+            "special_rolls": [
+              "damage buffs",
+              "weapon power scaling",
+              "cooldown reduction"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+        "anchor_quote": "Grudge, Adrenaline, Raid Captain, Cursed Doll, MP Efficiency Increase",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stack 4 Ruin marks via Stacking Skills (Spiral Edge, Scratch Dealer, Call of Destiny, Lightstream), then detonate with Ruin Skills (Celestial Rain, Secret Garden, Four of a Kind, Serendipity, The Devil). Card Deck draws between stacks; hold up to 2 cards simultaneously. Key cards: Judgment (all Ruin skills act as 4-stack hit), Royal (draws 2 cards), Cull (+100% Crit Rate +50% Crit Damage for 4s), Clown (redraws last card). Burst loop is build-spend with stochastic card variance."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+        "anchor_quote": "Generates 4 Ruin Stacks, self-buffing your Move Speed, Crit Rate and Crit Damage, and using your Ruin Skills to detonate burst Ruin Damage.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard (main raid)",
+            "Kurzan Front (alternate Ark Grid config)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/empress-grace-arcanist-raid-guide",
+        "anchor_quote": "Two configurations listed: Standard and Kurzan Front",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

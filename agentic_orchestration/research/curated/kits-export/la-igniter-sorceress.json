@@ -1,0 +1,266 @@
+{
+  "kit_id": "la-igniter-sorceress",
+  "spine": {
+    "kit_id": "la-igniter-sorceress",
+    "folk_name": "Igniter Sorceress",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/burst-mage",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: pre-cast timing discipline (Doomsday must be cast before Arcane Rupture activation so meteor lands inside burst buff) is a sequencing nuance with no engine trigger analog. Incomplete Combustion variant (alternate Ark Grid config) is a meaningful build fork; mapping covers dominant Standard loop. Fire attestation lands correctly; Weak Point boss-break correctly omitted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE not EXACT: pre-cast timing discipline (Doomsday must be cast before Arcane Rupture activation so meteor lands inside burst buff) is a sequencing nuance with no engine trigger analog. Incomplete Combustion variant (alternate Ark Grid config) is a meaningful build fork; mapping covers dominant Standard loop. Fire attestation lands correctly; Weak Point boss-break correctly omitted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Generator skills (Inferno, Seraphic Hail, Frost's Call — Arcane Meter builders)",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Meter-building casts; Inferno/Seraphic Hail/Frost's Call are proper NAMES (D4 NAME-ONLY STRIKE — no damage-typing for cold/holy/fire on these generator rows); element_primary null on this row"
+        },
+        {
+          "source_skill": "Arcane Rupture (Z — burst window identity release)",
+          "geometry_value": "self_buff",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "TIMED burst window: shortened cast times, +18% elemental skill damage, fire attribute on skills — fire ATTESTED as damage-type descriptor on skills (GENUINE KEEP per hot-fact + D4 NAME-ONLY LAW sec 0.4). +1 Weak Point Level = boss-break vocabulary (LA row 4, NOT an ailment)"
+        },
+        {
+          "source_skill": "Priority burst skills (Doomsday, Explosion, Punishing Strike, Lava Blast — inside window)",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Doomsday = meteor falling on target area (circle geometry); Explosion/Punishing Strike/Lava Blast are high-damage burst casts; fire attribute active during Arcane Rupture — element_primary fire inherited from burst window attestation"
+        }
+      ],
+      "motion_frame": "Build Arcane Meter via generators; pre-load Doomsday cast, activate Arcane Rupture (Z) so meteor lands inside burst window; fire burst skills (Explosion, Punishing Strike, Lava Blast) during window; repeat cycle",
+      "resource_economy": {
+        "arcane_meter": "accumulate via generator skills; release into Arcane Rupture (Z) timed burst window; Incomplete Combustion variant disables Arcane Torrent (100% identity) allowing Magick Enhanced State only (alternate config)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "single-target + circle AoE burst casts; low mobility (high burst/low mobility identity)"
+          ],
+          "economy": [
+            "arcane_meter: build via generators, release into burst window; Specialization drives meter gen and burst damage"
+          ],
+          "traits_affixes": [
+            "Beginning of the End (resets Doomsday on Destiny), Repeated Apocalypse (Destiny on Arcane Rupture/Explosion), Incomplete Combustion (alternate) — Ark Passive nodes -> capstone_alterations"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GENUINE fire attestation on Arcane Rupture row: '+18% elemental skill damage, fire attribute on skills' — damage-type descriptor on skills, not a proper name (KEEP per hot-fact). Generator names (Inferno/Seraphic Hail/Frost's Call) are NAME-ONLY — element null on generator row. Burst skill rows inherit fire during window. Weak Point Level (Ark Passive capstone note) = boss-break vocabulary (LA row 4) — NOT emitted. element_secondary null (generator fire/holy/cold names only). ELEMENT_CONVERSION_MONO door: mono-fire identity during burst window. Engravings DEAD axis."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah",
+      "title": "Igniter Sorceress Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gamiunity.com/lost-ark-sorceress-build-guide-tier-4-practical-pve/",
+      "archive_url": null,
+      "site": "gamiunity.com",
+      "author_handle": null,
+      "title": "Lost Ark Sorceress Build Guide 2025 (Ark Passives / Tier 4 / Practical PvE)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024",
+      "anchor_quote": "Ark Passive Rework February 26, 2025; Last Updated June 12, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-global-2026",
+      "anchor_quote": "Last Updated: June 12, 2026",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Igniter Sorceress — class + identity spec, community name",
+      "anchor_quote": "Igniter Sorceress — The build centers on Arcane Rupture (Z) identity activation for burst damage phases.",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Fills Arcane Meter via generator skills then releases Arcane Rupture (Z) burst window granting shortened cast times and +18% elemental skill damage; burst window demands pre-loaded Doomsday, Explosion, Punishing Strike, Lava Blast for maximum payoff",
+      "anchor_quote": "Make sure to immediately use Arcane Rupture after your Doomsday cast, so the meteor falls inside the burst buffs. Engravings: Grudge, Adrenaline, All-Out Attack, Cursed Doll, Hit Master",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "site": "maxroll.gg",
+          "last_updated": "2026-06-12"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+        "anchor_quote": "Sekwah",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_nodes": [
+            "Beginning of the End (resets Doomsday on Destiny)",
+            "Repeated Apocalypse (grants Destiny on Arcane Rupture/Explosion)",
+            "Incomplete Combustion (disables Arcane Torrent, allows Magick Enhanced State only — alternate node)"
+          ],
+          "fire_attribute_note": "+1 Weak Point Level to skills with a Fire Attribute during Arcane Rupture identity window"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+        "anchor_quote": "+1 Weak Point Level to skills with a Fire Attribute",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "All-Out Attack",
+            "Cursed Doll",
+            "Hit Master"
+          ],
+          "gems_damage": [
+            "Doomsday",
+            "Explosion",
+            "Punishing Strike"
+          ],
+          "gems_cooldown": [
+            "Frost's Call",
+            "Seraphic Hail"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Specialization",
+              "Crit"
+            ],
+            "special_rolls": [
+              "crit rate",
+              "crit damage"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+        "anchor_quote": "Grudge, Adrenaline, All-Out Attack, Cursed Doll, Hit Master",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Doomsday described as meteor-based (falls on target area). Specific range/AoE radii absent from guide text."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+        "anchor_quote": "Doomsday cast, so the meteor falls inside the burst buffs",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Build Arcane Meter via generators (Inferno, Seraphic Hail, Frost's Call), activate Arcane Rupture (Z) burst window. During window: shortened cast times, +18% elemental skill damage, fire attribute on skills. Priority burst skills: Doomsday (meteor), Explosion, Punishing Strike, Lava Blast. Incomplete Combustion Ark node disables Arcane Torrent (100% identity), allows only Magick Enhanced State."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+        "anchor_quote": "Make sure to immediately use Arcane Rupture after your Doomsday cast, so the meteor falls inside the burst buffs.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Standard Igniter (Arcane Rupture full identity)",
+            "Incomplete Combustion variant (Magick Enhanced State only, no Arcane Torrent)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/igniter-sorceress-raid-guide",
+        "anchor_quote": "Incomplete Combustion: Disables Arcane Torrent (100% identity), only allowing you to enter Magick Enhanced State",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

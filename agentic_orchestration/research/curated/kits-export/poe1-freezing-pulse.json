@@ -1,0 +1,240 @@
+{
+  "kit_id": "poe1-freezing-pulse",
+  "spine": {
+    "kit_id": "poe1-freezing-pulse",
+    "folk_name": "Freezing Pulse",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The piercing cold bolt + chill/freeze lands via line geometry + water + the freeze/shatter pair, but Freezing Pulse's defining 'damage and freeze-chance DECAY with distance -- stand close for max output' has no matching 26-geometry (distance-falloff is a numeric projectile property the enum does not carry). A player keeps the piercing-cold-caster feel but loses the core positional discipline of hugging targets to hit the damage/freeze breakpoints before the pulse fades.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The piercing cold bolt + chill/freeze lands via line geometry + water + the freeze/shatter pair, but Freezing Pulse's defining 'damage and freeze-chance DECAY with distance -- stand close for max output' has no matching 26-geometry (distance-falloff is a numeric projectile property the enum does not carry). A player keeps the piercing-cold-caster feel but loses the core positional discipline of hugging targets to hit the damage/freeze breakpoints before the pulse fades.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Freezing Pulse",
+          "geometry_value": "line",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "an icy projectile that PIERCES all enemies in a straight line and loses damage + freeze-chance the farther it travels (up to 50% less damage, freeze-chance gone after the first quarter of flight). line = straight-line piercing axis. water/cold family; chill (soft slow) + freeze (hard lock, native shatter payoff). The inverse 'closer = more damage / more freeze' decay is a behavioral property with no geometry-enum carrier"
+        }
+      ],
+      "motion_frame": "stationary cold caster: fire piercing pulses into a pack; standing close (or planting totems close) maximizes damage and freeze because the projectile decays fast with distance",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "line piercing projectile",
+            "projectile-speed (extends effective range before dissipation)"
+          ],
+          "economy": [
+            "mana-mid spend; FP-Totem variant offloads casting to Spell Totems (Soul Mantle)"
+          ],
+          "traits_affixes": [
+            "cold-penetration",
+            "freeze/chill-scaling",
+            "projectile-speed (range vs decay tradeoff)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PIERCING-DECAY projectile. Geometry: dossier is explicit -- 'projectile (straight line, piercing)', footprint 'narrow piercing line' -> line (not multi_projectile; it is ONE piercing bolt, not a fan). water/cold family; ailments chill+freeze (freeze's native shatter is a payoff for the cold theme). THE MISSED SIGNATURE: the projectile CONTINUOUSLY LOSES damage and freeze-chance with distance (50% less at max range, freeze gone after 25% of flight) -- 'closer = more' is the whole positional skill of the skill, and no 26-geometry carries a distance-decay damage falloff (it is a numeric/behavioral projectile property). ELEMENTAL_ECHO for the mono-cold amp; ZONE_CONTROL secondary (the chill/freeze lockdown reading). FP-Totem Hierophant (Soul Mantle) is a delivery-chassis variant that keeps the projectile identity; noted as a 'meme-build in earlier eras' per source."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3145014",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Fyregrass#7297",
+      "title": "Fyregrass's Comprehensive Freezing Pulse Totems Guide — Act 1 to Maven 9 (3.15)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Freezing_Pulse",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Freezing Pulse — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in eras: 1.x, 2.x, 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3145014",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Freezing Pulse' and alias 'FP totems variant' are real community usage",
+      "anchor_quote": "FP Totems this league ... Freezing Pulse Totems Guide",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3145014",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Freezing Pulse; piercing cold projectile decaying with distance — closer means more damage",
+      "anchor_quote": "An icy projectile which has a chance to freeze enemies it passes through. The projectile fades quickly, reducing damage and freezing chance until it dissipates.",
+      "source_url": "https://poedb.tw/us/Freezing_Pulse",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "Fyregrass#7297",
+              "site": "pathofexile.com/forum",
+              "note": "Comprehensive Freezing Pulse Totems Guide (3.15)"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3145014",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Divergent Freezing Pulse (alt quality)",
+              "type": "alt_quality",
+              "effect": "skill becomes unable to pierce, allowing it to benefit from Chain and Fork",
+              "anchor_quote": "If Divergent Freezing Pulse is used, the skill becomes unable to pierce, allowing it to benefit from Chain and Fork"
+            },
+            {
+              "node": "First Snow (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Intelligence in Radius",
+              "effect": "Freezing Pulse fires 2 additional Projectiles; 25% increased Freezing Pulse Damage if you've Shattered an Enemy Recently",
+              "anchor_quote": "Freezing Pulse fires 2 additional Projectiles...25% increased Freezing Pulse Damage if you've Shattered an Enemy Recently"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Freezing_Pulse",
+        "anchor_quote": "unable to pierce, allowing it to benefit from Chain and Fork",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Soul Mantle (for FP totem variant)",
+            "Speed/crit scaling items for self-cast variant"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3145014",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (straight line, piercing)",
+          "footprint": "narrow piercing line — point/single axis",
+          "aoe": null,
+          "range_text": "Projectile fades quickly... projectiles travel approximately 60 units before dissipating. Projectile speed modifications increase effective range.",
+          "projectile": true
+        },
+        "source_url": "https://poedb.tw/us/Freezing_Pulse",
+        "anchor_quote": "The projectile fades quickly, reducing damage and freezing chance until it dissipates... Projectile speed modifications increase effective range by allowing projectiles to travel farther before dissipating.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player fires Freezing Pulse projectiles (self-cast or via totems); projectile pierces all targets but deals less damage and has lower freeze chance the further it travels — up to 50% less damage at full range; close positioning or totem placement maximizes freeze output."
+        },
+        "source_url": "https://poedb.tw/us/Freezing_Pulse",
+        "anchor_quote": "Projectiles continuously lose Damage, up to 50% less Damage by the time they dissipate. Projectiles have 25% chance to Freeze, which is lost over the first quarter of their flight.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "FP totems Hierophant (Soul Mantle, primary documented variant 3.14+)",
+            "Self-cast caster (Shadow/Witch lineage, early eras)",
+            "FP Totem Hierophant described as meme-build in earlier eras"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3145014",
+        "anchor_quote": "Freezing Pulse totems were looked at as more of a meme-build in earlier eras, which was only done with tremendous amounts of currency.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

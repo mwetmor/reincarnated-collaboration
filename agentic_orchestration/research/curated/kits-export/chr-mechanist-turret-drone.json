@@ -1,0 +1,230 @@
+{
+  "kit_id": "chr-mechanist-turret-drone",
+  "spine": {
+    "kit_id": "chr-mechanist-turret-drone",
+    "folk_name": "Turret & Drone Mechanist",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Machine-army identity has no player direct-damage loop; build IS the turret+drone network; no fixed skill rotation; placed-proxy-count geometry not addressable in current spec; summoner-deferral applies; player 'that build' is unrepresentable in current engine",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Machine-army identity has no player direct-damage loop; build IS the turret+drone network; no fixed skill rotation; placed-proxy-count geometry not addressable in current spec; summoner-deferral applies; player 'that build' is unrepresentable in current engine",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Stinger turret / Holy Lance Turret",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed turret proxy at target position; 'Holy Lance Turrets' = SKILL NAME → element null per §0.2 name-only law (hot-fact explicitly: 'Holy Lance Turrets' is skill-name → null); 'holy-attribute turrets' in dossier loop is mapper-authored construct not verbatim anchor; identity anchor is 'Holy Lance Turrets with the Drone Pilot set' = set reference; no fetched line reading 'deals holy damage' — element-silent"
+        },
+        {
+          "source_skill": "Drones (Laser / Rocketeer / Poison)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Various drone types placed/deployed at position; laser/rocketeer/poison variants per dossier; element-silent (variant names are descriptive, no damage-type descriptor on generic effect noun in fetched anchor)"
+        }
+      ],
+      "motion_frame": "Deploy and maintain turret/drone network covering combat zone; Ammo resource consumed on deployment; machines persist until destroyed",
+      "resource_economy": {
+        "cost_type": "ammo",
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "DUAL_PROXY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Satellite enchant converts to Drones (rune)"
+          ],
+          "economy": [
+            "ammo deployment cost"
+          ],
+          "traits_affixes": [
+            "Drone Pilot set",
+            "Drone Master legendary set"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: machine-core proxy identity has no player direct-damage loop; pet-core summoner-deferral applies; placed-proxy-count accrual candidate (multiple machines in combat zone simultaneously). Element-silent: 'Holy Lance Turrets' is skill-name, not damage descriptor; hot-fact ruling honored. Drone variants (Laser, Poison, Rocketeer) are variants with different element profiles but none attested via damage-type descriptor in fetched anchors. File placed-proxy-count accrual."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Mechanist builds — Chronicon General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://store.steampowered.com/app/2206120/Chronicon__The_Mechanist/",
+      "archive_url": null,
+      "site": "store.steampowered.com",
+      "author_handle": "Subworld",
+      "title": "Chronicon - The Mechanist (official DLC Steam page)",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Eras: ancient-beasts-dlc, current-1.52",
+      "anchor_quote": "(v1.52.0+DLC) My Mechanist's Build for MythicXV Endless Tier400-600",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3012088808",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Turret & Drone Mechanist — Mechanist subclass, Mechpriest/holy turret+drone skill set",
+      "anchor_quote": "the holy Mechpriest skill trees",
+      "source_url": "https://store.steampowered.com/app/2206120/Chronicon__The_Mechanist/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Deploys turrets and drones; holy damage (Stinger turret holy attribute); heavy proxy; Ammo resource; DLC-only",
+      "anchor_quote": "Holy Lance Turrets with the Drone Pilot set is listed as one of several strong Mechanist builds available with the Ancient Beasts DLC",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "sets": [
+            "Drone Pilot set",
+            "Drone Master legendary set"
+          ],
+          "rune": "Satellite enchants convert to Drones (unique Tech ability)"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+        "anchor_quote": "drone spam with the laser drones as the main source of damage and the drone master legendary set",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "deployment": "at-target placement",
+          "coverage": "large zone (full combat area from multiple machine positions)",
+          "machines": [
+            "Stinger turret (holy single-target rapid-fire)",
+            "Laser Drone",
+            "Rocketeer Drone",
+            "Holy Lance Turret"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+        "anchor_quote": "Holy Lance Turrets ... drone spam with the laser drones as the main source of damage",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Deploy Stinger turrets and various drone types at target positions; holy-attribute turrets and drones cover combat zone; Ammo consumed on deployment; machines persist until destroyed; heavy proxy damage network"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+        "anchor_quote": "Holy Lance Turrets with the Drone Pilot set ... Holy Drones ... probably single best skill this game has ever seen",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Holy Lance Turret (Drone Pilot set)",
+            "Laser Drone",
+            "Poison Drone (30% dmg/drone)",
+            "Rocketeer Drone hybrid"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/0/3763355214782300849/",
+        "anchor_quote": "Laser Drones ... Poison Drones ... Holy Drones ... Rocketeer Drones",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

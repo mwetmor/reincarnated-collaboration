@@ -1,0 +1,248 @@
+{
+  "kit_id": "d4-ice-shards",
+  "spine": {
+    "kit_id": "d4-ice-shards",
+    "folk_name": "Ice Shards Sorcerer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Conditional re-seek trigger grammar has no exact engine primitive; mapped as proc_trigger_condition=target-frozen which approximates the seek-the-frozen retarget. Frost Nova is a setup enabler whose reservation-free toggle role is lost in scaffold (that build, somewhat worse).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Conditional re-seek trigger grammar has no exact engine primitive; mapped as proc_trigger_condition=target-frozen which approximates the seek-the-frozen retarget. Frost Nova is a setup enabler whose reservation-free toggle role is lost in scaffold (that build, somewhat worse).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ice Shards",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "auto-seeking projectiles redirect to frozen targets; shards re-seek and stack hits on frozen enemies; piercing through packs via Aspect of Piercing Cold; §C.1 conditional re-seek: proc_trigger_condition=target-frozen"
+        },
+        {
+          "source_skill": "Frost Nova",
+          "geometry_value": "ring",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "burst freeze enabler; creates the frozen prerequisite for Ice Shards seeking; setup skill not primary damage dealer"
+        }
+      ],
+      "motion_frame": "Freeze pack with Frost Nova then volley seeking Ice Shards into frozen enemies",
+      "resource_economy": {
+        "mana": "primary-spender",
+        "regen_shape": "passive+Tibault's"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "target-frozen",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Aspect of Piercing Cold adds pierce"
+          ],
+          "economy": [
+            "Tibault's Will Mana Regen"
+          ],
+          "traits_affixes": [
+            "Aspect of Splintering Energy",
+            "Destruction/Elementalist/Tactician paragon glyphs"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Freeze attested directly in skill_loop: 'Freeze the pack with Frost Nova.' §C.1 conditional re-seek: the seeking behavior is freeze-gated (store: 'shards re-seek and stack hits on frozen enemies'). Item-defined-archetype: Hail of Verglas + Aspect of Piercing Cold define the pierce-and-shotgun form mapped here. Frost Nova geometry=ring per phrase-book (nova/burst-around-self). No cold-damage-stat language needed: 'Freeze the pack' and 'shards re-seek and stack hits on frozen enemies' establish freeze as named status."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "pandaglassjaw",
+      "title": "Ice Shards Sorcerer Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/ice-shards-sorcerer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Lexyu",
+      "title": "Ice Shards - Sorcerer Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d4/guides/ice-shards-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ice Shards Sorcerer'; aliases 'Ice Shards Sorc D4', 'Ice Shards Frost Nova Sorcerer'",
+      "anchor_quote": "Ice Shards has the benefit of being able to play it at most ranges while usually Sorcerer builds are melee.",
+      "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Ice Shards and Frost Nova; Sorcerer Mana resource",
+      "anchor_quote": "Hold down your movement while casting Ice Shards at enemies... Tibault's Will provides your Mana Regeneration",
+      "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "pandaglassjaw",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+        "anchor_quote": "Created by pandaglassjaw, listed as a Content Creator",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Aspect of Piercing Cold"
+          ],
+          "paragon_glyphs": [
+            "Destruction",
+            "Elementalist",
+            "Tactician",
+            "Unleash",
+            "Exploit"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+        "anchor_quote": "Paragon Glyphs: Destruction, Elementalist, Tactician, Unleash, and Exploit",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Azurewrath",
+            "Raiment of the Infinite",
+            "Orsivane",
+            "Hail of Verglas"
+          ],
+          "note": "Hail of Verglas provides damage without Mana Cost increase; Azurewrath enables Shatter gameplay"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+        "anchor_quote": "Hail of Verglas provides great damage without a Mana Cost increase compared to Crown of Lucion",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "seeking-point",
+          "note": "auto-seeking projectiles redirect to frozen targets; piercing through packs via Aspect of Piercing Cold"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+        "anchor_quote": "releases a barrage of projectiles to shotgun enemies with Hail of Verglas, piercing through them all due to Aspect of Piercing Cold",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Freeze the pack with Frost Nova, then release Ice Shards volley that seeks frozen targets automatically; shards re-seek and stack hits on frozen enemies in rapid succession"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+        "anchor_quote": "Hold down your movement while casting Ice Shards at enemies... Ice Shards has the benefit of being able to play it at most ranges",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/ice-shards-sorcerer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

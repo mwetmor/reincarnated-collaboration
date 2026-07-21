@@ -1,0 +1,249 @@
+{
+  "kit_id": "gd-word-of-pain-tactician",
+  "spine": {
+    "kit_id": "gd-word-of-pain-tactician",
+    "folk_name": "Word of Pain Tactician",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-15",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Multi-variant element identity (chaos/lightning/pierce) collapsed to the dominant PIERCE build -> element-neutral. Source player of the chaos (shadow) WoP Vampirris variant loses their element slot. The devotion-proc payloads (Flame Torrent etc.) are the kit's real damage flavor but map to nothing — names only, no fetched behavior — so the mapping understates proc-driven output. 'Elemental agony' brand has no tokenable status.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Multi-variant element identity (chaos/lightning/pierce) collapsed to the dominant PIERCE build -> element-neutral. Source player of the chaos (shadow) WoP Vampirris variant loses their element slot. The devotion-proc payloads (Flame Torrent etc.) are the kit's real damage flavor but map to nothing — names only, no fetched behavior — so the mapping understates proc-driven output. 'Elemental agony' brand has no tokenable status.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Word of Pain",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target 'pain aura' brand stamped on the pack, ~1.5-screen coverage radius, ticking elemental agony over the branded zone; cast-and-forget. Element-neutral in the dominant pierce variant (full ele->pierce conversion via Nadaan's Reach; pierce = armor-piercing physical, §1 physical rule)."
+        },
+        {
+          "source_skill": "Inquisitor Seal",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Persistent ground field placed under the player (~1.5-screen), providing damage mitigation and proc-trigger platform. Defensive anchor + devotion-proc host."
+        }
+      ],
+      "motion_frame": "Stamp Word of Pain on packs and hold the Inquisitor Seal; the brand ticks agony over a huge footprint while the seal mitigates and hosts procs; Blade Arc fills in the pierce variant",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence_shape": "cooldown-based rotation; Word of Pain is cast-and-forget, Inquisitor Seal is a persistent field"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "1.5-screen brand footprint",
+            "seal field radius"
+          ],
+          "economy": [
+            "cooldown rotation"
+          ],
+          "traits_affixes": [
+            "full elemental->pierce conversion (Nadaan's Reach)",
+            "devotion-proc scalers"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "elem_raw corpus tag = 'fire' is ERRATUM (hot-fact) — fetched text shows chaos/lightning/pierce variants + 'full ele to pierce conversion'; the DOMINANT published guide ([1.1.9.0] Blade Arc + WoP pierce) is the pierce build -> element-neutral (§1 physical rule; pierce is armor-piercing physical, no engine family) + ELEMENT_CONVERSION_PHYSICAL door (conversion IS the build's point). §A devotion-proc riders: Shifting Sands, Hand of Ultos, Flame Torrent are NAMED for 'proc synergy' but behaviors UNFETCHED -> contribute NOTHING to mapping_json beyond this note (§0.4 name != payload). trigger_grammar apply-only/linked-cast reflects the seal's proc-host role generically. NO ailment token: 'pain'/'agony' are flavor, no burn/bleed/etc STATUS named (§0.1). Chaos variant (Vampirris, shadow) + lightning variant noted, out of dominant loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://massivelyop.com/2017/10/02/grim-dawns-massive-ashes-of-malmouth-expansion-arrives-october-11th/",
+      "archive_url": null,
+      "site": "massivelyop.com",
+      "author_handle": "unknown",
+      "title": "Grim Dawn's 'massive' Ashes of Malmouth expansion arrives October 11th",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.1.9.0] Blade Arc + Word of Pain pierce Tactician",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-2-1-6-ranged-beginner-ssf-unconvetional-chaos-word-of-pain-vampirris-build/154912",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.2.1.6] Chaos Word of Pain Vampirris build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: aom-2017 (floor claim)",
+      "anchor_quote": "Two new Masteries debuted with this expansion: the Inquisitor and the Necromancer — Ashes of Malmouth expansion released October 11th 2017",
+      "source_url": "https://massivelyop.com/2017/10/02/grim-dawns-massive-ashes-of-malmouth-expansion-arrives-october-11th/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: patch-1.1-1.2",
+      "anchor_quote": "[1.1.9.0] Blade Arc + Word of Pain pierce Tactician (cr 5:00) (SR75+)... [1.2.1.6] Chaos Word of Pain Vampirris build",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Word of Pain Tactician'; aliases include 'WoP Tactician', 'chaos lightning WoP Tactician'",
+      "anchor_quote": "[1.1.9.0] Blade Arc + Word of Pain pierce Tactician... [1.2.1.6] Chaos Word of Pain Vampirris build... Inquisitor as one of the masteries",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Word of Pain, Inquisitor Seal; large-AoE brand delivery; cooldown resource",
+      "anchor_quote": "Central defensive tool: Inquisitor Seal providing damage mitigation and proc triggers... Word of Pain... 1.5 of your screen coverage radius",
+      "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "guide_title": "[1.1.9.0] Blade Arc + Word of Pain pierce Tactician"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "devotions": [
+            "Shifting Sands",
+            "Hand of Ultos",
+            "Flame Torrent"
+          ],
+          "function": "proc synergy attachments for WoP and Seal"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+        "anchor_quote": "Notable constellation attachments include Shifting Sands, Hand of Ultos, and Flame Torrent for proc synergy",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Nadaan's Reach",
+          "item_function": "2H sword for full elemental-to-pierce conversion in pierce variant"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+        "anchor_quote": "build centers on Nadaan's Reach (2H sword) for full ele to pierce conversion",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target stamp (Word of Pain brand placed on pack)",
+          "footprint": "large-AOE brand (~1.5 screen coverage)",
+          "inquisitor_seal": "ground field under player for defense and procs",
+          "range": "dual (WoP at range; seal under player)"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+        "anchor_quote": "Word of Pain... 1.5 of your screen coverage radius... Inquisitor Seal: 1.5 of your screen",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Stamp Word of Pain on enemy packs; place Inquisitor Seal for defense and proc triggers; Word of Pain ticks elemental agony over large brand while seal holds the line; chaos/lightning or pierce variants depending on gear; cooldown-based rotation",
+          "resource_model": "cooldown; Word of Pain is cast-and-forget pain aura; Inquisitor Seal is persistent ground field"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-0-blade-arc-word-of-pain-pierce-tactician-cr-5-00-sr75/87715",
+        "anchor_quote": "Central defensive tool: Inquisitor Seal providing damage mitigation and proc triggers... Word of Pain... 1.5 of your screen coverage radius",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pierce + Blade Arc hybrid (Nadaan's Reach)",
+            "chaos WoP (Vampirris, 1.2.1.6)",
+            "vitality WoP Apostate (different class)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-1-6-ranged-beginner-ssf-unconvetional-chaos-word-of-pain-vampirris-build/154912",
+        "anchor_quote": "[1.2.1.6] Chaos Word of Pain Vampirris build",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

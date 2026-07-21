@@ -1,0 +1,212 @@
+{
+  "kit_id": "di-multishot-dh",
+  "spine": {
+    "kit_id": "di-multishot-dh",
+    "folk_name": "Multishot Demon Hunter",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-launch-2022;di-5.0-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical kit with no attested ailments — ailment-sparse mapping. Knockback Shot behavior unattested beyond name (near-miss logged). DI resource unreliable.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical kit with no attested ailments — ailment-sparse mapping. Knockback Shot behavior unattested beyond name (near-miss logged). DI resource unreliable.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Multishot",
+          "geometry_value": "cone",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Wide forward arc projectile volley; hits all enemies in cone. 'screen-wide devastation' per anchor. Physical rule applies — no element-damage verb."
+        },
+        {
+          "source_skill": "Vengeance",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Steroid buff causing primary attacks to fire additional shots; off-cooldown activation."
+        }
+      ],
+      "motion_frame": "Vengeance steroid active → Multishot cone barrage at range; Knockback Shot for spacing",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PvP context: this is a PvP-primary kit per verify_ledger identity. Knockback Shot: skill name only — no behavior verb ('knocks back enemies') in store; knockback NEAR-MISS, not emitted per MW4 name-only law. DH resource (Hatred) probe unreliable per ERRATA sweep. Rain of Vengeance (cooldown zone denial) is secondary AoE tool — support-lane analog, no separate skills[] row."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-multishot-pvp-build-guide",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Demon Hunter Multishot PvP Build Guide - Diablo Immortal",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-5.0-2026",
+      "anchor_quote": "taking advantage of the screen-wide devastation of Multishot and Rain of Vengeance along with crowd control capabilities",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-multishot-pvp-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Multishot Demon Hunter' and aliases 'Multishot DH DI', 'Vengeance Strafe Multishot DH DI' are real community usage",
+      "anchor_quote": "Demon Hunter Multishot PvP Build Guide",
+      "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-multishot-pvp-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills Multishot, Vengeance, Strafe, Smoke Screen; DH resource Hatred",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-build-guides",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "legendary_gems": [
+            "Blood-Soaked Jade",
+            "Seeping Bile",
+            "Howler's Call",
+            "Echoing Shade",
+            "Chip of Stone Flesh",
+            "Frozen Hearth",
+            "Bloody Reach",
+            "Cutthroat's Grin",
+            "Fervent Fang",
+            "Follower's Burden",
+            "Lightning Core",
+            "Power and Command"
+          ],
+          "notes": "Fetched from icy-veins / gamerant DI DH guides."
+        },
+        "source_url": "https://gamerant.com/diablo-immortal-best-strafe-demon-hunter-build-skills-gear-gems-reforge/",
+        "anchor_quote": "Blood-Soaked Jade, Bottled Hope, Echoing Shade, Howler's Call, Seeping Bile, Zwenson's Haunting",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile volley — wide forward cone",
+          "footprint": "cone (forward arc, high projectile density)",
+          "notes": "Multishot fires a barrage of arrows in a forward spread, hitting all enemies in arc. Functionally a cone-AoE through projectile density."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-multishot-pvp-build-guide",
+        "anchor_quote": "Vengeance-enhanced Crossbow Shot, Multishot, Rain of Vengeance, and Untempered Hatred-enhanced Knockback Shot",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Multishot delivers screen-wide cone barrage. Vengeance buffs primary attack to fire additional shots. Daring Swing for mobility/repositioning. Knockback Shot for CC. Loop: engage at range, Vengeance active, Multishot main burst, weave Knockback Shot for control.",
+          "core_combo": "Vengeance buff -> Multishot cone barrage",
+          "source_note": "icy-veins DI DH Multishot PvP guide"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-multishot-pvp-build-guide",
+        "anchor_quote": "taking advantage of the screen-wide devastation of Multishot and Rain of Vengeance along with crowd control capabilities",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "PvP (Multishot long-range CC)",
+            "Challenge Rifts (Rain of Vengeance AoE sniper)"
+          ],
+          "notes": "Two separate build paths confirmed from icy-veins guide index."
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/demon-hunter-build-guides",
+        "anchor_quote": "Demon Hunter Multishot PvP Build Guide",
+        "abstained": 0,
+        "conf": 0.68
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

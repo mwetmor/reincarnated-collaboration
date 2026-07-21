@@ -1,0 +1,236 @@
+{
+  "kit_id": "d2-sacrifice",
+  "spine": {
+    "kit_id": "d2-sacrifice",
+    "folk_name": "Sacrifice (Paladin)",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": null,
+    "canon_tier": null,
+    "eras": "lod",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Self-damage-on-hit primary attack has no engine lane as a build identity. SACRIFICE_ASCENDANCY T4 exists but requires a functioning damage loop to capstone — Sacrifice has no viable primary loop. The kit's verified identity is self-damage curiosity / Smite synergy ingredient, not a playable primary build. 'Not that build' → GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 5,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Self-damage-on-hit primary attack has no engine lane as a build identity. SACRIFICE_ASCENDANCY T4 exists but requires a functioning damage loop to capstone — Sacrifice has no viable primary loop. The kit's verified identity is self-damage curiosity / Smite synergy ingredient, not a playable primary build. 'Not that build' → GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sacrifice",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary melee attack with self-damage on hit. Dossier: 'each hit deals 8% of damage back to the Paladin (reduced per level in D2R... to ~1% at high levels).' Physical damage enhanced by bonus. No ailment attested."
+        }
+      ],
+      "motion_frame": "Melee attack with self-damage sacrifice cost; Life Tap or Redemption aura required for sustain; physical damage output per hit.",
+      "resource_economy": {
+        "hp_cost_scale": "0.08-to-0.01",
+        "cost_scale": "hp-sacrifice-on-hit"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "self-damage mitigation (Life Tap / Redemption aura required)"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE KIT (canon_corpus.negative=1). verify_ledger CONFIRMED negative: 'self-damage mechanic on primary attack creates sustain ceiling; no viable endgame execution path.' ERRATA-54 era backfill: eras set to 'lod' per backfill-3. Holy element: Paladin class (holy family per main law); no secondary element attested. Self-damage hp_cost_scale populated per dossier language ('8% of damage back to the Paladin') — hp_cost_scale value is dossier-sourced, not engine-verified; flagged. SACRIFICE_ASCENDANCY T4 is the only thematic match but the kit lacks a viable dominant loop to anchor T4 doors; t4_doors=null per GAPPED/doorless rule (hot-fact: GAPPED/doorless kits emit t4_doors null). Skill_geometry row empty in dossier — melee_strike per Paladin class default + 'primary melee attack' language. [STEWARD-AUDIT 2026-07-18 MW2-close: element holy→null — 'holy' unattested in store; physical rule + never-import ruling. Grade unchanged]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://diablo2.io/forums/sacrifice-paladin-t1456874.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": "Maldoror",
+      "title": "Sacrifice Paladin",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/forums/threads/sacrifice-and-self-damage.171072/",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Sacrifice and self-damage",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://diablo2.io/skills/sacrifice-t4149.html",
+      "archive_url": null,
+      "site": "diablo2.io",
+      "author_handle": null,
+      "title": "Sacrifice — Diablo 2 Resurrected Skill",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://archive.org/wayback/available?url=classic.battle.net/diablo2exp/skills/paladin/combatskills.shtml&timestamp=20050101",
+      "archive_url": null,
+      "site": "web.archive.org",
+      "author_handle": null,
+      "title": "Wayback availability API — Arreat Summit paladin combat skills",
+      "cite_class": "official",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20090325132146/http://classic.battle.net:80/diablo2exp/skills/paladin-combat.shtml",
+      "archive_url": "http://web.archive.org/web/20090325132146/http://classic.battle.net:80/diablo2exp/skills/paladin-combat.shtml",
+      "site": "classic.battle.net (Arreat Summit via Wayback)",
+      "author_handle": "Blizzard Entertainment (official)",
+      "title": "The Arreat Summit - Skills: Paladin Combat Skills",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "NULL-era kit — no era claim to verify; attested eras from fetched text recorded in summary",
+      "anchor_quote": "At what price glory? By sanctifying his weapon with some of his own blood, a Paladin...increased damage at the cost of health.",
+      "source_url": "http://web.archive.org/web/20090325132146/http://classic.battle.net:80/diablo2exp/skills/paladin-combat.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Sacrifice Paladin' or 'Self-Damage Paladin' is real community usage",
+      "anchor_quote": "Sacrifice Paladin",
+      "source_url": "https://diablo2.io/forums/sacrifice-paladin-t1456874.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Sacrifice; self-damage mechanic on primary attack; Paladin class",
+      "anchor_quote": "Damage to self now reduces per level, from 8% to 8%-1%",
+      "source_url": "https://diablo2.io/skills/sacrifice-t4149.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sacrifice negative — self-damage mechanic on primary attack creates sustain ceiling; interesting flavor but no viable endgame execution path; negative kit identity",
+      "anchor_quote": "you are only attacking once, which means clearing anything is going to be time consuming",
+      "source_url": "https://diablo2.io/forums/sacrifice-paladin-t1456874.html",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Maldoror",
+          "site": "diablo2.io"
+        },
+        "source_url": "https://diablo2.io/forums/sacrifice-paladin-t1456874.html",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Primary melee attack dealing enhanced physical damage; each hit deals 8% of damage back to the Paladin (reduced per level in D2R, scaling down to ~1% at high levels; D2R 2.4 patch). Life Tap or Redemption aura required for sustain; or stacking physical damage reduction to halve self-damage.",
+          "source_note": "diablo2.io sacrifice skill page + sacrifice paladin forum"
+        },
+        "source_url": "https://diablo2.io/skills/sacrifice-t4149.html",
+        "anchor_quote": "Damage to self now reduces per level, from 8% to 8%-1%",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sacrifice-only (Martyr / 'New Pally Build') — players attempting self-damage mitigation focus",
+            "Sacrifice as Smite synergy ingredient — most common use, not as primary attack"
+          ]
+        },
+        "source_url": "https://www.purediablo.com/forums/threads/new-pally-build-the-martyr.73357/",
+        "anchor_quote": "New Pally Build - The Martyr",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

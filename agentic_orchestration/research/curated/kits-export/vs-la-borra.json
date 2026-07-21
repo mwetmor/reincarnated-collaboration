@@ -1,0 +1,203 @@
+{
+  "kit_id": "vs-la-borra",
+  "spine": {
+    "kit_id": "vs-la-borra",
+    "folk_name": "La Borra (Santa Water evo)",
+    "game": "vs",
+    "corpus_bucket": "vs",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "vs-1.0-2022;vs-1.13-14-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-18",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Mobile growing puddle behavior (follow player, grow in travel) is approximated by ground_targeted_circle — engine has static circles, not self-relocating ones. Minor fidelity loss on the 'follows player' component.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Mobile growing puddle behavior (follow player, grow in travel) is approximated by ground_targeted_circle — engine has static circles, not self-relocating ones. Minor fidelity loss on the 'follows player' component.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "La Borra (mobile puddle trail)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Bottles rain from sky in clockwise circle pattern; break on impact leaving puddles. Puddles creep toward player, grow in size as they travel, max size limit. Multiple co-existing growing puddles create mobile zone-paint following player. VS element-silent: 'holy water' in name/description but dossier skill_loop explicitly notes 'element-law: UNSUPPORTED' — no holy damage type stated. No ailments named in dossier text."
+        }
+      ],
+      "motion_frame": "Mobile growing zone-paint: puddles rain down, follow player, grow in size; persistent area denial that tracks player position",
+      "resource_economy": {
+        "puddle_growth": "puddles grow as they travel toward player; max size limit",
+        "speed_interaction": "negative projectile speed shrinks puddles and moves them away; speed bonuses accelerate growth",
+        "duration_interaction": "Duration slows growth rate but not puddle movement speed"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "growing puddle radius",
+            "clockwise rain pattern",
+            "multiple co-existing puddles"
+          ],
+          "economy": [
+            "puddle-duration/growth economy"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "VS element-silent. §0 near-miss: wanted holy from 'holy water' name — blocked by element-law (name-only) and dossier explicit note UNSUPPORTED. ground_targeted_circle is the closest geometry for persistent growing zone-paint puddles. DLC union (Hydro Pump Climax, Oct 2025) noted in capstone row. Attractorb catalyst (pickup magnet) maps as economy support."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://vampire.survivors.wiki/w/La_Borra",
+      "archive_url": null,
+      "site": "vampire.survivors.wiki",
+      "author_handle": null,
+      "title": "La Borra - Vampire Survivors Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "vs-1.0-2022;vs-1.13-14-2025+",
+      "anchor_quote": "Added in Patch 0.2.11 (February 5, 2022).",
+      "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "La Borra is the evolution of Santa Water; recipe = Santa Water + Attractorb; mobile puddle trail",
+      "anchor_quote": "Base weapon: Santa Water + Passive item: Attractorb. Rains down bottles of holy water from the sky, which break upon impact, leaving puddles that slowly creep towards the character.",
+      "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Mobile zone-paint: evolved Santa Water converts zone-paint into mobile puddle trail; growing zone radius; area denial over time",
+      "anchor_quote": "These puddles then slowly creep towards the character, increase in size as they travel, and have a maximum size limit.",
+      "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "dlc_union": "unions with Hydro Storm to form Hydro Pump Climax (added October 28, 2025)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+        "anchor_quote": "Adding a union evolution with Hydro Storm to create Hydro Pump Climax (October 28, 2025).",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "attractorb": "required catalyst (increases pickup magnet radius)",
+          "duration_note": "Duration slows puddle growth rate but not puddle movement speed; puddles reach max size when Duration ends"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+        "anchor_quote": "Duration slows down the growth rate of the puddle but not the speed, making them reach the max size when it ends.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "mobile AoE zones (puddles); growing radius per puddle; clockwise drop pattern",
+          "origin": "rains from sky (clockwise ~circular pattern); puddles then follow player",
+          "pattern": "multiple co-existing growing puddles; light-proxy from overlapping coverage",
+          "speed_interaction": "negative projectile speed shrinks puddles and moves them away from player; speed bonuses accelerate growth"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+        "anchor_quote": "Bottles drop in a clockwise, roughly circular pattern. Puddles move faster and expand more rapidly when the player has speed bonuses.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "evolution_recipe": "Santa Water (max) + Attractorb = La Borra",
+          "delivery": "bottles rain from sky in clockwise circle pattern; break on ground impact leaving puddles",
+          "puddle_behavior": "puddles slowly creep toward player; grow in size as they travel; max size limit",
+          "area_denial": "persistent growing puddles create mobile zone-paint; follow player position",
+          "element_note": "wiki says 'holy water' in name/description; no explicit holy damage type stated — element-law: UNSUPPORTED"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+        "anchor_quote": "These puddles then slowly creep towards the character, increase in size as they travel, and have a maximum size limit. Rains down bottles of holy water from the sky, which break upon impact.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "hydro_pump_climax_union": "La Borra + Hydro Storm (DLC, October 2025)"
+        },
+        "source_url": "https://vampire.survivors.wiki/w/La_Borra",
+        "anchor_quote": "Union evolution with Hydro Storm to create Hydro Pump Climax.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

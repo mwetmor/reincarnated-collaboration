@@ -1,0 +1,224 @@
+{
+  "kit_id": "gd-stormbox-elementalist",
+  "spine": {
+    "kit_id": "gd-stormbox-elementalist",
+    "folk_name": "Storm Box Elementalist",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "aom-2017;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY (§7.3): the source player would miss the persistent enemy-attached tether — Storm Box rides the tagged enemy and re-arcs continuously over its duration; engine chain renders as cooldown-cadenced arc casts from the target, losing the set-and-forget tag-and-wait texture. Player test: that build, worse — the tag-then-arcs loop survives at chain + cooldown cadence.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "MANDATORY (§7.3): the source player would miss the persistent enemy-attached tether — Storm Box rides the tagged enemy and re-arcs continuously over its duration; engine chain renders as cooldown-cadenced arc casts from the target, losing the set-and-forget tag-and-wait texture. Player test: that build, worse — the tag-then-arcs loop survives at chain + cooldown cadence.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Storm Box of Elgoloth",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Placed on a target enemy; creates a lightning tether beacon that arcs to all nearby enemies' — 'great single target DoT with tether'. Mapped as chain (arcing between targets) from the tagged enemy; the persistent enemy-attached beacon is the drift. 'Electrocute' is GD's lightning-DoT damage register — NO engine token (engine shock requires CC)."
+        }
+      ],
+      "motion_frame": "Tag one enemy with a Storm Box beacon; the tether arcs chain into the pack while you wait",
+      "resource_economy": {
+        "resource": "energy",
+        "cadence": "cooldown-place beacon; tag-and-wait loop (Allagast set CDR)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "RESONANCE_LOOP"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "tether arc reach"
+          ],
+          "economy": [
+            "cooldown reduction (Allagast)"
+          ],
+          "traits_affixes": [
+            "mono-lightning scalers ('Storm Box only requires focus on one damage type')"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Identity carries a WATCH annotation (folk-name weakness; identity claim UNSUPPORTED in verify_ledger) — irrelevant to mapping per steward; mapped from attested tether/box mechanics. Thermite Mines named 'for RR' but application shape unfetched → no curse/sunder token (near-miss). Enemy-attached persistent emitter has no geometry home — qual mint-candidate filed; chain is the parsimony-best render."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 11,
+      "evidence_tier": "C-provisional",
+      "mint_class": "qualitative",
+      "build_authorized": 0,
+      "description": "GD enemy-attached-emitter: an emitter entity that ATTACHES to an enemy and emits from that anchor for its duration — the Grim Dawn Storm Box of Elgoloth pattern. Distinct from wandering (free) and placed (static-ground) emitters."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "So about Storm Box of Elgoloth...",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "russell_timmerman",
+      "title": "My best Character so far. Elementalist Stun Jacks",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present as build in eras: aom-2017, patch-1.1-1.2",
+      "anchor_quote": "Elementalist [...] Shaman side [...] community text December 2019 showing post-AoM Elementalist Stun Jacks / Storm Box combinations",
+      "source_url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name: Storm Box Elementalist; aliases include Storm Box of Elgoloth build, lightning Elementalist",
+      "anchor_quote": null,
+      "source_url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Storm Box of Elgoloth. Placed on target enemy, lightning arcs chain to nearby enemies, cooldown resource.",
+      "anchor_quote": "great single target DoT with tether [...] Storm Box only requires focus on one damage type",
+      "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "russell_timmerman",
+          "site": "forums.crateentertainment.com"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item": "Allagast set",
+          "alteration": "provides cooldown reduction for Storm Box"
+        },
+        "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+        "anchor_quote": "Allagast set for cooldown reduction",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "attached to target enemy (beacon/tether)",
+          "footprint": "chain-hop arcs from beacon to nearby enemies",
+          "verbatim": "great single target DoT with tether [...] the electrocute from the box and the Shaman mastery's Wind Devil skill would stack"
+        },
+        "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+        "anchor_quote": "great single target DoT with tether",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Storm Box of Elgoloth on a target enemy; it creates a lightning tether beacon that arcs to all nearby enemies. Cooldown-gated placement. Lightning damage only. Pairs with Thermite Mines for RR.",
+          "resource": "cooldown for Storm Box placement; energy secondary",
+          "loop_verb": "place-beacon cooldown loop"
+        },
+        "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+        "anchor_quote": "great single target DoT with tether [...] Storm Box only requires focus on one damage type",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Storm Box caster Elementalist (Shaman+Demolitionist)",
+            "Storm Box+Stun Jacks hybrid Purifier (Inquisitor+Demolitionist)",
+            "Storm Box Vindicator (Shaman+Inquisitor)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-4-the-elemental-storm-box-obliteration-vindicator-sr76-cr150-70/113683",
+        "anchor_quote": "Elemental Storm Box/Obliteration VINDICATOR",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "kit_id": "poe1-ea-ballista",
+  "spine": {
+    "kit_id": "poe1-ea-ballista",
+    "folk_name": "Explosive Arrow Ballista",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.14-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The totem-delivered fuse-stack-then-detonate identity lands well: totem geometry (dominant loop) + native accumulator (20-fuse cap, fill-per-arrow, detonate-at-cap-or-on-death) + ground_targeted_circle burst + fire/burn. Minor drift: the fuse-stack accumulates on the TARGET from MULTIPLE autonomous totems' arrows (a shared on-defender accumulator fed by proxies), which the engine models as a single-target accumulator filled by hit-events rather than a bespoke multi-totem-shared-fuse primitive; and the 'detonate instantly the moment the target dies' is one accumulator discharge condition among the cap. A player keeps the place-totems-and-watch-it-erupt feel; the multi-totem-shared-fuse bookkeeping is generalized.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 5,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The totem-delivered fuse-stack-then-detonate identity lands well: totem geometry (dominant loop) + native accumulator (20-fuse cap, fill-per-arrow, detonate-at-cap-or-on-death) + ground_targeted_circle burst + fire/burn. Minor drift: the fuse-stack accumulates on the TARGET from MULTIPLE autonomous totems' arrows (a shared on-defender accumulator fed by proxies), which the engine models as a single-target accumulator filled by hit-events rather than a bespoke multi-totem-shared-fuse primitive; and the 'detonate instantly the moment the target dies' is one accumulator discharge condition among the cap. A player keeps the place-totems-and-watch-it-erupt feel; the multi-totem-shared-fuse bookkeeping is generalized.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Explosive Arrow (via Ballista Totem)",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "Ballista Totems (placed autonomous proxies) fire Explosive Arrows that stick to the target and stack fuses (up to 20); when the fuse-stack detonates it produces one massive fire AoE ignite. The DOMINANT loop is totem-delivered (player runs free while totems work) -> totem geometry (§6 totem/sentry/turret = placed autonomous proxy). The detonation itself is a ground_targeted_circle burst at the target (secondary geometry, noted in scaffold)"
+        }
+      ],
+      "motion_frame": "totem-delivered fuse-stacker: place Ballista Totems on a target, run freely while they stack explosive arrows into one big ignite detonation, reposition totems for the next target",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_fill_trigger": "on-hit-dealt",
+        "accumulator_max": 20,
+        "accumulator_discharge_threshold": 20,
+        "cost_scale": 1.0
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem (Ballista proxy delivery, the dominant loop)",
+            "ground_targeted_circle (fuse-detonation burst; +0.2m radius per arrow, max +1.2m at 20)"
+          ],
+          "economy": [
+            "fuse-stack accumulator (20-stack cap on the target; each totem-hit fills; detonate-at-cap/on-death)",
+            "cooldown-per-totem (totem placement cadence; probe 'cooldown' model)"
+          ],
+          "traits_affixes": [
+            "fire-penetration",
+            "ignite/burn scaling (Shaper of Flames guaranteed ignite)",
+            "totem-count / totem-damage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "TOTEM-DELIVERED FUSE-STACK: Ballista Totems stack Explosive Arrow fuses (up to 20) into one target, detonating for a massive ignite while the player runs free (dossier skill_loop; probe delivery 'at-target' but movement 'run/full-move' + mech_note 'totem-delivered' -> the TOTEM is the delivery chassis). §7.2 dominant-loop: the player's active job is PLACING TOTEMS (the totems auto-fire), so totem geometry leads; ground_targeted_circle is the detonation burst (secondary). The 20-fuse-stack-then-detonate maps NATIVELY to accumulator (accumulator_max=20, fill on-hit-dealt = each arrow adds a fuse, discharge at cap OR on target death per 'instantly triggering the explosion' — verify_ledger). T4 PROXY_ASCENSION (totem/ballista proxy delivery, §5 minion/totem hiero) + PERSISTENCE_ENGINE_saturation (the fuse-saturation-then-burst reading). CAPSTONE ABSTAINED — t4 routed from core identity (totem-proxy delivery + fuse-saturation) + probe (cooldown economy, hp-stack defense) per fallback. Element fire->burn (probe 'burn', damage_mode hybrid = hit+ignite). The fuse-stack lives on ONE target across MULTIPLE totems' arrows — this is a shared-accumulator-on-defender, at MAX_CHAIN_DEPTH=1 (each arrow-add is a single fill event, not a nested chain); within the invariant."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/explosive-arrow-ballista-elementalist",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Palsteron",
+      "title": "Explosive Arrow Ballista Elementalist League Starter (PoE Mirage 3.28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/explosive-arrow-ballista-champion-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Explosive Arrow Ballista Champion Build Guide (PoE Settlers of Kalguur 3.25)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Explosive_Arrow",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Explosive Arrow - PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/explosive-arrow-ballista-totem-elementalist-starter-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.24] Explosive Arrow Ballista Totem Elementalist Starter Build - Odealo",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Siege_Ballista",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.14-3.19, 3.20+",
+      "anchor_quote": "TbXie's Explosive Arrow Ballista Champion Build Guide (PoE Settlers of Kalguur 3.25)",
+      "source_url": "https://www.poe-vault.com/guides/explosive-arrow-ballista-champion-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Explosive Arrow Ballista' is real community usage; alias EA Ballista",
+      "anchor_quote": "Explosive Arrow Ballista Elementalist League Starter for Path of Exile Mirage 3.28",
+      "source_url": "https://maxroll.gg/poe/build-guides/explosive-arrow-ballista-elementalist",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Ballista totems stack explosive arrows (fuse-stack up to 20) into a target that detonate in one massive ignite; player runs freely; cooldown resource model",
+      "anchor_quote": "Ballista Totems will execute this attack until the targeted enemy dies, instantly triggering the explosion",
+      "source_url": "https://poedb.tw/us/Explosive_Arrow",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Palsteron",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/explosive-arrow-ballista-elementalist",
+        "anchor_quote": "Explosive Arrow Ballista Elementalist League Starter … [Palsteron, Maxroll.gg]",
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Explosive Arrow (quality)",
+              "type": "base_quality",
+              "effect": "+(0-2) Maximum Explosive Arrows stuck in an Enemy",
+              "anchor_quote": "+(0—2) Maximum Explosive Arrows stuck in an Enemy"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Explosive_Arrow",
+        "anchor_quote": "+(0—2) Maximum Explosive Arrows stuck in an Enemy",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Iron Commander (unique bow)",
+              "type": "unique_item",
+              "effect": "Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity",
+              "anchor_quote": "Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Siege_Ballista",
+        "anchor_quote": "Siege Ballista has +1 to maximum number of Summoned Totems per 200 Dexterity",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target fuse explosion; large-zone AoE; explosion radius grows +0.2m per additional arrow (max +1.2m at 20 stacks); arrows stick to enemy position then detonate",
+          "damage_note": "6% more damage with hits per arrow, 3% more with ailments per arrow"
+        },
+        "source_url": "https://poedb.tw/us/Explosive_Arrow",
+        "anchor_quote": "If an enemy has multiple Explosive Arrows stuck in them, the first one to explode will consume the others, adding their damage to its explosion",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Place multiple Ballista Totems on target -> each totem fires Explosive Arrows that stack fuses on enemy (up to 20 per stack) -> fuse detonates for massive AoE fire hit -> Ignite applies for ongoing burn; player runs freely during totem firing; Elementalist Shaper of Flames maximises ignite damage"
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/explosive-arrow-ballista-elementalist",
+        "anchor_quote": "prioritizing the rate at which you can Attack is very important, with the most efficient way being to use multiple Ballista Totems",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "EA Ballista Elementalist (primary ignite variant, league start to endgame)",
+            "EA Ballista Champion (tank variant, TbXie 3.25)",
+            "EA Slayer (self-attack variant, not ballista)",
+            "EA Ballista Ancestral Commander (3.25+ rework variant)"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/explosive-arrow-ballista-champion-build-guide",
+        "anchor_quote": "TbXie's Explosive Arrow Ballista Champion Build Guide … POEGuy's Explosive Arrow Ballista Ancestral Commander",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

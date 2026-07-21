@@ -1,0 +1,268 @@
+{
+  "kit_id": "poe2-shaman-bear",
+  "spine": {
+    "kit_id": "poe2-shaman-bear",
+    "folk_name": "Shaman Bear",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Shaman-Bear player would MISS the distinct two-tier economy: Rage OVERFLOW (past max) FEEDING a SEPARATE Glory meter that gates Walking Calamity. The single-accumulator + threshold-proc model collapses the two meters into one, so the 'fill Rage, then watch it spill into Glory, then Glory caps and meteors erupt' rhythm reads as a plain charge-then-proc. The compressed second tier is the deviation (a WATCH-ITEM accrual for steward mint review).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn",
+      "stun"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Shaman-Bear player would MISS the distinct two-tier economy: Rage OVERFLOW (past max) FEEDING a SEPARATE Glory meter that gates Walking Calamity. The single-accumulator + threshold-proc model collapses the two meters into one, so the 'fill Rage, then watch it spill into Glory, then Glory caps and meteors erupt' rhythm reads as a plain charge-then-proc. The compressed second tier is the deviation (a WATCH-ITEM accrual for steward mint review).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Maul / Furious Slam (Bear Form heavy slams)",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "in-form Bear heavy slam attacks: Maul and Furious Slam are at-target heavy slams with ground-slam AoE ('Maul and Furious Slam to demolish anything in your path'). Physical melee slam -> ground_slam (downward quake AoE). stun ailment (physical heavy-hit interrupt, native to slams). Physical -> element-neutral (physical rule). These are the Rage-generation + AoE core."
+        },
+        {
+          "source_skill": "Walking Calamity (Glory-triggered passive meteors)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "at Glory cap, Walking Calamity passively spawns meteors around the player (verbatim). Self-origin meteor rain -> ground_targeted_circle patches around player (fire meteors -> fire + burn). This is the SECOND-tier accumulator PAYOFF (Rage->Glory->Walking Calamity); secondary auto-proc stage per 7.2, the every-3-seconds loop is the Maul/Furious Slam Rage-builder."
+        }
+      ],
+      "motion_frame": "Bear-Form Rage bruiser: shapeshift into the bear, slam packs with Maul and Furious Slam to build Rage (each stack = +1% attack damage), and at max Rage the overflow builds Glory until it caps and Walking Calamity rains meteors around you",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "rage": "built by hitting enemies + Shaman ascendancy; each stack grants 1% more attack damage (single accumulator, mapped)",
+        "persistent_condition_shape": "proc-loop (Glory-cap auto-triggers Walking Calamity meteors)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Rage stacks (accumulator); at cap, overflow builds Glory -> Glory-cap procs Walking Calamity",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Bear slam ground_slam AoE (Maul / Furious Slam)",
+            "Walking Calamity fire-meteor ground patches (Glory payoff)"
+          ],
+          "economy": [
+            "Rage accumulator (each stack +1% attack damage)",
+            "Glory second-tier proc (fidelity_note -- approximated as threshold-proc off the one accumulator)"
+          ],
+          "traits_affixes": [
+            "Rage-generation / Rage-effect",
+            "attack-damage / slam damage",
+            "fire (Walking Calamity meteors)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-02 form-swap FLAG FIRED: Bear Form ENTRY (shapeshift via Talisman) is the GX-02 form-swap gate class -- flagged here, NOT numbered (steward accrues to the standing register). Mapped the IN-FORM kit (bear slams + Rage/Glory/Walking-Calamity). Section-B Rage->Glory TWO-TIER accumulator: approximated as ONE accumulator (Rage) + threshold-proc (Glory-cap -> Walking Calamity); the SECOND tier (Glory) is a WATCH-ITEM accrual (steward counts two-tier-accumulator instances; NOT numbered). Physical -> element-neutral for slams (Walking Calamity meteors carry fire+burn). eras 0.4/0.5-ancients CONFIRMED (untouched in 0.5). MOMENTUM_CASCADE routes the Rage engine; PHASE_MOMENTUM routes the form-state identity."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Palsteron",
+      "title": "Demon Calamity Bear Shaman Build Guide - Path of Exile 2 0.5.1",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/bear-form-shaman-poe2-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[0.4] Walking Calamity Bear Form Shaman POE2 Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://overgear.com/guides/poe-2/shaman-bear-druid/",
+      "archive_url": null,
+      "site": "overgear.com",
+      "author_handle": null,
+      "title": "Path of Exile 2 Shaman Bear Druid, PoE 2 Bear Druid Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.4",
+      "anchor_quote": "[0.4] Walking Calamity Bear Form Shaman POE2 Build Guide",
+      "source_url": "https://odealo.com/articles/bear-form-shaman-poe2-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.5-ancients",
+      "anchor_quote": "Updated for Path of Exile 2 0.5 Return of the Ancients League (May 28, 2026) ... Bear Shaman was untouched in the recent patch 0.5 updates",
+      "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shaman Bear' and aliases 'Bear Form Shaman', 'Rampage Bear Shaman', 'Bear Form druid analog' are real community usage",
+      "anchor_quote": "Path of Exile 2 Shaman Bear Druid, PoE 2 Bear Druid Build - Shaman is the right choice for the majority of Druid players, especially anyone building around Bear",
+      "source_url": "https://overgear.com/guides/poe-2/shaman-bear-druid/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Bear Form is the foundational transformation (via Talisman); Rampage is a core skill for movement/clear; Rage mechanic is central",
+      "anchor_quote": "Bear Form serves as the foundation (accessed via Talisman) ... a lot of people use Rampage and like it [Rage mechanic: Rage inherently grants 1% more attack damage per stack]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Palsteron",
+          "site": "maxroll.gg",
+          "role": "Content Creator; content reviewed by ZiggyD; language reviewed by Tenkiei"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+        "anchor_quote": "Written by: Palsteron",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Shaman (Druid ascendancy)",
+          "notables": [
+            "Turning of the Seasons (elemental Exposure)",
+            "Bringer of the Apocalypse (Apocalypse spell auto-trigger at max Glory)",
+            "Furious Wellspring (Rage no longer drains; Rage boosts spell damage)",
+            "Avatar of Evolution (10% less elemental damage taken)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+        "anchor_quote": "Furious Wellspring and Avatar of Evolution [as key ascendancy choices]",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "note": "Fury of the King mentioned as notable optional unique item enabling Demon Calamity variant"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+        "anchor_quote": "the Demon version depending on whether Fury of the King is equipped",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Self-origin large melee form. Maul and Furious Slam are at-target heavy slam attacks with ground-slam AoE. Walking Calamity meteors spawn around player position. Rampage (optional) is a movement-based AoE cleave.",
+          "range": "melee large-radius slam AoE; self-origin meteor spawns from Walking Calamity"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+        "anchor_quote": "Maul and Furious Slam to demolish anything in your path ... Walking Calamity passively spawns meteors around you",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Enter Bear Form via Talisman. Generate Rage by hitting enemies and from Shaman ascendancy bonuses. Each Rage stack grants 1% more attack damage. At max Rage, additional generation builds Glory. Glory cap triggers Walking Calamity (passive meteor spawns). Use Maul and Furious Slam for Rage generation and AoE. Optional: Rampage for fast clear movement.",
+          "resource": "Rage / Glory meter"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+        "anchor_quote": "Bear Form serves as the foundation (accessed via Talisman) ... Rage inherently grants 1% more attack damage per stack ... Walking Calamity passively spawns meteors around you",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Demon Calamity Bear Shaman (Fury of the King + Walking Calamity)",
+            "Normal Walking Calamity Bear Shaman (no Fury of the King)",
+            "Rampage Bear Shaman (movement-clear emphasis)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/demon-calamity-bear-shaman-build-guide",
+        "anchor_quote": "this is the official title. The guide refers to it as both the normal version and Demon version",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "kit_id": "poe1-blade-flurry",
+  "spine": {
+    "kit_id": "poe1-blade-flurry",
+    "folk_name": "Blade Flurry",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The channel-stack-release identity lands via PC tick-cost channel + charge-stack accumulator + TEMPORAL_CHARGE, but the frontal close-range AoE geometry ('circle in front of player') has no exact 26-type — approximated to melee_arc (neither the whirlwind-spin nor cone-breath fit). A player keeps the build-6-stages-and-detonate commitment feel; the precise frontal-circle footprint is generalized to a wide melee arc.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "bleed",
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The channel-stack-release identity lands via PC tick-cost channel + charge-stack accumulator + TEMPORAL_CHARGE, but the frontal close-range AoE geometry ('circle in front of player') has no exact 26-type — approximated to melee_arc (neither the whirlwind-spin nor cone-breath fit). A player keeps the build-6-stages-and-detonate commitment feel; the precise frontal-circle footprint is generalized to a wide melee arc.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blade Flurry",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "poison",
+            "bleed"
+          ],
+          "delivery_notes": "channel to accumulate up to 6 stages (each +25% more damage); on release, detonate the stored stages in one burst (extra hit per stage). Self-origin frontal close-range AoE (dossier: 'circle in front of player', small radius) -> melee_arc (wide frontal melee) is the closest 26-type. Rooted while channelling. Physical melee -> element-neutral (physical rule); Voidheart ring applies poison + bleed on hit"
+        }
+      ],
+      "motion_frame": "channel-and-commit melee: root in place, hold to build 6 stages, release to detonate the stored burst — a positioning-commitment archetype",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_arc frontal close-AoE",
+            "Conc-Effect (boss) vs Increased-AoE (mapping) radius swap"
+          ],
+          "economy": [
+            "channel tick-cost (PC persistent_condition)",
+            "stage-accumulator charge-stack (6-stage cap, +25%/stage)",
+            "release-burst on stack-consume"
+          ],
+          "traits_affixes": [
+            "physical/attack scaling",
+            "poison-scaling",
+            "bleed-scaling (Voidheart)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CHANNEL-AND-RELEASE charge archetype: the identity is stack-via-channel (6 stages, +25% more each) then release-to-detonate. Lands via resource_economy PC (persistent_condition_shape=tick-cost for the channel-maintain) + charge_stack_sub_shape=accumulator (the 6-stage build), with TEMPORAL_CHARGE / MOMENTUM_CASCADE as the T4 charge-engine door. The 'rooted while channelling' commitment is a behavioral property of the tick-cost channel. PHYSICAL RULE: physical melee -> element-neutral (flavor only); Voidheart ring applies poison + bleed on hit -> both ailment lanes. GEOMETRY FRICTION: dossier says 'self-origin small radius around player, circle in front of player' — NOT a spin (whirlwind) nor a breath (cone); the honest closest 26-type is melee_arc (wide frontal melee swing). The Conc-Effect(boss)/Increased-AoE(mapping) swap is a radius trait-toggle. Ancestral Warchief totem buff is a secondary support (totem geometry) not central to the dominant channel loop."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1775250",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "LiftingNerdBro#1842",
+      "title": "[2.5] Assassin CI Blade Flurry End-Game Build! [HC/SC]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Blade_Flurry",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Blade Flurry - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 2.x, 3.0-3.6",
+      "anchor_quote": "The skill was first added in patch 2.4.2",
+      "source_url": "https://poedb.tw/us/Blade_Flurry",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blade Flurry' (no aliases) is real community usage; class Assassin/Champion",
+      "anchor_quote": "[2.5 Video Guide] Assassin CI Blade Flurry End-Game Build! [HC/SC]",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1775250",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Blade Flurry: channel to stack stages up to 6, release to detonate stored stacks in burst; 25% more damage per stage; self-origin small-radius; rooted while channelling",
+      "anchor_quote": "Repeatedly hit enemies in a circle in front of you while channelling, dealing damage to and around the enemy. The damage is continually boosted while channelling.",
+      "source_url": "https://poedb.tw/us/Blade_Flurry",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Release burst and 6-stage cap",
+      "anchor_quote": "25% more Damage with Hits and Ailments for each stage. Maximum 6 Stages. You unleash an additional hit for each stage reached once the channelling ends.",
+      "source_url": "https://poedb.tw/us/Blade_Flurry",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LiftingNerdBro#1842",
+          "site": "pathofexile.com/forum",
+          "url": "https://www.pathofexile.com/forum/view-thread/1775250"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1775250",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.95
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_primary": "Assassin",
+          "assassin_nodes_2x": [
+            "Unstable Infusion",
+            "Deadly Infusion",
+            "Noxious Strike",
+            "Toxic Delivery"
+          ],
+          "ascendancy_secondary": "Champion",
+          "champion_note": "Champion used in impale-stacking physical variants (3.13+) for Inspiriting Cry + Intimidate."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1775250",
+        "anchor_quote": "Unstable Infusion --> Deadly Infusion --> Noxious Strike --> Toxic Delivery",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Voidheart (ring)",
+          "alteration": "Applies poison and bleed on hit, synergizing with physical melee.",
+          "secondary_item": "Kiara's Determination (flask)",
+          "secondary_alteration": "Prevents stun/curse during channel, protecting the rooted channel phase.",
+          "tertiary_item": "Heretic's Veil (helmet)",
+          "tertiary_alteration": "Socketed hex curses do not apply mana reservation."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1775250",
+        "anchor_quote": "Voidheart ring (applies poison/bleed), Kiara's Determination (flask preventing stuns/curses)",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Self-origin delivery in a small radius around the player. During channel: 14-unit damage radius, 17-unit targeting radius. On release: 19-unit release radius. Circle in front of player. Concentrated Effect (boss) vs Increased Area of Effect (mapping) swap.",
+          "geometry_note": "Rooted while channelling — player cannot move during stage accumulation."
+        },
+        "source_url": "https://poedb.tw/us/Blade_Flurry",
+        "anchor_quote": "Repeatedly hit enemies in a circle in front of you while channelling... Damage area: 14 units, Channelling targeting area: 17 units, Release targeting area: 19 units",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Hold channel to accumulate stages (each stage: 25% more damage); max 6 stages. On release, deal the channelled damage plus one additional hit per stage. For bosses: channel to 6 stages, release. For mapping: channel briefly and keep moving. Ancestral Warchief totems placed nearby provide additional melee damage buff during channel."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1775250",
+        "anchor_quote": "Channel to stack, release to detonate the stored stacks in one burst — the channel-and-release commitment archetype.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Assassin CI Blade Flurry (LiftingNerdBro, 2.5)",
+            "Champion Impale Blade Flurry (3.13+)",
+            "Gladiator Blade Flurry (spell block variant)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1775250",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "kit_id": "d3-vyr-archon",
+  "spine": {
+    "kit_id": "d3-vyr-archon",
+    "folk_name": "Vyr Chantodo Archon",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-02 GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Arcane/shadow element approximation (default mapping row applied). No ailment attested. Form-swap feel approximated via self_buff + PHASE_MOMENTUM door; in-Archon full kit replacement has no direct engine analog.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Arcane/shadow element approximation (default mapping row applied). No ailment attested. Form-swap feel approximated via self_buff + PHASE_MOMENTUM door; in-Archon full kit replacement has no direct engine analog.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Archon (form transformation)",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "FORM LAW (§CROSS row 3): transforms wizard into Archon — complete kit swap; map in-Archon loop as the kit's loop; Vyr 6pc provides Archon stacks + full ability replacement; Archon abilities (Blast, Strike, Disintegration Wave) are in-form verbs; form-locked skill access = fidelity_note; arcane→shadow default per element crosswalk row ('arcane: shadow default; void-register read')"
+        },
+        {
+          "source_skill": "Chantodo's Wave of Destruction (banked-stack burst)",
+          "geometry_value": "ring",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Activating Archon will consume all Chantodo's Resolve stacks immediately' per verify anchor — Wave of Destruction emitted on Archon ENTRY as stacked burst; self-origin nova expanding from player; arcane→shadow; 'wave stacks built outside Archon, detonated on entry' per skill_loop payload"
+        },
+        {
+          "source_skill": "Arcane Torrent (outside-Archon stack builder)",
+          "geometry_value": "beam_channel",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Channeled beam building Chantodo stacks before Archon activation; arcane→shadow; stacking is the out-of-form loop; in-form it is replaced by Archon abilities"
+        }
+      ],
+      "motion_frame": "Bank Chantodo stacks via Arcane Torrent outside Archon; transform into Archon — stacks detonate as Wave of Destruction; re-enter Archon ASAP to overlap stacks via The Swami; Archon abilities deal damage in-form",
+      "resource_economy": {
+        "cost_scale": "Arcane Power (Wizard class resource); Archon form = Archon cooldown gate (20 seconds); The Swami overlaps stacks between Archon windows per capstone anchor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "chantodo_stack_count",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Wave of Destruction ring burst on Archon entry; Archon Disintegration Wave beam in-form"
+          ],
+          "economy": [
+            "The Swami stack overlap enables continuous damage across Archon windows",
+            "Fazula's Improbable Chain 50-stack start (scaler-only)"
+          ],
+          "traits_affixes": [
+            "Vyr 6pc Archon stacks scalar (scaler-only per §B.1)",
+            "Chantodo 4pc Wave of Destruction per-stack scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Form law (§CROSS row 3): map the in-Archon loop as kit's loop — Archon is the form, the WoD burst is the entry event, and the in-form abilities are the sustained layer. Arcane→shadow per element crosswalk default (arcane is attested: 'Archon specific abilities… Elemental Damage Type determined by your currently highest element' per skill_geometry anchor — arcane is the Wizard primary). shadow primary. No ailment attested in fetched rows. Chantodo stack-bank = two-tier-accumulator CANDIDATE: accumulate-while-out → spend-on-entry; this is the spend-tier structure. Accrual to two-tier-accumulator family filed. Vyr 6pc and Chantodo 4pc scalers are scaler-only per §B.1."
+    }
+  },
+  "mints_anchored": [
+    {
+      "mint_id": 7,
+      "evidence_tier": "A-attested",
+      "mint_class": "qualitative",
+      "build_authorized": 1,
+      "description": "two-tier-accumulator: a build-up -> payoff grammar where an accumulator FILLS on one action-tier (combo-beat / stack / rune-slot / charge) and DISCHARGES on a second (invoke / spend / release), the two tiers being distinct mechanics rather than one magnitude scalar. The genre's dominant 'accumulate-then-unleash' pattern; the run's largest accrual mass (~10 kits, strengthening every basin). Engine accumulator scales a single magnitude; this needs a two-tier fill/discharge substrate."
+    }
+  ],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewingnom",
+      "title": "Vyr-Chantodo Archon WoD Wizard Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "Original Rework: Season 4, when Vyr-Chantodo became \"one of the best solo builds\"",
+      "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Current Season: 39 (updated June 21, 2026). Recent patches: S33/2.7.8 (Sept 2024), S32/2.7.7 (June 2024).",
+      "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Vyr Chantodo Archon' and aliases 'Vyr Archon Wizard', 'Chantodo Archon Wizard', 'Archon Wizard D3' are real community usage",
+      "anchor_quote": "Vyr-Chantodo Archon WoD Wizard (Wave of Destruction variant emphasized)",
+      "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Archon, Chantodo stack banking; Arcane Power resource",
+      "anchor_quote": "Activating Archon will consume all Chantodo's Resolve stacks immediately; however, any lingering abilities...will already grant you new Chantodo's Resolve stacks for your next rotation.",
+      "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewingnom",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+        "anchor_quote": "Chewi (@chewingnom) — Content Creator",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Vyr's Amazing Arcana 6pc + Chantodo's Resolve 4pc",
+          "set_bonus_summary": "Vyr: Archon stacks + full kit swap; Chantodo: Wave of Destruction per stack on Archon entry",
+          "legendary_powers": [
+            "The Swami: retain stacks between Archon rotations"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+        "anchor_quote": "entering and re-entering Archon as soon as possible to build up Archon stacks and overlap them with The Swami",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Vyr's Amazing Arcana (6pc) + Chantodo's Resolve (4pc)",
+          "key_legendaries": [
+            "The Swami (stack overlap on Archon re-entry)",
+            "Fazula's Improbable Chain",
+            "Halo of Karini"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+        "anchor_quote": "Vyr-Chantodo is comprised of two sets: Vyr's Amazing Arcana and Chantodo's Resolve",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "self-origin burst (Chantodo Wave) + Archon abilities",
+          "footprint": "large-zone (Archon WoD)",
+          "notes": "Wave of Destruction expands from player body on Archon entry. Archon Strike, Blast, Disintegration Wave also available in form."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+        "anchor_quote": "Archon specific abilities (Blast, Strike and Disintegration Wave) have their Elemental Damage Type determined by your currently highest element.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Bank Chantodo's Resolve stacks outside Archon form (Arcane Torrent + other spells). Transform into Archon — stacks detonate as Wave of Destruction. Re-enter Archon ASAP to overlap stacks with The Swami. Arcane Power consumed in Archon abilities."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+        "anchor_quote": "Activating Archon will consume all Chantodo's Resolve stacks immediately; however, any lingering abilities...will already grant you new Chantodo's Resolve stacks for your next rotation.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Vyr-Chantodo Archon WoD (primary)",
+            "Vyr Reverse Archon Twister/Frozen Orb"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/vyr-chantodo-archon-wod-wizard-guide",
+        "anchor_quote": "Vyr Reverse Archon Twister Wizard Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 1,
+    "dockets": 0
+  }
+}

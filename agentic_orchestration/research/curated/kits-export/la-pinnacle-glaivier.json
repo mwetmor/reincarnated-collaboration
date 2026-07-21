@@ -1,0 +1,251 @@
+{
+  "kit_id": "la-pinnacle-glaivier",
+  "spine": {
+    "kit_id": "la-pinnacle-glaivier",
+    "folk_name": "Pinnacle Glaivier",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "deep",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Buff values explicitly stale (CONTRADICTED verify_ledger row) — mapped shape only per addendum. Stance-alternation identity (swap IS the economy trigger) maps as PHASE_MOMENTUM + Dual Meter cycle; per-stance skill partitioning (Focus=spear vs Flurry=glaive) loses granularity in flat skills[]. Back-attack positioning critical — noted delivery_notes per skill.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Buff values explicitly stale (CONTRADICTED verify_ledger row) — mapped shape only per addendum. Stance-alternation identity (swap IS the economy trigger) maps as PHASE_MOMENTUM + Dual Meter cycle; per-stance skill partitioning (Focus=spear vs Flurry=glaive) loses granularity in flat skills[]. Back-attack positioning critical — noted delivery_notes per skill.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Red Dragon's Horn",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage; Focus stance melee; Red Dragon Barrage Ark Passive node: -60% Focus skill cooldown with damage penalty — shape only, value STALE per addendum"
+        },
+        {
+          "source_skill": "Starfall Pounce",
+          "geometry_value": "leap_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage; back-attack positioning critical"
+        },
+        {
+          "source_skill": "Thrust of Destruction",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Primary damage; Flurry stance thrust; Destruction tag = boss-break vocab (§LA row 4) — delivery_notes only, NOT an ailment"
+        },
+        {
+          "source_skill": "Windsplitter",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Party synergy maintenance skill — 'Windsplitter' is a skill proper name; no wind damage-typing in dossier; element null (D4 NAME-ONLY LAW)"
+        },
+        {
+          "source_skill": "Yeon-Style Encore",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Buff consumed on next skill use; non-damaging buff; Focus-stance buff rider"
+        }
+      ],
+      "motion_frame": "Alternate Focus (spear) and Flurry (glaive) stances by consuming Dual Meter bars on stance switch; each switch grants self-buffs (SHAPE only — values STALE per addendum); use Red Dragon's Horn, Starfall Pounce, Thrust of Destruction as primary damage within stance windows; Windsplitter maintains party synergy",
+      "resource_economy": {
+        "dual_meter": "two bars (one per stance); consuming a bar on stance switch grants damage/crit/speed self-buffs (values stale — map shape only); stance alternation IS the identity loop; Ark Grid updated December 22, 2025"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Dual Meter bar consumption on stance switch → self-buff grant per switch",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null throughout: 'Windsplitter' and 'Thrust of Destruction' are skill proper names with zero damage-typing (D4 NAME-ONLY LAW). Destruction tag = raid-break boss-encounter vocab (§LA row 4). Buff values STALE per addendum (verify_ledger CONTRADICTED row on mechanics = stale-buff signal) — mapped SHAPE only. PHASE_MOMENTUM for stance-alternation identity; TEMPORAL_CHARGE for Dual Meter consumption cycle. Contrast with n01 Control Glaivier (stance-LOCK to Focus) — Pinnacle is STANCE-ALTERNATION (both stances active, swap-triggered buffs). Ark Passive key node: Red Dragon Barrage (-60% Focus CDR, damage penalty) → capstone_alterations. GX-19 gap_ref noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor; reviewed by Perciculum",
+      "title": "Pinnacle Glaivier Raid Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last Updated: June 13, 2026 with Ark Grid update noted December 22, 2025",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Pinnacle Glaivier — Glaivier class, Pinnacle identity spec",
+      "anchor_quote": "Class: Glaivier. Identity/Spec: Pinnacle",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Alternates between Focus (spear) and Flurry (glaive) stances at maxed Dual Meter to gain powerful self-buffs on each switch: +20% damage/+50% crit damage for Focus switch, +15% damage/+25% crit/+15% attack speed for Flurry switch",
+      "anchor_quote": "When consuming a Dual Meter bar and swapping stances, you gain: +15% Attack Speed, +25% Damage, +15% Movement Speed, +60% Crit Damage",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Two-stance dance as the identity loop",
+      "anchor_quote": "The build uses a dual-stance system with Focus and Flurry stances and Dual Meter resource",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Raeinor",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+        "anchor_quote": "Written by Raeinor. Reviewed by Perciculum",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_key_node": "Red Dragon Barrage (Focus skill cooldown -60%, damage penalty)",
+          "ark_grid_update": "December 22, 2025"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+        "anchor_quote": "Key Ark Passive Node: Red Dragon Barrage reduces Focus skill cooldown by 60% with damage penalty",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Ambush Master",
+            "Raid Captain",
+            "Mass Increase",
+            "MP Efficiency Increase"
+          ],
+          "stats": "Specialization and Swiftness",
+          "ark_passive_key_node": "Red Dragon Barrage — reduces Focus skill cooldown by 60% with damage penalty"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+        "anchor_quote": "Engravings Recommended Setup: Grudge, Ambush Master, Raid Captain, Mass Increase, MP Efficiency Increase",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "main_damage_skills": [
+            "Red Dragon's Horn",
+            "Starfall Pounce",
+            "Thrust of Destruction"
+          ],
+          "synergy_skills": [
+            "Windsplitter"
+          ],
+          "buff_skills": [
+            "Yeon-Style Encore"
+          ],
+          "geometry_notes": "Back-attack positioning critical; Focus stance = spear skills; Flurry stance = glaive skills; Red Dragon Barrage node reduces Focus skill cooldown 60% with damage penalty"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+        "anchor_quote": "Red Dragon's Horn, Starfall Pounce, Thrust of Destruction (main damage). Use Yeon-Style Encore as a buff that is consumed after using any skill",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Alternate Focus (spear) and Flurry (glaive) stances by consuming Dual Meter bars on stance switch. Each switch grants: +15% Attack Speed, +25% Damage, +15% Movement Speed, +60% Crit Damage. Main damage: Red Dragon's Horn, Starfall Pounce, Thrust of Destruction. Buff: Yeon-Style Encore consumed on next skill use. Synergy: Windsplitter maintains party synergy. Awakening: Yeon-style Spear Technique: Spear Meteor preferred during buff windows. Back attacks gain +10% Crit Rate +5% Damage."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+        "anchor_quote": "When consuming a Dual Meter bar and swapping stances, you gain: +15% Attack Speed, +25% Damage, +15% Movement Speed, +60% Crit Damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "sibling_spec": "Control Glaivier (simpler and more fast-paced playstyle, locks Focus stance)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/pinnacle-glaivier-raid-guide",
+        "anchor_quote": "Control Glaivier: Alternative spec offering simpler and more fast-paced playstyle that locks Focus stance",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

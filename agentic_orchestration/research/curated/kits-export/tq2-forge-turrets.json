@@ -1,0 +1,204 @@
+{
+  "kit_id": "tq2-forge-turrets",
+  "spine": {
+    "kit_id": "tq2-forge-turrets",
+    "folk_name": "Forge Turrets",
+    "game": "tq2",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "tq2-ea-2025+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Forge turret player gets the placed autonomous fire-proxy screen faithfully -- totem geometry + proxy-ascension doors + count economy. Drift: the SPECIFIC 8-trap concurrent-stack CAP (the density identity: lay MORE devices for MORE coverage, up to 8) exceeds the engine's default placed-proxy count and accrues to the placed-proxy-count family (already a mint class); mapped un-minted, so 'stack a big screen of 8 devices' is carried as a placed-proxy accumulator rather than a first-class 8-count cap. That build, worse -> CLOSE (playable proxy screen; the exact 8-count density is the accrual).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "A Forge turret player gets the placed autonomous fire-proxy screen faithfully -- totem geometry + proxy-ascension doors + count economy. Drift: the SPECIFIC 8-trap concurrent-stack CAP (the density identity: lay MORE devices for MORE coverage, up to 8) exceeds the engine's default placed-proxy count and accrues to the placed-proxy-count family (already a mint class); mapped un-minted, so 'stack a big screen of 8 devices' is carried as a placed-proxy accumulator rather than a first-class 8-count cap. That build, worse -> CLOSE (playable proxy screen; the exact 8-count density is the accrual).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sentries + Spinning Blade Trap (Forge mastery)",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Sentries are placed at a target location and fire AUTONOMOUSLY at enemies in range (dossier); Spinning Blade Traps are placed devices; traps STACK UP TO 8 at once for large-zone coverage ('turrets do 130K crits each shot'). Placed autonomous proxies = totem (PoE1 minion-swarm / ea-ballista / golementalist precedent). fire family (Fire Infusion enhances trap damage; Ring of Fire shreds fire resistance). slow (probe rider, conf 0.35, from the Forge+Storm variant not the mapped fire-Forge primary) -> would be chill per §2 but NOT emitted absent positive attestation on the mapped build (§A discipline); noted only. The turrets/traps deliver ALL the damage (proxy=heavy)."
+        }
+      ],
+      "motion_frame": "placed-turret screen: lay down autonomous fire Sentries and stack up to 8 Spinning Blade Traps at chokepoints, then position defensively behind the device screen while the turrets do 130K crits per shot and clear the room for you",
+      "resource_economy": {
+        "model": "ammo",
+        "resource_verbatim": "placed-proxy count economy (Sentries/traps placed at target; traps stack up to 8 concurrent)",
+        "charge_stack_sub_shape": "accumulator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "PROXY_SOVEREIGNTY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "placed autonomous turret/trap proxies (totem)",
+            "up-to-8 concurrent trap stacking (placed-proxy count)"
+          ],
+          "economy": [
+            "placed-proxy count cap (8 traps)",
+            "Fire Infusion (trap damage) / Ring of Fire (fire-res shred)"
+          ],
+          "traits_affixes": [
+            "fire / summon-crit scaling (Rogue pairing improves summon crits)",
+            "minion/proxy damage scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FLAG 9 + §E row: totem-class placed-proxy geometry (PoE1 minion-swarm precedent -- poe1-ea-ballista / golementalist both map placed autonomous proxies to totem). proxy=heavy (turrets deliver all damage) -> PROXY_ASCENSION (proxy-does-the-killing) + PROXY_SOVEREIGNTY (the dominant device screen). Placed-proxy COUNT economy: traps stack up to 8 -> ACCRUAL CANDIDATE to the placed-proxy-count family (the hiero-6-totem quantitative mint class already exists in mint_ledger) -- filed WITHOUT number (steward counts; FLAG 9 + FLAG 14). fire family (Fire Infusion / Ring of Fire). slow (probe rider, weak conf, from Forge+Storm variant) noted not emitted per §A. Forge is a new-to-TQ2 mastery; the verified build pairs Forge with a 2nd mastery (Rogue for summon-crits / Storm for freeze-stun traps / Warfare) -- the paired mastery flavors the proxies, noted. GX-19. armor/resist defense not a surface. Mint-candidate filed for the placed-proxy-count accrual."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "What mastery to pair with Forge for summons? :: Titan Quest II General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era tq2-ea-2025+",
+      "anchor_quote": "Forge mastery turret deployment confirmed in EA 2025 Steam discussions",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Forge Turrets' and aliases 'Forge device build', 'turret summoner TQ2' are real community usage",
+      "anchor_quote": "my turrets do 130K crits each shot... up to 8 traps at once",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Forge devices (TBD in corpus); Sentries (turrets) and Blade Traps/Spinning Blade Trap confirmed; autonomous damage dealers",
+      "anchor_quote": "my turrets do 130K crits each shot... Spinning Blade Trap... stacking up to 8 traps at once",
+      "source_url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Sentries: placed at target location, fire at enemies in range (autonomous); Spinning Blade Trap: placed device, spinning blade AoE; combined coverage described as large-zone. Mines: placed but underperform. Multiple trap stacking gives wide area coverage."
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+        "anchor_quote": "up to 8 traps at once... turrets do 130K crits each shot",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Forge mastery places Sentries (turrets) and Blade Traps/Spinning Blade Traps at target locations. Sentries deal autonomous damage; traps stack up to 8 at once. Player positions defensively behind turret/trap screen. Fire Infusion enhances trap damage; Ring of Fire shreds fire resistance. Mines underperform vs traps."
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+        "anchor_quote": "my turrets do 130K crits each shot... Spinning Blade Trap... stacking up to 8 traps at once",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sentry + Spinning Blade Trap (primary)",
+            "Forge+Rogue (crits on summons)",
+            "Forge+Storm (freeze/stun traps)",
+            "Forge+Warfare (blade trap + frailty)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/1154030/discussions/0/682987562005064375/",
+        "anchor_quote": "Rogue can improve critical damage potential of summons... Storm can add slows, stun, and freeze effects to make traps hit targets easier",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

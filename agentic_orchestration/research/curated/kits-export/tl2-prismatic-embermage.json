@@ -1,0 +1,233 @@
+{
+  "kit_id": "tl2-prismatic-embermage",
+  "spine": {
+    "kit_id": "tl2-prismatic-embermage",
+    "folk_name": "Prismatic Bolt Embermage",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-12 GX-15",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Prismatic Bolt",
+          "geometry_value": "multi_projectile",
+          "element_primary": "fire",
+          "element_secondary": "water",
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Flurry of 5 seeking bolts per cast, each with chance to cause random elemental status. 'Prismatic Bolt actually deals damage in all elements; Fire Brand: deals fire damage; Ice Brand: deals ice damage; Lightning Brand: deals lightning damage' — all three attested. Top-2 by scaling parity: fire + water (ice). Lightning carried in fidelity_note. 'Frozen Fate: killing frozen enemy immobilizes 4 nearby' — freeze attested. 'Kills frozen enemy' implies freeze application in loop."
+        },
+        {
+          "source_skill": "Frozen Fate",
+          "geometry_value": "circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "On-kill of frozen enemy: chance to immobilize 4 nearby. Expanding freeze propagation. Capstone_alterations dossier attests 'four other enemies become immobilized.' Freeze + circle geometry."
+        }
+      ],
+      "motion_frame": "Spam Prismatic Bolt at high tempo; each bolt triggers brand passives on elemental procs; full Charge bar triggers 12s free casting + 25% damage; glass cannon sustained.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Total concentration state: Charge bar full → 12s free casting + 25% damage (costs charge)",
+        "cadence_scale": "high tempo — rapid-fire bolt spam"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": "Frozen enemy",
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID",
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": [
+            "brand_passive_fire",
+            "brand_passive_ice",
+            "brand_passive_lightning"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Tri-element kit: fire + water (ice) + lightning all attested. Top-2 emitted (fire primary, water secondary); lightning dropped per §1 hybrid rule — fidelity_note. ELEMENT_CONVERSION_HYBRID fits dual-element scaling. TEMPORAL_CHARGE for charge-burst state. MOMENTUM_CASCADE for high-tempo bolt spam into brand procs. Hot-fact honored: prismatic → tri-element (fire+water+lightning)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "Kardfogu",
+      "title": "Kardfogu's Guide to Prismatic Bolt Embermage",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1500763033",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "ELITE PRISMATIC BOLT EMBERMAGE BUILD with wand + shield",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in tl2-2012 era",
+      "anchor_quote": "Kardfogu's Guide to Prismatic Bolt Embermage; ELITE PRISMATIC BOLT EMBERMAGE BUILD; described as viable elite build",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Prismatic Bolt Embermage — community usage name for high-tempo multi-elemental bolt caster build",
+      "anchor_quote": "Kardfogu's Guide to Prismatic Bolt Embermage; Embermage fires rapid Prismatic Bolts — high-velocity elemental projectiles",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Prismatic Bolt, Frozen Fate; rapid fire elemental bolts; fire/ice/lightning multi-element damage; Ember/Charge resource; glass cannon",
+      "anchor_quote": "Prismatic Bolt actually deals damage in all elements; Fire Brand: deals fire damage to the target; Ice Brand: deals ice damage to the target; Lightning Brand: deals lightning damage to the target",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Kardfogu",
+          "site": "steamcommunity.com",
+          "guide_title": "Kardfogu's Guide to Prismatic Bolt Embermage"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Fire Brand: burst of fire damage on burning target; Ice Brand: burst of ice damage on frozen target; Lightning Brand: burst of lightning damage on shocked target; Frozen Fate: killing frozen enemy has chance to immobilize 4 nearby enemies; total concentration state from full Charge: free casting + 25% damage for 12s"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": "Fire Brand: deals fire damage to the target; Ice Brand: deals ice damage to the target; Lightning Brand: deals lightning damage to the target; Frozen Fate: four other enemies become immobilized",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "point (single target seeking)",
+          "range": "mid-long",
+          "notes": "fires a flurry of 5 seeking bolts per cast; each bolt has chance to cause random elemental status effect; piercing possible"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": "You unleash a flurry of 5 prismatic bolts that seek out nearby foes, with each bolt having a chance to cause a random elemental status effect on its target",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Spam Prismatic Bolt rapidly; each bolt triggers elemental brand passives (Fire/Ice/Lightning Brand) on burn/freeze/shock procs; Charge bar fills from dealing damage and triggers total concentration (12s free casting + 25% damage); high tempo glass cannon"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": "Prismatic Bolt actually deals damage in all elements; Fire Brand: deals fire damage to the target; Ice Brand: deals ice damage; Lightning Brand: deals lightning damage; Embermages with a full Charge Bar immediately enter a total concentration state",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pure Prismatic Bolt spam",
+            "Prismatic Bolt + Hailstorm (bolt-hail combo)",
+            "Prismatic Bolt + wand-and-shield tanky variant",
+            "tri-elemental Embermage (all three Brand trees)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=166371349",
+        "anchor_quote": "ELITE PRISMATIC BOLT EMBERMAGE BUILD with wand + shield; Tri-elemental embermage",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

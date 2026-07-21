@@ -1,0 +1,201 @@
+{
+  "kit_id": "ud-flamethrower-channel",
+  "spine": {
+    "kit_id": "ud-flamethrower-channel",
+    "folk_name": "Flamethrower Channel Caster",
+    "game": "undecember",
+    "corpus_bucket": "undecember",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "ud-launch-2022",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-21",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flamethrower",
+          "geometry_value": "beam_channel",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "Channeled cone/beam forward from caster; AOE radius 600; rooted while channeling; up to 8 stages (+10% Fire DMG Amplification each). On cancel-burst: fire explosion + Arson DoT (mapped as burn). Element attested: 'Deal Fire DMG to enemies when maintaining Focus' — genuine damage-type descriptor. Arson = named DoT = burn per §2."
+        }
+      ],
+      "motion_frame": "Channel Flamethrower sustaining fire damage per stage; cancel-burst triggers Arson DoT; reposition between channels",
+      "resource_economy": {
+        "persistent_condition_shape": "tick-cost",
+        "cost_scale": "mana",
+        "cadence_scale": "continuous-channel",
+        "ramp_per_s": "fire_amplification_per_stage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "PERSISTENCE_ENGINE_saturation",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Channeling Enhancement (extends duration, scales damage, increases mana drain)"
+          ],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire genuinely attested per rune page. Arson = fire DoT on channeling cancel; mapped as burn (named DoT). Stage-ramp amplification noted in economy. Era UNSUPPORTED — treat as era-unknown but mechanics CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "CHANNELED-BEAM",
+    "group_intent_rationale": "movement=rooted · delivery=beam · commit=channel · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://undecember.thein.ru/en/runes/Flamethrower/",
+      "archive_url": null,
+      "site": "undecember.thein.ru",
+      "author_handle": "thein.ru DB",
+      "title": "Skill - Flamethrower - Undecember",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "ud-launch-2022",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Flamethrower Channel Caster — channeled fire spell with Channeling Enhancement link",
+      "anchor_quote": "Deal Fire DMG to enemies when maintaining Focus. Inflict Arson to enemies upon canceling Channeling.",
+      "source_url": "https://undecember.thein.ru/en/runes/Flamethrower/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sustained channeled beam/cone; mana drains continuously; rooted while channeling; fire damage with burn/Arson DoT rider",
+      "anchor_quote": "Deal Fire DMG to enemies when maintaining Focus. Inflict Arson to enemies upon canceling Channeling.",
+      "source_url": "https://undecember.thein.ru/en/runes/Flamethrower/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "link": "Channeling Enhancement (extends duration, scales damage, increases mana drain)",
+          "ailment": "Arson (fire DoT on cancel)"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Flamethrower/",
+        "anchor_quote": "Inflict Arson to enemies upon canceling Channeling.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "shape": "channeled cone/beam forward from caster",
+          "AOE_radius": 600,
+          "rooted_while_channeling": true
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Flamethrower/",
+        "anchor_quote": "Deal Fire DMG to enemies when maintaining Focus.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Channel Flamethrower, maintaining Focus to deal escalating fire damage per stage (up to 8 stages, +10% Fire DMG Amplification each); cancel-burst triggers fire explosion and applies Arson DoT; reposition between channels"
+        },
+        "source_url": "https://undecember.thein.ru/en/runes/Flamethrower/",
+        "anchor_quote": "Deal Fire DMG to enemies when maintaining Focus. Inflict Arson to enemies upon canceling Channeling.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

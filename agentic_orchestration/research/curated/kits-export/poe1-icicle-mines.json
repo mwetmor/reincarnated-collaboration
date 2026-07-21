@@ -1,0 +1,243 @@
+{
+  "kit_id": "poe1-icicle-mines",
+  "spine": {
+    "kit_id": "poe1-icicle-mines",
+    "folk_name": "Icicle Mines",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.8-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Mine throw/detonate chassis is approximated via trigger-grammar + activation-toggle (engine has no mine primitive -- b04-established approximation, not re-docketed); the detonation-sequence projectile-count growth and the quick-dissipate range falloff are behavioral/numeric properties multi_projectile does not enumerate; the converge-from-multiple-points field generalizes toward a single volley origin. Player keeps throw-then-detonate cold volleys with shatter.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Mine throw/detonate chassis is approximated via trigger-grammar + activation-toggle (engine has no mine primitive -- b04-established approximation, not re-docketed); the detonation-sequence projectile-count growth and the quick-dissipate range falloff are behavioral/numeric properties multi_projectile does not enumerate; the converge-from-multiple-points field generalizes toward a single volley origin. Player keeps throw-then-detonate cold volleys with shatter.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Icicle Mine (via Detonate Mines)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze"
+          ],
+          "delivery_notes": "each detonated mine fires 5 icicle projectiles outward in a circle from its position; with a field of mines the volleys CONVERGE on the pack from multiple placements; fires +1 additional projectile per 2 prior mines in the detonation sequence; projectiles dissipate quickly (short effective range). water/cold; chill+freeze (native shatter payoff)"
+        }
+      ],
+      "motion_frame": "run-and-throw mine-layer: scatter mine clusters at full move speed, then detonate the field -- icicle volleys converge from every mine position; the throw-and-detonate two-beat rhythm at maximum tempo",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile converging volleys from mine positions",
+            "projectile-count scaling (detonation-sequence bonus; Minefield throw-count)"
+          ],
+          "economy": [
+            "mine throw/detonate two-beat cycle (cooldown-gated throws)",
+            "Swift Assembly / Minefield throw-count supports"
+          ],
+          "traits_affixes": [
+            "cold-penetration",
+            "freeze/chill-scaling",
+            "trap-and-mine-damage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MINE-DELIVERED VOLLEY kit. Mine chassis per b04 glacial-cascade-mines precedent: trigger_grammar apply-consume-pair + on-cast-linked/linked-cast (throw links the cast, detonate fires) + activation-toggle for the throw/detonate rhythm -- DEPTH-1, within MAX_CHAIN_DEPTH. Geometry: dossier verbatim 'fires 5 projectiles in a circle' from EACH mine -> multi_projectile; the converging-from-multiple-placements field footprint is the identity (proxy_val=heavy reads as mines-as-placements, NOT combat proxies -- no PROXY door, per b04 mines precedent). The detonation-sequence projectile growth (+1 per 2 prior mines) is a sequence-scaling property with no enum carrier -> GEOMETRY_PROPAGATION_cascade routes the cascading-detonation identity, growth magnitude noted. ELEMENTAL_ECHO for the mono-cold amp. Eras 3.8-3.13 POST-ERRATA (verify_ledger: era claim CONTRADICTED, errata applied -- Icicle Mine introduced 3.8.0 as the reworked/renamed Freeze Mine; corpus row is post-errata truth). Probe economy 'cooldown' = mine-throw cooldown gating; default chassis carries it."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Icicle_Mine",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Icicle Mine — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/2638570",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Memoria",
+      "title": "[3.10] Memoria's Icicle Mine Saboteur [SSF, League Starter]",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in stamped era 3.7-3.13",
+      "anchor_quote": "Icicle Mine was introduced in patch 3.8.0 (originally as 'Freeze Mine,' which was completely reworked and renamed)",
+      "source_url": "https://poedb.tw/us/Icicle_Mine",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Icicle Mines' and alias 'Icicle Mine Sabo' are real community usage for a Saboteur mine build",
+      "anchor_quote": "[3.10] Memoria's Icicle Mine Saboteur [SSF, League Starter]",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/2638570",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Icicle Mine and Detonate Mines; throw-and-detonate two-beat rhythm; mine fires projectiles around it when detonated; converging icicle volleys",
+      "anchor_quote": "throws a mine that fires projectiles around it when detonated. The projectiles quickly dissipate as they travel",
+      "source_url": "https://poedb.tw/us/Icicle_Mine",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Memoria",
+          "site": "pathofexile.com/forum",
+          "build_title": "[3.10] Memoria's Icicle Mine Saboteur [SSF, League Starter]"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/2638570",
+        "anchor_quote": "[3.10] Memoria's Icicle Mine Saboteur [SSF, League Starter]",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Icicle Mine of Fanning (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not enumerated on poedb page",
+              "anchor_quote": null
+            },
+            {
+              "node": "Icicle Mine of Sabotage (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not enumerated on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Icicle_Mine",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Icicle_Mine",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (mine placed at target location)",
+          "footprint": "multi-point (icicle projectiles fan outward from each mine)",
+          "projectile_count": "5 base; fires additional projectile for every 2 prior mines in detonation sequence",
+          "aoe_radius": null,
+          "range_note": "projectiles dissipate quickly; effective range limited by fade distance"
+        },
+        "source_url": "https://poedb.tw/us/Icicle_Mine",
+        "anchor_quote": "fires 5 projectiles in a circle. fires an additional Projectile for every 2 prior Mines in Detonation Sequence",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "throw mine cluster → run to safe position → detonate → converging icicle projectiles converge from multiple mine locations → mine cooldown resets",
+          "two_beat_rhythm": "throw-and-detonate",
+          "key_support": [
+            "Minefield Support",
+            "Swift Assembly",
+            "Trap and Mine Damage"
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Icicle_Mine",
+        "anchor_quote": "throws a mine that fires projectiles around it when detonated. The projectiles quickly dissipate as they travel",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Icicle Mine of Sabotage (transfigured)"
+          ],
+          "variant_source": "poedb"
+        },
+        "source_url": "https://poedb.tw/us/Icicle_Mine_of_Sabotage",
+        "anchor_quote": "Icicle Mine of Sabotage",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

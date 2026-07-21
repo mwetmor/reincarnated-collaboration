@@ -1,0 +1,203 @@
+{
+  "kit_id": "d3-dashing-strike-monk",
+  "spine": {
+    "kit_id": "d3-dashing-strike-monk",
+    "folk_name": "Dashing Strike Monk",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": null,
+    "canon_tier": null,
+    "eras": "vanilla;set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold element unatttested; player loses cold-flavor labeling. Obsolescence flag: kit is historically attested but non-competitive; player building for current meta would find this off-meta.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold element unatttested; player loses cold-flavor labeling. Obsolescence flag: kit is historically attested but non-competitive; player building for current meta would find this off-meta.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dashing Strike",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Targeted dash-to-target movement strike; damage dealt on contact; Raiment 6pc amplifies Dashing Strike for 6 seconds post-Fists of Thunder; cold-damage thematic (variant name 'DS Cold') unatttested in fetched anchor quotes; build marked obsolete post-Patch 2.4 in guide"
+        },
+        {
+          "source_skill": "Fists of Thunder",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Spirit-builder; activates Raiment 6pc DS damage window; 'charge into the fray and then stick to your targets through Fists of Thunder' per verify anchor"
+        }
+      ],
+      "motion_frame": "Fists of Thunder to trigger Raiment 6pc window then spend 75 Spirit per Dashing Strike charge; rapid repositioning + damage; build non-competitive post-Patch 2.4 per guide",
+      "resource_economy": {
+        "cost_scale": "Spirit; 75 Spirit per Dashing Strike charge per Raiment 6pc; Fists of Thunder as Spirit generator"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Dashing Strike dash_attack traversal-strike composite"
+          ],
+          "economy": [
+            "Raiment 6pc Spirit cost per charge; Fists of Thunder Spirit generation"
+          ],
+          "traits_affixes": [
+            "Raiment 6pc 12500% DS scalar (scaler-only per §B.1)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null — 'DS Cold' appears only in variants.payload_json (extraction artifact), not in any anchor_quote verbatim fetched text; cold unatttested. No ailment attested. Build obsolete post-Patch 2.4 per guide. Raiment 6pc scalar (12500%) is scaler-only per §B.1. Trigger grammar: Fists of Thunder activates 6-second DS damage window = on-cast-linked burst-damage consequence."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Monk Dashing Strike Cold Build with the Raiment of a Thousand Storms Set (Patch 2.4) - Diablo 3 - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Dashing Strike Monk' and aliases 'Teleport Monk', 'DS Monk' are real community usage",
+      "anchor_quote": "Monk Dashing Strike Cold Build with the Raiment of a Thousand Storms Set",
+      "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Dashing Strike as primary damage dealer; Spirit resource; movement/dash delivery",
+      "anchor_quote": "the real damage dealer of the build is Dashing Strike",
+      "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+        "anchor_quote": "This build is presented to you by Deadset, one of the very few professional Diablo 3 players",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Raiment of a Thousand Storms",
+          "set_bonus_6pc": "Dashing Strike gains 12500% weapon damage for 6 seconds after Fists of Thunder; costs 75 Spirit per charge",
+          "notes": "Build obsolete post-Patch 2.4 nerfs per guide"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+        "anchor_quote": "6-piece Raiment set bonus allows you to spend 75 Spirit to refund a charge",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Raiment of a Thousand Storms set required; specific items not detailed in Patch 2.4 guide context"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+        "anchor_quote": "The Dashing Strike Monk turns the signature mobility skill of Monks, Dashing Strike, into a powerful and agile damage dealer through the power of the Raiment of a Thousand Storms set",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "dash-to-target",
+          "footprint": "point-to-point movement",
+          "notes": "Dashing Strike is a targeted mobility skill that deals damage on contact; also used for utility/repositioning in modern Monk builds"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+        "anchor_quote": "charge into the fray, and then stick to your targets through Fists of Thunder",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fists of Thunder to build Spirit, then spend 75 Spirit per Dashing Strike charge; Raiment 6pc boosts Dashing Strike to 12500% weapon damage for 6 seconds post-FoT; build nerfed as non-competitive after Patch 2.4"
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+        "anchor_quote": "the real damage dealer of the build is Dashing Strike",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Raiment DS Cold (damage build, obsolete post-2.4)",
+            "Dashing Strike as mobility support in Wave of Light / Tempest Rush builds"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/monk-dashing-strike-cold-build-with-the-raiment-of-a-thousand-storms-set-patch-2-4",
+        "anchor_quote": "Following the Patch 2.4 nerfs, this build is no longer viable",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "kit_id": "poe1-tornado-shot",
+  "spine": {
+    "kit_id": "poe1-tornado-shot",
+    "folk_name": "Tornado Shot",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;3.0-3.6;3.7-3.13;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: no-double-hit-per-burst and secondary-range-from-projectile-speed are behavioral; the fire-at-point-then-radial-burst clear identity lands as multi_projectile propagation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: no-double-hit-per-burst and secondary-range-from-projectile-speed are behavioral; the fire-at-point-then-radial-burst clear identity lands as multi_projectile propagation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tornado Shot",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "composite: primary arrow (pierces) flies to the targeted point, then bursts into 3 secondary arrows fired in ALL directions; secondary range scales with projectile speed; each enemy hit once per secondary burst. Dominant footprint = the radial secondary burst (§7.2), primary arrow folded into this note — ice-shot b04 precedent."
+        }
+      ],
+      "motion_frame": "full-move screen-clear archer: fire at a point, secondaries burst everywhere; very-high-mobility farming loop",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "point-burst radial secondaries",
+            "projectile-speed as secondary-range scaling",
+            "extra-projectile supports multiply burst density"
+          ],
+          "economy": [
+            "mana-light spend (chassis default)"
+          ],
+          "traits_affixes": [
+            "projectile-speed",
+            "attack-speed",
+            "elemental-added rolls (Windripper variant)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pure-physical per corpus/probe -> element-neutral per THE PHYSICAL RULE; Windripper elemental/MF variant noted (element carried by gear affixes, not the kit slot). GEOMETRY_PROPAGATION base token per R-M1 (impact-spawn secondaries; not on-kill cascade). The magic-find/currency-farming fame is extrinsic-itemization — no engine loot-find lane, recorded here only."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "Manni",
+      "title": "Manni's Tornado Shot Deadeye Build Guide (PoE Necropolis 3.24)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Tornado_Shot",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Tornado Shot — poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 1.x (intro 1.2.0)",
+      "anchor_quote": "Tornado Shot has been added to the game (version 1.2.0)",
+      "source_url": "https://poedb.tw/us/Tornado_Shot",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": "Tornado Shot Deadeye (PoE Heist 3.12); Tornado Shot has been one of the ultimate high budget speed farming builds over many leagues in PoE's history",
+      "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.20+",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Tornado Shot' is real community usage; alias 'TS' is real community usage; Deadeye class",
+      "anchor_quote": "Tornado Shot is one of the fastest and most prolific builds to ever grace Wraeclast's shores; most famously played as Deadeye ascendancy",
+      "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Tornado Shot; primary arrow fires to point then secondary arrows burst in all directions",
+      "anchor_quote": "primary projectile is fired at the location we aimed; secondary projectiles are then created at that location and shot out in a random direction",
+      "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Manni",
+          "site": "poe-vault.com",
+          "note": "primary TS Deadeye guide author for 3.24"
+        },
+        "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+        "anchor_quote": "Manni's Tornado Shot Deadeye Build Guide",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Tornado Shot (quality)",
+              "type": "base_quality",
+              "effect": "(0-40)% increased Projectile Speed",
+              "anchor_quote": "(0—40)% increased Projectile Speed"
+            },
+            {
+              "node": "Tornado Shot of Cloudburst (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not available on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Tornado_Shot",
+        "anchor_quote": "(0—40)% increased Projectile Speed",
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Windripper — MF bow; since Windripper TS became incredibly popular for currency farming and hunting The Doctor divination card"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+        "anchor_quote": "Since the release of Windripper this build has become incredibly popular as a currency farmer, particularly for players hunting The Doctor",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "primary arrow projectile to targeted point; on impact creates 3 secondary projectiles fired in all directions; secondary range scales with projectile speed; each enemy can only be hit once per secondary burst"
+        },
+        "source_url": "https://poedb.tw/us/Tornado_Shot",
+        "anchor_quote": "Arrow flies to a point then bursts into secondary arrows in all directions; inherently fires 3 secondary projectiles per primary arrow; each enemy can only be hit once per secondary burst",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Fire a primary arrow to a target point; on impact, the arrow bursts into secondary arrows in all directions. Secondary arrows cover screen-wide AoE, making this the premier clear-speed and magic-find build. Primary arrow pierces. Secondary arrows cannot double-hit same enemy per burst."
+        },
+        "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+        "anchor_quote": "primary projectile fired at location; secondary projectiles created at that location and shot out in a random direction; Tornado Shot has been one of the ultimate high budget speed farming builds",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "list": [
+            "TS Deadeye — canonical MF/clear variant",
+            "Poison TS Pathfinder — DoT variant",
+            "TS Champion — fortify sustain variant"
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/manni-tornado-shot-deadeye-build-guide",
+        "anchor_quote": "Tornado Shot is most famously played as the Deadeye ascendancy; Poison Tornado Shot rose to popularity",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

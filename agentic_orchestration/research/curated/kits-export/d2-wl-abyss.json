@@ -1,0 +1,257 @@
+{
+  "kit_id": "d2-wl-abyss",
+  "spine": {
+    "kit_id": "d2-wl-abyss",
+    "folk_name": "Abyss Warlock",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Abyss pull-detonate is a composite mechanic (pull + DoT + detonate) that maps to vortex_pull but loses the DoT phase between pull and detonate. Engine vortex_pull is a CC delivery; the damage-DoT-then-explode texture is fidelity loss.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Abyss pull-detonate is a composite mechanic (pull + DoT + detonate) that maps to vortex_pull but loses the DoT phase between pull and detonate. Engine vortex_pull is a CC delivery; the damage-DoT-then-explode texture is fidelity loss.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Abyss",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed at target location: pulls enemies in, deals AoE damage over time, then detonates. Magic damage type. MW1-close: d2 magic-damage = element-NEUTRAL. Pull mechanic = vortex_pull geometry. Batch hot-fact: Terror Zone language in dossier is CONTENT context, not fear attestation (§0.4 discipline) — no fear emitted."
+        },
+        {
+          "source_skill": "Miasma Chains",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Supplemental AoE magic-damage skill. Element-neutral (magic-damage). Large zone delivery."
+        },
+        {
+          "source_skill": "Miasma Bolt",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target supplemental magic-damage bolt. Element-neutral."
+        },
+        {
+          "source_skill": "Sigil: Death",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Capstone skill: 'creates a field within which monsters automatically die' — execute-threshold field. Attested in capstone_alterations."
+        }
+      ],
+      "motion_frame": "Cast Abyss to pull-and-detonate enemy clusters; supplement with Miasma skills; Sigil: Death for field-execute capstone.",
+      "resource_economy": {
+        "spend": "steady-mana",
+        "regen_shape": "Hex:Siphon kill-return + Insight Meditation sustain"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Void runeword +skills/FCR"
+          ],
+          "economy": [
+            "Insight mana sustain",
+            "Hex:Siphon kill-return"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "All magic-damage skills map element-neutral per MW1-close ruling. Terror Zone farming context is NOT fear attestation per §0.4 and batch hot-facts — no fear token emitted. Abyss pull-then-detonate is a vortex_pull geometry (nearest to its pull+explode behavior). GEOMETRY_COLLAPSE for the detonation identity. Sigil: Death execute-field is aspirational capstone via execute ailment in a zone — no execute ailment emitted on Abyss (not attested on Abyss specifically); Sigil:Death attested separately. Consume (sacrifice demon) noted but not a primary damage verb — scaffold economy."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Abyss Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.rpgstash.com/blog/d2r-season-13-tier-list-best-builds-in-reign-of-the-warlock",
+      "archive_url": null,
+      "site": "rpgstash.com",
+      "author_handle": null,
+      "title": "D2R Season 13 Tier List: Best Builds in Reign of the Warlock",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d2/reign-of-the-warlock-overview-for-diablo-ii-resurrected",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Reign of the Warlock Overview for Diablo II Resurrected - Icy Veins",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: rotw-s13+",
+      "anchor_quote": "The Abyss Warlock is what you should use if you want to farm Terror Zones, with its strong AoE damage and added utility.",
+      "source_url": "https://www.rpgstash.com/blog/d2r-season-13-tier-list-best-builds-in-reign-of-the-warlock",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Abyss Warlock'; aliases 'Abyss Warlock D2R', 'Warlock Abyss School'",
+      "anchor_quote": "The Abyss Warlock Endgame Guide melts through enemies with AoE Magic Damage!",
+      "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: (abyss school) — Abyss-tree magic AoE skills",
+      "anchor_quote": "Abyss pulls targets in and deals AoE damage over time before detonating. Miasma Chains and Miasma Bolt as core damage skills.",
+      "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Void (Thul-Zod-Ist dagger)",
+            "Call to Arms",
+            "Enigma",
+            "Insight",
+            "Spirit"
+          ],
+          "skills_as_capstone": [
+            "Sigil: Death creates a field within which monsters automatically die"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+        "anchor_quote": "Sigil: Death creates a field within which monsters automatically die.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Void (dagger, +2 skills, 40% FCR, 15% magic skill damage)",
+            "Call to Arms",
+            "Enigma",
+            "Insight",
+            "Spirit"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+        "anchor_quote": "Call to Arms, Enigma, Insight, Spirit",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "notes": "Abyss placed at target location creates pull+detonate zone; Miasma skills add supplemental AoE. Magic damage type."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+        "anchor_quote": "Abyss pulls targets in and deals AoE damage over time before detonating.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Warlock casts Abyss to pull enemies together and detonate them with magic damage. Miasma Chains and Miasma Bolt provide supplemental magic AoE damage. Consume allows sacrificing summoned demons for damage/buff bonuses. Designed for Terror Zone elite farming with strong AoE."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+        "anchor_quote": "The Abyss Warlock Endgame Guide melts through enemies with AoE Magic Damage! Abyss pulls targets in and deals AoE damage over time before detonating.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Abyss Warlock (Terror Zone farming)",
+            "Abyss+Miasma hybrid (Miasma Bolt/Chains added for single-target)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/abyss-warlock-build-guide",
+        "anchor_quote": "Miasma Chains and Miasma Bolt as core damage skills.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

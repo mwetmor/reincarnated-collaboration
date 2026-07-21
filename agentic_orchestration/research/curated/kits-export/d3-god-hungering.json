@@ -1,0 +1,246 @@
+{
+  "kit_id": "d3-god-hungering",
+  "spine": {
+    "kit_id": "d3-god-hungering",
+    "folk_name": "GoD Hungering Arrow",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null. GoD 2pc auto-fire-during-Strafe identity well-captured via trigger_grammar + moving-channel note. Momentum stacks not mapped (no engine Momentum lane) — noted in TEMPORAL_CHARGE T4 door.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Physical element null. GoD 2pc auto-fire-during-Strafe identity well-captured via trigger_grammar + moving-channel note. Momentum stacks not mapped (no engine Momentum lane) — noted in TEMPORAL_CHARGE T4 door.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Strafe",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "GoD 2pc auto-fires Hungering Arrow during Strafe; full movement while channeling (moving-channel per §CROSS row 5); player never stops moving while dealing damage; physical ranged channel; element null (no element attested in fetched text)"
+        },
+        {
+          "source_skill": "Hungering Arrow (Devouring Arrow rune)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Seeking piercing arrow; 'periodically turns around and seeks out a new nearby target; maximum travel distance 120 yards' per verify anchor; Ninth Cirri Satchel caps at 4 pierces (Season 23 nerf per capstone anchor); seeking re-target = trigger_grammar condition; physical ranged projectile; element null"
+        }
+      ],
+      "motion_frame": "Build Momentum stacks via Strafe movement; GoD 2pc auto-fires Hungering Arrow while Strafe active; full move policy while dealing damage; Vengeance for defense/damage; Hatred+Discipline management",
+      "resource_economy": {
+        "cost_scale": "Hatred (primary) + Discipline (Demon Hunter class resources); 'stable resources' via Avarice Band and Wraps of Clarity per item anchor"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Ninth Cirri Satchel pierce cap 4 (scaler on pierce count)",
+            "120-yard seeking re-target range"
+          ],
+          "economy": [
+            "Dawn CDR for Vengeance uptime",
+            "Depth Diggers primary skill boost (scaler-only)"
+          ],
+          "traits_affixes": [
+            "GoD 6pc large multiplier (scaler-only per §B.1)",
+            "Bastions of Will Focus+Restraint set (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-52: GoD = Gears of Dreadlands (NOT Grace of Inarius); alias confabulation removed from identity — DB state governs. Element null — physical ranged attack; no element named in any fetched anchor. No ailment attested. Moving-channel (full-move policy) per §CROSS row 5 — delivery_notes carry the loop-feel differentiator. Seeking retarget on Hungering Arrow = delivery texture, not a separate ailment. GoD 2pc trigger (Strafe → auto-fires Hungering Arrow) = on-cast-linked. Set scalers scaler-only per §B.1."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "GoD Hungering Arrow Demon Hunter Guide for Diablo III Season 39",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/resources/demon-hunter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Diablo 3 Demon Hunter Class Overview",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Gears of Dreadlands Hungering Arrow Demon Hunter has made its entry during Season 21",
+      "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "GoD Hungering Arrow Demon Hunter Guide for Diablo III Season 39",
+      "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Folk name 'GoD Hungering Arrow' and aliases 'GoD Demon Hunter', 'Grace of Inarius DH', 'Hungering Arrow DH' are real community usage",
+      "anchor_quote": "Gears of Dreadlands Hungering Arrow Demon Hunter has made its entry during Season 21",
+      "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Hungering Arrow and Strafe; resource mechanism; Strafe auto-fires Hungering Arrow while moving",
+      "anchor_quote": "The build focuses on Strafe and Hungering Arrow to deal damage, which is done semi-automatically",
+      "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "co_author": "Northwar"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+        "anchor_quote": "Written by Northwar & wudijo. Updates by wudijo",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Gears of Dreadlands",
+          "set_introduced": "Season 21",
+          "set_bonus_note": "2pc auto-fires last Primary via Strafe hits; 6pc massive damage multiplier; capped Ninth Cirri Satchel pierce at 4 (Season 23 nerf)",
+          "resource": "Hatred+Discipline (NOT Spirit or Focus)",
+          "kanais_cube": [
+            "Dawn",
+            "The Ninth Cirri Satchel",
+            "Depth Diggers"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+        "anchor_quote": "Gears of Dreadlands Hungering Arrow Demon Hunter has made its entry during Season 21",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "The Ninth Cirri Satchel",
+            "Dawn",
+            "Depth Diggers",
+            "Bastions of Will set",
+            "Wraps of Clarity"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+        "anchor_quote": "cubed Avarice Band and result in stable resources",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile auto-fired during movement",
+          "footprint": "piercing single-target arrow",
+          "notes": "Strafe fires Hungering Arrow while player moves continuously; arrow pierces and seeks targets up to 120 yards; Devouring Arrow rune"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+        "anchor_quote": "The arrow will periodically turn around and seek out a new nearby target. The maximum travel distance is 120 yards",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Build Momentum stacks via Strafe; Strafe auto-fires Hungering Arrow (GoD 2pc bonus); full move while dealing damage; Vengeance for defense and damage; Ninth Cirri Satchel caps at 4 pierces; Hatred+Discipline management"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+        "anchor_quote": "The build focuses on Strafe and Hungering Arrow to deal damage, which is done semi-automatically",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "GoD HA Solo Push",
+            "N6GoD4 Hungering Arrow (Season 27 hybrid)",
+            "UE Hungering Arrow (separate set)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/god-ha-demon-hunter-guide",
+        "anchor_quote": "GoD Hungering Arrow Demon Hunter Guide for Diablo III Season 39",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

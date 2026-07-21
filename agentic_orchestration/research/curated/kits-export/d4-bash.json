@@ -1,0 +1,234 @@
+{
+  "kit_id": "d4-bash",
+  "spine": {
+    "kit_id": "d4-bash",
+    "folk_name": "Bash Barbarian",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bash",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee strike with AoE cleave extension; skill_geometry anchor: 'Hooves of the Mountain God - makes our Basic Skill deal more damage and AoE'; skill_loop anchor: 'Bash is our main damage dealer, which generates but also spends Fury when using Shard of Verathiel'; multiple targets hit per cast per skill_geometry payload; physical = element-neutral per THE PHYSICAL RULE; no ailment: no bleed/stun explicit language in fetched rows"
+        },
+        {
+          "source_skill": "Wrath of the Berserker",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cooldown buff on top of Bash loop; skill_loop anchor: 'One-button loop with Wrath of the Berserker on cooldown'; self_buff geometry for the cooldown activation; no independent damage footprint; Barbarian buff cooldown rider"
+        }
+      ],
+      "motion_frame": "Spam Bash as primary damage dealer; Fury generated and spent simultaneously via Shard of Verathiel; Hooves of the Mountain God converts Basic skill to AoE; Wrath of the Berserker buff on cooldown per skill_loop anchor",
+      "resource_economy": {
+        "cost_scale": "Fury; verify_ledger anchor + skill_loop anchor: 'Bash is our main damage dealer, which generates but also spends Fury when using Shard of Verathiel'; inverted-resource loop (generator that also spends) — do-not-merge per basin-2 ruling"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Hooves of the Mountain God AoE extension per item_alterations anchor"
+          ],
+          "economy": [
+            "Shard of Verathiel Fury generate+spend loop (inverted-resource, do-not-merge)",
+            "Melted Heart of Selig, Tibault's Will (economy scalers)"
+          ],
+          "traits_affixes": [
+            "Paingorger's Gauntlets (scaler)",
+            "Crown of Lucion (scaler)",
+            "Ring of Starless Skies (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical = element-neutral per THE PHYSICAL RULE; element slots null. No ailment attested: no bleed, stun, or other explicit ailment language in any fetched row. Inverted-resource: Bash generates AND spends Fury — do-not-merge per basin-2 inverted-resource ruling; captured in resource_economy cost_scale note. Item-defined-archetype: Hooves of the Mountain God makes Bash AoE, Shard of Verathiel makes it inverted-resource generator — map the WITH-item form. One-button clarity is the kit's distinguishing characteristic; maps EXACT given all major loop elements attest cleanly."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Beatdropper",
+      "title": "Bash Barbarian Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Bash Barbarian; aliases: Bash Barb D4, Bash Barbarian season 6+",
+      "anchor_quote": "Bash Barbarian",
+      "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Bash; Barbarian resource: Fury (probe claimed spirit/focus — fabrication)",
+      "anchor_quote": "Bash is our main damage dealer, which generates but also spends Fury when using Shard of Verathiel.",
+      "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Beatdropper",
+          "co_author": "Snail",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+        "anchor_quote": "Written by Beatdropper",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Shard of Verathiel",
+            "Hooves of the Mountain God",
+            "Paingorger's Gauntlets",
+            "Crown of Lucion",
+            "Ramaladni's Magnum Opus",
+            "Tibault's Will",
+            "Melted Heart of Selig",
+            "Shroud of False Death",
+            "Ring of Starless Skies"
+          ],
+          "notes": "Barbarian resource confirmed FURY (probe fabrication: probe said spirit/focus)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+        "anchor_quote": "Bash is our main damage dealer, which generates but also spends Fury when using Shard of Verathiel.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Shard of Verathiel — Bash generates and spends Fury",
+            "Hooves of the Mountain God — Basic Skill AoE",
+            "Paingorger's Gauntlets",
+            "Crown of Lucion",
+            "Ramaladni's Magnum Opus",
+            "Tibault's Will",
+            "Melted Heart of Selig"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+        "anchor_quote": "Shard of Verathiel",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "melee strike with AoE cleave extension",
+          "footprint": "small AoE",
+          "range": "melee",
+          "notes": "Hooves of the Mountain God makes Basic Skill deal more damage and AoE; attacks hit multiple targets multiple times per cast"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+        "anchor_quote": "Hooves of the Mountain God - makes our Basic Skill deal more damage and AoE.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Bash as primary damage dealer; generates and spends Fury via Shard of Verathiel; Hooves of the Mountain God convert Basic skill to AoE. One-button loop with Wrath of the Berserker on cooldown.",
+          "core_loop": "Bash spam -> Fury generation/spend via Shard -> AoE clear via Hooves -> Berserker buff on cooldown"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+        "anchor_quote": "Bash is our main damage dealer, which generates but also spends Fury when using Shard of Verathiel.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Season 12 endgame push variant",
+            "Historical Season 4 variant (mentioned as nostalgic precursor)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/bash-barbarian-guide",
+        "anchor_quote": "a slightly downgraded version of Lunging Strike",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

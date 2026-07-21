@@ -1,0 +1,237 @@
+{
+  "kit_id": "d2-wl-echoing-strike",
+  "spine": {
+    "kit_id": "d2-wl-echoing-strike",
+    "folk_name": "Echoing Strike Warlock",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Echoing out-and-return path is a unique mechanical feel (double-hit line) that the engine's line geometry approximates but loses the return-pass damage texture. FCR-gated attack rate (not mana cost) as primary cadence gate is partially absorbed into economy note.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Echoing out-and-return path is a unique mechanical feel (double-hit line) that the engine's line geometry approximates but loses the return-pass damage texture. FCR-gated attack rate (not mana cost) as primary cadence gate is partially absorbed into economy note.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Echoing Strike",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged weapon-projection throw that travels OUT and returns, dealing physical+magic damage on both paths. ERRATA-46: probe geometry 'at-target/small-radius/melee' CONTRADICTED by fetched text — explicitly ranged projectile. Physical+magic: physical rule makes both element-neutral per MW1-close. Line geometry (out-and-return linear pierce path)."
+        },
+        {
+          "source_skill": "Mirrored Blades",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target burst variant: 'swings a bunch of times at once at one monster' — rapid multi-hit at single target. Element-neutral (physical/magic split per kit pattern)."
+        }
+      ],
+      "motion_frame": "Levitate weapon, throw ranged projections that travel out and return dealing damage on both paths; FCR governs attack rate; reposition with Enigma as needed.",
+      "resource_economy": {
+        "spend": "steady-mana",
+        "leech": "gear mana-stolen + Insight Meditation"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Mirrored Blades synergy: +5% magic damage per skill point — scaffold"
+          ],
+          "economy": [
+            "Insight mana sustain",
+            "gear mana-stolen leech"
+          ],
+          "traits_affixes": [
+            "Echoing Strike synergy: Mirrored Blades, Blade Warp — scaffold"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-46 flagged: probe geometry was wrong (melee/at-target); fetched text is AUTHORITATIVE — ranged projectile out-and-return. Line geometry for the out-and-back pierce path. Out-and-return is an attested shape precedent (basin-3 echo-network lane; this is a distinct physical manifestation — weapon returns vs mark-echo). Physical+magic damage both element-neutral per physical rule + MW1-close magic-damage ruling."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Echoing Strike Warlock Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d2/guides/echoing-strike-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Echoing Strike Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: rotw-s13+",
+      "anchor_quote": "In Season 13, Echoing Strike was stacking damage multiplicatively instead of additively — which was a bug, not a feature.",
+      "source_url": "https://maxroll.gg/d2/guides/echoing-strike-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Echoing Strike Warlock'; aliases 'Echoing Strike Warlock D2R'",
+      "anchor_quote": "Echoing Strike Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Echoing Strike",
+      "anchor_quote": "The Echoing Strike Warlock throws projections of his weapons in front of himself, dealing damage both on the way out and the way in.",
+      "source_url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Void",
+            "Call to Arms",
+            "Spirit",
+            "Enigma",
+            "Fortitude"
+          ],
+          "synergies": [
+            "Mirrored Blades (synergy: base Magic Damage of Echoing Strike increased 5% per skill point in Mirrored Blades)",
+            "Blade Warp (synergy)"
+          ],
+          "patch_changes": [
+            "Patch 3.2: synergy damage now additive instead of multiplicative; attack rating dependency added"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/echoing-strike-warlock-guide",
+        "anchor_quote": "The base Magic Damage of Echoing Strike is increased by a summed up multiplier which increases by 5% for each Skill Point allocated into Mirrored Blades.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Void (dagger)",
+            "Call to Arms",
+            "Spirit",
+            "Enigma",
+            "Fortitude",
+            "Insight"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+        "anchor_quote": "Call to Arms, Spirit, Enigma, Fortitude, and Insight are recommended.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged (projectile — weapon projection)",
+          "footprint": "pierce-path (out and back)",
+          "notes": "Probe recorded 'at-target/small-radius melee' — CONTRADICTED by fetched text: explicitly ranged projectile. Red-flag filed."
+        },
+        "source_url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+        "anchor_quote": "The Echoing Strike Warlock is a ranged physical fighter, similar to that of a Throw Barbarian. Throws projections of his weapons in front of himself.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Warlock levitates weapon and throws projections that travel out and return, dealing physical+magic damage on both paths. FCR governs attack rate (75% FCR breakpoint required). Mirrored Blades provides single-target burst. Echoing Strike relies on Attack Rating as of patch 3.2. Considered strongest Warlock build in S13; nerfs in patch 3.2 made synergy additive instead of multiplicative."
+        },
+        "source_url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+        "anchor_quote": "The Echoing Strike Warlock throws projections of his weapons in front of himself, dealing damage both on the way out and the way in.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Echoing Strike Warlock (ranged weapon-projection primary)",
+            "Echoing Strike + Mirrored Blades (single-target boss variant)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/echoing-strike-warlock-build",
+        "anchor_quote": "Mirrored Blades: good for Single Target fights as it swings a bunch of times at once at one monster.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

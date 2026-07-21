@@ -1,0 +1,223 @@
+{
+  "kit_id": "tl2-glaive-outlander",
+  "spine": {
+    "kit_id": "tl2-glaive-outlander",
+    "folk_name": "Glaive Outlander",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: Venomous Hail poison attested only in dossier payload characterization ('supplemental poison AoE'), not a direct game-text quote with 'deals poison damage' structure. The geometry+economy of the primary loop (ricochet physical glaive + charge) is EXACT; the poison element on the secondary skill is the approximation margin.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "CLOSE: Venomous Hail poison attested only in dossier payload characterization ('supplemental poison AoE'), not a direct game-text quote with 'deals poison damage' structure. The geometry+economy of the primary loop (ricochet physical glaive + charge) is EXACT; the poison element on the secondary skill is the approximation margin.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Glaive Throw",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Thrown glaive bounces/ricochets between enemies, rebounding once base up to 4 bounces at max rank, generating Charge per hit. Physical weapon damage — no element descriptor attested for Glaive Throw itself. 'slicing through your target, rebounding' = ricochet_bounce geometry."
+        },
+        {
+          "source_skill": "Venomous Hail",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Supplemental poison AoE — dossier payload_json: 'use Venomous Hail as supplemental poison AoE.' 'Poison' is applied as a damage/effect type descriptor in dossier fetched text → earth element, poison ailment. Secondary supplemental skill."
+        }
+      ],
+      "motion_frame": "Spam Glaive Throw repeatedly; glaive bounces between enemies generating Charge per hit; supplement with Venomous Hail poison AoE; maintain Charge bar for passive bonuses.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_note": "Charge built per glaive hit; full bar grants +15% attack speed / cast speed / dodge / crit"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Glaive Throw: physical weapon, no element. Venomous Hail: dossier payload describes 'supplemental poison AoE' — poison as effect-type descriptor → earth + poison ailment. Charge economy identity-load-bearing. GEOMETRY_PROPAGATION_cascade fits multi-bounce/chain propagation pattern. Near-miss §0: wanted to attest poison for Glaive Throw primary — no damage-type descriptor on the main projectile, only on Venomous Hail supplemental."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Outlander Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://gameslikefinder.com/article/torchlight-2-outlander-build/",
+      "archive_url": null,
+      "site": "gameslikefinder.com",
+      "author_handle": "unknown",
+      "title": "Torchlight 2 Outlander Build Guide - Glaive Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in tl2-2012 era",
+      "anchor_quote": "Glaive Throw is an active Outlander skill in the Lore tree in Torchlight II, with one point already invested at Level 1",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Glaive Outlander — community usage name for Glaive Throw Outlander build",
+      "anchor_quote": "You hurl a throwing glaive, slicing through your target, rebounding once to strike additional foes, and generating extra Charge; Glaive Throw is perhaps the most overpowered skill Outlander has",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill: Glaive Throw, Venomous Hail; projectile bouncing/chain-hop between enemies; Charge bar economy built from attacks",
+      "anchor_quote": "You hurl a throwing glaive, slicing through your target, rebounding once to strike additional foes, and generating extra Charge; Glaive Throw chains across enemies with additional tiers gaining additional rebounds",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_title": "Outlander Skill Guide - Torchlight II"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Charge bar full = +15% attack speed, cast speed, dodge chance, crit chance (plus unlisted +5% bonus for full bar); Death Ritual passive supports Shadowling hybrid if combined"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "Filling the Outlander's charge bar grants +15% with a full charge bar to attack speed, cast speed, dodge chance, and critical chance",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "thrown projectile",
+          "footprint": "chain-hop (bounces between enemies)",
+          "range": "mid",
+          "notes": "rebounds once base; up to 4 bounces at max rank; generates Charge per hit"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "You hurl a throwing glaive, slicing through your target, rebounding once to strike additional foes; Glaive Throw chains across enemies with additional tiers gaining additional rebounds",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Throw Glaive repeatedly; glaive bounces/ricochets between multiple enemies generating Charge per hit; with additional ranks gain more rebounds (up to 4); use Venomous Hail as supplemental poison AoE; maintain Charge bar for passive bonuses"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "You hurl a throwing glaive, slicing through your target, rebounding once to strike additional foes, and generating extra Charge; Glaive Throw chains across enemies with additional tiers gaining additional rebounds",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "pure glaive bouncer (Glaive Throw main)",
+            "Poison Glaive Caster (poison enchant + Venomous Hail)",
+            "Glaive + Shadowling hybrid"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496327050",
+        "anchor_quote": "two main ways of building an Outlander: focusing on Glaive Throw and elemental attacks, dumping points into Focus (a glaivelander)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "kit_id": "tq-druid-squall-caster",
+  "spine": {
+    "kit_id": "tq-druid-squall-caster",
+    "folk_name": "Druid Storm Caster",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Squall's lightning association is STRUCK (name-only); a TQ Druid player would expect lightning to feature prominently given the Storm mastery. The mapping surfaces lightning via Lightning Bolt but not Squall's zone. Blind from accuracy reduction is a source-mechanism inference — the store says 'reduce accuracy' not 'blind.'",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "blind"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Squall's lightning association is STRUCK (name-only); a TQ Druid player would expect lightning to feature prominently given the Storm mastery. The mapping surfaces lightning via Lightning Bolt but not Squall's zone. Blind from accuracy reduction is a source-mechanism inference — the store says 'reduce accuracy' not 'blind.'",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Squall",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "blind"
+          ],
+          "delivery_notes": "Persistent wind-storm zone at target location; 'wind storm... slight damage and applies useful debuffs'; lightning name-only STRUCK per p01 hot-fact ('wind storm… slight damage' = no lightning damage-type → null); 'drop it on top of ranged enemies to reduce their accuracy' = blind (accuracy reduction = blind per source-mechanism callout)"
+        },
+        {
+          "source_skill": "Lightning Bolt",
+          "geometry_value": "line",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target ranged bolt; lightning attested via Static Charge synergy '+76% lightning damage' in capstone — genuine damage-type descriptor applied to damage noun; Lightning Bolt name carries the type signal backed by capstone attestation"
+        }
+      ],
+      "motion_frame": "Place Squall zone on enemy groups for persistent debuff; cast Lightning Bolt for single-target burst; Regrowth/Heart of Oak sustain; low-tempo zone-caster",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "note": "Low tempo; Squall placed and maintained; Lightning Bolt ranged burst cadence"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "zone radius",
+            "zone persistence duration"
+          ],
+          "economy": [
+            "energy cost",
+            "cast speed"
+          ],
+          "traits_affixes": [
+            "lightning damage %",
+            "zone debuff potency"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Squall 'lightning' name-only STRUCK per p01 pre-ruling (anchor 'wind storm… slight damage' — no lightning damage-type descriptor on Squall specifically). Lightning attested via Lightning Bolt + Static Charge capstone ('[+76% lightning damage]'). Squall carries blind via accuracy-reduction source-mechanism. Regrowth sustain not mapped as skill — defensive utility, not damage output."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1898745823",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Druid (Nature / Storm) Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.alteredgamer.com/titan-quest/6881-skills-and-masteries-storm/",
+      "archive_url": null,
+      "site": "alteredgamer.com",
+      "author_handle": "unknown",
+      "title": "Titan Quest Skills and Masteries: Storm",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016 eras",
+      "anchor_quote": "The Rogue Mastery is part of the core, or unexpanded Titan Quest game",
+      "source_url": "https://www.alteredgamer.com/titan-quest/6594-skills-and-masteries-rogue/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Druid Storm Caster = Nature+Storm dual mastery, zone-placement low-tempo caster",
+      "anchor_quote": "Storm mastery with Nature is the Druid build. It is also a caster",
+      "source_url": "https://www.alteredgamer.com/titan-quest/6881-skills-and-masteries-storm/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Squall, Lightning Bolt, Heart of Oak; Squall = persistent zone, slow tempo; Nature provides Regrowth sustain",
+      "anchor_quote": "Squall generates a wind storm that does slight damage and applies useful debuffs",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1898745823",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Heart of Oak (Nature) — HP/speed passive; Regrowth — heal-over-time sustain; Wisp pet with Eye of the Storm synergy gives elemental damage bonus; Static Charge (Storm) gives +76% lightning damage at 12 pts"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1898745823",
+        "anchor_quote": "Static Charge synergy gives +76% lightning damage at 12 points invested",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "targeted large-zone placement — Squall creates persistent wind storm AoE at target",
+          "note": "element-silent: fetched text describes Squall as 'wind storm' with debuff utility; no explicit lightning damage-type descriptor found",
+          "secondary": "ranged projectile — Lightning Bolt single-target"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1898745823",
+        "anchor_quote": "Squall generates a wind storm that does slight damage and applies useful debuffs",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Place Squall zone on enemy groups for persistent wind-storm debuff and minor damage; cast Lightning Bolt for single-target burst; Nature's Regrowth/Heart of Oak for sustain; drop Squall on ranged enemies to impair accuracy; melee stand inside Briar Ward+Squall"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1898745823",
+        "anchor_quote": "Drop Squall on top of ranged enemies to reduce their accuracy, and against melee drop it on top of Briar Ward",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Squall + Plague debuffer",
+            "Squall + Ice Shard caster",
+            "Lightning Bolt + Plague burst build"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1898745823",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

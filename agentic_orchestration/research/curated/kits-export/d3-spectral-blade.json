@@ -1,0 +1,242 @@
+{
+  "kit_id": "d3-spectral-blade",
+  "spine": {
+    "kit_id": "d3-spectral-blade",
+    "folk_name": "Spectral Blade",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "vanilla;set-era;late-sets",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "ERRATA-43 redeemed form maps as CLOSE. The Spectral Blade free-spam inside Slow Time zone is a coherent geometry+zone-control loop. Without DMO the kit would be GAPPED. The mapping reflects the DMO-equipped build; the negative classification story rides the review book.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "ERRATA-43 redeemed form maps as CLOSE. The Spectral Blade free-spam inside Slow Time zone is a coherent geometry+zone-control loop. Without DMO the kit would be GAPPED. The mapping reflects the DMO-equipped build; the negative classification story rides the review book.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Spectral Blade",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons spectral blade that strikes all enemies up to 15 yards in front of you; self-origin 15-yard forward arc; instant cast (not channeled); signature spell — zero Arcane Power cost; arcane damage → shadow per main-law table (arcane=shadow default); negative=1 kit, ERRATA-43 FALSIFIED-NEGATIVE governs — map redeemed DMO form"
+        },
+        {
+          "source_skill": "Slow Time",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "DMO Slow-Time bubble zone; slows enemies inside (chill attested by 'slow' function of Slow Time); 12,500% damage to skills inside zone including Spectral Blade; delivery: placed zone; chill = slow/cripple per law row 41"
+        }
+      ],
+      "motion_frame": "Cast Spectral Blade repeatedly as free signature attack inside Slow Time bubble; DMO 6pc provides 12,500% damage multiplier to all skills inside Slow Time; mobile playstyle (no channeling unlike Arcane Torrent)",
+      "resource_economy": {
+        "resource": "Arcane Power",
+        "cost_note": "Spectral Blade is signature spell costing no Arcane Power; Arcane Power used incidentally for other spells; The Shame of Delsere reduces Slow Time cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "GEOMETRY_COLLAPSE",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Fragment of Destiny — AS breakpoint for Flame Blades variant (item rider); Bastions of Will enabled by mobile playstyle"
+          ],
+          "economy": [
+            "The Shame of Delsere — Slow Time cost reduction; Bastions of Will — requires alternating attack/move; DMO blanket coverage enables the kit"
+          ],
+          "traits_affixes": [
+            "DMO 6pc — 12,500% damage to skills inside Slow Time (scaler; blanket-set coverage redeems this negative kit per ERRATA-43)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ERRATA-43 FALSIFIED-NEGATIVE GOVERNS: negative flag retained pending Matt review-book; mapping the redeemed form (DMO blanket coverage). The negative was falsified by kb conflating dedicated-set absence with no-set-path. Map the attested form: Spectral Blade as DMO proc vehicle + Slow Time zone. Arcane damage → shadow per main-law table (default, no per-kit override needed). Chill attested by Slow Time's function: 'slow' language in Slow Time = chill per law row 41; 'Slow Time' name + slowing enemies inside = chill status; contiguous in this kit's dossier (Slow Time is a Spectral Blade vehicle per the redeemed form). [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #10 Slow Time chill OUT: store's 'slow' x2 are both the BUBBLE NAME in set-bonus context ('damage to skills inside slow time'); zero movement/reduc behavior language. Name-collision law. Contrast wind-druid keep ('cold damage and slow' = behavior). Elements stand: arcane->shadow law-table routing.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/lightning-arcane-torrent-wizard-spectral-blade-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Lightning Arcane Torrent Wizard Spectral Blade Variation",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/d3/t/spectral-blades-build-dead/24330",
+      "archive_url": null,
+      "site": "us.forums.blizzard.com",
+      "author_handle": null,
+      "title": "Spectral Blades build dead? - Wizard - Diablo 3 Forums",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://eu.diablo3.blizzard.com/en-gb/class/wizard/active/spectral-blade",
+      "archive_url": null,
+      "site": "diablo3.blizzard.com",
+      "author_handle": null,
+      "title": "Spectral Blade - Game Guide - Diablo III",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Spectral Blade' and aliases 'Spectral Blade Wizard', 'Spectral Blade vanilla/set-era' are real community usage",
+      "anchor_quote": "Spectral Blade — Summon a spectral blade that strikes all enemies up to 15 yards in front of you for 168% weapon damage as Arcane.",
+      "source_url": "https://eu.diablo3.blizzard.com/en-gb/class/wizard/active/spectral-blade",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Spectral Blade; Wizard resource (Arcane Power); melee-range arc delivery",
+      "anchor_quote": "Spectral Blade — Summon a spectral blade that strikes all enemies up to 15 yards in front of you for 168% weapon damage as Arcane. Signature spell costing no resources.",
+      "source_url": "https://eu.diablo3.blizzard.com/en-gb/class/wizard/active/spectral-blade",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Spectral Blade vanilla/set-era negative — melee-range channeled arc without set-multiplier path; consistently under-supported across all D3 eras; never reached viable GR depth",
+      "anchor_quote": "Spectral Blade is a signature spell costing no resources to cast",
+      "source_url": "https://eu.diablo3.blizzard.com/en-gb/class/wizard/active/spectral-blade",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/lightning-arcane-torrent-wizard-spectral-blade-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Delsere's Magnum Opus (DMO) — 6pc provides 12,500% damage to skills inside Slow Time including Spectral Blade; Firebird's Finery — Flame Blades rune proc for Ignite",
+          "kanai_cube": [],
+          "legendary_powers": [
+            "Fragment of Destiny",
+            "The Shame of Delsere"
+          ]
+        },
+        "source_url": "https://us.forums.blizzard.com/en/d3/t/spectral-blades-build-dead/24330",
+        "anchor_quote": "DMO receiving successive buffs from 2000% to 12,500%. Even then, still missing a mod item or two to make it viable with todays buffs which is likely by design.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Fragment of Destiny (AS breakpoint synergy for Flame Blades variant)",
+            "The Shame of Delsere",
+            "Bastions of Will set (enabled by mobility — no channeling needed)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/lightning-arcane-torrent-wizard-spectral-blade-build",
+        "anchor_quote": "Spectral Blade replaces Arcane Torrent as the means of delivering the devastating proc. Since it does not rely on channeling a spell, the Spectral Blade playstyle is significantly more mobile.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Spectral blade arcs in front of caster striking all enemies up to 15 yards; melee-range short-arc AoE; self-origin forward arc; instant cast (not channeled)",
+          "range": "self-origin 15-yard forward arc"
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-gb/class/wizard/active/spectral-blade",
+        "anchor_quote": "Summon a spectral blade that strikes all enemies up to 15 yards in front of you for 168% weapon damage as Arcane.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Spectral Blade as free signature attack (no resource cost); uses Arcane Power generated incidentally for other spells; serves as proc vehicle for Firebird's Finery, Manald Heal, Triumvirate, or Bastions of Will — not a standalone damage loop; no dedicated standalone build guide exists on maxroll or icy-veins."
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-gb/class/wizard/active/spectral-blade",
+        "anchor_quote": "Spectral Blade — Summon a spectral blade that strikes all enemies up to 15 yards in front of you for 168% weapon damage as Arcane. Signature spell costing no resources.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lightning Arcane Torrent Spectral Blade variation (support/proc role)",
+            "Firebird Flame Blades (Spectral Blade Flame Blades as primary)",
+            "DMO Arcane Orbit (Spectral Blade for Slow Time proc)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/lightning-arcane-torrent-wizard-spectral-blade-build",
+        "anchor_quote": "Spectral Blade replaces Arcane Torrent as the means of delivering the devastating proc, meaning it's the delivery vehicle for Manald Heal's damage effect.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

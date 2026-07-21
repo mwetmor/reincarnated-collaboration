@@ -1,0 +1,268 @@
+{
+  "kit_id": "poe1-mjolner",
+  "spine": {
+    "kit_id": "poe1-mjolner",
+    "folk_name": "Mjölner",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The swings-pour-out-spells identity lands via on-hit-threshold/linked-cast + proc-loop at depth-1; what generalizes: (a) the 0.25s internal cooldown (trigger-rate cap) has no engine carrier -- engine trigger cadence follows the host's hit rate uncapped; (b) the triggered-payload-costs-0 economy has no per-payload cost knob; (c) socket-order rotation between TWO socketed spells (Arc + Ball Lightning alternating) collapses to one modeled payload. Inherits the arc-b01 chain-decay drift on the payload.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The swings-pour-out-spells identity lands via on-hit-threshold/linked-cast + proc-loop at depth-1; what generalizes: (a) the 0.25s internal cooldown (trigger-rate cap) has no engine carrier -- engine trigger cadence follows the host's hit rate uncapped; (b) the triggered-payload-costs-0 economy has no per-payload cost knob; (c) socket-order rotation between TWO socketed spells (Arc + Ball Lightning alternating) collapses to one modeled payload. Inherits the arc-b01 chain-decay drift on the payload.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Mjolner trigger (melee swing)",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "the hammer swing on the target -- the every-swing dominant action; each HIT triggers a socketed lightning spell (0.25s internal cooldown; raised from 0.15s at 3.17); triggered spells cost 0. The swing itself is the trigger host; lightning flavor rides the payload; shock -> sunder (s2 false friend)"
+        },
+        {
+          "source_skill": "Arc (triggered payload; Ball Lightning alt)",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "the auto-cast lightning spell pouring out of the swings: Arc = chain (geo_raw corroborates; +1 chain from the item; engine chain decays 0.7x/hop while Arc grows per remaining chain -- arc-b01 audit drift, inherited here). Ball Lightning alternative = circle per R-M6 drift-tick ruling (do not re-decide); Arc mapped as the primary payload per core_skills order"
+        }
+      ],
+      "motion_frame": "storm-hammer juggernaut: wade in swinging, and every connecting swing detonates free chain-lightning out of the hammer -- melee cadence IS the cast cadence; the spells are the damage, the swings are the metronome",
+      "resource_economy": {
+        "persistent_condition_shape": "proc-loop"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "RESONANCE_LOOP",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike trigger host",
+            "chain triggered payload (Arc; +1 chain)"
+          ],
+          "economy": [
+            "on-hit proc cadence (0.25s ICD gates the spell stream)",
+            "triggered payload costs 0 in-source (no per-payload cost knob; noted, not keyed)"
+          ],
+          "traits_affixes": [
+            "attack-speed (= trigger rate, the build's true scaling stat)",
+            "lightning-penetration",
+            "STR/INT hybrid gate (412/300 item requirement -> attr flavor)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-KEYSTONE TRIGGER kit -- the founding item-trigger legend (introduced 1.1.2; eras 2.x;3.0-3.6 CONFIRMED). Crosswalk s4 names it: mechanic-granting unique (Mjolner trigger) -> trigger grammar as kit-declared fields; the ITEM DISSOLVES and its mechanic lands on the kit: proc_trigger_condition=on-hit-threshold (every hit, ICD-gated) + consequence_type=linked-cast + apply-only shape (b04 generals-cry precedent for non-mark linked-cast kits; b02 coc-ice-nova precedent for attack-hosts-spell triggers) -- DEPTH-1: swing triggers spell; the spell's chain hops are GEOMETRY, not further trigger depth. persistent_condition_shape=proc-loop is the engine's own PC shape for proc-cadence kits (econ_raw 'trigger-on-hit-cadence'). The 0.25s ICD is a cadence CAP with no dedicated carrier (cadence_scale rejected -- it scales the kit's own cooldown table, not a trigger ICD; noted instead, R-M4 honesty). Free-cost triggered payload: cost_scale=0.0 rejected as chassis overreach (the swings still cost normally); noted in scaffold economy. Doors: RESONANCE_LOOP (verified Layer-2 SEQUENCE -> THRESHOLD_BURST = swing-sequence -> cooldown-gated spell burst) + ELEMENTAL_ECHO (mono-lightning); coc-ice-nova's GEOMETRY_COLLAPSE not inherited (its door expressed Ice Nova's ring-collapse payload; Arc's chain payload needs no geometry door). Socket-order cast-priority (Funsy 2014 empirical) is source lore -- behavioral, un-carried."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Mj%C3%B6lner",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Mjölner — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1104996",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "Funsy",
+      "title": "Mjölner mechanics — socketed casting spell priority/order (2014)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Cast_On_Critical_Strike_Support",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/unique.php?n=Mjölner",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": "communal",
+      "title": null,
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped eras 2.x and 3.0-3.6",
+      "anchor_quote": "Introduced in version 1.1.2. Version 3.5.0: Cooldown reduced from 250ms to 150ms. Version 3.15.0: Replaced 100% Increased Spell Damage with improved lightning damage scaling",
+      "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Mjölner' and aliases 'CoMK sibling', 'Mjolner Arc/BL' with Juggernaut/Guardian lineage are real community usage",
+      "anchor_quote": "Mjölner is a unique one-handed gavel (mace) in Path of Exile that serves as a trigger weapon for lightning spellcasters",
+      "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Mjölner trigger and Arc/Ball Lightning; melee hit triggers socketed lightning spells; on-hit-proc resource model; chain footprint",
+      "anchor_quote": "Trigger a Socketed Lightning Spell on Hit, with a 0.25 second Cooldown. Socketed Lightning Spells have no Cost if Triggered. Skills Chain +1 times",
+      "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Funsy",
+          "site": "pathofexile.com/forum",
+          "contribution": "empirical socket-order test for Mjölner (2014 thread)"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/1104996",
+        "anchor_quote": "Mjolner acts like CWDT gem! The casting follows a predictable path starting from the top-left socket",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Mjolner (item trigger mechanic)",
+              "type": "item_mod",
+              "effect": "Trigger a Socketed Lightning Spell on Hit; Socketed Lightning Spells deal 100% increased Spell Damage if Triggered; Skills Chain +1 times",
+              "anchor_quote": "Trigger a Socketed Lightning Spell on Hit"
+            },
+            {
+              "node": "Cast On Critical Strike Support — Awakened",
+              "type": "awakened_support",
+              "effect": "Reduces spell damage penalty to 7-9%; grants increased Cooldown Recovery Rate to supported spells",
+              "anchor_quote": "Reduces the spell damage penalty to 7-9% and grants increased Cooldown Recovery Rate"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Cast_On_Critical_Strike_Support",
+        "anchor_quote": "Trigger a Socketed Lightning Spell on Hit",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Mjölner",
+          "item_type": "unique one-handed gavel (mace)",
+          "requirements": "Level 60, 412 Strength, 300 Intelligence",
+          "trigger_cooldown": "0.25 seconds (increased from 0.15s at 3.17)",
+          "mana_reduction": "socketed lightning spells cost 0 when triggered"
+        },
+        "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+        "anchor_quote": "Trigger a Socketed Lightning Spell on Hit, with a 0.25 second Cooldown. Socketed Lightning Spells have no Cost if Triggered",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (melee swing)",
+          "footprint": "chain-hop (triggered lightning spell chains from hit; Skills Chain +1 times)",
+          "range_note": "melee reach; triggered spell AoE depends on socketed spell (Arc, Ball Lightning)"
+        },
+        "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+        "anchor_quote": "Skills Chain +1 times. Trigger a Socketed Lightning Spell on Hit",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "swing Mjölner at enemy → hit triggers socketed lightning spell (0.25s cooldown) → spell casts free (no mana cost when triggered) → socket order determines spell cast priority → spells chain (+1 chain) → repeat at attack speed",
+          "founding_note": "melee swing as spell trigger; founding item-trigger archetype introduced 1.1.2"
+        },
+        "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+        "anchor_quote": "Trigger a Socketed Lightning Spell on Hit, with a 0.25 second Cooldown. Socketed Lightning Spells have no Cost if Triggered",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Mj%C3%B6lner",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

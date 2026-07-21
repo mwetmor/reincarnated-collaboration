@@ -1,0 +1,244 @@
+{
+  "kit_id": "poe1-pconc",
+  "spine": {
+    "kit_id": "poe1-pconc",
+    "folk_name": "Poisonous Concoction",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.16-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-12",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The flask-charge ammo economy and poison payload land on literal engine carriers (charge cycle + native stacking poison); what generalizes: (a) the FLASK-item coupling -- damage read off a gear-consumable's recovery stat becomes a generic resource-conversion door, losing the 'my healing potion is my weapon' flavor; (b) the unarmed weapon-slot requirement has no lane (flavor only); (c) charge_max=10/recharge=time are representative values for an unattested exact charge pool. A PConc player keeps sprint-and-lob poison-blast rhythm with charges gating throws.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The flask-charge ammo economy and poison payload land on literal engine carriers (charge cycle + native stacking poison); what generalizes: (a) the FLASK-item coupling -- damage read off a gear-consumable's recovery stat becomes a generic resource-conversion door, losing the 'my healing potion is my weapon' flavor; (b) the unarmed weapon-slot requirement has no lane (flavor only); (c) charge_max=10/recharge=time are representative values for an unattested exact charge pool. A PConc player keeps sprint-and-lob poison-blast rhythm with charges gating throws.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poisonous Concoction",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "UNARMED flask-thrower: lob an exploding poison vial in a thrown arc to the targeted point; 1.8-metre base blast radius at landing; 40% chance to poison (stacking chaos DoT); consumes 1 Life-Flask charge per projectile if available, and adds chaos damage equal to 4-16% of that flask's recovery amount. ground_targeted_circle = the lob-to-point blast; chaos-POISON kit -> earth family (s1 poison row: venom/alchemical register -- Pathfinder nature-flask lineage; shadow alternative noted), ailment lane = poison either way"
+        }
+      ],
+      "motion_frame": "unarmed flask-slinger at full sprint: no weapon, just a bandolier -- lob poison vials point-blank-to-mid, watch packs melt under stacking poisons while flask charges tick back up",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "charge_max": 10,
+        "recharge_source": "time"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle vial blast (1.8m base)",
+            "extra-projectiles (multi-vial spread)"
+          ],
+          "economy": [
+            "flask-charge-as-ammo cycle: 1 charge per throw, Pathfinder charge regen sustains the loop",
+            "Life-Flask recovery stat -> added chaos damage (4-16%) -- defensive-consumable stat inverted into offense"
+          ],
+          "traits_affixes": [
+            "poison-chance / poison-damage (stack-additive native, cap 5-10)",
+            "chaos/DoT-scaling",
+            "flask-charge-gain analog (recharge-rate trait lane)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "FLASK-AMMO POISON LOBBER. Eras 3.16-3.19;3.20+ POST-ERRATA (verify_ledger: era claim CONTRADICTED, errata applied -- introduced 3.16.0 Scourge; corpus row is post-errata truth). ELEMENT JUDGMENT: chaos-poison kit -> s1 sends it to the poison row (earth-or-shadow); EARTH chosen -- alchemical venom register + Pathfinder nature-flask lineage (contrast b03 deaths-oath/edc: corruption-register chaos -> shadow + drain; pconc is stacking-VENOM proper -> poison ailment, earth family); shadow alternative carried here per s1 escape. Probe control listed 'wither' -- NOT mapped as a skill ailment: wither is build-external (Withering Step/totem territory, not PConc's own application) and its damage-taken-amp shape would route curse:amplify-adjacent; recorded here only (b03 probe-override precedent). ECONOMY: the flask-charge-ammo identity lands on REAL engine keys -- charge_stack=cycle + charge_max=10 (RC cap range 0..20; a life flask holds ~10ish charge-equivalents, R-M4 native-typed representative value) + recharge_source=time (Pathfinder passive regen nearest; on-kill alternative noted); the recovery-amount->damage coupling -> RESOURCE_CONVERSION door (defensive-resource stat converted to offense). PERSISTENCE_ENGINE_saturation: the kill mechanism is poison-stack DENSITY (saturation variant is the poison-stack expression; b01/b03 usage precedent, R-M1 variant-as-hint). UNARMED requirement: no engine lane for weapon-slot constraints -- flavor-noted. Hybrid damage_mode (hit+DoT) rides poison natively."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Poisonous_Concoction",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Poisonous Concoction — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe/build-guides/poisonous-concoction-pathfinder-league-starter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Poisonous Concoction Pathfinder League Starter (3.20)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in stamped eras 3.14-3.19 and 3.20+",
+      "anchor_quote": "Poisonous Concoction was introduced in patch 3.16.0 Scourge League, described as a new Dexterity Skill Gem",
+      "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Poisonous Concoction' and alias 'PConc' with Pathfinder class are real community usage",
+      "anchor_quote": "Poisonous Concoction Pathfinder — a Leaguestart Allrounder that kills enemies by throwing Poisonous Flasks while being able to facetank most enemies",
+      "source_url": "https://maxroll.gg/poe/build-guides/poisonous-concoction-pathfinder-league-starter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Poisonous Concoction; unarmed requirement; throws explosive flask-vial projectile; damage scales off Life Flask charges (ammo model); chaos poison DoT",
+      "anchor_quote": "Consumes 1 Charge per Projectile Fired from 1 Life Flask, if possible. Added Chaos Damage equal to 4-16% of Flask's Recovery Amount",
+      "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/poe/build-guides/poisonous-concoction-pathfinder-league-starter-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Poisonous Concoction (quality)",
+              "type": "base_quality",
+              "effect": "(0-20)% chance to inflict Withered for 2 seconds on Hit",
+              "anchor_quote": "(0—20)% chance to inflict Withered for 2 seconds on Hit"
+            },
+            {
+              "node": "Poisonous Concoction of Bouncing (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Consumes flask charges at (6-18)% of Flask's Recovery Amount (vs base (4-16)%)",
+              "anchor_quote": "(6—18)% of Flask's Recovery Amount versus the base gem's (4—16)%"
+            },
+            {
+              "node": "Core restriction",
+              "type": "core_mechanic",
+              "effect": "Requires empty main hand and no off-hand weapon; projectiles cannot pierce or chain",
+              "anchor_quote": "only the explosion does damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+        "anchor_quote": "(0—20)% chance to inflict Withered for 2 seconds on Hit",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Poisonous Concoction restriction (item interaction)",
+              "type": "item_restriction",
+              "effect": "Requires empty main hand and no off-hand weapon; skill consumes Life Flask charges",
+              "anchor_quote": "Requires an empty main hand and no off-hand weapon"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+        "anchor_quote": "Requires an empty main hand and no off-hand weapon",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (thrown flask-vial)",
+          "footprint": "small-radius (1.8 metre base explosion radius at landing point)",
+          "aoe_radius": 1.8,
+          "aoe_unit": "metres",
+          "range_note": "thrown arc trajectory; landing point determines blast center"
+        },
+        "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+        "anchor_quote": "fires projectiles that explode on impact, dealing area damage with a base radius of 1.8 meters",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "equip empty main hand + shield → throw explosive flask-vial projectile → consumes 1 charge from Life Flask → explosion deals chaos damage in area (base radius 1.8m) → 40% chance to poison → Life Flask recovery amount scales added chaos damage (4-16%) → Pathfinder regenerates flask charges → repeat",
+          "unarmed_requirement": "empty main hand; no off-hand weapon allowed"
+        },
+        "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+        "anchor_quote": "Consumes 1 Charge per Projectile Fired from 1 Life Flask, if possible. Added Chaos Damage equal to 4-16% of Flask's Recovery Amount",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "PConc of Bouncing (3.27 transfigured, Slayer/GC variant — per spec-line record)"
+          ],
+          "variant_source": "spec-line record"
+        },
+        "source_url": "https://poedb.tw/us/Poisonous_Concoction",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

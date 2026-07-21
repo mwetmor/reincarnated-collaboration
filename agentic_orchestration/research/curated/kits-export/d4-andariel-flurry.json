@@ -1,0 +1,275 @@
+{
+  "kit_id": "d4-andariel-flurry",
+  "spine": {
+    "kit_id": "d4-andariel-flurry",
+    "folk_name": "Andariel Flurry Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Current Cold Imbuement variant identity lost — player using the cold-meta build would notice the element shift. Kit maps the item-defined Andariel poison form which is the kit_id's declared identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Current Cold Imbuement variant identity lost — player using the cold-meta build would notice the element shift. Kit maps the item-defined Andariel poison form which is the kit_id's declared identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Flurry",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Melee multi-hit small AoE; skill_geometry anchor 'Flurry Rogue build rapidly stabs every foe in range'; small circular AoE via Encircling Blades modifier per skill_geometry payload; no explicit ailment in fetched text beyond poison proc rider (see Andariel's Visage row); earth primary: Andariel's Visage proc is poison-nova per item_alterations anchor — poison-venom register maps earth family; current meta variant uses Cold Imbuement (variants anchor: 'Note: Poison is not utilized in this build') but kit identity is item-defined-archetype = Andariel Visage poison form per item_alterations anchor and kit_id"
+        },
+        {
+          "source_skill": "Andariel's Visage poison nova",
+          "geometry_value": "ring",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Item proc on hit: 'Andariel's Visage (mythic helm) — poison nova proc on hit' per item_alterations anchor; body-origin poison nova with AoE ring footprint per skill_geometry payload; poison ailment attested via 'poison nova proc' language; earth family per poison-venom register; item-defined-archetype — Andariel's Visage IS the loop per item_alterations anchor"
+        }
+      ],
+      "motion_frame": "Spam Flurry to trigger Andariel's Visage poison nova proc on hit; melee-blur plus body-origin poison ring; Energy resource non-issue via Galvanized Slasher's Aspect per item_alterations anchor",
+      "resource_economy": {
+        "cost_scale": "Energy; verify_ledger + item_alterations anchor: 'Energy is a non-issue in this one, first thanks to Galvanized Slasher's Aspect'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Encircling Blades modifier makes Flurry small AoE per skill_geometry payload"
+          ],
+          "economy": [
+            "Galvanized Slasher's Aspect Energy generation per item_alterations anchor"
+          ],
+          "traits_affixes": [
+            "Aspect of Imitated Imbuement (scaler-only per §CROSS row 4)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Item-defined-archetype: kit identity is the Andariel's Visage poison-nova proc form per item_alterations anchor. Post-backfill verdicts govern. Current meta variant uses Cold Imbuement but the kit's named identity (andariel-flurry) maps the Andariel poison form. No skill_loop dossier row present — motion_frame derived from skill_geometry + item_alterations payload. No ailment on Flurry row: no explicit stun/bleed/chill language in fetched text for Flurry base attack. Poison on nova row: 'poison nova proc on hit' is verbatim in item_alterations anchor. Earth family: poison-venom/nova register. No taunt/blind/fear language attested. [STEWARD-AUDIT 2026-07-18 MW4-close: Flurry: earth element-bleed from Andariel Visage poison-nova proc; Flurry own-store=\"encircling blades/rapidly stabs\" (physical). Visage-nova row keeps earth/poison [judgment:element-bleed]]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/flurry-rogue-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Mattias",
+      "title": "Flurry Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/build-guides/andariels-puncture-rogue",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "M1PY",
+      "title": "Andariels Rogue Endgame Build Guide for Diablo IV Season 7 - Season of Witchcraft | Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.wowhead.com/diablo-4/build/andariel-flurry-28651",
+      "archive_url": null,
+      "site": "wowhead.com",
+      "author_handle": null,
+      "title": "Andariel Flurry - Build - Diablo 4",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/planner/mhayg0cr",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "M1PY",
+      "title": "S5 Andariel Flurry ft. M1PY - Diablo 4 Character Planner",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mywowgold.com/News/diablo-4-season-4-andariel-s-flurry-rogue-build-guide.html",
+      "archive_url": null,
+      "site": "mywowgold.com",
+      "author_handle": null,
+      "title": "Diablo 4 Season 4 Andariel's Flurry Rogue Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 1
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in loot-reborn-s4-5",
+      "anchor_quote": "S5 Andariel Flurry ft. M1PY",
+      "source_url": "https://maxroll.gg/d4/planner/mhayg0cr",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in voh-s6+",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/flurry-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Andariel Flurry Rogue; aliases: Andariel Flurry Rogue D4, Flurry Poison Rogue",
+      "anchor_quote": "Andariel Flurry",
+      "source_url": "https://www.wowhead.com/diablo-4/build/andariel-flurry-28651",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Flurry, Poison Imbuement; resource: Energy (Rogue)",
+      "anchor_quote": "Energy is a non-issue in this one, first thanks to Galvanized Slasher's Aspect",
+      "source_url": "https://maxroll.gg/d4/build-guides/flurry-rogue-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Mattias",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/flurry-rogue-guide",
+        "anchor_quote": "by Mattias",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Galvanized Slasher's Aspect (Energy)",
+            "Aspect of Imitated Imbuement"
+          ],
+          "uniques": [
+            "Andariel's Visage — core mythic"
+          ],
+          "paragon_glyphs": null
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/flurry-rogue-guide",
+        "anchor_quote": "Energy is a non-issue in this one, first thanks to Galvanized Slasher's Aspect, then Deathmask of Nirmitruq.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Andariel's Visage (mythic helm) — poison nova proc on hit",
+            "Galvanized Slasher's Aspect — Energy generation"
+          ],
+          "resource": "Energy"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/flurry-rogue-guide",
+        "anchor_quote": "Energy is a non-issue in this one, first thanks to Galvanized Slasher's Aspect",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "melee multi-hit + poison nova proc",
+          "footprint": "small AoE (Flurry hits nearby; poison nova from body)",
+          "range": "melee with AoE extension",
+          "notes": "Flurry creates small circular AoE via Encircling Blades modifier; Andariel proc is body-origin poison nova"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/flurry-rogue-build/",
+        "anchor_quote": "Flurry Rogue build rapidly stabs every foe in range",
+        "abstained": 0,
+        "conf": 0.73
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Poison Imbuement / Andariel variant (s4-5)",
+            "Cold Imbuement variant (s8-s14 current)",
+            "Andariel Barrage variant (s5, s7)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/flurry-rogue-build/",
+        "anchor_quote": "Note: Poison is not utilized in this build.",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

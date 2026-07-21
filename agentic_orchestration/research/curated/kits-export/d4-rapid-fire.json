@@ -1,0 +1,234 @@
+{
+  "kit_id": "d4-rapid-fire",
+  "spine": {
+    "kit_id": "d4-rapid-fire",
+    "folk_name": "Rapid Fire Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "loot-reborn-s4-5;voh-s6+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) imbuement element choice is the build's actual feel differentiator — mapping defaults to no fixed element; (2) precise energy-regen interaction with Heartseeker filler; (3) Scoundrel's Kiss / Crown of Lucion item contributions — numeric scalers only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) imbuement element choice is the build's actual feel differentiator — mapping defaults to no fixed element; (2) precise energy-regen interaction with Heartseeker filler; (3) Scoundrel's Kiss / Crown of Lucion item contributions — numeric scalers only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rapid Fire",
+          "geometry_value": "ricochet_bounce",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged bow barrage; 10 arrows per cast; each arrow ricochets up to 3 times (Ruckus modifier); primary single-target bosser with incidental multi-hit via bounces; imbuement windows (Cold primary S14, Poison variant S4) layer element payloads but element is build-variable, not kit-fixed"
+        }
+      ],
+      "motion_frame": "Spam Rapid Fire as primary; Cold Imbuement on cooldown; Heartseeker as energy filler; Smoke Grenade for positioning",
+      "resource_economy": {
+        "energy_cost": "primary spender",
+        "imbue_window": "imbuement-slot cadence gate (Cold/Poison variant-dependent)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_HYBRID",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "High Velocity Aspect — bossing arrow variant",
+            "Nilfur's Narrow Eye Charm Set 5-piece — projectile enhancement"
+          ],
+          "economy": [
+            "Ferocious Aspect — attack cadence scalar",
+            "Aspect of Imitated Imbuement — imbuement propagation"
+          ],
+          "traits_affixes": [
+            "Conceited Aspect (bossing scalar)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null at kit level: imbuement is build-variable (Cold S14 primary, Poison S4 variant, Shadow+Poison dual) — no fixed element_primary attested for the kit identity. Skyhunter (earlier seasons, removed current) recorded per item-alterations. Mechanics UNSUPPORTED verdict on core_skills in verify_ledger noted; dossier loop text 'Spam Rapid Fire till your hands fall off' + geometry 'Rapid Fire releases 10 arrows per cast to barrage an individual target for devastating single-target damage' provide sufficient loop ground. Ricochet: 'each arrow ricochets up to 3 times with the Ruckus modifier.'"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Rapid Fire Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/rapid-fire-rogue-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Rapid Fire – Rogue Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.vulkk.com/2023/06/13/diablo-4-imbuement-rogue-rapid-fire-build-guide/",
+      "archive_url": null,
+      "site": "vulkk.com",
+      "author_handle": null,
+      "title": "Diablo 4 Imbuement Rogue Rapid Fire Build Guide (Season 4 / Patch 1.4.0)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in loot-reborn-s4-5 and voh-s6+",
+      "anchor_quote": "Rapid Fire is the majority of our damage and our primary Imbue target.",
+      "source_url": "https://www.vulkk.com/2023/06/13/diablo-4-imbuement-rogue-rapid-fire-build-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Rapid Fire Rogue' is real community usage",
+      "anchor_quote": "Rapid Fire Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "core_skills Rapid Fire and Poison Imbuement; Rogue class",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Ferocious Aspect",
+            "High Velocity Aspect (bossing)",
+            "Conceited Aspect (bossing)",
+            "Aspect of Imitated Imbuement"
+          ],
+          "charms": [
+            "Nilfur's Narrow Eye Charm Set (5-piece)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+        "anchor_quote": "Insert all 5 pieces of Nilfur's Narrow Eye Charm Set.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Skyhunter — greatly boosts Rapid Fire with increased damage and additional arrows fired (earlier seasons; removed in current season)",
+            "Scoundrel's Kiss",
+            "Gladiator's Triumph",
+            "Crown of Lucion",
+            "Etna's Lost Dagger"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+        "anchor_quote": "Removed Skyhunter. Replaced with Legendary with Ferocious...",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Ranged bow build; single-target primary with ricochet: each arrow ricochets up to 3 times with the Ruckus modifier to hit additional targets. Weak vs packs historically; has AoE options added in later seasons."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+        "anchor_quote": "Rapid Fire releases 10 arrows per cast to barrage an individual target for devastating single-target damage.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Use Cold Imbuement whenever it is on cooldown. Use Smoke Grenade when you have good positioning. Use Heartseeker when you're low on energy. Keep Dark Shroud up. Spam Dash for repositioning. Spam Rapid Fire till your hands fall off."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/rapid-fire-rogue-guide",
+        "anchor_quote": "Spam Rapid Fire till your hands fall off.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Poison Imbuement variant (single-target/bosser, attested S4 via vulkk.com)",
+            "Cold Imbuement variant (current S14 primary)",
+            "Dual Imbuement variant (Shadow + Poison, attested via vulkk S4)"
+          ]
+        },
+        "source_url": "https://www.vulkk.com/2023/06/13/diablo-4-imbuement-rogue-rapid-fire-build-guide/",
+        "anchor_quote": "Rapid Fire is the majority of our damage and our primary Imbue target.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

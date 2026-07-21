@@ -1,0 +1,226 @@
+{
+  "kit_id": "poe1-low-life-shavs",
+  "spine": {
+    "kit_id": "poe1-low-life-shavs",
+    "folk_name": "Low-Life Shavronne's",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.x;2.x;3.0-3.6",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The reservation warp, the sacrifice-for-power trade, and the aura-stack payload all land on literal engine keys/doors; what generalizes: (a) the ES-pool-substitution survival texture (living on a second pool while life is floored) -- engine defense bins differ, the near-death-but-safe FEEL is approximated by the tradeoff doors; (b) the below-35%-threshold CONDITIONAL structure flattens to a permanent static trade (faithful to lived play, since reservation pins the state); (c) the era-variable damage slot is mapped representatively (fire/RF register), not as a specific spell. A LL-Shavs player would say 'low-life auras, worse' -- the frame holds.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The reservation warp, the sacrifice-for-power trade, and the aura-stack payload all land on literal engine keys/doors; what generalizes: (a) the ES-pool-substitution survival texture (living on a second pool while life is floored) -- engine defense bins differ, the near-death-but-safe FEEL is approximated by the tradeoff doors; (b) the below-35%-threshold CONDITIONAL structure flattens to a permanent static trade (faithful to lived play, since reservation pins the state); (c) the era-variable damage slot is mapped representatively (fire/RF register), not as a specific spell. A LL-Shavs player would say 'low-life auras, worse' -- the frame holds.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "auras on life (reservation frame)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "the kit's 'skill' is the RESERVATION FRAME itself: stack multiple auras reserving life (not mana) until the character sits permanently below the 35% Low Life threshold; the auras are the payload the freed reservation buys. aura = the persistent self-radius presence type"
+        },
+        {
+          "source_skill": "era-variable damage spell (LL RF / LL Spark)",
+          "geometry_value": "circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "the damage slot is ERA-VARIABLE (Righteous Fire self-burn zone, Spark, etc.) -- the Shavronne's + Pain Attunement frame is the constant, per the verified variants record; mapped representatively as the fire-register large-zone spell the corpus row carries (elem_raw=fire, geo_raw=large-AOE), circle = its expanding-zone footprint"
+        }
+      ],
+      "motion_frame": "knife's-edge aura-stacker: reserve life itself down to the low-life line, live there permanently inside a shell of stacked auras and an energy-shield pool, and let the unlocked damage multiplier carry the era's chosen spell",
+      "resource_economy": {
+        "reservation_percent": 0.65,
+        "reservation_resource": "hp"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "DEFENSIVE_TRADEOFF",
+        "SACRIFICE_ASCENDANCY",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "aura presence (stacked)",
+            "era-variable damage spell footprint"
+          ],
+          "economy": [
+            "life-reservation to below the 35% threshold (reservation_percent 0.65 on hp -- within the 0.75 LOCK)",
+            "ES-as-real-pool: econ_raw 'life-reserved-ES-real'"
+          ],
+          "traits_affixes": [
+            "aura-effect (the stacked payload)",
+            "spell-damage (Pain Attunement 30%-more analog)",
+            "energy-shield (defense-lane texture)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "ITEM-KEYSTONE ECONOMY-ARCHETYPE kit (no signature damage skill -- the FRAME is the identity, verified: 'primary spell varies by era; the Shavronne's + Pain Attunement frame is the constant'). Crosswalk s4 names this kit's item CLASS by name: economy-warping (Shavronne's low-life) -> resource_economy keys + DEFENSIVE_TRADEOFF/SACRIFICE_ASCENDANCY when the warp IS the identity -- deterministic row applies, so the ITEM DISSOLVES into reservation_percent=0.65 + reservation_resource=hp (b02 blood-magic-kit precedent for hp-pool economy keys; 0.65 sits under the 0.75 LOCK and pins the character below a 35%-of-life line). Pain Attunement (s5 life/defense-trade row, named) + the low-life sacrifice register -> DEFENSIVE_TRADEOFF + SACRIFICE_ASCENDANCY; the aura-stacking payload ('run auras previously only accessible on ES') -> NETWORK_AMPLIFIER (s5 aura-amp row). THRESHOLD note: the source payoff is conditional-below-35%, but because reservation PINS the character there permanently, the lived experience is a static trade -- which is what the doors model; the knife's-edge framing survives as flavor. Shavronne's chaos-does-not-bypass-ES mechanic solves a SOURCE-GAME problem (chaos/ES bypass) that has no engine analog to break -- nothing to map, recorded here per the epistemics wall. Flag (d) player test: lanes DO express the warp (named s4 row) -> not GAPPED; no docket."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/537555/page/2",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "Low life without shavs = possible (2013 forum thread)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Pain_Attunement",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Pain Attunement — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped eras 1.x, 2.x, and 3.0-3.6",
+      "anchor_quote": "October 2013 (early game patch). Pain Attunement referenced. A commenter references an earlier successful low-life ES build by player 'invalesco' predating Shavs introduction",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/537555/page/2",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Low-Life Shavronne's' and aliases 'LL RF', 'LL Spark(era)' with Occultist/Guardian lineage are real community usage",
+      "anchor_quote": "Low life without shavs = possible. It allows you to run % auras without Shavs, suggesting life-based auras become viable when life is reserved",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/537555/page/2",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core mechanism: auras on life and Pain Attunement; reserve life for 30% more spell damage; Shavronne's Wrappings makes chaos not bypass ES; life-reservation model",
+      "anchor_quote": "Pain Attunement is a keystone passive skill that provides 30% more Spell Damage when on Low Life. Characters can achieve low-life status through life reservation mechanics",
+      "source_url": "https://poedb.tw/us/Pain_Attunement",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.pathofexile.com/forum/view-thread/537555/page/2",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "keystone": "Pain Attunement",
+          "effect": "30% more Spell Damage when on Low Life",
+          "location": "between Witch and Shadow on passive tree"
+        },
+        "source_url": "https://poedb.tw/us/Pain_Attunement",
+        "anchor_quote": "Pain Attunement is a keystone passive skill that provides 30% more Spell Damage when on Low Life",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Shavronne's Wrappings",
+          "item_type": "unique body armour",
+          "mechanic": "chaos damage does not bypass energy shield while on low life",
+          "why_load_bearing": "without Shavs, low-life is lethal to chaos hits; Shavs makes the archetype playable"
+        },
+        "source_url": "https://poedb.tw/us/Pain_Attunement",
+        "anchor_quote": "characters can achieve low-life status through life reservation mechanics like Arrogance Support",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Pain_Attunement",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "equip Shavronne's Wrappings → reserve life to below 35% threshold → Pain Attunement activates (30% more spell damage) → cast primary damage spell → Shavronne's prevents chaos bypassing ES so low-life is survivable → run auras previously only accessible on ES",
+          "key_mechanic": "life-reservation enables low-life status; Shavs prevents chaos-to-life bleedthrough"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/537555/page/2",
+        "anchor_quote": "It allows you to run % auras without Shavs. Pain Attunement: 30% more Spell Damage when on Low Life",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "era_variants": [
+            "LL RF (Righteous Fire low-life)",
+            "LL Spark (Spark spellcaster low-life)"
+          ],
+          "note": "primary spell varies by era; the Shavronne's + Pain Attunement frame is the constant"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/537555/page/2",
+        "anchor_quote": "A commenter references an earlier successful low-life ES build by player 'invalesco' predating Shavs introduction, using Righteous Fire",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

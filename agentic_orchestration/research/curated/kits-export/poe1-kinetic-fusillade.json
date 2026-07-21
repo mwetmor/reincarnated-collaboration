@@ -1,0 +1,234 @@
+{
+  "kit_id": "poe1-kinetic-fusillade",
+  "spine": {
+    "kit_id": "poe1-kinetic-fusillade",
+    "folk_name": "Kinetic Fusillade",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The hovering-projectile halo visual, the 0.05s sequential-release rhythm, and the per-impact explosion AoE generalize to a standard multi-projectile volley with accumulator economy; the per-prior-projectile damage crescendo rides the door, not a per-projectile carrier. Source data is post-cutoff thin (delivery conf 0.3, econ 'unknown') -- re-check if a deeper dossier lands.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The hovering-projectile halo visual, the 0.05s sequential-release rhythm, and the per-impact explosion AoE generalize to a standard multi-projectile volley with accumulator economy; the per-prior-projectile damage crescendo rides the door, not a per-projectile carrier. Source data is post-cutoff thin (delivery conf 0.3, econ 'unknown') -- re-check if a deeper dossier lands.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Kinetic Fusillade",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "wand volley: up to 12 projectiles accumulate hovering around the character, then fire sequentially (0.05s apart) at nearby enemies, exploding on impact; each projectile deals MORE damage per prior projectile fired in the sequence; +3 base chains extend each bolt. Pure-physical wand attack -> element-neutral (physical rule; elem_raw=physical is flavor only); no attested ailment centrality (probe control empty)"
+        }
+      ],
+      "motion_frame": "wand skirmisher: wave the wand to bank a halo of hovering bolts, walk between packs while the fusillade streams out in a crescendo of chained explosions",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "accumulator_max": 12
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile hovering volley (12-cap)",
+            "chain +3 base (post-hit hops)"
+          ],
+          "economy": [
+            "projectile accumulation then sequential auto-fire (0.05s cadence)",
+            "Ballista Totem Support variant = turret-mode delivery (variant, not identity)"
+          ],
+          "traits_affixes": [
+            "physical/attack scaling",
+            "projectile-count",
+            "attack-speed (bank rate)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "POST-CUTOFF WAND VOLLEY kit (3.27 wand rework; era_year REKEYED 2013->2024 at ingest -- the 2013 stamp was a bulk-fill artifact; probe conf capped <=0.5). PHYSICAL RULE applied: element-neutral, no ailment substrate attested. multi_projectile dominant over chain per s7.2 (the fusillade volley is the every-3s act; the +3 chains extend each bolt -- noted in scaffold). The hover-then-sequential-release economy carried as charge_stack accumulator (accumulator_max=12, in-range 0..100; fill-trigger left unset -- generation event unattested, R-M4 shape-only); the per-prior-projectile crescendo -> MOMENTUM_CASCADE (stacking-capped -> THRESHOLD_BURST, verified Layer-2). Single door: post-cutoff-thin kit, doors express only what the source attests (R-M1). Transfigured variant (of Detonation, 3.28) recorded by stage-1; not mapped."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Kinetic_Fusillade",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Kinetic Fusillade — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3876136",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": null,
+      "title": "[3.27] Kinetic Fusillade, the build of the league (Elementalist/Olroth)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/poe/build-guides/kinetic-fusillade-ballista-hierophant-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Kinetic Fusillade Ballista Hierophant League Starter (3.28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in stamped era 3.20+",
+      "anchor_quote": "Kinetic Fusillade was Added a new Intelligence Skill Gem in version 3.27.0",
+      "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Kinetic Fusillade' with Deadeye/wander family class is real community usage",
+      "anchor_quote": "[3.27] Kinetic Fusillade, the build of the league (Elementalist/Olroth)",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3876136",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Kinetic Fusillade; wand attack; multi-spawn projectile delivery; sequential projectiles with scaling damage per prior projectile",
+      "anchor_quote": "fires small deadly projectiles at nearby enemies, these explode when hitting a target. Projectiles deal more Damage per previous Projectile fired in sequence",
+      "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Kinetic Fusillade of Detonation (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Projectiles explode after a short duration rather than firing at enemies; Intelligence variant",
+              "anchor_quote": "After a short duration, the projectiles explode, dealing area damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+        "anchor_quote": "After a short duration, the projectiles explode, dealing area damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "Kinetic Fusillade of Detonation (transfig gem)",
+              "type": "transfigured_gem",
+              "effect": "Projectiles explode dealing area damage rather than firing at enemies; Intelligence variant (added v3.28.0)",
+              "anchor_quote": "After a short duration, the projectiles explode, dealing area damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+        "anchor_quote": "After a short duration, the projectiles explode, dealing area damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile (wand projectiles)",
+          "footprint": "multi-point (sequential blasts at multiple targets)",
+          "projectile_count": "up to 12 hovering simultaneously",
+          "chain_count": "+3 chains base",
+          "range_note": "targets nearby enemies; explosions on impact create AoE"
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+        "anchor_quote": "can maintain up to 12 hovering projectiles simultaneously. chain to further targets with a baseline of +3 chains",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "wave wand → up to 12 projectiles hover → fire sequentially with 0.05s delay between each → each projectile deals more damage per prior projectile fired → explosions on impact → chain to additional targets (+3 base chains)",
+          "ballista_variant": "Ballista Totem Support for turret-mode; attack speed must be slower than total skill duration"
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+        "anchor_quote": "fires small deadly projectiles at nearby enemies, these explode when hitting a target. Projectiles deal more Damage per previous Projectile fired in sequence",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Kinetic Fusillade of Detonation (3.28 transfigured)"
+          ],
+          "variant_source": "poedb"
+        },
+        "source_url": "https://poedb.tw/us/Kinetic_Fusillade",
+        "anchor_quote": "Kinetic Fusillade of Detonation was subsequently introduced in patch 3.28.0",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

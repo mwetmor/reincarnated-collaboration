@@ -1,0 +1,199 @@
+{
+  "kit_id": "d3-call-of-the-ancients",
+  "spine": {
+    "kit_id": "d3-call-of-the-ancients",
+    "folk_name": "Call of the Ancients Barbarian",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": null,
+    "canon_tier": null,
+    "eras": "vanilla;set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — engine has no autonomous pet combatant lane. Three-ancient warrior army identity (Talic/Korlic/Madawc) is entirely unrepresentable. placed-proxy-count accrual only.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build — engine has no autonomous pet combatant lane. Three-ancient warrior army identity (Talic/Korlic/Madawc) is entirely unrepresentable. placed-proxy-count accrual only.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Call of the Ancients",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons three named autonomous warrior combatants (Talic: whirlwind, Korlic: leap, Madawc: multi-hit); each deals 270% weapon damage per swing; autonomous combatants = summoner GAP per §CROSS row 2 army GAP hot-fact; weapon damage = physical → element null per physical rule"
+        }
+      ],
+      "motion_frame": "Cooldown-summon three ancient warrior NPCs; used in IK HotA as permanent support via IK 4pc CDR; Together as One rune for party mitigation",
+      "resource_economy": {
+        "cooldown": "primary-gate; 20-second duration; IK 4pc CDR (3 seconds per 10 Fury spent) enables near-permanent uptime"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "IK 4pc CDR sustains permanent CotA uptime",
+            "Boon of Bul-kathos passive CDR"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SUMMONER GAP — autonomous army combatants have no engine lane per §CROSS row 2 (army GAP hot-fact BINDING). Kit's loop IS the summon of autonomous combatants: R-M7 biconditional → GAPPED. placed-proxy-count family accrual filed (three named warriors). Weapon damage = physical → element null per physical rule. No ailment attested. Kit also used as IK HotA sub-loop component but the kit_id is CotA-standalone. t4_doors null per GAPPED/doorless rule (BINDING — MW1-close amendment)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Rob",
+      "title": "Diablo 3 Season 39 Immortal King HotA Barbarian Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://eu.diablo3.blizzard.com/en-us/class/barbarian/active/call-of-the-ancients",
+      "archive_url": null,
+      "site": "blizzard.com",
+      "author_handle": null,
+      "title": "Call of the Ancients - Diablo III Game Guide",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Call of the Ancients Barbarian' and aliases 'Call of Ancients Barb', 'CoTA Barbarian', 'Ancients Support Barb' are real community usage",
+      "anchor_quote": "Summon the ancient Barbarians Talic, Korlic, and Madawc to fight alongside you for 20 seconds",
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/barbarian/active/call-of-the-ancients",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Call of the Ancients; summoned warrior minion delivery",
+      "anchor_quote": "Summon the ancient Barbarians Talic, Korlic, and Madawc to fight alongside you for 20 seconds. Each deals 270% weapon damage per swing in addition to bonus abilities",
+      "source_url": "https://eu.diablo3.blizzard.com/en-us/class/barbarian/active/call-of-the-ancients",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "CotA as support skill — no dedicated class set; used within IK HotA context; IK 6pc bonus requires both CotA and WotB active for 4000% damage"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "Immortal King's Call (6) Bonus for the damage buff and cooldown reducing mechanics",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Boon of Bul-kathos (passive)",
+            "Immortal King set (4pc CDR)"
+          ],
+          "notes": "CotA is support skill in IK HotA context; no standalone CotA legendary items"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/ik-hota-barbarian-guide",
+        "anchor_quote": "Call of the Ancients Together as One...keep Wrath of the Berserker and Call of the Ancients Together as One up at all times",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "summon",
+          "footprint": "melee-cleave",
+          "notes": "Summoned Ancients fight autonomously; no explicit geometry on summoning act"
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/barbarian/active/call-of-the-ancients",
+        "anchor_quote": "Each deals 270% weapon damage per swing in addition to bonus abilities",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cooldown-based summoning of three ancient warrior NPCs (Talic, Korlic, Madawc); used in IK HotA build for permanent uptime via IK 4pc CDR; Together as One rune for damage mitigation"
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/barbarian/active/call-of-the-ancients",
+        "anchor_quote": "Summon the ancient Barbarians Talic, Korlic, and Madawc to fight alongside you for 20 seconds. Each deals 270% weapon damage per swing",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "IK HotA support role",
+            "Together as One (mitigation rune)",
+            "Ancients' Fury (Fury generation rune)"
+          ]
+        },
+        "source_url": "https://eu.diablo3.blizzard.com/en-us/class/barbarian/active/call-of-the-ancients",
+        "anchor_quote": "Each deals 270% weapon damage per swing in addition to bonus abilities",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

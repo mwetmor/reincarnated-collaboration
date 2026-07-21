@@ -1,0 +1,243 @@
+{
+  "kit_id": "chr-frost-berserker",
+  "spine": {
+    "kit_id": "chr-frost-berserker",
+    "folk_name": "Frost Shatter Berserker",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "moderate",
+    "eras": "ea-2015-2019;1.0-2020",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "freeze"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Glacial Roll / frost melee strikes (frost stack application)",
+          "geometry_value": "melee_strike",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Cold/frost CONFIRMED: 'Frost Damage focused build'; 'ice damage'; 'you need to freeze it before killing it'. Water family per §1 (cold/ice/frost register). Freeze attested: 'you need to freeze it before killing it; you need to freeze it before killing it' (setup-payoff mechanic). Chill (movement-slow) is a §0 near-miss: frost stacks imply slow but no explicit '-X% movement speed' text in fetched dossier — holding chill=null, honest empty."
+        },
+        {
+          "source_skill": "Shattering Cold / Shatter Storm (freeze-burst detonation)",
+          "geometry_value": "circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "freeze"
+          ],
+          "delivery_notes": "Burst on frozen target: 'Shattering Cold (berserker)... Icebergs fists item increases Shattering Cold damage and gives it an AOE effect'. circle geometry (AoE shatter). 'Shatter Storm is tricky because if you one-shot an enemy with ice damage it won't trigger; you need to freeze it before killing it' — confirms freeze-then-shatter sequence."
+        },
+        {
+          "source_skill": "Frost Winds tornado (Glacial Roll proc)",
+          "geometry_value": "whirlwind",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'each Glacial Roll activation having a chance to create a single Frost Winds tornado' — tornado AoE whirlwind. Frost (water) element by context; no explicit 'deals cold damage' for Frost Winds specifically — attested by frost-element build context."
+        }
+      ],
+      "motion_frame": "Melee frost strikes apply frost stacks → freeze threshold triggers Shattering Cold shatter burst (circle) → Shatter Storm propagates to nearby frozen targets on-kill → Frost Winds tornadoes proc from Glacial Roll → Rage Release triggered by tornadoes; Rage built from hits, spent on frost strikes.",
+      "resource_economy": {
+        "cost_scale": "rage",
+        "cost_slope": "builds on-hit (Ancestral Rage rune: generates Rage twice per hit); spent on frost strike activation / Rage Release",
+        "regen_shape": "hit-to-fill"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "freeze applied to enemy (setup phase)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Shattering Cold AoE radius (Icebergs fists); Frost Winds tornado spawn rate"
+          ],
+          "economy": [
+            "Rage generation rate (Ancestral Rage rune); Rage Release timing"
+          ],
+          "traits_affixes": [
+            "frost damage priority enchant; Northern Rage set (Frostbound damage amp); Icebergs fists (Shattering Cold AoE + damage); Frostskin Heritage (resistances)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Cold/freeze CONFIRMED across all three claim families. Water family per §1 (cold/ice/frost register). Freeze setup-payoff fully attested. Chill ailment is a §0 near-miss: frost stacks presumably slow enemies but no explicit movement-slow text in fetched dossier — §0-UNIVERSAL binds, status must be NAMED. Two-tier-accumulator shape: frost stacks → freeze threshold → shatter burst (setup-payoff chain); filing accrual WITHOUT numbers. Ancestral Rage rune generates Rage twice per hit (Rage-doubler unique mechanic) noted in economy. Grade EXACT: freeze-then-shatter setup-payoff maps cleanly; Rage resource maps; frost element CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1262498039",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Northern Rage Berserker guide for all Anomaly levels (v0.81)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2238730018",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Berserker - Frigid Roar Build",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ea-2015-2019; 1.0-2020",
+      "anchor_quote": "Chronicon entered Steam Early Access in August 2015... 1.0 is live! Full release! [August 2020]",
+      "source_url": "https://rawg.io/games/chronicon",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Frost Shatter Berserker accumulates frost stacks then detonates in burst shatter explosion; cold damage type",
+      "anchor_quote": "Shatter Storm is tricky because if you one-shot an enemy with ice damage, it won't trigger; you need to freeze it before killing it... Shattering Cold (berserker) ... Icebergs fists item increases Shattering Cold damage",
+      "source_url": "https://steamcommunity.com/app/375480/discussions/1/3247565033764834989/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core skills: frost tree suite, Shattering Cold; Rage resource; cold/frost damage; Northern Rage set; armor/hp-stack defense",
+      "anchor_quote": "Frost Damage focused build... Shattering Cold... Northern Rage... Rage Release... Rage meter that builds up and is used for moves",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1262498039",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_id": "1262498039",
+          "version": "v0.81"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1262498039",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Frostborn mastery tree; Frostskin Heritage for resistances; Ancestral Rage rune for generating Rage twice per hit"
+        },
+        "source_url": "https://steamah.com/chronicon-cast-on-hit-earthshatter-berserker-build/",
+        "anchor_quote": "This lets us generate Rage twice a hit which means we can take advantage of Rage Release without having to use a Northern Rage set",
+        "abstained": 0,
+        "conf": 0.65
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Northern Rage",
+          "bonuses": [
+            "Frostbound damage amplification",
+            "Icebergs fists: increases Shattering Cold damage and gives it AoE effect",
+            "frost damage enchant priority on gear"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/144512526672306030/",
+        "anchor_quote": "Icebergs fists item increases Shattering Cold damage and gives it an AOE effect, and Northern Rage is related to Frostbound's damage",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "value": "point melee strikes apply frost; shatter burst small AoE around frozen target; Frost Winds tornado AoE"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/144512526672306030/",
+        "anchor_quote": "each Glacial Roll activation having a chance to create a single Frost Winds tornado",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Melee strikes apply frost stacks; accumulate to freeze threshold; Shattering Cold / Shatter Storm detonates frozen targets for burst cold AoE; Rage Release triggered by frost tornadoes (Frost Winds); Rage built from hits and spent on frost strikes; repeat cycle"
+        },
+        "source_url": "https://steamcommunity.com/app/375480/discussions/5/144512526672306030/",
+        "anchor_quote": "Shatter Storm is tricky because if you one-shot an enemy with ice damage it won't trigger; you need to freeze it before killing it",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Northern Rage standard frost shatter (v0.81+)",
+            "Frigid Roar Berserker (1.00.6, high-survivability)",
+            "Cast-on-hit Earthshatter variant (avoids Northern Rage set via dual-hit Rage gen)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2238730018",
+        "anchor_quote": "Northern Rage... Frigid Roar ability and the Northern Rage set that has both high damage and good survivability",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "kit_id": "chr-firestorm-warlock",
+  "spine": {
+    "kit_id": "chr-firestorm-warlock",
+    "folk_name": "Sun & Moon Firestorm Warlock",
+    "game": "chronicon",
+    "corpus_bucket": "chronicon",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "ancient-beasts-dlc;current-1.52",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Sun+Moon bidirectional cross-proc (fire cast → 3x frost amp for 7s; frost cast → 3x fire amp for 7s) exceeds engine trigger_grammar depth — single-direction apply-consume-pair is the best approximation; the cross-reinforcement loop is source-unique. Ritual of Souls soul-stack to 480% scaling has no direct engine analog. Player gets a fire large-AoE spam build, missing the cross-proc peak-state amplification.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire",
+      "water"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Sun+Moon bidirectional cross-proc (fire cast → 3x frost amp for 7s; frost cast → 3x fire amp for 7s) exceeds engine trigger_grammar depth — single-direction apply-consume-pair is the best approximation; the cross-reinforcement loop is source-unique. Ritual of Souls soul-stack to 480% scaling has no direct engine analog. Player gets a fire large-AoE spam build, missing the cross-proc peak-state amplification.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Firestorm / Hell Pit (primary fire spam)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": "water",
+          "delivery_notes": "Fire CONFIRMED: 'Fire Storm is explicitly identified as a fire skill'; 'over 2000% fire damage increase'; 'gameplay consists of spamming Hell Pit, Fire Storm'. Hell Pit = long-range single-target/AoE; Firestorm = at-target large-zone rain. element_secondary=water (frost): 'frost damage 3 times when you cast a fire spell' — frost is a genuine damage element in the cross-proc; water family per §1. Sun+Moon Relic cross-proc makes both fire and frost genuine damage elements. Fire is dominant scaling (2000%+ fire damage increase).",
+          "ailments": []
+        },
+        {
+          "source_skill": "Soul Warp (mobility dash / Sun+Moon cross-proc trigger)",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'dashing with Soul Warp to reposition and trigger Sun+Moon cross-proc' — mobility blink. No damage-type attested for Soul Warp itself."
+        },
+        {
+          "source_skill": "Demon Spawn (supplemental cast)",
+          "geometry_value": "single_target",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'spamming Hell Pit, Fire Storm and Demon Spawn on cooldown' — Demon Spawn is part of the fire-spam rotation. Fire element applies by context of fire-skill loop (fire damage build); no direct damage-type descriptor specific to Demon Spawn in fetched text — noted."
+        }
+      ],
+      "motion_frame": "Spam Firestorm/Hell Pit/Demon Spawn on cooldown; maintain max soul stack with Ritual of Souls (480% scaling at max); dash with Soul Warp to trigger Sun+Moon cross-proc (fire cast triples frost dmg; frost cast triples fire dmg, lasting 7s); Burning Hells Regalia amplifies Combustion/Firestorm chain.",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "cost_slope": "soul accumulation via Soul Warp and kills; Ritual of Souls converts souls to stat bonuses (480% at max — two-tier accumulator: souls → scaling bonus)",
+        "regen_shape": "kill-to-fill + mobility-trigger"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Sun+Moon Relic cross-proc (fire-cast → frost amp; frost-cast → fire amp, 7s duration)",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "RESONANCE_LOOP",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Firestorm zone size; Hell Pit range"
+          ],
+          "economy": [
+            "soul-stack cap; Ritual of Souls consumption rate; mana cost of spam rotation"
+          ],
+          "traits_affixes": [
+            "fire damage bonus (2000%+); Burning Hells Regalia set (Combustion nuclear; elemental-to-fire conversion); Sun+Moon Ring+Necklace cross-proc multipliers; Boomstick weapon (Combustion scaling)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire CONFIRMED x3 (identity/mechanics/era). element_secondary=water (frost) per Sun+Moon cross-proc: 'multiply your frost damage 3 times when you cast a fire spell' — frost is a genuine typed damage element in this build, not just a skill name. Fire dominant. Ritual of Souls two-tier-accumulator: soul-count → scaling bonus (filing accrual WITHOUT numbers). Sun+Moon cross-proc is a unique trigger_grammar structure (apply-consume-pair on-cast-linked, bidirectional): fire cast buffs frost, frost cast buffs fire — approximated in trigger_grammar as apply-consume-pair; the exact bidirectional 7s window has no clean engine analog (single depth=1 trigger_grammar). GX-05 corpus flag consistent with soul-reservoir economy. Grade CLOSE: fire spam maps well; Sun+Moon bidirectional cross-proc and soul-reservoir scaling are source-unique fidelity gaps."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3398273798",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Sun & Moon Firestorm Warlock. [1.52.0+DLC][T700+]",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://smattymattyca.wordpress.com/2022/03/20/chronicon-warlock-build-guide-sun-moon-deathbringer/",
+      "archive_url": null,
+      "site": "smattymattyca.wordpress.com",
+      "author_handle": "smattymatty",
+      "title": "Chronicon Warlock Build Guide - Sun & Moon Deathbringer",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamah.com/chronicon-burning-hells-warlock-build/",
+      "archive_url": null,
+      "site": "steamah.com",
+      "author_handle": "unknown",
+      "title": "Chronicon Burning Hells Warlock Build",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "ancient-beasts-dlc; current-1.52",
+      "anchor_quote": "Ancient Beasts DLC launched February 25th, 2022... [1.52.0+DLC][T700+]",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3398273798",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Firestorm Warlock uses Sun and Moon Relic skills for fire proc-chain; Firestorm skill; fire damage type",
+      "anchor_quote": "Firestorm spam warlock using sun & moon... Fire Storm is explicitly identified as a fire skill... over 2000% fire damage increase",
+      "source_url": "https://steamah.com/chronicon-burning-hells-warlock-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core skills: Firestorm, Ritual of Souls, Soul Warp; Sun+Moon Relic proc-chain; fire damage; Mana+Souls resource; ancient-beasts-dlc",
+      "anchor_quote": "gameplay consists of spamming Hell Pit, Fire Storm and Demon Spawn on cooldown, while keeping as many souls as possible with Ritual of Souls and dashing with Soul Warp",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3398273798",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "smattymatty",
+          "site": "smattymattyca.wordpress.com",
+          "url": "https://smattymattyca.wordpress.com/2022/03/20/chronicon-warlock-build-guide-sun-moon-deathbringer/"
+        },
+        "source_url": "https://smattymattyca.wordpress.com/2022/03/20/chronicon-warlock-build-guide-sun-moon-deathbringer/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "note": "Ritual of Souls: scales damage and defense via soul consumption up to 480% at max stacks; souls generated by Soul Warp and kills"
+        },
+        "source_url": "https://smattymattyca.wordpress.com/2022/03/20/chronicon-warlock-build-guide-sun-moon-deathbringer/",
+        "anchor_quote": "Ritual of Souls converts souls into stat bonuses scaling to 480% at maximum stacks",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Regalia of Burning Hells",
+          "bonuses": [
+            "Combustion becomes nuclear bomb via set",
+            "converts elemental damage bonuses to fire damage",
+            "Sun+Moon Ring+Necklace multiply frost damage 3x on fire cast; fire damage 3x on frost cast; lasting 7 seconds",
+            "Boomstick weapon: Combustion damage based on Flaming Hells remaining duration"
+          ]
+        },
+        "source_url": "https://smattymattyca.wordpress.com/2022/03/20/chronicon-warlock-build-guide-sun-moon-deathbringer/",
+        "anchor_quote": "Wearing both the Ring and Necklace will multiply your frost damage 3 times when you cast a fire spell, and your fire damage when you cast a frost spell, lasting 7 seconds",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "value": "at-target large-zone fire storm; Hell Pit is long-range; Sun fires high-damage burst at target; Moon provides sustained coverage zone"
+        },
+        "source_url": "https://steamah.com/chronicon-burning-hells-warlock-build/",
+        "anchor_quote": "Fire Storm for close range, Hell Pit for long range/bosses, Warp for mobility",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Spam Firestorm/Hell Pit/Demon Spawn on cooldown; maintain max soul stack with Ritual of Souls; dash with Soul Warp to reposition and trigger Sun+Moon cross-proc; Sun+Moon Relics multiply fire damage 3x when casting frost spell and vice versa; Burning Hells set amplifies Combustion/Firestorm chain"
+        },
+        "source_url": "https://steamah.com/chronicon-burning-hells-warlock-build/",
+        "anchor_quote": "gameplay consists of spamming Hell Pit, Fire Storm and Demon Spawn on cooldown, while keeping as many souls as possible with Ritual of Souls and dashing with Soul Warp",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Sun+Moon Firestorm Warlock (fire-dominant, T700+, v1.52+DLC)",
+            "Sun+Moon Deathbringer Warlock (frost-dominant, uses fire cross-proc, Ancient Beasts DLC)",
+            "Burning Hells Fire Warlock (pre-DLC, v0.62)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3398273798",
+        "anchor_quote": "Sun multiplying the damage by 3, resulting in damage in the billions",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "kit_id": "d2-firewall-sorc",
+  "spine": {
+    "kit_id": "d2-firewall-sorc",
+    "folk_name": "Firewall Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod-1.09",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Fire Wall",
+          "geometry_value": "placed_lane",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Wall expands from cursor at right angle to character direction — placed perpendicular lane of fire. Per-tick fire damage to anything walking through. Reposition via Teleport, chain casts at new angles for coverage."
+        }
+      ],
+      "motion_frame": "Cast Fire Wall as perpendicular placed lane at chokepoint or pack location; Teleport to reposition; chain Fire Wall casts at new angles to maintain coverage",
+      "resource_economy": {
+        "cost_scale": "mana-mid",
+        "cadence_scale": "chain-placed-lane-cycling"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Teleport (1-point utility repositioning)"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Fire Mastery passive; no synergy system in 1.09 era — era-canon kit"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "1.09 era-canon (dominant pre-synergy). Fire Wall placed_lane geometry is the exact map — wall-at-right-angle perpendicular delivery is the engine's placed_lane. No ailments attested in fetched dossier. Modern D2R variant (S14 descendant) same loop. Capstone_alterations and item_alterations dossier families returned empty (abstained) — no runeword/unique data in DB for this kit; maps cleanly on skill_loop+skill_geometry alone."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/fire-wall-sorceress-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Fire Wall Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://themovingcaravan.com/threads/1-09-leveling-guide-lod-and-classic.256/",
+      "archive_url": null,
+      "site": "themovingcaravan.com",
+      "author_handle": null,
+      "title": "1.09 Leveling guide (LoD and Classic)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20090324044015/http://classic.battle.net:80/diablo2exp/skills/sorceress-fire.shtml",
+      "archive_url": "http://web.archive.org/web/20090324044015/http://classic.battle.net:80/diablo2exp/skills/sorceress-fire.shtml",
+      "site": "classic.battle.net (Arreat Summit via Wayback)",
+      "author_handle": "Blizzard Entertainment (official)",
+      "title": "The Arreat Summit - Skills: Sorceress Fire Spells",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.09 era",
+      "anchor_quote": "Fire Wall [18]...Prerequisites: Inferno [6], Blaze [12]",
+      "source_url": "http://web.archive.org/web/20090324044015/http://classic.battle.net:80/diablo2exp/skills/sorceress-fire.shtml",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Firewall Sorceress' and aliases 'Fire Wall Sorc', 'Firewall Sorc 1.09' are real community usage",
+      "anchor_quote": "Fire Wall Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "source_url": "https://maxroll.gg/d2/guides/fire-wall-sorceress-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Fire Wall, Teleport",
+      "anchor_quote": "Fire Wall: I believe this skill is the single highest damaging skill in 1.09",
+      "source_url": "https://themovingcaravan.com/threads/1-09-leveling-guide-lod-and-classic.256/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://themovingcaravan.com/threads/1-09-leveling-guide-lod-and-classic.256/",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Fire Wall: line/lane delivery — wall expands at right angle from cursor position relative to character. Fire Wall is NOT point-and-click on a monster; wall placed at cursor, expanding perpendicular. Lane footprint. Fire Wall geometry per source: 'when a player casts Fire Wall, the wall expands from the cursor at a right angle to the character.'"
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-wall-sorceress-guide",
+        "anchor_quote": "when a player casts Fire Wall, the wall expands from the cursor at a right angle to the character",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Fire Wall as a line of fire at enemy location or chokepoint. Fire Wall deals massive per-tick fire damage to anything walking through it. Reposition with Teleport. Chain Fire Wall casts at new angles to maintain coverage. Pre-1.10 dominant before synergy system made other builds viable."
+        },
+        "source_url": "https://themovingcaravan.com/threads/1-09-leveling-guide-lod-and-classic.256/",
+        "anchor_quote": "Fire Wall: I believe this skill is the single highest damaging skill in 1.09...still fantastic in the Cow Level",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Firewall Sorc 1.09 (Fire Wall + Fire Mastery; dominant pre-synergy)",
+            "Firewall/Thunderstorm hybrid (1.09b — Fire Wall primary + Thunderstorm secondary for lightning coverage per Neoseeker guide title)",
+            "Modern Firewall Sorc D2R (fire-wall with Inferno or other secondary; current S14 variant per Maxroll)"
+          ],
+          "notes": "1.09 is the defining era for this kit; modern D2R version exists but is a descendant, not the canon version."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/fire-wall-sorceress-guide",
+        "anchor_quote": "Fire Wall Sorceress Endgame Build Guide for Diablo II: Resurrected Season 14",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

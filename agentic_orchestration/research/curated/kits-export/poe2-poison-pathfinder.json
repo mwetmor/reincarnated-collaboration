@@ -1,0 +1,267 @@
+{
+  "kit_id": "poe2-poison-pathfinder",
+  "spine": {
+    "kit_id": "poe2-poison-pathfinder",
+    "folk_name": "Poison Pathfinder",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the Pathfinder flask-charge-on-kill engine (extra charges on kill -> near-permanent flask uptime that POWERS poison scaling) is approximated as an on_kill recovery key + flask-effect traits; the specific flask-uptime-drives-damage coupling is softened. The one-button poison-explosion clear + place/detonate boss burst identity is preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 6,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the Pathfinder flask-charge-on-kill engine (extra charges on kill -> near-permanent flask uptime that POWERS poison scaling) is approximated as an on_kill recovery key + flask-effect traits; the specific flask-uptime-drives-damage coupling is softened. The one-button poison-explosion clear + place/detonate boss burst identity is preserved.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poisonburst Arrow",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "bow projectile that EXPLODES on impact, poisoning all nearby enemies in a small radius ('fires Projectiles that explode and Poison all nearby enemies'). One-button mapping clear. The projectile spine folds into the impact explosion; the every-3-seconds loop (7.2) is fire-arrow-into-pack -> small poison detonation -> ground_targeted_circle. poison ailment core. element earth per Section-1 chaos-poison branch: nature/venom poison-bow -> earth (PoE1 pconc venom->earth precedent), ailment lane = poison."
+        },
+        {
+          "source_skill": "Gas Arrow + Toxic Growth (boss burst combo)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Toxic Growth places ground pustule clusters; Gas Arrow creates standing poison clouds and DETONATES the pustules for boss burst ('combines Gas Arrow and Toxic Growth to obliterate bosses'). Placed ground-cloud zone -> ground_targeted_circle. Two-stage place-then-detonate; secondary boss loop per 7.2. R-M6 (drift-tick cloud -> ground zone + note): the gas cloud is a standing DoT patch."
+        }
+      ],
+      "motion_frame": "poison bow: one-button Poisonburst Arrow explodes packs into poison for mapping; for bosses, seed the ground with Toxic Growth pustules and detonate them with Gas Arrow -- Pathfinder flask-charge-on-kill keeps flasks (and poison scaling) running near-permanently",
+      "resource_economy": {
+        "cost_scale": "mana per arrow",
+        "on_kill_frac": "Flask Charges regenerate on kill (Pathfinder specialty) -> near-permanent flask uptime powering poison scaling"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Toxic Growth pustules (placed, then detonated by Gas Arrow)",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "projectile -> small poison explosion on impact (ground_targeted_circle)",
+            "placed pustule clusters + gas-cloud ground zones"
+          ],
+          "economy": [
+            "mana per arrow",
+            "flask-charge-on-kill -> near-permanent uptime (Pathfinder)"
+          ],
+          "traits_affixes": [
+            "poison magnitude / stacks",
+            "chaos/poison DoT %",
+            "flask-effect scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "No GX flag. Element routed per Section-1 chaos-poison branch: elem_raw=chaos BUT the kit is a nature/venom poison-BOW (Pathfinder, plants/toxin) -> earth (Section-1: earth when nature/venom-themed; PoE1 pconc venom->earth precedent), ailment lane=poison. Alternative shadow reading noted (chaos-corruption) but venom/flask/nature Pathfinder framing dominates -> earth wins. PERSISTENCE_ENGINE_saturation routes stacking-poison uptime; ZONE_CONTROL routes the Gas-Arrow/Toxic-Growth boss zones. Pathfinder flask-charge-on-kill -> on_kill_frac. eras 0.1-0.4 CONFIRMED. probe 'slow' = poison-cloud movement debuff, not separately mapped (poison is the identity)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Crouching_Tuna",
+      "title": "Poisonburst Arrow Pathfinder Build Guide - Path of Exile 2 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/gas-arrow-pathfinder-poe2-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[0.1.1]Gas Arrow Pathfinder - POE2 Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.mmojugg.com/news/poe2-040-build-recommendation-poisonburst-pathfinder-from-fubgun.html",
+      "archive_url": null,
+      "site": "mmojugg.com",
+      "author_handle": null,
+      "title": "PoE2 0.4.0 Build Recommendation: Poisonburst Pathfinder from Fubgun",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": "[0.1.1]Gas Arrow Pathfinder - POE2 Build Guide",
+      "source_url": "https://odealo.com/articles/gas-arrow-pathfinder-poe2-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "Poison Pathfinder ... PoE 2 Best Ritualist Leveling (Bleed Huntress) Build in 0.2 Dawn of the Hunt [related release coverage confirms continued meta]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "PoE 2 0.3 ... Poison Pathfinder is a powerful and fast bow build [confirmed across multiple patches]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.4",
+      "anchor_quote": "PoE2 0.4.0 Build Recommendation: Poisonburst Pathfinder from Fubgun",
+      "source_url": "https://www.mmojugg.com/news/poe2-040-build-recommendation-poisonburst-pathfinder-from-fubgun.html",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Poison Pathfinder' and aliases 'Poisonburst Arrow Pathfinder', 'Gas Arrow poison combo', 'poison bow Pathfinder' are real community usage",
+      "anchor_quote": "Poisonburst Arrow Pathfinder Build Guide for Path of Exile 2 Return of the Ancients 0.5.4 | Maxroll.gg",
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Poisonburst Arrow fires projectile that explodes applying poison AOE; Gas Arrow creates poison clouds; Pathfinder flask charge generation on kill",
+      "anchor_quote": "Poisonburst Arrow fires Projectiles that explode and Poison all nearby enemies. Gas Arrow creates overlapping clouds to stack multiple Poisons on the pustules to explode them.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Crouching_Tuna",
+          "site": "maxroll.gg",
+          "role": "PoE Franchise Director"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+        "anchor_quote": "Crouching_Tuna - PoE Franchise Director",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Pathfinder (Ranger ascendancy)",
+          "note": "Pathfinder specialty: flask charges regenerate on kill enabling near-permanent flask uptime. Flask effects power Poison scaling. Relentless Pursuit grants complete immunity to slowing effects."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+        "anchor_quote": "complete immunity to ALL slowing effects thanks to Relentless Pursuit",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Projectile (ranged bow shot) → small-radius explosion on impact applying poison. Gas Arrow creates standing ground clouds (medium zone). Toxic Growth places ground pustules.",
+          "range": "ranged projectile → small-radius explosion; additional ground AoE from Gas Arrow clouds"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+        "anchor_quote": "Poisonburst Arrow fires Projectiles that explode and Poison all nearby enemies",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Poisonburst Arrow for one-button pack clear — projectile explodes poisoning all nearby enemies. Use Toxic Growth to place pustule clusters, then Gas Arrow to poison and detonate them for boss burst. Pathfinder generates extra flask charges on kill enabling near-permanent flask uptime.",
+          "resource": "Mana + Flask Charges"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+        "anchor_quote": "Poisonburst Arrow for one-button clear when mapping and combines Gas Arrow and Toxic Growth to obliterate bosses",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Poisonburst Arrow primary (one-button mapping)",
+            "Gas Arrow + Toxic Growth boss kill variant",
+            "Poison leveling Pathfinder (campaign progression form)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/poisonburst-arrow-pathfinder",
+        "anchor_quote": "Poisonburst Arrow Pathfinder Build Guide ... Poison Gas Arrow Pathfinder Endgame Build Guide",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

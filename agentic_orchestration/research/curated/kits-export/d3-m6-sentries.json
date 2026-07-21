@@ -1,0 +1,257 @@
+{
+  "kit_id": "d3-m6-sentries",
+  "spine": {
+    "kit_id": "d3-m6-sentries",
+    "folk_name": "Marauder Sentries",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "ros-early;set-era;late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11 GX-19",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the 5-sentry simultaneous-fire identity — engine totem fires independently; here all 5 fire on-cast-linked in exact sync with player; the simultaneity is the identity; (2) pack-positioning relative to placed turrets as the primary skill expression — kiting enemies into pre-placed kill zones is the gameplay loop that engine can approximate but not enforce.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 5,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) the 5-sentry simultaneous-fire identity — engine totem fires independently; here all 5 fire on-cast-linked in exact sync with player; the simultaneity is the identity; (2) pack-positioning relative to placed turrets as the primary skill expression — kiting enemies into pre-placed kill zones is the gameplay loop that engine can approximate but not enforce.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sentry (Spitfire Turret rune)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Placed stationary turret; each Sentry fires hatred spender when player does; attested: 'Sentries fire a Hatred Spender when you do. Sentry always shoots towards the closest enemy within line of sight'; up to 5 sentries (7 with Rucksack) placed around enemy cluster"
+        },
+        {
+          "source_skill": "Cluster Arrow (Loaded for Bear rune)",
+          "geometry_value": "multi_projectile",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hatred spender fired by both player and all Sentries on player cast; large AoE delivery; attested: 'Sentries fire hatred spender when player does' — player casts Cluster Arrow once; all 5 sentries also fire simultaneously"
+        },
+        {
+          "source_skill": "Strafe",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Generator spam activating Sentries' firing cycle; keeps Sentries active; attested: 'Strafe activates the generator spam that keeps Sentries firing'"
+        },
+        {
+          "source_skill": "Vengeance",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cooldown management for Discipline; defensive buff layer during Sentry deployment window"
+        }
+      ],
+      "motion_frame": "Place 5 Sentries around enemy cluster; kite enemies into Sentry kill zone; Strafe to activate Sentry firing; cast Cluster Arrow — all Sentries fire simultaneously; maintain Bat Companion for Hatred regen",
+      "resource_economy": {
+        "resource_type": "Hatred",
+        "secondary_resource": "Discipline",
+        "generator": "Strafe (Hatred generator) + Bat Companion passive regen",
+        "spend_pattern": "Cluster Arrow Hatred spend mirrored by all active Sentries; 47,500% multiplier with 5 turrets; Sentry placement costs Hatred"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Sentry placement geometry; 5-turret coverage zone; Cluster Arrow spread per turret"
+          ],
+          "economy": [
+            "Hatred management; Discipline for Vengeance; Sentry cooldown; Bat Companion regen"
+          ],
+          "traits_affixes": [
+            "fire element scaling; Hatred cost reduction (attested: 'Yang's Recurve (50% Resource Cost Reduction)'); set multiplier scaler (47,500% at 5 turrets)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: fire — attested: corpus elem_raw 'fire'; Hatred spenders are fire-register in D3 DH context; 'Bindings of the Lesser Gods (+600% for Fire)' in item_alterations confirms fire primary. PROXY_SOVEREIGNTY T4: multiple turret-proxies firing simultaneously at full player-delegated output (5-sentry army is the sovereignty pattern). Trigger grammar: on-cast-linked (Sentry fires when player fires — a direct mirroring trigger). Set multiplier (47,500%) scaler-only per §B row 1; no skills[] footprint. No ailments attested in fetched dossier for Sentry or Cluster Arrow outputs. Totem-vs-companion two-lane carries: Sentries = stationary placed emitters = totem geometry (not autonomous pet-combatant GAP). [STEWARD-AUDIT 2026-07-18 MW3-close: STRIKE #14 fire->null x4: cited grounds were 'corpus elem_raw' (probe = ILLEGAL) + a 'Bindings of the Lesser Gods (+600% for Fire)' quote NOT in this kit's store (cross-kit splice — that line is inna-allies material). m6 store's only 'fire' tokens are auto-fire/fires verb + Spitfire name contexts; zero fire-DAMAGE language. Physical rule: element-neutral; turret identity carries via geometry+proxy lanes.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "wudijo",
+      "title": "Marauder Sentry Demon Hunter Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: ros-early",
+      "anchor_quote": "dominated the leaderboards during Season 1 thanks to the auto-firing Sentries in combination with the 'Slowball' Ball Lightning, before the set lost this ability",
+      "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "This however didn't prevent Marauder to shine during Season 2, using this time around Cluster Bombs with wall-bouncing strategies",
+      "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: late-sets",
+      "anchor_quote": "With the changes introduced in Season 25 giving the set back its auto-fire ability and boosting Sentry damage through the (6) Bonus, the main source of damage done became once again the turrets",
+      "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Marauder Sentries'; aliases include 'M6 Sentry Demon Hunter', 'Marauder DH', 'Cluster Sentry DH'",
+      "anchor_quote": "Embodiment of the Marauder Demon Hunter is one of the oldest builds for the class, reaching all the way back before Seasons",
+      "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Sentry, Cluster Arrow/Multishot; class resource: Hatred and Discipline; Sentries fire hatred spenders",
+      "anchor_quote": "Sentries fire a Hatred Spender when you do. Sentry always shoots towards the closest enemy within line of sight, regardless of the distance",
+      "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "wudijo",
+          "site": "maxroll.gg",
+          "role": "Director"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+        "anchor_quote": "wudijo (Director) — Guide author",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Embodiment of the Marauder (6): 47,500% damage multiplier to Multishot, Cluster Arrow and Sentry with 5 turrets up; (2): Sentries gain all remaining runes; Sentries fire hatred spender when player does",
+          "kanai_cube": null
+        },
+        "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+        "anchor_quote": "Embodiment of the Marauder provides a 47,500% damage multiplier to Multishot, Cluster Arrow and Sentry with 5 turrets up",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Embodiment of the Marauder (6pc set)",
+            "Bombardier's Rucksack (2 extra Sentries)",
+            "Yang's Recurve (50% Resource Cost Reduction)",
+            "Captain Crimson's Trimmings",
+            "Bat Companion"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+        "anchor_quote": "Bombardier's Rucksack gives us two more Sentries, adding 66.6% extra damage from the set (from 28,500% to a 47,500% multiplier)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (Sentry placement) + sentry auto-fire",
+          "range": "large zone (turrets fire across screen)",
+          "aoe": "large zone coverage from multiple turret positions",
+          "notes": "Turret-based delivery; each Sentry fires towards nearest enemy; Cluster Arrow/Multishot = large AoE"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+        "anchor_quote": "most effectively used with Multishot and Cluster Arrow, which are performing at nearly equal levels",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Place 5 Sentries at positions around enemy cluster; Sentries auto-fire player's equipped hatred spender (Cluster Arrow or Multishot) at nearest enemy; kite enemies into Sentry kill zone; maintain Bat Companion for Hatred regen; 47,500% damage multiplier with 5 turrets up"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+        "anchor_quote": "Sentries fire a Hatred Spender when you do. Sentry always shoots towards the closest enemy within line of sight, regardless of the distance",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Cluster Arrow primary (GR push)",
+            "Multishot primary (AoE speed)",
+            "N6M4 hybrid (Season 27 variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/marauder-sentry-demon-hunter-guide",
+        "anchor_quote": "most effectively used with Multishot and Cluster Arrow, which are performing at nearly equal levels",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

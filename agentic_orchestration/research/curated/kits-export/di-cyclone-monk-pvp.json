@@ -1,0 +1,208 @@
+{
+  "kit_id": "di-cyclone-monk-pvp",
+  "spine": {
+    "kit_id": "di-cyclone-monk-pvp",
+    "folk_name": "Cyclone CC Monk",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "moderate",
+    "eras": "di-launch-2022;di-2026-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "PvP disruption identity (pull-cluster-then-CC-lock as core loop) loses meaning in solo-PvE scope. No ailments attested despite CC-centric identity — the CC payload (Imprisoned Fist) names no status in store.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "PvP disruption identity (pull-cluster-then-CC-lock as core loop) loses meaning in solo-PvE scope. No ailments attested despite CC-centric identity — the CC payload (Imprisoned Fist) names no status in store.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Cyclone Strike",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Self-origin vortex; pulls nearby enemies inward; charging increases range and damage. 'Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.' Wind is a noun in skill description ('vortex of wind') — no damage verb ('wind damage', 'deals wind damage') attested; element null per MW4 edge-1. Pull attested by 'pulls in enemies.'"
+        },
+        {
+          "source_skill": "Imprisoned Fist",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Precise CC skill per skill_loop ('Imprisoned Fist for precise CC whenever necessary'). No ailment status named in dossier store."
+        }
+      ],
+      "motion_frame": "Cyclone Strike pulls enemies as point-gatherer; Imprisoned Fist for follow-up CC; PvP identity = vortex cluster then CC lock",
+      "resource_economy": {
+        "cooldown": "primary-gate"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "PvP context: 'PvP = vortex cluster then CC lock' per mech_note — mech_note is ILLEGAL ground but skill_loop store attests the same shape ('PvP = vortex cluster then CC lock' in payload_json skill_loop). Verify_ledger mechanics UNSUPPORTED — no status named for Imprisoned Fist. Corpus re-key note: 'STAGE-3 re-keys function knockback→pull (Cyclone Strike inward vortex IS pull)' — mech_note ILLEGAL; mapped pull from dossier attestation ('pulls in enemies'). No ailment emitted: no stun/freeze/etc named in any dossier store row. Element null: 'vortex of wind' = name-noun, no damage verb."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gamerant.com/diablo-immortal-best-cyclone-strike-monk-build-skills-gear-gems-reforge/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Diablo Immortal: Best Cyclone Strike Monk Build",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/monk",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Monk Class Overview in Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/diablo-immortal/monk-imprisoned-fist-pvp-build-guide",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Monk Imprisoned Fist PvP Build Guide - Diablo Immortal - Icy Veins",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in di-launch-2022 and di-2026-era",
+      "anchor_quote": "published July 10, 2022",
+      "source_url": "https://gamerant.com/diablo-immortal-best-cyclone-strike-monk-build-skills-gear-gems-reforge/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Cyclone CC Monk'; aliases 'Cyclone Strike Monk DI PvP', 'Imprisoned Fist Cyclone Monk DI'",
+      "anchor_quote": "Best Cyclone Strike Monk Build",
+      "source_url": "https://gamerant.com/diablo-immortal-best-cyclone-strike-monk-build-skills-gear-gems-reforge/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Cyclone Strike, Imprisoned Fist; resource: Spirit",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/diablo-immortal/monk",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "cyclone_strike": "self-origin vortex; pulls nearby enemies inward; charging increases range; compact radius AoE centered on caster"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk",
+        "anchor_quote": "Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cyclone Strike pulls enemies as point-gatherer; Imprisoned Fist for precise CC; PvP = vortex cluster then CC lock",
+          "cyclone_strike": "vortex pull-in + damage",
+          "imprisoned_fist": "precise control whenever necessary"
+        },
+        "source_url": "https://www.icy-veins.com/diablo-immortal/monk",
+        "anchor_quote": "Generate a vortex of wind which pulls in enemies and deals damage. Charging longer increases range and damage.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

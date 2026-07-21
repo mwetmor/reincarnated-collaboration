@@ -1,0 +1,246 @@
+{
+  "kit_id": "d3-tal-meteor",
+  "spine": {
+    "kit_id": "d3-tal-meteor",
+    "folk_name": "Tal Rasha Meteor",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-15 GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold/lightning/arcane cycling elements unatttested as independent skill identities — player loses those filler-element flavor labels. No burn ailment attested. Meteor-only element identity mapped as fire; four-element rotation captured via trigger_grammar/element_rotation_window.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Cold/lightning/arcane cycling elements unatttested as independent skill identities — player loses those filler-element flavor labels. No burn ailment attested. Meteor-only element identity mapped as fire; four-element rotation captured via trigger_grammar/element_rotation_window.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Meteor (Star Pact rune)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target large-AoE impact zone; Star Pact rune: 'consume all remaining resource after the initial skill cost to add Weapon Damage' per verify anchor; multiple Meteors rain per element rotation; fire element: 'Tal Rasha's Elements… fire, cold, lightning, arcane' per item_alterations anchor — fire is one of the four attested cycling elements"
+        },
+        {
+          "source_skill": "Element-cycle filler skills",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cycle four elemental skills to stack Tal Rasha's Elements 4,000% global buff per item_alterations anchor; fillers are build scaffolding, not independent damage verbs; element null for scaffold row"
+        }
+      ],
+      "motion_frame": "Cycle four elemental skills (fire/cold/lightning/arcane) to maintain Tal Rasha's 4,000% element-rotation buff; spam Meteor to cash the stacked window; Teleport for repositioning per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Arcane Power; Grand Vizier reduces Meteor cost 50% per capstone anchor; Star Pact rune burns all remaining AP for bonus damage"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "element_rotation_window",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Multiple Meteors rain per rotation cycle"
+          ],
+          "economy": [
+            "Grand Vizier 50% Arcane cost reduction; CoE element_rotation_window (R-M5 token)"
+          ],
+          "traits_affixes": [
+            "Tal Rasha 4000% global multiplier (scaler-only per §B.1)",
+            "Grand Vizier 400% scalar (scaler-only)",
+            "Smoldering Core stacking scalar (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Fire element attested: Tal Rasha set requires fire as one of four cycling elements per item_alterations anchor ('fire, cold, lightning, arcane'). The kit IS the fire Meteor identity. Cold/lightning/arcane attested as rotation fillers but fire is the damage-identity element — fire primary. No ailment attested (fire element ≠ burn; no burn language in fetched rows). Tal Rasha 4,000% and all item scalers are scaler-only per §B.1. CoE = R-M5 token (element_rotation_window). element_rotation_window also carries the Tal Rasha stacking mechanic shape. Star Pact resource-burn verb per verify anchor: legal mechanics grounds."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Chewingnom",
+      "title": "Tal Rasha Meteor Wizard Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/wizard-meteor-build-with-tal-rasha",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Wizard Meteor Build With Tal Rasha (Patch 2.7.8 / Season 39) - Diablo 3",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "previously dominated Season 3 and Season 6 metas",
+      "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Set reworked Season 27; nerfed Season 30",
+      "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Tal Rasha Meteor' and aliases 'Tal Rasha Wizard', 'Tal Meteor Wizard', 'Tal Rasha set Wizard' are real community usage",
+      "anchor_quote": "Tal Rasha Meteor Wizard (also referenced as \"Tal Meteor\" in variant sections)",
+      "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Meteor, element-cycle fillers; Arcane Power resource",
+      "anchor_quote": "Star Pact have a 740% base Weapon Damage value and consume all remaining resource after the initial skill cost to add Weapon Damage.",
+      "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Chewingnom",
+          "site": "maxroll.gg",
+          "role": "Content Creator"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+        "anchor_quote": "Chewingnom (Content Creator)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Tal Rasha's Elements 6pc",
+          "set_bonus_summary": "4,000% separate global damage multiplier requiring element rotation",
+          "legendary_powers": [
+            "Grand Vizier: 400% dmg, halved Arcane cost",
+            "Smoldering Core: consecutive-hit stacking bonus"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+        "anchor_quote": "The Grand Vizier provides a 400% separate damage multiplier and reduces Meteor Arcane Power cost by 50%",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "set": "Tal Rasha's Elements (6pc, 4000% separate global damage multiplier)",
+          "key_legendaries": [
+            "The Grand Vizier (400% damage, 50% Arcane cost reduction)",
+            "The Smoldering Core (stacking damage up to 150%)",
+            "Nilfur's Boast",
+            "Mempo of Twilight",
+            "Halo of Karini",
+            "Convention of Elements",
+            "Squirt's Necklace"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+        "anchor_quote": "Tal Rasha's Elements provides a 4,000% separate global damage multiplier but requires juggling four abilities with four different elements",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "notes": "Meteor falls at cursor position; large AoE impact zone. Multiple Meteors rain per rotation."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+        "anchor_quote": "The playstyle revolves around the precise use of Teleport and a specific skill choice to play around Tal Rasha's Elements Bonuses to wreak havoc onto the battlefield.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cycle four elemental skills (Fire/Cold/Lightning/Arcane) to stack Tal Rasha's Elements 4,000% buff, then cash with Meteor. Star Pact rune consumes all remaining Arcane Power to multiply damage. Grand Vizier reduces Meteor cost 50%."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+        "anchor_quote": "Star Pact have a 740% base Weapon Damage value and consume all remaining resource after the initial skill cost to add Weapon Damage.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Tal Rasha Meteor Solo Push",
+            "LoD Meteor Bazooka Wizard (sister build, separate guide)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/tal-rasha-meteor-wizard-guide",
+        "anchor_quote": "variants: T16, Bounties, Solo Speeds, Solo Push versions",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

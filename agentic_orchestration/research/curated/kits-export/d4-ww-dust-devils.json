@@ -1,0 +1,258 @@
+{
+  "kit_id": "d4-ww-dust-devils",
+  "spine": {
+    "kit_id": "d4-ww-dust-devils",
+    "folk_name": "Whirlwind Dust Devils",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "launch-s1-3;loot-reborn-s4-5;loh-s13-14",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-09",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the Shoutgun S10 variant's Chaos Perk dependency is a meaningful variant branch; (2) Fury economy crunch without Tibault's Will is a real feel differentiator; (3) Dust Devil drift behavior (wander) is the damage delivery mechanism.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "knockback"
+    ],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Source player would miss: (1) the Shoutgun S10 variant's Chaos Perk dependency is a meaningful variant branch; (2) Fury economy crunch without Tibault's Will is a real feel differentiator; (3) Dust Devil drift behavior (wander) is the damage delivery mechanism.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving channel: 'Always be spinning and moving around or in circles with Whirlwind'; broad AoE hitting almost entire screen; Sescheron's Fury charm increases Skill Size 50%; Gohr's Devastating Grips pulls enemies every 2 seconds during Whirlwind; moving-vs-rooted: MOVING (§CROSS form row)"
+        },
+        {
+          "source_skill": "Dust Devils",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "knockback"
+          ],
+          "delivery_notes": "R-M6 drift-tick entity: Dust Devils are transient drifting hazards spawned by WW; 'knock enemies off their feet' = knockback attested; 'clear whole screens with ease'; Shoutgun Dust Devils variant (S10 Deafening Chorus Chaos Perk) spawns additional DDs via shouts; no HP/commands/persistence = NOT summoner GAP"
+        }
+      ],
+      "motion_frame": "Always be spinning and moving with Whirlwind; War Cry, Challenging Shout, Wrath of the Berserker on cooldown; Dust Devils do the killing",
+      "resource_economy": {
+        "fury_cost": "per-tick during Whirlwind channel",
+        "tibaults_will": "Tibault's Will solves resource issues, generates ~100 Fury/sec — identity-load-bearing economy note"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_overkill",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Gohr's Devastating Grips — pulls enemies every 2s during WW",
+            "Sescheron's Fury charm — Skill Size +50%",
+            "Fierce Winds — Dust Devil multiplier (S10)"
+          ],
+          "economy": [
+            "Tibault's Will — ~100 Fury/sec generation",
+            "Ramaladni's Magnum Opus — attack speed scalar"
+          ],
+          "traits_affixes": [
+            "Battle Trance, Fists of Fate — numeric scalers",
+            "Tuskhelm of Joritz the Mighty — Berserking enhancement",
+            "Wrath of the Berserker — cooldown burst layer"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Own-language mapping: ww-dust-devils maps its OWN dossier language; no cross-kit import (hot-fact). Knockback attested from skill_geometry payload: 'Dust Devils knock enemies off their feet and deal damage in their path.' Moving channel confirmed: 'Always be spinning and moving around or in circles with Whirlwind' (§CROSS moving-channel row). Element null: elem_raw=physical; no element damage verb in dossier for Whirlwind or Dust Devils. R-M6 drift-tick entities: Dust Devils are transient hazards, NOT summoner GAP (no HP/commands/persistence per §B row). Shoutgun variant (S10 Deafening Chorus) is attested variant, maps within variant-scope; core kit loop is the standard WW+DDs form."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Whirlwind Barbarian Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/whirlwind-barbarian-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Whirlwind – Barbarian Build for Diablo 4 (Season 14)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d4/build-guides/dust-devils-barbarian-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Shoutgun Dust Devils Barbarian Endgame Build Guide for Diablo IV Season 10 - Infernal Chaos",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "http://web.archive.org/web/20230601154324/https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+      "archive_url": "http://web.archive.org/web/20230601154324/https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+      "site": "maxroll.gg (Wayback 2023-06-01)",
+      "author_handle": null,
+      "title": "Whirlwind Barbarian Endgame Build Guide - D4 Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "build present/meta in launch-s1-3, loot-reborn-s4-5, and loh-s13-14",
+      "anchor_quote": "30 May 2023 Build Guide Created.",
+      "source_url": "http://web.archive.org/web/20230601154324/https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Whirlwind Dust Devils' is real community usage",
+      "anchor_quote": "Whirlwind Barbarian Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "source_url": "https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills Whirlwind and Dust Devil aspects; Barbarian class",
+      "anchor_quote": "Dust Devils to knock your enemies off their feet and decimate them with untameable force and destruction",
+      "source_url": "https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "season_10_specific": "Deafening Chorus (Chaos Perk) enables Shoutgun Dust Devils variant; Fierce Winds for Dust Devil multiplier",
+          "general": [
+            "Battle Trance",
+            "Fists of Fate",
+            "Sabre of Tsasgal",
+            "Crown of Lucion"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dust-devils-barbarian-guide",
+        "anchor_quote": "Deafening Chorus (Chaos Perk - enables the build)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "uniques": [
+            "Gohr's Devastating Grips — 75-90% increased Whirlwind damage; pulls enemies every 2 seconds",
+            "Tibault's Will — solves resource issues, generates ~100 Fury/sec",
+            "Melted Heart of Selig",
+            "The Grandfather",
+            "Tuskhelm of Joritz the Mighty",
+            "Ramaladni's Magnum Opus"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/whirlwind-barbarian-build/",
+        "anchor_quote": "Gohr's Devastating Grips provides 75 – 90% increased damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Whirlwind has broad AoE: hits almost the entire screen; Sescheron's Fury charm set increases Skill Size by 50%. Dust Devils knock enemies off their feet and deal damage in their path. Gohr's Devastating Grips pulls enemies every 2 seconds during Whirlwind."
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/whirlwind-barbarian-build/",
+        "anchor_quote": "Dust Devils clear whole screens with ease",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Always be spinning and moving around or in circles with Whirlwind. Use War Cry, Challenging Shout and Wrath of the Berserker on cooldown."
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/whirlwind-barbarian-guide",
+        "anchor_quote": "Always be spinning and moving around or in circles with Whirlwind.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Shoutgun Dust Devils (S10 — Deafening Chorus Chaos Perk)",
+            "Standard WW Dust Devils (general endgame)",
+            "Dust Devil Double Swing variant (icy-veins S14)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/dust-devils-barbarian-guide",
+        "anchor_quote": "Shoutgun Dust Devils Barbarian Endgame Build Guide for Diablo IV Season 10",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

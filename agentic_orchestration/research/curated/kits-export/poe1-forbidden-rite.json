@@ -1,0 +1,283 @@
+{
+  "kit_id": "poe1-forbidden-rite",
+  "spine": {
+    "kit_id": "poe1-forbidden-rite",
+    "folk_name": "Forbidden Rite",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.14-3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-01 GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The kit's defining twist -- Forbidden Rite normally COSTS THE CASTER LIFE (can kill you), but routed through totems the LIFE-COST IS PAID BY THE TOTEM ENTITIES, not the player -- has no engine lane: the engine can model an hp-cost on a skill (hp_cost_scale) but cannot REDIRECT that self-damage-cost onto a proxy entity's life pool. Mapped as totem-proxy delivery (PROXY_ASCENSION) + a capped hp-cost on the chassis, which loses the 'the totems bleed so you don't' outsourcing that IS the build's safety identity. A player of the original would notice the life-price now lands on them rather than being laundered through disposable totems. Docket candidate filed. | [STEWARD-AUDIT R-M7 2026-07-18] Re-graded APPROX->GAPPED: the identity IS the self-damage economy (the skill hits the caster; the build routes self-chaos-damage into safety scaffolding). Engine has no self-hit lane (hp_cost_scale 0.30 LOCKED is a cast COST, not a hit event) — the player of the original would say 'this is not that build.' Terminal MAPPED_DOCKET unchanged; docket row stands.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 4,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "The kit's defining twist -- Forbidden Rite normally COSTS THE CASTER LIFE (can kill you), but routed through totems the LIFE-COST IS PAID BY THE TOTEM ENTITIES, not the player -- has no engine lane: the engine can model an hp-cost on a skill (hp_cost_scale) but cannot REDIRECT that self-damage-cost onto a proxy entity's life pool. Mapped as totem-proxy delivery (PROXY_ASCENSION) + a capped hp-cost on the chassis, which loses the 'the totems bleed so you don't' outsourcing that IS the build's safety identity. A player of the original would notice the life-price now lands on them rather than being laundered through disposable totems. Docket candidate filed. | [STEWARD-AUDIT R-M7 2026-07-18] Re-graded APPROX->GAPPED: the identity IS the self-damage economy (the skill hits the caster; the build routes self-chaos-damage into safety scaffolding). Engine has no self-hit lane (hp_cost_scale 0.30 LOCKED is a cast COST, not a hit event) — the player of the original would say 'this is not that build.' Terminal MAPPED_DOCKET unchanged; docket row stands.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Forbidden Rite (via Spell Totem)",
+          "geometry_value": "multi_projectile",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "lobs an exploding chaos projectile at the target location AND fires 6-7 homing projectiles at surrounding enemies; the payload is a chaos-damage HIT (scaled off the caster's life+ES), not a DoT -> no signature ailment (control centrality=none). shadow family (chaos hit lineage). The nova+seeking-projectile spread reads as multi_projectile (the exploding-lob is the dominant many-projectile footprint)"
+        },
+        {
+          "source_skill": "Spell Totem (delivery chassis)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Hierophant plants 5-7 totems that each CAST Forbidden Rite; the totem is the autonomous proxy that fires the spell. The player positions behind the totem line for coverage. totem = placed autonomous caster-proxy"
+        }
+      ],
+      "motion_frame": "totem-station caster: plant 5-7 totems that cast the life-cost chaos spell for you, position behind the line, the totems pay the blood price while you stay safe",
+      "resource_economy": {
+        "hp_cost_scale": 0.3,
+        "reservation_resource": "hp"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "multi_projectile chaos nova+homing",
+            "totem/proxy delivery (5-7 totems)"
+          ],
+          "economy": [
+            "life-cost of the spell OUTSOURCED to totem life (the spell would kill the caster; totems pay instead)",
+            "totem-count / totem-cast-rate",
+            "Soul Mantle self-curse + Kikazaru curse-mitigation loop"
+          ],
+          "traits_affixes": [
+            "chaos-damage",
+            "life+ES-max (the payload scales off the caster's life pool)",
+            "totem-count"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "DUAL-IDENTITY kit: (1) totem-proxy delivery (PROXY_ASCENSION, Hierophant totem archetype) + (2) the life-cost-as-weapon warp where the spell's self-damage is OUTSOURCED to the totems. Element chaos -> shadow (crosswalk s1). The payload is a HIT scaled off life+ES, not a DoT, so ailments empty (probe control centrality=none; the 'poison/wither' probe tags are minor riders, not the identity). hp_cost_scale=0.3 (engine LOCKED cap) + reservation_resource=hp captures the life-price economy, but the SIGNATURE is that the totem, not the player, pays it -- the engine has no 'redirect self-damage-cost to a proxy entity' primitive, so the life-cost lands on the chassis and the OUTSOURCING is noted/docketed. SACRIFICE_ASCENDANCY is the life-trade T4 door; PROXY_ASCENSION the totem door. Soul Mantle (totems take your ailments) + Self-Flagellation (self-curse-for-damage) is a secondary economy loop. Dominant 3-sec loop = totems auto-casting; the totem-proxy delivery leads per s7.2."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 5,
+      "mechanism_class": "self-damage cast-cost redirected to a proxy's life pool",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "permanent-gap-record",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3164444",
+      "archive_url": null,
+      "site": "pathofexile.com",
+      "author_handle": "ShamefulPenguin#7799",
+      "title": "[3.15] Forbidden Rite Totem Hierophant — Great Bosser — League Start Friendly",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/forbidden-rite-totem-hierophant-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.15] Forbidden Rite Totem Hierophant Build — Odealo's Crafty Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/forbidden-rite-hierophant-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "GhazzyTV",
+      "title": "[3.19] Forbidden Rite Hierophant Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Forbidden_Rite",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Forbidden Rite — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 3.14-3.19, 3.20+",
+      "anchor_quote": "[3.15] Forbidden Rite Totem Hierophant — Great Bosser — League Start Friendly",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3164444",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Forbidden Rite' and alias 'FR totems' are real community usage",
+      "anchor_quote": "Forbidden Rite Totem setup ... FR totems this league",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/3164444",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Forbidden Rite and Spell Totem; spell costs life, totem delivery makes totems pay the blood price",
+      "anchor_quote": "While it could normally kill you, if you use Totems, the damage will be increased at the cost of your Totem's Life instead.",
+      "source_url": "https://odealo.com/articles/forbidden-rite-totem-hierophant-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "ShamefulPenguin#7799",
+              "site": "pathofexile.com/forum",
+              "note": "[3.15] FR Totem Hierophant forum guide"
+            },
+            {
+              "handle": "GhazzyTV",
+              "site": "poe-vault.com",
+              "note": "[3.19] FR Hierophant build guide"
+            }
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3164444",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Forbidden Rite of Soul Sacrifice (transfig)",
+              "type": "transfigured_gem",
+              "effect": "20% of maximum Energy Shield as base Chaos Damage (previously 15%); take 50% of maximum Energy Shield as Chaos Damage (previously 40%)",
+              "anchor_quote": "20% of your maximum Energy Shield as base Chaos Damage (previously 15%)...take 50% of maximum Energy Shield as Chaos Damage (previously 40%)"
+            },
+            {
+              "node": "Base self-damage mechanic",
+              "type": "core_mechanic",
+              "effect": "Take 40% of maximum Life and 25% of maximum Energy Shield as Chaos Damage on cast",
+              "anchor_quote": "Take 40% of maximum Life and 25% of maximum Energy Shield as Chaos Damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Forbidden_Rite",
+        "anchor_quote": "20% of your maximum Energy Shield as base Chaos Damage (previously 15%)",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Soul Mantle (totems take ailments instead of player; enables self-flagellation setup)",
+            "Kikazaru Rings x2 (reduce curse effect from Soul Mantle self-curse)",
+            "Self-Flagellation Jewel (damage boost from self-curse)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3164444",
+        "anchor_quote": "Soul Mantle unique body armour... By casting Forbidden Rite through totems, the spell's life cost [applies] to the totem entities.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ground-targeted; projectiles home toward enemies",
+          "footprint": "multi-point — nova + up to 6-7 homing projectiles per cast",
+          "aoe": "AoE radius from nova",
+          "range_text": "Lobs an exploding projectile near the targeted location, and extra projectiles toward enemies around you",
+          "projectile": true
+        },
+        "source_url": "https://poedb.tw/us/Forbidden_Rite",
+        "anchor_quote": "Lobs an exploding projectile near the targeted location, and extra projectiles toward enemies around you. The projectiles deal chaos damage based on your life and energy shield.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player casts Forbidden Rite via totems (Hierophant runs 5-7 totems); each totem fires the skill, spending totem life instead of player life; spell fires chaos nova + seeking projectiles at nearby enemies; player positions behind totems for maximum coverage."
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3164444",
+        "anchor_quote": "While it could normally kill you, if you use Totems, the damage will be increased at the cost of your Totem's Life instead.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Hierophant totems (primary — Pursuit of Faith, Divine Guidance, MoM/Agnostic defense stack)",
+            "Pathfinder variant mentioned in DB spec but not attested in sources reviewed"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3164444",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 4,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

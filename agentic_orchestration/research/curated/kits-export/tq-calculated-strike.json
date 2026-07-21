@@ -1,0 +1,221 @@
+{
+  "kit_id": "tq-calculated-strike",
+  "spine": {
+    "kit_id": "tq-calculated-strike",
+    "folk_name": "Calculated Strike (as primary)",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "negative",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Kit is negative=1; attested burst-proc identity maps reasonably but the every-fourth-hit timing constraint (charge accumulator shape) and the non-primary nature mean a player would experience 'that mechanic, diminished' relative to a true primary rotation. Engine charge accumulator supports this shape but the every-Nth-hit indexing is a quantitative approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Kit is negative=1; attested burst-proc identity maps reasonably but the every-fourth-hit timing constraint (charge accumulator shape) and the non-primary nature mean a player would experience 'that mechanic, diminished' relative to a true primary rotation. Engine charge accumulator supports this shape but the every-Nth-hit indexing is a quantitative approximation.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Calculated Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Every-fourth-hit proc delivering pierce+physical bonus damage; physical = no-family per THE PHYSICAL RULE; pierce = physical-sub-register no-family; charge-stacking system (3 tiers, 6s duration) between procs"
+        }
+      ],
+      "motion_frame": "Sustained melee auto-attack chain; every fourth strike delivers Calculated Strike burst (pierce+physical); charge levels build between procs; boss-burst tool alongside Onslaught",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "note": "3 charge tiers build between special hits; 6-second duration window; no mana cost per proc"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "charge-stack",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce-through on proc hit"
+          ],
+          "economy": [
+            "charge accumulation rate",
+            "window duration"
+          ],
+          "traits_affixes": [
+            "pierce damage %",
+            "physical damage bonus"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Negative=1 (review-book); kit attested identity is a every-fourth-hit charge burst, not a sustained primary — verify_ledger CONTRADICTED the 'primary attack' mechanics claim; the CONFIRMED anchor is 'every fourth hit with calculated strike will deliver increased damage.' Map attested identity only; negative story rides review book not mapping_json. Pierce and physical both map no-family per THE PHYSICAL RULE — identity expressed entirely via geometry + trigger grammar."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.alteredgamer.com/titan-quest/6594-skills-and-masteries-rogue/",
+      "archive_url": null,
+      "site": "alteredgamer.com",
+      "author_handle": "unknown",
+      "title": "Rogue Mastery in Titan Quest",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/475150/discussions/0/2790495498052294907/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Onslaught or Calculated Strike",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://bytesquire.github.io/TitanQuestCalculator/mods/Vanilla/Masteries/Rogue/Calculated%20Strike.html",
+      "archive_url": null,
+      "site": "bytesquire.github.io",
+      "author_handle": "bytesquire",
+      "title": "Calculated Strike - Titan Quest Calculator",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016 eras",
+      "anchor_quote": "The Rogue Mastery is part of the core, or unexpanded Titan Quest game",
+      "source_url": "https://www.alteredgamer.com/titan-quest/6594-skills-and-masteries-rogue/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Calculated Strike = Rogue mastery active skill, used as primary attack",
+      "anchor_quote": "Calculated Strike is presented as an active primary attack",
+      "source_url": "https://www.alteredgamer.com/titan-quest/6594-skills-and-masteries-rogue/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "High amp single-hit, cooldown model makes it a burst-cooldown tool not a sustained primary",
+      "anchor_quote": "Calculated Strike only applies its buffs to every fourth strike, while onslaught boosts every swing",
+      "source_url": "https://steamcommunity.com/app/475150/discussions/0/2790495498052294907/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Calculated Strike is non-canon as primary because it fires only every fourth hit, making Onslaught strictly preferred for sustained primary use",
+      "anchor_quote": "although calculated strike is good, onslaught and marksmanship is always better",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1883817533",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Lucky Hit synergy unlocked; charge system with 3 levels and 6-second duration; pierce damage range 35–159 across 12 skill levels; physical damage bonus 45–221%"
+        },
+        "source_url": "https://bytesquire.github.io/TitanQuestCalculator/mods/Vanilla/Masteries/Rogue/Calculated%20Strike.html",
+        "anchor_quote": "Piercing damage ranges from 35.0 to 159.0 (across 12 skill levels)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "at-target melee or ranged projectile — applies to Axe/Bow/Mace/Thrown/Spear/Sword",
+          "note": "single projectile/strike per activation; pierce damage on the fourth-hit proc"
+        },
+        "source_url": "https://bytesquire.github.io/TitanQuestCalculator/mods/Vanilla/Masteries/Rogue/Calculated%20Strike.html",
+        "anchor_quote": "Launches 1 projectile per use",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Every fourth hit delivers Calculated Strike bonus (piercing + physical damage); build charge levels (3 tiers) between special hits; used as primary attack binding alongside Onslaught for burst on bosses"
+        },
+        "source_url": "https://bytesquire.github.io/TitanQuestCalculator/mods/Vanilla/Masteries/Rogue/Calculated%20Strike.html",
+        "anchor_quote": "every fourth hit with calculated strike will deliver increased damage",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

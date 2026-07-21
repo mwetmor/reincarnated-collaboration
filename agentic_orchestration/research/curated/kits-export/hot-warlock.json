@@ -1,0 +1,216 @@
+{
+  "kit_id": "hot-warlock",
+  "spine": {
+    "kit_id": "hot-warlock",
+    "folk_name": "Warlock (summon caster)",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "moderate",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Summon-projectile chain has no exact engine analog: chain geometry maps the targeting behavior; proxy/summon layer maps the 'summoned entity' flavor; but a fired-projectile-that-is-also-a-summon-entity is an approximation. Player expecting persistent autonomous summons (not fired projectiles) will notice the delivery difference.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Summon-projectile chain has no exact engine analog: chain geometry maps the targeting behavior; proxy/summon layer maps the 'summoned entity' flavor; but a fired-projectile-that-is-also-a-summon-entity is an approximation. Player expecting persistent autonomous summons (not fired projectiles) will notice the delivery difference.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ravaging Specters",
+          "geometry_value": "chain",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Specters travel straight then chain to nearest un-hit enemy on contact; each specter disappears after 2.0s or 20 hits; 'summon/magic' damage type — generic magic = element-neutral per §B5-ELEMENT; no ailments named in fetched text; chain geometry confirmed by anchor 'when each hits an enemy, it continues traveling towards the nearest enemy that it has not already hit'"
+        }
+      ],
+      "motion_frame": "Fire summon-projectile specters that auto-chain between enemies; Force scales specter duration and hit cap; maintain army of Specters + Golems + ring summons",
+      "resource_economy": {
+        "force_scale": "Force scales specter duration (2.0s base) and hit cap (20 base)",
+        "crit_model": "0% crit bonus base — crit inapplicable; maximize Force instead"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_ASCENSION",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "chain bounce behavior (native to specters)",
+            "Golem + Spirit Warrior ability slots for multi-summon army"
+          ],
+          "economy": [
+            "Attack Speed, Damage, Duration traits; Necromancer's Clutch (skeleton every 15s); Seal of Rebirth"
+          ],
+          "traits_affixes": [
+            "any trait tagged (Summons); Force and Duration axes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Specter projectiles are summon-projectiles — player fires them actively (not passive pets); they persist up to 2s/20 hits and chain between enemies. Not pure pet-core (player actively casts, specters expire). Chain geometry is the dominant delivery shape. Element null: 'summon/magic' = generic magic per §B5-ELEMENT. No ailments named. PROXY_ASCENSION fits the multi-summon army identity; NETWORK_AMPLIFIER fits the chain-propagation between enemies. Alternative: PROXY_SOVEREIGNTY for multi-summon stack management."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://commonsensegamer.com/halls-of-torment-best-warlock-build/",
+      "archive_url": null,
+      "site": "commonsensegamer.com",
+      "author_handle": "(staff)",
+      "title": "Halls of Torment: Best Warlock Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://thenerdstash.com/best-warlock-build-in-halls-of-torment/",
+      "archive_url": null,
+      "site": "thenerdstash.com",
+      "author_handle": "(staff)",
+      "title": "Best Warlock Build in Halls of Torment",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-classes-unlock-guide/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": "(staff)",
+      "title": "How to Unlock All Classes In Halls Of Torment",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in hot-1.0-2024 and hot-1.1-2026.",
+      "anchor_quote": "Warlock is unlocked by defeating the Wyrm Queen elite enemy in Ember Grounds; guides from 1.0 2024 onward confirm active use",
+      "source_url": "https://www.thegamer.com/halls-of-torment-classes-unlock-guide/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Warlock is a summoner/caster class; community name 'Warlock summon caster'; seventh game in corpus to ship caster-summoner archetype.",
+      "anchor_quote": "The Warlock is the Summoner class of Halls of Torment; main damage is coming from roaming ghosts",
+      "source_url": "https://commonsensegamer.com/halls-of-torment-best-warlock-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Warlock's signature weapon is Ravaging Specters (summons that chain between enemies); dark/summon damage type; caster-summoner combo.",
+      "anchor_quote": "Warlock's attacks are focused on summoning Ravaging Specters that chase down enemies to deal damage; The Specters disappear after either 2.0 seconds have elapsed, or 20 hits",
+      "source_url": "https://thenerdstash.com/best-warlock-build-in-halls-of-torment/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "description": "No critical hits possible (0% crit bonus base); maximize Force to scale specter duration and hit count; multi-summon stacking with Golem + Warlock specters + ring summons as army"
+        },
+        "source_url": "https://en.number13.de/halls-of-torment-warlock-build-guide/",
+        "anchor_quote": "Your main weapon cannot deal critical hits because the warlock has a crit bonus of 0%",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "description": "Summon Golem ability; Demonic Band ring; Necromancers Clutch (spawns skeleton every 15s); Seal of Rebirth; Wind Crown (BiS head); Pest Ring; Attack Speed + Damage + Duration stats prioritized"
+        },
+        "source_url": "https://commonsensegamer.com/halls-of-torment-best-warlock-build/",
+        "anchor_quote": "Look out for any trait that has (Summons) in it; Attack Speed, Damage, and Duration are the most welcome traits",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target-chain",
+          "description": "Specters travel straight, chain to nearest un-hit enemy on contact; at-target delivery with chain-bounce behavior; small-radius per specter contact zone"
+        },
+        "source_url": "https://thenerdstash.com/best-warlock-build-in-halls-of-torment/",
+        "anchor_quote": "travel straight; when each hits an enemy, it continues traveling towards the nearest enemy that it has not already hit",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Warlock fires Ravaging Specters (summon projectiles) that chain between enemies; each specter disappears after 2.0s or 20 hits; Force scales both duration and hit cap; damage type is summon/magic; caster-summoner combo"
+        },
+        "source_url": "https://thenerdstash.com/best-warlock-build-in-halls-of-torment/",
+        "anchor_quote": "Warlock's attacks are focused on summoning Ravaging Specters that chase down enemies to deal damage; The Specters disappear after either 2.0 seconds have elapsed, or 20 hits",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "description": "Pure summoner (Golem + Specters army) vs lightning-strike hybrid; Spirit Warrior ability synergy for multi-summon stacking; 6x Spirit Warriors with maxed range/area"
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4344355442315058121/",
+        "anchor_quote": "shines with Warlock summoner build when maxing out range and area, allowing for 6x Spirit Warriors out at once",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

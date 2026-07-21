@@ -1,0 +1,236 @@
+{
+  "kit_id": "hades2-omega-magick",
+  "spine": {
+    "kit_id": "hades2-omega-magick",
+    "folk_name": "Omega/Magick Commitment Grammar",
+    "game": "hades2",
+    "corpus_bucket": "hades",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "hades2-ea-2024;hades2-1.0-2025;hades2-post1.0-2026",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The Omega/Magick charge-commitment grammar maps faithfully -- Magick meter (focus) + charge-release burst + self-origin delayed Cast nova. Drift: (1) the COMMITMENT RISK identity (standing STATIONARY and vulnerable during the charge, trading safety for a bigger payload) is carried as an activation-toggle windup, not a first-class channel-vulnerability state; (2) 'every verb has an Omega variant' is a system-wide grammar collapsed to one representative Cast geometry (Attack=line / Special=multi_projectile noted). That build, worse -> CLOSE (the charge-commit loop is playable; the per-verb breadth + stationary-risk texture are approximated).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The Omega/Magick charge-commitment grammar maps faithfully -- Magick meter (focus) + charge-release burst + self-origin delayed Cast nova. Drift: (1) the COMMITMENT RISK identity (standing STATIONARY and vulnerable during the charge, trading safety for a bigger payload) is carried as an activation-toggle windup, not a first-class channel-vulnerability state; (2) 'every verb has an Omega variant' is a system-wide grammar collapsed to one representative Cast geometry (Attack=line / Special=multi_projectile noted). That build, worse -> CLOSE (the charge-commit loop is playable; the per-verb breadth + stationary-risk texture are approximated).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Omega Cast (charge-release)",
+          "geometry_value": "circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "HOLD the input to charge the Omega variant (Magick bar fills above Melinoe's head); STATIONARY while charging (FLAG 3 -- ingest-9 CORRECTED: 'she must remain stationary to channel the charge'; the prior sprint-while-charging claim is CONTRADICTED, preserved under _prior_ingest9). Omega Cast = 'a large AoE around Melinoe that explodes after a brief period' (dossier) -> self-origin delayed nova; circle (expanding self-origin burst) + delay note (§D row: circle/nova + delay). element-neutral (grammar record, n/a). Omega Attack = powerful straight-line strike (line); Omega Special = super-charged projectile (multi_projectile) -- weapon-dependent, noted as the grammar's other verbs."
+        }
+      ],
+      "motion_frame": "charge-and-commit Omega grammar: hold an attack input to spend from a dedicated Magick bar and unleash a charged version -- for the Cast, a self-origin AoE that detonates after a brief windup, standing still and vulnerable during the charge, then releasing the burst",
+      "resource_economy": {
+        "meter_type": "focus",
+        "resource_verbatim": "Magick meter (dedicated second resource bar, separate from HP; Omega moves cost 5-25 Magick; normal verbs are free)",
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "GEOMETRY_COLLAPSE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Omega Cast self-origin delayed nova (circle + brief-delay explosion)",
+            "Omega Attack straight-line / Omega Special super-projectile (weapon-dependent verbs)"
+          ],
+          "economy": [
+            "Magick meter spend (focus; 5-25 per Omega move; charge-release)",
+            "The Sorceress arcana (faster Omega charge) / The Unseen (Magick regen/s)"
+          ],
+          "traits_affixes": [
+            "Omega charge speed / Magick regen (boons, aspects)",
+            "Huntress arcana (damage when Magick not full)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-05 (corpus flag). FLAG 3 CORRECTED movement fact mapped: Omega charging is STATIONARY (verify_ledger mechanics-sprint CONTRADICTED, anchor 'she must remain stationary to channel the charge'); the pre-correction sprint claim under _prior_ingest9 is NOT mapped. Omega Cast (FLAG 3 + §D) = self-origin delayed nova -> circle + delay note. FLAG 1 + §D row 1: Magick = plain cast-cost/charge-release resource, mana-register -> meter_type=focus + activation-toggle; NOT reservation, NOT spirit-guide-adjacent. This kit is the Omega/Magick COMMITMENT GRAMMAR record (the defining Hades-II system); mapped the Cast as the canonical Omega geometry, noted Attack (line) / Special (multi_projectile) as the other verbs. The charge-release delayed burst = consequence_type=burst-damage (the release detonates). RESOURCE_CONVERSION (the Magick-spend commitment economy) + GEOMETRY_COLLAPSE (the charged concentrated Cast nova). Era hades2-ea-2024 = within training window but reduced conf; verify_ledger governs. defense=other not a surface."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.thegamer.com/hades-2-omega-moves-cast-magic-explained/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "Complete Guide To Omega Moves In Hades 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://game8.co/games/Hades-2/archives/453547",
+      "archive_url": null,
+      "site": "game8.co",
+      "author_handle": null,
+      "title": "Magick Guide and Omega Moves | Hades 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.neonlightsmedia.com/blog/hades-2-beginner-guide-tips-tricks",
+      "archive_url": null,
+      "site": "neonlightsmedia.com",
+      "author_handle": null,
+      "title": "Hades 2: Beginner's Guide with Tips and Tricks for Your First Runs",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Omega/Magick system present in eras hades2-ea-2024, hades2-1.0-2025, hades2-post1.0-2026",
+      "anchor_quote": "Omega Moves... Omega Attack, Omega Special, and Omega Cast... Magick Gauge located just above the Health Gauge",
+      "source_url": "https://game8.co/games/Hades-2/archives/453547",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Omega/Magick Commitment Grammar' and aliases 'Omega commitment build', 'Magick pool build', 'Omega attack special cast' are real community usage",
+      "anchor_quote": "Omega Moves are actions you can perform by holding down an attack input, enabling you to deliver devastating charged attacks",
+      "source_url": "https://www.thegamer.com/hades-2-omega-moves-cast-magic-explained/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core mechanics: Omega Attack/Special/Cast charged variants; Magick pool as dedicated second resource bar; Omega moves cost 10-25 Magick",
+      "anchor_quote": "blue bar is used up whenever you perform an Omega Move... Individual moves cost between 5-25 MP depending on the weapon and attack type",
+      "source_url": "https://www.thegamer.com/hades-2-omega-moves-cast-magic-explained/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Sprint integrated: Melinoe can sprint while performing Omega charges",
+      "anchor_quote": "You are vulnerable while channeling, so don't try to charge one up when you're surrounded... she must remain stationary to channel the charge",
+      "source_url": "https://www.neonlightsmedia.com/blog/hades-2-beginner-guide-tips-tricks",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "arcana_cards": [
+            "The Sorceress — increases Omega charge speed",
+            "The Huntress — boosts attack/special damage when Magick not full",
+            "The Unseen (5 grasp) — restores Magick per second"
+          ],
+          "magick_boons": [
+            "Born Gain (Hera) — Magick when needed",
+            "Apollo boons — Magick recovery while casting"
+          ]
+        },
+        "source_url": "https://jeu.video/en/guide/hades-2-omega-cast-build-en",
+        "anchor_quote": "The Sorceress card costs one grasp... will increase the charge speed of omega versions of attacking moves",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "Omega Cast: Summon a large AoE around Melinoë that explodes after a brief period. Omega Attack: Cast a powerful Magick Attack in a straight line (weapon-dependent). Omega Special: Launch a super-charged projectile (weapon-dependent). Geometry varies per weapon."
+        },
+        "source_url": "https://www.thegamer.com/hades-2-omega-moves-cast-magic-explained/",
+        "anchor_quote": "Omega Cast (Circle/B): Consistent across weapons — Summon a large AoE around Melinoë that explodes after a brief period",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Hold any attack input to charge Omega variant; Magick bar drains on use. Three Omega types: Omega Attack (powerful strikes), Omega Special (enhanced projectile/area), Omega Cast (large AoE around Melinoe, explodes after brief period). Start Apollo for Magick recovery. The Sorceress arcana speeds Omega charge; The Huntress arcana boosts damage when Magick not full; The Unseen arcana restores Magick per second."
+        },
+        "source_url": "https://www.thegamer.com/hades-2-omega-moves-cast-magic-explained/",
+        "anchor_quote": "hold the input down for your Attack, Special, or Cast, a bar fills above Melinoe's head with the Magick cost underneath it, and when it's full you can let go of the button to unleash the Omega Move",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Omega Cast focus (channel-placement build)",
+            "Omega Attack focus (weapon-specific)",
+            "Mixed Omega commitment (all three verbs Omega-enhanced)"
+          ]
+        },
+        "source_url": "https://jeu.video/en/guide/hades-2-omega-cast-build-en",
+        "anchor_quote": "Pinning things with Omega casts then nailing them from a safe distance with Omega attacks is a good starter combo",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

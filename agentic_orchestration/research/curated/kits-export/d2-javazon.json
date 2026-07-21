@@ -1,0 +1,236 @@
+{
+  "kit_id": "d2-javazon",
+  "spine": {
+    "kit_id": "d2-javazon",
+    "folk_name": "Javazon",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-1.09+;d2r;rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "d2/javazon",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Fury",
+          "geometry_value": "fork",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Thrown javelin projectile that pierces through enemies; lightning bolts fork from each impact/pierce point. Pierce enables multiple fork triggers per throw. High-density target scenarios exponentially amplify effectiveness. Attested: 'thrown javelin projectile that pierces; lightning bolts fork from impact point.'"
+        },
+        {
+          "source_skill": "Charged Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Single-target charged melee strike with lightning discharge. Boss-kill identity. Attested: 'extremely high single-target damage output (through Charged Strike).'"
+        }
+      ],
+      "motion_frame": "Throw Lightning Fury javelins into packs with Pierce for fork-chain AoE; use Charged Strike for single-target and boss kills; Teleport for repositioning",
+      "resource_economy": {
+        "cost_scale": "mana-light: 'low-native' mana per corpus econ_raw; attested 'Javazon is the character with the highest damage output in the game'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Pierce (passive skill) = geometry modifier — enables multiple fork-trigger per javelin pass; geometry lane per §3"
+          ],
+          "economy": [],
+          "traits_affixes": [
+            "Lightning Bolt, Lightning Strike synergies for LF damage — traits-affixes scaffold lane per §A row 1"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "EXACT: Lightning Fury maps cleanly to fork geometry + lightning element. Pierce as geometry modifier in scaffold per §3. Charged Strike maps to melee_strike + lightning element for boss-kill secondary. Ailments: 'lightning' flavor does not imply shock; no 'shock' or 'stun' status named in dossier or verify_ledger — §0-UNIVERSAL bars emission. T4 GEOMETRY_PROPAGATION_cascade: pierce-triggered fork propagation is on-pierce kill-chain behavior. ELEMENT_CONVERSION_PHYSICAL: javelin is physical weapon + lightning damage conversion — physical-to-lightning conversion is the build's element identity. Era: lod-1.09+ and d2r CONFIRMED; rotw-s13+ UNSUPPORTED. Accrual: fork geometry is attested clean (no new accruals needed)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Lightning Fury/Charged Strike Amazon (Javazon) Build — Diablo 2 Resurrected — Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+      "archive_url": null,
+      "site": "purediablo.com",
+      "author_handle": null,
+      "title": "Diablo 2 Guide: PvM LF/PJ Javazon Guide for v1.10 — PureDiablo",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-1.09+ era",
+      "anchor_quote": "With outstanding single-target and area of effect damage, the Javazon is the character with the highest damage output in the game.",
+      "source_url": "https://www.purediablo.com/strategy/pvm-lf-pj-javazon-guide-for-v1-10",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "The Javazon Amazon is a glass cannon character with extremely high single-target damage output",
+      "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in rotw-s13+ era",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Javazon' and aliases 'Java Amazon', 'Lightning Fury Amazon', 'Charged Strike Amazon' are real community usage",
+      "anchor_quote": "The Javazon Amazon is a glass cannon character with extremely high single-target damage output",
+      "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Lightning Fury, Charged Strike, Pierce; thrown javelin with lightning forks from impact",
+      "anchor_quote": "extremely high single-target damage output (through Charged Strike) and area of effect clearing speed (through Lightning Fury and Pierce).",
+      "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "synergies": "Lightning Bolt, Lightning Strike are synergies for LF damage; Pierce is Passive and Magic Skills tree",
+          "notes": "Javazon = LoD-era skill set; Lightning Fury and Charged Strike are Lord of Destruction skills (Amazon javelin tree)"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build-skills",
+        "anchor_quote": "20 points to Charged Strike...20 points to Lightning Bolt...20 points to Lightning Strike",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": "Magic gloves with +3 Javelin and Spear Skills and 20% IAS; Ethereal Sandstorm Trek or Waterwalk boots; 8x Javelin Skiller Grand Charms for skill levels",
+          "notes": "Lightning Fury damage scales strongly with +skills items"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+        "anchor_quote": "8x Javelin Skiller Grand Charms with Life or Faster Hit Recovery to reach at least 86% Faster Hit Recovery",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "projectile chain-hop",
+          "delivery": "thrown javelin projectile that pierces through enemies; lightning bolts fork from impact point",
+          "footprint": "chain lightning spread from each pierce hit",
+          "notes": "Pierce enables multiple fork triggers per javelin throw; high density target scenarios exponentially increase effectiveness"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build-skills",
+        "anchor_quote": "pass through monsters quickly in a few throws thanks to its interaction with Pierce...approximately 63% chance to pierce with projectiles",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Throw Lightning Fury javelins into packs; Pierce allows javelins to pass through enemies triggering fork lightning on each pass; Charged Strike used for single targets and bosses; Teleport or run for positioning"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+        "anchor_quote": "extremely high single-target damage output (through Charged Strike) and area of effect clearing speed (through Lightning Fury and Pierce).",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lightning Fury primary (AoE packs)",
+            "Charged Strike primary (single target/boss)",
+            "Hybrid LF+CS (both maxed)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-fury-charged-strike-amazon-javazon-build",
+        "anchor_quote": "Javazon is the character with the highest damage output in the game",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

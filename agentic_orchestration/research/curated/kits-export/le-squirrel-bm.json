@@ -1,0 +1,257 @@
+{
+  "kit_id": "le-squirrel-bm",
+  "spine": {
+    "kit_id": "le-squirrel-bm",
+    "folk_name": "Squirrel Beastmaster",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "1.0-launch;1.1-harbingers;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test: 'not that build' - the swarm IS the kit (defining unique exists only to double companion count) and autonomous-companion delivery is the engine's summoner-deferral gap; the mappable remainder (one buff totem) is support texture, not the build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test: 'not that build' - the swarm IS the kit (defining unique exists only to double companion count) and autonomous-companion delivery is the engine's summoner-deferral gap; the mappable remainder (one buff totem) is support texture, not the build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Summon Squirrels",
+          "geometry_value": null,
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "autonomous companion swarm: 'Squirrels autonomously pursue and attack enemies with rapid physical hits'; converge at close range; count doubled by Herald of the Scurry converting Summon Wolf slots; NO placement language -> null geometry honest (post-W1 two-lane)"
+        },
+        {
+          "source_skill": "Summon Frenzy Totem",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed buff emitter (maps per B totem lane): 'provides incredibly powerful buffs while it's active' - Haste/Frenzy + refreshes companion cooldowns; support payload, no damage projection attested"
+        }
+      ],
+      "motion_frame": "player shepherds an autonomous scurry; keeps Sciurine Rage buff near-100% uptime while the swarm overwhelms",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "COMPANION_CONTRACT",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Sciurine Rage uptime loop"
+          ],
+          "traits_affixes": [
+            "Pack Hunters (pack/scurry size) + Savage Hunters + Legendary Bite + Howl of Might -> numeric lane",
+            "Herald of the Scurry: defining unique, build does not function without it"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "physical -> null element (THE PHYSICAL RULE); Cold Squirrels is variant-scoped, never on the core row (W2 ruling 4). Wolf->squirrel slot CONVERSION doubling companion count = count-multiplier flavor of placed-proxy-count family (B row) - filed as accrual in the MINT side-file per filing law, no numbers. Autonomy gap filed to mechanic_gap_docket (shared row with le-skeleton-necro). Frenzy Totem maps natively - totem != companion (B two-lane split). Eras 1.0 + 1.1 confirmed; 1.2 honest-U."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "LizardIRL",
+      "title": "Squirrel Beastmaster Last Epoch Build Guide - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forum.lastepoch.com/t/last-epoch-raging-squirrels-beastmaster-build-guide-0-9-2/61272",
+      "archive_url": null,
+      "site": "forum.lastepoch.com",
+      "author_handle": "boardman21",
+      "title": "Last Epoch Raging Squirrels Beastmaster Build Guide 0.9.2 - Primalist - Last Epoch Forums",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": "Version 1.0 (updated February 19, 2024).",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: 1.1-harbingers",
+      "anchor_quote": "Version 1.1 (updated July 7, 2024).",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Squirrel Beastmaster' / 'Summon Wolf Frenzy Totem Beastmaster' / 'pet Beastmaster LE' are real community usage",
+      "anchor_quote": "Summon Squirrel Beastmaster... Using the Unique 'Herald of the Scurry' we transform our wolves into Squirrels.",
+      "source_url": "https://forum.lastepoch.com/t/last-epoch-raging-squirrels-beastmaster-build-guide-0-9-2/61272",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Summon Wolf (squirreled via Herald of the Scurry), Frenzy Totem; resource=Mana; minion swarm physical melee",
+      "anchor_quote": "this build is able to convert Summon Wolfs into Summon Squirrels, doubling their numbers... Summon Frenzy Totem is an amazing Support ability that provides incredibly powerful buffs while it's active.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LizardIRL",
+          "site": "maxroll.gg",
+          "secondary_handle": "boardman21",
+          "secondary_site": "forum.lastepoch.com"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Pack Hunters (increases scurry/pack size)",
+            "Savage Hunters",
+            "Legendary Bite",
+            "Howl of Might (damage multipliers)"
+          ],
+          "notes": "Sciurine Rage companion ability is the squirrel-exclusive buff that drives burst damage"
+        },
+        "source_url": "https://forum.lastepoch.com/t/last-epoch-raging-squirrels-beastmaster-build-guide-0-9-2/61272",
+        "anchor_quote": "with 100% of uptime of Sciurine Rage our Squirrels go NUTS!... The Pack Hunters Node is crucial to increase the pack or scurry size.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Herald of the Scurry (helmet; converts Wolves to Squirrels)"
+          ],
+          "notes": "Herald of the Scurry is the defining unique; build does not function without it"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+        "anchor_quote": "this build is able to convert Summon Wolfs into Summon Squirrels, doubling their numbers.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "swarm-at-target: squirrels converge on enemies and attack at close range; delivery mediated by companion autonomy",
+          "range_class": "melee (minion)",
+          "aoe": "small-radius per squirrel cluster"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+        "anchor_quote": "Using the Unique 'Herald of the Scurry' we transform our wolves into Squirrels.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Beastmaster wears Herald of the Scurry helmet to convert Summon Wolf slots into Summon Squirrels, doubling companion count. Squirrels autonomously pursue and attack enemies with rapid physical hits. Summon Frenzy Totem refreshes companion cooldowns and grants Haste/Frenzy buffs. Sciurine Rage ability from squirrels is kept at near-100% uptime.",
+          "core_driver": "squirrel swarm overwhelm via Herald of the Scurry conversion"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+        "anchor_quote": "this build is able to convert Summon Wolfs into Summon Squirrels, doubling their numbers... Summon Frenzy Totem is an amazing Support ability that provides incredibly powerful buffs while it's active.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Summon Squirrel Beastmaster (standard)",
+              "notes": "Cold Squirrels variant via wolf tree; Season 4 / 1.1"
+            },
+            {
+              "name": "Raging Squirrels Beastmaster",
+              "notes": "0.9.2 beta variant; boardman21; Sciurine Rage focus"
+            },
+            {
+              "name": "Beastmaster Cold Squirrels",
+              "notes": "Icy Veins Patch 1.1 cold damage variant"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/squirrel-beastmaster-guide",
+        "anchor_quote": "Summon Squirrel Beastmaster... Beastmaster Cold Squirrels Endgame Build... Raging Squirrels Beastmaster.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

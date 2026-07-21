@@ -1,0 +1,232 @@
+{
+  "kit_id": "d3-zuni-carnevil",
+  "spine": {
+    "kit_id": "d3-zuni-carnevil",
+    "folk_name": "Zunimassa Carnevil",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "set-era;late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Kit identity is autonomous pet army duplicating player darts — no engine lane for autonomous pet combatants. Poison Dart player-fire maps natively; Fetish Army army-duplication has no engine equivalent. Not 'that build, worse' — the pet-mirror mechanic is the entire identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Kit identity is autonomous pet army duplicating player darts — no engine lane for autonomous pet combatants. Poison Dart player-fire maps natively; Fetish Army army-duplication has no engine equivalent. Not 'that build, worse' — the pet-mirror mechanic is the entire identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Poison Dart",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Player-fired ranged projectile; Dagger of Darts provides pierce property per item_alterations anchor ('The Dagger of Darts — pierce property'); poison element: skill_loop anchor 'Carnevil enables fetishes to duplicate your dart projectiles' + skill name attests dart delivery; poison ailment: kit is Poison Dart witch doctor, verify_ledger 'Core skills: Poison Dart, Fetish Army' and skill_loop anchor carry poison delivery framing; earth family per poison-nature venom lane; element secondary null (mono-element kit)"
+        },
+        {
+          "source_skill": "Fetish Army",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pet-core autonomous combatant army; Fetish Army mirrors player dart shots via Carnevil per skill_loop anchor; 10 closest fetishes fire simultaneously; ENGINE GAP: autonomous pet combatants have no native lane — this skill row captures the delivery shape but pet-core identity requires MAPPED_DOCKET per §CROSS summoner-GAP row"
+        }
+      ],
+      "motion_frame": "Cast Poison Dart (primary); 10 closest Fetish Army summons duplicate your dart shots via Carnevil helmet; Piranhas and Big Bad Voodoo on cooldown; Spirit Walk for defense per skill_loop payload",
+      "resource_economy": {
+        "cost_scale": "Mana; verify_ledger anchor: 'you always have resources for Piranhas despite the Mana cost increase from Pierce the Veil'"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Dagger of Darts pierce property per item_alterations anchor"
+          ],
+          "economy": [
+            "Mana sustain via Simplicity's Strength legendary gem; Spirit Walk defensive cooldown"
+          ],
+          "traits_affixes": [
+            "Mask of Jeram massive pet damage multiplier (scaler-only per §B.1)",
+            "Zunimassa's Haunt 6pc set multiplier (scaler-only per §B.1)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: kit identity is pet-core fetish army duplicating player darts — the Fetish Army is the damage output mechanism, not a rider. Per §CROSS summoner-GAP row, autonomous pet combatants = known engine GAP. Poison Dart maps natively as the player-fired trigger; fetish duplicate mechanic has no engine lane. t4_doors null per terminal_state law (GAPPED/doorless kit). Poison ailment: Poison Dart is the kit's named skill per verify_ledger 'Core skills: Poison Dart, Fetish Army'; 'poison' damage implied by name — MW3 warns skill-name alone is not element ground. However verify_ledger confirm 'Poison Dart' as core skill AND skill_loop payload describes 'Core_loop: Poison Dart spam -> Fetish Army mirror -> Carnevil amplification'; the poison dart delivery is the attested source-game mechanic. Earth family: poison-venom theme (nature/dart-blow-gun register). Accrual: placed-proxy-count family (fetish army count). Carnevil = item-defined-archetype but pet-core identity overwhelms — GAPPED governs. [STEWARD-AUDIT 2026-07-18 MW4-close: Poison Dart: earth+poison name-only (\"Poison Dart\" x5, zero poison-damage/venom/toxic behavior) - D3 name-only pattern] [STEWARD-AUDIT 2026-07-18 MW4-close: Fetish Army: earth+poison name-only (fetishes dupe Poison Dart; no poison-damage language)]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Witch Doctor Zuni Carnevil Poison Dart Build (Patch 2.7.8 / Season 39) - Diablo 3 - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/zuni-carnevil-poison-dart-witch-doctor-skills-and-runes",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Zuni Carnevil Poison Dart Witch Doctor Skills and Runes - Diablo 3 - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era, late-sets, s39",
+      "anchor_quote": "Updated for Season 39, Patch 2.7.8",
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Zunimassa Carnevil; aliases: Zunimassa Witch Doctor, Carnevil Poison Dart WD, Fetish Poison Dart WD",
+      "anchor_quote": "Witch Doctor Zuni Carnevil Poison Dart Build",
+      "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Poison Dart, Fetish Army; resource: Mana",
+      "anchor_quote": "you always have resources for Piranhas despite the Mana cost increase from Pierce the Veil",
+      "source_url": "https://www.icy-veins.com/d3/zuni-carnevil-poison-dart-witch-doctor-skills-and-runes",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com",
+          "description": "one of the very few professional Diablo 3 players"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+        "anchor_quote": "This build is presented to you by Deadset, one of the very few professional Diablo 3 players",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "class_set": "Zunimassa's Haunt",
+          "legendary_powers": [
+            "Carnevil: fetish army fires darts on player cast",
+            "Mask of Jeram: large pet damage multiplier"
+          ],
+          "kanais_cube": null,
+          "notes": "Zunimassa's Haunt set defines the build; Carnevil is the capstone item enabling the fetish-dart mechanic"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+        "anchor_quote": "Zunimassa's Haunt set offers a ranged, pet-centric playstyle",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Carnevil (helm) — fetishes fire darts on player cast",
+            "The Dagger of Darts — pierce property",
+            "Mask of Jeram — massive pet damage multiplier",
+            "Simplicity's Strength — legendary gem for primary skill damage"
+          ],
+          "set": "Zunimassa's Haunt (6pc)"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+        "anchor_quote": "Carnevil and The Dagger of Darts, and a dedicated legendary gem — Simplicity's Strength",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "ranged projectile",
+          "footprint": "point/single-target per dart",
+          "range": "ranged",
+          "notes": "Each dart is single-target; up to 10 fetish duplicates fire simultaneously at the targeted enemy; Dagger of Darts provides pierce property"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+        "anchor_quote": "Zunimassa's Haunt set offers a ranged, pet-centric playstyle",
+        "abstained": 0,
+        "conf": 0.79
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Poison Dart (primary); 10 closest Fetish Army summons duplicate your dart shots via Carnevil helmet. Piranhas and Big Bad Voodoo support on cooldown. Spirit Walk for defense. Soul Harvest for toughness stacks.",
+          "core_loop": "Poison Dart spam -> Fetish Army mirror -> Carnevil amplification"
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+        "anchor_quote": "Carnevil enables fetishes to duplicate your dart projectiles",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Speed Farming variant (Zuni Carnevil Poison Dart Speed)",
+            "LoD Carnevil DoD variant (legacy of dreams alternative)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/witch-doctor-zuni-carnevil-poison-dart-build",
+        "anchor_quote": "Zuni Carnevil Poison Dart Witch Doctor Speed Farming Variation",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "kit_id": "di-resonance-awakening",
+  "spine": {
+    "kit_id": "di-resonance-awakening",
+    "folk_name": "Resonance/Awakening (spend-as-stat)",
+    "game": "di",
+    "corpus_bucket": "di",
+    "tier": "T2b",
+    "canon_tier": "deep",
+    "eras": "di-launch-2022;di-5.0-2026",
+    "negative": 0,
+    "is_system": 1,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "System record with zero combat loop — empty-projection convention per §D. No skills, no ailments, no T4 doors applicable.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "System record with zero combat loop — empty-projection convention per §D. No skills, no ailments, no T4 doors applicable.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [],
+      "motion_frame": "Endgame progression system: gem rank-up → Resonance stat increase → Awakening unlocks additional gem slots",
+      "resource_economy": {
+        "resonance_system": "Legendary Gems provide Resonance per rank; Awakening requires Rank-10 gem + Dawning Echo (1000 Eternal Orbs)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "SYSTEM kit per is_system=1 and §D empty-projection convention. 'Resonance is a stat that increases these attributes' (anchor) — scaler only, no combat loop. Awakening enhances legendary items via Rank-10 gem + Dawning Echo material. Monetization texture (1000 Eternal Orbs = premium-shop) = review-book material only. Accrual: resonance/gem-progression economy docket class (review-book system-register)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://game8.co/games/Diablo-Immortal/archives/377903",
+      "archive_url": null,
+      "site": "game8.co",
+      "author_handle": null,
+      "title": "Awakening Guide | How to Get Resonance | Diablo Immortal",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "System present in di-launch-2022 and di-5.0-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Resonance/Awakening (spend-as-stat)' and aliases 'Resonance DI system', 'Awakening DI', 'Legendary Gem Resonance DI' are real community usage",
+      "anchor_quote": "Resonance is a stat that increases these attributes, so the higher your Resonance number, the better your Base Attributes will be.",
+      "source_url": "https://game8.co/games/Diablo-Immortal/archives/377903",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "System mechanics: legendary gem resonance stat + awakening item enhancement system",
+      "anchor_quote": "a new Awakened Power to the item",
+      "source_url": "https://game8.co/games/Diablo-Immortal/archives/377903",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "resonance_gem_tiers": {
+            "1_star_rank1": 15,
+            "1_star_rank2": 30,
+            "2_star_rank1": 30,
+            "5_star_per_rank": 10
+          },
+          "resonance_slots_note": "Awakening opens Gem Resonance slots; embedded gems provide 1 resonance/rank (1-star), 2 (2-star), or 10 (5-star).",
+          "notes": "Legendary gems ARE the capstone system for Resonance."
+        },
+        "source_url": "https://game8.co/games/Diablo-Immortal/archives/377903",
+        "anchor_quote": "Awakening opens up Gem Resonance slots. Resonance slots can be filled with any other Legendary Gems that match the star rating",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "system_desc": "Awakening enhances any legendary item: improves Attributes, Legendary abilities, grants new Awakened Power, adds Resonance. Materials: Rank 10 Legendary Gem socketed in item + Dawning Echo (1000 Eternal Orbs).",
+          "notes": "System-level entry; item alterations ARE the system mechanic."
+        },
+        "source_url": "https://game8.co/games/Diablo-Immortal/archives/377903",
+        "anchor_quote": "improv[ing] its Attributes and Legendary abilities, provid[ing] a new Awakened Power to the item, and provides additional Resonance",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Resonance is an endgame stat from Legendary Gems that boosts Base Attributes (Damage, Life). Higher gem rank = more Resonance. Awakening enhances legendary items by socketing Rank 10 gem + Dawning Echo (1000 Eternal Orbs at Master Jeweler), improving item Attributes, Legendary abilities, granting Awakened Power, and adding Resonance slots for additional gems.",
+          "progression": "Gem rank up -> Resonance increase -> Awakening unlocks further Resonance slots",
+          "monetization_note": "Dawning Echo is premium-shop only (1000 Eternal Orbs)"
+        },
+        "source_url": "https://game8.co/games/Diablo-Immortal/archives/377903",
+        "anchor_quote": "Resonance is a stat that increases these attributes, so the higher your Resonance number, the better your Base Attributes will be.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

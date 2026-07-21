@@ -1,0 +1,247 @@
+{
+  "kit_id": "poe1-lightning-conduit",
+  "spine": {
+    "kit_id": "poe1-lightning-conduit",
+    "folk_name": "Lightning Conduit",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.19;3.20+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-02",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The consumed-magnitude coupling (damage read off the shock's effect value at consume time) generalizes -- engine consume-mark fires a burst but does not read the cleared ailment's magnitude; and Orb of Storms' periodic-zap cadence generalizes to totem behavior. The apply-then-cash-in loop, the sunder amp window, and the removal-on-consume all land.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The consumed-magnitude coupling (damage read off the shock's effect value at consume time) generalizes -- engine consume-mark fires a burst but does not read the cleared ailment's magnitude; and Orb of Storms' periodic-zap cadence generalizes to totem behavior. The apply-then-cash-in loop, the sunder amp window, and the removal-on-consume all land.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Conduit",
+          "geometry_value": "circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "6-metre base-radius area at the cast position: strikes ALL shocked enemies in the area simultaneously and REMOVES their shock -- (10-20)% more damage per 5% shock effect consumed; spiky burst payoff (amp_val=spiky corroborates). PoE shock -> sunder (s2 false friend); the consume event is modeled in trigger grammar"
+        },
+        {
+          "source_skill": "Orb of Storms (shocker)",
+          "geometry_value": "totem",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "placed storm-orb sentry that periodically zaps nearby enemies to APPLY the sunder that Conduit cashes in; totem = the placed-autonomous-caster 26-type. NOT the R-M6 drift-tick class (Orb of Storms is stationary; R-M6 circle ruling covers Ball-Lightning slow-travel orbs, not this)"
+        }
+      ],
+      "motion_frame": "set-up-and-payoff caster: drop the storm orb to paint the pack with max-magnitude shocks, then detonate the whole debuff field with one Conduit cast -- apply, cash in, repeat",
+      "resource_economy": {},
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-mark-consume",
+        "mark_identity": "the sunder (PoE shock) ailment itself: applied by Orb of Storms, read-then-cleared by Lightning Conduit; source damage scales with the CONSUMED shock's magnitude",
+        "consequence_type": "consume-mark"
+      },
+      "t4_doors": [
+        "RESONANCE_LOOP",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "circle 6m consume-burst at cast position",
+            "totem storm-orb applicator"
+          ],
+          "economy": [
+            "ailment-consume proc loop (probe econ model 'proc'/ailments)",
+            "shock-effect investment = the stored-value ramp stat"
+          ],
+          "traits_affixes": [
+            "shock-effect (bigger stored sunder = bigger burst)",
+            "lightning-penetration",
+            "cast-speed"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "AILMENT MARK-AND-CONSUME kit. Eras 3.19;3.20+ POST-ERRATA (verify_ledger: era claim CONTRADICTED, errata applied -- introduced 3.19.0 Lake of Kalandra; corpus row is post-errata truth). Both halves of the pair live IN-KIT (Orb of Storms applies, Conduit consumes) -> trigger_chain_shape=apply-consume-pair with on-mark-consume/consume-mark as the identity-bearing modeled step (b04 hexblast precedent for consume-side encoding; GC-mines precedent for in-kit pairs) -- DEPTH-1. The mark is the AILMENT ITSELF (sunder), not a separate marker. RESONANCE_LOOP door: verified Layer-2 is trigger=SEQUENCE, magnitude=THRESHOLD_BURST -- exactly the apply-then-cash-in sequence shape; ELEMENTAL_ECHO mono-lightning. Mechanical convergence note: engine sunder is a damage-taken-amp window, so a Conduit-analog hit both BENEFITS from and then clears the amp -- structurally close to source behavior. The magnitude COUPLING (more damage per 5% consumed shock effect) has no enum carrier; noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://poedb.tw/us/Lightning_Conduit",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Lightning Conduit — PoEDB",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/lightning-conduit-elementalist-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "[3.19] Lightning Conduit Elementalist Build Guide (Lake of Kalandra)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.poe-vault.com/guides/lake-of-kalandra-league-new-skill-gems",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": null,
+      "title": "[3.19] Lake of Kalandra League new skill gems",
+      "cite_class": "official",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in stamped eras 3.14-3.19 and 3.20+",
+      "anchor_quote": "Lightning Conduit was introduced in patch 3.19.0 (Lake of Kalandra). Three new skill gems themed around lightning damage and shock",
+      "source_url": "https://www.poe-vault.com/guides/lake-of-kalandra-league-new-skill-gems",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Conduit' with Elementalist class is real community usage",
+      "anchor_quote": "[3.19] Lightning Conduit Elementalist Build Guide (Poe Lake of Kalandra)",
+      "source_url": "https://www.poe-vault.com/guides/lightning-conduit-elementalist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Lightning Conduit and Orb of Storms (shocker); shock consumption mechanic; damage scales by shock magnitude; ailment mark-and-consume pattern",
+      "anchor_quote": "strikes all shocked enemies in an area and removes Shock from those enemies. (10-20)% more Damage with Hits per 5% Shock Effect on Enemy",
+      "source_url": "https://poedb.tw/us/Lightning_Conduit",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://www.poe-vault.com/guides/lightning-conduit-elementalist-build-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Lightning Conduit of the Heavens (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Listed variant; mechanical details not available on poedb page",
+              "anchor_quote": null
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Conduit",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.5
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": "https://poedb.tw/us/Lightning_Conduit",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (area centered at cast position)",
+          "footprint": "small-radius (6 metre base radius)",
+          "range_note": "AoE centered on caster; hits all shocked enemies within radius simultaneously",
+          "aoe_radius": 6,
+          "aoe_unit": "metres"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Conduit",
+        "anchor_quote": "strikes all shocked enemies in an area. The base radius is 6 metres",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "apply shock to enemies via Orb of Storms / Storm Brand → cast Lightning Conduit → consumes shock on all enemies in radius → damage scales by shock magnitude (10-20% more per 5% shock effect) → re-apply shock → repeat",
+          "key_synergy": "maximize shock effect value before consuming for multiplicative scaling"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Conduit",
+        "anchor_quote": "strikes all shocked enemies in an area and removes Shock from those enemies. (10-20)% more Damage with Hits per 5% Shock Effect on Enemy",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Lightning Conduit of the Heavens (3.26 transfigured; shocks enemies as though dealing 20-39% more damage)"
+          ],
+          "variant_source": "poedb"
+        },
+        "source_url": "https://poedb.tw/us/Lightning_Conduit",
+        "anchor_quote": "Lightning Conduit of the Heavens now shocks enemies as though dealing 20-39% more damage",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

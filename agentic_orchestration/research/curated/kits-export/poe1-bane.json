@@ -1,0 +1,257 @@
+{
+  "kit_id": "poe1-bane",
+  "spine": {
+    "kit_id": "poe1-bane",
+    "folk_name": "Bane",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The chaos-DoT-plus-curse-bundle and per-curse damage multiplier land via the drain ailment + curse: variants + NETWORK_AMPLIFIER, but the source's defining 'ONE cast applies ALL linked curses simultaneously' is expressed as the kit carrying multiple curse-ailments rather than a single bundled-cast primitive. Outcome-faithful; a player keeps the 'cast once, everything is cursed and melting' feel, though the engine models the curses as co-applied discrete ailments.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [
+      "curse:amplify",
+      "curse:decrepify",
+      "curse:weaken",
+      "drain"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The chaos-DoT-plus-curse-bundle and per-curse damage multiplier land via the drain ailment + curse: variants + NETWORK_AMPLIFIER, but the source's defining 'ONE cast applies ALL linked curses simultaneously' is expressed as the kit carrying multiple curse-ailments rather than a single bundled-cast primitive. Outcome-faithful; a player keeps the 'cast once, everything is cursed and melting' feel, though the engine models the curses as co-applied discrete ailments.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Bane (+ Despair, + linked hexes)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [
+            "drain",
+            "curse:weaken",
+            "curse:decrepify",
+            "curse:amplify"
+          ],
+          "delivery_notes": "one cast applies a chaos DoT (drain) in a small area AND every linked hex-curse simultaneously to the same enemies; more curses applied = more Bane damage (per-curse multiplier). shadow family (chaos drain-DoT lineage). Bundled curses: Despair->curse:amplify (chaos-res-reduction hex), Enfeeble->curse:weaken, Temporal Chains->curse:decrepify"
+        }
+      ],
+      "motion_frame": "stationary hex-caster: one cast lands a chaos-DoT-plus-full-curse-bundle on a pack, enemies melt from stacked debuffs",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "NETWORK_AMPLIFIER",
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle DoT-application area",
+            "area-of-effect (Carcass Jack) to widen coverage"
+          ],
+          "economy": [
+            "curse-application cadence"
+          ],
+          "traits_affixes": [
+            "chaos/DoT scaling",
+            "curse-effect",
+            "+curse-count (Occultist ascendancy analog)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "CURSE-BUNDLER: the identity is 'one cast = chaos DoT + ALL linked curses at once, with a per-curse damage multiplier'. Element chaos -> shadow (§1 chaos drain-DoT lineage). The chaos DoT maps to the DRAIN ailment (§2 life-drain/decay/chaos-DoT -> drain), NOT poison (Bane is a hex-DoT, not a stacking-venom skill). Bundled curses land as curse: variants by application-shape (§2): Despair (chaos-res hex) -> curse:amplify; Enfeeble -> curse:weaken; Temporal Chains -> curse:decrepify. Geometry ground_targeted_circle (small-area application + persistent DoT patch). NETWORK_AMPLIFIER routes the curse-network + per-curse-multiplier ('more curses = more damage' IS a curse-network amp). MILD APPROX noted in-grade: engine applies each curse as a discrete ailment; the source's 'ALL linked curses in a SINGLE cast simultaneously' is expressed as the kit applying multiple curse-ailments together, which is faithful in outcome. Occultist +1-curse and Profane Bloom (cursed-enemies-explode) are ascendancy flavor; explode-on-death of cursed enemies is a secondary on-death propagation not central to the dominant DoT loop. [STEWARD AUDIT: Despair re-routed sap->amplify — Despair is a damage-taken amp, Vulnerability-class; crosswalk §2 lacked a Despair row (law gap, now fixed).]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://odealo.com/articles/bane-occultist-starter-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.20] Bane Occultist Starter Build",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3230231",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "Enki#6435",
+      "title": "[3.19] Enki's Lowlife Chaos DoT Occultist - Bane & Essence Drain",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Bane",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Bane - poedb.tw",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Added a new Intelligence Skill Gem - Bane: Applies a debuff which deals Chaos damage over time, as well as any linked curses, to enemies in an area. [patch 3.6.0]",
+      "source_url": "https://poedb.tw/us/Bane",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Bane' (no aliases) is real community usage; class Occultist",
+      "anchor_quote": "[3.20] Bane Occultist Starter Build",
+      "source_url": "https://odealo.com/articles/bane-occultist-starter-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Bane + Despair; one cast applies chaos DoT AND every linked curse simultaneously; per-curse damage multiplier",
+      "anchor_quote": "Applies a debuff to enemies in an area, which deals chaos damage over Time. Linked hex curses are also applied to those enemies.",
+      "source_url": "https://poedb.tw/us/Bane",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Per-curse damage increase of ~40% (corpus says 40%; actual scaling is 28-42% by gem level)",
+      "anchor_quote": "(28-42)% more Damage per Curse applied",
+      "source_url": "https://poedb.tw/us/Bane",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": [
+          {
+            "handle": "Odealo editorial",
+            "site": "odealo.com",
+            "url": "https://odealo.com/articles/bane-occultist-starter-build"
+          },
+          {
+            "handle": "Enki#6435",
+            "site": "pathofexile.com/forum",
+            "url": "https://www.pathofexile.com/forum/view-thread/3230231"
+          }
+        ],
+        "source_url": "https://odealo.com/articles/bane-occultist-starter-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Occultist",
+          "nodes_in_order": [
+            "Void Beacon (chaos resist reduction on nearby enemies)",
+            "Withering Presence (wither on nearby enemies)",
+            "Profane Bloom (cursed enemies explode on death)",
+            "Unholy Authority (immune to own curses)"
+          ],
+          "key_benefit": "Occultist provides +1 curse via Ascendancy, synergizing with Bane's per-curse damage multiplier."
+        },
+        "source_url": "https://odealo.com/articles/bane-occultist-starter-build",
+        "anchor_quote": "Void Beacon, Withering Presence, Profane Bloom, Unholy Authority",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_item": "Cane of Unravelling (wand)",
+          "alteration": "Primary weapon for chaos damage scaling.",
+          "secondary_item": "Carcass Jack (chest)",
+          "secondary_alteration": "(40-50)% increased AoE and Area Damage.",
+          "tertiary_item": "Crown of the Inward Eye",
+          "tertiary_alteration": "Multiplicative life/ES scaling."
+        },
+        "source_url": "https://odealo.com/articles/bane-occultist-starter-build",
+        "anchor_quote": "Carcass Jack provides (40-50)% increased Area of Effect and (40-50)% increased Area Damage",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "verbatim": "At-target delivery in a small AoE radius. Bane description: 'Applies a debuff to enemies in an area.' Carcass Jack grants (40-50)% increased Area of Effect to scale the coverage.",
+          "geometry_note": "Small-radius AoE application (not chain, not projectile); the DoT persists after the initial application."
+        },
+        "source_url": "https://poedb.tw/us/Bane",
+        "anchor_quote": "Applies a debuff to enemies in an area, which deals chaos damage over Time.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Link Bane with Despair and optionally Punishment/Temporal Chains/Enfeeble. One Bane cast applies the chaos DoT debuff AND all linked curses simultaneously in a small AoE. Each linked curse increases Bane's damage by ~40%. On bosses, add Vaal Blight for heavy DoT. Loop: cast Bane → all curses land with DoT → enemies melt."
+        },
+        "source_url": "https://odealo.com/articles/bane-occultist-starter-build",
+        "anchor_quote": "One cast applies chaos DoT AND every linked curse simultaneously — the curse-bundler damage spell.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "named_variants": [
+            "Bane Occultist (solo Bane + Despair)",
+            "Essence Drain + Bane Occultist (Enki lineage, 3.19)",
+            "Lowlife Chaos DoT Occultist (Enki, Bane + ED combo)"
+          ]
+        },
+        "source_url": "https://odealo.com/articles/bane-occultist-starter-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

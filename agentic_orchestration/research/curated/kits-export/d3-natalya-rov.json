@@ -1,0 +1,262 @@
+{
+  "kit_id": "d3-natalya-rov",
+  "spine": {
+    "kit_id": "d3-natalya-rov",
+    "folk_name": "Natalya Rain of Vengeance",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "set-era;late-sets",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Moving-channel Strafe + at-target-zone RoV are both present but Natalya's CDR-reset-on-Strafe-hit has no native engine analog — approximated via PERSISTENCE_ENGINE_uptime door. No engine equivalent to 'cooldown reset on specific-skill hit' at Wave-B.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Moving-channel Strafe + at-target-zone RoV are both present but Natalya's CDR-reset-on-Strafe-hit has no native engine analog — approximated via PERSISTENCE_ENGINE_uptime door. No engine equivalent to 'cooldown reset on specific-skill hit' at Wave-B.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Rain of Vengeance",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target large AoE arrow storm zone; cooldown-looped via Natalya 6pc reset on Strafe hit; physical damage → element-neutral per THE PHYSICAL RULE"
+        },
+        {
+          "source_skill": "Strafe",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving channel while Strafing; delivery notes: moving-channel (not rooted); short channels alternated with generator shots per loop"
+        },
+        {
+          "source_skill": "Vengeance",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Permanent uptime via Dawn CDR; flat damage multiplier self-buff"
+        }
+      ],
+      "motion_frame": "Short Strafe channels reset RoV cooldown; alternate channel-move with generator shots to maintain Hatred and buffs; RoV barrage lands on cycle",
+      "resource_economy": {
+        "resource": "Hatred/Discipline",
+        "cost_note": "Strafe channels drain Hatred; generator shots refill; Vengeance requires Discipline; Dawn reduces Vengeance CDR for permanent uptime"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Hellcat Waistguard — knockback on Strafe hit (item rider)"
+          ],
+          "economy": [
+            "Dawn CDR reduces Vengeance to permanent uptime; Bastions of Will buff requires alternating attack/channel"
+          ],
+          "traits_affixes": [
+            "Natalya 6pc resets RoV cooldown (scaler); 4pc boosts RoV damage (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Physical damage kit maps element-neutral. Natalya 6pc CDR-reset loop is the identity — losing Strafe-resets-RoV means 'not that build.' RoV is the payload; Strafe is the reset engine. Set multipliers (scaler only) in scaffold. Bastions of Will requires alternating attack types — noted as economy texture."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Demon Hunter Natalya Rain of Vengeance Build (Patch 2.7.4 / Season 27)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/d3/guides/natalya-spike-trap-demon-hunter-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Natalya Spike Trap Demon Hunter Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in set-era",
+      "anchor_quote": "changelog documents updates spanning from Season 14 (June 2018) through Season 27 (August 2022). The guide was reviewed and approved for Season 17.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Demon Hunter Natalya Rain of Vengeance Build (Patch 2.7.4 / Season 27) — changelog documents updates spanning from Season 14 through Season 27.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": "This build is no longer relevant in Patch 2.7.5.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Natalya Rain of Vengeance' and aliases 'Natalya DH', 'Rain of Vengeance DH', 'Natalya RoV Demon Hunter' are real community usage",
+      "anchor_quote": "Demon Hunter Natalya Rain of Vengeance Build — Strafe into a potent tool that resets the cooldown of Rain of Vengeance through the power of the Natalya's Vengeance set.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Rain of Vengeance (with Strafe); Demon Hunter resource (Hatred/Discipline); cooldown-reset delivery",
+      "anchor_quote": "The primary dynamic of the spec alternates short channeling of Strafe and punctuating it with generator shots, in order to maintain your Hatred reserves high.",
+      "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com"
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Natalya's Vengeance (6pc) — 6pc resets RoV cooldown on Strafe hit; 4pc boosts RoV damage",
+          "kanai_cube": [
+            "Dawn (CDR for Vengeance)"
+          ],
+          "legendary_powers": [
+            "Hellcat Waistguard",
+            "Bastions of Will"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+        "anchor_quote": "The build takes advantage of the full Natalya set bonuses, taking six of the seven available pieces and opening up the jewelry slots for the damage multiplication of the Bastions of Will set.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Natalya's Vengeance set (6pc)",
+            "Dawn (offhand — CDR for Vengeance)",
+            "Natalya's Slayer",
+            "Hellcat Waistguard",
+            "Wraps of Clarity",
+            "Squirt's Necklace",
+            "Bastions of Will set"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+        "anchor_quote": "it is important to equip your highest damage crossbow as your mainhand, as Rain of Vengeance only takes the mainhand into account for their damage calculation.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Rain of Vengeance called at cursor location; large AoE arrow storm footprint; Strafe is channel-move; delivery is at-target zone",
+          "range": "at-target large-AoE"
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+        "anchor_quote": "Strafe into a potent tool that resets the cooldown of Rain of Vengeance through the power of the Natalya's Vengeance set.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Vengeance for permanent uptime via Dawn CDR; alternate Strafe (short channels) with generator shots to maintain Hatred and Bastions of Will buffs; Natalya 6pc resets Rain of Vengeance cooldown before second cast lands; repeat barrage."
+        },
+        "source_url": "https://www.icy-veins.com/d3/demon-hunter-natalya-rain-of-vengeance-build",
+        "anchor_quote": "alternates short channeling of Strafe and punctuating it with generator shots, in order to maintain your Hatred reserves high and keep the Wraps of Clarity and Bastions of Will set buffs going",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Natalya Rapid Fire DH (N6 RF)",
+            "Natalya Fan of Knives DH (N6 FoK)",
+            "N6M4 Cluster Arrow",
+            "N6GoD4 Hungering Arrow",
+            "Natalya Spike Trap (S28 rework)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/natalya-spike-trap-demon-hunter-guide",
+        "anchor_quote": "With this rework, builds like N6M4, N6GoD4, N6 RF and N6 FoK vanished to make room for something new.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

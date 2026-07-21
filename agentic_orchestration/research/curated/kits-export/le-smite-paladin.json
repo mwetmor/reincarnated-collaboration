@@ -1,0 +1,276 @@
+{
+  "kit_id": "le-smite-paladin",
+  "spine": {
+    "kit_id": "le-smite-paladin",
+    "folk_name": "Smite Paladin",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "beta-0.8-0.9;1.0-launch;1.2-woven",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: missing-Mana damage substrate approximated via gear-numeric lane pending steward candidate; holy is carried by the aura skill while Smite itself rides lightning. The proc-storm loop (hit -> sky-bolt at target) is native trigger grammar.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "holy",
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: missing-Mana damage substrate approximated via gear-numeric lane pending steward candidate; holy is carried by the aura skill while Smite itself rides lightning. The proc-storm loop (hit -> sky-bolt at target) is native trigger grammar.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Smite",
+          "geometry_value": "single_target",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "lightning bolt descends from the sky at the hit/targeted point; point impact; auto-generated at the target of each weapon hit - proc chain delivers many Smites per rotation"
+        },
+        {
+          "source_skill": "Holy Aura",
+          "geometry_value": "aura",
+          "element_primary": "holy",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "always-active buff aura; Symbols of Hope + Javelin add further buffs"
+        }
+      ],
+      "motion_frame": "melee/throwing attacker whose every weapon hit calls down a Smite at the struck target",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "NETWORK_AMPLIFIER"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "large Mana pool feeds Devotion amulet damage"
+          ],
+          "traits_affixes": [
+            "Devotion amulet: Cast Speed + Adaptive Spell Damage from missing Mana -> item lane + substrate candidate",
+            "Spirit Xylem / Harbinger of Stars / Dominance of the Tundra required set"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Carrier weapon attack lives in trigger grammar (every hit -> linked-cast Smite; depth 1); Celestial Devotion adds an on-crit rider - nearest single enum kept as on-hit-threshold (every hit), on-crit noted here per 7.2. Missing-Mana-as-spell-damage (item Devotion) filed as its OWN stat-as-damage-substrate cluster candidate - offense-side inversion, do-not-merge question vs B ward-from-missing-health flagged to steward. NO shock/sunder emitted - lightning flavor never implies a status (0-UNIVERSAL; near-miss). Variant carriers (Warpath spin, Shield Throw, Holy Hammer) are variant-scoped, never on the core row. Eras: beta confirmed (0.8.5f/0.9 anchors); 1.2-woven honest-U post-SMITE-RULING (quarantined lastepochtools citation NOT resurrected)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Volca",
+      "title": "Smite Paladin Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/smiter-paladin-last-epoch-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[0.8.5f]Smiter Paladin Last Epoch Build - Odealo",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.lastepochtools.com/build-guides/multistrike-smite-paladin",
+      "archive_url": null,
+      "site": "lastepochtools.com",
+      "author_handle": null,
+      "title": "Multistrike Smite Paladin Build Guide (Tombs of the Erased / 1.2.1)",
+      "cite_class": "communal",
+      "rank_class": "recovered",
+      "quarantined": 1
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in era: beta-0.8-0.9",
+      "anchor_quote": "Last Epoch - Divine Priest Build Guide - How To Build A Smite Paladin (Patch 0.9)... [0.8.5f]Smiter Paladin Last Epoch Build.",
+      "source_url": "https://odealo.com/articles/smiter-paladin-last-epoch-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.0-launch",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in era: 1.2-woven",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Smite Paladin LE' / 'Holy Aura Smite Paladin' / 'divine strike Paladin' are real community usage",
+      "anchor_quote": "Smite Paladin... Smite, obliterating enemies with Lightning bolts that descend from the sky.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Smite (proc-triggered lightning strikes at-target), Holy Aura (buff aura); dominant economy is proc-chain; resource=Mana; lightning damage",
+      "anchor_quote": "Holy Aura, Symbols of Hope and Javelin grant powerful buffs... A large Mana pool provides a huge buff to your damage with Devotion.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Volca",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Symbols of Hope (buff)",
+            "Celestial Devotion (Smite proc on crit/evasion)"
+          ],
+          "notes": "Devotion amulet interaction with missing Mana is the build's damage capstone; guide from 0.8.5f confirms Smite Paladin existed in beta"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+        "anchor_quote": "A large Mana pool provides a huge buff to your damage with Devotion.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Devotion (amulet; Cast Speed + Adaptive Spell Damage from missing Mana)",
+            "Spirit Xylem",
+            "Harbinger of Stars",
+            "Dominance of the Tundra",
+            "Grasp of the Blood Mage",
+            "Titan Heart",
+            "Red Ring of Atlaria",
+            "Twisted Heart of Uhkeiros"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+        "anchor_quote": "This setup needs Spirit Xylem, Devotion, Harbinger of Stars and Dominance of the Tundra to function.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "single lightning strike at targeted/hit point from above; point-impact; proc-chain delivers multiple Smites per combat rotation",
+          "range_class": "dual (melee weapon proc + overhead strike range)",
+          "aoe": "single point"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+        "anchor_quote": "Lightning bolts that descend from the sky.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Paladin equips Holy Aura as always-active buff and attacks with melee/throwing weapons to proc Smite. Each weapon hit auto-generates a Smite lightning strike at the hit target. Large Mana pool feeds Devotion amulet for damage boost. Smite calls down lightning from above at targeted point.",
+          "core_driver": "proc-triggered Smite chain on every weapon hit"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+        "anchor_quote": "Smite, obliterating enemies with Lightning bolts that descend from the sky... Holy Aura, Symbols of Hope and Javelin grant powerful buffs.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Smite Paladin (standard)",
+              "notes": "melee proc chain; Season 4"
+            },
+            {
+              "name": "Smite Hammerdin",
+              "notes": "Smite + Holy Hammer variant"
+            },
+            {
+              "name": "Smite Shield Throw Paladin",
+              "notes": "throwing weapon proc variant"
+            },
+            {
+              "name": "Spin To Win Warpath Smite Paladin",
+              "notes": "Warpath + Smite proc; 1.2.1"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/smite-paladin-guide",
+        "anchor_quote": "Smite Hammerdin Paladin... Smite Shield Throw Paladin... Spin To Win Warpath Smite Paladin.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

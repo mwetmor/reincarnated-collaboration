@@ -1,0 +1,219 @@
+{
+  "kit_id": "d2-horker",
+  "spine": {
+    "kit_id": "d2-horker",
+    "folk_name": "Horker",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "lod;d2r",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build: the Horker's defining loop-verb is Find Item corpse re-rolls for loot economy — there is no engine lane for meta-game loot re-roll identity. Combat verbs (Whirlwind/Berserk) map but don't constitute the build.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Not that build: the Horker's defining loop-verb is Find Item corpse re-rolls for loot economy — there is no engine lane for meta-game loot re-roll identity. Combat verbs (Whirlwind/Berserk) map but don't constitute the build.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Whirlwind",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Moving-channel melee swing through enemy clusters; full movement during channel (§CROSS row 5 moving-channel law). Physical damage. Combat kill verb for producing corpses."
+        },
+        {
+          "source_skill": "Berserk",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Magic-damage single-target strike for physical-immune enemies. Supplement skill; attested: 'use Berserk to kill physical resistants.'"
+        },
+        {
+          "source_skill": "Find Item",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Cast on corpse at-target; re-rolls loot drops on that corpse. One corpse per cast. Loot-economy verb — no damage payload."
+        }
+      ],
+      "motion_frame": "Clear enemies with Whirlwind; use Berserk on physical-immune; cast Find Item on all corpses for loot re-roll; repeat at Travincal Council",
+      "resource_economy": {
+        "corpse_nodes": "identity-load-bearing: Find Item targets corpses; avoiding cold damage to prevent corpse shattering is attested loot-loop constraint"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": null,
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Item swap (Ali Baba + Lem runes) for gold-find during Find Item cast phase → economy lane"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GAPPED: §A row 4 loot-economy docket governs. R-M7 test honest per hot-fact (§A.4): verified identity IS 'MF re-roll bot' — Find Item is the build's named loop verb ('Search all bodies with Find items skill' — anchor_quote attested). Combat mapping (Whirlwind + Berserk) is real and mapped, but 'that build' without the Find Item loot-economy loop is not the Horker. Find Item has no engine damage lane; its payload is meta-game loot economy. Corpse-node key emitted (R-M4): corpses are consumed as the resource Find Item targets; cold-damage avoidance to preserve corpses is attested loot-loop texture. Docket destination: loot-economy-identity family (§A row 4, §E.3). T4 doors empty: no capstone shape for a loot re-roll build. [STEWARD-AUDIT 2026-07-18: t4_doors []→null per template null-where-N/A.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.yesgamers.com/diablo-2/horker-build",
+      "archive_url": null,
+      "site": "yesgamers.com",
+      "author_handle": null,
+      "title": "Diablo 2 Horker Barbarian Build — Yesgamers",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod era",
+      "anchor_quote": "Kill council members with Whirlwind...Search all bodies with Find items skill.",
+      "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "The Horker is a barbarian build that specializes in finding gold and gambling.",
+      "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Horker' and aliases 'Find Item Barbarian', 'Horker Barb' are real community usage",
+      "anchor_quote": "The Horker is a barbarian build that specializes in finding gold and gambling.",
+      "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Find Item and Whirlwind/Conc; kill then corpse re-roll loop for loot",
+      "anchor_quote": "Kill council members with Whirlwind, use Berserk to kill physical resistants...Search all bodies with Find items skill.",
+      "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": "Blades of Ali Baba with Lem runes or 6-socket weapon with Lem runes for gold-find; Wealth runeword armor; Ali Baba main weapon",
+          "notes": "Item swap for Find Item cast then swap back to combat weapon is standard technique"
+        },
+        "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+        "anchor_quote": "two Blades of Ali Baba inserted with two Lem Runes or 6 socketed weapon inserted with six Lem Runes for switching",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "at-target point",
+          "delivery": "cast Find Item on specific corpse",
+          "footprint": "single corpse per cast",
+          "notes": "Find Item targets one corpse; re-rolls loot drops at that location"
+        },
+        "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+        "anchor_quote": "Search all bodies with Find items skill.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Clear Travincal Council with Whirlwind; use Berserk for physical-resistant enemies; cast Find Item on all corpses for loot re-roll; gold/item economy loop"
+        },
+        "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+        "anchor_quote": "Kill council members with Whirlwind, use Berserk to kill physical resistants...Search all bodies with Find items skill.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "WW Horker (Whirlwind primary, Find Item secondary)",
+            "Concentration Horker (Concentration instead of WW)",
+            "Magic Find variant (MF gear focus)"
+          ]
+        },
+        "source_url": "https://www.yesgamers.com/diablo-2/horker-build",
+        "anchor_quote": "use Berserk to kill physical resistants, and use Frenzy to kill mana burnings",
+        "abstained": 0,
+        "conf": 0.62
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

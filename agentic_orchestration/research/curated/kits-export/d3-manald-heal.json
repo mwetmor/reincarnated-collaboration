@@ -1,0 +1,236 @@
+{
+  "kit_id": "d3-manald-heal",
+  "spine": {
+    "kit_id": "d3-manald-heal",
+    "folk_name": "Manald Heal Paralysis",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "set-era",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) trigger chain depth-2 (attack → stun → ring-proc) — engine MAX_CHAIN_DEPTH=1; the proc-on-stun-proc architecture loses one depth layer; (2) the Paralysis uptime race (needing 4-5+ stuns per second via high attack rate) as the build's skill axis — engine proc conditions fire but don't model attack-speed-as-proc-density; (3) Archon swap-in/out timing and the Explosive Blast spamming in non-Archon windows needed for proc density.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "stun"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Player would miss: (1) trigger chain depth-2 (attack → stun → ring-proc) — engine MAX_CHAIN_DEPTH=1; the proc-on-stun-proc architecture loses one depth layer; (2) the Paralysis uptime race (needing 4-5+ stuns per second via high attack rate) as the build's skill axis — engine proc conditions fire but don't model attack-speed-as-proc-density; (3) Archon swap-in/out timing and the Explosive Blast spamming in non-Archon windows needed for proc density.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Archon (Combustion rune) — lightning form attacks",
+          "geometry_value": "beam_channel",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "stun"
+          ],
+          "delivery_notes": "Archon transformation; lightning attacks roll Paralysis passive; attested: 'lightning attacks roll Paralysis passive (15% chance per attack on hit skills); each Paralysis stun triggers Manald Heal ring proc'; stun attested: 'each Paralysis stun triggers Manald Heal ring proc (14,000% weapon damage)' in dossier skill_loop payload"
+        },
+        {
+          "source_skill": "Manald Heal proc (ring-triggered on Paralysis stun)",
+          "geometry_value": "single_target",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "On-stun proc fires at paralyzed target position; attested: 'each Paralysis stun triggers Manald Heal ring proc' and verify_ledger anchor_quote: 'Manald Heal is a ring that introduces a chance for a massive damage proc on enemies stunned by the Paralysis passive'"
+        }
+      ],
+      "motion_frame": "Activate Archon for lightning damage window; lightning attacks roll Paralysis (stun); each stun triggers Manald Heal ring proc (14,000% weapon damage); high Attack Speed to maximize proc rate; chain Paralysis windows",
+      "resource_economy": {
+        "resource_type": "Arcane Power",
+        "generator": "Archon form passive + high attack speed",
+        "spend_pattern": "Archon form attack spam; cooldown-gated Archon window; In-geom proc extends Archon via cooldown reset"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-ailment-application",
+        "mark_identity": "paralysis-stun-state",
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "RESONANCE_LOOP",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Archon beam range; single-target proc per stun instance"
+          ],
+          "economy": [
+            "Arcane Power passive sustain; Archon window cooldown; In-geom cooldown reduction on kill"
+          ],
+          "traits_affixes": [
+            "lightning scaling; attack speed (proc rate); CoE rotation window; Tal Rasha/Vyr set multipliers (scaler only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element: lightning — attested: corpus elem_raw 'lightning' and verify_ledger 'Lightning Archon, Tal Vyr Lightning Archon.' Stun attested: dossier skill_loop payload_json 'each Paralysis stun triggers Manald Heal ring proc (14,000% weapon damage)' — CONTIGUOUS in kit_dossier store; verify_ledger anchor_quote 'Manald Heal is a ring that introduces a chance for a massive damage proc on enemies stunned by the Paralysis passive' — CONTIGUOUS in verify_ledger store. MW1-close: 'freeze' language rule — no freeze here; stun correctly attested as stun. RESONANCE_LOOP T4: proc-chain architecture (attack → stun → ring-proc → repeat builds the loop). APPROX note: trigger chain depth = attack → Paralysis (on-hit-threshold proc) → Manald ring-proc (on-stun) = depth-2 chain; MAX_CHAIN_DEPTH=1 LOCKED per §3 trigger grammar; this maps as APPROX per that limit. Tal Rasha + Vyr multiplier stacking = scalers-only (§B row 1). CoE in item_alterations → R-M5 element_rotation_window. 'Stun' MW1-close: word 'stun' attested directly; not 'freeze'; no adjacent-status leak."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Deadset",
+      "title": "Wizard Lightning Archon Build With Manald Heal and Tal Rasha/Vyr Sets (Patch 2.6.9 / Season 21)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era: set-era",
+      "anchor_quote": "It emerged gradually through targeted buffs and reworks over the course of Patch 2.4's lifecycle",
+      "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Manald Heal Paralysis'; aliases include 'Manald Heal Wizard', 'Archon Lightning Paralysis', 'Paralysis Wizard'",
+      "anchor_quote": "Lightning Archon, Tal Vyr Lightning Archon, Manald Archon",
+      "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Archon lightning, Paralysis; class resource: Arcane Power; Manald Heal ring proc on Paralysis stun",
+      "anchor_quote": "Manald Heal is a ring that introduces a chance for a massive damage proc on enemies stunned by the Paralysis passive. Paralysis is a necessary inclusion",
+      "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Deadset",
+          "site": "icy-veins.com",
+          "description": "one of the very few professional Diablo 3 players"
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+        "anchor_quote": "Deadset, described as 'one of the very few professional Diablo 3 players' who maintains YouTube and Twitch presence",
+        "abstained": 0,
+        "conf": 0.99
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set_bonus": "Tal Rasha + Vyr combined (Ring of Royal Grandeur enabling); Manald Heal proc: 14,000% weapon damage on Paralysis-stunned targets",
+          "kanai_cube": [
+            "Manald Heal (cubed)",
+            "In-geom (cubed weapon)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+        "anchor_quote": "The build combines Tal Rasha and Vyr set pieces",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Manald Heal (ring, core proc item)",
+            "Tal Rasha set",
+            "Vyr's Amazing Arcana set",
+            "Ring of Royal Grandeur (enables flexible set requirements)",
+            "Starfire wand",
+            "Fazula's Improbable Chain",
+            "In-geom (cubed)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+        "anchor_quote": "Critical unique items include Manald Heal (cubed), Starfire wand, Fazula's Improbable Chain belt, and In-geom (cubed weapon)",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (Archon lightning attacks)",
+          "range": "point / single target (Paralysis proc per target)",
+          "aoe": "limited; proc is single-target at stun position",
+          "notes": "Paralysis proc fires on individual stunned target; Archon beam can hit multiple but proc is per-target"
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+        "anchor_quote": "Manald Heal is unaffected by proc coefficients and internal cooldowns, and can trigger multiple times during a Paralysis proc",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Activate Archon (Combustion rune) for damage window; lightning attacks roll Paralysis passive (15% chance per attack on hit skills); each Paralysis stun triggers Manald Heal ring proc (14,000% weapon damage); chain Paralysis windows; high Attack Speed valued to maximize proc rate"
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+        "anchor_quote": "Manald Heal is a ring that introduces a chance for a massive damage proc on enemies stunned by the Paralysis passive. Paralysis is a necessary inclusion",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Tal/Vyr Lightning Archon (primary)",
+            "Arcane Torrent + Manald Heal (separate build)",
+            "Solo Progression variant",
+            "Group Progression variant"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/wizard-lightning-archon-build-with-manald-heal-and-tal-rasha-vyr-sets",
+        "anchor_quote": "Wizard Arcane Torrent Build With Manald Ring and Tal Rasha Set",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

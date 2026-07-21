@@ -1,0 +1,267 @@
+{
+  "kit_id": "la-punisher-slayer",
+  "spine": {
+    "kit_id": "la-punisher-slayer",
+    "folk_name": "Punisher Slayer",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "genre/mayhem",
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Punisher vs Predator distinction (shorter Burst windows vs sustained uptime; Specialization vs Swiftness stat profile) is an economy-texture difference within the same Fury→Burst shell; cannot be fully mapped without per-kit stat scaling parameters. PHASE_MOMENTUM captures cycle-variant shape imperfectly.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Punisher vs Predator distinction (shorter Burst windows vs sustained uptime; Specialization vs Swiftness stat profile) is an economy-texture difference within the same Fury→Burst shell; cannot be fully mapped without per-kit stat scaling parameters. PHASE_MOMENTUM captures cycle-variant shape imperfectly.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Guillotine",
+          "geometry_value": "melee_arc",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "First Burst priority skill; Triple Guillotine Ark Passive core variant"
+        },
+        {
+          "source_skill": "Brutal Impact",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Second Burst priority; heavy melee slam"
+        },
+        {
+          "source_skill": "Volcanic Eruption",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Third Burst priority; 'Volcanic' is skill proper name — zero fire damage-typing; element null (D4 NAME-ONLY LAW)"
+        },
+        {
+          "source_skill": "Bloodlust",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fourth Burst priority; melee strike; name-only — zero shadow/blood damage-typing"
+        },
+        {
+          "source_skill": "Spinning Sword",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fury generator; pre-Burst filler"
+        },
+        {
+          "source_skill": "Wild Stomp",
+          "geometry_value": "ground_slam",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Fury generator AND 'damage amplification synergy' — DIRECTION TEST: 'Wild Stomp for damage amplification synergy' in skill_geometry anchor describes party/buff mechanic; no enemy-directed debuff attested; maps self_buff (not curse:amplify); no ailment emitted"
+        }
+      ],
+      "motion_frame": "Generate Fury Meter via Spinning Sword, Ground Smash, Furious Claw, Wild Stomp; enter Burst Mode (Z); execute burst priority rotation: Guillotine → Brutal Impact → Volcanic Eruption → Bloodlust; accept shorter Burst windows for higher per-window ceiling; 1.5-cycle and 1.0-cycle identity variants",
+      "resource_economy": {
+        "fury_meter": "fill via generators (Spinning Sword, Ground Smash, Furious Claw, Wild Stomp) → Burst Mode; Punisher = shorter cyclical burst windows vs Predator sustained; Specialization-heavy stat focus scales burst ceiling; 1.5-cycle and 1.0-cycle identity variants (Ark Passive) target >35% bonus move speed + ~90% Crit Rate during Burst"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Fury Meter full → Burst Mode; Guillotine-priority burst rotation",
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "PHASE_MOMENTUM"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null throughout: 'Volcanic Eruption' and 'Bloodlust' are skill proper names with zero damage-typing (D4 NAME-ONLY LAW). Wild Stomp 'damage amplification synergy' — DIRECTION TEST applied: dossier describes this as party synergy buff not an enemy-directed debuff; maps self_buff (no curse emitted). No ailments attested. Burst Mode = TIMED burst_window (cyclical, shorter windows than Predator). TEMPORAL_CHARGE for Fury Meter; PHASE_MOMENTUM for 1.5/1.0-cycle identity shape. Ark Passive cores: Triple Guillotine, Rage Explosion → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Sekwah; reviewed by Perciculum",
+      "title": "Punisher Slayer Raid Build Guide",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Last updated June 12, 2026; April 2025 balance patch referenced",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Punisher Slayer — Slayer class, Punisher identity spec",
+      "anchor_quote": "Punisher Slayer — a melee back-attacking burst playstyle for the Slayer class",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Maximizes damage within Burst Mode while accepting shorter Burst Mode duration; Specialization-scales more aggressively than Predator for burst payoffs; shorter windows, higher ceiling per window",
+      "anchor_quote": "fast-paced back-attacking burst playstyle versus Predator's meter management approach — Punisher emphasizes shorter, cyclical burst windows rather than sustaining Burst Mode",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author": "Sekwah",
+          "reviewer": "Perciculum",
+          "site": "maxroll.gg"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+        "anchor_quote": "by Sekwah (reviewed by Perciculum)",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_note": "Specialization-heavy; Kurzan Front progression variant listed",
+          "identity_cycle_variants": [
+            "1.5 cycle",
+            "1.0 cycle"
+          ],
+          "core_variants": [
+            "Triple Guillotine",
+            "Rage Explosion"
+          ]
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+        "anchor_quote": "Triple Guillotine (primary), Rage Explosion cores; 1.5 and 1.0 cycle identity builds; Kurzan Front progression variant",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Ambush Master",
+            "Raid Captain",
+            "Keen Blunt Weapon"
+          ],
+          "stats": "Specialization-heavy with Crit/Swiftness split",
+          "balance_patch_ref": "April 2025"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+        "anchor_quote": "Engravings priority order: Grudge, Adrenaline, Ambush Master, Raid Captain, Keen Blunt Weapon",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "fury_generators": [
+            "Spinning Sword",
+            "Ground Smash",
+            "Furious Claw",
+            "Wild Stomp"
+          ],
+          "burst_damage_skills": [
+            "Guillotine",
+            "Brutal Impact",
+            "Volcanic Eruption",
+            "Bloodlust"
+          ],
+          "geometry_notes": "Melee back-attack; burst-window cyclical; 1.5 and 1.0 cycle identity variants; Triple Guillotine and Rage Explosion cores"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+        "anchor_quote": "Burst rotation prioritizes Guillotine...Brutal Impact...Volcanic Eruption and Bloodlust with Wild Stomp for damage amplification synergy",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fill Fury Meter via generators: Spinning Sword, Ground Smash, Furious Claw, Wild Stomp. Enter Burst Mode (Z). Burst priority: Guillotine → Brutal Impact → Volcanic Eruption → Bloodlust, with Wild Stomp for damage amplification synergy. Target >35% bonus move speed, ~90% Crit Rate during Burst. Shorter cyclical burst windows vs Predator's sustained Burst uptime — Punisher accepts Burst ending sooner for higher per-window ceiling."
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+        "anchor_quote": "fast-paced back-attacking burst playstyle versus Predator's meter management approach — Punisher emphasizes shorter, cyclical burst windows",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "ark_grid_variants": [
+            "Triple Guillotine",
+            "Rage Explosion"
+          ],
+          "identity_cycle_variants": [
+            "1.5 cycle",
+            "1.0 cycle"
+          ],
+          "sibling_spec": "Predator Slayer (sustained Burst uptime, meter management)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/punisher-slayer-raid-build-guide",
+        "anchor_quote": "Triple Guillotine (primary), Rage Explosion cores; 1.5 and 1.0 cycle identity builds",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

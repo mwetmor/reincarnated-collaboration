@@ -1,0 +1,265 @@
+{
+  "kit_id": "poe1-wild-strike",
+  "spine": {
+    "kit_id": "poe1-wild-strike",
+    "folk_name": "Wild Strike",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "negative",
+    "eras": "2.x;3.0-3.6;3.7-3.13",
+    "negative": 1,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-10 GAP-D2-10",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test FAILS: a fixed-element strike with one fixed secondary shape is 'not that build' — the gimmick (random element + random payoff geometry every hit) is the entire identity, and unlike elemental-hit there is no meta endpoint where the build itself deletes the randomness. Docket accrual filed to the RNG-element-pool family.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "R-M7 player test FAILS: a fixed-element strike with one fixed secondary shape is 'not that build' — the gimmick (random element + random payoff geometry every hit) is the entire identity, and unlike elemental-hit there is no meta endpoint where the build itself deletes the randomness. Docket accrual filed to the RNG-element-pool family.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wild Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "melee hit converts 100 percent phys to a RANDOM element per swing, then releases that element's OWN secondary geometry: fire = fiery explosion (circle around target), cold = icy wave (fork-3 piercing projectiles), lightning = arcing bolt (chain 4-7); prismatic tag (3.15+) forbids repeats. BOTH the per-hit element roll and the per-hit secondary-geometry roll have no engine lane (element and geometry fix at generation time). Corpus stamps fire (Oro's forced-fire variant endpoint) — carried as the approximation anchor only"
+        }
+      ],
+      "motion_frame": "charge in and pull the slot-machine lever: every swing rolls a different element and a different secondary payoff shape (explosion, wave, or arc)",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PHASE_MOMENTUM",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "melee_strike + ONE fixed secondary (engine picks one; source rolls among three)"
+          ],
+          "economy": [
+            "mana-light spend default"
+          ],
+          "traits_affixes": [
+            "tri-element scaling spread (Trinity resonance variant)",
+            "frenzy-charge cycling (Raider / Oro's on-ignite-kill)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "NEGATIVE-canon exemplar (negative=1, death_class extrinsic-no-lever) mapped honestly, not laundered: community verdict CONFIRMED — 'problems are purely mechanical... the numbers are not bad'. The stochastic-element identity is the SAME gap the elemental-hit docket filed (per-attack random-element-from-pool); wild-strike is the accrual instance that docket asked the steward to watch for, and it is gapped WORSE: there is no Combat-Focus-style pruning endpoint (the un-curated roulette IS the kit) and the roll ALSO selects among three secondary geometries. PHASE_MOMENTUM (deterministic element cycling) and ELEMENT_CONVERSION_MONO (Oro's forced-fire endpoint) are the two nearest engine expressions; both delete the roulette. Era 2.x CONFIRMED; 3.x era claims UNSUPPORTED (niche-build evidence only) — consistent with trap-canon status."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [
+    {
+      "docket_id": 3,
+      "mechanism_class": "RNG-element-pool identity (per-hit/per-entity random element from a fixed pool)",
+      "docket_family": null,
+      "destination": "mechanic_gap_docket",
+      "disposition": "permanent-gap-record",
+      "status": "matt-ratified"
+    }
+  ],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/1478404",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": null,
+      "title": "Wild Strike is so 'weak' — Gameplay Help and Discussion",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.pathofexile.com/forum/view-thread/3039099",
+      "archive_url": null,
+      "site": "pathofexile.com/forum",
+      "author_handle": "mamburu#3286",
+      "title": "[3.13] Wild Strike Trinity Inquisitor | 10M Sirus DPS | All Content",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Wild_Strike",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Wild Strike - PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 2.x",
+      "anchor_quote": "'Wild Strike added in version 2.0.0' patch notes; 'Wild Strike is so weak' forum thread from Nov 2015 (2.x era) documents community awareness and play, even if niche",
+      "source_url": "https://poedb.tw/us/Wild_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.0-3.6",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in era 3.7-3.13",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Wild Strike' is real community usage",
+      "anchor_quote": "'Wild Strike is so weak' forum thread (Nov 2015); '[3.13] Wild Strike Trinity Inquisitor | 10M Sirus DPS' confirm community use of 'Wild Strike' as the canonical build name",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1478404",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Wild Strike; melee attack converts physical damage to random element (fire/cold/lightning); releases explosion, icy wave, or arcing lightning depending on element",
+      "anchor_quote": "'Your melee weapon strikes an enemy, converting some of the damage to a random element. Then, depending on the element chosen, it releases a fiery explosion, an arcing bolt of lightning, or an icy wave'",
+      "source_url": "https://poedb.tw/us/Wild_Strike",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "negative_canon",
+      "verdict": "CONFIRMED",
+      "claim_text": "Wild Strike was not meta / low-tier build in its stamped eras; mechanical randomness and melee range engagement made it suboptimal",
+      "anchor_quote": "'Wild Strike suffers from mechanical issues... problems are purely mechanical... Wildstrike included — the numbers aren't bad'; '[3.13] Wild Strike Trinity Inquisitor' is a niche theoretical build, not mainstream meta",
+      "source_url": "https://www.pathofexile.com/forum/view-thread/1478404",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "mamburu#3286",
+          "site": "pathofexile.com/forum",
+          "note": "authored [3.13] Wild Strike Trinity Inquisitor niche guide"
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3039099",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy_nodes": [
+            "Inquisitor: Trinity build — Inevitable Judgement + Instruments of Virtue (3.13 niche)",
+            "Raider: Frenzy charge generation + elemental avoidance"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3039099",
+        "anchor_quote": "Wild Strike Trinity Inquisitor using Trinity support gem for all-element resonance stacking",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_items": [
+            "Oro's Sacrifice (fire conversion + frenzy charge on ignite kill)",
+            "Void Forge (3.13 Trinity build — frenzy charge generation)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3039099",
+        "anchor_quote": "'Void Forge as the primary weapon with frenzy charge generation'",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "melee strike (at-target)",
+          "secondary_effects": {
+            "fire": "fiery explosion (AoE around target)",
+            "cold": "icy wave (projectile wave, 3 piercing)",
+            "lightning": "arcing lightning bolt (chains 4-7 times)"
+          },
+          "physical_damage": "100% converted to random element since 2.6; prismatic tag (3.15+) prevents same element twice in a row"
+        },
+        "source_url": "https://poedb.tw/us/Wild_Strike",
+        "anchor_quote": "'fires 3 projectiles that pierce all targets... beams chaining 4-7 times... converts 100% of physical damage to fire, cold, or lightning damage'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Melee attack that converts physical damage to randomly chosen element (fire/cold/lightning); each hit releases a secondary effect — fiery explosion, icy wave, or arcing lightning chain; Trinity Support (3.13 variant) cycles all three resonance types for a damage multiplier; player charges into melee and attacks"
+        },
+        "source_url": "https://poedb.tw/us/Wild_Strike",
+        "anchor_quote": "'Your melee weapon strikes an enemy, converting some of the damage to a random element. Then, depending on the element chosen, it releases a fiery explosion, an arcing bolt of lightning, or an icy wave'",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Raider elemental (primary; frenzy charge cycling)",
+            "Inquisitor Trinity (3.13 niche; Trinity Support exploitation)"
+          ]
+        },
+        "source_url": "https://www.pathofexile.com/forum/view-thread/3039099",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 6,
+    "mints_anchored": 0,
+    "dockets": 1
+  }
+}

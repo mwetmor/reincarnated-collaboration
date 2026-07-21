@@ -1,0 +1,243 @@
+{
+  "kit_id": "d2-wl-blood-boil",
+  "spine": {
+    "kit_id": "d2-wl-blood-boil",
+    "folk_name": "Blood Boil Warlock",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "rotw-s13+",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-11",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Summon Tainted is an autonomous fireball combatant — summoner-GAP means the engine loses the autonomous-attacker feel. Blood Boil detonation of proxy demons maps via PROXY_FISSION but source player places actual autonomous demons then explodes them; engine gives proxies that explode. 'Not that build' only at the autonomous-combatant layer; detonation core approximates well.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Summon Tainted is an autonomous fireball combatant — summoner-GAP means the engine loses the autonomous-attacker feel. Blood Boil detonation of proxy demons maps via PROXY_FISSION but source player places actual autonomous demons then explodes them; engine gives proxies that explode. 'Not that build' only at the autonomous-combatant layer; detonation core approximates well.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Blood Boil",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Detonates summoned/bound demons at their positions; AoE radiates 7 yards around each demon. Fire+physical split damage. Fire primary (attested: 'Fire and Physical Damage' — fire element leads; physical = no family). Demon positions are the AoE origin points."
+        },
+        {
+          "source_skill": "Summon Tainted",
+          "geometry_value": "totem",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Ranged fireball summon that attacks autonomously. Autonomous combatant = summoner-GAP rider; APPROX-mapped as totem with gap noted. Fire element attested ('ranged fireball attacker')."
+        },
+        {
+          "source_skill": "Bind Demon",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Targeted conversion skill: 10% chance to bind injured non-boss demon. Single-target point. Converted demon retains affixes and grants bonuses as ally."
+        }
+      ],
+      "motion_frame": "Summon Tainted demons, move into pack, Blood Boil detonate demons for 7-yard fire AoE per demon; Bind Demon opportunistically converts uniques.",
+      "resource_economy": {
+        "spend": "steady-mana"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PROXY_FISSION",
+        "PERSISTENCE_ENGINE_uptime"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Summon Tainted synergy: Blood Boil fire-damage scaling per level invested"
+          ],
+          "economy": [
+            "Obsession/Insight mana sustain"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Summon Tainted autonomous combatant = summoner-GAP; mapped APPROX as totem with gap noted. Blood Boil is the primary damage verb — demon-detonation loop. PROXY_FISSION (exploding proxy) fits the detonate-demon identity. Physical component of Blood Boil has no element family per physical rule — fire is primary. Bind Demon conversion mechanic: converted enemy = companion-pact analog; kit's PRIMARY identity is the Blood Boil detonation, not the conversion. Summoner-deferral accrual for Summon Tainted autonomous-combatant component."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Blood Boil Warlock Endgame Build Guide for Diablo II: Resurrected Season 14",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d2/blood-boil-warlock-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Blood Boil Warlock Build - Diablo 2 Resurrected - Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era: rotw-s13+",
+      "anchor_quote": "The Cheapest Build That Shouldn't Work This Well — Budget Blood Boil Warlock in Diablo 2 Resurrected Season 13",
+      "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Blood Boil Warlock'; aliases 'Blood Boil Warlock D2R', 'Tainted Summon Blood Boil'",
+      "anchor_quote": "Blood Boil Warlock and Summon Tainted are the primary designations used throughout this Season 14 guide.",
+      "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Blood Boil, Summon Tainted",
+      "anchor_quote": "Blood Boil causes a % Loss of Maximum Life to all of your summoned and bound demons dealing damage evenly split between Fire and Physical Damage in up to 7 Yards.",
+      "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "runewords": [
+            "Obsession",
+            "Enigma",
+            "Flickering Flame",
+            "Infinity"
+          ],
+          "uniques": [
+            "Mang Song's Lesson"
+          ],
+          "synergies": [
+            "Blood Boil synergy: Summon Tainted (bonus fire damage per level invested)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+        "anchor_quote": "Summon Tainted: Massive synergy boost with Blood Boil for large Fire damage.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notable_runewords": [
+            "Obsession",
+            "Call to Arms",
+            "Spirit",
+            "Enigma",
+            "Flickering Flame",
+            "Fortitude",
+            "Infinity"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/blood-boil-warlock-build",
+        "anchor_quote": "Obsession, Call to Arms, Spirit, Enigma, Flickering Flame, Fortitude, Infinity",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target (demon-centered AoE)",
+          "footprint": "large-zone (7 yards around each demon)",
+          "notes": "Blood Boil detonates demons at their positions; AoE radiates from each demon. Split fire+physical damage."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+        "anchor_quote": "Blood Boil deals damage evenly split between Fire and Physical Damage in up to 7 Yards.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player summons up to 3 Tainted demons (ranged fireball attackers). Blood Boil detonates demon life (% Max Life cost to demons) for AoE fire+physical split damage in 7-yard radius. Bind Demon converts unique monsters as bound allies. Teleporting with Enigma then Blood Boiling summons is standard play."
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+        "anchor_quote": "Blood Boil causes a % Loss of Maximum Life to all of your summoned and bound demons dealing damage evenly split between Fire and Physical Damage in up to 7 Yards.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Blood Boil Warlock (pure demon-bomb AoE)",
+            "Blood Boil+Summon Tainted hybrid (passive Tainted fireball ranged + Blood Boil detonation)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d2/guides/blood-boil-warlock-guide",
+        "anchor_quote": "The Demon Blood Boil Warlock is a new Summoner in the game that forms pacts with Demons and blows them up.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

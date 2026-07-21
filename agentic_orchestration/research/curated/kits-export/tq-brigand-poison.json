@@ -1,0 +1,253 @@
+{
+  "kit_id": "tq-brigand-poison",
+  "spine": {
+    "kit_id": "tq-brigand-poison",
+    "folk_name": "Poison Brigand",
+    "game": "tq",
+    "corpus_bucket": "tq",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "base-2006;anniversary-2016",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "curse:sap",
+      "poison"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ranged attack (Envenom Weapon rider)",
+          "geometry_value": "line",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "Arrow/thrown projectile with Envenom Weapon poison coat; pierce-through attested; poison DoT primary output"
+        },
+        {
+          "source_skill": "Poison Gas Bomb",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "AoE poison cloud placement; primary group-apply tool for poison stacks"
+        },
+        {
+          "source_skill": "Study Prey",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:sap"
+          ],
+          "delivery_notes": "Enemy resist reduction debuff — defense/resist shred maps curse:sap (persistent, caster-anchored)"
+        }
+      ],
+      "motion_frame": "Apply Envenom Weapon; fire ranged attacks building poison stacks; Study Prey reduces resist; Poison Gas Bomb for AoE apply; Marksmanship passive amplifies all projectile output",
+      "resource_economy": {
+        "cost_scale": "mana",
+        "cadence_scale": "high",
+        "note": "Poison DoT sustain — no energy gate on auto-attacks; Poison Gas Bomb on cooldown"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": null,
+        "consequence_type": "ailment-overwrite"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENT_CONVERSION_PHYSICAL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "pierce range",
+            "AoE cloud radius"
+          ],
+          "economy": [
+            "attack speed",
+            "poison duration"
+          ],
+          "traits_affixes": [
+            "poison damage %",
+            "pierce damage",
+            "poison stack cap"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element earth from nature/poison-themed mastery (Rogue = venom/nature register, §1 poison→earth when nature-themed). Pierce attested ('really strong piercing damage') but pierce = physical-rule no-family; identity expressed via poison ailment + line geometry. Bleed also mentioned but secondary to poison — omitted per dominant-loop rule; note: bleed eligible if dossier re-read weights it higher."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2481541290",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Brigand (Hunting / Rogue) Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+      "archive_url": null,
+      "site": "lonewardengaming.com",
+      "author_handle": "LoneWarden",
+      "title": "BrigandBow - LoneWardenGaming",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1883817533",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Titan Quest Build Guides",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Present in base-2006 and anniversary-2016 eras",
+      "anchor_quote": "Rogue+Hunting (Brigand) is great for DoT bleeding and poison as well as some really strong piercing damage",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1883817533",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Brigand = Rogue+Hunting dual mastery, poison DoT ranged archetype",
+      "anchor_quote": "A Brigand is a combination of the Rogue and Hunting masteries",
+      "source_url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Study Prey, Envenom Weapon, Marksmanship; poison DoT is primary output; spiky amp via poison stacks",
+      "anchor_quote": "Poison Gas Bomb will be a big source of applying poison damage",
+      "source_url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "LoneWarden",
+          "site": "lonewardengaming.com"
+        },
+        "source_url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Marksmanship passive tree (Hunting) — core passive for projectile damage amplification; Envenom Weapon + Toxin Distillation synergy boosts Poison Damage % with Improved Duration %"
+        },
+        "source_url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+        "anchor_quote": "Toxin Distillation synergy boosts Poison Damage % with Improved Duration %",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "primary": "ranged projectile — arrow/thrown weapon single-target",
+          "secondary": "AoE cloud — Poison Gas Bomb creates poison zone",
+          "note": "poison DoT is primary damage output, not hit damage"
+        },
+        "source_url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+        "anchor_quote": "Rogue+Hunting (Brigand) is great for DoT bleeding and poison as well as some really strong piercing damage",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Apply Envenom Weapon; fire ranged attacks to build poison stacks; use Study Prey to reduce enemy resistances; Poison Gas Bomb for AoE poison application; Marksmanship passive amplifies all projectile output"
+        },
+        "source_url": "https://lonewardengaming.com/home/titanquest/brigandbow/",
+        "anchor_quote": "Poison Gas Bomb will be a big source of applying poison damage",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "bow Brigand (ranged primary)",
+            "spear Brigand (melee-range with Spear Dance)",
+            "thrown-weapon Brigand"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2481541290",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

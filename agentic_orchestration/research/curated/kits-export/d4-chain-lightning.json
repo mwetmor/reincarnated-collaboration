@@ -1,0 +1,253 @@
+{
+  "kit_id": "d4-chain-lightning",
+  "spine": {
+    "kit_id": "d4-chain-lightning",
+    "folk_name": "Chain Lightning Sorcerer",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "launch-s1-3;s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No ailment mapped (chain-lightning visual implies shock but 'shock' only attested as skill-category name). Crackling Energy as pickup-orb economy texture approximated via self_buff; no dedicated lane for pickup-orb resource fills.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "No ailment mapped (chain-lightning visual implies shock but 'shock' only attested as skill-category name). Crackling Energy as pickup-orb economy texture approximated via self_buff; no dedicated lane for pickup-orb resource fills.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Chain Lightning",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Projectile hops between enemies AND Sorcerer as return node per skill_geometry payload: 'Lightning bolt bounces between enemies and the Sorcerer as hop node'; chain geometry with caster as re-entry node = bidirectional chain; lightning element attested: identity anchor 'Chain Lightning inflicts substantial damage by hitting a single target repeatedly or chaining through enemies'; verify identity confirms chain behavior; 'with Axial Conduit gains orbits and explosions' per skill_geometry payload — Axial Conduit item-defined-archetype orbit variant noted"
+        },
+        {
+          "source_skill": "Crackling Energy (pickup orb)",
+          "geometry_value": "self_buff",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Generated via Boundless: 'generate Crackling Energy via Boundless' per skill_loop payload — Crackling Energy are pickup orbs; R-M6-adjacent only if fetched drift behavior supports; skill_loop attests generation and use as economy verb, not as a drifting entity — no drift/wander language; map as self_buff economy event; lightning element (Chain Lightning family)"
+        },
+        {
+          "source_skill": "Unstable Currents (burst window)",
+          "geometry_value": "self_buff",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "'Unstable Currents as long-cooldown damage multiplier' per skill_loop payload; cast-triggered damage burst window; self_buff identity"
+        }
+      ],
+      "motion_frame": "Spam Chain Lightning as primary hop-chain damage; generate and consume Crackling Energy via Boundless per skill_loop payload; Unstable Currents long-cooldown burst window; Teleport for mobility and target grouping",
+      "resource_economy": {
+        "cost_scale": "Mana (Sorcerer class resource); verify mechanics: 'Mana is managed through Invigorating Conduit, Recharging Aspect, and Gear Affixes'; rotation_style spam_builder_spender per skill_loop payload"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Axial Conduit grants orbits + explosions variant (item-defined-archetype rider, capstone anchor)"
+          ],
+          "economy": [
+            "Invigorating Conduit Mana recovery; Recharging Aspect Mana refund per capstone anchor; Crown of Lucion damage bonus with increased resource costs (economy-warping scaler)"
+          ],
+          "traits_affixes": [
+            "Ring of Starless Skies cost reduction (scaler-only)",
+            "Berú of Wild Lightning randomized shock skill damage bonus (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Chain element attested via identity anchor describing chain-hop behavior + elem_raw confirmed lightning (probe, orient only); 'chain' fetch language: 'hitting a single target repeatedly or chaining through enemies' confirms chain geometry. Crackling Energy: skill_loop attests 'generate Crackling Energy via Boundless' — energy orb generated on cast; R-M6 drift-tick applies to drifting mobile entities with wander behavior; Crackling Energy are pickup orbs spawned on cast, not independently drifting — no drift/wander language in anchor; map as self_buff resource event, not R-M6. No ailment attested: lightning ≠ shock; 'shock' appears in 'Shock builds' = skill-category name (§0 collision; name alone inadmissible); no paralysis/shock-ailment behavior attested. Berú of Wild Lightning 'shock skill damage bonus' = 'shock' as skill-category tag, not paralysis-status — do not emit shock ailment."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/chain-lightning-sorcerer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "pandaglassjaw",
+      "title": "Chain Lightning Sorcerer Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/chain-lightning-sorcerer-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": "Lexyu",
+      "title": "Chain Lightning - Sorcerer Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in launch-s1-3",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d4/guides/chain-lightning-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in s7-s12",
+      "anchor_quote": "Chain Lightning, Unstable Currents, Teleport, Familiar, Lightning Spear, and Spark.",
+      "source_url": "https://www.icy-veins.com/d4/guides/chain-lightning-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Chain Lightning Sorcerer; aliases Chain Lightning Sorc D4 are real community usage",
+      "anchor_quote": "Chain Lightning inflicts substantial damage by hitting a single target repeatedly or chaining through enemies in a group.",
+      "source_url": "https://www.icy-veins.com/d4/guides/chain-lightning-sorcerer-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skill Chain Lightning; resource Mana; bolts bounce between enemies and Sorcerer",
+      "anchor_quote": "Mana is managed through Invigorating Conduit, Recharging Aspect, and Gear Affixes.",
+      "source_url": "https://www.icy-veins.com/d4/guides/chain-lightning-sorcerer-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "pandaglassjaw",
+          "site": "maxroll.gg",
+          "co_author": "Lexyu (icy-veins)"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/chain-lightning-sorcerer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [
+            "Axial Conduit",
+            "Recharging Aspect",
+            "Invigorating Conduit"
+          ],
+          "uniques": [
+            "Crown of Lucion",
+            "Ring of Starless Skies",
+            "Azurewrath"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/chain-lightning-sorcerer-guide",
+        "anchor_quote": "Berú of Wild Lightning (randomized shock skill damage bonus)",
+        "abstained": 0,
+        "conf": 0.76
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Crown of Lucion",
+            "Ring of Starless Skies",
+            "Berú of Wild Lightning",
+            "Raiment of the Infinite",
+            "Azurewrath charm"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/chain-lightning-sorcerer-guide",
+        "anchor_quote": "Crown of Lucion (damage bonus with increased resource costs)",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "chain-hop",
+          "notes": "Lightning bolt bounces between enemies and the Sorcerer as hop node; with Axial Conduit gains orbits and explosions"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/chain-lightning-sorcerer-build/",
+        "anchor_quote": "Chain Lightning inflicts substantial damage by hitting a single target repeatedly or chaining through enemies in a group",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Spam Chain Lightning as primary damage; generate Crackling Energy via Boundless; use Teleport for mobility and grouping; Unstable Currents as long-cooldown damage multiplier; Lightning Spear and Familiar as supporting spenders",
+          "rotation_style": "spam_builder_spender"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/chain-lightning-sorcerer-guide",
+        "anchor_quote": "Chain Lightning as your primary damage to cast. This will generate Crackling Energy with Boundless.",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Current season (S14) features Thul-rune Frost Nova into Azurewrath shatter variant; Berú of Wild Lightning shift noted S14 vs prior seasons"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/chain-lightning-sorcerer-guide",
+        "anchor_quote": "Major changes to Unstable Currents mean all Shock builds perform worse than the previous season",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

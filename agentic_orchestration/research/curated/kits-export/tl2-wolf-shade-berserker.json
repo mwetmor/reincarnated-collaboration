@@ -1,0 +1,228 @@
+{
+  "kit_id": "tl2-wolf-shade-berserker",
+  "spine": {
+    "kit_id": "tl2-wolf-shade-berserker",
+    "folk_name": "Wolf Shade Berserker",
+    "game": "tl2",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tl2-2012",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Wolf Strike",
+          "geometry_value": "dash_attack",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "6-meter lunge clawing all foes in path — dash_attack geometry. Physical melee. No element: 'icy fangs' on Wolf Shade = flavor STRIKE per hot-fact, not damage-type descriptor. Element-silent."
+        },
+        {
+          "source_skill": "Wolf Shade",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Shadow copy placed at Berserker position. 'Wolf Shade appears at same position as Berserker' and 'leeches 33% of damage dealt back to the Berserker' — placed light-proxy (totem). Leech = self-heal mechanism, not an enemy ailment. No ailment attested."
+        },
+        {
+          "source_skill": "Frenzy Mastery",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Frenzy state: Charge bar full triggers 6s of 100% crit chance + movement speed. Self_buff via Charge threshold activation."
+        }
+      ],
+      "motion_frame": "Deliver Wolf Strike lunges and auto-attacks building Charge on-hit; full Charge bar triggers 6s Frenzy (100% crit + move speed); Wolf Shade as light proxy at high Charge.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "cycle",
+        "charge_note": "Charge fills from melee hits; full bar triggers Frenzy state (6s duration); refills rapidly from combat — Frenzy Mastery extension considered weak late-game"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Charge bar full",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "charge_stack_sub_shape"
+          ],
+          "traits_affixes": [
+            "frenzy_duration",
+            "crit_amplifier"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "'Icy fangs' on Wolf Shade = flavor descriptor per hot-fact — STRUCK. No cold damage-type attested anywhere. Wolf Shade is placed-proxy (totem), not a following companion. Leech on Wolf Shade is self-healing not ailment. TEMPORAL_CHARGE fits Charge-into-Frenzy cycle. MOMENTUM_CASCADE fits 100% crit + movement speed cascade during Frenzy. charge_stack_sub_shape=cycle (fills, empties on Frenzy trigger, refills rapidly)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Berserker Skill Guide - Torchlight II",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=129094420",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": "unknown",
+      "title": "Shadow Berserker - Torchlight II Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in tl2-2012 era",
+      "anchor_quote": "Berserker skills including Wolf Shade and Frenzy present at Torchlight II launch (September 2012); discussed in launch-era Berserker guides",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Wolf Shade Berserker — community usage name for Charge-melee light-proxy Berserker build",
+      "anchor_quote": "Wolf Shade summons a Wolf Shade to sink its icy fangs into your enemies and heal you with their lifeforce; Shadow Berserker guide covers Wolf Shade + melee Charge builds",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Wolf Shade, Wolf Strike, Frenzy Mastery; Charge meter built on-hit; Charge → Frenzy state; Wolf Shade as light proxy trigger on Charge activation",
+      "anchor_quote": "filling the Berserker's charge bar activates a Frenzy state lasting six seconds, during which the character gains increased movement speed and a 100% critical hit chance; Wolf Shade leeches 33% of damage dealt back to the Berserker",
+      "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "steamcommunity.com",
+          "guide_title": "Berserker Skill Guide - Torchlight II"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Frenzy Mastery: extends Frenzy duration by 0.5s per rank (considered weak late-game; Frenzy refills quickly anyway); Wolf Shade at max rank: leeches 33% of damage dealt; Charge mastery increases Charge-building rate"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+        "anchor_quote": "Frenzy Mastery: not especially useful when leveling and completely pointless in late game, since you usually fill your entire charge bar in a few seconds anyway; Wolf Shade leeches 33% of damage dealt back to the Berserker",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "melee at-target (Wolf Strike lunge) + point (auto-attack)",
+          "footprint": "point",
+          "range": "melee",
+          "notes": "Wolf Strike: 6-meter lunge clawing all foes in path; Wolf Shade appears at Berserker position as shadow copy; shade leeches 33% damage as heal"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+        "anchor_quote": "Wolfstrike causes you to lunge forward in a 6 meter dash, claws slashing, rending all foes in your path; Wolf Shade appears at same position as Berserker",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "rotation": "Deliver melee strikes with Wolf Strike (lunge) and auto-attacks building Charge on-hit; Charge bar fills from damage dealt; full Charge bar triggers Frenzy state (6s: 100% crit chance + movement speed); Wolf Shade summons once per minute as light proxy at high Charge"
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+        "anchor_quote": "filling the Berserker's charge bar activates a Frenzy state lasting six seconds, during which the character gains increased movement speed and a 100% critical hit chance; Wolf Shade summons a Wolf Shade to sink its icy fangs into your enemies and heal you with their lifeforce",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Wolf Shade + melee Charge build (main)",
+            "Shadow Burst alternative (author prefers over Wolf Shade for healing)",
+            "Wolfpack Berserker (Storm Hatchet for constant Frenzy state)"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/sharedfiles/filedetails/?id=496199325",
+        "anchor_quote": "Shadow Burst as the superior option due to its immediate, high-impact healing potential; Wolfpack Berserker using Storm Hatchet to be in Frenzy State all the time",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "kit_id": "poe2-warbringer-totems",
+  "spine": {
+    "kit_id": "poe2-warbringer-totems",
+    "folk_name": "Ancestral Totem Warrior",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-01 GX-04",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: (1) the ENDURANCE-CHARGE-FUELED totem economy -- each totem COSTS 3 Endurance Charges to raise, coupling a defensive charge type to proxy deployment -- is expressed as an accumulator spend + a placed-proxy-count note rather than a first-class 'charges-buy-proxies' key; the player keeps the drop-totems-and-wait loop. (2) the up-to-10-simultaneous-totem swarm is a placed-proxy-COUNT extremum (accrual candidate to the placed-proxy-count family) that PROXY_FISSION approximates. (3) Wooden Wall's 'redirect my incoming damage TO my totems' proxy-tanking is noted but not first-class. The heavy-proxy identity (totems do all the work, Warrior tanks) maps cleanly via PROXY_SOVEREIGNTY -> CLOSE (recognizable, minor economy/count compression).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 1,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: (1) the ENDURANCE-CHARGE-FUELED totem economy -- each totem COSTS 3 Endurance Charges to raise, coupling a defensive charge type to proxy deployment -- is expressed as an accumulator spend + a placed-proxy-count note rather than a first-class 'charges-buy-proxies' key; the player keeps the drop-totems-and-wait loop. (2) the up-to-10-simultaneous-totem swarm is a placed-proxy-COUNT extremum (accrual candidate to the placed-proxy-count family) that PROXY_FISSION approximates. (3) Wooden Wall's 'redirect my incoming damage TO my totems' proxy-tanking is noted but not first-class. The heavy-proxy identity (totems do all the work, Warrior tanks) maps cleanly via PROXY_SOVEREIGNTY -> CLOSE (recognizable, minor economy/count compression).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Ancestral Warrior Totem (spirit-warrior slam proxy)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed totem proxy: Consume 3 Endurance Charges to Raise a Totem that conjures spirit warriors; each warrior uses the socketed Mace Skill ONCE then disappears; up to 10 totems simultaneously, 8s duration -> totem (totem/sentry phrase-book; placed proxy that does the damage). Physical (mace slams) -> element-neutral (physical rule; elem_raw=physical). ailment=sunder: the socketed payload is Ancestral Warrior SUNDER Totems (fetched: 'Ancestral Warrior Sunder Totems') -- Sunder is an armour-break slam -> sunder (hit-proc shred). Heavy proxy: totems do ALL the damage, the Warrior is a defensive presence."
+        },
+        {
+          "source_skill": "Shockwave Totem (secondary placed slam proxy)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "placed totem that pulses shockwave slams (leveling/early proxy, retained as a second totem type) -> totem. Physical -> element-neutral. ailment=stun (shockwave slam heavy-hit). Placed alongside Ancestral Warrior Totem for layered proxy coverage."
+        }
+      ],
+      "motion_frame": "Place Shockwave Totem and Ancestral Warrior Totem (each consumes 3 Endurance Charges); the totems conjure spirit warriors who autonomously swing socketed Mace/Sunder slams while the Warrior stacks armour into five digits and generates Endurance Charges. Bosses: drop totems, curse the target, wait.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "endurance_charges": "consumed 3-per-totem to raise them (spend); the Warrior maintains Endurance Charge generation",
+        "placed_proxy_count": "up to 10 totems simultaneous (placed-proxy count economy)",
+        "persistent_condition_shape": "proc-loop (totems autonomously fire socketed slams for 8s)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "raised Totems (autonomous proxies firing socketed Mace/Sunder slams; Wooden Wall redirects 20% player damage-taken to nearby totems)",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "PROXY_FISSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Ancestral Warrior Totem placed proxy (mace/Sunder slams)",
+            "Shockwave Totem placed proxy (shockwave slams)"
+          ],
+          "economy": [
+            "Endurance Charge spend (3/totem)",
+            "placed-proxy count (up to 10 totems)",
+            "armour stacking (five-digit defensive layer)"
+          ],
+          "traits_affixes": [
+            "totem count / +1 totem (Answered Call)",
+            "damage-redirect-to-totems (Wooden Wall 20%)",
+            "armour-break effectiveness (Anvil's Weight)",
+            "slam/mace damage"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-01 GX-04 (corpus gx). HOT-FLAG 2 RESOLVED -- ERRATA-20 era RESTAMP: mapped the 0.2-dawn identity (Ancestral Warrior Totem 'version history begins at 0.2.0'; the corpus 0.1 era-claim was CONTRADICTED, errata_applied=1) -> eras 0.2-dawn onward. Ancestral Warrior Totem -> totem (placed autonomous proxy; the fetched 'Consume 3 Endurance Charges to Raise a Totem that conjures spirit warriors... Maximum of 10 totems' is the totem/sentry member). ailment=sunder for the Ancestral Warrior payload (fetched 'Ancestral Warrior SUNDER Totems'; Sunder = armour-break slam -> sunder hit-proc); stun for Shockwave Totem (heavy-hit). Physical -> element-neutral (physical rule). PLACED-PROXY COUNT (up to 10 totems) -> placed_proxy_count economy note + accrual candidate to the PLACED-PROXY-COUNT family (hiero-6-totem / tq2 forge-turrets count-8 mint class per addendum E) WITHOUT number (steward-counted). ENDURANCE-CHARGE-CONSUMED-to-raise -> accumulator spend. Wooden Wall (redirect 20% player damage-taken to totems) is a proxy-tank coupling -> noted in trigger_grammar/traits. Heavy proxy (totems do ALL damage) -> PROXY_SOVEREIGNTY (autonomous commanded proxies) + PROXY_FISSION (up-to-10 multi-totem swarm) via main-law 5 (R-M1). Warbringer ascendancy. eras 0.2-0.5 CONFIRMED (post ERRATA-20). [STEWARD AUDIT m03: 'sunder' stripped -- NAME-COLLISION + memory-supplement leak class: 'Ancestral Warrior Sunder Totems' names the poe2 SKILL Sunder as socketed payload; a skill NAME is never status attestation, and the 'Sunder is an armour-break skill' mechanics claim came from priors, not fetched text (no armour-break/exposure language in this kit's dossier). 'stun' stripped -- 'shockwave slam heavy-hit' is flavor inference; no stun named. Totem-proxy identity fully survives in geometry + PROXY doors]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/shockwave-totem-warbringer-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Shockwave Totem Warbringer Leveling Guide (Early Access, Dec 2024)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Ancestral_Warrior_Totem",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Ancestral Warrior Totem - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+      "anchor_quote": "Ancestral Warrior Totem version history begins at 0.2.0 — there is no record of this skill existing in version 0.1.0 or earlier.",
+      "source_url": "https://poe2db.tw/us/Ancestral_Warrior_Totem",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Ancestral Totem Warrior' and aliases 'Warbringer totem build', 'Ancestral Warrior Totem slam' are real community usage",
+      "anchor_quote": "Place your Shockwave Totem and Ancestral Warrior Sunder Totems to kill monsters from a safe distance... Warbringer totem slam guide",
+      "source_url": "https://maxroll.gg/poe2/build-guides/shockwave-totem-warbringer-leveling-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Ancestral Warrior Totem and slam payloads; totem proxy slam build",
+      "anchor_quote": "Ancestral Warrior Totem: Consume 3 Endurance Charges to Raise a Totem that conjures spirit warriors. Each warrior uses a socketed Mace Skill once, then disappears.",
+      "source_url": "https://poe2db.tw/us/Ancestral_Warrior_Totem",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Warbringer",
+          "notables": [
+            "Wooden Wall (20% dmg redirect to nearby totems)",
+            "Answered Call (Ancestral Spirits + 1 extra totem)",
+            "Anvil's Weight",
+            "Imploding Impacts"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/shockwave-totem-warbringer-leveling-guide",
+        "anchor_quote": "The most impactful nodes are Wooden Wall, redirecting 20% of damage taken from hits to nearby totems and Answered Call, which will grant us Ancestral Spirits and +1 Extra Totem",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "ancestral_warrior_totem": "placed totem proxy; consumes 3 Endurance Charges; raises up to 10 simultaneous totems; each totem summons spirit warriors who use socketed mace skill once then disappear; totem duration 8s; large-zone slam AoE via socketed mace skill"
+        },
+        "source_url": "https://poe2db.tw/us/Ancestral_Warrior_Totem",
+        "anchor_quote": "Consume 3 Endurance Charges to Raise a Totem that conjures spirit warriors. Each warrior uses a socketed Mace Skill once, then disappears. Maximum of 10 totems active simultaneously.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Place Shockwave Totem and Ancestral Warrior Totem (consumes 3 Endurance Charges each). Totems summon spirit warriors who use socketed mace skills autonomously. Player maintains armor stacking and Endurance Charge generation. Bosses: drop totems, curse target, wait."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/shockwave-totem-warbringer-leveling-guide",
+        "anchor_quote": "Place your Shockwave Totem and Ancestral Warrior Sunder Totems to kill monsters from a safe distance... drop your level 40 totem, curse the target, and watch their health bar vanish",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Shockwave Totem Warbringer (leveling/early game)",
+            "Ancestral Warrior Totem Warbringer (endgame slam proxy)",
+            "Grenade Ballista Totems Warbringer",
+            "Fissure Totems Warbringer"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/shockwave-totem-warbringer-leveling-guide",
+        "anchor_quote": "Grenade Ballista Totems Warbringer Endgame Build... Fissure Totems Warbringer POE2 BuildGuide",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

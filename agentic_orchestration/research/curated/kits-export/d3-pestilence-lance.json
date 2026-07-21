@@ -1,0 +1,255 @@
+{
+  "kit_id": "d3-pestilence-lance",
+  "spine": {
+    "kit_id": "d3-pestilence-lance",
+    "folk_name": "Pestilence Corpse Lance",
+    "game": "d3",
+    "corpus_bucket": "d3",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "late-sets;s39",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-04 GX-16",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Corpse-as-consumable-resource-node (§CROSS) has no engine lane — spatial-consumable-resource-node is a docket class. The auto-fire-from-corpse-position mechanic (Corpse Lance fires automatically per corpse during LotD) has no engine positional-auto-cast equivalent. Player who loves this kit would miss the corpse-infrastructure rotation feel.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Corpse-as-consumable-resource-node (§CROSS) has no engine lane — spatial-consumable-resource-node is a docket class. The auto-fire-from-corpse-position mechanic (Corpse Lance fires automatically per corpse during LotD) has no engine positional-auto-cast equivalent. Player who loves this kit would miss the corpse-infrastructure rotation feel.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Corpse Lance",
+          "geometry_value": "line",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Guided bone missile fired from corpse position toward targeted enemy; at-target single-target point delivery; each consumed corpse fires one lance; bone/necrotic → shadow per element table"
+        },
+        {
+          "source_skill": "Land of the Dead",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Screen-covering zone making all enemies valid corpse sources for 10 seconds; burst-window ultimate; Simulacrum doubles fire rate by doubling caster count"
+        },
+        {
+          "source_skill": "Devour",
+          "geometry_value": "self_buff",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Devouring Aura (Voracious rune) consumes nearby corpses passively; Essence sustain from each corpse consumed"
+        }
+      ],
+      "motion_frame": "Spend 40-45 seconds generating corpse infrastructure; cast Land of the Dead + Simulacrum for 10-second burst window spamming Corpse Lance from every available corpse; repeat rotation",
+      "resource_economy": {
+        "resource": "Essence",
+        "corpse_nodes": "identity-load-bearing — Corpse Lance fires per corpse consumed; Devour Voracious sustains casts by consuming corpses; LotD converts all enemies to valid corpse sources",
+        "cost_note": "Reilena's Shadowhook scales damage based on Maximum Essence"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-defender-death",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "TEMPORAL_CHARGE",
+        "PROXY_ASCENSION"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Corpsewhisper Pauldrons — damage bonus per corpse consumed (item rider)"
+          ],
+          "economy": [
+            "Devour Voracious — corpse consumption sustains Essence; Reilena's Shadowhook scales damage on Maximum Essence; Simulacrum doubles caster count during LotD window"
+          ],
+          "traits_affixes": [
+            "Pestilence 6pc — 1300% increased Corpse Lance damage per enemy killed during LotD (scaler); Jesseth Arms 2pc — 400% damage (scaler); Krysbin's Sentence — bonus against CC'd enemies (scaler)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Corpse-consumption loop is §CROSS corpse-node docket class. resource_economy key corpse_nodes included per R-M4 (identity-load-bearing). Bone/necrotic element → shadow per main-law table. LotD burst-window noted — no ailment token emitted (LotD is a self-side resource state, not enemy status). Pestilence lance fires from corpse positions automatically (auto-cast during LotD) — engine has no direct analog for positional auto-cast; approximated via line delivery. Set scalers in scaffold only per §B row 1. [STEWARD-AUDIT 2026-07-18 MW3-close: grade APPROX->GAPPED: R-M7 biconditional — mapper's own adjudication names auto-fire-from-corpse-position 'not that build', and that positional auto-cast IS the kit's identity mechanism (two compounding gaps: corpse-node + positional auto-cast). APPROX+MAPPED_DOCKET hybrid is illegal; GAPPED<=>MAPPED_DOCKET restored. Consistent with rathma/inna/lod-archetype treatment.]"
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TRAP-MINE",
+    "group_intent_rationale": "treatment=damage · economy=free · proxy=solo · commit=instant · activation=triggered"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Pestilence Corpse Lance Necromancer Guide for Diablo III Season 39",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d3/necromancer-corpse-lance-build-with-pestilence-or-trag-ouls-set",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Necromancer Corpse Lance Build with Pestilence or Trag'Oul's set (Patch 2.7.8 / Season 39)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in late-sets",
+      "anchor_quote": "Pestilence Corpse Lance Necromancer Guide for Diablo III Season 39 — primarily does well in speed content such as Nephalem Rifts and Speed Greater Rifts.",
+      "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present/meta in s39",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Pestilence Corpse Lance' and aliases 'Pestilence Necromancer', 'Corpse Lance Necro', 'Land of the Dead Lance' are real community usage",
+      "anchor_quote": "Pestilence Corpse Lance Necromancer Guide for Diablo III Season 39 — unleashes barrages of Corpse Lance while able to nearly infinitely spam them due to Land of the Dead and Devour.",
+      "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Corpse Lance and Land of the Dead; Necromancer resource (Essence); corpse-consumption delivery",
+      "anchor_quote": "Corpse Lance Brittle Touch is our main source of damage. Land of the Dead Frozen Lands is the backbone of our build. Reilena's Shadowhook provides a very significant damage increase based off our Maximum Essence.",
+      "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "set": "Pestilence Master's Shroud (5pc/6pc) — core set; Jesseth Arms 2pc for 400% damage",
+          "kanai_cube": [
+            "Ring of Royal Grandeur (cube for set reduction)"
+          ],
+          "legendary_powers": [
+            "Corpsewhisper Pauldrons",
+            "Krysbin's Sentence"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+        "anchor_quote": "You should gather the full 6-piece Pestilence set by spending Blood Shards at Kadala, in order of gamble chance: Shoulders, Boots, Pants, Gloves, Helm, and Chest.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Pestilence Master's Shroud (5pc) — 6000% damage, 75% damage reduction",
+            "Jesseth Arms (2pc) — 400% damage buff",
+            "Captain Crimson's Trimmings (2pc)",
+            "Ring of Royal Grandeur",
+            "Krysbin's Sentence",
+            "Corpsewhisper Pauldrons",
+            "Reilena's Shadowhook — damage increase based on Maximum Essence"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+        "anchor_quote": "Reilena's Shadowhook provides a very significant damage increase based off our Maximum Essence.",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Corpse Lance fires guided bone missiles from corpse positions toward targeted enemy; single-target missile per corpse; at-target point delivery",
+          "range": "at-target point"
+        },
+        "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+        "anchor_quote": "Corpse Lance Brittle Touch is our main source of damage in this build.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Cast Land of the Dead to generate infinite corpses for 10-12 seconds; spam Corpse Lance Brittle Touch from corpse positions at enemies; use Devour Voracious to consume corpses and sustain casts; manage Essence via Reilena's Shadowhook scaling."
+        },
+        "source_url": "https://maxroll.gg/d3/guides/pestilence-corpse-lance-necromancer-guide",
+        "anchor_quote": "Devour Voracious is a fundamental skill used in the Pestilence build as it allows you to shoot your Corpse Lance every time a corpse is consumed.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Corpse Lance with Trag'Oul's set",
+            "LoD Corpse Lance",
+            "Support zNecromancer"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d3/necromancer-corpse-lance-build-with-pestilence-or-trag-ouls-set",
+        "anchor_quote": "Necromancer Corpse Lance Build with Pestilence or Trag'Oul's set (Patch 2.7.8 / Season 39).",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

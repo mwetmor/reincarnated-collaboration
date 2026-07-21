@@ -1,0 +1,243 @@
+{
+  "kit_id": "hot-dragons-breath",
+  "spine": {
+    "kit_id": "hot-dragons-breath",
+    "folk_name": "Dragon's Breath (burn stream)",
+    "game": "hot",
+    "corpus_bucket": "hot",
+    "tier": "T3",
+    "canon_tier": "deep",
+    "eras": "hot-1.0-2024;hot-1.1-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-21",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "fire"
+    ],
+    "ailments_attested": [
+      "burn"
+    ],
+    "citation_count": 3,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dragon's Breath",
+          "geometry_value": "cone",
+          "element_primary": "fire",
+          "element_secondary": null,
+          "ailments": [
+            "burn"
+          ],
+          "delivery_notes": "fire attested: 'fire-based attack that deals up to 3,000,000 fire damage'; burn attested: 'burning' in anchor + 'Burn Chance' and 'burn damage' in dossier; cone delivery; periodic blast upgrades to continuous stream (Stream of Fire tier III); repelling knockback after upgrade; facing = player direction"
+        }
+      ],
+      "motion_frame": "high-tempo fire-cone auto-fire; burn stacks compound per target; Stream of Fire upgrade converts to continuous beam at tier III; fire+burn is the identity axis",
+      "resource_economy": {
+        "cadence_scale": "high; auto-fire periodic; upgrades to continuous channel"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "cone angle/range extension",
+            "stream upgrade"
+          ],
+          "economy": [
+            "burn stack cadence"
+          ],
+          "traits_affixes": [
+            "Affliction (burn multiplier)",
+            "Range",
+            "Multistrike",
+            "Refined Flame",
+            "Ruby Circlet",
+            "Burning Shell",
+            "Firewalker Boots"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Stream of Fire upgrade (tier III) converts cone-pulse to beam_channel — listed as variant-scope upgrade, not base geometry. Repelling knockback: attested ('repelling… enemies in your path') — added to delivery_notes but not ailments (knockback not attested as a per-hit status application, only as movement effect at upgrade)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+      "archive_url": null,
+      "site": "gamerant.com",
+      "author_handle": null,
+      "title": "Best Abilities In Halls Of Torment, Ranked",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "Halls of Torment: The 10 Best Abilities",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://steamcommunity.com/app/2218750/discussions/0/4518882879951820587/",
+      "archive_url": null,
+      "site": "steamcommunity.com",
+      "author_handle": null,
+      "title": "Dragon's Breath Specialist :: Halls of Torment General Discussions",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "hot-1.0-2024; hot-1.1-2026",
+      "anchor_quote": "emits a wave of fire in the direction you're facing at the time it ticks",
+      "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Dragon's Breath (burn stream) — continuous flame cone; burn-stack compounding; Refined Flame and Fire Stream upgrades push to S-tier",
+      "anchor_quote": "deals up to 3,000,000 fire damage ... fire-based attack",
+      "source_url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Continuous flame cone; burn stacks compound; Stream of Fire upgrade extends/transitions delivery; fire damage type",
+      "anchor_quote": "waves of fire periodically, burning, and later repelling, all enemies in your path ... Stream of Fire upgrade, switching it from a periodic blast to a continuous stream",
+      "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "upgrades": [
+            "Stream of Fire (at Tier III — converts to continuous stream)",
+            "Refined Flame (increases burn damage)",
+            "Flammability/Coverage combinations"
+          ],
+          "items": [
+            "Ruby Circlet",
+            "Sparking Tips",
+            "Ring of Fire",
+            "Guiding Star",
+            "Burning Shell",
+            "Firewalker Boots",
+            "Elemental Resonator"
+          ]
+        },
+        "source_url": "https://steamcommunity.com/app/2218750/discussions/0/4518882879951820587/",
+        "anchor_quote": "Dragon's Breath with Stream of Fire Upgrade ... burn damage it does when you level it up for burn chance is insane",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "cone-pulse (upgrades to continuous beam)",
+          "footprint": "cone",
+          "facing": "player facing direction",
+          "damage_type": "fire",
+          "ailment": "burn",
+          "knockback": "yes (repelling effect per upgrade)",
+          "notes": "ELEMENT LAW: fire attested — fetched text states 'fire-based attack that deals up to 3,000,000 fire damage' and 'waves of fire'."
+        },
+        "source_url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+        "anchor_quote": "fire-based attack that deals up to 3,000,000 fire damage",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Dragon's Breath fires periodic waves of fire in the player's facing direction, setting enemies ablaze. Core economy: burn stacks compound per target in the cone; more stacks = higher DoT DPS. Stream of Fire upgrade converts periodic waves to a continuous stream. Fire-damage type confirmed."
+        },
+        "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+        "anchor_quote": "waves of fire periodically, burning, and later repelling, all enemies in your path ... Stream of Fire upgrade, switching it from a periodic blast to a continuous stream",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "note": "Exterminator is primary class host (Great Burn Damage/Burn Chance base bonuses); Dragon's Breath also usable by other classes."
+        },
+        "source_url": "https://fantasywarden.com/games/halls-of-torment-all-characters-guide",
+        "anchor_quote": "Exterminator ... Great Burn Damage and Burn Chance ... Signature abilities: Dragon's Breath",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

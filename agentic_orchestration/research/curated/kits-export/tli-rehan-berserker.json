@@ -1,0 +1,224 @@
+{
+  "kit_id": "tli-rehan-berserker",
+  "spine": {
+    "kit_id": "tli-rehan-berserker",
+    "folk_name": "Rehan Berserker Melee",
+    "game": "tli",
+    "corpus_bucket": "tl",
+    "tier": "T2",
+    "canon_tier": "deep",
+    "eras": "tli-live-2022+;tli-ss11-12-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Rage-auto-Berserk threshold mechanic approximated by charge-accumulator; exact Berserk stat-buff duration not expressible. Fire convert is T4 door variant, not base identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 3,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Rage-auto-Berserk threshold mechanic approximated by charge-accumulator; exact Berserk stat-buff duration not expressible. Fire convert is T4 door variant, not base identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Double Strike / Steep Strike",
+          "geometry_value": "melee_strike",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Close-range twin-hit melee. Corpus elem_raw = physical. Fire Whirlwind variant converts to fire (item_alterations anchor: 'converting as much of its Damage from Physical to Fire') — but base loop is physical. No fire-damage-type descriptor on the primary non-variant identity."
+        },
+        {
+          "source_skill": "Whirlwind (Savage Charge variant)",
+          "geometry_value": "whirlwind",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Channeled AoE spin. Skill_geometry anchor: 'Whirlwind build tries to unlock the full potential of Whirlwind by converting as much of its Damage from Physical to Fire.' Shape = whirlwind; fire ONLY in the conversion variant, not the base physical loop."
+        }
+      ],
+      "motion_frame": "Rage-accumulate melee loop: build Rage via hits/damage-taken → enter Berserk at max Rage → execute melee burst (Double Strike/Whirlwind). Fire-convert variant via elemental conversion items/talents.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "charge_stack_resource": "Rage (accumulates on-hit + on-damage-taken; auto-triggers Berserk at max)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Rage stack at max",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ELEMENT_CONVERSION_MONO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "Rage accumulator (on-hit + on-damage-taken fills)"
+          ],
+          "traits_affixes": [
+            "physical damage + attack speed scaling (mechanics anchor)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Era-U (tli guide era stale) — mapping shape not era. Fire Whirlwind conversion is a named variant (T4 door ELEMENT_CONVERSION_MONO) not the base identity. Seething Spirit clone summons main skill for extra hits: proxy-rider, not pet-core. No element attested for base physical identity."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://tlidb.com/Rehan",
+      "archive_url": null,
+      "site": "tlidb.com",
+      "author_handle": "unknown",
+      "title": "Rehan - Torchlight: Infinite Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.iggm.com/news/torchlight-infinite-ss11-rehan-1-builds-skills-gear-for-high-tier-farming",
+      "archive_url": null,
+      "site": "iggm.com",
+      "author_handle": "unknown",
+      "title": "Torchlight Infinite SS11 Rehan 1 Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/fire-whirlwind-berserker-torchlight-infinite-build",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": "unknown",
+      "title": "Fire Whirlwind Berserker Torchlight Infinite Build",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Era tli-live-2022+;tli-ss11-12-2026",
+      "anchor_quote": null,
+      "source_url": null,
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Rehan Berserker Melee — TLI berserker hero class",
+      "anchor_quote": "Rehan will gain Rage upon hitting a target or taking damage and then gain damage from Rage. At Max Rage, Rehan will automatically enter the Berserk state and have his stats significantly increased.",
+      "source_url": "https://tlidb.com/Rehan",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Double Strike/Steep Strike, rage traits",
+      "anchor_quote": "The key to crafting Season 11 Rehan 1 builds is increasing physical damage and attack speed, as well as cooldown reduction, with the goal to maximize the frequency of Burst attack triggers",
+      "source_url": "https://www.iggm.com/news/torchlight-infinite-ss11-rehan-1-builds-skills-gear-for-high-tier-farming",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": 0.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "notes": "Hero traits: Anger (Rage/Berserk) and Seething Silhouette (Ancestor Spirit clone). Talent tree nodes for physical/melee damage."
+        },
+        "source_url": "https://tlidb.com/Rehan",
+        "anchor_quote": "Rehan will gain Rage upon hitting a target or taking damage and then gain damage from Rage.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "notes": "Support skills: Bull's Rage, Bloodthirst, Compound Source. Gear scales physical damage and attack speed; fire-convert variant uses elemental conversion items."
+        },
+        "source_url": "https://odealo.com/articles/fire-whirlwind-berserker-torchlight-infinite-build",
+        "anchor_quote": "The Fire Whirlwind build includes three support Skills: Bull's Rage, Bloodthirst, and Compound Source.",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "notes": "Close-range melee. Whirlwind = channeled AoE spin. Double Strike = twin-hit melee. Seething Spirit summon casts main skill for additional hits."
+        },
+        "source_url": "https://odealo.com/articles/fire-whirlwind-berserker-torchlight-infinite-build",
+        "anchor_quote": "Whirlwind build tries to unlock the full potential of Whirlwind by converting as much of its Damage from Physical to Fire",
+        "abstained": 0,
+        "conf": 0.7
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Melee loop: build Rage via hits/damage taken → enter Berserk state → execute Double Strike/Whirlwind at max buffs. Steep Strikes and Raging Slash combo during burst windows."
+        },
+        "source_url": "https://tlidb.com/Rehan",
+        "anchor_quote": "At Max Rage, Rehan will automatically enter the Berserk state and have his stats significantly increased.",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Savage Charge (Spin-to-Win)",
+            "Fire Whirlwind (physical-to-fire convert)",
+            "Auto-Bomber"
+          ]
+        },
+        "source_url": "https://www.iggm.com/news/torchlight-infinite-ss11-rehan-1-builds-skills-gear-for-high-tier-farming",
+        "anchor_quote": "popular Rehan 1 builds this season include Savage Charge (also known as Spin-to-Win), Whirlwind, and Auto-Bomber",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 3,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

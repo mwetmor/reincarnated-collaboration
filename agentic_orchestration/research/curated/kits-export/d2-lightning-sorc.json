@@ -1,0 +1,237 @@
+{
+  "kit_id": "d2-lightning-sorc",
+  "spine": {
+    "kit_id": "d2-lightning-sorc",
+    "folk_name": "Lightning Sorceress",
+    "game": "d2",
+    "corpus_bucket": "d2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "lod-infinity+;d2r;rotw",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-D2-01",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [],
+    "citation_count": 1,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 1,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "EXACT",
+    "terminal_state": "MAPPED",
+    "deviation_notes": null,
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning",
+          "geometry_value": "line",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Straight-line lightning bolt projectile. Massive damage variance per hit ('enormous variance dice' mech_note). Primary clear skill."
+        },
+        {
+          "source_skill": "Chain Lightning",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Lightning bolt that bounces/forks across chained targets. Chain-hop footprint across cluster. Synergizes with Lightning."
+        },
+        {
+          "source_skill": "Teleport",
+          "geometry_value": "teleport",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Aggressive repositioning into packs. 'Teleport aggressively into packs for Chain Lightning efficiency' — attested skill_loop. Teleport is 1-point requisite skill."
+        }
+      ],
+      "motion_frame": "Teleport aggressively into packs; spam Lightning and Chain Lightning for screen-clear; Infinity merc Conviction aura breaks lightning immunities; 117 FCR breakpoint gate",
+      "resource_economy": {
+        "cost_scale": "mana-hungry: attested 'mana-hungry' corpus econ_raw; Lightning has high mana cost per cast; requires mana sustain gear stack"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": null,
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "ELEMENT_CONVERSION_MONO",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Chain Lightning chain-hop = geometry; chain is native geometry token"
+          ],
+          "economy": [
+            "117 FCR breakpoint gear stack = cadence-scale economy modifier; attested in verify_ledger item context"
+          ],
+          "traits_affixes": [
+            "Lightning Mastery, Charged Bolt synergies — traits-affixes scaffold lane per §A row 1; Infinity merc = cursor:sap (Conviction aura persistent resist-shred, §A row 2)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "EXACT: Line + chain geometry maps cleanly. Lightning element confirmed. Ailments: 'lightning' flavor ≠ shock attested status; no shock, stun, or other status named in dossier or verify_ledger — §0-UNIVERSAL bars emission. Conviction aura (via Infinity merc) = curse:sap per §A row 2 (aura/hex persistent caster-anchored resist-shred). Infinity is item-defined-archetype element (§CROSS row 4): the merc-aura identity IS the with-Infinity form that defines the build tier. T4 ELEMENT_CONVERSION_MONO: mono-lightning identity crystallized via Infinity. GEOMETRY_PROPAGATION_cascade: Chain Lightning multi-hop propagation. Era: lod-infinity+ and d2r CONFIRMED; rotw UNSUPPORTED. Eras UNSUPPORTED for rotw stays honest per verify_ledger."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Lightning Sorceress Build — Diablo 2 Resurrected — Icy Veins",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in lod-infinity+ era",
+      "anchor_quote": "This Sorceress is decently solid but really starts to pick up in damage once Infinity becomes available to her.",
+      "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in d2r era",
+      "anchor_quote": "The Lightning Sorceress is the fastest Chaos Sanctuary clearing character in the game",
+      "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Build present in rotw era",
+      "anchor_quote": null,
+      "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Sorceress' and aliases 'Lightning Sorc', 'Chain Lightning Sorceress' are real community usage",
+      "anchor_quote": "The Lightning Sorceress is the fastest Chaos Sanctuary clearing character in the game",
+      "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Lightning, Chain Lightning, Teleport; mana-spend projectile delivery with chain-hop footprint",
+      "anchor_quote": "1 point to Teleport — skill right at level 18, required...20 points to Lightning — max first, required",
+      "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "key_item": "Infinity runeword (Ber Ber Ist Mal) — grants Conviction aura on mercenary; breaks lightning immunities in Hell",
+          "synergies": "Lightning Mastery, Charged Bolt as synergies; Chain Lightning synergizes with Lightning",
+          "notes": "Build identity crystallizes around Infinity — pre-Infinity and post-Infinity are effectively distinct power tiers"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+        "anchor_quote": "The Conviction Aura is known for best breaking Lightning Immune Monsters, leaving them vulnerable to the extremely high damage of the Lightning Sorceress",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": "Infinity runeword (mercenary weapon, Conviction aura for -lightning resist); Griffon's Eye helm (-Enemy Lightning Resistance); 117% FCR breakpoint gear stack",
+          "notes": "Infinity is mandatory for endgame viability; build is functional but limited pre-Infinity"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+        "anchor_quote": "This Sorceress is decently solid but really starts to pick up in damage once Infinity becomes available to her.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "projectile chain-hop",
+          "delivery": "lightning bolt projectile; Chain Lightning forks across chained targets",
+          "footprint": "chain spread across target cluster",
+          "notes": "Lightning bolt fires in line; Chain Lightning bounces between enemies; massive damage variance per hit"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+        "anchor_quote": "1 point to Teleport — skill right at level 18, required...20 points to Lightning — max first",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Teleport aggressively into packs; cast Lightning and Chain Lightning for screen-clear damage; Infinity mercenary Conviction aura reduces lightning resistance on immune mobs; position merc near enemies; repeat"
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+        "anchor_quote": "Teleport aggressively into packs for Chain Lightning efficiency...Teleport repositioning is critical.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Pure Lightning (Lightning/Chain Lightning/Charged Bolt maxed)",
+            "Lightning Nova variant",
+            "Infinity-merc endgame variant (go-anywhere post-Infinity)"
+          ]
+        },
+        "source_url": "https://www.icy-veins.com/d2/lightning-sorceress-build",
+        "anchor_quote": "When paired with an Infinity Mercenary, there are very few places she cannot clear quickly.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 5,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

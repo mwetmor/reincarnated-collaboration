@@ -1,0 +1,231 @@
+{
+  "kit_id": "le-shift-bladedancer",
+  "spine": {
+    "kit_id": "le-shift-bladedancer",
+    "folk_name": "Shift Bladedancer",
+    "game": "le",
+    "corpus_bucket": "le",
+    "tier": null,
+    "canon_tier": null,
+    "eras": "beta-0.8-0.9;1.0-launch;1.1-harbingers;1.4-omens",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "mint",
+    "provenance_tag": "mint-dossier-reexpressed",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: Shadow Daggers stack payoff unexpressed (no home) and Umbral Blades rider unmapped (name-only); core loop - blink traversal with on-arrival ring payload, linked-cast riders, execute threshold - is native.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "execute"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 2,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: Shadow Daggers stack payoff unexpressed (no home) and Umbral Blades rider unmapped (name-only); core loop - blink traversal with on-arrival ring payload, linked-cast riders, execute threshold - is native.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Shift",
+          "geometry_value": "blink",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "execute"
+          ],
+          "delivery_notes": "main Movement Skill and multi-proc hub, used on cooldown; casts Shadow Cascade + Umbral Blades on each use via nodes (Dancing Shadows / Umbral Remnant + Lasting Presence); execute attested in skill_loop ('providing an execute from Consumed by Shadow'); traversal token stays the geometry - all payloads are riders"
+        },
+        {
+          "source_skill": "Shadow Cascade",
+          "geometry_value": "ring",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "auto-proc rider, never independently cast: 'automatically procs every time you use Shift'; melee-range AoE at Shift's landing position; generates Shadow Daggers stacks (no registry home - withheld)"
+        }
+      ],
+      "motion_frame": "perpetual-motion melee: stay on the move, Shift on cooldown, damage lands at each arrival point",
+      "resource_economy": null,
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "MOMENTUM_CASCADE",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [],
+          "traits_affixes": [
+            "Blood Dance + Siphon of Anguish + Melee Damage Leeched as Health gloves -> leech via gear lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "physical -> null element (THE PHYSICAL RULE). Basin-2 B traversal-as-proc-hub row is THIS kit's archetype: payloads never promoted into traversal geometry. Umbral Blades: named rider, behavior unfetched here -> contributes nothing beyond the rider slot (0.4). Shadow Daggers stack = registry no-home, steward-flagged (ailment-stack-count question). Eras backfilled beta;1.0;1.1;1.4 - 1.2 omitted as unverifiable (honest gap). MAX_CHAIN_DEPTH 1 respected (Shift -> linked casts, depth 1)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "McFluffin (reviewed by Lizard_IRL)",
+      "title": "Shadow Daggers Bladedancer Last Epoch Build Guide - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://maxroll.gg/last-epoch/build-guides/bladedancer-leveling-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Terek",
+      "title": "Bladedancer Leveling Guide for Last Epoch Season 4 - Maxroll.gg",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Shift Bladedancer' / 'Shift melee Bladedancer' / 'blink-strike Bladedancer' are real community usage",
+      "anchor_quote": "Shift is your main Movement Skill while also casting both Shadow Cascade and Umbral Blades and providing an execute from Consumed by Shadow.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Shift is a blink/movement skill; core to Bladedancer damage loop via Shadow Cascade proc; melee Bladedancer; resource=Mana",
+      "anchor_quote": "Shadow Cascade automatically procs every time you use Shift and provides a substantial number of Shadow Daggers stacks... Stay on the move and use Shift on cooldown.",
+      "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "McFluffin",
+          "site": "maxroll.gg",
+          "reviewers": [
+            "Lizard_IRL",
+            "Aristotelian"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "passive_nodes": [
+            "Umbral Remnant (Umbral Blades via Shift)",
+            "Lasting Presence",
+            "Dancing Shadows (Shadow Cascade via Shift)",
+            "Consumed by Shadow (execute on Shift)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "We cast it through Shift with Umbral Remnant plus Lasting Presence and Dancing Shadows.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_uniques": [
+            "Blood Dance (leech)",
+            "Siphon of Anguish",
+            "Traitor's Tongue",
+            "Shattered Chains"
+          ],
+          "notes": "Items shared with Shadow Daggers Bladedancer variant"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "excellent leech thanks to Blood Dance, Siphon of Anguish and Melee Damage Leeched as Health on gloves.",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Shift = blink/teleport to target position; upon arrival Shadow Cascade delivers melee-range AoE; coverage is at the landing position of each Shift",
+          "range_class": "melee",
+          "aoe": "point-of-arrival AoE"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "Shadow Cascade automatically procs every time you use Shift and provides a substantial number of Shadow Daggers stacks.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "description": "Shift functions as the primary movement and damage-proc engine for Bladedancer. Using Shift casts both Shadow Cascade and Umbral Blades simultaneously via passive nodes (Umbral Remnant, Lasting Presence, Dancing Shadows). Shadow Cascade automatically procs on each Shift use, generating Shadow Daggers stacks. Shift also provides an execute via Consumed by Shadow node.",
+          "core_driver": "Shift as multi-proc movement hub"
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "Shift is your main Movement Skill while also casting both Shadow Cascade and Umbral Blades and providing an execute from Consumed by Shadow.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "Shadow Daggers Bladedancer (Shift-centric)",
+              "notes": "Shift as multi-proc hub; core Season 4 variant"
+            },
+            {
+              "name": "Shadow Cascade Bladedancer",
+              "notes": "Shift + Synchronized Strike rotation; distinct rotation pattern but Shift still core"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/last-epoch/build-guides/shadow-daggers-bladedancer-guide",
+        "anchor_quote": "Shift is your main Movement Skill while also casting both Shadow Cascade and Umbral Blades.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 2,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

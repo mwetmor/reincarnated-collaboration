@@ -1,0 +1,298 @@
+{
+  "kit_id": "la-drizzle-aeromancer",
+  "spine": {
+    "kit_id": "la-drizzle-aeromancer",
+    "folk_name": "Drizzle Aeromancer",
+    "game": "la",
+    "corpus_bucket": "la",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "la-t4-ark-passive-2024;la-global-2026",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-la-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Stale values omitted (shape only); Barrage-class turret n/a. STEWARD-CORRECTED: 3 enemy-directed ailments restored (chill + curse:weaken on Sun Shower, curse:amplify on Tornado) — original under-emission. Otherwise clean gauge→burst_window debuff-support identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [
+      "chill",
+      "curse:amplify",
+      "curse:weaken"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Stale values omitted (shape only); Barrage-class turret n/a. STEWARD-CORRECTED: 3 enemy-directed ailments restored (chill + curse:weaken on Sun Shower, curse:amplify on Tornado) — original under-emission. Otherwise clean gauge→burst_window debuff-support identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Sun Shower (Z)",
+          "geometry_value": "aura",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "curse:weaken"
+          ],
+          "delivery_notes": "Weather-gauge burst window (aura): -20% Move Speed to enemies = chill (crosswalk line 41 movement-slow→chill; source mechanism NAMED, STEWARD-CORRECTED from withheld); -10% Attack Power to enemies = curse:weaken (enemy-damage-reduction, §D Daze-class, STEWARD-CORRECTED); +[X]% Weather Damage self-buff + 9% HP shield (self-side, no token); values stale (+30→+35) — shape only"
+        },
+        {
+          "source_skill": "Scorching Sun",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Weather AoE zone skill — geometry implied by class; element null (Scorching is name-only)"
+        },
+        {
+          "source_skill": "Wiping Wind",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Weather AoE zone skill; wind is name-only — null"
+        },
+        {
+          "source_skill": "Whirlpool",
+          "geometry_value": "vortex_pull",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Whirlpool geometry implied; element null"
+        },
+        {
+          "source_skill": "Rainstorm",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Weather AoE; element null"
+        },
+        {
+          "source_skill": "Summer Sunlight",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Weather AoE; element null"
+        },
+        {
+          "source_skill": "Tornado",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [
+            "curse:amplify"
+          ],
+          "delivery_notes": "Synergy 'maintained via Tornado' = persistent enemy damage-taken amplification (curse:amplify, STEWARD-CORRECTED from withheld-as-raid-break; 'Weakness Exposure' is NOT §LA row-4 boss-break vocab [Stagger/Weak-Point/Counter/Destruction] and 'maintained' implies persistent debuff, not one-shot destruction; consistent with n05 wind-fury-aeromancer same-skill call). REVIEW-BOOK ruling owed on LA Synergy."
+        },
+        {
+          "source_skill": "Spread",
+          "geometry_value": "single_target",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Counter skill"
+        }
+      ],
+      "motion_frame": "Fill Raindrop Meter via weather skills; activate Sun Shower (Z) for sustained window; weave main damage skills (Scorching Sun, Wiping Wind, Whirlpool, Rainstorm, Summer Sunlight) inside window; fit two casts of each per Sun Shower",
+      "resource_economy": {
+        "raindrop_meter": "generated by weather skill casts; full → activate Sun Shower (Z) burst window"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "burst_window"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle",
+            "vortex_pull",
+            "aura"
+          ],
+          "economy": [
+            "raindrop_meter"
+          ],
+          "traits_affixes": []
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null throughout: 'Scorching Sun','Wiping Wind','Rainstorm','Tornado' are skill names — D4 NAME-ONLY LAW (correct). STEWARD AUDIT CORRECTION (n02): Sun Shower's -20% enemy Move Speed → chill (line 41 movement-slow) + -10% enemy Attack Power → curse:weaken (§D); Tornado Synergy/Weakness-Exposure → curse:amplify (consistent w/ wind-fury). Original mapper withheld all three requiring the literal engine-token word in-store; the SOURCE mechanism is named (numeric enemy-directed debuffs) and the crosswalk translates. Self-side effects (Weather Damage, HP shield) correctly no-token. Values stale — shape only. Ark Passive cooldown nodes → capstone_alterations."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Raeinor",
+      "title": "Drizzle Aeromancer Build Guide",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "la-t4-ark-passive-2024;la-global-2026",
+      "anchor_quote": "Raeinor, June 13, 2026 — guide active on maxroll.gg/lost-ark",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name=Drizzle Aeromancer; sustained-utility weather build using 24s Sun Shower window",
+      "anchor_quote": "Drizzle Aeromancer — Sun Shower (Z state) provides +35% Damage to Weather Skills, -20% Movement Speed to enemies, -10% Attack Power to enemies",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Sun Shower lasts 24 seconds; 9% shield to allies; -10% enemy attack power; +30% Weather Damage passive; more forgiving than Wind Fury's precision windows",
+      "anchor_quote": "Sun Shower (Z state) provides +35% Damage to Weather Skills, -20% Movement Speed to enemies, -10% Attack Power to enemies, and grants a shield for 9% of your HP",
+      "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Raeinor",
+          "site": "maxroll.gg",
+          "url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+          "last_updated": "2026-06-13"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+        "anchor_quote": "Raeinor, June 13, 2026",
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ark_passive_core": [
+            "Sun and Wind",
+            "Scorching Sun",
+            "Hearth and Hospitality"
+          ],
+          "note": "Cooldown reduction effects on Weather skill casts"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+        "anchor_quote": "Core: Sun and Wind, Scorching Sun, Hearth and Hospitality — includes cooldown reduction effects on Weather skill casts",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "gems_damage": [
+            "Scorching Sun",
+            "Wiping Wind",
+            "Rainstorm",
+            "Whirlpool"
+          ],
+          "gems_cooldown": [
+            "Scorching Sun",
+            "Wiping Wind",
+            "Rainstorm",
+            "Whirlpool"
+          ],
+          "engravings": [
+            "Grudge",
+            "Adrenaline",
+            "Keen Blunt Weapon",
+            "Hit Master",
+            "Cursed Doll"
+          ],
+          "bracelet": {
+            "main_stats": [
+              "Specialization",
+              "Crit"
+            ],
+            "special_rolls": [
+              "Circulate",
+              "Fervor",
+              "Hammer",
+              "Wedge"
+            ]
+          }
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+        "anchor_quote": "Engravings: Grudge, Adrenaline, Keen Blunt Weapon, Hit Master, Cursed Doll",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "note": "Geometry/range specifics not enumerated in guide; skills are weather/AoE type (Whirlpool, Rainstorm, Scorching Sun implied AoE zone skills)"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+        "anchor_quote": "Scorching Sun, Wiping Wind, Whirlpool, Rainstorm, and Summer Sunlight (main damage)",
+        "abstained": 0,
+        "conf": 0.6
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fill Raindrop Meter via weather skills; activate Sun Shower (Z) for 24s window; use Scorching Sun, Wiping Wind, Whirlpool, Rainstorm, Summer Sunlight inside window; +35% Weather Damage active; fit two casts of each main damage skill per Sun Shower; Conviction+Judgment runes on window open for extra time; Tornado for synergy/Weakness Exposure; Spread for counter"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+        "anchor_quote": "+35% Damage to Weather Skills, -20% Movement Speed to enemies, -10% Attack Power to enemies, shield for 9% of your HP",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "alt_spec": "Wind Fury Aeromancer — 8s precision burst window vs Drizzle's 24s sustained window"
+        },
+        "source_url": "https://maxroll.gg/lost-ark/build-guides/drizzle-aeromancer-raid-build-guide",
+        "anchor_quote": "more forgiving and smoother for longer fights versus Wind Fury's precision windows",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

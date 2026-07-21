@@ -1,0 +1,256 @@
+{
+  "kit_id": "poe1-glacial-cascade-mines",
+  "spine": {
+    "kit_id": "poe1-glacial-cascade-mines",
+    "folk_name": "Glacial Cascade Mines",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GAP-P1-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The marching 4-burst ice cascade + knockback + freeze/shatter lands via line + GEOMETRY_PROPAGATION_cascade + the mine trigger-chassis, but two properties generalize: (a) the precise '4 discrete sequential bursts each bigger/final-burst-double-radius' cadence is a numeric multi-hit property line geometry doesn't enumerate; (b) the mine throw/detonate delivery is approximated via trigger-grammar + activation-toggle rather than a native mine primitive. A player keeps the 'lay mines, erupt a shoving line of ice that shatters the pack' feel; the exact burst-count/overlap-tuning and mine cadence are abstracted.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill",
+      "freeze",
+      "knockback"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The marching 4-burst ice cascade + knockback + freeze/shatter lands via line + GEOMETRY_PROPAGATION_cascade + the mine trigger-chassis, but two properties generalize: (a) the precise '4 discrete sequential bursts each bigger/final-burst-double-radius' cadence is a numeric multi-hit property line geometry doesn't enumerate; (b) the mine throw/detonate delivery is approximated via trigger-grammar + activation-toggle rather than a native mine primitive. A player keeps the 'lay mines, erupt a shoving line of ice that shatters the pack' feel; the exact burst-count/overlap-tuning and mine cadence are abstracted.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Glacial Cascade (via High-Impact Mine)",
+          "geometry_value": "line",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill",
+            "freeze",
+            "knockback"
+          ],
+          "delivery_notes": "on mine detonation, icicles erupt from the ground in a SERIES OF 4 BURSTS MARCHING FORWARD in a line, each knocking enemies toward the next burst; final burst deals 200% more damage with 100% more radius. line = the forward-marching lane of sequential eruptions (the dominant footprint); water/cold; chill+freeze (native shatter) + knockback (each burst shoves toward the next)"
+        }
+      ],
+      "motion_frame": "mine-layer caster: throw mines into a pack, detonate to erupt a marching line of ice bursts that shove and shatter; Mine Mastery auto-detonate-on-move lets it play like a caster",
+      "resource_economy": {
+        "persistent_condition_shape": "activation-toggle"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": null,
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "GEOMETRY_PROPAGATION_cascade",
+        "ELEMENTAL_ECHO"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "line forward-marching burst sequence",
+            "area-of-effect (widens each circle -> more overlap, more multi-hits on single targets)"
+          ],
+          "economy": [
+            "mine throw/detonate cycle",
+            "Mine-Mastery auto-detonate-on-move (caster-like cadence)"
+          ],
+          "traits_affixes": [
+            "cold-penetration",
+            "area-of-effect (overlap for boss multi-hit)",
+            "freeze/chill-scaling"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "MINE-DELIVERED CASCADE. Geometry: dossier is explicit -- '4 cascading overlapping circular areas in sequence (forward march)', 'series of small bursts... knocking them back in the direction of the next burst'. The dominant footprint is a FORWARD-MARCHING LANE of eruptions -> line (a sequenced-along-an-axis AoE), noted over ground_targeted_circle (single patch) and ground_slam (single quake) because the marching-sequence IS the identity. water/cold; ailments chill+freeze (native shatter) + knockback (each burst shoves toward the next -- a load-bearing signature). Mine delivery -> trigger_grammar on-cast-linked/linked-cast (mine-throw links the GC cast, detonate fires) + activation-toggle for the throw/detonate rhythm; DEPTH-1 (throw links, detonate fires) within MAX_CHAIN_DEPTH. GEOMETRY_PROPAGATION_cascade is the exact door -- the 4-burst forward-march IS a geometry propagation. The 'overlap circles on a single target for multi-hit' (AoE-passives widen radius, not range) is a numeric AoE-scaling property noted in traits."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe/build-guides/glacial-cascade-elementalist-league-starter",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "aer0",
+      "title": "Glacial Cascade Elementalist League Starter — Maxroll.gg (3.28)",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poedb.tw/us/Glacial_Cascade",
+      "archive_url": null,
+      "site": "poedb.tw",
+      "author_handle": null,
+      "title": "Glacial Cascade — PoEDB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras: 3.0-3.6, 3.7-3.13",
+      "anchor_quote": "Glacial Cascade introduced version 1.1.2 ... mine interaction notes: Version 3.11.0 fixed a bug where Glacial Cascade mines failed to target Betrayal Fortress doors",
+      "source_url": "https://poedb.tw/us/Glacial_Cascade",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Glacial Cascade Mines' and alias 'GC mines' are real community usage",
+      "anchor_quote": "[3.22] Hexblast Miner Sabo ... GC mines ... Glacial Cascade Mines",
+      "source_url": "https://poedb.tw/us/Glacial_Cascade",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Glacial Cascade and High-Impact Mine; thrown mines detonate cascading ice eruptions marching forward",
+      "anchor_quote": "Icicles emerge from the ground in a series of small bursts, each damaging enemies caught in the area and knocking them back in the direction of the next burst.",
+      "source_url": "https://poedb.tw/us/Glacial_Cascade",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "credits": [
+            {
+              "handle": "aer0",
+              "site": "maxroll.gg",
+              "note": "Glacial Cascade Elementalist League Starter (3.28) — Elementalist not Saboteur, but GC covered"
+            }
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/glacial-cascade-elementalist-league-starter",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "capstone_alterations": [
+            {
+              "node": "Glacial Cascade of the Fissure (transfig)",
+              "type": "transfigured_gem",
+              "effect": "Base Critical Strike Chance 6% (previously 5%); 140-160% Effectiveness of Added Damage (previously 110-130%)",
+              "anchor_quote": "Base Critical Strike Chance of 6% (previously 5%)"
+            },
+            {
+              "node": "The Long Winter (threshold jewel)",
+              "type": "threshold_jewel",
+              "req": "40 Intelligence in Radius",
+              "effect": "Glacial Cascade has 1 additional Bursts; 20% of Glacial Cascade Physical Damage Converted to Cold Damage",
+              "anchor_quote": "Glacial Cascade has 1 additional Bursts...20% of Glacial Cascade Physical Damage Converted to Cold Damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Cascade",
+        "anchor_quote": "Glacial Cascade has 1 additional Bursts",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "item_alterations": [
+            {
+              "item": "The Long Winter (threshold jewel)",
+              "type": "threshold_jewel",
+              "effect": "Glacial Cascade has 1 additional Bursts; 20% of Glacial Cascade Physical Damage Converted to Cold Damage",
+              "anchor_quote": "Glacial Cascade has 1 additional Bursts...20% of Glacial Cascade Physical Damage Converted to Cold Damage"
+            }
+          ]
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Cascade",
+        "anchor_quote": "Glacial Cascade has 1 additional Bursts",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "thrown mines detonate at target location",
+          "footprint": "large zone — 4 cascading overlapping circular areas in sequence (forward march)",
+          "aoe": "4 burst areas; final burst 100% more radius; area scales with AoE passives",
+          "range_text": "creates multiple overlapping circular areas arranged in sequence... Increasing Area of Effect expands each circle's radius rather than extending range",
+          "projectile": false
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Cascade",
+        "anchor_quote": "Increasing Area of Effect expands each circle's radius rather than extending range, allowing greater overlap and more reliable multi-hits on single targets. The final burst delivers 200% increased damage and has 100% more radius.",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Player throws mines via High-Impact Mine Support; detonation triggers Glacial Cascade — a series of 4 cascading ice burst areas marching forward; final burst delivers 200% increased damage with 100% more radius; Mine Mastery enables auto-detonation on move making it play like a caster."
+        },
+        "source_url": "https://poedb.tw/us/Glacial_Cascade",
+        "anchor_quote": "Icicles emerge from the ground in a series of small bursts, each damaging enemies caught in the area and knocking them back in the direction of the next burst. It causes 4 bursts per cast.",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "GC Mines Saboteur (High-Impact Mine, primary documented variant 3.0-3.13)",
+            "Glacial Cascade self-cast Elementalist (3.28 Maxroll guide — non-mine variant)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe/build-guides/glacial-cascade-elementalist-league-starter",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

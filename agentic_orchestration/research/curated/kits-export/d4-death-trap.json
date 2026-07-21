@@ -1,0 +1,247 @@
+{
+  "kit_id": "d4-death-trap",
+  "spine": {
+    "kit_id": "d4-death-trap",
+    "folk_name": "Death Trap Rogue",
+    "game": "d4",
+    "corpus_bucket": "d4",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "voh-s6+;s7-s12",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null (physical/shadow only in probe, inadmissible). No ailment mapped. Vacuum-pull texture captured in delivery_notes; not mapped as independent geometry row — player loses explicit vortex pull geometry hook.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 4,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Element null (physical/shadow only in probe, inadmissible). No ailment mapped. Vacuum-pull texture captured in delivery_notes; not mapped as independent geometry row — player loses explicit vortex pull geometry hook.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Death Trap (Ultimate)",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "At-target placement per skill_geometry payload: 'Death Trap placed at target location; vacuum pulls enemies in before large explosion'; large-zone AoE detonation; cooldown collapsed for rapid chain deployment per skill_geometry anchor 'stacking enough Cooldown Reduction to get Death Trap below 15 seconds cooldown, then triggering Preparation thrice in one attack using Beastfall Boots'; vortex-pull vacuuming embedded in the trap detonation sequence; no ailment word in any anchor quote"
+        },
+        {
+          "source_skill": "Concealment / Smoke Grenade / Dark Shroud (setup buffs)",
+          "geometry_value": "self_buff",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Pre-trap setup rotation per skill_loop payload: 'Cast Dark Shroud first, then Concealment for damage multiplier, Smoke Grenade for crit chance, Death Trap on cooldown'; these are pre-cast buffs not independent damage skills; self_buff scaffold row; no element or ailment"
+        }
+      ],
+      "motion_frame": "Pre-cast Dark Shroud + Concealment + Smoke Grenade; deploy Death Trap on cooldown; trap vacuums enemies then detonates; Preparation resets via Beastfall Boots 225 Max Energy breakpoint per identity anchor",
+      "resource_economy": {
+        "cost_scale": "Energy (Rogue class resource; 'requires 225 Max Energy breakpoint' per identity anchor — Max Energy IS identity-load-bearing; energy key attested); cooldown_refresh_on_proc: 'triggering Preparation thrice in one attack using Beastfall Boots' per identity anchor; Beastfall Boots energy-based CDR = item-defined-archetype mechanic"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-damage-taken",
+        "mark_identity": null,
+        "consequence_type": "burst-damage"
+      },
+      "t4_doors": [
+        "ZONE_CONTROL",
+        "TEMPORAL_CHARGE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Vacuum pull embedded in Death Trap detonation sequence; trap AoE creates crowd-gather zone"
+          ],
+          "economy": [
+            "Beastfall Boots energy-based Preparation reset (225 Max Energy breakpoint per item_alterations anchor)",
+            "Eyes in the Dark, Scoundrel's Leathers (scalers-only)"
+          ],
+          "traits_affixes": [
+            "Misericorde (scaler-only)",
+            "Berú of the Sightless charm set (scaler-only)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Element null: dossier stores contain no element damage-type language in any anchor_quote; mech_note 'Physical/Shadow damage' is probe-class (inadmissible per §0). No ailment attested: no status word in any legal store. Trigger_grammar: Concealment resets Death Trap via set bonus ('Concealment resets it via set bonus' per verify mechanics anchor) — on-cast-linked proc for CDR; consequence = cooldown-refresh class. R-M4: 225 Max Energy breakpoint is identity-load-bearing — energy key populated. vortex-pull texture embedded in delivery_notes; not a separate geometry row (single dominant skill identity)."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": {
+    "group": "TOTEM-SENTRY",
+    "group_intent_rationale": "delivery=at-target · geometry=totem · treatment=damage · defense=tank · commit=instant · activation=active"
+  },
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Avarilyn",
+      "title": "Death Trap Rogue Endgame Build Guide for Diablo IV Season 14 - Death Awakening",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.icy-veins.com/d4/guides/death-trap-rogue-build/",
+      "archive_url": null,
+      "site": "icy-veins.com",
+      "author_handle": null,
+      "title": "Death Trap - Rogue Build for Diablo 4 (Season 12)",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in voh-s6+",
+      "anchor_quote": "updated for Season 7 (Patch 2.1.0) on January 21st, 2025, and for Season 6 (Patch 2.0.2) on October 4th, 2024.",
+      "source_url": "https://www.icy-veins.com/d4/guides/death-trap-rogue-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present in s7-s12",
+      "anchor_quote": "updated for Season 7 (Patch 2.1.0) on January 21st, 2025, and for Season 6 (Patch 2.0.2) on October 4th, 2024.",
+      "source_url": "https://www.icy-veins.com/d4/guides/death-trap-rogue-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name Death Trap Rogue; alias Concealment Death Trap Rogue are real community usage",
+      "anchor_quote": "stacking enough Cooldown Reduction to get Death Trap below 15 seconds cooldown, then triggering Preparation thrice in one attack using Beastfall Boots",
+      "source_url": "https://www.icy-veins.com/d4/guides/death-trap-rogue-build/",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Death Trap + Concealment; resource Energy (Rogue); cooldown-collapsed Death Trap spam",
+      "anchor_quote": "Death Trap serves as the primary damage dealer, while Concealment resets it via set bonus.",
+      "source_url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Avarilyn",
+          "site": "maxroll.gg",
+          "co_author": null
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 1.0
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "aspects": [],
+          "uniques": [
+            "Beastfall Boots",
+            "Eyes in the Dark",
+            "Misericorde"
+          ],
+          "charm_set": [
+            "Berú of the Sightless"
+          ],
+          "paragon": []
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+        "anchor_quote": "Beastfall Boots with 225 Max Energy to instantly reset the skill",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_items": [
+            "Sea Lord's Fine Gloves",
+            "Berú of the Sightless",
+            "Scoundrel's Leathers",
+            "Misericorde",
+            "Eyes in the Dark",
+            "Beastfall Boots"
+          ]
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+        "anchor_quote": "Sea Lord's Fine Gloves, Berú of the Sightless Charm Set, Scoundrel's Leathers, Misericorde, Eyes in the Dark, Beastfall Boots",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "at-target",
+          "footprint": "large-zone",
+          "notes": "Death Trap placed at target location; vacuum pulls enemies in before large explosion; cooldown collapsed for rapid chain deployment"
+        },
+        "source_url": "https://www.icy-veins.com/d4/guides/death-trap-rogue-build/",
+        "anchor_quote": "stacking enough Cooldown Reduction to get Death Trap below 15 seconds cooldown, then triggering Preparation thrice in one attack using Beastfall Boots",
+        "abstained": 0,
+        "conf": 0.81
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Cast Dark Shroud, then Concealment for damage multiplier, Smoke Grenade for crit chance, Death Trap on cooldown; Concealment resets via set bonus; Shadow Step for repositioning; requires 225 Max Energy breakpoint",
+          "rotation_style": "cooldown_management_ultimate"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+        "anchor_quote": "Cast Dark Shroud first, then Concealment for damage multiplier, Smoke Grenade for crit chance, Death Trap on cooldown",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "notes": "Advanced endgame build with strict requirements; Beastfall Boots 225 Max Energy variant is primary endgame configuration"
+        },
+        "source_url": "https://maxroll.gg/d4/build-guides/death-trap-rogue-guide",
+        "anchor_quote": "The Death Trap Rogue is an advanced endgame build with extremely strict requirements",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 4,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

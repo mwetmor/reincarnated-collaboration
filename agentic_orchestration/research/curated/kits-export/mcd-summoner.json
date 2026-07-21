@@ -1,0 +1,276 @@
+{
+  "kit_id": "mcd-summoner",
+  "spine": {
+    "kit_id": "mcd-summoner",
+    "folk_name": "Companion / Beast Master Build",
+    "game": "mcd",
+    "corpus_bucket": "mcd",
+    "tier": null,
+    "canon_tier": "moderate",
+    "eras": "mcd-2020-launch;mcd-2022-final-v1.17",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": null,
+    "gx": null,
+    "source": "canon",
+    "provenance_tag": "canon-harvest-9.19-mcd-2026-07-16",
+    "source_date": "2026-07-16",
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-CORE: companions are the entire damage loop; player role is target marking and cooldown maintenance only. Engine has no companion-army-as-primary-damage lane at current scope. The skill shapes are individually mappable but the IDENTITY (zero player rotation, 3 cooldown-gated companions doing all damage) has no engine equivalent. Summoner-deferral docket class applies.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [],
+    "ailments_attested": [],
+    "citation_count": 5,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "GAPPED",
+    "terminal_state": "MAPPED_DOCKET",
+    "deviation_notes": "Pet-CORE: companions are the entire damage loop; player role is target marking and cooldown maintenance only. Engine has no companion-army-as-primary-damage lane at current scope. The skill shapes are individually mappable but the IDENTITY (zero player rotation, 3 cooldown-gated companions doing all damage) has no engine equivalent. Summoner-deferral docket class applies.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Golem Kit artifact (Iron Golem companion — melee)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons Iron Golem; pursues hostiles independently; melee damage; 30s CD; placed/summoned not following-pet"
+        },
+        {
+          "source_skill": "Tasty Bone artifact (Wolf companion — melee)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons wolf; pursues hostiles; melee; 30s CD"
+        },
+        {
+          "source_skill": "Wonderful Wheat artifact (Llama companion — ranged)",
+          "geometry_value": "totem",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Summons llama; 'the only ranged companion in the game'; 30s CD"
+        },
+        {
+          "source_skill": "Hunter's Promise bow (target marking for companion direction)",
+          "geometry_value": "line",
+          "element_primary": null,
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "Player fires bow to mark targets; 'Pets attack targeted mobs'; player role is target selection only — companions do primary damage"
+        }
+      ],
+      "motion_frame": "Activate all three companion artifacts on cooldown → maintain 3-companion army → mark priority targets with Hunter's Promise bow → player provides target selection and healing support only",
+      "resource_economy": {
+        "companion_cd_seconds": 30,
+        "cd_source": "all three artifact slots cooldown-gated; no soul cost"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-cast-linked",
+        "mark_identity": "Hunter's Promise target mark",
+        "consequence_type": "linked-cast"
+      },
+      "t4_doors": [
+        "PROXY_SOVEREIGNTY",
+        "COMPANION_CONTRACT"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "totem (3x companion artifacts)"
+          ],
+          "economy": [
+            "30s CD per companion artifact"
+          ],
+          "traits_affixes": [
+            "Hunter's Promise built-in Infinity T1 (arrow regain)",
+            "Spelunker Armor (bat companion option)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Pet-CORE identity: companions ARE the damage; player only marks targets and maintains cooldowns. Per totem-vs-companion law: these companions pursue independently (not stationary placed) but are summoned on activation rather than persistent-following pets — behavior is hybrid. Per summoner-deferral docket class: pet-CORE identity (zero player-damage loop, no attack rotation) → GAPPED. MCD capstone structurally abstains. Geometry mapped as totem for filing but the identity is docketed."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.windowscentral.com/minecraft-dungeons-guide-how-summon-all-companions-and-pets",
+      "archive_url": null,
+      "site": "windowscentral.com",
+      "author_handle": null,
+      "title": "Minecraft Dungeons guide: How to summon all pets and companions – Windows Central",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.thegamer.com/minecraft-dungeons-best-builds/",
+      "archive_url": null,
+      "site": "thegamer.com",
+      "author_handle": null,
+      "title": "The Best Builds For Minecraft Dungeons – The Gamer",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Golem_Kit",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Golem Kit – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Tasty_Bone",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Tasty Bone – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://minecraft.wiki/w/Dungeons:Hunter%27s_Promise",
+      "archive_url": null,
+      "site": "minecraft.wiki",
+      "author_handle": null,
+      "title": "Dungeons:Hunter's Promise – Minecraft Wiki",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Era mcd-2020-launch through mcd-2022-final-v1.17 — Golem Kit, Tasty Bone, Wonderful Wheat all introduced in Beta phase",
+      "anchor_quote": "first revealed in the June 9, 2019 gameplay trailer... Added during the Dungeons Beta phase",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Golem_Kit",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name: Companion / Beast Master Build — all three artifact slots filled with companion summons (Golem Kit, Tasty Bone, Wonderful Wheat); Hunter's Promise directs companion targeting",
+      "anchor_quote": "For artifacts, you'll want to use at least two companion ones such as Tasty Bone, which spawns a wolf, or Wonderful Wheat, which gives you a llama ally. For your third slot, you can add another companion with Golem Kit",
+      "source_url": "https://www.windowscentral.com/minecraft-dungeons-guide-how-summon-all-companions-and-pets",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Golem Kit summons iron golem, Tasty Bone summons wolf, Wonderful Wheat summons llama; Hunter's Promise bow directs companions to marked targets; player provides target selection; zero skill tree — artifact loadout IS the build",
+      "anchor_quote": "Summons an Iron Golem to aid you in battle",
+      "source_url": "https://minecraft.wiki/w/Dungeons:Golem_Kit",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "artifacts": [
+            "Golem Kit — summons Iron Golem; 30s CD",
+            "Tasty Bone — summons wolf; 30s CD; no soul cost",
+            "Wonderful Wheat — summons llama (ranged companion); 30s CD"
+          ],
+          "weapons": [
+            "Hunter's Promise (unique bow) — 'Pets attack targeted mobs'; built-in Infinity (T1 — chance to regain arrows)"
+          ],
+          "armor_note": "Spelunker Armor noted as additional option (summons bat companion)"
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Golem_Kit",
+        "anchor_quote": "Summons an Iron Golem to aid you in battle",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "companions": {
+            "golem": "melee; high damage; pursues hostiles independently",
+            "wolf": "melee; pursues hostiles",
+            "llama": "ranged — 'the only ranged companion in the game'"
+          },
+          "targeting": "Hunter's Promise: 'Pets attack targeted mobs' — player marks target, companions converge",
+          "player_delivery": "ranged bow (Hunter's Promise) for marking; companions do primary damage"
+        },
+        "source_url": "https://minecraft.wiki/w/Dungeons:Hunter%27s_Promise",
+        "anchor_quote": "Pets attack targeted mobs",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fill all three artifact slots with companion summons (Golem Kit = iron golem, Tasty Bone = wolf, Wonderful Wheat = llama); activate all three on cooldown to maintain a 3-companion army; use Hunter's Promise bow to direct companion targeting to marked enemies. Player role: target selection, healing totem placement, periodic bow shots. Loop is companion maintenance + target marking — no attack rotation.",
+          "resource": "no soul cost; all three companion artifacts are cooldown-gated (30s each)"
+        },
+        "source_url": "https://www.windowscentral.com/minecraft-dungeons-guide-how-summon-all-companions-and-pets",
+        "anchor_quote": "For your third slot, you can add another companion with Golem Kit",
+        "abstained": 0,
+        "conf": 0.87
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Beast Lover (thegamer.com naming) — Golem Kit + Love Medallion + Tasty Bone (no Wonderful Wheat)",
+            "Hunter Companion Build (gamingscan.com) — Tasty Bone + Wonderful Wheat + Golem Kit + Totem of Regeneration",
+            "Companion Build (windows central) — flexible; 2-3 companion artifacts + any melee + Hunter's Promise ranged"
+          ]
+        },
+        "source_url": "https://www.thegamer.com/minecraft-dungeons-best-builds/",
+        "anchor_quote": "Beast Lover build section that includes Golem Kit and Tasty Bone",
+        "abstained": 0,
+        "conf": 0.8
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 5,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "kit_id": "poe1-cold-dot-occ",
+  "spine": {
+    "kit_id": "poe1-cold-dot-occ",
+    "folk_name": "Cold DoT Occultist",
+    "game": "poe1",
+    "corpus_bucket": "poe1",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "3.0-3.6;3.7-3.13;3.14-3.19",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Twin structure to caustic-arrow: two ground_targeted_circle cold-DoT pools + chill (water family), self-anchored Vortex-at-feet. Drift: PoE cold DoT is a fixed-tick DAMAGE-OVER-TIME pool scaled by DoT-multiplier with reapply-not-spam cadence; the engine carries 'cold DoT' via water + chill ailment + ground_targeted_circle, but the pure-DoT-uptime damage model is approximated (PERSISTENCE_ENGINE_uptime at capstone). The CI/ES-facetank safety identity is a def-bin/trait rider, not a geometry.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "water"
+    ],
+    "ailments_attested": [
+      "chill"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Twin structure to caustic-arrow: two ground_targeted_circle cold-DoT pools + chill (water family), self-anchored Vortex-at-feet. Drift: PoE cold DoT is a fixed-tick DAMAGE-OVER-TIME pool scaled by DoT-multiplier with reapply-not-spam cadence; the engine carries 'cold DoT' via water + chill ailment + ground_targeted_circle, but the pure-DoT-uptime damage model is approximated (PERSISTENCE_ENGINE_uptime at capstone). The CI/ES-facetank safety identity is a def-bin/trait rider, not a geometry.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Vortex",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "instant-cast cold pool centered at/beneath the player; ticks cold DoT and chills. ground_targeted_circle = the pool; cold -> water; chill native. The instant-cast-at-feet no-travel is the safety identity"
+        },
+        {
+          "source_skill": "Creeping Frost",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "water",
+          "element_secondary": null,
+          "ailments": [
+            "chill"
+          ],
+          "delivery_notes": "projectile that deploys a cold cloud at the target for single-target coverage; another ground_targeted_circle DoT pool. Frostbolt (not core-damage) seeds Creeping-Frost positions in some variants"
+        }
+      ],
+      "motion_frame": "facetank DoT-pool caster: drop Vortex at your feet + Creeping Frost pools, reapply periodically (not spam), let the CI/ES body eat hits while the cold pools tick",
+      "resource_economy": {},
+      "trigger_grammar": null,
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_uptime",
+        "ZONE_CONTROL"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "ground_targeted_circle Vortex (self-centered)",
+            "ground_targeted_circle Creeping Frost (target-placed)",
+            "overlap maximises ticks on stationary targets"
+          ],
+          "economy": [
+            "cooldown-gated reapply cadence (Vortex CD; 'reapply periodically rather than constant casting')"
+          ],
+          "traits_affixes": [
+            "cold DoT-multiplier / +cold-skills (Rime-Gaze / rare-wand-analog DPS)",
+            "energy-shield + CI (the facetank chassis)",
+            "ES-recharge-not-stopped-by-hits (Wicked-Ward-analog defensive layer)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "Structurally near-twin of caustic-arrow: two ground_targeted_circle cold-DoT pools + chill, but self-anchored (Vortex at feet) rather than kited. cold -> water, chill native. The safest-league-starter identity lives in the DEFENSIVE chassis (CI/ES facetank while pools tick), which maps to def-bin/trait riders (Wicked Ward = ES-recharge-uninterrupted, Vile Bastion = ES-on-kill), NOT a geometry — noted in traits_affixes. Honest CLOSE (not EXACT), same nuance as caustic-arrow: PoE cold DoT is a fixed-tick DAMAGE-OVER-TIME pool; the engine expresses the cold-DoT via water-family + chill ailment + ground_targeted_circle, but the pure-DoT-uptime damage model (scale DoT-multiplier, reapply-not-spam) is a persistent-DoT pattern that PERSISTENCE_ENGINE_uptime captures at the capstone while the per-pool ailment is a chill approximation of the DoT tick. Vaal Cold Snap (mapping burst) + Wither totems route as variant/support flavor, noted."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+      "archive_url": null,
+      "site": "poe-vault.com",
+      "author_handle": "TbXie",
+      "title": "TbXie's Cold DoT Vortex Occultist Build Guide (PoE Affliction 3.23)",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    },
+    {
+      "url": "https://odealo.com/articles/vortex-cold-snap-es-ci-occultist-build-odealos-crafty-guide",
+      "archive_url": null,
+      "site": "odealo.com",
+      "author_handle": null,
+      "title": "[3.11] Vortex Cold Snap ES/Low-Life Occultist build - Odealo's Crafty Guide",
+      "cite_class": "authored",
+      "rank_class": "recovered",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 3.0-3.6, 3.7-3.13, 3.14-3.19",
+      "anchor_quote": "[3.11] Vortex Cold Snap ES/Low-Life Occultist build; [3.18] Cold Snap Vortex Occultist Build Guide (PoE Sentinel)",
+      "source_url": "https://odealo.com/articles/vortex-cold-snap-es-ci-occultist-build-odealos-crafty-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Cold DoT Occultist', aliases 'Vortex/Creeping Frost', 'CI Vortex' are real community usage",
+      "anchor_quote": "TbXie's Cold DoT Vortex Occultist Build Guide (PoE Affliction 3.23); The Vortex & Creeping Frost Occultist Build Guide (PoE Harvest 3.11)",
+      "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Vortex, Creeping Frost, Frostbolt: instant-cast Vortex ground chill plus Creeping Frost clouds tick cold DoT while CI/ES body facetanks",
+      "anchor_quote": "The build centers on casting Vortex to create cold damage-over-time pools, supplemented by Vaal Cold Snap for mapping and Creeping Frost for single-target damage.",
+      "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "author_handle": "TbXie",
+          "site": "poe-vault.com"
+        },
+        "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+        "anchor_quote": "TbXie's Cold DoT Vortex Occultist Build Guide (PoE Affliction 3.23)",
+        "abstained": 0,
+        "conf": 0.97
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Occultist",
+          "rationale": "Chosen over Elementalist for unconditional Quality of Life.",
+          "nodes": [
+            {
+              "name": "Profane Bloom",
+              "alteration": "Chaos explosions on cursed-enemy death for clear speed."
+            },
+            {
+              "name": "Wicked Ward",
+              "alteration": "ES recharge not stopped by hits for 4s — core defensive layer."
+            },
+            {
+              "name": "Vile Bastion",
+              "alteration": "ES regeneration from kills."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+        "anchor_quote": "Occultist was chosen over Elementalist for 'unconditional Quality of Life,' emphasizing curse application and defensive layers.",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "items": [
+            {
+              "name": "Rime Gaze",
+              "slot": "helmet",
+              "alteration": "Unique helmet for cold DoT scaling."
+            },
+            {
+              "name": "Rare wand",
+              "slot": "weapon",
+              "alteration": "+1 spell/cold skills and cold DoT multiplier — core DPS stick."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+        "anchor_quote": "Head: Rime Gaze (unique helmet); Weapon: Wand with +1 spell/cold skills and cold DoT multiplier.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Vortex: ground pool centered on player position (instant-cast, no travel delay in pre-3.23 versions). Creeping Frost: projectile that deploys cold cloud at target location. Both skills produce large-area-of-effect ground effects that enemies must stand within. Overlap maximises DoT ticks on stationary targets."
+        },
+        "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+        "anchor_quote": "Skills operate through ground-effect pools with area coverage.",
+        "abstained": 0,
+        "conf": 0.86
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Instant-cast Vortex at or beneath player feet to create cold DoT ground pool. Cast Creeping Frost as projectile to deploy cold cloud at target for single-target coverage. Reapply both periodically rather than constant casting. Cold Snap (Vaal variant) used for mapping. Maintain Wither totem stacks for increased chaos-cold DoT. CI/ES body facetanks hits while DoT ticks."
+        },
+        "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+        "anchor_quote": "cast a pool of Cold Damage over Time and reapply skills periodically rather than relying on constant casting.",
+        "abstained": 0,
+        "conf": 0.91
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            {
+              "name": "CI Cold DoT Occultist",
+              "description": "Chaos Inoculation with high ES pool; recommended for endgame."
+            },
+            {
+              "name": "Cold DoT Elementalist",
+              "description": "Alternative requiring more complex gearing; mentioned as secondary option."
+            },
+            {
+              "name": "[3.16] Coldslinger variant",
+              "description": "Forum build combining Coldslinger with Vortex/Creeping Frost/CI/LL."
+            }
+          ]
+        },
+        "source_url": "https://www.poe-vault.com/guides/cold-dot-vortex-occultist-build-guide",
+        "anchor_quote": "Elementalist as an alternative requiring 'more complex gearing.' The Cold DoT-oriented build is a great introduction to Chaos Inoculation builds (CI).",
+        "abstained": 0,
+        "conf": 0.84
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

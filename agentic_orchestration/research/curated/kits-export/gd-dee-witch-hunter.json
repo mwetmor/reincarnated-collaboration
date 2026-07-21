@@ -1,0 +1,234 @@
+{
+  "kit_id": "gd-dee-witch-hunter",
+  "spine": {
+    "kit_id": "gd-dee-witch-hunter",
+    "folk_name": "Dreeg's Evil Eye Witch Hunter",
+    "game": "gd",
+    "corpus_bucket": "gd",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "base-2016;fg-2019;patch-1.1-1.2",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the two-stage projectile-then-pool delivery is compressed to the pool geometry with the bolt as delivery flavor; the fumble-curse accuracy layer and confusion layer are withheld pending steward rows (near-misses, not silent drops).",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "earth"
+    ],
+    "ailments_attested": [
+      "poison"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "minor drift: the two-stage projectile-then-pool delivery is compressed to the pool geometry with the bolt as delivery flavor; the fumble-curse accuracy layer and confusion layer are withheld pending steward rows (near-misses, not silent drops).",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Dreeg's Evil Eye",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "single acid eye-bolt projectile that detonates at impact into a small-radius poison DoT pool ('acid eye-bolts that burst into poison pools and fumble curses'; 'Eye-bolt travels as single projectile; detonates into AoE acid pool on contact'); spam/on-demand. ground_targeted_circle carries the pool identity (phrase-book pool/patch/ground-DoT); the projectile travel is delivery flavor, drift noted. poison NAMED in fetched text ('poison pools'; 'poison/acid build focused on damage-over-time effects')."
+        },
+        {
+          "source_skill": "Bloody Pox",
+          "geometry_value": "single_target",
+          "element_primary": "earth",
+          "element_secondary": null,
+          "ailments": [
+            "poison"
+          ],
+          "delivery_notes": "cast on a target and spreads through the pack ('Bloody Pox applied as spreading curse for pack coverage'); contributes to the kit-level attested acid/poison DoT stack ('stacks acid/poison DoT until enemies dissolve'). single_target cast + contagion-spread note; propagation is proximity-spread, not on-kill."
+        }
+      ],
+      "motion_frame": "spam acid eye-bolts that burst into poison pools, seed Bloody Pox into the pack for spreading coverage, and kite while stacked acid DoTs dissolve everything",
+      "resource_economy": {
+        "cost_scale": "light energy per cast (spam-on-demand; the DoT stack carries damage between casts)"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": null,
+        "mark_identity": null,
+        "consequence_type": null
+      },
+      "t4_doors": [
+        "PERSISTENCE_ENGINE_saturation"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "poison-pool radius/duration",
+            "Pox pack-spread range"
+          ],
+          "economy": [
+            "light-cost spam cadence"
+          ],
+          "traits_affixes": [
+            "acid/poison DoT scaling (earth-family gated)",
+            "Shroud of Deception 5pc set damage bonus -> gear-affix numeric lane"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "earth chosen for GD acid per main-law poison/acid row (venom register: Dreeg acid/poison theme dominant in fetched language) over the shadow-occult alternative (Occultist class flavor) -- noted per the row's either-way ailment lane. NOT emitted under 0-discipline: 'fumble curses' IS fetched but no crosswalk row covers fumble (the blind row lists blind/smoke/dim-vision -- vision register; fumble is a miss-chance status with matching accuracy-tax SEMANTICS) -> filed to steward as a row question, token withheld; 'confusion effects that neutralize threats' fetched but NO row (closest fear NOT emitted -- confusion is not a fear/terror/horrify naming). Item rider: Dreeg's Infinite Gaze weapon procs Tainted Eruption ('to blow up any mobs' = burst payload attested, trigger CONDITION unfetched -> rider noted here, not forced into trigger_grammar). R-M5 considered, not applicable."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.0.0.7] Dreeg's Champion",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://forums.crateentertainment.com/t/1-2-0-3-witch-hunter-w-embers-calling-set-fire-burn-dreegs-evil-eye-75-fire-rr/133677",
+      "archive_url": null,
+      "site": "forums.crateentertainment.com",
+      "author_handle": "unknown",
+      "title": "[1.2.0.3] Witch Hunter w/ Ember's Calling set - Fire/Burn Dreeg's Evil Eye",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "eras=['base-2016','fg-2019','patch-1.1-1.2']",
+      "anchor_quote": "Tagged as [1.0.0.7], with an update note mentioning '1.0.0.9 Update' in the initial post, placing this in an early Grim Dawn patch cycle.",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "folk_name='Dreeg's Evil Eye Witch Hunter'; aliases=['DEE Witch Hunter','Dreeg's Evil Eye acid build','Bloody Pox DEE combo']",
+      "anchor_quote": "Referred to as the 'DEE Witch Hunter' and identified by the Dreeg's set it requires. The build is also called a poison/acid build focused on damage-over-time effects.",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "core_skills=['Dreeg's Evil Eye','Bloody Pox(support)']; delivery=projectile; burst into poison pool at landing; acid/poison damage",
+      "anchor_quote": "Dreeg's Infinite Gaze to proc tainted eruption to blow up any mobs … poison/acid build focused on damage-over-time effects … Witch Hunter (Occultist + Nightblade)",
+      "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "unknown",
+          "site": "forums.crateentertainment.com",
+          "thread": "[1.0.0.7] Dreeg's Champion"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+        "anchor_quote": null,
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": {
+          "key_set": "Shroud of Deception of Dreeg (5-piece set)",
+          "set_bonus": "huge damage boost at 5 pieces",
+          "notes": "Dreeg's Infinite Gaze weapon procs Tainted Eruption"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+        "anchor_quote": "the 5 piece set bonus is a huge damage boost … Dreeg's Infinite Gaze to proc tainted eruption",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "delivery": "projectile",
+          "footprint": "small-radius poison pool at landing",
+          "range": "ranged",
+          "aoe": "burst radius at impact",
+          "notes": "Eye-bolt travels as single projectile; detonates into AoE acid pool on contact"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+        "anchor_quote": "acid eye-bolts that burst into poison pools and fumble curses",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Fire acid eye-bolts at targets; each bolt bursts into a poison pool on landing; Bloody Pox applied as spreading curse for pack coverage; stacks acid/poison DoT until enemies dissolve",
+          "resource": "mana spend per cast",
+          "tempo": "spam/on-demand"
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-0-0-7-dreegs-champion/36230",
+        "anchor_quote": "poison/acid build focused on damage-over-time effects … Dreeg's Infinite Gaze to proc tainted eruption … confusion effects that neutralize threats",
+        "abstained": 0,
+        "conf": 0.75
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "acid/poison DEE (base version)",
+            "fire/burn DEE conversion (Ember's Calling set variant, patch-era)",
+            "Warlock DEE (Arcanist+Occultist, different class)"
+          ]
+        },
+        "source_url": "https://forums.crateentertainment.com/t/1-2-0-3-witch-hunter-w-embers-calling-set-fire-burn-dreegs-evil-eye-75-fire-rr/133677",
+        "anchor_quote": "[1.2.0.3] Witch Hunter w/ Ember's Calling set - Fire/Burn Dreeg's Evil Eye",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

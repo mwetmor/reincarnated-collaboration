@@ -1,0 +1,202 @@
+{
+  "kit_id": "poe2-acolyte-darkness",
+  "spine": {
+    "kit_id": "poe2-acolyte-darkness",
+    "folk_name": "Darkness Acolyte",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "moderate",
+    "eras": "0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-05",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The source player would miss the Waking Dream Remnant economy as its OWN resource (a color-streamed pickup meter, made mono-color by Lucid Dreaming) -- we render it as reservation-swap + on-kill fill, losing the pickup-stream texture and the purple-damage-stack ramp. Also the darkness-absorb defensive window (Embrace the Darkness) is folded into a T4 door, not modeled as an active mitigation buff. That build, worse -- not a different build -- so APPROX not GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "shadow"
+    ],
+    "ailments_attested": [],
+    "citation_count": 2,
+    "verify_confirmed": 0,
+    "verify_contradicted": 1,
+    "verify_unsupported": 2,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "APPROX",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "The source player would miss the Waking Dream Remnant economy as its OWN resource (a color-streamed pickup meter, made mono-color by Lucid Dreaming) -- we render it as reservation-swap + on-kill fill, losing the pickup-stream texture and the purple-damage-stack ramp. Also the darkness-absorb defensive window (Embrace the Darkness) is folded into a T4 door, not modeled as an active mitigation buff. That build, worse -- not a different build -- so APPROX not GAPPED.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Into the Breach chaos-converted strikes",
+          "geometry_value": "melee_arc",
+          "element_primary": "shadow",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "at-target quarterstaff melee strikes (footprint small-radius); chaos-convert striker. Into the Breach is a persistent buff (Waking Dream), not a discrete attack — the striking skill maps as the core active."
+        }
+      ],
+      "motion_frame": "At-target melee striker sustained by Waking Dream Remnants spawned near the player (red=life, blue=mana, purple=damage).",
+      "resource_economy": {
+        "reservation_resource": "spirit",
+        "reservation_percent": 0.3
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-only",
+        "proc_trigger_condition": "on-kill",
+        "mark_identity": "Remnant pickups (Waking Dream spawns Remnants near player; Lucid Dreaming restricts to one color)",
+        "consequence_type": "resource-fill"
+      },
+      "t4_doors": [
+        "RESOURCE_CONVERSION",
+        "SACRIFICE_ASCENDANCY"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [],
+          "economy": [
+            "reservation_resource",
+            "reservation_percent"
+          ],
+          "traits_affixes": [
+            "ELEMENT_CONVERSION_PHYSICAL-adjacent chaos-convert on strikes"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "elem_raw 'chaos' -> shadow (main-law drain/corruption lineage; ailment lane none in fetched text -- probe 'chaos-debuff'/'darkness-stacks' are resource-flavor not a registry ailment, so no ailment emitted). Waking Dream 'Darkness replaces Spirit' is a Spirit-RESERVATION swap (addendum FALSE-FRIEND: poe2 Spirit != engine spirit-guide) mapped reservation_resource:spirit; the bespoke Darkness charge pool has no native economy key -> approximated to reservation+on-kill Remnant-fill, note the novel resource. Embrace the Darkness (absorb-damage-as-darkness 5s) -> SACRIFICE_ASCENDANCY-class defensive trade. verify_ledger: mechanics UNSUPPORTED (skill_loop/geometry dossier abstained), era restamped ERRATA-16 (0.3-0.5, Into the Breach intro) errata_applied=1 -- respected. Only capstone_alterations was non-abstained, so skill geometry is inferred from probe delivery=at-target melee + core_skills."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/resources/acolyte-of-chayula-ascendancy",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Acolyte of Chayula Ascendancy Overview - Path of Exile 2",
+      "cite_class": "communal",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://poe2db.tw/us/Into_the_Breach",
+      "archive_url": null,
+      "site": "poe2db.tw",
+      "author_handle": null,
+      "title": "Into the Breach - PoE2DB",
+      "cite_class": "dataset",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONTRADICTED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn",
+      "anchor_quote": "version history starting from v0.3.0, with updates continuing through v0.5.0",
+      "source_url": "https://poe2db.tw/us/Into_the_Breach",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Folk name 'Darkness Acolyte'; aliases 'Into the Breach chaos build', 'chaos-convert striker'",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/poe2/resources/acolyte-of-chayula-ascendancy",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "UNSUPPORTED",
+      "claim_text": "Core skills: Into the Breach, chaos-converted strikes; Spirit converted to Waking Dream / darkness charges powering chaos attacks",
+      "anchor_quote": null,
+      "source_url": "https://maxroll.gg/poe2/resources/acolyte-of-chayula-ascendancy",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Acolyte of Chayula",
+          "nodes": [
+            "Waking Dream (provides Into the Breach; spawns Remnants near player: red=life, blue=mana, purple=damage stacks)",
+            "Embrace the Darkness (absorbs damage as darkness for 5 seconds)",
+            "Lucid Dreaming (restricts Remnants to one color for consistent stream)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/resources/acolyte-of-chayula-ascendancy",
+        "anchor_quote": "Waking Dream provides Into the Breach, a persistent buff that spawns Remnants near your character.",
+        "abstained": 0,
+        "conf": 0.72
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "variants": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

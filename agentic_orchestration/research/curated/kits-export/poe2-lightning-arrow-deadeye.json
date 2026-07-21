@@ -1,0 +1,252 @@
+{
+  "kit_id": "poe2-lightning-arrow-deadeye",
+  "spine": {
+    "kit_id": "poe2-lightning-arrow-deadeye",
+    "folk_name": "Lightning Arrow Deadeye",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.3-edict;0.4;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two verified drifts noted: (1) engine chain hops sequentially and decays 0.7x/hop, whereas Lightning Arrow's beam splash is simultaneous at full damage to up to 3 targets -- a LA player's screen-clear is slightly weaker per-hop; (2) Lightning Rod's placed boss-zone is approximated as ground_targeted_circle rather than a shot-empowered rod. Both preserve the run-and-gun chain identity.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 1,
+    "verify_confirmed": 7,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Two verified drifts noted: (1) engine chain hops sequentially and decays 0.7x/hop, whereas Lightning Arrow's beam splash is simultaneous at full damage to up to 3 targets -- a LA player's screen-clear is slightly weaker per-hop; (2) Lightning Rod's placed boss-zone is approximated as ground_targeted_circle rather than a shot-empowered rod. Both preserve the run-and-gun chain identity.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Lightning Arrow",
+          "geometry_value": "chain",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "bow projectile: fires a fast lightning projectile that ON CONTACT unleashes lightning beams arcing to up to 3 nearby enemies within a large radius (dossier verbatim). Mirrors PoE1-lightning-arrow (queried: geometry_value=chain, ailments=[sunder]) -- one-hop splash-fan modeled as chain. Multi-arrow Deadeye nodes create a spreading chain network. poe2 DELTA: no phys->lightning conversion attested (native lightning; the 50% conversion + ELEMENT_CONVERSION_PHYSICAL PoE1 carried is DROPPED). shock rider -> sunder."
+        },
+        {
+          "source_skill": "Lightning Rod",
+          "geometry_value": "ground_targeted_circle",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "placed on bosses for single-target concentrated damage ('Fire it directly on top of bosses -- your primary damage on single target'). A placed zone the Lightning Arrow shots empower -> ground_targeted_circle. Secondary boss stage per 7.2; the every-3-seconds mapping loop is Lightning Arrow chain-clear."
+        }
+      ],
+      "motion_frame": "run-and-gun bow mapper: fire lightning arrows on the full move, every arrow forks beams into the pack around its target -- whole screens light up with chained splashes; drop a Lightning Rod under bosses for concentrated single-target",
+      "resource_economy": {
+        "cost_scale": "mana per shot (plain pool); high attack speed; Deadeye adds projectiles at no extra cost"
+      },
+      "trigger_grammar": null,
+      "t4_doors": [
+        "ELEMENTAL_ECHO",
+        "GEOMETRY_PROPAGATION_cascade"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "chain splash-to-3 around primary hit (large radius)",
+            "extra-projectiles (Deadeye) extend to screen-wide chain network",
+            "Lightning Rod placed boss zone (ground_targeted_circle)"
+          ],
+          "economy": [
+            "mana-light attack spend; full-move fire; free extra projectiles"
+          ],
+          "traits_affixes": [
+            "shock-effect (sunder-magnitude analog)",
+            "lightning-penetration",
+            "projectile/attack-speed",
+            "additional-projectiles"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "No GX flag. PoE1 LA row queried and mirrored (chain + sunder + run-and-gun frame). poe2 deltas: (a) native lightning, NO phys->lightning -> DROPPED ELEMENT_CONVERSION_PHYSICAL; (b) Lightning Rod is a poe2-specific placed boss-zone 2nd stage -> added as skill[1] + GEOMETRY_PROPAGATION_cascade. Verified drift (arc-b01, engine truth): engine chain hops SEQUENTIALLY decay 0.7x/hop while LA splash is SIMULTANEOUS full-damage to 3 -- chain still the honest type. s2 FALSE FRIEND (shock->sunder). eras 0.1-0.5 CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": "Crouching_Tuna",
+      "title": "Lightning Arrow Deadeye Build Guide - Path of Exile 2 0.5.4",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.1",
+      "anchor_quote": "Lightning Arrow Deadeye Build Guide ... changelog entries noting updates for 0.5.3 and 0.3.0 [from earlier versions]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.2-dawn",
+      "anchor_quote": "Lightning Arrow Deadeye Build Guide ... changelog entries noting updates for 0.5.3 and 0.3.0 [from earlier versions]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.3-edict",
+      "anchor_quote": "Lightning Arrow Deadeye Build Guide ... changelog entries noting updates for 0.5.3 and 0.3.0",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.4",
+      "anchor_quote": "Lightning Arrow Deadeye Build Guide ... changelog entries noting updates for 0.5.3 and 0.3.0 [maintained through later versions]",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in era 0.5-ancients",
+      "anchor_quote": "patch 0.5.4 (most recent update June 25, 2026)",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Lightning Arrow Deadeye' and aliases 'LA Deadeye', 'Lightning Rod Deadeye' are real community usage",
+      "anchor_quote": "Lightning Arrow Deadeye Build Guide - Path of Exile 2",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills: Lightning Arrow fires projectile that arcs lightning to up to three enemies; Lightning Rod placed for single-target burst; Deadeye ascendancy projectile multiplication",
+      "anchor_quote": "Lightning Arrow fires a fast lightning projectile that on contact with an enemy unleashes lightning beams that arc to up to three enemies within a large radius.",
+      "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": {
+          "handle": "Crouching_Tuna",
+          "site": "maxroll.gg",
+          "role": "PoE Franchise Director"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+        "anchor_quote": "Crouching_Tuna - PoE Franchise Director",
+        "abstained": 0,
+        "conf": 0.98
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Deadeye (Ranger ascendancy)",
+          "notables": [
+            "Projectile multiplication nodes increasing arrow count",
+            "Deadeye ascendancy nodes for additional projectiles at no extra cost"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+        "anchor_quote": "Deadeye ascendancy provides additional projectiles at no extra cost",
+        "abstained": 0,
+        "conf": 0.85
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "geometry": "Projectile delivery (ranged). Chain-hop on contact: lightning beams arc from primary impact to up to 3 nearby targets. Multi-arrow Deadeye variants create a spreading chain network across packs.",
+          "range": "ranged projectile + chain-hop"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+        "anchor_quote": "fires a fast lightning projectile that on contact with an enemy unleashes lightning beams that arc to up to three enemies within a large radius",
+        "abstained": 0,
+        "conf": 0.9
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "loop": "Fire Lightning Arrow at packs — each arrow arcs lightning beams to up to 3 nearby enemies. Place Lightning Rod on bosses for single-target concentrated damage. Deadeye ascendancy adds projectiles for more chains. High attack speed with mana-per-shot funding.",
+          "resource": "Mana per shot"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+        "anchor_quote": "Lightning Arrow fires a fast lightning projectile that on contact with an enemy unleashes lightning beams that arc to up to three enemies within a large radius.",
+        "abstained": 0,
+        "conf": 0.92
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "variants": [
+            "Lightning Arrow Deadeye (standard multi-arrow)",
+            "Lightning Arrow + Lightning Rod heavy single-target focus"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/lightning-arrow-deadeye",
+        "anchor_quote": "Fire it [Lightning Rod] directly on top of bosses — your primary damage on single target",
+        "abstained": 0,
+        "conf": 0.88
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 1,
+    "dossier_facts": 6,
+    "verify_claims": 7,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}

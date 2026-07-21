@@ -1,0 +1,233 @@
+{
+  "kit_id": "poe2-tempest-flurry",
+  "spine": {
+    "kit_id": "poe2-tempest-flurry",
+    "folk_name": "Tempest Flurry Monk",
+    "game": "poe2",
+    "corpus_bucket": "poe2",
+    "tier": "T1",
+    "canon_tier": "deep",
+    "eras": "0.1;0.2-dawn;0.5-ancients",
+    "negative": 0,
+    "is_system": 0,
+    "lineage": "",
+    "gx": "GX-03 GX-07",
+    "source": "canon",
+    "provenance_tag": "mobile-harvest-v3",
+    "source_date": "2026-07-12",
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the 4-hit RHYTHM cadence (each hit in the combo escalates, the 4th erupts) is the flurry's signature feel, and while melee_arc + a MOMENTUM_CASCADE door capture 'ramping repeated swings culminating in a burst', the engine has no first-class '4th-hit-of-a-fixed-combo erupts' beat -- the eruption reads as a generic finisher rather than a metered rhythm payoff. The dual Combo/Power-Charge currencies compress to one accumulator. The core melee-flurry-into-lightning-burst maps cleanly -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "elements_attested": [
+      "lightning"
+    ],
+    "ailments_attested": [
+      "sunder"
+    ],
+    "citation_count": 2,
+    "verify_confirmed": 3,
+    "verify_contradicted": 0,
+    "verify_unsupported": 0,
+    "dossier_rows": 6
+  },
+  "mapping": {
+    "grade": "CLOSE",
+    "terminal_state": "MAPPED",
+    "deviation_notes": "Minor drift: the 4-hit RHYTHM cadence (each hit in the combo escalates, the 4th erupts) is the flurry's signature feel, and while melee_arc + a MOMENTUM_CASCADE door capture 'ramping repeated swings culminating in a burst', the engine has no first-class '4th-hit-of-a-fixed-combo erupts' beat -- the eruption reads as a generic finisher rather than a metered rhythm payoff. The dual Combo/Power-Charge currencies compress to one accumulator. The core melee-flurry-into-lightning-burst maps cleanly -> CLOSE.",
+    "mapping_provenance": "authored-vdm1",
+    "mapping_json": {
+      "skills": [
+        {
+          "source_skill": "Tempest Flurry (rhythm quarterstaff flurry)",
+          "geometry_value": "melee_arc",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [
+            "sunder"
+          ],
+          "delivery_notes": "rapid multi-hit quarterstaff melee flurry, small-radius melee range, 4-hit rhythm cadence whose FINAL hit erupts in a lightning burst -> melee_arc (mirrors gemling-stacker Tempest-Flurry=melee_arc precedent; same skill). Full-move policy while casting (mobile flurry). lightning. ailment=sunder (poe2 shock damage-amp; no paralysis attested -> S-A BINDING). The 4-hit-then-erupt cadence IS the identity."
+        },
+        {
+          "source_skill": "Charged Staff (Power-Charge-spend buff + lightning finisher)",
+          "geometry_value": "self_buff",
+          "element_primary": "lightning",
+          "element_secondary": null,
+          "ailments": [],
+          "delivery_notes": "activated at 3+ Power Charges for a 30-second lightning-damage buff (and enables the Falling-Thunder-class burst) -> self_buff (charge-consuming maintain-buff). lightning. This is the SPEND half of the builder-spender: Tempest Flurry banks charges, Charged Staff consumes them for a damage window."
+        }
+      ],
+      "motion_frame": "Cycle the 4-hit Tempest Flurry to build Combo/Power Charges and land the lightning-burst final hit; at 3+ charges pop Charged Staff for a 30s lightning buff; Falling Thunder for boss burst at 6 charges.",
+      "resource_economy": {
+        "charge_stack_sub_shape": "accumulator",
+        "combo_points": "built by the 4-hit flurry cadence (accumulator)",
+        "power_charges": "banked to 3+ for Charged Staff, 6 for Falling Thunder (spend)",
+        "cost_scale": "mana per cast"
+      },
+      "trigger_grammar": {
+        "trigger_chain_shape": "apply-consume-pair",
+        "proc_trigger_condition": "on-hit-threshold",
+        "mark_identity": "Combo Points / Power Charges accumulated on the flurry cadence",
+        "consequence_type": "spend-burst"
+      },
+      "t4_doors": [
+        "TEMPORAL_CHARGE",
+        "MOMENTUM_CASCADE"
+      ],
+      "scaffold": {
+        "chain_count": 2,
+        "support_lanes": {
+          "geometry": [
+            "Tempest Flurry melee_arc (4-hit rhythm + lightning-burst finisher)",
+            "Charged Staff self_buff (charge-spend window)"
+          ],
+          "economy": [
+            "Combo Points / Power Charge accumulator",
+            "Charged Staff / Falling Thunder spend",
+            "mana per cast"
+          ],
+          "traits_affixes": [
+            "lightning penetration (Sunder my Enemies)",
+            "combo/charge-generation + attack speed",
+            "Spirit scaling (Lead me through Grace)"
+          ]
+        }
+      },
+      "option_c_substrate_flags": null,
+      "fidelity_notes": "GX-03 GX-07 (corpus gx). HOT-FLAG 7 RESOLVED: queried kit_mapping for b01/b02 melee precedents -> Tempest Flurry maps melee_arc (gemling-stacker precedent, SAME skill name, 'rapid melee attacks with area of effect' + flurry-with-AoE-finisher shape); the ALTERNATIVE was ice-strike-invoker's melee_strike, but that member is for Ice Strike specifically ('small close contact' single-contact), a DIFFERENT skill -- Tempest Flurry's multi-hit-rhythm-with-erupting-finisher is the melee_arc swing-family, not a single strike. Chose melee_arc; noted the melee_strike alternative. shock->sunder (S-A BINDING; 'shock vs freeze' in corpus mech_note is a control-descriptor, NOT fetched paralysis attestation -> sunder). Combo/Power-Charge builder-spender -> accumulator + spend-burst (Section-B). Charged Staff -> self_buff (charge-consuming maintain-buff; R-M9-adjacent buff). TEMPORAL_CHARGE routes the charge engine; MOMENTUM_CASCADE routes the rhythm-cadence ramp. Invoker ascendancy -> t4 via 5 (R-M1). eras 0.1/0.2/0.5 CONFIRMED."
+    }
+  },
+  "mints_anchored": [],
+  "dockets": [],
+  "atlas_group": null,
+  "lineage_enrichment": null,
+  "citations": [
+    {
+      "url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+      "archive_url": null,
+      "site": "maxroll.gg",
+      "author_handle": null,
+      "title": "Falling Thunder Invoker Build Guide for Path of Exile 2 Return of the Ancients 0.5.1",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    },
+    {
+      "url": "https://www.switchbladegaming.com/path-of-exile-2/monk-best-build/",
+      "archive_url": null,
+      "site": "switchbladegaming.com",
+      "author_handle": null,
+      "title": "PoE2 Monk Build 2026: Maximize Bell of Death Stacks with the Tempest Flurry Timing Loop",
+      "cite_class": "authored",
+      "rank_class": "attested-era",
+      "quarantined": 0
+    }
+  ],
+  "verify_ledger": [
+    {
+      "claim_family": "era",
+      "verdict": "CONFIRMED",
+      "claim_text": "Build present/meta in eras 0.1, 0.2-dawn, 0.5-ancients",
+      "anchor_quote": "[0.1] Tri's Simple Tempest Flurry Invoker - PoE 2 Monk Build Guide... Falling Thunder Invoker Build Guide for Path of Exile 2 Return of the Ancients 0.5.1",
+      "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "identity",
+      "verdict": "CONFIRMED",
+      "claim_text": "Folk name 'Tempest Flurry Monk' and aliases 'Tempest Flurry Charged Staff', 'flurry monk' are real community usage",
+      "anchor_quote": "Tempest Flurry Invoker Build Guide for Path of Exile 2 Return of the Ancients 0.5.1... By Act 5 you should be running: Tempest Flurry (combo + bell striker) → Tempest Bell ×3 → Charged Staff (active buff)",
+      "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+      "run_tag": "vdm1"
+    },
+    {
+      "claim_family": "mechanics",
+      "verdict": "CONFIRMED",
+      "claim_text": "Core skills Tempest Flurry and Charged Staff; multi-hit quarterstaff flurry combo with lightning burst",
+      "anchor_quote": "Charged Staff adds a large damage bonus to your attacks as well as a shockwave to increase AoE. Charged Staff sacrifices Power Charges to apply a large Lightning Damage buff",
+      "source_url": "https://www.switchbladegaming.com/path-of-exile-2/monk-best-build/",
+      "run_tag": "vdm1"
+    }
+  ],
+  "dossier": {
+    "author_credit": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "capstone_alterations": [
+      {
+        "payload": {
+          "ascendancy": "Invoker",
+          "notables": [
+            "I am the Thunder...",
+            "...and I Shall Rage",
+            "Lead me through Grace...",
+            "Sunder my Enemies..."
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+        "anchor_quote": "I am the Thunder… (damage as Lightning); ...and I Shall Rage (Unbound Avatar skill); Lead me through Grace… (Spirit scaling); Sunder my Enemies… (ignore elemental resistances on crits)",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "item_alterations": [
+      {
+        "payload": null,
+        "source_url": null,
+        "anchor_quote": null,
+        "abstained": 1,
+        "conf": null
+      }
+    ],
+    "skill_geometry": [
+      {
+        "payload": {
+          "tempest_flurry": "rapid multi-hit quarterstaff melee flurry; small-radius melee range; 4-hit cadence with rhythm; final hit creates lightning burst; full-move policy while casting"
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+        "anchor_quote": "Monk executes a multi-hit quarterstaff flurry with a rhythm-building cadence. The final hit of the combo chain erupts in a lightning burst.",
+        "abstained": 0,
+        "conf": 0.82
+      }
+    ],
+    "skill_loop": [
+      {
+        "payload": {
+          "summary": "Tempest Flurry builds Combo Points → summon Tempest Bell → attack bell to ring it. Activate Charged Staff at 3+ Power Charges for 30-second lightning damage buff. Falling Thunder for burst on bosses at 6 charges. Keep 4-hit flurry combo cycling."
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+        "anchor_quote": "Tempest Flurry (combo + bell striker) → Tempest Bell ×3 → Charged Staff (active buff) → Falling Thunder (boss burst on Invoker)",
+        "abstained": 0,
+        "conf": 0.83
+      }
+    ],
+    "variants": [
+      {
+        "payload": {
+          "known_variants": [
+            "Tempest Flurry Invoker (standard)",
+            "Tempest Flurry Gemling Legionnaire",
+            "Ice Strike Invoker (flurry as combo builder, Ice Strike as primary)"
+          ]
+        },
+        "source_url": "https://maxroll.gg/poe2/build-guides/tempest-flurry-invoker",
+        "anchor_quote": "Tempest Flurry Gemling Legionnaire Build Guide - Path of Exile 2",
+        "abstained": 0,
+        "conf": 0.78
+      }
+    ]
+  },
+  "_row_counts": {
+    "citations": 2,
+    "dossier_facts": 6,
+    "verify_claims": 3,
+    "mints_anchored": 0,
+    "dockets": 0
+  }
+}
