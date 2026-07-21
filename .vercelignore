@@ -75,6 +75,17 @@
 !agentic_orchestration/research/curated/atlas/atlas-edition4.json
 !agentic_orchestration/research/curated/atlas/atlas-edition3.json
 
+# PER-KIT CORPUS SSOT (gandalf deploy-lane, 2026-07-20; per-kit page elrond 3f48145c + drax
+# 5e10f8ef): the /corpus index + detail routes read their data from the vendored 574-kit
+# export that scripts/stage-kits.mjs byte-copies onto /kits at build. Same D7 lesson as the
+# atlas entries above — .vercelignore is INERT locally (the local `npm run build` staged
+# full-corpus green), so this allowlist gap only surfaced in the deploy build: stage-kits
+# could find neither this tree NOR its gandalf/notes sample fallback, so it failed loud and
+# the deploy stuck on the last pre-corpus green build. Un-ignore the whole vendored dir (it
+# IS the build input — index.json + 574 per-kit files + provenance stamp).
+!agentic_orchestration/research/curated/kits-export
+!agentic_orchestration/research/curated/kits-export/**
+
 # Within the two kept trees, still drop derived/heavy artifacts:
 glance/app/node_modules
 glance/app/dist
