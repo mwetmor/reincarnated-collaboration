@@ -5,6 +5,56 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
+## v1.15 — per-kit corpus "single source of truth" · /corpus + /corpus/:id (BUILT, local; NOT deployed)
+
+Spec: `agentic_orchestration/gandalf/notes/2026-07-20-glance-per-kit-join-spec.md` (Matt-approved
+sample shape). Routes to elrond (corpus→JSON generator) + drax (glance render). This entry is the
+drax deliverable: the render routes + build-time staging.
+
+**What shipped (commit `5e10f8ef`, working tree only — Matt-authorized push pending):**
+- `src/pages/CorpusIndex.tsx` — `#/corpus`: browsable/filterable index off `public/kits/index.json`
+  (filter by game/tier/grade + free-text; density strip from `_row_counts`; sorted by row-count).
+- `src/pages/CorpusKit.tsx` — `#/corpus/<kit_id>`: full render of the 10 frozen sections (spine,
+  mapping w/ parsed mapping_json skills+T4+lanes, mints_anchored, dockets, atlas_group,
+  lineage_enrichment, citations, verify_ledger, dossier by 6 families, _row_counts density header).
+- `src/hooks/useKits.ts` — index + per-kit lazy fetch through `import.meta.env.BASE_URL` (atlas
+  convention; provenance best-effort/non-fatal).
+- `src/data/kitTypes.ts` — the frozen-shape types + display helpers (gradeTone/verdictTone/
+  displayGame/rowCountTotal); DOSSIER_FAMILY_ORDER = the 6 families.
+- `scripts/stage-kits.mjs` — build-time staging (SAME pattern as stage-assets.mjs). Wipes+regens
+  `public/kits/` (gitignored), writes `kits-provenance.json` (git-derived source commit). Wired into
+  `build` / `build:preview` / `pretest`.
+- `src/App.tsx` — extended the hash-router `Route` union with `corpus` + `corpus-kit`; `parseHash`
+  handles `#/corpus` and `#/corpus/<id>`; added a `Corpus` nav tab (fluid-width like /atlas); fixed
+  the Overview tab to be active on landing only.
+- `src/__tests__/kits-contract.test.ts` — helper unit tests + staged-corpus conformance (locks the
+  10-section shape + proves the honest-gap states have real corpus coverage). Suite 116/116 green.
+
+**HONEST-GAP RENDERING (load-bearing, per spec):** empty mints → "none"; null atlas_group → "not
+placed"; null lineage → "not placed in roster_atlas (corpus kit — expected)"; abstained dossier rows
+→ "source silent" (dashed card); quarantined citations + abstained rows → visually flagged
+(rose/dashed). Verified: 574 kits render, 0 console errors, 375px mobile no-overflow.
+
+**SOURCE-PATH COORDINATION (elrond ↔ drax) — RESOLVED THIS SESSION:** elrond's full-corpus generator
+already landed (commit `3f48145c`) emitting 574 kits to
+`agentic_orchestration/research/curated/kits-export/` (`index.json` + `<kit_id>.json`). `stage-kits.mjs`
+AUTO-DETECTS that path (the one the app `.gitignore` already anticipated) and byte-copies it through;
+it falls back to the frozen 5-kit sample when absent. Build reported `mode full-corpus`. If elrond
+moves the emission, re-sync `FULL_INDEX_REL` in stage-kits.mjs.
+  - **`// TODO(drax)`** in stage-kits.mjs header: optionally invoke elrond's generator inline (like
+    stage-assets invokes build-atlas-interactive) instead of reading a committed export dir; confirm
+    the exact path/filename convention with elrond before finalizing. Not blocking — current wiring
+    works against the landed emission.
+
+**ROUTE-NAME DECISION (flag for Matt):** the spec asked for `/kits` + `/kit/:id`. Glance's `/kits` is
+ALREADY the PART-F serial roster page (KitsPage, serial-content-emission tracker) — a different
+surface. I named these `#/corpus` + `#/corpus/<id>` to avoid clobbering it. Faithful to the spec's
+INTENT (browsable index + per-kit detail); the name differs. Easy to rename if Matt prefers.
+
+**NOT DONE (out of scope / deferred):** no push/deploy (Matt-authorized only). The companion VDM-2
+substrate-schema track (mechanical-axis sparseness, T4 ontology) is explicitly SEPARATE per spec
+§ sequencing — render first (this), schema-complete second (not bundled here).
+
 ## Current version — v1.14 (B-1+B-2: Edition-III furniture rescale + legend top-left + BUILD FAMILIES — LIVE on PRD)
 
 Matt's polish order (2026-07-16, in the Tier-3 directive): furniture had been left sized for the
