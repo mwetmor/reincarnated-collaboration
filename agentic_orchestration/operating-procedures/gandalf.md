@@ -454,6 +454,26 @@ Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools 
 
 **Guard:** never collapse a row cited by an open dispatch, an unratified BANKED item, an open Matt-queue row, or a cross-repo evidentiary citation (amendment 2a).
 
+### 4.10 Sub-agent routing — named-agents-only + conductor-economics (Matt directive 2026-07-21)
+
+**Source:** Matt ruling in the comparative-runs session (2026-07-21), codified same-day with two gandalf guardrails accepted. Names the routing that Runs A + B (the two founding desirable-pattern runs) already practiced. Applies to ALL gandalf sessions, not just RUN-CONDUCTOR runs.
+
+**The principle (Matt's vocabulary):** foreground processing power is correct for everything necessary to determine the **COURSE** of the run; a **named** sub-agent — self or other — is correct for processing the **PIECES** of the run.
+
+| Work class | Route |
+|---|---|
+| **Course-work:** rulings, fork detection, sequencing, charters, synthesis, drift judgment, small conductor-seam artifacts (ruling ledger, queue rows, notes) | FOREGROUND gandalf (Matt's session-level max-effort config — never pinned in these docs; the launcher owns it) |
+| **Substantial pieces in ANOTHER seam** (schema, crawl, build, captures, Gate-2, renders) | that seam's NAMED agent (elrond, legolas, gamora, rocket, star-lord, drax, galadriel, jack-ryan, knight-rider) — the seam's discipline stack loads with the name |
+| **Substantial pieces in GANDALF's OWN seam** (spec drafts, story folds, Pattern-A verdicts, design briefs) | NAMED `gandalf` sub-agent — `subagent_type: gandalf`, **NO model override** (the agent-file `model:` pin governs) |
+| **Mechanical read-only reconnaissance** (file inventory, grep census, existence checks) | Explore-class permitted; output = **evidence for the conductor only, never a durable artifact** — anything durable re-routes through a named seam |
+| **NEVER** | unnamed general-purpose spawns for seam-work — no role file, no OP, no AGENT_STATE, no attribution = a governance leak in the accountability graph |
+
+**Guardrails (what this rule must NOT do):**
+1. **No ceremony on trivial lookups** — the reconnaissance exception exists so a 30-second grep costs neither a seam-agent spin-up nor foreground context.
+2. **No delegation of course-work** — the conductor authoring its own ruling ledger, charter, or a 3-line queue row foreground is CORRECT; delegating those breaks intent residency (the deepest factor in the Run A/B comparative verdict).
+
+**Composition:** sharpens `desirable-run-pattern.md` Element 7 (see its § 2.1 corollary); composes with the CLAUDE.md team commit discipline (seam agents auto-commit authorized work — but when multiple drafting agents run concurrently in ONE repo, the conductor may centralize commits to avoid interleave; instruct no-commit in the brief).
+
 ---
 
 ## 5. Session-end protocol

@@ -26,6 +26,16 @@
 | 6 | **Design authority resident in-run** | the conductor legitimately rules at *reasoning-boundaries*; *commitment-boundaries* still HALT to Matt (see §4) | Gate-B diagnosis + proposed reclassification | crosswalk + stale-flag dispositions |
 | 7 | **Seam execution** | sub-agents do owned work in their seams; conductor writes no production code; existing machinery (dispatches, Gate-2, decisions-log) reused | elrond pipeline (zero amendments); jack-ryan Gate-2 | elrond schema / legolas crawl / jack-ryan gates |
 
+### §2.1 — Conductor-economics corollary (Matt directive 2026-07-21; sharpens Element 7)
+
+The conductor's foreground processing (Matt's session-level max-effort config — the launcher owns it; never pinned here) is spent on **course**, never **pieces**:
+
+- **Course (foreground):** charter intent, fork detection, in-run rulings, sequencing, drift judgment, synthesis, small conductor-seam artifacts (ruling ledger, queue rows, notes).
+- **Pieces (named sub-agents):** every substantial work-product routes to a NAMED agent in its owning seam — seam expertise + fresh context window + the seam's discipline stack loads with the name. Pieces belonging to the conductor's own seam route to the **named `gandalf` sub-agent** (agent-file model pin governs; no override) — never to an unnamed general-purpose spawn, which has no seam home in the accountability graph.
+- **Reconnaissance exception:** mechanical read-only sweeps (file inventory, grep census, existence checks) may use Explore-class; output is evidence for the conductor, never a durable artifact.
+
+Rationale: the conductor's scarcest resource is foreground context — burning it on piece-work degrades late-run judgment (the historical long-session failure), while unnamed spawns leak governance (no role file, no OP, no state, no attribution). Runs A + B did it this way; this corollary names what they did. Full routing table: `operating-procedures/gandalf.md § 4.10`.
+
 ## §3 — The fit test (run-fitness router)
 
 Ask four questions of any proposed autonomous run:
