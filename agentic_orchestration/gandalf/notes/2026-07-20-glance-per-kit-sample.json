@@ -1,0 +1,1193 @@
+[
+  {
+    "kit_id": "poe2-twister",
+    "spine": {
+      "kit_id": "poe2-twister",
+      "folk_name": "Twister Spirit Walker",
+      "game": "poe2",
+      "corpus_bucket": "poe2",
+      "tier": "T1",
+      "canon_tier": "deep",
+      "eras": "0.2-dawn;0.3-edict;0.4;0.5-ancients",
+      "negative": 0,
+      "is_system": 0,
+      "lineage": "",
+      "gx": "GX-09",
+      "source": "canon",
+      "provenance_tag": "mobile-harvest-v3",
+      "source_date": "2026-07-12",
+      "grade": "APPROX",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "A Twister player would miss the kit's signature geometry: SELF-PROPELLED vortices that WANDER erratically across the room at 7.5m/s for 3 seconds, blinding and grinding everything they pass through, spawned in bunches by consuming a stationary whirlwind you must cast from inside. The engine's multi_projectile + an R-M8 wander-note + a GEOMETRY_PROPAGATION door approximate 'many moving hits that spread', but there is no first-class 'autonomous roaming persistent AoE that pathfinds forward' member -- the erratic-wander identity (the whole reason the build feels alive) degrades to a projectile spread with a mobility note, and the 'cast-from-inside-the-whirlwind-or-lose-the-buff' positional dance compresses to an activation-toggle. What survives (a physical caster laying down multi-hit blinding area) is recognizable but hollow of the wandering-tornado fantasy -> APPROX (that build, meaningfully flatter); the roaming behavior is a documented R-M8 delta + a qualitative candidate for steward review (roaming-persistent-AoE class), not a wholly unmodelable loop, so APPROX not GAPPED.",
+      "mapping_provenance": "authored-vdm1",
+      "elements_attested": [],
+      "ailments_attested": [
+        "blind"
+      ],
+      "citation_count": 2,
+      "verify_confirmed": 3,
+      "verify_contradicted": 0,
+      "verify_unsupported": 0,
+      "dossier_rows": 6
+    },
+    "mapping": {
+      "grade": "APPROX",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "A Twister player would miss the kit's signature geometry: SELF-PROPELLED vortices that WANDER erratically across the room at 7.5m/s for 3 seconds, blinding and grinding everything they pass through, spawned in bunches by consuming a stationary whirlwind you must cast from inside. The engine's multi_projectile + an R-M8 wander-note + a GEOMETRY_PROPAGATION door approximate 'many moving hits that spread', but there is no first-class 'autonomous roaming persistent AoE that pathfinds forward' member -- the erratic-wander identity (the whole reason the build feels alive) degrades to a projectile spread with a mobility note, and the 'cast-from-inside-the-whirlwind-or-lose-the-buff' positional dance compresses to an activation-toggle. What survives (a physical caster laying down multi-hit blinding area) is recognizable but hollow of the wandering-tornado fantasy -> APPROX (that build, meaningfully flatter); the roaming behavior is a documented R-M8 delta + a qualitative candidate for steward review (roaming-persistent-AoE class), not a wholly unmodelable loop, so APPROX not GAPPED.",
+      "mapping_provenance": "authored-vdm1",
+      "mapping_json": {
+        "skills": [
+          {
+            "source_skill": "Twister (wandering vortex projectiles)",
+            "geometry_value": "multi_projectile",
+            "element_primary": null,
+            "element_secondary": null,
+            "ailments": [
+              "blind"
+            ],
+            "delivery_notes": "0.5m-radius vortices that move forward ERRATICALLY at 7.5m/s for 3s, Blinding and repeatedly Hitting enemies within; consumes whirlwinds to spawn ADDITIONAL twisters (multi-point via several wandering twisters) -> multi_projectile (discrete self-propelled moving hazards, mirrors the poe1-spark/blade-vortex discrete-projectile lineage; multiple bouncing/wandering twisters = a projectile spread that persists and roams). Physical -> element-neutral (physical rule; elem_raw=physical). ailment=blind (fetched verbatim: 'Blinding... enemies within' -- accuracy-tax). R-M8: the erratic forward wander is a PURSUIT-adjacent behavioral delta (mobile AoE), noted."
+          },
+          {
+            "source_skill": "Whirling Slash (stationary empower-zone)",
+            "geometry_value": "whirlwind",
+            "element_primary": null,
+            "element_secondary": null,
+            "ailments": [],
+            "delivery_notes": "creates a STATIONARY whirlwind zone that empowers Twister when cast from inside it -> whirlwind (spin-to-win phrase-book; here a placed spin-zone). Physical -> element-neutral. Cast Twister while inside for the empower bonus; leaving before casting collapses the whirlwind and loses the bonus. This is the SETUP for Twister (secondary stage per 7.2; Twister is the every-3-seconds damage)."
+          }
+        ],
+        "motion_frame": "Whirling Slash x3 to lay a stationary whirlwind, then cast Twister from INSIDE it (empowered) -- wandering 0.5m vortices roam at 7.5m/s for 3s, blinding and multi-hitting; exit the whirlwind before Twister collapses the empowerment. Bear companion soaks.",
+        "resource_economy": {
+          "cost_scale": "mana/spirit per cast",
+          "reservation_resource": "spirit",
+          "persistent_condition_shape": "activation-toggle (Whirling Slash empower-zone; empowerment lost if you leave before casting Twister)",
+          "duration_stack": "Twister lasts 3s; duration-stacker variant extends the roaming window"
+        },
+        "trigger_grammar": {
+          "trigger_chain_shape": "apply-consume-pair",
+          "proc_trigger_condition": "on-cast-linked",
+          "mark_identity": "Whirling Slash whirlwind-zone (empowers Twister if cast from inside; consumed to spawn extra twisters)",
+          "consequence_type": "apply-mark"
+        },
+        "t4_doors": [
+          "GEOMETRY_PROPAGATION",
+          "ZONE_CONTROL"
+        ],
+        "scaffold": {
+          "chain_count": 2,
+          "support_lanes": {
+            "geometry": [
+              "Twister wandering multi_projectile vortices (0.5m, 7.5m/s, 3s)",
+              "Whirling Slash stationary whirlwind empower-zone"
+            ],
+            "economy": [
+              "Spirit (Spirit Walker) reservation/spend",
+              "Twister duration (duration-stacker variant)",
+              "whirlwind-consumption -> extra twisters"
+            ],
+            "traits_affixes": [
+              "projectile/twister-count scalers",
+              "duration scalers (Kripp duration-stacker)",
+              "blind-effect / area"
+            ]
+          }
+        },
+        "option_c_substrate_flags": null,
+        "fidelity_notes": "GX-09 (corpus gx). Twister -> multi_projectile (discrete self-propelled roaming hazards; the poe1-spark/blade-vortex precedent for discrete-moving-projectiles governs -- multiple wandering twisters that bounce/roam = a persistent projectile spread, NOT vortex_pull which is a pull/vacuum, and NOT a single whirlwind since there are MANY moving twisters). R-M8 APPLIED: the erratic 7.5m/s forward wander is a mobile-AoE pursuit-adjacent behavioral delta -> noted (not a mint; the roaming is delivery flavor on top of the projectile). blind ailment kept (fetched verbatim 'Blinding'). Whirling Slash -> whirlwind (stationary spin-zone). Physical -> element-neutral (physical rule) -- Spirit Walker uses SPIRIT as a reservation/combat resource (reservation_resource=spirit, poe2-Spirit false-friend, NOT spirit-guide). Empower-if-cast-from-inside -> activation-toggle persistent_condition + apply-mark trigger. GEOMETRY_PROPAGATION routes the whirlwind-consumed->extra-twisters spread; ZONE_CONTROL routes the roaming-hazard area denial. Spirit Walker (Huntress) ascendancy -> t4 via 5 (R-M1). eras 0.2-0.5 CONFIRMED."
+      }
+    },
+    "mints_anchored": [
+      {
+        "mint_id": 8,
+        "evidence_tier": "C-provisional",
+        "mint_class": "qualitative",
+        "build_authorized": 0,
+        "description": "roaming-persistent-AoE / twister: a persistent AoE entity that roams/drifts across the field for its duration (the 27th-geometry question). Distinct from R-M6 drift-tick (passive travel along cast line) and from D-3#6 enemy-seeking (active chase) — this is undirected roaming persistence."
+      }
+    ],
+    "dockets": [],
+    "atlas_group": {
+      "group": "WHIRLWIND",
+      "group_intent_rationale": "delivery=self-origin · geometry=whirlwind · treatment=damage · dependency=one-shot"
+    },
+    "lineage_enrichment": null,
+    "citations": [
+      {
+        "url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+        "archive_url": null,
+        "site": "maxroll.gg",
+        "author_handle": null,
+        "title": "Spirit Walker Twisters Build Guide for Path of Exile 2 Return of the Ancients 0.5.4",
+        "cite_class": "authored",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://poe2db.tw/us/Twister",
+        "archive_url": null,
+        "site": "poe2db.tw",
+        "author_handle": null,
+        "title": "Twister - PoE2DB",
+        "cite_class": "dataset",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      }
+    ],
+    "verify_ledger": [
+      {
+        "claim_family": "era",
+        "verdict": "CONFIRMED",
+        "claim_text": "Build present/meta in eras 0.2-dawn, 0.3-edict, 0.4, 0.5-ancients",
+        "anchor_quote": "Twister earliest version history entry is 0.2.0b. Spirit Walker Twisters guide covers Return of the Ancients 0.5.4, last updated July 15, 2026",
+        "source_url": "https://poe2db.tw/us/Twister",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "identity",
+        "verdict": "CONFIRMED",
+        "claim_text": "Folk name 'Twister Spirit Walker' and aliases 'Twister Whirling Slash', 'Spirit Walker Twister', 'Twister ranger build' are real community usage",
+        "anchor_quote": "Spirit Walker Twisters Build Guide for Path of Exile 2 Return of the Ancients 0.5.4... Whirling Slash creates a whirlwind that allows you to empower your Twister skill",
+        "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "mechanics",
+        "verdict": "CONFIRMED",
+        "claim_text": "Core skills Whirling Slash and Twister; twisters bounce and cover area; Spirit Walker uses Spirit reservation",
+        "anchor_quote": "Whirling Slash creates a whirlwind that allows you to empower your Twister skill. However, if you leave the whirlwind before casting Twister, the whirlwind collapses and you lose the extra damage.",
+        "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+        "run_tag": "vdm1"
+      }
+    ],
+    "dossier": {
+      "author_credit": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": null
+        }
+      ],
+      "capstone_alterations": [
+        {
+          "payload": {
+            "ascendancy": "Spirit Walker (Huntress)",
+            "notables": [
+              "not individually named in fetched guide text"
+            ]
+          },
+          "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+          "anchor_quote": "The guide references a specific ascendancy progression order but doesn't explicitly name individual Spirit Walker notables",
+          "abstained": 0,
+          "conf": 0.45
+        }
+      ],
+      "item_alterations": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": null
+        }
+      ],
+      "skill_geometry": [
+        {
+          "payload": {
+            "twister": "0.5m radius vortex moving forward erratically at 7.5m/s; lasts 3 seconds; Blinds and repeatedly hits enemies within; consumes whirlwinds for additional twisters; multi-point coverage via multiple bouncing twisters",
+            "whirling_slash": "creates stationary whirlwind zone that empowers Twister on cast"
+          },
+          "source_url": "https://poe2db.tw/us/Twister",
+          "anchor_quote": "The twister moves forward erratically, Blinding and repeatedly Hitting enemies within... 0.5 metre radius, lasts 3.00 seconds, travels at 7.5 metres per second",
+          "abstained": 0,
+          "conf": 0.82
+        }
+      ],
+      "skill_loop": [
+        {
+          "payload": {
+            "summary": "Dodge Roll → Ice-Tipped Arrows → Barrage → Whirling Slash x3 → Twister (cast while inside whirlwind for empowerment bonus). Exit whirlwind before Twister collapses the empowerment. Bear companion soaks damage."
+          },
+          "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+          "anchor_quote": "Whirling Slash creates a whirlwind that allows you to empower your Twister skill. However, if you leave the whirlwind before casting Twister, the whirlwind collapses and you lose the extra damage.",
+          "abstained": 0,
+          "conf": 0.82
+        }
+      ],
+      "variants": [
+        {
+          "payload": {
+            "known_variants": [
+              "Twister Spirit Walker (Huntress — standard)",
+              "Twister Duration Stacker Spirit Walker (Kripp variant)",
+              "Twister SiahZ league starter"
+            ]
+          },
+          "source_url": "https://maxroll.gg/poe2/build-guides/spirit-walker-twisters",
+          "anchor_quote": "Kripp's Twister DURATION Stacker Spirit Walker - PoE 2 Huntress Build Guide",
+          "abstained": 0,
+          "conf": 0.78
+        }
+      ]
+    },
+    "_row_counts": {
+      "citations": 2,
+      "dossier_facts": 6,
+      "verify_claims": 3,
+      "mints_anchored": 1,
+      "dockets": 0
+    }
+  },
+  {
+    "kit_id": "poe1-vaal-blade-vortex",
+    "spine": {
+      "kit_id": "poe1-vaal-blade-vortex",
+      "folk_name": "Vaal Blade Vortex",
+      "game": "poe1",
+      "corpus_bucket": "poe1",
+      "tier": null,
+      "canon_tier": null,
+      "eras": "3.0-3.6;3.7-3.13",
+      "negative": 0,
+      "is_system": 0,
+      "lineage": null,
+      "gx": null,
+      "source": "mint",
+      "provenance_tag": "mint-dossier-reexpressed",
+      "source_date": "2026-07-12",
+      "grade": "APPROX",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "What the VBV player would miss: the vortex HUNTING — it chases fresh enemies across the screen for its 5s life. Engine circle is a stationary/drifting tick-AoE (R-M6 class); a non-seeking blade storm reads 'Vaal BV, worse' but the pursuit is the load-bearing geometry delta (batch flag a).",
+      "mapping_provenance": "authored-vdm1",
+      "elements_attested": [],
+      "ailments_attested": [],
+      "citation_count": 4,
+      "verify_confirmed": 3,
+      "verify_contradicted": 0,
+      "verify_unsupported": 0,
+      "dossier_rows": 6
+    },
+    "mapping": {
+      "grade": "APPROX",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "What the VBV player would miss: the vortex HUNTING — it chases fresh enemies across the screen for its 5s life. Engine circle is a stationary/drifting tick-AoE (R-M6 class); a non-seeking blade storm reads 'Vaal BV, worse' but the pursuit is the load-bearing geometry delta (batch flag a).",
+      "mapping_provenance": "authored-vdm1",
+      "mapping_json": {
+        "skills": [
+          {
+            "source_skill": "Vaal Blade Vortex",
+            "geometry_value": "circle",
+            "element_primary": null,
+            "element_secondary": null,
+            "ailments": [],
+            "delivery_notes": "MOBILE CHASING VORTEX — an independently-moving blade-vortex entity that PURSUES nearby enemies, damaging everything it passes through; up to 10 active blades, hits every 0.2s, 5s duration, 2 stored uses (post-3.14). NOT player-orbiting (regular BV is the orbit skill; the dossier contrast is explicit) — do not read this as orbit. Geometry per R-M6 drift-tick precedent: circle + behavioral note; the enemy-SEEKING travel exceeds R-M6's drift class."
+          }
+        ],
+        "motion_frame": "drop-and-let-hunt: unleash a stored chasing blade-vortex as a burst window, keep moving while it pursues the pack",
+        "resource_economy": {
+          "charge_stack_sub_shape": "accumulator",
+          "accumulator_fill_trigger": "on-kill"
+        },
+        "trigger_grammar": null,
+        "t4_doors": [
+          "TEMPORAL_CHARGE"
+        ],
+        "scaffold": {
+          "chain_count": 2,
+          "support_lanes": {
+            "geometry": [
+              "mobile tick-AoE (0.2s hit cadence)",
+              "blade count"
+            ],
+            "economy": [
+              "Vaal soul economy: kills fill the accumulator, discharge = one stored burst use (2 max)"
+            ],
+            "traits_affixes": [
+              "duration ranks",
+              "phys/ele damage rolls (Inquisitor crit variant)"
+            ]
+          }
+        },
+        "option_c_substrate_flags": null,
+        "fidelity_notes": "Pure-physical -> element-neutral per THE PHYSICAL RULE (Inquisitor elemental-crit canonical variant carried by gear/trait lanes, noted). Vaal soul-charge burst -> accumulator filled on-kill, TEMPORAL_CHARGE door. Qualitative mint-candidate filed: autonomous enemy-seeking mobile AoE entity (graded as if un-minted). Used in source as the burst cooldown inside a regular-BV build; standalone-mapped here per kit_id scope."
+      }
+    },
+    "mints_anchored": [
+      {
+        "mint_id": 6,
+        "evidence_tier": "C-provisional",
+        "mint_class": "qualitative",
+        "build_authorized": 0,
+        "description": "Autonomous enemy-seeking mobile AoE entity: a skill-effect zone that MOVES ITSELF toward nearby enemies for its duration (chase behavior), distinct from R-M6's drift-tick class (drift = passive travel along cast line; this = active target-seeking pathing)."
+      }
+    ],
+    "dockets": [],
+    "atlas_group": null,
+    "lineage_enrichment": null,
+    "citations": [
+      {
+        "url": "https://www.pathofexile.com/forum/view-thread/2144834",
+        "archive_url": null,
+        "site": "pathofexile.com/forum",
+        "author_handle": null,
+        "title": "[3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://www.pathofexile.com/forum/view-thread/2091072",
+        "archive_url": null,
+        "site": "pathofexile.com/forum",
+        "author_handle": null,
+        "title": "[3.6] BLADE VORTEX INQUISITOR Build (3-4 million DPS, SHAPER DEAD)",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://poedb.tw/us/Blade_Vortex",
+        "archive_url": null,
+        "site": "poedb.tw",
+        "author_handle": "communal",
+        "title": null,
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "archive_url": null,
+        "site": "poedb.tw",
+        "author_handle": null,
+        "title": "Vaal Blade Vortex — poedb.tw",
+        "cite_class": "dataset",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      }
+    ],
+    "verify_ledger": [
+      {
+        "claim_family": "era",
+        "verdict": "CONFIRMED",
+        "claim_text": "Era stamps absent from DB — verifying 3.0-3.6 (intro 3.3.0) and 3.7-3.13",
+        "anchor_quote": "Vaal Blade Vortex has been added to the game (3.3.0); [3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor] confirms 3.7-3.13 era presence",
+        "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "identity",
+        "verdict": "CONFIRMED",
+        "claim_text": "Folk name 'Vaal Blade Vortex' is real community usage; aliases 'VBV', 'Vaal BV', 'Vaal Blade Vortex Inquisitor' are real community usage",
+        "anchor_quote": "Vaal Blade Vortex has been added to the game (3.3.0); [3.6] BLADE VORTEX INQUISITOR Build; [3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]",
+        "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "mechanics",
+        "verdict": "CONFIRMED",
+        "claim_text": "Core skill Vaal Blade Vortex; independently-moving vortex of ethereal blades (NOT orbiting); pursues enemies; Inquisitor/Occultist class",
+        "anchor_quote": "creates an independently-moving vortex of ethereal blades which lasts for a duration. The vortex moves toward nearby enemies, repeatedly damaging enemies that it passes through",
+        "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+        "run_tag": "vdm1"
+      }
+    ],
+    "dossier": {
+      "author_credit": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": null
+        }
+      ],
+      "capstone_alterations": [
+        {
+          "payload": {
+            "capstone_alterations": [
+              {
+                "node": "Vaal Blade Vortex (quality)",
+                "type": "base_quality",
+                "effect": "+(0-5)% increased Hit Rate for each blade",
+                "anchor_quote": "+(0—5)% increased Hit Rate for each blade"
+              },
+              {
+                "node": "Vaal mechanics vs base",
+                "type": "vaal_variant",
+                "effect": "Stores 2 uses; lasts 5 seconds; hits every 0.2 seconds (base 0.6s)",
+                "anchor_quote": "Vaal version stores 2 uses; lasts 5 seconds; hits every 0.2 seconds vs base 0.6 seconds"
+              }
+            ]
+          },
+          "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+          "anchor_quote": "hits every 0.2 seconds vs base 0.6 seconds",
+          "abstained": 0,
+          "conf": 0.9
+        }
+      ],
+      "item_alterations": [
+        {
+          "payload": {
+            "item_alterations": [
+              {
+                "item": "Blade Vortex of the Scythe (transfig gem)",
+                "type": "transfigured_gem",
+                "effect": "Slower cast time; higher mana cost; increased effectiveness of added damage",
+                "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage"
+              }
+            ]
+          },
+          "source_url": "https://poedb.tw/us/Blade_Vortex",
+          "anchor_quote": "slower cast time, higher mana cost, increased effectiveness of added damage",
+          "abstained": 0,
+          "conf": 0.9
+        }
+      ],
+      "skill_geometry": [
+        {
+          "payload": {
+            "verbatim": "mobile vortex entity moves independently toward enemies (NOT orbiting player); up to 10 active blades; hits every 0.2 seconds; 5s base duration; area covered by vortex travel path"
+          },
+          "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+          "anchor_quote": "independently-moving vortex; moves toward nearby enemies; 10 active blades; strikes enemies every 0.2 seconds; contrast with regular BV which creates ethereal blades which orbit in an area around you",
+          "abstained": 0,
+          "conf": 0.9
+        }
+      ],
+      "skill_loop": [
+        {
+          "payload": {
+            "description": "Spawn an independently-moving vortex of ethereal blades that pursues nearby enemies and deals physical damage as it passes through them. Vortex lasts 5s, stores up to 2 uses (post 3.14). Used as a burst cooldown within a regular Blade Vortex build or as standalone. Inquisitor/Occultist preferred."
+          },
+          "source_url": "https://poedb.tw/us/Vaal_Blade_Vortex",
+          "anchor_quote": "independently-moving vortex of ethereal blades which lasts for a duration. The vortex moves toward nearby enemies, repeatedly damaging enemies that it passes through",
+          "abstained": 0,
+          "conf": 0.88
+        }
+      ],
+      "variants": [
+        {
+          "payload": {
+            "list": [
+              "VBV Inquisitor — elemental crit variant (canonical)",
+              "VBV Occultist — with Vaal version used as cooldown burst",
+              "Triple Herald BV Elementalist — Vaal version as burst complement"
+            ]
+          },
+          "source_url": "https://www.pathofexile.com/forum/view-thread/2144834",
+          "anchor_quote": "[3.8 Video Guide] Blade Vortex Inpulsa Clear Speed Build [Inquisitor]; Triple Herald Blade Vortex Elementalist has become an iconic staple of the PoE meta",
+          "abstained": 0,
+          "conf": 0.8
+        }
+      ]
+    },
+    "_row_counts": {
+      "citations": 4,
+      "dossier_facts": 6,
+      "verify_claims": 3,
+      "mints_anchored": 1,
+      "dockets": 0
+    }
+  },
+  {
+    "kit_id": "gd-roh-infiltrator",
+    "spine": {
+      "kit_id": "gd-roh-infiltrator",
+      "folk_name": "Rune of Hagarrad Infiltrator",
+      "game": "gd",
+      "corpus_bucket": "gd",
+      "tier": "T1",
+      "canon_tier": "deep",
+      "eras": "aom-2017;patch-1.1-1.2",
+      "negative": 0,
+      "is_system": 0,
+      "lineage": "",
+      "gx": "GX-03 GX-19",
+      "source": "canon",
+      "provenance_tag": "mobile-harvest-v3",
+      "source_date": "2026-07-12",
+      "grade": "CLOSE",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "Trap arms on enemy contact; engine ground-circle bursts/ticks on placement — the arm-and-lure timing texture is lost (qual mint-candidate filed). Still that build, slightly worse: place-under-enemies loop survives.",
+      "mapping_provenance": "authored-vdm1",
+      "elements_attested": [
+        "water"
+      ],
+      "ailments_attested": [],
+      "citation_count": 2,
+      "verify_confirmed": 3,
+      "verify_contradicted": 0,
+      "verify_unsupported": 0,
+      "dossier_rows": 6
+    },
+    "mapping": {
+      "grade": "CLOSE",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "Trap arms on enemy contact; engine ground-circle bursts/ticks on placement — the arm-and-lure timing texture is lost (qual mint-candidate filed). Still that build, slightly worse: place-under-enemies loop survives.",
+      "mapping_provenance": "authored-vdm1",
+      "mapping_json": {
+        "skills": [
+          {
+            "source_skill": "Rune of Hagarrad",
+            "geometry_value": "ground_targeted_circle",
+            "element_primary": "water",
+            "element_secondary": null,
+            "ailments": [],
+            "delivery_notes": "'Rune placed on floor, cold shards burst when enemies step on it' — at-target floor placement, small-radius burst, cooldown-gated. Proximity-armed trap timing is the drift vs the engine's immediate ground-circle (qual mint-candidate filed)."
+          },
+          {
+            "source_skill": "Word of Renewal",
+            "geometry_value": "self_buff",
+            "element_primary": null,
+            "element_secondary": null,
+            "ailments": [],
+            "delivery_notes": "'WoR provides very good stats that are irreplacable' — healing + stat buffer support."
+          }
+        ],
+        "motion_frame": "Inscribe cold rune traps ahead and melee alongside; Word of Renewal keeps you standing",
+        "resource_economy": {
+          "resource": "energy",
+          "cadence": "cooldown-gated trap placement; energy secondary"
+        },
+        "trigger_grammar": {
+          "trigger_chain_shape": null,
+          "proc_trigger_condition": null,
+          "mark_identity": null,
+          "consequence_type": null
+        },
+        "t4_doors": [
+          "ZONE_CONTROL"
+        ],
+        "scaffold": {
+          "chain_count": 2,
+          "support_lanes": {
+            "geometry": [
+              "trap burst radius"
+            ],
+            "economy": [
+              "cooldown cadence"
+            ],
+            "traits_affixes": [
+              "WoR stat buffer; Chillwhisper off-hand caster variant"
+            ]
+          }
+        },
+        "option_c_substrate_flags": null,
+        "fidelity_notes": "NO freeze/chill token — 'cold shards' is element flavor only; no status behavior fetched (§0.1; prior knowledge of RoH's freeze is exactly the memory-supplement leak class and was not used). Proximity-arming has no trigger-enum home (on-enemy-proximity absent) → trigger_grammar stays null, drift carried in notes + candidate. DW melee hybrid (ABB) variant noted; ABB behavior unfetched — contributes nothing."
+      }
+    },
+    "mints_anchored": [
+      {
+        "mint_id": 12,
+        "evidence_tier": "C-provisional",
+        "mint_class": "qualitative",
+        "build_authorized": 0,
+        "description": "GD proximity-armed-trigger: a placed device that ARMS on enemy proximity and detonates when the proximity condition is met — the Grim Dawn Rune of Hagarrad pattern. A proximity-fused placed proxy, distinct from cast-detonated or timed placements."
+      }
+    ],
+    "dockets": [],
+    "atlas_group": null,
+    "lineage_enrichment": null,
+    "citations": [
+      {
+        "url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+        "archive_url": null,
+        "site": "forums.crateentertainment.com",
+        "author_handle": "unknown",
+        "title": "[1.1.9.7] DW Melee Cold ABB + Rune of Hagarrad Infiltrator - SR 90",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+        "archive_url": null,
+        "site": "store.steampowered.com",
+        "author_handle": "Crate Entertainment",
+        "title": "Grim Dawn - Ashes of Malmouth Expansion on Steam",
+        "cite_class": "official",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      }
+    ],
+    "verify_ledger": [
+      {
+        "claim_family": "era",
+        "verdict": "CONFIRMED",
+        "claim_text": "Present as build in eras: aom-2017, patch-1.1-1.2",
+        "anchor_quote": "Infiltrator (Nightblade/Inquisitor) [...] Inquisitor debuted with Ashes of Malmouth (October 2017)",
+        "source_url": "https://store.steampowered.com/app/642280/Grim_Dawn__Ashes_of_Malmouth_Expansion/",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "identity",
+        "verdict": "CONFIRMED",
+        "claim_text": "Folk name: Rune of Hagarrad Infiltrator; aliases include RoH Infiltrator, cold Infiltrator, Word of Renewal Infiltrator",
+        "anchor_quote": "DW Melee Cold ABB + Rune of Hagarrad Infiltrator",
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "mechanics",
+        "verdict": "CONFIRMED",
+        "claim_text": "Core skills: Rune of Hagarrad (cold rune trap on floor), Word of Renewal. Dual delivery (caster+melee).",
+        "anchor_quote": "rune placed on floor, cold shards burst when enemies step on it [...] WoR provides very good stats that are irreplacable",
+        "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+        "run_tag": "vdm1"
+      }
+    ],
+    "dossier": {
+      "author_credit": [
+        {
+          "payload": {
+            "handle": "unknown",
+            "site": "forums.crateentertainment.com"
+          },
+          "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+          "anchor_quote": null,
+          "abstained": 0,
+          "conf": 0.5
+        }
+      ],
+      "capstone_alterations": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": null
+        }
+      ],
+      "item_alterations": [
+        {
+          "payload": {
+            "item": "Chillwhisper off-hand",
+            "alteration": "provides cold RoH caster variant; off-hand instead of dual-wield"
+          },
+          "source_url": "https://forums.crateentertainment.com/t/1-1-7-0-the-cold-fantasy-rune-of-haggard-chillwhisper-off-hand-infiltrator/100797",
+          "anchor_quote": "Rune of Haggard Chillwhisper off-hand Infiltrator",
+          "abstained": 0,
+          "conf": 0.62
+        }
+      ],
+      "skill_geometry": [
+        {
+          "payload": {
+            "delivery": "at-target floor placement (trap)",
+            "footprint": "small-radius burst on trigger",
+            "verbatim": "rune placed on floor, cold shards burst when enemies step on it [...] never saw such DW Melee build both utilize ABB and Rune of Hagarrad"
+          },
+          "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+          "anchor_quote": "rune placed on floor, cold shards burst when enemies step on it",
+          "abstained": 0,
+          "conf": 0.78
+        }
+      ],
+      "skill_loop": [
+        {
+          "payload": {
+            "summary": "Inscribe Rune of Hagarrad on floor at targeted position; cold shards burst when enemies step on it. Cooldown-gated trap placement. Word of Renewal provides healing and stat buffer. Hybrid melee-trap loop in some builds.",
+            "resource": "cooldown for rune; energy secondary",
+            "loop_verb": "place-rune trap + melee follow-up"
+          },
+          "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-dw-melee-cold-abb-rune-of-hagarrad-infiltrator-sr-90/124166",
+          "anchor_quote": "rune placed on floor, cold shards burst when enemies step on it [...] WoR provides very good stats that are irreplacable",
+          "abstained": 0,
+          "conf": 0.78
+        }
+      ],
+      "variants": [
+        {
+          "payload": {
+            "variants": [
+              "caster RoH Infiltrator (off-hand)",
+              "DW melee hybrid ABB+RoH Infiltrator",
+              "pure cold caster"
+            ]
+          },
+          "source_url": "https://forums.crateentertainment.com/t/1-1-9-7-cold-dw-caster-infiltrator-ssf-beginner-guide-leveling-advanced-all-celestials-hc-friendly/115289",
+          "anchor_quote": "Cold DW Caster Infiltrator SSF Beginner guide",
+          "abstained": 0,
+          "conf": 0.68
+        }
+      ]
+    },
+    "_row_counts": {
+      "citations": 2,
+      "dossier_facts": 6,
+      "verify_claims": 3,
+      "mints_anchored": 1,
+      "dockets": 0
+    }
+  },
+  {
+    "kit_id": "gd-stormbox-elementalist",
+    "spine": {
+      "kit_id": "gd-stormbox-elementalist",
+      "folk_name": "Storm Box Elementalist",
+      "game": "gd",
+      "corpus_bucket": "gd",
+      "tier": "T1",
+      "canon_tier": "moderate",
+      "eras": "aom-2017;patch-1.1-1.2",
+      "negative": 0,
+      "is_system": 0,
+      "lineage": "",
+      "gx": "GX-03",
+      "source": "canon",
+      "provenance_tag": "mobile-harvest-v3",
+      "source_date": "2026-07-12",
+      "grade": "APPROX",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "MANDATORY (§7.3): the source player would miss the persistent enemy-attached tether — Storm Box rides the tagged enemy and re-arcs continuously over its duration; engine chain renders as cooldown-cadenced arc casts from the target, losing the set-and-forget tag-and-wait texture. Player test: that build, worse — the tag-then-arcs loop survives at chain + cooldown cadence.",
+      "mapping_provenance": "authored-vdm1",
+      "elements_attested": [
+        "lightning"
+      ],
+      "ailments_attested": [],
+      "citation_count": 2,
+      "verify_confirmed": 2,
+      "verify_contradicted": 0,
+      "verify_unsupported": 1,
+      "dossier_rows": 6
+    },
+    "mapping": {
+      "grade": "APPROX",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "MANDATORY (§7.3): the source player would miss the persistent enemy-attached tether — Storm Box rides the tagged enemy and re-arcs continuously over its duration; engine chain renders as cooldown-cadenced arc casts from the target, losing the set-and-forget tag-and-wait texture. Player test: that build, worse — the tag-then-arcs loop survives at chain + cooldown cadence.",
+      "mapping_provenance": "authored-vdm1",
+      "mapping_json": {
+        "skills": [
+          {
+            "source_skill": "Storm Box of Elgoloth",
+            "geometry_value": "chain",
+            "element_primary": "lightning",
+            "element_secondary": null,
+            "ailments": [],
+            "delivery_notes": "'Placed on a target enemy; creates a lightning tether beacon that arcs to all nearby enemies' — 'great single target DoT with tether'. Mapped as chain (arcing between targets) from the tagged enemy; the persistent enemy-attached beacon is the drift. 'Electrocute' is GD's lightning-DoT damage register — NO engine token (engine shock requires CC)."
+          }
+        ],
+        "motion_frame": "Tag one enemy with a Storm Box beacon; the tether arcs chain into the pack while you wait",
+        "resource_economy": {
+          "resource": "energy",
+          "cadence": "cooldown-place beacon; tag-and-wait loop (Allagast set CDR)"
+        },
+        "trigger_grammar": {
+          "trigger_chain_shape": null,
+          "proc_trigger_condition": null,
+          "mark_identity": null,
+          "consequence_type": null
+        },
+        "t4_doors": [
+          "PERSISTENCE_ENGINE_uptime",
+          "RESONANCE_LOOP"
+        ],
+        "scaffold": {
+          "chain_count": 2,
+          "support_lanes": {
+            "geometry": [
+              "tether arc reach"
+            ],
+            "economy": [
+              "cooldown reduction (Allagast)"
+            ],
+            "traits_affixes": [
+              "mono-lightning scalers ('Storm Box only requires focus on one damage type')"
+            ]
+          }
+        },
+        "option_c_substrate_flags": null,
+        "fidelity_notes": "Identity carries a WATCH annotation (folk-name weakness; identity claim UNSUPPORTED in verify_ledger) — irrelevant to mapping per steward; mapped from attested tether/box mechanics. Thermite Mines named 'for RR' but application shape unfetched → no curse/sunder token (near-miss). Enemy-attached persistent emitter has no geometry home — qual mint-candidate filed; chain is the parsimony-best render."
+      }
+    },
+    "mints_anchored": [
+      {
+        "mint_id": 11,
+        "evidence_tier": "C-provisional",
+        "mint_class": "qualitative",
+        "build_authorized": 0,
+        "description": "GD enemy-attached-emitter: an emitter entity that ATTACHES to an enemy and emits from that anchor for its duration — the Grim Dawn Storm Box of Elgoloth pattern. Distinct from wandering (free) and placed (static-ground) emitters."
+      }
+    ],
+    "dockets": [],
+    "atlas_group": null,
+    "lineage_enrichment": null,
+    "citations": [
+      {
+        "url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+        "archive_url": null,
+        "site": "steamcommunity.com",
+        "author_handle": "unknown",
+        "title": "So about Storm Box of Elgoloth...",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+        "archive_url": null,
+        "site": "forums.crateentertainment.com",
+        "author_handle": "russell_timmerman",
+        "title": "My best Character so far. Elementalist Stun Jacks",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      }
+    ],
+    "verify_ledger": [
+      {
+        "claim_family": "era",
+        "verdict": "CONFIRMED",
+        "claim_text": "Present as build in eras: aom-2017, patch-1.1-1.2",
+        "anchor_quote": "Elementalist [...] Shaman side [...] community text December 2019 showing post-AoM Elementalist Stun Jacks / Storm Box combinations",
+        "source_url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "identity",
+        "verdict": "UNSUPPORTED",
+        "claim_text": "Folk name: Storm Box Elementalist; aliases include Storm Box of Elgoloth build, lightning Elementalist",
+        "anchor_quote": null,
+        "source_url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "mechanics",
+        "verdict": "CONFIRMED",
+        "claim_text": "Core skill: Storm Box of Elgoloth. Placed on target enemy, lightning arcs chain to nearby enemies, cooldown resource.",
+        "anchor_quote": "great single target DoT with tether [...] Storm Box only requires focus on one damage type",
+        "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+        "run_tag": "vdm1"
+      }
+    ],
+    "dossier": {
+      "author_credit": [
+        {
+          "payload": {
+            "handle": "russell_timmerman",
+            "site": "forums.crateentertainment.com"
+          },
+          "source_url": "https://forums.crateentertainment.com/t/my-best-character-so-far-elementalist-stun-jacks/93990",
+          "anchor_quote": null,
+          "abstained": 0,
+          "conf": 0.75
+        }
+      ],
+      "capstone_alterations": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": null
+        }
+      ],
+      "item_alterations": [
+        {
+          "payload": {
+            "item": "Allagast set",
+            "alteration": "provides cooldown reduction for Storm Box"
+          },
+          "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+          "anchor_quote": "Allagast set for cooldown reduction",
+          "abstained": 0,
+          "conf": 0.62
+        }
+      ],
+      "skill_geometry": [
+        {
+          "payload": {
+            "delivery": "attached to target enemy (beacon/tether)",
+            "footprint": "chain-hop arcs from beacon to nearby enemies",
+            "verbatim": "great single target DoT with tether [...] the electrocute from the box and the Shaman mastery's Wind Devil skill would stack"
+          },
+          "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+          "anchor_quote": "great single target DoT with tether",
+          "abstained": 0,
+          "conf": 0.72
+        }
+      ],
+      "skill_loop": [
+        {
+          "payload": {
+            "summary": "Place Storm Box of Elgoloth on a target enemy; it creates a lightning tether beacon that arcs to all nearby enemies. Cooldown-gated placement. Lightning damage only. Pairs with Thermite Mines for RR.",
+            "resource": "cooldown for Storm Box placement; energy secondary",
+            "loop_verb": "place-beacon cooldown loop"
+          },
+          "source_url": "https://steamcommunity.com/app/219990/discussions/0/1678063648170859096/",
+          "anchor_quote": "great single target DoT with tether [...] Storm Box only requires focus on one damage type",
+          "abstained": 0,
+          "conf": 0.75
+        }
+      ],
+      "variants": [
+        {
+          "payload": {
+            "variants": [
+              "Storm Box caster Elementalist (Shaman+Demolitionist)",
+              "Storm Box+Stun Jacks hybrid Purifier (Inquisitor+Demolitionist)",
+              "Storm Box Vindicator (Shaman+Inquisitor)"
+            ]
+          },
+          "source_url": "https://forums.crateentertainment.com/t/1-1-9-4-the-elemental-storm-box-obliteration-vindicator-sr76-cr150-70/113683",
+          "anchor_quote": "Elemental Storm Box/Obliteration VINDICATOR",
+          "abstained": 0,
+          "conf": 0.65
+        }
+      ]
+    },
+    "_row_counts": {
+      "citations": 2,
+      "dossier_facts": 6,
+      "verify_claims": 3,
+      "mints_anchored": 1,
+      "dockets": 0
+    }
+  },
+  {
+    "kit_id": "hot-kugelblitz",
+    "spine": {
+      "kit_id": "hot-kugelblitz",
+      "folk_name": "Kugelblitz (wandering ball lightning)",
+      "game": "hot",
+      "corpus_bucket": "hot",
+      "tier": "T3",
+      "canon_tier": "deep",
+      "eras": "hot-ea-2023;hot-1.0-2024",
+      "negative": 0,
+      "is_system": 0,
+      "lineage": "",
+      "gx": "GX-11",
+      "source": "canon",
+      "provenance_tag": "mobile-harvest-v3",
+      "source_date": "2026-07-12",
+      "grade": "CLOSE",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "Electrify ailment (the kit's secondary status identity) drops entirely — player would miss the stacking voltage mechanic that is central to the achievement/mastery path. Stun-only capture is weaker than the source identity.",
+      "mapping_provenance": "authored-vdm1",
+      "elements_attested": [
+        "lightning"
+      ],
+      "ailments_attested": [
+        "stun"
+      ],
+      "citation_count": 3,
+      "verify_confirmed": 3,
+      "verify_contradicted": 0,
+      "verify_unsupported": 0,
+      "dossier_rows": 6
+    },
+    "mapping": {
+      "grade": "CLOSE",
+      "terminal_state": "MAPPED",
+      "deviation_notes": "Electrify ailment (the kit's secondary status identity) drops entirely — player would miss the stacking voltage mechanic that is central to the achievement/mastery path. Stun-only capture is weaker than the source identity.",
+      "mapping_provenance": "authored-vdm1",
+      "mapping_json": {
+        "skills": [
+          {
+            "source_skill": "Kugelblitz (wandering ball of electricity)",
+            "geometry_value": "totem",
+            "element_primary": "lightning",
+            "element_secondary": null,
+            "ailments": [
+              "stun"
+            ],
+            "delivery_notes": "lightning attested: 'ball of electricity', 'ball of lightning', '11.5M Lightning' damage output; stun attested: 'Stun for 0.1s' — explicit stun duration; Electrify is a HoT-native status NOT in the 16-ailment registry — dropped to delivery_notes; geometry: autonomous-wandering proxy that emits periodic shockwave pulses (totem-like placed proxy, self-directed drift); High Voltage upgrade adds chain arc"
+          }
+        ],
+        "motion_frame": "med-tempo wandering lightning proxy; ball drifts toward random enemies emitting shockwave pulses; stun on each pulse; Electrify ailment (HoT-native, not mapped); uptime-passive identity",
+        "resource_economy": {
+          "cadence_scale": "med; periodic shockwave emission per ball; roguelite auto-fire"
+        },
+        "trigger_grammar": {
+          "trigger_chain_shape": null,
+          "proc_trigger_condition": null,
+          "mark_identity": null,
+          "consequence_type": null
+        },
+        "t4_doors": [
+          "PROXY_ASCENSION",
+          "TEMPORAL_CHARGE"
+        ],
+        "scaffold": {
+          "chain_count": 2,
+          "support_lanes": {
+            "geometry": [
+              "High Voltage chain arc upgrade",
+              "Shockwave AoE +20%"
+            ],
+            "economy": [
+              "electrify stack accumulation (HoT-native)"
+            ],
+            "traits_affixes": [
+              "Electrify Chance",
+              "Attack Speed",
+              "Ring of Thunder",
+              "Windcrown",
+              "Elemental Resonator"
+            ]
+          }
+        },
+        "option_c_substrate_flags": null,
+        "fidelity_notes": "Geometry: autonomous-wandering orb mapped as totem (placed proxy — self-directed drift is a delivery note, not a different geometry family); the orb is not following the player like a companion but is placed-and-drifting. Electrify (HoT-native status) CANNOT map to our `shock` (engine shock = paralysis-on-arc hard CC, entirely different mechanism) — dropped to delivery_notes per §0-UNIVERSAL. §0 near-miss: wanted to emit `shock` for Electrify but Electrify is not the engine shock status."
+      }
+    },
+    "mints_anchored": [],
+    "dockets": [],
+    "atlas_group": null,
+    "lineage_enrichment": null,
+    "citations": [
+      {
+        "url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+        "archive_url": null,
+        "site": "thegamer.com",
+        "author_handle": null,
+        "title": "Halls of Torment: The 10 Best Abilities",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "archive_url": null,
+        "site": "progameguides.com",
+        "author_handle": null,
+        "title": "Halls of Torment Ability Tier List",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      },
+      {
+        "url": "https://steamcommunity.com/app/2218750/discussions/2/3836550120034827178/",
+        "archive_url": null,
+        "site": "steamcommunity.com",
+        "author_handle": null,
+        "title": "Lightning, Kugelblitz + Electrify :: Halls of Torment Feedback",
+        "cite_class": "communal",
+        "rank_class": "attested-era",
+        "quarantined": 0
+      }
+    ],
+    "verify_ledger": [
+      {
+        "claim_family": "era",
+        "verdict": "CONFIRMED",
+        "claim_text": "hot-ea-2023; hot-1.0-2024",
+        "anchor_quote": "Electrify attack ... discharge and voltage ability",
+        "source_url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "identity",
+        "verdict": "CONFIRMED",
+        "claim_text": "Kugelblitz — wandering ball lightning; autonomous wandering proxy entity; shock/stun riders from lightning element",
+        "anchor_quote": "a ball of lightning, slowly moving towards enemies at random while releasing shockwaves",
+        "source_url": "https://www.thegamer.com/halls-of-torment-best-abilities/",
+        "run_tag": "vdm1"
+      },
+      {
+        "claim_family": "mechanics",
+        "verdict": "CONFIRMED",
+        "claim_text": "Fires slow-moving ball of electricity toward random enemy; periodic electric pulse/shockwave; Stun 0.1s; Electrify ailment",
+        "anchor_quote": "fires a slow-moving ball of electricity toward a random enemy ... periodically emit an electric pulse ... Stun for 0.1s and can inflict Electrify",
+        "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+        "run_tag": "vdm1"
+      }
+    ],
+    "dossier": {
+      "author_credit": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": 0.0
+        }
+      ],
+      "capstone_alterations": [
+        {
+          "payload": null,
+          "source_url": null,
+          "anchor_quote": null,
+          "abstained": 1,
+          "conf": 0.0
+        }
+      ],
+      "item_alterations": [
+        {
+          "payload": {
+            "upgrades": [
+              "High Voltage (chain lightning)",
+              "Shockwave AoE (+20%)"
+            ],
+            "items": [
+              "Ring of Thunder",
+              "Proficient Stance Voltage",
+              "Windcrown",
+              "Elemental Resonator",
+              "Guiding Star"
+            ],
+            "traits": [
+              "Electrify Chance",
+              "Attack Speed"
+            ]
+          },
+          "source_url": "https://gamerant.com/halls-of-torment-best-abilities-ranked/",
+          "anchor_quote": "discharge and voltage ability with additional +20% Shockwave area of effect",
+          "abstained": 0,
+          "conf": 0.82
+        }
+      ],
+      "skill_geometry": [
+        {
+          "payload": {
+            "delivery": "autonomous-wandering-orb",
+            "footprint": "small-radius (shockwave around orb position)",
+            "targeting": "random enemy (self-directed drift)",
+            "damage_type": "lightning",
+            "ailments": [
+              "stun (0.1s)",
+              "electrify"
+            ],
+            "notes": "ELEMENT LAW: lightning attested — fetched text states 'ball of electricity', 'Electrify attack', 'Lightning ... 11.5M Lightning, 10.5M Electrify, 8.5M Kugel'. Shockwave = electric pulse."
+          },
+          "source_url": "https://steamcommunity.com/app/2218750/discussions/2/3836550120034827178/",
+          "anchor_quote": "11.5M Lighting, 10.5M Electrify, 8.5M Kugel",
+          "abstained": 0,
+          "conf": 0.88
+        }
+      ],
+      "skill_loop": [
+        {
+          "payload": {
+            "summary": "Kugelblitz fires slow-moving electricity balls toward random enemies. Each ball drifts autonomously and periodically emits electric shockwave pulses — applying Stun 0.1s and Electrify ailment. High Voltage upgrade adds chain lightning. Roguelite auto-fire — no rotation."
+          },
+          "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+          "anchor_quote": "fires a slow-moving ball of electricity toward a random enemy ... periodically emit an electric pulse ... Stun for 0.1s and can inflict Electrify",
+          "abstained": 0,
+          "conf": 0.9
+        }
+      ],
+      "variants": [
+        {
+          "payload": {
+            "note": "Sorceress primary class host (Windcrown + Electrify synergy). Specialist build: 20 Electrify stacks x1000 times as achievement challenge."
+          },
+          "source_url": "https://progameguides.com/halls-of-torment/halls-of-torment-ability-tier-list-best-abilities-for-each-character/",
+          "anchor_quote": "goal is to apply the 20th Stack of Electrify 1000 times",
+          "abstained": 0,
+          "conf": 0.8
+        }
+      ]
+    },
+    "_row_counts": {
+      "citations": 3,
+      "dossier_facts": 6,
+      "verify_claims": 3,
+      "mints_anchored": 0,
+      "dockets": 0
+    }
+  }
+]
