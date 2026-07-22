@@ -1,0 +1,3702 @@
+{
+  "tranche": "le-record",
+  "schema_version": "v2.0",
+  "n_kits": 36,
+  "emitted": "2026-07-22",
+  "frozen_identity_hash_pre": "4e3fa9b4437886a13cc9eb53228a56d4",
+  "elem_raw_wholecorpus_hash_pre": "5ad31b279b996586113a16be63e87f85",
+  "gates": {
+    "G1": {
+      "converted": 36,
+      "of": 36,
+      "rate": 100.0,
+      "props": 36,
+      "rows": 36
+    },
+    "G2": {
+      "derivable": 51,
+      "of": 53,
+      "rate": 96.2,
+      "committed": false,
+      "note": "door-arg RFC parked post-W5 (V-21)"
+    },
+    "G3": {
+      "prose_only": 0,
+      "of": 34,
+      "missing": [],
+      "zero_skill_t1": [],
+      "null_geo0_t1": [
+        "le-manifest-armor",
+        "le-skeleton-necro",
+        "le-squirrel-bm",
+        "le-wraithlord-necro"
+      ]
+    },
+    "G4": {
+      "kits_with_red": 4,
+      "dockets": 4,
+      "docket_kits": [
+        "le-manifest-armor",
+        "le-skeleton-necro",
+        "le-squirrel-bm",
+        "le-wraithlord-necro"
+      ]
+    }
+  },
+  "row_counts": {
+    "skill_geometry_band": 78,
+    "kit_deviation": 36,
+    "recognition_hook": 59,
+    "kit_acceptance_assert": 40,
+    "kit_delta_t4": 36,
+    "kit_numeric": 0
+  },
+  "delta_t4_split": {
+    "step": 10,
+    "ramp": 26
+  },
+  "gapped_terminal": [
+    "le-manifest-armor",
+    "le-skeleton-necro",
+    "le-squirrel-bm",
+    "le-wraithlord-necro"
+  ],
+  "ei_deviation": [
+    "le-manifest-armor",
+    "le-skeleton-necro",
+    "le-squirrel-bm",
+    "le-wraithlord-necro"
+  ],
+  "elem_anomalies_w5_flagged": {},
+  "poison_register_split_w5_flagged": {},
+  "rb6_negative_result": "LE chaos-poison-court kits (5 necrotic + 3 void) carry skill.element_primary in {shadow, water}, NOT earth. The RB-6 decay-family earth-split (D2/GD/PoE2) does NOT appear in LE.",
+  "system_records_excluded": [
+    "le-low-life-ward"
+  ],
+  "per_kit": {
+    "le-bladestorm-bd": {
+      "folk": "Bladestorm Bladedancer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Bladestorm",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Cast 3 Bladestorms deployed at positions; each is a PLACED spinning-blade AoE entity that persists (fetched: 'spinning placed AoE, NOT a pure orbit-of-player') and generates Shuriken Blade Shields via the Shuriken Storm Node. Placed-emitter -> totem projection (whirlwind/orbit both wrongly imply player-centered spin). Physical (\u00a71 physical rule, element-neutral).",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Shurikens",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Manually cast Shuriken projectiles: the build's main damage ('Shurikens cast by Bladestorm'), also stack Blade Shields on self and generate Mana via Sapping Strikes. Physical.",
+          "_geo_raw": "multi_projectile"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Bladestorm's placed spinning-blade entity is not a perfect 26-enum fit \u2014 `totem` captures placed-emitter honesty but loses the spinning/whirlwind visual texture (whirlwind rejected: it implies player-centered spin, fetched explicitly denies this).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Bladestorm's placed spinning-blade entity is not a perfect 26-enum fit \u2014 `totem` captures placed-emitter honesty but loses the spinning/whirlwind visual texture (whirlwind rejected: it implies player-centered spin, fetched explicitly denies this). Source player loses no mechanic, only the geometry-flavor precision. Low-Life stacking mapped as economy note, not a \u00a7B inversion row (attestation gap)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Bladestorm Bladedancer: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Bladestorm"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-bomb-lance-falconer": {
+      "folk": "Explosive Ballista Falconer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Explosive Trap (0-mana, thrown placed trap, AoE explosion on trigger)",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Spammed as primary; 0 mana cost; triggers placed Ballista via Armed Construction node; AoE explosion footprint; placed-proxy trigger",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Ballista (stationary turret, ranged projectile auto-targeting, triggered by Explosive Trap)",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "screen",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Placed-proxy stationary turret; auto-targets ranged; summoned/triggered by Explosive Trap procs via Armed Construction; screen-wide AoE per maxroll guide",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Dive Bomb (Falcon descends, large AoE burst against priority targets)",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Large AoE burst; 'amazing AoE'; AoE scale modified by Hindering Beak Strike passive; used for burst against priority targets; Falcon companion delivers",
+          "_geo_raw": "circle"
+        },
+        {
+          "skill_ordinal": 3,
+          "source_skill": "Falconry (Falcon companion \u2014 passive Falcon Strikes, following companion)",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Falcon companion provides passive Falcon Strikes; following companion (not placed); capstone scales Falcon damage via player crits and penetration buffs",
+          "_geo_raw": "self_buff"
+        },
+        {
+          "skill_ordinal": 4,
+          "source_skill": "Smoke Bomb (placed cloud AoE \u2014 defense and mobility)",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Placed cloud for defense/movement; utility function in rotation",
+          "_geo_raw": "defensive_dash"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Fire element not attested in non-abstained dossier rows (brief hot-fact references 'inflicting fire damage' but this phrase not found in fetched abstained=0 text);",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Fire element not attested in non-abstained dossier rows (brief hot-fact references 'inflicting fire damage' but this phrase not found in fetched abstained=0 text); mapping as water-only with fidelity note. Dual placed-proxy identity (Trap+Ballista both placed) is richer than a single totem; DUAL_PROXY T4 captures this. Falcon companion following vs placed nuance: companion lane not a T4 door class but noted in delivery."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Explosive Ballista Falconer: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Explosive Trap (0-mana, thrown placed trap, AoE explosion on trigger)"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-chthonic-fissure-warlock": {
+      "folk": "Chthonic Fissure Warlock",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Chthonic Fissure",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "lane_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Opens a ground-tear placed in the cast direction that CRAWLS FORWARD emitting tormenting spirits along its path (fetched: 'lane/directional corridor along crawl path'; spirits 'seeking enemies'). 'Both fire & necrotic tags by default' (verbatim) -> fire primary + shadow secondary (necrotic = shadow, \u00a71). Deals fire damage over time; casts tormenting spirits.",
+          "_geo_raw": "placed_lane"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Chaos Bolts",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Spammed for clear (chaos = shadow, drain-lineage \u00a71); Chthonic Fissure triggers additional Chaos Bolts for AoE.",
+          "_geo_raw": "multi_projectile"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Infernal Shade",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Single-target damage tool.",
+          "_geo_raw": "single_target"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The signature 'fire damage over time' of Chthonic Fissure almost certainly IS the Ignite ailment in-game, but the guide never names the status, so burn is withheld under strict \u00a70.1 \u2014 a source player would feel the DoT as their core damage and our map understates it (no burn token).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "The signature 'fire damage over time' of Chthonic Fissure almost certainly IS the Ignite ailment in-game, but the guide never names the status, so burn is withheld under strict \u00a70.1 \u2014 a source player would feel the DoT as their core damage and our map understates it (no burn token). Seeking-spirit pursuit is a behavioral delta noted but not minted (not the sole identity loop)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Chthonic Fissure Warlock: placed lane zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Chthonic Fissure"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-detonating-arrow-mm": {
+      "folk": "Detonating Arrow Marksman",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Detonating Arrow",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Explosive-tipped arrow fired at ranged target, detonates on impact (configurable delay) for a small-radius blast. The Blast Rain identity PROCS an 'insane amount' of Detonating Arrows via Explosive Trap through the Arrow Traps Node (not a standalone spam). Fire primary (elem_raw fire; Frostfang Arrow cold-conversion is a variant).",
+          "_geo_raw": "multi_projectile"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Multishot",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Volley enabler \u2014 tree nodes stagger DA explosions across a Multishot spread.",
+          "_geo_raw": "multi_projectile"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The kit's real identity is a trigger-driven proc-multiplication engine (traps proc DA explosions), not a manually-fired arrow spam \u2014 mapped via GEOMETRY_PROPAGATION_cascade + linked-cast trigger grammar.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "The kit's real identity is a trigger-driven proc-multiplication engine (traps proc DA explosions), not a manually-fired arrow spam \u2014 mapped via GEOMETRY_PROPAGATION_cascade + linked-cast trigger grammar. Source player feels a screen-filling explosion storm; our chain_count=2 + single door understate the density of the proc-multiply (accrual-adjacent, but no numbers filed \u2014 the proc COUNT is not a family member yet). No status token despite 'explosive' theme."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Detonating Arrow Marksman: multi projectile projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Detonating Arrow"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-dive-bomb-falconer": {
+      "folk": "Dive Bomb Falconer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Dive Bomb",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "At-target command: the falcon streaks from the sky and impacts the targeted enemy zone for a small radial AoE burst ('huge burst Damage with amazing AoE'). Player stays mobile while the falcon executes. Physical (\u00a71 physical rule); On Wings of Shadow overlaps shadow phantom-falcon copies at bosses -> shadow secondary flavor.",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Aerial Assault",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Alt movement skill (swap for Shift); traversal utility.",
+          "_geo_raw": "blink"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "MANDATORY (APPROX): the falcon is a persistent autonomous companion \u2014 its between-command autonomous Falcon Strikes and the shadow-falcon phantom overlaps are core to the build's sustained DPS but fall in the engine summoner-deferral GAP (autonomous-combatant delivery deferred).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "MANDATORY (APPROX): the falcon is a persistent autonomous companion \u2014 its between-command autonomous Falcon Strikes and the shadow-falcon phantom overlaps are core to the build's sustained DPS but fall in the engine summoner-deferral GAP (autonomous-combatant delivery deferred). Mapped the COMMANDED Dive Bomb strike as the deliverable core; a source player would MISS the constant falcon-autonomy chip damage and the boss-phase phantom-overlap burst that our single commanded-strike mapping cannot express. APPROX not GAPPED \u2014 the commanded strike IS deliverable (R-M7 player-test: 'that build, worse', not 'not that build'); terminal MAPPED not DOCKET."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Dive Bomb Falconer: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Dive Bomb"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-erasing-strike-vk": {
+      "folk": "Erasing Strike Void Knight",
+      "elem_raw": "void",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Erasing Strike",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "One colossal telegraphed void cleave in the strike direction (large-zone arc, massive wind-up before the swing; low cadence \u2014 a single devastating strike per cycle). 'Obliterate enemies from the battlefield.' Void -> shadow (\u00a71 void register). Cooldown REMOVED via Shattered Continuity, so it is freely spammed despite high Mana cost.",
+          "_geo_raw": "melee_arc"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Anomaly",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Creates a Time Bubble providing buffs; 'void echoes / time copies replay interactions'; activates Mark of Rot on boss hits. Utility, not the damage core.",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Core loop (one telegraphed void cleave, spammed via cooldown-removal + Mana regen) maps cleanly as melee_arc + RESOURCE_CONVERSION.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Core loop (one telegraphed void cleave, spammed via cooldown-removal + Mana regen) maps cleanly as melee_arc + RESOURCE_CONVERSION. Two texture losses: (a) Mark of Rot's boss-hit payload is un-tokened (name-only, unfetched); (b) Anomaly's time-replay/echo utility has no engine analog and maps only as a generic self_buff \u2014 a source player loses the 'replay your interactions' feel, but it is buff-utility, not damage identity."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Erasing Strike Void Knight: melee arc melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Erasing Strike"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-explosive-trap-falconer": {
+      "folk": "Explosive Trap Falconer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Explosive Trap",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Deploy multiple traps at target ground positions (carpet the ground); they chain-detonate when triggered for a massive AoE ('filling it with explosions'). Placed-proxy deploy-detonate. Physical (\u00a71 physical rule; DEX throwing). Explosive Ballista variant: Armed Construction spawns explosive Ballistae from the traps.",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Ballista (Explosive)",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Armed Construction transforms the Ballista into an explosive turret proc'd by the traps ('proc explosive Ballistae in a massive AoE') \u2014 placed-proxy turret.",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Trap+Ballista both map `totem` (placed-proxy) \u2014 clean, but the DEPLOY-AND-DETONATE tempo (pre-place, then chain-trigger) is a placed-detonator rhythm that `totem` (a persistent emitter) approximates rather than nails.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Trap+Ballista both map `totem` (placed-proxy) \u2014 clean, but the DEPLOY-AND-DETONATE tempo (pre-place, then chain-trigger) is a placed-detonator rhythm that `totem` (a persistent emitter) approximates rather than nails. The falcon companion is a pet-rider gap (autonomous strikes not deliverable). Source player loses the falcon chip-damage and the precise trigger-detonation timing feel, but the trap-carpet identity is deliverable."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Explosive Trap Falconer: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Explosive Trap"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-fire-aura-spellblade": {
+      "folk": "Fire Aura Spellblade",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Fire Aura (passive-emergent, stacked)",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Aura radiates from player position dealing damage to anything nearby (fetched: 'the build revolves around stacking Fire Auras, which deal Damage to anything nearby'; delivery 'aura-pulse', footprint 'small-radius'). Aura is PASSIVE-EMERGENT (stacked from Firebrand), NOT Flame Ward (Flame Ward = a separate defensive cooldown \u2014 do not conflate, per hot-fact). [STEWARD AUDIT 2026-07-18: freeze + water-secondary STRUCK from the core row \u2014 dossier variants list 'fire (default)' with 'cold-conversion via Freezing Aura node' as a VARIANT; \u00a77.2 dominant loop = fire aura. Variant-scoped ailments do not ride the core row (this batch's own hammer-throw bleed discipline). The Freezing Aura conversion (cold pulse, freezing language) lives in the ELEMENT_CONVERSION_MONO door + scaffold geometry lane + this note.] burn NOT emitted for the fire core ('deal Damage' != burn, \u00a70.1).",
+          "_geo_raw": "aura"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Aura-pulse damage delivery maps clean.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Aura-pulse damage delivery maps clean. Source player would miss the depth-3 DPS cascade (Firebrand -> Frost Claw -> Ice Barrage), which the engine caps at chain-depth 1 \u2014 a real scaling delta, though not the core identity loop. Fire->cold Freezing-Aura conversion is captured by ELEMENT_CONVERSION_MONO. Flame Ward burst-defense button has no aura-identity role and is a rider."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Fire Aura Spellblade: aura aura identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Fire Aura (passive-emergent, stacked)"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'aura'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-flame-reave-spellblade": {
+      "folk": "Flame Reave Spellblade",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Flame Reave",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Default shape is a CONE AoE in front of the player from melee contact point (fetched: 'Flame Reave default shape is a cone AoE in front of the player', 'Close melee range'). Sunwreath unique transforms the cone into 'a giant circle that expands around you' \u2014 an item geometry-transform recorded as a rider (\u00a74 mechanic-granting item); the DEFAULT cone is core. No status ailment fetched (burn not named; 'fire hit damage' is claim_text).",
+          "_geo_raw": "cone"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Firebrand",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "builder_spender",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Buff/stack builder cast prior to Flame Reave burst (fetched: 'Firebrand buffs and stacks prior to Flame Reave burst'). Fire Auras generated on hit are consumed for Mana via Flame Drinker.",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Cone melee AoE maps directly.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Cone melee AoE maps directly. Source player would miss (1) the Sunwreath cone->giant-circle transform that redefines clear geometry (approximated by GEOMETRY_COLLAPSE, not a native cone->ring swap), and (2) the aura-consume-for-mana self-refund loop (Flame Drinker) \u2014 an unusual sustain cadence the engine notes but does not natively model as an aura-spend."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Flame Reave Spellblade: cone zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Flame Reave"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-frost-claw": {
+      "folk": "Frost Claw Sorcerer",
+      "elem_raw": "cold",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Frost Claw",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Fires a barrage of multiple spectral claw projectiles in a fanning cone from cast point (fetched: 'releases a barrage of projectiles', 'cone-fan' footprint). Volley of Glass node converges all projectiles on a single target (geometry-modifying, multi_projectile holds). chill + freeze admitted on fetched 'chill/freeze/frostbite' + 'apply Frostbite and other Ailments'; element cold -> water family (ice register).",
+          "_geo_raw": "multi_projectile"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Cold projectile-barrage with chill/freeze maps clean.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Cold projectile-barrage with chill/freeze maps clean. Source player would miss (1) the Elemental Nova free-proc-per-cast cascade (an on-cast linked-cast the engine approximates, not a dedicated proc-Nova), and (2) Frostbite stacking DoT \u2014 a cold damage-over-time status with no engine registry token (chill/freeze cover the CC but not the DoT). ELEMENTAL_ECHO stands in for the doubled cold-hit cadence."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Frost Claw Sorcerer: multi projectile projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Frost Claw"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-frost-wall-rm": {
+      "folk": "Frost Wall Runemaster",
+      "elem_raw": "cold",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Frost Wall",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "lane_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Creates a horizontal line of ice segments at cast target position (fetched: 'horizontal line of ice segments', 'lane-barrier'); wall blocks movement AND projectiles; enemies passing through/touching receive chill/freeze. freeze admitted on strong fetched behavioral language ('guaranteed Freeze on everything but bosses' \u2014 boss-immune); chill on 'chill/freeze enemies passing through'. Multiple segments placeable. Element cold -> water.",
+          "_geo_raw": "placed_lane"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Glacier",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Secondary mobility/traversal (fetched: 'Glacier provides mobility'); listed core skill alongside Frost Wall.",
+          "_geo_raw": "mobility"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Placed ice-lane with guaranteed freeze maps clean.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Placed ice-lane with guaranteed freeze maps clean. Source player would miss (1) the wall physically blocking enemy projectiles/movement (engine placed_lane is a hit-lane, not a collision barrier), and (2) the Pyroglass fire-conversion -> Brand of Trespass -> damage-multiplier Runemaster chain (a rune-interaction rider with no native lane). Control identity preserved via ZONE_CONTROL + freeze/chill."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Frost Wall Runemaster: placed lane zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Frost Wall"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-ghostflame-warlock": {
+      "folk": "Ghostflame Warlock",
+      "elem_raw": "necrotic",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Ghostflame",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Channeled jet directed at target ('Channel to unleash the souls of the dead in a hellish torrent!', 'a channeled jet of horrid flames'); sustained directional stream covering a cone in front of the Warlock. Geometry = CONE per hot-fact geo-erratum ('channeled jet'/'hellish torrent' -> cone-projection reading; erratum pending). element_primary=shadow (necrotic register), secondary=fire ('both fire and necrotic damage over time'). NO status ailment emitted: 'fire and necrotic damage over time' names damage-TYPE-over-time, not a NAMED status (\u00a70.1 fire != burn; strict m02 frostburn/electrocute precedent) \u2014 withheld.",
+          "_geo_raw": "cone"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Bone Curse",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Applied to bosses as an aura-debuff via Signet of Agony (fetched: 'Bone Curse is used as an aura with Signet of Agony'). The curse-APPLICATION-as-aura is fetched, but NO curse EFFECT (amplify/weaken/decrepify/sap) is fetched -> curse variant WITHHELD per \u00a72 shape-silent rule + \u00a70.4 (skill NAME != status/effect attestation). Recorded as a curse-aura rider without a pinned variant.",
+          "_geo_raw": "aura"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Channeled fire+necrotic cone maps clean (cone + channel tick-cost economy carry the sustained-DoT identity;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Channeled fire+necrotic cone maps clean (cone + channel tick-cost economy carry the sustained-DoT identity; PERSISTENCE_ENGINE_uptime door). [STEWARD REGRADE 2026-07-18: APPROX -> CLOSE \u2014 the APPROX rationale rested on the withheld ailment ('the ailment-free row does not carry the DoT payload'), which the m04-audit damage-type-over-time RULING dissolves: 'fire and necrotic damage over time' attests delivery TIMING, not a status; dossier attests DoT only to 'enemies in cone path' during the stream (no lingering/stacking-beyond-channel language) \u2014 the engine channel-tick cone IS that shape. Forcewave-regrade precedent.] Remaining texture drift: the defensive-channel inversion (Disdain damage-reduction-while-channeling) and the Bone Curse variant-silent aura (no curse effect fetched) are riders the engine gestures at \u2014 noted, minor."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Ghostflame Warlock: cone zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Ghostflame"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-hammer-throw-paladin": {
+      "folk": "Hammer Throw Paladin",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Hammer Throw",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "screen",
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "orbit_fixed",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Hammers thrown outward then ORBIT/circle the walking Paladin, auto-hitting all enemies in range (fetched: 'hammers orbit the player', 'multiple hammers circle the Paladin hitting all enemies in range', 'auto-hit all nearby enemies'). PHYSICAL element -> no family (THE PHYSICAL RULE): element-neutral, identity via geometry. NO core ailment: bleed appears only in the Bleed-Hammerdin VARIANT ('bleed DoT via spiral'), not the mapped orbit core. Enra's Technique + Avatar of the Spire transform to a screen-wide NOVA but DISABLE orbit/spiral/chain \u2014 that is a distinct variant fork, noted.",
+          "_geo_raw": "orbit"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Orbiting physical hammers map cleanly to orbit.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Orbiting physical hammers map cleanly to orbit. Source player would miss the geometry POLYMORPHISM across variants: the mapped core is orbit, but Nova Hammerdin (Enra's + Avatar of the Spire) converts to a screen-wide nova and DISABLES orbit \u2014 the engine picks one geometry, not a stance-swap between orbit and nova. PERSISTENCE_ENGINE_uptime (audit-corrected door) carries the always-on orbit-field identity but not the orbit<->nova fork. Physical-neutral element loses the 'holy hammerdin' flavor (carried in element-slot flavor only)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Hammer Throw Paladin: orbit motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Hammer Throw"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-harvest-lich": {
+      "folk": "Harvest Death Seal Lich",
+      "elem_raw": "necrotic",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Harvest (primary damage \u2014 scythe sweeps at melee range, cold)",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Main damage skill; 'sweeping Cold melee attacks'; melee close-range; Reaper Form transform identity for Harvest Flay variant",
+          "_geo_raw": "melee_arc"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Flay (melee clear in Harvest Flay variant)",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Used for pack clear in Harvest Flay variant; melee arc delivery",
+          "_geo_raw": "melee_arc"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Death Seal (toggle \u2014 enables Low Life playstyle, pulsing Waves of Death)",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "When active: 33% Damage Reduction + 66% Damage Multiplier (Deadlock node); releases pulsing Waves of Death around player; enables Low Life playstyle; 'small radius' pulse",
+          "_geo_raw": "aura"
+        },
+        {
+          "skill_ordinal": 3,
+          "source_skill": "Rip Blood / Reap / Bone Curse (Death Seal variant support skills)",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Support skills in Death Seal Lich variant; Bone Curse applies curse; Rip Blood/Reap are necrotic delivery skills",
+          "_geo_raw": "single_target"
+        },
+        {
+          "skill_ordinal": 4,
+          "source_skill": "Reaper Form (transform \u2014 Harvest Flay variant identity)",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Transform into Reaper Form for cold sweeping melee; economy-agnostic form law applies \u2014 form is delivery context, not separate skill identity",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Two-variant identity (Harvest Flay cold vs Death Seal necrotic) means any single motion_frame undersells one variant.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Two-variant identity (Harvest Flay cold vs Death Seal necrotic) means any single motion_frame undersells one variant. The combined folk name is a mapping convenience, not a verified single build. DEFENSIVE_TRADEOFF covers Death Seal's Low Life tradeoff identity; cold melee Reaper Form maps cleanly to water + melee_arc. Grade CLOSE reflects good geometry and element coverage but the split-build nature introduces fidelity loss. [D-7.5 chimera-split 2026-07-19 \u2014 SUB-KIT 1 of 2 :: HARVEST FLAY :: cold-melee Reaper Form loop; maps to WATER + melee_arc (per basin-2 LE dossier skill_geometry anchor). This is the cold variant of the conflated folk name.] [D-7.5 chimera-split 2026-07-19 \u2014 SUB-KIT 2 of 2 :: DEATH SEAL LICH :: necrotic Low-Life tradeoff loop; maps to DEFENSIVE_TRADEOFF (per basin-2 LE dossier capstone_alterations anchor). This is the necrotic variant.] [D-7.5 note: annotation refinement on HELD basin-2 evidence \u2014 NO legolas re-fire (Matt: 'split at migration time, no legolas re-fire'). The kit_id remains one row; any true two-kit split defers to VDM-2 LE re-crawl.]"
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Harvest Death Seal Lich: melee arc melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Harvest (primary damage \u2014 scythe sweeps at melee range, cold)"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-healing-hands-paladin": {
+      "folk": "Healing Hands Paladin",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Healing Hands",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Procs on melee hits (Cleric's Hammer, up to 100% chance at 4 pts), applying healing AND fire/holy damage in a small radius around the melee target (fetched: 'procs on melee hits... applying healing and fire/holy damage in a small radius'). Burst-around-target -> ring. element_primary=fire, secondary=holy ('holy/fire damage'). NO offensive status named (healing is not an ailment; no burn/consecrate fetched for THIS skill).",
+          "_geo_raw": "ring"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Vengeance",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Melee attack that generates Mana (fetched: 'Vengeance generates Mana'); the melee-hit carrier that procs Healing Hands via Cleric's Hammer. [STEWARD AUDIT 2026-07-18: element_primary 'physical' -> null \u2014 THE PHYSICAL RULE (\u00a71): no physical family; pure-physical carrier maps element-neutral.]",
+          "_geo_raw": "melee_arc"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Proc-on-melee ring burst + on-hit trigger maps clean.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Proc-on-melee ring burst + on-hit trigger maps clean. Source player would miss the heal-as-weapon DUALITY: the primary damage skill is a HEAL that also strikes \u2014 the engine ring carries the fire/holy hit and the trigger carries the proc, but the healing payload doubling as DPS is an identity the engine represents as self-sustain, not as a heal-that-is-your-damage. Rahyeh's Chariot turning Healing Hands into a MOVEMENT skill is a role-conversion rider with no core-geometry home."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Healing Hands Paladin: ring zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Healing Hands"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-judgement-paladin": {
+      "folk": "Judgement Paladin",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Judgement",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": "slow",
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Slams the ground at a targeted location creating a Consecrated Ground ZONE that damages enemies (fire/holy) and heals the Paladin within it (fetched: 'Judgement creates Consecrated Ground which damages enemies and provides healing'). The persistent DoT ZONE is the identity (patch/ground-DoT -> ground_targeted_circle per \u00a76), not the slam impact. Multiple zones STACK (Lingering Force multiplier). consecrate emitted on fetched 'Consecrated Ground' (\u00a72 consecrated-ground -> consecrate); element fire primary + holy (the hallowed zone).",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Ground-targeted consecrate zone maps clean.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Ground-targeted consecrate zone maps clean. Source player would miss the ZONE-STACKING accumulation (Lingering Force multiplying overlapping Consecrated Grounds for compounding damage+healing) \u2014 the engine ground_targeted_circle places a zone but does not natively model overlapping-zone multiplication; ZONE_CONTROL approximates the control-density, not the stack-multiplier. The self-heal-within-zone duality (offense + sustain in one patch) is captured by consecrate but not the healing-scaling."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Judgement Paladin: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Judgement"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-lightning-blast": {
+      "folk": "Lightning Blast",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Lightning Blast",
+          "delivery_class": "beam",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "chain_hop",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Fires a lightning bolt projectile that chains to nearby enemies in sequence (fetched: 'chains to nearby enemies', 'aim for an odd number of chains'). Convergence node makes all chains hit the SAME target (concentrated single-target) at cost of chain count halving \u2014 geometry-modifying node, chain token holds either way. NO status ailment attestable: 'Spark Charge' is a named skill/item PROC, not a fetched status (\u00a70.4 name-collision); mechanics 'shock/electrify' lives only in verify_ledger.claim_text = INADMISSIBLE (\u00a70.2). shock/sunder NOT emitted.",
+          "_geo_raw": "chain"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Chain-projectile spam maps clean.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Chain-projectile spam maps clean. Source player would miss (1) the Spark Charge self-cascading proc-engine (Lightning Blast procs charges that proc more \u2014 an on-cast proc-loop the engine only approximates via chain, not a dedicated charge-cascade), and (2) the Reowyn's Frostguard on-cast Ward burst (Runemaster variant) \u2014 a defensive on-cast rider with no native engine lane. Neither breaks the core loop; both are riders. ELEMENTAL_ECHO gestures at the repeated-hit lightning identity."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Lightning Blast: chain beam identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Lightning Blast"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'beam'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-manifest-armor": {
+      "folk": "Manifest Armor Forge Guard",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Manifest Armor",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "A persistent proxy MINION \u2014 'a colossal humanoid construct made of fire and metal' \u2014 that PURSUES enemies and attacks at melee range (fetched: 'persistent proxy minion that pursues enemies and attacks at melee range'). PURSUE/FOLLOW type with NO placement language -> null geometry is honest (gapped-pet two-lane convention: placement-attested -> totem; follow/pursue -> null). Autonomous combatant = summoner-deferral GAP. Element PHYSICAL -> no family; 'fire and metal' is construct-APPEARANCE flavor, NOT a fetched scaling-element attestation (\u00a70.1) -> element-neutral. Uniquely scales off the PLAYER's gear stats (Helmet/Body/Gloves/Boots; +Weapon w/ Titan Mace) \u2014 a pet-stat-from-player-gear mechanism.",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Forge Strike",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Secondary skill \u2014 drops anvils from the sky at a targeted position (fetched: 'Forge Strike... drops anvils from sky at targeted position'). [STEWARD AUDIT 2026-07-18: fire secondary STRUCK \u2014 no fire damage language is fetched for Forge Strike; 'fire and metal' is construct-APPEARANCE flavor (the row's own \u00a70.1 reasoning, applied consistently). Element-neutral.] A supplementary delivery, not the kit's core identity (the construct is).",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "MANDATORY (GAPPED): the kit IS 'summon one autonomous gear-scaled construct and let it fight' \u2014 an autonomous-combatant pet, which the engine defers by design (summoner-deferral).",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "MANDATORY (GAPPED): the kit IS 'summon one autonomous gear-scaled construct and let it fight' \u2014 an autonomous-combatant pet, which the engine defers by design (summoner-deferral). The whole identity (a persistent construct that pursues and attacks on its own, scaled by YOUR worn gear) has no engine delivery: null geometry is the honest read. A source player has 'not that build' \u2014 there is no engine analog to a gear-stat-scaled autonomous construct. PROXY_ASCENSION names the proxy-ambition but the engine has no autonomous-combatant to ascend. The gear-stat-as-minion-scaling is separately docketed. Forge Strike (anvil ground-slam) survives as a bolt-on but is not the mapped identity."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Manifest Armor Forge Guard: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Forge Strike"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: MANDATORY (GAPPED): the kit IS 'summon one autonomous gear-scaled construct and ",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-reaper-form-lich": {
+      "folk": "Reaper Form Lich",
+      "elem_raw": "necrotic",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Reaper Form",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "transform chassis: activated once, maintained via leech-vs-form-decay race; player exits form when leech fails ('keep it active by staying in combat and leeching')",
+          "_geo_raw": "self_buff"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Harvest",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "main damage skill; self-origin scythe melee in small radius around the Lich while in form",
+          "_geo_raw": "melee_arc"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Flay",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "secondary projectile for range; damage + buff application during clear",
+          "_geo_raw": "single_target"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Source player would miss the transform frame and the dramatic form-break/re-entry cycle;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Source player would miss the transform frame and the dramatic form-break/re-entry cycle; decay race approximated as tick-cost persistent condition sustained by leech. The in-form loop itself (scythe melee arc + secondary projectile + uptime economy) carries intact."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Reaper Form Lich: self buff aura identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Reaper Form"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'aura'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-ring-of-shields": {
+      "folk": "Ring of Shields / Sentinel Guard",
+      "elem_raw": "physical",
+      "tier": null,
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Ring of Shields",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "manifests a set of shield entities ringing the player; each blocks damage and projectiles, draws enemy aggression, has its own health and finite duration; no outgoing damage projection",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Shields-as-HP-entities absorbing hits and redirecting enemy aggression are not natively modeled;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Shields-as-HP-entities absorbing hits and redirecting enemy aggression are not natively modeled; engine approximation = defensive self-buff + deflect rider. Source player would miss the bodyguard-entity feel and per-shield attrition."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Ring of Shields / Sentinel Guard: self buff aura identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Ring of Shields"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'aura'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-runic-invocation": {
+      "folk": "Runic Invocation Runemaster",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Runic Invocation",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "invocation output = large elemental zone at target area; output spell varies by rune combination (fire burst / ice storm / lightning fork per dossier); Hydrahedron variant = auto-targeting large zone [ERRATA-57 2026-07-19: multi-element outputs 'fire burst, ice storm, lightning fork' attest engine FIRE + WATER (ice) alongside the lightning primary; added to attested set via attested_elements_errata. Blind-rider anchor, D-1.]",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The combinatorial identity (~40 outputs selected by specific rune sequences / spell rotations) has no engine lane;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "The combinatorial identity (~40 outputs selected by specific rune sequences / spell rotations) has no engine lane; realized loop approximated as accumulator-spend into one payoff zone. Source player would miss choosing WHICH output via rotation ordering. Terminal stays MAPPED per R-M7 (that build, worse - the rotate-then-nuke loop survives)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Runic Invocation Runemaster: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Runic Invocation"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-shadow-bladedancer": {
+      "folk": "Shadow Bladedancer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Synchronized Strike",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "deploys/extends shadow copies at map positions (placement attested) that strike nearby targets; shadows mirror the player's attacks ('Your Shadows use it when you do'); Perfect Coordination raises shadows-hit count; applies Shadow Daggers stacks (no registry home - withheld)",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Shift",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "traversal proc-hub: triggers Shadow Cascade on use, casts Umbral Blades, recovers Mana on use; execute payload rides via Consumed by Shadow node (capstone-attested); payloads stay riders, never traversal geometry",
+          "_geo_raw": "blink"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Shadows echoing the player's own attacks in sync is approximated as placed emitters striking nearby - source player would miss the mirror-choreography feel;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Shadows echoing the player's own attacks in sync is approximated as placed emitters striking nearby - source player would miss the mirror-choreography feel; Shadow Daggers stacking payoff is unexpressed (no registry home)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Shadow Bladedancer: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Synchronized Strike"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-shield-bash-le": {
+      "folk": "Shield Bash (LE)",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Shield Bash",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "single-target melee hit, Strength-scaled; limited AoE is an explicit guide con; block-chance feeds a more-damage multiplier (capped block = full multiplier)",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Ring of Shields",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "defensive shield-entity layer supporting the bash loop (see le-ring-of-shields for the full support-skill mapping)",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The block-cap chase AS the damage-scaling verb (defense stat converting to a more-damage multiplier) is unexpressed - approximated as flat numeric scaling;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "The block-cap chase AS the damage-scaling verb (defense stat converting to a more-damage multiplier) is unexpressed - approximated as flat numeric scaling; source player would miss capping block being offense. Core loop (single-target melee spam behind a defensive wall) carries."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Shield Bash (LE): melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Shield Bash"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-shield-throw-time-rot-vk": {
+      "folk": "Shield Throw Time Rot VK",
+      "elem_raw": "void",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Shield Throw",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ricochet_return",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "thrown shield converted to Void via body-armor affix; ricochets back and forth between player and boss (out-and-return shape); applies Time Rot stacks - token WITHHELD, no crosswalk row (filed to steward)",
+          "_geo_raw": "ricochet_bounce"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The named Time Rot ailment (the build's payload identity) is unexpressed pending a steward row - source player would miss the stacking void-rot on the boss;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "The named Time Rot ailment (the build's payload identity) is unexpressed pending a steward row - source player would miss the stacking void-rot on the boss; delivery (void ricochet shuttle) and set-bonus scaling carry via geometry + gear lane."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Shield Throw Time Rot VK: ricochet bounce projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Shield Throw"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-shift-bladedancer": {
+      "folk": "Shift Bladedancer",
+      "elem_raw": "physical",
+      "tier": null,
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Shift",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "main Movement Skill and multi-proc hub, used on cooldown; casts Shadow Cascade + Umbral Blades on each use via nodes (Dancing Shadows / Umbral Remnant + Lasting Presence); execute attested in skill_loop ('providing an execute from Consumed by Shadow'); traversal token stays the geometry - all payloads are riders",
+          "_geo_raw": "blink"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Shadow Cascade",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "auto-proc rider, never independently cast: 'automatically procs every time you use Shift'; melee-range AoE at Shift's landing position; generates Shadow Daggers stacks (no registry home - withheld)",
+          "_geo_raw": "ring"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Minor drift: Shadow Daggers stack payoff unexpressed (no home) and Umbral Blades rider unmapped (name-only);",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Minor drift: Shadow Daggers stack payoff unexpressed (no home) and Umbral Blades rider unmapped (name-only); core loop - blink traversal with on-arrival ring payload, linked-cast riders, execute threshold - is native."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Shift Bladedancer: blink motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Shift"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-skeleton-necro": {
+      "folk": "Skeleton Necromancer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Summon Skeletal Mage",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "autonomous summoned caster, the build's core; 'will impale foes with a barrage of Ice Shards' from mid-distance; no placement language fetched -> null geometry honest (post-W1 two-lane); multi-projectile payload shape recorded here only",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Summon Skeleton",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "autonomous melee units; Shambling Steel removes Archers so only Warriors remain, 'ensuring they run toward enemies' - mobile pursuit, not placement -> null geometry honest",
+          "_geo_raw": ""
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "R-M7 player test: 'not that build' - the entire kit IS autonomous combatants ('Summon Skeletal Mage is the core of this build, and all other skills revolve around...",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "R-M7 player test: 'not that build' - the entire kit IS autonomous combatants ('Summon Skeletal Mage is the core of this build, and all other skills revolve around... your Archmage'); engine summoner-deferral gap means no honest delivery token exists. Null geometries + docket per post-W1 gapped-pet lane; autonomy gap filed to mechanic_gap_docket."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Skeleton Necromancer: pet-core delivery identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Summon Skeletal Mage"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "kit_identity_present == true",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: R-M7 player test: 'not that build' - the entire kit IS autonomous combatants ('S",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-smite-paladin": {
+      "folk": "Smite Paladin",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Smite",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "lightning bolt descends from the sky at the hit/targeted point; point impact; auto-generated at the target of each weapon hit - proc chain delivers many Smites per rotation",
+          "_geo_raw": "single_target"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Holy Aura",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "always-active buff aura; Symbols of Hope + Javelin add further buffs",
+          "_geo_raw": "aura"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Minor drift: missing-Mana damage substrate approximated via gear-numeric lane pending steward candidate;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Minor drift: missing-Mana damage substrate approximated via gear-numeric lane pending steward candidate; holy is carried by the aura skill while Smite itself rides lightning. The proc-storm loop (hit -> sky-bolt at target) is native trigger grammar."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Smite Paladin: single target projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Smite"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-soul-feast": {
+      "folk": "Soul Feast (as primary)",
+      "elem_raw": "necrotic",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Soul Feast",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "mid-range necrotic drain on cursed targets: 'feasts on the souls of cursed enemies, dealing necrotic damage to them and drawing fragments of their souls back to you'; each returning fragment grants Ward (5 per fragment, verify-anchor attested); sole pressed button - carrier for the automated chain",
+          "_geo_raw": "single_target"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The automated multi-skill chain compresses to carrier + linked-cast grammar because the proc skills' own behaviors are unfetched - source player would miss the distinct fissure/bolt/blood visuals and coverage;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "The automated multi-skill chain compresses to carrier + linked-cast grammar because the proc skills' own behaviors are unfetched - source player would miss the distinct fissure/bolt/blood visuals and coverage; the felt loop (one button, curse-fed drain, Ward stream) carries via grammar + proc-loop economy."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Soul Feast (as primary): single target projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Soul Feast"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-squirrel-bm": {
+      "folk": "Squirrel Beastmaster",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Summon Squirrels",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": "fast",
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "autonomous companion swarm: 'Squirrels autonomously pursue and attack enemies with rapid physical hits'; converge at close range; count doubled by Herald of the Scurry converting Summon Wolf slots; NO placement language -> null geometry honest (post-W1 two-lane)",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Summon Frenzy Totem",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "placed buff emitter (maps per B totem lane): 'provides incredibly powerful buffs while it's active' - Haste/Frenzy + refreshes companion cooldowns; support payload, no damage projection attested",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "R-M7 player test: 'not that build' - the swarm IS the kit (defining unique exists only to double companion count) and autonomous-companion delivery is the engine's summoner-deferral gap;",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "R-M7 player test: 'not that build' - the swarm IS the kit (defining unique exists only to double companion count) and autonomous-companion delivery is the engine's summoner-deferral gap; the mappable remainder (one buff totem) is support texture, not the build."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Squirrel Beastmaster: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Summon Frenzy Totem"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: R-M7 player test: 'not that build' - the swarm IS the kit (defining unique exist",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-storm-totem-shaman": {
+      "folk": "Storm Totem Shaman",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Tornado",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": "fast",
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "placement ATTESTED ('Place down long lasting Tornados on the battlefield') -> placed-emitter lane; each tornado rapidly auto-casts Storm Bolts (lightning strikes) in its own zone via Charged Storm; multiple simultaneous tornadoes cover the encounter area",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Minor drift: tornado-as-mobile-weather flavor rides a stationary placed-emitter token (no wandering behavior attested, so no pursuit delta);",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Minor drift: tornado-as-mobile-weather flavor rides a stationary placed-emitter token (no wandering behavior attested, so no pursuit delta); autonomous per-zone bolt targeting is texture inside the emitter grammar. Placement loop, multi-zone coverage, and lightning payload are native."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Storm Totem Shaman: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Tornado"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-swarmblade-druid": {
+      "folk": "Swarmblade Druid",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Swarmblade Form",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Permanent-transform chassis (R-M9 register): one Mana-cost cast enters the Rage-fueled insectoid form with its own skill bar; kit maps IN-FORM per SB Rage-in-form law ('This is a permanent Swarmblade Form build therefore uses Rage instead of Mana').",
+          "_geo_raw": "self_buff"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Armblade Slash",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "In-form spam melee, self-origin small-radius AoE (fetched geometry: 'self-origin melee AoE, small-radius around player in form'); procs on attack: 'Spam Armblade Slash to deal melee damage and proc Tornadoes / Locust Swarm'.",
+          "_geo_raw": "melee_arc"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Swarm Strike",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "skill_loop verbatim: 'Swarm Strike as 360-degree heavy AoE finisher' -- discrete nova finisher, ring per phrase-book burst-around-self; one heavy beat, not a sustained spin (whirlwind rejected). [STEWARD AUDIT 2026-07-18: mapper's longer quote ('a 360 degree heavy spin attack that also rallies your summoned bugs around you...') was an ANCHOR-SPLICE -- exists in NO store; STRUCK. Ring survives on the legal fragment.]",
+          "_geo_raw": "ring"
+        },
+        {
+          "skill_ordinal": 3,
+          "source_skill": "Locust Swarm",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "skill_loop verbatim: '15-second Locust Swarm cycle via hive summons', proc'd by Armblade Slash ('proc Tornadoes / Locust Swarm'). Shape-silent AND behavior-silent in all admissible stores -> null geometry is the honest carrier. [STEWARD AUDIT 2026-07-18: 'rallies your summoned bugs around you' was ANCHOR-SPLICED (no store); the bugs-as-around-player-texture stance is NEUTRALIZED to behavior-silent -- no summoner-GAP claim, no texture claim; the kit's dominant loop (Armblade Slash spam) is untouched.]",
+          "_geo_raw": ""
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Swarm-entity texture thinned: Swarm Strike 360-finisher maps as ring;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Swarm-entity texture thinned: Swarm Strike 360-finisher maps as ring; Locust Swarm cycle is shape-silent (null row); Tornado proc payload carried as rider note; form-entry moment compressed into self_buff chassis. Loop verb (in-form melee spam + nova finisher + Rage pressure) survives intact -- that build."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Swarmblade Druid: self buff aura identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Swarmblade Form"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'aura'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-tempest-strike": {
+      "folk": "Tempest Strike",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Tempest Strike",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'you HIT, HIT, TEMPEST, so you get two melee attacks and then one aoe lightning' -- 3-beat melee combo; beats 1-2 melee strikes, beat 3 a self-origin AoE lightning tempest burst. Post-1.0 rework (capstone anchor): 'a powerful high-cost combo ability which triggers a Tempest with each strike, rather than a chance for a spell effect it had previously' -- determinized; the kb 'proc-gamble' econ descriptor is era-superseded.",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Sky Opener (Storm Stack spender)",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "builder_spender",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Generates Storm Stacks expended via Sky Opener for Storm Bolt procs' -- stack-spender payoff tier; Storm Bolt proc shape not fetched beyond 'procs' -> null geometry is the honest carrier (payload maps only by its own fetched behavior).",
+          "_geo_raw": ""
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Source player would miss the fixed 3-beat combo rhythm -- the deterministic HIT-HIT-TEMPEST cadence has no native beat-counter;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Source player would miss the fixed 3-beat combo rhythm -- the deterministic HIT-HIT-TEMPEST cadence has no native beat-counter; nearest-mapped as on-hit-threshold + accumulator, which reads as threshold/chance rather than counted beats. Fixed-attack-speed -> crit overflow conversion also lost (noted in economy). Loop skeleton (melee -> periodic self-AoE lightning -> stack payoff) survives: that build, worse."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Tempest Strike: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Tempest Strike"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-umbral-blades": {
+      "folk": "Umbral Blades Rogue",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Umbral Blades",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Two-phase: outward multi-blade throw lodging spectral daggers at scattered ground positions, then recall sweep pulls every lodged blade back through enemies along its return lane ('throw out your blades and shift through enemies'; fetched geometry: 'outward throw (scatter) + inward recall (lane-sweep)'). Mapped on the OUT leg (multi_projectile); the recall-sweep return is the approximated half -- placed_lane return-lanes noted as the competing row (7.2 alternative).",
+          "_geo_raw": "multi_projectile"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Shift",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Traversal-as-proc-hub per SB Shift row (this kit is a cited attestation: 'the trailing Bladestorm from Shift'): Shift stays a movement token; casting Umbral Blades / trailing Bladestorm ride as on-traversal riders, never promoted into Shift's own geometry.",
+          "_geo_raw": "blink"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Synchronized Strike",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'summons shadows which also discharge Umbral Blades for mass Shadow Dagger application' -- shadow-clones mirror-discharge the core throw (echo-multiplier). No placement or dash shape fetched -> null geometry is the honest carrier; the echo lives in trigger_grammar.",
+          "_geo_raw": ""
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Source player would miss the recall: engine multi_projectile throws OUT only -- the plant-blades-then-sweep-them-back-through-enemies rhythm (the kit's econ_raw identity, 'field-plant-recall') has no native return leg;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Source player would miss the recall: engine multi_projectile throws OUT only -- the plant-blades-then-sweep-them-back-through-enemies rhythm (the kit's econ_raw identity, 'field-plant-recall') has no native return leg; carried in notes + out-and-return accrual. Shadow-clone mirror-discharge softens to a linked-cast echo. Throw-scatter + traversal-proc skeleton survives: that build, worse -- not GAPPED (R-M7 player test)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Umbral Blades Rogue: multi projectile projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Umbral Blades"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-warpath-vk": {
+      "folk": "Warpath Void Knight",
+      "elem_raw": "void",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Warpath",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "orbit_fixed",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Spin-to-win channel while moving freely ('Unleash the Spin-to-Win playstyle'); phrase-book direct hit. Radius RAMPS while channeling: 'Stay spinning to increase your Damage and AoE until Warpath almost covers the whole screen' (Warrior's Fury ramp). Void -> shadow per main-law 1 (LE void row).",
+          "_geo_raw": "whirlwind"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Devouring Orb",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "orbit_fixed",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Devouring Orb orbits at larger radius' -- true orbit token (R-M6 drift-tick circle rule considered, not applicable: fetched language attests orbiting, not drifting). Auto-cast by movement: 'Always keep moving to auto-cast Devouring Orb'; feeds Void Essence to the Void Well passive (economy loop).",
+          "_geo_raw": "orbit"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Abyssal Echoes",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Abyssal Echoes adds void patches' -- pool/patch phrase-book row; buff-granting secondary per capstone ('Devouring Orb, Anomaly, Symbols of Hope and Abyssal Echoes grant powerful buffs').",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Void Essence -> Void Well sub-resource feedback compressed into regen_shape note;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Void Essence -> Void Well sub-resource feedback compressed into regen_shape note; auto-cast-on-move nearest-mapped (AUTOCAST_ON_MOVE token); Anomaly/Symbols buff-layer texture thinned. Core loop (move-while-spinning tick-drain field + orbiting orb + ramp) maps near-natively -- that build."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Warpath Void Knight: whirlwind motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Warpath"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-werebear-druid": {
+      "folk": "Werebear Druid",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Werebear Form",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Permanent-transform chassis (R-M9 register): Mana-cost entry into the Rage-driven bear form with its own skill bar; kit maps IN-FORM per SB Rage-in-form law ('Mana is replaced by Rage while Transformed' -- verbatim).",
+          "_geo_raw": "self_buff"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Swipe",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Spam Swipe to deal damage and trigger Aftershocks' -- in-form spam melee, self-origin small-radius AoE; guide explicitly lists 'Limited AoE' as the build weakness (honest small-arc footprint).",
+          "_geo_raw": "melee_arc"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Aftershock (proc)",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Chance-proc quake under nearby enemies on melee hit, grounded on THREE legal fragments cited separately: skill_geometry 'Aftershocks appear under nearby enemies' + item_alterations 'Adorned Heorot Idols for Aftershock chance' + verify anchor 'Spam Swipe to deal damage and trigger Aftershocks'. Slam/quake phrase-book row (ground_slam). Scaled indirectly: 'Earthquake specialization is an indirect Aftershock scaler via idol interaction, not a standalone damage source.' [STEWARD AUDIT 2026-07-18: mapper's Title-Case 'affix/idol verbatim' ('Chance To Create An Aftershock Under A Nearby Enemy On Melee Attack') was an ANCHOR-SPLICE -- exists in NO store, memory-styled as tooltip text; STRUCK. Every mapped fact (under-enemy placement, chance-roll, on-melee trigger) is independently store-attested; geometry/trigger/grade unchanged.]",
+          "_geo_raw": "ground_slam"
+        },
+        {
+          "skill_ordinal": 3,
+          "source_skill": "Warcry",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Berserker buff upkeep in the in-form loop; Rampage rides as movement utility (not a load-bearing damage active).",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Bear-form visual + Rampage traversal texture thinned;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 LE tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is LE's external check)",
+          "source_anchor": "Bear-form visual + Rampage traversal texture thinned; Earthquake-as-idol-scaler compressed into a delivery note; chance-roll proc kept as threshold trigger. In-form loop (melee arc spam + proc quakes + Rage pressure + DR stacking) survives intact -- that build."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Werebear Druid: self buff aura identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Werebear Form"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'aura'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "le-wraithlord-necro": {
+      "folk": "Wraithlord Necromancer",
+      "elem_raw": "necrotic",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Summon Wraith (fed)",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Summon smaller Wraiths continuously' -- summon stream with NO placement language fetched -> null geometry is honest per the gapped-pet two-lane convention (follow/companion lane). The wraiths are consumable stock: fed to the Wraithlord via the Harbour helm.",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Wraithlord (Harbour-enabled)",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Single empowered boss-proxy: 'Wraithlord's Harbour helm channels wraith deaths/consumption into empowering a single Wraithlord proxy'; 'autonomously seeks and attacks enemies' (follow-class, no placement language -> null geometry). Consumption bonus is CAPPED ('a cap on maximum damage bonus it can get from eating other minions'). Player kites while the proxy dominates melee.",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Drain Life",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'cast Drain Life on top of your Summon Wraiths to generate Mana' (+ buff generation) -- the player's mana-engine button targeted onto own minion cluster; no delivery shape fetched -> null geometry, economy carries it. Name-collision guard: engine 'drain' ailment NOT emitted (skill name + mana-gen behavior, no status language).",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 3,
+          "source_skill": "Dread Shade / Aura of Decay",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Cast Dread Shade and Aura Of Decay to buff your Summon Wraith's Damage' -- minion-buff layer; Aura of Decay payload note says 'DoT + buff' -- damage-type-over-time RULING: DoT phrasing attests timing only, no status -> no poison token.",
+          "_geo_raw": ""
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Nothing of the loop survives natively: autonomous-combatant delivery is a known engine gap (summoner-deferral), and the consumption-feed economy (sacrifice summon stock to empower one capped boss-proxy) has no lane.",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "Nothing of the loop survives natively: autonomous-combatant delivery is a known engine gap (summoner-deferral), and the consumption-feed economy (sacrifice summon stock to empower one capped boss-proxy) has no lane. PROXY_ASCENSION gestures at the ascended-proxy fantasy but cannot host the wraith-stream harvest. Source player would find no wraiths, no Wraithlord, no feed loop -- not that build."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Wraithlord Necromancer: pet-core delivery identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Summon Wraith (fed)"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "kit_identity_present == true",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: Nothing of the loop survives natively: autonomous-combatant delivery is a known ",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    }
+  }
+}

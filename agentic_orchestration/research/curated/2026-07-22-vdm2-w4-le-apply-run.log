@@ -1,0 +1,211 @@
+=== VDM-2 W4 LE record-class tranche — APPLY run-log ===
+date: 2026-07-22
+script: research/scripts/vdm2_w4_le_sidecar_emit_2026_07_22.py --apply
+preflight live corpus.db md5 (expect cae3207535d4d750bf05e40665f62b94): cae3207535d4d750bf05e40665f62b94
+backup: corpus.db.pre-vdm2-w4-le-2026-07-22-backup md5 cae3207535d4d750bf05e40665f62b94
+cmp live vs backup (byte-for-byte): IDENTICAL
+elem_raw whole-corpus 585-row md5 (expect 5ad31b279b996586113a16be63e87f85): 5ad31b279b996586113a16be63e87f85
+max docket_id PRE (expect 166): 166
+door_registry PRE (expect 27): 27
+motion_signature_registry PRE (expect 18): 18
+
+--- APPLY OUTPUT ---
+Loaded 36 LE record-class kits (game=le, corpus_class=record).
+LE system-records (MUST be excluded): ['le-low-life-ward']
+  confirmed NOT in the emitted set: ['le-low-life-ward'] (leak check clean)
+Frozen-identity content hash PRE (LE tranche): 4e3fa9b4437886a13cc9eb53228a56d4
+elem_raw WHOLE-CORPUS 585-row content hash PRE: 5ad31b279b996586113a16be63e87f85
+
+==================== DEVIATION CLASSIFICATION ====================
+  DG  le-bladestorm-bd: Bladestorm's placed spinning-blade entity is not a perfect 26-enum fit
+  DG  le-bomb-lance-falconer: Fire element not attested in non-abstained dossier rows (brief hot-fac
+  DG  le-chthonic-fissure-warlock: The signature 'fire damage over time' of Chthonic Fissure almost certa
+  DG  le-detonating-arrow-mm: The kit's real identity is a trigger-driven proc-multiplication engine
+  DG  le-dive-bomb-falconer: MANDATORY (APPROX): the falcon is a persistent autonomous companion — 
+  DG  le-erasing-strike-vk: Core loop (one telegraphed void cleave, spammed via cooldown-removal +
+  DG  le-explosive-trap-falconer: Trap+Ballista both map `totem` (placed-proxy) — clean, but the DEPLOY-
+  DG  le-fire-aura-spellblade: Aura-pulse damage delivery maps clean.
+  DG  le-flame-reave-spellblade: Cone melee AoE maps directly.
+  DG  le-frost-claw: Cold projectile-barrage with chill/freeze maps clean.
+  DG  le-frost-wall-rm: Placed ice-lane with guaranteed freeze maps clean.
+  DG  le-ghostflame-warlock: Channeled fire+necrotic cone maps clean (cone + channel tick-cost econ
+  DG  le-hammer-throw-paladin: Orbiting physical hammers map cleanly to orbit.
+  DG  le-harvest-lich: Two-variant identity (Harvest Flay cold vs Death Seal necrotic) means 
+  DG  le-healing-hands-paladin: Proc-on-melee ring burst + on-hit trigger maps clean.
+  DG  le-judgement-paladin: Ground-targeted consecrate zone maps clean.
+  DG  le-lightning-blast: Chain-projectile spam maps clean.
+  EI  le-manifest-armor: MANDATORY (GAPPED): the kit IS 'summon one autonomous gear-scaled cons
+  DG  le-reaper-form-lich: Source player would miss the transform frame and the dramatic form-bre
+  DG  le-ring-of-shields: Shields-as-HP-entities absorbing hits and redirecting enemy aggression
+  DG  le-runic-invocation: The combinatorial identity (~40 outputs selected by specific rune sequ
+  DG  le-shadow-bladedancer: Shadows echoing the player's own attacks in sync is approximated as pl
+  DG  le-shield-bash-le: The block-cap chase AS the damage-scaling verb (defense stat convertin
+  DG  le-shield-throw-time-rot-vk: The named Time Rot ailment (the build's payload identity) is unexpress
+  DG  le-shift-bladedancer: Minor drift: Shadow Daggers stack payoff unexpressed (no home) and Umb
+  EI  le-skeleton-necro: R-M7 player test: 'not that build' - the entire kit IS autonomous comb
+  DG  le-smite-paladin: Minor drift: missing-Mana damage substrate approximated via gear-numer
+  DG  le-soul-feast: The automated multi-skill chain compresses to carrier + linked-cast gr
+  EI  le-squirrel-bm: R-M7 player test: 'not that build' - the swarm IS the kit (defining un
+  DG  le-storm-totem-shaman: Minor drift: tornado-as-mobile-weather flavor rides a stationary place
+  DG  le-swarmblade-druid: Swarm-entity texture thinned: Swarm Strike 360-finisher maps as ring;
+  DG  le-tempest-strike: Source player would miss the fixed 3-beat combo rhythm -- the determin
+  DG  le-umbral-blades: Source player would miss the recall: engine multi_projectile throws OU
+  DG  le-warpath-vk: Void Essence -> Void Well sub-resource feedback compressed into regen_
+  DG  le-werebear-druid: Bear-form visual + Rampage traversal texture thinned;
+  EI  le-wraithlord-necro: Nothing of the loop survives natively: autonomous-combatant delivery i
+
+==================== GATE MEASUREMENTS ====================
+G1 deviation->structured: 36/36 prose-bearing kits convert = 100.0% (propositions 36 -> rows 36); threshold >=90%
+G2 door-arg derivable-from-prose: 51/53 instances = 96.2% ; threshold >=80% (MEASURED not committed - V-21 fork)
+   2 non-derivable (kit,door) instances (bare token, no behavioral prose for that door):
+     le-shield-throw-time-rot-vk  PERSISTENCE_ENGINE_saturation
+     le-shift-bladedancer  MOMENTUM_CASCADE
+G3 prose-only T1 geometry: 0 of 34 T1 kits prose-only; threshold == 0
+   T1 kits with skill[0] NULL geometry (honest GAP-deferred pet-core null, NOT a G3 miss): ['le-manifest-armor', 'le-skeleton-necro', 'le-squirrel-bm', 'le-wraithlord-necro']
+G4 red-assert->docket: 4 kits carry a red assert; 4 deviation-lane dockets will open (surrogate continues from live max); every red routes
+
+GAPPED-terminal kits (frozen truth): 4 ['le-manifest-armor', 'le-skeleton-necro', 'le-squirrel-bm', 'le-wraithlord-necro']
+EI-deviation kits (classifier output): 4 ['le-manifest-armor', 'le-skeleton-necro', 'le-squirrel-bm', 'le-wraithlord-necro']
+  SELF-ASSERT PASS: EI-set == GAPPED-set (terminal-anchored discriminator holds).
+Decay-family register-split (RB-6; W5-flagged): NONE (LE negative result — no earth-on-chaos-poison split)
+elem_raw anomalies (W5-flagged): NONE (honest-empty)
+
+Measurement report -> /tmp/le-report.json
+Durable side-car export -> curated/vdm2-exports/vdm2-w4-le-2026-07-22.json
+
+Frozen-identity content hash POST (LE tranche): 4e3fa9b4437886a13cc9eb53228a56d4
+elem_raw WHOLE-CORPUS 585-row content hash POST: 5ad31b279b996586113a16be63e87f85
+elem_raw FROZEN-PROOF: tranche AND whole-corpus 585-row content hash IDENTICAL pre/post (V-18 held).
+Iron-law: canon_corpus=585 kit_mapping=574 is_system=19 (expect 585/574/19)
+foreign_key_check: EMPTY (clean)
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+
+===== LE INTERNAL-CONSISTENCY RECONCILIATION (36 kits) =====
+(no W1 external evidence for LE — cross-checks emitted side-cars against
+ the independent VDM-1 fields geo_raw / elem_raw / verify_ledger verdict.
+ A clean reconcile is CONFIRMATION, not external proof — W5 is LE's external check.)
+
+CLEAN (emitted structure consistent with VDM-1 fields): 36/36
+
+FLAGGED (real internal inconsistency — candidate emitter/data bug): 0
+
+ADJUDICATED (mismatch explained by multi-element grain gap, NOT a bug): 3
+  - le-bomb-lance-falconer: H2 register 'water' is a real kit element (skill0's primary); elem_raw 'physical' is the headline (multi-element grain gap, faithful; kit elements=['water'])
+  - le-harvest-lich: H2 register 'water' is a real kit element (skill0's primary); elem_raw 'necrotic' is the headline (multi-element grain gap, faithful; kit elements=['shadow', 'water'])
+  - le-skeleton-necro: H2 register 'water' is a real kit element (skill0's primary); elem_raw 'physical' is the headline (multi-element grain gap, faithful; kit elements=['water'])
+
+ANOMALY-EXPECTED (elem mismatch on W5-flagged elem anomalies, expected): 0
+  (none — LE has no elem_raw anomalies)
+
+W5-ROUTED (earth-on-chaos-poison decay split, RB-6): 0
+  (NONE — the RB-6 NEGATIVE RESULT: LE decay-family kits carry
+   skill.element_primary in {shadow, water}, NOT earth. The
+   D2/GD/PoE2 earth-split does NOT appear in LE. Reported for W5.)
+
+STRUCTURAL CLOSURE:
+  GAPPED-terminal kits (frozen truth): 4 ['le-manifest-armor', 'le-skeleton-necro', 'le-squirrel-bm', 'le-wraithlord-necro']
+  EI-deviation kits (classifier output): 4 ['le-manifest-armor', 'le-skeleton-necro', 'le-squirrel-bm', 'le-wraithlord-necro']
+  SELF-ASSERT PASS: EI-set == GAPPED-set (brief's required invariant holds).
+  deviation-lane dockets opened (family=vdm2-w4-le): 4 across 4 kits
+  EI kits with NO docket (orphans, must be []): []
+  dockets with NO EI kit (orphans, must be []): []
+  kit_door_arg rows for LE (V-21 carve-out, must be 0): 0
+  red acceptance asserts: 4, routed to docket: 4 (every red must route)
+
+post-apply live corpus.db md5:
+6af8dad6ea3ffbd7cc748877fc3dc6a2
+
+=== side-car row counts (LE) ===
+skill_geometry_band|78
+kit_deviation|36
+recognition_hook|59
+kit_acceptance_assert|40
+kit_delta_t4|36
+kit_numeric|0
+le deviation-lane dockets|4
+le kit_door_arg (must be 0)|0
+
+=== registry running totals + docket surrogate POST ===
+door_registry (expect 28, +1 COMPANION_CONTRACT)|28
+motion_signature_registry (expect 18, +0)|18
+max docket_id POST (expect 170 = 166+4)|170
+deviation-class breakdown (le)|accepted_downgrade:32 engine_inexpressible:4 
+
+=== NEW door token LE added ===
+COMPANION_CONTRACT|active
+
+=== CUMULATIVE side-car totals (whole corpus, post-LE) ===
+expect: SGB 490 / DEV 259 / HOOK 441 / ACC 310 / DT4 267 / NUM 2
+skill_geometry_band|490
+kit_deviation|259
+recognition_hook|441
+kit_acceptance_assert|310
+kit_delta_t4|267
+kit_numeric|2
+
+=== Iron-law FINAL + FK + integrity ===
+canon_corpus=585
+kit_mapping=574
+is_system=19
+foreign_key_check: 0
+ (0=clean)
+integrity_check: ok
+
+=== RE-APPLY idempotency proof (content stable; surrogate advances) ===
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+geometry-band content md5 PRE=34274091ce0c485014e51c5c940be32b POST=34274091ce0c485014e51c5c940be32b : IDENTICAL
+deviation content md5    PRE=296edd4cfe5723b714c7dcb69408b548 POST=296edd4cfe5723b714c7dcb69408b548 : IDENTICAL
+
+=== side-car counts POST re-apply (must equal first apply: 78/36/59/40/36/0) ===
+skill_geometry_band|78
+kit_deviation|36
+recognition_hook|59
+kit_acceptance_assert|40
+kit_delta_t4|36
+kit_numeric|0
+max docket_id POST re-apply (surrogate advanced 170->174)|174
+le dockets (still 4, content-idempotent)|4
+
+=== SYSTEM-RECORD LEAK-CHECK (corpus-wide): 0 side-car rows key to ANY is_system=1 kit ===
+leaked_sidecar_rows_to_system|0
+le_system_record_excluded|le-low-life-ward
+
+=== FINAL V-18 whole-corpus elem_raw proof (live vs pre-le backup) ===
+LIVE  elem_raw wholecorpus md5: 5ad31b279b996586113a16be63e87f85
+BACKUP elem_raw wholecorpus md5: 5ad31b279b996586113a16be63e87f85
+V-18 HELD: identical live-vs-backup AND equals frozen 5ad31b2...
+
+post-reapply live corpus.db md5:
+8027c5169dc6f90bdf27b850ed79fdd5
+
+=== FINAL AUTHORITATIVE STATE (post-LE, reportable numbers) ===
+post-md5 (authoritative mutation hash): 8027c5169dc6f90bdf27b850ed79fdd5
+
+cumulative side-car totals (whole corpus):
+  skill_geometry_band      490
+  kit_deviation            259
+  recognition_hook         441
+  kit_acceptance_assert    310
+  kit_delta_t4             267
+  kit_numeric              2
+  kit_door_arg (V-21, must be 0)        0
+
+registries: door_registry=28 motion_signature_registry=18
+iron-law: canon_corpus=585 kit_mapping=574 is_system=19
+LE dockets (family=vdm2-w4-le): 4 | all deviation-lane dockets grand total: 43
+
+cross-tranche deviation-lane docket breakdown:
+  vdm2-w4-d2: 13
+  vdm2-w4-gd: 6
+  vdm2-w4-le: 4
+  vdm2-w4-poe1: 14
+  vdm2-w4-poe2: 6
+
+elem_raw whole-corpus 585-row content-hash (V-18): 5ad31b279b996586113a16be63e87f85
+FK check: 0
+ rows (0=clean)
+integrity: ok
