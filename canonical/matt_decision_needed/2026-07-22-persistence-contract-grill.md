@@ -1,6 +1,6 @@
 # Persistence-Contract Grill — Two Boundaries × Five Surfaces (Q43)
 
-**STATUS:** OPEN — leans recorded for the record; **no surface is RULED**. The first fork on this sheet is the disposition itself (§5: defer vs story-session-now).
+**STATUS:** GRILL LIVE — **disposition RULED 2026-07-22** (Matt: *"we can run the B-RUN and B-SEASON both now"*) — both boundaries under in-session elicitation; ruling slate R1–R8 delivered in-session; rulings will be folded here as they land.
 **Author:** gandalf `ELICITOR`, 2026-07-22.
 **Trigger:** Lane-2 close-out flag-#2 — the A5 **+3-becoming acceptance band** is deferred/unbuilt pending this contract. Nothing else downstream blocks on it.
 **Matt's words on record (2026-07-22):** *"I lean in the direction that you detailed for most, but I don't think we have enough story to decide on any of them for sure… For the record I lean away from S2 where stuff doesn't travel. Unless we can reconcile it against the mobile sessions D2/POE reddit discussion."*
