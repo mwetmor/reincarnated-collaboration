@@ -7,8 +7,8 @@
 
 | Wave | State | Record |
 |---|---|---|
-| **W0** | **HARVEST COMPLETE — census+freeze IN-FLIGHT (elrond)** | 80 rows (I:20 · II:20 · III:18 · IV:22), quota met ×4 (legolas commits `e1693613` + `f71cc21e`; home `agentic_orchestration/legolas/harvests/2026-07-22-tier3-era-family-mob-harvest/`). Findings → **L-8**: SHAPESHIFT monster-side ABSENT I+III · DASH-STRIKER absent I · CHAIN-BOUNCE-IV thin (Scarab secondary only) · 7 UNMAPPED · 20 admissions. Census file = the W0→W1 handoff (L-2); jack-ryan Gate-2 fires at W0 close on the L-8 reclassification |
-| W1 grammar spec | PENDING (gated on census file) | — |
+| **W0** | **✓ CLOSED-PENDING-GATE-2 — census + SUBSTRATE FREEZE COMPLETE (elrond `f7224485`)** | 80 rows FROZEN (I:20 · II:20 · III:18 · IV:22; Age IV = 13 PoE2 / 9 LE), quota PASS ×4. Handoff artifact per L-2: `agentic_orchestration/elrond/notes/2026-07-22-tier3-w0-census-substrate-freeze.md` (md5 stamp on all four harvest files; era×family matrix; provenance axis 80 GENRE-ATTESTED / 0 RDR-NATIVE-DERIVED reserved). Findings f-1..f-6: L-8's three CONFIRMED + **f-4 NEW — WHIRLWIND-II is a FOURTH kit-present/monster-empty cell (RF-1, unenumerated in L-8; conductor lean: fold into R-b2 set, finding-count 3→4)** + f-5 DASH-STRIKER-IV fresh-draft non-obligation + f-6 DOT-AILMENT-II density note (informational). 7 UNMAPPED ledgered (U-2+U-6 = one cross-era resurrection-leader verb candidate) · **21** admissions (run-state's "20" was the estimate). **Gate-2 IN-FLIGHT (jack-ryan)** on the full finding-set |
+| W1 grammar spec | PENDING (census ✓ on disk; awaiting Gate-2 verdict — finding-set 3→4 correction changes W1's R-b2 serving scope) | — |
 | W2 fit layer + scenarios | PENDING | — |
 | PREREG BEAT | PENDING (L-3 obligation: Y-basis stated separately) | — |
 | W3 T3-F4 gate | PENDING | — |
@@ -23,7 +23,7 @@
 - **L-4** (2026-07-22) — Gate-1 C3 → story-fold admission: kin-guarantee × guest-family edge (IDENTITY-GAUGE / MINION-PET have no native act presence and no traveling-kin ruling) logged for the story fold; out of W0–W4 scope. Veto-open.
 - **L-5** (2026-07-22) — W0 two-agent era split (I+III / II+IV) to halve wall-time; identical quota + citation discipline per agent; sub-agents commit-never-push. Veto-open.
 - **L-6** (2026-07-22) — Island build-out + scoring PRE-RATIFIED (Matt verbatim: *"Regarding the Islands mapping, please re-map them with the newly added mechanics when the time is right. You have my ratification to build it out and score it."*). Reading of record: re-cut the island layer on the enriched substrate (590-row corpus · three-tier family memberships · Tier-3 outputs), ON the E4 camera per Path A; timing = conductor's, gated on Matt's own C1–C3 conditions; survives the fallback path (depends on C2/C3 data population, not the T3-F4 verdict); the build-out beat gets its own mini-charter (input set pinned there; ARCHITECT pass at that boundary). Island NAMES excluded — Q32 naming one-sitting stays Matt's. Veto-open.
-- **L-7** (2026-07-22) — Q42 RESOLVED-BY-ACTION (Matt: *"I fired both KR lanes in parallel"*); T3-V7 braid law LIVE. Residual reserve #9 (PROXY-T4 B1-REBASE): default HOLD until Lane-1 or Lane-2 closes — three concurrent engine-repo writers plus Tier-3's later W2 gamora binding is contention without critical-path payoff; fire-word remains Matt's. Veto-open.
+- **L-7** (2026-07-22) — Q42 RESOLVED-BY-ACTION (Matt: *"I fired both KR lanes in parallel"*); T3-V7 braid law LIVE. Residual reserve #9 (PROXY-T4 B1-REBASE): default HOLD until Lane-1 or Lane-2 closes — three concurrent engine-repo writers plus Tier-3's later W2 gamora binding is contention without critical-path payoff; fire-word remains Matt's. **HOLD RATIFIED by Matt 2026-07-22** (*"Agreed on the #9 HOLD"*) — ruled, no longer default; flip condition unchanged (a live lane closing makes #9 clean; fire-word stays Matt's).
 - **L-8** (2026-07-22) — W0 harvest findings DISPOSITIONED (Gate-B→F-1 precedent: reclassify, publish, continue): **(a)** SHAPESHIFT has NO monster-side template in Ages I+III (genre history holds it as player-kit-origin only — D2 Druid, GD player-transmog; the optional Ravager boss excluded) and DASH-STRIKER none in Age I — the W0 "≥1 mob-template per present family" predicate RECLASSIFIES these as **published findings**, not harvest failures; zero fabrication (holes stay load-bearing). **(b)** W1 grammar serves kit-present/monster-absent-or-thin families (SHAPESHIFT I+III · DASH-STRIKER I · CHAIN-BOUNCE-IV) via **R-b2 derivation** — mob templates derived from the family kit-leader's mechanism verbs, provenance-flagged **RDR-NATIVE-DERIVED** vs **GENRE-ATTESTED** (a two-value provenance axis the census carries per row-source). **(c)** 7 UNMAPPED rows + 20 admissions ride the census as findings for the next lap (T3-V3). Routed to jack-ryan Gate-2 at W0 close — in-run reclassification is his §8 territory. Veto-open.
 
 ## Gate-1 record
@@ -42,7 +42,7 @@
 
 - Lane-1 (emission, star-lord): `encounters` bundle-key reservation; RD-1 = its acceptance fixture. **✓ FIRED by Matt 2026-07-22** — reservation rider LIVE.
 - Lane-2 (sim capacity, gamora): W2 red-flags route INTO its spec. **✓ FIRED by Matt 2026-07-22** — spec-first rider LIVE; W2 red-flag routing armed.
-- Reserve #9 (PROXY-T4 B1-REBASE): **HOLD default (L-7)** — fire-word Matt's; lean HOLD until a live lane closes.
+- Reserve #9 (PROXY-T4 B1-REBASE): **HOLD RATIFIED by Matt 2026-07-22** (L-7) — flips clean when a live lane closes; fire-word Matt's.
 
 ## Matt interface log (§6 — review book at close; red-flag pings only)
 
