@@ -49,6 +49,8 @@
 
 **Wave-B KR session LIVE (Matt pasted the prompt 2026-07-22)** — a parallel conductor is active. Seam-disjoint at the work layer (engine repo gamora/rocket vs research DB elrond/legolas); shared surface = the meta-repo. Discipline in effect: distinct namespaces (`2026-07-22-vdm2-edition-next-lap-*` here vs `2026-07-22-wave-b-reservation-aura-*` there); this file is THIS run's state; sub-agent briefs carry no-push; **this lap's pushes are conductor-centralized under E-2** (`pull --rebase` on rejection). KR lane's push authority is its OWN per its prompt §6 — this run's E-2 does not extend to it; Matt manages that session directly.
 
+**Interleave record (post-W0):** KR lane committed `a85833f0` (gates GREEN + 2 dispatches + own run-state, all inside its `wave-b-reservation-aura` namespace — discipline holding); legolas W1 landing batches incrementally (`abd9ce53` = batch 2, kits c–g). Shared-branch consequence: this lap's E-2 pushes CARRY any parallel-lane local commits to remote — push *initiative* remains conductor-centralized here and Matt-gated in the KR lane; carried commits are not a KR push.
+
 **Matt interface state:** Matt signed off after firing the Wave-B session; the run conducts autonomously per charter §6 (review book per leg; red-flag pings only). If E-1 is unruled when the refresh beat arrives, the conservative default GOVERNS the beat (no admission, 585 intact) and Leg B proceeds — no halt; the Edition freeze still parks at Matt regardless.
 
 **Signed:** gandalf, 2026-07-22.
