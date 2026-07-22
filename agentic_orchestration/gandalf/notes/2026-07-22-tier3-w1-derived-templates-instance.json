@@ -1,0 +1,70 @@
+{
+  "$comment": "L-10 INSTANCE DATA. The 5 RDR-NATIVE-DERIVED derived-template cells (Gate-2 hard obligation L-9), instantiated as schema-conformant DATA so W2 (fit layer) and RD-1 (first emitted run-object) consume them as data, not prose. Mirrors the `derived_templates` property of the schema draft: agentic_orchestration/gandalf/notes/2026-07-22-tier3-w1-encounter-schema-draft.json (#/properties/derived_templates -> #/definitions/DerivedTemplate). Content source: encounter-grammar spec agentic_orchestration/gandalf/notes/2026-07-22-tier3-w1-encounter-grammar-spec.md §5.0-§5.5. Ruling L-10, Tier-3 Encounter-Geometry Run, conductor gandalf RUN-CONDUCTOR. WORKING-LABEL CAVEAT: every `family` value is a WORKING LABEL, not canon (charter §5, T3-V2); rename is value-swap-safe. Set fixed by rulings L-8/L-9: exactly these 5, f-5 DASH-STRIKER-IV EXCLUDED. Authored by named-gandalf sub-agent (SPEC-AUTHOR), 2026-07-22.",
+  "derived_templates": [
+    {
+      "cell": "SHAPESHIFT-I",
+      "family": "SHAPESHIFT",
+      "era": "I",
+      "family_tier": "DOCKETED",
+      "provenance": "RDR-NATIVE-DERIVED",
+      "serving_role": "secondary",
+      "derivation_source": "D2 Druid Shapeshifting (player-kit): the form-swap verb — enter an alternate body-form that replaces the attack surface (melee-brawl form) and buffs survivability.",
+      "why_derived": "f-1 CONFIRMED — SHAPESHIFT has no monster-side template in Age I; genre history holds it player-kit-origin only (D2 Druid Shapeshifting tree, werewolf/werebear). Optional bosses (Andariel poison-metamorphosis, Possessed champion modifier) are thematically adjacent but mechanically distinct — excluded (census §b, admission A-I.2). Zero fabrication; explicitly derived.",
+      "meso_formation_id": "ss_derived_form_swap",
+      "validation_path": null,
+      "confidence": "HIGH"
+    },
+    {
+      "cell": "SHAPESHIFT-III",
+      "family": "SHAPESHIFT",
+      "era": "III",
+      "family_tier": "DOCKETED",
+      "provenance": "RDR-NATIVE-DERIVED",
+      "serving_role": "secondary",
+      "derivation_source": "GD player-transmog (player-kit): the form-swap mastery mechanic rendered monster-side, re-skinned to Age-III Aetherial/Chthonian faction dressing (biome-morph rider, §1.2).",
+      "why_derived": "f-1 CONFIRMED (Age III) — GD's single SHAPESHIFT record is player-kit; the Bloodsworn Summoner 'transform' is a summoner-variant not a body-morph (admission A-III.1); the Ravager three-form boss is post-game optional, excluded (A-III.2). Age IV DOES have monster-side SHAPESHIFT (Geonor) — so this finding is I+III-specific. Zero fabrication.",
+      "meso_formation_id": "ss_derived_form_swap",
+      "validation_path": null,
+      "confidence": "HIGH"
+    },
+    {
+      "cell": "DASH-STRIKER-I",
+      "family": "DASH-STRIKER",
+      "era": "I",
+      "family_tier": "FRESH-DRAFT",
+      "provenance": "RDR-NATIVE-DERIVED",
+      "serving_role": "texture_docket_input",
+      "derivation_source": "D2 Assassin Dragon Talon / charge-lineage (player-kit): the gap-close-and-strike verb — cover distance in a single burst, deliver a strike, disengage.",
+      "why_derived": "f-2 CONFIRMED — no dedicated dash-teleport mob in D2. The Fanatic-enchanted +100% move-speed is the closest but is a MODIFIER not a dash-skill (admission A-I.1); the Assassin Dragon Talon kick-dash is player-side. Fresh-draft tier bars headlining (T3-V2, §5.0) — serves as flank-pressure texture within a hostile MELEE brawl (deck I-A / I-D) or as input to a future DASH-STRIKER docket. Zero fabrication.",
+      "meso_formation_id": "ds_derived_gap_close",
+      "validation_path": null,
+      "confidence": "HIGH"
+    },
+    {
+      "cell": "CHAIN-BOUNCE-IV",
+      "family": "CHAIN-BOUNCE",
+      "era": "IV",
+      "family_tier": "FRESH-DRAFT",
+      "provenance": "RDR-NATIVE-DERIVED",
+      "serving_role": "texture_docket_input",
+      "derivation_source": "LE Lightning Blast / PoE2 Arc (player-kit corpus): the bounce-and-chain verb — bolts bounce player -> adds -> walls (~5 CHAIN-BOUNCE record kits per Appendix-B B3).",
+      "why_derived": "f-3 CONFIRMED — CHAIN-BOUNCE-IV is THIN: the only signal is the Scarab arc-bolt SECONDARY (row #6), no dedicated primary CHAIN-BOUNCE row in PoE2/LE. Ages I/II/III each have a primary chain row; Age IV is the sole thin cell. Fresh-draft tier bars headlining (T3-V2, §5.0) — texture/docket-input only. Attested texture available: Scarab arc-bolt (row #6), Storm Burst (row #22).",
+      "meso_formation_id": "cbn_derived_arc_pass",
+      "validation_path": "poe2db arc-chain direct pass",
+      "confidence": "HIGH"
+    },
+    {
+      "cell": "WHIRLWIND-II",
+      "family": "WHIRLWIND",
+      "era": "II",
+      "family_tier": "RATIFIED",
+      "provenance": "RDR-NATIVE-DERIVED",
+      "serving_role": "headline_capable",
+      "derivation_source": "WHIRLWIND kit-leader spin-and-close, rendered as PoE1 aura-frenzy line: because PoE1 has no native spin-mob, the derivation renders WHIRLWIND-II as an aura-driven frenzy line (ww_derived_frenzy_line) — a pack behaving as a converging spin-body driven by a leader's frenzy aura, in the PoE1 bandit/cultist idiom.",
+      "why_derived": "f-4 — the FOURTH kit-present/monster-empty cell, NOT in the original L-8 three, folded into the serving set at Gate-2 (3->4, L-9(ii), jack-ryan §8 authority). Appendix-B B1 records WHIRLWIND=1 for Age II; harvest supplies zero (⚠-A). Same class as f-1/f-2/f-3: a PoE1 spin/melee deficit (same root as the MELEE-STRIKE-II hole). PoE1-era-honest: does NOT fabricate a PoE1 spinning mob; renders the family's spin-and-close pressure through PoE1-available mechanisms (aura + frenzy). Re-crawl REJECTED at Gate-2 (no integrity payoff for a single fresh-record cell). Zero fabrication. RATIFIED tier — the only one of the 5 derived cells that may headline.",
+      "meso_formation_id": "ww_derived_frenzy_line",
+      "validation_path": null,
+      "confidence": "HIGH"
+    }
+  ]
+}
