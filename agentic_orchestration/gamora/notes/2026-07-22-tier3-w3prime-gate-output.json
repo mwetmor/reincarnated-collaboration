@@ -1,0 +1,5310 @@
+{
+  "artifact": "tier3-w3prime-gate-output",
+  "run": "Tier-3 Encounter-Geometry Run \u00b7 Wave W3' \u00b7 T3-F4' GATE (mechanical execution)",
+  "author": "gamora",
+  "date": "2026-07-22",
+  "header": {
+    "substrate_md5_open": "d091881dc1507753577f56f4998a64a5",
+    "substrate_md5_close": "d091881dc1507753577f56f4998a64a5",
+    "corpus_stable_open_close": true,
+    "sidecar_commit": "6dd43161",
+    "amendment_freeze_commit": "904f317c",
+    "amendment_clean_pass": "c47f6cc8",
+    "base_prereg_freeze_commit": "5ea56bf3",
+    "prereg_doc": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-07-22-tier3-w3prime-prereg.md",
+    "base_prereg_doc": "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-07-22-tier3-w3-prereg.md",
+    "engine_head_stamp": "a3671d4215489c4ddb58d69ebe1311784a946df4",
+    "engine_head_at_fire": "a3671d4215489c4ddb58d69ebe1311784a946df4",
+    "engine_head_at_close": "a3671d4215489c4ddb58d69ebe1311784a946df4",
+    "head_state_invariant_ok": true,
+    "head_subtree_delta_stamp_to_close": "(empty \u2014 byte-identical)",
+    "seeds": [
+      20260722,
+      20260723,
+      20260724,
+      20260725
+    ],
+    "damage_modifier": 1.0,
+    "frozen_X_effect_size": 0.5,
+    "frozen_Y_min_correct": 24,
+    "frozen_Y_pct": "75% (>=24/32)",
+    "sd_pool_prime": {
+      "mobs_killed": 13.011263,
+      "total_aoe_hits": 13.011263,
+      "player_damage_total": 1951.689472
+    },
+    "mob_parity_total": 40,
+    "seal_md5": "3c2bf3742b85fb34ea644e3ef3d59ab9",
+    "seal_path": "2026-07-22-tier3-w3prime-pregate-seal.json",
+    "zero_writes_to_engine_repo": true
+  },
+  "verdict": "FAIL",
+  "gate_legs": {
+    "leg1_showcase": {
+      "metric": "median composite d (informative) over high-fit pairs",
+      "value": 0.0,
+      "threshold": ">= +0.5",
+      "pass": false,
+      "n_pairs": 16
+    },
+    "leg2_stress": {
+      "metric": "median composite d (informative) over low-fit pairs",
+      "value": 0.1921,
+      "threshold": "<= -0.5",
+      "pass": false,
+      "n_pairs": 16
+    },
+    "leg3_direction": {
+      "metric": "pairs sign-correct under SEALED renormalized rule",
+      "value": "10/32",
+      "threshold": ">= 24/32",
+      "pass": false,
+      "sealed_sign_rule": ">=2-of-3 informative metrics agree with predicted sign"
+    }
+  },
+  "degeneracy_determination": {
+    "informative_metrics": [
+      "mobs_killed",
+      "total_aoe_hits",
+      "player_damage_total"
+    ],
+    "n_informative": 3,
+    "renormalized_sign_rule": ">=2-of-3 informative metrics agree with predicted sign",
+    "degeneracy": {
+      "mobs_killed": {
+        "sd_pool_prime": 13.011263,
+        "bound": 40.0,
+        "cells_at_bound": 4,
+        "n_cells": 32,
+        "sd_pool_prime_is_zero": false,
+        "at_bound_threshold": 29,
+        "degenerate": false
+      },
+      "total_aoe_hits": {
+        "sd_pool_prime": 13.011263,
+        "bound": null,
+        "cells_at_bound": 0,
+        "n_cells": 32,
+        "sd_pool_prime_is_zero": false,
+        "at_bound_threshold": 29,
+        "degenerate": false
+      },
+      "player_damage_total": {
+        "sd_pool_prime": 1951.689472,
+        "bound": null,
+        "cells_at_bound": 0,
+        "n_cells": 32,
+        "sd_pool_prime_is_zero": false,
+        "at_bound_threshold": 29,
+        "degenerate": false
+      }
+    },
+    "degeneracy_fired": false,
+    "alpha_realized_for_direction_leg": 0.0035001833457499743,
+    "alpha_note": "\u00a78.4 C5: alpha recomputed for the realized informative configuration; the gate PARAMETER stays the >=24/32 count. The base-sheet 0.0035 is exact only under all-pairs-3-informative."
+  },
+  "decomposition": {
+    "per_era_legs": {
+      "I": {
+        "high_median_composite_d": -0.2306,
+        "low_median_composite_d": 0.4419,
+        "n_sign_correct": 2,
+        "n_pairs": 8
+      },
+      "II": {
+        "high_median_composite_d": 0.2402,
+        "low_median_composite_d": 0.3458,
+        "n_sign_correct": 4,
+        "n_pairs": 8
+      },
+      "III": {
+        "high_median_composite_d": 0.0,
+        "low_median_composite_d": 0.0,
+        "n_sign_correct": 2,
+        "n_pairs": 8
+      },
+      "IV": {
+        "high_median_composite_d": 0.3458,
+        "low_median_composite_d": 0.3458,
+        "n_sign_correct": 2,
+        "n_pairs": 8
+      }
+    },
+    "per_family_mean_composite_d": {
+      "MULTI-PROJECTILE-VOLLEY": 0.7045,
+      "TOTEM-SENTRY": 0.2082,
+      "TRAP-MINE": 0.7926,
+      "DOT-AILMENT": -0.2306,
+      "AURA": 0.5892,
+      "MELEE-STRIKE": -0.1025,
+      "WHIRLWIND": 0.0,
+      "CHANNELED-BEAM": -0.0769
+    },
+    "per_metric_medians": {
+      "mobs_killed": {
+        "informative": true,
+        "high_median_d": 0.0,
+        "low_median_d": 0.1921
+      },
+      "total_aoe_hits": {
+        "informative": true,
+        "high_median_d": 0.0,
+        "low_median_d": 0.1921
+      },
+      "player_damage_total": {
+        "informative": true,
+        "high_median_d": 0.0,
+        "low_median_d": 0.1921
+      }
+    },
+    "membership_tier_mix_of_scored_pairs": {
+      "DOCKET": 13,
+      "PROPAGATED": 5,
+      "RATIFIED": 14
+    },
+    "n_scored_pairs": 32,
+    "n_red_flag_pairs": 0
+  },
+  "composition_parity_checks": {
+    "swarm": {
+      "parity_ok": true,
+      "encounter_count": 40,
+      "baseline_count": 40,
+      "encounter_tier_mix": {
+        "swarm": 40
+      },
+      "baseline_tier_mix": {
+        "swarm": 40
+      },
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_hp_multiset": {
+        "150.0": 40
+      }
+    },
+    "volley-fan": {
+      "parity_ok": true,
+      "encounter_count": 40,
+      "baseline_count": 40,
+      "encounter_tier_mix": {
+        "magic": 40
+      },
+      "baseline_tier_mix": {
+        "magic": 40
+      },
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_hp_multiset": {
+        "150.0": 40
+      }
+    },
+    "lane": {
+      "parity_ok": true,
+      "encounter_count": 40,
+      "baseline_count": 40,
+      "encounter_tier_mix": {
+        "swarm": 40
+      },
+      "baseline_tier_mix": {
+        "swarm": 40
+      },
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_hp_multiset": {
+        "150.0": 40
+      }
+    },
+    "emplacement": {
+      "parity_ok": true,
+      "encounter_count": 40,
+      "baseline_count": 40,
+      "encounter_tier_mix": {
+        "magic": 40
+      },
+      "baseline_tier_mix": {
+        "magic": 40
+      },
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_hp_multiset": {
+        "150.0": 40
+      }
+    }
+  },
+  "selection_census": {
+    "I": {
+      "deck_median_fit": 0.65,
+      "n_candidates": 125,
+      "high": [
+        {
+          "kit_id": "d2-bowazon",
+          "draft_family": "MULTI-PROJECTILE-VOLLEY",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-fire-sorc",
+          "draft_family": "TOTEM-SENTRY",
+          "membership_tier": "PROPAGATED",
+          "fit_score": 1.0,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-frenzy-barb",
+          "draft_family": "TRAP-MINE",
+          "membership_tier": "RATIFIED",
+          "fit_score": 1.0,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-poison-javazon",
+          "draft_family": "DOT-AILMENT",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "chaos-poison",
+          "family_present": "present"
+        }
+      ],
+      "low": [
+        {
+          "kit_id": "le-fire-aura-spellblade",
+          "draft_family": "AURA",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.1,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-frost-blades",
+          "draft_family": "MULTI-PROJECTILE-VOLLEY",
+          "membership_tier": "DOCKET",
+          "fit_score": 0.1,
+          "court": "cold",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe2-warbringer-totems",
+          "draft_family": "TOTEM-SENTRY",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.1,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "gd-belgothian-blademaster",
+          "draft_family": "MELEE-STRIKE",
+          "membership_tier": "DOCKET",
+          "fit_score": 0.25,
+          "court": "physical",
+          "family_present": "present"
+        }
+      ],
+      "families_drafted": [
+        "AURA",
+        "DOT-AILMENT",
+        "MELEE-STRIKE",
+        "MULTI-PROJECTILE-VOLLEY",
+        "TOTEM-SENTRY",
+        "TRAP-MINE"
+      ],
+      "courts_drafted": [
+        "chaos-poison",
+        "cold",
+        "fire",
+        "physical"
+      ],
+      "n_courts": 4,
+      "courts_check_ok": true,
+      "swap_log": []
+    },
+    "II": {
+      "deck_median_fit": 0.75,
+      "n_candidates": 111,
+      "high": [
+        {
+          "kit_id": "poe1-armageddon-brand",
+          "draft_family": "TOTEM-SENTRY",
+          "membership_tier": "PROPAGATED",
+          "fit_score": 1.0,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-autobomber",
+          "draft_family": "TRAP-MINE",
+          "membership_tier": "RATIFIED",
+          "fit_score": 1.0,
+          "court": "cold",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-caustic-arrow",
+          "draft_family": "DOT-AILMENT",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "chaos-poison",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-spark",
+          "draft_family": "MULTI-PROJECTILE-VOLLEY",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "lightning",
+          "family_present": "present"
+        }
+      ],
+      "low": [
+        {
+          "kit_id": "d2-auradin",
+          "draft_family": "AURA",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.1,
+          "court": "lightning",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-frost-blades",
+          "draft_family": "MULTI-PROJECTILE-VOLLEY",
+          "membership_tier": "DOCKET",
+          "fit_score": 0.2,
+          "court": "cold",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-bvc",
+          "draft_family": "WHIRLWIND",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.25,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "gd-flames-of-ignaffar-purifier",
+          "draft_family": "CHANNELED-BEAM",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.25,
+          "court": "fire",
+          "family_present": "present"
+        }
+      ],
+      "families_drafted": [
+        "AURA",
+        "CHANNELED-BEAM",
+        "DOT-AILMENT",
+        "MULTI-PROJECTILE-VOLLEY",
+        "TOTEM-SENTRY",
+        "TRAP-MINE",
+        "WHIRLWIND"
+      ],
+      "courts_drafted": [
+        "chaos-poison",
+        "cold",
+        "fire",
+        "lightning",
+        "physical"
+      ],
+      "n_courts": 5,
+      "courts_check_ok": true,
+      "swap_log": []
+    },
+    "III": {
+      "deck_median_fit": 0.65,
+      "n_candidates": 111,
+      "high": [
+        {
+          "kit_id": "gd-bloody-pox-conjurer",
+          "draft_family": "DOT-AILMENT",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "chaos-poison",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "gd-mortar-purifier",
+          "draft_family": "TOTEM-SENTRY",
+          "membership_tier": "PROPAGATED",
+          "fit_score": 1.0,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "gd-primal-strike-vindicator",
+          "draft_family": "TRAP-MINE",
+          "membership_tier": "PROPAGATED",
+          "fit_score": 1.0,
+          "court": "lightning",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe2-twister",
+          "draft_family": "WHIRLWIND",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.9,
+          "court": "physical",
+          "family_present": "present"
+        }
+      ],
+      "low": [
+        {
+          "kit_id": "poe2-warbringer-totems",
+          "draft_family": "TOTEM-SENTRY",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.1,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-avenger",
+          "draft_family": "MELEE-STRIKE",
+          "membership_tier": "DOCKET",
+          "fit_score": 0.25,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-bvc",
+          "draft_family": "WHIRLWIND",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.25,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "le-ghostflame-warlock",
+          "draft_family": "CHANNELED-BEAM",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.25,
+          "court": "chaos-poison",
+          "family_present": "present"
+        }
+      ],
+      "families_drafted": [
+        "CHANNELED-BEAM",
+        "DOT-AILMENT",
+        "MELEE-STRIKE",
+        "TOTEM-SENTRY",
+        "TRAP-MINE",
+        "WHIRLWIND"
+      ],
+      "courts_drafted": [
+        "chaos-poison",
+        "fire",
+        "lightning",
+        "physical"
+      ],
+      "n_courts": 4,
+      "courts_check_ok": true,
+      "swap_log": []
+    },
+    "IV": {
+      "deck_median_fit": 0.65,
+      "n_candidates": 131,
+      "high": [
+        {
+          "kit_id": "le-explosive-trap-falconer",
+          "draft_family": "TOTEM-SENTRY",
+          "membership_tier": "PROPAGATED",
+          "fit_score": 1.0,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "le-healing-hands-paladin",
+          "draft_family": "TRAP-MINE",
+          "membership_tier": "RATIFIED",
+          "fit_score": 1.0,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-kinetic-fusillade",
+          "draft_family": "MULTI-PROJECTILE-VOLLEY",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "physical",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe2-erasure-edc-lich",
+          "draft_family": "DOT-AILMENT",
+          "membership_tier": "DOCKET",
+          "fit_score": 1.0,
+          "court": "chaos-poison",
+          "family_present": "present"
+        }
+      ],
+      "low": [
+        {
+          "kit_id": "d2-auradin",
+          "draft_family": "AURA",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.1,
+          "court": "lightning",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "poe1-frost-blades",
+          "draft_family": "MULTI-PROJECTILE-VOLLEY",
+          "membership_tier": "DOCKET",
+          "fit_score": 0.1,
+          "court": "cold",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-avenger",
+          "draft_family": "MELEE-STRIKE",
+          "membership_tier": "DOCKET",
+          "fit_score": 0.25,
+          "court": "fire",
+          "family_present": "present"
+        },
+        {
+          "kit_id": "d2-bvc",
+          "draft_family": "WHIRLWIND",
+          "membership_tier": "RATIFIED",
+          "fit_score": 0.25,
+          "court": "physical",
+          "family_present": "present"
+        }
+      ],
+      "families_drafted": [
+        "AURA",
+        "DOT-AILMENT",
+        "MELEE-STRIKE",
+        "MULTI-PROJECTILE-VOLLEY",
+        "TOTEM-SENTRY",
+        "TRAP-MINE",
+        "WHIRLWIND"
+      ],
+      "courts_drafted": [
+        "chaos-poison",
+        "cold",
+        "fire",
+        "lightning",
+        "physical"
+      ],
+      "n_courts": 5,
+      "courts_check_ok": true,
+      "swap_log": []
+    }
+  },
+  "red_flags": {
+    "red_flag_pairs": [],
+    "encounter_builder_red_flags": {},
+    "baseline_builder_red_flags": {}
+  },
+  "smoke_nonpassive_check": {
+    "targets": 2,
+    "results": [
+      {
+        "kit_id": "d2-bowazon",
+        "cell": "endgame_bc_ranged_high_flat_dex_none",
+        "formation_class": "volley-fan",
+        "mobs_killed": 40,
+        "player_damage_total": 6000.0,
+        "passive": false
+      },
+      {
+        "kit_id": "d2-fire-sorc",
+        "cell": "endgame_bc_ranged_medium_variable_int_none",
+        "formation_class": "emplacement",
+        "mobs_killed": 20,
+        "player_damage_total": 3000.0,
+        "passive": false
+      }
+    ],
+    "build_seconds": 0.3
+  },
+  "per_pair_table": [
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-bowazon",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 40.0,
+        "total_aoe_hits": 40.0,
+        "player_damage_total": 6000.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-fire-sorc",
+      "family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 31.0,
+        "total_aoe_hits": 31.0,
+        "player_damage_total": 4650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.807,
+        "total_aoe_hits": -0.807,
+        "player_damage_total": -0.807
+      },
+      "composite_d_informative": -0.807,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-frenzy-barb",
+      "family": "TRAP-MINE",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "tm_spawner_nest",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 1.75,
+        "total_aoe_hits": 1.75,
+        "player_damage_total": 262.5
+      },
+      "d_per_metric": {
+        "mobs_killed": 1.0376,
+        "total_aoe_hits": 1.1721,
+        "player_damage_total": 1.0376
+      },
+      "composite_d_informative": 1.0376,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-poison-javazon",
+      "family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 40.0,
+        "total_aoe_hits": 40.0,
+        "player_damage_total": 6000.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.4611,
+        "total_aoe_hits": -0.4611,
+        "player_damage_total": -0.4611
+      },
+      "composite_d_informative": -0.4611,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "le-fire-aura-spellblade",
+      "family": "AURA",
+      "membership_tier": "RATIFIED",
+      "court": "fire",
+      "fit_score": 0.1,
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 23.5,
+        "total_aoe_hits": 23.5,
+        "player_damage_total": 3525.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.3843,
+        "total_aoe_hits": 0.3843,
+        "player_damage_total": 0.3843
+      },
+      "composite_d_informative": 0.3843,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "cold",
+      "fit_score": 0.1,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 22.0,
+        "total_aoe_hits": 22.0,
+        "player_damage_total": 3300.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 1.3834,
+        "total_aoe_hits": 1.3834,
+        "player_damage_total": 1.3834
+      },
+      "composite_d_informative": 1.3834,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.1,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.4996,
+        "total_aoe_hits": 0.5764,
+        "player_damage_total": 0.4996
+      },
+      "composite_d_informative": 0.4996,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "gd-belgothian-blademaster",
+      "family": "MELEE-STRIKE",
+      "membership_tier": "DOCKET",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 22.0,
+        "total_aoe_hits": 22.0,
+        "player_damage_total": 3300.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.3074,
+        "total_aoe_hits": -0.3074,
+        "player_damage_total": -0.3074
+      },
+      "composite_d_informative": -0.3074,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-armageddon-brand",
+      "family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "ts_resurrection_loop",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.6917,
+        "total_aoe_hits": 0.6917,
+        "player_damage_total": 0.6917
+      },
+      "composite_d_informative": 0.6917,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-autobomber",
+      "family": "TRAP-MINE",
+      "membership_tier": "RATIFIED",
+      "court": "cold",
+      "fit_score": 1.0,
+      "formation_id": "tm_ritual_minefield",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 22.0,
+        "total_aoe_hits": 22.0,
+        "player_damage_total": 3300.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.4035,
+        "total_aoe_hits": 0.4035,
+        "player_damage_total": 0.4035
+      },
+      "composite_d_informative": 0.4035,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-caustic-arrow",
+      "family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 40.0,
+        "total_aoe_hits": 40.0,
+        "player_damage_total": 6000.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.4611,
+        "total_aoe_hits": -0.4611,
+        "player_damage_total": -0.4611
+      },
+      "composite_d_informative": -0.4611,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-spark",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "lightning",
+      "fit_score": 1.0,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0769,
+        "total_aoe_hits": 0.0769,
+        "player_damage_total": 0.0769
+      },
+      "composite_d_informative": 0.0769,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "membership_tier": "RATIFIED",
+      "court": "lightning",
+      "fit_score": 0.1,
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.6917,
+        "total_aoe_hits": 0.6917,
+        "player_damage_total": 0.6917
+      },
+      "composite_d_informative": 0.6917,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "cold",
+      "fit_score": 0.2,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 22.0,
+        "total_aoe_hits": 22.0,
+        "player_damage_total": 3300.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 1.3834,
+        "total_aoe_hits": 1.3834,
+        "player_damage_total": 1.3834
+      },
+      "composite_d_informative": 1.3834,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ww_derived_frenzy_line",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "family": "CHANNELED-BEAM",
+      "membership_tier": "RATIFIED",
+      "court": "fire",
+      "fit_score": 0.25,
+      "formation_id": "cb_lane_hold",
+      "formation_class": "lane",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 4.0,
+        "total_aoe_hits": 4.0,
+        "player_damage_total": 600.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.0769,
+        "total_aoe_hits": -0.0769,
+        "player_damage_total": -0.0769
+      },
+      "composite_d_informative": -0.0769,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-bloody-pox-conjurer",
+      "family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 18.0,
+        "total_aoe_hits": 18.0,
+        "player_damage_total": 2700.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-mortar-purifier",
+      "family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 31.0,
+        "total_aoe_hits": 31.0,
+        "player_damage_total": 4650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.807,
+        "total_aoe_hits": -0.807,
+        "player_damage_total": -0.807
+      },
+      "composite_d_informative": -0.807,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-primal-strike-vindicator",
+      "family": "TRAP-MINE",
+      "membership_tier": "PROPAGATED",
+      "court": "lightning",
+      "fit_score": 1.0,
+      "formation_id": "tm_spawner_nest",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 1.75,
+        "total_aoe_hits": 1.75,
+        "player_damage_total": 262.5
+      },
+      "d_per_metric": {
+        "mobs_killed": 1.0376,
+        "total_aoe_hits": 1.1721,
+        "player_damage_total": 1.0376
+      },
+      "composite_d_informative": 1.0376,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "poe2-twister",
+      "family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.9,
+      "formation_id": "ww_arc_sweep",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 4.0,
+        "total_aoe_hits": 4.0,
+        "player_damage_total": 600.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.1,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.4996,
+        "total_aoe_hits": 0.5764,
+        "player_damage_total": 0.4996
+      },
+      "composite_d_informative": 0.4996,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "membership_tier": "DOCKET",
+      "court": "fire",
+      "fit_score": 0.25,
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ww_arc_sweep",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "le-ghostflame-warlock",
+      "family": "CHANNELED-BEAM",
+      "membership_tier": "RATIFIED",
+      "court": "chaos-poison",
+      "fit_score": 0.25,
+      "formation_id": "cb_lane_hold",
+      "formation_class": "lane",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 4.0,
+        "total_aoe_hits": 4.0,
+        "player_damage_total": 600.0
+      },
+      "d_per_metric": {
+        "mobs_killed": -0.0769,
+        "total_aoe_hits": -0.0769,
+        "player_damage_total": -0.0769
+      },
+      "composite_d_informative": -0.0769,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "le-explosive-trap-falconer",
+      "family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "ts_resurrection_loop",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 4.0,
+        "total_aoe_hits": 4.0,
+        "player_damage_total": 600.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 1.1721,
+        "total_aoe_hits": 1.1721,
+        "player_damage_total": 1.1721
+      },
+      "composite_d_informative": 1.1721,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "le-healing-hands-paladin",
+      "family": "TRAP-MINE",
+      "membership_tier": "RATIFIED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "tm_ritual_minefield",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.6917,
+        "total_aoe_hits": 0.6917,
+        "player_damage_total": 0.6917
+      },
+      "composite_d_informative": 0.6917,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 3,
+      "pair_sign_correct": true,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "poe1-kinetic-fusillade",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 40.0,
+        "total_aoe_hits": 40.0,
+        "player_damage_total": 6000.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "poe2-erasure-edc-lich",
+      "family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 18.0,
+        "total_aoe_hits": 18.0,
+        "player_damage_total": 2700.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "+",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "membership_tier": "RATIFIED",
+      "court": "lightning",
+      "fit_score": 0.1,
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "emplacement",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.6917,
+        "total_aoe_hits": 0.6917,
+        "player_damage_total": 0.6917
+      },
+      "composite_d_informative": 0.6917,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "cold",
+      "fit_score": 0.1,
+      "formation_id": "mpv_boss_sweep",
+      "formation_class": "volley-fan",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 22.0,
+        "total_aoe_hits": 22.0,
+        "player_damage_total": 3300.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 1.3834,
+        "total_aoe_hits": 1.3834,
+        "player_damage_total": 1.3834
+      },
+      "composite_d_informative": 1.3834,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "membership_tier": "DOCKET",
+      "court": "fire",
+      "fit_score": 0.25,
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 11.0,
+        "total_aoe_hits": 11.0,
+        "player_damage_total": 1650.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ww_converge_spin",
+      "formation_class": "swarm",
+      "n_ok_enc_seeds": 4,
+      "n_ok_base_seeds": 4,
+      "baseline_means": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "d_per_metric": {
+        "mobs_killed": 0.0,
+        "total_aoe_hits": 0.0,
+        "player_damage_total": 0.0
+      },
+      "composite_d_informative": 0.0,
+      "predicted_sign": "-",
+      "n_informative_sign_correct": 0,
+      "pair_sign_correct": false,
+      "skipped": false
+    }
+  ],
+  "baseline_fight_records": [
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-bowazon",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_class": "volley-fan",
+      "formation_id": "mpv_fan_from_position",
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-fire-sorc",
+      "family": "TOTEM-SENTRY",
+      "formation_class": "emplacement",
+      "formation_id": "ts_anchor_screen",
+      "assigned_cell": "endgame_bc_ranged_medium_variable_int_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.1999999999999975,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.1999999999999975,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.1999999999999975,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-frenzy-barb",
+      "family": "TRAP-MINE",
+      "formation_class": "emplacement",
+      "formation_id": "tm_spawner_nest",
+      "assigned_cell": "endgame_bc_melee_high_flat_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 2.0,
+          "total_aoe_hits": 2.0,
+          "player_damage_total": 300.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 1.0,
+          "total_aoe_hits": 1.0,
+          "player_damage_total": 150.0,
+          "elapsed_s": 4.200000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 2.0,
+          "total_aoe_hits": 2.0,
+          "player_damage_total": 300.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 2.0,
+          "total_aoe_hits": 2.0,
+          "player_damage_total": 300.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-poison-javazon",
+      "family": "DOT-AILMENT",
+      "formation_class": "swarm",
+      "formation_id": "da_field_retreat",
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "le-fire-aura-spellblade",
+      "family": "AURA",
+      "formation_class": "emplacement",
+      "formation_id": "aura_carrier_pack",
+      "assigned_cell": "endgame_bc_melee_high_flat_int_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 23.0,
+          "total_aoe_hits": 23.0,
+          "player_damage_total": 3450.0,
+          "elapsed_s": 5.799999999999995,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 23.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 23.0,
+          "total_aoe_hits": 23.0,
+          "player_damage_total": 3450.0,
+          "elapsed_s": 5.799999999999995,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 23.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 24.0,
+          "total_aoe_hits": 24.0,
+          "player_damage_total": 3600.0,
+          "elapsed_s": 6.099999999999994,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 23.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 24.0,
+          "total_aoe_hits": 24.0,
+          "player_damage_total": 3600.0,
+          "elapsed_s": 6.099999999999994,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 23.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_class": "volley-fan",
+      "formation_id": "mpv_fan_from_position",
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "formation_class": "emplacement",
+      "formation_id": "ts_anchor_screen",
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "gd-belgothian-blademaster",
+      "family": "MELEE-STRIKE",
+      "formation_class": "swarm",
+      "formation_id": "ms_swarm_surround",
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-armageddon-brand",
+      "family": "TOTEM-SENTRY",
+      "formation_class": "emplacement",
+      "formation_id": "ts_resurrection_loop",
+      "assigned_cell": "endgame_bc_ranged_medium_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-autobomber",
+      "family": "TRAP-MINE",
+      "formation_class": "emplacement",
+      "formation_id": "tm_ritual_minefield",
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-caustic-arrow",
+      "family": "DOT-AILMENT",
+      "formation_class": "swarm",
+      "formation_id": "da_field_retreat",
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-spark",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_class": "volley-fan",
+      "formation_id": "mpv_fan_from_position",
+      "assigned_cell": "endgame_bc_ranged_medium_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "formation_class": "emplacement",
+      "formation_id": "aura_carrier_pack",
+      "assigned_cell": "endgame_bc_melee_high_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_class": "volley-fan",
+      "formation_id": "mpv_fan_from_position",
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "formation_class": "swarm",
+      "formation_id": "ww_derived_frenzy_line",
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "family": "CHANNELED-BEAM",
+      "formation_class": "lane",
+      "formation_id": "cb_lane_hold",
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-bloody-pox-conjurer",
+      "family": "DOT-AILMENT",
+      "formation_class": "swarm",
+      "formation_id": "da_field_retreat",
+      "assigned_cell": "endgame_bc_ranged_low_spiky_int_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-mortar-purifier",
+      "family": "TOTEM-SENTRY",
+      "formation_class": "emplacement",
+      "formation_id": "ts_anchor_screen",
+      "assigned_cell": "endgame_bc_ranged_medium_variable_int_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.1999999999999975,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.1999999999999975,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 31.0,
+          "total_aoe_hits": 31.0,
+          "player_damage_total": 4650.0,
+          "elapsed_s": 5.1999999999999975,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 31.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-primal-strike-vindicator",
+      "family": "TRAP-MINE",
+      "formation_class": "emplacement",
+      "formation_id": "tm_spawner_nest",
+      "assigned_cell": "endgame_bc_melee_high_flat_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 2.0,
+          "total_aoe_hits": 2.0,
+          "player_damage_total": 300.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 1.0,
+          "total_aoe_hits": 1.0,
+          "player_damage_total": 150.0,
+          "elapsed_s": 4.200000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 2.0,
+          "total_aoe_hits": 2.0,
+          "player_damage_total": 300.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 2.0,
+          "total_aoe_hits": 2.0,
+          "player_damage_total": 300.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 22.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "poe2-twister",
+      "family": "WHIRLWIND",
+      "formation_class": "swarm",
+      "formation_id": "ww_arc_sweep",
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "formation_class": "emplacement",
+      "formation_id": "ts_anchor_screen",
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "formation_class": "swarm",
+      "formation_id": "ms_swarm_surround",
+      "assigned_cell": "endgame_bc_melee_medium_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "formation_class": "swarm",
+      "formation_id": "ww_arc_sweep",
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "le-ghostflame-warlock",
+      "family": "CHANNELED-BEAM",
+      "formation_class": "lane",
+      "formation_id": "cb_lane_hold",
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "le-explosive-trap-falconer",
+      "family": "TOTEM-SENTRY",
+      "formation_class": "emplacement",
+      "formation_id": "ts_resurrection_loop",
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 7.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "le-healing-hands-paladin",
+      "family": "TRAP-MINE",
+      "formation_class": "emplacement",
+      "formation_id": "tm_ritual_minefield",
+      "assigned_cell": "endgame_bc_melee_high_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "poe1-kinetic-fusillade",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_class": "volley-fan",
+      "formation_id": "mpv_fan_from_position",
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 4.999999999999998,
+          "max_flanking_count": 30.0,
+          "total_flanking_ticks": 4.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "poe2-erasure-edc-lich",
+      "family": "DOT-AILMENT",
+      "formation_class": "swarm",
+      "formation_id": "da_field_retreat",
+      "assigned_cell": "endgame_bc_ranged_low_spiky_int_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.299999999999997,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "formation_class": "emplacement",
+      "formation_id": "aura_carrier_pack",
+      "assigned_cell": "endgame_bc_melee_high_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_class": "volley-fan",
+      "formation_id": "mpv_boss_sweep",
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.5,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 13.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 22.0,
+          "total_aoe_hits": 22.0,
+          "player_damage_total": 3300.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 14.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "formation_class": "swarm",
+      "formation_id": "ms_swarm_surround",
+      "assigned_cell": "endgame_bc_melee_medium_variable_wis_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 4.899999999999999,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 29.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "formation_class": "swarm",
+      "formation_id": "ww_converge_spin",
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 11.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 36.0,
+          "total_flanking_ticks": 12.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    }
+  ],
+  "encounter_fight_records": [
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-bowazon",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "draft_family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-fire-sorc",
+      "family": "TOTEM-SENTRY",
+      "draft_family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_medium_variable_int_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 24.900000000000084,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 239.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 21.0,
+          "total_aoe_hits": 21.0,
+          "player_damage_total": 3150.0,
+          "elapsed_s": 26.400000000000105,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 254.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 24.900000000000084,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 239.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 21.0,
+          "total_aoe_hits": 21.0,
+          "player_damage_total": 3150.0,
+          "elapsed_s": 26.400000000000105,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 254.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-frenzy-barb",
+      "family": "TRAP-MINE",
+      "draft_family": "TRAP-MINE",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "tm_spawner_nest",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_melee_high_flat_str_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 15.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2250.0,
+          "elapsed_s": 27.200000000000117,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 235.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 14.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2100.0,
+          "elapsed_s": 27.300000000000118,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 221.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 17.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2550.0,
+          "elapsed_s": 27.200000000000117,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 233.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 15.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2250.0,
+          "elapsed_s": 27.200000000000117,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 220.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "high",
+      "kit_id": "d2-poison-javazon",
+      "family": "DOT-AILMENT",
+      "draft_family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 16.0,
+          "total_aoe_hits": 16.0,
+          "player_damage_total": 2400.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "le-fire-aura-spellblade",
+      "family": "AURA",
+      "draft_family": "AURA",
+      "membership_tier": "RATIFIED",
+      "court": "fire",
+      "fit_score": 0.1,
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_high_flat_int_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 28.0,
+          "total_aoe_hits": 28.0,
+          "player_damage_total": 4200.0,
+          "elapsed_s": 26.1000000000001,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 245.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 28.0,
+          "total_aoe_hits": 28.0,
+          "player_damage_total": 4200.0,
+          "elapsed_s": 26.1000000000001,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 245.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 29.0,
+          "total_aoe_hits": 29.0,
+          "player_damage_total": 4350.0,
+          "elapsed_s": 27.300000000000118,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 249.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 29.0,
+          "total_aoe_hits": 29.0,
+          "player_damage_total": 4350.0,
+          "elapsed_s": 27.300000000000118,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 249.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "draft_family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "cold",
+      "fit_score": 0.1,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "draft_family": "TOTEM-SENTRY",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.1,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 7.0,
+          "total_aoe_hits": 8.0,
+          "player_damage_total": 1050.0,
+          "elapsed_s": 30.30000000000016,
+          "max_flanking_count": 20.0,
+          "total_flanking_ticks": 196.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 5.0,
+          "total_aoe_hits": 7.0,
+          "player_damage_total": 750.0,
+          "elapsed_s": 28.400000000000134,
+          "max_flanking_count": 16.0,
+          "total_flanking_ticks": 177.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 6.0,
+          "total_aoe_hits": 7.0,
+          "player_damage_total": 900.0,
+          "elapsed_s": 28.700000000000138,
+          "max_flanking_count": 20.0,
+          "total_flanking_ticks": 213.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 8.0,
+          "total_aoe_hits": 8.0,
+          "player_damage_total": 1200.0,
+          "elapsed_s": 30.400000000000162,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 230.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "I",
+      "side": "low",
+      "kit_id": "gd-belgothian-blademaster",
+      "family": "MELEE-STRIKE",
+      "draft_family": "MELEE-STRIKE",
+      "membership_tier": "DOCKET",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 2.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 2.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 2.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 2.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-armageddon-brand",
+      "family": "TOTEM-SENTRY",
+      "draft_family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "ts_resurrection_loop",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_medium_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-autobomber",
+      "family": "TRAP-MINE",
+      "draft_family": "TRAP-MINE",
+      "membership_tier": "RATIFIED",
+      "court": "cold",
+      "fit_score": 1.0,
+      "formation_id": "tm_ritual_minefield",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 27.0,
+          "total_aoe_hits": 27.0,
+          "player_damage_total": 4050.0,
+          "elapsed_s": 26.200000000000102,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 228.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 26.0,
+          "total_aoe_hits": 26.0,
+          "player_damage_total": 3900.0,
+          "elapsed_s": 24.900000000000084,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 215.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 29.0,
+          "total_aoe_hits": 29.0,
+          "player_damage_total": 4350.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 244.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 27.0,
+          "total_aoe_hits": 27.0,
+          "player_damage_total": 4050.0,
+          "elapsed_s": 26.200000000000102,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 228.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-caustic-arrow",
+      "family": "DOT-AILMENT",
+      "draft_family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 16.0,
+          "total_aoe_hits": 16.0,
+          "player_damage_total": 2400.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "high",
+      "kit_id": "poe1-spark",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "draft_family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "lightning",
+      "fit_score": 1.0,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_medium_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 12.0,
+          "total_aoe_hits": 12.0,
+          "player_damage_total": 1800.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 8.0,
+          "total_flanking_ticks": 68.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 12.0,
+          "total_aoe_hits": 12.0,
+          "player_damage_total": 1800.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 8.0,
+          "total_flanking_ticks": 68.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 12.0,
+          "total_aoe_hits": 12.0,
+          "player_damage_total": 1800.0,
+          "elapsed_s": 7.099999999999991,
+          "max_flanking_count": 8.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 12.0,
+          "total_aoe_hits": 12.0,
+          "player_damage_total": 1800.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 8.0,
+          "total_flanking_ticks": 68.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "draft_family": "AURA",
+      "membership_tier": "RATIFIED",
+      "court": "lightning",
+      "fit_score": 0.1,
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_high_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "draft_family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "cold",
+      "fit_score": 0.2,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "formation_fit_subscore": 0.2,
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "draft_family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ww_derived_frenzy_line",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "II",
+      "side": "low",
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "family": "CHANNELED-BEAM",
+      "draft_family": "CHANNELED-BEAM",
+      "membership_tier": "RATIFIED",
+      "court": "fire",
+      "fit_score": 0.25,
+      "formation_id": "cb_lane_hold",
+      "formation_class": "lane",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "cell_distance": 2,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-bloody-pox-conjurer",
+      "family": "DOT-AILMENT",
+      "draft_family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_low_spiky_int_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-mortar-purifier",
+      "family": "TOTEM-SENTRY",
+      "draft_family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_medium_variable_int_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 24.900000000000084,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 239.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 21.0,
+          "total_aoe_hits": 21.0,
+          "player_damage_total": 3150.0,
+          "elapsed_s": 26.400000000000105,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 254.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 24.900000000000084,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 239.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 21.0,
+          "total_aoe_hits": 21.0,
+          "player_damage_total": 3150.0,
+          "elapsed_s": 26.400000000000105,
+          "max_flanking_count": 19.0,
+          "total_flanking_ticks": 254.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "gd-primal-strike-vindicator",
+      "family": "TRAP-MINE",
+      "draft_family": "TRAP-MINE",
+      "membership_tier": "PROPAGATED",
+      "court": "lightning",
+      "fit_score": 1.0,
+      "formation_id": "tm_spawner_nest",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_melee_high_flat_str_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 15.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2250.0,
+          "elapsed_s": 27.200000000000117,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 235.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 14.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2100.0,
+          "elapsed_s": 27.300000000000118,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 221.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 17.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2550.0,
+          "elapsed_s": 27.200000000000117,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 233.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 15.0,
+          "total_aoe_hits": 17.0,
+          "player_damage_total": 2250.0,
+          "elapsed_s": 27.200000000000117,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 220.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "high",
+      "kit_id": "poe2-twister",
+      "family": "WHIRLWIND",
+      "draft_family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.9,
+      "formation_id": "ww_arc_sweep",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.9,
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 21.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.300000000000001,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 20.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 21.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 4.0,
+          "total_aoe_hits": 4.0,
+          "player_damage_total": 600.0,
+          "elapsed_s": 4.4,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 21.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "draft_family": "TOTEM-SENTRY",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.1,
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 7.0,
+          "total_aoe_hits": 8.0,
+          "player_damage_total": 1050.0,
+          "elapsed_s": 30.30000000000016,
+          "max_flanking_count": 20.0,
+          "total_flanking_ticks": 196.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 5.0,
+          "total_aoe_hits": 7.0,
+          "player_damage_total": 750.0,
+          "elapsed_s": 28.400000000000134,
+          "max_flanking_count": 16.0,
+          "total_flanking_ticks": 177.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 6.0,
+          "total_aoe_hits": 7.0,
+          "player_damage_total": 900.0,
+          "elapsed_s": 28.700000000000138,
+          "max_flanking_count": 20.0,
+          "total_flanking_ticks": 213.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 8.0,
+          "total_aoe_hits": 8.0,
+          "player_damage_total": 1200.0,
+          "elapsed_s": 30.400000000000162,
+          "max_flanking_count": 26.0,
+          "total_flanking_ticks": 230.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "draft_family": "MELEE-STRIKE",
+      "membership_tier": "DOCKET",
+      "court": "fire",
+      "fit_score": 0.25,
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_melee_medium_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "draft_family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ww_arc_sweep",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "III",
+      "side": "low",
+      "kit_id": "le-ghostflame-warlock",
+      "family": "CHANNELED-BEAM",
+      "draft_family": "CHANNELED-BEAM",
+      "membership_tier": "RATIFIED",
+      "court": "chaos-poison",
+      "fit_score": 0.25,
+      "formation_id": "cb_lane_hold",
+      "formation_class": "lane",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "cell_distance": 2,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 3.0,
+          "total_aoe_hits": 3.0,
+          "player_damage_total": 450.0,
+          "elapsed_s": 3.800000000000002,
+          "max_flanking_count": 37.0,
+          "total_flanking_ticks": 8.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "le-explosive-trap-falconer",
+      "family": "TOTEM-SENTRY",
+      "draft_family": "TOTEM-SENTRY",
+      "membership_tier": "PROPAGATED",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "ts_resurrection_loop",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_mid_high_flat_dex_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 19.0,
+          "total_aoe_hits": 19.0,
+          "player_damage_total": 2850.0,
+          "elapsed_s": 26.80000000000011,
+          "max_flanking_count": 25.0,
+          "total_flanking_ticks": 252.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 19.0,
+          "total_aoe_hits": 19.0,
+          "player_damage_total": 2850.0,
+          "elapsed_s": 26.80000000000011,
+          "max_flanking_count": 25.0,
+          "total_flanking_ticks": 252.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 19.0,
+          "total_aoe_hits": 19.0,
+          "player_damage_total": 2850.0,
+          "elapsed_s": 26.80000000000011,
+          "max_flanking_count": 25.0,
+          "total_flanking_ticks": 252.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 28.10000000000013,
+          "max_flanking_count": 25.0,
+          "total_flanking_ticks": 262.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "le-healing-hands-paladin",
+      "family": "TRAP-MINE",
+      "draft_family": "TRAP-MINE",
+      "membership_tier": "RATIFIED",
+      "court": "fire",
+      "fit_score": 1.0,
+      "formation_id": "tm_ritual_minefield",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_melee_high_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "poe1-kinetic-fusillade",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "draft_family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "physical",
+      "fit_score": 1.0,
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 5.599999999999996,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 45.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "high",
+      "kit_id": "poe2-erasure-edc-lich",
+      "family": "DOT-AILMENT",
+      "draft_family": "DOT-AILMENT",
+      "membership_tier": "DOCKET",
+      "court": "chaos-poison",
+      "fit_score": 1.0,
+      "formation_id": "da_field_retreat",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 1.0,
+      "assigned_cell": "endgame_bc_ranged_low_spiky_int_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 18.0,
+          "total_aoe_hits": 18.0,
+          "player_damage_total": 2700.0,
+          "elapsed_s": 6.499999999999993,
+          "max_flanking_count": 13.0,
+          "total_flanking_ticks": 30.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "draft_family": "AURA",
+      "membership_tier": "RATIFIED",
+      "court": "lightning",
+      "fit_score": 0.1,
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "emplacement",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_high_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 26.300000000000104,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 253.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 20.0,
+          "total_aoe_hits": 20.0,
+          "player_damage_total": 3000.0,
+          "elapsed_s": 27.800000000000125,
+          "max_flanking_count": 21.0,
+          "total_flanking_ticks": 268.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "draft_family": "MULTI-PROJECTILE-VOLLEY",
+      "membership_tier": "DOCKET",
+      "court": "cold",
+      "fit_score": 0.1,
+      "formation_id": "mpv_boss_sweep",
+      "formation_class": "volley-fan",
+      "formation_fit_subscore": 0.1,
+      "assigned_cell": "endgame_bc_melee_high_flat_dex_none",
+      "cell_distance": 0,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 40.0,
+          "total_aoe_hits": 40.0,
+          "player_damage_total": 6000.0,
+          "elapsed_s": 7.499999999999989,
+          "max_flanking_count": 10.0,
+          "total_flanking_ticks": 64.0,
+          "winner": "player",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "draft_family": "MELEE-STRIKE",
+      "membership_tier": "DOCKET",
+      "court": "fire",
+      "fit_score": 0.25,
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_melee_medium_variable_wis_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 11.0,
+          "total_aoe_hits": 11.0,
+          "player_damage_total": 1650.0,
+          "elapsed_s": 5.899999999999995,
+          "max_flanking_count": 24.0,
+          "total_flanking_ticks": 33.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    },
+    {
+      "era": "IV",
+      "side": "low",
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "draft_family": "WHIRLWIND",
+      "membership_tier": "RATIFIED",
+      "court": "physical",
+      "fit_score": 0.25,
+      "formation_id": "ww_converge_spin",
+      "formation_class": "swarm",
+      "formation_fit_subscore": 0.25,
+      "assigned_cell": "endgame_bc_melee_low_spiky_str_none",
+      "cell_distance": 1,
+      "fights": [
+        {
+          "seed": 20260722,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260723,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 4.6,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260724,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        },
+        {
+          "seed": 20260725,
+          "mobs_killed": 0.0,
+          "total_aoe_hits": 0.0,
+          "player_damage_total": 0.0,
+          "elapsed_s": 5.099999999999998,
+          "max_flanking_count": 15.0,
+          "total_flanking_ticks": 9.0,
+          "winner": "monster",
+          "total_mob_count": 40.0
+        }
+      ],
+      "skipped": false
+    }
+  ],
+  "n_baseline_fights": 128,
+  "n_encounter_fights": 128,
+  "baseline_wall_seconds": 2.2,
+  "encounter_wall_seconds": 5.4,
+  "prereg_caveat": "MECHANICAL EXECUTION of the FROZEN amendment sheet (904f317c) + base sheet (5ea56bf3). Zero design discretion; any pin the sheets do not decide is a red-flag, not an improvised rule. The preregs ARE the math note (Discipline #1). Mechanical resolutions M1-M3/S1/D1/G1/E1 in 2026-07-22-tier3-w3prime-gate-math.md."
+}

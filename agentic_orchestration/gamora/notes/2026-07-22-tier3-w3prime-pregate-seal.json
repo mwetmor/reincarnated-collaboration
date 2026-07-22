@@ -1,0 +1,509 @@
+{
+  "artifact": "tier3-w3prime-pregate-seal",
+  "author": "gamora",
+  "baseline_red_flags": {},
+  "composition_parity_checks": {
+    "emplacement": {
+      "baseline_count": 40,
+      "baseline_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_tier_mix": {
+        "magic": 40
+      },
+      "encounter_count": 40,
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "encounter_tier_mix": {
+        "magic": 40
+      },
+      "parity_ok": true
+    },
+    "lane": {
+      "baseline_count": 40,
+      "baseline_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_tier_mix": {
+        "swarm": 40
+      },
+      "encounter_count": 40,
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "encounter_tier_mix": {
+        "swarm": 40
+      },
+      "parity_ok": true
+    },
+    "swarm": {
+      "baseline_count": 40,
+      "baseline_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_tier_mix": {
+        "swarm": 40
+      },
+      "encounter_count": 40,
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "encounter_tier_mix": {
+        "swarm": 40
+      },
+      "parity_ok": true
+    },
+    "volley-fan": {
+      "baseline_count": 40,
+      "baseline_hp_multiset": {
+        "150.0": 40
+      },
+      "baseline_tier_mix": {
+        "magic": 40
+      },
+      "encounter_count": 40,
+      "encounter_hp_multiset": {
+        "150.0": 40
+      },
+      "encounter_tier_mix": {
+        "magic": 40
+      },
+      "parity_ok": true
+    }
+  },
+  "compositions_by_class": {
+    "emplacement": {
+      "count": 40,
+      "tier_multiset": {
+        "magic": 40
+      }
+    },
+    "lane": {
+      "count": 40,
+      "tier_multiset": {
+        "swarm": 40
+      }
+    },
+    "swarm": {
+      "count": 40,
+      "tier_multiset": {
+        "swarm": 40
+      }
+    },
+    "volley-fan": {
+      "count": 40,
+      "tier_multiset": {
+        "magic": 40
+      }
+    }
+  },
+  "date": "2026-07-22",
+  "degeneracy": {
+    "mobs_killed": {
+      "at_bound_threshold": 29,
+      "bound": 40.0,
+      "cells_at_bound": 4,
+      "degenerate": false,
+      "n_cells": 32,
+      "sd_pool_prime": 13.011263,
+      "sd_pool_prime_is_zero": false
+    },
+    "player_damage_total": {
+      "at_bound_threshold": 29,
+      "bound": null,
+      "cells_at_bound": 0,
+      "degenerate": false,
+      "n_cells": 32,
+      "sd_pool_prime": 1951.689472,
+      "sd_pool_prime_is_zero": false
+    },
+    "total_aoe_hits": {
+      "at_bound_threshold": 29,
+      "bound": null,
+      "cells_at_bound": 0,
+      "degenerate": false,
+      "n_cells": 32,
+      "sd_pool_prime": 13.011263,
+      "sd_pool_prime_is_zero": false
+    }
+  },
+  "encounter_red_flags": {},
+  "engine_head_fire": "a3671d4215489c4ddb58d69ebe1311784a946df4",
+  "informative_metrics": [
+    "mobs_killed",
+    "total_aoe_hits",
+    "player_damage_total"
+  ],
+  "n_baseline_cells_scored": 32,
+  "n_informative": 3,
+  "note": "sd_pool' + degeneracy + sign-rule are IMMUTABLE after this point.",
+  "per_cell_baseline_means": [
+    {
+      "era": "I",
+      "formation_class": "volley-fan",
+      "kit_id": "d2-bowazon",
+      "means": {
+        "mobs_killed": 40.0,
+        "player_damage_total": 6000.0,
+        "total_aoe_hits": 40.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "I",
+      "formation_class": "emplacement",
+      "kit_id": "d2-fire-sorc",
+      "means": {
+        "mobs_killed": 31.0,
+        "player_damage_total": 4650.0,
+        "total_aoe_hits": 31.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "I",
+      "formation_class": "emplacement",
+      "kit_id": "d2-frenzy-barb",
+      "means": {
+        "mobs_killed": 1.75,
+        "player_damage_total": 262.5,
+        "total_aoe_hits": 1.75
+      },
+      "side": "high"
+    },
+    {
+      "era": "I",
+      "formation_class": "swarm",
+      "kit_id": "d2-poison-javazon",
+      "means": {
+        "mobs_killed": 40.0,
+        "player_damage_total": 6000.0,
+        "total_aoe_hits": 40.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "I",
+      "formation_class": "emplacement",
+      "kit_id": "le-fire-aura-spellblade",
+      "means": {
+        "mobs_killed": 23.5,
+        "player_damage_total": 3525.0,
+        "total_aoe_hits": 23.5
+      },
+      "side": "low"
+    },
+    {
+      "era": "I",
+      "formation_class": "volley-fan",
+      "kit_id": "poe1-frost-blades",
+      "means": {
+        "mobs_killed": 22.0,
+        "player_damage_total": 3300.0,
+        "total_aoe_hits": 22.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "I",
+      "formation_class": "emplacement",
+      "kit_id": "poe2-warbringer-totems",
+      "means": {
+        "mobs_killed": 0.0,
+        "player_damage_total": 0.0,
+        "total_aoe_hits": 0.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "I",
+      "formation_class": "swarm",
+      "kit_id": "gd-belgothian-blademaster",
+      "means": {
+        "mobs_killed": 22.0,
+        "player_damage_total": 3300.0,
+        "total_aoe_hits": 22.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "II",
+      "formation_class": "emplacement",
+      "kit_id": "poe1-armageddon-brand",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "II",
+      "formation_class": "emplacement",
+      "kit_id": "poe1-autobomber",
+      "means": {
+        "mobs_killed": 22.0,
+        "player_damage_total": 3300.0,
+        "total_aoe_hits": 22.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "II",
+      "formation_class": "swarm",
+      "kit_id": "poe1-caustic-arrow",
+      "means": {
+        "mobs_killed": 40.0,
+        "player_damage_total": 6000.0,
+        "total_aoe_hits": 40.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "II",
+      "formation_class": "volley-fan",
+      "kit_id": "poe1-spark",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "II",
+      "formation_class": "emplacement",
+      "kit_id": "d2-auradin",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "II",
+      "formation_class": "volley-fan",
+      "kit_id": "poe1-frost-blades",
+      "means": {
+        "mobs_killed": 22.0,
+        "player_damage_total": 3300.0,
+        "total_aoe_hits": 22.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "II",
+      "formation_class": "swarm",
+      "kit_id": "d2-bvc",
+      "means": {
+        "mobs_killed": 0.0,
+        "player_damage_total": 0.0,
+        "total_aoe_hits": 0.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "II",
+      "formation_class": "lane",
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "means": {
+        "mobs_killed": 4.0,
+        "player_damage_total": 600.0,
+        "total_aoe_hits": 4.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "III",
+      "formation_class": "swarm",
+      "kit_id": "gd-bloody-pox-conjurer",
+      "means": {
+        "mobs_killed": 18.0,
+        "player_damage_total": 2700.0,
+        "total_aoe_hits": 18.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "III",
+      "formation_class": "emplacement",
+      "kit_id": "gd-mortar-purifier",
+      "means": {
+        "mobs_killed": 31.0,
+        "player_damage_total": 4650.0,
+        "total_aoe_hits": 31.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "III",
+      "formation_class": "emplacement",
+      "kit_id": "gd-primal-strike-vindicator",
+      "means": {
+        "mobs_killed": 1.75,
+        "player_damage_total": 262.5,
+        "total_aoe_hits": 1.75
+      },
+      "side": "high"
+    },
+    {
+      "era": "III",
+      "formation_class": "swarm",
+      "kit_id": "poe2-twister",
+      "means": {
+        "mobs_killed": 4.0,
+        "player_damage_total": 600.0,
+        "total_aoe_hits": 4.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "III",
+      "formation_class": "emplacement",
+      "kit_id": "poe2-warbringer-totems",
+      "means": {
+        "mobs_killed": 0.0,
+        "player_damage_total": 0.0,
+        "total_aoe_hits": 0.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "III",
+      "formation_class": "swarm",
+      "kit_id": "d2-avenger",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "III",
+      "formation_class": "swarm",
+      "kit_id": "d2-bvc",
+      "means": {
+        "mobs_killed": 0.0,
+        "player_damage_total": 0.0,
+        "total_aoe_hits": 0.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "III",
+      "formation_class": "lane",
+      "kit_id": "le-ghostflame-warlock",
+      "means": {
+        "mobs_killed": 4.0,
+        "player_damage_total": 600.0,
+        "total_aoe_hits": 4.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "IV",
+      "formation_class": "emplacement",
+      "kit_id": "le-explosive-trap-falconer",
+      "means": {
+        "mobs_killed": 4.0,
+        "player_damage_total": 600.0,
+        "total_aoe_hits": 4.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "IV",
+      "formation_class": "emplacement",
+      "kit_id": "le-healing-hands-paladin",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "IV",
+      "formation_class": "volley-fan",
+      "kit_id": "poe1-kinetic-fusillade",
+      "means": {
+        "mobs_killed": 40.0,
+        "player_damage_total": 6000.0,
+        "total_aoe_hits": 40.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "IV",
+      "formation_class": "swarm",
+      "kit_id": "poe2-erasure-edc-lich",
+      "means": {
+        "mobs_killed": 18.0,
+        "player_damage_total": 2700.0,
+        "total_aoe_hits": 18.0
+      },
+      "side": "high"
+    },
+    {
+      "era": "IV",
+      "formation_class": "emplacement",
+      "kit_id": "d2-auradin",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "IV",
+      "formation_class": "volley-fan",
+      "kit_id": "poe1-frost-blades",
+      "means": {
+        "mobs_killed": 22.0,
+        "player_damage_total": 3300.0,
+        "total_aoe_hits": 22.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "IV",
+      "formation_class": "swarm",
+      "kit_id": "d2-avenger",
+      "means": {
+        "mobs_killed": 11.0,
+        "player_damage_total": 1650.0,
+        "total_aoe_hits": 11.0
+      },
+      "side": "low"
+    },
+    {
+      "era": "IV",
+      "formation_class": "swarm",
+      "kit_id": "d2-bvc",
+      "means": {
+        "mobs_killed": 0.0,
+        "player_damage_total": 0.0,
+        "total_aoe_hits": 0.0
+      },
+      "side": "low"
+    }
+  ],
+  "renormalized_sign_rule": ">=2-of-3 informative metrics agree with predicted sign",
+  "sd_pool_prime": {
+    "mobs_killed": 13.011263,
+    "player_damage_total": 1951.689472,
+    "total_aoe_hits": 13.011263
+  },
+  "sealed_before": "ANY encounter fight (amendment \u00a78.2 C2)",
+  "seeds": [
+    20260722,
+    20260723,
+    20260724,
+    20260725
+  ],
+  "substrate_md5_open": "d091881dc1507753577f56f4998a64a5"
+}
