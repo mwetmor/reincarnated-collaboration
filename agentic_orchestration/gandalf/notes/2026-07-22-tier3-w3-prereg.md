@@ -20,7 +20,9 @@ Per-pair per-metric effect: **`d_m = mean_over_4_seeds(Δ_m) / sd_pool(m)`**, wi
 
 **Why the 16-cell fighter proxy does NOT invalidate the gate:** the encounter run uses the *identical* BC→cell→PlayerClass fighter, seed set, and dmod as the kit's baseline. The fighter term **cancels in Δ**; the manipulated variable is encounter geometry alone. The proxy limits *between-kit* resolution (which §5 does not require), not *within-kit contrast* (which the gate measures). The finer per-corpus-kit baseline stays flagged as a rocket-seam task — NOT a W3 dependency.
 
-**Instrument invariants (hard):** same seeds {20260722–25} · dmod=1.0 uniform · mob-count parity **40 total** per encounter (formation shapes geometry, not budget; a builder that cannot hold 40 → red-flag the pair, do not normalize silently) · engine HEAD stamped at W3 fire; any mid-W3 HEAD move re-verified against `simulation/spatial_gauntlet/` + `generation/` before continuing.
+**Instrument invariants (hard):** same seeds {20260722–25} · dmod=1.0 uniform · mob-count parity **40 total** per encounter (formation shapes geometry, not budget; a builder that cannot hold 40 → red-flag the pair, do not normalize silently) · engine HEAD stamped at W3 fire.
+
+**HEAD-state invariant (prereg-check C2, promoted from procedure to hard invariant):** proxy-cancellation holds only if W3 encounter fights execute at a HEAD whose `simulation/spatial_gauntlet/` + `generation/` subtrees are **byte-identical** to baseline HEAD `a3671d4`. If any mid-W3 HEAD move touches either subtree, **W3 HALTS** — red-flag to conductor; the baselines-vs-re-run decision is the conductor's (Matt-pinged if it turns commitment-class). Not "re-verify and continue."
 
 ## §3 — X (effect-size threshold): **X = 0.5** standardized
 
@@ -45,6 +47,8 @@ Gate magnitude is **d = 0.5** (half the pool's between-cell spread; a Cohen-medi
 3. **4 LOW-FIT pairs** = argmin `fit_score`, same round-robin, drafted independently (a kit MAY appear on both sides — specialists legitimately do; record it).
 4. **Courts check:** the 8 drafted kits must span **≥3 element-courts**; if violated, swap the least-extreme pick for the next-best candidate from a missing court. (Feasibility verified: all eras carry 5–6 courts at n 20–53.)
 5. **Recording per pair:** kit_id · family (working label) · `membership_tier` · fit_score · formation class · court — the resolution-mix travels into the gate record per L-13(c).
+6. **Draft-family key (prereg-check C1a):** a kit's family for round-robin purposes = its **single ACTIVE sidecar row** (`6dd43161`; precedence RATIFIED > PROPAGATED > DOCKET already resolves every kit — including the 12 multi-family kits — to exactly one active row). The sidecar governs; no per-draft choice exists.
+7. **Courts-swap tiebreak (prereg-check C1b):** "least-extreme pick" = smallest `|fit_score − era-deck median fit_score|`; remaining ties break by **kit_id lexicographic ascending**. Fully mechanical; zero discretion.
 
 **Encounter construction:** each pair's encounter = that kit's argmax (high) / argmin (low) **COMMON-4 formation** (swarm / volley-fan / lane / emplacement) from its era deck — the W2-verified expressible scope. **Strain-4 formations are excluded** (PARTIAL×3 + CANNOT×1 per W2; their requirements live in Lane-2's queue R-1..R-4). Era-deck parameters apply; the era shelf term rides in fit but the arena is era-neutral (geometry is the test, not tuning).
 
