@@ -46,8 +46,8 @@
 ## Braid coordination points (T3-V7 — one-way, Tier-3 → lanes)
 
 - Lane-1 (emission, star-lord): `encounters` bundle-key reservation; RD-1 = its acceptance fixture. **✓ FIRED by Matt 2026-07-22** — reservation rider LIVE.
-- Lane-2 (sim capacity, gamora): W2 red-flags route INTO its spec. **✓ FIRED by Matt 2026-07-22** — spec-first rider LIVE. **W2 red-flags ROUTED (L-12):** 1 net-new + 3 extensions via requirements artifact. Lane-2 step (b) build **LANDED** + Gate-2 firing (`f1752755` msg) → **#9 flip-beat imminent on their Gate-2 PASS** (L-7 flip condition; fire-word Matt's).
-- Reserve #9 (PROXY-T4 B1-REBASE): **HOLD RATIFIED by Matt 2026-07-22** (L-7) — flips clean when a live lane closes; fire-word Matt's.
+- Lane-2 (sim capacity, gamora): W2 red-flags route INTO its spec. **✓ FIRED by Matt 2026-07-22** — spec-first rider LIVE. **W2 red-flags ROUTED (L-12):** 1 net-new + 3 extensions via requirements artifact; **folded by the lane as follow-on queue** (KR `714e2794`) then **spec-of-record §A7** (gamora `b34a14b`, engine main — "NOT a build authorization" framing honored). **✓ LANE CLOSED 2026-07-22** (KR close-out: Gate-2 cleared; built = SCENARIO_OVERRUN cert shell + four formation builders + horde KPM band + M1 gather-promotion; tags `gamora/v1.14-sim-capacity-1/-2/-3`). Follow-on queue placement (lane's own): R-2→R-3 gamora slices · **R-1 Pattern-B gated on gandalf SHAPESHIFT consult — KR recommends sequencing BEHIND Tier-3 completion; conductor CONCURS** (W3/RD-1 evidence feeds the consult; RD-1 class-proxies SHAPESHIFT until R-1 exists) · R-4 deferred. Lane-2 flag-#2 (A5 persistence ruling) → elicitation sheet `canonical/matt_decision_needed/2026-07-22-persistence-contract-grill.md` (Q43).
+- Reserve #9 (PROXY-T4 B1-REBASE): **HOLD RATIFIED by Matt 2026-07-22** (L-7) — **FLIP CONDITION MET same-day: Lane-2 closed** (Gate-2 cleared). #9 is clean to fire; fire-word remains Matt's.
 
 ## Matt interface log (§6 — review book at close; red-flag pings only)
 
