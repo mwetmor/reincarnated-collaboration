@@ -1,0 +1,461 @@
+{
+  "artifact": "tier3-w2-scenario-run-record",
+  "run": "Tier-3 Encounter-Geometry Run \u00b7 Wave W2 \u00b7 Phase (c)",
+  "author": "named-gamora sub-agent",
+  "date": "2026-07-22",
+  "engine_head_at_run": "a57ee1f",
+  "engine_invoked_by_path": "/Users/admin/Games/reincarnated-engine/src",
+  "zero_writes_to_engine_repo": true,
+  "probe4_verdicts": {
+    "cbn_corridor_arc": {
+      "verdict": "PARTIAL",
+      "missing_capability": "no projectile wall-reflection/bounce physics. Corridor geometry EXISTS (SCENARIO_CHOKEPOINT 10x50, 5m bottleneck at y=[23,27]) and beam/bolt are 'line' geometry, but walls are POSITIONAL bounds only (CHOKEPOINT_Y_MIN/MAX gate target-inclusion, spatial_engine.py:3036/3122) \u2014 no LOS/occlusion, no ricochet. Chains are capped depth-0/1 ('unbounded chains degenerate + un-simulatable', spatial_engine.py:460); the 15 'reflect' hits are thorns damage-reflection, NOT geometric bounce. The corridor + line-pressure is expressible; the WALL-BOUNCE amplification is not.",
+      "scenario_proxy": "chokepoint_corridor"
+    },
+    "cb_crossfire": {
+      "verdict": "PARTIAL",
+      "missing_capability": "no first-class paired-emitter cross-tracking construct. Single-channeler beam-lanes ARE expressible (tick_tracking=='tracking' re-resolves against live positions, spatial_engine.py:3116; 'line' geometry). Crossfire is COMPOSABLE as two independent stationary_caster channelers at opposite ends, but there is no explicit paired-emitter positional-tracking primitive that models the beam-CROSS geometry (the forced-reposition zone where two tracked beams intersect). Expressible-by-composition, not as a native construct.",
+      "scenario_proxy": "boss_with_adds"
+    },
+    "ts_environmental_nest": {
+      "verdict": "PARTIAL",
+      "missing_capability": "spawner is a fixed-window GLOBAL injector, not a killable terrain-anchored entity. ContinuousSpawnSpec (arena.py:230) clones the scenario's LAST mob and injects in a rectangular band subject to engaged_cap=50 \u2014 there is NO source-entity whose DEATH stops spawning (no spawn_source/emitter-alive gate). An EMPLACEMENT grid of held emitters exists (arena.py:1343) and continuous spawning exists, but the 'destroy-the-egg-sac-to-halt-the-burst' mechanic (the environmental-nest's defining verb) is absent. Streaming-nest pressure is expressible; the killable-anchor is not.",
+      "scenario_proxy": "escape_lane"
+    },
+    "ss_phase_transform": {
+      "verdict": "CANNOT",
+      "missing_capability": "no mid-fight behavior/verb swap on a trigger. preferred_behavior is read ONCE at spawn (spatial_engine.py:5335/5410) and is immutable per entity for the fight; there is no HP-threshold / phase-transition / aggro-trigger that swaps an entity's behavior or skill-set mid-fight. The only trigger-like tag is 'proximity_trigger' \u2014 itself a spawn-fixed behavior, not a transform. The SHAPESHIFT verb (form-transition that BRINGS NEW ATTACK VERBS mid-fight) has no expression. Requires a new engine mechanism: a mid-fight entity-mutation hook on a trigger.",
+      "scenario_proxy": "mini_boss"
+    }
+  },
+  "unique_scenario_results": {
+    "open_arena": {
+      "scenario_id": "open_arena",
+      "mob_count": 40,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 4.150000000000001,
+      "total_aoe_hits": 24,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "chokepoint_corridor": {
+      "scenario_id": "chokepoint_corridor",
+      "mob_count": 24,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 6.199999999999994,
+      "total_aoe_hits": 84,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "magic_pack": {
+      "scenario_id": "magic_pack",
+      "mob_count": 24,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 2.375000000000001,
+      "total_aoe_hits": 84,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "dense_cell": {
+      "scenario_id": "dense_cell",
+      "mob_count": 24,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 3.2250000000000014,
+      "total_aoe_hits": 52,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "boss_with_adds": {
+      "scenario_id": "boss_with_adds",
+      "mob_count": 3,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 7.974999999999987,
+      "total_aoe_hits": 16,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "escape_lane": {
+      "scenario_id": "escape_lane",
+      "mob_count": 12,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 4.3500000000000005,
+      "total_aoe_hits": 8,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "mini_boss": {
+      "scenario_id": "mini_boss",
+      "mob_count": 3,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 7.249999999999989,
+      "total_aoe_hits": 22,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "elite_pack": {
+      "scenario_id": "elite_pack",
+      "mob_count": 3,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 9.124999999999984,
+      "total_aoe_hits": 42,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    },
+    "scenario_overrun": {
+      "scenario_id": "scenario_overrun",
+      "mob_count": 55,
+      "n_fights": 4,
+      "status": "ran-clean",
+      "win_rate": 0.0,
+      "mean_mobs_killed": 0.0,
+      "mean_elapsed_s": 2.3000000000000007,
+      "total_aoe_hits": 16,
+      "combat_evidenced": true,
+      "smoke_kit_note": "smoke kit is a fixed functional damage kit; WR reflects kit-vs-mob-HP tuning, NOT harness health. done-predicate = scenario RUNS (executes + resolves combat), which combat_evidenced confirms.",
+      "result_keys": [
+        "class_id",
+        "dominant_geometry",
+        "fight_results",
+        "max_flanking_count_max",
+        "mean_elapsed_s",
+        "mean_flanking_ticks",
+        "mean_mobs_killed",
+        "n_fights",
+        "player_kills",
+        "scenario_id",
+        "telegraph_specs",
+        "total_aoe_hits",
+        "win_rate",
+        "wins"
+      ]
+    }
+  },
+  "formation_records": [
+    {
+      "family": "MELEE-STRIKE",
+      "formation_id": "ms_swarm_surround",
+      "formation_class": "swarm",
+      "scenario_id": "open_arena",
+      "scenario_status": "ran-clean",
+      "mapping_note": "massed melee runners close-and-surround; open_arena = 40-mob F2 swarm grammar",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "MELEE-STRIKE",
+      "formation_id": "ms_wedge_advance",
+      "formation_class": "lane-wedge",
+      "scenario_id": "chokepoint_corridor",
+      "scenario_status": "ran-clean",
+      "mapping_note": "organized wedge holds at a chokepoint; chokepoint 5m funnel expresses the wedge",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "TOTEM-SENTRY",
+      "formation_id": "ts_anchor_screen",
+      "formation_class": "anchor-screen",
+      "scenario_id": "magic_pack",
+      "scenario_status": "ran-clean",
+      "mapping_note": "emplaced anchor + mobile screen; magic_pack rare-champion + trash approximates anchor(champion)+screen(trash)",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "DOT-AILMENT",
+      "formation_id": "da_field_retreat",
+      "formation_class": "field",
+      "scenario_id": "dense_cell",
+      "scenario_status": "ran-clean",
+      "mapping_note": "casters stack DoT fields + chaff drives player in; dense_cell 24-mob close grammar",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "formation_id": "mpv_fan_from_position",
+      "formation_class": "volley-fan",
+      "scenario_id": "open_arena",
+      "scenario_status": "ran-clean",
+      "mapping_note": "ranged fan from position; open_arena ranged-hold packs (heading-aim fix live) = fan",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "TRAP-MINE",
+      "formation_id": "tm_preseed_corridor",
+      "formation_class": "preseed-lane",
+      "scenario_id": "chokepoint_corridor",
+      "scenario_status": "ran-clean",
+      "mapping_note": "pre-seeded corridor detonation field; chokepoint corridor + proximity_trigger emitters approximate pre-seed (static; no true detonation-on-advance)",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "WHIRLWIND",
+      "formation_id": "ww_converge_spin",
+      "formation_class": "converge",
+      "scenario_id": "dense_cell",
+      "scenario_status": "ran-clean",
+      "mapping_note": "converging spin-body pins-and-closes; dense_cell tight-offset packs approximate the converge (no true rotating-body geometry)",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "AURA",
+      "formation_id": "aura_carrier_pack",
+      "formation_class": "carrier-anchor",
+      "scenario_id": "magic_pack",
+      "scenario_status": "ran-clean",
+      "mapping_note": "hidden aura-carrier buffs the pack; magic_pack champion-as-carrier approximates (aura mechanics resolve; identify-and-kill-carrier is roster-semantic, not sim)",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "CHANNELED-BEAM",
+      "formation_id": "cb_lane_hold",
+      "formation_class": "beam-lane",
+      "scenario_id": "boss_with_adds",
+      "scenario_status": "ran-clean",
+      "mapping_note": "caster channels a directed beam + melee screen; boss_with_adds = channeler(boss) + screen(adds), single-channeler lane expressible",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "CHANNELED-BEAM",
+      "formation_id": "cb_crossfire",
+      "formation_class": "beam-crossfire",
+      "scenario_id": "boss_with_adds",
+      "scenario_status": "ran-clean",
+      "mapping_note": "SEE PROBE cb_crossfire \u2014 single-beam expressible, PAIRED cross-tracking NOT native",
+      "probe_verdict": "PARTIAL",
+      "missing_capability": "no first-class paired-emitter cross-tracking construct. Single-channeler beam-lanes ARE expressible (tick_tracking=='tracking' re-resolves against live positions, spatial_engine.py:3116; 'line' geometry). Crossfire is COMPOSABLE as two independent stationary_caster channelers at opposite ends, but there is no explicit paired-emitter positional-tracking primitive that models the beam-CROSS geometry (the forced-reposition zone where two tracked beams intersect). Expressible-by-composition, not as a native construct.",
+      "expressiveness": "ran-with-caveat (proxy scenario executes; the strain mechanic is MISSING per probe)"
+    },
+    {
+      "family": "CHAIN-BOUNCE",
+      "formation_id": "cbn_corridor_arc",
+      "formation_class": "corridor-arc",
+      "scenario_id": "chokepoint_corridor",
+      "scenario_status": "ran-clean",
+      "mapping_note": "SEE PROBE cbn_corridor_arc \u2014 corridor expressible, wall-bounce NOT",
+      "probe_verdict": "PARTIAL",
+      "missing_capability": "no projectile wall-reflection/bounce physics. Corridor geometry EXISTS (SCENARIO_CHOKEPOINT 10x50, 5m bottleneck at y=[23,27]) and beam/bolt are 'line' geometry, but walls are POSITIONAL bounds only (CHOKEPOINT_Y_MIN/MAX gate target-inclusion, spatial_engine.py:3036/3122) \u2014 no LOS/occlusion, no ricochet. Chains are capped depth-0/1 ('unbounded chains degenerate + un-simulatable', spatial_engine.py:460); the 15 'reflect' hits are thorns damage-reflection, NOT geometric bounce. The corridor + line-pressure is expressible; the WALL-BOUNCE amplification is not.",
+      "expressiveness": "ran-with-caveat (proxy scenario executes; the strain mechanic is MISSING per probe)"
+    },
+    {
+      "family": "TOTEM-SENTRY",
+      "formation_id": "ts_environmental_nest",
+      "formation_class": "environmental-nest",
+      "scenario_id": "escape_lane",
+      "scenario_status": "ran-clean",
+      "mapping_note": "SEE PROBE ts_environmental_nest \u2014 streaming-nest expressible, KILLABLE anchor NOT",
+      "probe_verdict": "PARTIAL",
+      "missing_capability": "spawner is a fixed-window GLOBAL injector, not a killable terrain-anchored entity. ContinuousSpawnSpec (arena.py:230) clones the scenario's LAST mob and injects in a rectangular band subject to engaged_cap=50 \u2014 there is NO source-entity whose DEATH stops spawning (no spawn_source/emitter-alive gate). An EMPLACEMENT grid of held emitters exists (arena.py:1343) and continuous spawning exists, but the 'destroy-the-egg-sac-to-halt-the-burst' mechanic (the environmental-nest's defining verb) is absent. Streaming-nest pressure is expressible; the killable-anchor is not.",
+      "expressiveness": "ran-with-caveat (proxy scenario executes; the strain mechanic is MISSING per probe)"
+    },
+    {
+      "family": "SHAPESHIFT",
+      "formation_id": "ss_phase_transform",
+      "formation_class": "transform",
+      "scenario_id": "mini_boss",
+      "scenario_status": "ran-clean",
+      "mapping_note": "SEE PROBE ss_phase_transform \u2014 mid-fight verb-swap CANNOT express",
+      "probe_verdict": "CANNOT",
+      "missing_capability": "no mid-fight behavior/verb swap on a trigger. preferred_behavior is read ONCE at spawn (spatial_engine.py:5335/5410) and is immutable per entity for the fight; there is no HP-threshold / phase-transition / aggro-trigger that swaps an entity's behavior or skill-set mid-fight. The only trigger-like tag is 'proximity_trigger' \u2014 itself a spawn-fixed behavior, not a transform. The SHAPESHIFT verb (form-transition that BRINGS NEW ATTACK VERBS mid-fight) has no expression. Requires a new engine mechanism: a mid-fight entity-mutation hook on a trigger.",
+      "expressiveness": "could-not-express (proxy scenario executes; the strain mechanic is ABSENT)"
+    },
+    {
+      "family": "DASH-STRIKER",
+      "formation_id": "ds_flank_burst",
+      "formation_class": "flank-burst",
+      "scenario_id": "elite_pack",
+      "scenario_status": "ran-clean",
+      "mapping_note": "dash-and-stab from a flank; elite_pack isolated-pack + flank offsets approximate (dash-in/repos is a movement idiom, no dedicated dash-skill primitive)",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    },
+    {
+      "family": "(density)",
+      "formation_id": "scenario_overrun_horde",
+      "formation_class": "horde",
+      "scenario_id": "scenario_overrun",
+      "scenario_status": "ran-clean",
+      "mapping_note": "sim-capacity \u226550 concurrent horde cert shell (55 mobs); proves the density regime the formations deal into",
+      "expressiveness": "ran-clean (proxy scenario expresses the formation class per sim-capacity \u00a7A3)"
+    }
+  ],
+  "hole_records": [
+    {
+      "family": "MINION-PET",
+      "status": "hole",
+      "note": "guest-family, catalogue-only this run (charter \u00a71); no formation dealt, no scenario"
+    },
+    {
+      "family": "IDENTITY-GAUGE",
+      "status": "hole",
+      "note": "guest-family, catalogue-only this run (charter \u00a71); no formation dealt, no scenario"
+    }
+  ],
+  "census": {
+    "unique_scenarios_run": 9,
+    "scenarios_ran_clean": 9,
+    "scenarios_ran_no_combat": 0,
+    "scenarios_executed_ok": 9,
+    "scenarios_could_not_run": 0,
+    "formation_records": 15,
+    "formation_ran_clean": 11,
+    "formation_ran_with_caveat": 3,
+    "formation_could_not_express": 1,
+    "formation_could_not_run": 0,
+    "holes_catalogue_only": 2,
+    "probe4_verdict_summary": {
+      "cbn_corridor_arc": "PARTIAL",
+      "cb_crossfire": "PARTIAL",
+      "ts_environmental_nest": "PARTIAL",
+      "ss_phase_transform": "CANNOT"
+    }
+  }
+}
