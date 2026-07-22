@@ -66,6 +66,8 @@
 
 **Interleave record (post-W0):** KR lane committed `a85833f0` (gates GREEN + 2 dispatches + own run-state, all inside its `wave-b-reservation-aura` namespace — discipline holding); legolas W1 landing batches incrementally (`abd9ce53` = batch 2, kits c–g). Shared-branch consequence: this lap's E-2 pushes CARRY any parallel-lane local commits to remote — push *initiative* remains conductor-centralized here and Matt-gated in the KR lane; carried commits are not a KR push.
 
+**KR-lane update (`059371fa` + `37da636a`, awareness-only — NOT my run's fork):** the Wave-B aura lane hit an **S6 cert HALT — benefit-side design fork** (gamora Slice-3). Correct per that lane's prompt §5 envelope: Q33-D2 OPEN → a mid-build design fork is a terminal HALT to Matt, NOT a route to me. Seam-disjoint (engine repo); Matt-managed in his KR session; it will park there until Matt adjudicates. I do NOT reach into it or rule it (respecting both the seam boundary and the KR lane's own D2-open authority envelope). No VDM-2 coupling. My E-2 push carried these commits to remote (expected).
+
 **Matt interface state:** Matt signed off after firing the Wave-B session; the run conducts autonomously per charter §6 (review book per leg; red-flag pings only). If E-1 is unruled when the refresh beat arrives, the conservative default GOVERNS the beat (no admission, 585 intact) and Leg B proceeds — no halt; the Edition freeze still parks at Matt regardless.
 
 **Signed:** gandalf, 2026-07-22.
