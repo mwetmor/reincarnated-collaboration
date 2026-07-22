@@ -50,4 +50,13 @@ Single named-gamora leg: eligibility redraw + census → 32 matched-baseline com
 
 On jack-ryan check PASS this sheet freezes verbatim; conductor judges results as DRIFT-CRITIC against THIS sheet.
 
-**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22 — L-16, veto-open (T3-V1).
+## §8 — Freeze-beat pins (folded from jack-ryan check `f1c45e9f`, verdict PASS-WITH-CONCERNS)
+
+Findings: `agentic_orchestration/qa/findings/2026-07-22-prereg-check-tier3-w3prime.md`. The three WARN pins fold here and GOVERN over §3–§4 where more specific; INFO items route as noted. On jack-ryan's re-verify of pins 1–3 the verdict converts to clean PASS and this sheet FREEZES.
+
+1. **C1 — standardizer semantics DECLARED (option (a), as-written):** `sd_pool′(m)` is the between-cell stdev over the 32 matched-baseline cells' 4-seed means WITH their heterogeneous compositions — composition-scale spread stays in the denominator BY DESIGN. Declared consequence: d is CONSERVATIVE on both magnitude legs (larger denominator → harder to clear ±0.5) and neutral on the sign leg; X=0.5 keeps its base-sheet meaning ("half a between-cell sd of the substrate's natural spread"). A within-composition (seed-noise) standardizer is REJECTED — it would silently weaken what X=0.5 means while claiming "bar unchanged."
+2. **C2 — SEALED pre-gate artifact:** the runner writes `2026-07-22-tier3-w3prime-pregate-seal.json` AFTER the 128 baseline fights and BEFORE any encounter fight: the 32 compositions (mob multisets + parity verification), per-cell 4-seed means per metric, `sd_pool′` per metric, per-metric degeneracy flags, and the informative-metric count + renormalized sign rule. The final gate output embeds the seal's md5; any post-encounter mutation of the seal → red-flag HALT.
+3. **C3 — degeneracy-rule edges:** (i) the ≥90%-at-bound test runs over the 32 baseline cells' 4-seed MEANS only (a cell is at-bound iff its mean sits exactly at the structural bound), baseline cells only — never individual fights, never encounter cells; (ii) integer threshold **≥29 of 32**; (iii) the informative-metric count + sign-rule form freeze at the C2 seal and are IMMUTABLE after any encounter fight — a metric that looked informative on baselines but saturates on encounters stays IN the composite (determination is baseline-only, one-shot).
+4. **INFO routing:** C4 (hole fit=0.15 orders above buildable fit=0.10 — fit-instrument note) → W4 book; no sheet effect. C5 → REPORTING OBLIGATION: if §4 fires, the gate record recomputes and REPORTS the direction leg's α on the realized informative-metric configuration (the stated ≈0.0035 is exact only under all-pairs-3-informative); the gate PARAMETER stays the ≥24/32 count. C6 → EXECUTOR REQUIREMENT: per-pair baselines are RUN, never memoized — 256 distinct fight records expected even where two pairs share an identical multiset.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22 — L-16, veto-open (T3-V1). §8 pins folded per L-18.
