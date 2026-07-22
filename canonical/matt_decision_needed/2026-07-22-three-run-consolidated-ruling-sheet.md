@@ -177,4 +177,21 @@ R8 fork-valve:    WIRE       # optional. WIRE = KR routes reasoning-boundary des
 
 ---
 
+## §5 RULINGS RECEIVED — Matt, 2026-07-22 (chunk returned same-day)
+
+| Slot | Matt's word | Disposition |
+|---|---|---|
+| **R1** | *"Can I see a quick rendering of the new camera with the new data before I rule please?"* | **HELD-FOR-EXHIBIT** — elrond commissioned same-turn: deterministic recompute (reproduction gate: B3 0.7836 / 58.54° / reflection must reproduce exactly) → side-by-side E4 vs E5-aligned render + delta arrows + loadings, watermarked NOT-SERVED, filed `research/curated/atlas/2026-07-22-e5-candidate-exhibit/`. Exhibit-only per §8-C — no serving artifact, no store touch. Precedent format: the E3-vs-E4 ruling plates. |
+| **R2** | **B** (benefit-bearing, chain as sheet'd) | **✓ RULED B.** gandalf benefit-model design read commissioned same-turn → `gandalf/design-inputs/2026-07-22-aura-benefit-model-design-read.md` → KR authors rocket-primitive + gamora-wiring dispatch pair → S6 cert as originally spec'd (AC-9 intact). Wave-B lane unblocks on the read landing. |
+| **R3** | **GO** | **✓ RULED GO** — gandalf authors the door-arg RFC next fresh full-context session (deliberately not this one). |
+| **R4** | **FOLD** + MPV question | **✓ RULED FOLD; execution SEQUENCED BEHIND R1.** Matt's understanding confirmed correct: MULTI-PROJECTILE-VOLLEY's kits are already atlas citizens — MPV is an E4 provisional DOCKET carried as a naming/admission INPUT, never a mint row. Actual mint scope = 5 new rows (**LA 4** = the four Lost Ark skill-Destroyer pull-kits, Edition-III Stage-A pull-7 `function=pull` + `di-druid-pvp-cc-stack-2026`) + 1 re-key (`d2-ghost-pvp`→`d2-ghost-assassin-pvp` — touches 9 minted artifacts + canon_engine_key, and roster §D says it "rides edition re-mint"). Because the re-key's mechanics differ under Path A (E4 supplementary mint + served-artifact re-key) vs Path B (rides the new derivation), the mint fires on the R1 word — one elrond pass either way. |
+| **R5** | **BEGIN** (Matt-present) | **✓ RULED BEGIN** — Tier-3 encounter-geometry ELICITOR charter grill OPENED in-session same-turn (four charter forks tabled). |
+| **R6** | **RATIFY** | **✓ RATIFIED** — §1.6 scaling-curve routed to a jack-ryan Gate-1 progression conversation; KR schedules on next pass. |
+| **R7** | **RATIFY ALL** | **✓ RATIFIED — V-1..V-26 stand ratified** (ledger banner stamped; veto record closes). Decisions-log capture rides the next KR/jack-ryan pass. |
+| **R8** | **LEAVE** | **✓ RULED LEAVE** — no fork-valve; mid-build design forks terminal-HALT to Matt **by design**. Q33-D2 closes as ruled-LEAVE (D3 remains open). |
+
+**Island-naming gate flag (surfaced with R4):** Matt's parenthetical — *"holding off from naming any until we reach Edition 5 and create islands again"* — vs the recorded gate ("after ALL THREE runs complete"). Under Path A there **is no Edition 5**; if "Edition 5" stays the naming precondition, naming defers indefinitely. Proposed re-anchor (Matt's word wanted with his R1 ruling): islands re-cut + named after **Tier-3 completes AND R1 is resolved**, on whichever camera R1 lands.
+
+---
+
 **Signed:** gandalf, 2026-07-22. Sources verified first-hand: both review books (RATIFIED against elrond's artifacts), the Leg-B gate report, the binding prereg, the KR run-state, the spec draft §6 premise line, the run-state ledger V-1..V-26. Veto open on everything I ruled; nothing here re-opens what you ruled (§15-R fork set, Q34, Q38 all untouched).
