@@ -73,9 +73,33 @@ GX-02 shapeshift Wave-1 build slice (D3-cooldown) is OUT of this wave — waits 
   - **Re-engagement criterion (Disc #3.6):** S6 cert runnable + bands finalizable only after (A)/(B) ruling.
   - Artifacts: `simulation/math/waveb-reservation-aura-sim-2026-07-22.md §8`; AGENT_STATE SESSION 68.
 
-## ⛔ OPEN — Matt ruling required: benefit-side fork (A) vs (B). Build HALTED at S6 cert. MVP+banner surfaces (reservation economy + positional gate + AC-7-SIM guard) are built, smoke-green, pushed. The thing the radius GATES (the aura benefit) is unbuilt.
+## ✅ RULED — R2 = (B) BENEFIT-BEARING (Matt 2026-07-22). Build RE-OPENED. Benefit-side wiring lane authored.
+**Input of record:** `agentic_orchestration/gandalf/design-inputs/2026-07-22-aura-benefit-model-design-read.md` (gandalf SPEC-AUTHOR; DRIFT-CRITIC PASS stamped).
+**SCOPE AMENDMENT ratified (Matt 2026-07-22):** v1 = **FIVE families** — damage-amp / defense / regen / speed / **pulse-damage**. The pulse-damage deferral is amended INTO scope ("we must amend the deferral and bring them into scope"). §5 commitment-boundary residue is RESOLVED; no open Matt-gates remain in the read.
 
-## Build sequencing
+### What (B) requires (from the read)
+- **rocket (kit-side emission):** ONE field pair on the `aura_geometry` block — `aura_benefit_mod` (float|None, magnitude, band-guarded per read §2) + `aura_benefit_kind` (str|None enum ∈ `{damage, defense, regen, speed, pulse_damage}`). `None/None` inert corner = byte-identical prior build (fork-A behavior preserved). Additive (Disc #12); 1-line MIGRATION (ADR-004); band-guard reads `aura_benefit_kind` to pick the per-kind scaffold band (Disc #8 + #40).
+- **gamora (sim wiring + cert):** source `full_benefit` from `aura_benefit_mod` (not the 1.0 default) at `_establish_aura_carriers`/ActiveEffect stamp (`:2639`), then read the composed `aura_effective_benefit()` per-tick into FOUR stat-mod sink axes (damage→`buff_damage`; defense→damage-taken ×(1−m); regen→`buff_mana_regen`; speed→rate scalar) PLUS the NEW **pulse-damage EMISSION path** (AoE tick attributed to the aura — a damage emission via the resolver, NOT a `buff_damage` mult). Pulse cadence = engine constant `pulse_interval_s = 2.0` scaffold (kit emits magnitude only). Radius/ramp already inside `aura_effective_benefit()` — not re-implemented. Σ-guard non-bypass preserved (blocked aura ⇒ zero benefit). Banner benefit inherits via built origin-arg thread (no new wiring).
+- **S6 cert (extended AC-9a/b/c/d):** 9a non-identity falsification (band sweep MUST now vary monotonically — kills the byte-identical failure math note §8.2); 9b equilibrium window at band-midpoint (felt but not D2-dominant); 9c stacking-is-identity under Σ<0.90; **9d pulse-family: nonzero aura-attributed damage events in telemetry, band-sweep monotonic in aura-attributed damage, Σ<0.90 stacking preserves per-aura attribution.**
+
+### Scaffold bands (read §2 + amendment; Disc #40 — gamora finalizes at S6)
+| Family | Sink | Band | Mid |
+|---|---|---|---|
+| damage-amp | `buff_damage` % | [0.08, 0.20] | 0.14 |
+| defense | damage-taken ×(1−m) | [0.08, 0.20] | 0.14 |
+| regen | `buff_mana_regen` % | [0.10, 0.30] | 0.20 |
+| speed | rate ×(1+m) | [0.05, 0.15] | 0.10 |
+| pulse-damage | AoE tick / base-hit frac | [0.15, 0.35] | 0.25 (@2s ≈ 0.125×base DPS) |
+
+## (SUPERSEDED) ⛔ OPEN — Matt ruling required: benefit-side fork (A) vs (B). Build HALTED at S6 cert. — RESOLVED 2026-07-22 by R2=B ruling above.
+
+## Build sequencing — R2=B benefit round (2026-07-22)
+1. **rocket LEAD (benefit emission)** — `aura_benefit_mod` + `aura_benefit_kind` (5-value enum incl. `pulse_damage`) on the `aura_geometry` block; band-guard picks band by kind; `None/None` inert corner; MIGRATION. Land + push FIRST. Dispatch `2026-07-22-wave-b-reservation-aura-benefit-rocket-emission-LEAD.md`.
+2. **gamora consumer (benefit wiring + S6 cert)** — sequential AFTER rocket push (NO parallel same-tree writes — Disc #62). Four stat-mod sinks + pulse-damage emission path; math-note before code (pulse AoE path is new arithmetic — Disc #1); AC-9a/b/c/d cert. Re-slice: (Slice B1) four stat-mod sinks + AC-9a/b/c; (Slice B2) pulse-damage emission path + AC-9d; S6 cert spans both. Dispatch `2026-07-22-wave-b-reservation-aura-benefit-gamora-sim.md`.
+3. **Gate-2 (jack-ryan DEV-MODE)** — as normal, after gamora S6 cert green + tagged. BLOCK authority.
+- Preserved as built (do NOT re-touch): Σ<0.90 activation-block guard, banner origin-arg inheritance, REMOTE-TRUTH `wave-b-economy-engine-spec.md`.
+
+## Build sequencing — MVP round (2026-07-22, COMPLETE through HALT)
 1. **rocket LEAD** — emission fields + MIGRATION land + push first. ✓ DONE.
 2. **gamora consumer Slice 1 (MVP)** — C1 radius (origin-arg design) + C4 swap-ramp + C3 carrier-widen + AC-7-SIM guard; math-notes + smoke fixtures; reads HEAD post-rocket-push. **Sequential after rocket (NO parallel same-tree writes — Disc #62).**
 3. **gamora Slice 2 (banner 8a)** — final thin slice AFTER MVP smoke green; `_PosProbe`/`_channel_fixed_hits`/`distance_to_point` reuse; math-note (reservation-path + expiry-semantics + AC-1 participation) first.
