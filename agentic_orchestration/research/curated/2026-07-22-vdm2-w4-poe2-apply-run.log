@@ -1,0 +1,159 @@
+=== VDM-2 W4 PoE2 record-class tranche — APPLY run-log ===
+date: 2026-07-22
+script: research/scripts/vdm2_w4_poe2_sidecar_emit_2026_07_22.py --apply
+preflight live corpus.db md5 (expect 45a6e0a62925750ea92dfe12537624ca): 45a6e0a62925750ea92dfe12537624ca
+backup: corpus.db.pre-vdm2-w4-poe2-2026-07-22-backup md5 45a6e0a62925750ea92dfe12537624ca
+cmp live vs backup (byte-for-byte): IDENTICAL
+elem_raw whole-corpus 585-row md5 (expect 5ad31b279b996586113a16be63e87f85): 5ad31b279b996586113a16be63e87f85
+max docket_id PRE (expect 154): 154
+door_registry PRE (expect 27): 27
+motion_signature_registry PRE (expect 18): 18
+
+--- APPLY OUTPUT ---
+Loaded 36 PoE2 record-class kits (game=poe2, corpus_class=record).
+PoE2 system-records (MUST be excluded): ['poe2-grim-feast', 'poe2-temporalis-blink']
+  confirmed NOT in the emitted set: ['poe2-grim-feast', 'poe2-temporalis-blink'] (leak check clean)
+Frozen-identity content hash PRE (PoE2 tranche): 4bc5f880212d2111a98a8abb76506663
+elem_raw WHOLE-CORPUS 585-row content hash PRE: 5ad31b279b996586113a16be63e87f85
+
+==================== DEVIATION CLASSIFICATION ====================
+  DG  poe2-acolyte-darkness: The source player would miss the Waking Dream Remnant economy as its O
+  EI  poe2-archmage-totems: The source player would miss that this is a mana-STACKING archmage bui
+  EI  poe2-blood-mage: Minor drift: the 150%-of-max-life OVERHEAL buffer (the survivability c
+  DG  poe2-bonestorm: Minor drift: Bone Cage's exact shape is under-specified in source (onl
+  EI  poe2-chronomancer-01: The source player would miss (1) that the CC is literal TIME-STOP -- e
+  DG  poe2-cof-comet: Minor drift: the two-layer trigger-ENERGY economy (freeze builds trigg
+  DG  poe2-concoction: Minor drift: the flask-charge-as-ammo economy (your damage skill liter
+  EI  poe2-demon-form: The source player would miss (1) the FORM-SWAP itself as a distinct ga
+  DG  poe2-erasure-edc-lich: Minor drift, and it is CLEAN: with the Erasure phantom removed per bin
+  DG  poe2-galvanic-shards: Minor drift: the two-stage projectile->beam transformation (bolts that
+  DG  poe2-gas-arrow-ignite: Minor drift: the two-stage place-then-detonate mechanic (a cloud you p
+  EI  poe2-gemling-stacker: The source player would miss the ENTIRE identity engine: attribute-sta
+  DG  poe2-howa-invoker: A HoWA player would get flat-lightning melee that scales on GEAR AFFIX
+  DG  poe2-ice-strike-invoker: A minor drift: the two distinct accumulators the source exposes (Combo
+  DG  poe2-infernal-legion: The self-immolation-as-damage-source flavor (minions burn THEMSELVES t
+  DG  poe2-lightning-arrow-deadeye: Two verified drifts noted: (1) engine chain hops sequentially and deca
+  DG  poe2-lightning-spear-amazon: Minor drift: the secondary-bolt cascade is modeled as a multi_projecti
+  DG  poe2-minion-infernalist: Behavioral delta (R-M8-adjacent): engine totems are STATIONARY while t
+  DG  poe2-perfect-strike-01: A 0.1-launch player would 'miss' the specific pre-nerf degeneracy (alw
+  DG  poe2-poison-pathfinder: Minor drift: the Pathfinder flask-charge-on-kill engine (extra charges
+  DG  poe2-rake-ritualist: Drift from the flicker precedent: dash_attack captures the delivery, b
+  DG  poe2-shaman-bear: A Shaman-Bear player would MISS the distinct two-tier economy: Rage OV
+  DG  poe2-smith-ignite: Minor drift: Weapon Heat maps cleanly as an accumulator, but the speci
+  DG  poe2-snipe-mirage-deadeye: Minor drift: the freeze->Snipe interaction is a cross-skill setup (Ice
+  DG  poe2-spark-stormweaver: Minor drift: (1) poe2 shock's damage-amp identity maps to sunder, so a
+  DG  poe2-spiral-volley: Minor drift: the Endurance->Frenzy charge-CONVERSION (build one charge
+  DG  poe2-supporting-fire: Minor drift: the kit's minion-mediated delivery (minions physically lo
+  DG  poe2-tempest-bell: Minor drift: Tempest Bell's defining texture -- a placed proxy that do
+  DG  poe2-tempest-flurry: Minor drift: the 4-hit RHYTHM cadence (each hit in the combo escalates
+  DG  poe2-titan-hotg: Minor drift: HotG's identity is a SETUP-GATED single nuke -- its full 
+  DG  poe2-twister: A Twister player would miss the kit's signature geometry: SELF-PROPELL
+  DG  poe2-walking-calamity: A Walking Calamity Shaman player would miss TWO things: (1) the two-ti
+  EI  poe2-wall-of-shields: A Shield Wall player would miss two coupled identities: (1) DAMAGE-FRO
+  DG  poe2-warbringer-totems: Minor drift: (1) the ENDURANCE-CHARGE-FUELED totem economy -- each tot
+  DG  poe2-whirling-assault-ma: A Hollow Form MA player gets a faithful spin-AoE with a charge-fueled 
+  DG  poe2-witchhunter-grenades: A grenade Witchhunter gets the kill-zone loop faithfully -- lob, pre-s
+  DG  poe2-witchhunter-grenades: Minor drift: the FUSE-TIMING skill expression (grenades that sit and b
+
+==================== GATE MEASUREMENTS ====================
+G1 deviation->structured: 36/36 prose-bearing kits convert = 100.0% (propositions 37 -> rows 37); threshold >=90%
+G2 door-arg derivable-from-prose: 64/70 instances = 91.4% ; threshold >=80% (MEASURED not committed - V-21 fork)
+   6 non-derivable (kit,door) instances (bare token, no behavioral prose for that door):
+     poe2-blood-mage  RETRIBUTION_ENGINE
+     poe2-chronomancer-01  TEMPORAL_CHARGE
+     poe2-demon-form  PHASE_MOMENTUM
+     poe2-howa-invoker  ELEMENTAL_ECHO
+     poe2-infernal-legion  PROXY_ASCENSION
+     poe2-lightning-arrow-deadeye  ELEMENTAL_ECHO
+G3 prose-only T1 geometry: 0 of 36 T1 kits prose-only; threshold == 0
+G4 red-assert->docket: 6 kits carry a red assert; 6 deviation-lane dockets will open (surrogate continues from live max); every red routes
+
+EI-deviation kits (prose classifier output): 6 ['poe2-archmage-totems', 'poe2-blood-mage', 'poe2-chronomancer-01', 'poe2-demon-form', 'poe2-gemling-stacker', 'poe2-wall-of-shields']
+Decay-family register-split (RB-6; W5-flagged): ['poe2-concoction', 'poe2-poison-pathfinder']
+elem_raw anomalies (W5-flagged): NONE (honest-empty)
+
+Measurement report -> /tmp/poe2-report.json
+Durable side-car export -> ../curated/vdm2-exports/vdm2-w4-poe2-sidecars-2026-07-22.json
+
+Frozen-identity content hash POST (PoE2 tranche): 4bc5f880212d2111a98a8abb76506663
+elem_raw WHOLE-CORPUS 585-row content hash POST: 5ad31b279b996586113a16be63e87f85
+elem_raw FROZEN-PROOF: tranche AND whole-corpus 585-row content hash IDENTICAL pre/post (V-18 held).
+Iron-law: canon_corpus=585 kit_mapping=574 is_system=19 (expect 585/574/19)
+foreign_key_check: EMPTY (clean)
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+===== PoE2 INTERNAL-CONSISTENCY RECONCILIATION (36 kits) =====
+(no W1 external evidence for PoE2 — cross-checks emitted side-cars against
+ the independent VDM-1 fields geo_raw / elem_raw / verify_ledger verdict)
+
+CLEAN (emitted structure consistent with VDM-1 fields): 36/36
+
+FLAGGED (real internal inconsistency — candidate emitter/data bug): 0
+
+ADJUDICATED (mismatch explained by multi-element grain gap, NOT a bug): 1
+  - poe2-shaman-bear: H2 register 'fire' is a real kit element (skill0's primary); elem_raw 'physical' is the headline (multi-element grain gap, faithful; kit elements=['fire'])
+
+ANOMALY-EXPECTED (elem mismatch on W5-flagged elem anomalies, expected): 0
+  (none — PoE2 has no elem_raw anomalies)
+
+W5-ROUTED (poison->earth frozen-mapping register split, NOT a bug; RB-6): 2
+  - poe2-concoction: skill.element_primary='earth' but elem_raw='chaos' / court='chaos-poison' — frozen-mapping register inconsistency (W5; parallels D2-poison + GD-acid splits, RB-6)
+  - poe2-poison-pathfinder: skill.element_primary='earth' but elem_raw='chaos' / court='chaos-poison' — frozen-mapping register inconsistency (W5; parallels D2-poison + GD-acid splits, RB-6)
+
+STRUCTURAL CLOSURE:
+  EI-deviation kits: 6 ['poe2-archmage-totems', 'poe2-blood-mage', 'poe2-chronomancer-01', 'poe2-demon-form', 'poe2-gemling-stacker', 'poe2-wall-of-shields']
+  deviation-lane dockets opened (family=vdm2-w4-poe2): 6 across 6 kits
+  EI kits with NO docket (orphans, must be []): []
+  dockets with NO EI kit (orphans, must be []): []
+  kit_door_arg rows for PoE2 (V-21 carve-out, must be 0): 0
+  red acceptance asserts: 6, routed to docket: 6 (every red must route)
+
+post-apply live corpus.db md5:
+63dac8bc6d0d407f0e037499b545c55b
+
+=== side-car row counts (PoE2) ===
+skill_geometry_band|59
+kit_deviation|37
+recognition_hook|61
+kit_acceptance_assert|42
+kit_delta_t4|36
+kit_numeric|1
+poe2 deviation-lane dockets|6
+poe2 kit_door_arg (must be 0)|0
+
+=== registry running totals + docket surrogate POST ===
+door_registry (expect 27, +0)|27
+motion_signature_registry (expect 18, +0)|18
+max docket_id POST (expect 160 = 154+6)|160
+deviation-class breakdown (poe2)|accepted_downgrade|31 engine_inexpressible|6 
+=== W5 poison-register-split flags applied ===
+poe2-concoction|vdm2-w5-poison-register-split-2026-07-22: poison->earth register (skill.element_primary='e
+poe2-poison-pathfinder|vdm2-w5-poison-register-split-2026-07-22: poison->earth register (skill.element_primary='e
+
+=== RE-APPLY idempotency proof (content stable; surrogate advances) ===
+geometry-band content md5 (PRE=POST): 537ab4017b5acd863b9906de0d6a1914
+deviation content md5 (PRE=POST): 9d495acc79f936e9edb0e4b0937a2342
+IDEMPOTENT: side-car content IDENTICAL across applies
+
+=== side-car row counts POST re-apply (must be identical to first apply) ===
+skill_geometry_band|59
+kit_deviation|37
+recognition_hook|61
+kit_acceptance_assert|42
+kit_delta_t4|36
+kit_numeric|1
+poe2 deviation-lane dockets|6
+max docket_id POST re-apply (surrogate advanced 160->166)|166
+
+=== FINAL V-18 whole-corpus elem_raw proof (live vs pre-poe2 backup) ===
+LIVE  elem_raw wholecorpus md5: 5ad31b279b996586113a16be63e87f85
+BACKUP elem_raw wholecorpus md5: 5ad31b279b996586113a16be63e87f85
+V-18 HELD: elem_raw whole-corpus 585-row IDENTICAL live-vs-backup
+
+post-reapply live corpus.db md5: cae3207535d4d750bf05e40665f62b94
+
+=== iron-law FINAL + FK + integrity ===
+canon_corpus=585 kit_mapping=574 is_system=19
+foreign_key_check:   (rows: 0, 0=clean)
+integrity_check: ok
