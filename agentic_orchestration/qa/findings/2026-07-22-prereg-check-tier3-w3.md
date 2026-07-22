@@ -73,3 +73,15 @@ Two residual DoFs that could be exploited post-hoc **in principle** (both small;
 - `agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-state.md` — L-3, L-13, L-14
 - `agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-charter.md` v1.2 — §4 PREREG + W3 done-predicates, §8 preregistration safety
 - engine HEAD `a3671d4` (verified current; matches prereg §0 stamp)
+
+---
+
+## Freeze confirmation — 2026-07-22 (re-verify beat)
+
+**Verdict:** **FREEZE-CONFIRMED.** Prereg amended at commit `5ea56bf3` (carries the PASS-WITH-CONCERNS forward). Both WARN pins (C1, C2) are present, mechanical (zero residual discretion), and faithful to this check. PASS-WITH-CONCERNS converts to **clean PASS**; the sheet freezes verbatim. INFO items (C3/C4/C5) travel to the W3 result read unchanged — not a freeze condition.
+
+- **C1a — draft-family key (§5 item 6):** CONFIRMED. Family = the kit's single ACTIVE sidecar row; sidecar `6dd43161` + precedence RATIFIED > PROPAGATED > DOCKET resolves every kit incl. the 12 multi-family ones to exactly one active row ("no per-draft choice exists"). Frozen input + total-ordered precedence ⇒ zero discretion. Matches my proposed rule verbatim in intent.
+- **C1b — courts-swap tiebreak (§5 item 7):** CONFIRMED. "Least-extreme" = smallest `|fit_score − era-deck median|`, remaining ties break by `kit_id` lexicographic ascending. Two-level order bottoming out on unique kit_id ⇒ no tie survives. More complete than my one-liner (names the extremity metric I'd left implicit).
+- **C2 — HEAD-state invariant (§2):** CONFIRMED. Promoted procedure→hard: any mid-W3 HEAD move touching `simulation/spatial_gauntlet/` or `generation/` (byte-identity vs baseline `a3671d4` required) ⇒ **W3 HALTS**; conductor decides re-run, Matt-pinged if commitment-class; explicit "Not 're-verify and continue.'" Protected invariant named, both subtrees + baseline hash pinned. Engine HEAD re-verified `a3671d4` at this beat — no drift since the check.
+
+No further jack-ryan gate before W3 executes. The instrument is frozen.
