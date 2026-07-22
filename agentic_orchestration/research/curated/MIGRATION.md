@@ -7,6 +7,53 @@
 
 ---
 
+## r4-mint-2026-07-22 — R4 E-1 admission FOLD under Path-A: 5 new annex rows (585→590) + d2-ghost-pvp re-key (14 in-DB tables + served E4) + 6 mint_ledger audit rows — 2026-07-22 — **APPLIED (Matt-ruled FOLD, three-run sheet §5; R1=PATH A un-gated the mint; conductor gandalf)**
+
+### What happened (one line)
+
+Executed the RULED R4 mint: admitted **5 new catalogue rows** (4 Lost Ark Destroyer skill-grain pull-kits from the pull-7 docket §2 + `di-druid-pvp-cc-stack-2026`), re-keyed **`d2-ghost-pvp` → `d2-ghost-assassin-pvp`** across all 14 in-DB base tables + the current served artifact `atlas-edition4.json`, and logged all 6 operations to `mint_ledger` (build_authorized=0, status='r4-admission-fold' — these are admission/re-key events of ALREADY-attested mechanics, NOT mechanism-mints). Row conservation **585 → 590** (annex 299→304; record 267 + system 19 held).
+
+### Authority chain
+- `canonical/matt_decision_needed/2026-07-22-three-run-consolidated-ruling-sheet.md` §2 R4 (FOLD) + §5 rows R1 (PATH A) / R4 (FOLD, "execution SEQUENCED BEHIND R1"; MPV = docket INPUT only, never a mint row).
+- `canonical/matt_decision_needed/2026-07-17-atlas-parity-run-gate-roster.md` §D (the two E-next parked candidates; re-key "rides edition re-mint").
+- Path-A mechanics (R1): E4 supplementary mint + served-artifact re-key (no new derivation; frozen Edition-I basis untouched).
+
+### A. 5 new rows (`corpus_class='annex'`; source-anchored, NO fabrication)
+| kit_id | game | era_year | function | on fit surface? | source |
+|---|---|---|---|---|---|
+| `la-destroyer-vortex-gravity` | la | 2018 | pull | YES (cell_key) | pull-intrinsic tranche 2026-07-15 + pull-7 docket §2 |
+| `la-destroyer-gravity-impact` | la | 2018 | pull | YES (cell_key) | idem |
+| `la-destroyer-gravity-force` | la | 2018 | pull | YES (cell_key) | idem |
+| `la-destroyer-gravity-compression` | la | 2018 | **none** | YES (cell_key) | idem — pull INFERRED per source → never-invent → function=none (docket flag a) |
+| `di-druid-pvp-cc-stack-2026` | di | 2025 | — | NO (cell_key NULL, catalogue-only, unresolved=1) | di-spiritform ruling §"Admission candidate" + legolas re-crawl 2026-07-17 |
+
+- The 4 LA rows mirror their exact-batch peer `d4-spiritborn-vortex` (provenance_tag `pull-tranche-edition2-2026-07-15`, canon_tier=deep, key_completeness=6, grain=kit). cell_keys VERBATIM from the pull-7 docket §2. `court`=NULL (abstain-not-force: the surviving Diablo pull-7 peers carry court=NULL; Destroyer element Physical/Gravity is not force-fit to a court on skill-grain rows). Each gets a 1:1 `canon_engine_key` combat-kit row (raw_json preserved).
+- `di-druid-pvp-cc-stack-2026` is the REAL clean-shape row behind the di-spiritform phantom NAME; the phantom row `di-spiritform-druid-pvp` (negative=1) is **untouched**. All-landed CC vocab → cell_key NULL, catalogue-only (E-derivation owed), conf ≤0.50 (post-cutoff). Correctly EXCLUDED from the fit surface (row_class=combat-kit AND cell_key IS NOT NULL AND negative=0 → 0).
+- **MULTI-PROJECTILE-VOLLEY:** docket/naming INPUT only — **NOT a mint row** (confirmed per §5 R4). Never touched.
+
+### B. Re-key `d2-ghost-pvp` → `d2-ghost-assassin-pvp` (585-conserved rename)
+PK renamed in `canon_corpus`, cascaded (FK off, manual) through every in-DB base table carrying the key:
+`canon_corpus`(1) · `canon_engine_key`(1) · `canon_probe_facts`(10) · `kit_acceptance_assert`(1) · `kit_citations`(3) · `kit_delta_t4`(1) · `kit_deviation`(1) · `kit_dossier`(6) · `kit_mapping`(1) · `recognition_hook`(2) · `skill_geometry_band`(3) · `verify_ledger`(6) · `atlas_franchise_rollup`(1) · `atlas_franchise_rollup_refit_candidate_1`(1). Views (`kit_master`, `v_canon_corpus_rekeyed`, `v_combat_kits`, `v_corpus_substrate`) auto-reflect. Post: `d2-ghost-pvp` = 0 in every kit_id column (residual occurrences are audit-PROSE in mech_note/flags/provenance recording the rename, by design). folk_name → `Ghost Assassin (WW/Trap)`; source_urls populated (5 cited); audit flag appended.
+- **Served artifact:** `atlas-edition4.json` (armed E4, current served truth) `points[40].kit_id` re-keyed — exactly 1 point (git diff: 1 insertion/1 deletion). Source: mh-v3 recrawl application-sheet §4 (Ghost = D2 Assassin WW/Trap, NOT Barb).
+- **Frozen historical editions PRESERVED as provenance (NOT mutated):** `atlas-edition2.json`, `atlas-edition3.json`, `atlas.json`, `atlas-refit-candidate-1.json`, the E1 frozen-fit CSVs, and the e5-candidate-exhibit all correctly retain bare `d2-ghost-pvp` — the historical record of the key at that edition. Mutating them would break the byte-frozen READ-ONLY law (this file, `edition4-run` / `la-mcd-curation-9.19` entries). git status confirms ONLY `atlas-edition4.json` changed on disk.
+
+### C. mint_ledger (audit trail of the R4 mint pass — NOT mechanism-mints)
+6 rows, `mint_id 13..18`, `mint_class='qualitative'`, `evidence_tier='A-attested'`, **`build_authorized=0`**, `status='r4-admission-fold'`. Discipline note: the `mint_ledger` table's 12 pre-existing entries are all mechanism-novelty mints (each matt-ratified, build-forcing). These 6 are ROW-ADMISSION / RE-KEY events of already-attested mechanics (function=pull is a post-E1 census level; di-druid is all-landed vocab; the re-key adds zero mechanics). Recorded there per the dispatch's explicit commission, kept honest and filterable by `status`+`build_authorized=0` so they never pollute the mechanism-mint reading. IDs 13–16 = the 4 LA rows; 17 = di-druid; 18 = the re-key.
+
+### Proof (read-before-write + independent post-verify; Discipline #11)
+- **Backup:** `corpus.db.pre-r4-mint-2026-07-22-backup` (md5 `bebc933b0bf9bcab5988bbc16bcc55b4`, = live pre-write).
+- **md5:** `bebc933b0bf9bcab5988bbc16bcc55b4` (pre) → **`d091881dc1507753577f56f4998a64a5`** (post).
+- **Iron-law post (independent sqlite, not script self-report):** corpus **590** / engine_key **590** / orphans fwd **0** rev **0** / record **267** / annex **304** / system **19** / cell_key resolved **562→566** (+4 LA) / integrity_check **ok**.
+- **Idempotent:** re-run HALTs fail-loud on PRE-STATE (ghost_old now 0, rows exist); md5 unchanged by the halted re-run.
+- **Transactional:** single BEGIN; all POST asserts in-transaction; rollback-on-any-mismatch (no partial write possible).
+- **Reversible:** full backup restore, OR the script is deterministic + source-anchored (re-derivable from the pull-intrinsic tranche + docket §2 + the di-spiritform ruling). Raw preserved in `raw_json`.
+- **Script:** `agentic_orchestration/research/scripts/corpus_r4_mint_2026_07_22.py` (fail-loud, self-asserting).
+
+### corpus_schema_meta
+No schema-meta row inserted — this is a DATA mint (rows + re-key), not a schema migration (no new columns/tables/constraints). Additive rows only; the v2.0 schema shape is unchanged.
+
+---
+
 ## legb-e5-refit-attempt-2026-07-22 — Leg-B (Edition-V) Path-B refit: TRIGGER fired (vocabulary arm) → refit executed → **HALTED at B3 congruence (0.7836 < 0.85)** — corpus.db READ-ONLY, md5 UNMOVED — 2026-07-22 — **HALTED, NO DB CHANGE, NO CANDIDATE SERVED**
 
 ### What happened (one line)

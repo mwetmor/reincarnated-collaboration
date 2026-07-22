@@ -6,6 +6,22 @@
 
 ---
 
+## r4-mint-servedartifact-2026-07-22 — R4 re-key touches ONE served artifact: `atlas-edition4.json` points[40] `d2-ghost-pvp`→`d2-ghost-assassin-pvp` — 2026-07-22 — **APPLIED (Matt-ruled FOLD, three-run sheet §5; Path-A served-artifact re-key; conductor gandalf)**
+
+### One line
+The R4 mint's re-key leg touched the **current served atlas artifact** `atlas-edition4.json` (armed E4): `points[40].kit_id` `d2-ghost-pvp` → `d2-ghost-assassin-pvp`, **exactly one point** (git diff: 1 insertion / 1 deletion). This is the atlas-side companion of the top-level `../MIGRATION.md` `r4-mint-2026-07-22` entry (which carries the 5 new rows + full in-DB cascade + mint_ledger). Source: mh-v3 recrawl application-sheet §4 (D2 PvP "Ghost" = Assassin WW/Trap, docket's Barb speculation corrected).
+
+### Frozen-artifact discipline (the load-bearing call)
+Per this file's `edition4-run` + `la-mcd-curation-9.19` entries, **Edition III + every prior served artifact are byte-frozen READ-ONLY**. The mh-v3 §4 note that the key is "referenced by 9 minted atlas artifacts (served E3 + armed E4 + canon_engine_key + E-series census artifacts)" describes the PARKING rationale — it is NOT a mutation manifest. Under Path A, ONLY the current served truth re-keys:
+- **TOUCHED:** `atlas-edition4.json` (armed E4, the live served map) — 1 point.
+- **PRESERVED as historical provenance (byte-verified untouched):** `atlas-edition2.json`, `atlas-edition3.json`, `atlas.json`, `atlas-refit-candidate-1.json` + all `refit-candidate-1-*`, the E1 frozen-fit CSVs (`atlas-frozen-fit-cellkeys-edition1.csv`, displacement-field-edition1), and the NOT-SERVED `2026-07-22-e5-candidate-exhibit/`. These correctly still carry bare `d2-ghost-pvp` — the true record of the key at that edition; mutating them would break the frozen-basis law and each artifact's md5 pin. `git status` confirms `atlas-edition4.json` is the ONLY on-disk atlas change.
+- The two in-DB atlas rollup tables (`atlas_franchise_rollup`, `atlas_franchise_rollup_refit_candidate_1`) DO re-key — they are live store tables keyed by kit_id (FK-adjacent), not frozen served snapshots; cascaded in the top-level entry's §B.
+
+### Fit integrity
+The 4 new LA Destroyer rows carry cell_keys → they join the fit surface (cell_key resolved 562→566); `di-druid-pvp-cc-stack-2026` is catalogue-only (cell_key NULL) → NOT on the fit surface. **NO refit, NO basis mutation, NO Procrustes, NO re-derivation** — Path A supplementary only; the frozen Edition-I basis and all E4 point coords are unchanged by this pass (the re-key mutates a label, not a coordinate). corpus.db md5 `bebc933b…`→`d091881d…` (the DB-side mint; see top-level entry).
+
+---
+
 ## s2-census-v8-2026-07-16 — S2 readiness census V8 (THE SCOREBOARD, post-Gate-2 rerun; §F.5(1) pool) — PURE CENSUS, corpus.db READ-ONLY — 2026-07-16 — **APPLIED (gandalf-prime autonomous atlas-parity run, cycle 2, CENSUS V8 charge; iron-law asserts all held PRE + POST; DB byte-stable)**
 
 ### One line
