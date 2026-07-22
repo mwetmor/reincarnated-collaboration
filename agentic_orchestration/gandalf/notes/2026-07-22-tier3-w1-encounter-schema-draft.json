@@ -1,0 +1,429 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://reincarnated/schemas/encounters-v1.json",
+  "title": "Tier-3 Encounter-Grammar — encounters bundle payload (DRAFT)",
+  "$comment": "ARTIFACT B of W1, Tier-3 Encounter-Geometry Run. This is a JSON SCHEMA DATA ARTIFACT, NOT pipeline code — no star-lord emitter wiring. It freezes the payload shape for the reserved top-level `encounters` key of the One-Realm bundle (T3-V7: KR Lane-1 reserved the key and builds no encounter emission until this schema freezes). Companion spec: agentic_orchestration/gandalf/notes/2026-07-22-tier3-w1-encounter-grammar-spec.md. WORKING-LABEL CAVEAT: every `family` value in every instance is a WORKING LABEL, NOT canon (charter §5, T3-V2). Matt's names-review is a pending commitment-boundary. `family` is a string token precisely so a future canon-rename is a value-swap, never a structure change. Congruent with on-disk one_realm_demo_bundle.json (verified 2026-07-22): sibling to top-level keys bundle_version/season_id/kits/monsters/gear_pool/factions/floor_manifest.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "encounters_version",
+    "season_id",
+    "schema_status",
+    "working_label_caveat",
+    "provenance_axis",
+    "era_decks",
+    "formation_catalogue",
+    "pressure_verbs",
+    "derived_templates"
+  ],
+  "properties": {
+    "encounters_version": {
+      "type": "string",
+      "const": "encounters-v1",
+      "description": "Mirrors bundle_version style (one-realm-v1)."
+    },
+    "season_id": {
+      "type": "string",
+      "description": "Joins the parent bundle's season_id (e.g. cycle-14-wave-5-season-001)."
+    },
+    "schema_status": {
+      "type": "string",
+      "enum": ["DRAFT", "LOCKED"],
+      "default": "DRAFT",
+      "description": "DRAFT at W1 (freezes shape); LOCKED once Matt's names-review + Gate ratification land."
+    },
+    "working_label_caveat": {
+      "type": "string",
+      "description": "Machine-visible restatement of the working-label caveat. All `family` values are provisional; Matt names-review pending.",
+      "default": "All family names in this payload are WORKING LABELS, not canon (charter §5, T3-V2). Rename is value-swap-safe."
+    },
+    "provenance_axis": {
+      "type": "array",
+      "description": "The census two-value provenance axis, declared. GENRE-ATTESTED = cited from a shipped genre game; RDR-NATIVE-DERIVED = derived from a family kit-leader's mechanism verbs (R-b2) where the genre has no monster-side attestation. TAG, never row-identity (census §c).",
+      "items": { "type": "string", "enum": ["GENRE-ATTESTED", "RDR-NATIVE-DERIVED"] },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "era_decks": {
+      "type": "array",
+      "description": "MACRO tier: one deck per era. 4 entries required (Ages I-IV). Each deck deals map-area archetypes era-personality-honest, with a disposition dimension and a reserved traveling-kin slot.",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/definitions/EraDeck" }
+    },
+    "formation_catalogue": {
+      "type": "array",
+      "description": "MESO tier: formations, ≥2 per family-present (family,era) cell. Sourced from harvest Formation columns (GENRE-ATTESTED) or kit-leader mechanism (RDR-NATIVE-DERIVED).",
+      "items": { "$ref": "#/definitions/Formation" }
+    },
+    "pressure_verbs": {
+      "type": "array",
+      "description": "MICRO tier: ≥1 pressure-verb set per family. Verbs INHERIT from the family kit-leader mechanism (R-b2).",
+      "items": { "$ref": "#/definitions/PressureVerbSet" }
+    },
+    "derived_templates": {
+      "type": "array",
+      "description": "The 5 RDR-NATIVE-DERIVED template entries (Gate-2 hard obligation L-9): SHAPESHIFT-I · SHAPESHIFT-III · DASH-STRIKER-I · CHAIN-BOUNCE-IV · WHIRLWIND-II. Each answers a finding (f-1..f-4) and carries the T3-V2 × L-9 tier-restriction as data (serving_role). f-5 DASH-STRIKER-IV is EXCLUDED (fresh-draft non-obligation). Exactly 5 at W1.",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "$ref": "#/definitions/DerivedTemplate" }
+    },
+    "unmapped_reserved": {
+      "type": "array",
+      "description": "Expressible slot for UNMAPPED rows (census §d, U-1..U-7) + the cross-era resurrection-leader candidate verb. Nothing lost, nothing force-mapped. Rides the artifact as findings for the next lap.",
+      "items": { "$ref": "#/definitions/UnmappedEntry" }
+    },
+    "encounter_instances": {
+      "type": "array",
+      "description": "OPTIONAL at W1 (empty is valid — W1 freezes the shape). RD-1 (conditional, on W3 gate PASS) populates this: the first act-structured run-object. Item schema is COMPLETE now so RD-1's fill is a validation target, not a schema extension (charter §4, T3-V6). Schema-valid instantiation is RD-1's own done-predicate.",
+      "items": { "$ref": "#/definitions/EncounterInstance" },
+      "default": []
+    }
+  },
+  "definitions": {
+    "Era": {
+      "type": "string",
+      "enum": ["I", "II", "III", "IV"],
+      "description": "Age spine: I=D2(2000) · II=PoE1(2013) · III=GD(2016) · IV=PoE2+LE(2024). Eras = shelves (Q38)."
+    },
+    "Family": {
+      "type": "string",
+      "$comment": "WORKING LABEL — not canon. Enum lists the 13 current working labels for validation convenience; a future canon-rename swaps values, not structure.",
+      "enum": [
+        "WHIRLWIND", "CHANNELED-BEAM", "AURA", "TOTEM-SENTRY", "TRAP-MINE",
+        "MELEE-STRIKE", "DOT-AILMENT", "MULTI-PROJECTILE-VOLLEY", "SHAPESHIFT",
+        "CHAIN-BOUNCE", "DASH-STRIKER", "MINION-PET", "IDENTITY-GAUGE"
+      ]
+    },
+    "FamilyTier": {
+      "type": "string",
+      "enum": ["RATIFIED", "DOCKETED", "PROPAGATED", "FRESH-DRAFT"],
+      "description": "Appendix-B membership tier, so the T3-V2 tier law is re-derivable from data."
+    },
+    "Provenance": {
+      "type": "string",
+      "enum": ["GENRE-ATTESTED", "RDR-NATIVE-DERIVED"]
+    },
+    "ServingRole": {
+      "type": "string",
+      "enum": ["headline_capable", "secondary", "texture_docket_input"],
+      "description": "The T3-V2 × L-9 composition as data. headline_capable = RATIFIED-tier may anchor an act headline. secondary = DOCKETED may serve as texture/support, never solo-headline. texture_docket_input = FRESH-DRAFT: the derived template EXISTS (finding answered, L-9) but per T3-V2 a fresh-draft family may NOT headline — appears as texture or docket-input only."
+    },
+    "Confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM"],
+      "description": "MEDIUM travels for: Age II rows 17-18 (Maxroll-only floor) + all 9 LE rows (1.0-era; Season-3 overhauls not reflected) + harvest-internal MEDIUM flags (Alkamos arc-sweep, Port Valbury sample access)."
+    },
+    "Disposition": {
+      "type": "string",
+      "enum": ["hostile", "kin"],
+      "description": "R-b3 player-form coupling. hostile = the menu of future selves to fight through. kin = non-hostile + interactive (the family you became). Maps to emission factions.relationships[].type ('kin' keyed on player-form vs rival/hostile default)."
+    },
+    "ArchetypeForm": {
+      "type": "string",
+      "enum": ["BRAWL", "OUTPOST", "NEST", "CHANNEL-ARENA", "PATROL", "WAVE-ARENA", "KIN"],
+      "description": "Era-personality-honest forms. BRAWL centralized-melee-convergence (Ages I/III native). OUTPOST/EMPLACEMENT decentralized faction-camp (Age II native). KIN traveling-kin encampment (exempt from era-nativity, T3-V4)."
+    },
+    "EraDeck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["era", "source_game", "signature_family", "present_families", "hole_families", "archetypes", "kin_slot"],
+      "properties": {
+        "era": { "$ref": "#/definitions/Era" },
+        "source_game": {
+          "type": "string",
+          "description": "File-level source for Ages I-III (D2/PoE1/GD). For Age IV this is 'PoE2+LE' at deck-level; per-row source lives on each archetype's harvest_anchor (census §h.3 branch)."
+        },
+        "signature_family": {
+          "$ref": "#/definitions/Family",
+          "description": "The act-personality family (census reading 1). I=MELEE-STRIKE · II=DOT-AILMENT · III=CHANNELED-BEAM · IV=none (highest residual)."
+        },
+        "present_families": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Family" },
+          "description": "Families the era's HOSTILE deck may deal from (present-in-era per census §b; includes RDR-derived cells)."
+        },
+        "hole_families": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Family" },
+          "description": "Load-bearing holes: families ABSENT from this era's HOSTILE deck (Appendix-B, true genre history). MUST NOT deal hostiles from these. UNMAPPED rows must not force-map into a hole family (e.g. U-3/U-4 must not map into MELEE-STRIKE-II)."
+        },
+        "archetypes": {
+          "type": "array",
+          "minItems": 4,
+          "description": "≥4 map-area archetypes (charter §4). All disposition=hostile (the kin archetype lives in kin_slot).",
+          "items": { "$ref": "#/definitions/MapAreaArchetype" }
+        },
+        "kin_slot": {
+          "$ref": "#/definitions/KinSlot",
+          "description": "The ONE reserved traveling-kin encampment slot per act (T3-F5, T3-V4, T3-V5)."
+        }
+      }
+    },
+    "MapAreaArchetype": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["archetype_id", "form", "disposition", "hostile_family_roster", "harvest_anchor"],
+      "properties": {
+        "archetype_id": { "type": "string", "description": "e.g. I-A, II-C, IV-F." },
+        "name": { "type": "string" },
+        "form": { "$ref": "#/definitions/ArchetypeForm" },
+        "disposition": {
+          "$ref": "#/definitions/Disposition",
+          "const": "hostile",
+          "description": "Deck archetypes are hostile; the era-exempt kin archetype is in EraDeck.kin_slot."
+        },
+        "hostile_family_roster": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Family" },
+          "description": "Families this archetype may deal hostiles from. MUST be a subset of the deck's present_families (era-pure — T3-V4)."
+        },
+        "harvest_anchor": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Harvest row refs grounding this archetype (e.g. 'I#14', 'IV#11 (PoE2)'). For Age IV includes the per-row PoE2/LE source tag."
+        },
+        "biome_morph_slot": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "Q38 biome-morph rider (reserved v1): a biome re-skin hook. Consumption maps to floor_manifest.dominant_element."
+        }
+      }
+    },
+    "KinSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["archetype_id", "form", "disposition", "era_nativity_exempt", "family", "interaction_scope"],
+      "properties": {
+        "archetype_id": { "type": "string", "description": "e.g. I-KIN." },
+        "form": { "$ref": "#/definitions/ArchetypeForm", "const": "KIN" },
+        "disposition": { "$ref": "#/definitions/Disposition", "const": "kin" },
+        "era_nativity_exempt": {
+          "type": "boolean",
+          "const": true,
+          "description": "T3-V4: the kin slot is the ONLY era-nativity exemption in the grammar. May present ANY family regardless of era-presence (whirlwind caravan in the trap-age)."
+        },
+        "family": {
+          "oneOf": [
+            { "$ref": "#/definitions/Family" },
+            { "type": "null" }
+          ],
+          "description": "Run-supplied from become-history (R-b3), not deck-fixed. NULL in the deck template; RD-1/run-time fills it from what the player became."
+        },
+        "interaction_scope": {
+          "type": "string",
+          "const": "encampment_surface_v1",
+          "description": "T3-V5: v1 = encampment surface only (shop/boon hooks parameterized). Full kin-caravan NPC ensemble is DEFERRED to the story fold."
+        },
+        "shop_hooks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Parameterized shop-interaction hook slots (v1 = slots, not filled dialogue)."
+        },
+        "boon_hooks": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Parameterized boon-interaction hook slots (v1 = slots, not filled dialogue)."
+        },
+        "narrative_lineage": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "e.g. 'D2 Warriv/Meshif caravan'. Flavor lineage only; full ensemble deferred (T3-V5)."
+        }
+      }
+    },
+    "Formation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formation_id", "family", "geometry", "pressure", "eras_present", "provenance"],
+      "properties": {
+        "formation_id": { "type": "string", "description": "e.g. ww_converge_spin, ts_resurrection_loop, ss_derived_form_swap." },
+        "family": { "$ref": "#/definitions/Family" },
+        "geometry": { "type": "string", "description": "The spatial arrangement (converging spin-body, emplaced-anchor + mobile-screen, corridor arc-bounce, paired cross-fire, etc.)." },
+        "pressure": { "type": "string", "description": "The geometric pressure the arrangement creates on the player." },
+        "eras_present": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Era" },
+          "description": "Eras in which this formation is dealt. A formation may span eras (e.g. cb_lane_hold in II+III+IV)."
+        },
+        "harvest_anchor": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Harvest row refs (GENRE-ATTESTED). Empty for RDR-derived formations."
+        },
+        "provenance": { "$ref": "#/definitions/Provenance" },
+        "derivation_source": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "For RDR-NATIVE-DERIVED formations: the kit-leader mechanism the formation derives from (e.g. 'D2 Druid Shapeshifting (player-kit)')."
+        },
+        "secondary": {
+          "type": "boolean",
+          "default": false,
+          "description": "Census §b legend secondary co-mapping (legitimate formation-texture input, not a primary cell fill)."
+        },
+        "confidence": { "$ref": "#/definitions/Confidence", "default": "HIGH" },
+        "staleness_note": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "e.g. 'LE 1.0-era; Season-3 overhauls not reflected'."
+        },
+        "density_lean_note": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "f-6: for DOT-AILMENT-II, MESO variant-count may lean on kit-side mass (formations still trace to attested rows; kit-mass informs variant count only, not new content)."
+        }
+      }
+    },
+    "PressureVerbSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "verbs", "inherits_from"],
+      "properties": {
+        "family": { "$ref": "#/definitions/Family" },
+        "verbs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "≥1 pressure verb per family. R-b2 seed list: whirlwind spin-and-close · totem emplace-and-hold · trap pre-seed · beam channel-lanes · volley fan · DoT stack-and-retreat · melee swarm-the-brawl; rest derived from harvest pressure-pattern columns."
+        },
+        "inherits_from": {
+          "type": "string",
+          "description": "R-b2: the family kit-leader mechanism the verbs inherit from (e.g. 'WHIRLWIND kit-leader spin-and-close')."
+        },
+        "element_court_hook": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "Q38 coordinate hook where the verb carries an element/court (element-courts k=5). Speaks the kit side's vocabulary so fit() can compute."
+        },
+        "cross_era_candidate": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "e.g. 'resurrection_leader' (U-2+U-6). CANDIDATE / NOT-A-FAMILY / docket-input — NOT canonized. See unmapped_reserved."
+        }
+      }
+    },
+    "DerivedTemplate": {
+      "type": "object",
+      "additionalProperties": false,
+      "$comment": "The 5 RDR-NATIVE-DERIVED template entries (Gate-2 hard obligation L-9). Carried inside encounter_instances rosters and referenced by formation_catalogue. Provenance-flagged, tier-restricted per §5.0 two-law composition.",
+      "required": ["cell", "family", "era", "family_tier", "provenance", "serving_role", "derivation_source", "why_derived", "meso_formation_id"],
+      "properties": {
+        "cell": { "type": "string", "description": "e.g. SHAPESHIFT-I, WHIRLWIND-II." },
+        "family": { "$ref": "#/definitions/Family" },
+        "era": { "$ref": "#/definitions/Era" },
+        "family_tier": { "$ref": "#/definitions/FamilyTier" },
+        "provenance": { "$ref": "#/definitions/Provenance", "const": "RDR-NATIVE-DERIVED" },
+        "serving_role": { "$ref": "#/definitions/ServingRole" },
+        "derivation_source": { "type": "string", "description": "The player-kit mechanism the template derives from." },
+        "why_derived": { "type": "string", "description": "The finding (f-1..f-4) + genre-history reason the cell has no monster-side attestation." },
+        "meso_formation_id": { "type": "string", "description": "The RDR-derived formation this template uses (e.g. ss_derived_form_swap, ww_derived_frenzy_line)." },
+        "validation_path": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "e.g. 'poe2db arc-chain direct pass' for CHAIN-BOUNCE-IV — the route to upgrade RDR-derived → GENRE-ATTESTED in a future lap."
+        },
+        "confidence": { "$ref": "#/definitions/Confidence", "default": "HIGH" }
+      }
+    },
+    "UnmappedEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref", "subject", "era", "disposition_in_spec", "parked_ruling_needed"],
+      "properties": {
+        "ref": { "type": "string", "description": "e.g. U-1, U-2+U-6, U-7." },
+        "subject": { "type": "string" },
+        "era": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Era" },
+          "description": "May span eras (U-2+U-6 spans I+III)."
+        },
+        "disposition_in_spec": { "type": "string", "description": "How the spec holds it (reserved; texture-secondary on <formation>; candidate cross-era verb)." },
+        "must_not_map_into": {
+          "type": ["array", "null"],
+          "items": { "$ref": "#/definitions/Family" },
+          "default": null,
+          "description": "Load-bearing constraint: e.g. U-3/U-4 MUST NOT map into MELEE-STRIKE-II (the PoE1 melee hole)."
+        },
+        "candidate_verb": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "e.g. 'resurrection_leader' for U-2+U-6. CANDIDATE / NOT-A-FAMILY / docket-input. NOT canonized."
+        },
+        "docket_input": { "type": "boolean", "default": false },
+        "parked_ruling_needed": { "type": "string", "description": "The future-docket ruling that would resolve this UNMAPPED." }
+      }
+    },
+    "EncounterInstance": {
+      "type": "object",
+      "additionalProperties": false,
+      "$comment": "OPTIONAL at W1 (schema-ready, empty valid). RD-1 populates: an act-structured encounter with a tier-restricted roster + formation + verb-set. Forward-instantiability target (charter §4, §6.4).",
+      "required": ["instance_id", "era", "archetype_id", "disposition", "roster", "formation_id", "verb_set_families"],
+      "properties": {
+        "instance_id": { "type": "string" },
+        "era": { "$ref": "#/definitions/Era" },
+        "act_ordinal": {
+          "type": ["integer", "null"],
+          "default": null,
+          "description": "OPTIONAL positioning hint ONLY (act-order agnosticism, §1.3). Decks compose under chronological/reverse/player-chosen order; never a structural dependency."
+        },
+        "archetype_id": { "type": "string", "description": "The MACRO archetype this instance realizes (e.g. I-D), or the kin_slot id." },
+        "disposition": { "$ref": "#/definitions/Disposition" },
+        "roster": {
+          "type": "array",
+          "description": "The pack. Each entry ties a monster (emission monsters[].id ref) to a family, tier, provenance, and serving_role. Kin rosters carry disposition kin.",
+          "items": { "$ref": "#/definitions/RosterEntry" }
+        },
+        "formation_id": { "type": "string", "description": "The MESO formation the roster stands in (formation_catalogue ref)." },
+        "verb_set_families": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Family" },
+          "description": "The families whose MICRO verb-sets this instance exerts (pressure_verbs refs)."
+        },
+        "cluster_id_ref": {
+          "type": ["integer", "null"],
+          "default": null,
+          "description": "Optional bind to emission factions.clusters[].cluster_id (R-b1 family=faction join)."
+        },
+        "floor_id_ref": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "Optional bind to emission floor_manifest.floor_sequence[].floor_id (MACRO substrate join)."
+        }
+      }
+    },
+    "RosterEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family", "family_tier", "provenance", "serving_role"],
+      "properties": {
+        "monster_id_ref": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "Bind to emission monsters[].id. MICRO/MESO bind via monsters[] fields preferred_behavior/skill_rotation_priority/aggro_radius_m/leash_distance_m/skills[]."
+        },
+        "family": { "$ref": "#/definitions/Family" },
+        "family_tier": { "$ref": "#/definitions/FamilyTier" },
+        "provenance": { "$ref": "#/definitions/Provenance" },
+        "serving_role": {
+          "$ref": "#/definitions/ServingRole",
+          "description": "The T3-V2 × L-9 restriction as data. RD-1/consumer reads this: a texture_docket_input entry may NEVER be the encounter's headline hostile; only headline_capable may anchor an act."
+        },
+        "is_derived_template": {
+          "type": "boolean",
+          "default": false,
+          "description": "true for the 5 RDR-NATIVE-DERIVED templates (§5). See DerivedTemplate for their full spec."
+        },
+        "derivation_source": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "Present iff provenance=RDR-NATIVE-DERIVED: the kit-leader mechanism derived from."
+        },
+        "confidence": { "$ref": "#/definitions/Confidence", "default": "HIGH" }
+      }
+    }
+  }
+}
