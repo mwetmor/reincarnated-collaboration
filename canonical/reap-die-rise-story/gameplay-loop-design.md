@@ -397,6 +397,8 @@ Both the **battle sim** and the **experiential-label tests** were calibrated on 
 
 ## 19. Seasonal structure (background; not a launch hook)
 
+> **[FRAME AMENDMENT 2026-07-21 — Archive Frame ruled; see `archive-frame.md`.]** This section's "a season is a **world the cult conquers**" register is SUPERSEDED at the frame level by the ruled Archive Frame: the descent is a **RESCUE into a failing archive of the genre's build-history** — depth = **era** (shelves), radial = **element-court** (wings), center = contest. The rotation *structure* below survives (which dimension varies, single-axis legibility, substrate-inputs-not-cosmetics, persistent archetypes); its conquest register does not. §19's [OPEN] cosmograph note is unaffected.
+
 - **Two-layer rotation.** *Outer layer:* which dimension rotates per season (race / culture / period / mechanical). *Inner layer:* the *content* of each dimension rotates (one season's races vs. another's; one culture vs. another).
 - **In the death-faith frame:** a season is a **world the cult conquers** — the reincarnation/world-rotation structure survives from the isekai design, **re-registered as conquest** rather than wonder. Each season, a new world falls; its peoples become the season's factions, lieutenants, and converts.
 - **Single-axis rotation per season** for legibility (to the cohesion judge and to players). One season is a unified universe containing its variety.
@@ -483,6 +485,8 @@ Whether the combination deserves attention splits into two **independent** bars:
 ## 23. The Run Model — descent shape, the harvest, and the conduit economy (Canonical)
 
 *Consolidates an extended design session. This is the operative run structure; it extends and sharpens §6 (the core loop) and §10 (the portal). Where this conflicts with earlier sketches of run length/shape, this wins.*
+
+> **[META-LAYER NOTE 2026-07-21 — Archive Frame ruled OVER this section, not INTO it (OM-5(a)); see `archive-frame.md` §8.]** This section is **untouched bit-for-bit by ruling.** The Archive Frame (rescue motive · element-court faction war · devourers · era-shelf geography) is a meta-layer; the §23.3 manufactured-rebellion spine **re-motivates under RESCUE inside the Q4 keystone cluster** (re-motivation, not rewrite — the loop never changes; the knowing does). Two ruled compositions already live here: the §23.3 body-persistence ruling now ALSO carries faction ("you are your latest body" → *your latest allegiance*, `archive-frame.md` §5); the escape's eruption pressure gains the MVP devourer rendering (heard-before-seen, `archive-frame.md` §4).
 
 ### 23.1 Run length & the three-beat descent
 - **A run = the descent through (and escape from) one realm.** Target a **~25-minute victory run** (20 floor / 30 soft ceiling). Rationale: cross-genre consensus puts the roguelite sweet spot at 20–30 min; runs reliably feel like a chore past ~30–45 min. The escape beat (below) pushes a clean run to ~25–27 min — slightly long, but the added time is high-tension flight, not more descent, so it doesn't drag.
