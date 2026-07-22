@@ -97,7 +97,7 @@ For each section: **spec-assumes vs actual · partial homes · wholly-new · D3-
 ### §7 — VERIFY extension (P3)
 
 - **Spec assumes:** mechanics verdicts DON'T yet exist ("claims the sim will consume carry conf scores but no verdicts"); add mechanics coverage + anchor-entailment lint + `player_attested` source.
-- **Actual:** **CORRECTION — mechanics verdicts DO exist.** `verify_ledger.claim_family` already includes `'mechanics'` (597 rows total: 530 C / 25 X / 42 U / 1 SNF). They are COARSE (one "core skills + resource" claim per kit). What the spec wants is *finer granularity* (per geometry-band, per numeric.source_value, per skill-loop) — an **extension of coverage WITHIN the existing family**, not a new family/table.
+- **Actual:** **CORRECTION — mechanics verdicts DO exist.** `verify_ledger.claim_family` already includes `'mechanics'` (**598** rows total: 530 C / 25 X / 42 U / 1 SNF; the components sum to 598 — a prior "597" total here was an off-by-one transcription slip, reconciled per jack-ryan Gate-2 WARN 2026-07-22). They are COARSE (one "core skills + resource" claim per kit). What the spec wants is *finer granularity* (per geometry-band, per numeric.source_value, per skill-loop) — an **extension of coverage WITHIN the existing family**, not a new family/table.
 - **Partial home:** `verify_ledger` (extend with additive columns).
 - **Wholly new:** 3 additive columns (`claim_subject`, `anchor_lint`, `source_lane`). **Deliberately NOT touching** the `claim_family`/`verdict` CHECK constraints (SQLite can't ALTER a CHECK without a table rebuild — and no new family/verdict *value* is needed, so no rebuild). VDM-2 mechanics rows set the existing `run_tag='vdm2'`.
 - **D3-misfit risk:** NONE. The rubber-stamp detector is a query, not a schema object.
@@ -179,7 +179,7 @@ Forks I could **not** resolve in-seam (they cross into design/Q38/cross-seam ter
 **Diff highlights (the 5–10 bullets):**
 
 1. **Spec is flat-JSON; store is normalized-relational.** All 6 nested VDM-2 blocks re-home as `kit_id`-keyed side-car tables. Largest correction; drives the whole DDL.
-2. **§7 mechanics verdicts already exist** (597 rows in `verify_ledger`, family=`mechanics`). Spec assumed they don't. §7 becomes a *granularity* extension (3 additive columns), not a new table — and needs **no CHECK rebuild**.
+2. **§7 mechanics verdicts already exist** (**598** rows in `verify_ledger`, family=`mechanics`; out of 2068 total ledger rows — prior "597" reconciled per jack-ryan Gate-2 WARN 2026-07-22). Spec assumed they don't. §7 becomes a *granularity* extension (3 additive columns), not a new table — and needs **no CHECK rebuild**.
 3. **§4 geometry is per-skill, not per-kit.** The exemplar's 3 skills expose the D3-single-skill bias. Re-homed at `(kit_id, skill_ordinal)`. **Highest misfit risk**; the PoE/GD pilots are its refutation surface.
 4. **`count_multiplier` and all source-scale numerics are prose-stranded exactly as predicted** (Masquerade's "tripling projectile delivery", 83% DR, 5500% all live only in `delivery_notes`/`fidelity_notes`). §4/§5 structures land them.
 5. **Door args are wholly new but bare-usage is 100% of current state**, so the typed overlay is purely additive. But `DUAL_PROXY` (the exemplar) is 2-of-270 — one of the *rarest* doors; the arg model is validated against a near-unique case. High-frequency doors' arg surfaces are unknown from D3.

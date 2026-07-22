@@ -9,33 +9,62 @@
 # THIS SCRIPT IS ASSEMBLED FOR REVIEW. It is NOT executed in W3a. corpus.db
 # stays byte-identical (md5 50df15b776ad5b0da93fe90cdee1163d) until W3b.
 #
-# Sequence (charter §4 W3 + run-state W3b line + ADR-004):
-#   0. preflight guards (stamp == v1.1-verified; md5 == expected; foreign_keys)
-#   1. BACKUP corpus.db + RECORD md5 FIRST                (reversibility anchor)
-#   2. PRAGMA foreign_keys=ON                             (loud FK failure)
-#   3. additive DDL v1                                    (12 tables + 9 cols)
-#   4. data riders + registry seeds                       (corpus_class/court/eras/etc.)
-#   5. post-rider census ASSERTS                          (must match W3a package)
-#   6. v2.0 stamp LAST                                    (the final statement)
-#   7. MIGRATION.md entry per ADR-004                     (append the W3a draft)
-#   8. compendium regen from kit_master
+# --- GATE-2 REMEDIATION (2026-07-22, jack-ryan BLOCK) ----------------
+# PRIOR DEFECT: the 7 census asserts used RAISE(ABORT,...) inside bare
+# top-level SELECT CASE...END statements. SQLite permits RAISE() ONLY
+# inside a trigger-program, so each assert failed at PARSE time and never
+# evaluated the count. The sqlite3 CLI (no -bail) skipped the parse error
+# and proceeded to the v2.0-stamp INSERT + COMMIT, which SUCCEEDED. Net:
+# the db landed v2.0-stamped with ALL asserts bypassed — the headline
+# safety contract ("assert failure -> no stamp") was INOPERATIVE.
 #
-# SAFETY: steps 3-6 run inside a SINGLE TRANSACTION. Any assert failure ->
-# ROLLBACK -> restore-from-backup is a no-op (nothing committed). The v2.0
-# stamp only lands if every assert passed. New dockets take status='open'
-# (distinct from the 19 matt-ratified). Raws never dropped (§4.3 reversibility).
+# FIX (jack-ryan Option B — bash-gated asserts, separate-call stamp):
+#   * DDL v1 + riders run in ONE transaction and COMMIT (steps [2-4]).
+#     They MUST commit before the asserts because the 6 census columns
+#     (corpus_class/court/original_element/atlas_coords/eras_normalized)
+#     DO NOT EXIST until DDL v1 creates them — you cannot query them from
+#     bash otherwise. DDL+riders are idempotent + reversible (§4.3) and
+#     the backup is taken first (step [1]), so a committed-but-unstamped
+#     db is exactly the "identifiable partial" the design wants; re-run
+#     is safe.
+#   * The 7 census asserts (step [5]) are now BASH control-flow: each
+#     expected count is a sqlite3 scalar into a shell var, gated
+#     [ "$X" = "N" ] || { echo "ASSERT FAIL ..."; exit 1; } under
+#     set -euo pipefail. A failed assert exit-1s the whole script.
+#   * The v2.0 stamp (step [6]) is a SEPARATE, LAST sqlite3 invocation,
+#     reached ONLY AFTER all 7 asserts pass. Because a failed assert
+#     exit-1s before this call, the stamp is UNREACHABLE on any mismatch.
+#     "Stamp last, only if every assert passed" is now a real bash
+#     control-flow guarantee, not an in-SQL one SQLite silently skips.
+#
+# NEGATIVE-PATH PROOF: 2026-07-22-vdm2-w3a-fix-negative-path-evidence.md
+#   (a) wrong count -> ABORT with NO v2.0 stamp; (b) correct -> stamps.
+#   DDL v1 + riders SQL are UNCHANGED (Gate-2 proved them byte-perfect).
+#
+# SAFETY: assert failure -> exit 1 BEFORE the stamp call -> the db keeps
+# its pre-stamp version (v1.1-*); the DDL+riders partial is reversible via
+# the step-[1] backup (cp BACKUP DB). The v2.0 stamp lands only if every
+# assert passed. New dockets take status='open' (distinct from the 19
+# matt-ratified). Raws never dropped (§4.3 reversibility).
 # =====================================================================
 set -euo pipefail
 
 CURATED="$HOME/Games/reincarnated-collaboration/agentic_orchestration/research/curated"
 NOTES="$HOME/Games/reincarnated-collaboration/agentic_orchestration/elrond/notes"
-DB="$CURATED/corpus.db"
+# DB / BACKUP / EXPECTED_PRE_MD5 default to the production target but may be
+# overridden from the environment ONLY for the negative/positive-path evidence
+# runs (2026-07-22-vdm2-w3a-fix-negative-path-evidence.md), which drive THIS
+# script unmodified against throwaway copies. Unset in production => live db.
+DB="${DB:-$CURATED/corpus.db}"
 DDL="$NOTES/2026-07-22-vdm2-ddl-v1.sql"
 RIDERS="$NOTES/2026-07-22-vdm2-riders.sql"
 DATESTAMP="$(date +%Y-%m-%d)"
-BACKUP="$CURATED/corpus.db.pre-vdm2-schema-${DATESTAMP}-backup"
-EXPECTED_PRE_MD5="50df15b776ad5b0da93fe90cdee1163d"
+BACKUP="${BACKUP:-$CURATED/corpus.db.pre-vdm2-schema-${DATESTAMP}-backup}"
+EXPECTED_PRE_MD5="${EXPECTED_PRE_MD5:-50df15b776ad5b0da93fe90cdee1163d}"
 UTC="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# Record-bucket predicate reused across every court/promotion assert.
+REC_BUCKETS="corpus_bucket IN ('poe1','d2','gd','poe2','le')"
 
 echo "### VDM-2 W3b APPLY — $UTC"
 
@@ -57,64 +86,91 @@ BACKUP_MD5=$(md5 -q "$BACKUP" 2>/dev/null || md5sum "$BACKUP" | cut -d' ' -f1)
 [ "$BACKUP_MD5" = "$EXPECTED_PRE_MD5" ] || { echo "FATAL: backup md5 mismatch. ABORT."; exit 1; }
 echo "  backup -> $BACKUP (md5 $BACKUP_MD5)"
 
-# --- STEPS 2-6: DDL + riders + asserts + stamp, ONE TRANSACTION -------
-# On ANY error inside the heredoc, sqlite3 aborts; because the whole block is
-# one BEGIN...COMMIT, an abort before COMMIT = automatic ROLLBACK (nothing
-# persisted). The v2.0 stamp is the LAST statement inside the txn.
-echo "## [2-6] DDL v1 + riders + census asserts + v2.0 stamp (single txn)"
+# --- STEPS 2-4: DDL + riders, ONE TRANSACTION (NO stamp yet) ---------
+# The DDL+riders run inside one BEGIN...COMMIT. If sqlite3 errors before
+# COMMIT, the txn auto-rolls-back (nothing persisted) and set -e kills the
+# script before any assert or the stamp. On success the DDL+riders commit;
+# the db is now migrated but UNSTAMPED (still v1.1-*) — an identifiable,
+# reversible partial. The census columns now EXIST, so the bash asserts
+# in step [5] can query them.
+echo "## [2-4] DDL v1 + riders (single txn; NO v2.0 stamp yet)"
 sqlite3 "$DB" <<SQL
 PRAGMA foreign_keys=ON;
 BEGIN;
-
--- [3] additive DDL v1
+-- [3] additive DDL v1 (12 tables + 9 columns)
 .read $DDL
-
--- [4] data riders + registry seeds
+-- [4] data riders + registry seeds (corpus_class/court/eras/original_element/atlas)
 .read $RIDERS
+COMMIT;
+SQL
+echo "  DDL+riders committed (db migrated, still UNSTAMPED v1.1-*)"
 
--- [5] post-rider census ASSERTS — each RAISEs (aborts the txn -> ROLLBACK)
---     if the count is not exactly the W3a-package-pinned value.
--- 5a. corpus_class: record 267 | annex 299 | system 19 | NULL 0
-SELECT CASE WHEN (SELECT COUNT(*) FROM canon_corpus WHERE corpus_class='record')=267
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_class='annex')=299
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_class='system')=19
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_class IS NULL)=0
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: corpus_class census != 267/299/19/0') END;
--- 5b. court on record bucket: physical 90 | fire 54 | chaos-poison 44 | lightning 42 | cold 27 | NULL 13
-SELECT CASE WHEN (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND court='physical')=90
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND court='fire')=54
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND court='chaos-poison')=44
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND court='lightning')=42
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND court='cold')=27
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND court IS NULL)=13
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: court census != 90/54/44/42/27/13') END;
--- 5c. original_element promotion total on record (270)
-SELECT CASE WHEN (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND original_element IS NOT NULL)=270
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: original_element != 270 on record') END;
--- 5d. atlas_coords promotion on record (268; 2 honest NULL)
-SELECT CASE WHEN (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND atlas_coords IS NOT NULL)=268
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: atlas_coords != 268 on record') END;
--- 5e. eras_normalized on record (268; 2 poe1 NULL-eras honest)
-SELECT CASE WHEN (SELECT COUNT(*) FROM canon_corpus WHERE corpus_bucket IN ('poe1','d2','gd','poe2','le') AND eras_normalized IS NOT NULL)=268
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: eras_normalized != 268 on record') END;
--- 5f. A-7 preserve-NULL: t4_doors JSON-null count UNCHANGED (29 total; 8 record-game)
-SELECT CASE WHEN (SELECT COUNT(*) FROM kit_mapping WHERE json_type(mapping_json,'\$.t4_doors')='null')=29
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: t4_doors JSON-null count != 29 (A-7 preserve-NULL violated)') END;
--- 5g. iron-law: total 585, kit_master 574, is_system 19, no orphan side-car kit_ids
-SELECT CASE WHEN (SELECT COUNT(*) FROM canon_corpus)=585
-            AND (SELECT COUNT(*) FROM kit_master)=574
-            AND (SELECT COUNT(*) FROM canon_corpus WHERE is_system=1)=19
-       THEN 1 ELSE RAISE(ABORT,'ASSERT FAIL: iron-law 585/574/19 broke') END;
+# --- STEP 5: post-rider census ASSERTS — BASH CONTROL-FLOW -----------
+# Each expected count is a sqlite3 scalar into a shell var, then gated. A
+# mismatch echoes the failure and exit 1 — which, under set -euo pipefail,
+# terminates the script BEFORE the step-[6] stamp call is ever reached.
+# The stamp is therefore unreachable on any assert failure. On abort here,
+# the db keeps its pre-stamp version; reverse the DDL+riders partial with
+# cp "$BACKUP" "$DB".
+echo "## [5] census asserts (bash-gated; mismatch -> exit 1 BEFORE stamp)"
 
--- [6] v2.0 stamp — THE FINAL STATEMENT (only reached if every assert passed)
+assert() {  # assert <name> <expected> <actual>
+  local name="$1" expected="$2" actual="$3"
+  if [ "$actual" = "$expected" ]; then
+    echo "  ok   $name = $actual"
+  else
+    echo "ASSERT FAIL: $name expected $expected got $actual"
+    echo "  -> aborting BEFORE v2.0 stamp. db is migrated-but-UNSTAMPED (still $STAMP)."
+    echo "  -> reverse the partial: cp \"$BACKUP\" \"$DB\""
+    exit 1
+  fi
+}
+
+# 5a. corpus_class: record 267 | annex 299 | system 19 | NULL 0
+assert "corpus_class.record" 267 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE corpus_class='record';")"
+assert "corpus_class.annex"  299 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE corpus_class='annex';")"
+assert "corpus_class.system"  19 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE corpus_class='system';")"
+assert "corpus_class.NULL"     0 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE corpus_class IS NULL;")"
+
+# 5b. court on record bucket: physical 90 | fire 54 | chaos-poison 44 | lightning 42 | cold 27 | NULL 13
+assert "court.physical"     90 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND court='physical';")"
+assert "court.fire"         54 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND court='fire';")"
+assert "court.chaos-poison" 44 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND court='chaos-poison';")"
+assert "court.lightning"    42 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND court='lightning';")"
+assert "court.cold"         27 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND court='cold';")"
+assert "court.NULL"         13 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND court IS NULL;")"
+
+# 5c. original_element promotion total on record (270)
+assert "original_element.record" 270 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND original_element IS NOT NULL;")"
+
+# 5d. atlas_coords promotion on record (268; 2 honest NULL)
+assert "atlas_coords.record" 268 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND atlas_coords IS NOT NULL;")"
+
+# 5e. eras_normalized on record (268; 2 poe1 NULL-eras honest)
+assert "eras_normalized.record" 268 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE $REC_BUCKETS AND eras_normalized IS NOT NULL;")"
+
+# 5f. A-7 preserve-NULL: t4_doors JSON-null count UNCHANGED (29 total; 8 record-game)
+assert "t4_doors.jsonnull" 29 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM kit_mapping WHERE json_type(mapping_json,'\$.t4_doors')='null';")"
+
+# 5g. iron-law: total 585, kit_master 574, is_system 19
+assert "iron-law.canon_corpus" 585 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus;")"
+assert "iron-law.kit_master"   574 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM kit_master;")"
+assert "iron-law.is_system"     19 "$(sqlite3 "$DB" "SELECT COUNT(*) FROM canon_corpus WHERE is_system=1;")"
+
+echo "  ALL 17 census asserts passed."
+
+# --- STEP 6: v2.0 stamp — SEPARATE, LAST sqlite3 CALL ----------------
+# Reached ONLY because every assert above passed (any mismatch exit-1s the
+# script before this line). This is the ONLY statement that writes 'v2.0',
+# and it is a distinct sqlite3 invocation from the DDL+riders txn. That is
+# the fix: the stamp is control-flow-unreachable on any assert failure.
+echo "## [6] v2.0 stamp (separate call; reached only after all asserts passed)"
+sqlite3 "$DB" <<SQL
 INSERT INTO corpus_schema_meta(version, applied_utc, note)
 VALUES ('v2.0', '$UTC',
   'VDM-2 schema landing (elrond, W3b). Additive DDL v1: 12 side-car tables + 9 columns (corpus_class/eras_normalized/original_element/court/atlas_coords/capstone_source_acquisition on canon_corpus; source_deviation_id/source_kit_id/intake_lane on mechanic_gap_docket; claim_subject/anchor_lint/source_lane on verify_ledger). Riders: corpus_class 267/299/19; court 257/270 (13 NULL, V-15); original_element 270; atlas_coords 268; eras_normalized 268 (V-16 per-game vocab in MIGRATION.md). A-1..A-7 folded. exact_json/normalization_rule/capstone NULL/empty at apply (downstream deps). Zero VDM-1 touch; A-7 preserve-NULL held (29 JSON-null t4_doors unchanged). Reversible via $BACKUP.');
-
-COMMIT;
 SQL
-
-echo "  txn committed (all asserts passed; v2.0 stamped)"
+echo "  v2.0 stamp written."
 
 # --- STEP 6b: verify the stamp landed --------------------------------
 NEWSTAMP=$(sqlite3 "$DB" "SELECT version FROM corpus_schema_meta ORDER BY rowid DESC LIMIT 1;")

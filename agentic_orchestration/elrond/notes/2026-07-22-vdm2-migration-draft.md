@@ -31,7 +31,7 @@ VDM-2 lands the field-delta spec (`matt_notes_handoff_docs/rdr-vdm2-field-delta-
 ### 9 additive columns on 3 existing tables
 - **`canon_corpus` +6:** `corpus_class`, `eras_normalized`, `original_element`, `court`, `atlas_coords`, `capstone_source_acquisition`.
 - **`mechanic_gap_docket` +3:** `source_deviation_id`, `source_kit_id`, `intake_lane` (the second, deviation-side intake distinct from the existing mint lane).
-- **`verify_ledger` +3:** `claim_subject`, `anchor_lint`, `source_lane` (mechanics-verdict granularity + anchor lint + player-attested lane; §7 is a granularity extension — mechanics verdicts ALREADY EXIST, 597 rows).
+- **`verify_ledger` +3:** `claim_subject`, `anchor_lint`, `source_lane` (mechanics-verdict granularity + anchor lint + player-attested lane; §7 is a granularity extension — mechanics verdicts ALREADY EXIST: **598 rows** at `claim_family='mechanics'`, out of **2068** total ledger rows. [jack-ryan Gate-2 WARN reconcile 2026-07-22: prior draft cited "597 rows" — that was the mechanics-FAMILY subset, mislabeled AND stale by one; live `claim_family='mechanics'` = 598, live table total = 2068.])
 
 ### 2 CHECK-enum additions (both on v1-NEW tables — no rebuild, no VDM-1 touch)
 - **A-1:** `skill_geometry_band.range_band` gains `self`.
