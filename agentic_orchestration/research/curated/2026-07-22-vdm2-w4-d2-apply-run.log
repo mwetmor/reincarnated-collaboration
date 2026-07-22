@@ -1,0 +1,189 @@
+=== VDM-2 W4 D2 record-class tranche — APPLY run-log ===
+date: 2026-07-22
+script: research/scripts/vdm2_w4_d2_sidecar_emit_2026_07_22.py --apply
+preflight live corpus.db md5 (expect 06fc8913b9e8b22237abbdb98d717e73): 06fc8913b9e8b22237abbdb98d717e73
+backup: corpus.db.pre-vdm2-w4-d2-2026-07-22-backup md5 06fc8913b9e8b22237abbdb98d717e73
+max docket_id PRE (expect 103): 103
+
+--- APPLY OUTPUT ---
+Loaded 60 D2 record-class kits (game=d2, corpus_class=record).
+Frozen-identity content hash (PRE): 2a2c05eabbe4b11343e400f190c92682
+
+==================== GATE MEASUREMENTS ====================
+G1 deviation->structured: 51/51 prose-bearing kits convert = 100.0% (propositions 51 -> rows 51); threshold >=90%
+G2 door-arg derivable-from-prose: 92/109 instances = 84.4% ; threshold >=80% (MEASURED not committed - V-21 fork)
+   17 non-derivable (kit,door) instances:
+     d2-blade-sin  PERSISTENCE_ENGINE_uptime
+     d2-blade-sin  TEMPORAL_CHARGE
+     d2-blizzard-sorc  PERSISTENCE_ENGINE_uptime
+     d2-blizzard-sorc  ELEMENT_CONVERSION_MONO
+     d2-charger  MOMENTUM_CASCADE
+     d2-enchantress  PERSISTENCE_ENGINE_uptime
+     d2-fireclaw-wolf  PHASE_MOMENTUM
+     d2-fishyzon  ZONE_CONTROL
+     d2-fohdin  ZONE_CONTROL
+     d2-frost-bowazon  MOMENTUM_CASCADE
+     d2-meteorb  ELEMENT_CONVERSION_HYBRID
+     d2-meteorb  PERSISTENCE_ENGINE_uptime
+     d2-mosaic-sin  ELEMENT_CONVERSION_HYBRID
+     d2-rabies-wolf  PHASE_MOMENTUM
+     d2-singer  ZONE_CONTROL
+     d2-smiter  SACRIFICE_ASCENDANCY
+     d2-smiter  PROXY_ASCENSION
+G3 prose-only T1 geometry: 0 of 58 T1 kits prose-only; threshold == 0
+   T1 kits with ZERO skills (honest extraction-null, NOT a G3 miss, W5-flag): ['d2-wl-void-rift']
+G4 red-assert->docket: 13 kits carry a red assert; 13 deviation-lane dockets will open (ids from 104); every red routes
+Durable side-car export -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/vdm2-exports/vdm2-w4-d2-sidecars-2026-07-22.json
+
+Frozen-identity content hash (POST): 2a2c05eabbe4b11343e400f190c92682
+elem_raw FROZEN-PROOF: identity content hash IDENTICAL pre/post (V-18 held).
+Iron-law: canon_corpus=585 kit_mapping=574 is_system=19 (expect 585/574/19)
+foreign_key_check: EMPTY (clean)
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+
+post-apply live corpus.db md5: 4a01f05165e6a87a7e5199add1402809
+===== D2 INTERNAL-CONSISTENCY RECONCILIATION (60 kits) =====
+(no W1 external evidence for D2 — cross-checks emitted side-cars against
+ the independent VDM-1 fields geo_raw / elem_raw / verify_ledger verdict)
+
+CLEAN (emitted structure consistent with VDM-1 fields): 38/60
+
+FLAGGED (real internal inconsistency — candidate emitter/data bug): 22
+  d2-auradin:
+    - delivery_class='melee_arc' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-bonemancer:
+    - element register 'shadow' not licensed by elem_raw 'magic' (allows none)
+  d2-bvc:
+    - delivery_class='motion' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-daggermancer:
+    - element register 'earth' not licensed by elem_raw 'poison' (allows ['shadow'])
+  d2-enchantress:
+    - delivery_class='aura' (from geometry_value) NOT consistent with geo_raw='single' (allows ['beam', 'melee_arc', 'motion', 'projectile'])
+  d2-fire-sorc:
+    - delivery_class='projectile' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-fishyzon:
+    - element register 'lightning' not licensed by elem_raw 'physical' (allows ['earth', 'shadow'])
+    - verify mechanics verdict=CONTRADICTED but emitted grade=CLOSE with no EI deviation (structure asserts more than VERIFY)
+  d2-fohdin:
+    - delivery_class='projectile' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-frost-bowazon:
+    - delivery_class='projectile' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-ghost-pvp:
+    - delivery_class='summon_delegate' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+    - element register 'lightning' not licensed by elem_raw 'physical' (allows ['earth', 'shadow'])
+  d2-golemancer:
+    - delivery_class='summon_delegate' (from geometry_value) NOT consistent with geo_raw='single' (allows ['beam', 'melee_arc', 'motion', 'projectile'])
+  d2-grim-ward-barb:
+    - delivery_class='summon_delegate' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-hydra-sorc:
+    - delivery_class='summon_delegate' (from geometry_value) NOT consistent with geo_raw='single' (allows ['beam', 'melee_arc', 'motion', 'projectile'])
+  d2-mosaic-sin:
+    - element register 'fire' not licensed by elem_raw 'lightning' (allows ['lightning'])
+  d2-poison-javazon:
+    - element register 'earth' not licensed by elem_raw 'poison' (allows ['shadow'])
+  d2-rabies-wolf:
+    - delivery_class='aura' (from geometry_value) NOT consistent with geo_raw='chain' (allows ['beam', 'projectile', 'summon_delegate', 'zone'])
+    - element register 'earth' not licensed by elem_raw 'poison' (allows ['shadow'])
+  d2-summon-druid:
+    - delivery_class='summon_delegate' (from geometry_value) NOT consistent with geo_raw='single' (allows ['beam', 'melee_arc', 'motion', 'projectile'])
+  d2-summonmancer:
+    - delivery_class='summon_delegate' (from geometry_value) NOT consistent with geo_raw='large-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-wind-druid:
+    - element register 'water' not licensed by elem_raw 'physical' (allows ['earth', 'shadow'])
+  d2-wl-echoing-strike:
+    - delivery_class='projectile' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-ww-barb:
+    - delivery_class='motion' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+  d2-ww-sin:
+    - delivery_class='motion' (from geometry_value) NOT consistent with geo_raw='small-AOE' (allows ['aura', 'beam', 'zone'])
+
+ADJUDICATED (mismatch explained by a documented crosswalk, NOT a bug): 0
+
+ANOMALY-EXPECTED (elem mismatch on the 6 W5-flagged anomalies, expected): 0
+
+STRUCTURAL CLOSURE:
+  EI-deviation kits: 13
+  deviation-lane dockets opened (family=vdm2-w4-d2): 13 across 13 kits
+  EI kits with NO docket (orphans, must be []): []
+  dockets with NO EI kit (orphans, must be []): []
+  kit_door_arg rows for D2 (V-21 carve-out, must be 0): 0
+  red acceptance asserts: 13, routed to docket: 13 (every red must route)
+
+=== RE-APPLY (idempotent; adds poison-register-split W5 flags surfaced by RB-5 reconcile) ===
+date: 2026-07-22 (re-apply after reconcile)
+pre-reapply live md5: 4a01f05165e6a87a7e5199add1402809
+Loaded 60 D2 record-class kits (game=d2, corpus_class=record).
+Frozen-identity content hash (PRE): 2a2c05eabbe4b11343e400f190c92682
+
+==================== GATE MEASUREMENTS ====================
+G1 deviation->structured: 51/51 prose-bearing kits convert = 100.0% (propositions 51 -> rows 51); threshold >=90%
+G2 door-arg derivable-from-prose: 92/109 instances = 84.4% ; threshold >=80% (MEASURED not committed - V-21 fork)
+   17 non-derivable (kit,door) instances:
+     d2-blade-sin  PERSISTENCE_ENGINE_uptime
+     d2-blade-sin  TEMPORAL_CHARGE
+     d2-blizzard-sorc  PERSISTENCE_ENGINE_uptime
+     d2-blizzard-sorc  ELEMENT_CONVERSION_MONO
+     d2-charger  MOMENTUM_CASCADE
+     d2-enchantress  PERSISTENCE_ENGINE_uptime
+     d2-fireclaw-wolf  PHASE_MOMENTUM
+     d2-fishyzon  ZONE_CONTROL
+     d2-fohdin  ZONE_CONTROL
+     d2-frost-bowazon  MOMENTUM_CASCADE
+     d2-meteorb  ELEMENT_CONVERSION_HYBRID
+     d2-meteorb  PERSISTENCE_ENGINE_uptime
+     d2-mosaic-sin  ELEMENT_CONVERSION_HYBRID
+     d2-rabies-wolf  PHASE_MOMENTUM
+     d2-singer  ZONE_CONTROL
+     d2-smiter  SACRIFICE_ASCENDANCY
+     d2-smiter  PROXY_ASCENSION
+G3 prose-only T1 geometry: 0 of 58 T1 kits prose-only; threshold == 0
+   T1 kits with ZERO skills (honest extraction-null, NOT a G3 miss, W5-flag): ['d2-wl-void-rift']
+G4 red-assert->docket: 13 kits carry a red assert; 13 deviation-lane dockets will open (ids from 104); every red routes
+Durable side-car export -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/vdm2-exports/vdm2-w4-d2-sidecars-2026-07-22.json
+
+Frozen-identity content hash (POST): 2a2c05eabbe4b11343e400f190c92682
+elem_raw FROZEN-PROOF: identity content hash IDENTICAL pre/post (V-18 held).
+Iron-law: canon_corpus=585 kit_mapping=574 is_system=19 (expect 585/574/19)
+foreign_key_check: EMPTY (clean)
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+post-reapply live md5: ac7b196684413c2720c16cfb3e0bf5ad
+
+=== FINAL RECONCILE (against settled triple-applied state) ===
+===== D2 INTERNAL-CONSISTENCY RECONCILIATION (60 kits) =====
+(no W1 external evidence for D2 — cross-checks emitted side-cars against
+ the independent VDM-1 fields geo_raw / elem_raw / verify_ledger verdict)
+
+CLEAN (emitted structure consistent with VDM-1 fields): 60/60
+
+FLAGGED (real internal inconsistency — candidate emitter/data bug): 0
+
+ADJUDICATED (mismatch explained by a documented crosswalk, NOT a bug): 5
+  - d2-bonemancer: H2 register 'shadow' is a real kit element (skill0's primary); elem_raw 'magic' is the headline (multi-element grain gap, faithful; kit elements=['shadow'])
+  - d2-fishyzon: H2 register 'lightning' is a real kit element (skill0's primary); elem_raw 'physical' is the headline (multi-element grain gap, faithful; kit elements=['lightning', 'water'])
+  - d2-ghost-pvp: H2 register 'lightning' is a real kit element (skill0's primary); elem_raw 'physical' is the headline (multi-element grain gap, faithful; kit elements=['lightning'])
+  - d2-mosaic-sin: H2 register 'fire' is a real kit element (skill0's primary); elem_raw 'lightning' is the headline (multi-element grain gap, faithful; kit elements=['fire', 'lightning'])
+  - d2-wind-druid: H2 register 'water' is a real kit element (skill0's primary); elem_raw 'physical' is the headline (multi-element grain gap, faithful; kit elements=['water'])
+
+ANOMALY-EXPECTED (elem mismatch on the 6 W5-flagged anomalies, expected): 0
+
+W5-ROUTED (poison->earth frozen-mapping register inconsistency, NOT a bug): 3
+  - d2-daggermancer: skill.element_primary='earth' but elem_raw='poison' / court='chaos-poison' — frozen-mapping register inconsistency (W5)
+  - d2-poison-javazon: skill.element_primary='earth' but elem_raw='poison' / court='chaos-poison' — frozen-mapping register inconsistency (W5)
+  - d2-rabies-wolf: skill.element_primary='earth' but elem_raw='poison' / court='chaos-poison' — frozen-mapping register inconsistency (W5)
+
+STRUCTURAL CLOSURE:
+  EI-deviation kits: 13
+  deviation-lane dockets opened (family=vdm2-w4-d2): 13 across 13 kits
+  EI kits with NO docket (orphans, must be []): []
+  dockets with NO EI kit (orphans, must be []): []
+  kit_door_arg rows for D2 (V-21 carve-out, must be 0): 0
+  red acceptance asserts: 13, routed to docket: 13 (every red must route)
+
+=== FINAL STATE ===
+live corpus.db md5: 1843f4cff8d667d598e4ffcbef71ae01
+backup md5 (pre-vdm2-w4-d2): 06fc8913b9e8b22237abbdb98d717e73
+current D2 docket ids: 130-142

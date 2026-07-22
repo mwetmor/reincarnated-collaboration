@@ -1,9 +1,76 @@
 # MIGRATION — Catalogue Data Layer (Elrond-owned)
 
 **Owner:** elrond
-**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest + (**NEW v2.0 LANDED 2026-07-22**) corpus.db VDM-2 additive schema (12 side-car tables + 9 columns; DEV-MODE Gate-2 cleared twice) + (**NEW W4 PoE1 tranche POPULATED 2026-07-22**) the six side-car blocks re-emitted for the 94 PoE1 record-class kits (G1 100% / G2 87% / G3 0 / G4 14-of-14; door-arg schema-design fork deferred).
+**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest + (**NEW v2.0 LANDED 2026-07-22**) corpus.db VDM-2 additive schema (12 side-car tables + 9 columns; DEV-MODE Gate-2 cleared twice) + (**NEW W4 PoE1 tranche POPULATED 2026-07-22**) the six side-car blocks re-emitted for the 94 PoE1 record-class kits (G1 100% / G2 87% / G3 0 / G4 14-of-14; door-arg schema-design fork deferred) + (**NEW W4 D2 tranche POPULATED 2026-07-22**) the six side-car blocks emitted for the 60 D2 record-class kits (G1 100% / G2 84.4% MEASURED-not-committed / G3 0 / G4 13-of-13; door-arg RFC carved per V-21; internal-consistency reconcile 60/60 clean).
 **Pattern:** parallels star-lord's engine-side `MIGRATION.md` files per AGENTS.md Tactic 2 + ADR-004.
 **Append-only.** Most recent entry at the top.
+
+---
+
+## vdm2-w4-d2-sidecar-2026-07-22 — VDM-2 W4 D2 record-class tranche: six side-car blocks POPULATED (the next sequential record-class tranche after PoE1; door-arg CARVED per V-21) — 2026-07-22 — **APPLIED**
+
+### What changed (one line)
+W4 populates the previously-EMPTY VDM-2 side-cars for the **60 D2 (Diablo 2) record-class kits** (`game='d2' AND corpus_class='record'`; all 60 are real kits — the record-270 bucket's 19 system-records are le/poe2, none are d2) by emitting from the FROZEN VDM-1 substrate. ADAPTS the PoE1 emitter (commit `99d5ac8e`) to D2 conventions (D2 geometry/door/element vocabulary differs — synergy-stacks, curses, auras, form-locks, corpse-economy, summoner-GAP). Six kit-FK-only side-car blocks + the deviation-lane docket intake + registry catalogue seeds land; `kit_door_arg` is CARVED per conductor ruling V-21 (the door-arg RFC is parked post-W5).
+
+### Version
+- **From:** `v2.0` · md5 `06fc8913b9e8b22237abbdb98d717e73` (post-W4-PoE1 state; the preflight drift-guard value).
+- **To:** `v2.0` (schema frozen; this is a DATA population, not a schema bump) · md5 `1843f4cff8d667d598e4ffcbef71ae01` (post triple-apply idempotency-proof + RB-5 reconcile poison-register flags).
+- **Backup:** `corpus.db.pre-vdm2-w4-d2-2026-07-22-backup` (byte-for-byte the pre-tranche restore point; md5 `06fc8913b9e8b22237abbdb98d717e73`).
+
+### Rows written (D2 tranche)
+| Side-car | Rows | Notes |
+|---|---|---|
+| `skill_geometry_band` | 144 | one per skill in `mapping_json.skills[]`; delivery_class 100% coverage; +5 D2-specific geometry tokens mapped (`teleport`→motion, `placed_lane`→zone, `leap_strike`→motion, `vortex_pull`→zone, `fork`→projectile); band fields (width/range/speed/pierce/chain/motion/cadence) from `delivery_notes` prose, NULL where prose silent |
+| `kit_deviation` | 51 | 38 `accepted_downgrade` + 13 `engine_inexpressible`; 0 `param_gap` (D2-honest); one proposition per prose-bearing kit (9 EXACT-grade kits = empty deviation, trivially lossless); the D2 "that build, slight … texture loss" downgrade-tell overrides EI markers correctly |
+| `recognition_hook` | 92 | H1 geometry + H2 element-register (RDR canonical register) per kit; the zero-skill phantom (`wl-void-rift`) gets 0 hooks; magic-element kits get H1 only (no element_primary → no H2) |
+| `kit_acceptance_assert` | 73 | ≥1 green signature assert/kit + 13 RED asserts (one per EI kit) all routed to dockets |
+| `kit_delta_t4` | 60 | 41 step / 19 ramp (D2 melee/aura/discrete-enable → step; synergy-stack/charge-accumulate → ramp, per spec §9 pilot #2 D2-synergy-stack framing) |
+| `kit_numeric` | 0 | honest-EMPTY: no %/magnitude source-scale value in D2 deviation/mech prose (D2's exact numbers live in the `skills.txt`/`missiles.txt` datamine — V-19 NULL, a separate downstream legolas lane). Correct sparse-to-empty result for D2 |
+
+### Deviation-lane dockets (the second docket intake — spec §3)
+**13 dockets auto-opened** `status='open'`, `intake_lane='deviation'`, `docket_family='vdm2-w4-d2'`, one per kit carrying an `engine_inexpressible` deviation: `golemancer · grim-ward-barb · horker · meteorb · poison-nova-necro · sacrifice · summon-druid · summonmancer · teleport-sorc · trapsin · wl-blood-boil · wl-tainted-summoner · wl-void-rift`. These are all genuine "no engine lane" cases (summoner-GAP, corpse-economy, loot-reroll meta-identity, pure-utility transport, autonomous-companion, phantom/ghost). Each links `source_deviation_id` → the EI deviation, which back-fills `docket_id` (closed loop). **G4 complete: 13/13 red asserts routed, zero orphans.**
+- **Docket-id provenance (surrogate, not semantic):** the FIRST apply used ids **104–116** (continuing from PoE1's 90–103 per the brief's "continue from 104" instruction). Idempotent re-runs (RB-5 reconcile added the poison-register flags; triple-apply idempotency proof) advanced the AUTOINCREMENT surrogate to the current live **130–142**. Per the PoE1-established note: the *content* is idempotent (13 dockets, one per EI kit); the *surrogate keys* advance on each re-run. This durable log captures the semantic state, not the surrogate values. Deviation-lane dockets now total **27** (14 PoE1 + 13 D2); grand docket total **46** (19 mint-lane matt-ratified + 27 deviation-lane).
+
+### Registry catalogue seeds (cataloguing ALREADY-ATTESTED frozen vocabulary — NOT minting)
+- **`door_registry`**: seeded the 2 on-record D2 door tokens absent from the 25-door post-PoE1 seed — `ELEMENT_CONVERSION_HYBRID`, `GEOMETRY_PROPAGATION_overkill` (→ **27** total). Frozen in VDM-1 `mapping_json.t4_doors`; catalogues existing vocabulary, does not mint (spec §2). All other D2 doors were already seeded by W3b/PoE1 (INSERT OR IGNORE no-ops).
+- **`motion_signature_registry`**: +5 named paths this tranche uses (`blink_translate`, `lane_place`, `leap_arc`, `inward_pull`, `fork_split`) → **17** total. A-3 growable-registry pattern; geometry paths with canonical meaning, safe in a data pass (distinct from the door-arg RFC).
+
+### The door-arg CARVE-OUT (conductor ruling V-21 — MEASURED not committed)
+`kit_door_arg` was NOT written (V-21: the door-arg vocabulary is a Matt-ratifiable, corpus-wide, ELICITOR-authored RFC parked post-W5, not a data-pass mint). Exactly as PoE1 (carved). D2 uses **18 doors / 109 (kit,door) pairs**. G2 door-arg derivability-from-prose was MEASURED at **92/109 = 84.4%** (above the 80% reference line) WITHOUT committing rows — the measurement feeds the post-W5 RFC. `door_arg_schema` stays at 3 rows (ELEMENTAL_ECHO only). **A low G2 is not a failure this wave; 84.4% is reported as the RFC input.** No arg names/enums were invented.
+
+### W5 anomaly + register flags (structured-on-frozen, FLAGGED-not-resolved — discipline 1 / V-18)
+Two flag classes, both iron-law-2-compliant idempotent flag-appends (precedent: PoE1 8-anomaly stamps; `econ-audit-ambiguous` 18 appends):
+1. **6 D2 elem_raw anomalies** carry `vdm2-w5-elem-anomaly-2026-07-22: <note>`:
+   - `d2-teleport-sorc` (`elem_raw='n/a'` — first purely-utility non-combat kit; no damage output to attach an element to)
+   - `d2-wl-void-rift` (`elem_raw='void?'` — question-mark ambiguous AND a zero-skill kb-hallucination phantom/ghost, D-7.1 documented-negative; the only T1 kit with zero skills → the G3 zero-skill edge case)
+   - `d2-wl-blood-boil` (`elem_raw='shadow/blood?'` — compound question-mark), `d2-wl-echoing-strike` (`elem_raw='physical?'`), `d2-wl-tainted-summoner` (`elem_raw='shadow?'`) — Warlock kb-harvest unverified-extraction question-marks
+   - `d2-hammerdin` (`elem_raw='magic'` — D2 element-neutral damage; delivery_notes say "holy is probe fabrication"; a genre-true damage class but not an RDR register; shared by bonemancer/berserker/magic-Warlocks)
+2. **3 poison-register-split inconsistencies** carry `vdm2-w5-poison-register-split-2026-07-22: <note>` — SURFACED BY THE RB-5 RECONCILE: `d2-daggermancer`, `d2-poison-javazon`, `d2-rabies-wolf` map D2 poison → **earth** register (skill.element_primary='earth' on Poison Dagger/Plague Javelin/Rabies), DISAGREEING with `court='chaos-poison'` and with sibling `d2-poison-nova-necro`'s correct poison → **shadow** register. A frozen-mapping register split (same source element, two RDR registers) for W5 to unify. NOT fixed here (V-18: element fields frozen; reconcile surfaces, W5 resolves).
+
+### Internal-consistency reconciliation (RB-5, LOAD-BEARING — D2 has NO W1 external evidence)
+D2 got no legolas W1 hand-verified evidence tranche (only PoE1 did; **W5 is D2's systematic external check**). So the reconcile is an INTERNAL-CONSISTENCY pass: it cross-checks the emitted side-cars against the *independent VDM-1 corpus fields* — `geo_raw` (the BC-axis geometry code, an independent geometry derivation from `mapping_json.skills[].geometry_value`), frozen `elem_raw`, and the `verify_ledger` mechanics/identity verdicts. Result: **60/60 CLEAN**. **0 emitter bugs** (contrast PoE1's reconcile, which caught 2 — D2 caught 0 because the D2 substrate was surveyed BEFORE writing the emitter, so PoE1's `line`→projectile lesson and the D2 geometry-token set were baked in up front; the reconcile's value on D2 was confirmation + the poison-register catch). **5 ADJUDICATED** as multi-element grain-gaps (H2 faithfully reports skill0's real element — verified present in the kit's element footprint — where the headline `elem_raw` differs: `bonemancer` magic-headline/shadow-skill, `fishyzon`+`ghost-pvp` physical-headline/lightning-skill, `mosaic-sin` lightning-headline/fire-skill tri-element charge, `wind-druid` physical-headline/water-skill). **3 W5-ROUTED** (the poison-register split above). Structural closure verified: 13 EI kits ↔ 13 dockets (0 orphans either direction), `kit_door_arg`=0 (V-21), 13/13 red asserts routed. The reconcile pass tightened its own `geo_raw`/`elem_raw` crosswalk tables across two iterations to isolate the true signal (the coarse kit-level `geo_raw` code legitimately spans many per-skill delivery families — a grain gap, not a disagreement).
+
+### Gate rates
+- **G1** deviation prose → structured: **100.0%** (51/51 prose-bearing kits; 51 props → 51 rows) — PASS (≥90%).
+- **G2** door args derivable-from-prose without re-crawl: **84.4%** (92/109 instances) — MEASURED-not-committed (V-21 carve-out); reported as RFC input, not a pass/fail this wave.
+- **G3** prose-only T1 geometry: **0** of 58 T1 kits (all skill-bearing T1 kits have a derived delivery_class); the sole zero-skill T1 kit `wl-void-rift` is an honest extraction-null (no geometry prose to convert), reported separately + W5-flagged, NOT a G3 miss — PASS (==0).
+- **G4** red-assert → docket: **13/13 routed**, 13 deviation-lane dockets open — PASS.
+- **G5** no-breaking-schema: satisfied a priori (schema frozen at v2.0; data population).
+
+### Integrity + reversibility
+- **VDM-1 iron law held byte-exact:** canon_corpus 585 · kit_mapping 574 · is_system 19 (PRE + POST, verified in-script with `assert`). Frozen-identity content hash over the immutable columns (`elem_raw`/`core_skills`/`mech_note`/`folk_name`/`game`/`tier`) of the 60 D2 kits is **IDENTICAL pre/post** (`2a2c05eabbe4b11343e400f190c92682`) across all three applies — the frozen `elem_raw` (V-18) is untouched; I structured ON it, did not resolve it. Any D2 elem_raw anomaly noticed → FLAGGED for W5, not fixed.
+- **canon_corpus touch scope:** flags-only, on exactly the 9 flagged kits (6 elem-anomaly + 3 poison-register; the poison-register append does NOT overlap the elem-anomaly set). `flags` is NOT in the frozen-identity hash, so the append does not violate the frozen-elem proof. 585 rows unchanged (none added/dropped).
+- **`PRAGMA foreign_keys=ON`** held through every apply; `foreign_key_check` **EMPTY** (even though `kit_door_arg` was not written, all FK references incl. the circular `kit_deviation ↔ mechanic_gap_docket` pair resolve clean). `integrity_check=ok`.
+- **Idempotent (triple-apply verified):** delete-then-insert keyed on kit_id per side-car; the circular deviation↔docket FK is broken by NULL-ing `kit_deviation.docket_id` before the ordered teardown (acceptance → deviation-dockets → deviation → the rest). Three consecutive applies: side-car row counts IDENTICAL (144/51/92/73/60/0), docket count stable (13), poison-register flags stable (3, no double-append). AUTOINCREMENT surrogate ids (deviation_id/docket_id) advance on each re-run — content idempotent, surrogate keys not.
+
+### ADR-004 + durability (RB-4 — the db is git-ignored; the JSON + scripts + log are the committed proof)
+No engine-telemetry change; star-lord-side MIGRATION.md unaffected (side-car population is corpus-curation, my seam). Reversible: `corpus.db.pre-vdm2-w4-d2-2026-07-22-backup` restores the exact PRE (post-W4-PoE1) state; side-cars are additive-only over frozen VDM-1 (emitter re-run reproduces the semantic state). Matt-veto-open. **NO push — the conductor (gandalf) centralizes pushes at the wave-verification beat.** corpus.db + backups are gitignored data artifacts; the committed durable record is this MIGRATION entry + the emitter/reconcile scripts + the durable JSON export.
+
+### Durable artifacts (the committed proof)
+- `research/curated/vdm2-exports/vdm2-w4-d2-sidecars-2026-07-22.json` — full per-kit side-car export (60 kits, all six blocks + gates + t4-split + both W5 flag registries; 246 KB).
+- `research/curated/2026-07-22-vdm2-w4-d2-apply-run.log` — the apply + triple-idempotency + reconcile run-log.
+- `research/scripts/vdm2_w4_d2_sidecar_emit_2026_07_22.py` — the six-block emitter + registry seeds + docket intake + W5 flag-stamp (fail-loud under `foreign_keys=ON`; idempotent; frozen-hash self-check; `--dry-run` measures gates, `--apply` writes, `--export` writes the durable JSON).
+- `research/scripts/vdm2_w4_d2_reconcile_2026_07_22.py` — the internal-consistency reconciliation (read-only; 60/60 clean; 5 adjudicated + 3 W5-routed; cross-checks emitted structure against `geo_raw`/`elem_raw`/`verify_ledger`).
 
 ---
 
