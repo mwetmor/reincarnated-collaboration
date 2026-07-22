@@ -1,6 +1,6 @@
 # Parallel KR Lanes — Emission Demo-Critical + Sim Capacity (fireable by Matt)
 
-**STATUS:** DRAFTED 2026-07-22 — awaiting Matt's fire-word(s). Each lane is independently fireable; neither blocks Tier-3.
+**STATUS:** ✓ **BOTH LANES FIRED by Matt 2026-07-22** (*"I fired both KR lanes in parallel"*) — T3-V7 coordination law LIVE. Reserve #9 unfired (HOLD default — run-state L-7).
 **Author:** gandalf (`RUN-CONDUCTOR`), under Matt's 2026-07-22 grant: *"Are there any parallel KR runs that can be drafted which I can fire? … feel free to elicit, draft and/or begin anything that you need autonomously."*
 **Queue row:** Q42 (`canonical/matt_decision_needed/README.md`).
 **Coordination law:** Tier-3 charter T3-V7 (one-way coupling; mirrored in §4 below).
