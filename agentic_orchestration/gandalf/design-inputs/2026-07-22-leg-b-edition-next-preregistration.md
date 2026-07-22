@@ -1,6 +1,6 @@
 # Leg-B Edition-next (E5) Pre-registration — VDM-2 → Edition-next Lap
 
-**STATUS:** DRAFT @ the refresh beat — for legolas Mode-A methodology consultation (Discipline #18) + jack-ryan Gate-1 (DESIGN-MODE), BEFORE elrond executes. Pre-registration is binding ONLY if reviewed before results exist.
+**STATUS:** **REVIEWED → BINDING** (2026-07-22). Both pre-execution reviews landed BEFORE any derivation result exists — legolas Mode-A methodology consult (`28c43467`) + jack-ryan Gate-1 PASS-WITH-AMENDMENTS (`23652dba`) — so pre-registration integrity holds. All resolutions folded in **§13** (binding; supersede the body where they conflict). Ready for elrond execution.
 **Date:** 2026-07-22 · **Author:** gandalf (SPEC-AUTHOR hat, at the RUN-CONDUCTOR refresh beat) · **Executor:** elrond · **Gate-1:** jack-ryan · **Methodology consult:** legolas Mode-A.
 **Run:** VDM-2 → Edition-next Lap (`2026-07-22-vdm2-edition-next-lap-charter.md` §5 Leg-B plan; run-state `…-run-state.md`).
 **Lineage inherited (cited, NOT re-authored from memory):**
@@ -30,7 +30,7 @@ Therefore Leg B is **not** "author a new derivation." It is: **run the pre-regis
 - **Derivation membership (GAP-4, V-2):** the **record class = 267 real kits** DERIVES the axes (NOT 270 — the charter's "record-270" predates the W2 census correction V-14: the 270 bucket = 267 real + 3 system-records, which are excluded). Per-game: PoE1 94 · D2 60 · GD 41 · PoE2 36 · LE 36. The **annex-299 projects supplementary** via CA transition formulas (Run A's ghost-field machinery; corpses/annex may not bend the axes they validate). System-19 excluded by grain (T1 GRAIN LAW).
 - **Inherited coordinate basis:** the 13-coordinate register (`coordinate-register-2026-07-13.md`) — coords 1–3 identity-key membership LOCKED, never-demote core #1/#2/#5/#8/#12/#13 intact. This is the E4 basis input; unchanged as the inheritance floor.
 - **v2.0-added structure (candidate new information — feature-selection pinned in §3.1):** the six blocks (geometry-bands 490 · deviations 259 · recognition-hooks 441 · acceptance-asserts 310 · numerics 2 · t4-shape 267), the `court` field (Q38 k=5 damage register: physical 90 · fire 55 · chaos-poison 44 · lightning 42 · cold 27 · 9 record-NULL), and the **`element_primary` delivery-register** (RB-6: 11 earth-corrosive / 27 shadow-soul / 6 other across the 44 chaos-poison-court kits).
-- **gateA ground-truth labels:** inherited FROZEN from Edition-I (the `kit_id → group` table, A1) — the 6 cross-franchise groups WHIRLWIND(15)/TOTEM-SENTRY(26)/TRAP-MINE(24/23)/CHANNELED-BEAM(9)/AURA(8)/MINION-PET(7). **No re-labeling** at v2.0 (re-labeling after seeing v2.0 structure would de-register Gate A). If v2.0 record kits are unlabeled members, they are the unlabeled remainder — they receive no Gate-A label.
+- **gateA ground-truth labels:** inherited FROZEN from Edition-I (the `kit_id → group` table, A1) — the 6 cross-franchise groups WHIRLWIND(15)/TOTEM-SENTRY(**24**)/TRAP-MINE(**23**)/CHANNELED-BEAM(9)/AURA(8)/MINION-PET(7) = **86 members** (counts CORRECTED per A-LB1 — conductor-verified first-hand against the frozen `atlas/2026-07-14-gate-report.md` "86 rows byte-verbatim"; the draft's 26/24 was an error). **No re-labeling** at v2.0 (re-labeling after seeing v2.0 structure would de-register Gate A). If v2.0 record kits are unlabeled members, they are the unlabeled remainder — they receive no Gate-A label.
 - **franchise_rollup:** inherited from A2 (game-series rollup → 11 franchises); Gate C/D group on `franchise_rollup`, never raw `game`.
 
 **Anything a gate consumes is pinned here before results exist.** Items still under-pinned are listed in §12 for the consultation + Gate-1 to close, exactly as Run A's A1–A7 closed the first prereg's gaps.
@@ -71,7 +71,7 @@ The discipline: **no double-counting** (court vs element), **no coordinate minte
 ### §3.2 — The refit (E4 §6 B1–B3, over the §3.1 feature set)
 
 - **B1 — re-fit E1's method, hyperparameters UNCHANGED** (method drift = a different fork): MCA/CATPCA with Greenacre-corrected inertia + MFA block-weighting (no high-cardinality coord dominates by arithmetic accident); ordinal constraints on tempo + commit only; unknown values = passive categories; annex-299 + negatives supplementary-only. Plus the triangulation witnesses: Gower→classical MDS; Leiden (kNN k=10, CPM scan 0.5–2.0); LCA (BIC, k=2..12). Rare categories (n<10) fused per Greenacre once, for all families. Agreement is evidence; disagreement is a finding.
-- **B2 — Procrustes-anchor to E4's camera:** transform = translation + rotation + reflection, **NO scale** (preserves E4 distance semantics; optimal scale s* computed and DISCLOSED, never applied). Anchor set = all members common to E4 and the new fit (maximal stability); the congruence gate measures on the ratified gateA members only.
+- **B2 — Procrustes-anchor to E4's camera:** transform = translation + rotation + reflection, **NO scale** (preserves E4 distance semantics; optimal scale s* computed and DISCLOSED, never applied). **Anchor set = the RECORD-CLASS gateA members only (~46, NOT Run A's 86 — per A-LB2: 39 of the 86 gateA members are annex/project-only, and annex kits project supplementary in BOTH editions so they are not stable anchors; only record-class members are active in the v2.0 record-267 fit).** Floor 40 — elrond REPORTS the exact common-member count at execution; if it falls below 40, HALT to a §8 finding (a small anchor threatens the congruence estimate, the §12-Q5 risk). Congruence (B3) measures on this record-class anchor set post-transform.
 - **B3 — congruence gate** (G-3 / P-2): congruence coefficient **≥ 0.85** over the ratified gateA members' plane positions post-anchor.
 
 ### §3.3 — Retention + naming (Run A Stage 4)
@@ -83,7 +83,7 @@ Permutation-null dimension retention (NOT Kaiser). Axes named from the loadings 
 ## §4 — The four gates (inherited, pinned pre-results; basis freezes ONLY if all pass)
 
 - **Gate A — group recovery.** The 6 frozen gateA groups (A1 table) re-emerge without being told: **ARI ≥ 0.6; silhouette ≥ 0.2 for ≥ 5/6 groups**, AND (A3) the four large groups (WHIRLWIND, TOTEM-SENTRY, TRAP-MINE, CHANNELED-BEAM) must ALL clear 0.2 — the single permitted sub-threshold group may only be AURA or MINION-PET (n≤8, intrinsically high-variance). A large-group silhouette failure fails Gate A outright.
-- **Gate B — negative geography → Finding F-1, NON-DOWNGRADABLE.** *"Kit death is not geography"* (Edition-I: intrinsic-red corpses are DISPERSED, p_dispersed 0.036; the unexplored ghost field contains no forbidden zones derived from corpse-geography). Published verbatim; the RIDER-1 badge carries it. **Inheritance item for Gate-1 (§12-Q4):** the powered per-law Gate-B successor (CLARIFY-1, designed in the Edition-II v2 prereg — `…/design-inputs/2026-07-14-gate-b-diagnosis-and-proposed-ruling.md`) — jack-ryan confirms whether v2.0's corpse census now clears its stated minimum per-law corpse count + power calculation, or whether F-1 stands unreplaced at this N. NOT authored here from memory.
+- **Gate B — negative geography → Finding F-1, NON-DOWNGRADABLE.** *"Kit death is not geography"* (Edition-I: intrinsic-red corpses are DISPERSED, p_dispersed 0.036; the unexplored ghost field contains no forbidden zones derived from corpse-geography). Published verbatim; the RIDER-1 badge carries it. **§12-Q4 RULED (jack-ryan Gate-1, A-LB4): F-1 STANDS UNREPLACED at this N; do NOT introduce a per-law Gate-B successor.** v2.0 DB truth: `intrinsic-red` = 12 (8 record / 4 annex) vs Run A's 5 — but CLARIFY-1's per-law test across 3 red laws is ≈2–3 corpses/law = structurally underpowered, AND the corpse→red-law assignment is doc-only (not a frozen artifact → post-hoc-constructible, A1-class). Freeze criterion stays **A/C/D + F-1**; the successor trigger is re-pinned at **≥8 record-class corpses per red law**. **A-LB5 (the hidden soft spot §12 missed): F-1 is a geometry claim about a SPECIFIC basis — under a refit the camera MOVES, so F-1's dispersal MUST be re-verified DESCRIPTIVELY on the E5 basis** (compute p_dispersed on the E5 corpse coordinates; re-measuring ≠ downgrading → RIDER-1-safe, NON-GATING). If E5's corpses are no longer dispersed, that is itself a published finding, not a gate failure.
 - **Gate C — franchise mixing.** The map organizes by *behavior*, not *game of origin*: **PERMANOVA franchise R² ≤ 0.15** on `franchise_rollup` (A2). **PERMDISP companion (A4):** R² ≤ 0.15 passes ONLY if PERMDISP is non-significant (p ≥ 0.05), OR the gate report flags the significant dispersion difference and gandalf rules whether the low R² reflects genuine behavior-not-origin mixing vs an imbalance/dispersion artifact (Diablo+PoE ≈ 60% of mass — bare R² is not self-interpreting).
 - **Gate D — stability.** 1000× bootstrap (90% subsample): **median kit displacement ≤ 10% of plane diameter**, where (A5) *plane diameter = the maximum pairwise Euclidean distance between any two active (non-supplementary) kit coordinates in the retained-dimension space of the frozen basis, computed once on the full fit.* Leave-one-franchise-out + inverse-√franchise reweight: **Procrustes ≥ 0.85**.
 
@@ -164,4 +164,39 @@ Surfaced deliberately, the way jack-ryan's A1–A7 surfaced the first prereg's g
 
 ---
 
-**Signed:** gandalf (SPEC-AUTHOR at the RUN-CONDUCTOR refresh beat), 2026-07-22. Veto open (Matt). **DRAFT — awaiting legolas Mode-A methodology consultation + jack-ryan Gate-1 before elrond executes.**
+## §13 — Gate-1 + Methodology Fold — BINDING RESOLUTIONS (reviewed pre-results → supersede the body where they conflict)
+
+Both reviews landed BEFORE any derivation result exists → this prereg is now BINDING. jack-ryan Gate-1 = **PASS-WITH-AMENDMENTS** (`23652dba`, `qa/findings/2026-07-22-gate1-legb-edition-next-prereg.md`); legolas Mode-A consult (`28c43467`, `legolas/research/2026-07-22-legb-methodology-consult/`). Conductor folded both under trust-but-verify (A-LB1 verified FIRST-HAND against the frozen gate report — 24/23/86 exact; jack-ryan's checkable BLOCKING claim landed exact, raising confidence in the DB-derived figures, which additionally carry his own floors + execution-time re-computation per §7).
+
+### jack-ryan's 7 amendments — all ACCEPTED (LB-prefixed, compose with inherited A1–A7)
+
+| # | Class | Disposition |
+|---|---|---|
+| **A-LB1** | BLOCKING | ACCEPTED + conductor-verified first-hand. gateA counts TOTEM-SENTRY **24** / TRAP-MINE **23** (not 26/24); 86 total. Folded into §1. |
+| **A-LB2** | BLOCKING | ACCEPTED. Procrustes anchor = record-class gateA members (~46, NOT 86; 39 annex project-only), floor 40, exact count reported at execution. Folded into §3.2. |
+| **A-LB3** | WARN | ACCEPTED. Plane-diameter denominator computed in the E5 retained-dim space (may differ from 14), disclosed on the RIDER-1 badge. Binds §4 Gate-D + §3.3. |
+| **A-LB4** | BLOCKING | ACCEPTED (jack-ryan's Q4 ruling). F-1 STANDS UNREPLACED; no per-law successor; trigger re-pinned ≥8 record-class corpses/law. Folded into §4 Gate-B. |
+| **A-LB5** | BLOCKING-if-refit | ACCEPTED (the hidden soft spot §12 missed). F-1's dispersal RE-VERIFIED DESCRIPTIVELY on the E5 basis under a refit (non-gating, RIDER-1-safe). Folded into §4 Gate-B. |
+| **A-LB6** | WARN | ACCEPTED. The element_primary mint/no-mint DECISION RULE is frozen pre-results (below); legolas supplied the threshold. |
+| **A-LB7** | WARN | ACCEPTED (jack-ryan's Q5 ruling). §1.6 scaling-curve is a changelog PRECONDITION, routed to progression design, NOT a gate. Confirms §6. |
+
+### legolas Mode-A findings — folded
+
+- **Q1 element_primary = ADMIT-AS-AXIS (conditional).** Empirically NOT recoverable from `elem_raw` (chaos splits 7:14:1 earth/shadow/fire; poison 3:1; acid 2:1), AND the frozen basis has NO element coordinate at all (Class-B exclusion absolute) → element_primary CANNOT be latent in the current loadings by construction → RB-6's axis is genuinely absent, not double-counted.
+- **Q2 court = SUPPLEMENTARY/validation-only CONFIRMED.** `court` is a deterministic k=5 rollup of `elem_raw`, subsumed by `element_primary` at finer grain; admitting both double-counts the element domain in the MFA inertia weighting.
+- **Q3 vocabulary-arm FIRES DECISIVELY.** ≥14 absent geometry-band levels each exceed the ≥20 threshold (delivery_class=zone 96 ≈5×; motion_signature=straight_line 66; range_band=self 64; delivery_class=melee_arc 70). Path B refit is pre-authorized by the evidence — **but §2 STILL RUNS and PUBLISHES the census** (pre-registration discipline: do not skip the measurement because the outcome is forecast; the census is the disclosed evidence).
+- **Q4 trigger instruments transfer CLEAN.** cos²: 265/267 record kits have E4 coords directly; **2 kits (`d2-teleport-sorc`, `poe1-blood-magic-kit`) are new to the v2.0 record class → need ONE fresh supplementary projection** (atlas-loadings.csv + their atlas_coords 13-tuple; trivial). New-level census: **use `atlas-frozen-fit-cellkeys-edition1.csv` as the authoritative frozen vocabulary column list, NOT `atlas-loadings.csv` alone** (the latter omits reference categories → would misclassify them as absent, inflating the count).
+
+### §3.1 feature set — RESOLVED (frozen pre-results)
+
+**AXIS INPUTS:** 13-coordinate register (coords 1–3 locked) · geometry-bands (per-skill grain) · **element_primary CONDITIONAL** (decision rule below). **SUPPLEMENTARY/validation-only:** court · deviations · numerics · recognition-hooks · acceptance-asserts · t4-shape.
+
+**element_primary DECISION RULE (frozen NOW, pre-results — A-LB6 + legolas Q1):** BEFORE feeding the indicator matrix, elrond runs the within-cell test — for kits sharing the same `atlas_coords` 13-tuple (same mechanical cell), is `element_primary` CONSISTENT or SCATTERED? Operationalized as Cramér's V of `element_primary` against the dominant active coordinate. **If within-cell homogeneous** (element_primary tracks mechanics, a coherent direction) → **ADMIT AS AXIS INPUT**. **If it scatters within cells** (an orthogonal emission overlay that would inject noise) → **DEMOTE to SUPPLEMENTARY/validation-only** + test RB-6 as a loadings-inspection target only (§5). The rule is fixed before results, so the mint/no-mint cannot be retro-fitted.
+
+### §12 Q1–Q7 — all closed
+
+Q1 feature selection → RESOLVED (set above). Q2 non-redundancy → RESOLVED (legolas Q1; within-cell check is the final ADMIT gate). Q3 gateA membership → PIN inherited-frozen 86 (24/23); elrond verifies all kit_ids resolve in v2.0. Q4 Gate-B successor → RULED F-1 stands (§4). Q5 anchor set → RESOLVED record-class ~46/floor 40 (§3.2). Q6 plane-diameter → PIN retained-dim space, badge-disclosed (A-LB3). Q7 scaling-curve → RULED changelog precondition, progression-routed (A-LB7).
+
+---
+
+**Signed:** gandalf (SPEC-AUTHOR → DRIFT-CRITIC at the RUN-CONDUCTOR refresh beat), 2026-07-22. Veto open (Matt). **REVIEWED → BINDING — legolas Mode-A (`28c43467`) + jack-ryan Gate-1 PASS-WITH-AMENDMENTS (`23652dba`) folded (§13); ready for elrond execution.**
