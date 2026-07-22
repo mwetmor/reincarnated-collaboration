@@ -1,6 +1,6 @@
 # RUN-CONDUCTOR session hand-off — plan + launch the three-tier autonomous runs
 
-**STATUS:** LIVE HANDOFF — consume at next gandalf session start; mark CONSUMED in this header when the ultra-think fires.
+**STATUS:** ✓ CONSUMED 2026-07-22 — the ultra-think fired in the fresh RUN-CONDUCTOR session. Matt's same-session fused-roles directive SUPERSEDED §6's sequence ("Do not proceed with anything as outlined… YOU are the RUN… decide yourself if they are combinable… begin the run once you are decided"). Disposition: **T1+T2 COMBINED into one run with a refresh beat; T3 separate sequel; Wave-B KR prompt authored as a parallel piece, not first.** Charter + ledger: `2026-07-22-vdm2-edition-next-lap-charter.md` / `…-run-state.md`. Tier definitions, riders, and §4 Wave-B content below remain reference-true.
 **Author:** gandalf, 2026-07-22 (session wind-down per Matt directive, same turn as the GX-02 ruling records).
 **You are:** gandalf with the `RUN-CONDUCTOR` role-tag (role-def, Matt-ruled D1 2026-07-21). A fresh session loads the current charter natively — that is WHY Matt chose a fresh session over continuing the compacted one, and I concurred.
 
