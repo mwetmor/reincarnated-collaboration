@@ -42,6 +42,17 @@ The horde-density gap is **materially smaller than the canonical tracker framed.
 - **A4 matchup-temperature DEFINITION** → gandalf Pattern-A (III.1 design-fit).
 - **A5 +3-becoming acceptance band** → Matt flag-#2 persistence ruling (III.2). KR decides build-scaffold-now vs defer.
 
+## T3-V7 FIRED — W2 harness-extension requirements-inputs (post-close follow-on queue) — 2026-07-22
+Source: `gandalf/notes/2026-07-22-tier3-w2-harness-extension-requirements.md` (ruling L-12). Arrival AFTER step (b) landed + Gate-2 cleared → per lifecycle timing these are a **follow-on queue, NOT a build re-open** (Matt confirmed "follow-on queue given step (b) landed"). The four COMMON formations (A3) remain VERIFIED-EXPRESSIBLE — these concern the four STRAIN formations only (W1 §7). **Tier-3 does NOT block on any; RD-1 gamora smoke class-proxies until mechanisms exist.** Folded into spec-of-record via gamora Pattern-A (§A7).
+
+**KR scope-placement (lane conductor call):**
+- **R-1 `ss_phase_transform`** (mid-fight entity-mutation-on-trigger; **NET-NEW mechanism**; `preferred_behavior` spawn-immutable `spatial_engine.py:5335/5410`; finding=CANNOT) → **HIGHEST priority; own future Pattern-B dispatch, GATED on gandalf SHAPESHIFT verb-class design consult FIRST** (trigger semantics HP-threshold-min/phase/aggro = design decision). Do NOT parallel-fire into mid-Tier-3. Unlocks SHAPESHIFT verb class (2 of 5 RDR-native templates); genre-core (D2/PoE2 phase-transitions).
+- **R-2 killable-spawner** (`ts_environmental_nest`; entity-with-HP halts `ContinuousSpawnSpec` injector `arena.py:230`; finding=PARTIAL) → **follow-on SLICE, sequenced FIRST** among primitives (lightest — converts existing injector to player-facing verb).
+- **R-3 wall-reflection** (`cbn_corridor_arc`; geometric bounce/LOS/occlusion; walls positional-only `spatial_engine.py:3036/3122`; relaxes chain-depth cap `:460`; finding=PARTIAL) → **follow-on SLICE, AFTER R-2** (heavier — real physics addition).
+- **R-4 paired-emitter** (`cb_crossfire`; beam-cross intersection zone; single tracking-beam `spatial_engine.py:3116`; finding=PARTIAL) → **DEFERRED, sequenced LAST.** Workaround exists (two `stationary_caster` channelers); fidelity-only; revisit only if composition insufficient.
+
+**Surfaced to Matt:** R-1's gandalf design-consult dependency is the one cross-seam sequencing item — recommend it queues behind Tier-3 completion rather than parallel-firing. R-2/R-3 are gamora-seam technical follow-on slices, fireable when Matt elects. R-4 parked.
+
 ## Coordination law (T3-V7 — one-way, Tier-3 → lane)
 - W2 (Tier-3) harness-expressiveness red-flag routes INTO this lane's spec as requirements, never a new lane.
   - Before step-(a) Gate-1 clears → fold into spec under review.
