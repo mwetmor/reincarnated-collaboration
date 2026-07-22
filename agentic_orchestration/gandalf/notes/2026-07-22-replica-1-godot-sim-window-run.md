@@ -76,6 +76,22 @@ recommended) · G4 watch session (the point) · red-flag pings only in between.
 
 ## Ruling ledger
 
-- *(open — R1–R5 pending Matt; G1 fired at charter time.)*
+- **R1–R5:** pending Matt (veto-open; silence past the next session-boundary = adopted as recommended).
+- **RL-1 (2026-07-22) — G1 DELIVERED + RATIFIED.** `2026-07-22-replica1-frame-schema-spec.md`
+  (`replica-frame/v1`, commit `71dba6b7`): NDJSON one-file-per-fight; self-contained full tick-frames
+  (random-access scrub); per-hit `damage` events (the mass-AOE burst renders as N floaters + N deaths
+  in one tick); `TelegraphSpec` serialized field-for-field; byte-identical determinism gate (no
+  wall-clock fields); zero-derivation renderer contract (§7); 8-gap honest register. **Ratification
+  corrections (conductor `DRIFT-CRITIC`):** (i) ref set = gate seeds ×4 {20260722..25} — §4's "6
+  seeds" is a slip; and G2 emits ENCOUNTER composition first (5 kits × 2 arms × 4 seeds = **40
+  fights**; matched_baseline re-emission is cheap if later wanted); (ii) HG-3 DoT `damage` event
+  elevated should→**deliverable-unless-expensive** — caustic-arrow + poison-javazon ARE mismatch
+  cells; Matt's autopsy needs the floater story; tick-frame `hp` stays the honorable fallback.
+- **RL-2 (2026-07-22) — Shape B AUTHORIZED; frozen-head flag DISSOLVED.** G1's cross-gate flag (the
+  in-engine `frame_sink` moves HEAD past `2f43045`) is moot: the ablation gate CLOSED at L-32 with
+  the engine untouched; no re-run pends; any future AWARE variant = NEW prereg pinning its own head
+  (L-32 design law). The emitter lands as a normal gamora Gate-2 commit on main — observability-only,
+  default-off, zero combat-logic change in the same commits. **G2 FIRED** (named gamora, background).
+  Veto-open.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22.
