@@ -11,7 +11,7 @@
 |---|---|---|
 | W0 elrond schema-diff + DDL v0 | **FIRED** (background, launch turn) | not applied; diff-first per spec §0.2 |
 | W1 legolas PoE1 evidence tranche | **FIRED** (background, launch turn) | S-1 time-critical: 3.29 lands July 24 |
-| WB gandalf-sub-agent Wave-B KR prompt | **FIRED** (background, launch turn) | Matt fires the KR session whenever |
+| WB gandalf-sub-agent Wave-B KR prompt | **✓ DELIVERED** (`d73351d2` + conductor precision edit) | Matt-pastable at `2026-07-22-wave-b-kr-session-prompt.md`; slate-fresh VERIFIED (reservation/aura extension UNBUILT — the Gate-2-PASSED "Wave-B economy" spec is a *different, built* Wave-B; prompt §0 carries the confusable-name guard). Conductor DRIFT-CRITIC pass done; one authority-phrase fix (Q33-D3 lean ≠ ruling). Namespaces made concrete: this lap = `2026-07-22-vdm2-edition-next-lap-*`; KR lane = `2026-07-22-wave-b-reservation-aura-*` |
 | W2 4-kit pilot → G1–G5 | queued (needs W0 DDL v0) | |
 | W4b GX-02 docket-to-spec SPEC-AUTHOR pass | queued (after W0 returns) | gandalf-seam lane |
 | W3 Gate-2 → apply DDL + riders + GX-02 tail | queued (needs G5 + Gate-2) | |
