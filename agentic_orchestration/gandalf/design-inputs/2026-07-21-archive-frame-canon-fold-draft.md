@@ -1,6 +1,6 @@
 # Reap. Die. Rise. — The Archive Frame (canon-fold DRAFT)
 
-> **BANNER — DRAFT canon-fold — for Matt ratification; §6 motive fork + all [OPEN-MATT] markers unresolved; folds into `canonical/reap-die-rise-story/` only on ruling.**
+> **BANNER — DRAFT canon-fold — OM-1 RULED (Matt 2026-07-21, in-session): §6 MOTIVE FORK = RESCUE.** Matt verbatim: *"We are enacting the preservation of the Build Horizon in real time."* OM-2 (luminous foregrounded, complicity retained via triage — see §I) and OM-13 (a *someone*) resolve by cascade. Langolier third-force input registered (§I.3 — OM-4 candidate). Remaining OMs pending Matt's batch; full fold into `canonical/reap-die-rise-story/` fires on completion of the OM register. **See §I — RULINGS RECEIVED.**
 >
 > **STATUS:** DRAFT · NOT CANON · authored by gandalf (STORYWRIGHT) 2026-07-21 from Matt's mobile-session spine (`matt_notes_handoff_docs/rdr-archive-frame-narrative-spine.md`, 2026-07-20).
 > **What this doc is:** the spine's recommendation converted into canonical-format shape, with every commitment call held OPEN for Matt and every touchpoint against locked canon audited. It resolves nothing; it *lays out* the fold so a ruling can be clean.
@@ -270,6 +270,41 @@ The frame's era-art idea (StyleProfile presets → shader-degradation → native
 5. **Engine/elrond routing** for OM-7 (era-gating coordinate question) and star-lord/drax routing for the frontier-finale renderer (atlas ghost-field → boss-zone).
 
 **The sequence discipline:** §6 rules first (it decides OM-2, gates the C.1/C.3 reconciliation path); Q4 rules the C.2/OM-3/OM-4 cluster; the run-shape ruling (OM-5) can precede both if Matt wants to lock "Archive-as-meta, run untouched" early (I recommend locking OM-5 = meta first — it de-risks everything downstream by protecting §23.3, and makes the §6 ruling a *register* choice rather than a *rebuild-the-run* choice).
+
+---
+
+## §I — RULINGS RECEIVED (live capture, 2026-07-21 — post-draft)
+
+### §I.1 — OM-1 RULED: RESCUE
+
+**Matt verbatim:** *"OM-1 — THE MOTIVE FORK: RESCUE. We are enacting the preservation of the Build Horizon in real time.. As a result of this decision, we may need a new name and a new story, but we can come up with these as we go."* Plus: *"I started with the first one as I think this reframes much of the rest of the Archive-Frame decisions."*
+
+**Steward disposition:** trial-lean **withdrawn, not outvoted** — the enacting-in-real-time recognition is a design fact the lean under-weighted; rescue is the only motive under which the fiction is *true* (the project literally is a preservation of the genre's build-history), which is the D7 substrate-grounded-provenance discipline applied at the frame level.
+
+**Cascade states (per §F register):**
+- **OM-2 — RESOLVED BY OM-1:** luminous preservation foregrounded; death-faith becomes the lie-you're-inside. **Complicity is RETAINED, not deleted** — re-motivated as *triage-guilt* (see §I.3: the rescuer who cannot save everyone; "you opened the door" stays the buried truth). §19.1/§23.3 re-motivation is Q4-cluster work — re-motivation, NOT rewrite.
+- **OM-13 — RESOLVED BY COUPLING:** rescue → a diegetic *someone* (a tender, not a faceless process). One-word Matt confirm outstanding.
+- **OM-4 — CONFIRMABLE NOW:** map "forgetting" onto the keystone's "deadening" — one antagonist, two faces; the Langolier input (§I.3) adds a third: **flesh**. The mapping can lock now; reveal *staging* stays Q4-gated.
+- **OM-3 — stays gated on Q4;** rescue re-flavors reading (c): "archive-is-the-lie" → "the rescue is real but the cult exploits it."
+- **OM-5 — THE ONE STRUCTURAL RULING RESCUE SHARPENS.** Steward recommendation: **rule (a) structurally (Archive-as-meta; §23.3 untouched) + reserve (c)'s recognition as Q4 reveal-layer material** — the revelation recontextualizes what the eruption admitted without changing one run mechanic (Outer Wilds discipline: the loop never changes; the knowing does). Matt's pick outstanding.
+- **OM-6/8/9/10/11 — leans unchanged** (three descents named · frontier *unwritten* per F-1 · glimpsed→filled · no era-art at launch · near-silent archive); OM-8 *strengthened* by §I.3's frontier-inversion. Batch-bless outstanding.
+- **OM-12 —** rescue strengthens *explicit* ("now write what they cannot eat"). Matt one-liner outstanding.
+- **OM-7 —** routes to elrond/rocket unchanged.
+- **Q4 reframe registered:** demigod under rescue gains two live valences — *jailer-of-dead-forms* (hoards the archive; the rescue's villain) vs. *failed-first-archivist* (tragic predecessor). Feeds B4+B5; not resolved here.
+
+### §I.2 — Name + "new story" scope note
+
+Hold any rename until the Q4 re-motivation lands, then re-test the title: under rescue, **REAP** carries the harvest's first meaning (reap to *save the crop* before what's coming takes the field), **DIE** = the run-death loop + the eras that died, **RISE** = the preserved rising in a new body. The current name is a live candidate for *already being* the rescue name. "New story" is priced by §C.1 as keystone **re-motivation, not rewrite**.
+
+### §I.3 — Langolier third-force input (Matt, registered — NOT ruled)
+
+**Matt verbatim:** *"Silly thought.. While we fight a faction vs faction war, there is a third enemy group - something akin to Stephen King's Langoliers."*
+
+**Steward read — this is OM-4's missing piece:** devourers-of-the-record = *forgetting with teeth* (the archive-native pest — silverfish, acid rot, fire — at cosmic scale; Níðhöggr at the roots). Four load-bearing properties: **(1) it returns rescue's complicity** — harvest → breach → *the devourers come* → flee with what you cemented while they consume the rest = §23.3's guilt re-motivated as triage ("they were coming anyway; we saved what we could" becomes the cult's nastier alibi-lie; guardrail: the devourers must NEVER be the player's alibi — "you opened the door" stays the buried truth); **(2) frontier inversion** — they eat the *written* past; the unwritten frontier is inedible; the claimed emergent kit = the page they can never eat → the game's thesis: *the answer to forgetting is not archiving but writing the next page* (welds OM-1 + pinnacle-claim + MUGEN); **(3) genre precedent in the record-corpus** — Grim Dawn's Aetherials-vs-Chthonians three-way fights; WC3 Scourge / Halo Flood / Thrones' Others (the faction war is theater; the third force is the truth); **(4) scope honesty** — MVP version = devourer-front as escape-sequence pressure (presentation-layer swarm, heard-before-seen; drax seam); full three-way faction AI = post-MVP gamora cost. F-1 rides along: devourers never make the ghost field forbidden. **Open clarifier owed by Matt: which two factions are warring** (realm war-theater / GD-style dual monster-factions / the archive's own shelves at war) — the third-force works under any; the pick shapes Q4.
+
+### §I.4 — External validation signal (registered)
+
+Matt pitched the frame to a Marketing Director for EA's Apex Legends: *"I'm really digging this. It almost seems like there is a bit of MUGEN in here. You really put this together QUITE well. The vision has me really interested."* First outside-industry professional read; positive. **MUGEN analysis:** helps — breadth-as-roster is itself the pitch (nothing deleted = our isotope/annex law with governance) + the pinnacle-claim is MUGEN's true soul (community-authored new characters beside the imported roster); warns — MUGEN survives as non-commercial wholesale IP rips (our §3A.1 transformation law is the load-bearing wall) + MUGEN's no-balance-authority arms race (Rare Akuma) is exactly what VDM-CAL/banding/gauntlet certs exist to prevent. Pitch register: **"MUGEN's breadth, with calibration."**
 
 ---
 
