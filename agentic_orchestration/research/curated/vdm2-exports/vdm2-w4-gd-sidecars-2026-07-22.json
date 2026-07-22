@@ -1,0 +1,3843 @@
+{
+  "tranche": "gd-record",
+  "schema_version": "v2.0",
+  "n_kits": 41,
+  "emitted": "2026-07-22",
+  "frozen_identity_hash_pre": "94d2c79b7b72042e068a4373ada7c006",
+  "gates": {
+    "G1": {
+      "converted": 32,
+      "of": 32,
+      "rate": 100.0,
+      "props": 34,
+      "rows": 34
+    },
+    "G2": {
+      "derivable": 50,
+      "of": 53,
+      "rate": 94.3,
+      "committed": false,
+      "note": "door-arg RFC parked post-W5 (V-21)"
+    },
+    "G3": {
+      "prose_only": 0,
+      "of": 41,
+      "missing": [],
+      "zero_skill_t1": [
+        "gd-berserker-wereforms"
+      ],
+      "null_geo0_t1": [
+        "gd-blight-fiend-ritualist",
+        "gd-pet-conjurer"
+      ]
+    },
+    "G4": {
+      "kits_with_red": 6,
+      "dockets": 6,
+      "docket_kits": [
+        "gd-berserker-wereforms",
+        "gd-blight-fiend-ritualist",
+        "gd-pet-conjurer",
+        "gd-reap-spirit",
+        "gd-retaliation-warlord",
+        "gd-skeleton-ritualist"
+      ]
+    }
+  },
+  "row_counts": {
+    "skill_geometry_band": 73,
+    "kit_deviation": 34,
+    "recognition_hook": 70,
+    "kit_acceptance_assert": 47,
+    "kit_delta_t4": 41,
+    "kit_numeric": 0
+  },
+  "delta_t4_split": {
+    "step": 26,
+    "ramp": 15
+  },
+  "gapped_terminal": [
+    "gd-berserker-wereforms",
+    "gd-blight-fiend-ritualist",
+    "gd-pet-conjurer",
+    "gd-reap-spirit",
+    "gd-retaliation-warlord",
+    "gd-skeleton-ritualist"
+  ],
+  "ei_deviation": [
+    "gd-berserker-wereforms",
+    "gd-blight-fiend-ritualist",
+    "gd-pet-conjurer",
+    "gd-reap-spirit",
+    "gd-retaliation-warlord",
+    "gd-skeleton-ritualist"
+  ],
+  "elem_anomalies_w5_flagged": {
+    "gd-panettis-mage-hunter": "elem_raw='mixed(fire/cold/lightning)' \u2014 equal-thirds tri-elemental with a NULL court (the only GD NULL-court record row; already flagged W3b MIGRATION \u00a7court as a Leg-B per-kit-resolution candidate). 'mixed(...)' is not a single RDR element register; the hybrid law compresses it to a 2-slot fire+lightning (cold dropped). W5 to confirm the mixed\u2192court/register rule + which two slots survive."
+  },
+  "acid_register_split_w5_flagged": {
+    "gd-dee-witch-hunter": "acid->earth register (skill.element_primary='earth' on the acid eye-bolt/poison-pool delivery) disagrees with court='chaos-poison' / sibling gd-blight-fiend-ritualist's acid->shadow. GD-acid register split (earth vs shadow) \u2014 W5 to unify (parallels the D2-poison split).",
+    "gd-righteous-fervor-dervish": "acid->earth register (skill.element_primary='earth' on Righteous Fervor acid conversion) disagrees with court='chaos-poison' / blight-fiend's acid->shadow. GD-acid register split \u2014 W5 to unify."
+  },
+  "per_kit": {
+    "gd-aar-spellbinder": {
+      "folk": "Albrecht's Aether Ray Spellbinder",
+      "elem_raw": "aether",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Albrecht's Aether Ray",
+          "delivery_class": "beam",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": "all",
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "continuous channeled beam that pierces enemies in a straight line and scales with casting speed ('channeling type of skill with ability to pierce enemies in straight line that scales with casting speed'; 'AAR is also pretty energy hungry skill'); rooted while channeling; stand-in-place-and-melt. beam_channel carries the ray identity (phrase-book beam/ray/channel); straight-line pierce is footprint flavor. aether -> lightning per main-law aether row (energy-ray register). NO ailment named (aether/energy theme never implies shock -- \u00a70.1).",
+          "_geo_raw": "beam_channel"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Mirror of Ereoctes",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "defensive panic cooldown ('Mirror of Ereoctes (defensive)'; 'activate Mirror of Ereoctes as panic defensive'); self_buff identity, no offensive delivery.",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the source player experiences a hard energy-management pressure and a rooted-while-channeling commitment;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the source player experiences a hard energy-management pressure and a rooted-while-channeling commitment; PERSISTENCE_ENGINE_uptime approximates the sustained-beam identity but the engine has no literal aether-ray, so the beam is mapped as a channeled piercing line. No status lost (none attested)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Albrecht's Aether Ray Spellbinder: beam channel beam identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Albrecht's Aether Ray"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'beam'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-aegis-paladin": {
+      "folk": "Aegis of Menhir Paladin",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Aegis of Menhir",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ricochet_return",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "thrown shield that homes on the target, bounces/ricochets through multiple nearby enemies, then returns to the player ('hurl a magical aegis that will home in upon your target'; 'you throw a shield that bounces on monsters dealing massive damage to them'; 'ricochets to multiple nearby enemies, returns to player'). ricochet_bounce carries the bounce-through-pack identity; the RETURN-to-player leg is an out-and-return behavioral delta -> family-accrual candidate (docket). NO ailment named (fire theme never implies burn -- \u00a70.1).",
+          "_geo_raw": "ricochet_bounce"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Inquisitor Seal",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "optional placed defensive zone ('one of the most strong defense skills but I did not choose it to be mobile'); dropped in the mobile variant. Not part of the core offensive loop in the mapped variant.",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the out-and-return boomerang leg is a signature the source player feels (shield comes back) but the engine ricochet_bounce geometry does not model the return path -- filed as out-and-return accrual, geometry approximates the outbound hop only.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the out-and-return boomerang leg is a signature the source player feels (shield comes back) but the engine ricochet_bounce geometry does not model the return path -- filed as out-and-return accrual, geometry approximates the outbound hop only. No status lost (none attested)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Aegis of Menhir Paladin: ricochet bounce projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Aegis of Menhir"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-belgothian-blademaster": {
+      "folk": "Belgothian Blademaster",
+      "elem_raw": "pierce",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Cadence (default) / WPS suite",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": "all",
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "default dual-wield melee attack-replacer with a Weapon Pool Skill (WPS) suite proccing off each auto-attack ('Default dual-wield melee swings with WPS pool skills proccing off each auto-attack; 100%+ WPS chance means every swing fires a WPS proc'; 'Belgothian set fills the primary attack slot, modified by WPS abilities (currently at 117% WPS chance)'). Replacer maps NATIVE per \u00a7A row: at-target-melee, single-target-per-hit, attack-speed tempo. Each WPS hit is single-target ('Each WPS hit is single target'). WPS chance-procs = weapon-layer trigger riders (\u00a7A) -- see trigger_grammar. Pierce/physical: no element family; NO ailment named.",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Blade Spirit",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "orbit_fixed",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "summoned blade companion providing additional AoE pressure ('Blade Spirit can provide additional AoE pressure'). Only 'additional AoE pressure' is fetched -- mapped as an orbiting-blade proxy (phrase-book orbiting blades -> orbit); autonomous-combatant depth NOT attested, so no pet-gap flag, treated as a supplemental AoE rider.",
+          "_geo_raw": "orbit"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the WPS suite is the source player's core texture (a rotating pool of weapon procs firing every swing) but the engine models it as a single on-hit-threshold burst rider rather than a named pool of distinct procs, since no individual WPS payload was fetched.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the WPS suite is the source player's core texture (a rotating pool of weapon procs firing every swing) but the engine models it as a single on-hit-threshold burst rider rather than a named pool of distinct procs, since no individual WPS payload was fetched. Blade Spirit's autonomy is under-attested, mapped as orbit rather than pet. No status lost."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Belgothian Blademaster: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Cadence (default) / WPS suite"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-berserker-wereforms": {
+      "folk": "Berserker (FoA mastery)",
+      "elem_raw": "cold",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [],
+      "kit_deviation": [
+        {
+          "missing_expression": "MANDATORY (GAPPED): the entire kit is unmappable because the source content does not yet exist -- Fangs of Asterkarn is unshipped and every dossier family abstained.",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": null,
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "MANDATORY (GAPPED): the entire kit is unmappable because the source content does not yet exist -- Fangs of Asterkarn is unshipped and every dossier family abstained. The source player would experience a wereform/transformation ARPG loop (per folk-name aliases) but zero mechanics are attested, so nothing beyond the identity placeholder can be translated. This is a content-availability gap, NOT an engine-capability gap. See docket: unshipped-content class."
+        }
+      ],
+      "recognition_hook": [],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "kit_identity_present == true",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: MANDATORY (GAPPED): the entire kit is unmappable because the source content does",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-blade-arc-warder": {
+      "folk": "Blade Arc Warder",
+      "elem_raw": "bleed",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Blade Arc",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "wide self-origin melee arc sweep applying stacking bleed damage-over-time ('melee attack that deals damage in an arc pattern'; 'entire build revolves around scaling bleed damage as a damage-over-time effect with big numbers'); bleed continues ticking after moving past targets. melee_arc carries the wide-swing identity (phrase-book wide melee swing). bleed NAMED explicitly in fetched text ('scaling bleed damage as a damage-over-time'). Physical/bleed damage -> no element family (THE PHYSICAL RULE); the bleed ailment IS the identity.",
+          "_geo_raw": "melee_arc"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Blade Arc Warder: melee arc melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Blade Arc"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-blade-trap": {
+      "folk": "Blade Trap",
+      "elem_raw": "pierce",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Blade Trap",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": "all",
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "cast directly ON an enemy (NOT ground-placed like comparable traps), small area of effect, immobilizes and procs blades, 4-second cooldown ('must be cast directly on enemies rather than placed on ground like comparable skills'; 'small area of effect compared to alternatives'; 'trap immobilizes and procs blades'; 'Long cooldown (4 seconds)'). single_target carries the cast-on-one-enemy delivery (explicitly NOT ground_targeted -- source stresses it is cast on the enemy, not the ground); the immobilize -> root (\u00a72 root/immobilize/entangle row). Boss-immune CC ('crowd-control effects fail against bosses where they're most needed'). Pierce/physical: no element family.",
+          "_geo_raw": "single_target"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "MANDATORY (APPROX): the source player experiences a targeted CC trap that both immobilizes AND emits blade-hits in a small radius -- the engine single_target + root captures the immobilize and cast-on-enemy delivery but flattens the blade-proc-in-radius payload (which is neither a clean single-target hit nor a placed zone).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "MANDATORY (APPROX): the source player experiences a targeted CC trap that both immobilizes AND emits blade-hits in a small radius -- the engine single_target + root captures the immobilize and cast-on-enemy delivery but flattens the blade-proc-in-radius payload (which is neither a clean single-target hit nor a placed zone). The 24-point cost, 4s cooldown, and boss-immunity are texture the engine does not encode. This stays terminal MAPPED (APPROX, not GAPPED) per R-M7: it is 'that build, worse', not 'not that build'."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Blade Trap: single target projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Blade Trap"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-blight-fiend-ritualist": {
+      "folk": "Blight Fiend Ritualist",
+      "elem_raw": "acid",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Summon Blight Fiend",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "summoned autonomous pet positioned into enemy packs as a disposable mobile bomb ('Blight Fiend pet summon positioned into enemy packs'; 'disposable-bomber pet whose corpse is the payload'). PET DELIVERY IS THE ENGINE GAP (summoner-deferral, \u00a7A pet row): the follow/companion summon has NO placement-at-target-position language, so geometry is null-honest per the gapped-pet two-lane ruling. Element shadow: acid damage on a Necromancer corruption pet (Ghol converts Vitality->Acid); \u00a71 acid = earth(nature/venom) OR shadow(necro-corruption) -- necro-summon corruption register chosen, fidelity-noted. NO ailment: acid is DAMAGE-typed (via Ghol conversion), no 'poison' status named in fetched text (\u00a70.1).",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Unstable Anomaly (explosion-on-death)",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "the pet's death detonates in a burst around its death location ('mobile bomb; explosion on death hits enemies in radius around pet death location'; 'small-radius-explosion-on-death'). ring carries the burst-around-a-point identity (phrase-book nova/burst -> ring); this is the DAMAGE PAYLOAD of the gapped pet -- distinct attested shape (pet-death-payload), filed as its own docket-candidate per \u00a7A pet-row trap note. No status named.",
+          "_geo_raw": "ring"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "MANDATORY (GAPPED): the source player summons autonomous pets and shoves them into packs as walking bombs -- the ENTIRE delivery (an independently-acting summoned combatant) is the engine's deferred summoner-gap, so the loop cannot be delivered as-is.",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "MANDATORY (GAPPED): the source player summons autonomous pets and shoves them into packs as walking bombs -- the ENTIRE delivery (an independently-acting summoned combatant) is the engine's deferred summoner-gap, so the loop cannot be delivered as-is. The engine can model the death-explosion burst (ring, on-defender-death) but NOT the autonomous pet that carries it there. Ghol acid-conversion, pet positioning, and resummon-cadence are all pet-substrate the engine does not yet host. terminal MAPPED_DOCKET per R-M7: this is 'not that build' (no pet = no kit), not merely 'that build, worse'."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Blight Fiend Ritualist: ring zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Unstable Anomaly (explosion-on-death)"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: MANDATORY (GAPPED): the source player summons autonomous pets and shoves them in",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-bloody-pox-conjurer": {
+      "folk": "Bloody Pox Conjurer",
+      "elem_raw": "vitality",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Bloody Pox",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "cast on an initial target, then the plague spreads body-to-body to nearby enemies via proximity contagion ('calls down a virulent plague to spread amongst foes'; 'Bloody Pox infects one target then spreads to nearby enemies via proximity contact; effective on dense packs'). single_target carries the initial cast delivery + a contagion-spread note (follows the m02 dee-witch-hunter precedent for the same Bloody Pox skill -- single_target with spread annotation). Element shadow: vitality register (\u00a71 vitality -> shadow, life-drain lineage). NO ailment: the plague is a DoT but NO registry status (poison/drain/bleed) is NAMED in fetched text -- vitality/plague theme never implies a status (\u00a70.1). See near-miss.",
+          "_geo_raw": "single_target"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Wendigo Totem",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "placed support totem dropped for passive healing / defensive positioning ('Wendigo Totem dropped for passive healing/support'; 'Wendigo Totems used as defensive positioning tools while applying debuffs'). totem = placed emitter (support/heal payload); native-adjacent placed-proxy lane. Support-only, no offensive ailment.",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the signature the source player feels is the plague JUMPING through a dense pack (contagion), which the engine single_target geometry does not model -- mapped as single-cast + spread note per precedent.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the signature the source player feels is the plague JUMPING through a dense pack (contagion), which the engine single_target geometry does not model -- mapped as single-cast + spread note per precedent. Two near-misses withheld (no forcing): a vitality-decay DoT status (not named in fetched -- theme != status) and Curse of Frailty's RR token (application shape unanchored). No status emitted."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Bloody Pox Conjurer: single target projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Bloody Pox"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-bwc-demolitionist": {
+      "folk": "Blackwater Cocktail Demolitionist",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Blackwater Cocktail",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "lobbed projectile that deposits a burning tar carpet / large ground-DoT zone on impact ('BWC deposits burning tar carpet on impact; ground DoT zone covers large area' \u2014 kit_dossier skill_geometry). ground_targeted_circle carries the molotov-carpet zone. [STEWARD AUDIT 2026-07-18: original citation quoted canon_probe_facts prose ('fumble transmuters' line) \u2014 kb-derived, INADMISSIBLE per \u00a70.2; STRUCK. blind re-grounded below.] [ERRATA-59 2026-07-19: +burn \u2014 the burning-tar ground-DoT is an explicitly attested engine BURN (union with existing blind; curse:sap from Thermite RR unchanged). Reverses the mapping-time withhold ('burning tar' now ruled a named DoT status, not mere zone description). Blind-rider anchor, D-1.]",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the source player lays overlapping burning ground carpets and debuffs with fumble + RR -- blind (fumble) is captured, but the fire-DoT's 'burn' flavor is withheld (not named as a status) and Thermite's RR token is withheld (application shape unanchored).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the source player lays overlapping burning ground carpets and debuffs with fumble + RR -- blind (fumble) is captured, but the fire-DoT's 'burn' flavor is withheld (not named as a status) and Thermite's RR token is withheld (application shape unanchored). The molotov-carpet ground zone maps cleanly to ground_targeted_circle; the two withholds are near-misses, not silent drops."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Blackwater Cocktail Demolitionist: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Blackwater Cocktail"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-cadence-witchblade": {
+      "folk": "Cadence Witchblade",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Cadence",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "default single-target melee with a rhythm where every 3rd swing triggers a detonation hit ('Single target per cadence hit; detonation hit on every 3rd swing'; 'proc based build focusing on physical dmg 1hand cadence/blitz'; 'Every third swing DETONATES'). melee_strike carries the single-target-per-swing delivery; the every-3rd-swing detonation is a two-tier-accumulator shape (counted tier on swing cadence) -> family-accrual candidate (docket), NOT a native geometry. Physical: no element family; NO ailment named.",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Blitz",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "charge/gap-close into the pack ('Blitz charge for gap-close'; 'charge into the middle of stuff and face roll'). dash_attack carries the charge-strike identity (phrase-book dash-strike/charge).",
+          "_geo_raw": "dash_attack"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the source player feels the swing-count rhythm building to a periodic detonation (every 3rd swing) -- the engine has no native every-Nth-swing accumulator, so it is filed as a two-tier-accumulator family accrual and approximated via trigger_grammar, not delivered natively.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the source player feels the swing-count rhythm building to a periodic detonation (every 3rd swing) -- the engine has no native every-Nth-swing accumulator, so it is filed as a two-tier-accumulator family accrual and approximated via trigger_grammar, not delivered natively. Curse of Frailty's RR token is withheld (shape unanchored). No status emitted. Stays terminal MAPPED (CLOSE with a family-accrual candidate) per R-M7."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Cadence Witchblade: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Cadence"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-callidors-tempest-templar": {
+      "folk": "Callidor's Tempest Templar",
+      "elem_raw": "aether",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Callidor's Tempest",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "short",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "self-origin pulse bursting in a small radius around the player at point-blank / near-melee range ('Must be in near-melee range'; 'can hit everything in a ~6m radius'; 'almost have to be in melee range for it to hit mobs, and that it only affects about human-sized mobs'; 'stand in melee and pulse aether-fire damage in radius'). ring carries the nova/burst-around-self identity (phrase-book). burn NAMED in fetched text ('fire and burn modifiers emphasized' in the Templar variant). Element fire primary (the Templar variant's actual scaling: 'fire and burn modifiers emphasized'), aether/lightning secondary (Callidor's Tempest is aether-based; \u00a71 aether-energy -> lightning).",
+          "_geo_raw": "ring"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the source player accepts a hard range/target-size restriction (must be point-blank;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the source player accepts a hard range/target-size restriction (must be point-blank; only hits human-sized mobs) as the cost of a strong pulse -- the engine ring geometry delivers the point-blank burst but does not model the human-size gate. The aether-fire composite is compressed to fire-primary + lightning-secondary. burn is captured (named). Minor composite-element drift."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Callidor's Tempest Templar: ring zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Callidor's Tempest"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-canister-saboteur": {
+      "folk": "Canister Bomb Saboteur",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Canister Bomb",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": "all",
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "lobbed cluster bomb whose fragments scatter on impact in a small radius, with a pierce component and internal trauma ('Cluster bomb: lobbed at target, fragments scatter on impact in small radius'; 'bigger pierce component and non transmutable internal trauma -- scatter/fragment damage on impact'). multi_projectile carries the cluster-fragment-scatter identity (phrase-book shotgun/volley/barrage -> multi_projectile). INTERNAL TRAUMA -> bleed (\u00a7A GD Internal-Trauma row = phys-DoT bleed): 'non transmutable internal trauma' is NAMED in fetched text on this skill, so bleed emits. Element fire (elem_raw / Demolitionist fire family).",
+          "_geo_raw": "multi_projectile"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Flashbang",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "thrown debuff/CC utility ('toss Flashbang'; 'Flashbang as debuff/CC'; 'Flashbang listed as Insane debuff'). ground_targeted_circle for the thrown-area debuff. NO ailment token: the fetched anchor names only 'debuff'/'Insane debuff' (shape-neutral); 'Flashbang' NAME does not attest blind, and 'stun' appears only in probe + claim-paraphrase, NOT in a fetched anchor -> both blind AND stun WITHHELD (\u00a70.2 probe-illegal, \u00a70.4 name-collision). See near-miss.",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the source player uses Flashbang as a hard CC/debuff (community calls it 'Insane') and stun-locks packs -- but the engine emits NO CC token for it because the fetched anchor names only 'debuff' (stun/blind live in probe/claim-paraphrase, both inadmissible).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the source player uses Flashbang as a hard CC/debuff (community calls it 'Insane') and stun-locks packs -- but the engine emits NO CC token for it because the fetched anchor names only 'debuff' (stun/blind live in probe/claim-paraphrase, both inadmissible). Canister's cluster-scatter maps to multi_projectile and internal-trauma to bleed cleanly. The withheld Flashbang CC + Thermite RR are near-misses, not silent drops."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Canister Bomb Saboteur: multi projectile projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Canister Bomb"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-dee-witch-hunter": {
+      "folk": "Dreeg's Evil Eye Witch Hunter",
+      "elem_raw": "acid",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Dreeg's Evil Eye",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "single acid eye-bolt projectile that detonates at impact into a small-radius poison DoT pool ('acid eye-bolts that burst into poison pools and fumble curses'; 'Eye-bolt travels as single projectile; detonates into AoE acid pool on contact'); spam/on-demand. ground_targeted_circle carries the pool identity (phrase-book pool/patch/ground-DoT); the projectile travel is delivery flavor, drift noted. poison NAMED in fetched text ('poison pools'; 'poison/acid build focused on damage-over-time effects').",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Bloody Pox",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "cast on a target and spreads through the pack ('Bloody Pox applied as spreading curse for pack coverage'); contributes to the kit-level attested acid/poison DoT stack ('stacks acid/poison DoT until enemies dissolve'). single_target cast + contagion-spread note; propagation is proximity-spread, not on-kill.",
+          "_geo_raw": "single_target"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the two-stage projectile-then-pool delivery is compressed to the pool geometry with the bolt as delivery flavor;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the two-stage projectile-then-pool delivery is compressed to the pool geometry with the bolt as delivery flavor; the fumble-curse accuracy layer and confusion layer are withheld pending steward rows (near-misses, not silent drops)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Dreeg's Evil Eye Witch Hunter: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Dreeg's Evil Eye"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "earth element register",
+          "expressed_by": "element:earth",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-devastation-sorcerer": {
+      "folk": "Devastation Sorcerer",
+      "elem_raw": "aether",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Devastation",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "screen",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "call a meteor storm on a target zone; falling meteors blanket a large AoE for 8 seconds ('targeted meteor strike with an 8-second duration'; 'meteor shower falls for 8 seconds blanketing area in aether-fire'); hard-cooldown big button. NAME-COLLISION LAW honored: 'Devastation' the name implies nothing -- mapped ONLY from fetched meteor-rain behavior.",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Blackwater Cocktail (support)",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "support cast for resistance reduction ('Blackwater Cocktail for resistance reduction') -> GD RR per main-law 2 RR row, persistent zone-debuff application shape -> curse:sap (hex side, not on-hit sunder side).",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: discrete falling-meteor impacts homogenize to zone-tick damage in ground_targeted_circle;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: discrete falling-meteor impacts homogenize to zone-tick damage in ground_targeted_circle; the devotion-proc layer is empty (payloads unfetched)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Devastation Sorcerer: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Devastation"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-doom-bolt-sentinel": {
+      "folk": "Doom Bolt Sentinel",
+      "elem_raw": "chaos",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Doom Bolt",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "at-target bolt called from the sky, point impact, single-target nuke on HARD cooldown ('Doom Bolt (100% Fire and Fire FX)'; 'Hard cooldown-based ... single-target nuke'); this build is full fire-conversion of a chaos-base skill.",
+          "_geo_raw": "single_target"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Sigil of Consumption + Curse of Frailty (between-nuke fill)",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "fill layer between nukes: Sigil ground zone ('Sigil of Consumption (75% Fire and Fire FX)') + Curse of Frailty resistance shred ('Curse of Frailty for resistance reduction') -> GD RR row, hex application -> curse:sap. 'acid/chaos DoTs carry between nukes' -- DoT statuses NOT named -> no DoT tokens (near-miss).",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: hard-cooldown nuke rhythm + timer-based CDR pulse ride on cadence keys rather than a native cooldown primitive;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: hard-cooldown nuke rhythm + timer-based CDR pulse ride on cadence keys rather than a native cooldown primitive; the acid/chaos DoT carry is element-flavor only (no statuses named -> no tokens)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Doom Bolt Sentinel: single target projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Doom Bolt"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-drain-essence-spellbinder": {
+      "folk": "Drain Essence Spellbinder",
+      "elem_raw": "vitality",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Drain Essence",
+          "delivery_class": "beam",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "channel a drain beam on the primary target; chains to nearby extra targets via gear ('+2 extra targets to drain essence'; 'channelling skill capable of hitting multiple targets'); rooted while channeling. drain attested BEHAVIORALLY ('built-in life leech, which can be further boosted to 26%') per main-law life-drain row -- not from the skill name (0.3 honored).",
+          "_geo_raw": "beam_channel"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Mark of Torment",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "defensive cooldown: 'Mark of Torment provides timed immunity window'; Mirror of Ereoctes as second defensive layer (noted).",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Drain Essence Spellbinder: beam channel beam identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Drain Essence"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'beam'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-eor-warlord": {
+      "folk": "Eye of Reckoning Warlord",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Eye of Reckoning",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "orbit_fixed",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "spin channel: self-origin moving cyclone, small radius around the player, full movement while spinning ('spin2win ... cyclone-style ability where the character spins and damages nearby enemies'; 'Player moves freely while spinning'). Physical-converted build -> element-neutral per THE PHYSICAL RULE.",
+          "_geo_raw": "whirlwind"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Judgment",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "at-target AoE cast whose fetched ROLE is proc-vehicle ('Judgment cast for AoE proc and devotion triggers'; 'Judgment is used as a proc vehicle for binding devotions'); AoE shape underspecified in fetched text -> minimal at-target burst token (circle) with this note.",
+          "_geo_raw": "circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "A GD EoR Warlord keeps the spin loop, movement-while-channel, the conversion identity, and the Judgment tap rhythm -- but every devotion-proc payload (Maul and the whole bound-devotion damage layer that Judgment exists to fire) is EMPTY under 0.3: names fetched, payloads not.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "A GD EoR Warlord keeps the spin loop, movement-while-channel, the conversion identity, and the Judgment tap rhythm -- but every devotion-proc payload (Maul and the whole bound-devotion damage layer that Judgment exists to fire) is EMPTY under 0.3: names fetched, payloads not. The source player would miss the proc-damage layer that motivates casting Judgment at all; its consequence slot is lawfully null. That build, worse (R-M7: still that build -- spin + convert + tap remains playable) -> APPROX, un-minted."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Eye of Reckoning Warlord: whirlwind motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Eye of Reckoning"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-fire-strike-purifier": {
+      "folk": "Fire Strike Purifier",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Fire Strike",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "default-attack REPLACER on dual pistols: continuous ranged fire where 'each shot triggers explosive-line AoE' ('Dual pistols spitting fire on every default shot ... explosive line') -> line token carries the per-hit explosive line; the shot itself is projectile delivery (multi_projectile alternative for the dual-pistol stream noted per 7.2); attack-speed-governed (~'180% Attack speed').",
+          "_geo_raw": "line"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Inquisitor Seal",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "placed defensive platform ('Cast Inquisitor seal below you'); defense payload. NO consecrate token: main-law consecrate row is holy-only and holy is not attested on this fire kit.",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the WPS attack-variety layer is structurally present but payload-thin (unfetched);",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the WPS attack-variety layer is structurally present but payload-thin (unfetched); line compresses shot-plus-burst into the attested explosive-line footprint."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Fire Strike Purifier: line projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Fire Strike"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-flames-of-ignaffar-purifier": {
+      "folk": "Flames of Ignaffar Purifier",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Flames of Ignaffar",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "channeled widening cone ('Fire ConeMan'; 'widening cone of purging fire that ramps intensity the longer it burns'); rooted while channeling with release-and-reposition kiting ('this kiting channeling skill build'). burn attested VERBATIM with magnitude: '50% of FoI damage is burn'.",
+          "_geo_raw": "cone"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Inquisitor Seal",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "placed defensive platform: 'players stand on it during combat'.",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Flames of Ignaffar Purifier: cone zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Flames of Ignaffar"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-forcewave-warlord": {
+      "folk": "Forcewave Warlord",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Forcewave",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "self-origin ground shockwave traveling a forward lane, widening slightly as it travels ('Forcewave sends a widening shockwave down the lane'; 'Shockwave travels in lane direction of facing'); spam-cast via Tremor transmuter; brief self-root per cast. Pure-physical -> element-neutral per THE PHYSICAL RULE; cone alternative for the widening noted (7.2: the lane read is dominant). [STEWARD AUDIT 2026-07-18: bleed EMITTED under the m02-audit trauma ruling \u2014 'physical damage and Internal Trauma' NAMED in fetched text; GD internal trauma \u2192 bleed row added to addendum \u00a7A (phys-DoT lineage).]",
+          "_geo_raw": "line"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Lane-wave spam loop, cast-root rhythm, casting-speed tempo land natively;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Lane-wave spam loop, cast-root rhythm, casting-speed tempo land natively; Internal Trauma DoT layer now ROUTED (bleed) under the m02-audit steward ruling (GD trauma -> bleed, phys-DoT lineage). Residual drift: bleed-vs-trauma flavor register + ZONE_CONTROL door weak fit (accepted-weak at audit)."
+        },
+        {
+          "missing_expression": "[STEWARD AUDIT 2026-07-18: regraded APPROX->CLOSE in-place;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "[STEWARD AUDIT 2026-07-18: regraded APPROX->CLOSE in-place; the sole stated deviation was the pending row ruling, now resolved.]"
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Forcewave Warlord: line projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Forcewave"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-krieg-death-knight": {
+      "folk": "Krieg Death Knight",
+      "elem_raw": "aether",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Cadence",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "at-target melee auto-attack rhythm: every 3rd hit triggers the amplified strike with small AoE around impact ('operates on a resource model where it triggers every 3rd hit'; 'melee at-target strikes with small AoE around impact'; 'Cadence 3rd hit has expanded strike'); fully aether-converted ('Cadence, fully converted to Aether damage') -> shadow (aether-corruption register); DW Mindwarp pair hits both targets.",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Bone Harvest",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "arc_sweep",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "cooldown AoE clear with cleave footprint ('Bone Harvest on cooldown for AoE clear'; geometry notes 'Bone Harvest cleave').",
+          "_geo_raw": "melee_arc"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: the counted every-3rd-hit texture is approximated by the native cycle + threshold surfaces (accrual filed for the exact two-tier shape);",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: the counted every-3rd-hit texture is approximated by the native cycle + threshold surfaces (accrual filed for the exact two-tier shape); Krieg's Wrath set-proc layer is empty (name-only)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Krieg Death Knight: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Cadence"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-mortar-purifier": {
+      "folk": "Mortar Trap Purifier",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Mortar Trap",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "placed autonomous artillery emitter: drop trap(s), they lob shells at the aggro target while the player relocates ('stationary artillery trap that the player places and leaves behind'; 'Mortar Trap artillery entities placed at target positions; fire shells automatically'); each shell = small blast AoE; overlapping traps stack coverage ('overlapping trap fire'; 'overlapping traps multiply coverage').",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Inquisitor Seal",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "defensive platform the player stands in ('player stands in Inquisitor Seal platform for defense'); absorption stacking with Blast Shield per item notes.",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: turret aggro-targeting autonomy and overlap-count multiplication are softened onto the native placed-emitter;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: turret aggro-targeting autonomy and overlap-count multiplication are softened onto the native placed-emitter; the exact count-stacking shape lives in the filed accrual."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Mortar Trap Purifier: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Mortar Trap"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-panettis-mage-hunter": {
+      "folk": "Panetti's Missile Mage Hunter",
+      "elem_raw": "mixed(fire/cold/lightning)",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Panetti's Replicating Missile",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": "fast",
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "fork_split",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "spam replicating projectile: missiles fork and multiply through packs ('projectiles fork and multiply across target groups'; 'missiles multiply across enemy packs'; 'a huge amount of AoE through replication mechanics'); tri-elemental base per ERRATA-36 ('Elemental damage is dealt as 1/3 fire, 1/3 cold, 1/3 lightning'); casting-speed-maxed rapid fire.",
+          "_geo_raw": "fork"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Inquisitor Seal",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "survivability platform ('Inquisitor passive/Seal for survivability').",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "minor drift: equal-thirds tri-elemental compresses to a 2-slot hybrid (cold dropped per hybrid law -- the source player would see one-third of the rainbow missing its color, damage carried but flavor narrowed).",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "minor drift: equal-thirds tri-elemental compresses to a 2-slot hybrid (cold dropped per hybrid law -- the source player would see one-third of the rainbow missing its color, damage carried but flavor narrowed)."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Panetti's Missile Mage Hunter: fork projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Panetti's Replicating Missile"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-pet-conjurer": {
+      "folk": "Pet Conjurer",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Summon Briarthorn + Summon Familiar (pet core)",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "PET CORE -- persistent autonomous combatants: 'Summon Briarthorn and Familiar once (persist until death); pets fight autonomously while player kites or stands.' Autonomous-combatant delivery is the known engine GAP (summoner-deferral, A pet row) -> no 26-token carries it (totem is stationary placed-emitter and does NOT apply; companion-vs-totem two-lane split); geometry_value null by law.",
+          "_geo_raw": ""
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Blood of Dreeg",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "player-surface self-buff ('Blood of Dreeg for self-buff') -- the mappable player layer of the kit.",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Not that build (R-M7): the entire damage layer is autonomous pets scaled by pet-only stats;",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "Not that build (R-M7): the entire damage layer is autonomous pets scaled by pet-only stats; the engine's player-delivery surface would leave only the buff/debuff shell with nobody fighting for you."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Pet Conjurer: self buff aura identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Blood of Dreeg"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'aura'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: Not that build (R-M7): the entire damage layer is autonomous pets scaled by pet-",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-phantasmal-blades-witch-hunter": {
+      "folk": "Phantasmal Blades Witch Hunter",
+      "elem_raw": "vitality",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Phantasmal Blades",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "long",
+          "speed_band": null,
+          "pierce": "all",
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Fan-like projectile spread that 'pierces through weaker stuff and mows down everything in its path'; ranged spam. Acid form via Venomlance: 'full conversion for Vit and Chaos damage to PB' \u2014 earth secondary carries the venom register (Venomlance/Dreeg theme, \u00a71 acid row).",
+          "_geo_raw": "multi_projectile"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Phantasmal Blades Witch Hunter: multi projectile projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Phantasmal Blades"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-primal-strike-vindicator": {
+      "folk": "Primal Strike Vindicator",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Primal Strike",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Attack-replacer (\u00a7A replacer row): fires on every swing/shot; 'Primal Strike has a AoE radius effect, this will compound the damage in packs' \u2014 small AoE rider on impact. 'Works with melee or ranged weapons'; rifle variant fires projectile with '100% pass-through' (Ugdenbog Sparkthrower).",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Wind Devil",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Wandering tornado proxies for RR debuff' \u2014 placed emitter applying resistance reduction (\u00a72 GD-RR row, persistent entity-anchored shape \u2192 curse:sap). Engine totem is stationary; the wander is the drift (qual mint-candidate filed).",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Wind Devil wanders;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Wind Devil wanders; engine totem is stationary (R-M8-adjacent mobile-emitter drift; qual mint-candidate filed). Storm Totem unfetched \u2014 omitted rather than memory-supplemented."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Primal Strike Vindicator: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Primal Strike"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-ravenous-earth-oppressor": {
+      "folk": "Ravenous Earth Oppressor",
+      "elem_raw": "vitality",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Ravenous Earth",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Erupts at target position; hungering terrain that ticks vitality rot across its patch' \u2014 large decay-zone patch, cooldown-gated placement. drain per \u00a72 deterministic row (fetched words 'decay'/'rot' name the life-drain register status).",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Celestial Presence + Spectral Wrath (mastery RR passives)",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Both classes reduce vitality resistance of monsters' \u2014 caster-anchored persistent RR (\u00a72 GD-RR row, aura shape \u2192 curse:sap).",
+          "_geo_raw": "aura"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Ravenous Earth Oppressor: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Ravenous Earth"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-reap-spirit": {
+      "folk": "Reap Spirit (as primary)",
+      "elem_raw": "vitality",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Reap Spirit",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Summons temporary autonomous wendigo spirit at target ('pet lasts only 10 seconds and has similar damage to 1 skeleton'; 'cast it 3 times to get all 3 out'). Autonomous-combatant delivery is the engine gap; totem = nearest stationary placed-proxy token, NOT a claim of fit.",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Autonomous temporary pet combatants are the entire loop;",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "Autonomous temporary pet combatants are the entire loop; engine has no autonomous-combatant delivery (summoner-deferral, \u00a7A pet row). Player test: not that build."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Reap Spirit (as primary): totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Reap Spirit"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: Autonomous temporary pet combatants are the entire loop;",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-retaliation-warlord": {
+      "folk": "Retaliation Warlord",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Eye of Reckoning (retaliation-added-to-attack)",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "channel",
+          "motion_signature": "orbit_fixed",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Active spin 'used with retaliation-added-to-attack to convert thorns into active spinning AoE' \u2014 the RATA conversion is part of the same \u00a7A retaliation-substrate mechanism, not a separate lane. Physical rule: element-neutral.",
+          "_geo_raw": "whirlwind"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Counter Strike",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Procs a counter hit on being attacked \u2014 \u00a7A inverse trigger edge (on-damage-taken), mapped in trigger_grammar; also 'procs shield-devotion chains' whose payloads are unfetched (contribute nothing, \u00a70.4).",
+          "_geo_raw": "melee_strike"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The loop-verb is stand-and-tank-return: passive per-attacker damage return with stat-stacked magnitude has no player-initiated delivery token (\u00a7A row \u2014 the absence IS the gap).",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "The loop-verb is stand-and-tank-return: passive per-attacker damage return with stat-stacked magnitude has no player-initiated delivery token (\u00a7A row \u2014 the absence IS the gap). Player test: not that build. EoR spin + Counter Strike trigger + TH reflect economy map as riders only."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Retaliation Warlord: whirlwind motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Eye of Reckoning (retaliation-added-to-attack)"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: The loop-verb is stand-and-tank-return: passive per-attacker damage return with ",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-righteous-fervor-dervish": {
+      "folk": "Righteous Fervor Dervish",
+      "elem_raw": "acid",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Righteous Fervor",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": "fast",
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Default-attack replacer (\u00a7A replacer row \u2014 this kit is the row's verbatim evidence): 'a fast single target attack that can have (nearly) 100% acid damage right at the start'; 100% conversion via Venomblade set. WPS riders: 'area of effect attacks that can be activated off of your main attack' \u2014 'fast hits mean more chance of activating the AoE-skill'.",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Night's Chill (aura)",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'An effect of an aura that decreases the resistances of enemies by a staggering 30%' \u2014 caster-anchored persistent RR \u2192 curse:sap (\u00a72 GD-RR row). Name-collision guarded: NO chill token; fetched behavior is resistance reduction only (\u00a70.3).",
+          "_geo_raw": "aura"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Righteous Fervor Dervish: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Righteous Fervor"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "earth element register",
+          "expressed_by": "element:earth",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-roh-infiltrator": {
+      "folk": "Rune of Hagarrad Infiltrator",
+      "elem_raw": "cold",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Rune of Hagarrad",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Rune placed on floor, cold shards burst when enemies step on it' \u2014 at-target floor placement, small-radius burst, cooldown-gated. Proximity-armed trap timing is the drift vs the engine's immediate ground-circle (qual mint-candidate filed).",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Word of Renewal",
+          "delivery_class": "aura",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "self",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'WoR provides very good stats that are irreplacable' \u2014 healing + stat buffer support.",
+          "_geo_raw": "self_buff"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Trap arms on enemy contact;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Trap arms on enemy contact; engine ground-circle bursts/ticks on placement \u2014 the arm-and-lure timing texture is lost (qual mint-candidate filed). Still that build, slightly worse: place-under-enemies loop survives."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Rune of Hagarrad Infiltrator: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Rune of Hagarrad"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-savagery-warder": {
+      "folk": "Savagery Warder",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Savagery",
+          "delivery_class": "melee_arc",
+          "origin": "self",
+          "width_band": null,
+          "range_band": "melee",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "point_strike",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "2H default-attack replacer (\u00a7A replacer row): 'Savagery charges stack per swing', each stack increasing damage until max. Upheaval passive adds AoE rider (footprint verbatim).",
+          "_geo_raw": "melee_strike"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Wendigo Totem",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Placed sustain emitter \u2014 'Wendigo Totem complements Savagery well'; HP sustain payload. Native placed-emitter fit.",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Savagery Warder: melee strike melee_arc identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Savagery"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'melee_arc'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-shadow-strike-infiltrator": {
+      "folk": "Shadow Strike Infiltrator",
+      "elem_raw": "cold",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Shadow Strike (+Nightfall)",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "blink_translate",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Movement and nuke fused in one button' \u2014 teleport-to-target as the attack verb; 'Nightfall spreading the hit' as small-radius splash on landing. Offensive-reposition token per \u00a76 blink/teleport split; strike-on-arrival payload noted, not asserted as native engine behavior.",
+          "_geo_raw": "teleport"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Movement and nuke are fused in one button;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Movement and nuke are fused in one button; engine teleport is an offensive reposition whose strike payload on arrival is noted, not asserted native (arc-b01 discipline). Fusion texture may render as reposition-then-hit."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Shadow Strike Infiltrator: teleport motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Shadow Strike (+Nightfall)"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-skeleton-ritualist": {
+      "folk": "Skeleton Ritualist",
+      "elem_raw": "physical",
+      "tier": "T1",
+      "grade": "GAPPED",
+      "terminal": "MAPPED_DOCKET",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Raise Skeletons",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'8-10 skeletons... fight independently... fragile summons in numbers' \u2014 autonomous army is the engine gap; totem = nearest placed-proxy token, NOT a fit claim. bleed is pet-inflicted, attested via 'Rend on skeletons for bleeding' (pet-stat lane \u2014 never player-scaling, \u00a7A trap note).",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Primal Spirit",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Short-duration summon carrying '30% [of damage] from the primal spirit' \u2014 autonomous combatant, same gap; nearest-token placement only.",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Wendigo Totem",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Wendigo Totem with Blood Pact provides continuous healing' for the pet army \u2014 stationary placed emitter; this component maps NATIVE.",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The damage identity is an autonomous pet army (summoner-deferral gap, \u00a7A pet row);",
+          "deviation_class": "engine_inexpressible",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "new_door_rfc",
+          "proposed_fix_target": null,
+          "downgrade_owner": null,
+          "source_anchor": "The damage identity is an autonomous pet army (summoner-deferral gap, \u00a7A pet row); maintenance-reservation economy and pet-stat scaling lane compound the distance. Player test: not that build. Wendigo Totem is the only native-mapping component."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Skeleton Ritualist: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Raise Skeletons"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        },
+        {
+          "assert_text": "expresses: The damage identity is an autonomous pet army (summoner-deferral gap, \u00a7A pet row",
+          "hook_id": "H1",
+          "expected_state": "RED until engine lane exists (routed to docket)",
+          "last_result": "red",
+          "routes_red": true
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-stormbox-elementalist": {
+      "folk": "Storm Box Elementalist",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "APPROX",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Storm Box of Elgoloth",
+          "delivery_class": "beam",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": 2,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "chain_hop",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Placed on a target enemy; creates a lightning tether beacon that arcs to all nearby enemies' \u2014 'great single target DoT with tether'. Mapped as chain (arcing between targets) from the tagged enemy; the persistent enemy-attached beacon is the drift. 'Electrocute' is GD's lightning-DoT damage register \u2014 NO engine token (engine shock requires CC).",
+          "_geo_raw": "chain"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "MANDATORY (\u00a77.3): the source player would miss the persistent enemy-attached tether \u2014 Storm Box rides the tagged enemy and re-arcs continuously over its duration;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "MANDATORY (\u00a77.3): the source player would miss the persistent enemy-attached tether \u2014 Storm Box rides the tagged enemy and re-arcs continuously over its duration; engine chain renders as cooldown-cadenced arc casts from the target, losing the set-and-forget tag-and-wait texture. Player test: that build, worse \u2014 the tag-then-arcs loop survives at chain + cooldown cadence."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Storm Box Elementalist: chain beam identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Storm Box of Elgoloth"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'beam'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-stun-jacks": {
+      "folk": "Stun Jacks (launch era)",
+      "elem_raw": "lightning",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Stun Jacks",
+          "delivery_class": "projectile",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "short",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "fan_spread",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "'Stun Jacks spread in a 180-degree sector right before the player, with some jacks flying straight forward and some - to the sides' \u2014 point-blank shotgun density preferred; Quick Jack transmuter enables spam; Full Spread + '+1 projectile' scepter raise count. NO stun token: the name implies it, nothing fetched attests it (\u00a70.3 poster child).",
+          "_geo_raw": "multi_projectile"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Stun Jacks (launch era): multi projectile projectile identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Stun Jacks"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "lightning element register",
+          "expressed_by": "element:lightning",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'projectile'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-trozan-druid": {
+      "folk": "Trozan's Sky Shard Druid",
+      "elem_raw": "cold",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Trozan's Sky Shard",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "At-target ground call: 'three projectiles per cast' rain a large-AoE meteor/blizzard volley on the pack; cooldown-caster (Arcanist CDR the key investment). Cold primary (water ice-register, \u00a71); cold/lightning hybrid variant carries lightning secondary.",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Wind Devil",
+          "delivery_class": null,
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Persistent summoned storm-entity dealing 'continuous damage' + devotion-proc carrier (Murmur bound here). [STEWARD AUDIT 2026-07-18: totem projection STRUCK -> null geometry per the two-lane convention \u2014 dossier attests 'persistent summons' with NO placement language; 'placed at position' was mapper gloss, not fetched. Summon-autonomy texture rides fidelity_notes; Wind Devil is a secondary/devotion-host, not pet-core, so no GAP flip.]",
+          "_geo_raw": ""
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Cold/lightning HYBRID collapsed to element_primary water + secondary lightning per \u00a71 top-2 rule;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Cold/lightning HYBRID collapsed to element_primary water + secondary lightning per \u00a71 top-2 rule; the Codex hybrid's cold->lightning conversion identity carried by ELEMENT_CONVERSION_HYBRID door. Source player of the pure-cold Skybreach variant loses the lightning slot \u2014 noted as variant, dominant published loop is the cold caster."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Trozan's Sky Shard Druid: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Trozan's Sky Shard"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "water element register",
+          "expressed_by": "element:water",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-vires-might-shieldbreaker": {
+      "folk": "Vire's Might Shieldbreaker",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "EXACT",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Vire's Might",
+          "delivery_class": "motion",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "spam",
+          "motion_signature": "straight_line",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Movement-skill-IS-primary-attack (\u00a7A attack-replacer): 11m charge/dash through the pack, '+250% Movement Speed', CDR collapses it to near-spammable. Volcanic Stride modifier lays a 2.2m-radius fire fissure trail along the charge path with 'burn damage over time' (burn ATTESTED verbatim).",
+          "_geo_raw": "dash_attack"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Thermite Mines",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Secondary resistance-reduction placement tool (fire-RR mines); supports the Vire's Might loop.",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Vire's Might Shieldbreaker: dash attack motion identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Vire's Might"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "fire element register",
+          "expressed_by": "element:fire",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'motion'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-vitality-conjurer": {
+      "folk": "Vitality Conjurer",
+      "elem_raw": "vitality",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Sigil of Consumption",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Placed underfoot at position: a persistent vitality DoT pool; single-target damage early, area with the leech radius. Vitality->shadow (\u00a71 life-drain register).",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Bloody Pox",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Spreads a vitality DoT across the pack (dossier: 'Bloody Pox spreads across area'; mechanics anchor: 'Bloody Pox (area damage)'). [STEWARD AUDIT 2026-07-18: blind STRUCK \u2014 the mapper's quoted 'area damage with offensive ability reduction' is an ANCHOR-SPLICE: the legal anchor fragment 'area damage' plus a memory continuation; NO store (dossier/anchor/probe/mech_note) carries OA-reduction for this kit (probe control says 'life-reduction'). \u00a70.3 memory-supplement leak class.]",
+          "_geo_raw": "circle"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Wendigo Totem",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Placed totem that leeches vitality from all nearby enemies; Dark One's Gift set enables 4 simultaneous totems with no cooldown (placed-proxy-count shape). Healing/leech + offensive scaling.",
+          "_geo_raw": "totem"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "The build's POST-PATCH dominant form is the Dark One's Gift totem-sigil hybrid (weak-Sigil-to-dominant-totem transformation is explicit in fetched text) \u2014 mapped as the totem-forward form.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "The build's POST-PATCH dominant form is the Dark One's Gift totem-sigil hybrid (weak-Sigil-to-dominant-totem transformation is explicit in fetched text) \u2014 mapped as the totem-forward form. Source player loses: the RR-curse (Curse of Frailty) mapped as un-tokened support (shape-silent withhold), and the totem's leech-sustain flavor is economy-noted not ailment-tokened."
+        },
+        {
+          "missing_expression": "[STEWARD AUDIT 2026-07-18: blind token struck (anchor-splice;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "[STEWARD AUDIT 2026-07-18: blind token struck (anchor-splice; OA-reduction unattested) \u2014 debuff-texture understatement now includes the OA-tax flavor.]"
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Vitality Conjurer: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Sigil of Consumption"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-wendigo-totem-ritualist": {
+      "folk": "Wendigo Totem Ritualist",
+      "elem_raw": "bleed",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Wendigo Totem",
+          "delivery_class": "summon_delegate",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "screen",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": "cooldown",
+          "motion_signature": null,
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Placed totem entities at ground positions leeching vitality from all nearby enemies (totem blankets a large-zone radius). Dark One's Gift set enables 4 simultaneous totems with NO cooldown (placed-proxy-count shape). Vitality/decay -> shadow (\u00a71).",
+          "_geo_raw": "totem"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Devouring Swarm",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "burst_around_self",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "DoT applicator + resistance shredder spread across the pack (vitality DoT). RR token WITHHELD \u2014 application-shape silent (\u00a72 RR-branch).",
+          "_geo_raw": "circle"
+        },
+        {
+          "skill_ordinal": 2,
+          "source_skill": "Grasping Vines",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": null,
+          "range_band": null,
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Control tool over an area. Root token WITHHELD \u2014 fetched says only 'as control', no named immobilize/root/entangle status (\u00a70.1).",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Totem-army is a placed-proxy delivery that engine supports as `totem` \u2014 but the AUTONOMY of the leech-totems (they tick independently while player kites) is a mild summoner-deferral flavor;",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Totem-army is a placed-proxy delivery that engine supports as `totem` \u2014 but the AUTONOMY of the leech-totems (they tick independently while player kites) is a mild summoner-deferral flavor; here the totems are PLACED emitters (map cleanly), not autonomous combatants (no pet GAP). Source player loses the RR/control ailment tokens (both withheld on attestation grounds), which understates the debuff-stacking texture."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Wendigo Totem Ritualist: totem summon_delegate identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Wendigo Totem"
+        },
+        {
+          "hook_id": "H2",
+          "rank": 2,
+          "hook_type": "register",
+          "hook_text": "shadow element register",
+          "expressed_by": "element:shadow",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": null
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'summon_delegate'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "ramp",
+        "asserts_json": "[\"T4 transformation shape=ramp (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    },
+    "gd-word-of-pain-tactician": {
+      "folk": "Word of Pain Tactician",
+      "elem_raw": "fire",
+      "tier": "T1",
+      "grade": "CLOSE",
+      "terminal": "MAPPED",
+      "skill_geometry_band": [
+        {
+          "skill_ordinal": 0,
+          "source_skill": "Word of Pain",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "screen",
+          "speed_band": null,
+          "pierce": "all",
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "At-target 'pain aura' brand stamped on the pack, ~1.5-screen coverage radius, ticking elemental agony over the branded zone; cast-and-forget. Element-neutral in the dominant pierce variant (full ele->pierce conversion via Nadaan's Reach; pierce = armor-piercing physical, \u00a71 physical rule).",
+          "_geo_raw": "ground_targeted_circle"
+        },
+        {
+          "skill_ordinal": 1,
+          "source_skill": "Inquisitor Seal",
+          "delivery_class": "zone",
+          "origin": "self",
+          "width_band": "wide",
+          "range_band": "screen",
+          "speed_band": null,
+          "pierce": null,
+          "chain": null,
+          "fork": null,
+          "count_per_cast": 1,
+          "count_multiplier_x": null,
+          "count_multiplier_source": null,
+          "cadence_class": null,
+          "motion_signature": "ground_place",
+          "band_conf": 0.75,
+          "derivation": "dossier-prose",
+          "source_anchor": "Persistent ground field placed under the player (~1.5-screen), providing damage mitigation and proc-trigger platform. Defensive anchor + devotion-proc host.",
+          "_geo_raw": "ground_targeted_circle"
+        }
+      ],
+      "kit_deviation": [
+        {
+          "missing_expression": "Multi-variant element identity (chaos/lightning/pierce) collapsed to the dominant PIERCE build -> element-neutral.",
+          "deviation_class": "accepted_downgrade",
+          "hook_refs": "[\"H1\"]",
+          "proposed_fix_type": "none",
+          "proposed_fix_target": null,
+          "downgrade_owner": "elrond (W4 GD tranche; internal-consistency reconcile, no W1 evidence \u2014 W5 is GD's external check)",
+          "source_anchor": "Multi-variant element identity (chaos/lightning/pierce) collapsed to the dominant PIERCE build -> element-neutral. Source player of the chaos (shadow) WoP Vampirris variant loses their element slot. The devotion-proc payloads (Flame Torrent etc.) are the kit's real damage flavor but map to nothing \u2014 names only, no fetched behavior \u2014 so the mapping understates proc-driven output. 'Elemental agony' brand has no tokenable status."
+        }
+      ],
+      "recognition_hook": [
+        {
+          "hook_id": "H1",
+          "rank": 1,
+          "hook_type": "geometry",
+          "hook_text": "Word of Pain Tactician: ground targeted circle zone identity",
+          "expressed_by": "geometry.delivery_class",
+          "provenance": "crawled",
+          "coverage_status": "expressed",
+          "source_skill": "Word of Pain"
+        }
+      ],
+      "kit_acceptance_assert": [
+        {
+          "assert_text": "primary_delivery_class == 'zone'",
+          "hook_id": "H1",
+          "expected_state": null,
+          "last_result": "green",
+          "routes_red": false
+        }
+      ],
+      "kit_delta_t4": {
+        "shape": "step",
+        "asserts_json": "[\"T4 transformation shape=step (derived from mapping prose)\"]",
+        "shape_signoff": "unvalidated",
+        "shape_signoff_by": null
+      },
+      "kit_numeric": []
+    }
+  }
+}

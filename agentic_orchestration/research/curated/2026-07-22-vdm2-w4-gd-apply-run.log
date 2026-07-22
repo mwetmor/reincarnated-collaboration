@@ -1,0 +1,137 @@
+=== VDM-2 W4 GD record-class tranche — APPLY run-log ===
+date: 2026-07-22
+script: research/scripts/vdm2_w4_gd_sidecar_emit_2026_07_22.py --apply
+preflight live corpus.db md5 (expect 1843f4cff8d667d598e4ffcbef71ae01): 1843f4cff8d667d598e4ffcbef71ae01
+backup: corpus.db.pre-vdm2-w4-gd-2026-07-22-backup md5 1843f4cff8d667d598e4ffcbef71ae01
+max docket_id PRE (expect 142): 142
+
+--- APPLY OUTPUT ---
+Loaded 41 GD record-class kits (game=gd, corpus_class=record).
+Frozen-identity content hash (PRE): 94d2c79b7b72042e068a4373ada7c006
+
+==================== GATE MEASUREMENTS ====================
+G1 deviation->structured: 32/32 prose-bearing kits convert = 100.0% (propositions 34 -> rows 34); threshold >=90%
+G2 door-arg derivable-from-prose: 50/53 instances = 94.3% ; threshold >=80% (MEASURED not committed - V-21 fork)
+   3 non-derivable (kit,door) instances:
+     gd-doom-bolt-sentinel  PERSISTENCE_ENGINE_uptime
+     gd-retaliation-warlord  DEFENSIVE_TRADEOFF
+     gd-stun-jacks  ELEMENT_CONVERSION_MONO
+G3 prose-only T1 geometry: 0 of 41 T1 kits prose-only; threshold == 0
+   T1 kits with ZERO skills (honest extraction-null, NOT a G3 miss, W5-flag): ['gd-berserker-wereforms']
+   T1 kits with skill[0] NULL geometry (honest GAP-deferred pet-core null, NOT a G3 miss): ['gd-blight-fiend-ritualist', 'gd-pet-conjurer']
+G4 red-assert->docket: 6 kits carry a red assert; 6 deviation-lane dockets will open (surrogate continues from live max); every red routes
+
+GAPPED-terminal kits (frozen truth): 6 ['gd-berserker-wereforms', 'gd-blight-fiend-ritualist', 'gd-pet-conjurer', 'gd-reap-spirit', 'gd-retaliation-warlord', 'gd-skeleton-ritualist']
+EI-deviation kits (classifier output): 6 ['gd-berserker-wereforms', 'gd-blight-fiend-ritualist', 'gd-pet-conjurer', 'gd-reap-spirit', 'gd-retaliation-warlord', 'gd-skeleton-ritualist']
+Durable side-car export -> curated/vdm2-exports/vdm2-w4-gd-sidecars-2026-07-22.json
+
+Frozen-identity content hash (POST): 94d2c79b7b72042e068a4373ada7c006
+elem_raw FROZEN-PROOF: identity content hash IDENTICAL pre/post (V-18 held).
+Iron-law: canon_corpus=585 kit_mapping=574 is_system=19 (expect 585/574/19)
+foreign_key_check: EMPTY (clean)
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+
+post-apply live corpus.db md5: b8a4da7583a236e58056b5a3891c80ba
+
+=== RE-APPLY (idempotency proof — content must be identical; surrogate advances) ===
+date: 2026-07-22 (re-apply)
+pre-reapply live md5: b8a4da7583a236e58056b5a3891c80ba
+Loaded 41 GD record-class kits (game=gd, corpus_class=record).
+Frozen-identity content hash (PRE): 94d2c79b7b72042e068a4373ada7c006
+
+==================== GATE MEASUREMENTS ====================
+G1 deviation->structured: 32/32 prose-bearing kits convert = 100.0% (propositions 34 -> rows 34); threshold >=90%
+G2 door-arg derivable-from-prose: 50/53 instances = 94.3% ; threshold >=80% (MEASURED not committed - V-21 fork)
+   3 non-derivable (kit,door) instances:
+     gd-doom-bolt-sentinel  PERSISTENCE_ENGINE_uptime
+     gd-retaliation-warlord  DEFENSIVE_TRADEOFF
+     gd-stun-jacks  ELEMENT_CONVERSION_MONO
+G3 prose-only T1 geometry: 0 of 41 T1 kits prose-only; threshold == 0
+   T1 kits with ZERO skills (honest extraction-null, NOT a G3 miss, W5-flag): ['gd-berserker-wereforms']
+   T1 kits with skill[0] NULL geometry (honest GAP-deferred pet-core null, NOT a G3 miss): ['gd-blight-fiend-ritualist', 'gd-pet-conjurer']
+G4 red-assert->docket: 6 kits carry a red assert; 6 deviation-lane dockets will open (surrogate continues from live max); every red routes
+
+GAPPED-terminal kits (frozen truth): 6 ['gd-berserker-wereforms', 'gd-blight-fiend-ritualist', 'gd-pet-conjurer', 'gd-reap-spirit', 'gd-retaliation-warlord', 'gd-skeleton-ritualist']
+EI-deviation kits (classifier output): 6 ['gd-berserker-wereforms', 'gd-blight-fiend-ritualist', 'gd-pet-conjurer', 'gd-reap-spirit', 'gd-retaliation-warlord', 'gd-skeleton-ritualist']
+
+Frozen-identity content hash (POST): 94d2c79b7b72042e068a4373ada7c006
+elem_raw FROZEN-PROOF: identity content hash IDENTICAL pre/post (V-18 held).
+Iron-law: canon_corpus=585 kit_mapping=574 is_system=19 (expect 585/574/19)
+foreign_key_check: EMPTY (clean)
+integrity_check: ok
+
+APPLY complete. Rows committed. Re-run is idempotent.
+post-reapply live md5: 45a6e0a62925750ea92dfe12537624ca
+
+=== side-car row counts (must be identical across applies) ===
+skill_geometry_band|73
+kit_deviation|34
+recognition_hook|70
+kit_acceptance_assert|47
+kit_delta_t4|41
+kit_numeric|0
+gd deviation-lane dockets|6
+gd kit_door_arg (must be 0)|0
+
+=== FINAL RECONCILE (against settled re-applied state; dockets now populated) ===
+===== GD INTERNAL-CONSISTENCY RECONCILIATION (41 kits) =====
+(no W1 external evidence for GD — cross-checks emitted side-cars against
+ the independent VDM-1 fields geo_raw / elem_raw / verify_ledger verdict)
+
+CLEAN (emitted structure consistent with VDM-1 fields): 41/41
+
+FLAGGED (real internal inconsistency — candidate emitter/data bug): 0
+
+ADJUDICATED (mismatch explained by a documented crosswalk, NOT a bug): 4
+  - gd-callidors-tempest-templar: H2 register 'fire' is a real kit element (skill0's primary); elem_raw 'aether' is the headline (multi-element grain gap, faithful; kit elements=['fire', 'lightning'])
+  - gd-doom-bolt-sentinel: H2 register 'fire' is a real kit element (skill0's primary); elem_raw 'chaos' is the headline (multi-element grain gap, faithful; kit elements=['fire'])
+  - gd-krieg-death-knight: H2 register 'shadow' is a real kit element (skill0's primary); elem_raw 'aether' is the headline (multi-element grain gap, faithful; kit elements=['shadow'])
+  - gd-wendigo-totem-ritualist: H2 register 'shadow' is a real kit element (skill0's primary); elem_raw 'bleed' is the headline (multi-element grain gap, faithful; kit elements=['shadow'])
+
+ANOMALY-EXPECTED (elem mismatch on the W5-flagged elem anomalies, expected): 1
+  - gd-panettis-mage-hunter: register 'fire' vs elem_raw 'mixed(fire/cold/lightning)' (W5-flagged anomaly; expected)
+
+W5-ROUTED (acid->earth frozen-mapping register inconsistency, NOT a bug): 2
+  - gd-dee-witch-hunter: skill.element_primary='earth' but elem_raw='acid' / court='chaos-poison' — frozen-mapping register inconsistency (W5)
+  - gd-righteous-fervor-dervish: skill.element_primary='earth' but elem_raw='acid' / court='chaos-poison' — frozen-mapping register inconsistency (W5)
+
+STRUCTURAL CLOSURE:
+  EI-deviation kits: 6
+  deviation-lane dockets opened (family=vdm2-w4-gd): 6 across 6 kits
+  EI kits with NO docket (orphans, must be []): []
+  dockets with NO EI kit (orphans, must be []): []
+  kit_door_arg rows for GD (V-21 carve-out, must be 0): 0
+  red acceptance asserts: 6, routed to docket: 6 (every red must route)
+
+=== FINAL STATE ===
+live corpus.db md5: 45a6e0a62925750ea92dfe12537624ca
+backup md5 (pre-vdm2-w4-gd): 1843f4cff8d667d598e4ffcbef71ae01
+current GD docket ids: 149,150,151,152,153,154
+door_registry total: 27
+motion_signature_registry total: 18
+
+=== W5 flag verification (idempotent, single-stamp) ===
+-- elem-anomaly flag (panettis) --
+gd-panettis-mage-hunter|vdm2-w5-elem-anomaly-2026-07-22: elem_raw='mixed(fire/cold/lightning)' — equal-thirds tri-elemental with a NULL court (the only GD NULL-court record row; already flagged W3b MIGRATION §court as a Leg-B per-kit-resolution candidate). 'mixed(...)' is not a single RDR element register; the hybrid law compresses it to a 2-slot fire+lightning (cold dropped). W5 to confirm the mixed→court/register rule + which two slots survive.
+-- acid-register-split flags (dee, righteous-fervor) --
+gd-dee-witch-hunter|vdm2-w5-acid-register-split-2026-07-22: acid->earth register (skill.element_primary='earth' on the acid eye-bolt/poison-pool delivery) disagrees with court='chaos-poison' / sibling gd-blight-fiend-ritualist's acid->shadow. GD-acid register split (earth vs shadow) — W5 to unify (parallels the D2-poison split).
+gd-righteous-fervor-dervish|vdm2-w5-acid-register-split-2026-07-22: acid->earth register (skill.element_primary='earth' on Righteous Fervor acid conversion) disagrees with court='chaos-poison' / blight-fiend's acid->shadow. GD-acid register split — W5 to unify.
+-- double-stamp guard: count of the two W5 tokens across ALL gd rows (must be 1 elem-anomaly + 2 acid) --
+elem-anomaly-tokens|1
+acid-split-tokens|2
+
+=== FULL-CORPUS elem_raw frozen proof (ALL 585 rows, not just GD) — content-hash pre-vs-post ===
+live corpus.db  elem_raw content-hash (all 585): 5ad31b279b996586113a16be63e87f85
+pre-gd backup   elem_raw content-hash (all 585): 5ad31b279b996586113a16be63e87f85
+FROZEN elem_raw across WHOLE corpus IDENTICAL: True
+
+=== IDEMPOTENCY + TOUCH-SCOPE SUMMARY ===
+side-car counts identical across both applies: SGB=73 DEV=34 HOOK=70 ACC=47 DT4=41 NUM=0 (verified)
+non-GD side-cars UNTOUCHED (poe1 SGB stable, d2 SGB stable)
+deviation-lane dockets grand total: 33 (14 PoE1 + 13 D2 + 6 GD = 33)
+whole-corpus elem_raw content-hash live==backup (all 585): 5ad31b279b996586113a16be63e87f85 (V-18 held corpus-wide)
+W5 tokens: 1 elem-anomaly (panettis) + 2 acid-split (dee, righteous-fervor); single-stamped (idempotent)
+door_registry=27 (unchanged); motion_signature_registry=18 (+1 ricochet_return)
+current GD docket ids (surrogate; content=6): 149-154 (first apply 143-148 advanced on re-apply)
