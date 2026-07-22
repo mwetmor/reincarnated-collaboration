@@ -70,7 +70,7 @@ Seven-element walk vs twins: bounded substrate ✓ (frozen v1.1 + spec) · decid
 ## §7 — Elicitation slate (the only two items; conservative defaults pinned)
 
 - **E-1 — E-next admission docket fold-in at the refresh beat.** Candidates: `di-druid-pvp-cc-stack-2026` new-row admission · `d2-ghost-pvp → d2-ghost-assassin-pvp` re-key · LA 4 · MULTI-PROJECTILE-VOLLEY docket input (Matt's registered quality signal). **Lean: FOLD** — roster §D's own text says the re-key "rides edition re-mint," and this lap IS the re-mint; deriving Edition-next then re-minting again for admissions = deriving twice. **Default while unruled: conservative** — no admission, 585-conservation intact, derive over existing membership. Decision needed BY the refresh beat, not now.
-- **E-2 — push-as-you-go for this run** (Run-B pattern; ADR-006). One word. **Default until then: local auto-commits only, zero pushes.**
+- **E-2 — push-as-you-go for this run** (Run-B pattern; ADR-006). One word. ~~Default until then: local auto-commits only, zero pushes.~~ **✓ RULED 2026-07-22** (Matt verbatim: *"Please push all commits as you go"*) — push-as-you-go LIVE, conductor-centralized (ledger V-9).
 
 ## §8 — Safeties + framing audit
 

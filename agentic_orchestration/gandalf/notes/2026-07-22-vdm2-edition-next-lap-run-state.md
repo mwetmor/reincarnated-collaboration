@@ -32,7 +32,7 @@
 | **V-6** | GX-02 census-tail 3 kits fold into W3 data pass; GX-02 docket-to-spec = parallel gandalf-sub-agent lane, NOT Wave-B scope | reasoning (GX-02 already Matt-ruled 2026-07-22) |
 | **V-7** | Task 0 = schema-truth diff before any DDL commitment (spec §0.2 self-declared inference risk) | reasoning |
 | **V-8** | Annex band-treatment decided at refresh beat on band-derivability rates from pilot + record re-emission (named empirical criterion, no time-passage criterion) | reasoning |
-| **V-9** | Pushes HELD pending E-2; local auto-commits live per CLAUDE.md team discipline | commitment-parked (default = no push) |
+| **V-9** | ~~Pushes HELD~~ → **E-2 ✓ RULED 2026-07-22 (Matt verbatim: *"Please push all commits as you go"*)** — push-as-you-go LIVE for this run. Conductor CENTRALIZES pushes (sub-agent briefs carry no-push; conductor pushes at each wave-verification beat; on remote rejection: `pull --rebase` then push, never force) | ✓ ruled (was commitment-parked) |
 | **V-10** | Wave-B KR prompt authored as parallel piece now (Matt's "feel free… or save them" rider); no further KR sessions multiplied without seam-disjoint reason | reasoning |
 
 ## Red-flag log
@@ -41,6 +41,8 @@
 
 ## Contention notes
 
-Wave-B (engine repo, gamora/rocket seams) is seam-disjoint from this run (research DB, elrond/legolas). If both run parallel in the meta-repo: distinct dispatch namespaces; this file is this run's state; sub-agent briefs carry do-not-push instructions; conductor may centralize meta-repo commits if interleave appears.
+**Wave-B KR session LIVE (Matt pasted the prompt 2026-07-22)** — a parallel conductor is active. Seam-disjoint at the work layer (engine repo gamora/rocket vs research DB elrond/legolas); shared surface = the meta-repo. Discipline in effect: distinct namespaces (`2026-07-22-vdm2-edition-next-lap-*` here vs `2026-07-22-wave-b-reservation-aura-*` there); this file is THIS run's state; sub-agent briefs carry no-push; **this lap's pushes are conductor-centralized under E-2** (`pull --rebase` on rejection). KR lane's push authority is its OWN per its prompt §6 — this run's E-2 does not extend to it; Matt manages that session directly.
+
+**Matt interface state:** Matt signed off after firing the Wave-B session; the run conducts autonomously per charter §6 (review book per leg; red-flag pings only). If E-1 is unruled when the refresh beat arrives, the conservative default GOVERNS the beat (no admission, 585 intact) and Leg B proceeds — no halt; the Edition freeze still parks at Matt regardless.
 
 **Signed:** gandalf, 2026-07-22.
