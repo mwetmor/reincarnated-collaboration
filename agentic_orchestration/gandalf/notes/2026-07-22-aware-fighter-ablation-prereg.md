@@ -1,12 +1,15 @@
 # Aware-Fighter Ablation Gate — Preregistration Sheet
 
 **Author:** gandalf `RUN-CONDUCTOR` (SPEC-AUTHOR beat), 2026-07-22.
-**Status:** **PINNED** — Matt ruled all four pins 2026-07-22 (ledger **L-27**, verbatim: *"P1 - Full
-6-entry set / P2 - 10% / P3 - k=2 × seed-to-seed SD of the blind encounter-arm aggregate intake /
-P4 - Both"*). Pins filled inline; struck alternatives retained for audit. FREEZES VERBATIM on
-jack-ryan prereg check PASS (concerns fold per W3′ precedent; no bar-parameter moves post-check) →
-named-gamora execution charter. NOTHING in this gate executes before freeze. **Gate engine hash:
-`2f43045`** (Gate-2 delta PASS `3f26b00b`; pushed).
+**Status:** **FROZEN VERBATIM (2026-07-22)** — Matt ruled all four pins (ledger **L-27**, verbatim:
+*"P1 - Full 6-entry set / P2 - 10% / P3 - k=2 × seed-to-seed SD of the blind encounter-arm
+aggregate intake / P4 - Both"*). Pins filled inline; struck alternatives retained for audit.
+jack-ryan prereg check **PASS-WITH-CONCERNS** (`a9bb1886`) → C1+C2 WARN pins **folded** (§6
+precedence rule; §2 auditable seal artifact; W3′ folding convention — no bar-parameter moves) →
+freeze-beat re-verify **clean PASS** (`57d18520`: both pins PRESENT / MECHANICAL / CONSISTENT).
+**POST-FREEZE EDITS VOID THE GATE.** Execution: named-gamora charter
+(`2026-07-22-aware-fighter-ablation-execution-charter.md`). **Gate engine hash: `2f43045`**
+(Gate-2 delta PASS `3f26b00b`; pushed).
 **Lineage:** L-21 (*"It lands, let's test out the geometry aware fighter"*) → L-22 charter
 (`2026-07-22-aware-fighter-build-charter.md` §4) → L-23 (*"Adopt both leans — C3 and D2 with the D3
 floor"*) → BW-1 Gate-2 PASS-WITH-CONCERNS → L-25 BW-1.1 coherence slice (verified; light Gate-2
@@ -40,9 +43,14 @@ nearest-first baseline?
     built-in **specificity control** (geometry-sparse — AWARE should show ≈no margin there; a large
     baseline-arm margin signals a confound, not geometry value). Cost is trivial (~1 min compute).
   - ~~(b) Encounter-only~~ — struck at pin.
-- **C2 seal (carried device):** the BLIND arm runs FIRST, complete, and its per-fight results are
-  hash-sealed in a pregate-seal JSON before ANY aware fight fires (W3′ precedent:
-  `…-tier3-w3prime-pregate-seal.json`). No peeking, no re-rolls.
+- **C2 seal (carried device; AUDITABLE-ARTIFACT PIN folded at prereg-check C2, jack-ryan
+  2026-07-22 — W3′ §8 C2 lineage; no bar-parameter move):** the BLIND arm runs FIRST, complete.
+  Its 256 per-fight records + the derived encounter-arm aggregate-per-seed means + `SD_seed` are
+  written to a **seal-JSON, flushed to disk BEFORE the first aware fight fires** (W3′ precedent:
+  `…-tier3-w3prime-pregate-seal.json`). The final **verdict JSON embeds that seal's md5**; any
+  post-seal mutation of the blind record ⇒ **red-flag HALT, no verdict**. This makes
+  "sealed before aware" a hash-checkable INVARIANT (DRIFT-CRITIC-confirmable independent of the
+  aware outcome), not a sequence assertion. No peeking, no re-rolls.
 
 ## §3 — [P1 — RULED: FULL 6-ENTRY SET (Matt 2026-07-22, L-27)] The AWARE gate consideration set
 
@@ -130,6 +138,17 @@ across the ENCOUNTER arm (32 cells × 4 seeds). Positive = aware takes less dama
   = config-only, no code debt). The run still banks: policy seam, intake metric, battery harness.
 - **PARTIAL-investigate** = clear-guard trip or specificity trip: no verdict until the confound is
   named; conductor rules on re-run vs re-frame with Matt.
+- **Precedence rule (PIN folded at prereg-check C1, jack-ryan 2026-07-22; no bar-parameter move):**
+  **PARTIAL triggers (clear-guard trip OR specificity trip) take precedence over the D2/D3
+  verdict.** If either fires, the verdict is PARTIAL-investigate irrespective of whether D2/D3 were
+  met or missed — **no confound-tainted run is scored PASS or FAIL.**
+- **Result-read riders (prereg-check C3/C4/C5, INFO — travel into the verdict read):**
+  (C3) DRIFT-CRITIC confirms the run's intake aggregate-per-seed + `SD_seed` use the SAME estimator
+  verified on the dealt stand-in (sample SD, n−1, 3 df); (C4) REPORT the realized intake
+  determinism profile alongside the verdict so a near-vacuous-D3 outcome (degenerate guard binding)
+  is visible, not silent; (C5) AWARE includes `distance_normalized` alongside the five geometry
+  reads — do not attribute a margin PURELY to the geometry reads; the post-gate pruning lap owns
+  per-read contribution disentangling.
 
 ## §7 — Execution pins (carried + new)
 
@@ -158,8 +177,15 @@ across the ENCOUNTER arm (32 cells × 4 seeds). Positive = aware takes less dama
    PRIME-CONCURRED).
 2. ✓ Conductor PINNED this sheet (numbers filled, alternatives struck, engine hash recorded) —
    freeze confirms on check PASS; post-freeze edits void the gate.
-3. jack-ryan prereg check (W3/W3′ precedent: `…/qa/findings/2026-07-22-prereg-check-tier3-w3*.md`).
-4. Named-gamora execution charter (conductor-authored) → seal → run → verdict JSONs.
-5. Verdict: conductor synthesis + Matt ruling; review book follows.
+3. ✓ jack-ryan prereg check returned **PASS-WITH-CONCERNS**
+   (`…/qa/findings/2026-07-22-prereg-check-aware-fighter-ablation.md`, `a9bb1886`): C1 + C2 WARN
+   pins **FOLDED** (§6 precedence rule; §2 auditable seal artifact); C3/C4/C5 INFO riders recorded
+   in §6. All five re-derived numbers reproduced EXACTLY; no-confound verified in source at
+   `2f43045`.
+4. jack-ryan re-verify at the freeze beat (C1 + C2 only; PRESENT / MECHANICAL / CONSISTENT) →
+   clean PASS → **FREEZE VERBATIM**.
+5. Named-gamora execution charter (conductor-authored) → seal → run → verdict JSONs.
+6. Verdict: conductor synthesis (DRIFT-CRITIC vs this frozen sheet) + Matt ruling; review book
+   follows.
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / SPEC-AUTHOR), 2026-07-22 — veto-open.
