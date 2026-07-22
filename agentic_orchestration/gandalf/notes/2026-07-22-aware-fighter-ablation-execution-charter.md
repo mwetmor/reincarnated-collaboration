@@ -72,4 +72,32 @@ extending the battery harness's frame logic (same selection→formation→scenar
   (PASS/FAIL/PARTIAL) is the conductor's DRIFT-CRITIC synthesis against the frozen sheet + Matt's
   ruling. Do not caption your report with a verdict word.**
 
+---
+
+## RC-1 — Mid-run conductor ruling (2026-07-22): PC-2 interpretation
+
+**Trigger:** executor HALTed at §1 preconditions (correctly — zero fights fired): working tree not
+literally clean; exactly one tracked delta, `src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json`
+— a star-lord data-sink report (live Lane-1 leg3-pilot work-product, generated 2026-07-22T17:52Z),
+pre-existing, out-of-seam, read by NO code path either arm executes. Engine `*.py` diff vs HEAD:
+EMPTY. HEAD = `2f43045` exact.
+
+**Ruling (reasoning-boundary, conductor-owned, veto-open): path (A) ADOPTED, tightened.** The
+charter's "working tree CLEAN" was conductor shorthand for the sheet's §7 pin-8 invariant — the
+CODE the arms execute is frozen, diff seal→verdict = ∅. The sheet governs. A data-sink delta
+outside the arms' executable closure cannot confound the arms. Exemption scoped NARROWLY:
+
+1. Deltas under `src/reincarnated/output/` are EXEMPT from PC-2 **provided**:
+   (i) `git -C ~/Games/reincarnated-engine diff --name-only HEAD -- 'src/reincarnated/**/*.py'`
+   is EMPTY at run-start, at seal, AND at verdict; (ii) HEAD = `2f43045` unmoved at all three
+   beats; (iii) every exempted file is DISCLOSED in seal + verdict JSONs with path +
+   `git hash-object` content hash at seal-time and verdict-time (hash drift between the two is
+   star-lord's live lane writing — immaterial; record both).
+2. Any `*.py` delta or HEAD move at any beat ⇒ **red-flag HALT, no verdict.**
+3. Executor does NOT touch the `output/` file (star-lord's seam).
+
+**Path (B) REJECTED:** reverting/stashing another seam's live work-product from outside its session
+is cross-seam interference worse than the disease; serializing the gate behind Lane-1 is unnecessary
+once the executable closure is proven frozen. Ledger: L-29.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22 — veto-open.
