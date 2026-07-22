@@ -192,6 +192,8 @@ R8 fork-valve:    WIRE       # optional. WIRE = KR routes reasoning-boundary des
 
 **Island-naming gate flag (surfaced with R4):** Matt's parenthetical — *"holding off from naming any until we reach Edition 5 and create islands again"* — vs the recorded gate ("after ALL THREE runs complete"). Under Path A there **is no Edition 5**; if "Edition 5" stays the naming precondition, naming defers indefinitely. Proposed re-anchor (Matt's word wanted with his R1 ruling): islands re-cut + named after **Tier-3 completes AND R1 is resolved**, on whichever camera R1 lands.
 
+**→ ✓ RE-ANCHOR RULED-WITH-CONDITIONS (Matt 2026-07-22):** *"We can build out new islands after Tier 3 completes if the data points will be fully populated and if you have ultra thought about how we can develop these families at that point."* Conditions: **C1** Tier-3 run COMPLETE · **C2** per-family data-population census (Tier-3 W4 review book) · **C3** gandalf family-development ultra-think (W4 book chapter). Matt's verb is build **OUT** — re-cut + naming + new family-islands, on E4 per Path A (R1 already resolved). The trigger word remains Matt's, fired on C1–C3 evidence; charter v1.1 folds C2+C3 into W4's done-predicate.
+
 ---
 
 **Signed:** gandalf, 2026-07-22. Sources verified first-hand: both review books (RATIFIED against elrond's artifacts), the Leg-B gate report, the binding prereg, the KR run-state, the spec draft §6 premise line, the run-state ledger V-1..V-26. Veto open on everything I ruled; nothing here re-opens what you ruled (§15-R fork set, Q34, Q38 all untouched).
