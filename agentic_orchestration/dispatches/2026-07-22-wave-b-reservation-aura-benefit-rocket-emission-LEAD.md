@@ -62,4 +62,27 @@ Auto-commit in-scope work-products (CLAUDE.md team discipline). **PUSH authorize
 
 ## Completion record
 
-_(rocket appends here)_
+**Status:** DELIVERED — rocket, 2026-07-22.
+
+**Fields added (2 sibling keys on the existing `aura_geometry` block, contract now 4 keys):**
+- `aura_benefit_mod` (`float | None`) — the benefit MAGNITUDE sourced into gamora's `full_benefit` slot. `None` = inert (`full_benefit` stays 1.0).
+- `aura_benefit_kind` (`str | None`) — stat-axis sink enum, FIVE values `{damage, defense, regen, speed, pulse_damage}` (pulse_damage per SCOPE AMENDMENT). Disc #41-clean (mechanical stat axes, not archetypes). `None` = inert.
+
+**Inert corner:** `None/None` is byte-identical to the MVP-round emission (additive-identity, Disc #12) — `full_benefit` keeps its 1.0 default downstream ⇒ reservation-only aura = fork-A behavior. `None` (not 0.0) is the inert sentinel.
+
+**Validator behavior (`_validate_aura_geometry`, Disc #8 schema-at-boundary):**
+- **Enum-guard:** rejects any `aura_benefit_kind` outside the 5-value set (checked FIRST so band-selection reads a validated kind).
+- **Malformed-pair check:** rejects exactly-one-set — mod-without-kind OR kind-without-mod — as malformed. Both must be set for a benefit-bearing aura.
+- **Kind-dependent band-guard (Disc #8 + #40, SCAFFOLD — gamora S6 cert finalizes):** reads `aura_benefit_kind` to select the band, rejects `aura_benefit_mod` outside it. Bands: `damage` [0.08,0.20] · `defense` [0.08,0.20] · `regen` [0.10,0.30] · `speed` [0.05,0.15] · `pulse_damage` [0.15,0.35]. (`AURA_BENEFIT_BANDS` dict.)
+- **Extra-key drift guard:** still raises on any injected key beyond `AURA_GEOMETRY_KEYS` (now 4).
+
+**Forbidden fields confirmed absent:** `aura_polarity`, `aura_target_cap`, `exclusive_aura_class`, and no fantasy-archetype enum. Pulse cadence NOT minted — `pulse_interval_s` is an engine constant on gamora's seam (SCOPE AMENDMENT); kits emit magnitude only, radius reuses `aura_radius_m`. REMOTE-TRUTH `resource_economy.py` untouched.
+
+**MIGRATION (ADR-004):** 1-line-class entry appended to `src/reincarnated/generation/MIGRATION.md` — two NEW OPTIONAL consumed fields, no removal/retype, additive; gamora reader contract = `full_benefit ← aura_benefit_mod`, sink axis ← `aura_benefit_kind`.
+
+**Smoke (Disc #2):** `src/reincarnated/generation/notes/wave_b_reservation_aura_emit_smoke_2026_07_22.py` — **84/84 PASS** (extended with benefit enum-guard, malformed-pair, kind-dependent band-guards, pulse-cadence-not-a-field, benefit-bearing round-trip). Regression: Wave-B **65/65 PASS**, Wave-C **ALL PASS** — no regression.
+
+**Tag / push:** `rocket/v2.14-wave-b-reservation-aura-benefit-emission-1` (v2.13 was the MVP round; no Wave-D collision). Pushed: `bcbe001..138999f` on `main` + tag. Tree is clean and non-broken (Disc #62) — gamora may run.
+
+**GO-TOKEN for gamora:**
+`BENEFIT-EMISSION-READY: aura_benefit_mod + aura_benefit_kind (5-value incl pulse_damage) emitted + pushed`
