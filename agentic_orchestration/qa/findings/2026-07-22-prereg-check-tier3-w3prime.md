@@ -74,3 +74,19 @@ The amendment correctly diagnoses and re-pins exactly the two W3 defects (RF-A, 
 - `agentic_orchestration/gamora/notes/2026-07-22-tier3-w2-fit-output-v2.json` — `family_present` field {present 478, unresolved 544, hole 46}; full-basis hole=46; per-era fit floors (hole=0.15 vs buildable=0.10)
 - `agentic_orchestration/qa/findings/2026-07-22-prereg-check-tier3-w3.md` — prior check C1/C2/C3/C4/C5 (carried basis for C5 above)
 - `agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-state.md` — L-15 (commitment-boundary fork), L-16 (W3′ authorization), L-17 (#9 no-engine-writer)
+
+---
+
+## Re-verify (freeze beat)
+
+**Target of re-verify:** amended sheet §8 (folded pins), commit `d1f802f8`. **Scope:** the three WARN pins ONLY (C1/C2/C3), each on three axes — PRESENT? MECHANICAL (no residual executor discretion)? CONSISTENT with §2–§7 (no contradiction introduced)? INFO items (C4/C5/C6) not re-reviewed per this finding's Action; noted only that §8.4 routes them (C4→W4, C5→reporting-obligation with the gate PARAMETER held at ≥24/32, C6→executor no-memoization requirement) — consistent with my carries, no drift.
+
+- **C1 — standardizer semantics DECLARED (option (a)):** PASS. §8.1 declares option (a) verbatim to the obligation: between-cell stdev over the 32 heterogeneous matched-baseline cells' 4-seed means, composition-scale spread retained BY DESIGN; consequence pinned CONSERVATIVE on both magnitude legs (larger denominator → harder to clear ±0.5), NEUTRAL on the sign leg; X=0.5 keeps its base-sheet meaning; the within-composition standardizer is explicitly REJECTED. PRESENT + MECHANICAL (zero residual choice — the standardizer is now a named pure function of the 32 cell-means) + CONSISTENT with §3 (§8 header: pins GOVERN over §3–§4 where more specific; §8.1 supplies §3's semantics, contradicts nothing).
+
+- **C2 — SEALED pre-gate artifact:** PASS. §8.2 names the seal file (`…-w3prime-pregate-seal.json`), written AFTER the 128 baseline fights and BEFORE any encounter fight, carrying all five obligated contents — 32 compositions + parity verification, per-cell 4-seed means per metric, sd_pool′ per metric, per-metric degeneracy flags, informative-metric count + renormalized sign rule; final gate output embeds the seal's md5; post-encounter mutation ⇒ red-flag HALT. PRESENT + MECHANICAL (the ordering is now an emitted, hash-checkable artifact, not a sequence assertion) + CONSISTENT with §7 (§7's "sd_pool′ stamp → 256 fights" order is exactly what the seal makes auditable).
+
+- **C3 — degeneracy-rule edges:** PASS. §8.3 pins all three: (i) ≥90%-at-bound over the 32 baseline cells' 4-seed MEANS only (cell at-bound iff mean sits exactly at the structural bound), baseline cells only — never individual fights, never encounter cells; (ii) integer threshold ≥29 of 32; (iii) informative-metric count + sign-rule form freeze at the C2 seal, IMMUTABLE after any encounter fight (baseline-only, one-shot — a metric informative on baselines but saturating on encounters stays IN). PRESENT + MECHANICAL (the last three micro-discretions closed; no executor judgment survives) + CONSISTENT with §4 (§8.3 sharpens §4's mean-granularity/integer/immutability edges; the rule's non-leg-dropping power is unchanged).
+
+**Conversion decision:** all three WARN pins are PRESENT, MECHANICAL, and CONSISTENT with §2–§7. **PASS-WITH-CONCERNS → clean PASS; the sheet may FREEZE verbatim.** No re-review of the INFO items (C4/C5/C6 route as pinned in §8.4). The T3-F4′ instrument is now fully pre-registered with zero residual executor discretion on the three pinned degrees of freedom; the conductor judges results as DRIFT-CRITIC against the frozen sheet.
+
+**Re-verified by:** jack-ryan (DESIGN-MODE, freeze-beat re-verify), 2026-07-22. Re-verify target `d1f802f8`; original check `f1c45e9f`.
