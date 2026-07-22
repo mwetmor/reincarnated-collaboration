@@ -1,0 +1,29 @@
+{
+  "artifact": "aware-fighter-bw1-equivalence-battery",
+  "author": "gamora",
+  "date": "2026-07-22",
+  "mode": "smoke",
+  "standard": "bit-equal metric triples per fight AND decision-trace equality; no tolerance bands",
+  "verdict": "PASS",
+  "bit_equal": true,
+  "n_fights_before": 4,
+  "n_fights_after": 4,
+  "n_fights_compared": 4,
+  "before_cross_check_vs_recorded_w3prime": {
+    "n_before_keys": 4,
+    "n_recorded_matched": 4,
+    "n_missing_in_recorded": 0,
+    "n_triple_mismatch": 0,
+    "clean": true,
+    "missing_examples": []
+  },
+  "before_vs_after": {
+    "n_triple_mismatch": 0,
+    "n_trace_mismatch": 0,
+    "n_key_asymmetry": 0,
+    "n_rng_divergence_class": 0
+  },
+  "red_flags": [],
+  "engine_before": "/tmp/aware-before-worktree/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py",
+  "engine_after": "/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/spatial_engine.py"
+}

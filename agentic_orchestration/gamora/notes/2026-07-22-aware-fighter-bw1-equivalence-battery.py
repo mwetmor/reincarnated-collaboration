@@ -229,20 +229,30 @@ def _spawn_leg(arm, mode, out_path):
     return json.load(open(out_path))
 
 
-def main():
-    mode = "smoke" if ("--smoke" in sys.argv) else "full"
-    before_out = os.path.join(HERE, f"2026-07-22-aware-fighter-bw1-battery-before-{mode}.json")
-    after_out = os.path.join(HERE, f"2026-07-22-aware-fighter-bw1-battery-after-{mode}.json")
+# ── BW-1.1 (2026-07-22, gamora): recorded-baseline reuse. The recorded BW-1 before-full.json is a
+# self-sufficient frozen legacy record (256 results, each with the full triple + trace, engine_bound
+# = the stamp-a3671d4 worktree). D1/D2 do NOT touch the BEFORE worktree, so re-spawning the BEFORE
+# leg reproduces this exact record. `--baseline-file` spawns ONLY the AFTER leg (main tree, post-
+# D1/D2, BLIND) and compares vs this frozen JSON — letting /tmp/aware-before-worktree be removed
+# BEFORE the final gate (Gate-2 action item) because the JSON IS the baseline. Comparison logic is
+# the SAME `_compare_and_verdict` the dual-spawn path uses (no gate drift; addendum §A3).
+def _load_recorded_before_leg(mode: str) -> dict:
+    path = os.path.join(HERE, f"2026-07-22-aware-fighter-bw1-battery-before-{mode}.json")
+    if not os.path.isfile(path):
+        raise SystemExit(f"FATAL: recorded BEFORE leg not found at {path} "
+                         f"(--baseline-file needs the recorded before-{mode}.json).")
+    d = json.load(open(path))
+    if "results" not in d or not d["results"]:
+        raise SystemExit(f"FATAL: recorded BEFORE leg {path} has no results map.")
+    return d
 
-    if not os.path.isdir(BEFORE_ENGINE_SRC):
-        raise SystemExit(f"FATAL: BEFORE worktree engine src not found at {BEFORE_ENGINE_SRC} "
-                         f"(create: git worktree add --detach /tmp/aware-before-worktree a3671d4 "
-                         f"+ install the byte-neutral trace hook).")
 
-    before = _spawn_leg("before", mode, before_out)
-    after = _spawn_leg("after", mode, after_out)
-    recorded = _load_recorded_w3prime_triples()
-
+def _compare_and_verdict(before: dict, after: dict, recorded: dict, mode: str,
+                         verdict_tag: str = "") -> int:
+    """The GATE comparison + verdict write, factored out so the dual-spawn path (main) and the
+    recorded-baseline path (main_baseline_file) run IDENTICAL logic (BW-1.1 — no gate drift).
+    verdict_tag distinguishes the verdict-JSON filename (dual-spawn = "" → the BW-1 name; recorded-
+    baseline = "-bw11-baseline" → does not clobber the BW-1 verdict)."""
     b, a = before["results"], after["results"]
     keys = sorted(set(b) | set(a))
 
@@ -336,7 +346,8 @@ def main():
         "engine_before": before.get("engine_bound"),
         "engine_after": after.get("engine_bound"),
     }
-    out_path = os.path.join(HERE, f"2026-07-22-aware-fighter-bw1-battery-verdict-{mode}.json")
+    out_path = os.path.join(
+        HERE, f"2026-07-22-aware-fighter-bw1-battery-verdict{verdict_tag}-{mode}.json")
     with open(out_path, "w") as f:
         json.dump(out, f, indent=2)
     print("\n" + "=" * 78)
@@ -356,6 +367,37 @@ def main():
     return 0 if verdict == "PASS" else 1
 
 
+def main():
+    """Dual-spawn path (BW-1): spawn BOTH legs (before=worktree, after=main) then compare."""
+    mode = "smoke" if ("--smoke" in sys.argv) else "full"
+    before_out = os.path.join(HERE, f"2026-07-22-aware-fighter-bw1-battery-before-{mode}.json")
+    after_out = os.path.join(HERE, f"2026-07-22-aware-fighter-bw1-battery-after-{mode}.json")
+
+    if not os.path.isdir(BEFORE_ENGINE_SRC):
+        raise SystemExit(f"FATAL: BEFORE worktree engine src not found at {BEFORE_ENGINE_SRC} "
+                         f"(create: git worktree add --detach /tmp/aware-before-worktree a3671d4 "
+                         f"+ install the byte-neutral trace hook).")
+
+    before = _spawn_leg("before", mode, before_out)
+    after = _spawn_leg("after", mode, after_out)
+    recorded = _load_recorded_w3prime_triples()
+    return _compare_and_verdict(before, after, recorded, mode)
+
+
+def main_baseline_file():
+    """Recorded-baseline path (BW-1.1 --baseline-file): spawn ONLY the AFTER leg (main tree, post-
+    D1/D2, BLIND) and compare vs the recorded frozen BW-1 BEFORE leg. Lets /tmp/aware-before-worktree
+    be removed BEFORE this gate (the recorded JSON is the baseline; addendum §A3)."""
+    mode = "smoke" if ("--smoke" in sys.argv) else "full"
+    after_out = os.path.join(HERE, f"2026-07-22-aware-fighter-bw11-battery-after-{mode}.json")
+    before = _load_recorded_before_leg(mode)
+    after = _spawn_leg("after", mode, after_out)
+    recorded = _load_recorded_w3prime_triples()
+    print(f"→ recorded-baseline mode: BEFORE = frozen {os.path.basename(before.get('engine_src',''))} "
+          f"record ({len(before['results'])} fights) | AFTER = main tree (post-D1/D2, BLIND)")
+    return _compare_and_verdict(before, after, recorded, mode, verdict_tag="-bw11-baseline")
+
+
 def _first_trace_diff(t1, t2):
     n = min(len(t1), len(t2))
     for i in range(n):
@@ -370,5 +412,7 @@ def _first_trace_diff(t1, t2):
 if __name__ == "__main__":
     if len(sys.argv) >= 5 and sys.argv[1] == "--leg":
         _run_leg(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif "--baseline-file" in sys.argv:
+        raise SystemExit(main_baseline_file())   # BW-1.1: AFTER(D1/D2,BLIND) vs recorded BEFORE
     else:
         raise SystemExit(main())
