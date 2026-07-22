@@ -91,4 +91,33 @@ Auto-commit in-scope. **PUSH authorized "as you go"** (Matt 2026-07-22 — per-c
 ---
 
 ## Completion record
-_(gamora appends here, per slice)_
+
+### Slice 1 (MVP) — DELIVERED + PUSHED (2026-07-22)
+**Tag:** `gamora/v1.12-wave-b-reservation-aura-sim-1` (`357bbe3`) · **PUSHED** (Matt as-you-go auth).
+**Math note (Disc #1, BEFORE code):** `simulation/math/waveb-reservation-aura-sim-2026-07-22.md`.
+**Smoke (Disc #2):** `scripts/gamora_waveb_reservation_aura_slice1_smoke_2026_07_22.py` — **8/8 PASS**.
+
+Consumers landed (all in `simulation/spatial_gauntlet/spatial_engine.py`):
+- **C1 `_aura_beneficiaries_in_radius`** (Fork-2b) — boundary-inclusive `<=` hard-edge radius gate, GENERALIZED to an ORIGIN argument from the start (Disc #12 call-out: caster OR plant-point). `aura_effective_benefit()` composes radius-gate × ramp per-tick. Carrier B (radius None) = self-buff, no gate (AC-4).
+- **C4 `aura_ramp_fraction`** (Fork-6b) — linear `min(1, elapsed/τ)` ramp; reservation paid at t=0 toggle-ON (AC-6), instant restore at toggle-OFF (Fork-7a).
+- **C3 carrier-set WIDENING** (Disc #12; ERRATA-14 2nd application) — `_sum_active_aura_reservation` widens the built regen-cap consumer's Σ; `rs_effective_regen_cap` arithmetic UNCHANGED; byte-identical for non-aura kits.
+- **AC-7-SIM `aura_activation_would_breach`** (**FLAG A — the load-bearing MVP-critical site**) — the owed per-pool Σ activation-block (ERRATA 13 + Disc #8). **GUARD OUTCOME: WORKS.** At toggle-ON, a candidate that would push Σ reservation_percent to ≥0.90 (or Σflat > 0.75·M) is BLOCKED: the aura does NOT turn on, reservation is NOT paid, the pool ceiling is UNMOVED, and prior active auras stay live. A fitting candidate (Σ→0.89) succeeds and stacks. Arithmetic-PRESERVING guard honoring the LOCKED Σ<0.90 invariant — NOT a redefinition. Verified by the AC-7-SIM smoke fixture (breach@0.90 rejected + fit@0.89 admitted, both asserted).
+
+**Two empirical finds caught by smoke BEFORE cert (framed as numerical-correctness, NOT design changes):**
+1. **Σ<0.90 IEEE-754 float edge** — `0.60 + 0.30 == 0.8999999999999999 < 0.90` silently ADMITTED a stack reaching the LOCKED ceiling. Fixed with `_AURA_SIGMA_EPS = 1e-9` inward bias so a sum rounding to the ceiling blocks (math note §3). This is a genuine guard-correctness bug the smoke surfaced.
+2. **Reservation double-count** — the aura's reservation rides the BUILT `resource_economy.reservation_*` fields (rocket MIGRATION [2026-07-22]); it is migrated to the aura carrier + zeroed on the entity at establishment so the pool is taxed ONCE (math note §4). A static-RS kit (no aura geometry/ramp) is NOT treated as an aura — the RS regression smoke confirms static-reservation kits are UNAFFECTED.
+
+Regression: 14/14 sim smokes exit-0 (zero regression). py_compile clean. No touch to `resource_economy.py` / `bc_target_composer` (REMOTE TRUTH).
+
+### Slice 2 (banner, carrier D, Fork-8=8a) — DELIVERED + PUSHED (2026-07-22)
+**Tag:** `gamora/v1.12-wave-b-reservation-aura-banner-2` (`eebc52f`) · **PUSHED**.
+**Math note:** §5 of the same note (authored up-front in Slice 1).
+**Smoke:** `scripts/gamora_waveb_reservation_aura_banner_slice2_smoke_2026_07_22.py` — **4/4 PASS**.
+
+- **`plant_banner()`** — snapshots caster `(x,y)` as a `_PosProbe` plant-point origin (NOT a `SpatialEntity`; reuses the E4 ground-tether device, NOT `_build_positioned_allies`); plants an aura carrier with a FLAT reservation (built `reservation_flat` shape — NO new field) + a durational `expiry_time`. This is C1 with a RELOCATED ORIGIN — a caller change, exactly as the Slice-1 origin generalization intended. 4-line expiry drop in the per-tick loop mirroring `_step_proxy_population`; ceiling restores INSTANTLY at expiry (7a).
+- Certs: B1 plant-point radius gate (caster roams away, plant-origin fixed) · B2/B3/B4 reservation held-while-planted + released-at-expiry + composed-floor · B5 DL-03 no-root (PASS by construction — no movement-lock state) · B6 AC-7-SIM flat-ceiling block on plant.
+
+Regression: 14/14 sim smokes exit-0.
+
+### Slice 3 (S6 full-path cert) — NOT started; READY. STOPPING HERE (per dispatch: do NOT rush the full-path cert).
+The S6 full-path gauntlet cert at the D2-dominance/evaporate bands is the GATE before any MILESTONE tag (Disc #2 — not smoke alone). It finalizes the `aura_reattune_ramp_s` band [0.5,1.5] (rocket scaffold default 1.0s) + the `aura_radius_m` band [2.0,12.0], and renders the AC-9 archetype-defining judgment. Gauntlet drivers exist (`gauntlet_sim.py`, `unified_calibration_loop.py`, `sc7_calibration_loop.py`). **S6-cert-readiness: READY** — the MVP + banner surfaces are built, smoke-green, and pushed; the cert is a dedicated full-path calibration pass (full-regen wall-clock). Requesting a KR continuation dispatch to run Slice 3.
