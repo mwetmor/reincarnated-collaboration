@@ -1,0 +1,65 @@
+# Finding — 2026-07-22 — aware-fighter BW-1 engine delta
+
+**Reviewer:** jack-ryan (Gate-2, DEV-MODE)
+**Verdict:** PASS-WITH-CONCERNS
+**Severity:** WARN (concerns are INFO/WARN-level, non-blocking; includes one process WARN on a push-hold breach)
+**Target:** commit range `f738d44..2d99f15` on `main` — `1dc8251` (intake metric) + `880ad06` (policy seam) + `2d99f15` (unit tests)
+**Developer:** gamora (seam owner, `simulation/`)
+**Governing spec:** `agentic_orchestration/gandalf/notes/2026-07-22-aware-fighter-build-charter.md`
+**Principles applied:** Review Principles #1 (math-before-code), #2 (smoke-gate), #3 (cross-seam impact), #4 (decisions-log as truth), #5 (severity matters). Disciplines cited: #1, #3, #8, #11, #12.
+
+## What I found
+
+The aware-fighter BW-1 delta is a clean, spec-faithful build. The load-bearing ablation property (charter §1.4 — the no-confound guarantee) holds: the player's hardcoded nearest-first target selection is REPLACED, not branched, and the BLIND config is the SAME decision code path with the consideration set reduced to `{distance}`. I re-ran the full 256×2 equivalence battery and the 59 unit tests independently — both PASS, byte-for-byte, matching every claim in the build report. Scope is airtight: 7 files, all inside `simulation/spatial_gauntlet/` + `tests/`; corpus.db, telemetry-schema, and recorder untouched. The two empirical charter-vs-reality corrections (the mis-cited `:1338`, and the `max_hp`/`preferred_behavior` runtime substrate standing in for spawn-time `threat_tier`/`archetype_tag`) are sound and correctly documented. Concerns are forward-looking (AWARE-path latents surfaced for the prereg boundary) plus one process breach (the delta was pushed to the engine remote before Gate-2, in violation of the conductor's own charter §3 push-hold).
+
+## Findings (numbered)
+
+**F1 — [PASS] Ablation property holds: REPLACED-not-branched, verified by grep + code inspection.**
+The two player decision sites route through the seam: `_get_player_primary_target` fallback (`spatial_engine.py:1574`) and `_select_skill_for_entity` player branch (`:1957`, gated `if entity.is_player`). Mob/ally keeps legacy `min()` (`:1959`). BLIND default is threaded via `SpatialFightEngine._policy_config` (`:2407`) with `policy_config=None → BLIND` (brownfield-safe). BLIND config = `{distance}` through the same `choose_target` code path (`policy/seam.py:44`); the single-`{distance}` fast-path (`seam.py:68`) is an inspectable arithmetic identity (`max(-distance) ≡ min(distance)`, first-extremum tie-break identical), NOT a behavioral branch. I grepped all 12 surviving `min(...distance_to)` sites — see F2 for the three that reference the player.
+
+**F2 — [INFO] Three surviving player-referencing `min(distance_to)` sites are correctly OUT of the target-choice seam; one is a latent AWARE-path consideration for prereg.**
+- `:1360` — `_compute_aoe_hits` point-geometry HIT resolver (which single entity a point-skill LANDS on, downstream of target + skill selection). This is the charter's mis-cited `:1338`; correctly out of the seam (charter §2.1 scopes the seam to target choice + movement intent, not hit resolution).
+- `:3130` / `:3226` — inside E4 commitment machinery (`_e4_initiate_commitment` + mid-flight move-cancel), gated `if not self._e4_blind`. These recompute `nearest` ONLY to feed `csm.project_target_position` (a whiff-avoidance geometry check: "will my wind-up still land?"). This is a commitment-competence projection on a SEPARATE, pre-existing ablation axis (criterion-18 E4 blind pilot), orthogonal to the aware/blind POLICY axis. Not target CHOICE; correctly out of the seam.
+- **Latent for prereg (INFO):** `:3130`/`:3226` recompute `nearest` locally rather than reusing the seam's chosen target. Under BLIND, `nearest == argmin distance == the seam's choice`, so they are byte-identical (the 256-battery proves it). But under a future AWARE config, the seam's chosen attack-target could differ from this locally-recomputed `nearest` — meaning the wind-up projection would check a DIFFERENT mob than the one the policy chose to engage. This is not a BW-1 defect (BW-1 ships BLIND-by-default and the battery gates BLIND). It is a coherence question for the ARCHITECT open-questions pass at the prereg boundary: when AWARE is pinned, should the E4 projection check the policy's chosen target rather than raw-nearest? Flagged, not owed.
+
+**F3 — [PASS] Equivalence battery independently reproduced, full 256×2 + smoke.**
+I re-ran `2026-07-22-aware-fighter-bw1-equivalence-battery.py` (full) and `--smoke` from the BEFORE worktree (`/tmp/aware-before-worktree` @ stamp `a3671d4`, still present). Both: `verdict=PASS`, `bit_equal=True`, 256/256 (resp. 4/4) fights compared, `triple_mismatch=0`, `trace_mismatch=0`, `key_asymmetry=0`, `rng_divergence_class=0`. BEFORE-leg cross-check vs recorded W3′ `gate-output.json`: clean 256/256 (resp. 4/4). The harness architecture is sound — each leg runs in a subprocess with `sys.path` pinned to the correct engine (BEFORE→worktree, AFTER→main), with a module-cache-bind assertion (`engine_bound != intended → sys.exit(7)`) that defeats the gate's own `sys.path.insert`. The trace instrument is byte-neutral (read-only, gated off in production). The RNG-divergence class has an explicit detector and did not fire (the seam consumes no RNG — deterministic argmax over distances). No tolerance bands used, per charter §2.3. (Discipline #11: the proof is necessary, the battery is the gate.)
+
+**F4 — [PASS] 59 unit tests green.** `tests/test_aware_fighter_policy_seam.py` (32) + `tests/test_spatial_gauntlet_scenarios.py` (27) = 59 passed in 0.30s on my rerun. Matches the conductor's independent 59-passed and the build-report claim.
+
+**F5 — [PASS] Scope confinement.** `git diff --name-only f738d44..2d99f15` = exactly 7 files, all under `simulation/spatial_gauntlet/` (policy package ×4 new files + spatial_engine + spatial_telemetry) + `tests/`. No corpus.db, no `spatial_recorder.py`, no schema, no MIGRATION. Working tree clean at those paths. Mob/ally targeting byte-identical; `_select_player_skill_v2` untouched (grep confirms no edits to skill selection).
+
+**F6 — [PASS] Intake metric — enemy-inflicted only, self-costs excluded, no schema change.**
+Accumulation sites verified against math note §5.1: `:4352`/`:4357` (main mob-attack, `self.player.damage_taken += dmg` after HP mutation — INCLUDE), `:3826`/`:3832` (aura/coverage-pressure — INCLUDE). Self-inflicted LC HP cost at `:4181`/`:4182` has NO `damage_taken +=` — correctly EXCLUDED. `SpatialFightResult.player_damage_taken` (`spatial_telemetry.py:314`) is additive, default 0.0, not enforced by `validate()`, and NOT in the positional `_INSERT_SQL` — same status as `player_damage_total`/`total_displacement`. No DB migration, no telemetry-schema change, no MIGRATION.md owed (Discipline #8 — additive at the boundary; Principle #3 — no cross-seam impact, star-lord consumes nothing new).
+
+**F7 — [PASS] Empirical corrections are sound (Discipline #11).** (a) The charter's `:1338` was the AOE hit-resolver; the real player seam is the two `min(distance_to)` sites — confirmed by inspection. (b) `threat_tier`/`archetype_tag` are SpawnSpec (spawn-time) fields, not runtime `SpatialEntity` attributes; the exposure map reads `max_hp` (tier-encoded: swarm/magic=150, elite/boss=2500) + `preferred_behavior` + `aggro_radius_m` instead — a within-seam runtime read, no entity-construction change. Behaviorally equivalent on the gate roster; the map is never built on the BLIND path (lazy via `needs_exposure_map`), so bit-equality is preserved. Both corrections are documented in the math note §0/§3.1 and build report, not buried.
+
+**F8 — [INFO, cost flag — not a blocker per charter §2.3.]** All-5-candidate AWARE = 5.47× BLIND on a 40-mob worst-case arena (above the ~3-4× target); LEAN {distance + 1 read} = 1.46× (within budget). The battery gates BLIND, not AWARE; the gate set is pinned at prereg and won't be all 5. Mitigations (per-tick map cache, shared θ-density field, prune-to-subset) are available to prereg. Recorded honestly in math note §3.4.1. Nothing owed in BW-1.
+
+**F9 — [INFO] AWARE proposal-weighting note (prereg input, not a BW-1 concern).** In `AWARE_CANDIDATE_CONFIG`, `distance` is weight 1.0 and `normalize=False` (raw `-distance`, magnitude ~tens of meters) while the other five considerations normalize to `[0,1]`. As written, raw distance would dominate the utility sum. This is explicitly a proposal — the gate set + weights are pinned at prereg by conductor + Matt (charter §2.2). Not a correctness issue for BW-1 (AWARE is not gated by the battery, and the machinery is what BW-1 ships). Flagged so prereg accounts for scale-commensurability when pinning weights.
+
+**F10 — [WARN — PROCESS] Charter §3 push-hold breached; remediation is FORWARD REVERT if this had BLOCKed.**
+The charter §3 states "Conductor holds the engine push until Gate-2 PASS." The delta was pushed to the engine remote pre-gate via a working-directory slip (a bare `git push` intended for the collab repo fired in the engine repo), self-reported by gandalf RUN-CONDUCTOR in ledger L-24 (`agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-state.md`). I assess this as a process WARN, not a content BLOCK: (i) the delta PASSES Gate-2 on its merits, so no forward-revert remediation is required; (ii) the breach was self-reported promptly and transparently, which is the correct discipline-recovery behavior (ADR-006 read-only-by-default / commit-never-push spirit); (iii) had I BLOCKed, remediation would have been forward revert commits (no force-push, no history surgery), preserving lineage. Recommendation for the conductor: adopt a working-directory guard for bare `git push` in the engine repo during any held-push window (e.g., a pre-push hook keyed to the hold state, or explicit-remote push discipline). No action owed by the developer.
+
+## Rationale
+
+The wave's hard gate (charter §2.3) is the equivalence battery, and it holds under independent rerun — this is the crux, because the entire purpose of the policy seam is to be a no-confound instrument for the future ablation gate (the blind arm must equal the pre-refactor production fighter EXACTLY). The ablation property (charter §1.4) is satisfied structurally (REPLACED-not-branched, single decision code path, `is_player`-scoped) and empirically (256/256 bit-equal triples + trace equality). Scope, intake-metric additivity, and the empirical corrections all check clean. The concerns are forward-looking (F2 latent, F8/F9 prereg inputs) or process (F10), none blocking. Per Principle #5, severity is calibrated: nothing here rises to BLOCK.
+
+## Action
+
+- [x] jack-ryan: authored the three Discipline #12 semantic-shift decisions-log entries (a/b/c) — `~/Games/reincarnated-engine/design/decisions/decisions-log.md`, dated 2026-07-22.
+- [ ] Developer (gamora): no action owed. Optional post-gate: `git worktree remove /tmp/aware-before-worktree` (transient battery scaffolding; the stamp itself is uncontaminated).
+- [ ] Conductor (gandalf, prereg boundary): carry F2 (E4 projection vs policy-chosen target under AWARE), F8 (cost), and F9 (AWARE weight scale-commensurability) into the prereg sheet + ARCHITECT open-questions pass.
+- [ ] Conductor (gandalf): F10 — adopt a working-directory / held-push guard to prevent a repeat bare-`git push` slip during a push-hold window. Process note only; no gate impact.
+
+## References
+
+- Charter: `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-07-22-aware-fighter-build-charter.md`
+- Math note: `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-07-22-aware-fighter-bw1-math.md`
+- Build report: `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-07-22-aware-fighter-bw1-build-report.md`
+- Battery harness: `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gamora/notes/2026-07-22-aware-fighter-bw1-equivalence-battery.py`
+- Battery verdicts (mine, reproduced): `…-battery-verdict-full.json` (256/256 PASS) + `…-battery-verdict-smoke.json` (4/4 PASS), same directory
+- Breach self-report: `/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-state.md` (ledger L-24)
+- Engine code reviewed: `/Users/admin/Games/reincarnated-engine/src/reincarnated/simulation/spatial_gauntlet/policy/{seam,considerations,exposure_map,__init__}.py`, `.../spatial_engine.py` (sites 1360, 1543-1576, 1949-1960, 2396-2422, 3130, 3226, 3576-3581, 3823-3834, 4181-4182, 4352-4357, 4972-4974, 5556-5759), `.../spatial_telemetry.py:302-314`
+- Tests reviewed/rerun: `/Users/admin/Games/reincarnated-engine/tests/test_aware_fighter_policy_seam.py`, `.../test_spatial_gauntlet_scenarios.py`
+- Decisions-log entries authored: `/Users/admin/Games/reincarnated-engine/design/decisions/decisions-log.md` (three 2026-07-22 aware-fighter BW-1 entries)
