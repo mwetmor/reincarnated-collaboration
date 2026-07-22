@@ -1,7 +1,7 @@
 # Tier-3 W3′ Pre-Registration — T3-F4′ Gate Instrument (AMENDMENT SHEET)
 
 **Author:** gandalf `RUN-CONDUCTOR` (SPEC-AUTHOR beat), 2026-07-22 — ruling **L-16** under Matt's verbatim authorization *"W3′ go!"* (charter-amendment class, Matt-ruled; PING-1 fork (ii)).
-**Status:** DRAFT → freezes on jack-ryan prereg check. After freeze, NO parameter changes through W3′; a violated invariant is a red-flag, not a silent adjust.
+**Status:** **FROZEN 2026-07-22** — check `f1c45e9f` (PASS-WITH-CONCERNS) → §8 pins folded (`d1f802f8`, L-18) → freeze-beat re-verify **clean PASS** (`c47f6cc8`: all three pins PRESENT + MECHANICAL + CONSISTENT). NO parameter changes through W3′; a violated invariant is a red-flag, not a silent adjust.
 **Relationship to W3:** **T3-F4′ is a NEW gate. The W3 FAIL stands on the record as W3's verdict** — this sheet does not revise it. The RD-1 conditional (T3-V6) TRANSFERS to the W3′ verdict per L-15(c)(ii) + Matt's go.
 **Base sheet:** `2026-07-22-tier3-w3-prereg.md` (frozen `5ea56bf3`) — **incorporated by reference; every parameter not explicitly re-pinned below carries VERBATIM.**
 
