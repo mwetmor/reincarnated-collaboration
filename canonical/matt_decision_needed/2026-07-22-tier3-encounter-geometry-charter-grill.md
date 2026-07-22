@@ -143,3 +143,63 @@ Readings (gandalf, senior-designer):
 5. **Guest-family fork (ELICIT, parked for Matt):** IDENTITY-GAUGE (31, all LA) and ratified MINION-PET (7, all off-spine) have ZERO act-spine presence. If acts = the four ages of the five spine games, these families cannot headline any act natively. Options: (a) catalogue-only until an edition admits annex games to the spine; (b) off-spine GUEST encounters (rift-style cameos); (c) MINION-PET docket re-seed with a loosened axis to capture the spine's summoner mass (composes with the SUMMONER-LEGION observation, B3).
 6. **~49% claimed / ~51% residual is the right amount of structure:** enough family mass to deal era-signature showcase encounters per act NOW; enough residual to keep future dockets honest (CHAIN-BOUNCE and SUMMONER-LEGION are the two the residual is loudest about).
 7. **Standing guard re-stated:** these are archive-affinity counts — encounter-grammar inputs, NOT player kit-availability gates (progression = R6 / jack-ryan lane).
+
+---
+
+## SECOND RULING BATCH — 2026-07-22 (post-Appendix-B): THE FAMILY-FACTION FOLD
+
+> Registered by gandalf (ELICITOR) same-session, directly from Matt's words. **Three rulings** (R-b1 · R-b2 · R-b3), **one new fork** (T3-F5), **one fork-let** (5b), one standing mandate.
+
+### Matt's verbatim anchors
+
+1. *"Ok, I am decided on build families for the grouping of kits/factions per run."*
+2. *"…we need to split up the monsters (I call them monsters but they may be humanoid NPC faction members) with the same main skills/ability types as their build family kit leaders."*
+3. *"Each time you save an enemy kit by beating it, and you become it, there should be at least one faction in the next act that is the same as the faction that you just chose to be. This is because I want to align the build family factions to their intent towards you. When you become a whirlwind kit, it automatically makes you at odds with all other build family factions except whirlwind. The whirlwind faction does not fight against you, and you can interact with them (maybe they have shops, offer boons, etc)."*
+4. Standing refinement mandate: *"Your ultra think was great and we need to continue to refine it as we build the table/pattern into the roguelike run structure."* → the era×family cross-tab is a LIVING instrument of the Tier-3 run, refined as the grammar builds.
+
+### R-b1 ✓ RULED — build-families are THE run faction-grouping
+
+Kits and factions per run group by BUILD-FAMILY. This consumes the T3-F2 modular-roster chain: roster modules key on family (kits→gear stays; monsters→factions now keys on family; biome→faction-morph rider composes). Membership tiers stay provenance-clean — RATIFIED > DOCKETED > FRESH-DRAFT; working labels remain provisional until Matt's names-review (docket §6 guardrail holds).
+
+### R-b2 ✓ RULED — monsters split by family-leader mechanism (AMENDS T3-F3)
+
+The mob-harvest is now **era × FAMILY stratified**, not era-only. "Monsters" may be humanoid NPC faction members — the family IS the faction identity either way. Mob/NPC templates INHERIT the family kit-leader's mechanism verbs: whirlwind mobs spin-and-close · totem mobs emplace-and-hold · trap mobs pre-seed ground · beam mobs channel lanes · volley mobs fan projectiles · DoT mobs stack-and-retreat · melee mobs swarm the brawl. MESO formations + MICRO pressure verbs DERIVE from the family mechanism — the three-tier grammar gets its vocabulary from the family table above.
+
+### R-b3 ✓ RULED — the KIN-FACTION loop (become → kin guaranteed; all others hostile)
+
+Beat an enemy kit → save it → **become** it → **≥1 faction of that family is GUARANTEED in the next act.** Faction disposition keys on PLAYER-FORM: every family ≠ yours = hostile; your family = **kin** — non-hostile, interactive (shops, boons, etc.). Becoming is a diplomatic act: the form you wear IS your allegiance.
+
+### Design heart (gandalf reading)
+
+**Enemies are the menu of future selves.** Kin = consolidation (rest, shop, boon); hostiles = the only path to becoming something else. Fighting IS shopping for your next body — the reap-die-rise loop finding its faction grammar. Genre lineage: this inverts the D2 hostility model (static monster allegiance) into a Mushoku-Tensei-class identity mechanic (the world reads what you ARE, not what you did).
+
+### T3-F5 — NEW FORK: kin-guarantee × era-hole collision
+
+The kin guarantee collides with Appendix-B reading 2 (holes are true genre history). Concrete case: become MELEE-STRIKE at the end of Age I → Age II (PoE1 act) has **ZERO native melee** (0/36 docket members are poe1). Same collision for SHAPESHIFT→II, BEAM-becomes entering I, AURA→III, MPV→III.
+
+| option | mechanism | verdict |
+|---|---|---|
+| **(a) TRAVELING KIN** | your kin faction TRAVELS with you — a reserved encampment slot per act; the anachronism IS the story (a whirlwind caravan camped in the trap-age). D2 caravan lineage: Warriv/Meshif follow the player through acts | **LEAN** |
+| (b) ERA-RELAXATION | kin faction simply spawns in-act regardless of era-affinity; no narrative dressing | functional, flavorless fallback |
+| (c) BECOME-GATING | only allow becoming families native to the NEXT act | **REJECT** — constrains the core become-fantasy to serve a spawn table |
+| (d) KIN-ADJACENCY | nearest-family substitute counts as kin | **REJECT** — dilutes "at odds with ALL other families except yours"; the ruling's edge is its clarity |
+
+Under (a), the era-holes stay load-bearing for HOSTILE composition (per-act showcase decks unchanged) while the kin slot is exempt-by-story — the guarantee never bends the act's native family deck.
+
+### Fork-let 5b — disposition-flip timing
+
+When you become mid-act: do already-spawned same-family packs flip to kin INSTANTLY or at the act boundary? **Lean: INSTANT** — the world reads the form; the mid-fight flip is the reveal that TEACHES the rule (one becoming, witnessed, replaces a tutorial).
+
+### Residual-role observation
+
+~51% of record kits are family-unclaimed → these are the **unaffiliated wilds** — monsters hostile to everyone, belonging to no court of becoming. Standing guard: archive-affinity, not player availability (R6 lane).
+
+### UPDATED F1 FOLD — what Matt's confirm decides (plain language; supersedes the earlier confirm ask)
+
+Confirming the F1 fold = saying YES, the Tier-3 run builds these three things:
+
+1. **An era-indexed fit layer** — `fit(kit, encounter | era)`: how well a player kit meets an encounter, conditioned on which age/act it lives in.
+2. **The three-tier encounter grammar** — MACRO map-area archetypes (centralized brawl + decentralized outposts — now with a DISPOSITION dimension per R-b3: hostile-outpost vs kin-outpost) · MESO formations · MICRO per-pack pressure verbs; faction composition family-keyed (R-b1/R-b2) and player-form-coupled (R-b3).
+3. **The T3-F4 gate** — MESO/MICRO must BIND in simulation (gamora evidence, X/Y set at prereg); MACRO ships parameterized.
+
+It does NOT decide: kit availability/progression (R6 — jack-ryan lane) · act ORDER (descent-direction story fork, parked) · T3-F5 (its own word, or park-with-lean at charter review).
