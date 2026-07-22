@@ -5,6 +5,9 @@
 **Authorization:** Matt 2026-07-21 ("idea-1 survey fires now → coverage matrix")
 **Purpose:** Feed VDM-2 exact-numeric overlay + VDM-CAL calibration. Per-game scoping input for Matt ("rule removal of games without this coverage").
 
+> **✓ RULED — Matt 2026-07-21 (verbatim): "Corpus-of-record = D2/GD/PoE1/PoE2/LE; everything else annexed at attested grade; mechanics harvest reads all twenty."**
+> Consequences: (1) **corpus-of-record = the 5-roster** (270 kits — Tier 1 + LE; every member has skill-lane A/high-B AND a working oracle) — the VERIFY scope for VDM-2 field-delta exacts, VDM-CAL, band-mapping, regression predicates; corpus == VDM-CAL roster == acquisition surface. (2) **All other 15 games = ATTESTED ANNEX** — kits kept at guide-provenance confidence, readable + harvestable + plottable as soft reference points, excluded from every verification lane; NOT deleted. (3) **Mechanics harvest (READ scope) spans all 20 games** — VDM-2's charter carries the per-game annex yield checklist (LA identity-gauge · DI CC-stack · Hades boon-synergy · VS horde-density · D3 rune-variants + set-multiplier lesson · D4 aspects · TL2 charge-bars/pet-economy · TQ dual-mastery · rest quick-pass) so annexing never shallow-harvests. (4) **Acquisition collapses:** §6 Phase 1 → items 1–3 only (RePoE, fabd/diablo2, grimtools monsterdb); Phase 2 → poe2db/PoB2 + LE tunklab (+ optional D2 TC mods); Phase 3 + all defer-items DROP. (5) Cascades: elrond `corpus_class` enum (record/annex); VDM-2 charter two-scope language; decisions-log entry rides the next KR wave.
+
 ---
 
 ## Corpus-weight method

@@ -1,6 +1,6 @@
 # Wave-B Reservation / Aura — DESIGN + FIDELITY EXTENSION (spec draft)
 
-> **DRAFT — pre-build, pre-ratification; refreshes on Wave-A closeout; Matt ratification required before build.**
+> **DRAFT + FORKS RULED (Matt 2026-07-21, in-session) — see §15-R:** Fork 1 = **(1b)** · Fork 2 = **(2b)** · Fork 3 = **(3a)** · Fork 4 = **(4c)** by the §7 coupling cascade (1b→4c) · Fork 6 = **(6b)** · Fork 7 = **(7a)** coupled to 6b. **Fork 5 DEFERRED-OPEN** (soulbound-gear internalization — queue **Q35**; gates the capstone-slice *vehicle* only, NOT the MVP slice per §13). **Fork 8** routes to gamora's Gate-1 plant-spawn cost read (no Matt ruling required). **The §13 MVP slice is fully unblocked.** Still refreshes on Wave-A closeout, then DRIFT-CRITIC → Gate-1 → build.
 
 **Author:** gandalf (SPEC-AUTHOR work unit) · **Date:** 2026-07-21
 **Routes to (on ratification):** KR → **rocket** (emission / config / T4-capstone surface) + **gamora** (sim consumers — aura radius/target resolution, exclusivity enforcement, swap-tax timing).
@@ -384,6 +384,25 @@ Written as decidable predicates where possible (per drafting rule). Fork-gated c
 6. **[MATT-FORK 6] Aura swap-tax** — (6a) free-instant / (6b) re-attunement-ramp / (6c) swap-cooldown. **Lean (6b) ramp** — flicker-proof without a cooldown wall; reuses the Wave-A C1a ramp device; keeps Q27's inversion holding for auras.
 7. **[MATT-FORK 7] Reservation refund timing** — (7a) instant / (7b) decay. **Lean (7a) instant** (couples to 6b) — the ramp already kills flicker, so refund can be instant + PoE-familiar; (7b) only if Matt rules (6a).
 8. **[MATT-FORK 8] Banner carrier timing** — (8a) ship-in-Wave-B / (8b) fidelity-follow-on. **Lean (8a) IF gamora costs the plant-spawn cheap on Wave-A's positioned-ally spawn; ELSE (8b)** — conditioned on the engineering-reality gate; placed-geometry-is-fidelity-follow-on precedent is strong.
+
+---
+
+## §15-R — RULINGS (Matt, 2026-07-21, in-session)
+
+| Fork | Ruling | Matt's words / basis |
+|---|---|---|
+| 1 exclusivity | **✓ (1b) STACKABLE RESERVED** | "Agree with Lean (1b)" |
+| 2 radius | **✓ (2b) RADIUS-GATED HARD EDGE** | "Agree with (2b)" |
+| 3 target-cap | **✓ (3a) NO-CAP** | "Agree with (3a) no-cap" |
+| 4 capstone identity | **✓ (4c) BOTH, efficiency-primary — CASCADE from Fork 1** | Matt: "I guess this resolved to (1b) due to Fork 1??" — confirmed: it resolves *by* Fork 1 = (1b), *to* option (4c) per the §7 stated coupling (1b→4c: efficiency is the load-bearing stacking dial; transform is the flavor line on top) |
+| 5 capstone vehicle | **⏸ DEFERRED-OPEN → queue Q35** | Matt (verbatim): "If gear is soul-bound then collecting gear sets may make less sense.. In theory, we could make one set per build family, and you could collect each set as you play through more runs.. We definitely need to think about this further.. I want gear to be VERY meaningful in this game, maybe even the #1 priority for many players, so we must think through this carefully.. I guess I am still on the fence about the whole idea of soulbound gear.. I really need to internalize it a bit more." |
+| 6 swap-tax | **✓ (6b) RE-ATTUNEMENT RAMP** | "Agree with (6b)" |
+| 7 refund timing | **✓ (7a) INSTANT, coupled to (6b)** | "(7a) instant, coupled to (6b)" |
+| 8 banner timing | **→ gamora Gate-1 cost read** (no Matt ruling required) | per §9/§13 — conditioned on the plant-spawn engineering-reality gate; lean 8a-if-cheap stands |
+
+**Severability of the Fork-5 deferral (load-bearing):** per §13, the capstone layer (§7) is the *deferrable endgame slice*, sequenced AFTER the MVP certs anyway (the proxy family's base-then-capstone precedent). Fork 5 selects only the capstone's *delivery vehicle* (6-set vs T4-suite table). Its deferral therefore costs **zero critical-path time** — the MVP slice (C1 radius + C4 swap-ramp + C3 carrier-widen) proceeds fully ruled. Fork 4's (4c) identity ruling stands; the vehicle lands with Q35's gear-meaning resolution before the capstone slice fires.
+
+**Emission-field consequences now fixed by the rulings:** `aura_radius_m` ships (2b); NO `aura_polarity` / `aura_target_cap` (3a); NO `exclusive_aura_class` tag (1b needs none — the built Σ<0.90 invariant is the bound); `aura_reattune_ramp_s` ships (6b); refund = instant at carrier-END (7a); AC-7 (stackable predicate) is the live acceptance criterion, AC-7-alt dead.
 
 ---
 
