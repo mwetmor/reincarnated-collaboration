@@ -55,8 +55,28 @@ GX-02 shapeshift Wave-1 build slice (D3-cooldown) is OUT of this wave — waits 
 | 5 | both | Read primitives from HEAD `8d8bd26` by symbol/grep, NOT draft §16 stale line refs. Disc #62. |
 | INFO | rocket | `aura_reattune_ramp_s` scaffold default 1.0s, band [0.5,1.5], Disc #40 scaffold-declaration tag; gamora S6 finalizes band. |
 
+## Build progress
+- **rocket LEAD ✓ SHIPPED + PUSHED 2026-07-22** — tag `rocket/v2.13-wave-b-reservation-aura-emission-1`, `8d8bd26..e8bccae`. New sibling module `generation/aura_geometry.py` (REMOTE-TRUTH `resource_economy.py` untouched); fields `aura_radius_m` (float|None, band [2.0,12.0]) + `aura_reattune_ramp_s` (float|None, builder-default 1.0, band [0.5,1.5], Disc#40 scaffold) emitted as always-present `aura_geometry` block on `PlayerClassV2.to_dict()` + `KitCandidate.to_character_dict()`. Forbidden fields confirmed absent. MIGRATION [2026-07-22] written. Smoke 35/35 + Wave-B 65/65 + Wave-C all PASS. Banner reuses existing reservation fields (no new field, no escalation). **HEAD now `e8bccae`.**
+  - _Benign flags:_ (1) `off_hand_contract.BannerContract.aura_radius_m` (default 8.0) pre-existed on a DIFFERENT serialized path (`off_hand_item` cosmetic) — gamora must consume the economy aura carrier's `aura_geometry` block, NOT the off-hand contract. (2) tag series bumped v2.12→v2.13 (Wave-D consumed v2.12).
+- **gamora Slices 1+2 ✓ SHIPPED + PUSHED 2026-07-22** — HEAD `11e06d3`; tags `gamora/v1.12-wave-b-reservation-aura-sim-1` (`357bbe3`) + `-banner-2` (`eebc52f`).
+  - **Slice 1 MVP:** C1 radius gate (`_aura_beneficiaries_in_radius`, boundary-inclusive, **origin-arg design** so banner is a caller change) · C4 ramp (`aura_ramp_fraction`, linear, reservation@t=0, instant refund 7a) · C3 carrier-widen (built `rs_effective_regen_cap` UNCHANGED, byte-identical for non-aura kits) · smoke 8/8.
+  - **FLAG A / AC-7-SIM guard: WORKS** — Σ-activation-block live for the first time (ERRATA 13 + Disc #8); breaching activation BLOCKED (ceiling unmoved, priors live); Σ→0.89 admitted + stacks. Arithmetic-preserving. Verified by AC-7-SIM smoke.
+  - **Two numerical finds (caught by smoke, fixed in-slice, correctness-not-design):** (1) IEEE-754 float edge `0.60+0.30==0.8999…` admitted a ceiling-reaching stack → fixed with `_AURA_SIGMA_EPS=1e-9` inward bias. (2) reservation double-count → migrated to aura carrier + zeroed on entity at establishment → taxed once; static-RS kits unaffected.
+  - **Slice 2 banner (8a):** `plant_banner()` reuses E4 ground-tether `_PosProbe` (not `_build_positioned_allies`); flat reservation on built `reservation_flat` shape (no new field); durational expiry; instant ceiling restore (7a); DL-03 no-root PASS. smoke 4/4.
+  - **Regression:** 14/14 sim smokes exit-0, zero regression; REMOTE-TRUTH untouched. AGENT_STATE SESSION 67 pushed.
+- **gamora Slice 3 (S6 cert) — ⛔ DESIGN-FORK-SURFACED / HALT-TO-MATT 2026-07-22** — tag `gamora/v1.12-wave-b-reservation-aura-s6cert-3` (engine `bcbe001`, HALT record NOT milestone). Engine + collab pushed.
+  - **The finding:** the aura family's **benefit-side is UNWIRED.** `aura_effective_benefit()` (`spatial_engine.py:2650`) composes `full·radius_gate·ramp` correctly but has **zero fight-loop call sites** — invoked only by smoke observables. `full_benefit` defaults 1.0, never sourced from the kit; rocket's `AURA_GEOMETRY_KEYS` emits only positional/ramp geometry, no benefit-magnitude field. **Only the reservation TAX side is wired.** So an aura is currently a pure self-imposed reservation-tax with no felt combat benefit.
+  - **Contradicts the draft §6 premise** "expressibility ✓ (the aura's stat-mod resolves)" — empirically FALSE: band sweep `aura_radius_m{2,7,12}×aura_reattune_ramp_s{0.5,1,1.5}` → byte-identical fight outcome (<1e-9). The benefit layer the extension assumed-present was never built.
+  - **Bands NOT finalizable** (unfalsifiable — they gate an unwired benefit). **AC-9: currently NO** (stacking is pure downside; radius doesn't make positioning matter). Gauntlet NOT run (Disc #1.1 — swept params provably outcome-invariant).
+  - **NOT a Slice-1/2 defect** — radius gate / ramp / C3 / AC-7-SIM all built-true + smoke-green; REMOTE TRUTH untouched. The reservation-economy identity works exactly as spec+ERRATA-13 require.
+  - **THE FORK (Matt rules — Q33-D2 fork-valve UNRULED ⇒ terminal HALT):** **(A)** aura MVP = reservation-economy-only (benefit-side deferred to a later slice/capstone), or **(B)** benefit-bearing archetype = wire aura-benefit-to-resolution (gamora sink) + a NEW benefit-magnitude emission field (rocket primitive) + a benefit-model/magnitude design ruling (gandalf/Matt) + calibration.
+  - **Re-engagement criterion (Disc #3.6):** S6 cert runnable + bands finalizable only after (A)/(B) ruling.
+  - Artifacts: `simulation/math/waveb-reservation-aura-sim-2026-07-22.md §8`; AGENT_STATE SESSION 68.
+
+## ⛔ OPEN — Matt ruling required: benefit-side fork (A) vs (B). Build HALTED at S6 cert. MVP+banner surfaces (reservation economy + positional gate + AC-7-SIM guard) are built, smoke-green, pushed. The thing the radius GATES (the aura benefit) is unbuilt.
+
 ## Build sequencing
-1. **rocket LEAD** — emission fields + MIGRATION land + push first.
+1. **rocket LEAD** — emission fields + MIGRATION land + push first. ✓ DONE.
 2. **gamora consumer Slice 1 (MVP)** — C1 radius (origin-arg design) + C4 swap-ramp + C3 carrier-widen + AC-7-SIM guard; math-notes + smoke fixtures; reads HEAD post-rocket-push. **Sequential after rocket (NO parallel same-tree writes — Disc #62).**
 3. **gamora Slice 2 (banner 8a)** — final thin slice AFTER MVP smoke green; `_PosProbe`/`_channel_fixed_hits`/`distance_to_point` reuse; math-note (reservation-path + expiry-semantics + AC-1 participation) first.
 4. **S6 cert** — full-path gauntlet cert (AC-9 aura-is-felt) at D2-dominance/evaporate bands; separate gate before any milestone tag.

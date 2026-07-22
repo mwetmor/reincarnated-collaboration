@@ -50,4 +50,30 @@ Auto-commit in-scope work-products (CLAUDE.md team discipline — do not re-ask 
 ---
 
 ## Completion record
-_(rocket appends here)_
+
+**Status:** COMPLETE — SHIPPED + PUSHED. rocket, 2026-07-22.
+**Tag:** `rocket/v2.13-wave-b-reservation-aura-emission-1` (v2.12 series was consumed by the prior Wave-D slice-0 `rocket/v2.12-waved-1`; incremented to v2.13 to avoid collision).
+
+### Fields added (both generation paths — parity)
+- **`aura_radius_m`** — `float | None` (meters). INERT default `None` (no radius gate ⇒ prior behavior). Band `[2.0, 12.0]` LOCKED-scaffold (gamora S6 cert finalizes). Fork-2b radius-gated hard-edge. Additive (Disc #12).
+- **`aura_reattune_ramp_s`** — `float | None` (seconds). INERT corner default `None` (no ramp); builder-default `1.0` (`AURA_REATTUNE_RAMP_S_DEFAULT`). Band `[0.5, 1.5]`, tagged Discipline #40 scaffold-declaration (`SCAFFOLD — gamora S6 cert finalizes band`; party=gamora; gate=S6 cert). Fork-6b re-attunement ramp (Fork-7a instant refund). Additive.
+- Home: NEW sibling config module `src/reincarnated/generation/aura_geometry.py` (parallel to `summon_economy.py`/`resource_economy.py`). NOT in `resource_economy.py` (REMOTE TRUTH — untouched). Emitted as always-present `aura_geometry` block on `PlayerClassV2.to_dict()` + `KitCandidate.to_character_dict()`.
+
+### Forbidden fields (§15-R) — confirmed ABSENT
+`aura_polarity` (Fork-3b), `aura_target_cap` (Fork-3a no-cap), `exclusive_aura_class` (Fork-1b no tag) — absent from `AURA_GEOMETRY_KEYS` + emitted block; smoke Disc-checks their absence; extra-key guard raises on injection.
+
+### MIGRATION entry
+`src/reincarnated/generation/MIGRATION.md` [2026-07-22] — 1-line-class cross-seam contract: two NEW OPTIONAL consumed fields (rocket emits → gamora consumes), no removal, no retype, additive-only. Additive-identity theorem stated (absent fields ⇒ byte-identical HEAD `8d8bd26`). Includes gamora reader contract (C1 radius gate + C4 ramp) + banner-reservation confirm + forbidden-field ruling.
+
+### Smoke result (Disc #2, round-trip through export boundary)
+`notes/wave_b_reservation_aura_emit_smoke_2026_07_22.py` — **35/35 PASS** (inert corner, forbidden-field Disc-check, active kit, band guards, JSON export round-trip, PlayerClassV2 field presence). Regression: Wave-B **65/65 PASS**, Wave-C **ALL PASS**. All touched files `py_compile` clean.
+
+### Banner-reservation confirm (AC-5) — outcome
+NO new field, NO MIGRATION for banner reservation, NO escalation. Carrier D (banner) reserves via the EXISTING built `resource_economy.reservation_flat`/`reservation_percent` (spec §9); plant-point radius reuses `aura_radius_m` (center-choice is gamora's sim consumer, not a new emission field). C3 carrier-set widening (carriers A/B/D → same built reservation fields) confirmed descriptive-only on the rocket seam (AC-4).
+
+### Surprises / flags
+- **Naming-collision noted (not a problem):** `off_hand_contract.BannerContract.aura_radius_m` (default 8.0) already exists — but that is the OFF-HAND ITEM cosmetic contract blob (`off_hand_item` serialized surface), a DIFFERENT dict path from the economy `aura_geometry` block. No runtime collision. Off-hand banner contract untouched.
+- **Tag series bump v2.12 → v2.13** to avoid collision with the prior Wave-D slice-0 tag.
+
+### go-token (gamora waits on this)
+`EMISSION-READY: aura_radius_m + aura_reattune_ramp_s emitted + pushed`
