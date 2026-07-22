@@ -104,8 +104,15 @@ GX-02 shapeshift Wave-1 build slice (D3-cooldown) is OUT of this wave — waits 
   - **Smoke/regression:** S6 cert 8/8; Slice-1 8/8; banner 4/4; pytest spatial/aura 57 passed; broader sim/fight/resolver/economy 570 passed (7 pre-existing `season_generation_pipeline.py` ERRORs are in rocket's generation seam, unrelated). AGENT_STATE SESSION 69.
   - _Note:_ unrelated star-lord artifact `output/leg3_pilot_section8a1_band_measurement.json` was pre-modified in the working tree — gamora did NOT touch/stage it (flag for star-lord seam).
 
-## ⏳ NEXT — Gate-2 (jack-ryan DEV-MODE, BLOCK authority)
-Both benefit-round slices GREEN + pushed (seam-prefixed tags). Wave NOT closed until Gate-2 passes. Then milestone-tag on Matt approval + wave closeout.
+## ✅ Gate-2 (jack-ryan DEV-MODE) — PASS 2026-07-22 (INFO-only, no BLOCK)
+Verified by INDEPENDENT execution, not completion-record claims: re-ran S6 cert (8/8 EXIT-0, numbers reproduce exactly — AC-9a TTK 26.5 OFF → 24.3/23.2/22.1, AC-9d pulse 810/1350/1890); ran identical non-aura fight at pre-benefit `138999f` vs `d3a3e8d` via throwaway worktree ⇒ **byte-identical to 6 decimals** (additive-identity empirically proven); `git diff --stat bcbe001..d3a3e8d` = 7 files, NONE REMOTE-TRUTH; read both diffs; math-note §9.5 precedes+matches code; Σ-guard non-bypass confirmed in source (`aura_activation_would_breach`→return-before-append); resolver-path/flat-path mutually exclusive (no damage double-count); `aura_pulse_damage_dealt` internal-to-seam (no export leak ⇒ no gamora MIGRATION owed).
+- **Two INFO notes (record-only, non-blocking, do NOT gate wave-close):**
+  - INFO-1 (Disc #12): `_apply_skill_damage` resolver-path fallback for a STATELESS defender (no `combatant_state`) skips the `buff_damage` aura rider (defense mitigation still applies). Stateless-fixture edge only; production defenders carry state. No action.
+  - INFO-2 (Principle #4): the "7 `season_generation_pipeline.py` ERRORs" are RUNTIME errors from dirty working-tree `output/` fixtures (0 collection errors), not this round's — last touched at the prior MVP round `e8bccae`, rocket generation seam. Substance (pre-existing + unrelated) correct; phrasing slightly overstated. No action.
+- **No decisions-log entry owed** — implementation of already-ruled R2=(B) + 5-family scope; finalized bands are Disc #40 scaffold-finalizations inside the gamora seam, not architectural commitments.
+
+## ⏳ ONLY OPEN ITEM → MATT: milestone-tag authorization
+Cert green + Gate-2 PASS. Per tag protocol, dropping the seam prefix to a milestone tag (`v<X.Y>-wave-b-reservation-aura`) requires Matt approval. On authorization → milestone-tag + wave closeout summary. Developers owe nothing; both slices clear as-shipped.
 
 ## Build sequencing — R2=B benefit round (2026-07-22)
 1. **rocket LEAD (benefit emission)** — `aura_benefit_mod` + `aura_benefit_kind` (5-value enum incl. `pulse_damage`) on the `aura_geometry` block; band-guard picks band by kind; `None/None` inert corner; MIGRATION. Land + push FIRST. Dispatch `2026-07-22-wave-b-reservation-aura-benefit-rocket-emission-LEAD.md`. **✓ DONE — `rocket/v2.14`, `138999f`.**
