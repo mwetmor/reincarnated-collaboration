@@ -1,0 +1,2476 @@
+{
+  "$comment": "Tier-3 Encounter-Geometry Run · ruling L-13(b) family-membership materialization · 2026-07-22 · author elrond (data steward). Transcription-with-provenance of the run's THREE membership tiers into one joinable sidecar. NO new rulings, NO fabrication. RATIFIED (gateA table, 86) + PROPAGATED (archipelago τ-propagation, 44 hypothesis-tier) + DOCKET (family-candidates discovery docket, self-scored). Working labels only — NOT canon (Matt names-review pending). on_spine := kit_id in corpus.db canon_corpus corpus_class='record' (the record-267 act spine). CONFLICT precedence RATIFIED>PROPAGATED>DOCKET; loser rows kept with shadowed_by. SAME-TIER tiebreak (two DOCKETs claim one kit): lowest docket_id wins the active row (deterministic, reproducible). corpus.db read READ-ONLY (mode=ro, md5 d091881dc1507753577f56f4998a64a5).",
+  "run": "Tier-3 Encounter-Geometry Run (conductor: gandalf RUN-CONDUCTOR)",
+  "ruling": "L-13(b)",
+  "date": "2026-07-22",
+  "author": "elrond (data steward)",
+  "tier_precedence": [
+    "RATIFIED",
+    "PROPAGATED",
+    "DOCKET"
+  ],
+  "sources": {
+    "RATIFIED": "corpus.db table atlas_gateA_labels_2026_07_14 (86 rows, 6 families)",
+    "PROPAGATED": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json (points stratum=core, non-self-seed; 44 memberships)",
+    "DOCKET": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json (dockets[*].members; 6 working families) + companion MD family-candidates-docket-2026-07-17.md"
+  },
+  "hard_exclusions_honored": [
+    "corpus.db canon_corpus.gx column (58 codes; a THIRD taxonomy) — NOT used as a membership source.",
+    "corpus.db mechanic_gap_docket.docket_family (mechanic-gap families) — NOT used as a membership source."
+  ],
+  "conflict_rule": {
+    "cross_tier_precedence": "RATIFIED > PROPAGATED > DOCKET (min-precedence tier is the active row)",
+    "same_tier_tiebreak": "two DOCKETs claiming one kit: lowest docket_id wins the active row (stable, deterministic)",
+    "shadowed_by": "on every non-active row: names the tier of the winning (active) row for that kit_id",
+    "loser_preservation": "every source membership is kept as a row; nothing is dropped"
+  },
+  "corpus_md5_ro": "d091881dc1507753577f56f4998a64a5",
+  "spine_definition": "canon_corpus WHERE corpus_class='record' (267 kits; era_year 2000=I/2013=II/2016=III/2024=IV)",
+  "counts": {
+    "rows_total": 275,
+    "by_tier": {
+      "RATIFIED": 86,
+      "PROPAGATED": 44,
+      "DOCKET": 145
+    },
+    "active_rows": 248,
+    "shadowed_rows": 27,
+    "conflicts": 19
+  },
+  "conflicts": [
+    {
+      "kit_id": "poe1-forbidden-rite",
+      "active_family": "TOTEM-SENTRY",
+      "active_tier": "RATIFIED",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "d2-frenzy-barb",
+      "active_family": "TRAP-MINE",
+      "active_tier": "RATIFIED",
+      "shadowed": [
+        {
+          "family": "MELEE-STRIKE",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "le-smite-paladin",
+      "active_family": "TRAP-MINE",
+      "active_tier": "RATIFIED",
+      "shadowed": [
+        {
+          "family": "MELEE-STRIKE",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "d2-rabies-wolf",
+      "active_family": "TRAP-MINE",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "SHAPESHIFT",
+          "tier": "DOCKET"
+        },
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "d2-smiter",
+      "active_family": "TRAP-MINE",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "MELEE-STRIKE",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "gd-blight-fiend-ritualist",
+      "active_family": "TRAP-MINE",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "gd-wendigo-totem-ritualist",
+      "active_family": "TOTEM-SENTRY",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "poe1-hexblast-mines",
+      "active_family": "TRAP-MINE",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "poe1-toxic-rain",
+      "active_family": "TRAP-MINE",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "tq-druid-squall-caster",
+      "active_family": "TOTEM-SENTRY",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "tq-onslaught-assassin",
+      "active_family": "TRAP-MINE",
+      "active_tier": "PROPAGATED",
+      "shadowed": [
+        {
+          "family": "MELEE-STRIKE",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "d2-fireclaw-wolf",
+      "active_family": "MELEE-STRIKE",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "SHAPESHIFT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "d2-maul-bear",
+      "active_family": "MELEE-STRIKE",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "SHAPESHIFT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    },
+    {
+      "kit_id": "chr-bleed-berserker",
+      "active_family": "MELEE-STRIKE",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "la-perfect-suppression-shadowhunter",
+      "active_family": "IDENTITY-GAUGE",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "SHAPESHIFT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "la-demonic-impulse-shadowhunter",
+      "active_family": "IDENTITY-GAUGE",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "SHAPESHIFT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "d4-rabies-lacerate",
+      "active_family": "SHAPESHIFT",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "d4-tornado-werewolf",
+      "active_family": "SHAPESHIFT",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "MULTI-PROJECTILE-VOLLEY",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": false
+    },
+    {
+      "kit_id": "le-werebear-druid",
+      "active_family": "SHAPESHIFT",
+      "active_tier": "DOCKET",
+      "shadowed": [
+        {
+          "family": "DOT-AILMENT",
+          "tier": "DOCKET"
+        }
+      ],
+      "on_spine": true
+    }
+  ],
+  "memberships": [
+    {
+      "kit_id": "d2-auradin",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-auradin-paladin",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hot-cleric-radiant",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-fire-aura-spellblade",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-aurabot",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-deaths-oath",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-righteous-fire",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "vs-soul-eater",
+      "family": "AURA",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-arachyr-firebats",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "di-ray-of-frost-wizard",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-aar-spellbinder",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-drain-essence-spellbinder",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-flames-of-ignaffar-purifier",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-ghostflame-warlock",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-divine-ire",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-incinerate",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "ud-flamethrower-channel",
+      "family": "CHANNELED-BEAM",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-demon-legion-warlock",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-pet-warden",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "di-minion-necro",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tl2-bot-engineer",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tl2-shadowling-outlander",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tli-moto-bots",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-petmaster-summoner",
+      "family": "MINION-PET",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-mechanist-turret-drone",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-m6-sentries",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-mundunugu-sb",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-death-trap",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-mighty-throw",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-touch-of-death",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-skeleton-ritualist",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-skeleton-necro",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-squirrel-bm",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-storm-totem-shaman",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-wraithlord-necro",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-ea-ballista",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-fire-trap",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-forbidden-rite",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-glacial-cascade-mines",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-pizza-sticks",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-seismic-trap",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-siege-ballista",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-warchief",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-infernal-legion",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-minion-infernalist",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-warbringer-totems",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-battlemage-warfare-earth",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq2-forge-turrets",
+      "family": "TOTEM-SENTRY",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-crown-proc-engine",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-fire-berserker",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-firestorm-warlock",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-fulmination-templar",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-frenzy-barb",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-horker",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-frenzy-h90",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-manald-heal",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-pestilence-lance",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-payback-sb",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hades1-zeus-chain",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hot-landsknecht-grenades",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hot-shieldmaiden-block",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-healing-hands-paladin",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-smite-paladin",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-aegis-max-block",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-autobomber",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-bladefall-bladeblast",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-cwdt-loop",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-detonate-dead",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-lightning-conduit",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-mjolner",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-soulrend",
+      "family": "TRAP-MINE",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-bvc",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-ww-barb",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-ww-sin",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-ww-wastes",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-blood-wave",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "di-whirlwind-barb",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-eor-warlord",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hades1-aspect-guan-yu",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-warpath-vk",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-cyclone",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-twister",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq2-whirlwind-rogue",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "ud-cwc-spin-caster",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "ud-whirlwind-str",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "vs-fuwalafuwaloo",
+      "family": "WHIRLWIND",
+      "tier": "RATIFIED",
+      "source_artifact": "corpus.db table atlas_gateA_labels_2026_07_14 (col \"group\"; byte-identical to atlas_gateA_labels_refit_candidate_1)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-aurastacker",
+      "family": "AURA",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.609)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-grim-feast",
+      "family": "AURA",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.791)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-fire-sorc",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.777)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-hydra-sorc",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.457)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-trapsin",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.62)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-inna-allies",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.595)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-typhon-hydra",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.765)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-lightning-spear",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.609)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "di-crusader-banner-support",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.463)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-mortar-purifier",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.402)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-wendigo-totem-ritualist",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.694)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-explosive-trap-falconer",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.42)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-ring-of-shields",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.703)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-shadow-bladedancer",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.647)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-armageddon-brand",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.5)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-generals-cry",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.601)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-golementalist",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.768)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-heavy-strike-stun",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.667)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-icicle-mines",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.67)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-storm-brand",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.571)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-archmage-totems",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.492)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-supporting-fire",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.652)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-druid-squall-caster",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.623)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-trap-magician",
+      "family": "TOTEM-SENTRY",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.328)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-kicksin",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.695)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-rabies-wolf",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.777)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-smiter",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.668)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-summonmancer",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.762)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-zero-dogs",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.714)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-zuni-carnevil",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.682)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-andariel-flurry",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.501)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-ice-shards",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.759)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-aegis-paladin",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.755)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-blade-arc-warder",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.559)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-blight-fiend-ritualist",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.68)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-bwc-demolitionist",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.783)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-primal-strike-vindicator",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.733)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-hexblast-mines",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.645)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-spectres",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.774)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-srs",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.639)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-toxic-rain",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.767)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-walking-calamity",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.6)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-onslaught-assassin",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.685)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "vs-runetracer-no-future",
+      "family": "TRAP-MINE",
+      "tier": "PROPAGATED",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-archipelago-mock.json points[stratum=core, family assigned, not gateA self-seed] (affinity=0.783)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-bleed-berserker",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "chr-plague-curse-warlock",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-ghost-pvp",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-poison-javazon",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-poison-nova-necro",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-rabies-wolf",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "d4-rabies-lacerate",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "d4-shadowblight",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-blight-fiend-ritualist",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "gd-bloody-pox-conjurer",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-doom-bolt-sentinel",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-wendigo-totem-ritualist",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "hades1-ares-doom",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hot-warlock",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-chthonic-fissure-warlock",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-shield-throw-time-rot-vk",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-werebear-druid",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "poe1-bane",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-caustic-arrow",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-dark-pact",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-edc",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-forbidden-rite",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "poe1-hexblast-mines",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "poe1-hoag",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-lacerate-glad",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-pconc",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-poison-bv",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-scourge-arrow",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-toxic-rain",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "poe1-venom-gyre",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-viper-poison",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-ward-loop",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-acolyte-darkness",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-erasure-edc-lich",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-druid-squall-caster",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "vs-vlad-dracula",
+      "family": "DOT-AILMENT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=4].members (working_label=DOT-AILMENT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-asuras-path-breaker",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-barrage-enhancement-artillerist",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-berserkers-technique",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-brawl-king-storm-breaker",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-death-strike-sharpshooter",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-deathblow-striker",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-demonic-impulse-shadowhunter",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-energy-overflow-soulfist",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-esoteric-flurry-striker",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-esoteric-skill-wardancer",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-full-moon-souleater",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-grace-empress-arcanist",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-gravity-training-destroyer",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-hunger-reaper",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-igniter-sorceress",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-loyal-companion-sharpshooter",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-lunar-voice-reaper",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-mayhem-berserker",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-order-emperor-arcanist",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-perfect-suppression-shadowhunter",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-pinnacle-glaivier",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-predator-slayer",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-punisher-slayer",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-rage-hammer-destroyer",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-remaining-energy-deathblade",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-robust-spirit-soulfist",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-shock-training-scrapper",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-surge-deathblade",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-taijutsu-scrapper",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-wind-fury-aeromancer",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "mcd-dynamo-torment",
+      "family": "IDENTITY-GAUGE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=2].members (working_label=IDENTITY-GAUGE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-bleed-berserker",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-avenger",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-berserker",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-conc-barb",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-daggermancer",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-enchantress",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-fireclaw-wolf",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-frenzy-barb",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "d2-maul-bear",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-smiter",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "d2-zealot",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-invoker-thorns",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-raiment-shenlong",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d3-s6-impale",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-belgothian-blademaster",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-cadence-witchblade",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-retaliation-warlord",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-righteous-fervor-dervish",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-savagery-warder",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hades1-aspect-chiron",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hades1-beowulf-cast",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-smite-paladin",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "poe2-rake-ritualist",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-snipe-mirage-deadeye",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tl2-wolf-shade-berserker",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tli-carino2-lethal-flash",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tli-erika3-vendetta",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tli-rosa-unsullied",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-dream-harbinger",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-onslaught-assassin",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "tq-ranger-hunting-nature",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-rune-weapon-thunderer",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-thane-storm-warfare",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq-warlock-poison-vitality",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tq2-stormblade-ice-shards",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "vs-thunder-loop",
+      "family": "MELEE-STRIKE",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=1].members (working_label=MELEE-STRIKE; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "chr-demon-legion-warlock",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "chr-pet-warden",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "di-minion-necro",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "tl1-alchemist-summoner",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "tl2-bot-engineer",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "tl2-shadowling-outlander",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "tli-moto-bots",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "tq-petmaster-summoner",
+      "family": "MINION-PET",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=6].members (working_label=MINION-PET; status=ratified-seed)",
+      "on_spine": false,
+      "shadowed_by": "RATIFIED"
+    },
+    {
+      "kit_id": "d2-bowazon",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-frozen-orb-sorc",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-wind-druid",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-frozen-orb",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-quill-volley",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-tornado-werewolf",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "hot-archer",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "hot-sorceress-splinters",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "le-umbral-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-frost-blades",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-kinetic-fusillade",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-lightning-strike",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-molten-strike",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-spark",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-split-arrow-bleed",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-sst",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-tornado-shot",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe1-wander",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-spiral-volley",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "ud-spread-rapid-dex",
+      "family": "MULTI-PROJECTILE-VOLLEY",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=5].members (working_label=MULTI-PROJECTILE-VOLLEY; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-fireclaw-wolf",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "d2-fury-wolf",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d2-maul-bear",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "d2-rabies-wolf",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": "PROPAGATED"
+    },
+    {
+      "kit_id": "d4-pulverize",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-rabies-lacerate",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "d4-tornado-werewolf",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "di-spiritform-druid-pvp",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "gd-berserker-wereforms",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "la-demonic-impulse-shadowhunter",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "la-perfect-suppression-shadowhunter",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": false,
+      "shadowed_by": "DOCKET"
+    },
+    {
+      "kit_id": "le-werebear-druid",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-demon-form",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    },
+    {
+      "kit_id": "poe2-shaman-bear",
+      "family": "SHAPESHIFT",
+      "tier": "DOCKET",
+      "source_artifact": "agentic_orchestration/research/curated/atlas/atlas-e4-family-candidates.json dockets[docket_id=3].members (working_label=SHAPESHIFT; status=proposed)",
+      "on_spine": true,
+      "shadowed_by": null
+    }
+  ]
+}
