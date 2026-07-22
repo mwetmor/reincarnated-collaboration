@@ -76,4 +76,47 @@ knight-rider routes jack-ryan Gate-2 (DEV-MODE, BLOCK authority) after the S6 ce
 
 ## Completion record
 
-_(gamora appends here)_
+**Status:** DELIVERED — gamora, 2026-07-22 (SESSION 69). **S6 cert GREEN 8/8. The FALSIFICATION is broken.**
+
+### Sinks wired per axis (Slice B1, math note §9.1 — arithmetic-preserving)
+`full_benefit` is now SOURCED from `aura_benefit_mod` at the ActiveEffect stamp (`_establish_aura_carriers`) — was the 1.0 default (the SESSION-68 HALT). `None` ⇒ 1.0 preserved (inert byte-identical). Per-tick idempotent-REBUILD of aura-sourced rider ActiveEffects (`aura_source=True`) from the live carriers via `_refresh_aura_statmod_riders` at the tick TOP:
+- **damage** → `buff_damage` rider read by `resolve_skill:814` `get_buff_percent("buff_damage")` (+ flat-path parity added in `_apply_skill_damage` else-branch, so a flat-damage kit's aura is not silently unwired).
+- **defense** → dedicated `aura_defense` mitigation ×(1−m) at the HP-application site (`_aura_defense_mitigation_factor`), mirror-signed vs the sunder amp rail (which clamps ≥0 and would DROP a reduction — the negative-amp-sunder route rejected, math note §9.2). `DEFENSE_MAX_MITIGATION=0.50` runaway guard.
+- **regen** → `buff_mana_regen` rider multiplies the energy regen tick (`_regen *= (1 + get_buff_percent("buff_mana_regen"))`).
+- **speed** → `1/(1+s)` cadence factor (`_aura_speed_cadence_factor`) applied at BOTH cast writes (committed-path :3157, instant-path :4013).
+Radius+ramp already inside `aura_effective_benefit()` — NOT re-implemented; the rider `percent` IS the composed `full·radius_gate·ramp`. A beneficiary leaving radius reverts the SAME tick.
+
+### The pulse path (Slice B2, math note §9.5 — NEW arithmetic, Disc #1 before code)
+`pulse_damage` is a DAMAGE EMISSION, not a stat-mod. Own per-tick AoE path `_emit_aura_pulses`.
+- **Math-note ref:** `simulation/math/waveb-reservation-aura-sim-2026-07-22.md §9.5` (formula, cadence, origin, attribution, ramp decision, Σ-guard interaction) — authored BEFORE code.
+- **Formula:** `pulse_hit = aura_benefit_mod × (primary_skill.damage_multiplier × 500 × damage_modifier) × ramp(elapsed)`. Cadence `AURA_PULSE_INTERVAL_S = 2.0` (engine constant, Disc #40 scaffold — I finalize). Radius = existing `aura_radius_m` (None ⇒ no emission). Delivery mirrors the built `burst-damage` direct-HP path (absorb_with_shield → hp -= → is_alive flip).
+- **Attribution mechanism:** `player.aura_pulse_damage_dealt` — a SpatialEntity internal-to-seam accumulator (mirrors `dot_damage_dealt`, which explicitly states "no SpatialFightResult schema change ⇒ no MIGRATION"). SEPARATE from `total/delivered_damage_dealt` (the skill-cast measure) so the AC-9d observable reads directly and no skill-DPS consumer's value shifts. Per-aura attribution verified: two-aura delta = 2× one-aura at equal magnitude.
+- **RAMP DECISION:** the C4 re-attunement ramp **APPLIES** to pulse magnitude (default lean adopted). **Justification:** C4's purpose is to make toggling a commitment (no full value faster than τ); if stat-mods ramp but pulse does not, a pulse aura is a flicker-exploit hole (toggle-on → full-damage pulse → toggle-off, dodging the commitment). Applying the ramp keeps all FIVE families under ONE commitment law. Reservation still paid at toggle-ON (ramp gates only emitted magnitude).
+
+### Σ-guard non-bypass confirm
+CONFIRMED (AC test GREEN). The benefit rides the aura ActiveEffect; `_toggle_aura_on` evaluates `aura_activation_would_breach` BEFORE appending ⇒ a guard-blocked aura is never yielded by `_iter_aura_carriers` ⇒ its `full_benefit` never enters any B1 refresh AND its pulse never emits (B2 reads the same carrier list). A benefit-bearing aura AND a pulse aura that would breach Σ<0.90 both grant EXACTLY ZERO (carriers stayed 1→1, no side channel). Preserved verbatim — no new wiring.
+
+### Banner benefit confirm
+CONFIRMED (AC test GREEN). Benefit inherits via the built `plant_banner` origin-arg thread (no new wiring). A damage banner's beneficiary AT the plant-point receives 0.20; a beneficiary 20m out (roaming caster outside plant radius) receives 0.0. Gated from the plant-point, not the caster.
+
+### AC-9a/b/c/d results (with the sweep numbers that BREAK the §8.2 byte-identity)
+- **AC-9a FALSIFICATION — BROKEN.** Damage `aura_benefit_mod` sweep 0.08 → 0.14 → 0.20 gives TTK **24.300 → 23.200 → 22.100** (monotonic decreasing; all < OFF 26.500). This is the EXACT test math note §8.2 ran and got **byte-identical 50.000/50.000/50.000** — it now VARIES monotonically. The sink is wired.
+- **AC-9b equilibrium — PASS.** Midpoint (0.14) ON−OFF delta = **12.5% TTK improvement** — inside the healthy window (≥ evaporate floor, < D2-dominance ceiling).
+- **AC-9c stacking-is-identity — PASS.** Two mid-band (0.14) damage auras stacked under Σ=0.60<0.90: 1-aura TTK 23.200 → 2-aura TTK **21.000** (recognizably faster — more benefit for more pool paid — no D2-dominance / instant-trivialize).
+- **AC-9d pulse — PASS.** Pulse `aura_benefit_mod` sweep 0.15 → 0.25 → 0.35 gives aura-attributed damage **810 → 1350 → 1890** (monotonic increasing, nonzero, per-aura attribution preserved under stacking).
+
+### Finalized bands (Disc #40)
+rocket's scaffold midpoints CONFIRMED inside the healthy window at S6: **damage 0.14 / defense 0.14 / regen 0.20 / speed 0.10 / pulse 0.25**. Equilibrium demonstrated at the damage midpoint (12.5%). `DEFENSE_MAX_MITIGATION=0.50` (parity `SUNDER_MAX_AMP_CAP`), `AURA_PULSE_INTERVAL_S=2.0` finalized.
+
+### Smoke + regression
+- **S6 cert** `scripts/gamora_waveb_reservation_aura_benefit_s6cert_2026_07_22.py` — **8/8 PASS** (AC-9a/b/c/d + SINKS + GUARD + BANNER + BYTE).
+- **Regression:** Slice-1 **8/8**, banner **4/4** (no regression). pytest spatial/aura **57 passed**. Broader sim/fight/resolver/economy **570 passed** (7 pre-existing `season_generation_pipeline.py` cell-grain ERRORs in rocket's generation seam — unrelated; those `output/` files were already dirty pre-session). peak RSS ~51 MB.
+
+### MIGRATION / schema
+NO SpatialFightResult schema change (the pulse accumulator is internal-to-seam, mirroring `dot_damage_dealt`) ⇒ **NO MIGRATION owed**. The rocket→gamora field contract is already in rocket's MIGRATION. NO generation/ edit. NO star-lord telemetry-schema change.
+
+### Tags / push
+Tag `gamora/v1.13-wave-b-reservation-aura-benefit-sim-1` (B1+B2 wired together in the intertwined tick-loop change — one seam-prefixed slice tag). **NOT a milestone tag** — the milestone tag drops the seam prefix ONLY on Matt approval (per dispatch). Pushed `138999f..a0cb754` on `main` + tag (Matt 2026-07-22 per-cycle push pattern). AGENT_STATE SESSION 69 + math note §9 committed in the same commit.
+
+### After gamora green → Gate-2
+Ready for jack-ryan Gate-2 (DEV-MODE, BLOCK authority) via KR routing. Wave not closed until Gate-2 passes.
