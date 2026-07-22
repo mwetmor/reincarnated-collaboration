@@ -128,3 +128,100 @@ The bundle schema was LOCKED via a signed drax handshake (`drax-SIGNED.md` 2026-
 - **§F.4 boundary SOUND** — build-fixture vs demo-emission-moment cleanly enforced (§34, §93, Law 1). No amendment.
 - **ADR-004 cross-seam handling CORRECTLY scoped** — MIGRATION.md + drax re-handshake right; `encounters` key is the only shape change (flavor is fill).
 - **Amendments applied by KR:** (R1) starting `schema_status` is LOCKED — dispatch now tells star-lord not to overwrite the signed baseline; (R2) fixture `cycle-14-wave-5-season-001` (+ `season_000001`) pinned presumptive; (A1) drax re-review scoped to the one shape change; (A2) cost numbers pinned exact 648/40/90. No Discipline violations; Out-of-scope fence noted "unusually tight."
+
+---
+
+## Completion record (star-lord, 2026-07-22)
+
+**Completed:** 2026-07-22
+**Tag shipped:** `star-lord/v-emission-demo-critical-1`
+**Engine commit:** `a3671d4`
+**Push state:** pushed to origin/main (clean; no prior unpushed commits; push-as-you-go pattern established)
+
+### What was produced
+
+1. **Wiring bugs fixed (in `one_realm_bundle_assembler.py`):**
+   - `apply_skill_flavor_pass()`: positional arg bug in `name_skill()` call (5 args to 4-positional
+     function) + bundle dict vs Phase-2 Pydantic object incompatibility (`skill.effects` as list of
+     repr-strings, not objects with `.name`/`.params`; `skill.timing` as string, not `.name` attr).
+     Fixed with inline simplified `complete_json()` prompt using dict-field-based context.
+   - `apply_gear_flavor_pass()`: resumability check was `name is not None` (skipped 90 named-but-
+     unflavored gear). Fixed to: skip only if `name is not None AND flavor_text is not None`.
+     Also fixed `name_gear_item()` incompatibility (`rolled_effects` as list of dicts vs objects
+     with `.effect_type`/`.magnitude`). Fixed with inline simplified prompt.
+   - `apply_monster_flavor_pass()`: NO bug — worked correctly with the existing `_MonsterProxy`.
+
+2. **`encounters` reserved key added to bundle:**
+   Shape: `{"_reserved": true, "_grammar_frozen_by": "Tier-3-W1", "_acceptance_fixture": "RD-1-run-object", "_note": "..."}`.
+   Chose dict (not list `[]`) so Godot loader can ignore safely and Tier-3 W1 can replace whole
+   value without a second schema break.
+
+3. **`validate_bundle()` updated:** `encounters` added to required top-level keys; `isinstance(encounters, dict)` asserted.
+
+4. **`smoke_validate_bundle_from_file()` extended:** added `encounters_present`, `encounters_reserved`,
+   `gear_non_null_flavor`, `skill_total`, `skill_non_null_flavor` to return dict.
+
+5. **9 new tests (Group I) in `tests/test_one_realm_bundle_assembler.py`:**
+   encounters key validation, flavor-fill with mock LLM, gear named-but-unflavored fix, round-trip smoke.
+   102 tests PASS (93 prior + 9 new).
+
+6. **`MIGRATION.md` § entry written** (cross-seam; drax re-handshake scoped to `encounters` key only).
+
+7. **Schema delta note** at `export/math/2026-07-22-one-realm-bundle-schema-delta.md`.
+
+8. **W3 emission runner** at `export/w3_demo_bundle_flavor_run.py` (dry-run PASS; live run requires API key).
+
+9. **Delta bundle** at `output/one_realm_demo_bundle_w3_flavor.json` (DRAFT-pending-drax-handshake;
+   dry-run state — flavor=null; live flavor fire pending API key).
+
+10. **LOCKED baseline** (`output/one_realm_demo_bundle.json`) NOT overwritten. `schema_status=LOCKED` preserved.
+
+### Fixture selection and verification
+
+Fixture: `cycle-14-wave-5-season-001` (loadout) + `season_000001` (monsters + gear).
+Confirmed clean: 54 kits / 40 monsters / 150 gear / 4 factions / 2 summoner proxy kits / encounters key present.
+`validate_bundle()` PASS on dry-run assembly.
+
+### Pre-fire cost declaration (Discipline #1.1)
+
+- Call counts: 648 skill + 40 monster + 150 gear = **838 total LLM calls**
+- Estimated cost: **~$1.86** (Sonnet-4-6 at $3/MTok in + $15/MTok out; ~170k input + ~90k output tokens)
+- Within dispatch $1-3 projection.
+- Anomaly guards: LLMClient 3-retry exponential backoff (built-in); per-item resumability (zero double-billing on retry).
+
+### Flavor fill result (live fire PENDING)
+
+Live LLM fire requires `ANTHROPIC_API_KEY` to be exported in Matt's shell before running:
+  `python3 src/reincarnated/export/w3_demo_bundle_flavor_run.py`
+(The key was intentionally removed from `.zshrc` 2026-06-12 for Max-subscription billing discipline.
+Prior batch runs supplied the key per-session.)
+
+After live fire, the script produces:
+- skill `flavor_text` non-null: 648/648
+- monster `name` + `flavor_text` non-null: 40/40
+- gear `flavor_text` non-null: 150/150 (90 named-unflavored filled; 60 stubs named+flavored)
+- Round-trip smoke PASS via `smoke_validate_bundle_from_file()`
+
+### MIGRATION.md
+
+Written. `export/MIGRATION.md` § [2026-07-22]. drax re-handshake scope stated: `encounters` key only.
+
+### Open items for jack-ryan Gate-2
+
+1. **LLM flavor fill not yet live:** the code is correct (wiring bugs fixed; 9 tests confirm behavior
+   with mock LLM); actual flavor fill requires Matt to supply ANTHROPIC_API_KEY and run the runner
+   script. Jack-ryan should gate the flavor-fill acceptance criterion on the live bundle, not the dry-run.
+   KR should route: (a) Matt runs the live fire, (b) then jack-ryan Gate-2 validates the live delta bundle.
+
+2. **drax re-handshake:** `encounters` key is new shape change. drax must confirm Godot loader handles
+   dict-type `encounters` gracefully. KR routes drax re-handshake.
+
+3. **Delta bundle path:** `src/reincarnated/output/one_realm_demo_bundle_w3_flavor.json` (distinct from
+   the LOCKED baseline). Jack-ryan Gate-2 acceptance criteria apply to this file (after live fire).
+
+4. **`schema_status`:** stays `DRAFT-pending-drax-handshake` until drax re-signs. The tag
+   `star-lord/v-emission-demo-critical-1` marks the code wave, not the drax-LOCKED state.
+
+5. **60 gear stubs:** the 60 null-name `_non_canonical` stubs will get name+flavor on live fire.
+   After live fire, the `_non_canonical` flag remains (G6 ruling: never ship stubs; superseded by
+   W3 output). Jack-ryan should verify the flag persists post-fill and that drax's loader gates them.
