@@ -1,0 +1,97 @@
+PRE  elem_raw whole-corpus hash: 5ad31b279b996586113a16be63e87f85
+PRE  court+corpus_class hash:    277a1655d449df67b0111a58ea15c36c
+PRE freeze-proof: elem_raw == frozen 5ad31b2… (V-18 baseline)
+
+========================================================================
+VDM-2 W5a — VERIFY REPORT
+========================================================================
+mode: APPLY
+
+--- (a) §7-tier mechanics-verify verdicts (verify_ledger v2) ---
+  geometry-band claims verified: 490
+      CONFIRMED      330
+      CONTRADICTED   7
+      UNSUPPORTED    153
+  numeric claims verified: 2
+      CONFIRMED      2
+  anomaly-queue rows: 17
+  TOTAL v2 rows written: 509
+
+--- verify_ledger composition ---
+  v2 rows (run_tag=vdm2-w5a): 509
+  mechanics-family total (was 598): 1107
+  verify_ledger grand total (was 2068): 2577
+  composition: 598 vdm1-mechanics + 509 v2 = 1107 mechanics; 2068 + 509 = 2577 total
+
+--- (b) anchor-entailment lint ---
+  ANCHOR_WEAK  153
+  OK           337
+  ANCHOR_WEAK examples (12 shown):
+      d2-auradin/Dream Holy Shock aura-pulse (item-defined): anchor leans 'aura' (3 sig) vs assigned 'zone' (0) — weak/defensible (cognate pair), not a hard contradiction
+      d2-auradin/Dragon Holy Fire aura-pulse (item-defined): anchor leans 'melee_arc' (1 sig) vs assigned 'zone' (0) — weak/defensible (cognate pair), not a hard contradiction
+      d2-berserker/Howl: anchor leans 'melee_arc' (1 sig) vs assigned 'zone' (0) — weak/defensible (cognate pair), not a hard contradiction
+      d2-blade-sin/Blade Sentinel: anchor leans 'motion' (1 sig) vs assigned 'zone' (0) — weak/defensible (thin margin), not a hard contradiction
+      d2-bowazon/Guided Arrow: anchor entails no delivery class incl. assigned 'projectile'
+      d2-bvc/Leap: anchor entails no delivery class incl. assigned 'motion'
+      d2-daggermancer/Amplify Damage curse: anchor entails no delivery class incl. assigned 'projectile'
+      d2-enchantress/Enchant: anchor entails 'aura' (1) but 'melee_arc' more strongly (2) — mixed signal
+  CONTRADICTED examples (7 shown):
+      d2-firewall-sorc/Fire Wall: anchor STRONGLY entails 'motion' (2 sig), assigned 'zone' has 0 support — genuine mismatch
+      gd-belgothian-blademaster/Blade Spirit: anchor STRONGLY entails 'summon_delegate' (6 sig), assigned 'motion' has 0 support — genuine mismatch
+      le-detonating-arrow-mm/Detonating Arrow: anchor STRONGLY entails 'zone' (5 sig), assigned 'projectile' has 0 support — genuine mismatch
+      poe1-frost-blades/Frost Blades (projectile release): anchor STRONGLY entails 'melee_arc' (2 sig), assigned 'projectile' has 0 support — genuine mismatch
+      poe1-glacial-cascade-mines/Glacial Cascade (via High-Impact Mine): anchor STRONGLY entails 'zone' (4 sig), assigned 'projectile' has 0 support — genuine mismatch
+      poe1-lightning-strike/Lightning Strike (projectile fan): anchor STRONGLY entails 'melee_arc' (2 sig), assigned 'projectile' has 0 support — genuine mismatch
+      poe2-spiral-volley/Spiral Volley (360-degree arrow burst): anchor STRONGLY entails 'projectile' (2 sig), assigned 'zone' has 0 support — genuine mismatch
+
+--- (c) RUBBER-STAMP DETECTOR (two-signal, brief-faithful) ---
+  SIGNAL 1 — geometry anchor-lint:
+    CONTRADICTED (hard, non-cognate ≥2-sig mismatch): 7
+    ANCHOR_WEAK (cognate/thin-margin/mixed/under-assigned): 153
+    geometry surfaced: 160/490 = 0.327  [OK if >5% and ≥20: True]
+  SIGNAL 2 — accumulated anomaly-queue FLOOR (hand-verified):
+    CONFIRMED-CORRECTION: 2
+    AMBIGUOUS-HOLD:       8
+    elem_raw anomaly floor (corr+hold): 10
+    RB-6 register-split kits (element_primary earth/shadow vs chaos-poison court): 38
+    total floor: 48  [OK if ≥15 (brief floor): True]
+  combined surfaced rate: 0.3353
+  VERDICT: PASS (both signals non-trivial — NOT a rubber-stamp)
+
+--- (d) 15 ANNEX MECHANICS-YIELD CHECKLISTS ---
+  15/15 checklists PASS
+      [PASS] la           n= 52 focus='identity-gauge' yield=100% (52/52)
+      [PASS] d3           n= 48 focus='rune-variants + set-multiplier' yield=100% (48/48)
+      [PASS] d4           n= 46 focus='aspects' yield=100% (46/46)
+      [PASS] vs           n= 23 focus='horde-density' yield=100% (23/23)
+      [PASS] di           n= 21 focus='CC-stack' yield=100% (21/21)
+      [PASS] tq           n= 21 focus='dual-mastery' yield=100% (21/21)
+      [PASS] hot          n= 17 focus='survivor-density' yield=100% (17/17)
+      [PASS] chronicon    n= 16 focus='skill-tree scaling' yield=100% (16/16)
+      [PASS] undecember   n= 12 focus='rune-link' yield=100% (12/12)
+      [PASS] hades        n= 11 focus='boon-synergy' yield=100% (11/11)
+      [PASS] tl2          n= 11 focus='charge-bars/pet-economy' yield=100% (11/11)
+      [PASS] tli          n=  9 focus='hero-trait/pact' yield=100% (9/9)
+      [PASS] mcd          n=  5 focus='artifact-enchant' yield=100% (5/5)
+      [PASS] tq2          n=  5 focus='mastery-combo' yield=100% (5/5)
+      [PASS] tl1          n=  2 focus='class-skill' yield=100% (2/2)
+
+--- PROPOSED-DISPOSITION SUMMARY (anomaly queue) ---
+  AMBIGUOUS-HOLD           8
+  CONFIRMED-CORRECTION     2
+  DOCUMENTED-CROSSWALK     7
+
+--- FREEZE-PROOF (V-18) ---
+  elem_raw hash PRE : 5ad31b279b996586113a16be63e87f85
+  elem_raw hash POST: 5ad31b279b996586113a16be63e87f85
+  court+cc hash PRE : 277a1655d449df67b0111a58ea15c36c
+  court+cc hash POST: 277a1655d449df67b0111a58ea15c36c
+  FROZEN HELD: True (elem_raw == 5ad31b2… PRE+POST; court/corpus_class byte-identical)
+
+--- IRON-LAW + INVARIANTS ---
+  canon_corpus/kit_mapping/is_system: 585/574/19 (expect 585/574/19)
+  kit_delta_t4: 267 (expect 267)
+  kit_door_arg: 0 (expect 0 — V-21 carve)
+  six-block: 490/259/441/310/267/2 (expect 490/259/441/310/267/2)
+
+ALL W5a HARD ASSERTS PASSED.
