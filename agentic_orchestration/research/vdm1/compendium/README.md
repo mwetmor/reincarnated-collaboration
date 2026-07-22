@@ -1,6 +1,6 @@
 # VDM-1 COMPENDIUM — the one-representation render
 
-> **STATUS:** CURRENT (v1.1-verified). Generated 2026-07-19T20:04:46Z FROM the `corpus.db` `kit_master` view. **db md5 `50df15b776ad5b0da93fe90cdee1163d`.**
+> **STATUS:** CURRENT (v1.1-verified). Generated 2026-07-19T20:04:46Z FROM the `corpus.db` `kit_master` view. **db md5 `c7886250e92d80c9014890a58b0b0cc3`.**
 
 **Authority (D-11a / D-11f inversion):** post-v1.1, `corpus.db` + this compendium GOVERN. This compendium is the ONE-per-kit representation Matt asked for — the most complete version with URL + authorship citations attached — assembled live from the `kit_master` view (identity ⋈ mapping ⋈ citation-aggregate ⋈ verify-tally ⋈ dossier-count). It **supersedes** the four review rosters (`REVIEW-BOOK-ROSTER-{EXACT,CLOSE,APPROX,GAPPED}.md`), which carry no citations; those retire to git as the review artifact.
 

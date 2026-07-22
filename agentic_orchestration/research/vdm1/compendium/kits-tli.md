@@ -1,6 +1,6 @@
 # VDM-1 Compendium — tli (9 kits)
 
-> **Source:** `corpus.db` `kit_master` view (live-computed; cannot drift). **v1.1-verified** · db md5 `50df15b776ad5b0da93fe90cdee1163d` · generated 2026-07-19T20:04:46Z.
+> **Source:** `corpus.db` `kit_master` view (live-computed; cannot drift). **v1.1-verified** · db md5 `c7886250e92d80c9014890a58b0b0cc3` · generated 2026-07-19T20:04:46Z.
 > Supersedes the four review rosters (which carry no citations). `kit_citations` is the sole citation authority; raw mobile-era descriptors are NOT exposed (provenance-only).
 
 | grade | n | | verify (C/X/U total) | dossier rows | cited kits |

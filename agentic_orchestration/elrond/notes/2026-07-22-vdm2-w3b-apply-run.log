@@ -1,0 +1,33 @@
+### VDM-2 W3b APPLY — 2026-07-22T06:35:21Z
+## [0] preflight guards
+  stamp OK (v1.1-deprecation-source_urls); md5 OK (50df15b776ad5b0da93fe90cdee1163d)
+## [1] backup + md5
+  backup -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db.pre-vdm2-schema-2026-07-22-backup (md5 50df15b776ad5b0da93fe90cdee1163d)
+## [2-4] DDL v1 + riders (single txn; NO v2.0 stamp yet)
+  DDL+riders committed (db migrated, still UNSTAMPED v1.1-*)
+## [5] census asserts (bash-gated; mismatch -> exit 1 BEFORE stamp)
+  ok   corpus_class.record = 267
+  ok   corpus_class.annex = 299
+  ok   corpus_class.system = 19
+  ok   corpus_class.NULL = 0
+  ok   court.physical = 90
+  ok   court.fire = 54
+  ok   court.chaos-poison = 44
+  ok   court.lightning = 42
+  ok   court.cold = 27
+  ok   court.NULL = 13
+  ok   original_element.record = 270
+  ok   atlas_coords.record = 268
+  ok   eras_normalized.record = 268
+  ok   t4_doors.jsonnull = 29
+  ok   iron-law.canon_corpus = 585
+  ok   iron-law.kit_master = 574
+  ok   iron-law.is_system = 19
+  ALL 17 census asserts passed.
+## [6] v2.0 stamp (separate call; reached only after all asserts passed)
+  v2.0 stamp written.
+## [6b] stamp verified: v2.0
+## [7] MIGRATION.md — append the W3a draft entry to /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/MIGRATION.md (per ADR-004)
+## [8] compendium regen from kit_master (smoke: kit_master assembles post-DDL)
+### W3b APPLY COMPLETE. corpus.db @ v2.0. Backup at /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db.pre-vdm2-schema-2026-07-22-backup.
+### Reversibility: cp "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db.pre-vdm2-schema-2026-07-22-backup" "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db" restores exact pre-VDM-2 state.

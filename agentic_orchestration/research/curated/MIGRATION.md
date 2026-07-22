@@ -1,9 +1,101 @@
 # MIGRATION — Catalogue Data Layer (Elrond-owned)
 
 **Owner:** elrond
-**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest.
+**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest + (**NEW v2.0 LANDED 2026-07-22**) corpus.db VDM-2 additive schema (12 side-car tables + 9 columns; DEV-MODE Gate-2 cleared twice).
 **Pattern:** parallels star-lord's engine-side `MIGRATION.md` files per AGENTS.md Tactic 2 + ADR-004.
 **Append-only.** Most recent entry at the top.
+
+---
+
+## vdm2-schema-landing-2026-07-22 — VDM-2 additive schema (corpus.db v1.1 → v2.0): 12 side-car tables + 9 columns + cheap census riders — 2026-07-22 — **APPLIED**
+
+### What changed (one line)
+VDM-2 lands the field-delta spec (`matt_notes_handoff_docs/rdr-vdm2-field-delta-spec.md`) as a **fully additive** schema extension on corpus.db: **12 new `kit_id`-keyed side-car tables + 9 additive columns across 3 existing tables + 5 cheap census-derivation riders + 3 registry seeds**. The spec modeled a kit as a flat JSON record; the store is normalized-relational, so the six flat VDM-2 blocks re-home as side-car tables (W0's largest correction). NOTHING existing is dropped, altered, or re-keyed. VDM-1 iron law held byte-exact PRE+POST (canon_corpus 585 · kit_master 574 · is_system 19 · t4_doors JSON-null 29). The apply reached its v2.0 stamp ⇒ **all 17 bash-gated census asserts passed on live data**.
+
+### Apply provenance (the live mutation)
+- **From:** corpus.db @ `v1.1-deprecation-source_urls` · md5 `50df15b776ad5b0da93fe90cdee1163d` (preflight-verified exact match).
+- **To:** `v2.0` · md5 `c7886250e92d80c9014890a58b0b0cc3` · stamp `applied_utc = 2026-07-22T06:35:21Z`.
+- **Backup (reversibility anchor, unconditional + ordered, taken step-1 BEFORE any mutation):** `corpus.db.pre-vdm2-schema-2026-07-22-backup` · md5 `50df15b776ad5b0da93fe90cdee1163d` (byte-for-byte pre-apply).
+- **Script:** `agentic_orchestration/elrond/notes/2026-07-22-vdm2-w3b-apply.sh` (run log: `…-w3b-apply-run.log`). Exit 0; `PRAGMA integrity_check = ok`; `PRAGMA foreign_key_check` empty.
+- **Gate:** DEV-MODE Gate-2 cleared **twice** — original Gate-2 (`jack-ryan/reviews/2026-07-22-vdm2-w3a-migration-gate2.md`, data+schema clean, BLOCK on the apply-script assert idiom only) + fast re-gate PASS after the guard rewrite (`…-2026-07-22-vdm2-w3a-fix-re-gate2.md`, jack-ryan independently re-ran the abort path).
+
+### 12 new side-car tables (all `CREATE TABLE IF NOT EXISTS`; empty at apply except the 3 seeded registries)
+| Table | Grain | Purpose (spec §) |
+|---|---|---|
+| `door_registry` | door_name | door catalogue (§2) — **seeded 6 pilot-attested doors** |
+| `door_arg_schema` | (door, arg) | typed per-door arg schema incl. A-2 trigger-door args (§2) — **seeded 3 (A-2)** |
+| `kit_door_arg` | (kit, door, arg) | per-kit arg bindings + `mutation_surface` locked\|mutable (§2, §8) |
+| `kit_deviation` | deviation_id | structured deviations {engine_inexpressible, param_gap, accepted_downgrade} + auto-docket wiring (§3) |
+| `skill_geometry_band` | (kit, skill_ordinal) | per-skill geometry bands incl. A-1 `self` range, A-3 `fan_spread` motion (§4) |
+| `motion_signature_registry` | signature_name | growable named-path registry (§4) — **seeded 7 incl. `fan_spread`** |
+| `normalization_rule` | rule_id | **ships EMPTY** — versioned rule registry (§5) |
+| `kit_numeric` | (kit, numeric_key) | dual-column numerics; `rdr_value` honest-NULL (§5) |
+| `recognition_hook` | (kit, hook_id) | ranked recognition hooks + machine-checkable coverage (§6) |
+| `kit_acceptance_assert` | assert_id | sim acceptance asserts + red-test docket routing (§6) |
+| `kit_delta_t4` | kit_id | delta_t4 {step, ramp} + human-validated shape sign-off (§6) |
+| `expected_section_checklist` | (game, section) | per-game required-section config (§8) |
+
+### 9 additive columns on 3 existing tables (all `ALTER TABLE … ADD COLUMN`, nullable, O(1) metadata-only)
+- **`canon_corpus` +6:** `corpus_class`, `eras_normalized`, `original_element`, `court`, `atlas_coords`, `capstone_source_acquisition`.
+- **`mechanic_gap_docket` +3:** `source_deviation_id`, `source_kit_id`, `intake_lane` (the second, deviation-side intake distinct from the existing mint lane).
+- **`verify_ledger` +3:** `claim_subject`, `anchor_lint`, `source_lane` (mechanics-verdict granularity + anchor lint + player-attested lane). §7 is a **granularity extension** — mechanics verdicts ALREADY EXIST: live `claim_family='mechanics'` = **598 rows**, out of **2068** total ledger rows. *(Reconciliation, jack-ryan Gate-2 carry-forward WARN, resolved at apply 2026-07-22: earlier drafts cited "597" — that was the mechanics-FAMILY subset, mislabeled AND stale by one. The live, verified subset is 530C/25X/42U/1SNF = 598 mechanics-family; the live table total is 2068. Every occurrence corrected to 598/2068.)*
+
+### 2 CHECK-enum additions (both on v1-NEW tables — no rebuild, no VDM-1 touch)
+- **A-1:** `skill_geometry_band.range_band` gains `self`. **A-4:** `door_arg_schema.arg_type` gains `real`.
+- The two existing-table CHECKs a rebuild could have been forced on (`verify_ledger.claim_family`/`verdict`) are deliberately NOT touched — §7 needs no new family/verdict value.
+
+### Data riders (the cheap census derivations only — verified POST-apply, matched the 17 asserts exactly)
+| Rider | Column | Result (live, verified) | Ruling |
+|---|---|---|---|
+| corpus_class | `corpus_class` | record **267** / annex **299** / system **19** (NULL 0) | V-14 + A-6 |
+| court | `court` | **257/270** courted; **13** honest-NULL (physical 90 · fire 54 · chaos-poison 44 · lightning 42 · cold 27) | V-15 (Q38 k=5) + V-18 |
+| original_element | `original_element` | **270/270** on record (total promotion of `elem_raw`) | H3 |
+| atlas_coords | `atlas_coords` | **268/270** (2 honest-NULL: poe1-blood-magic-kit, d2-teleport-sorc) | H5 |
+| eras_normalized | `eras_normalized` | **268/270** (2 poe1 NULL-eras honest) | V-16 |
+
+`capstone_source_acquisition` column lands but stays NULL at apply (per-kit prose derivation = W4 re-emission). `exact_json`/`exact_source_type` stay NULL (G-FIND-1 / V-19). `normalization_rule` ships empty (V-13). A-7 preserve-NULL held: the 29 JSON-null `t4_doors` rows are UNCHANGED (no door-strip write; NULL is the honest "no T4 door attested" state).
+
+### The A-6 census (record / annex / system over 585)
+`corpus_class='system'` = **all 19 `is_system=1` rows** (V-14): **11 unmapped** + **8 mapped**. `record` = 267 (`is_system=0`, corpus_bucket ∈ {poe1, d2, gd, poe2, le}). `annex` = 299 (`is_system=0`, other 12 games). **267 + 299 + 19 = 585** ✓ · cross-check 267 + 299 + 8-mapped-system = **574 kit_master** ✓. The 3 system-records inside the record games (`le-low-life-ward` + `poe2-grim-feast` + `poe2-temporalis-blink`) carry `corpus_class='system'`, so record-CLASS = 267 even though record-BUCKET = 270.
+
+### Per-game canonical era-token vocabularies (V-16 option (c))
+`eras_normalized` carries a fixed **lowercase era-token vocabulary PER GAME**; NO cross-game ordinal is baked into the column (shelf assignment derives AT the Leg-B beat per Q38 eras=shelves). The value is the raw semicolon-shorthand VALIDATED against its game's vocabulary; any token outside its game's set is an ingest error to catch at W4/W5, never silently normalized. Raw `eras` preserved (reversible).
+- **poe1 (15):** `1.x` · `2.x` · `3.0-3.6` · `3.2-3.6` · `3.4-3.6` · `3.5-3.6` · `3.7-3.13` · `3.8-3.13` · `3.11-3.13` · `3.12-3.13` · `3.14-3.19` · `3.15-3.19` · `3.16-3.19` · `3.19` · `3.20+` *(overlapping bands are legitimate distinct per-kit debut/span markers, not errors)*
+- **d2 (16):** `classic` · `lod` · `lod-1.09` · `lod-1.09+` · `lod-1.10+` · `lod-1.11+` · `lod-infinity+` · `lod-pvp` · `d2r` · `d2r-2.4+` · `d2r-2.6+` · `d2r-pvp` · `rotw` · `rotw-s13` · `rotw-s13+` · `rotw-s14`
+- **gd (5):** `base-2016` · `aom-2017` · `fg-2019` · `patch-1.1-1.2` · `foa-pending`
+- **poe2 (5):** `0.1` · `0.2-dawn` · `0.3-edict` · `0.4` · `0.5-ancients`
+- **le (5):** `beta-0.8-0.9` · `1.0-launch` · `1.1-harbingers` · `1.2-woven` · `1.4-omens`
+
+### Court coverage + the 13 honest-NULL rows (V-15)
+Mapping (within Q38 k=5; k UNCHANGED): `fire`→fire · `cold`→cold · `lightning`,`aether`→lightning · `physical`,`physical?`,`pierce`,`bleed`→physical · `chaos`,`poison`,`acid`,`necrotic`,`vitality`,`void`,`void?`→chaos-poison. `?`-suffix uses the base element's court. **`pierce`/`bleed`→physical is a documented rider extension** (V-15 named the decay set + the `?`-rule but did not enumerate `pierce`/`bleed`; both are physical-family sub-tokens in every record-game taxonomy). The 13 NULL-court record rows (V-15 honest-NULL, all Leg-B per-kit-resolution candidates): `magic`(4: d2-berserker, d2-bonemancer, d2-hammerdin, d2-wl-abyss) · `n/a`(5: d2-teleport-sorc, le-low-life-ward, poe1-aurabot, poe2-grim-feast, poe2-temporalis-blink) · `mixed(fire/cold/lightning)`(1: gd-panettis-mage-hunter) · `physical/chaos`(1: poe1-blood-magic-kit) · `shadow?`(1: d2-wl-tainted-summoner) · `shadow/blood?`(1: d2-wl-blood-boil). `court` is **mutable data** (V-18): W5 `elem_raw` corrections (the ~6–8 flagged PoE1 anomalies) trigger a bounded court re-derivation on affected rows; W5 precedes the Leg-B derivation that consumes court, so any error is caught within Leg A. W3 does NOT block on the anomalies.
+
+### Additive-only guarantee (verified live)
+- Every new structure is `CREATE TABLE IF NOT EXISTS` (side-car) or `ALTER TABLE … ADD COLUMN` (nullable, O(1) metadata-only). **Zero** `DROP`, **zero** `ALTER … DROP/RENAME COLUMN`, **zero** CHECK-modification on an existing table.
+- `kit_master` (574) recomputes identically (it selects named columns; new columns are invisible until the view is intentionally extended later). Frozen `cell_key`s stay byte-identical. The compendium regenerated over the v2.0 store to **574 kits / 21 games** identically (smoke check: kit_master survives the additive DDL) — see Compendium regen below.
+- The two A-1/A-4 CHECK additions land on v1-NEW tables (empty at CREATE) → no rebuild, no VDM-1 touch. `PRAGMA foreign_keys=ON` was set before side-car inserts so a typo'd `kit_id` would fail loud (it did not — `foreign_key_check` empty).
+- **Verified POST-apply on the LIVE db:** all 12 tables + 9 columns present; census counts exact (267/299/19/0, court 90/54/44/42/27/13, 270/268/268, jsonnull 29, iron-law 585/574/19); `PRAGMA foreign_key_check` empty; `integrity_check` ok.
+
+### Post-conditions
+- `PRAGMA foreign_keys=ON` holds through the apply; **no FK violations** on the new side-car tables (`foreign_key_check` empty).
+- **Docket post-condition:** the 19 pre-existing dockets remain `status='matt-ratified'`; **zero new dockets this wave** (census-only riders open no deviation-lane dockets — that is W4). The "new dockets land `status='open'`" contract is structurally satisfied by the table default; `intake_lane='deviation'` count = 0; `kit_deviation` rows = 0 (correct for the census-only scope).
+
+### Reversibility (ADR-004)
+Full rollback = restore `corpus.db.pre-vdm2-schema-2026-07-22-backup` (recorded md5 `50df15b776ad5b0da93fe90cdee1163d`), the step-1 anchor (byte-for-byte confirmed). Every housekeeping derivation preserves its raw source (`elem_raw`→`original_element`+`court`; `eras`→`eras_normalized`; `cell_key`→`atlas_coords` — raws NEVER dropped). Side-car tables are independently droppable without touching VDM-1 data. `corpus_class` re-derivable from `is_system`+`corpus_bucket`; `court` from `elem_raw`. New auto-opened dockets (none this wave) would take `status='open'`, reversible by deleting `intake_lane='deviation'` rows. jack-ryan independently confirmed (re-gate) that a residual migrated-but-unstamped partial cannot silently re-migrate (step-0 md5 preflight + step-1 backup-clobber guard double-guard the re-run path).
+
+### Named downstream dependencies (ADR-004 cross-seam — NOT this wave)
+1. **`normalization_rule` population — battle-sim (gamora / star-lord).** Ships EMPTY (V-13). Rule SEMANTICS are engine-balance decisions; per ADR-004 they need a battle-sim co-authored migration (knight-rider routing + Matt approval) when populated. `rdr_value` stays honest-NULL until rules exist; the sim reads `rdr_value` only. **elrond authors ZERO balance transforms.**
+2. **`exact_json` datamine population — legolas Mode-B.** The `.txt`/DBR/RePoE datamine lane is NOT on record (G-FIND-1 / V-19). `exact_json`/`exact_source_type` stay NULL at apply; genuine population is a downstream legolas Mode-B acquisition. Bands land on prose alone; exact never blocks a kit.
+3. **W5 `elem_raw` → `court` re-derivation.** The ~6–8 W1-flagged PoE1 `elem_raw` anomalies route to W5 adjudication; when corrected, a named, bounded, cheap court re-derivation runs on affected rows (court is mutable; V-18). W5 precedes Leg-B.
+4. **`capstone_source_acquisition` population — W4 re-emission.** Per-kit prose derivation of capstone provenance; lands at W4 per-game tranches, not this census.
+5. **`accepted_downgrade` sign-off owner-identity — W4 routing.** Whether a design owner (Gandalf/Matt) co-signs an `accepted_downgrade` is a W4 process question (the CHECK fires correctly regardless).
+
+### Compendium regen (smoke check)
+`research/scripts/vdm1_compendium_gen_2026_07_19.py` re-run READ-ONLY over the v2.0 store → **574 kits / 21 games** (identical to pre-apply), jsonl line-count assert OK (575 = 574 + 1 meta), README re-stamped with the post-apply md5 `c7886250e92d80c9014890a58b0b0cc3`. corpus.db md5 unchanged by the regen (read-only confirmed). NOTE: the VERSION string in the render still reads `v1.1-verified` — the compendium is the VDM-1 kit_master render; joining the VDM-2 side-cars into a v2 book is W6 work, not this wave. This regen confirms only that kit_master survives the additive DDL.
+
+### Companion artifacts (co-located `elrond/notes/`)
+`2026-07-22-vdm2-ddl-v1.sql` · `2026-07-22-vdm2-riders.sql` · `2026-07-22-vdm2-w3b-apply.sh` · `2026-07-22-vdm2-w3b-apply-run.log` · `2026-07-22-vdm2-w3a-migration-package.md` · `2026-07-22-vdm2-w3a-fix-negative-path-evidence.md` · pilot `2026-07-22-vdm2-pilot-4kit.md` · diff `2026-07-22-vdm2-schema-diff-and-ddl-v0.md`. Governing spec: `matt_notes_handoff_docs/rdr-vdm2-field-delta-spec.md`. Charter: `agentic_orchestration/gandalf/notes/2026-07-22-vdm2-edition-next-lap-charter.md`.
+
+**NO push — conductor centralizes pushes for this run. Committed to elrond's seam per the team commit+push discipline.**
 
 ---
 
