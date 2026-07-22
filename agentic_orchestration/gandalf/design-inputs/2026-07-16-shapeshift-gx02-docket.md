@@ -1,6 +1,7 @@
 # SHAPESHIFT (GX-02) — Design Docket (ELICITOR-shaped; fork-surfacing)
 
-**STATUS:** GATED DOCKET — forks OPEN for Matt; gandalf-prime DRIFT-CRITIC **PASS-WITH-NOTES** (2026-07-16, same session).
+**STATUS:** ✓ **RULED 2026-07-22 — Matt adopted ALL PRIME-CONCURRED leans** (verbatim: *"Ruling GAP-2: adopt all PRIME-CONCURRED leans A2/B3/C1+C2/D5/E5"*; **F2 auto-follows A2** per §5 sequencing rule; **D5 carries the D3-cooldown Wave-1 slice** — spend/gauge entry economies wait on GX-19; the 2026-07-16 `shape` naming ruling stands veto-open). **Unblocks:** the census 3-kit blocked tail (V13 99.47% → 100% path: gd-berserker-wereforms + 2 LA Wildsouls) + the **SPEC-AUTHOR docket-to-spec pass** — routing decided in the three-run plan (gandalf handoff `notes/2026-07-22-run-conductor-session-handoff.md`). **No island naming touched** — island family-names separately GATED until all three autonomous runs complete (Matt 2026-07-22 rider, Q32). Gate lineage preserved below.
+*(Pre-ruling status: GATED DOCKET — forks OPEN for Matt; gandalf-prime DRIFT-CRITIC **PASS-WITH-NOTES**, 2026-07-16 same session.)*
 **Date:** 2026-07-16
 **Author:** gandalf (sub-agent, ELICITOR role; atlas-parity autonomous run under Matt authorization 2026-07-16)
 **Route:** ✓ gandalf-prime DRIFT-CRITIC gate (below) → Matt rulings (docket-3 sitting or earlier at his pleasure) → then a SPEC-AUTHOR docket-to-spec pass.

@@ -21,9 +21,9 @@
 
 | Fork | Weight | Surface |
 |---|---|---|
-| **Shapeshift GX-02 forks A–E** | **THE entire census blocked tail** (gd-berserker-wereforms + 2 LA Wildsouls) | shapeshift docket (`a074d95f` + gate stamp); leans PRIME-CONCURRED (A2 · B3 · C1+C2 · D5-with-D3-Wave-1 · E5; F auto-follows A) |
+| ~~**Shapeshift GX-02 forks A–F**~~ **✓ RULED 2026-07-22** | **census blocked tail UNBLOCKED** (gd-berserker-wereforms + 2 LA Wildsouls → V13 100% path open) | Matt adopted ALL PRIME-CONCURRED leans (A2 · B3 · C1+C2 · D5-with-D3-Wave-1-slice, spend/gauge wait on GX-19 · E5 · F2 auto). Docket banner updated; next = SPEC-AUTHOR docket-to-spec pass + census-tail expressibility re-run, routed via the three-run plan (gandalf handoff 2026-07-22) |
 | L1 duel-harness pilot forks F-1..F-5 | 45×45 matchup pilot — no fire without Matt | matchup-options note (emission tracker CONTINUATION 21) |
-| Island family-names one-sitting | dockets 1–6 after E4 ratify | run doc T2 |
+| Island family-names one-sitting | dockets 1–6 — **GATED until ALL THREE autonomous runs complete** (Matt 2026-07-22 rider, extending the 2026-07-21 VDM-2+strata gate; prep surface `2026-07-21-island-naming-prep-surface.md` survives re-binding) | run doc T2 |
 | E5 refit sequencing | arm-2 fired (identity-gauge 31 ≥ 20); stages behind E4 | run doc T1/E5 row |
 | §F.4 emission gate · S8 demo curation | standing | serial-content-emission tracker |
 
