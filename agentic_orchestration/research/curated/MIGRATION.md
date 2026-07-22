@@ -1,7 +1,7 @@
 # MIGRATION — Catalogue Data Layer (Elrond-owned)
 
 **Owner:** elrond
-**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest + (**NEW v2.0 LANDED 2026-07-22**) corpus.db VDM-2 additive schema (12 side-car tables + 9 columns; DEV-MODE Gate-2 cleared twice).
+**Scope:** schema migrations for non-engine data layers under `agentic_orchestration/research/curated/`. Currently: catalogue.db + synty_catalogue.db + (NEW v1.8 / v1.9) engine `data/kit_space/` chronicle (cross-seam co-ownership with star-lord per LOCK K) + (NEW v1.14 LANDED) corpus.db three-layer ingest + (**NEW v2.0 LANDED 2026-07-22**) corpus.db VDM-2 additive schema (12 side-car tables + 9 columns; DEV-MODE Gate-2 cleared twice) + (**NEW W4 PoE1 tranche POPULATED 2026-07-22**) the six side-car blocks re-emitted for the 94 PoE1 record-class kits (G1 100% / G2 87% / G3 0 / G4 14-of-14; door-arg schema-design fork deferred).
 **Pattern:** parallels star-lord's engine-side `MIGRATION.md` files per AGENTS.md Tactic 2 + ADR-004.
 **Append-only.** Most recent entry at the top.
 
@@ -96,6 +96,64 @@ Full rollback = restore `corpus.db.pre-vdm2-schema-2026-07-22-backup` (recorded 
 `2026-07-22-vdm2-ddl-v1.sql` · `2026-07-22-vdm2-riders.sql` · `2026-07-22-vdm2-w3b-apply.sh` · `2026-07-22-vdm2-w3b-apply-run.log` · `2026-07-22-vdm2-w3a-migration-package.md` · `2026-07-22-vdm2-w3a-fix-negative-path-evidence.md` · pilot `2026-07-22-vdm2-pilot-4kit.md` · diff `2026-07-22-vdm2-schema-diff-and-ddl-v0.md`. Governing spec: `matt_notes_handoff_docs/rdr-vdm2-field-delta-spec.md`. Charter: `agentic_orchestration/gandalf/notes/2026-07-22-vdm2-edition-next-lap-charter.md`.
 
 **NO push — conductor centralizes pushes for this run. Committed to elrond's seam per the team commit+push discipline.**
+
+---
+
+## vdm2-w4-poe1-sidecar-2026-07-22 — VDM-2 W4 PoE1 record-class tranche: six side-car blocks POPULATED (the first record-class re-emission into the live v2.0 side-cars) — 2026-07-22 — **APPLIED**
+
+### What changed (one line)
+W4 populates the previously-EMPTY VDM-2 side-cars for the **94 PoE1 record-class kits** (`game='poe1' AND corpus_class='record'`) by re-emitting from the FROZEN VDM-1 substrate (`canon_corpus` + `kit_mapping.mapping_json`/`deviation_notes`). Scales the W2 4-kit pilot pattern (commit `c4298612`) to 94-kit scale. Six kit-FK-only side-car blocks + the deviation-lane docket intake + registry catalogue seeds land; the door-arg schema-design surface is DEFERRED (the W4 fork — flagged to conductor, see below).
+
+### Version
+- **From:** `v2.0` · md5 `c7886250e92d80c9014890a58b0b0cc3` (side-cars empty).
+- **To:** `v2.0` (schema frozen; this is a DATA population, not a schema bump) · md5 `06fc8913b9e8b22237abbdb98d717e73`.
+- **Backup:** `corpus.db.pre-vdm2-w4-poe1-2026-07-22-backup` (byte-for-byte the pre-tranche side-cars-empty restore point; md5 `c7886250e92d80c9014890a58b0b0cc3`).
+
+### Rows written (PoE1 tranche)
+| Side-car | Rows | Notes |
+|---|---|---|
+| `skill_geometry_band` | 136 | one per skill in `mapping_json.skills[]`; delivery_class 100% coverage over the 19 on-record geometry tokens; band fields (width/range/speed/pierce/chain/motion/cadence) derived from `delivery_notes` prose, NULL where prose silent (no fabrication) |
+| `kit_deviation` | 101 | 87 `accepted_downgrade` + 14 `engine_inexpressible`; 0 `param_gap` (PoE1-honest); split into 101 propositions from 92 prose-bearing kits (2 EXACT kits = empty deviation, trivially lossless) |
+| `recognition_hook` | 159 | H1 geometry + H2 element-register (RDR canonical register) per kit; coverage_status machine-checkable |
+| `kit_acceptance_assert` | 108 | ≥1 green signature assert/kit + 14 RED asserts (one per EI kit) all routed to dockets |
+| `kit_delta_t4` | 94 | 51 ramp / 43 step (synergy-stack/continuous → ramp; capstone-threshold/discrete-enable → step) |
+| `kit_numeric` | 1 | honest-sparse: only where prose attests a %/magnitude source-scale value; `rdr_value` NULL (no normalization rule run, V-13/D-3) |
+
+### Deviation-lane dockets (the second docket intake — spec §3)
+**14 dockets auto-opened** `status='open'`, `intake_lane='deviation'` (docket_ids 90–103), one per kit carrying an `engine_inexpressible` deviation: `animate-weapon · aurabot · bladefall-bladeblast · dark-pact · detonate-dead · elemental-hit · forbidden-rite · heavy-strike-stun · reaper · skeleton-mages · spectres · ward-loop · wild-strike · wormblaster` (all 8 GAPPED + 6 non-GAPPED with genuine "no engine lane"/"docket filed" prose). Each links `source_deviation_id` → the EI deviation, which back-fills `docket_id` (the closed loop). Distinct from the 19 pre-existing `matt-ratified` mint-lane rows. **G4 complete: 14/14 red asserts routed, zero orphans.**
+
+### Registry catalogue seeds (cataloguing ALREADY-ATTESTED frozen vocabulary — NOT minting)
+- **`door_registry`**: seeded the 19 on-record PoE1 door tokens absent from the W3b 6-door seed (→ 25 total). These tokens are FROZEN in VDM-1 `mapping_json.t4_doors` — this catalogues existing vocabulary, it does not mint new doors (spec §2 "new doors require full RFC"; these are not new). My own W3a DDL v1 (`2026-07-22-vdm2-ddl-v1.sql` lines 133–139) anticipated this "door-catalogue seed built from the on-record door tokens" as a W3b/W4 step.
+- **`motion_signature_registry`**: +5 named paths this tranche uses (`chain_hop`, `burst_around_self`, `ground_place`, `point_strike`, `arc_sweep`) → 12 total. A-3 pattern (`fan_spread` precedent); the registry is growable by design; these are geometry paths with canonical meaning, safe in a data pass.
+
+### W5 anomaly + partial flags (structured-on-frozen, FLAGGED-not-resolved — discipline 1 / V-18)
+The **8 frozen `elem_raw` anomalies** (`aegis-max-block` cold→lightning · `ball-lightning` phantom-slow · `caustic-arrow` poison→Caustic-Ground · `discharge` fire→tri-elemental · `edc` poison/wither non-innate · `spectral-throw` lightning→physical · `wild-strike` fire→random-element · `righteous-fire` 90%-self-burn) each carry a `vdm2-w5-elem-anomaly-2026-07-22: <note>` flag; the **2 partials** (`minion-pact-bv`, `wormblaster`) carry `vdm2-w5-partial-2026-07-22: <note>`. Structured on CURRENT frozen data; NOT resolved here. W5 re-derives `court` on affected rows post-correction (court is mutable data, V-18; the bounded re-derivation precedes Leg-B). Flag appends are the established iron-law-2-compliant pattern (precedent: `econ-audit-ambiguous-2026-07-16` 18 appends).
+
+### The W4 FORK — door-arg schema-design DEFERRED (flagged to conductor)
+`kit_door_arg` is the ONE side-car of the seven that is door-schema-gated: its `(door_name, arg_name)` FK requires `door_arg_schema` rows, of which only `ELEMENTAL_ECHO` (3 args, W3b-seeded) exists. PoE1 uses **24 doors / 177 (kit,door) pairs**. Populating `kit_door_arg` requires DESIGNING the arg-name/enum vocabulary for ~21 doors the spec gives no exemplar for (spec provides schemas for only `DUAL_PROXY` + `PERSISTENCE_ENGINE_uptime`; my A-2 added `ELEMENTAL_ECHO`). Per spec §8 those args ARE the season-mutation lever surface (`mutation_surface: locked|mutable`), and spec §2 gates new arg-VALUE vocabulary behind a "mini-RFC lane" — a decision process, not silent steward authoring. **This is design work outside a data-pass's authority** (elrond role: "design decisions about what abstractions mean → Gandalf/Matt"). W4 therefore: (a) does NOT write `kit_door_arg`; (b) MEASURES G2 door-arg derivability from prose (**154/177 = 87.0%**, above the 80% gate) without committing rows; (c) flags the arg-schema-design fork for conductor ruling. The `door_registry` catalogue (above) is the safe, in-scope half; the arg-schema design is the deferred half.
+
+### Gate rates (the SCALE-PROOF — this tranche is the 94-kit scale test)
+- **G1** deviation prose → structured: **100.0%** (92/92 prose-bearing kits; 101 props → 101 rows) — PASS (≥90%).
+- **G2** door args derivable-from-prose without re-crawl: **87.0%** (154/177 instances) — PASS (≥80%), MEASURED not committed (the fork).
+- **G3** prose-only T1 geometry: **0** of 91 T1 kits (all have a derived delivery_class + ≥1 band field) — PASS (==0).
+- **G4** red-assert → docket: **14/14 routed**, 14 deviation-lane dockets open — PASS.
+- **G5** no-breaking-schema: satisfied a priori (schema frozen at v2.0; this is data population).
+
+### Evidence reconciliation (against the W1 hand-verified substrate)
+Reconciled all 94 against `legolas/research/vdm2-verify-poe1-2026-07-22/` (94 evidence files, 0 missing). **88/94 clean** (re-emitted delivery-family + element-register + chain corroborated by evidence). The 6 non-clean were adjudicated as **NOT data disagreements**: 2 are documented register-crosswalk decisions already in the frozen mapping prose (`animate-weapon` physical→shadow-necro-register, `pconc` poison→earth-nature-register), 3 are reconciliation-keyword narrowness where the structure agrees (`archmage` circle→zone, `aurabot` no-damage-element, `bladefall` volley→projectile), and 1 is an honest per-kit delivery refinement (`seismic-trap` `ground_slam`→melee_arc default is correct for the 5 genuine melee-slam kits; seismic-trap is the trap-delivered-zone exception, logged). The reconciliation pass DID surface + fix one genuine emitter error: `line`-geometry was mapped to `beam` (continuous channel) but the on-record `delivery_notes` read "projectile along a throw axis" (spectral-throw) / "chaos projectile" (soulrend) → corrected to `projectile`. It also fixed a deviation-classifier false-positive on `scourge-arrow` (the substring `not that build` matched inside the negation `not 'not that build'`; the R-M7 "that build, worse" downgrade-tell now overrides EI markers).
+
+### Integrity + reversibility
+- **VDM-1 iron law held byte-exact:** canon_corpus 585 · kit_master 574 · is_system 19 · t4_doors JSON-null 29 (all PRE+POST). Frozen-content hash of the immutable identity columns (elem_raw/core_skills/mech_note/folk_name/game/tier) over the 94 kits is **identical PRE+POST** (`9d17f33c5265fc14d9ef22f0b138ee71`) — the frozen `elem_raw` (V-18) is untouched; I structured ON it, did not resolve it.
+- **canon_corpus touch scope:** flags-only, on exactly the 10 flagged kits (8 anomaly + 2 partial); 585 rows unchanged (none added/dropped).
+- **`PRAGMA foreign_keys=ON`** held through the apply; `foreign_key_check` **empty** (the honesty test — even though `kit_door_arg` was not written, all FK references incl. the circular `kit_deviation ↔ mechanic_gap_docket` pair resolve clean). `integrity_check=ok`.
+- **Idempotent:** the emitter is delete-then-insert keyed on kit_id per side-car; the circular deviation↔docket FK is broken by NULL-ing `kit_deviation.docket_id` before the ordered teardown (acceptance → deviation-dockets → deviation → the rest). Triple-apply verified: row counts IDENTICAL, no FK error. NOTE: AUTOINCREMENT surrogate ids (deviation_id/docket_id) advance on each re-run — the *content* is idempotent, the *surrogate keys* are not; the durable record (this log) captures the semantic state, not the surrogate values.
+
+### ADR-004 + reversibility
+No engine-telemetry change; star-lord-side MIGRATION.md unaffected (side-car population is corpus-curation, my seam). Reversible: `corpus.db.pre-vdm2-w4-poe1-2026-07-22-backup` restores the exact side-cars-empty PRE state; the side-cars are additive-only over frozen VDM-1 (re-run of the emitter reproduces the semantic state). Matt-veto-open. **NO push — conductor centralizes pushes for this run.** corpus.db + backups are gitignored data artifacts; the committed durable record is this MIGRATION entry + the emitter/reconciler scripts.
+
+### Scripts (single reproducible entrypoints)
+- `research/scripts/vdm2_w4_poe1_sidecar_emit_2026_07_22.py` — the six-block emitter + registry seeds + docket intake + W5 flag-stamp (fail-loud under `foreign_keys=ON`; idempotent; `--dry-run` measures gates, `--apply` writes).
+- `research/scripts/vdm2_w4_poe1_reconcile_2026_07_22.py` — the evidence reconciliation pass (read-only; 88/94 clean + 6 adjudicated).
 
 ---
 
