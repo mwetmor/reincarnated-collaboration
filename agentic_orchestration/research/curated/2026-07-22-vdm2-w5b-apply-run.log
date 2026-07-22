@@ -1,0 +1,36 @@
+### VDM-2 W5b APPLY — 2026-07-22T09:29:08Z — target=d2-wl-blood-boil
+## [0] preflight md5 drift-guard
+  md5 OK (032c9b65d3354c3c35b05082fc3c1695)
+  target BEFORE (elem_raw|court): 'shadow/blood?'|NULL
+## [1] backup first (before any write)
+  backup -> /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db.pre-vdm2-w5b-2026-07-22-backup (md5 032c9b65d3354c3c35b05082fc3c1695)
+  backup 584-row differential hash: d5a9a8e04d585a610b214c674830289a
+## [2] mutation (2 UPDATEs, single atomic txn; .bail on)
+  UPDATEs committed (db mutated; asserts next decide keep/restore)
+## [3] post-verify asserts (bash-gated; mismatch -> RESTORE backup, exit 1)
+  ok   target.elem_raw = fire
+  ok   target.court = fire
+  ok   iron-law.canon_corpus = 585
+  ok   iron-law.kit_master = 574
+  ok   iron-law.is_system = 19
+  ok   six-block.skill_geometry_band = 490
+  ok   six-block.kit_deviation = 259
+  ok   six-block.recognition_hook = 441
+  ok   six-block.kit_acceptance_assert = 310
+  ok   six-block.kit_delta_t4 = 267
+  ok   six-block.kit_numeric = 2
+  ok   kit_door_arg = 0
+  ok   verify_ledger = 2577
+  ok   integrity_check = ok
+  ok   foreign_key_check.rows = 0
+  backup 584-row differential hash: d5a9a8e04d585a610b214c674830289a
+  live   584-row differential hash: d5a9a8e04d585a610b214c674830289a
+  ok   one-row-only.diff_hash = d5a9a8e04d585a610b214c674830289a
+  ALL asserts passed.
+## [4] confirm (separate terminal call; reached only after ALL asserts passed)
+  pre-mutation  md5: 032c9b65d3354c3c35b05082fc3c1695
+  post-mutation md5: bebc933b0bf9bcab5988bbc16bcc55b4   (WILL differ — expected: the 1-row mutation)
+  target d2-wl-blood-boil: elem_raw shadow/blood? -> fire ; court NULL/'' -> fire
+  one-row-only differential hash (backup == live): d5a9a8e04d585a610b214c674830289a
+### W5b APPLY COMPLETE. corpus.db mutated (exactly 1 row). Backup at /Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db.pre-vdm2-w5b-2026-07-22-backup.
+### Reversibility: cp "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db.pre-vdm2-w5b-2026-07-22-backup" "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/research/curated/corpus.db" restores exact pre-W5b state.
