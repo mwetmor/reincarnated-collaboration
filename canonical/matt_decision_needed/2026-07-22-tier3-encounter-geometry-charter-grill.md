@@ -67,3 +67,26 @@ For **each era shelf**: a stratified record-class kit sample (floor n≥8 per er
 ---
 
 **Next beat:** Matt's one-word confirm on THE F1 FOLD → charter drafts (conductor: gandalf RUN-CONDUCTOR per desirable-run-pattern § 3 fit test, confirmed at charter time) → prereg (X/Y set on gamora baselines) → jack-ryan Gate-1 → run. Island re-cut + naming stays gated behind Tier-3 completion AND R1 resolution per the Q40 §5 re-anchor proposal.
+
+---
+
+## APPENDIX — era-act × court split of the record-267 (Matt-requested decision-input, 2026-07-22)
+
+Source: `canon_corpus`, `corpus_class='record'`, read-only query 2026-07-22. `era_year` is populated 267/267 and takes exactly FOUR values — the age spine is already in the data. (Courted kits = 258, "about 260" as Matt estimated; 9 court-NULLs are the known V-15/V-20 honest-NULL residue, 6 of them in Age I.)
+
+| era-act (age) | source shelf | physical | fire | lightning | cold | chaos-poison | (NULL) | **TOTAL** |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| **Age I — 2000** | D2 | 27 | 12 | 7 | 3 | 5 | 6 | **60** |
+| **Age II — 2013** | PoE1 | 27 | 20 | 13 | 14 | 17 | 2 | **93** |
+| **Age III — 2016** | GD | 9 | 9 | 8 | 4 | 10 | 1 | **41** |
+| **Age IV — 2024** | PoE2 + LE (+1 modern-league PoE1) | 27 | 14 | 14 | 6 | 12 | 0 | **73** |
+| **court totals** | | **90** | **55** | **42** | **27** | **44** | **9** | **267** |
+
+Readings (gandalf, senior-designer):
+
+1. **Four ages fall out natively** (60/93/41/73) — uneven but workable act pacing (D2's own acts are uneven; Act-4-style tight acts read as intentional).
+2. **Zone-per-court viability differs sharply by age:** Age I is physical-dominant (45%) — cold(3)/chaos-poison(5) cannot carry solo zones; **Age II is the only age where ALL FIVE courts clear zone viability** (13–27 each) — the natural five-zone sprawl act; Age III is flat (8–10 across four courts) — reads as the multi-faction CONTESTED act (the macro-tier hub-brawl archetype), not court-pure zones; Age IV supports 3–4 zones (cold 6 thin).
+3. **Cold is structurally thin everywhere** (27 total = 10%; never >15% in any age). Options: cold zones only where viable (Age II); cold as biome-MORPH modifier on other zones (the Q38 rider doing exactly its job); or later cold-kit minting. Do not plan a standing cold zone per act off this substrate.
+4. **Within-act time-texture is cheap:** multi-shelf continuity is high (43/60 · 75/93 · 40/41 · 63/73 kits span multiple patch-shelves in their game) — zones inside an act can progress through the game's own patch history with minimal kit-pool discontinuity.
+5. **Classification guard:** these are ARCHIVE-side affinity counts — they bound zone theming, era-stratified mob-harvest sizing (F3 strata = these row totals), and showcase-encounter density. They are NOT player kit-availability gates (standing caution).
+6. **Archive-frame resonance + one story fork:** under the ruled archive-frame, `era_year` is the in-world age spine — acts = ages of the genre (2000→2013→2016→2024). Whether a run DESCENDS chronologically, reverse-chronologically (descending into older strata — archaeology-of-the-genre, strong death-faith fit), or player-chooses act order is a STORY call — flagged, not decided.
