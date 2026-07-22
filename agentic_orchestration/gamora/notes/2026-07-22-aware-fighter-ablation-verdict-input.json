@@ -1,0 +1,349 @@
+{
+  "C4_intake_determinism_profile": {
+    "aware": {
+      "arm": "aware",
+      "encounter": {
+        "n_cells": 32,
+        "n_cells_seed_deterministic_intake": 0,
+        "n_cells_seed_variable_intake": 32,
+        "pooled_per_cell_seed_SD_diagnostic": 134.98754413974007
+      },
+      "matched_baseline": {
+        "n_cells": 32,
+        "n_cells_seed_deterministic_intake": 0,
+        "n_cells_seed_variable_intake": 32,
+        "pooled_per_cell_seed_SD_diagnostic": 93.83874961967774
+      }
+    },
+    "blind": {
+      "arm": "blind",
+      "encounter": {
+        "n_cells": 32,
+        "n_cells_seed_deterministic_intake": 0,
+        "n_cells_seed_variable_intake": 32,
+        "pooled_per_cell_seed_SD_diagnostic": 92.08251913721517
+      },
+      "matched_baseline": {
+        "n_cells": 32,
+        "n_cells_seed_deterministic_intake": 0,
+        "n_cells_seed_variable_intake": 32,
+        "pooled_per_cell_seed_SD_diagnostic": 142.27795020803603
+      }
+    }
+  },
+  "D2_relative_bar": {
+    "D2_met": false,
+    "M_rel": -0.026157815083795215,
+    "bar": 0.1,
+    "predicate": "M_rel >= 0.10"
+  },
+  "D3_noise_floor": {
+    "D3_met": false,
+    "SD_seed": 80.70164699026876,
+    "SD_seed_is_zero": false,
+    "abs_margin": -385.32428584853733,
+    "k": 2,
+    "k_times_SD_seed": 161.4032939805375,
+    "note": "D3 is a LIVE floor: abs_margin=-385.3243 vs k*SD_seed=161.4033.",
+    "predicate": "(Ibar_blind - Ibar_aware) >= 2 * SD_seed"
+  },
+  "Ibar_aware_encounter": 15116.076247133178,
+  "Ibar_blind_encounter": 14730.75196128464,
+  "M_rel": -0.026157815083795215,
+  "SD_seed": 80.70164699026876,
+  "abs_margin_intake": -385.32428584853733,
+  "artifact": "aware-fighter-ablation-verdict-input",
+  "author": "named-gamora",
+  "clear_guard": {
+    "clean": false,
+    "mismatches": [
+      {
+        "aware_all_mobs_killed": true,
+        "aware_mobs_killed": 40,
+        "blind_all_mobs_killed": false,
+        "blind_mobs_killed": 16,
+        "direction": "aware_cleared_MORE",
+        "key": "II|high|poe1-caustic-arrow|encounter|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 18,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "II|high|poe1-caustic-arrow|matched_baseline|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 28,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "IV|high|poe1-kinetic-fusillade|encounter|20260722",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 3,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "IV|high|poe1-kinetic-fusillade|encounter|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 28,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "IV|high|poe1-kinetic-fusillade|encounter|20260724",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 28,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "IV|high|poe1-kinetic-fusillade|encounter|20260725",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 18,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "IV|high|poe1-kinetic-fusillade|matched_baseline|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 28,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "I|high|d2-bowazon|encounter|20260722",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 3,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "I|high|d2-bowazon|encounter|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 28,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "I|high|d2-bowazon|encounter|20260724",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 28,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "I|high|d2-bowazon|encounter|20260725",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 18,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "I|high|d2-bowazon|matched_baseline|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": true,
+        "aware_mobs_killed": 40,
+        "blind_all_mobs_killed": false,
+        "blind_mobs_killed": 16,
+        "direction": "aware_cleared_MORE",
+        "key": "I|high|d2-poison-javazon|encounter|20260723",
+        "total_mob_count": 40
+      },
+      {
+        "aware_all_mobs_killed": false,
+        "aware_mobs_killed": 18,
+        "blind_all_mobs_killed": true,
+        "blind_mobs_killed": 40,
+        "direction": "aware_cleared_FEWER",
+        "key": "I|high|d2-poison-javazon|matched_baseline|20260723",
+        "total_mob_count": 40
+      }
+    ],
+    "n_mismatches": 14,
+    "note": "per (cell,seed,composition) all_mobs_killed match blind-vs-aware; any mismatch => that cell's intake void => PARTIAL (\u00a76 precedence)."
+  },
+  "date": "2026-07-22",
+  "encounter_aggregate_per_seed_mean_intake": {
+    "aware": {
+      "20260722": 15170.818727171005,
+      "20260723": 15111.671651334767,
+      "20260724": 15188.576406979962,
+      "20260725": 14993.238203046978
+    },
+    "blind": {
+      "20260722": 14793.506649881443,
+      "20260723": 14724.189361925113,
+      "20260724": 14786.256973427162,
+      "20260725": 14619.054859904842
+    }
+  },
+  "frozen_head": "2f43045",
+  "n_aware_records": 256,
+  "n_blind_records": 256,
+  "note": "PREDICATE FACTS ONLY. The VERDICT (PASS/FAIL/PARTIAL) is the conductor's DRIFT-CRITIC synthesis against the frozen sheet + Matt's ruling. This file does NOT caption a verdict.",
+  "per_cell_intake_deltas": {
+    "encounter": {
+      "per_cell_delta_blind_minus_aware": {
+        "III|high|gd-bloody-pox-conjurer|encounter": 1310.4843627328373,
+        "III|high|gd-mortar-purifier|encounter": -45.12589240483794,
+        "III|high|gd-primal-strike-vindicator|encounter": 0.0,
+        "III|high|poe2-twister|encounter": -131.29287291977744,
+        "III|low|d2-avenger|encounter": 232.19923149958413,
+        "III|low|d2-bvc|encounter": 0.0,
+        "III|low|le-ghostflame-warlock|encounter": 119.64818866510905,
+        "III|low|poe2-warbringer-totems|encounter": -2.102701795163739,
+        "II|high|poe1-armageddon-brand|encounter": 34.20946920086499,
+        "II|high|poe1-autobomber|encounter": 152.73807737727657,
+        "II|high|poe1-caustic-arrow|encounter": 1455.3944452563246,
+        "II|high|poe1-spark|encounter": -1210.0514802222679,
+        "II|low|d2-auradin|encounter": 34.20946920086499,
+        "II|low|d2-bvc|encounter": 0.0,
+        "II|low|gd-flames-of-ignaffar-purifier|encounter": 119.64818866510905,
+        "II|low|poe1-frost-blades|encounter": -2677.213063780553,
+        "IV|high|le-explosive-trap-falconer|encounter": 0.0,
+        "IV|high|le-healing-hands-paladin|encounter": 34.20946920086499,
+        "IV|high|poe1-kinetic-fusillade|encounter": -4852.569171865674,
+        "IV|high|poe2-erasure-edc-lich|encounter": 1310.4843627328373,
+        "IV|low|d2-auradin|encounter": 34.20946920086499,
+        "IV|low|d2-avenger|encounter": 232.19923149958413,
+        "IV|low|d2-bvc|encounter": 0.0,
+        "IV|low|poe1-frost-blades|encounter": -2677.213063780553,
+        "I|high|d2-bowazon|encounter": -4852.569171865674,
+        "I|high|d2-fire-sorc|encounter": -45.12589240483794,
+        "I|high|d2-frenzy-barb|encounter": 0.0,
+        "I|high|d2-poison-javazon|encounter": 1455.3944452563246,
+        "I|low|gd-belgothian-blademaster|encounter": 237.45811119524478,
+        "I|low|le-fire-aura-spellblade|encounter": 79.7154077781488,
+        "I|low|poe1-frost-blades|encounter": -2677.213063780553,
+        "I|low|poe2-warbringer-totems|encounter": -2.102701795163739
+      },
+      "sign_counts": {
+        "aware_less_intake_positive": 15,
+        "aware_more_intake_negative": 11,
+        "equal": 6
+      }
+    },
+    "matched_baseline": {
+      "per_cell_delta_blind_minus_aware": {
+        "III|high|gd-bloody-pox-conjurer|matched_baseline": 1118.594637966653,
+        "III|high|gd-mortar-purifier|matched_baseline": -514.7231967704301,
+        "III|high|gd-primal-strike-vindicator|matched_baseline": -66.46779850599523,
+        "III|high|poe2-twister|matched_baseline": 903.4321878271949,
+        "III|low|d2-avenger|matched_baseline": 441.00900073021694,
+        "III|low|d2-bvc|matched_baseline": -244.59930984709717,
+        "III|low|le-ghostflame-warlock|matched_baseline": 903.4321878271949,
+        "III|low|poe2-warbringer-totems|matched_baseline": -244.59930984709717,
+        "II|high|poe1-armageddon-brand|matched_baseline": 441.00900073021694,
+        "II|high|poe1-autobomber|matched_baseline": -1446.074855613706,
+        "II|high|poe1-caustic-arrow|matched_baseline": -3283.272883623129,
+        "II|high|poe1-spark|matched_baseline": 441.00900073021694,
+        "II|low|d2-auradin|matched_baseline": 441.00900073021694,
+        "II|low|d2-bvc|matched_baseline": -244.59930984709717,
+        "II|low|gd-flames-of-ignaffar-purifier|matched_baseline": 903.4321878271949,
+        "II|low|poe1-frost-blades|matched_baseline": -1446.074855613706,
+        "IV|high|le-explosive-trap-falconer|matched_baseline": 903.4321878271949,
+        "IV|high|le-healing-hands-paladin|matched_baseline": 441.00900073021694,
+        "IV|high|poe1-kinetic-fusillade|matched_baseline": -3283.272883623129,
+        "IV|high|poe2-erasure-edc-lich|matched_baseline": 1118.594637966653,
+        "IV|low|d2-auradin|matched_baseline": 441.00900073021694,
+        "IV|low|d2-avenger|matched_baseline": 441.00900073021694,
+        "IV|low|d2-bvc|matched_baseline": -244.59930984709717,
+        "IV|low|poe1-frost-blades|matched_baseline": -1446.074855613706,
+        "I|high|d2-bowazon|matched_baseline": -3283.272883623129,
+        "I|high|d2-fire-sorc|matched_baseline": -514.7231967704301,
+        "I|high|d2-frenzy-barb|matched_baseline": -66.46779850599523,
+        "I|high|d2-poison-javazon|matched_baseline": -3283.272883623129,
+        "I|low|gd-belgothian-blademaster|matched_baseline": -1446.074855613706,
+        "I|low|le-fire-aura-spellblade|matched_baseline": -271.0374599383831,
+        "I|low|poe1-frost-blades|matched_baseline": -1446.074855613706,
+        "I|low|poe2-warbringer-totems|matched_baseline": -244.59930984709717
+      },
+      "sign_counts": {
+        "aware_less_intake_positive": 13,
+        "aware_more_intake_negative": 19,
+        "equal": 0
+      }
+    }
+  },
+  "prereg": "2026-07-22-aware-fighter-ablation-prereg.md (FROZEN, gate hash 2f43045)",
+  "rc1_run_start_attestation": {
+    "beat": "run_start",
+    "exempt_output_deltas": [
+      {
+        "git_hash_object": "89380d21fc46074fd631393975de6fe1d9f54a4c",
+        "path": "src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json"
+      }
+    ],
+    "head_full": "2f430457461509378c1bd0c20425e6ac7b06a077",
+    "head_short": "2f43045",
+    "head_unmoved_at_frozen": true,
+    "non_output_tracked_deltas": [],
+    "py_diff_empty": true,
+    "py_diff_under_src_reincarnated": [],
+    "tracked_deltas_all": [
+      "src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json"
+    ]
+  },
+  "rc1_verdict_attestation": {
+    "beat": "verdict",
+    "exempt_output_deltas": [
+      {
+        "git_hash_object": "89380d21fc46074fd631393975de6fe1d9f54a4c",
+        "path": "src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json"
+      }
+    ],
+    "head_full": "2f430457461509378c1bd0c20425e6ac7b06a077",
+    "head_short": "2f43045",
+    "head_unmoved_at_frozen": true,
+    "non_output_tracked_deltas": [],
+    "py_diff_empty": true,
+    "py_diff_under_src_reincarnated": [],
+    "tracked_deltas_all": [
+      "src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json"
+    ]
+  },
+  "seal_md5_at_seal": "d27991a2bb8d4fac1e5b9378bc747a86",
+  "seal_md5_at_verdict": "d27991a2bb8d4fac1e5b9378bc747a86",
+  "seal_md5_match": true,
+  "seal_path": "2026-07-22-aware-fighter-ablation-seal.json",
+  "specificity": {
+    "Ibar_aware_matched_baseline": 15788.99970719513,
+    "Ibar_blind_matched_baseline": 15348.940307822188,
+    "M_rel_matched_baseline": -0.02867034404640149,
+    "baseline_margin_exceeds_half_encounter": false,
+    "half_encounter_margin_threshold": -0.013078907541897607,
+    "note": "expectation approx 0 on geometry-sparse baseline; flag if baseline M_rel > 1/2 * encounter M_rel => geometry-specificity questionable => PARTIAL."
+  },
+  "time": {
+    "aware_slower_fraction": 0.06641047845854113,
+    "aware_slower_than_5pct": true,
+    "encounter_duration_aware_s": 15.392968750000051,
+    "encounter_duration_blind_s": 14.434375000000044,
+    "note": "report-only directional flag; not auto-fail (\u00a74)."
+  }
+}
