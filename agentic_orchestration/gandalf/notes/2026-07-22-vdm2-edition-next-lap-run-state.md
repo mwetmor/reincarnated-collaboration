@@ -9,11 +9,11 @@
 
 | Wave | Status | Notes |
 |---|---|---|
-| W0 elrond schema-diff + DDL v0 | **FIRED** (background, launch turn) | not applied; diff-first per spec §0.2 |
+| W0 elrond schema-diff + DDL v0 | **✓ DELIVERED** (`6f8c2bf3`) | STOP-WORK guards PASS; store is normalized-relational, not flat JSON — six VDM-2 blocks re-home as kit_id side-cars; 12 new tables + 9 additive cols, zero breaking; §7 verdicts ALREADY EXIST (597 mechanics rows) → granularity ext only; per-skill geometry grain = highest-risk hypothesis (pilot = refutation surface); six forks D-1..D-6 routed → RULED V-11..V-16 |
 | W1 legolas PoE1 evidence tranche | **FIRED** (background, launch turn) | S-1 time-critical: 3.29 lands July 24 |
 | WB gandalf-sub-agent Wave-B KR prompt | **✓ DELIVERED** (`d73351d2` + conductor precision edit) | Matt-pastable at `2026-07-22-wave-b-kr-session-prompt.md`; slate-fresh VERIFIED (reservation/aura extension UNBUILT — the Gate-2-PASSED "Wave-B economy" spec is a *different, built* Wave-B; prompt §0 carries the confusable-name guard). Conductor DRIFT-CRITIC pass done; one authority-phrase fix (Q33-D3 lean ≠ ruling). Namespaces made concrete: this lap = `2026-07-22-vdm2-edition-next-lap-*`; KR lane = `2026-07-22-wave-b-reservation-aura-*` |
-| W2 4-kit pilot → G1–G5 | queued (needs W0 DDL v0) | |
-| W4b GX-02 docket-to-spec SPEC-AUTHOR pass | queued (after W0 returns) | gandalf-seam lane |
+| W2 4-kit pilot → G1–G5 | **FIRED** (background, post-W0) | elrond; note-space conversion ONLY, corpus.db untouched (DDL waits on gates per elrond §4.1); brief carries V-11..V-16 + top-5 door arg-schema extension (fixes the DUAL_PROXY-rarity exemplar gap) |
+| W4b GX-02 docket-to-spec SPEC-AUTHOR pass | **FIRED** (background, post-W0) | named gandalf sub-agent; spec DRAFT only (build stays outside KR Wave-B scope per its §4 guard); expresses shapeshift doors in the W0 door-arg grammar; GX-19-parked entries spec'd as interface-only |
 | W3 Gate-2 → apply DDL + riders + GX-02 tail | queued (needs G5 + Gate-2) | |
 | W4 record-270 re-emission tranches | queued | PoE1 → D2 → GD → PoE2 → LE |
 | W5 verify verdicts + annex checklists ×15 | queued | rubber-stamp detector armed |
@@ -34,6 +34,12 @@
 | **V-8** | Annex band-treatment decided at refresh beat on band-derivability rates from pilot + record re-emission (named empirical criterion, no time-passage criterion) | reasoning |
 | **V-9** | ~~Pushes HELD~~ → **E-2 ✓ RULED 2026-07-22 (Matt verbatim: *"Please push all commits as you go"*)** — push-as-you-go LIVE for this run. Conductor CENTRALIZES pushes (sub-agent briefs carry no-push; conductor pushes at each wave-verification beat; on remote rejection: `pull --rebase` then push, never force) | ✓ ruled (was commitment-parked) |
 | **V-10** | Wave-B KR prompt authored as parallel piece now (Matt's "feel free… or save them" rider); no further KR sessions multiplied without seam-disjoint reason | reasoning |
+| **V-11** | **D-1:** `_suffix` doors stay DISTINCT tokens (frozen `mapping_json` untouched); mode-collapse (`base_door + mode_arg`) recorded as *candidate* normalization for a later pass, not executed; 8 empty-string door slots → W2 characterizes, W3 rider strips (raws preserved) | reasoning |
+| **V-12** | **D-2:** per-skill `(kit_id, skill_ordinal)` geometry grain stands as the pilot HYPOTHESIS; PoE support-gem + GD transmuter = pre-registered refutation surface; a band-modifier counter-model, if shown, processes as a G5-class finding (honorable fallback), not a halt | reasoning |
+| **V-13** | **D-3:** `normalization_rule` ships as EMPTY container at W3 (additive, elrond-seam table); rule POPULATION = named downstream battle-sim dependency (gamora/star-lord semantics, ADR-004 routing when populated); `rdr_value` honest-NULL until rules exist; the run authors NO balance transforms | reasoning |
+| **V-14** | **D-4:** `corpus_class` admits third enum `system` — 585 = record 270 + annex 304 + system 11; NULL reserved to mean "unclassified," never "system" | reasoning |
+| **V-15** | **D-5 (design ruling, WITHIN Q38's ruled k=5 frame — k untouched; changing k would re-open Q38 = commitment HALT):** `acid`/`necrotic`/`vitality`/`void` → chaos-poison decay court (GD's own Acid&Poison pairing; GD occultist vitality-chaos school; LE void = entropy register); `aether` → lightning court (GD's first-class lightning↔aether conversion lane — energy register, not decay); `?`-suffixed → base element's court (marker survives in `elem_raw`); `magic`/`n/a`/`mixed` → honest NULL (D2 magic damage is DEFINED by non-membership in any elemental register — forcing it = pre-imposed taxonomy; per-kit resolution is a Leg-B beat candidate). Coverage ≈ 257–260/270; UNBLOCKS the W3 court rider | reasoning (veto-open design call) |
+| **V-16** | **D-6:** `eras_normalized` = option (c) per-game canonical era-token set (fixed lowercase vocabulary per game, documented in W3 MIGRATION.md); NO cross-game ordinal pre-baked — shelf assignment derives AT the Leg-B beat per Q38 eras=shelves ((b) would pre-collapse the derivation input into its output; (a) year-bands don't carry design-era semantics cross-game) | reasoning |
 
 ## Red-flag log
 
