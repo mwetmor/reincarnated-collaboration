@@ -133,3 +133,25 @@ Bands, sink axes, emission shape, and AC-9 operationalization are all **reasonin
 ## Appendix — the falsification, restated for the cert
 
 Fork (A) world (current HEAD): `full_benefit ≡ 1.0`, `aura_effective_benefit` uncalled → band sweep byte-identical (math note §8.2). Fork (B) world (this doc's target): `full_benefit ← aura_benefit_mod` (kit-sourced, band-guarded), `aura_effective_benefit` read per-tick into the sink axis → **band sweep MUST vary monotonically.** The cert PASSES when the sweep varies and the midpoint sits in the equilibrium window; it FAILS if the sweep is still identical (sink unwired) OR if a single aura reaches the D2-dominance band (magnitude too high). That is the whole of what fork (B) asked for, made decidable.
+
+---
+
+## DRIFT-CRITIC review — 2026-07-22 (conductor pass on own sub-agent draft)
+
+**▶ ROLE: DRIFT-CRITIC — reviewing gandalf sub-agent's draft against the §15-R ruled-fork set + KR run-state authority envelope before it becomes the input of record.**
+
+Checklist (all pass):
+
+1. **No §15-R re-opens** — all ruled forks (Σ-cap 0.90, banner origin-arg, D2-reservation register, S6 cert framing) consumed as constraints, none re-litigated ✓
+2. **Forbidden fields absent** — no archetype/class enum, no per-class aura tables, no kit-side behavior branching ✓
+3. **v1 scope shape** — stat-mod families only (damage/defense/regen/speed), pulse-damage DEFERRED with a *stated* re-open trigger, not silently dropped ✓
+4. **Bands** — numeric, engine-grounded (damage_resolver.py:1168 buff vocabulary, combatant.py:477 regen), equilibrium-principled, Disc #40 scaffold with gamora finalization at S6 ✓
+5. **Emission shape** — scalar `aura_benefit_mod` + `aura_benefit_kind`, None/None inert corner, Disc #41-clean (mechanical stat axes, not archetypes) ✓
+6. **AC-9a/b/c falsifiable** — monotonic non-identity sweep kills the byte-identical failure mode; equilibrium window decidable; stacking identity under Σ<0.90 ✓
+7. **Σ-guard non-bypass** — benefit rides ActiveEffect; blocked aura ⇒ zero benefit, no side channel ✓
+8. **Banner inheritance** — reuses built `plant_banner` origin-arg thread, no new mechanism ✓
+9. **Commitment-boundary residue** — exactly ONE Matt-flag (four-family v1 scope), correctly classified; everything else reasoning-boundary inside ruling (B) ✓
+
+**VERDICT: PASS — this doc is the input of record for the R2=B unblock chain (KR cites §1 into the rocket field dispatch + §2/§4 into the gamora wiring dispatch; S6 cert as spec'd via AC-9).** The §5 four-family flag goes to Matt with the delivery.
+
+— gandalf (DRIFT-CRITIC), 2026-07-22
