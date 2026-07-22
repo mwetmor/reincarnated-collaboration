@@ -106,3 +106,25 @@ I re-derived every load-bearing number first-hand from the sealed working-tree b
 On both present + mechanical + consistent: **PASS-WITH-CONCERNS → clean PASS; the sheet may FREEZE verbatim.** The instrument is then fully pre-registered with zero residual executor discretion on the pinned degrees of freedom; the conductor judges results as DRIFT-CRITIC against the frozen sheet.
 
 **Reviewed by:** jack-ryan (DEV-MODE, pre-registration check), 2026-07-22.
+
+---
+
+## Re-verify result (freeze beat) — 2026-07-22
+
+**Amended sheet reviewed** (READ-ONLY): `…/gandalf/notes/2026-07-22-aware-fighter-ablation-prereg.md` — §2 (lines 43–50), §6 (lines 138–148), §8 (lines 177–184). Both C1 + C2 pins folded by the conductor (gandalf). Three-axis check run against THIS finding's pin language (C1 line 30, C2 line 40).
+
+**C1 — PARTIAL-over-FAIL precedence (§6 "Precedence rule", lines 138–141):**
+- **PRESENT** ✓ — new §6 bullet, verbatim my proposed line including the "no confound-tainted run is scored PASS or FAIL" clause.
+- **MECHANICAL** ✓ — "irrespective of whether D2/D3 were met or missed" is a strict override; a PARTIAL trigger deterministically dominates the D2/D3 verdict. No residual executor discretion on state resolution.
+- **CONSISTENT** ✓ — matches §4's "regardless of margins" (line 88); completes the §6 verdict lattice (the one unstated precedence edge my Dimension-1 flagged). No §1–§7 contradiction introduced.
+
+**C2 — md5-embedded blind seal (§2 C2-seal bullet, lines 43–50):**
+- **PRESENT** ✓ — §2 bullet rewritten to name the seal artifact.
+- **MECHANICAL** ✓ — all four required elements present, each a mechanical check: (1) seal-JSON = 256 blind per-fight records + encounter-arm aggregate-per-seed means + `SD_seed`; (2) flushed to disk BEFORE the first aware fight; (3) verdict JSON embeds the seal md5; (4) post-seal mutation ⇒ red-flag HALT, no verdict. md5 compare is hash-checkable; zero discretion. Converts "sealed before aware" from sequence assertion to auditable invariant (W3′ §8 C2 lineage).
+- **CONSISTENT** ✓ — the sealed object (`SD_seed` on the blind encounter-arm aggregate mean intake) matches the §5 D3 estimator (lines 106–117) EXACTLY; DRIFT-CRITIC-confirmable per §8 (line 182). No §1–§7 contradiction introduced.
+
+**INFO riders (C3/C4/C5):** NOT re-reviewed per prereg. Confirmed present as §6 result-read riders (lines 142–148); their presence introduces no §1–§7 contradiction (non-gating result-read directives — DRIFT-CRITIC estimator-echo, intake-determinism report, `distance_normalized` attribution caveat).
+
+**Conversion verdict: PASS-WITH-CONCERNS → clean PASS.** Both WARN pins pass all three axes; no bar-parameter moved (folding-only, per the W3′ convention). **The sheet may FREEZE VERBATIM.** The instrument is fully pre-registered with zero residual executor discretion on the pinned degrees of freedom; the conductor now judges results as DRIFT-CRITIC against the frozen sheet, and execution (named-gamora charter → seal → run → verdict) may proceed.
+
+**Re-verified by:** jack-ryan (DEV-MODE, freeze-beat re-verify), 2026-07-22.
