@@ -90,3 +90,56 @@ Readings (gandalf, senior-designer):
 4. **Within-act time-texture is cheap:** multi-shelf continuity is high (43/60 · 75/93 · 40/41 · 63/73 kits span multiple patch-shelves in their game) — zones inside an act can progress through the game's own patch history with minimal kit-pool discontinuity.
 5. **Classification guard:** these are ARCHIVE-side affinity counts — they bound zone theming, era-stratified mob-harvest sizing (F3 strata = these row totals), and showcase-encounter density. They are NOT player kit-availability gates (standing caution).
 6. **Archive-frame resonance + one story fork:** under the ruled archive-frame, `era_year` is the in-world age spine — acts = ages of the genre (2000→2013→2016→2024). Whether a run DESCENDS chronologically, reverse-chronologically (descending into older strata — archaeology-of-the-genre, strong death-faith fit), or player-chooses act order is a STORY call — flagged, not decided.
+
+---
+
+## APPENDIX B — era-act × BUILD-FAMILY split (Matt-requested sequel to Appendix A, 2026-07-22)
+
+Matt: *"element looks good, but can you show me by build family (including multi-projectile volley)? … you may see patterns specific to these 5 games and draft potential family columns as you go."*
+
+**Method:** memberships joined read-only against `canon_corpus.era_year` (populated 585/585 — all classes). Three membership tiers kept SEPARATE: **RATIFIED** (gateA table `atlas_gateA_labels_2026_07_14`; τ-propagated shown as `+Np` with the standing ~1/3-precision caveat) · **DOCKETED** (`family-candidates-docket-2026-07-17.md`, self-scored precision shown; awaiting Matt names-review) · **FRESH-DRAFT** (this pass, unscored). No court/element anywhere (family view per Matt's course-correction). Off-spine = annex+system members (the 16 non-spine games: la · d3 · d4 · vs · tq · di · hot · chronicon · undecember · tl2 · tli · hades1/2 · tq2 · mcd · tl1).
+
+### B1 — the six RATIFIED families × ages
+
+| family | Age I · D2 (60) | Age II · PoE1 (93) | Age III · GD (41) | Age IV · PoE2+LE (73) | off-spine | Σ |
+|---|---:|---:|---:|---:|---:|---:|
+| WHIRLWIND | 3 | 1 | 1 | 2 | 8 | 15 |
+| CHANNELED-BEAM | — | 2 | 3 | 1 | 3 | 9 |
+| MINION-PET | — | — | — | — | 7 | 7 |
+| AURA | 1 | 3 +1p | — | 1 | 3 +1p | 8 +2p |
+| TOTEM-SENTRY | 0 +3p | 8 +6p | 1 +2p | 7 +5p | 8 +6p | 24 +22p |
+| TRAP-MINE | 2 +4p | 8 +4p | 0 +5p | 2 +1p | 11 +6p | 23 +20p |
+
+### B2 — the five DOCKETED candidates × ages (docket 2026-07-17)
+
+| docket (self-scored precision) | Age I | Age II | Age III | Age IV | off-spine | Σ |
+|---|---:|---:|---:|---:|---:|---:|
+| MELEE-STRIKE (0.90) | **10** | — | 5 | 3 | 18 | 36 |
+| DOT-AILMENT (0.97) | 4 | **15** | 4 | 5 | 8 | 36 |
+| MULTI-PROJECTILE-VOLLEY (1.00) | 3 | **8** | — | 3 | 6 | 20 |
+| SHAPESHIFT (0.80) | 4 | — | 1 | 3 | 6 | 14 |
+| IDENTITY-GAUGE (0.97) | — | — | — | — | **31** | 31 |
+
+### B3 — FRESH-DRAFT flags (this pass; unscored; geometry-axis + roster sanity-read)
+
+| draft | I | II | III | IV | n (record) | note |
+|---|---:|---:|---:|---:|---:|---|
+| CHAIN-BOUNCE | 3 | 6 | 5 | 5 | 19 raw | the one age-BALANCED candidate (Javazon → Arc → Panetti's/Stormbox → Lightning Blast). Raw axis fuses bounce-lightning with contagion-spread (Rabies / Bloody Pox / ED-C — DOT-AILMENT's territory); bounce-core ≈ 12 |
+| DASH-STRIKER | 1 | 2 | 2 | 1 | 6 | coherent (Charger / Flicker / Shadow Strike / Shift) but sub-scale — flag only |
+| NOVA-RING | 2 | — | — | 1 | 3 | Nova Sorc + Poison Nova Necro + Bladestorm — too thin to column |
+| PULL-VORTEX | — | 2 | — | 2 | 4 | + the LA identity-gauge pull cohort off-spine + R4's LA-4 mint incoming — **re-probe post-mint** |
+| SUMMONER-LEGION (obs) | — | ~3 | — | ~2 | ~5–8 | record-class summoners (Spectres, Skeleton Mages, Golementalist, Wormblaster, Poet's Pen VD) are claimed by NOTHING — ratified MINION-PET is the narrow taunt-pet archetype (7/7 off-spine); the spine's summoner mass awaits its own docket |
+
+### Coverage + readings
+
+Family-claimed share of the act spine (ratified + propagated + docketed): Age I 28/60 = **47%** · Age II 53/93 = **57%** · Age III 20/41 = **49%** · Age IV 31/73 = **42%** · **total 132/267 = 49%**. Residual geometry mass: ground_targeted_circle 36 · blank 26 · circle 22 · single_target 10.
+
+Readings (gandalf, senior-designer):
+
+1. **Each age has a SIGNATURE family — the act-personality result.** Age I = MELEE-STRIKE (10, its largest on-spine cell) + SHAPESHIFT (4) + WHIRLWIND (3): the physical-brawl act. Age II = DOT-AILMENT (15) + TOTEM (8+6p) + TRAP (8+4p) + MPV (8): the attrition-and-emplacement act. Age III = CHANNELED-BEAM (3, its home shelf) + MELEE-STRIKE (5) + chain (5): the sustained-fight act. Age IV = TOTEM (7+5p) + the highest residual (58% unclaimed): the hybrid frontier act.
+2. **The holes are load-bearing, and they are TRUE genre history:** CHANNELED-BEAM absent from Age I (D2 never made channel viable — Inferno's whole career); MELEE-STRIKE absent from Age II (PoE1's famous melee deficit — 0 of 36 docket members are poe1); SHAPESHIFT absent from Age II; AURA absent from Age III; MPV absent from Age III. Under the F1 fold these holes are FEATURES: per-act showcase decks differ because the families genuinely lived and died by era.
+3. **Matt's two map-area archetypes map onto ages:** the centralized multi-faction melee area is Age I/III native (melee-strike + brawl mass — Travincal lineage); the de-centralized faction outpost area is Age II native (totem nests, trap fields, DoT clouds — emplacement warfare). The MACRO tier can deal area-archetypes per act from the act's own family deck.
+4. **MPV lesson — docket over axis:** the current corpus carries 29 record kits with `multi_projectile` geometry, but the axis-only extras include summoners whose MINIONS volley (Spectres, Skeleton Mages, Golementalist) and proc-engines (Poet's Pen VD). The docket-20 (islet ∩ axis, precision 1.0) is the servable core. Family = mechanism-IDENTITY, not raw axis value — the same reason the six ratified families are camera-robust.
+5. **Guest-family fork (ELICIT, parked for Matt):** IDENTITY-GAUGE (31, all LA) and ratified MINION-PET (7, all off-spine) have ZERO act-spine presence. If acts = the four ages of the five spine games, these families cannot headline any act natively. Options: (a) catalogue-only until an edition admits annex games to the spine; (b) off-spine GUEST encounters (rift-style cameos); (c) MINION-PET docket re-seed with a loosened axis to capture the spine's summoner mass (composes with the SUMMONER-LEGION observation, B3).
+6. **~49% claimed / ~51% residual is the right amount of structure:** enough family mass to deal era-signature showcase encounters per act NOW; enough residual to keep future dockets honest (CHAIN-BOUNCE and SUMMONER-LEGION are the two the residual is loudest about).
+7. **Standing guard re-stated:** these are archive-affinity counts — encounter-grammar inputs, NOT player kit-availability gates (progression = R6 / jack-ryan lane).
