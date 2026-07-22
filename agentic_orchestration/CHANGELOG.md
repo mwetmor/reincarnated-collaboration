@@ -4,6 +4,19 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-07-21 — Charter-freshness guard born: the RUN-CONDUCTOR amnesia incident + forever-fix (gandalf)
+
+Same-session sequel to the D1/D4 rulings below. **Incident:** after a context compaction, the live gandalf session routed the three chartered desirable-pattern runs (Tier-1 VDM-2 · Tier-2 Atlas Edition-II lap · Tier-3 encounter-geometry — direct sequels to gandalf-conducted Runs B and A) to **knight-rider's autonomous lane** and told Matt "KR is the top-level session." Matt caught it with gandalf's own comparative-runs analysis. **Mechanism (not a missing write — a stale read):** D1's twin charter edits HAD landed on disk; but a session's system prompt loads once at launch and never hot-reloads, so the mid-session amendment lived only on disk + in conversational memory — and compaction deleted the memory. The post-compaction session reconstructed from the STALE in-context charter (no RUN-CONDUCTOR), the Q33 row's D3 lean, and the baked-in "KR = orchestrator" topology prior; the pre-D1 world-model reasserted. This is the exact failure class the comparative-runs thesis names: a conductor operating from a lossy compressed dispatch without resident authority routes authority wrong. **Collateral found during diagnosis:** the installed OP skill copy (`.claude/skills/reincarnated-gandalf-operating-procedure/SKILL.md`) was ~6 weeks stale — no ELICITOR, no role-tags table, no RUN-CONDUCTOR — silently delivering a pre-2026-06-30 charter to skill-onboarded (remote-control) sessions.
+
+**Forever-fix (five writes, one principle — a charter must be RE-READ from disk wherever the in-context copy can go stale):**
+- **Charter-freshness guard** in `.claude/agents/gandalf.md` Cross-cutting rules — the one surface guaranteed in-context every turn: on any post-compaction turn, re-read role-def + OP § 2 from disk BEFORE routing work or assigning conductors; **disk governs over the in-context system prompt.**
+- **OP § 1 step 0** — same gate at session start + post-compaction; `desirable-run-pattern.md` added to the conditional session-start reads (its § 3 fit test routes conductors).
+- **Skill copy re-synced** from the OP source; same-commit sync rule added to the source's packaging note.
+- **Q33 row annotated self-sufficiently:** the three tiers are gandalf-RUN-CONDUCTOR-conducted; D2/D3 govern KR's spec-frozen build lane (Wave-B) ONLY — a compacted reconstruction can no longer misread the row.
+- **Generic team rule flagged for jack-ryan ratification** (⚠ SWITCH: CANON-STEWARD proposer → jack-ryan ratifier): any agent's charter amendment while that agent has a live session requires (a) the live session re-reads the charter from disk in-turn, (b) all packaged skill copies re-sync in the same commit. Landing surface (`canonical-doc-format.md § 6` vs AGENTS.md) = jack-ryan's call.
+
+---
+
 ## 2026-07-21 — RUN-CONDUCTOR role-tag added to gandalf + desirable-run pattern codified (Matt comparative-runs rulings D1 / D4-modified)
 
 Matt requested a comparative analysis of the two best autonomous runs EVER — **Run A** (Atlas derivation → Edition-I freeze, 2026-07-14/15) and **Run B** (VDM-1 corpus verify+dossier+map, 2026-07-18/19), both gandalf-conducted — against the historically-stuck KR-conducted autonomous runs. gandalf's verdict: the load-bearing variable is the **run-charter pattern + design-authority residency**, not the conductor's name; four confounded factors named (intent residency > authority shape > input shape > model/effort). Matt ruled D1 (role addition) + D4-modified (codify as desirable pattern, explicitly NOT a protocol).
