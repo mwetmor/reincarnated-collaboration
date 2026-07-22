@@ -1,6 +1,6 @@
 # Tier-3 Encounter-Geometry Run — Charter v1.1 (veto-open)
 
-**STATUS:** CHARTERED 2026-07-22 — awaiting jack-ryan Gate-1; run fires on Gate-1 pass (veto-open). Matt's words landed same-day: *"F1 confirmed"* + *"traveling kin is right."* **v1.1 same-day:** RD-1 conditional leg + island-conditions W4 fold + T3-V6/V7 braid law, adopted veto-open under Matt's autonomy grant (§0 second grant).
+**STATUS:** LAUNCHED 2026-07-22 — jack-ryan Gate-1 **PASS-WITH-CONCERNS** (C1 prereg-Y basis → ledger L-3 · C2 census-as-handoff → ADOPTED L-2 · C3 guest-family edge → story-fold admission L-4; record `agentic_orchestration/qa/findings/2026-07-22-gate1-tier3-encounter-geometry-launch.md`); **W0 harvest IN-FLIGHT.** Matt's words landed same-day: *"F1 confirmed"* + *"traveling kin is right."* **v1.1 same-day:** RD-1 conditional leg + island-conditions W4 fold + T3-V6/V7 braid law, adopted veto-open under Matt's autonomy grant (§0 second grant).
 **Conductor:** gandalf `RUN-CONDUCTOR` (role-def D1 2026-07-21; intent residency — this charter's author conducts).
 **Pattern:** `agentic_orchestration/operating-procedures/desirable-run-pattern.md` (lineage: Run A atlas derivation 2026-07-14/15 · Run B VDM-1 verify 2026-07-18/19 · VDM-2→Edition-next lap 2026-07-22).
 **Elicitation surface (CONSUMED):** `canonical/matt_decision_needed/2026-07-22-tier3-encounter-geometry-charter-grill.md` — T3-F1..F5 + second ruling batch R-b1/R-b2/R-b3, ALL RULED. Queue row Q41.
