@@ -1,6 +1,6 @@
 # Tier-3 Encounter-Geometry — Charter Elicitation Grill (R5 = BEGIN)
 
-> **STATUS:** ⚡ RULINGS RECEIVED 2026-07-22 same-day — **F2 ✓ RULED (gamora + drax-sequencing rider) · F3 ✓ RULED (all three, Q38 frame) · F1 lean ADOPTED + two Matt-riders, folded in § THE F1 FOLD — ONE confirm pending on the folded shape.** T3-F4 gate v0 drafted below. **Queue row Q41.**
+> **STATUS:** ✅ GRILL COMPLETE — ALL FORKS RULED 2026-07-22. **F1 ✓ CONFIRMED** (Matt: *"F1 confirmed"*) · **F2 ✓** gamora (+drax-sequencing rider) · **F3 ✓** all-three/Q38, as amended by R-b2 (era×FAMILY) · **F4** gate v0 → X/Y at prereg · **F5 ✓ TRAVELING-KIN** (Matt: *"traveling kin is right"*) · **R-b1/R-b2/R-b3 ✓** (second batch below). **CHARTER DRAFTED:** `agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-charter.md` → jack-ryan Gate-1 → prereg → run. **Queue row Q41.**
 > **Authority:** Q40 ruling sheet R5 = *"BEGIN = ELICITOR charter session with me present."* This sheet is the durable grill surface for that session — rule async here or live in-session; either lands the same.
 > **Author:** gandalf (ELICITOR) · 2026-07-22
 > **Discipline:** desirable-run-pattern § 3 — a Tier-3 run cannot charter without a **decidable target-state**. These three forks ARE the target-state definition. ELICIT, don't impose: leans stated, Matt rules.
@@ -58,7 +58,7 @@ The kit corpus (574 real kits; 267 record-class with full v2.0 six-block geometr
 1. **Era-act marriage (rider 1 — ADOPTED into the fold).** The roguelite run structure (act = era/age) becomes the fit layer's indexing spine: `fit(kit, encounter | era)`. Q38 already ruled eras-as-shelves on the kit side — this makes the encounter side speak the same coordinate. Three concrete wins: (i) the mob-harvest gets per-era strata (bounded substrate, tractable collection); (ii) the decidability gate sharpens — showcase/stress claims are tested per-era, not corpus-global; (iii) an act's encounter deck IS its era's grammar subset — the fit layer feeds run-generation directly. Genre precedent: Hades' act-biomes each carry their own encounter grammar and the same build plays differently per act; D2's acts carry distinct pressure signatures (Act-2 swarm+ranged-burst beetles/mummies vs Act-4 curse-pressure oblivion knights). **One named caution:** era-conditioning states what encounters SUIT an era's kits — it must NOT silently become kit-availability gating. Availability is progression design (the §1.6 scaling-curve lane, jack-ryan Gate-1 per R6), not Tier-3's to decide.
 2. **Map-area archetypes (rider 2 — ADOPTED as the grammar's MACRO tier).** The grammar is three-tiered: **MACRO-topology** (map-area archetype: hub-brawl / outpost-lattice / corridor-gauntlet / siege-line, …) → **MESO-formation** (mob formations within an area: swarm ring, ranged crescent, elite+retinue) → **MICRO-pressure** (per-pack timing/spacing). Matt's two examples are genuinely distinct macro archetypes with opposite pressure grammars: *centralized multi-faction melee* (converging pressure, faction crossfire, player-as-third-party — D2 Travincal council brawl, GD three-way faction fights) vs *decentralized faction outposts* (sweep-and-clear, approach-vector choice, pull discipline — D2 Pit/seal-pop patterns, GD nemesis outposts, PoE expedition placement). **Faction-composition is a macro-tier PARAMETER** (mono-faction outpost vs multi-faction contested) — which plugs straight into the F2 modular roster (monsters → mapped factions; biome/tileset → faction morph). Falsifiability split: MESO/MICRO claims are gamora-sim-testable now; MACRO claims become fully testable when drax floors consume — so the T3-F4 gate binds on meso/micro, and macro ships as parameterized grammar with sim-proxy checks (spawn-topology effects on pressure metrics).
 
-**Confirm wanted (one word):** F1 = era-indexed fit layer + three-tier grammar (macro/meso/micro) with faction-composition as a macro parameter — the run CLOSES on the fit layer discriminating at meso/micro per-era. On confirm, the charter drafts.
+**Confirm wanted (one word):** F1 = era-indexed fit layer + three-tier grammar (macro/meso/micro) with faction-composition as a macro parameter — the run CLOSES on the fit layer discriminating at meso/micro per-era. On confirm, the charter drafts. **→ ✓ CONFIRMED (Matt 2026-07-22: *"F1 confirmed"*) — charter drafted same-turn.**
 
 ## T3-F4 — Decidability gate v0 (DRAFTED, per the folded F1; finalized at prereg)
 
@@ -66,7 +66,7 @@ For **each era shelf**: a stratified record-class kit sample (floor n≥8 per er
 
 ---
 
-**Next beat:** Matt's one-word confirm on THE F1 FOLD → charter drafts (conductor: gandalf RUN-CONDUCTOR per desirable-run-pattern § 3 fit test, confirmed at charter time) → prereg (X/Y set on gamora baselines) → jack-ryan Gate-1 → run. Island re-cut + naming stays gated behind Tier-3 completion AND R1 resolution per the Q40 §5 re-anchor proposal.
+**Next beat (~~confirm~~ → LANDED 2026-07-22):** F1 confirmed + T3-F5 traveling-kin ruled → **charter DRAFTED** (`agentic_orchestration/gandalf/notes/2026-07-22-tier3-encounter-geometry-run-charter.md`; gandalf RUN-CONDUCTOR; fit test 4/4 YES) → jack-ryan Gate-1 → W0 harvest+freeze → prereg (X/Y on gamora baselines) → run; fires on Gate-1 pass, veto-open. Island re-cut + naming stays gated behind Tier-3 completion (R1 resolved PATH A; trigger word still Matt's).
 
 ---
 
@@ -179,7 +179,7 @@ The kin guarantee collides with Appendix-B reading 2 (holes are true genre histo
 
 | option | mechanism | verdict |
 |---|---|---|
-| **(a) TRAVELING KIN** | your kin faction TRAVELS with you — a reserved encampment slot per act; the anachronism IS the story (a whirlwind caravan camped in the trap-age). D2 caravan lineage: Warriv/Meshif follow the player through acts | **LEAN** |
+| **(a) TRAVELING KIN** | your kin faction TRAVELS with you — a reserved encampment slot per act; the anachronism IS the story (a whirlwind caravan camped in the trap-age). D2 caravan lineage: Warriv/Meshif follow the player through acts | **✓ RULED (Matt 2026-07-22: *"traveling kin is right"*)** |
 | (b) ERA-RELAXATION | kin faction simply spawns in-act regardless of era-affinity; no narrative dressing | functional, flavorless fallback |
 | (c) BECOME-GATING | only allow becoming families native to the NEXT act | **REJECT** — constrains the core become-fantasy to serve a spawn table |
 | (d) KIN-ADJACENCY | nearest-family substitute counts as kin | **REJECT** — dilutes "at odds with ALL other families except yours"; the ruling's edge is its clarity |
@@ -188,7 +188,7 @@ Under (a), the era-holes stay load-bearing for HOSTILE composition (per-act show
 
 ### Fork-let 5b — disposition-flip timing
 
-When you become mid-act: do already-spawned same-family packs flip to kin INSTANTLY or at the act boundary? **Lean: INSTANT** — the world reads the form; the mid-fight flip is the reveal that TEACHES the rule (one becoming, witnessed, replaces a tutorial).
+When you become mid-act: do already-spawned same-family packs flip to kin INSTANTLY or at the act boundary? **Lean: INSTANT** — the world reads the form; the mid-fight flip is the reveal that TEACHES the rule (one becoming, witnessed, replaces a tutorial). *(Adopted veto-open — charter ledger T3-V1.)*
 
 ### Residual-role observation
 
@@ -202,4 +202,4 @@ Confirming the F1 fold = saying YES, the Tier-3 run builds these three things:
 2. **The three-tier encounter grammar** — MACRO map-area archetypes (centralized brawl + decentralized outposts — now with a DISPOSITION dimension per R-b3: hostile-outpost vs kin-outpost) · MESO formations · MICRO per-pack pressure verbs; faction composition family-keyed (R-b1/R-b2) and player-form-coupled (R-b3).
 3. **The T3-F4 gate** — MESO/MICRO must BIND in simulation (gamora evidence, X/Y set at prereg); MACRO ships parameterized.
 
-It does NOT decide: kit availability/progression (R6 — jack-ryan lane) · act ORDER (descent-direction story fork, parked) · T3-F5 (its own word, or park-with-lean at charter review).
+It does NOT decide: kit availability/progression (R6 — jack-ryan lane) · act ORDER (descent-direction story fork, parked) · T3-F5 (~~its own word~~ **✓ RULED TRAVELING-KIN same-day**).
