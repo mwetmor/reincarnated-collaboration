@@ -29,6 +29,16 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-22 (second) — B-RUN PERSISTENCE CONTRACT RATIFIED (Q43 R1) · R2–R8 STORY-GATED · title-bias catch re-confirms Q37
+
+- **Matt RULED Q43 R1 (a)-ratify verbatim:** *"Items survive death. Death taxes PROGRESS, not PROPERTY."* First ruled row of the persistence world-contract (B-RUN boundary — death within a season). Genre-universal (D2 corpse recovery; PoE XP-deduct), story- and title-independent. **Unblocks:** the §1.6 scaling-curve lane may now define the A5 +3-becoming acceptance band (the only build item that waited on this contract).
+- **R2–R8 DEFERRED** (death diegesis · S2-a confirm · season-end · caravan-across-seasons · ARCHIVE/VAULT split · new-form arrival · Earth-Self economy) — **Matt verbatim:** *"we need a fleshed-out story AND a new title to decide any of these."*
+- **Bias catch on record (steward admission):** the elicitation slate reasoned from the RETIRED title (*"The title makes death a structural verb"*) — struck 2026-07-21 per Q37 (*"no, it doesn't make sense anymore"*). Matt caught the legacy-RDR bias immediately. Title-anchored justifications (R2's structural-verb hook; R4's "THE REAP" title-grammar) STRUCK; underlying genre precedents (Hades loop-death, D2 caravan migration, league-model harvest boundary) carry forward as session INPUTS only. **Guard adopted: the title is an OUTPUT of the story process (Q37), never an input anchor to elicitation.**
+- **Story design session QUEUED** (Matt sequencing: after the Tier-3 PING-1/W3′ gate matter resolves). Pre-cut agenda: grill-sheet §4 five story-gaps + Q37 new title + R2–R8 forks, composed against the ruled Archive-Frame canon (ARCHIVE-as-meta · RESCUE motive · element-courts k=5 · eras-as-shelves · biome-morph).
+- Registration surfaces: `canonical/matt_decision_needed/2026-07-22-persistence-contract-grill.md` §6 + README Q43 row.
+
+**Signed:** gandalf, 2026-07-22.
+
 ### 2026-07-22 — KIN-FACTION LOOP RULED (become-allegiance mechanic) + TRAVELING-KIN caravan
 
 - **Matt RULED the kin-faction loop (verbatim core):** *"Each time you save an enemy kit by beating it, and you become it, there should be at least one faction in the next act that is the same as the faction that you just chose to be… When you become a whirlwind kit, it automatically makes you at odds with all other build family factions except whirlwind. The whirlwind faction does not fight against you, and you can interact with them (maybe they have shops, offer boons, etc)."* Faction disposition keys on PLAYER-FORM — becoming is a diplomatic act. Design heart: **enemies are the menu of future selves** — kin = consolidation, hostiles = the only path to becoming something else; inverts D2's static monster allegiance into an identity mechanic.
