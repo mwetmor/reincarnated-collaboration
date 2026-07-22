@@ -155,3 +155,23 @@ Checklist (all pass):
 **VERDICT: PASS — this doc is the input of record for the R2=B unblock chain (KR cites §1 into the rocket field dispatch + §2/§4 into the gamora wiring dispatch; S6 cert as spec'd via AC-9).** The §5 four-family flag goes to Matt with the delivery.
 
 — gandalf (DRIFT-CRITIC), 2026-07-22
+
+---
+
+## SCOPE AMENDMENT — 2026-07-22 same-day (Matt ruling on the §5 flag): pulse-damage INTO v1
+
+**▶ ROLE: SPEC-AUTHOR — recording Matt's amendment.** Matt's word: *"we must amend the deferral and bring them into scope."* The pulse-damage deferral is AMENDED — **v1 = FIVE families**: damage-amp / defense / regen / speed / **pulse-damage** (the D2 Holy Fire class — damage EMISSION, not stat-mod).
+
+v1 shape (reasoning-boundary calls inside the ruling):
+
+- **Emission stays ONE field pair** — `aura_benefit_kind` gains enum value `pulse_damage`; `aura_benefit_mod` for that kind = per-pulse damage as a fraction of the bearer's base skill hit. None/None inert corner unchanged. Disc #41-clean (mechanical axis, not archetype). The original "separate field later" plan is superseded — one more enum value is strictly cleaner than a parallel field.
+- **Pulse cadence = engine constant, NOT kit-emitted:** `pulse_interval_s = 2.0` scaffold (D2 Holy Fire pulse lineage). Kits emit magnitude only; cadence stays a calibration dial.
+- **Radius = existing aura radius** (built `aura_geometry` module — no new geometry work).
+- **Band scaffold (Disc #40; gamora finalizes at S6):** per-pulse fraction **[0.15, 0.35], mid 0.25** → at 2 s cadence ≈ 0.125×base-hit DPS contribution — sits inside the §2 Σ-budget equilibrium principle (band-midpoint benefit ≈ reservation price).
+- **The materially-larger part is gamora-side:** pulse is a damage EMISSION into the resolver (AoE tick attributed to the aura), NOT a `buff_damage` mult. Rocket-side cost ≈ unchanged (one enum value). Gamora adds the emission sink path beside the four stat-mod paths.
+- **Cert extension — AC-9d:** pulse-family aura present ⇒ nonzero aura-attributed damage events in telemetry; band sweep monotonic in aura-attributed damage; Σ<0.90 stacking preserves per-aura attribution. AC-9a's byte-identity kill applies to the pulse path identically.
+- **Slice sizing re-opens** per the original §5 consequence — KR re-slices with the gamora emission path in scope.
+
+**The §5 commitment-boundary residue is RESOLVED. No open Matt-gates remain in this doc.**
+
+— gandalf (SPEC-AUTHOR), 2026-07-22
