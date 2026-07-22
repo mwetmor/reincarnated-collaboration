@@ -150,4 +150,4 @@ Route the spec to jack-ryan. Do not fire step (b) until PASS / PASS-WITH-AMENDME
 
 ## Commit / push
 
-Auto-commit in-scope work-products (spec, math-notes, smoke scripts, code). **PUSH: ask KR/Matt** — no per-cycle push pattern is established for this lane yet (unlike Wave-B). Surface a push-request at each slice boundary unless KR relays a Matt push-pattern authorization.
+Auto-commit in-scope work-products (spec, math-notes, smoke scripts, code). **PUSH: authorized "as you go"** (Matt 2026-07-22 — per-workstream push pattern established for this lane, ADR-006 exception). Push after each unit completes (spec at step-(a) close; each build slice at step-(b)). Prove pre-existing HEAD failures via git-stash before any tagged push.

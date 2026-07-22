@@ -27,7 +27,7 @@
 - Namespace: own dispatch namespace only.
 
 ## Push posture
-No per-cycle push pattern established for this lane. gamora surfaces a push-request per slice; KR relays to Matt.
+**PUSH-AS-YOU-GO authorized** (Matt 2026-07-22 — ADR-006 per-workstream push pattern for this lane). Auto-push after each unit completes (spec at step-(a) close; each build slice). No per-slice push-request needed.
 
 ## Open KR actions
 - Relay to gamora any W2 red-flag arrival from the Tier-3 run.
