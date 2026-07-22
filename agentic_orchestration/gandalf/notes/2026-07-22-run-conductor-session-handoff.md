@@ -21,7 +21,7 @@
 
 **Interpretation registered with Matt at wind-down (veto-open, he saw it before this session closed):** "begin immediately if no gaps" = per-tier gap-check against the twin (§3 protocol below); if CLEAN → adopt the twin's ratified charter shape + Matt-interface pattern (Run B precedent R-8(b): review book at end, red-flag pings only), file the charter as a **veto-open queue record**, and LAUNCH without a blocking ratification round. If the gap-check surfaces **commitment-boundary** forks → ELICITOR slate to Matt FIRST (that IS the "gaps exist" branch). Preregistration, veto-open ledger, jack-ryan Gate-2, and Matt's reserved commitment-boundaries (freezes, taste cuts) remain intact regardless.
 
-**Push status:** [FILL AT SESSION START — gandalf asked Matt at wind-down whether the runs carry Run-B-style push-as-you-go; if unanswered, charters declare push cadence and Matt confirms in his one-word charter acknowledgment. Local commits through the wind-down commit are NOT pushed.]
+**Push status:** wind-down push **AUTHORIZED + EXECUTED** (Matt 2026-07-22, verbatim "Push Authorized" — remote current through the wind-down commits). Run-level **push-as-you-go NOT yet established as a pattern** — a bare push authorization is an action, not a workstream pattern (CLAUDE.md per-workstream push-pattern rule). Each charter proposes Run-B-style push-as-you-go for Matt's one-word confirm at launch.
 
 ## §2 — The three tiers, their comparative twins, and known riders
 
