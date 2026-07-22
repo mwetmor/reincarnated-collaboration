@@ -1,0 +1,205 @@
+{
+  "n_kits": 265,
+  "n_cells": 259,
+  "n_multi_cells": 5,
+  "within_cell_homogeneous": 4,
+  "within_cell_scatter": 1,
+  "within_cell_detail": [
+    {
+      "members": [
+        "poe1-ea-ballista",
+        "poe1-fire-trap",
+        "poe1-pizza-sticks"
+      ],
+      "element_primary": [
+        "fire",
+        "fire",
+        "fire"
+      ],
+      "homogeneous": true
+    },
+    {
+      "members": [
+        "poe1-tornado-shot",
+        "poe1-wander"
+      ],
+      "element_primary": [
+        null,
+        null
+      ],
+      "homogeneous": true
+    },
+    {
+      "members": [
+        "d2-wl-echoing-strike",
+        "poe1-facebreaker"
+      ],
+      "element_primary": [
+        null,
+        null
+      ],
+      "homogeneous": true
+    },
+    {
+      "members": [
+        "d2-wl-abyss",
+        "d2-wl-fire"
+      ],
+      "element_primary": [
+        null,
+        "fire"
+      ],
+      "homogeneous": false
+    },
+    {
+      "members": [
+        "poe1-archmage",
+        "poe1-ball-lightning"
+      ],
+      "element_primary": [
+        "lightning",
+        "lightning"
+      ],
+      "homogeneous": true
+    }
+  ],
+  "per_coordinate_cramers_v": [
+    {
+      "coordinate": "function",
+      "V_all": 0.4631796995440355,
+      "p_all": 3.5632637048998236e-42,
+      "n_all": 237,
+      "V_nonnull": 0.555423605004376,
+      "p_nonnull": 1.0525442819626595e-32,
+      "n_nonnull": 154
+    },
+    {
+      "coordinate": "amp",
+      "V_all": 0.23067314023477428,
+      "p_all": 4.0903434811043986e-05,
+      "n_all": 263,
+      "V_nonnull": 0.2443921893303102,
+      "p_nonnull": 0.0005750180514972277,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "tempo",
+      "V_all": 0.17233331501618646,
+      "p_all": 0.004226944901534682,
+      "n_all": 265,
+      "V_nonnull": 0.23062994157549896,
+      "p_nonnull": 0.0013360411236847042,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "treatment",
+      "V_all": 0.1744452065756918,
+      "p_all": 0.032112121107170676,
+      "n_all": 237,
+      "V_nonnull": 0.21371943730182233,
+      "p_nonnull": 0.026404073725460952,
+      "n_nonnull": 154
+    },
+    {
+      "coordinate": "dependency",
+      "V_all": 0.1613287175066181,
+      "p_all": 0.008981578929416303,
+      "n_all": 261,
+      "V_nonnull": 0.18167108678637464,
+      "p_nonnull": 0.01592428329643663,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "defense",
+      "V_all": 0.14387278211512733,
+      "p_all": 0.006581234525083904,
+      "n_all": 233,
+      "V_nonnull": 0.1489542901843209,
+      "p_nonnull": 0.02237641182568209,
+      "n_nonnull": 152
+    },
+    {
+      "coordinate": "activation",
+      "V_all": 0.10594619561273246,
+      "p_all": 0.15970928462013134,
+      "n_all": 261,
+      "V_nonnull": 0.13330077664750892,
+      "p_nonnull": 0.1391787863849799,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "geometry",
+      "V_all": 0.1452044586255646,
+      "p_all": 0.032929517334375984,
+      "n_all": 237,
+      "V_nonnull": 0.08665973301355177,
+      "p_nonnull": 0.3161446067604549,
+      "n_nonnull": 152
+    },
+    {
+      "coordinate": "movement",
+      "V_all": 0.050196233430663144,
+      "p_all": 0.34087460236893596,
+      "n_all": 235,
+      "V_nonnull": 0.060506233601338125,
+      "p_nonnull": 0.33027669695116185,
+      "n_nonnull": 151
+    },
+    {
+      "coordinate": "delivery",
+      "V_all": 0.09283940782074654,
+      "p_all": 0.08449053978728328,
+      "n_all": 261,
+      "V_nonnull": 0.0,
+      "p_nonnull": 0.48918657495167295,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "economy",
+      "V_all": 0.024011509170591073,
+      "p_all": 0.4368444008588655,
+      "n_all": 231,
+      "V_nonnull": 0.0,
+      "p_nonnull": 0.6114400219617768,
+      "n_nonnull": 152
+    },
+    {
+      "coordinate": "proxy",
+      "V_all": 0.0,
+      "p_all": 0.6278909739093987,
+      "n_all": 265,
+      "V_nonnull": 0.0,
+      "p_nonnull": 0.46692600593290623,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "range",
+      "V_all": 0.19479822720821738,
+      "p_all": 0.0008575826402052131,
+      "n_all": 265,
+      "V_nonnull": 0.0,
+      "p_nonnull": 0.8022299924900199,
+      "n_nonnull": 165
+    },
+    {
+      "coordinate": "commit",
+      "V_all": 0.0,
+      "p_all": 0.6022057692516593,
+      "n_all": 263,
+      "V_nonnull": 0.0,
+      "p_nonnull": 0.8300911360239578,
+      "n_nonnull": 165
+    }
+  ],
+  "max_cramers_v": 0.555423605004376,
+  "max_cramers_v_coordinate": "function",
+  "cramers_v_ep_vs_court": {
+    "V": 0.795766748009405,
+    "p": 4.1885302649668914e-79,
+    "n": 163
+  },
+  "decision": "ADMIT-AS-AXIS-INPUT",
+  "rationale": "element_primary tracks the function mechanical coordinate at V=0.555 >= 0.50 (coherent direction, not orthogonal noise).",
+  "V_admit_threshold": 0.5,
+  "V_demote_threshold": 0.3
+}

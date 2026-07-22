@@ -1,0 +1,304 @@
+{
+  "frozen_basis_smoke_max_err": 4.937541087102204e-08,
+  "e1_active_cos2_n": 469,
+  "e1_active_cos2_median": 0.16852967456492846,
+  "record_total": 267,
+  "record_projectable_n": 265,
+  "record_unprojectable": [
+    "d2-teleport-sorc",
+    "poe1-blood-magic-kit"
+  ],
+  "record_cos2_median": 0.18423732833264442,
+  "expression_arm_threshold": 0.08426483728246423,
+  "expression_arm_fires": false,
+  "frozen_level_vocab_size": 62,
+  "vocabulary_arm_absent_ge20": [
+    {
+      "field": "origin",
+      "level": "self",
+      "count": 490
+    },
+    {
+      "field": "delivery_class",
+      "level": "zone",
+      "count": 115
+    },
+    {
+      "field": "delivery_class",
+      "level": "melee_arc",
+      "count": 77
+    },
+    {
+      "field": "delivery_class",
+      "level": "aura",
+      "count": 71
+    },
+    {
+      "field": "range_band",
+      "level": "self",
+      "count": 71
+    },
+    {
+      "field": "motion_signature",
+      "level": "straight_line",
+      "count": 71
+    },
+    {
+      "field": "motion_signature",
+      "level": "ground_place",
+      "count": 63
+    },
+    {
+      "field": "motion_signature",
+      "level": "point_strike",
+      "count": 56
+    },
+    {
+      "field": "element_primary",
+      "level": "fire",
+      "count": 55
+    },
+    {
+      "field": "delivery_class",
+      "level": "summon_delegate",
+      "count": 53
+    },
+    {
+      "field": "motion_signature",
+      "level": "fan_spread",
+      "count": 49
+    },
+    {
+      "field": "delivery_class",
+      "level": "motion",
+      "count": 47
+    },
+    {
+      "field": "element_primary",
+      "level": "lightning",
+      "count": 41
+    },
+    {
+      "field": "motion_signature",
+      "level": "burst_around_self",
+      "count": 37
+    },
+    {
+      "field": "width_band",
+      "level": "wide",
+      "count": 34
+    },
+    {
+      "field": "element_primary",
+      "level": "shadow",
+      "count": 32
+    },
+    {
+      "field": "element_primary",
+      "level": "water",
+      "count": 25
+    },
+    {
+      "field": "motion_signature",
+      "level": "orbit_fixed",
+      "count": 22
+    },
+    {
+      "field": "motion_signature",
+      "level": "arc_sweep",
+      "count": 21
+    }
+  ],
+  "vocabulary_arm_fires": true,
+  "census": {
+    "delivery_class": {
+      "zone": {
+        "count": 115,
+        "absent": true
+      },
+      "projectile": {
+        "count": 97,
+        "absent": false
+      },
+      "melee_arc": {
+        "count": 77,
+        "absent": true
+      },
+      "aura": {
+        "count": 71,
+        "absent": true
+      },
+      "summon_delegate": {
+        "count": 53,
+        "absent": true
+      },
+      "motion": {
+        "count": 47,
+        "absent": true
+      },
+      "beam": {
+        "count": 16,
+        "absent": false
+      }
+    },
+    "range_band": {
+      "melee": {
+        "count": 93,
+        "absent": false
+      },
+      "self": {
+        "count": 71,
+        "absent": true
+      },
+      "screen": {
+        "count": 13,
+        "absent": true
+      },
+      "short": {
+        "count": 3,
+        "absent": true
+      },
+      "long": {
+        "count": 1,
+        "absent": true
+      }
+    },
+    "motion_signature": {
+      "straight_line": {
+        "count": 71,
+        "absent": true
+      },
+      "ground_place": {
+        "count": 63,
+        "absent": true
+      },
+      "point_strike": {
+        "count": 56,
+        "absent": true
+      },
+      "fan_spread": {
+        "count": 49,
+        "absent": true
+      },
+      "burst_around_self": {
+        "count": 37,
+        "absent": true
+      },
+      "orbit_fixed": {
+        "count": 22,
+        "absent": true
+      },
+      "arc_sweep": {
+        "count": 21,
+        "absent": true
+      },
+      "chain_hop": {
+        "count": 10,
+        "absent": true
+      },
+      "blink_translate": {
+        "count": 8,
+        "absent": true
+      },
+      "lane_place": {
+        "count": 6,
+        "absent": true
+      },
+      "fork_split": {
+        "count": 4,
+        "absent": true
+      },
+      "ricochet_return": {
+        "count": 2,
+        "absent": true
+      },
+      "leap_arc": {
+        "count": 2,
+        "absent": true
+      },
+      "inward_pull": {
+        "count": 1,
+        "absent": true
+      }
+    },
+    "width_band": {
+      "wide": {
+        "count": 34,
+        "absent": true
+      },
+      "narrow": {
+        "count": 2,
+        "absent": true
+      },
+      "medium": {
+        "count": 1,
+        "absent": true
+      }
+    },
+    "speed_band": {
+      "fast": {
+        "count": 17,
+        "absent": true
+      },
+      "slow": {
+        "count": 4,
+        "absent": true
+      },
+      "instant": {
+        "count": 4,
+        "absent": false
+      }
+    },
+    "cadence_class": {
+      "cooldown": {
+        "count": 77,
+        "absent": false
+      },
+      "channel": {
+        "count": 35,
+        "absent": false
+      },
+      "spam": {
+        "count": 18,
+        "absent": true
+      },
+      "builder_spender": {
+        "count": 9,
+        "absent": true
+      }
+    },
+    "origin": {
+      "self": {
+        "count": 490,
+        "absent": true
+      }
+    },
+    "element_primary": {
+      "(null)": {
+        "count": 100,
+        "absent": true
+      },
+      "fire": {
+        "count": 55,
+        "absent": true
+      },
+      "lightning": {
+        "count": 41,
+        "absent": true
+      },
+      "shadow": {
+        "count": 32,
+        "absent": true
+      },
+      "water": {
+        "count": 25,
+        "absent": true
+      },
+      "earth": {
+        "count": 12,
+        "absent": true
+      }
+    }
+  },
+  "trigger_fired": true
+}

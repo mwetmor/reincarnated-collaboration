@@ -7,6 +7,30 @@
 
 ---
 
+## legb-e5-refit-attempt-2026-07-22 — Leg-B (Edition-V) Path-B refit: TRIGGER fired (vocabulary arm) → refit executed → **HALTED at B3 congruence (0.7836 < 0.85)** — corpus.db READ-ONLY, md5 UNMOVED — 2026-07-22 — **HALTED, NO DB CHANGE, NO CANDIDATE SERVED**
+
+### What happened (one line)
+The pre-registered E5 refit-trigger diagnostic (`2026-07-22-leg-b-edition-next-preregistration.md`, BINDING §13) was executed over the v2.0 record-267 baseline. **STEP 1 vocabulary arm FIRED** (19 absent geometry-band/element_primary levels each ≥20 exhibits; expression arm did NOT — record cos² actually slightly ABOVE E1-active). **STEP 2 ruled element_primary ADMIT-AS-AXIS** (within-cell 4/5 homogeneous; max mechanical Cramér's V=0.555 vs `function`). **STEP 3 Path-B refit executed** (hyperparameters UNCHANGED; 265-kit record-class fit, 21 blocks, 17 retained dims) then **HALTED at B3** — the Procrustes-no-scale anchor to E4's camera (46 record-class gateA common members, floor 40 cleared) produced congruence **0.7836 < 0.85** with a **58.54° rotation + reflection** (s*=0.8117 disclosed, not applied). Per §8-C (the refit-candidate-1 rotation precedent) the refit is NOT served; **E4 remains truth**. Per §7 no-tuning-until-pass, elrond does NOT tune / does NOT self-authorize the one amendment cycle — the conductor rules the fork.
+
+### DB impact — NONE (read-only derivation)
+`corpus.db` md5 **`bebc933b0bf9bcab5988bbc16bcc55b4`** — verified UNMOVED open AND close (the whole wave opened the DB `mode=ro`). Zero schema change, zero data touch, zero view redef. This is a research derivation emitting NEW atlas artifacts, not a corpus.db migration. Documented here per RB-4 discipline (the committed record is the durable proof; the DB binary is git-ignored + regenerable).
+
+### Artifacts emitted (all under `research/curated/atlas/`, all NEW)
+- `2026-07-22-legb-step1-trigger.json` — STEP 1 census: both arms, cos² medians (E1-active 0.16853 / record 0.18424), the 19 absent-≥20 levels, the 2 unprojectable degenerate record kits (`d2-teleport-sorc` / `poe1-blood-magic-kit` — pure-movement / keystone-passive, NULL atlas_coords, canon_engine_key row_class=system-record → no derivable tuple; the prereg's "trivial fresh projection" assumed an atlas_coords tuple that does not exist in v2.0).
+- `2026-07-22-legb-step2-elemprimary.json` — STEP 2 within-cell + per-coordinate Cramér's V + the ADMIT decision.
+- `2026-07-22-legb-gate-report.md` — the full refit report THROUGH the B3 halt (retention table, MFA weights, triangulation ARIs, anchor n=46, **rotation 58.54° + reflection + s*=0.8117 + max-mover table** per §8-C disclosure).
+- **NO `atlas-edition5.json`** — correct: the HALT fired BEFORE artifact emission (a failed/unwarranted refit does not ship as decoration, §8 ban).
+
+### Scripts (read-only tool scripts, `research/scripts/`)
+- `atlas_legb_step1_trigger_2026_07_22.py` (imports `atlas_frozen_basis_reconstruct` — the frozen E4==E1 basis, smoke-verified to 4.9e-08).
+- `atlas_legb_step2_elemprimary_2026_07_22.py`.
+- `atlas_legb_refit_2026_07_22.py` (re-uses `atlas_derivation_2026_07_14` machinery VERBATIM — MCA/Greenacre/MFA/Gower/Leiden/LCA/PERMANOVA/PERMDISP/Procrustes; generalized only to a 21-block feature set; method UNCHANGED). Deterministic re-run reproduces every statistic (SEED 20260722).
+
+### ADR-004 + reversibility
+No engine-telemetry change; star-lord-side `MIGRATION.md` unaffected (this is research-DB / atlas-artifact, my seam). Nothing to reverse — corpus.db untouched, served E4 untouched. Auto-committed per project discipline (Matt-authorized run charge). **NO push — conductor centralizes pushes for this run (E-2).** The B3-halt fork PARKS at the conductor for ruling (§8-B/§8-C options), and the Edition-V freeze stays Matt's boundary regardless.
+
+---
+
 ## vdm2-w6-render-2026-07-22 — VDM-2 W6-data: the FINAL Leg-A wave — the six side-cars + 2 registries surfaced per-kit into the 574-row kit_master surface + compendium re-rendered at v2.0, ALL in the READ-ONLY render layer (canon_corpus FROZEN, corpus.db md5 unmoved) — 2026-07-22 — **RENDERED**
 
 ### What changed (one line)
