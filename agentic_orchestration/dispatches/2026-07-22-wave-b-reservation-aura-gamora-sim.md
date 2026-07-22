@@ -119,5 +119,20 @@ Regression: 14/14 sim smokes exit-0 (zero regression). py_compile clean. No touc
 
 Regression: 14/14 sim smokes exit-0.
 
-### Slice 3 (S6 full-path cert) — NOT started; READY. STOPPING HERE (per dispatch: do NOT rush the full-path cert).
-The S6 full-path gauntlet cert at the D2-dominance/evaporate bands is the GATE before any MILESTONE tag (Disc #2 — not smoke alone). It finalizes the `aura_reattune_ramp_s` band [0.5,1.5] (rocket scaffold default 1.0s) + the `aura_radius_m` band [2.0,12.0], and renders the AC-9 archetype-defining judgment. Gauntlet drivers exist (`gauntlet_sim.py`, `unified_calibration_loop.py`, `sc7_calibration_loop.py`). **S6-cert-readiness: READY** — the MVP + banner surfaces are built, smoke-green, and pushed; the cert is a dedicated full-path calibration pass (full-regen wall-clock). Requesting a KR continuation dispatch to run Slice 3.
+### Slice 3 (S6 full-path cert) — HALT: DESIGN-FORK-SURFACED (2026-07-22, SESSION 68)
+**Tag:** `gamora/v1.12-wave-b-reservation-aura-s6cert-3` · **PUSHED** (NOT a milestone tag — a HALT record).
+**Math note (Disc #1/#3.6):** §8 of `simulation/math/waveb-reservation-aura-sim-2026-07-22.md`.
+
+**Verdict: DESIGN-FORK-SURFACED — the S6 cert cannot be executed as specified.** Did NOT run the heavy gauntlet, did NOT finalize the two bands, did NOT milestone-tag. Routed to KR per the dispatch escalation boundary (Q33-D2 fork-valve UNRULED ⇒ a design fork is a terminal HALT to Matt; KR routes).
+
+**The finding (empirical, Disc #11):** the aura BENEFIT-side is COMPUTED but UNWIRED. `aura_effective_benefit()` (`spatial_engine.py:2650`) composes `full · radius_gate · ramp` correctly but has ZERO fight-loop call sites — invoked ONLY by my Slice-1/2 smoke scripts as an observable (grep-confirmed). `full_benefit` defaults 1.0, never sourced from the kit, never applied to any beneficiary's resolved damage/defense/stat. Rocket's `AURA_GEOMETRY_KEYS` deliberately emits ONLY positional/ramp geometry — no benefit-magnitude field. Only the RESERVATION side is wired (C3 pool-ceiling tax; can starve casting). So an aura is a pure reservation-tax carrier with no felt combat benefit.
+
+**Why the bands are unfalsifiable:** both scaffold bands gate the (unwired) benefit. Empirical probe (seed 99001): sweeping `aura_radius_m` ∈ {2.0, 7.0, 12.0} × `aura_reattune_ramp_s` ∈ {0.5, 1.0, 1.5} across full band extremes ⇒ byte-identical fight outcome + identical final energy (<1e-9). The only wired effect (reservation tax) is invariant to both. No basis to place either band in a "healthy window" — the sim has no benefit magnitude to calibrate.
+
+**Classification:** NOT the D2-dominance failure (aurastacker trivializes content) — the OPPOSITE: benefit-half unbuilt. NOT a bug in Slice-1/2 (radius/ramp/C3/AC-7-SIM built-true, smoke-green 8/8 + 4/4; reservation-economy identity works per ERRATA 13). The open question is a scope/design fork: (A) reservation-economy-only mechanic (benefit deferred) OR (B) benefit-bearing archetype requiring benefit-to-resolution wiring (gamora) + a benefit-magnitude emission field (rocket — a NEW generation primitive) + a calibration target. (B) needs a new primitive ⇒ I raise it, do not patch.
+
+**AC-9 judgment:** CURRENTLY NO — a stackable aura build differs ONLY on the economic axis ("how many fit under Σ<0.90"; AC-7-SIM block felt on over-reserve). Radius does NOT make positioning matter (gates an unlanded benefit); stacking more auras is pure downside. NOT "recognizably different, more auras fit and it matters" in the D2/PoE aurastacker sense — that requires the unbuilt benefit-side.
+
+**Empirical criterion gating re-engagement (Disc #3.6):** S6 cert runnable + bands finalizable ONLY after a Matt/KR ruling on (A) vs (B). If (B): after benefit-to-resolution wiring + benefit-magnitude field with a starting band, the gauntlet measures clear-time/survival across radius×ramp×benefit and I finalize at the healthy window. If (A): bands finalized by a positional-fidelity/flicker-feel criterion (not gauntlet dominance) — itself a design ruling I do not make.
+
+Slices 1+2 remain DELIVERED + PUSHED + smoke-green (14/14 sim smokes exit-0). This HALT is Slice-3 only. No touch to `resource_economy.py` / `bc_target_composer` (REMOTE TRUTH).
