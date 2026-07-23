@@ -688,8 +688,52 @@ says so.
   compiler consumption + re-assert → RED→GREEN): fires AFTER the KF-5 lane returns (same seam,
   same repo — collision law; any compiler amendment rides Gate-2 with/after KF-5's diff).
   Veto-open.
-- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a; cyclone RED →
-  elrond micro-lane in flight, gamora rule step queued behind KF-5). **KF-5:** in flight
-  (KFL-12b, gamora). **KF-6:** queues behind galadriel KT-lane (same tree). **KF-7:** pending.
+- **KFL-14 (2026-07-23, conductor): KF-5 VERIFIED — THE GAUGE'S FIRST CATCH — R-KF5-1 RULED;
+  ELROND LEAVES VERIFIED; FIX-FORWARD + RULE-STEP LANE FIRED.**
+  **(a) KF-5 lane VERIFIED + engine PUSHED (`b0684d4..2e222e3`).** Commit scope EXACT (math note
+  `de0090f` · Rider-1 isolated in `455d76a` — precisely the 2-entry mirror-sync with
+  byte-neutrality rationale inline · gauge in `2e222e3`). Conductor re-ran both smokes: KF-4
+  HOLDS 35 GREEN · 1 RED · 1 GAP; KF-5 PASS (bridge stamps both skills · all 59 damage events
+  carry the 5 additive fields · finite-or-null guard · Pin-A check `expected_premit == 2570.0` ·
+  same-seed determinism byte-identical · sink-ON vs OFF combat outcome identical 120.1==120.1).
+  Purity confirmed IN THE DIFF: `_kf5_gauge_for_hit` reads resolved state + `_composition`,
+  mutates nothing, draws no RNG; the None-sink default path never invokes it. **Deviations
+  ACCEPTED:** (1) `attach_composition_blocks` bridge — the compiler stamps `_composition` on the
+  dataclass, not `class_dict["skills"]`; the bridge stamps the resolver-ignored underscore key.
+  **KF-6 driver MUST call it before `run_spatial_fight` or the gauge renders all-null** (KF-6
+  brief rider). (2) Received-side `pct_received` null until KF-3 monster harvest emits mob
+  compositions — next-lap admission; dealt side fully wired.
+  **(b) THE BLOCKER — CONFIRMED + RULED `R-KF5-1` (reasoning-boundary, veto-open).** Conductor
+  confirmed both ends line-exact: `kit_compiler.py:541` emits effect name `"flat_damage"`;
+  `damage_resolver.py:832` consumes only `"damage"` → realized amount 0.0 on ALL compiled-kit
+  hits. KF-4 smoke and Gate-2 were structurally blind (asserts tested composition-EXISTENCE and
+  finiteness; 0.0 is finite). **The gauge caught the dead wire on first light — the run's thesis
+  working.** RULED **Option A**: one-line compiler rename `flat_damage`→`damage` — defect-repair
+  restoring the compiler's own spec'd behavior (the kit JSON says these effects ARE damage), zero
+  taste/roster/canon consequence → conductor-ruled. Option B REJECTED (resolver-boundary
+  normalization = Disc #12 semantic shift masking the defect at the wrong boundary); Option C
+  REJECTED (pct≈0 everywhere defeats KF-7). Gamora's throwaway-rename diagnostic (bonestorm
+  amount≈2115.6 · pct 137.2 ∈ band [96.2,141.8]) already proves rename param-compatibility
+  end-to-end.
+  **(c) ELROND MICRO-LANE VERIFIED (commit `a430a476`, pushes with this entry).** Scope exact
+  (2 migration `.sql` + note); 12 `_bp` leaves all `rdr_value NULL / rule_id NULL` (dual-column
+  law); `weapon_dps_target=650` untouched under `R-CTX-GEO`; Berserker citation id-64
+  `quarantined=1` NOT deleted (provenance preserved); 3 new citations classed
+  communal/dataset/dataset, accessed 2026-07-23. Conductor re-applied both migrations:
+  idempotent, 32|6 → 32|6, 650 stable. `INSERT OR IGNORE` deviation ACCEPTED (structural
+  immutability of existing rows — stricter than the sibling's `OR REPLACE`).
+  **(d) FIX-FORWARD + RULE-STEP LANE FIRED (named-gamora, bundled — one seam, one lane,
+  sequential):** (1) the R-KF5-1 one-line fix; (2) KF-5 smoke flipped from blocker-documenting
+  to healthy-path asserts (amount>0, sane pct band, determinism retained); (3) the KFL-13(e)
+  rule step — weapon-composition normalization rule + rdr derivation from the 12 verbatim
+  leaves (math note first per Disc #1; the REAL 1:1 quality rule → ~615 pDPS, the note's ~570
+  quarantined per KFL-13b; composition pinned against PoB CalcOffence) + compiler consumption →
+  cyclone `has_damage_base` RED→GREEN expected (36/0/1); (4) bonestorm WR-floor warning as
+  secondary heal signal. Then ONE jack-ryan Gate-2 over the full KF-5 range + riders + fix +
+  compiler amendment, fired after conductor verification of the lane. Veto-open.
+- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a). **KF-5:** VERIFIED
+  (KFL-14a) — fix-forward + rule step in flight (KFL-14d), consolidated Gate-2 to follow.
+  **KF-6:** queues behind galadriel KT-lane (same tree; driver must call
+  `attach_composition_blocks`). **KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
