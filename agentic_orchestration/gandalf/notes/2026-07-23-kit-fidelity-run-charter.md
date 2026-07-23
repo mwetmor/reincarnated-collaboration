@@ -988,11 +988,45 @@ says so.
   Matt field-report scorecard: item 1 (characters) untouched · items 2/3/4 (walls) FIXED +
   verified · item "new data not in use" RESOLVED on-screen (compiled roster live) pending
   rotation variety (KFL-21b). Veto-open.
+- **KFL-23 (2026-07-23, conductor): ROTATION-DIAGNOSIS LANE VERIFIED — CLASS B DESIGN GAP,
+  ZERO CODE — CAPTURE-PATH FORK AT MATT — CONSOLIDATED GATE-2 FIRED (KFL-21c RELEASED).**
+  **(a) Lane VERIFIED** (report `gamora/notes/2026-07-23-kf7-rotation-diagnosis.md`, collab
+  `94939a3c`): engine HEAD unchanged at `c5a2f2d` (tree noise only — zero simulation code);
+  40 frames untouched (mtime 06:11 = the re-emission write; rider + validation-table branch
+  correctly did NOT fire — both gate on re-emission). Conductor eye-verified the selector code
+  (`_dps_score:2073` = `dm/max(cd,0.5)`; mana-family → `greedy_capstone():2124`; role gates
+  `ai_strategies.py:456-464` + spatial mirrors all key off `skill.role`) and re-ran the compile
+  probe INDEPENDENTLY: **every skill of every compiled kit carries `role=None,
+  cooldown_seconds=None, cast_priority=None`** — fire-sorc FireBall dm 2.63 == Meteor 2.63
+  (first-wins `max()` → **Meteor structurally unreachable**); bonestorm 10.0 vs 1.0 (greedy
+  CORRECTLY skips the control skill). **The selector is faithful; the discriminating input does
+  not exist upstream — NOT the flat_damage pattern (missing INPUT, not disconnected wire).**
+  Per-kit taxonomy endorsed: firewall/cyclone mono-skill legitimate (cyclone = the charter's
+  named channel-commit case); fire-sorc + bonestorm genuine gap; gd-flames GAP-moot until T4.
+  Zero-code disposition CORRECT under Class B law.
+  **(b) COMMITMENT BOUNDARY → AT MATT (capture-path fork, decision-shaped in status):**
+  Path 1 = harvest per-skill `role` (KF-2 schema extension, cross-seam elrond/legolas dispatch;
+  fixes the gap at its true location; lights the EXISTING role gates with zero selector change;
+  generalizes to the full corpus) — gamora long-term lean + conductor lean. Path 3 = curated
+  per-kit `cast_priority` for the pilot-5 (in-seam stopgap; ~10-line priority-tiebreak branch +
+  hand table Matt must ratify per kit; high demo fidelity, does not generalize). **Path 2
+  (geometry→role heuristic) REJECTED by gamora AND conductor** — fabricates a design signal
+  from geometry, launders a global ruling as a derivation, lowers fidelity, and would poison a
+  later Path-1 migration (heuristic-role frames Matt has watched become the felt baseline).
+  Conductor sequencing lean: watch brief proceeds on the damage-faithful frames WITH the
+  rotation gap named (rotation was never in KF-7's exit predicate — it is a surfaced finding);
+  Matt's path ruling charters the NEXT lap, blocks nothing in-run. Veto-open.
+  **(c) Consolidated scoped Gate-2 FIRED** (jack-ryan, named): Part 1 = engine range
+  `a63d656..c5a2f2d` (ratified base_mean shape at `kit_compiler.py:280`, smoke band re-center,
+  INFO-1 docstring, rider-ii `skill_cooldowns`; + positivity-assert NOTE disposition check);
+  Part 2 = ENDORSE-or-CHALLENGE the Class B classification (soundness only — the path fork
+  stays at Matt). Findings to `jack-ryan/notes/2026-07-23-kf7-consolidated-gate2.md`.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
   by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17). **KF-6b:** VERIFIED + pushed
   (KFL-22) — walls at sim bounds, MCP 4.1.0 in-scene, CaptureRig proven; Mono fork AT MATT.
-  **KF-7:** re-emission VERIFIED + pushed (KFL-21a); **rotation diagnosis IN FLIGHT** (KFL-21b,
-  with arena-dims rider) → consolidated scoped Gate-2 (KFL-21c) → watch brief.
+  **KF-7:** re-emission VERIFIED + pushed (KFL-21a); rotation diagnosis **VERIFIED — Class B
+  design gap, zero code** (KFL-23a); **capture-path fork AT MATT** (KFL-23b); **consolidated
+  Gate-2 IN FLIGHT** (KFL-23c) → watch brief.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
