@@ -359,8 +359,16 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
 
 ## Ruling ledger
 
-*(Opens on charter ratification. Format per REPLICA-1: dated, decidable, veto-open.)*
+*(Format per REPLICA-1: dated, decidable, veto-open.)*
 
-- **KF-1..KF-7:** pending launch. Pins A/B pending Matt at KF-2 entry.
+- **KFL-1 (2026-07-23, conductor): CHARTER RATIFIED + RUN LAUNCHED at KF-1.** DRIFT-CRITIC pass
+  complete: substrate facts re-verified against live corpus.db, including the authoring agent's
+  load-bearing correction (`kit_acceptance_assert` already holds **310 rows** with `routed_docket_id`
+  — KF-4's exit is therefore "pilot asserts GREEN," not "table exists"; conductor re-probed, confirmed).
+  Three authoring tensions reviewed + accepted: five-games identity (§0.1 tail), assert-table state
+  (§1), Pin-B two-headed resolution (§4 — flagged for Matt's scrutiny at ratification). KF-1 fires
+  immediately (read-only selection analysis; its output IS Matt's first brief). Pins A/B were offered
+  to Matt in-chat ahead of the KF-2-entry gate; the gate still binds if unanswered. Veto-open.
+- **KF-2..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
