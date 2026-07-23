@@ -426,6 +426,20 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
   (1) gd — Flames of Ignaffar kit sheet + Act-1 Normal starter set; (2) d2-fire-sorc supplement —
   Fire Ball + Meteor tables, correcting the overlap claim on record (shared d2 substrate — Fire
   Mastery / base attributes / FCR / Act-1 mobs — referenced, not redone). Veto-open.
+- **KFL-6 (2026-07-23, Matt in-chat + conductor): WATCH-SURFACE ADDITIONS — Matt's four items
+  registered.** **(a) CONFIRMED already-pinned:** expected + % gauges run BOTH directions (player-kit
+  dealt AND monster dealt / player received) — F3 verbatim + the KFL-3 three-deep stack; no scope
+  change. **(b) /canon FULL-SHEET display (NEW — KF-6b, drax):** after KF-2 populates, the loadout
+  app's canon kit pages render the complete numeric sheet — dual-column `source_value | rdr_value`
+  per skill + expected damage, attributes, crit, **mitigation (Matt: especially important)**, and
+  **health** — a thin read of `kit_numeric` + rules; no derivation in the app. **(c) HEALTH GLOBE
+  (NEW — KF-6, drax + gamora):** in-scene genre-idiom globe per fighter side: live current/max fill
+  + **max-HP fidelity % vs source expected**; frame carries hp/expected-hp additively (sim computes,
+  globe displays — §8 law). **(d) SKILL HOT-BAR (NEW — KF-6, drax + gamora):** hot-bar visualizing
+  the auto-battle's skill selection/use timing — compiled-kit skill slots, flash-on-use,
+  cooldown/channel state — driven by skill-use/intent events in the frame (additive field if v1
+  lacks a distinct use-event). Executor split: gamora emits, drax renders; jack-ryan Gate-2 rides
+  the engine diff per KF-5. Veto-open.
 - **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
