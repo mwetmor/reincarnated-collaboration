@@ -377,6 +377,23 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
   d2-ww-barb · d2-fire-sorc (the LE-swap) · poe1-frost-blades. Selection brief delivered to Matt
   in-chat (§6 brief 1); roster ratification is Matt's, with one named sub-decision (LE-spread vs
   d2-fire-sorc swap). Veto-open.
-- **KF-2..KF-7:** pending. KF-2 entry gates on Matt: roster + Pins A/B.
+- **KFL-3 (2026-07-23, Matt in-chat + conductor): KF-2 ENTRY GATE CLEARED — all rulings received.**
+  **(a) ROSTER APPROVED** as proposed (the 5 + reserves). **(b) LE CONDITIONAL (Matt):** keep
+  le-frost-claw; **swap to d2-fire-sorc iff the LE database proves insufficient at KF-2**
+  (insufficiency = the frost-claw numeric sheet cannot be fetched with verbatim anchors).
+  **(c) PINS A + B RATIFIED** as leaned. **(d) FULL-SHEET SCOPE RULED (Matt):** the join key covers
+  the COMPLETE numeric surface per kit — per-skill (geometry/damage/modifiers), character attributes
+  (str/int/vit/dex-equivalents), damage modifiers (crit chance/multi), mitigation (dodge/armor/
+  resists/block) — and the gauge stack is three-deep: **pre-mitigation per-skill expected %** ·
+  **post-mitigation floater %** (Pin B live) · **per-hit received %** — all vs source.
+  **Conductor amendment (veto-open):** the internal gate instrument becomes the PRE-MITIGATION %
+  (supersedes the fixed-reference-dummy formulation — same intent, cleaner: pre-mitigation is
+  mitigation-free by definition; Matt's own enumeration named it). **Conductor ruling
+  (reasoning-boundary, veto-open):** pilot-encounter frame = pilot kit vs a starter set from ITS OWN
+  source game (source-matchup fidelity); starter set = 3–5 iconic, well-documented, early-accessible
+  mobs per game. **KF-2 + KF-3 LAUNCHED** as one combined game-by-game harvest lane (legolas Mode B →
+  elrond curation; incremental per-game commits so a stall loses nothing). Out-of-run: /canon
+  header-band overlap defect (Matt live report) → drax fix fired.
+- **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
