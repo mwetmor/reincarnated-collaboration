@@ -1081,12 +1081,65 @@ says so.
   synthetics, KF-3 gap; rotation = R1); (v) imported-twin snapping audit (what drax imported
   vs the king scene). Corrections by conductor; harvest-class gaps (mob join, source HP)
   return decision-shaped as next-lap laps, not silent scene hacks.
+- **KFL-26 (2026-07-23, conductor): KF-8 EXECUTED — five facts verified LIVE, corrected by
+  conductor, re-verified; BYTE-CHAIN LOCKED; Mono fork RESOLVED.**
+  **(a) INSTRUMENT + BEFORE WALK:** NEW `scripts/kf8_verify_twin.gd` (SceneTree walk of the
+  LIVE replica scene, `[kf8]` VERDICT lines per fact) confirmed Matt numerically on every
+  count: walls at raw sim bound 44.0 ∉ 2.5·ℤ (residue 1.5); 18-tile floor field spans 45 →
+  pierced 1.0 m past walls; 3/4 pillars + arch off-lattice; 4 m debug grid clashing with the
+  2.5 m tile lattice; camera FOV 46 / pitch −54.4° / dist 1.05× / target y=0 vs king register
+  FOV 30 / rake −34.6° / 1.498×max-dim / target (w/2, 0.5, h/2).
+  **(b) CORRECTIONS (charter-override scope, conductor-authored):** `render_kt3_arena.gd`
+  quantizes DRESSING up to whole tiles (44→45; sim dims stay data authority — architecture
+  snaps, data doesn't); `replica_playback.gd` carries the king register as the camera HOME
+  re-established per fight-load (orbit/zoom = deviation from king home); debug grid
+  proxies-only. AFTER walk: **all five facts GREEN**; smoke GREEN; Metal capture eye-verified
+  (`gandalf/captures/2026-07-23-kf8/kf8_after_tick40.png`). Godot commit `3315953` PUSHED.
+  **(c) FACTS iii/v:** king lighting/env register matches VERBATIM (never broken — bg/ambient/
+  glow/KeyLight all exact); rig heights at register (player 1.88 m ≈ 1.85 target; mobs
+  1.43–1.73 in band); entity positions remain continuous sim floats BY DESIGN.
+  **(d) BYTE-CHAIN LOCKED (Matt directive "no MADE UP SKILLS / MADE UP STATS" —
+  source→compiled→frames→scene):** corpus `kit_numeric` Fire Ball (227+258)/2 = **242.5** =
+  compiled magnitude EXACT; Meteor 987+269 = **1256** EXACT; fireball manacost **14.5** EXACT;
+  Fire Mastery +163% → **×2.63** EXACT (R-M1). Frame
+  `replica-d2-fire-sorc__blind__…seed20260722` damage event carries
+  `expected_premit = 637.775 = 242.5 × 2.63` TO THE THIRD DECIMAL; `source_id = d2-fire-sorc`
+  byte-equal join key; `skill_idx 0 = "Fire Ball"` per header roster; realized `amount`
+  358.8/346.9 with `pct` 93.77/90.65 (the gauge vs source expectation; aggregate median 96.51
+  · n=280). The scene renders these very fields (KF-6 §8 zero-derivation). The dm-tie root
+  (Meteor never fires) is SOURCE-FAITHFUL — mastery multiplies both fire skills; the sim-side
+  first-wins resolver is the cause → rotation lane (R1). Provenance truth table: KFL-25d.
+  **(e) NEW FINDING — Meteor energy_cost is a MADE-UP DEFAULT:** compiled 10.0 is the
+  `_skill_energy_cost` fall-through (kit_compiler.py:656–670 branches Fire Wall / Cyclone /
+  Fire Ball ONLY); source manacost **26 EXISTS in corpus** under R-T3 (IDENTITY: per-cast mana
+  stays per-cast). A genuine instance of Matt's feared class — masked today by the dm-tie, but
+  MUST land WITH the dm-tie fix or Meteor over-fires ~2.6× when the tie breaks. Gamora seam;
+  joins the `flat_damage` rename (KF-5 §BLOCKER) as a two-line compiled-kit fidelity patch.
+  **(f) MONO FORK RESOLVED — STANDARD build suffices:** MCP addon 4.1.0 command surface
+  enumerated from `addons/godot_mcp/commands/*.gd` + wire PROVEN end-to-end (editor launch,
+  handshake, scene tree, editor+game screenshots, run/stop, runtime state, freeze/step).
+  No .NET switch needed; KT-5 conductor-eye verification unblocked on the standard build.
+  Instrument cleanup done (game stopped, editor quit).
+  **(g) ROTATION PROBE VERIFIED (R1 Path 1):** legolas
+  `legolas/notes/2026-07-23-rotation-metadata-probe.md` (`631ae85a` pushed) — corpus has NO
+  machine-readable role/cast_priority; pilot-5 rotations fully documented WITH source
+  citations; 7-value role enum (α) recommended (~60-70% mechanically derivable + LLM-label
+  remainder); the hand-author fallback CONTENT is thereby already delivered. Nuance ledgered:
+  probe's "energy_cost or cooldown" mechanism recap is loose — mechanism of record remains
+  KFL-23 dm-tie first-wins (now source-faithful per (d)).
+  **(h) TASTE FORKS parked for Matt (Fork-3-compliant — observed, NOT silently changed):**
+  (1) action reads small at 44 m span under the proportional king pose (options: tighter dist
+  factor / action-follow cam as deviation from king home); (2) edge bone-deco reads large at
+  rebuilt scale (genre-honest crypt dressing; Matt's eye rules).
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
   by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17). **KF-6b:** VERIFIED + pushed
   (KFL-22); **KFL-22 rubric gap OWNED at KFL-25c**. **KF-7:** re-emission VERIFIED + pushed
   (KFL-21a); rotation Class B (KFL-23a); **rotation RULED R1: Path 1 + probe, fallback
   hand-authored-5** (KFL-25a, probe IN FLIGHT); consolidated Gate-2 VERIFIED (KFL-24a).
-  **RUN RE-OPENED (KFL-25b): KF-8 IN PROGRESS — conductor in-scene verify + correct.**
+  **KF-8: EXECUTED (KFL-26) — five facts VERIFIED + CORRECTED + re-verified; byte-chain
+  source→compiled→frames→scene LOCKED; godot `3315953` pushed. Run holds at WATCH for Matt:
+  KFL-26 forks (Meteor-cost + dm-tie gamora patch · taste forks h1/h2 · KT-5 verdict now
+  Mono-unblocked · rotation R1 next lap).**
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
