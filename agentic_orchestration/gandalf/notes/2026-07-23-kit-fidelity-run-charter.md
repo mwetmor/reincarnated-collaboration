@@ -1021,12 +1021,42 @@ says so.
   INFO-1 docstring, rider-ii `skill_cooldowns`; + positivity-assert NOTE disposition check);
   Part 2 = ENDORSE-or-CHALLENGE the Class B classification (soundness only — the path fork
   stays at Matt). Findings to `jack-ryan/notes/2026-07-23-kf7-consolidated-gate2.md`.
+- **KFL-24 (2026-07-23, conductor): CONSOLIDATED GATE-2 VERIFIED (PASS-WITH-NOTES + ENDORSE,
+  NO BLOCK) — ALL RUN GATES GREEN — WATCH BRIEF DELIVERED — RUN EXIT PREDICATE MET.**
+  **(a) Gate-2 VERIFIED** (findings `jack-ryan/notes/2026-07-23-kf7-consolidated-gate2.md`,
+  collab `913fdaa4`, scope clean — findings file only). Part 1 (engine `a63d656..c5a2f2d`):
+  **PASS-WITH-NOTES, 4 GREEN / 0 RED / 0 GAP** — magnitude ruling-exact at source + live +
+  smoke + per-kit arithmetic; band [70,130] a genuine center-drift guard (base_max regression
+  corner 144.28 RED / base_min corner 63.8 RED; same ±20% envelope, center slid to 100);
+  INFO-1 docstring resolved; `skill_cooldowns` pure-read null-safe v1-additive. Positivity
+  assert CLOSED (landed at `b492c77`, inherited, 59/59 amount>0). Jack-ryan self-corrected his
+  prior direction slip authoritatively: **damage÷1.202, kill-time×1.202**. Part 2: **ENDORSE**
+  — Class B sound at SOURCE level (`SkillRow` carries no rotation discriminator; `ordinal` is
+  provenance not intent; `factor_role` is damage-math not rotation); all three capture paths
+  confirmed to presuppose new input (none is a latent wire). **Conductor's independent
+  reproduction:** all four live primary magnitudes match the findings TO THE DECIMAL
+  (bonestorm 257.0 · fire-sorc 242.5 · cyclone 376.5 · firewall 1308.0); Meteor 1256.0 = its
+  own band mean (consistent). **One representational nuance (no bounce):** `:280` injects None
+  for GAP but assembled effect params coerce to `0.0` (conductor probe) — the BINDING predicate
+  is frame-level honesty and it HOLDS (gd-flames amount 0 / pct null). Bone Cage magnitude 0.0
+  noted for the next-lap rotation charter: a firing control skill emits honest 0-damage
+  floaters — correct for a cage.
+  **(b) RUN EXIT PREDICATE MET.** KF-1..KF-7 all closed-or-verified; watch brief + controls
+  card delivered to Matt (RL-6 self-contained). Run enters WATCH state: Matt watches the 40
+  compiled-pilot fights on the fidelity instrument. **Open forks AT MATT (each charters a next
+  lap; none blocks the run close):** (1) rotation capture-path — Path 1 harvest `role` (gamora
+  + conductor lean) vs Path 3 curated pilot-5 `cast_priority` stopgap vs Path 2 REJECTED;
+  (2) Mono/.NET build switch for isolated-node capture vs STANDARD+CaptureRig (conductor lean:
+  stay STANDARD); (3) KT-5 King-twin verdict (KING-TWIN run close). Next-lap docket candidates
+  carried: sim-side obstacle geometry (interior walls entities respect); `expected_max_hp`
+  source-HP harvest anchor; arena-dims header stamp (rider re-arms on any future re-emission);
+  cooldown/cast-progress additive fields; skill-idx variety validation (re-arms with rotation).
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
   by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17). **KF-6b:** VERIFIED + pushed
   (KFL-22) — walls at sim bounds, MCP 4.1.0 in-scene, CaptureRig proven; Mono fork AT MATT.
-  **KF-7:** re-emission VERIFIED + pushed (KFL-21a); rotation diagnosis **VERIFIED — Class B
-  design gap, zero code** (KFL-23a); **capture-path fork AT MATT** (KFL-23b); **consolidated
-  Gate-2 IN FLIGHT** (KFL-23c) → watch brief.
+  **KF-7:** re-emission VERIFIED + pushed (KFL-21a); rotation diagnosis VERIFIED — Class B,
+  zero code (KFL-23a); capture-path fork AT MATT (KFL-23b); consolidated Gate-2 **VERIFIED
+  PASS-WITH-NOTES + ENDORSE** (KFL-24a). **RUN: EXIT PREDICATE MET — WATCH STATE (KFL-24b).**
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
