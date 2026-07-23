@@ -731,9 +731,29 @@ says so.
   cyclone `has_damage_base` RED→GREEN expected (36/0/1); (4) bonestorm WR-floor warning as
   secondary heal signal. Then ONE jack-ryan Gate-2 over the full KF-5 range + riders + fix +
   compiler amendment, fired after conductor verification of the lane. Veto-open.
+- **KFL-15 (2026-07-23, conductor): KF-6 LANE FIRED (named-drax) — GODOT HUD BUILD ON THE FREED
+  TREE; EMISSION SEQUENCING PINNED.**
+  Galadriel's KT-lane returned + verified (KTL-7) → the godot working tree is free. **Lane scope
+  (godot-only):** (1) Synty Dark Fantasy INTERFACE import — BOTH packs from
+  `matt_notes_handoff_docs/recent-synty-packs/` into `reincarnated-godot/Assets/` per Matt's
+  directive (KFL-9c substrate law: globes/hot-bar/resource + skill surfaces build FROM these, not
+  hand-drawn placeholders); (2) F3 floaters `<amount> (<pct>%)` dealt + received, read STRAIGHT
+  from frame fields (§8: window DISPLAYS, sim COMPUTES — zero derivation), **null-graceful by
+  design** (pct null → `12,500 (—)`: mob-received is null this lap per KFL-14a Deviation 2, and
+  current frames predate the gauge); (3) health globes + skill hot-bar RENDER build from the Synty
+  primitives against a drax FIELD-AUDIT of frame v1 — anything the frame lacks (expected-hp,
+  distinct skill-use events) is reported as a NAMED GAP for a gamora micro-emission, never derived
+  scene-side; (4) REPLICA-1 fight-picker verify (KF-6 precondition — fix in-seam if still broken;
+  gates KF-7 only). Same-scene law: renders into `replica_playback.tscn` runtime per §7/§8 no-fork
+  (KTL-6 held it byte-untouched by construction — the HUD attaches via script, scene stays whole).
+  **EMISSION SEQUENCING (conductor clarification of KFL-14a's "KF-6 driver" rider):** the
+  `attach_composition_blocks` obligation belongs to the ENGINE-SIDE emission driver, NOT drax —
+  existing `replica1-frames/` predate the gauge, so after the gamora fix-forward lane returns, a
+  small gamora RE-EMISSION step regenerates pilot-fight frames (compositions attached · post-fix
+  damage · gauge fields live); drax's scene then reads them as pure data swap, zero code change.
+  KF-7 assembles on: drax HUD ✓ + re-emitted frames ✓ + picker ✓. Veto-open.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a). **KF-5:** VERIFIED
   (KFL-14a) — fix-forward + rule step in flight (KFL-14d), consolidated Gate-2 to follow.
-  **KF-6:** queues behind galadriel KT-lane (same tree; driver must call
-  `attach_composition_blocks`). **KF-7:** pending.
+  **KF-6:** in flight (KFL-15, drax). **KF-7:** pending (drax HUD + gamora re-emission + picker).
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.

@@ -470,7 +470,32 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   verification venue per drax (smoke suppresses it; pixels prove it). KT-5 (Matt twin verdict)
   consumes the captures. **KF-6 queues behind galadriel's return** (same working tree —
   capture-flake avoidance). Veto-open.
+- **KTL-7 (2026-07-23, conductor): GALADRIEL CAPTURES VERIFIED + PUSHED — ALL FIVE TWIN CRITERIA
+  EVIDENCED — KT-5 PACKET GOES TO MATT.**
+  **Lane VERIFIED (commit `6a11cbaf`, 15 files, scope exact — captures dir + note only; godot repo
+  READ-ONLY honored on tracked content).** Per-criterion verdicts ALL PRESENT, the two
+  headless-blind criteria confirmed NUMERICALLY under Metal: **(3) aura** — bowazon green bridge
+  tint peak (51,229,64), 20,663-px volumetric column (the `enable_aura` suppression means these
+  pixels are the aura's ONLY existence proof); **(4) king register** — off-arena void sampled
+  (26.0,28.0,33.0) vs spec `0.10,0.11,0.13 → (25.5,28.0,33.2)` — essentially exact; **the KTL-5
+  pale-void concern is CLOSED in pixels**. Conductor's own eye on `playback_bowazon_tick51_dense`
+  + `king_exemplar_idle_fullbody` CONCURS: same grammar — Synty rig · held prop · tinted
+  interior-clip aura column · near-black void · rake shadows · Synty dressing; green where the King
+  wears gold. Evidence: 5 playback PNGs (2 fights, 5 ticks) + 4 crops + 4 king exemplar frames +
+  7s auto-battle MP4 at `agentic_orchestration/galadriel/captures/2026-07-23-kt4-twin/`; report
+  `galadriel/notes/2026-07-23-kt4-twin-captures.md` (reproduce commands per artifact).
+  **Deviations ACCEPTED:** DEV-1 — `probe_king_mcp.tscn` (never-quit scene, no capture affordance)
+  not capturable without writing into the godot repo; criterion 4 evidenced in the twin's OWN
+  pixels instead + `shoot_king_closeup` exemplar frames anchor 1–3 at max fidelity — defensible.
+  DEV-2 — Synty texture import-mode warnings (export-time only) surfaced for drax. **Conductor
+  finding:** transient harness output `harness_logs/king_exemplar_kt4_2026-07-23/` REMAINS in the
+  godot untracked scratch (the note's "wrote nothing" is imprecise: committed nothing / tracked
+  content untouched is the true state; same convention as drax's own harness runs — non-blocking).
+  **KT-5 taste items relayed to Matt, not judged:** mob-rig brightness under king ambient (un-aura'd
+  starters read silhouetted; aura = elite marking per Fork 2) · ribcage deco scale · sim-grid
+  backstop lattice faint in the void. **KT-5 verdict packet delivered in-chat (RL-6 self-contained);
+  KF-6 UNBLOCKED — the working tree is free.** Veto-open.
 - **KT-1:** RULED (KTL-3). **KT-2:** VERIFIED (KTL-4). **KT-3:** VERIFIED (KTL-5). **KT-4:**
-  VERIFIED (KTL-6; galadriel captures in flight). **KT-5:** pending (Matt verdict on captures).
+  VERIFIED (KTL-6). **Captures:** VERIFIED (KTL-7). **KT-5:** AT MATT — twin verdict on the packet.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
