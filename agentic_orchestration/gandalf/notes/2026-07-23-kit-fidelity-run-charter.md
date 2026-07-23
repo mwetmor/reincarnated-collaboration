@@ -521,6 +521,37 @@ says so.
   partial) · monster tables via additive MIGRATION (d2 / poe1 / poe2) · composition ledgers per kit
   per direction (ANCHORED/PINNED/GAP-EXCLUDED) · rules-needed manifest handing off to gamora/
   star-lord for the normalization-rule lane. Veto-open.
+- **KFL-9 (2026-07-23, conductor + Matt in-chat): CURATION VERIFIED + GD FORK RULED (A-DEFERRED) +
+  RULES LANE FIRED.**
+  **(a) elrond KF-2/KF-3 curation VERIFIED + pushed** (commits `ab05dd8b` / `d4d9c7f1` / `2fdd48f5` /
+  `bef71fa3` / `706f4731`): kit_numeric **444** new rows (firewall 106 · fire-sorc 188 · cyclone 20 ·
+  bonestorm 104 · gd 26; the 2 pre-existing seed rows untouched) · monster_numeric **145** (d2 58 /
+  poe1 58 / poe2 29) · kit_composition **61** (ANCHORED 33 / PINNED 7 / GAP-EXCLUDED 21) · dual-column
+  law held (ZERO non-NULL `rdr_value`; `normalization_rule` 0 rows — elrond authored none) ·
+  conductor spot-probes exact vs harvest verbatims (bonestorm gem-20 116–175 / 89–134 + Int 157 +
+  mana 61; rhoa armour 35,988; Fallen AR 8 + resists) · DB byte-identically rebuildable from
+  committed `.sql` (idempotency re-run clean) · GD formula-expressions-vs-REAL-column anomaly handled
+  without improvisation (scalar constants in kit_numeric; formula expressions verbatim in composition
+  refs + manifest — nothing forced, nothing dropped). Rules-needed manifest
+  (`elrond/notes/2026-07-23-kf23-rules-needed-manifest.md`) verified complete: 26 rule families
+  (A–H), BLOCKED rules named (R-K5 + R-N5 gd; R-G4 poe2-armour GAP-B1), context rows fenced
+  (`_v327_context` NOT-for-derivation), PIN-N10 as fixed multiplier.
+  **(b) GD FORK RULED — Matt (verbatim): "Grim Dawn is PC only. I will have to download it at a later
+  date onto my PC and then you can SSH into it for the data."** = **Option A, DEFERRED.** No §5 swap;
+  the frost-blades contingency (KTL-3) stays dormant; gd kit stays HELD (R-K5/R-N5 BLOCKED until the
+  install lands). **matt_to_do T4 filed.** **Same-pass refinement** (Matt follow-up: "does it make any
+  sense for me to download the Windows version of GD on my mac now?"): conductor answer = the FILES
+  suffice — the game never runs for extraction; Mac-native acquisition paths exist (Steam-console
+  `download_depot` of the Windows depot on the Mac Steam client · GOG offline installer +
+  `innoextract`, no Windows anything); **FoI is Inquisitor content → the rank table lives in the
+  Ashes-of-Malmouth (GDX1) database — base game alone is insufficient**; a Mac-viable `.arz`
+  extraction-toolchain verification is commissioned (legolas Mode A, read-only) BEFORE Matt spends
+  bandwidth. T4 carries both paths (Mac-now pending toolchain verdict / PC-later).
+  **(c) NORMALIZATION-RULE LANE FIRED (named-gamora, `rule_owner` per dual-column law):** author
+  `normalization_rule` rows per manifest sections A–H (BLOCKED rules excepted, left NULL with manifest
+  refs) → derive `rdr_value` for every non-context non-blocked kit_numeric + monster_numeric row →
+  stamp `rule_id` + `rule_version_applied` → rules report + Gate-2 readiness flag (jack-ryan reviews
+  per charter; the PIN-C3 maxroll-vs-fextralife conflict is on his list). Veto-open.
 - **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
