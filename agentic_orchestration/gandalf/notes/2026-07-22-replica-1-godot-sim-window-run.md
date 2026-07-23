@@ -136,5 +136,31 @@ recommended) · G4 watch session (the point) · red-flag pings only in between.
   population per RL-3. Zero-derivation law upheld (spec §7). **G4 OPEN — Matt watches; acceptance
   is his own inspection verdict (§2).** Push queue for Matt: engine `1564e2f` (Gate-2 PASS) · godot
   7-ahead incl. `90d79c5`. Veto-open.
+- **RL-6 (2026-07-22/23) — G4 HELD; Matt's inspection verdict registered; RUN CLOSED.** Matt
+  watched BLIND + AWARE bowazon live. **Verdict (his read):** the fight shape is degenerate —
+  all enemies immediately converge on the player's point and clump; blind-vs-aware outcomes are
+  decided by hair-level clustering differences vs the AOE blast radius (win = clump fits inside;
+  had the first burst not wiped 100%, the player dies in milliseconds either way); "geometry and
+  AI have nothing to do with what's happening" at the level that matters. **Conductor synthesis:
+  his 2-fight eyeball MATCHES the 144-fight trace diagnostic** (geometric burst-fires-or-dies;
+  policy differences express as clustering jitter in a converge-and-wipe scenario) — the window
+  did its job. **Root problem he names, accepted as the run's true finding: the entities are
+  synthetic coordinate-parameterized kits, not mechanical replicas of the canon kits/monsters —
+  fidelity, not policy, is the blocker.** DEFECT registered: fight picker ends the app after the
+  second fight (next-fight unusable; Matt watched initial + one swap) — routed to drax side-task
+  with the /canon serving fix; does not gate closure. **RULINGS (Matt verbatim-adjacent):** AI
+  testing SHELVED · run WRAPPED · successor conduction slot = **KIT-FIDELITY run** (canon kits
+  built mechanically into the pipeline "so that they appear as they should within the battle
+  sim") — charter to be elicited, forks first. **R1–R5 disposition at close: MOOT** — the run
+  executed with all five removals as recommended and closes with zero standing debt (R1 loader
+  stayed on the game path; R2 placeholder disposable; R3/R4 never built; R5 v2 never fired).
+  Boss-stack forks DEFERRED behind kit-fidelity. **Process lesson (Matt: "I honestly can't find
+  the information needed to rule"):** future decision points reach Matt as SELF-CONTAINED briefs —
+  options + context + consequence readable in-chat without doc-spelunking; fork tables that point
+  into long docs are a failed interface. **REPLICA-1 CLOSED.** The window (scene + emitter +
+  schema) survives as standing instrumentation — it becomes the acceptance instrument of the
+  successor run once real kits fight in it. Book stands for review at Matt's timing.
+
+**RUN CLOSED 2026-07-23 at RL-6.** Signed: gandalf (`RUN-CONDUCTOR`).
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22.
