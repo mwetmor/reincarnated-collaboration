@@ -624,7 +624,36 @@ says so.
   mirror-drift FINDING (stale vs the authoritative generation-side table; compiler bypasses via
   explicit per-skill `spatial_geometry_type`; 2-entry mirror-sync recommended as follow-on).
   **KF-5 HOLDS until Gate-2 returns** (no building atop an unreviewed engine diff). Veto-open.
-- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED (KFL-11; cyclone A-path + Gate-2 in flight).
-  **KF-5:** holds for Gate-2. **KF-6/KF-7:** pending.
+- **KFL-12 (2026-07-23, conductor): GATE-2 PASS-WITH-NOTES VERIFIED + PUSHED — KF-5 FIRED.**
+  **(a) jack-ryan Gate-2 on the KF-4 engine diff: PASS-WITH-NOTES, no BLOCK** (findings note
+  `jack-ryan/notes/2026-07-23-kf4-gate2-review.md`, commit `fde9d1bf` conductor-verified + pushed).
+  All 6 readiness items PASS **on evidence, not the report's word**: byte-level diff (7 A-only files;
+  zero `M` to resolver/spatial/combatant across the whole run; no module imports `kit_compiler` —
+  leaf, no coupling) · self-run smoke reproduces 35G/1R/1GAP exact · docket 176 DB-probed complete
+  (reported-for-swap, never fabricated) · v327 fence catches the 150% trap, selector takes the 3.15
+  build point 59.0 · dual-population distinguishable by date AND in-row `[KF-4-compiled]` marker ·
+  legacy-flat-path injection confirmed at `damage_resolver.py:879-881` (RDR leaf not double-scaled).
+  Determinism risk ruled NIL **structurally** (additive-only leaf IS the proof; trace-diff would be
+  theater). Scope-attribution catch: the +98-line spatial_engine delta in the full range belongs to
+  the prior REPLICA-1 emitter commit (Gate-2 PASSED 2026-07-22), not KF-4. **Mirror-sync disposition:
+  IN-SCOPE consistency fix, change-class PRE-APPROVED, rides its own Gate-2 as a separate additive
+  diff — non-blocking** (explicit-field bypass keeps KF-4/KF-5 correct today). 3 INFO notes recorded
+  (math-note cite staleness — real path `:879-881` + `spatial_gauntlet/` qualification · manifest
+  R-K4 key-name prose drift `_v315` vs `_gem20_bp` · PIN-C3 maxroll-primary CONCURRED, HP-pool-only,
+  zero gauge effect). **KF-4's Gate-2 condition CLOSED; KF-5 unblocked.**
+  **(b) KF-5 EXPECTED/PCT LANE FIRED (named-gamora):** per §KF-5 + ratified Pins A/B (KFL-3c) + the
+  three-deep gauge stack (KFL-3d). Sim computes at each resolved hit: **expected** (Pin A —
+  crit-weighted mean at the documented build point, computed from the KF-4 per-skill `_composition`
+  block, ZERO derivation) + **pct** = realized `rdr_value`/expected (Pin B — live target's
+  normalized defense at hit time), for BOTH dealt and received; **pre-mitigation % = the internal
+  gate instrument** (KFL-3d conductor amendment). `replica_frame_emitter` carries ADDITIVE
+  `expected`+`pct` on `damage` events (v1-additive, no version bump; observability-only; default-off;
+  ZERO combat-logic change in the same commits — the REPLICA-1 emitter discipline). **Riders:**
+  2-entry `spatial_engine._RICH_TO_SPATIAL` mirror-sync (`placed_lane→line` · `orbit→circle`) as its
+  OWN separate commit per (a) pre-approval, riding its own Gate-2 · opportunistic math-note cite
+  refresh. Exit: dealt+received events carry expected/pct · determinism byte-identical · non-finite
+  guard · Gate-2 PASS on the diff. Veto-open.
+- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a; cyclone A-path in
+  flight). **KF-5:** in flight (KFL-12b, gamora). **KF-6/KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
