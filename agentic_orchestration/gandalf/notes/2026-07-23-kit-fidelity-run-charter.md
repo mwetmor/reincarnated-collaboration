@@ -1131,15 +1131,45 @@ says so.
   (1) action reads small at 44 m span under the proportional king pose (options: tighter dist
   factor / action-follow cam as deviation from king home); (2) edge bone-deco reads large at
   rebuilt scale (genre-honest crypt dressing; Matt's eye rules).
+- **KFL-27 (2026-07-23, MATT RULING): RUN LOGGED AS FAILED. Run CLOSED.**
+  Matt's verdict, delivered after the KF-8 closeout report, recorded verbatim-intent: **the
+  KIT-FIDELITY run is FAILED.** Logged without softening. The conductor's own failure
+  taxonomy (evidence-grounded; grounds are the run's record, not projected motives):
+  **(1) Verification-claim inflation — twice.** KFL-22 claimed VERIFIED on a data-honesty
+  rubric while the owner's question was twin-fidelity (owned at KFL-25c); KFL-26 claimed
+  all-green and the owner ruled the run failed anyway. The owner's eye is the instrument of
+  record; the run's gates twice measured a narrower rubric than the owner's question.
+  **(2) Decidability bought by predicate-narrowing = intent leak.** Exit predicates (KF-1..
+  KF-7, then the five KF-8 facts) were all formally MET — and the run still failed its
+  purpose. The charter converted "watchable source-faithful twin" into checkable predicates
+  that no longer covered the intent. This is a charter-time ELICITOR/ARCHITECT failure by the
+  conductor-author: "replicates the king scene" and "source data visibly in use" only became
+  gates when Matt forced them (field report v2), not at launch.
+  **(3) Fidelity gates gauged the JOINED fraction; they never audited COVERAGE.** The watched
+  surface is majority-synthetic: 40/41 entities unjoined (KF-3 mob gap), player HP unjoined,
+  Meteor cost a compiler default, and the flagship kit never casts its signature skill
+  (dm-tie → rotation gap). A fidelity run must gate on what fraction of the VISIBLE SCENE is
+  source-joined, not only on the accuracy of the joined minority. The byte-chain lock (KFL-26d)
+  is real — and it certifies a sliver of what the camera shows.
+  **(4) Matt field checks arrived too late in the interface design.** The declared Matt
+  interface (§6) put the owner's eyes at the END (watch brief). Both failures were caught by
+  Matt's eyes, neither by the run. Presentation-surface runs need mid-run owner eye
+  checkpoints as pre-registered gates, not post-hoc field reports.
+  **DISPOSITION:** run CLOSED — FAILED. The failure is of the RUN (charter + gates + claims),
+  NOT of the artifacts' honesty: the byte-chain evidence, kf8 instrument, corrected scene,
+  captures, probe report, and ledger stand as pushed inputs to next laps. Per pattern §4 a
+  FAIL is a processable finding — the next-lap docket + conductor lessons live in the
+  wind-down (`gandalf/notes/2026-07-23-kit-fidelity-run-wind-down.md`). A desirable-run-
+  pattern amendment observation (coverage-gates + owner-eye checkpoints + rubric-gap
+  discipline) is QUEUED for a future session, not executed in wind-down.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
   by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17). **KF-6b:** VERIFIED + pushed
   (KFL-22); **KFL-22 rubric gap OWNED at KFL-25c**. **KF-7:** re-emission VERIFIED + pushed
   (KFL-21a); rotation Class B (KFL-23a); **rotation RULED R1: Path 1 + probe, fallback
   hand-authored-5** (KFL-25a, probe IN FLIGHT); consolidated Gate-2 VERIFIED (KFL-24a).
-  **KF-8: EXECUTED (KFL-26) — five facts VERIFIED + CORRECTED + re-verified; byte-chain
-  source→compiled→frames→scene LOCKED; godot `3315953` pushed. Run holds at WATCH for Matt:
-  KFL-26 forks (Meteor-cost + dm-tie gamora patch · taste forks h1/h2 · KT-5 verdict now
-  Mono-unblocked · rotation R1 next lap).**
+  **KF-8: EXECUTED (KFL-26) — five facts verified + corrected; byte-chain LOCKED; godot
+  `3315953` pushed. RUN VERDICT: FAILED (KFL-27, Matt ruling 2026-07-23) — RUN CLOSED.
+  Artifacts stand; failure taxonomy + next-lap docket in KFL-27 and the wind-down doc.**
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
