@@ -160,11 +160,20 @@ and its RDR equivalent, so a realized sim number can be expressed as a % of expe
   `rdr_value` for every pilot `kit_numeric` row.
 - **DUAL-COLUMN DISCIPLINE HELD:** `source_value` never mutates; `rdr_value` is derived; the sim reads
   `rdr_value` only. A `rule_version` bump re-derives dependents.
+- **COMPOSITION LEDGER (KFL-7 fold — Matt's join-key completeness audit):** per pilot kit, per
+  direction (dealt / received), elrond records the **expected-value composition** — the factor chain
+  `base × skill/mastery modifiers × hit-chance × crit-EV × (1 − target mitigation)` — with every
+  factor marked **ANCHORED** (verbatim source) / **PINNED** (charter ruling, e.g. D2 spells-no-crit)
+  / **GAP-EXCLUDED** (named, never estimated). **Resolution FORMULAS are first-class harvest targets
+  under the same anchor law as values** — any hit/crit/mitigation formula a `normalization_rule`
+  applies must carry its own verbatim anchor (gd's PTH + crit-tier + armor-absorption harvest is the
+  exemplar; the d2/poe1/poe2 formula anchors are the KFL-7 residual lane).
 
 **Exit predicate:** for all pilot-5 kits — every `kit_numeric` row has **`rdr_value` non-NULL**, its
 `rule_id` points to a `normalization_rule` with **`status='active'`** and `rule_owner` sign-off
 recorded, and `rule_version_applied` matches the active rule version. `source_value` bit-unchanged
-from KF-2 entry (dual-column audit).
+from KF-2 entry (dual-column audit). **Composition ledger complete** for all 5 kits, both
+directions — no unlabeled factor; every formula referenced by an active rule is anchor-backed.
 
 ### KF-3 — Monster harvest (legolas Mode B → elrond curation → join key applied)
 
@@ -355,6 +364,14 @@ join key is off for that mob. The watch session (KF-7) stops being a taste check
 exactly the instrument REPLICA-1's degenerate-shape verdict demanded. The window Matt already has
 becomes the acceptance instrument of THIS run once real kits fight real monsters in it.
 
+**Gauge basis + GAP rule (KFL-7):** the floater gauge's time basis is **per-hit / per-tick** (channel
++ DoT tick models named in the composition ledger) — never DPS; mob attack rate shapes pacing, not
+the join-key denominator. Where a factor is GAP-EXCLUDED, the % computes over the declared factors
+only and the exclusion is named in the KF-7 watch brief — **no silent estimation ever fills a GAP.**
+Where a player defensive sheet is GAP at build point, the fallback ladder is: source-game
+**base-at-level** values (anchorable formulas) → else the received-% renders **pre-mitigation** and
+says so.
+
 ---
 
 ## Ruling ledger
@@ -440,6 +457,35 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
   cooldown/channel state — driven by skill-use/intent events in the frame (additive field if v1
   lacks a distinct use-event). Executor split: gamora emits, drax renders; jack-ryan Gate-2 rides
   the engine diff per KF-5. Veto-open.
+- **KFL-7 (2026-07-23, Matt in-chat + conductor): E1–E5 APPROVED + JOIN-KEY COMPLETENESS AUDIT
+  FOLDED + HARVEST 5/5 LANDED.**
+  **(a) KING-TWIN ELICITATION RULED (Matt verbatim: "All leans approved for E1-E5"):** separate
+  chained charter + overlap-start (E1) · one mapping-table brief, all kits + mobs, single ruling
+  pass (E2) · ONE arena from the king-scene environment grammar (E3) · five-element twin
+  decomposition as the decidable core (E4) · KF-7 watch venue = best-available (E5). Named-gandalf
+  charter author fired; charter lands RATIFIED-elicitation at
+  `agentic_orchestration/gandalf/notes/2026-07-23-king-twin-run-charter.md`; conductor DRIFT-CRITIC
+  pass gates its launch (KFL-1 precedent). Substrate evidence: Synty census `5ad6805f` (NO BLOCKER;
+  quill-rat gap named).
+  **(b) Residual harvest VERIFIED:** d2-fire-sorc supplement `7785651c` (corpus-corrected: Fire
+  Ball + Meteor) · gd kit `d4eacc63` + gd monster `d28cc324`. Stall #2 lesson codified: the combined
+  residual agent died having written NOTHING (fetched tables lost); relaunched as two narrow
+  **write-as-you-go** agents (create file first → append per fetch → commit per sub-scope →
+  fail-twice = GAP row + move on → hard fetch caps) — both landed. Write-as-you-go is the
+  harvest-agent law of this run. gd monster side = FULL GAP (grimtools JS-rendered; fandom 402)
+  with documented unblock paths; FoI rank table same blockage.
+  **(c) JOIN-KEY COMPLETENESS AUDIT (Matt's ask: any un-folded piece of damage + mitigation?):**
+  **FINDING — mitigation/hit RESOLUTION FORMULAS were unanchored for 3 of 4 games** while their
+  VALUES are anchored (loudest case: poe1 zone-68 mobs carry 28,790–35,988 armour verbatim, but no
+  armour→reduction formula anchor existed and Cyclone is physical — unformalized, the dealt-%
+  drifts ×2–5 silently). **FOLDS:** composition ledger added to KF-2 (exit predicate extended) ·
+  formulas ruled first-class anchor targets · §9 gauge basis pinned per-hit/per-tick + GAP-display
+  rule + player-defense base-at-level fallback ladder. **Residual formula-anchor lane FIRED
+  (legolas):** poe1 armour-DR + evasion/accuracy chance-to-hit formulas · poe2 armour formula +
+  spells-unevadable check · d2 chance-to-hit (AR/DEF/level term) + spells-always-hit + sorc
+  life-per-level/per-vitality coefficients + starter-mob AR columns + firewall tick retry · gd
+  unblock attempt via community data-dump (GitHub CSV) route for monster stats + FoI rank table
+  (bounded; fail → decision-shaped fallback to Matt). Veto-open.
 - **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
