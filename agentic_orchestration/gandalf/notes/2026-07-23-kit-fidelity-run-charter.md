@@ -871,9 +871,46 @@ says so.
   mobs die faster" — a slip; line 48 is correct (damage drops → kill times LENGTHEN +20%). Do
   not propagate into math §10. **Scoped Gate-2 follows the lane's return** (engine-diff law).
   Veto-open.
+- **KFL-20 (2026-07-23, conductor): MATT FIELD REPORT FROM THE LIVE SCENE — FOUR FINDINGS
+  DISPOSITIONED; KF-6b PRESENTATION-REMEDIATION LANE FIRED (drax, MCP-IN-SCENE MODE).**
+  Matt inspected the live scene (first hands-on-the-instrument moment of the run). Findings:
+  **(a) "Characters are perfect"** — rig lineage (KT-2..KT-4) confirmed by the audience. No
+  action. NOT the formal KT-5 ruling (that packet stays open).
+  **(b) Walls: not grid-snapped · not spanning the full floor · entities walk through them.**
+  → KF-6b lane (drax). Data-truth framing pinned: the replica PLAYS BACK recorded positions —
+  presentation CANNOT impose collision without falsifying the data (§8 spatial corollary: the
+  window displays, the sim computes). Honest fix: snap walls to grid + span the perimeter +
+  align the wall line to the SIM ARENA BOUNDS read from frame headers so no recorded path
+  crosses a wall. Interior walls that entities RESPECT = sim-side obstacle geometry = an
+  ENGINE design fork — named to Matt in-status; next-lap docket candidate, not this run.
+  **(c) "Original basic kits still in use — the new data cannot be in use here" — MATT IS
+  RIGHT; diagnosis CONFIRMED by the dead-wire history.** Compiled kits realized `amount==0.0`
+  until `b492c77` (KFL-16a), so on-disk frames carrying live damage NECESSARILY came from the
+  legacy kit path — the frames predate the compiled-kit connection. The in-flight KFL-19b lane
+  already forces the compiled pipeline (its validation gate requires non-null `pct` median ≈100,
+  impossible under legacy kits). **Conductor ruling (no mid-flight message channel exists in
+  this environment; stop-and-refire rejected as riskier than delta-at-verify):** lane runs to
+  completion; at verification the roster is checked — if only the on-disk 2-kit set returned,
+  a bounded ROSTER-EXPANSION delta re-emits ALL non-GAP compiled kits (blind+aware) through the
+  proven pipeline, with skill-variety validation added (distinct `skill_idx` used per fight
+  where the kit carries >1 skill; roster skill names match the compiled kit). Veto-open.
+  **(d) MCP directive (Matt, verbatim intent): drax works directly IN the scene via the MCP
+  connection — headless-only workflow cannot see these defects.** Spec read
+  (`claude-mobile-session-docs/godot-development-ideas/Godot_MCP_Capture_Harness_Spec.md`).
+  Ground-truth facts gathered for its §6 falsification: build = **4.6.3.stable.official
+  (STANDARD, not Mono)** → IvanMurzak #1-contingent FAILS unless a .NET switch (Matt decision,
+  not taken in-lane); render surface PROVEN (windowed Metal captures exist); **an MCP stack is
+  ALREADY INSTALLED** — `.mcp.json` → `npx @satelliteoflove/godot-mcp` + in-project editor
+  addon "Godot MCP" v4.0.1 (websocket bridge). KF-6b lane therefore: update the installed
+  stack to latest · attempt the NEW isolated-node capture on it · author `CaptureRig.tscn` to
+  the spec §2 server-agnostic contract (needed regardless of server, spec §7) · fix the walls
+  IN-scene with visual verification in the loop · NO purchases ($15 Pro) and NO build switch
+  in-lane — if the stack can't do isolated-node capture post-update, the fork returns
+  decision-shaped (viewport+CaptureRig vs Pro vs .NET). Veto-open.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
-  by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17) — the display instrument is built.
-  **KF-7:** re-emission lane IN FLIGHT (KFL-19b) → verify → scoped Gate-2 → watch brief.
+  by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17); **KF-6b presentation remediation IN
+  FLIGHT** (KFL-20, drax, MCP-in-scene). **KF-7:** re-emission lane IN FLIGHT (KFL-19b; roster
+  check at verify per KFL-20c) → scoped Gate-2 → watch brief.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
