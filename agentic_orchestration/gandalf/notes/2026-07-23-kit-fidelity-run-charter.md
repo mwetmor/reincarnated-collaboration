@@ -369,6 +369,14 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
   (§1), Pin-B two-headed resolution (§4 — flagged for Matt's scrutiny at ratification). KF-1 fires
   immediately (read-only selection analysis; its output IS Matt's first brief). Pins A/B were offered
   to Matt in-chat ahead of the KF-2-entry gate; the gate still binds if unanswered. Veto-open.
-- **KF-2..KF-7:** pending.
+- **KFL-2 (2026-07-23, conductor): KF-1 EXECUTED + VERIFIED — exit predicate MET.** Named-gandalf
+  selection (evidence: `2026-07-23-kf1-pilot-selection-evidence.md`, commit `46f7b1ac`). Conductor
+  spot-probes: open-docket kit census = **43 exact**; **pilot-5 ∩ open-docket-kits = ∅**;
+  le-frost-claw citation softness confirmed (2 cites). **Pilot:** d2-firewall-sorc ·
+  gd-flames-of-ignaffar-purifier · poe2-bonestorm · poe1-cyclone · le-frost-claw. **Reserves:**
+  d2-ww-barb · d2-fire-sorc (the LE-swap) · poe1-frost-blades. Selection brief delivered to Matt
+  in-chat (§6 brief 1); roster ratification is Matt's, with one named sub-decision (LE-spread vs
+  d2-fire-sorc swap). Veto-open.
+- **KF-2..KF-7:** pending. KF-2 entry gates on Matt: roster + Pins A/B.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
