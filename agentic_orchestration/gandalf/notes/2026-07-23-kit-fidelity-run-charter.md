@@ -601,6 +601,30 @@ says so.
   label-synthesis RETIRED for the pilot only; exit = `kit_acceptance_assert` rows GREEN per pilot
   kit; red assert → docket + §5 swap, never silent invention. gd kit HELD (compiles when T4 lands).
   Veto-open.
-- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** in flight (gamora compiler). **KF-5..KF-7:** pending.
+- **KFL-11 (2026-07-23, conductor): KF-4 VERIFIED + CYCLONE RED RULED (A-path) + GATE-2 FIRED.**
+  **(a) KF-4 kit compiler VERIFIED + pushed** (engine `06ec241` math note + `b0684d4` compiler;
+  collab `3694f2fc` assert SQL): **additive-only conductor-confirmed** (7 new files under
+  `simulation/kit_compiler/` + math note; ZERO existing engine paths touched — determinism preserved
+  by construction); smoke conductor-rerun reproduces **35 GREEN · 1 RED · 1 GAP-untested** exactly;
+  per-kit DB probe reconciled (the 5 KF-1 seed asserts stay green alongside the 37 KF-4 rows);
+  `_build_martial_player_class` label-synthesis RETIRED pilot-only; gd HELD honestly (GAP-untested,
+  compiles zero-change when T4 lands); **KF-5 hook in place** (per-skill `_composition` block so
+  expected computes from anchored factors, zero-derivation). Docket `176` conductor-inspected:
+  complete provenance JSON + disposition options recorded — red-test doctrine executed, nothing
+  fabricated, nothing silently swapped.
+  **(b) CYCLONE RED RULED (reasoning-boundary, veto-open): Option A first.** The RED is a
+  VALUE-harvest gap (3.15 build-point weapon DPS un-anchored), not an engine gap — shape compiles
+  fully GREEN. Ruling: bounded legolas Mode-A harvest of the documented 3.15 Cyclone build's weapon
+  + its build-point DPS anchor; if anchored → micro-lane (elrond row → gamora rule → re-assert)
+  flips RED→GREEN, roster untouched; **if unanchorable → B-vs-C (accept-partial vs §5 swap)
+  escalates to Matt** (roster consequence = commitment-boundary, same law as the GD fork). Cyclone
+  meanwhile renders honest partial drift — the gauge working, not failing.
+  **(c) GATE-2 LANE FIRED (named jack-ryan, BLOCK authority; BLOCK → fix-forward):** KF-4 engine
+  diff review — gamora's 6 readiness items + the pre-existing `spatial_engine._RICH_TO_SPATIAL`
+  mirror-drift FINDING (stale vs the authoritative generation-side table; compiler bypasses via
+  explicit per-skill `spatial_geometry_type`; 2-entry mirror-sync recommended as follow-on).
+  **KF-5 HOLDS until Gate-2 returns** (no building atop an unreviewed engine diff). Veto-open.
+- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED (KFL-11; cyclone A-path + Gate-2 in flight).
+  **KF-5:** holds for Gate-2. **KF-6/KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.

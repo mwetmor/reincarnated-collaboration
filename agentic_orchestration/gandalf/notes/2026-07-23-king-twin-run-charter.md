@@ -419,7 +419,29 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   modular spine, bone deco sparse edges-only per Fork 3, king lighting/camera register FOV 30° /
   Key −22°/28° E2.4 / ambient E0.8 / glow ON); exit = arena loads headless + twin criteria 4–5 hold.
   Veto-open.
-- **KT-1:** RULED (KTL-3). **KT-2:** VERIFIED (KTL-4). **KT-3:** in flight (drax: aura-swap +
-  arena). **KT-4..KT-5:** pending.
+- **KTL-5 (2026-07-23, conductor): KT-3 VERIFIED + PUSHED — KT-4 FIRED.**
+  **Both jobs PASS under conductor re-run:** rig harness `RIG_SUMMARY passed=23 failed=0` + arena
+  `ARENA_SUMMARY ok=true (crit4=true crit5=true)`; all five pilots on their RULED Binbun variants
+  (tint-exact, spot-checked `fire_area_03` @ #FF6A1A; assets-5 beam per preference); king-singularity
+  grep hits resolved = drax's own guard COMMENTS (the ban documenting itself — held); commits
+  `6416e1e`/`e607acd` clean of gitignored-Binbun leakage (message-text hits only); arena frame
+  eye-verified (144 dungeon-pack floor tiles / 48 walls / 4 pillars + arch / 6 bone deco sparse
+  edges-only per Fork 3; long-shadow king rake reads).
+  **DEVIATION (drax-flagged, honest): Binbun stale-path defect** — beam/pulse packs carry internal
+  `ext_resource` paths from the pack author's layout (`res://assets/BinbunVFX/...`), dead under
+  `.gdignore` uid-blocking → `scripts/kt3_fix_aura_variants.py` authored as TRACKED AUTHORITY
+  (572 refs / 156 files, idempotent, in-place on the gitignored tree). **Reproduce chain is now:**
+  `kt2_apply_retarget.py` → `--headless --import` → `kt3_fix_aura_variants.py` → both harnesses.
+  **LOGGED for KT-4 (its exit = 0 errors / 0 leaks):** 3 dummy-shader RID at-exit leaks on the rig
+  harness post-swap (arena smoke clean) — KT-4 must resolve or explain before its gate closes.
+  **SCENEWRIGHT eye-note (non-blocking; KT-5 is Matt's read):** the captured frame's off-arena void
+  renders pale vs the king exemplar's near-black bg (0.10,0.11,0.13) — galadriel's KT-4 captures
+  confirm the WorldEnvironment applies in playback; ribcage deco piece is large (count-sparse per
+  Fork 3, scale is Matt's taste call at KT-5).
+  **KT-4 SCENE-INTEGRATION LANE FIRED (named-drax):** proxy→rig swap INSIDE `replica_playback.tscn`
+  (census §8 — same scene, no fork per §7/§8) + KT-3 arena in; press-play auto-battle from
+  REPLICA-1 frames; galadriel verification captures follow drax's return. Veto-open.
+- **KT-1:** RULED (KTL-3). **KT-2:** VERIFIED (KTL-4). **KT-3:** VERIFIED (KTL-5). **KT-4:** in
+  flight (drax swap; galadriel captures follow). **KT-5:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
