@@ -849,9 +849,31 @@ says so.
   INFO-1 docstring fix (±15%→±20%, opportunistic). Gate-2's own action line concurs: item-6
   "gates only whether the KF-7 floaters center 100% or 120%" — i.e. it gates exactly what
   re-emission produces. Veto-open.
+- **KFL-19 (2026-07-23, conductor): ITEM-6 RULED BY MATT — OPTION (a) `base_mean` RATIFIED —
+  R-KF7-SEQ HOLD RELEASED → RE-EMISSION LANE FIRED.**
+  **(a) The ruling (in-chat, 2026-07-23):** Matt — *"I concur with base mean."* Commitment
+  boundary honored end-to-end: gauge surfaced the +20% structural bias (KFL-16b) → Gate-2
+  adjudicated decision-shaped with recommendation (a) → conductor concurred → **Matt ratified**.
+  The compiled magnitude shape is now CANON: injected `magnitude = base_mean` — realized damage
+  centers on the statistical mean of the source band, which IS Pin-A `expected` by definition →
+  gauge and reality re-converge at 100 by construction. Combat consequence accepted: per-hit
+  ~−17%, kill times ~+20%, one-time shift, re-measurable in a single balance pass.
+  **(b) Lane FIRED (named-gamora, background):** (1) shape fix at `kit_compiler.py:280`
+  (`base_max` → band mean); (2) KF-5 smoke band RE-DERIVED math-before-code (center 120.23 →
+  100.00; analytic [80,120]; guard band re-derived with documented margins — math note §10, same
+  rigor as §8); (3) INFO-1 docstring fix (`damage_resolver.py:942` ±15%→±20%); (4) both smokes
+  re-run; (5) **RE-EMISSION** of the pilot replica frame set (same fights/arms/seeds as on-disk,
+  compositions attached via `attach_composition_blocks`, gauge fields live, post-shape damage) —
+  data-swap into the godot frames dir per KFL-15 (DATA ONLY — no .gd/.tscn touch); (6) riders:
+  additive-field feasibility for drax named-gaps 1+2 (`expected_max_hp`, `skill_cooldowns`/
+  `cast_progress`); `pct_received` stays honestly null until KF-3 mob compositions exist.
+  **Direction-slip guard passed to the lane:** Gate-2 finding line 44 says "kill times −17% /
+  mobs die faster" — a slip; line 48 is correct (damage drops → kill times LENGTHEN +20%). Do
+  not propagate into math §10. **Scoped Gate-2 follows the lane's return** (engine-diff law).
+  Veto-open.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
-  **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a). **KF-6:** VERIFIED +
-  pushed (KFL-17) — the display instrument is built. **KF-7:** waits ONLY on Matt's item-6
-  magnitude-shape ruling → single gamora re-emission (R-KF7-SEQ) → watch brief.
+  **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
+  by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17) — the display instrument is built.
+  **KF-7:** re-emission lane IN FLIGHT (KFL-19b) → verify → scoped Gate-2 → watch brief.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
