@@ -382,6 +382,22 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   Fork 3 arena family + deco density (lean dungeon-pack spine, bone garnish sparse) · Fork 4 PoE2+GD
   starter-set confirmation + 2 flagged beast proxies — **bundled with the parent run's GD numeric fork
   (KFL-8)** so Matt rules everything in one pass. KT-2 fires on the ruling. Veto-open.
-- **KT-1:** COMPILED + VERIFIED — awaiting Matt's ruling pass. **KT-2..KT-5:** pending on it.
+- **KTL-3 (2026-07-23, Matt in-chat): KT-1 RULED — ALL LEANS APPROVED. KT-2 FIRED.** Matt (verbatim):
+  **"All KT-1 leans approved."** Records: **Fork 1 → OMIT** (D2 starter set ships 4 honest mobs; quill-rat
+  is a next-lap admission when a rodent mesh is sourced) · **Fork 2 → no aura on starter trash**; aura
+  RESERVED as elite/boss/unique marking (D2 champion/unique idiom — ruled policy, no longer drax
+  judgment) · **Fork 3 → arena as proposed** (dungeon-pack spine, bone deco sparse edges-only, host
+  `boss_arena_30x30.tscn`, king camera/light register) · **Fork 4 → all four starter sets CONFIRMED as
+  drafted** (D2×4 · PoE1×5 · PoE2×4 · GD×5) including both flagged beast proxies (Rhoa→werewolf,
+  Thornback→werewolf). Tables A+B of the KT-1 brief are now **THE ruled mapping** — KT-2's exit binds
+  to them row-by-row. **KT-2 rig-assembly lane FIRED** (named-drax, background: 5 pilot rigs at full
+  king grammar + 18 mob rigs, headless load-smoke exit, write-as-you-go, commit-never-push, deviations
+  logged never silent). **Supplemental pre-elicitation** (avoiding a second HALT): IF the parent run's
+  GD fork rules C (kit swap), the replacement kit needs one Table-A row — conductor lean
+  `poe1-frost-blades` over `d2-ww-barb` (ww-barb duplicates cyclone's armored-spinner read; frost-blades
+  adds the palette's missing ICE element + rebalances roster d2×2/poe1×2/poe2×1); proposed row
+  (on-disk-verified): `SK_Chr_Male_Rouge_01` · `SK_Wep_Sword_01` (hand_r, 1H) · `ice_shard_vfx_01`
+  orbit + ice-blue `#7FD4FF`. Contingent — rules only if C fires. Veto-open.
+- **KT-1:** RULED (KTL-3). **KT-2:** in flight (drax rig assembly). **KT-3..KT-5:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
