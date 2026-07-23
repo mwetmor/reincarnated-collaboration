@@ -752,8 +752,45 @@ says so.
   small gamora RE-EMISSION step regenerates pilot-fight frames (compositions attached · post-fix
   damage · gauge fields live); drax's scene then reads them as pure data swap, zero code change.
   KF-7 assembles on: drax HUD ✓ + re-emitted frames ✓ + picker ✓. Veto-open.
-- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a). **KF-5:** VERIFIED
-  (KFL-14a) — fix-forward + rule step in flight (KFL-14d), consolidated Gate-2 to follow.
-  **KF-6:** in flight (KFL-15, drax). **KF-7:** pending (drax HUD + gamora re-emission + picker).
+- **KFL-16 (2026-07-23, conductor): FIX-FORWARD + RULE STEP VERIFIED + PUSHED — THE GAUGE'S
+  SECOND READING NAMED — CONSOLIDATED GATE-2 FIRED.**
+  **(a) Bundled gamora lane VERIFIED + engine PUSHED (`2e222e3..a63d656`).** Part 1 (R-KF5-1,
+  `b492c77`): `flat_damage` survives only as a history comment (`kit_compiler.py:596`) + math-note
+  prose — no live emission; math §8 frames the fix NOT-a-semantic-shift (Disc #12) with
+  param-compat proof (resolver's legacy-flat path reads `params["magnitude"]` identically under
+  either name). Part 2 (`a63d656` + collab `cf55aa1e`/`eea15ca6`): conductor re-ran both smokes —
+  KF-4 **36 GREEN · 0 RED · 1 GAP** (cyclone RED→GREEN; gd GAP held) · KF-5 healthy-path PASS
+  (59/59 amounts > 0, min 1483.3 · pct ∈ [96.20,141.80] ⊂ asserted [90,150] · Pin-A 2570.0 ·
+  determinism byte-identical · outcome identical 120.1==120.1). pDPS **615.01** re-derived by
+  conductor's own arithmetic — both KFL-13b quarantined defects corrected against the PoB
+  CalcOffence local-mod anchor (quality 1:1 additive → 200% total; flat-before-increased;
+  APS=1.6335 fenced as TEMPO); per-hit magnitude 222.1 avg (× effectiveness 0.59), cadence
+  orthogonal per §9.3 — the exact separation the charter demanded. Migration re-applied by
+  conductor: idempotent (13|0 → 13|0), in-file guards green (leaves_null=0 · fence 650/R-CTX-GEO ·
+  identity_violations=0); all 12 leaves IDENTITY-derived under R-K6 (magnitude family) / R-K7
+  (tempo) / R-M5 (percents) / R-CTX-GEO (identity). **Deviations ACCEPTED:** two rules not one
+  (preserves the magnitude-vs-tempo fence — the run's own separation law); effectiveness kept as
+  the once-applied offensive modifier (bonestorm-style, zero modifier-chain change). WR-floor
+  warning now a scenario-timeout artifact (mean_mobs_killed 0→12/28; cyclone 0→26) — observation
+  only, no calibration touched.
+  **(b) NAMED FINDING — THE GAUGE'S SECOND READING (adjudication routed, NOT conductor-ruled).**
+  pct centers **120.23, not 100** (empirical median 120.93). Root analytically PINNED in math §8:
+  the compiler injects `magnitude = base_max` while Pin-A `expected` uses `base_mean`
+  (mitigation/buff factors cancel; ±20% variance sweeps around the base_max center). The smoke
+  band legitimately guards the CENTER against drift — but the RUN's fidelity story reads ≈100 as
+  faithful, and KF-7 floaters would show bonestorm ~120% median. The fork (compiler
+  magnitude-shape: single-scalar base_max vs base_mean vs min–max range-roll matching source-game
+  weapon rolls) is a COMBAT-BEHAVIOR change → exceeds reasoning-boundary; routed to Gate-2
+  adjudication + named to Matt in-status. Outcome = fix-forward lane or next-lap docket, per
+  Gate-2 + Matt.
+  **(c) CONSOLIDATED GATE-2 FIRED (named-jack-ryan):** full engine range `de0090f..a63d656`
+  (math note · Rider-1 · gauge · fix · compiler amendment) + corpus rule composition
+  (R-K6/R-K7 migration vs math §9 vs dual-column law) + band-choice legitimacy + both Disc-#12
+  framings (Part 1 "not-a-shift" claim; Part 2 SEMANTIC-SHIFT-framed `base_weapon_dps` gap-status
+  reinterpretation) + the (b) magnitude-shape adjudication. Veto-open.
+- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
+  **KF-5:** VERIFIED incl. fix-forward + rule step (KFL-14a/16a) — consolidated Gate-2 in flight
+  (KFL-16c). **KF-6:** in flight (KFL-15, drax). **KF-7:** pending (Gate-2 → gamora re-emission →
+  watch brief; magnitude-shape adjudication feeds it).
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
