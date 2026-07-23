@@ -122,5 +122,19 @@ recommended) · G4 watch session (the point) · red-flag pings only in between.
   harmless dead-store `:4819` — tidy on next touch, no re-commit). **Engine `1564e2f`
   Gate-2-CLEARED; engine push queued on Matt authorization** (not load-bearing for G4 — frames are
   local). G3 remains in flight.
+- **RL-5 (2026-07-22) — G3 DELIVERED + conductor-verified; RUN AT G4 (the product).** Godot
+  `90d79c5` (ReplicaTrace pure-deserialization loader · arena/proxies/HP-bars/floaters/
+  death-flashes · telegraph + aim-line overlays · camera · scrubber · fight picker · MP4 fallback
+  script · two check harnesses) + collab `886ccac2` (154-line slice incl. HOW MATT WATCHES).
+  Verification: BLIND bowazon s20260722 tick-51 burst = 25 floaters + 25 death-flashes in ONE tick,
+  clears tick 55 (Metal capture eye-confirmed) · AWARE same seed: no burst, dwell-clump, PLAYER
+  DIES, 12 mobs alive (bricks) · 40/40 fights load, 0 parse errors (2490 ticks / 1406 damage / 1416
+  death — matches G2 stats exactly) · scrubber controls all PASS · headless smoke 0 errors / 0
+  leaks. Schema-gap reads ACCEPTED, no emitter change: roster `element` null on this synthetic
+  population → body color = stable id-hash hue (legibility key, not a fabricated element; element
+  renders where the sim emits it — event-tinted floaters); `dot`/`telegraph` channels dormant-until-
+  population per RL-3. Zero-derivation law upheld (spec §7). **G4 OPEN — Matt watches; acceptance
+  is his own inspection verdict (§2).** Push queue for Matt: engine `1564e2f` (Gate-2 PASS) · godot
+  7-ahead incl. `90d79c5`. Veto-open.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22.
