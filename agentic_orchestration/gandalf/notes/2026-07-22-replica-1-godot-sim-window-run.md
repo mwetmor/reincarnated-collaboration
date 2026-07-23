@@ -93,5 +93,24 @@ recommended) · G4 watch session (the point) · red-flag pings only in between.
   (L-32 design law). The emitter lands as a normal gamora Gate-2 commit on main — observability-only,
   default-off, zero combat-logic change in the same commits. **G2 FIRED** (named gamora, background).
   Veto-open.
+- **RL-3 (2026-07-22) — G2 DELIVERED + conductor-verified; synthesis.** Engine `1564e2f` (Shape B
+  emitter: 362-line sink module + 98 hook lines in `spatial_engine.py`, observability-only,
+  default-off) + collab `40d9b97b` (driver + slice report; 40 frames + manifest UNTRACKED,
+  regenerable). Verification: determinism byte-identical (dup-emit filecmp True) · inertness
+  bit-equal vs the sealed gate cell (intake |Δ|<1e-9, elapsed 5.6 s, 40/40) · burst PRESENT —
+  conductor re-counted BLIND bowazon seed-20260722: **tick 51 = 25 damage / 25 lethal / 25 death in
+  one tick**, 56 tick-frames · tests green (spatial 36/36; 210-sweep 0 fail) · per-cell clear-guard
+  directions reproduce the gate exactly. **Mechanism finding ACCEPTED (Disc #11):** ref-set kit_ids
+  are LABELS on the gate's neutral BC-cells (synthetic martial kits built from canon coordinates) —
+  this population has NO elemental DoT, so `dot` events are legitimately 0; the caustic/poison
+  aware-clears-more story is engagement-geometry (swarm dwell), and the DoT channel stands
+  unit-proven, dormant until a DoT-bearing population enters the window (new prereg territory, not
+  an emitter change). HG-3's watch-promise amended accordingly. Deviations RATIFIED: deterministic
+  `fight_key` replaces UUID (resolves spec §1-vs-§6 byte-identity tension the right way);
+  `threat_tier` honest null. Provenance nuance NOTED: frame headers record `engine_git_hash=2f43045`
+  (emission preceded the emitter commit) — honest as the COMBAT-substrate hash (bit-equal proven);
+  post-`1564e2f` emissions self-record correctly. **G3 FIRED** (named drax, playback scene) ∥
+  **Gate-2 FIRED** (named jack-ryan on `1564e2f`, BLOCK authority). Engine commit unpushed pending
+  Gate-2 + Matt push authorization. Veto-open.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22.
