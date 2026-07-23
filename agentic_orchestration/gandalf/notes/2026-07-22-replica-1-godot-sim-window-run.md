@@ -112,5 +112,15 @@ recommended) · G4 watch session (the point) · red-flag pings only in between.
   post-`1564e2f` emissions self-record correctly. **G3 FIRED** (named drax, playback scene) ∥
   **Gate-2 FIRED** (named jack-ryan on `1564e2f`, BLOCK authority). Engine commit unpushed pending
   Gate-2 + Matt push authorization. Veto-open.
+- **RL-4 (2026-07-22) — Gate-2 PASS on `1564e2f`** (jack-ryan finding
+  `qa/findings/2026-07-22-gate2-replica1-frame-emitter.md`, commit `c6eee0e0`; no WARN, no BLOCK).
+  Zero combat-logic change confirmed by full line review (+98 diff: every added line
+  sink-closure/None-guard/pure-read/comment; on_hit blocks sit post-mutation); inertness proven by
+  construction (14/14 `_frame_sink` refs guarded; corroborates gamora's bit-equal attestation);
+  determinism scan clean (no wall-clock/uuid/random; `_finite()` fails loud); seam-fit idiomatic;
+  210-sweep independently re-run green. Two INFO notes only (RL-3 ratified deviations logged;
+  harmless dead-store `:4819` — tidy on next touch, no re-commit). **Engine `1564e2f`
+  Gate-2-CLEARED; engine push queued on Matt authorization** (not load-bearing for G4 — frames are
+  local). G3 remains in flight.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-22.
