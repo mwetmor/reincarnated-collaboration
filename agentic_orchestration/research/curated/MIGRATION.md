@@ -7,6 +7,39 @@
 
 ---
 
+## kf23-monster-comp-2026-07-23 — KIT-FIDELITY KF-2/3 curation: 2 additive tables + 444 kit_numeric + 145 monster_numeric + 61 kit_composition — 2026-07-23 — **APPLIED (KFL-8d, run-conductor gandalf; named-elrond curation lane)**
+
+### What happened (one line)
+
+Curated the KIT-FIDELITY pilot-5 join-key substrate: **2 additive tables** (`monster_numeric` dual-column monster-side store + `kit_composition` per-kit per-direction expected-value factor ledger) via the additive MIGRATION `MIGRATION-kf23-monster-composition-2026-07-23.md`; populated **444 `kit_numeric` rows** (5 pilot kits, KF-2), **145 `monster_numeric` rows** (d2 58 / poe1 58 / poe2 29, KF-3), **61 `kit_composition` rows** (5 kits × 2 directions; ANCHORED 33 / PINNED 7 / GAP-EXCLUDED 21). Dedicated MIGRATION doc carries the DDL + rationale; rules-needed manifest hands off to gamora/star-lord.
+
+### Deliverables + paths
+
+- **MIGRATION doc:** `MIGRATION-kf23-monster-composition-2026-07-23.md` (this dir).
+- **Schema DDL (rebuildable):** `../scripts/catalogue_migrations/corpus_kf23_monster_composition_schema.sql`.
+- **KF-2 kit-side scripts:** `corpus_kf23_kit_d2_firewall.sql` (106) · `..._d2_firesorc.sql` (188) · `..._poe1_cyclone.sql` (20) · `..._poe2_bonestorm.sql` (104) · `..._gd_foi.sql` (26).
+- **KF-3 monster-side scripts:** `corpus_kf23_monster_d2.sql` (58) · `..._poe1.sql` (58) · `..._poe2.sql` (29).
+- **Composition ledger:** `corpus_kf23_composition_ledger.sql` (61).
+- **Rules-needed manifest:** `../../elrond/notes/2026-07-23-kf23-rules-needed-manifest.md` (the normalization-rule dispatch substrate for gamora/star-lord).
+
+### Dual-column law + anchor law (held)
+
+`source_value` IMMUTABLE + verbatim anchor (quote|URL|access-date packed into `source_anchor`; monster table separates URL/date into own NOT-NULL columns). **`rdr_value` NULL on all 589 curated rows** (444 kit + 145 monster) — the normalization-rule lane derives it; elrond authors NEITHER rules NOR rdr_values (`normalization_rule` stays 0 rows). Un-anchorable values became GAP records / GAP-EXCLUDED factors, NEVER estimates (gd FoI rank table = FULL GAP, zero fabricated rows; gd monster side = FULL GAP; poe2 armour formula = GAP-EXCLUDED B1; D2 Normal resists = anchored-0% with `gap_flag='normal_resist_inferred'`).
+
+### PINs applied (charter ledger)
+
+poe1-cyclone 3.15 build point 59% (PIN #1; poedb 150% curated CONTEXT-ONLY, `_v327_context` scale) · D2 no-crit (Pin A) + hit=1 (PIN-C2) · maxroll primary, fextralife life-coeff conflict dual-anchored (PIN-C3) · poe2 N_shards=10 (PIN-N10) · poe2 projectile-evadable/explosion-AoE-exempt + armour GAP-EXCLUDED (PIN #6) · gd kit HELD, FoI-rank GAP, character formulas curated (PIN #8).
+
+### Additive-only + reversibility + invariants
+
+**ADDITIVE-ONLY:** 2 new tables, zero existing-column/table change (commitment-boundary respected — no non-additive need arose). Existing tables byte-verified untouched (canon_corpus 590, kit_mapping 574, kit_acceptance_assert 310, normalization_rule 0). The 2 pre-existing `kit_numeric` seed rows (poe1-glacial-hammer, poe2-walking-calamity) bit-identical post-curation. **Reversible:** all population is idempotent committed `.sql` (INSERT OR REPLACE keyed on PK; composition ledger scoped-DELETE-then-insert) → byte-identical rebuild per curated/.gitignore doctrine; corpus.db itself gitignored (regenerable); backup `corpus.db.pre-kf23-monster-comp-2026-07-23-backup` retained. schema_meta stamped `kf23-monster-comp-2026-07-23`.
+
+### ADR-004
+
+No engine-telemetry change; star-lord-side MIGRATION.md unaffected (monster_numeric + kit_composition are corpus-curation, elrond seam). The rules-needed manifest is the cross-seam hand-off to the gamora/star-lord `rule_owner` seam (they author `normalization_rule` + derive `rdr_value`; ADR-004 protocol). Auto-committed per project discipline (KFL-8d-authorized lane). **NO push — run-conductor pushes per KFL-4 push-as-you-go.**
+
+---
+
 ## r4-mint-2026-07-22 — R4 E-1 admission FOLD under Path-A: 5 new annex rows (585→590) + d2-ghost-pvp re-key (14 in-DB tables + served E4) + 6 mint_ledger audit rows — 2026-07-22 — **APPLIED (Matt-ruled FOLD, three-run sheet §5; R1=PATH A un-gated the mint; conductor gandalf)**
 
 ### What happened (one line)
