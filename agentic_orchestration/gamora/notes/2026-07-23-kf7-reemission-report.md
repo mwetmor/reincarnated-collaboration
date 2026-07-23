@@ -62,7 +62,7 @@ commit lands in COLLAB.
 - **Engine (`~/Games/reincarnated-engine`, branch main):** `c5a2f2d`
   (shape fix `kit_compiler.py:280` + math note §10 + KF-5 smoke band re-center + `damage_resolver.py:942`
   docstring INFO-1 + rider-ii `skill_cooldowns` tick field). Message cites the Matt ratification.
-- **Collab (`~/Games/reincarnated-collaboration`):** `__COLLAB_SHA__`
+- **Collab (`~/Games/reincarnated-collaboration`):** `a8678397`
   (this report + the KF-7 compiled-kit emit driver). The re-emitted 40-fight compiled pilot-5 frame set +
   manifest are physically written to disk (validated) and REPLACE the stale pre-KF-5 martial-pilot frames,
   but the `replica1-frames/` dir stays **UNTRACKED-by-design** — matching the established precedent (the

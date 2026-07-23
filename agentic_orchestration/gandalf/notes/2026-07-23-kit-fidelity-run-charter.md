@@ -907,10 +907,92 @@ says so.
   IN-scene with visual verification in the loop · NO purchases ($15 Pro) and NO build switch
   in-lane — if the stack can't do isolated-node capture post-update, the fork returns
   decision-shaped (viewport+CaptureRig vs Pro vs .NET). Veto-open.
+- **KFL-21 (2026-07-23, conductor): KFL-19b RE-EMISSION LANE VERIFIED + ENGINE/COLLAB PUSHED —
+  MATT'S DIAGNOSIS DEEPENS (frames were W3'-MARTIAL pilots) — CONDUCTOR FINDING: ROTATION
+  DEAD-WIRE CANDIDATE — DIAGNOSIS LANE FIRED.**
+  **(a) Lane VERIFIED.** Conductor's own runs: KF-4 smoke **36 GREEN · 0 RED · 1 GAP** · KF-5
+  smoke **PASS** (new band [70,130], determinism byte-identity, outcome identical). Shape-fix
+  line eye-verified (`kit_compiler.py:280` band mean, None-guarded — GAP still injects None;
+  ratification cited in-comment). Conductor's independent frame scan MATCHES gamora to the
+  decimal: 40 files exact, 0 stale martial files, 5 pilots × 8; aggregate anchored dealt pct
+  **median 96.51 · mean 97.34 · [80.42, 119.95] · n=280** — every hit in analytic [80,120],
+  center ≈100; `skill_cooldowns` live on every kit; `pct_received` all-null (honest);
+  gd-flames GAP honest (44 hits, amount 0, pct null); `-purifier` kit_ref matches drax
+  `PILOT_RIGS` key exactly. **Deviations ACCEPTED (all surfaced-not-silent, Deviations law):**
+  (1) roster reinterpretation martial→compiled-pilot-5 — the on-disk frames were the REPLICA-1
+  ref roster of W3'-gate MARTIAL pilots at pre-gauge hash `2f43045` (the literal "original
+  basic kits" Matt saw); the literal re-emit reading satisfied ZERO downstream predicates;
+  KFL-20c's roster-expansion delta is SATISFIED BY CONSTRUCTION. (2) frames UNTRACKED-by-design
+  (precedent held; the emit driver is the git-tracked regenerable source, Disc #3). (3) godot
+  commit N/A — frames live in COLLAB (`FRAMES_DIR_DEFAULT` absolute path); zero godot files
+  touched. (4) ~2.6% below-100 residual accepted as measured finite-sample scatter (Disc #11
+  diagnosis: RNG unit-mean proven, mirror-path verified, survivorship ruled out, p≈0.013;
+  LLN-converges with larger fights — scenario choice, not code fix). Rider disposition
+  endorsed: (ii) `skill_cooldowns` INCLUDED v1-additive; (i) `expected_max_hp` NEXT-LAP with
+  the missing state precisely named (source-HP anchor from a KF-2-style harvest onto
+  `_composition` — the exact damage-band analog). Engine `c5a2f2d` + collab `a8678397` PUSHED.
+  **(b) CONDUCTOR FINDING — THE AUDIENCE'S READING (skill rotation): `skills used: [0]` on
+  EVERY kit across ALL 40 fights.** Fire-sorc carries FireBall (242.5) + Meteor (1256.0); no
+  Meteor hit exists anywhere. This is Matt's field complaint ("doesn't use any of its skills")
+  SURVIVING re-emission — gamora's validation checked pct/amount/nullness but not variety;
+  the conductor scan added it per KFL-20c. Probes pin the frame: player entity carries
+  **len-2 `skill_cooldowns`** (both skills reach the SpatialEntity) · tick entities carry an
+  **`energy`** field · a **Phase-2 rotation selector EXISTS** (`spatial_engine.py:575` block,
+  `_select_skill_for_entity:1931`, math note `rotation-selector-phase2-2026-06-20.md`,
+  energy-branched build-vs-spend). Selector present + inputs present + output degenerate =
+  dead-wire-candidate #3 (after flat_damage and magnitude-shape). **Diagnosis lane FIRED
+  (named-gamora):** classify WIRING GAP (compiled/projection fighters bypass or under-feed the
+  existing ratified selector → fix-in-seam authorized by Matt's field report + the ratified
+  Phase-2 behavior, Disc-#12 dead-wire-connect class, then re-emit + variety-validate) vs
+  DESIGN GAP (compiled kits lack rotation metadata the harvest never captured → NO code;
+  decision-shaped options to Matt). Veto-open.
+  **(c) Scoped Gate-2 HELD to consolidate** with the rotation-lane outcome (one review over
+  `c5a2f2d` + rotation disposition; push-then-Gate-2 cadence per KFL-16 precedent).
+- **KFL-22 (2026-07-23, conductor): DRAX KF-6b VERIFIED + GODOT PUSHED (`9f130cd..a3556fc`) —
+  WALLS AT SIM BOUNDS · MCP 4.1.0 IN-SCENE · CaptureRig PROVEN · MONO FORK TO MATT.**
+  **(a) Walls FIXED by PLACEMENT** (report `drax/notes/2026-07-23-kf6b-walls-mcp.md`): root
+  cause was the KT-3 dressed arena hardcoded 30×30 while playback derives dims from the frame
+  header — frames carry NO `arena_width_m`/`height_m` → 44×44 trace fallback; walls sat at 30
+  inside a 44 floor while recorded centers reach x37.5/y43.5 (straight through north/east).
+  Fix in-seam, same-scene: `render_kt3_arena.gd` dims made runtime + `rebuild(w,h)` re-dress
+  per fight-load from `_fit_arena_to_trace()`; ceil-tiling (18 tiles/side, 72 wall pcs, 324
+  floor) with the wall line AT [0,44]. **Conductor verification:** commit scope CLEAN (8 files,
+  all seam; zero frames staged; project.godot untouched). Independent bounds scan (conductor's
+  own): **124,411 pts · x[7.35,37.18] y[2.02,43.5] · 0 violations outside [0,44]** — verdict
+  HOLDS; drax's cited 126,051/x[7.0…] envelope was the pre-swap martial set, and the compiled
+  set sits STRICTLY INSIDE it (same tightest clearance 0.5 m, y 43.5 vs wall 44). Captures
+  eye-verified: BEFORE reproduces Matt items 2/3/4 exactly (walled patch floating in a larger
+  floor; skeletons through the east wall; player outside the south wall); AFTER = full-perimeter
+  grid-snapped enclosure with the COMPILED roster live on-screen (`d2-fire-sorc 1/40`).
+  Instruments re-run by conductor: smoke GREEN (fire-sorc default, parse_errors=0, clean-exit) ·
+  floater PASS with real-frame **`359 (94%)`** (live gauge pct — the KF-5→KF-7 chain visible
+  on screen) · picker PASS (7 fights). Mid-lane frame swap absorbed per the KFL-20 guard
+  (DEFAULT_FIGHT + floater retarget tick 51→19, assertion widened to well-formed; null-graceful
+  still proven via the synth path) — ACCEPTED.
+  **(b) MCP directive EXECUTED with plumbing honesty:** MCP tools are not in the sub-agent tool
+  surface → drax drove the addon websocket DIRECTLY (`ws://127.0.0.1:6550`; handshake proved
+  the stack live). In-project addon updated **4.0.1→4.1.0** (new `reload_scene`, `uid://`
+  resolution; gitignored infra, version recorded in AGENT_STATE; the drax `class_name` collision
+  patch preserved + re-verified against 4.1.0). Editor-viewport capture works; the runtime scene
+  is procedural, so wall verification correctly ran on the RUNNING scene (Metal captures).
+  **(c) Isolated-node capture NOT SHIPPED on this server** (all candidate commands
+  UNKNOWN_COMMAND — it is the IvanMurzak/.NET feature; $15 Pro is viewport-only + no-purchases
+  law). **Fork returns decision-shaped to Matt: STANDARD+CaptureRig (working today, $0) vs
+  Mono build switch for IvanMurzak isolated-node.** Meanwhile `CaptureRig.tscn` +
+  `capture_rig.gd` authored to spec §2 (locked turntable, 4 cams 0/90/180/270 AABB-framed,
+  pinned key+fill+env, #2b2b2b, 1024px, per-angle SubViewports) and PROVEN: d2-skeleton 2×2
+  composite + meta (aabb 1.93×1.70×0.28 m, tri 3574) eye-verified. Spec §6.2 GATE settled
+  empirically: SubViewport readback is NULL under pure `--headless` on 4.6.3/M2 → capture runs
+  WINDOWED. **(d) Drax finding endorsed → RIDER on the in-flight rotation lane:** header lacks
+  arena dims; re-emission stamps `arena_width_m`/`height_m` (additive v1, zero-derivation).
+  Matt field-report scorecard: item 1 (characters) untouched · items 2/3/4 (walls) FIXED +
+  verified · item "new data not in use" RESOLVED on-screen (compiled roster live) pending
+  rotation variety (KFL-21b). Veto-open.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
-  by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17); **KF-6b presentation remediation IN
-  FLIGHT** (KFL-20, drax, MCP-in-scene). **KF-7:** re-emission lane IN FLIGHT (KFL-19b; roster
-  check at verify per KFL-20c) → scoped Gate-2 → watch brief.
+  by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17). **KF-6b:** VERIFIED + pushed
+  (KFL-22) — walls at sim bounds, MCP 4.1.0 in-scene, CaptureRig proven; Mono fork AT MATT.
+  **KF-7:** re-emission VERIFIED + pushed (KFL-21a); **rotation diagnosis IN FLIGHT** (KFL-21b,
+  with arena-dims rider) → consolidated scoped Gate-2 (KFL-21c) → watch brief.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
