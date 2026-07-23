@@ -486,6 +486,41 @@ says so.
   life-per-level/per-vitality coefficients + starter-mob AR columns + firewall tick retry · gd
   unblock attempt via community data-dump (GitHub CSV) route for monster stats + FoI rank table
   (bounded; fail → decision-shaped fallback to Matt). Veto-open.
+- **KFL-8 (2026-07-23, conductor): FORMULA LANE VERIFIED + COMPOSITION PINS + GD FORK QUEUED +
+  KF-2/KF-3 CURATION FIRED.**
+  **(a) Formula-anchor lane landed** (`2026-07-23-kf23-harvest-formulas.md`, commits `85f61e49` /
+  `9e7f7140` / `c894ca53`, conductor spot-verified + pushed). ANCHORED verbatim: poe1 armour-DR
+  `Armour/(Armour + 10×PhysRawDmg)` cap 90% + the full phys-reduction layer composition +
+  evasion-attacks-only ("doesn't work against spell hits") · **poe2 evade-ANYTHING** ("able to evade
+  any incoming projectile or strike… whether… an arrow… or a fireball," AoE exempt) — **LOAD-BEARING
+  CORRECTION** to the audit's spells-always-hit assumption: Bonestorm's projectile component IS
+  evadable; only the AoE explosion is exempt · **d2 chance-to-hit**
+  `min(max(200%×(AR/(AR+Dr))×(ALVL/(ALVL+TLVL)),5%),95%)` + mob AR columns confirmed (Fallen 8,
+  Zombie 8). GAPS held honestly: poe2 armour formula (B1, sources blocked) · d2 blanket
+  spell-bypass verbatim (C2) · firewall tick (C5) · gd data-dump route exhausted (D — GitHub carries
+  extractor TOOLS, no static data).
+  **(b) Conductor pins (reasoning-boundary, veto-open):** **PIN-C2:** D2 fire-skill hit-chance = 1,
+  status PINNED-not-anchored (skill tables carry no AR interaction; named bypass-skill list exists;
+  blanket verbatim unfindable) · **PIN-C3:** maxroll = primary precedence for D2R numerics (dedicated
+  D2R platform; prior d2 harvest already maxroll-cited); the fextralife life-coefficient conflict
+  stays dual-anchored on record, Gate-2-reviewable · **PIN-N10:** poe2-bonestorm N_shards = 10
+  (documented-build midpoint; harvest recommendation, conductor-concurred) unless an anchored count
+  supersedes · **composition consequences:** poe2 armour factor = GAP-EXCLUDED (dealt-% renders
+  pre-armour, named); poe2 composition splits projectile (evadable) vs explosion (AoE-exempt) per B2.
+  **(c) GD FORK — QUEUED TO MATT (decision-shaped, next engagement; commitment-boundary: roster
+  consequence).** FoI per-rank table + ALL gd monster stats are unanchorable read-only (grimtools
+  JS-rendered · fandom 402 · data-dump route exhausted). Without the rank table the gd kit cannot
+  compile its primary skill from anchors — charter §5 swap territory. Options: **(A)** authorize a
+  local GD-extractor lane against a local GD install (highest-grade anchors; needs Matt install
+  confirmation + code-execution authorization) · **(B)** Matt in-game tooltip captures, transcribed
+  under capture-anchors · **(C)** §5 swap to next reserve (d2-ww-barb / poe1-frost-blades), gd a
+  next-lap admission (roster drops to 3 source games). Conductor lean: A if the install exists,
+  else C. **gd kit HELD at KF-2** (character formulas curate; rank-table rows stay GAP); the other
+  4 kits proceed — the fork does not block the run.
+  **(d) KF-2 + KF-3 CURATION LANE FIRED (named-elrond):** kit_numeric population (4 kits + gd
+  partial) · monster tables via additive MIGRATION (d2 / poe1 / poe2) · composition ledgers per kit
+  per direction (ANCHORED/PINNED/GAP-EXCLUDED) · rules-needed manifest handing off to gamora/
+  star-lord for the normalization-rule lane. Veto-open.
 - **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
