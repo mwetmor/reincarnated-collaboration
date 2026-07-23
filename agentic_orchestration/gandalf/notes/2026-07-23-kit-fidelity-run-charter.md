@@ -394,6 +394,24 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
   mobs per game. **KF-2 + KF-3 LAUNCHED** as one combined game-by-game harvest lane (legolas Mode B →
   elrond curation; incremental per-game commits so a stall loses nothing). Out-of-run: /canon
   header-band overlap defect (Matt live report) → drax fix fired.
+- **KFL-4 (2026-07-23, Matt in-chat + conductor): PUSH-AS-YOU-GO + LE SWAP EXECUTED.**
+  **(a) Push-as-you-go AUTHORIZED (Matt, verbatim "push as you go")** — the §6 Matt-queued seam
+  pushes are RETIRED for this run: conductor flushed the standing queue (engine `1564e2f` · godot
+  `90d79c5`+`df7857e` · loadout `f869d45`+`1bc9737`, all pushed 2026-07-23) and henceforth pushes
+  seam commits as they are verified, alongside the existing collab push-as-you-go.
+  **(b) LE INSUFFICIENT — SWAP EXECUTED per KFL-3(b) pre-authorization.** legolas evidence
+  (`agentic_orchestration/legolas/notes/2026-07-23-kf23-harvest-le.md`, commit `c9c09df3`,
+  conductor-verified): lastepochtools.com (sole structured LE DB) HTTP-403s all endpoints; wiki 402;
+  16 reachable sources all strategy-level; full-sheet gap table = GAP on every anchor-grade field.
+  Clean INSUFFICIENT under anchor law. **Pilot roster now: d2-firewall-sorc · d2-fire-sorc ·
+  gd-flames-of-ignaffar-purifier · poe2-bonestorm · poe1-cyclone.** Consequence accepted (was
+  priced in the KF-1 brief): cross-game spread drops to 4 source games (d2 ×2); LE unexercised
+  this lap — logged as a next-lap admission, not silently re-scoped. d2-fire-sorc harvests under
+  the d2 game pass; LE monster harvest moot.
+  **(c) Out-of-run:** /canon band residual (Matt live report: "still not fit to the top of the
+  square") → second drax fix agent fired (v1.16, empirical geometry probe, push authorized).
+  **(d)** Run-doc + desired-end-state brief delivered in-chat (Matt asked; §0/§9 + gate exits are
+  the answer of record). Veto-open.
 - **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
