@@ -788,9 +788,70 @@ says so.
   (R-K6/R-K7 migration vs math §9 vs dual-column law) + band-choice legitimacy + both Disc-#12
   framings (Part 1 "not-a-shift" claim; Part 2 SEMANTIC-SHIFT-framed `base_weapon_dps` gap-status
   reinterpretation) + the (b) magnitude-shape adjudication. Veto-open.
+- **KFL-17 (2026-07-23, conductor): DRAX KF-6 LANE VERIFIED + GODOT PUSHED (`1a25caa..9f130cd`) —
+  THE GAUGE'S DISPLAY INSTRUMENT IS BUILT.**
+  **(a) Commit scope EXACT** (5 files: M `AGENT_STATE.md` · A `check_floater_format.gd` · A
+  `check_picker_advance.gd` · A `replica_hud.gd` · M `replica_playback.gd`); `replica_playback.tscn`
+  byte-untouched — same-scene law held by construction (HUD attaches via script). **Synty license
+  posture ACCEPTED:** 41-sprite SELECTIVE import (of 2,195) on-disk at
+  `Assets/Synty/interface-dark-fantasy-hud/{globes,bars,hotbar,icons_status,icons_elements}` +
+  headless `--import` metadata; `/Assets/Synty/` gitignored, NO pack tracked (`git check-ignore`
+  confirmed) — the established compliance posture, not an omission.
+  **(b) Conductor re-ran ALL THREE harnesses independently:** gated smoke → **SMOKE COMPLETE**
+  (final tick 55, entities=41, parse_errors=0, seek-to-51 OK, clean-exit) · floater harness →
+  **VERDICT: PASS** with exact strings (`281,205 (—)` old-frame null-graceful · `12,500 (87%)`
+  synth dealt · `◆ 3,400 (—)` synth received) · picker harness → **PASS** (7 distinct fights,
+  scene ALIVE; REPLICA-1 defect does not reproduce — KT-4 reload-safety already cured it; no
+  in-seam fix needed; **KF-7 precondition MET**). Both Metal captures verified by conductor's own
+  eye (tick51: dressed arena + red player globe `14,795/15,130` + blue mob globe + 8-slot Synty
+  hot-bar; tick40: dense DoT floater column + player globe drained to ~2,170). DummyShader line =
+  the 1 documented KTL-6 artifact, as expected.
+  **(c) Load-bearing endorsement:** floaters read **`amount`** (the pct numerator, KF-5 math §172)
+  — drax switched OFF `delivered` (capped HP-removed) onto the roll the gauge anchors to. The
+  floater IS the gauge's display: when re-emitted frames land, `(—)` → `(87%)` with ZERO drax
+  change (pure data swap). **3 NAMED GAPS registered** for engine-side emission scope (never
+  derived scene-side, §8 discipline held): (1) `expected_max_hp` on header roster → fidelity-%
+  globe overlay; (2) per-tick `skill_cooldowns`/`cast_progress` → hot-bar cooldown ring; (3)
+  `pct_received` → lights when compositions attach (KFL-14a Deviation 2 lineage).
+  **(d) Stale STOP closed:** drax's flat_damage BLOCKER flag was already FIXED + pushed
+  (`b492c77`, KFL-16a) while his lane was in flight — informational only; his floaters render
+  whatever `amount` the frame carries, correct under either state. Veto-open.
+- **KFL-18 (2026-07-23, conductor): CONSOLIDATED GATE-2 RETURNED — PASS-WITH-NOTES, NO BLOCK —
+  VERIFIED; ITEM-6 SHAPE AT MATT; RE-EMISSION SEQUENCING RULED.**
+  **(a) Verdict verified on full read** (`jack-ryan/notes/2026-07-23-kf5-gate2-review.md`, collab
+  `39105081`): all 8 items PASS at byte/live-import/DB/live-compile/smoke level — gauge purity
+  with airtight default-off proof (`_frame_on_hit` → None-sink unreachable ⇒ byte-identical by
+  construction); Rider-1 live-import 26==26 AUTH==ENG True (the exact 2-entry diff pre-approved at
+  KF-4); R-KF5-1 ENDORSED not-a-shift (dead-wire connect — resolver reads `params["magnitude"]`
+  name-independent); Part-2 Disc-#12 SEMANTIC-SHIFT framing PASS (surfaced in math §9.5 + commit +
+  in-code comment); band [90,150] legitimate as CENTER-drift regression guard (fidelity gauge, not
+  variance gate); cyclone selector-driven (270/483 from DB reads, no literals), effectiveness
+  applied EXACTLY once (0.59 not 0.59²), tempo fence held, both quarantined legolas defects
+  verified ABSENT; both smokes self-run green (36/0/1 + PASS). **Requested assert-class NOTE
+  delivered:** realized-damage POSITIVITY on non-GAP damage bases ("finite ≠ live" — a dead wire
+  passes finiteness; KF-5 smoke now carries `amount > 0`); jack-ryan self-assigned the Disc-#11
+  refinement fold (ADR-002 documentation-only).
+  **(b) ITEM-6 ESCALATED TO MATT (commitment boundary honored):** jack-ryan recommends **(a)
+  compiler emits `base_mean`** (center→100, one line at `kit_compiler.py:280`, avoids (b)'s
+  double-variance stack with the existing U[0.80,1.20] draw; combat shifts once — per-hit ~−17%,
+  kill times ~+20%, re-measurable in a single balance pass); (b) source-band-roll deferred until
+  the synthetic-vs-source variance double-count is resolved deliberately; (c) keep+document
+  REJECTED (ships a +20% reader-correction into the exact number KF-7 exists to make legible).
+  Conductor CONCURS with the recommendation shape; **Matt ratifies** — named in-status
+  decision-shaped.
+  **(c) CONDUCTOR SEQUENCING RULING R-KF7-SEQ (veto-open): gamora RE-EMISSION HELD until Matt's
+  item-6 ruling.** Rationale: the re-emission exists to produce THE frames Matt watches at KF-7;
+  emitting at a center Matt may be about to move (120 vs 100) produces a known-stale frame set +
+  a duplicate lane. The ruling is one message away; the lane fires immediately after. ONE
+  re-emission then carries: ratified magnitude shape · `attach_composition_blocks` (pct_received
+  lights, KFL-15 sequencing) · candidate riders = drax named-gaps 1+2 (`expected_max_hp`,
+  `skill_cooldowns`/`cast_progress` — gamora assesses additive-field feasibility in-lane) ·
+  INFO-1 docstring fix (±15%→±20%, opportunistic). Gate-2's own action line concurs: item-6
+  "gates only whether the KF-7 floaters center 100% or 120%" — i.e. it gates exactly what
+  re-emission produces. Veto-open.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
-  **KF-5:** VERIFIED incl. fix-forward + rule step (KFL-14a/16a) — consolidated Gate-2 in flight
-  (KFL-16c). **KF-6:** in flight (KFL-15, drax). **KF-7:** pending (Gate-2 → gamora re-emission →
-  watch brief; magnitude-shape adjudication feeds it).
+  **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a). **KF-6:** VERIFIED +
+  pushed (KFL-17) — the display instrument is built. **KF-7:** waits ONLY on Matt's item-6
+  magnitude-shape ruling → single gamora re-emission (R-KF7-SEQ) → watch brief.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
