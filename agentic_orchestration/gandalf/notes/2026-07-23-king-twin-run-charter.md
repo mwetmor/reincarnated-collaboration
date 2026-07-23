@@ -367,6 +367,21 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   census + the four game harvest notes as substrate; brief lands self-contained in-chat for Matt's
   single ruling pass, including per-game starter-set membership confirmation where the harvest left
   it informal — poe2/gd). Veto-open.
-- **KT-1:** in flight (mapping brief compiling). **KT-2..KT-5:** pending.
+- **KTL-2 (2026-07-23, conductor): KT-1 BRIEF COMPILED + CONDUCTOR-VERIFIED — AWAITING MATT'S RULING
+  PASS (commitment-boundary HALT per §6/§7).** Brief at
+  `agentic_orchestration/gandalf/notes/2026-07-23-kt1-asset-mapping-brief.md` (named-gandalf, commit
+  `4f106837`). **Trust-but-verify pass (conductor, on-disk):** every identifier in the brief resolved
+  against `reincarnated-godot` — 39 character/prop meshes (all 5 pilot rows + alternates + all 18 mob
+  rows), 6 Binbun VFX scenes, 11 dungeon-pack env pieces, host `scenes/boss_arena_30x30.tscn`, and the
+  `aura_clip` shader: **zero MISSING.** One surgical DRIFT-CRITIC fix: bonestorm's aura attributed to
+  `magic_areas_scene.tscn` — corrected to the **magic_orbs family (assets-14)**,
+  `magic_orb_basic_vfx_01.tscn` directly. King-singularity constraint honored (no King mesh / crown /
+  `SF_Wep_Elven_Greatsword_01` in any row; cyclone's 2H is `SF_Wep_GreatAxe_01`). T2 decidability fix
+  present (mob rows carry prop/aura columns ruling "none"). **Queued to Matt in ONE in-chat bundle:**
+  Fork 1 quill-rat (lean OMIT) · Fork 2 mob-aura default (lean none-for-trash/aura-as-elite-marking) ·
+  Fork 3 arena family + deco density (lean dungeon-pack spine, bone garnish sparse) · Fork 4 PoE2+GD
+  starter-set confirmation + 2 flagged beast proxies — **bundled with the parent run's GD numeric fork
+  (KFL-8)** so Matt rules everything in one pass. KT-2 fires on the ruling. Veto-open.
+- **KT-1:** COMPILED + VERIFIED — awaiting Matt's ruling pass. **KT-2..KT-5:** pending on it.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
