@@ -412,6 +412,20 @@ becomes the acceptance instrument of THIS run once real kits fight real monsters
   square") → second drax fix agent fired (v1.16, empirical geometry probe, push authorized).
   **(d)** Run-doc + desired-end-state brief delivered in-chat (Matt asked; §0/§9 + gate exits are
   the answer of record). Veto-open.
+- **KFL-5 (2026-07-23, conductor): HARVEST WAVE-1 VERIFIED (4/5 games) + RESIDUAL LANE FIRED.**
+  First harvest agent died on a stream idle timeout mid-gd; **the incremental-commit discipline
+  held — zero loss** (le verdict `c9c09df3` · d2 `6c3ede65` · poe1 `5dd10598` · poe2 `4b2a27ea`,
+  all conductor-verified + pushed). **Trust-but-verify finding (load-bearing):** the d2 note's
+  swap-kit claim ("d2-fire-sorc overlaps substantially — Fire Wall primary in both") is
+  **CONTRADICTED by corpus** — `kit_mapping` for d2-fire-sorc = **Fire Ball + Meteor**; the swap
+  kit's skill sheet is NOT yet harvested. **Conductor ruling (reasoning-boundary, curation-call,
+  veto-open): poe1-cyclone version pin = 3.15 era** — the corpus citation (3.15 league-starter
+  thread, 59% effectiveness at gem 20) IS the documented build point the join key measures against;
+  current poedb (150%, post-3.27 buff) filed as context only. Era re-pin would require a
+  `kit_citations` amendment first — out of this run. **Residual legolas agent fired**, scoped to:
+  (1) gd — Flames of Ignaffar kit sheet + Act-1 Normal starter set; (2) d2-fire-sorc supplement —
+  Fire Ball + Meteor tables, correcting the overlap claim on record (shared d2 substrate — Fire
+  Mastery / base attributes / FCR / Act-1 mobs — referenced, not redone). Veto-open.
 - **KF-4..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
