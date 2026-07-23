@@ -398,6 +398,28 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   adds the palette's missing ICE element + rebalances roster d2×2/poe1×2/poe2×1); proposed row
   (on-disk-verified): `SK_Chr_Male_Rouge_01` · `SK_Wep_Sword_01` (hand_r, 1H) · `ice_shard_vfx_01`
   orbit + ice-blue `#7FD4FF`. Contingent — rules only if C fires. Veto-open.
-- **KT-1:** RULED (KTL-3). **KT-2:** in flight (drax rig assembly). **KT-3..KT-5:** pending.
+- **KTL-4 (2026-07-23, conductor): KT-2 VERIFIED + PUSHED — AURA DEVIATION OVERTURNED — KT-3 FIRED.**
+  **Rig assembly PASS:** 23/23 rigs (5 pilots + 18 mobs) headless GREEN (`RIG_SUMMARY passed=23
+  failed=0`; retarget `RT_SUMMARY ok=22 bad=0`); zero alternate-mesh fallbacks; every Table A+B row
+  shipped **as ruled** (quill-rat OMITTED per Fork 1; zero mob auras per Fork 2; both werewolf beast
+  proxies per Fork 4); **king-singularity conductor-grep clean** (no King mesh / crown / elven
+  greatsword under `scenes/rigs/`). **Drax deviation OVERTURNED by conductor disk-probe:** drax
+  shipped all five pilots on tinted `basic_area_vfx_01`, reporting the ruled aura variants absent —
+  but all five EXIST (`fire_area_03`/`_06` → `Binbun_VFX/assets-19` · `beam_vfx_04` → assets-5 +
+  assets-12 · `magic_orb_basic_vfx_01` → assets-14 · `pulse_area_vfx_03` → assets-15); drax searched
+  empty stub roots (`fire_effects/`/`magic_orbs/` under the wrong pack) and stopped. Grammar was
+  preserved (real Binbun scene + ruled tint + light + lift + `aura_clip`), so the fix is surgical —
+  the `TODO(drax)` hook in `pilot_rig.gd` swaps five paths. **Swap rides the KT-3 lane head.**
+  **Handoff caveat recorded:** the 22 retarget `.fbx.import` edits live under gitignored
+  `Assets/Synty/` — any fresh KT-4 host runs `scripts/kt2_apply_retarget.py` + `--headless --import`
+  once before rigs build (drax report reproduce step). Commits verified + pushed: godot `4720353`/
+  `ae2c40c`/`95f3fc7`/`2321d80`/`b3fd817`/`e17a16f`; collab report `3c9f7629`
+  (`drax/notes/2026-07-23-kt2-rig-assembly-report.md`). **KT-3 ARENA LANE FIRED (named-drax):**
+  step 1 aura-variant swap to the five on-disk paths above; step 2 arena per §KT-3 (dungeon-pack
+  modular spine, bone deco sparse edges-only per Fork 3, king lighting/camera register FOV 30° /
+  Key −22°/28° E2.4 / ambient E0.8 / glow ON); exit = arena loads headless + twin criteria 4–5 hold.
+  Veto-open.
+- **KT-1:** RULED (KTL-3). **KT-2:** VERIFIED (KTL-4). **KT-3:** in flight (drax: aura-swap +
+  arena). **KT-4..KT-5:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.

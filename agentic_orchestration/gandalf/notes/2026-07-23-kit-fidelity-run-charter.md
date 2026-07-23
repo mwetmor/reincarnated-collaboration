@@ -552,6 +552,55 @@ says so.
   refs) → derive `rdr_value` for every non-context non-blocked kit_numeric + monster_numeric row →
   stamp `rule_id` + `rule_version_applied` → rules report + Gate-2 readiness flag (jack-ryan reviews
   per charter; the PIN-C3 maxroll-vs-fextralife conflict is on his list). Veto-open.
-- **KF-4..KF-7:** pending.
+- **KFL-10 (2026-07-23, conductor + Matt in-chat): RULES LANE VERIFIED (KF-2/KF-3 CLOSED) + GD
+  TOOLCHAIN GO + SYNTY INTERFACE DIRECTIVE + KF-4 FIRED.**
+  **(a) gamora normalization-rule lane VERIFIED + pushed** (collab `58693914`/`7e3abc2d`/`bd8c0e6b`;
+  engine `4857e96` math note — ONE home:
+  `src/reincarnated/simulation/math/kf2-rdr-normalization-convention.md`): **37** `normalization_rule`
+  rows (rule_owner=gamora, v1, active); the 3 BLOCKED rules correctly NOT authored (R-K5/R-N5 gd ·
+  R-G4 poe2-armour); kit_numeric **444/444** resolved (405 derived + 39 `_v327_context` fenced),
+  monster_numeric **145/145** IDENTITY; NULL remaining = ONLY the 2 pre-existing seeds. **RDR
+  convention: IDENTITY within each source game's own scale** — cross-game rescale cancels in the
+  fidelity gauge (realized/expected), so identity preserves in-game ratios and makes on-screen
+  deviation a pure pipeline-drift signal; tempo rules convert UNIT only (frames/cast → casts/sec).
+  Conductor spot-probes exact (bonestorm gem-20 116/175/89/134 · rhoa armour 35,988); source_value
+  bit-unchanged vs backup (dual-column law); DB byte-rebuildable from committed `.sql` alone.
+  **5 Gate-2 readiness items queued to jack-ryan** (PIN-C3 maxroll-vs-fextralife · context-row rdr=sv
+  fence · value-vs-formula GAP distinction on poe2 armour · the IDENTITY seam call · partial/
+  pre-mitigation render contract R-G5/R-H3/R-C3/R-C4/R-G3). **KF-2 + KF-3 exit predicates GREEN —
+  gates CLOSED.** Veto-open.
+  **(b) GD FORK — TOOLCHAIN VERIFIED GO (legolas, commit `19fbe222`,
+  `legolas/notes/2026-07-23-gd-mac-extraction-viability.md`) + PURCHASE-INTENT CONFIRMED — Matt
+  (verbatim): "I haven't purchased Grim Dawn yet, but I would if it will be helpful to this
+  process."** Conductor recommendation relayed: BUY — **GOG primary** (base + Ashes of Malmouth;
+  browser-download offline installers → `brew install innoextract`, native unpack, no Wine → .arz→
+  .dbr via ArchiveTool.exe-under-Wine OR a small Python parser, binary format fully documented);
+  Steam alternative = DepotDownloader (brew, .NET 8) with one caveat (GDX1 depot ID needs a browser
+  check — SteamDB 403'd the crawl). Confirmed: FoI ranks live in `gdx1/database/gdx1.arz` (AoM);
+  Act-1 mobs in base `database/database.arz`. **T4 re-synced GOG-primary, hold lifted.** The buy is
+  worth it: 4th source game exercises the OA/DA/PTH math family — converter generality evidence no
+  d2/poe kit provides. Veto-open.
+  **(c) MATT DIRECTIVE (verbatim): "please take a look at these newly developed synty dark fantasy
+  HUD and Menus asset packs. THis will be perfect for the godot work that we're doing today. Please
+  use these assets for health/mana/resource and skill HUD assets."** → **KF-6 SPEC AMENDED: the
+  Synty Dark Fantasy INTERFACE packs are the HUD substrate** (globes / hot-bar / resource + skill
+  surfaces build FROM them, not from hand-drawn placeholders). Provenance: first HUD zip arrived
+  corrupted (Safari `.download` container; `unzip -t` exit 9, no central directory — conductor
+  finding relayed, Matt confirmed "THeHUD zip was currupted") → Matt supplied working replacement at
+  `matt_notes_handoff_docs/recent-synty-packs/Source_Sprites/` (2,195 files, 329MB) —
+  conductor-inventoried: `Frame_Orb_*` globe frames **with Glass layers** + `Frame_Ring_Large_*`
+  (health/mana globes), `Bar_*`/`Frame_Bar_*` strips (resource bars), `Sigil_Box/Ring/Cross_*`
+  (skill-slot frames), `Icons_Status` Health/FortifiedHealth, **`Icons_Elements` per-element
+  Clean/Stroke/Underlay** (maps straight onto the element system), `Flasks` (glass-layered),
+  Reticles/Cursors/DamageDirection/input glyphs. Menus pack complete alongside
+  (`INTERFACE_Dark_Fantasy_Menus_SourceFiles_v1`: bar/frame primitives + `SM_Prop_Coin/Rune` FBX).
+  **drax imports both packs into `reincarnated-godot/Assets/` in the KF-6 lane** (post-KT-3 —
+  same-repo collision avoidance). Ledgered as Matt's own commitment — recorded, not conductor-ruled.
+  **(d) KF-4 KIT-COMPILER LANE FIRED (named-gamora):** canon record + `kit_mapping` +
+  `kit_numeric.rdr_value` → real sim fighter per §KF-4; `_build_martial_player_class`
+  label-synthesis RETIRED for the pilot only; exit = `kit_acceptance_assert` rows GREEN per pilot
+  kit; red assert → docket + §5 swap, never silent invention. gd kit HELD (compiles when T4 lands).
+  Veto-open.
+- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** in flight (gamora compiler). **KF-5..KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
