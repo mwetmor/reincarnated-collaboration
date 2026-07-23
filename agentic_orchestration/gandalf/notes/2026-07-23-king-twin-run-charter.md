@@ -1,8 +1,8 @@
 # KING-TWIN — Playable Synty-Dressed Auto-Battle Scene Run (charter)
 
-> **STATUS:** RATIFIED-ELICITATION (E1–E5 Matt-ruled 2026-07-23) — **LAUNCH GATED** on the conductor's
-> DRIFT-CRITIC pass (KFL-1 precedent from the parent charter; census facts re-verified against
-> `reincarnated-godot` at HEAD before KT-1 fires).
+> **STATUS:** RATIFIED + **LAUNCHED at KT-1** (E1–E5 Matt-ruled 2026-07-23; conductor DRIFT-CRITIC
+> launch-gate pass complete — KTL-1: HEAD re-verified `df7857e`, three authoring tensions
+> dispositioned, T2 decidability fix + T3 overlap fix applied).
 
 **Conductor:** gandalf `RUN-CONDUCTOR`. **Chartered:** 2026-07-23, on Matt's "All leans approved for
 E1-E5" ruling (KIT-FIDELITY ledger KFL-7(a)). **Chains from:** KIT-FIDELITY
@@ -154,7 +154,12 @@ KIT-FIDELITY starter-set mob**. Each row: **entity → proposed Synty asset (mes
 element-keyed aura family) → one named alternate.** The arena's environment-piece family is proposed in
 the same brief. The five element→aura bindings are named (fire ×3 → Binbun fire family; bonestorm →
 magic_projectiles/bone tint; cyclone → physical/impact or wind-tinted beam). **The quill-rat gap
-(§1, §5a) is surfaced here as a decision-shaped fallback fork**, not silently substituted.
+(§1, §5a) is surfaced here as a decision-shaped fallback fork**, not silently substituted. **Mob rows
+carry their own prop + aura columns, which may read "none"** (a zombie is unarmed; starter trash
+carries no aura) — and the brief proposes a **default mob-aura policy: none for starter-set mobs,
+aura reserved as elite/boss marking** (the D2 champion/unique idiom: the aura signals SPECIAL, and
+the king reads as singular because the room does not glow with him) — Matt rules the policy in the
+same pass.
 
 **Exit predicate:** every pilot-kit fighter + every harvested starter-set mob has a **Matt-ruled Synty
 asset row** (mesh + prop + aura), the arena piece-family is ruled, and the quill-rat disposition is
@@ -167,13 +172,14 @@ before assembly spends.
 Per ruled row, drax instantiates the census §7 king-rig recipe: body mesh → **GeneralSkeleton retarget
 scaled ~1.85m** + hand prop on the `hand_r` socket + element-keyed aura (Binbun VFX + `aura_clip`
 shader) + retargeted anim-base locomotion. Applies to the 5 player fighters AND the ruled starter-mob
-rigs (mobs at their own scale; not every mob carries an aura — auras key to the *player* element
-identity + boss-tier mobs at drax's judgment, a reasoning-boundary).
+rigs (mobs at their own scale, with prop + aura **per their ruled KT-1 mapping row** — a row may rule
+"none"; residual visual detail stays a drax reasoning-boundary).
 
 **Exit predicate:** the **5 player rigs + all ruled starter-mob rigs load headless without error**;
-**twin criteria 1–3 hold per rig** — (1) Synty mesh present, no capsule proxy; (2) weapon prop parented
-to the hand socket; (3) element-keyed aura instantiated. A rig that fails retarget routes to its named
-**alternate** (§5b), never to a capsule fallback.
+**twin criteria 1–3 hold per rig AS RULED IN ITS KT-1 MAPPING ROW** — (1) Synty mesh present, no
+capsule proxy (every rig, no exceptions); (2) weapon prop parented to the hand socket where the row
+rules a prop; (3) element-keyed aura instantiated where the row rules an aura (player-5: always). A
+rig that fails retarget routes to its named **alternate** (§5b), never to a capsule fallback.
 
 ### KT-3 — Arena assembly (drax)
 
@@ -191,13 +197,14 @@ The proxy→rig swap **inside** `replica_playback.tscn` (census §8 — the scen
 camera / lights / HP bars / floaters / scrubber procedurally; this gate swaps proxies for KT-2 rigs +
 the KT-3 arena, **not** a new scene). Press-play runs the auto-battle from frame data (REPLICA-1 frames
 now; KF-5/KF-6 compiled-kit frames when they land — E1). **galadriel** takes verification captures
-confirming visual assembly (rigs render, aura visible, arena dressed, floaters + globes + hot-bar from
-the parent's KF-6 still present).
+confirming visual assembly (rigs render, auras visible, arena dressed, floaters present; the parent's
+KF-6 globes + hot-bar confirmed **if landed** — E1 overlap means they may not have; that check defers
+to KF-6's landing, the §7/§8 no-fork law binding from launch either way).
 
 **Exit predicate:** **headless smoke GREEN** (0 errors / 0 leaks); a pilot fight loads and plays with
-dressed rigs in the dressed arena; **galadriel capture on record** confirming the assembly. The KF-6
-health globes + skill hot-bar (parent inheritance, §8) render in the SAME scene — KING-TWIN did not
-fork it.
+dressed rigs in the dressed arena; **galadriel capture on record** confirming the assembly. The
+parent's KF-6 surfaces (globes + hot-bar), **whenever they land**, render in this SAME scene —
+KING-TWIN did not fork it (§7/§8).
 
 ### KT-5 — Matt watch: twin verdict (commitment-boundary)
 
@@ -222,7 +229,8 @@ for the arena, grounded in the census §7 recipe:
 2. **Weapon prop in hand socket** — a Synty prop parented to `hand_r`, posing in the hand-local frame
    (KT-2 crit 2).
 3. **Element-keyed aura** — a Binbun VFX aura + `aura_clip` interior-clip shader keyed to the fighter's
-   element (KT-2 crit 3). *Mobs: aura optional per drax judgment; player-5: required.*
+   element (KT-2 crit 3). *Player-5: required. Mobs: per their KT-1 mapping row (default: none for
+   starter trash — the aura is elite/boss marking, ruled at KT-1).*
 4. **King lighting + camera grammar** — the named register (FOV 30°, Key DirectionalLight, ambient,
    glow ON) applied to the arena scene (KT-3 crit 4).
 5. **Synty floors + walls** — dungeon-pack modular floor + wall pieces, no procedural placeholder
@@ -341,9 +349,24 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   blocks the other. **(c)** SUBSTRATE EVIDENCE: the Synty census (commit `5ad6805f`) — NO-BLOCKER
   verdict for 5 rigs + 15–20 mob roster + arena + VFX at king-grammar quality; the quill-rat mesh gap
   named as the sole §5(a) fallback fork. **Launch is GATED on the conductor's DRIFT-CRITIC pass**
-  (census facts re-verified against `reincarnated-godot` at HEAD; the parent's KF-6 globes/hot-bar
-  confirmed present in the shared scene so KT-4 remains a swap, not a re-scene); KT-1 fires on that
-  pass with its mapping brief as Matt's first in-chat ruling. Veto-open.
-- **KT-1..KT-5:** pending (launch-gated on DRIFT-CRITIC).
+  (census facts re-verified against `reincarnated-godot` at HEAD + a charter-integrity read; the
+  KF-6-presence check is a **KT-4 conditional**, not a launch blocker — E1 overlap-start governs);
+  KT-1 fires on that pass with its mapping brief as Matt's first in-chat ruling. Veto-open.
+- **KTL-1 (2026-07-23, conductor): DRIFT-CRITIC LAUNCH-GATE PASS COMPLETE — RUN LAUNCHED at KT-1.**
+  Census facts re-verified: `reincarnated-godot` HEAD = `df7857e`, unchanged since the census capture
+  (§1 stands). The author's three flagged tensions dispositioned: **(T1 ACCEPTED)** §4-as-settled-
+  rubric is correct — E4 is Matt-ruled; the taste layer survives at KT-5. **(T2 FIXED — decidability
+  hole, wider than flagged):** criteria 2–3 could not hold for unarmed/aura-less mobs (a zombie
+  carries no prop), silently failing KT-2's exit as written; fix = mob mapping rows carry prop/aura
+  columns that may rule "none," KT-2's exit binds to the ruled row, and the mob-aura DEFAULT (none
+  for starter trash; aura = elite/boss marking, the D2 champion/unique idiom) is folded into the KT-1
+  brief for Matt's same-pass ruling — promoted from silent drax-judgment to a ruled policy.
+  **(T3 FIXED — overlap contradiction):** KF-6-presence-in-scene as a LAUNCH blocker contradicted E1
+  overlap-start (the parent is at KF-2/3; KF-6 does not exist yet); demoted to a KT-4 conditional,
+  the §7/§8 no-fork law binding from launch. **KT-1 mapping-table compilation FIRED** (named-gandalf;
+  census + the four game harvest notes as substrate; brief lands self-contained in-chat for Matt's
+  single ruling pass, including per-game starter-set membership confirmation where the harvest left
+  it informal — poe2/gd). Veto-open.
+- **KT-1:** in flight (mapping brief compiling). **KT-2..KT-5:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
