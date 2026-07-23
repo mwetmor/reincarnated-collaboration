@@ -653,7 +653,43 @@ says so.
   OWN separate commit per (a) pre-approval, riding its own Gate-2 · opportunistic math-note cite
   refresh. Exit: dealt+received events carry expected/pct · determinism byte-identical · non-finite
   guard · Gate-2 PASS on the diff. Veto-open.
-- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a; cyclone A-path in
-  flight). **KF-5:** in flight (KFL-12b, gamora). **KF-6/KF-7:** pending.
+- **KFL-13 (2026-07-23, conductor): CYCLONE ANCHORED — A-PATH LANDS — ELROND MICRO-LANE FIRED;
+  GAMORA RULE STEP QUEUED BEHIND KF-5.**
+  **(a) legolas harvest VERIFIED ANCHORED** (commit `8abfeed5`,
+  `legolas/notes/2026-07-23-cyclone-weapon-dps-anchor.md`): the documented 3.15 Cyclone Slayer
+  build (thread 3033867) embeds a PoB export (pastebin `Sf8AYHkK`, decoded in-session) whose
+  active Weapon-1 is verbatim-anchored — rare Exquisite Blade "Blood Razor" iLvl 83 (156% inc
+  phys · +23–49 flat phys · 21% IAS · Q44 incl. +14% crafted · +50% global crit multi implicit ·
+  25% inc crit chance crafted) on poedb base 67–112 phys / 1.35 APS / 5.7% crit. Routes exhausted
+  honestly (8 listed; the corpus's Berserker thread 3078559 PoB decoded + rejected as
+  wrong-build; budget Starforge range-computed BELOW the anchor — transition weapon, not build
+  point). **B-vs-C escalation MOOT — roster untouched; nothing reaches Matt.**
+  **(b) TRUST-BUT-VERIFY FINDING (load-bearing): the note's derived ~570 pDPS composes quality
+  WRONG** — it invents "+0.5% inc phys per 1% quality for two-handers" (Q44→+22%); the PoE
+  local-weapon rule is 1:1 (Q44→+44%), giving **~615 pDPS** — tellingly nearer the guide's "650+"
+  aspiration. The note's per-hit sketch (570×0.59/3.0≈112) also conflates attack cadence with
+  per-hit magnitude. NEITHER blocks: under dual-column law elrond stores only the VERBATIM LEAVES
+  (all clean); the COMPOSITION is gamora's normalization rule to pin against a citable source
+  (PoB's open-source CalcOffence path qualifies), jack-ryan-checked. Both defects are flagged
+  into the gamora brief so the note's arithmetic cannot leak into the rule.
+  **(c) Corpus probes confirm (conductor, read-only):** poe1-cyclone carries ZERO weapon leaf
+  rows (the RED's root cause); `weapon_dps_target=650` is already context-fenced under
+  `R-CTX-GEO` (the compiler correctly never consumed it — legolas's aspirational-floor read
+  CONCURRED); citations = overgear + poe-vault (both Slayer guides) + the wrong-build Berserker
+  thread; the Slayer thread + PoB + poedb pages are absent. The kit is Slayer-documented →
+  citation correction = a data-integrity fix within the ruled 3.15 era + ruled build, NOT a
+  re-pin (KFL-5 era law untouched).
+  **(d) ELROND MICRO-LANE FIRED (named-elrond):** add the verbatim weapon leaves (source_value +
+  source_anchor quotes; **rdr_value NULL — the rule step derives**) + the three missing
+  citations; Berserker-row disposition = elrond curation call, documented; migration `.sql`
+  committed (byte-rebuildable law); key naming aligned to the compiler's `_bp` build-point
+  selector conventions.
+  **(e) GAMORA RULE STEP QUEUED** (weapon-composition normalization rule + rdr derivation +
+  compiler consumption + re-assert → RED→GREEN): fires AFTER the KF-5 lane returns (same seam,
+  same repo — collision law; any compiler amendment rides Gate-2 with/after KF-5's diff).
+  Veto-open.
+- **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a; cyclone RED →
+  elrond micro-lane in flight, gamora rule step queued behind KF-5). **KF-5:** in flight
+  (KFL-12b, gamora). **KF-6:** queues behind galadriel KT-lane (same tree). **KF-7:** pending.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.

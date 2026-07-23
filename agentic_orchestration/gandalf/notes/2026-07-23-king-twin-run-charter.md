@@ -441,7 +441,36 @@ commitment-boundaries (KT-1 mapping, KT-5 verdict) reach Matt.
   **KT-4 SCENE-INTEGRATION LANE FIRED (named-drax):** proxy→rig swap INSIDE `replica_playback.tscn`
   (census §8 — same scene, no fork per §7/§8) + KT-3 arena in; press-play auto-battle from
   REPLICA-1 frames; galadriel verification captures follow drax's return. Veto-open.
-- **KT-1:** RULED (KTL-3). **KT-2:** VERIFIED (KTL-4). **KT-3:** VERIFIED (KTL-5). **KT-4:** in
-  flight (drax swap; galadriel captures follow). **KT-5:** pending.
+- **KTL-6 (2026-07-23, conductor): KT-4 VERIFIED + PUSHED — GALADRIEL CAPTURE LANE FIRED.**
+  **Scene integration PASS under conductor re-run:** gated smoke CLEAN (SMOKE COMPLETE 41 entities /
+  parse_errors=0 / seek-51 OK / clean-exit — **0 errors, 0 leaks: the KTL-5 exit predicate HOLDS**) ·
+  `SWAP_SUMMARY ok=true` (41 rig / 0 proxy / 41 hpbar / player aura / 17 distinct mob meshes / fx /
+  scrubber) · `ENV_SUMMARY ok=true` with the exact king register (bg 0.10,0.11,0.13 · glow ON ·
+  ambient E0.8 · Key −22/28 E2.4 · arena-cam disarmed — **KTL-5 item 2 RESOLVED: the near-black
+  king void applies IN PLAYBACK**) · regressions unchanged (RIG 23/23 · ARENA crit4/crit5 true) ·
+  king-singularity grep clean on all three touched scripts · Metal capture eye-verified (dressed
+  arena, rigs, near-black void, rake shadows, scrubber). Commit `1a25caa` scope EXACT — 5 files,
+  `replica_playback.tscn` BYTE-UNTOUCHED: the §7/§8 no-fork law held by construction (KF-6
+  globes/hot-bar render into the SAME scene). Pushed.
+  **KTL-5 item 1 (RID leak) RESOLVED — diagnosis accepted:** the DummyShader at-exit reports are a
+  headless RendererDummy shutdown-accounting artifact on the third-party Binbun aura `.gdshader`
+  (ResourceCache-resident, freed after the leak-check pass) — proven by per-shader scaling (1 aura
+  = 1 report), `--proxies` = 0, tree-free not clearing it. Fix: `enable_aura` opt-out, default ON,
+  suppressed ONLY in the no-pixels headless `--smoke` path; every visible render keeps the ruled
+  aura. Conductor re-run confirms the signature: gated smoke = 0, aura-bearing assert paths = 1
+  (exactly as diagnosed). Cosmetic residue: the two assert headers promise "clean = 0 leaks" yet
+  legitimately carry the artifact — doc-polish only, non-blocking.
+  **Bridge observation (unruled territory, presentation-seam judgment held):** non-pilot REPLICA-1
+  player kits ride `PILOT_DEFAULT` with an element-derived aura tint (bowazon reads green) —
+  element-faithful; the ruled pilot-5 tints activate by kit_id when KF-5/KF-6 compiled-kit frames
+  land, no scene change. Tree-noise noted: uncommitted `project.godot` mesh_lod drift — outside
+  the commit, left in place.
+  **GALADRIEL VERIFICATION-CAPTURE LANE FIRED:** Metal captures of the playback (ticks + movie) vs
+  the king exemplar (`probe_king_mcp.tscn`); five twin-criteria side-by-side evidence; the aura's
+  verification venue per drax (smoke suppresses it; pixels prove it). KT-5 (Matt twin verdict)
+  consumes the captures. **KF-6 queues behind galadriel's return** (same working tree —
+  capture-flake avoidance). Veto-open.
+- **KT-1:** RULED (KTL-3). **KT-2:** VERIFIED (KTL-4). **KT-3:** VERIFIED (KTL-5). **KT-4:**
+  VERIFIED (KTL-6; galadriel captures in flight). **KT-5:** pending (Matt verdict on captures).
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
