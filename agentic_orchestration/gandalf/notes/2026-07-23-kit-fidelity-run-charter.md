@@ -1051,12 +1051,42 @@ says so.
   carried: sim-side obstacle geometry (interior walls entities respect); `expected_max_hp`
   source-HP harvest anchor; arena-dims header stamp (rider re-arms on any future re-emission);
   cooldown/cast-progress additive fields; skill-idx variety validation (re-arms with rotation).
+- **KFL-25 (2026-07-23, conductor): MATT RULINGS + FIELD REPORT v2 — RUN RE-OPENED (KF-8
+  CHARTERED: CONDUCTOR-IN-SCENE VERIFY + CORRECT).**
+  **(a) RULING R1 — rotation:** START Path 1 (harvest per-skill rotation data) with a PROBE
+  fired now to gather/locate the data; **FALLBACK = hand-authored `cast_priority` for the
+  pilot-5** if the source material lacks it. (Matt wrote "#2 hand authored for these 5" — the
+  description matches the memo's Path 3; intent unambiguous, ledgered as hand-authored-5. The
+  geometry→role heuristic remains REJECTED.) **Probe lane FIRED (named-legolas, Mode A):**
+  does already-collected source material carry per-skill rotation/role signals; extract the
+  pilot-5's actual source rotations with citations; assess harvestable-at-scale vs
+  hand-author. Report → `legolas/notes/2026-07-23-rotation-metadata-probe.md`.
+  **(b) RULING R2 — FIELD REPORT v2 + RE-OPEN DIRECTIVE (verbatim intent):** drax's work NOT
+  snapped to grid for the levels; camera WAY off; does NOT replicate the king scene; Matt
+  suspects the live source-joined battle data (source DBs, join key per character) is NOT in
+  use — "same initial made up data from before the king scene." DIRECTIVE: conductor inspects
+  LITERALLY IN GODOT (MCP wire; **.NET/Mono switch PRE-AUTHORIZED by Matt if needed for
+  conductor eyes**); "Do not end this run until you verify ALL of these facts and then correct
+  them yourself." **CHARTER OVERRIDE (Matt-ratified): the conductor no-production-code law is
+  SUSPENDED for KF-8 scope** — conductor corrects in-scene with own-eye verification per edit.
+  **(c) CONDUCTOR SELF-AUDIT (ledgered):** KFL-22 verification rubric was DATA-HONESTY (wall
+  line vs recorded positions) — NOT TWIN-FIDELITY (replicates the king scene). Grid arithmetic
+  self-indicts: 44 ∉ 2.5·ℤ (17.6 tiles → ceil 18 → tile field 45 vs wall line 44 = off-grid
+  seam BY CONSTRUCTION). Camera never compared against the king rig. Rubric gap owned.
+  **(d) KF-8 GATE — five facts to verify in-scene, then correct:** (i) grid-snap of levels
+  (tile field vs wall line vs floor plane); (ii) camera vs the king-scene rig; (iii) twin
+  register fidelity (king-crypt dressing cadence at the rebuilt scale); (iv) per-character
+  data provenance — join-key audit of what is source-joined TODAY (player skills/damage/
+  element: compiled + byte-verified) vs NOT (player HP = rider-(i) named gap; mobs = neutral
+  synthetics, KF-3 gap; rotation = R1); (v) imported-twin snapping audit (what drax imported
+  vs the king scene). Corrections by conductor; harvest-class gaps (mob join, source HP)
+  return decision-shaped as next-lap laps, not silent scene hacks.
 - **KF-2/KF-3:** CLOSED (KFL-10a). **KF-4:** VERIFIED + Gate-2 PASS (KFL-12a); post-fix 36/0/1.
   **KF-5:** VERIFIED + consolidated Gate-2 **PASS-WITH-NOTES** (KFL-18a); item-6 **RULED (a)**
   by Matt (KFL-19a). **KF-6:** VERIFIED + pushed (KFL-17). **KF-6b:** VERIFIED + pushed
-  (KFL-22) — walls at sim bounds, MCP 4.1.0 in-scene, CaptureRig proven; Mono fork AT MATT.
-  **KF-7:** re-emission VERIFIED + pushed (KFL-21a); rotation diagnosis VERIFIED — Class B,
-  zero code (KFL-23a); capture-path fork AT MATT (KFL-23b); consolidated Gate-2 **VERIFIED
-  PASS-WITH-NOTES + ENDORSE** (KFL-24a). **RUN: EXIT PREDICATE MET — WATCH STATE (KFL-24b).**
+  (KFL-22); **KFL-22 rubric gap OWNED at KFL-25c**. **KF-7:** re-emission VERIFIED + pushed
+  (KFL-21a); rotation Class B (KFL-23a); **rotation RULED R1: Path 1 + probe, fallback
+  hand-authored-5** (KFL-25a, probe IN FLIGHT); consolidated Gate-2 VERIFIED (KFL-24a).
+  **RUN RE-OPENED (KFL-25b): KF-8 IN PROGRESS — conductor in-scene verify + correct.**
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
