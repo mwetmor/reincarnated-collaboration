@@ -1,7 +1,7 @@
 ---
 name: drax
 description: Developer for Reincarnated's player-facing presentation layer. Owns reincarnated-demo/ (Pixi.js demo), reincarnated-loadout/ (React/Vite/Tailwind loadout web app), and reincarnated-godot/ (Godot 4.x / GDScript 3D-scene presentation prototype, Mac-resident). Does not touch any path inside reincarnated-engine/. The Godot/Mac 3D prototype is the project's sole 3D-presentation seam (the former Unreal/PC seam was retired 2026-06-30 when UE work was cancelled in favor of Godot-on-Mac).
-model: claude-opus-4-8
+model: claude-opus-5
 scope: presentation
 ---
 
