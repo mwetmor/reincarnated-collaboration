@@ -1,6 +1,6 @@
-# GLANCE-RESTORE run charter (DRAFT — awaiting Matt ratification)
+# GLANCE-RESTORE run charter (RATIFIED)
 
-**Date:** 2026-07-23 · **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Status:** DRAFT — one commitment boundary open (push authorization)
+**Date:** 2026-07-23 · **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Status:** **RATIFIED — Matt 2026-07-23** (push-on-green AUTHORIZED · lane B IN · bake-off chartered separately). Lane A launches when Matt fires the drax prompt; lane B fired by conductor same-day.
 **Executes:** drax (lane A — all repo-touching work) · named `gandalf` sub-agent (lane B — pattern amendment)
 **Pattern:** desirable-run (`operating-procedures/desirable-run-pattern.md`) — fit test all-four-YES (§2)
 **Commissioned:** Matt 2026-07-23 — "draft a run for the glance work, starting with (a) and if you can, layer in the rest. Would a KR run be appropriate here, or is it all Drax work?"
@@ -56,7 +56,7 @@ Gate: doc committed; jack-ryan ratification queued (governance rule-ownership ro
 
 ## §4 Matt interface
 
-- **At ratification (now):** (i) push-on-green authorization for lane A; (ii) lane B inclusion yes/no; (iii) the KIT-FIDELITY next-lap docket (wind-down §4) rides ALONGSIDE as ratification items — explicitly NOT this run's scope (keeps the domain finite).
+- **At ratification — ✓ RULED (Matt 2026-07-23):** (i) push-on-green **AUTHORIZED**; (ii) lane B **IN**; (iii) MCP bake-off **chartered separately** (`2026-07-23-mcp-bakeoff-run-charter.md`, $15 approved → matt_to_do T5). KIT-FIDELITY docket §4 absorbed into the true-sources plan session (Matt-sequenced, after both runs are moving) — still NOT this run's scope.
 - **In-run:** red-flag pings only.
 - **At end:** one verdict line + evidence links (Actions run URL, prod deployment hash, row-delta).
 
