@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "get_game_node_properties",
+    "arguments": {
+      "node_path": "/root/KT3Arena/Camera3D",
+      "properties": [
+        "global_position",
+        "global_rotation",
+        "fov"
+      ]
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"node_path\": \"/root/KT3Arena/Camera3D\",\n  \"properties\": {\n    \"fov\": 30,\n    \"global_position\": {\n      \"x\": 15,\n      \"y\": 26,\n      \"z\": 52\n    },\n    \"global_rotation\": {\n      \"x\": -0.6034334897995,\n      \"y\": 0,\n      \"z\": 0\n    }\n  },\n  \"type\": \"Camera3D\"\n}"
+        }
+      ]
+    },
+    "jsonrpc": "2.0",
+    "id": 809938
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

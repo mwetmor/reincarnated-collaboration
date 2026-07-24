@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "execute_editor_script",
+    "arguments": {
+      "code": "var sv = SubViewport.new()\nsv.size = Vector2i(256, 256)\nsv.own_world_3d = true\nsv.render_target_update_mode = SubViewport.UPDATE_ALWAYS\nvar base = EditorInterface.get_base_control()\nbase.add_child(sv)\nvar we = WorldEnvironment.new()\nvar env = Environment.new()\nenv.background_mode = Environment.BG_COLOR\nenv.background_color = Color(0.1,0.1,0.1)\nwe.environment = env\nsv.add_child(we)\nvar box = MeshInstance3D.new()\nbox.mesh = BoxMesh.new()\nsv.add_child(box)\nvar light = DirectionalLight3D.new()\nlight.rotation_degrees = Vector3(-45,-30,0)\nsv.add_child(light)\nvar cam = Camera3D.new()\ncam.position = Vector3(3,2.5,3)\nsv.add_child(cam)\ncam.look_at(Vector3.ZERO, Vector3.UP)\n# settle across real frames\nawait RenderingServer.frame_post_draw\nawait get_tree().process_frame\nawait RenderingServer.frame_post_draw\nawait get_tree().process_frame\nvar img = sv.get_texture().get_image()\nvar bg = Color(0.1,0.1,0.1)\nvar nonbg = 0\nfor y in range(0, img.get_height(), 2):\n\tfor x in range(0, img.get_width(), 2):\n\t\tvar c = img.get_pixel(x,y)\n\t\tif abs(c.r-bg.r) > 0.04 or abs(c.g-bg.g) > 0.04 or abs(c.b-bg.b) > 0.04:\n\t\t\tnonbg += 1\nimg.save_png(\"user://ivan_retry_isolated_box_await.png\")\n_mcp_print(\"nonbg_pixels: \" + str(nonbg))\n_mcp_print(\"await_supported: yes\")\nsv.queue_free()",
+      "allow_unsafe_editor_io": true
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{}"
+        }
+      ]
+    },
+    "jsonrpc": "2.0",
+    "id": 369405
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "execute_game_script",
+    "arguments": {
+      "code": "get_tree().paused = true\n_mcp_print(\"paused=\" + str(get_tree().paused))\n_mcp_print(\"frame=\" + str(Engine.get_process_frames()))"
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"output\": [\n    \"paused=true\",\n    \"frame=9644\"\n  ],\n  \"return_value\": \"[\\\"paused=true\\\", \\\"frame=9644\\\"]\"\n}"
+        }
+      ]
+    },
+    "jsonrpc": "2.0",
+    "id": 783723
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

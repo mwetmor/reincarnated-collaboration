@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "execute_editor_script",
+    "arguments": {
+      "code": "var root = get_tree().edited_scene_root\nvar ps = load(\"res://scenes/rigs/mobs/rig_mob_d2_skeleton.tscn\")\nvar inst = ps.instantiate()\ninst.name = \"DraxP1Skeleton\"\nroot.add_child(inst)\ninst.owner = root\n# compute combined aabb of MeshInstance3D descendants\nvar aabb = AABB()\nvar first = true\nvar stack = [inst]\nvar meshcount = 0\nwhile stack.size() > 0:\n\tvar n = stack.pop_back()\n\tif n is MeshInstance3D and n.mesh != null:\n\t\tmeshcount += 1\n\t\tvar world_aabb = n.global_transform * n.get_aabb()\n\t\tif first:\n\t\t\taabb = world_aabb\n\t\t\tfirst = false\n\t\telse:\n\t\t\taabb = aabb.merge(world_aabb)\n\tfor c in n.get_children():\n\t\tstack.push_back(c)\n_mcp_print(\"instanced: \" + inst.name)\n_mcp_print(\"mesh_instances: \" + str(meshcount))\n_mcp_print(\"aabb_size: \" + str(aabb.size))\n_mcp_print(\"aabb_center: \" + str(aabb.get_center()))"
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"output\": [\n    \"instanced: DraxP1Skeleton\",\n    \"mesh_instances: 0\",\n    \"aabb_size: (0.0, 0.0, 0.0)\",\n    \"aabb_center: (0.0, 0.0, 0.0)\"\n  ],\n  \"return_value\": \"[\\\"instanced: DraxP1Skeleton\\\", \\\"mesh_instances: 0\\\", \\\"aabb_size: (0.0, 0.0, 0.0)\\\", \\\"aabb_center: (0.0, 0.0, 0.0)\\\"]\"\n}"
+        }
+      ]
+    },
+    "jsonrpc": "2.0",
+    "id": 491349
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

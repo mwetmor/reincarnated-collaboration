@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "execute_editor_script",
+    "arguments": {
+      "code": "var root = get_tree().edited_scene_root\nvar gm = root.get_node(\"DraxGridMapP3\")\n_mcp_print(\"class: \" + gm.get_class())\n_mcp_print(\"used_cells: \" + str(gm.get_used_cells().size()))\n_mcp_print(\"cell_size: \" + str(gm.cell_size))\n_mcp_print(\"item_at_0_0_0: \" + str(gm.get_cell_item(Vector3i(0,0,0))))\n_mcp_print(\"item_at_8_0_5: \" + str(gm.get_cell_item(Vector3i(8,0,5))))"
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"output\": [\n    \"class: GridMap\",\n    \"used_cells: 54\",\n    \"cell_size: (2.0, 2.0, 2.0)\",\n    \"item_at_0_0_0: 0\",\n    \"item_at_8_0_5: 0\"\n  ],\n  \"return_value\": \"[\\\"class: GridMap\\\", \\\"used_cells: 54\\\", \\\"cell_size: (2.0, 2.0, 2.0)\\\", \\\"item_at_0_0_0: 0\\\", \\\"item_at_8_0_5: 0\\\"]\"\n}"
+        }
+      ]
+    },
+    "jsonrpc": "2.0",
+    "id": 809274
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

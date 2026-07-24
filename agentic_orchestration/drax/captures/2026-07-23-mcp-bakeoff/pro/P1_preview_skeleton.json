@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "get_resource_preview",
+    "arguments": {
+      "path": "res://scenes/rigs/mobs/rig_mob_d2_skeleton.tscn"
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Godot error (-32602): Resource type 'PackedScene' does not have an image preview"
+        }
+      ],
+      "isError": true
+    },
+    "jsonrpc": "2.0",
+    "id": 333808
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

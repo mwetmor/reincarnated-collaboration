@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "get_resource_preview",
+    "arguments": {
+      "path": "res://Assets/Synty/polygon-starter/Assets/Synty/PolygonStarter/Models/extracted/SM_Generic_Ground_04.res"
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Godot error (-32602): Resource type 'ArrayMesh' does not have an image preview"
+        }
+      ],
+      "isError": true
+    },
+    "jsonrpc": "2.0",
+    "id": 260801
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}

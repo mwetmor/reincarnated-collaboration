@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "sessionId": "6a7754c6-9284-4ffd-8fda-417c2050c11b",
+  "params": {
+    "name": "execute_editor_script",
+    "arguments": {
+      "code": "var root = get_tree().edited_scene_root\nvar n = Node3D.new()\nn.name = \"DraxProbeP5\"\nn.position = Vector3(3, 4, 5)\nroot.add_child(n)\nn.owner = root\n_mcp_print(\"created: \" + n.name)\n_mcp_print(\"pos_len: \" + str(n.position.length()))\n_mcp_print(\"child_count_now: \" + str(root.get_child_count()))"
+    }
+  },
+  "result": {
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"output\": [\n    \"created: DraxProbeP5\",\n    \"pos_len: 7.07106781005859\",\n    \"child_count_now: 1\"\n  ],\n  \"return_value\": \"[\\\"created: DraxProbeP5\\\", \\\"pos_len: 7.07106781005859\\\", \\\"child_count_now: 1\\\"]\"\n}"
+        }
+      ]
+    },
+    "jsonrpc": "2.0",
+    "id": 691705
+  },
+  "endpoint": "http://127.0.0.1:8001/mcp"
+}
