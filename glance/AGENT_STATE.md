@@ -5,6 +5,27 @@
 > (glance lives here, not in loadout/demo). Contract:
 > `agentic_orchestration/operating-procedures/glance-contract-spec-2026-07-03.md`.
 
+## GLANCE-RESTORE Lane A — stale sidecar refresh · prod unfreeze (2026-07-23)
+
+Charter: `agentic_orchestration/gandalf/notes/2026-07-23-glance-restore-run-charter.md` (RATIFIED,
+Matt 2026-07-23). Note: `agentic_orchestration/drax/notes/2026-07-23-glance-restore-laneA.md`.
+
+**The freeze:** prod frozen at `e5ea8584` (2026-07-22 15:41 UTC) — checked-in
+`scripts/atlas/kit-provenance-sidecar.json` went stale vs `corpus.db`; atlas BUILD-FAIL GUARD
+(correctly) halted every build, so Vercel served last-green ~34h.
+
+**Fix (commit `ea660a00`, pushed to main):** re-exported the sidecar from `corpus.db` (READ-ONLY).
+- **G1** export exit 0, row_count 590 (**+5** vs stale 585).
+- **G2** `verify-build-fail-guard.mjs` exit 0 (all 11 doctored cases HALT, clean source builds).
+- **G3** `npm run build` green (parser + tsc + vite). Only tracked change = the sidecar.
+- **G4a** Actions run `30060749928` GREEN.
+- **G4b** Vercel prod deploy-commit NOT self-verifiable this session (no CLI; on-disk token
+  `invalidToken`; sidecar refresh is output-invisible → served bundle byte-identical). Prod is 200
+  and serves the green build's exact asset hashes. Flagged for Matt's one-look + `matt_to_do`
+  (refresh local Vercel CLI auth so future runs self-close G4b).
+
+Staleness was the sole cause (G2/G3 green on fresh sidecar) — no fallback-HALT needed.
+
 ## v1.15 — per-kit corpus "single source of truth" · /corpus + /corpus/:id (BUILT, local; NOT deployed)
 
 Spec: `agentic_orchestration/gandalf/notes/2026-07-20-glance-per-kit-join-spec.md` (Matt-approved
