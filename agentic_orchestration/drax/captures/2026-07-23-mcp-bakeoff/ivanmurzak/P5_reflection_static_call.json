@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "xOLmZHfGFfaIkwVRBxNf2Q",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 517690,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "reflection-method-call",
+        "arguments": {
+          "filter": {
+            "namespace": "Godot",
+            "typeName": "Mathf",
+            "methodName": "Sqrt"
+          },
+          "knownNamespace": true,
+          "typeNameMatchLevel": 5,
+          "methodNameMatchLevel": 5,
+          "inputParameters": [
+            {
+              "typeName": "System.Single",
+              "name": "s",
+              "value": 16
+            }
+          ],
+          "executeInMainThread": false
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"typeName\":\"System.Single\",\"value\":4}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "typeName": "System.Single",
+              "value": 4
+            }
+          },
+          "isError": false
+        },
+        "id": 687161,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

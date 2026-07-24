@@ -1,0 +1,26 @@
+{
+  "note": "downstream judge-channel artifact; incumbent MCP server has NO native compare command. Diff computed via Godot Image math. Parked for galadriel CV verdict.",
+  "pairs": [
+    {
+      "a": "caprig_skeleton_a0.png",
+      "b": "caprig_skeleton_a0.png",
+      "diff_png": "p2_diff_a0_vs_a0.png",
+      "h": 1024,
+      "mse": 0.0,
+      "rmse": 0.0,
+      "similarity_pct": 100.0,
+      "w": 1024
+    },
+    {
+      "a": "caprig_skeleton_a0.png",
+      "b": "caprig_skeleton_a180.png",
+      "diff_png": "p2_diff_a0_vs_a180.png",
+      "h": 1024,
+      "mse": 0.0049217419529989,
+      "rmse": 0.07015512777409,
+      "similarity_pct": 92.984487222591,
+      "w": 1024
+    }
+  ],
+  "probe": "P2-screenshot-comparison"
+}

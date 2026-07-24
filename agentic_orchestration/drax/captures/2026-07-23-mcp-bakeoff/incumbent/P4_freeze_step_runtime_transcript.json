@@ -1,0 +1,245 @@
+{
+  "ok": true,
+  "url": "ws://127.0.0.1:6550",
+  "total_ms": 289,
+  "calls": [
+    {
+      "command": "game_time_status",
+      "params": {},
+      "latency_ms": 38,
+      "response": {
+        "id": "1",
+        "result": {
+          "engine_time_scale": 1,
+          "freeze_transitions": 0,
+          "frozen": true,
+          "frozen_wall_ms": 62456,
+          "game_paused": false,
+          "launched_frozen": true,
+          "physics_ticks_per_second": 60,
+          "tree_paused": true
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "get_runtime_state",
+      "params": {
+        "specs": [
+          {
+            "path": "/root/SidekickTest/MCP_PROBE_NODE",
+            "fields": [
+              "global_position",
+              "name"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 41,
+      "response": {
+        "id": "2",
+        "result": {
+          "entities": [
+            {
+              "onscreen": false,
+              "path": "/root/SidekickTest/Camera3D",
+              "pos": {
+                "x": 0,
+                "y": 4.5,
+                "z": 5.5
+              },
+              "rot": {
+                "x": -40,
+                "y": 0,
+                "z": 0
+              },
+              "type": "Camera3D"
+            },
+            {
+              "onscreen": false,
+              "path": "/root/SidekickTest/KeyLight",
+              "pos": {
+                "x": 0,
+                "y": 6,
+                "z": 0
+              },
+              "rot": {
+                "x": -45,
+                "y": 30,
+                "z": 0
+              },
+              "type": "DirectionalLight3D"
+            },
+            {
+              "onscreen": false,
+              "path": "/root/SidekickTest/FillLight",
+              "pos": {
+                "x": 0,
+                "y": 4,
+                "z": -3
+              },
+              "rot": {
+                "x": -9.23,
+                "y": -130,
+                "z": 0
+              },
+              "type": "DirectionalLight3D"
+            },
+            {
+              "onscreen": true,
+              "path": "/root/SidekickTest/GroundRef",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rot": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "type": "MeshInstance3D"
+            }
+          ],
+          "entity_count": 4,
+          "hint": "No nodes found in group 'mcp_watch' and no _mcp_state() methods detected; showing visible 2D and 3D world nodes (meshes, gridmaps, cameras, lights, physics bodies and trigger areas, and visible CanvasItems). For richer data: add key nodes to the 'mcp_watch' group, then implement `func _mcp_state() -> Dictionary` on them. In _mcp_state(), include both live runtime values (position, health, score) AND static definition context (puzzle clues, level config, item data) — an agent needs both to understand and verify game state.",
+          "scene": "res://scenes/sidekick_test.tscn",
+          "selection": "fallback"
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "game_time_step",
+      "params": {
+        "frames": 10
+      },
+      "latency_ms": 104,
+      "response": {
+        "id": "3",
+        "result": {
+          "completed": true,
+          "elapsed_ms": 61,
+          "frames": 10,
+          "frozen": true,
+          "game_paused": false,
+          "gameplay_ms": 61,
+          "input_kinds": {
+            "action": 0,
+            "axis": 0,
+            "joy_button": 0,
+            "key": 0,
+            "look": 0
+          },
+          "physics_ticks": 4
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "game_time_status",
+      "params": {},
+      "latency_ms": 41,
+      "response": {
+        "id": "4",
+        "result": {
+          "engine_time_scale": 1,
+          "freeze_transitions": 0,
+          "frozen": true,
+          "frozen_wall_ms": 62649,
+          "game_paused": false,
+          "launched_frozen": true,
+          "physics_ticks_per_second": 60,
+          "tree_paused": true
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "get_runtime_state",
+      "params": {
+        "specs": [
+          {
+            "path": "/root/SidekickTest/MCP_PROBE_NODE",
+            "fields": [
+              "global_position"
+            ]
+          }
+        ]
+      },
+      "latency_ms": 42,
+      "response": {
+        "id": "5",
+        "result": {
+          "entities": [
+            {
+              "onscreen": false,
+              "path": "/root/SidekickTest/Camera3D",
+              "pos": {
+                "x": 0,
+                "y": 4.5,
+                "z": 5.5
+              },
+              "rot": {
+                "x": -40,
+                "y": 0,
+                "z": 0
+              },
+              "type": "Camera3D"
+            },
+            {
+              "onscreen": false,
+              "path": "/root/SidekickTest/KeyLight",
+              "pos": {
+                "x": 0,
+                "y": 6,
+                "z": 0
+              },
+              "rot": {
+                "x": -45,
+                "y": 30,
+                "z": 0
+              },
+              "type": "DirectionalLight3D"
+            },
+            {
+              "onscreen": false,
+              "path": "/root/SidekickTest/FillLight",
+              "pos": {
+                "x": 0,
+                "y": 4,
+                "z": -3
+              },
+              "rot": {
+                "x": -9.23,
+                "y": -130,
+                "z": 0
+              },
+              "type": "DirectionalLight3D"
+            },
+            {
+              "onscreen": true,
+              "path": "/root/SidekickTest/GroundRef",
+              "pos": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rot": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "type": "MeshInstance3D"
+            }
+          ],
+          "entity_count": 4,
+          "hint": "No nodes found in group 'mcp_watch' and no _mcp_state() methods detected; showing visible 2D and 3D world nodes (meshes, gridmaps, cameras, lights, physics bodies and trigger areas, and visible CanvasItems). For richer data: add key nodes to the 'mcp_watch' group, then implement `func _mcp_state() -> Dictionary` on them. In _mcp_state(), include both live runtime values (position, health, score) AND static definition context (puzzle clues, level config, item data) — an agent needs both to understand and verify game state.",
+          "scene": "res://scenes/sidekick_test.tscn",
+          "selection": "fallback"
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

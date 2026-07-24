@@ -1,0 +1,68 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "Ljx5qSVsBIdL9romHqjiBg",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 56979,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "node-create",
+        "arguments": {
+          "name": "D2Skeleton_Probe",
+          "instanceScenePath": "res://scenes/rigs/mobs/rig_mob_d2_skeleton.tscn"
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"instanceId\":28110712165804,\"name\":\"D2Skeleton_Probe\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/KT3Arena/D2Skeleton_Probe\",\"type\":\"Node3D\",\"scriptResourcePath\":\"res://scripts/mob_rig.gd\",\"childCount\":0}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "instanceId": 28110712165804,
+              "name": "D2Skeleton_Probe",
+              "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/KT3Arena/D2Skeleton_Probe",
+              "type": "Node3D",
+              "scriptResourcePath": "res://scripts/mob_rig.gd",
+              "childCount": 0
+            }
+          },
+          "isError": false
+        },
+        "id": 631419,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "ok": false,
+  "error": "Unexpected token '<', ...\"stanceId\":<anonymous\"... is not valid JSON",
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "3f-qV2N1QB2NeJ3h6Jxdgw",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 535162,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

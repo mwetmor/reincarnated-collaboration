@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "url": "ws://127.0.0.1:6550",
+  "total_ms": 167,
+  "calls": [
+    {
+      "command": "open_scene",
+      "params": {
+        "scene_path": "res://scenes/_mcp_bakeoff_probe/probe_gridmap.tscn"
+      },
+      "latency_ms": 110,
+      "response": {
+        "id": "1",
+        "result": {
+          "path": "res://scenes/_mcp_bakeoff_probe/probe_gridmap.tscn"
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

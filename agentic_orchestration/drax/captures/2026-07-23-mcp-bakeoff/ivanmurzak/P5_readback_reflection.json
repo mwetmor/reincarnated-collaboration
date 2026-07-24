@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "8q-A8rw71VmqSQauity0yA",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 501028,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "reflection-method-call",
+        "arguments": {
+          "filter": {
+            "namespace": "Godot",
+            "typeName": "GodotObject",
+            "methodName": "Get"
+          },
+          "knownNamespace": true,
+          "typeNameMatchLevel": 6,
+          "methodNameMatchLevel": 6,
+          "targetObject": {
+            "typeName": "Godot.Node3D",
+            "value": {
+              "instanceId": 28181847562902
+            }
+          },
+          "inputParameters": [
+            {
+              "typeName": "Godot.StringName",
+              "name": "property",
+              "value": "position"
+            }
+          ],
+          "executeInMainThread": true
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Tool execution failed for 'Method C# / Call': One or more errors occurred. ('targetObject' deserialized instance is null. Please specify 'targetObject' properly.)"
+            }
+          ],
+          "isError": true
+        },
+        "id": 570470,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

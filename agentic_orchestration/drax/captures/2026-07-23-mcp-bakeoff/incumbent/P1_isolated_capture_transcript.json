@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "url": "ws://127.0.0.1:6550",
+  "total_ms": 545,
+  "calls": [
+    {
+      "command": "capture_isolated_node",
+      "params": {
+        "node_path": "res://Assets"
+      },
+      "latency_ms": 97,
+      "response": {
+        "error": {
+          "code": "UNKNOWN_COMMAND",
+          "message": "Unknown command: capture_isolated_node"
+        },
+        "id": "1",
+        "status": "error"
+      }
+    },
+    {
+      "command": "screenshot_isolated",
+      "params": {},
+      "latency_ms": 99,
+      "response": {
+        "error": {
+          "code": "UNKNOWN_COMMAND",
+          "message": "Unknown command: screenshot_isolated"
+        },
+        "id": "2",
+        "status": "error"
+      }
+    },
+    {
+      "command": "capture_node",
+      "params": {},
+      "latency_ms": 100,
+      "response": {
+        "error": {
+          "code": "UNKNOWN_COMMAND",
+          "message": "Unknown command: capture_node"
+        },
+        "id": "3",
+        "status": "error"
+      }
+    },
+    {
+      "command": "list_gridmaps",
+      "params": {},
+      "latency_ms": 103,
+      "response": {
+        "id": "4",
+        "result": {
+          "gridmaps": []
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "get_scene_tree",
+      "params": {},
+      "latency_ms": 97,
+      "response": {
+        "id": "5",
+        "result": {
+          "tree": {
+            "name": "ReplicaPlayback",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "type": "Node3D"
+          }
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

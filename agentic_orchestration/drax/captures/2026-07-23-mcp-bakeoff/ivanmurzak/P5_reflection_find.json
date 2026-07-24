@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "JtORGHD3-fYvKezkyXAbYg",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 457385,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "reflection-method-find",
+        "arguments": {
+          "filter": {
+            "namespace": "Godot",
+            "typeName": "Mathf",
+            "methodName": "Sqrt"
+          },
+          "knownNamespace": true,
+          "typeNameMatchLevel": 5,
+          "methodNameMatchLevel": 5
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":\"[Success] Found 2 method(s):\\n\\u0060\\u0060\\u0060json\\n[\\n  {\\n    \\u0022IsPublic\\u0022: true,\\n    \\u0022IsStatic\\u0022: true,\\n    \\u0022ReturnType\\u0022: \\u0022System.Single\\u0022,\\n    \\u0022ReturnSchema\\u0022: {\\n      \\u0022type\\u0022: \\u0022number\\u0022,\\n      \\u0022$defs\\u0022: {\\n        \\u0022System.Single\\u0022: {\\n          \\u0022type\\u0022: \\u0022number\\u0022\\n        }\\n      }\\n    },\\n    \\u0022InputParametersSchema\\u0022: [\\n      {\\n        \\u0022type\\u0022: \\u0022number\\u0022,\\n        \\u0022$defs\\u0022: {\\n          \\u0022System.Single\\u0022: {\\n            \\u0022type\\u0022: \\u0022number\\u0022\\n          }\\n        }\\n      }\\n    ],\\n    \\u0022Namespace\\u0022: \\u0022Godot\\u0022,\\n    \\u0022TypeName\\u0022: \\u0022Mathf\\u0022,\\n    \\u0022MethodName\\u0022: \\u0022Sqrt\\u0022,\\n    \\u0022InputParameters\\u0022: [\\n      {\\n        \\u0022typeName\\u0022: \\u0022System.Single\\u0022,\\n        \\u0022name\\u0022: \\u0022s\\u0022\\n      }\\n    ]\\n  },\\n  {\\n    \\u0022IsPublic\\u0022: true,\\n    \\u0022IsStatic\\u0022: true,\\n    \\u0022ReturnType\\u0022: \\u0022System.Double\\u0022,\\n    \\u0022ReturnSchema\\u0022: {\\n      \\u0022type\\u0022: \\u0022number\\u0022,\\n      \\u0022$defs\\u0022: {\\n        \\u0022System.Double\\u0022: {\\n          \\u0022type\\u0022: \\u0022number\\u0022\\n        }\\n      }\\n    },\\n    \\u0022InputParametersSchema\\u0022: [\\n      {\\n        \\u0022type\\u0022: \\u0022number\\u0022,\\n        \\u0022$defs\\u0022: {\\n          \\u0022System.Double\\u0022: {\\n            \\u0022type\\u0022: \\u0022number\\u0022\\n          }\\n        }\\n      }\\n    ],\\n    \\u0022Namespace\\u0022: \\u0022Godot\\u0022,\\n    \\u0022TypeName\\u0022: \\u0022Mathf\\u0022,\\n    \\u0022MethodName\\u0022: \\u0022Sqrt\\u0022,\\n    \\u0022InputParameters\\u0022: [\\n      {\\n        \\u0022typeName\\u0022: \\u0022System.Double\\u0022,\\n        \\u0022name\\u0022: \\u0022s\\u0022\\n      }\\n    ]\\n  }\\n]\\n\\u0060\\u0060\\u0060\"}"
+            }
+          ],
+          "structuredContent": {
+            "result": "[Success] Found 2 method(s):\n```json\n[\n  {\n    \"IsPublic\": true,\n    \"IsStatic\": true,\n    \"ReturnType\": \"System.Single\",\n    \"ReturnSchema\": {\n      \"type\": \"number\",\n      \"$defs\": {\n        \"System.Single\": {\n          \"type\": \"number\"\n        }\n      }\n    },\n    \"InputParametersSchema\": [\n      {\n        \"type\": \"number\",\n        \"$defs\": {\n          \"System.Single\": {\n            \"type\": \"number\"\n          }\n        }\n      }\n    ],\n    \"Namespace\": \"Godot\",\n    \"TypeName\": \"Mathf\",\n    \"MethodName\": \"Sqrt\",\n    \"InputParameters\": [\n      {\n        \"typeName\": \"System.Single\",\n        \"name\": \"s\"\n      }\n    ]\n  },\n  {\n    \"IsPublic\": true,\n    \"IsStatic\": true,\n    \"ReturnType\": \"System.Double\",\n    \"ReturnSchema\": {\n      \"type\": \"number\",\n      \"$defs\": {\n        \"System.Double\": {\n          \"type\": \"number\"\n        }\n      }\n    },\n    \"InputParametersSchema\": [\n      {\n        \"type\": \"number\",\n        \"$defs\": {\n          \"System.Double\": {\n            \"type\": \"number\"\n          }\n        }\n      }\n    ],\n    \"Namespace\": \"Godot\",\n    \"TypeName\": \"Mathf\",\n    \"MethodName\": \"Sqrt\",\n    \"InputParameters\": [\n      {\n        \"typeName\": \"System.Double\",\n        \"name\": \"s\"\n      }\n    ]\n  }\n]\n```"
+          },
+          "isError": false
+        },
+        "id": 797412,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

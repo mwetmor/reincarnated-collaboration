@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "OEOvZ1n7tdwzDiwGlAdzfg",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 34603,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "node-create",
+        "arguments": {
+          "name": "Duck_Probe",
+          "instanceScenePath": "res://Assets/Binbun_VFX/duck/duck.glb"
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Tool execution failed for 'Node / Create': One or more errors occurred. (Resource at 'res://Assets/Binbun_VFX/duck/duck.glb' is not a PackedScene. (Parameter 'instanceScenePath'))"
+            }
+          ],
+          "isError": true
+        },
+        "id": 555799,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

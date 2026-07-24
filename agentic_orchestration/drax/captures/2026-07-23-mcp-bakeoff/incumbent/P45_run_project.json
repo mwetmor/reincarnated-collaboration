@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "url": "ws://127.0.0.1:6550",
+  "total_ms": 435,
+  "calls": [
+    {
+      "command": "run_project",
+      "params": {
+        "frozen": true
+      },
+      "latency_ms": 350,
+      "response": {
+        "id": "1",
+        "result": {
+          "frozen": true
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

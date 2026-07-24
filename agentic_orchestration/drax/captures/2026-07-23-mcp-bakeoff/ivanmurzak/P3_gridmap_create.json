@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "hJSqsBtafUEVumrfuDKUVw",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 857738,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "node-create",
+        "arguments": {
+          "name": "P3_GridMap",
+          "typeClassName": "GridMap"
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"instanceId\":28215989196322,\"name\":\"P3_GridMap\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/P3_GridMap\",\"type\":\"GridMap\",\"childCount\":0}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "instanceId": 28215989196322,
+              "name": "P3_GridMap",
+              "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/P3_GridMap",
+              "type": "GridMap",
+              "childCount": 0
+            }
+          },
+          "isError": false
+        },
+        "id": 595365,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

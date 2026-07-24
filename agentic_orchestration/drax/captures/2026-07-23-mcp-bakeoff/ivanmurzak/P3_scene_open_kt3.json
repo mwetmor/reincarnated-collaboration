@@ -1,0 +1,65 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "jM7eYzNae465_KQPRgZY2A",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 355379,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "scene-open",
+        "arguments": {
+          "resourcePath": "res://scenes/kt3_arena.tscn"
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"resourcePath\":\"res://scenes/kt3_arena.tscn\",\"rootName\":\"KT3Arena\",\"rootInstanceId\":20042699941854,\"isActive\":true}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "resourcePath": "res://scenes/kt3_arena.tscn",
+              "rootName": "KT3Arena",
+              "rootInstanceId": 20042699941854,
+              "isActive": true
+            }
+          },
+          "isError": false
+        },
+        "id": 250376,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

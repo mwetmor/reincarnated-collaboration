@@ -1,0 +1,87 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "INIkZ3PSZUxbZNduj7gOIg",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 1114,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "reflection-method-call",
+        "arguments": {
+          "filter": {
+            "namespace": "Godot",
+            "typeName": "GridMap",
+            "methodName": "SetCellItem"
+          },
+          "knownNamespace": true,
+          "typeNameMatchLevel": 5,
+          "methodNameMatchLevel": 5,
+          "targetObject": {
+            "typeName": "Godot.GridMap",
+            "value": {
+              "instanceId": 28215989196322
+            }
+          },
+          "inputParameters": [
+            {
+              "typeName": "Godot.Vector3I",
+              "name": "position",
+              "value": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+              }
+            },
+            {
+              "typeName": "System.Int32",
+              "name": "item",
+              "value": 0
+            }
+          ],
+          "executeInMainThread": true
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Tool execution failed for 'Method C# / Call': Method not found.\nGodot.GridMap.SetCellItem(Godot.Vector3I position, System.Int32 item)"
+            }
+          ],
+          "isError": true
+        },
+        "id": 590086,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

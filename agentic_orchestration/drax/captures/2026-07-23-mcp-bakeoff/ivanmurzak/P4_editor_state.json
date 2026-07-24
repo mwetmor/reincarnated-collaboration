@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "96f0TEjb45GohoJ7pf-lIw",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 261494,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "editor-application-get-state",
+        "arguments": {}
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"isPlaying\":false,\"editorVersion\":\"4.6.3-stable (official)\"}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "isPlaying": false,
+              "editorVersion": "4.6.3-stable (official)"
+            }
+          },
+          "isError": false
+        },
+        "id": 649371,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

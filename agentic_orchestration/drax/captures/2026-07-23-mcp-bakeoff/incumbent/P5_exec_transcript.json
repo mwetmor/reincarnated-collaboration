@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "url": "ws://127.0.0.1:6550",
+  "total_ms": 86,
+  "calls": [
+    {
+      "command": "exec_run",
+      "params": {
+        "source": "var n = Node3D.new()\nn.name = \"MCP_PROBE_NODE\"\ntree.current_scene.add_child(n)\nn.global_position = Vector3(1, 2, 3)\nn.set_meta(\"probe_tag\", \"bakeoff-p5\")\nreturn {\"path\": str(n.get_path()), \"pos\": {\"x\": n.global_position.x, \"y\": n.global_position.y, \"z\": n.global_position.z}, \"class\": n.get_class(), \"meta\": n.get_meta(\"probe_tag\")}"
+      },
+      "latency_ms": 56,
+      "response": {
+        "id": "1",
+        "result": {
+          "completed": true,
+          "duration_ms": 1,
+          "holder_children": 0,
+          "result": "{ \"path\": \"/root/SidekickTest/MCP_PROBE_NODE\", \"pos\": { \"x\": 1.0, \"y\": 2.0, \"z\": 3.0 }, \"class\": \"Node3D\", \"meta\": \"bakeoff-p5\" }"
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

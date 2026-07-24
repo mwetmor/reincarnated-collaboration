@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "url": "ws://127.0.0.1:6550",
+  "total_ms": 174,
+  "calls": [
+    {
+      "command": "exec_run",
+      "params": {
+        "source": "var m = MeshInstance3D.new()\nm.name = \"MCP_PROBE_MESH\"\nm.mesh = BoxMesh.new()\ntree.current_scene.add_child(m)\nm.add_to_group(\"mcp_watch\")\nm.global_position = Vector3(5, 1, 2)\nreturn {\"path\": str(m.get_path()), \"pos\": {\"x\": m.global_position.x, \"y\": m.global_position.y, \"z\": m.global_position.z}}"
+      },
+      "latency_ms": 52,
+      "response": {
+        "id": "1",
+        "result": {
+          "completed": true,
+          "duration_ms": 4,
+          "holder_children": 0,
+          "result": "{ \"path\": \"/root/SidekickTest/MCP_PROBE_MESH\", \"pos\": { \"x\": 5.0, \"y\": 1.0, \"z\": 2.0 } }"
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "get_runtime_state",
+      "params": {},
+      "latency_ms": 41,
+      "response": {
+        "id": "2",
+        "result": {
+          "entities": [
+            {
+              "groups": [
+                "mcp_watch"
+              ],
+              "onscreen": false,
+              "path": "/root/SidekickTest/MCP_PROBE_MESH",
+              "pos": {
+                "x": 5,
+                "y": 1,
+                "z": 2
+              },
+              "rot": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "type": "MeshInstance3D"
+            }
+          ],
+          "entity_count": 1,
+          "scene": "res://scenes/sidekick_test.tscn",
+          "selection": "group"
+        },
+        "status": "success"
+      }
+    },
+    {
+      "command": "exec_run",
+      "params": {
+        "source": "var n = tree.current_scene.get_node_or_null(\"MCP_PROBE_MESH\")\nreturn {\"exists\": n != null, \"pos\": {\"x\": n.global_position.x, \"y\": n.global_position.y, \"z\": n.global_position.z}, \"in_group\": n.is_in_group(\"mcp_watch\")}"
+      },
+      "latency_ms": 56,
+      "response": {
+        "id": "3",
+        "result": {
+          "completed": true,
+          "duration_ms": 0,
+          "holder_children": 0,
+          "result": "{ \"exists\": true, \"pos\": { \"x\": 5.0, \"y\": 1.0, \"z\": 2.0 }, \"in_group\": true }"
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "WxxfmRIR7ghn3r_DUHa61g",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 63824,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "scene-get-data",
+        "arguments": {
+          "hierarchyDepth": 3
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"instanceId\":20042699941854,\"name\":\"KT3Arena\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/KT3Arena\",\"type\":\"Node3D\",\"scriptResourcePath\":\"res://scripts/render_kt3_arena.gd\",\"childCount\":0,\"children\":[]}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "instanceId": 20042699941854,
+              "name": "KT3Arena",
+              "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/KT3Arena",
+              "type": "Node3D",
+              "scriptResourcePath": "res://scripts/render_kt3_arena.gd",
+              "childCount": 0,
+              "children": []
+            }
+          },
+          "isError": false
+        },
+        "id": 465442,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

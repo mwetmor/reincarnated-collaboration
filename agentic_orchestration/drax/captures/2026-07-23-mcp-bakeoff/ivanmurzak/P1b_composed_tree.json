@@ -1,0 +1,109 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "ODsoXth47ZkkA7yzNdD7hQ",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 743875,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "scene-get-data",
+        "arguments": {
+          "hierarchyDepth": -1
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":{\"instanceId\":28165875652619,\"name\":\"ComposedRender\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender\",\"type\":\"Node3D\",\"scriptResourcePath\":\"res://scripts/render_composed.gd\",\"childCount\":5,\"children\":[{\"instanceId\":28165892429864,\"name\":\"WorldEnvironment\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/WorldEnvironment\",\"type\":\"WorldEnvironment\",\"childCount\":0,\"children\":[]},{\"instanceId\":28165909207081,\"name\":\"Camera3D\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/Camera3D\",\"type\":\"Camera3D\",\"childCount\":0,\"children\":[]},{\"instanceId\":28165942761478,\"name\":\"KeyLight\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/KeyLight\",\"type\":\"DirectionalLight3D\",\"childCount\":0,\"children\":[]},{\"instanceId\":28165959538708,\"name\":\"FillLight\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/FillLight\",\"type\":\"DirectionalLight3D\",\"childCount\":0,\"children\":[]},{\"instanceId\":28165976315925,\"name\":\"GroundRef\",\"path\":\"/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/GroundRef\",\"type\":\"MeshInstance3D\",\"childCount\":0,\"children\":[]}]}}"
+            }
+          ],
+          "structuredContent": {
+            "result": {
+              "instanceId": 28165875652619,
+              "name": "ComposedRender",
+              "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender",
+              "type": "Node3D",
+              "scriptResourcePath": "res://scripts/render_composed.gd",
+              "childCount": 5,
+              "children": [
+                {
+                  "instanceId": 28165892429864,
+                  "name": "WorldEnvironment",
+                  "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/WorldEnvironment",
+                  "type": "WorldEnvironment",
+                  "childCount": 0,
+                  "children": []
+                },
+                {
+                  "instanceId": 28165909207081,
+                  "name": "Camera3D",
+                  "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/Camera3D",
+                  "type": "Camera3D",
+                  "childCount": 0,
+                  "children": []
+                },
+                {
+                  "instanceId": 28165942761478,
+                  "name": "KeyLight",
+                  "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/KeyLight",
+                  "type": "DirectionalLight3D",
+                  "childCount": 0,
+                  "children": []
+                },
+                {
+                  "instanceId": 28165959538708,
+                  "name": "FillLight",
+                  "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/FillLight",
+                  "type": "DirectionalLight3D",
+                  "childCount": 0,
+                  "children": []
+                },
+                {
+                  "instanceId": 28165976315925,
+                  "name": "GroundRef",
+                  "path": "/root/@EditorNode@18106/@Panel@14/@VBoxContainer@15/DockHSplitMain/@VBoxContainer@28/DockVSplitCenter/@VSplitContainer@70/@VBoxContainer@71/@EditorMainScreen@125/MainScreen/@CanvasItemEditor@9331/@VSplitContainer@9114/@HSplitContainer@9116/@HSplitContainer@9118/@Control@9119/@SubViewportContainer@9120/@SubViewport@9121/ComposedRender/GroundRef",
+                  "type": "MeshInstance3D",
+                  "childCount": 0,
+                  "children": []
+                }
+              ]
+            }
+          },
+          "isError": false
+        },
+        "id": 570171,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "ok": true,
+  "endpoint": "http://localhost:8080/mcp",
+  "steps": [
+    {
+      "step": "initialize",
+      "status": 200,
+      "sessionId": "Wx3Esy7pmJwVMs86KmkRWg",
+      "result": {
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "logging": {},
+            "prompts": {
+              "listChanged": true
+            },
+            "resources": {
+              "listChanged": true
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "gamedev-mcp-server",
+            "version": "9.2.1.0"
+          }
+        },
+        "id": 636537,
+        "jsonrpc": "2.0"
+      }
+    },
+    {
+      "step": "tools/call",
+      "status": 200,
+      "params": {
+        "name": "node-modify",
+        "arguments": {
+          "nodeRef": {
+            "instanceId": 28181847562902
+          },
+          "jsonPatch": "{\"Position\":{\"X\":7.0,\"Y\":3.0,\"Z\":5.0}}"
+        }
+      },
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"result\":[{\"Depth\":2,\"Message\":\"Set value\\n  was: type=\\u0027System.Single\\u0027, value=\\u00270\\u0027\\n  new: type=\\u0027System.Single\\u0027, value=\\u00277\\u0027.\",\"Type\":\"Success\"},{\"Depth\":2,\"Message\":\"Value \\u00277\\u0027 modified to\\n\\u0060\\u0060\\u0060json\\n7.0\\n\\u0060\\u0060\\u0060\",\"Type\":\"Success\"},{\"Depth\":3,\"Message\":\"No fields modified.\",\"Type\":\"Info\"},{\"Depth\":3,\"Message\":\"No properties modified.\",\"Type\":\"Info\"},{\"Depth\":2,\"Message\":\"Set value\\n  was: type=\\u0027System.Single\\u0027, value=\\u00270\\u0027\\n  new: type=\\u0027System.Single\\u0027, value=\\u00273\\u0027.\",\"Type\":\"Success\"},{\"Depth\":2,\"Message\":\"Value \\u00273\\u0027 modified to\\n\\u0060\\u0060\\u0060json\\n3.0\\n\\u0060\\u0060\\u0060\",\"Type\":\"Success\"},{\"Depth\":3,\"Message\":\"No fields modified.\",\"Type\":\"Info\"},{\"Depth\":3,\"Message\":\"No properties modified.\",\"Type\":\"Info\"},{\"Depth\":2,\"Message\":\"Set value\\n  was: type=\\u0027System.Single\\u0027, value=\\u00270\\u0027\\n  new: type=\\u0027System.Single\\u0027, value=\\u00275\\u0027.\",\"Type\":\"Success\"},{\"Depth\":2,\"Message\":\"Value \\u00275\\u0027 modified to\\n\\u0060\\u0060\\u0060json\\n5.0\\n\\u0060\\u0060\\u0060\",\"Type\":\"Success\"},{\"Depth\":3,\"Message\":\"No fields modified.\",\"Type\":\"Info\"},{\"Depth\":3,\"Message\":\"No properties modified.\",\"Type\":\"Info\"}]}"
+            }
+          ],
+          "structuredContent": {
+            "result": [
+              {
+                "Depth": 2,
+                "Message": "Set value\n  was: type='System.Single', value='0'\n  new: type='System.Single', value='7'.",
+                "Type": "Success"
+              },
+              {
+                "Depth": 2,
+                "Message": "Value '7' modified to\n```json\n7.0\n```",
+                "Type": "Success"
+              },
+              {
+                "Depth": 3,
+                "Message": "No fields modified.",
+                "Type": "Info"
+              },
+              {
+                "Depth": 3,
+                "Message": "No properties modified.",
+                "Type": "Info"
+              },
+              {
+                "Depth": 2,
+                "Message": "Set value\n  was: type='System.Single', value='0'\n  new: type='System.Single', value='3'.",
+                "Type": "Success"
+              },
+              {
+                "Depth": 2,
+                "Message": "Value '3' modified to\n```json\n3.0\n```",
+                "Type": "Success"
+              },
+              {
+                "Depth": 3,
+                "Message": "No fields modified.",
+                "Type": "Info"
+              },
+              {
+                "Depth": 3,
+                "Message": "No properties modified.",
+                "Type": "Info"
+              },
+              {
+                "Depth": 2,
+                "Message": "Set value\n  was: type='System.Single', value='0'\n  new: type='System.Single', value='5'.",
+                "Type": "Success"
+              },
+              {
+                "Depth": 2,
+                "Message": "Value '5' modified to\n```json\n5.0\n```",
+                "Type": "Success"
+              },
+              {
+                "Depth": 3,
+                "Message": "No fields modified.",
+                "Type": "Info"
+              },
+              {
+                "Depth": 3,
+                "Message": "No properties modified.",
+                "Type": "Info"
+              }
+            ]
+          },
+          "isError": false
+        },
+        "id": 579150,
+        "jsonrpc": "2.0"
+      }
+    }
+  ]
+}
