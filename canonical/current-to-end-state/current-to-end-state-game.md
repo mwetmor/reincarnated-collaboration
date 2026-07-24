@@ -30,6 +30,11 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-24 — MCP-BAKEOFF CLOSED (Matt ratified Option A): incumbent sole standing wire · Pro shelved-owned · Ivan closed, settle-fix banked
+
+- **The Godot MCP instrument stack is DECIDED** (charter + verdict rec: `agentic_orchestration/gandalf/notes/2026-07-23-mcp-bakeoff-run-charter.md` / `2026-07-24-mcp-bakeoff-verdict-rec.md`; 18/18 matrix drax `0dbc4fff`; galadriel P2 judge-note `6fa19e83`). **Incumbent `satelliteoflove/godot-mcp` = the sole standing wire** — the only native game-clock freeze/step (KT-5 conductor-eye law) across all 175 Pro + 39 IvanMurzak competitor tools. **Pro v1.15.1 shelved-owned** (`~/Games/vendor/godot-mcp-pro-v1/`, proprietary, never committed) for dedicated galadriel visual-regression laps; its one real differentiator (native screenshot-diff tripwire, identity floor 0.09%) is a **next-lap drax OPTION**: clean-room diff command in the incumbent addon (galadriel-spec'd — subject-isolation crop, configurable threshold, perceptual mode) that puts the tripwire ON the conduction wire and dissolves the addon-path collision (70 hardcoded `res://addons/godot_mcp/` refs — two stacks cannot coexist). **IvanMurzak closed**; retry finding banked: isolated SubViewport capture IS viable on Metal — the blank was read-before-GPU-settle; `await RenderingServer.frame_post_draw` + 2 process frames fixes it (CaptureRig hardening input).
+- Wind-down: `agentic_orchestration/gandalf/notes/2026-07-24-true-sources-session-winddown.md`.
+
 ### 2026-07-16 — END-STATE DECLARATION (Matt): the ENTIRE ATLAS as live kits in the Godot demo — "pipe the entire Live Build Horizon into the Demo" · demo-content HORIZON rescaled · curated-~20 STANDS as the current step · gating chain named
 
 Matt verbatim (captured at declaration time): *"The goal is to express the entire atlas as live kits within the demo. Once we build the mechanisms, runing the emission pipeline will be the easy part. And once the demo is built for it in Godot, it will be feasible to pipe the entire Live Build Horizon into the Demo. Imagine how great of an experience it will be to demo all the historical kits!"*

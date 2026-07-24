@@ -112,3 +112,15 @@ Six rulings, **TSR-1..TSR-6**, one per fork; I bring pushback where leans meet r
 ---
 
 **Signed:** gandalf (`ELICITOR`), 2026-07-23. The forks are drawn; the rulings are yours.
+
+---
+
+## §5 Session close (2026-07-24) — every fork ruled; the premise is now evidence
+
+All seven fork-families RULED (§4, latest governs). Executed same-session: **LE PARK** (`796025b9` — 37 kits, active roster 270 → 233, rule text in the MIGRATION verbatim) · **TSF6-TRACK-A DONE** (K = 1.60 pinned + nonlinearity finding; leash parameter-faithful +0.15%; gap register 1 faithful / 1 partial / 5 BLOCKED-MECHANISM — the sim has no aggro-onset concept) · **GD-SLICE DONE** (the TRUE-SOURCES pipe proven at width one: .arz → adapter → normalized exact-fields schema → corpus, 22/22 byte-match, conductor-verified against the primary source). Same-window: **MCP-BAKEOFF closed** on Matt's Option-A pick (incumbent sole wire).
+
+**Post-run rulings (Matt, 2026-07-24):** (1) *"Where does encounter-spatial behavior live? The Battle Sim."* — the gap register becomes the sim's GD-parameterized mechanism worklist (next-lap charter, not auto-fired); (2) GD-SLICE schema **agreed for review as potential first template** — lock pends jack-ryan Gate-2 + Matt's eye.
+
+The premise the grill opened on — community harvest cannot stand as ground truth — closed as EVIDENCE: grimtools' 60-rank arrays contradict the .arz's 26 ranks, and the corpus never banked the wrong shape. Wind-down + per-owner owed queue: `2026-07-24-true-sources-session-winddown.md`.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-24.
