@@ -76,9 +76,19 @@ Sequencing vs the KIT-FIDELITY docket: **mob-harvest (docket #1) should CONSUME 
 **Lean:** thin vertical slice — (a) for pilot-5 through one adapter, verified against corpus anchors (TSF-4), THEN mob-harvest rides the schema, THEN (b)/(c). Coverage-before-accuracy applied prospectively: prove the pipe on 5 kits before pumping 270.
 **Unlocks:** the WHEN — and whether mob-harvest waits.
 
+### TSF-6 — Sim-fidelity instrument: blind hero vs source-game enemy roster *(Matt-proposed at session open, 2026-07-23)*
+
+The **engine-truth** question, separated from **pipe-truth** (TSF-1..5): can the battle sim faithfully REALIZE a source game's spatial combat parameters — aggro range, movement speed, attack cadence, pack behavior — tested by importing ONE game's enemy roster against a fixed **blind control hero** in the engine as it is today. Enemy-side only, by design ("that may be all we need to prove this hypothesis").
+
+Ground-truth ladder (the central sub-fork): **(a) parameter-fidelity** — realized sim behavior matches ingested params under a PINNED unit conversion; machine-decidable in-run. **(b) behavior-fidelity** — emergent dynamics vs captured source-game play; lands at the owner's eye (pattern §6.2 pre-registered checkpoint, not an end-brief). Other sub-forks: blind-hero spec (stationary "anvil" vs scripted "kite-line" — kiting is what exposes aggro/leash/reacquire); source game (GD favored — `.arz` DBRs carry monster AI fields; download in flight via T4); unit-conversion pin (probe collision #2's spatial twin — unfalsifiable fidelity without it).
+
+Lineage: gamora's aware-vs-blind fighter ablation (2026-07-22 notes) supplies the blind-agent machinery; KIT-FIDELITY's provenance table names mobs as the 100%-synthetic layer this attacks. **Interaction with TSF-5:** if this is the definitive instrument, the spatial slice argues for running BEFORE breadth-pumping — prove the consumer, then scale the pipe — and mob-harvest's field list expands (aggro/speed/pack, not just HP/DPS). Research in flight: legolas engine-calibration + sim-fidelity methods note.
+**Lean:** run it — as its own desirable-pattern run AFTER the units + ground-truth-register rulings land.
+**Unlocks:** mob-harvest's true field list; where the sim-fidelity run sits in the sequence.
+
 ## §3 Session shape + parking lot
 
-Five rulings, **TSR-1..TSR-5**, one per fork, ~10 min each; I bring pushback where leans meet resistance. **Parked (explicitly NOT this session):** D2 1.13-vs-D2R era policy (CASC extraction is acquisition Phase-2); LE acquisition path; GD monster HP/DPS gap (browser-computed — needs its own probe); PoE radius-unit normalization; PoE2/LE adapter order beyond "after schema proven."
+Six rulings, **TSR-1..TSR-6**, one per fork; I bring pushback where leans meet resistance. **Parked (explicitly NOT this session):** D2 1.13-vs-D2R era policy (CASC extraction is acquisition Phase-2); LE acquisition path; GD monster HP/DPS gap (browser-computed — needs its own probe); PoE radius-unit normalization; PoE2/LE adapter order beyond "after schema proven."
 
 ---
 
