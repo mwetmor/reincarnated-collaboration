@@ -1,7 +1,7 @@
 # Matt to-do — Grim Dawn Edition-II depot fetch (Steam-authenticated)
 
 **Raised:** 2026-07-24 by gandalf
-**Status:** BLOCKED on legolas depot-ID verification (in flight)
+**Status:** READY TO RUN — depot verification complete (legolas, 2026-07-24). Awaiting Matt.
 **Why only Matt:** Steam blocks anonymous manifest requests for paid content.
 DepotDownloader prompts interactively for password + Steam Guard. An agent cannot
 execute this, and an agent that *could* would be a credential-handling surface we
@@ -39,20 +39,58 @@ nothing would flag it as impossible.
 So: fetch base + gdx1 + gdx2 + the new expansion depot(s), all at current manifests, into
 one new directory.
 
-## Command (staged — depot IDs pending verification)
+## Command — READY (verified 2026-07-24)
+
+**Title verified from Steam Web API (primary source):** `Grim Dawn - Fangs of Asterkarn`,
+**app ID 2699230**. Neither recollection was used as a parameter; the ID came from the API.
+
+Fangs' individual depot IDs are not retrievable without auth (SteamDB 403s; the Steam Web
+API does not expose depot IDs for DLC apps). That's fine — passing `-app` without `-depot`
+makes DepotDownloader enumerate every depot the account owns for that app. Depot IDs can be
+read back from `.DepotDownloader/*.manifest` filenames afterward and recorded as the
+Edition-II pin.
 
 ```bash
+DST=/Users/admin/Games/vendor/grim-dawn-edition-II-20260724
+mkdir -p "$DST"
+
+# Fetch only the data-bearing files (~140 MB) instead of the full ~10 GB depot.
+cat > /tmp/gd-filelist.txt <<'EOF'
+regex:.*\.arz$
+regex:.*Text_EN\.arc$
+EOF
+
+# 1 — base game + owned expansions AT CURRENT (post-patch) MANIFESTS.
+#     REQUIRED. Expansions patch the base game; skipping this yields a hybrid edition.
 depotdownloader -app 219990 \
-  -depot 219991 \
-  -depot <GDX1_DEPOT> -depot <GDX2_DEPOT> -depot <NEW_EXPANSION_DEPOT> \
   -username mhwetmore -os windows \
-  -dir /Users/admin/Games/vendor/grim-dawn-edition-II-<YYYYMMDD>
+  -filelist /tmp/gd-filelist.txt \
+  -dir "$DST"
+
+# 2 — Fangs of Asterkarn. Safety net: if Fangs' depots already registered under app
+#     219990 above, this is a no-op. If they didn't, this is what gets them.
+depotdownloader -app 2699230 \
+  -username mhwetmore -os windows \
+  -filelist /tmp/gd-filelist.txt \
+  -dir "$DST"
+
+# 3 — verify the expansion actually arrived before declaring the fetch done.
+find "$DST" -name "*.arz" | sort
 ```
 
-Legolas is verifying and will return this with real IDs filled in, having also confirmed
-whether repeated `-depot` flags are supported in one invocation or whether it must be run
-once per depot. **Do not run it until those are verified** — Matt's recollection is "Flames
-of Asterkarn," gandalf's is "Fangs of Asterkarn," and neither may become a lookup parameter.
+**Step 3 must show a new expansion archive** (a `gdx3/`-style path, or whatever Crate named
+it) alongside base/gdx1/gdx2. If it doesn't, the fetch is incomplete — stop and report rather
+than proceeding to the delta.
+
+**Why two invocations, corrected from legolas's single-app draft:** his command fetched only
+app 2699230 (the DLC). That would have produced exactly the hybrid edition warned about
+below — new expansion content on Edition-I's stale base archives. The gap was gandalf's
+briefing error, not legolas's: the hybrid-edition hazard was written into this file *after*
+his commission was dispatched, so he never saw it.
+
+**Note on the filelist:** written to a real temp file rather than piped via heredoc into
+`/dev/stdin`. Same effect, but it won't fail depending on how DepotDownloader opens the path
+— and this runs inside an authenticated interactive session, which is a bad place to debug.
 
 ## Hard constraints
 
@@ -60,8 +98,9 @@ of Asterkarn," gandalf's is "Fangs of Asterkarn," and neither may become a looku
    That path still holds Edition-I bytes.
 2. **Do not delete `/Users/admin/Games/vendor/grim-dawn-edition-I-20260723/`.** It is the
    verified frozen snapshot (11/11 SHA-256 match) and the only thing that makes a diff possible.
-3. Expect ~10 GB. The data-bearing subset is ~140 MB, but DepotDownloader fetches whole
-   depots; the freeze-and-trim happens afterward.
+3. Expect ~140 MB, not ~10 GB — the `-filelist` filter restricts the fetch to `.arz` and
+   `Text_EN.arc`. (Supersedes the earlier note that the full depot must be pulled and trimmed
+   afterward; filtering at fetch time is strictly better and was legolas's improvement.)
 
 ## After it lands
 

@@ -79,8 +79,10 @@ publisher can reuse. This table is what `source_version` should carry.
 | 897671 | 2984427886892515994 | 8bec4377487689362252459009f848efc1bf6560 |
 
 219991 = base-game Windows content. 642280/642281 = Ashes of Malmouth (gdx1).
-897670/897671 = presumed Forgotten Gods (gdx2) — **not verified**, inferred from the
-presence of `GDX2.arz` in this fetch. Legolas verifies against SteamDB; it is not banked.
+
+**RESOLVED 2026-07-24 (legolas, verified from manifest binaries — supersedes the "presumed"
+label originally recorded here):** `897670` = gdx2 / Forgotten Gods main content;
+`897671` = gdx2 Crucible / SurvivalMode2. No longer an inference.
 
 ## 5. Known gaps in this edition (recorded, not fixed)
 
