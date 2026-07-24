@@ -92,4 +92,18 @@ Six rulings, **TSR-1..TSR-6**, one per fork; I bring pushback where leans meet r
 
 ---
 
+## §4 Rulings ledger (live — appended as Matt rules)
+
+| # | Fork | Status | Date |
+|---|---|---|---|
+| **TSR-6a** | TSF-6/Q1 — ground-truth register | **RULED (Matt):** rung (a) parameter-fidelity is the RUN's gate (machine-decidable in-run); **both rungs required for the hypothesis PASS** — rung (b) behavior-fidelity acquired via Matt PLAYING GD on his PC under agentic screen-capture monitoring; Matt proposes OpenAI Codex 5.6 Sol via API as the capture-analysis instrument ("exceptional at screen capture"). Conductor routing note: capture-analysis lands in galadriel's seam (visual-perception steward); the model is an in-seam implementation choice; OpenAI-key provisioning = new matt_to_do row at Track-B charter time (same billing-discipline class as T3). Rung (b) = pre-registered capture checkpoint per pattern §6.2, not an end-brief. | 2026-07-23 |
+| **TSR-6b** | TSF-6/Q2 — blind-hero spec | **RULED (Matt):** anvil + kite-line, both arms (conductor lean adopted). The kite-line attacks the TrinityCore-documented leash gap (TC #25833) — the parameter class the largest engine-recalibration community has fought longest. | 2026-07-23 |
+| **TSR-6c** | TSF-6/Q3 — unit-conversion pin | **OPEN** — plain-terms explanation re-delivered post-compaction; ask = confirm the PRINCIPLE (constant derived once at charter, logged veto-open; no post-hoc fitting). Derivation method = reasoning-boundary, conductor executes. | — |
+| — | Substrate event | **GD Definitive LANDED** (~10 GB; T4 struck → DONE): `database.arz` 56M + `GDX1.arz` 40M + `GDX2.arz` 32M + Crucible ×3; **ArchiveTool.exe + DBREditor.exe in-depot** — extraction agent-executable. legolas calibration research (`legolas/notes/2026-07-23-engine-calibration-and-sim-fidelity-research.md`, pushed `cc53fbe0`) confirms grimtools spatial-NEGATIVE ×3 sources: **.arz is the sole carrier** of GD aggro/sight/leash/speed/pack fields — no community resource anywhere documents them. | 2026-07-23 |
+| **TSR-1..5** | Truth register · adapter architecture · first adapter · oracle · sequencing | **OPEN** — slate re-presented in-session after Matt-side compaction loss; leans research-hardened (five-for-five precedent support for TSR-2(a): every calibration community runs one-reference→one-target adapters; none converts through a baseline). | — |
+
+**Conductor-pinned decision rules (reasoning-boundary, veto-open):** (i) difficulty-tier for any GD comparison pins to **Normal** — base DBR values ≈ Normal; Veteran/Elite/Ultimate are multiplied tiers (legolas Risk #3); (ii) pathfinding residuals quarantined via flat-open-topology arena — parameter gates never conflated with pathing-implementation divergence (legolas Risk #4, independently matching the conductor's pre-registered finding class); (iii) attack-cadence fields flagged animation-time-vs-logic-time at import (legolas Risk #2) — movement/aggro import clean, cadence imports carry a conversion flag.
+
+---
+
 **Signed:** gandalf (`ELICITOR`), 2026-07-23. The forks are drawn; the rulings are yours.
