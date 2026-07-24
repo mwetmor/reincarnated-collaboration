@@ -1,6 +1,6 @@
 # GLANCE-RESTORE run charter (RATIFIED)
 
-**Date:** 2026-07-23 · **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Status:** **RATIFIED — Matt 2026-07-23** (push-on-green AUTHORIZED · lane B IN · bake-off chartered separately). Lane A launches when Matt fires the drax prompt; lane B fired by conductor same-day.
+**Date:** 2026-07-23 · **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Status:** **DONE — 2026-07-23, exit predicate MET at verified prod truth (verdict: §6; G4b closed by conductor, GRL-1)**. Was RATIFIED — Matt 2026-07-23 (push-on-green AUTHORIZED · lane B IN · bake-off chartered separately); lane A executed by drax same-day, lane B by named `gandalf` sub-agent.
 **Executes:** drax (lane A — all repo-touching work) · named `gandalf` sub-agent (lane B — pattern amendment)
 **Pattern:** desirable-run (`operating-procedures/desirable-run-pattern.md`) — fit test all-four-YES (§2)
 **Commissioned:** Matt 2026-07-23 — "draft a run for the glance work, starting with (a) and if you can, layer in the rest. Would a KR run be appropriate here, or is it all Drax work?"
@@ -62,8 +62,26 @@ Gate: doc committed; jack-ryan ratification queued (governance rule-ownership ro
 
 ## §5 Ruling ledger (veto-open) — empty at launch
 
-*(entries land here as GRL-1..n if any reasoning-boundary fork surfaces)*
+- **GRL-1 (2026-07-23, conductor):** G4b closed on **deployment-header evidence** in lieu of a dashboard commit-SHA read — prod `last-modified: Fri, 24 Jul 2026 02:17:12 GMT` postdates the `ea660a00` push (02:06:09 UTC) by 11 min and the freeze (`e5ea8584`, 2026-07-22 15:41 UTC) by ~34.6h, while serving the green build's exact asset hashes (`index-Iv_cRUd4.js` → 200). Reasoning: the §3 predicate is "a deployment newer than `e5ea8584`" (deploy-recency, not SHA); only guard-passing builds deploy, and the serving deployment postdates the fresh-sidecar push. Drax's deferral (no CLI, token `invalidToken`, output byte-identical) was honorable and correct from his session. **Veto-open:** if Matt's dashboard shows prod aliased to an older deployment, this ruling is overturned and the run reopens.
+
+## §6 Run verdict (conductor close-out, 2026-07-23)
+
+**DONE — prod unfrozen; exit predicate MET at verified serving truth** (the red-main tripwire's own standard, applied to ourselves).
+
+| Gate | Result | Evidence |
+|---|---|---|
+| G1 | ✓ | export exit 0; 590 rows, folk_name 590/590 non-null; **row-delta +5** (585→590) |
+| G2 | ✓ | guard verify exit 0 — 11/11 doctored cases HALT + clean source builds |
+| G3 | ✓ | `npm run build` green (~933ms) |
+| push | ✓ | `ea660a00` on main (push-on-green, pre-authorized) |
+| G4a | ✓ conductor-verified | `gh run view 30060749928` → conclusion `success`, headSha `ea660a00` — byte-match with drax's ledger |
+| G4b | ✓ conductor-closed | GRL-1 (deployment headers: newer-than-freeze, serving green build's asset hashes). Rubric-law check vs §0: intent = "prod serves current canon truth again" — the serving deployment postdates the fresh-sidecar push and only guard-passing builds deploy; intent satisfied, no proxy-narrowing. |
+| Lane B | ✓ | `desirable-run-pattern.md` §6 landed (`d04e85fb`, verified faithful); jack-ryan ratification queued (`qa/pending/2026-07-23-gandalf-desirable-run-pattern-s6-amendment.md`) |
+
+**Findings routed:** (1) deploy-truth **self-closure gap** (Vercel CLI uninstalled; on-disk token expired) → matt_to_do **T6** — non-urgent, unblocks future red-main-tripwire self-closure. (2) `glance.yml` checkout@v4 / setup-node@v4 **Node-20 deprecation** — annotation-only; future action-version bump, drax seam.
+
+**Freeze duration:** ~34.6h (2026-07-22 15:41 UTC → 2026-07-24 02:17 UTC). corpus.db READ-ONLY law held throughout; lane A touched nothing outside `glance/` + drax's note.
 
 ---
 
-**Signed:** gandalf (`RUN-CONDUCTOR` draft), 2026-07-23.
+**Signed:** gandalf (`RUN-CONDUCTOR` draft), 2026-07-23. Run closed DONE by conductor same-date, §6.
