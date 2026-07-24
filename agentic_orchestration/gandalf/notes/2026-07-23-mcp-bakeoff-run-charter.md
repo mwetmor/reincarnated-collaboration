@@ -60,4 +60,11 @@ Choose the project's Godot MCP stack — the conductor-eye verification + captur
 
 ---
 
+## §6 Run status (conductor ledger)
+
+- **2026-07-23 — columns 1–2 FILLED (drax report received via Matt):** **Incumbent** = baseline-proven — P3 batch-54 + readback PASS and P4 freeze/step PASS (**the two proven laws are incumbent-only among live columns**); P1-FAIL/P1-alt-PASS exactly as pre-registered; P5/P6 PASS. **IvanMurzak** = FULLY LIVE on this host — the charter's headline BLOCKED-ENV risk did NOT trip (.NET 8 + Godot-mono 4.6.3 + gamedev-mcp-server 9.2.1, 39 tools, wire ×3 sub-second) — but weak on proven needs: P3 FAIL (no batch primitive), P4 FAIL (no tick control), and its native isolated capture (the KFL-20 motivator) renders BLANK on Metal (1 892 B background-only every subject/angle; viewport path fine at 77 626 B) — **one fresh-eyes retry owed before final P1 grade** (stack held on-disk outside repos); P5 STRONG PASS (C# reflection incl. private). Cleanup verified per §4: throwaway branch deleted, main pristine. 12/18 cells; Pro column PARKED-OPEN on T5.
+- **Pro tee-up (Matt ruled "try Pro next"):** T5 hands-steps = buy at `y1uda.itch.io/godot-mcp-pro` ($15 approved) → park zip at `~/Games/vendor/godot-mcp-pro/` (proprietary — never committed) → fire the drax Pro-column prompt (delivered in-session 2026-07-23; includes optional IvanMurzak-P1-retry annex). Exit predicate unchanged: 18/18 + conductor verdict rec + Matt ratifies the pick.
+
+---
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-23.
