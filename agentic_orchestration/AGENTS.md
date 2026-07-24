@@ -27,25 +27,30 @@ This team is structured to attack all four. It is **not** primarily about parall
 
 ---
 
-## 2. Team topology — 11 entities (Matt + 10 Mac-resident agents)
+## 2. Team topology — 12 entities (Matt + 11 Mac-resident agents)
 
 > **The PC-resident team retired 2026-06-30** (UE cancelled in favor of Godot-on-Mac). Single-host now.
+>
+> **Model re-pin + legolas role split — 2026-07-24 (Matt-ratified, commit `57172ddb`).** Claude Opus 5 launched at Opus 4.8's exact price point, making the upgrade cost-neutral; the team moved to it except one deliberate cheap lane. `legolas` split into two agents on two models along the known/unknown boundary. **The Model column below is a MIRROR — `.claude/agents/<name>.md` frontmatter is the source of truth.** This column had silently drifted from the live pins before the 2026-07-24 audit (it listed five agents as Sonnet who were actually on Opus 4.8); if they disagree again, the frontmatter wins and this table is the bug.
 
-### The team (11 entities)
+### The team (12 entities)
 
 | Entity | Role | Model | Writes production code? |
 |---|---|---|---|
 | **Matt** (Senior Architect) | Final approval; design direction | (human) | No (reviews) |
-| `knight-rider` | Orchestrator / Communicator (Mac-side) | Opus | **No** — coordinates only |
-| `jack-ryan` | Analyst / QA — technical critique side (Mac-side) | Sonnet | **No** — reviews + maintains design docs |
-| `gandalf` | Story and Design Steward — generative critique side (Mac-side) | **Opus** | **No** — design docs and pushback only |
-| `rocket` | Developer (content generation) | Sonnet | Yes |
-| `gamora` | Developer (simulation + spirit guide) | Sonnet | Yes |
-| `star-lord` | Developer (output / telemetry / LLM) | Sonnet | Yes |
-| `drax` | Developer (presentation: demo + loadout) | Sonnet | Yes |
-| `legolas` | Researcher / Scout (Mode A analytical + Mode B catalogue crawl) | Sonnet | **No** — read-only research output |
-| `elrond` | Data Steward — external + cross-cutting data layers | **Opus** | **No** — schemas, curation, abstraction analysis |
-| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
+| `knight-rider` | Orchestrator / Communicator | **Opus 5** | **No** — coordinates only |
+| `jack-ryan` | Analyst / QA — technical critique side | **Opus 5** | **No** — reviews + maintains design docs |
+| `gandalf` | Story and Design Steward — generative critique side | **Opus 5** | **No** — design docs and pushback only |
+| `rocket` | Developer (content generation) | **Opus 5** | Yes |
+| `gamora` | Developer (simulation + spirit guide) | **Opus 5** | Yes |
+| `star-lord` | Developer (output / telemetry / LLM) | **Opus 5** | Yes |
+| `drax` | Developer (presentation: demo + loadout + godot) | **Opus 5** | Yes |
+| `legolas` | **UNKNOWN-RESEARCHER** — open questions, primary-source probes, format reverse-engineering, feasibility lanes; escalation receiver for the crawler | **Opus 5** | **No** — read-only research output |
+| `legolas-crawler` | **KNOWN-CRAWLER** — systematic extraction at volume against MAPPED sources only (known source + known schema + known procedure) | **Haiku 4.5** | **No** — read-only extraction output |
+| `elrond` | Data Steward — external + cross-cutting data layers | **Opus 5** | **No** — schemas, curation, abstraction analysis |
+| `galadriel` | Visual Perception and UX-Similarity Steward — screenshot capture, computer-vision pipelines, similarity scoring, benchmark reports against genre-peer references | **Opus 5** | **No** — read-only across production code; writes pipeline scripts + rubrics + benchmark evidence inside her own working tree |
+
+**The known/unknown research split (Matt ruling, 2026-07-24).** The research seam divides on whether the territory is mapped. `legolas` establishes method where none exists; `legolas-crawler` executes method at volume where it does. *He finds out how; the crawler does it at volume.* The cheap lane is safe only under two conditions written into its charter: (1) the **non-improvisation law** — it HALTs and escalates rather than guessing, and a HALT is a success, not a failure; (2) the **TSR-4 tier-2 dependency** — it may only feed lanes carrying in-pipe mechanical asserts on every row. An unguarded lane does not get the cheap crawler. Both exist because the failure mode of cheap extraction is plausible-looking wrong rows — this project's defining hazard, per the grimtools-60-rank vs `.arz`-26-rank contradiction that founded the TRUE-SOURCES program.
 
 **Critique-pair pattern:** jack-ryan (technical/process) and gandalf (thematic/experiential) form the critique pair for major decisions. Pattern E autonomous-pair ratification fires within the trio (knight-rider + the pair).
 
@@ -58,11 +63,11 @@ This team is structured to attack all four. It is **not** primarily about parall
 | **A — Senior critics/stewards** | gandalf, jack-ryan | Non-implementing. Recommend, push back, gate design decisions. Both have escalation privileges (gandalf: parallel-to-Matt; jack-ryan: BLOCK authority at Gate 2 via knight-rider). Hold cross-cutting canonical-write authority. |
 | **B — Orchestrator** | knight-rider | Coordinates all seams; never owns files; never critiques design. |
 | **C+ — Implementers with steward authority** | elrond, galadriel | elrond owns concrete artifacts (schemas, databases, curation) with steward authority *within data domain*. galadriel owns visual-perception artifacts (capture pipeline, rubrics, similarity scoring, benchmark reports) with steward authority *within visual-perception domain*. Neither critiques outside their domain; escalation through knight-rider only (galadriel does NOT have parallel-escalation privilege — that's gandalf's asymmetry). |
-| **C — Implementers/specialists** | rocket, gamora, star-lord, drax, legolas | Own concrete seam work; dispatched; produce artifacts; report completion. Escalation through knight-rider only. |
+| **C — Implementers/specialists** | rocket, gamora, star-lord, drax, legolas, legolas-crawler | Own concrete seam work; dispatched; produce artifacts; report completion. Escalation through knight-rider only. |
 
 ### Viability-gate workflow (catalogue work)
 
-When Legolas brings back a catalogue sample (Mode B sample phase), knight-rider invokes a **three-track parallel review**:
+When `legolas-crawler` brings back a catalogue sample (viability-gate sample phase), knight-rider invokes a **three-track parallel review**:
 
 - **Structural track** — elrond reviews metadata completeness, schema-fit, license/cost legibility, decomposition signal, style-register inferability
 - **Wiring track** — drax reviews pixi.js consumption viability (sprite-sheet shape, decomposition sufficient for animation rigging, format compatibility)
@@ -190,21 +195,28 @@ Each developer owns a **mutually exclusive** set of paths. No file is owned by t
 - Pattern A subagent: knight-rider invokes during decision loops for structured thematic/experiential critique
 - Pattern B terminal: Matt opens for sustained design dialogue (the form-bias deep dive of 2026-05-14 is the prototype)
 
-### legolas — Researcher / Scout
+### legolas — UNKNOWN-RESEARCHER · legolas-crawler — KNOWN-CRAWLER
 
-**Owns:**
-- `agentic_orchestration/research/` — directory tree for all research output
-- `research/knowledge/` (Mode A analytical findings)
-- `research/catalogue/` (Mode B systematic crawl raw output)
-- `research/commissions/` (incoming commission briefs)
+> **Split 2026-07-24 (Matt ruling).** One scout became two agents on two models. The old **Mode A → `legolas`** (Opus 5); the old **Mode B → `legolas-crawler`** (Haiku 4.5). Historical references to "legolas" and "Mode A" resolve to `legolas`; "Mode B" references route to the crawler.
 
-**Does NOT touch:** production code; dispatches; canonical/; decisions-log; engineering-disciplines; engine telemetry DB; data curation (Elrond's territory).
+**`legolas` (UNKNOWN-RESEARCHER, Opus 5) owns:**
+- `research/knowledge/` — analytical findings, primary-source probes, feasibility investigations
+- `research/commissions/` — shared inbox (commissions to either agent land here)
+- **Lane establishment** — determining whether a NEW source is crawlable *at all* and by what method. Probing structure, defeating formats, judging agent-fetchability. Files written here are marked `lane-establishment`.
+- **Escalation intake** — receives every crawler HALT; rules the lane re-mappable / degraded / dead
 
-**Operating modes (selected at invocation):**
-- **Mode A — Analytical research.** Web research, structured synthesis from authoritative sources. Used for genre knowledge, design retrospectives, post-training-cutoff information.
-- **Mode B — Systematic catalogue crawl.** Mechanical extraction at scale. Asset libraries, Unity Asset Store, opengameart.org, etc. Structured metadata per asset.
+**`legolas-crawler` (KNOWN-CRAWLER, Haiku 4.5) owns:**
+- `research/catalogue/<source>/` — raw extraction, findings-summaries, sidecars
+- `research/commissions/*-crawler-halt-*.md` — its HALT notes
+- Carries the crawl contract: viability-gate protocol, score-don't-filter principle, standard metadata fields, crawl discipline, parallelism conventions
 
-Multiple legolas instances may run in parallel for catalogue-scale work; coordinate via filename conventions; append-only.
+**Neither touches:** production code; dispatches; canonical/; decisions-log; engineering-disciplines; engine telemetry DB; data curation (Elrond's territory).
+
+**The boundary:** *legolas finds out how; the crawler does it at volume.* Work is the crawler's only when source, schema, AND procedure are all known. If method must be invented, format defeated, viability determined, or ambiguity judged — it is legolas's.
+
+**Two laws binding the cheap lane:** (1) **non-improvisation** — on any unmodeled condition the crawler HALTs and escalates rather than guessing; a HALT is a success. (2) **TSR-4 tier-2 dependency** — the crawler may only feed lanes with in-pipe mechanical asserts live on every row; an unguarded lane does not get the cheap crawler.
+
+Multiple crawler instances may run in parallel for catalogue-scale work; coordinate via filename conventions; append-only.
 
 ### elrond — Data Steward
 
@@ -220,7 +232,7 @@ Multiple legolas instances may run in parallel for catalogue-scale work; coordin
 
 **Cross-seam coordination:**
 - With star-lord: cross-cutting joins or schema requests routed via ADR-004 (MIGRATION.md on both sides)
-- With Legolas: commissions Mode B crawls; provides curation feedback when raw extraction has structural issues
+- With `legolas-crawler`: commissions catalogue crawls; provides curation feedback when raw extraction has structural issues. With `legolas`: commissions lane establishment when a source's method is unknown
 - With Gandalf: receives abstraction-analysis commissions when design questions need empirical grounding
 
 ### galadriel — Visual Perception and Benchmark Steward
@@ -257,15 +269,15 @@ Math work is **distributed by data-locality**, not owned by a single agent. Each
 | **Simulation-side math** — balance loops, convergence algorithms, fight-resolution math, recompose-first arithmetic | **gamora** | B14.5 V1 primary loop, W0.10 boss-AI math, multi-dim convergence algorithm |
 | **Telemetry statistics** — distributions, aggregates, derived metrics, anomaly detection, judge calibration | **star-lord** | LC-002/009/011 attribution analysis, sidecar findings, distribution audits |
 | **Visual perception math** — image-similarity scoring, embedding-based comparison, perceptual-distance metrics | **galadriel** | Visual benchmarking vs genre-peer references, perception-test scoring |
-| **External-literature methodology research** — when methodology selection requires graduate-level stats grounding beyond the seam's native depth | **legolas Mode A** | Methodology consultations for P2/P3/P5 math hotspots |
+| **External-literature methodology research** — when methodology selection requires graduate-level stats grounding beyond the seam's native depth | **legolas** (UNKNOWN-RESEARCHER) | Methodology consultations for P2/P3/P5 math hotspots |
 
 **Math hotspots** (methodology-choice moments where external-literature rigor is required before execution) are explicitly named in the P-phase protocols. Current named hotspots are P2 axis discovery, P3 multimodal clustering, and P5 cohesion-judge validation. See `agentic_orchestration/gandalf/notes/2026-05-23-mathematical-seam-naming.md` § 2 for the living list and the design-call requirements per hotspot.
 
 **Routing rule:** when math work could plausibly land in multiple seams, knight-rider dispatches per data-locality. When in doubt, gandalf advises on routing.
 
-**Discipline guard:** Discipline #18 (methodology-before-execution) governs math-hotspot execution — methodology selection is made via legolas Mode A research + design call BEFORE execution, not derived FROM execution. See `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 18.
+**Discipline guard:** Discipline #18 (methodology-before-execution) governs math-hotspot execution — methodology selection is made via `legolas` (UNKNOWN-RESEARCHER) research + design call BEFORE execution, not derived FROM execution. See `~/Games/reincarnated-engine/design/working-agreement/engineering-disciplines.md` § 18.
 
-**Rationale for no dedicated mathematician agent:** math is cross-cutting (not seam-shaped); volume is bounded (consultation-volume, not full-time-agent volume); the failure surface is methodology selection (already addressable via gandalf + Matt + legolas Mode A); adding agents adds the documentation/scope-policing/cross-reference load already-diagnosed as a team slowdown root cause (per 2026-05-23 morning diagnosis). Re-evaluation triggers documented in the math-seam note § 4.2.
+**Rationale for no dedicated mathematician agent:** math is cross-cutting (not seam-shaped); volume is bounded (consultation-volume, not full-time-agent volume); the failure surface is methodology selection (already addressable via gandalf + Matt + `legolas`); adding agents adds the documentation/scope-policing/cross-reference load already-diagnosed as a team slowdown root cause (per 2026-05-23 morning diagnosis). Re-evaluation triggers documented in the math-seam note § 4.2.
 
 ---
 
