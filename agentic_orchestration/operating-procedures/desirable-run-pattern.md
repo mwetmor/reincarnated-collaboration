@@ -3,6 +3,7 @@
 > **STATUS:** DESIRABLE PATTERN (guidance) — explicitly **NOT a protocol, NOT a gate** (Matt ruling 2026-07-21: codify *"a generalized version … as a desirable run pattern — NOT a canonical autonomous-run-charter protocol"*). Deviating from a pattern is a judgment call to be named; violating a protocol is a violation. This is the former kind of document.
 > **Born from:** Run A (Atlas derivation → Edition-I freeze, 2026-07-14/15, charter + preregistration) and Run B (VDM-1 corpus verify+dossier+map, 2026-07-18/19, charter R-1..R-9) — Matt 2026-07-21: *"two of our best runs — EVER."* Comparative verdict: gandalf session 2026-07-21 (D1 ruled: `RUN-CONDUCTOR` role-tag added; D4-modified ruled: this doc).
 > **Author:** gandalf. **Maintained by:** gandalf (pattern-observations from future runs amend it).
+> **Amended 2026-07-23:** §6 added — first failure-lap observations (KIT-FIDELITY, Matt-ruled FAILED at KFL-27; glance prod freeze).
 
 ---
 
@@ -64,4 +65,20 @@ Ask four questions of any proposed autonomous run:
 
 ---
 
+## §6 — Pattern-observations from run failures (first failure lap: KIT-FIDELITY 2026-07-23 + the glance freeze)
+
+The header promises that "pattern-observations from future runs amend it." This is that mechanism firing for the first time — and it fires from a **FAILED** run, which is worth saying out loud. Runs A and B (§1–§5) were the two best runs ever; they taught the shape. KIT-FIDELITY was the first run conducted *in* that shape that Matt ruled FAILED (at KFL-27), and a pattern that only learns from its successes is a pattern that certifies its own blind spots. These four observations are what the failure taught. Lineage lives in `agentic_orchestration/gandalf/notes/2026-07-23-kit-fidelity-run-wind-down.md` (failure taxonomy §1 + conductor lessons §5) and `agentic_orchestration/gandalf/notes/2026-07-23-glance-restore-run-charter.md`. They are guidance in the same key as §1–§5 — deviations are judgment calls to be named — but they carry the weight of having been paid for.
+
+**1. Coverage-gates before accuracy-gates (fidelity runs).** KIT-FIDELITY gauged byte-exactness on the JOINED fraction while never gating what fraction of the watched surface was source-joined at all. The byte-chain lock was real — corpus Fire Ball 242.5 → compiled EXACT → frame `expected_premit 637.775` to the third decimal → scene renders zero-derivation. And it certified a sliver: the camera showed 40/41 synthetic entities (mob-harvest gap), player HP unjoined, a compiler-default Meteor cost, and a flagship kit that never cast its signature skill. For any fidelity/twin run, the FIRST pre-registered gate is **coverage** of the watched surface (entities, skills, stats, behavior); accuracy on the joined part comes second. Run them in the wrong order — as this run did — and you certify a sliver and call it a twin.
+
+**2. Owner-eye checkpoints are pre-registered mid-run gates for presentation-surface runs.** Both KIT-FIDELITY catches were Matt's, mid-stream, unprompted — the declared Matt interface had put his eyes only at the END (the watch brief). When the run's output is a watched surface, the owner's eye is not a briefing recipient; it is an **instrument of record**. The run's own gates said green twice and his eyes said otherwise both times, and his verdict governed. Schedule the owner's eye as a gate, at named mid-run points, *before* downstream gates build on unviewed state — the same way §2 Element 5 declares the Matt interface, but placed at checkpoints rather than only at the end.
+
+**3. Rubric law.** A VERIFIED claim must name its rubric AND show that rubric is the OWNER'S question, not a narrower proxy. KIT-FIDELITY logged "verified" twice on narrower rubrics — data-honesty at KFL-22, five-facts-green at KFL-26 — while the owner's question was twin-fidelity. Every exit predicate was formally met and the run still failed at the owner's eye, because the predicates measured a narrower thing than the intent. Decidability bought by predicate-narrowing is **intent leak**: it is the failure mode of F2 (§3), where making "done" checkable quietly swaps the owner's question for a checkable proxy. At launch, diff the predicate set against the charter's §0 intent sentence and name what fell out — out loud.
+
+**4. Red-main tripwire.** Any run that pushes to a CI-gated or deploy-gated surface carries a post-push **pipeline-green + deploy-truth** gate in its EXIT predicate. The run is not done at push; it is done at **verified serving truth**. This one was born not inside KIT-FIDELITY but from the glance freeze that the GLANCE-RESTORE charter exists to repair: a push left the glance parse-contract red on main and Vercel prod silently frozen at `e5ea8584` (2026-07-22 15:41 UTC) for ~30 hours, because no run's exit predicate owned the deploy. Green-on-my-machine and pushed is not served. The GLANCE-RESTORE charter's G4 is the first application of this gate — applied, pointedly, to ourselves.
+
+---
+
 **Signed:** gandalf, 2026-07-21. The pattern, not the conductor's name, is the exportable asset — the conductor matters because the conductor must hold the charter's intent natively and its design authority legitimately.
+
+*§6 appended 2026-07-23 (gandalf, `RUN-CONDUCTOR`) — first failure-lap observations; jack-ryan ratification queued per `canonical-doc-format.md § 6.7`.*
