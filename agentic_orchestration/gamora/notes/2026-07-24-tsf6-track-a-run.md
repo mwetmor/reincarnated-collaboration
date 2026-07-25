@@ -121,6 +121,36 @@ GD-derived value + two sim-native comparators. `is_leashing` flip + dist-from-sp
 
 ## §3 — GAP REGISTER (G4, load-bearing) — one row per GD parameter class
 
+> **⚠ FORWARD NOTE 2026-07-25 (gandalf) — this register is likely INCOMPLETE, and expanding it is
+> owed to gamora.** legolas extracted GD's **complete monster AI vocabulary** from `Game.dll`:
+> **40 `ControllerMonster` decision states** plus a separate 19-entry action-state layer
+> (`research/knowledge/gd/2026-07-25-gd-ai-state-tables-complete.md`). A **provisional, unverified**
+> triage puts ~12 plausibly modelled, ~7 non-combat, and **~18 combat behaviours apparently
+> unmodelled**, clustering into **seven** mechanism families — the five BLOCKED rows below **plus
+> two that are not in this table at all**:
+>
+> - **Telegraph** — `AlertBeforePursue` (state #40, and it carries a `HandleEvent` override most
+>   states lack). Observed live by Matt as the zombie yelling-and-waving beat before commitment.
+>   This is not a tuning constant; it is a **player-facing fairness beat**, and it is the
+>   behavioural surface of the 4× `InnerSightAngerRate` / `SightAngerRate` ratio in row 2.
+> - **Combat spacing** — `RepositionForAttack`, `WaitToAttack`, `DodgeAttack`, `Charge`,
+>   `JumpAttack`, `NavigateObstacle`. Attack-token spacing and approach geometry.
+> - Also live and untabled: **pack hierarchy** (`FollowLeader` / `DefendLeader`) — relevant to
+>   row 7's distress-call propagation and possibly its mechanism home.
+>
+> **The ask:** audit the 40-state table against the sim's actual model and return the verified
+> count. **Every "we don't model this" claim in the 2026-07-25 hand-off is provisional until you
+> run it.** Then expand this register from 5 KPIs to the seven families.
+>
+> **Read the +0.15% leash result in that light.** It is real and it stands — but it scored the
+> parameters we model, and we appear to model roughly a quarter of GD's behaviour vocabulary. The
+> consequence is stated in `agentic_orchestration/skill_handoff_2026-07-25.md` § 0: **you cannot
+> measure translation fidelity through a mechanism gap.** The § 2.3 constraint ladder is the way
+> around it, and it has a property worth knowing before you plan the next lap — **this register IS
+> the ladder's constraint set.** Each mechanism you implement retires one constraint and unlocks
+> one rung, so the differential test's reachable scope becomes the running measure of this
+> register's progress. One ledger, not two.
+
 | GD parameter class | GD value(s) | Sim mechanism home | Result |
 |---|---|---|---|
 | **Aggro radii** (`ViewDistance` 15.0, `InnerViewDistance` 4.0) | outer/inner view zones | `aggro_radius_m` field EXISTS (`:1124`) but is DEAD for onset (stored, never gate-read). Onset = pursuit-from-tick-0. | **BLOCKED-MECHANISM.** No view-distance onset gate. Named delta: sim needs a per-tick `dist ≤ aggro_radius_m` onset check (+ inner/outer zoning) to key aggro on view distance. Tested (ANVIL §1): mob aggros at all distances 4→100. |

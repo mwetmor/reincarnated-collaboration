@@ -6,7 +6,18 @@
 **Est. time:** 10–20 min. Stop at the first rung that gives a clean answer; the later rungs
 are only there if the earlier ones fail.
 
+> **★ START AT § 3.0 — `game.Spawn`.** The doc was re-prioritized 2026-07-25 after you restated
+> the three goals. Sections are in their original order, but the **priority order is the table at
+> the top of § 3**. If you only have ten minutes: § 3.0, then § 3.5, then § 5. Everything else can
+> wait for a later pass.
+
 **Screenshot drop:** the `reincarnated` share → `visual-artifacts/2026-07-25-gd-teleport-probe/`
+
+> **Copy status:** this repo file is the **operative** copy. The share was unmounted from the Mac
+> side at write time, so the `agent-prompts/` mirror is **stale — it does not contain the
+> re-prioritization below.** Read this one, or ask me to re-mirror once the share is back up.
+> (Version-controlling this doc was the response to the share vanishing mid-session; that is why
+> the loss is a nuisance rather than a data loss.)
 
 ---
 
@@ -63,6 +74,77 @@ So: this is the highest-value 15 minutes available to us right now.
 ---
 
 ## 3. THE LADDER — stop at the first rung that works
+
+> **⚠ RE-PRIORITIZED 2026-07-25, after you restated the three goals.** The old order was ranked
+> by *what I was curious about*. This one is ranked by *which of your three goals each item
+> unblocks*. **The top three are worth more than everything below them combined.** If you only
+> have ten minutes, do 1, 2, 3 and stop.
+>
+> | # | Do this | Serves |
+> |---|---|---|
+> | **1** | **★★ `game.Spawn` — § 3.0 below. NEW, never asked, highest value.** | Goal 3 |
+> | **2** | `character.WarpCursor true` — § 3.5 | Goals 2 + 3 |
+> | **3** | `game.PlayStats` — § 5 | Goal 3 |
+> | **4** | The telegraph word — § 4a | Goal 1 |
+> | **5** | `FollowLeader` / `DefendLeader` — § 4c | Goals 1 + 3 |
+> | **6** | Grim Internals — *only if 3 comes back cosmetic* | Goal 3 |
+> | ~~7~~ | ~~Teleport / MoveTo / MoveToEntity — Rungs 1–3~~ **deprioritized; run only if 2 fails** | — |
+> | **8** | Re-aggro timing — § 4d residual | Goal 1 |
+
+---
+
+### ★★ § 3.0 — `game.Spawn` — THE ONE THAT MATTERS MOST *(5 min, do this first)*
+
+**This is the single highest-value untested command and I never asked you about it.** It sat in
+the command table the whole time while I chased coordinates.
+
+> **`game.Spawn`** — *"Creates an object at the player's location"*
+
+**Why it outranks everything else.** Your goal 3 — measuring how correct our conversion key is
+— needs a fight we can run **the same way twice**, in both engines, against a monster whose
+exact stat record we hold. We *have* the stat records; we pulled 1,083 creature records out of
+the game's own database and hashed the file. What we don't have is a way to point at a specific
+one and say *"that monster, right there, is record `X`."* Right now we'd be looking at a zombie
+in a field and *inferring* which record it came from.
+
+`game.Spawn` would turn that inference into an **identity**. Spawn record X → the thing in front
+of you *is* record X → simulate record X in our engine → compare. That is the whole measurement
+program in one line, and it either exists or it doesn't.
+
+**Test it:**
+
+1. Find a quiet spot. `game.killMonsters` first to clear the area.
+2. Type `game.Spawn` **with no arguments** and press Enter. **Screenshot the error.** The usage
+   text will tell us what it wants — a record path, an ID, a name — and that alone is the answer
+   to half the question.
+3. Then try it with a record path. Grim Dawn's creature records look like this:
+
+```
+game.Spawn records/creatures/monsters/zombie/zombie01.dbr
+```
+
+I am **not certain that path is exact** — say so if it errors, don't hunt. Variants worth one
+try each if the first fails:
+
+```
+game.Spawn records\creatures\monsters\zombie\zombie01.dbr
+game.Spawn creatures/monsters/zombie/zombie01.dbr
+game.Spawn zombie01.dbr
+```
+
+**Report:**
+- **Does anything spawn at all?** That's the binary question.
+- What is the exact error text when it fails? (Copy it or screenshot — the error is data.)
+- If something spawns: is it **hostile**? Does it have a health bar? Does it behave normally, or
+  does it stand there inert?
+- With `character.LogData true` on, does the spawned thing show the **same green state words** as
+  a world monster — `Idle`, `Roam`, `Pursue`? Or is it stuck on one word?
+
+**If Spawn works, the measurement program gets a proper laboratory.** If it doesn't, we fall back
+to world monsters and goal 3 gets substantially harder to control — still possible, just slower
+and noisier. Either way, knowing now changes what everyone else builds next.
+
+---
 
 ### ✗ Rung 0 — CLOSED NEGATIVE 2026-07-25. Do not re-run.
 
@@ -373,22 +455,28 @@ Just note which it is next time you flip.
 
 | Command | What to check |
 |---|---|
-| `game.PlayStats` (no arguments) | It says "Displays a variety of player stats on the screen." **Does any of it look like a position / coordinate?** I don't think it will — I believe it's a HUD overlay of character stats — but if it prints coordinates, it solves Rung 0 outright. Screenshot whatever appears. |
-| `game.killMonsters` (no arguments) | Clears the area. Confirm it works and that it's local (nearby only) rather than map-wide. This is the "reset the experiment" button, so I want to know its blast radius. |
+| **`game.PlayStats`** (no arguments) — **priority 3, not a bonus** | It says "Displays a variety of player stats on the screen." **The question has changed.** I originally asked whether it shows coordinates. What I actually need to know now: **does it show damage dealt, DPS, or monster HP?** Because if it does, it is the *readout* for the whole comparison program — the numbers goal 3 needs, printed by the game itself, at zero cost and zero contamination. Screenshot whatever appears, all of it, even the parts that look boring. If it's cosmetic character stats only, we fall back to the Grim Internals question. |
+| `game.killMonsters` (no arguments) | Clears the area. Confirm it works and that it's local (nearby only) rather than map-wide. This is the "reset the experiment" button, so I want to know its blast radius. **Also: how long until things respawn?** If the area stays clear, § 3.0's spawned-monster laboratory has a clean room to run in. |
 
 ---
 
 ## 6. What to send back
 
-In rough order of value to me:
+Strict order of value. **The first three are the session.**
 
-1. **Rung 0 result** — does hovering print `Origin`? Screenshot either way.
-2. **Rung 1 result** — did `character.MoveToEntity <id>` relocate you? Any error text?
-3. **The § 4 invisibility question** — does anger reset when you go invisible and come back?
-4. Screenshot of the green `character.LogData` text at readable zoom, **so I can identify
-   which number is the entity ID.**
-5. The axis answer from Rung 3a, if you got that far.
-6. `game.PlayStats` screenshot.
+1. **★★ `game.Spawn` (§ 3.0)** — does it spawn anything? Exact error text if not. If yes: hostile?
+   normal state words? This one decides how the whole comparison program gets built.
+2. **`character.WarpCursor true` (§ 3.5)** — works? instant or animated? max range? **does warping
+   past a monster aggro it?**
+3. **`game.PlayStats` screenshot (§ 5)** — specifically whether it carries **damage / DPS / HP**.
+4. **The telegraph word (§ 4a)** — one word, read off the top-left during the zombie's
+   yelling-and-waving beat. And: longer at range, or the same?
+5. Screenshot of the green `character.LogData` text at readable zoom, **so I can identify which
+   number is the entity ID.**
+6. `FollowLeader` / `DefendLeader` on a world pack (§ 4c) — seen, or never?
+7. Re-aggro timing on going visible (§ 4d residual) — instant or delayed?
+
+**Deprioritized:** Rungs 1–3 (teleport / MoveTo / MoveToEntity). Only if item 2 fails.
 
 If a rung fails, **say it failed and stop** — don't troubleshoot. A clean "it errored, here's
 the error" is worth more to me than a workaround, because the error text is itself data about

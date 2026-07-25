@@ -9,6 +9,44 @@
 
 ---
 
+## ⚠ STATUS 2026-07-25 — PREMISE LARGELY DISSOLVED. Do not fire the bake-off this scopes.
+
+**This commission did its job by making itself unnecessary.** Question 1 (the non-vision channel)
+answered far better than expected, and the answer removed the need for the vision bake-off the
+rest of the document was scoping.
+
+**What changed.** Matt's console probe (T8) established that Grim Dawn's own debug overlays print
+the state we wanted a vision model to *infer*: `character.LogData true` prints per-entity AI state
+as green text, and `character.ShowAngerLevels true` renders the aggro relation as a **solid red
+directed edge from mob to target** — a relational primitive richer than the scalar the read-out
+questions anticipated. The measurement task collapsed from *"a VLM watches gameplay and estimates
+spatial/temporal quantities"* to **line detection + OCR of one label region + frame timestamps** —
+deterministic CV, ~$0/hr, against the **$0.23–31/hr** range this commission was scoping.
+
+**What is still live from this document:**
+
+- **§ 1 / Grim Internals** — genuinely unresolved, and it matters again for a *different* reason
+  than originally asked. Not "can it replace vision" but **"does it expose damage / DPS / monster
+  HP"** — the readout the conversion-key comparison (goal 3) needs. **Pursue only if
+  `game.PlayStats` returns cosmetic stats.** The third-party-DLL contamination caveat stands: it
+  must be established not to alter game behaviour before any measurement is banked.
+- **The measurement-quantity taxonomy in § 2** — still the right list of *what* must be measured;
+  only the instrument answer changed.
+
+**What is superseded:** the model-ranking / cost-per-hour scoping, and the bake-off it was
+designed to make designable. Do not fire it. If a bake-off is ever revived it will be a **CV
+pipeline** comparison in galadriel's seam, not a VLM comparison.
+
+**Read instead:** `agentic_orchestration/skill_handoff_2026-07-25.md` § 3 (this disposition in
+full), § 2.3 (the constraint ladder that replaced the capture plan), § 6 (**Q47 — the "acceptable
+accuracy" ruling gates all remaining instrument scope**).
+
+**Kept, not deleted.** The commission's Q1-first ordering is the reason the cheap channel was
+found before a dollar was spent on the expensive one. That instruction was correct, and the
+document is retained as the record of it.
+
+---
+
 ## 0. What Matt is actually trying to do — read this before scoping anything
 
 Matt plays Grim Dawn on his Windows PC. **Something watches and records numeric observations while he plays.** Those observations become the ground truth for hypothesis tests measuring our battle sim's encounter behaviour and "play feel" against GD's.
