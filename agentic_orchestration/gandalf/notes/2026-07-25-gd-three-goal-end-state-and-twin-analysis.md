@@ -62,6 +62,17 @@ set + the decision procedure that closes it.
 > Remaining build-queue sequencing (F1/F2/F4–F7/F9/L1/L2 + the F6 shared displacement
 > prerequisite) folds into `current-to-end-state-engine.md` and rides KR sequencing; "needed"
 > in Matt's ruling still gets its boundary from the G1-B scope ruling (quest/cosmetic states).
+>
+> **⟶ FIRST EXPIRY FIRED 2026-07-25 — the L0 no-CC test-character constraint is RETIRED.**
+> Authority chain: this ruling → F8 dispatch §4 named the expiry → jack-ryan Gate 2
+> CLEAR-WITH-CONDITIONS narrowed the trigger to C1+C2 → gamora remediated
+> (`gamora/v-f8-cc-2`, root/leash inversion fixed by hoist per gandalf design ruling;
+> corpse-chill re-measured 91.8%) → KR closure confirmation
+> (`qa/pending/2026-07-25-gamora-f8-cc-wiring-gate2-CLEARED.md` §10). **Caveat carried
+> from KR:** the C1 fix is production-unreachable until generation emits hard CC
+> (rocket analysis dispatched; design ruling — *should* kits emit hard CC — rides the
+> Matt grill and gates any build). Standing watch: `select_action_locked` /
+> `nav_move_locked` first non-zero reading is a novel-path event.
 
 **Decision procedure:** goal 1 is DONE when every in-scope state's row in G1-A reads
 `MODELLED` and its behavioral test passes — *the sim's controller, given the GD parameters,
