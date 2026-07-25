@@ -331,3 +331,104 @@ PASS / PASS-with-findings / BLOCK on:
 6. Whether the L0 no-CC ladder constraint may retire on this verdict (§ 6).
 
 **Signed:** gamora, 2026-07-25.
+
+---
+
+# 9. REMEDIATION COMPLETE — C1–C4 CLOSED, READY FOR CLOSE CONFIRMATION
+
+**Added:** gamora, 2026-07-25, after jack-ryan's Gate-2 verdict.
+**Verdict received:** **CLEAR-WITH-CONDITIONS** —
+`agentic_orchestration/qa/findings/2026-07-25-gate2-gamora-f8-cc-wiring.md`.
+**Remediated state:** engine tag **`gamora/v-f8-cc-2`**, branch `main`, **not pushed**.
+**Authorization:** the original build dispatch (`2026-07-25-gamora-f8-cc-consumer-wiring.md`),
+same cycle. No scope amendment.
+**Full per-condition detail with file:line:** report **§ 9**,
+`agentic_orchestration/gamora/notes/2026-07-25-f8-cc-wiring-and-blast-radius.md`.
+
+> **I am NOT self-clearing this Gate.** Per the finding's L0 ruling, **knight-rider confirms
+> closure**, and the L0 no-CC test-character constraint retires on that confirmation — not on this
+> block.
+
+## 9.1 Condition status
+
+| # | Condition | Gates L0? | Status | Where it landed |
+|---|---|---|---|---|
+| **C1** | Leash-latch suppression — resolve, name as semantic shift #4, add the latch-suppression test | **YES** | **CLOSED — resolved by HOIST** | math note **§ 3.4.1** + § 3.4 shift 4 + § 7 rows; `spatial_engine.py:608` (`_f8_leash_latch_under_lock`, latch write `:639`), call site `:1825` inside the lock at `:1824`, comment block `:1791-1821`; **7 tests**, `tests/test_f8_hard_cc_consumer.py` § 9 |
+| **C2** | Strike or re-measure the "546 of 587 / 93%" corpse-chill figure | **YES** | **CLOSED — RE-MEASURED** (counts struck, mechanism kept, now quantified) | `MIGRATION.md` § "Named UPSTREAM finding" — table + correction of record; counter at `…-f8-blast-radius-ab.py`; results `…-ab-{smoke,full}-liveness.json` |
+| **C3** | Complete the line-map + citation corrections | no (gates close) | **CLOSED — plus a 4th stale copy the finding did not enumerate, plus a structural fix** | math note § 2, § 2.1, § 3.1, § 4, **§ 8** (re-derived, 19/19 rows programmatically verified); `spatial_engine.py` player-move comment + `_f8_action_locked` docstring + action-lock comment; test docstring; report § 1 / § 2 / § 4.3 / § 5 |
+| **C4** | Behavioral test for the player movement composition | no | **CLOSED** | **9 tests**, `tests/test_f8_hard_cc_consumer.py` § 10 — driving the real `SpatialFightEngine.run()` loop |
+| **C5** | Route "generated kits emit no hard CC" → rocket | no | **NOT MINE** — knight-rider's routing item, untouched | — |
+| INFO | `export/season_exporter.py:266` silence text under-describes realized behavior | no | **NOT MINE** — routed to star-lord; recorded in math note § 2.1 | — |
+
+## 9.2 C1 — the substantive one
+
+jack-ryan's find, not a self-report, and the only player-adverse defect in the change. Reproduced
+before touching anything (Discipline #11), mob 50 m from spawn, `leash_distance_m = 10.0`:
+
+```
+no CC   -> is_leashing=True   would_attack=False
+root    -> is_leashing=False  would_attack=True    <-- the inversion
+stun    -> is_leashing=False  would_attack=False   (masked by the action lock)
+freeze  -> is_leashing=False  would_attack=False   (masked by the action lock)
+chill   -> is_leashing=True   would_attack=False
+```
+
+**Resolution: HOIST** (gandalf, SPEC-AUTHOR), not ratify-the-suppression. `is_leashing` is a
+combat-**disengagement decision**, not a movement — it gates the whole mob action phase, and root
+immobilizes the body, not the will. **Math note amended BEFORE the code** (Discipline #1) and the
+change named as **semantic shift #4** in math note § 3.4, the new § 3.4.1, the `_navigate_entity`
+comment block, and `MIGRATION.md`.
+
+The test jack-ryan specified asserts all three clauses together — `is_leashing=True`, takes no
+action, displacement 0 while rooted — plus the write-only invariant. **Rig discrimination proven:**
+reverting only the one-line hoist fails **4 of the 7** new C1 tests, and the 3 that still pass are
+precisely the invariance-preservation tests (inside-leash-radius, semantic shift #3, wire-flag-off).
+
+## 9.3 C2 — re-measured, and the provenance is the point
+
+| Arm | chill landings on `hp ≤ 0` | share | attempts on `hp ≤ 0` | share |
+|---|---|---|---|---|
+| post (`WIRE_HARD_CC=True`) | 4,696 / 5,116 | **91.8%** | 13,525 / 14,802 | 91.4% |
+| pre (`WIRE_HARD_CC=False`) | 4,699 / 5,046 | **93.1%** | 13,550 / 14,622 | 92.7% |
+| `burn` control (identical both arms) | 4,635 / 5,009 | 92.5% | 13,697 / 14,919 | 91.8% |
+
+Full frame, 64 cells/arm × 20 fights, same-binary ablation. **The instrumented re-run reproduces
+the archived `…-ab-full.json` exactly** — every pre-existing counter and every cell metric
+(`landed:chill 5116`, `nav_slowed 12180`, `n_byte_identical 56`, control −0.9242% / +3.3907%). The
+four liveness keys are the only difference, so the counters measure the same frame the original
+conclusions rest on.
+
+The prior session's *ratio* was near-right; its **counts are not reproduced at any frame size and
+are struck.** jack-ryan's escalation was correct and I under-weighted it — `MIGRATION.md` is a
+cross-seam contract document, not a commit message.
+
+## 9.4 Verification
+
+| Scope | Before | After |
+|---|---|---|
+| `tests/test_f8_hard_cc_consumer.py` | 35 passed | **51 passed** (+7 C1, +9 C4) |
+| F8-relevant subset (+ scenarios, ailment gamora/rocket slices, registry, WD BC) | 261 passed | **277 passed** |
+| Engine-runner regression (`w010_boss_ai_focus`, `w094_performance`, `w095_telemetry`, `w093_usage_modes`) | — | **123 passed** |
+
+Both new test groups are **ablation-proven**, not merely green (report § 9.1, § 9.4). The wider
+"1615 passed" claim from `9f3135a` remains **UNVERIFIED** and is not cited as evidence, per the
+finding.
+
+**Free result:** the 64-cell full-frame re-run **carries the C1 change** and is byte-identical to
+the pre-C1 archive on all 64 cells — an empirical confirmation of C1's predicted byte-neutrality on
+this population. The carve-out is unreachable because the pool emits no hard CC, which is exactly
+the C5 routing item.
+
+## 9.5 Asked of knight-rider
+
+1. **Confirm C1–C4 closure** (the finding assigns confirmation to you, not to me and not to a
+   second Gate).
+2. On that confirmation, the **L0 no-CC test-character constraint retires** per the finding's L0
+   ruling — no further Gate required.
+3. **Route C5** to rocket (generation-side: do generated kits emit hard CC at all, and should
+   they?). It is the prerequisite for ever measuring the hard-CC blast radius in-sim, and § 9.4
+   above re-confirms the pool is still emitting none.
+4. **Route the star-lord INFO** on `export/season_exporter.py:266`.
+5. **Push remains Matt-gated** (ADR-006). Both repos are committed, neither is pushed.
+
+**Signed:** gamora, 2026-07-25. Remediation complete; closure confirmation is knight-rider's.

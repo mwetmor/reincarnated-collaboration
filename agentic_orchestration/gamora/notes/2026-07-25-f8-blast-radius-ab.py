@@ -134,11 +134,24 @@ def _install_instrumentation():
     _orig_ail = DR._try_apply_ailment
 
     def ail(name, effect, attacker, defender, rng, buff_dmg_mult=1.0, skill=None):
+        # Gate-2 C2 (2026-07-25): DEFENDER-LIVENESS counter. The prior "546 of 587 / 93%" corpse-
+        # chill figure came from a non-persisted ad-hoc trace and could not be reproduced from
+        # disk — because THIS wrapper had no liveness read at all, only the active_effects length
+        # delta below. `_try_apply_ailment` is called from `resolve_skill` AFTER damage with no
+        # liveness gate, so an overkilling hit stamps the ailment onto a corpse. hp is read BEFORE
+        # delegating: the applier can mutate the defender, so a post-call read would not answer
+        # the "already dead when the ailment ARRIVED" question. Pure observer — no RNG, no
+        # mutation, no branch on the result.
         bump("attempt:" + name)
+        _dead_at_apply = float(getattr(defender, "hp", 1.0)) <= 0.0
+        if _dead_at_apply:
+            bump("attempt_on_corpse:" + name)
         before = len(defender.active_effects)
         r = _orig_ail(name, effect, attacker, defender, rng, buff_dmg_mult, skill=skill)
         if len(defender.active_effects) > before:
             bump("landed:" + name)
+            if _dead_at_apply:
+                bump("landed_on_corpse:" + name)
         return r
 
     DR._try_apply_ailment = ail

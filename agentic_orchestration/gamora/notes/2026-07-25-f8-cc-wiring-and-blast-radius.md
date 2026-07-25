@@ -24,7 +24,8 @@ Two findings lead, in this order.
 Across the full 64-cell frame the CC-bearing kit moves **−0.9242% observed_kpm / +3.3907% mean
 duration** in aggregate. All movement is confined to **one shell (`magic_pack`)**, where it is
 **−9.7379% kpm / +10.8510% duration**, worst single cell **−13.6392%**. **Zero KPM band verdict
-flips** — every pre and post value sits interior to the magic_pack band `(12.52, 102.86)`. The
+flips** under either band predicate — interior to the `magic_pack` band `(12.52, 102.86)` under
+the shell/cohort predicate, and FAIL→FAIL under the Track-1 archetype-cohort override (§ 4.3). The
 zero-CC control arm is **32/32 cells byte-identical, 0.0000% on every metric**. No historical
 verdict class in this frame needs an asterisk on band membership; the asterisk that IS owed is on
 comparability, § 4.3.
@@ -37,7 +38,8 @@ it at runtime: the post arm records `nav_slowed = 12180` and **no `select_action
 a hard zero). So the entire measured blast radius above is the **soft-CC / chill** arm. The
 stun / freeze / root / silence action-and-movement locks — the actual F8 subject — landed **zero
 times in 64 cells** and their in-sim blast radius is **UNMEASURED**. Their correctness rests
-entirely on the 35-assertion unit suite (§ 2), which is green. This is a **generation-side** finding
+entirely on the unit suite (§ 2) — 35 assertions at `gamora/v-f8-cc-1`, **51 after the Gate-2
+remediation** — which is green. This is a **generation-side** finding
 (the kit pool emits no hard CC), not a wiring defect, and it is routed, not patched.
 
 ---
@@ -69,13 +71,25 @@ map is navigable, but § 8's "verified" claim is stronger than the two rows supp
 the Gate-2 reviewer is not surprised. Not amended in the engine repo (no code change to justify a
 third commit on this).
 
-**Selector call sites (independently re-verified for this report):** `_select_skill_for_entity` is
-defined once at `:2066` and has exactly two production call sites — `:4369` (player action phase,
-`_select_skill_for_entity(self.player, alive_mobs, …)`) and `:4564` (mob action phase,
-`_select_skill_for_entity(mob, mob_targets, …)`). The commit message's `:4171 / :4366` are the same
-stale-offset artifact; the *claim* they support is correct.
+> **SUPERSEDED by the Gate-2 C3 remediation — do not use the table above as the map.** jack-ryan
+> confirmed both `577`/`595` misses and found the correction commit `fe5d5ea` was **incomplete**:
+> the stale `:4171 / :4366` selector pair it fixed in math note § 8 survived in three other places.
+> A fourth surviving copy turned up during remediation that the finding did not enumerate. All are
+> now corrected, the map has been **re-derived and programmatically verified row-by-row** (19 rows,
+> all exact), and it lives in **math note § 8 and nowhere else** — see § 9.3. The judgement above
+> that this did not justify a commit was wrong: it left a stale map in shipped production source.
 
-**Test file:** `tests/test_f8_hard_cc_consumer.py` (569 lines, added in `9f3135a`).
+**Selector call sites (independently re-verified for this report, and re-confirmed by jack-ryan):**
+`_select_skill_for_entity` is **defined once** and has **exactly two** production call sites — the
+player action phase and the mob action phase. Every other textual occurrence is a comment; there is
+no dynamic dispatch; and jack-ryan additionally checked for a third actor class, finding that ally
+proxies route through `_navigate_entity` (so the movement lock covers them) and are nav-only with no
+realized damage in W1. The commit message's `:4171 / :4366` are the stale-offset artifact; the
+*claim* they support is correct. **Current line numbers: math note § 8** (post-C3, this report no
+longer carries them — see § 9.3).
+
+**Test file:** `tests/test_f8_hard_cc_consumer.py` (569 lines at `9f3135a`; **+16 tests at the
+Gate-2 C1/C4 remediation — see § 9**).
 **Math note:** `src/reincarnated/simulation/math/f8-hard-cc-consumer-wiring-2026-07-25.md`.
 **MIGRATION.md:** entry `[2026-07-25] F8 HARD-CC CONSUMER WIRING — NO SCHEMA CHANGE, VALUE-LEVEL SHIFT`.
 **Commits:** `9f3135a` (wiring + tests + math note + MIGRATION + AGENT_STATE), `fe5d5ea` (math note
@@ -123,10 +137,19 @@ and should not be:**
   anticipated this. Per the composition rule ratified in math note § 3.1 — **successive
   multiplication, `M = σ · (1 − δ)`** — the chill-only arm is `0.5 × σ` with `σ = max(0.1, 1 − 0.90)
   = 0.10` ⇒ `0.0500 m`, and the composed arm is `0.5 × 0.10 × 0.60 = 0.0300 m`. Both measured
-  exactly. The two rejected rules are falsified by the same measurement: additive would give
+  exactly. The two rejected rules predict different values: additive would give
   `max(0, 1 − 0.90 − 0.40) = 0` ⇒ `0.0000 m` (a counterfeit root manufactured from two soft slows),
-  strongest-only would give `min(0.10, 0.60) = 0.10` ⇒ `0.0500 m` (a free second slow). The measured
-  `0.0300 m` discriminates all three.
+  strongest-only would give `min(0.10, 0.60) = 0.10` ⇒ `0.0500 m` (a free second slow).
+  **Correction of record (Gate-2 C3, Discipline #10):** this paragraph originally said the measured
+  `0.0300 m` **falsifies** the two rejected rules. It does not, and the claim was overreaching. The
+  code implements successive multiplication, so the probe measures the *implementation*; a
+  measurement cannot discriminate among hypotheses when only one of them is instantiated. The rules
+  were rejected on the *reasoning* in math note §3.1 (jointly-violable LOCKED caps; a free second
+  slow) — argument, not evidence. What
+  `test_composition_chill_x_decrepify_is_successive_multiplication` provides is a **regression
+  pin**: it asserts against both rejected values explicitly, so a future silent substitution of the
+  composition rule fails at the test rather than surfacing as unexplained drift in a balance run.
+  That is real and durable value; it is a different kind of claim, and the two were conflated.
 
 ---
 
@@ -220,17 +243,30 @@ per-shell magnitude (−9.89% / +11.04%) reproduces the full frame's (−9.74% /
 
 ### 4.3 Which historical verdict classes need an asterisk
 
-**KPM band verdicts: none, in this frame.** The `magic_pack` band is `(12.52, 102.86)` for all four
+**KPM band verdicts: none, in this frame — under BOTH band predicates.**
+
+*Predicate 1, the shell/cohort band.* The `magic_pack` band is `(12.52, 102.86)` for all four
 cohorts (`gauntlet_sim.py:504`, R3a step-6 density-anchored re-derivation 2026-07-08). All 16 mover
-values (8 pre, 8 post) range `25.358810 … 29.459902` — **every one interior to the band**. No
+values (8 pre, 8 post) range `25.358810 … 29.459902` — **every one interior to this band**. No
 pass/fail flip.
+
+*Predicate 2, the Track-1 archetype-cohort override — **added by Gate-2 C3***. This report
+originally said "every one interior to the band" **without qualification**, which is true-but-
+partial. jack-ryan traced the second predicate: `gauntlet_sim.py:1572-1580` sets the *authoritative*
+`enc_result.in_band` from `get_archetype_cohort_kpm_band(damage_scaling_path, cohort)`, and
+`_ARCHETYPE_COHORT_KPM_BAND is None` at HEAD, so it falls back to `COHORT_KPM_BAND[cohort]` —
+`(82.0, 97.0)` DPS-min-maxer, `(71.0, 79.0)` Balanced. Against **that** band all 16 mover values are
+**below the floor**, pre and post: **FAIL → FAIL**. So the honest statement is *no verdict flip
+under either predicate* — under predicate 1 because every value is interior, under predicate 2
+because every value fails in both arms. The conclusion (no flip) is unchanged; the reason differs by
+predicate and the unqualified "interior" sentence was wrong for one of them.
 
 > **Caveat, stated because it matters:** `w4g2_tier_2_full_sim` returns an `in_band` third value, and
 > the harness **discards it** — neither JSON contains an `in_band` field (`grep -c in_band` = 0 on
-> both). The no-flip conclusion above is **my arithmetic against the band constant read from
-> `gauntlet_sim.py:504`**, not a recorded verdict field. It is a sound derivation for band membership;
-> it is **not** a re-run of the full verdict function, so any verdict predicate that consults
-> something other than the KPM band is **UNVERIFIED** here.
+> both). The no-flip conclusion above is **arithmetic against the band constants read from
+> `gauntlet_sim.py`**, not a recorded verdict field. jack-ryan independently traced both predicates
+> at HEAD and reached the same conclusion (Gate-2, "the `in_band` discard is now VERIFIED"), so the
+> UNVERIFIED stamp this paragraph originally carried is **removed**; no harness re-run is required.
 
 **Asterisks that ARE owed:**
 
@@ -287,13 +323,12 @@ already at hp ≤ 0"* — i.e. `_try_apply_ailment` is called post-damage with n
 overkilling hit stamps the ailment onto a corpse, which is offered as the explanation for why three
 of four shells show a zero delta.
 
-**UNVERIFIED.** The harness instruments `attempt:<name>` and `landed:<name>` only
-(`2026-07-25-f8-blast-radius-ab.py:137-141`); it has **no defender-liveness counter**, and neither
-JSON contains the numbers 546 or 587. The claim came from an ad-hoc trace in the prior session that
-was **not persisted**. The mechanism is plausible and the *shape* is consistent with the census (both
-JSONs record `landed:chill` well below `attempt:chill` — full: 5116 of 14802), but the specific
-93% figure cannot be reproduced from disk. It should be **re-measured before it is cited as fact**,
-and it should not be treated as ratified by Gate 2 on the strength of the commit message alone.
+**UNVERIFIED as reported — and now RE-MEASURED (Gate-2 C2, § 9.2 below).** The harness instrumented
+`attempt:<name>` and `landed:<name>` only; it had **no defender-liveness counter**, and neither JSON
+contained the numbers 546 or 587. The claim came from an ad-hoc trace in the prior session that was
+**not persisted**. A liveness counter has since been added and the frame re-run: the *mechanism* is
+confirmed and the *ratio* is close to what the prior session reported, but the specific counts
+"546 of 587" are not reproduced and are **struck** from `MIGRATION.md`. See § 9.2.
 
 ---
 
@@ -303,18 +338,22 @@ The dispatch § 1.3 required the player-side consumer status be verified and wir
 Commit `9f3135a` claims the action-lock selector covers both actors. **Verified independently for
 this report, by reading the committed file:**
 
-- `_select_skill_for_entity` is **defined once**, at `:2066`, with the F8 action lock at `:2109`.
-- It has **exactly two production call sites**: `:4369` — the player action phase, called as
-  `_select_skill_for_entity(self.player, alive_mobs, elapsed, policy_config=…)` — and `:4564`, the
-  mob action phase, called as `_select_skill_for_entity(mob, mob_targets, elapsed)`.
+- `_select_skill_for_entity` is **defined once**, with the F8 action lock as its first gate.
+- It has **exactly two production call sites**: the player action phase, called as
+  `_select_skill_for_entity(self.player, alive_mobs, elapsed, policy_config=…)`, and the mob
+  action phase, called as `_select_skill_for_entity(mob, mob_targets, elapsed)`. (Line numbers
+  are in math note § 8 per the C3 structural fix — § 9.3.)
 - Therefore **the action lock and the per-skill silence gate are free on the player side**: one
   function, two callers, one gate. A stunned or frozen player selects no action, exactly as a mob
   does. Confirmed by `test_player_action_lock_is_shared_with_mobs`.
 
-**Movement was NOT free and had to be wired separately.** `_navigate_entity` returns early on
+**Movement was NOT free and had to be wired separately** — and this asymmetry is exactly what made
+it the site C4 pinned behaviorally (§ 9.4), and the same class of single-consumer placement risk
+that C1 turned out to be on the mob side (§ 9.1).
+ `_navigate_entity` returns early on
 `is_player` (pinned by `test_navigate_entity_still_ignores_the_player`); player movement is inline in
 `run()`. The wiring composes F8 into the existing E4 commitment scalar rather than adding a parallel
-gate (`:4291`, verified):
+gate (verified; math note § 8 for the line):
 
 ```
 if _f8_move_locked(self.player):  _e4_move_scale = 0.0
@@ -333,8 +372,8 @@ the slot in the formula; when δ is wired player-side it drops into the same `M`
 re-derivation. Reported as a follow-on, not closed.
 
 **Player-side verdict in one line:** action lock — **shared, verified, free**. Movement lock —
-**absent before, wired now, verified at `:4291`**. Player-side decrepify — **still unwired, named,
-out of scope.**
+**absent before, wired now, verified — and behaviorally pinned end-to-end through `run()` by the
+Gate-2 C4 tests (§ 9.4)**. Player-side decrepify — **still unwired, named, out of scope.**
 
 ---
 
@@ -390,3 +429,191 @@ Two conditions on that retirement, both stated rather than assumed:
 | Gate 2 request | `agentic_orchestration/qa/pending/2026-07-25-gamora-f8-cc-wiring-gate2.md` |
 
 **Signed:** gamora, 2026-07-25. Closeout of a session that died before it could file.
+
+---
+
+# 9. REMEDIATION ADDENDUM — Gate-2 conditions C1–C4 (2026-07-25, tag `gamora/v-f8-cc-2`)
+
+jack-ryan's Gate 2 (`agentic_orchestration/qa/findings/2026-07-25-gate2-gamora-f8-cc-wiring.md`)
+returned **CLEAR-WITH-CONDITIONS** on tag `gamora/v-f8-cc-1` → `fe5d5ea`. C1 and C2 gate the L0
+no-CC test-character retirement; C3 gates the close; C4 does not gate either and is done anyway,
+since the code was open. C5 is knight-rider's routing item and is not mine to close.
+
+**I am not self-clearing this Gate.** Per the finding's L0 ruling, knight-rider confirms closure.
+
+## 9.1 C1 — leash-latch suppression — **CLOSED** (hoist)
+
+**This was jack-ryan's find, not a self-report, and it is the one player-adverse defect in the
+change.** I reproduced it before touching anything (Discipline #11), mob at 50 m from spawn,
+`leash_distance_m = 10.0`, one tick, at HEAD `fe5d5ea`:
+
+| arm | `is_leashing` | displacement | selector | **would attack** |
+|---|---|---|---|---|
+| no CC | **True** | 0.0000 | `0` | **False** |
+| `root` | **False** | 0.0000 | `0` | **True** ⟵ the inversion |
+| `stun` | False | 0.0000 | `None` | False (masked by the action lock) |
+| `freeze` | False | 0.0000 | `None` | False (masked by the action lock) |
+| `chill` | **True** | 0.0000 | `0` | False |
+
+`is_leashing` is not a movement state — it gates the whole mob action phase. My placement put a
+combat-**disengagement decision** inside a **movement** lock's blast radius, and since root
+action-locks nothing, *rooting an out-of-leash mob was strictly worse than doing nothing.*
+
+**Resolution: HOIST** (gandalf, SPEC-AUTHOR). Ratifying the suppression was the other defensible
+option and I rejected it on three grounds, recorded in math note § 3.4.1: the lock is defined as an
+absorbing zero on *movement magnitude* and the latch carries no magnitude and produces no
+displacement; leash-reset disengagement is unconditional in D3 and GD, and CC never re-weaponizes a
+disengaging monster; and "I rooted the fleeing mob and it turned and killed me" inverts the exact
+fantasy the control class exists to sell.
+
+**Math note amended BEFORE the code** (Discipline #1). Named as **semantic shift #4** in § 3.4, in
+the new § 3.4.1, in the `_navigate_entity` comment block, and in `MIGRATION.md`.
+
+| Artifact | Where |
+|---|---|
+| Design + derivation | math note **§ 3.4 shift 4** and **§ 3.4.1** (new section) |
+| Predicate helper | `…/spatial_engine.py:608` `_f8_leash_latch_under_lock` (latch write at `:639`) |
+| Call site inside the locked branch | `…/spatial_engine.py:1825` (lock at `:1824`) |
+| Comment block naming the shift | `…/spatial_engine.py:1791-1821` |
+| Cross-seam note | `simulation/MIGRATION.md` — new AMENDMENT block |
+
+Invariants held, and each one is a test: the helper is **write-only on `is_leashing`** (position,
+heading, HP, `is_activated`, every `ActiveEffect` untouched), so displacement stays 0 while the CC
+is live *before and after* the latch; the serial-activation conjunct replicates the guard rather
+than its side effect, so **semantic shift #3 survives verbatim**; and because the evaluation lives
+*inside* the `MOVE_LOCK` branch, byte-neutrality and the `WIRE_HARD_CC=False` ablation arm are
+untouched.
+
+**Tests added** (7, `tests/test_f8_hard_cc_consumer.py` § 9), covering exactly what jack-ryan
+specified plus the invariants:
+
+| Test | Asserts |
+|---|---|
+| `test_c1_rooted_out_of_leash_mob_latches_takes_no_action_and_does_not_move` | the three specified clauses together: `is_leashing=True`, takes no action, displacement 0 — plus heading/HP untouched |
+| `test_c1_cc_never_makes_an_out_of_leash_mob_more_dangerous_than_no_cc` | the invariant the defect violated, all five arms against the no-CC control |
+| `test_c1_latch_does_not_fire_inside_the_leash_radius` | root is not a free disengage |
+| `test_c1_latched_mob_stays_put_for_every_tick_the_root_is_live` | 10 ticks, zero displacement, no HP reset |
+| `test_c1_walks_home_when_the_root_expires` | the other half of the design sentence |
+| `test_c1_carve_out_preserves_semantic_shift_3_for_serial_mobs` | shift #3 unbroken |
+| `test_c1_carve_out_is_inert_under_the_wire_flag` | ablation arm clean |
+
+**Rig discrimination proven** (Discipline #11): reverting only the one-line hoist fails **4 of the
+7** — and the 3 that still pass are precisely the invariance-preservation tests, which is the
+correct signature.
+
+## 9.2 C2 — corpse-chill statistic — **CLOSED** (re-measured, not struck)
+
+jack-ryan allowed strike-or-re-measure. I re-measured, because the *mechanism* is a live routed
+design item for gandalf/Matt and it deserves a number that survives scrutiny.
+
+Added a defender-liveness counter to the A/B harness (`…-f8-blast-radius-ab.py`,
+`attempt_on_corpse:<name>` / `landed_on_corpse:<name>`), reading `defender.hp` **before** delegating
+to `_try_apply_ailment` — a post-call read cannot answer "already dead when the ailment *arrived*",
+since the applier can mutate the defender. Pure observer. Re-ran smoke, then full.
+
+**Full frame, 64 cells/arm × 20 fights, four shells, same-binary ablation:**
+
+| Arm | chill landings on `hp ≤ 0` | share | attempts on `hp ≤ 0` | share |
+|---|---|---|---|---|
+| post (`WIRE_HARD_CC=True`) | 4,696 / 5,116 | **91.8%** | 13,525 / 14,802 | 91.4% |
+| pre (`WIRE_HARD_CC=False`) | 4,699 / 5,046 | **93.1%** | 13,550 / 14,622 | 92.7% |
+| `burn` control (identical both arms) | 4,635 / 5,009 | 92.5% | 13,697 / 14,919 | 91.8% |
+
+**Provenance is airtight, and this is the part that matters:** the instrumented re-run reproduces
+the archived `…-ab-full.json` **exactly** — `attempt:chill 14802`, `landed:chill 5116`,
+`nav_calls 5664356`, `nav_slowed 12180`, `select_calls 1685024`, `n_byte_identical 56`, control
+`−0.9242% kpm / +3.3907% duration`, baseline `0.0000%`. The four liveness keys are the *only*
+difference between the two files. Smoke likewise reproduces `…-ab-smoke.json` exactly. So the new
+counters measure the same frame the original conclusions rest on.
+
+**What I got wrong and how much:** the prior session's *ratio* was close to right (93.1% in the pre
+arm). Its **counts** — "546 of 587" — are not reproduced at any frame size and are **struck**. The
+`MIGRATION.md` bolded assertion is replaced with the table above plus an explicit correction of
+record. jack-ryan's escalation was correct and I under-weighted it: this was not merely a commit
+message, it was a cross-seam contract document asserting an unreproducible number as bolded fact.
+Commit messages `9f3135a` / `fe5d5ea` stay immutable and now have a correction of record.
+
+New artifacts: `…-f8-blast-radius-ab-smoke-liveness.json`, `…-f8-blast-radius-ab-full-liveness.json`.
+
+**Free result worth naming:** the full-frame re-run *carries the C1 change*, and it is byte-identical
+to the pre-C1 archived run on all 64 cells. That is a 64-cell empirical confirmation of C1's
+predicted byte-neutrality on this population — the carve-out is unreachable because the kit pool
+emits no hard CC (§ 4.4), which is exactly the C5 routing item.
+
+## 9.3 C3 — doc-only line-map + citation completion — **CLOSED**
+
+| Item | Resolution |
+|---|---|
+| math note § 4 (`:4171` → selector call site; `~:4110-4130` → player move block) | corrected, and now defers to § 8 |
+| `spatial_engine.py` player-move-block comment `:4171/:4366` | corrected |
+| `tests/test_f8_hard_cc_consumer.py:410` docstring `:4171 / :4366` | corrected |
+| math note § 8 helper rows `577`→`561`, `595`→`579` | superseded — whole table re-derived |
+| root citation "ailment-layer spec §3/§4" | → `config/ailments.yaml:91-96`, in math note § 2 **and** the `_f8_action_locked` docstring |
+| silence "spec intent" framing | → "kernel-declared, out-of-registry per `effect_categorization.py:36`"; only semantic declaration in the engine is `combatant.py:461` |
+| report § 4.3 "every one interior to the band" | qualified with the Track-1 predicate (below floor, **both** arms, still no flip); UNVERIFIED stamp removed per jack-ryan's trace |
+| "measurement falsifies" | → **regression pin**, in report § 2 and math note § 3.1, with the epistemics spelled out |
+
+**A fourth stale copy the finding did not enumerate.** The `:4171 / :4366` pair also survived in the
+`_select_skill_for_entity` action-lock comment block. Found while sweeping; corrected.
+
+**Structural fix so this does not recur a third time.** The line map has now been wrong twice —
+once in `9f3135a`'s message, once in `fe5d5ea`'s incomplete correction. Line numbers now live in
+**math note § 8 and nowhere else**; every comment and docstring in the seam names the *function* and
+the *phase* instead, because an embedded line number rots silently on the next edit to the file.
+§ 8 itself was re-derived by `grep -n` and then **programmatically verified row-by-row against the
+source — 19 rows, all exact.**
+
+## 9.4 C4 — behavioral test for the player movement wiring — **CLOSED**
+
+The player move block is the one F8 consumer that is *not* shared with the mob path
+(`_navigate_entity` early-returns on `is_player`), so it is the one site where a placement error
+cannot be caught anywhere else — and C1 was a placement error in the *other* movement consumer.
+`test_player_movement_predicates` only exercised the *inputs* to `M(player)`.
+
+Added 7 tests (`tests/test_f8_hard_cc_consumer.py` § 10) that drive the **real
+`SpatialFightEngine.run()` loop** — a player 26 m from a stationary punching bag — and measure
+**realized** per-tick displacement off `player.total_displacement` via an observability-only frame
+sink. Tick 0 is the comparison point (player idle ⇒ `_e4_move_scale == 1.0`; a chilled player closes
+more slowly, so downstream ticks diverge legitimately).
+
+| Test | Asserts |
+|---|---|
+| `test_c4_player_moves_at_full_step_without_cc` | rig baseline `v · Δt` |
+| `test_c4_player_hard_cc_zeroes_realized_displacement_in_a_live_fight` ×3 | stun / freeze / root ⇒ exactly 0 through `run()` |
+| `test_c4_player_chill_scales_the_realized_step_multiplicatively` | 60% chill ⇒ **exactly** 0.40 × full step |
+| `test_c4_slow_factor_floor_holds_end_to_end` | σ's 0.1 floor survives the composition |
+| `test_c4_two_chills_compose_by_successive_multiplication_on_the_player` | σ = 0.25, not 0.50 (strongest-only) and not 0 (additive) — the § 3.1 pin, player-side |
+| `test_c4_lock_composes_INTO_the_e4_scalar_not_downstream_of_it` | the lock zeroes `_e4_move_scale` *itself* |
+| `test_c4_player_movement_wiring_is_inert_under_the_wire_flag` | ablation arm clean |
+
+**Rig discrimination proven by two ablations:** dropping σ from the composition fails the 3 scaling
+tests; applying `M` to `step` *downstream* of `_e4_move_scale` instead of *into* it is **numerically
+identical** (displacement still 0) and is caught **only** by the decision-trace test — which is
+precisely the class of error C1 was, and the reason that last test exists.
+
+## 9.5 Test counts after remediation
+
+| Scope | Before | After |
+|---|---|---|
+| `tests/test_f8_hard_cc_consumer.py` | 35 passed | **51 passed** (+16: 7 C1, 9 C4) |
+| F8-relevant subset (+ scenarios, ailment gamora/rocket slices, registry, WD BC) | 261 passed | **277 passed** |
+| Engine-runner regression (`w010_boss_ai_focus`, `w094_performance`, `w095_telemetry`, `w093_usage_modes`) | — | **123 passed** |
+
+## 9.6 What is NOT closed here
+
+- **C5** — "generated kits emit no hard CC" → rocket via knight-rider. Not mine. It remains the
+  prerequisite for ever measuring the hard-CC blast radius in-sim, and § 9.2 re-confirms it: the
+  C1 carve-out is unreachable in the current pool.
+- **star-lord INFO** — `export/season_exporter.py:266` player-facing silence text under-describes
+  realized behavior (no mobility/defensive carve-out). Named in math note § 2.1; routing is
+  knight-rider's.
+- **Design items already routed and untouched:** the `M_min = 0.06` combined-floor question and
+  the corpse-chill *application-ordering* question (gandalf/Matt); player-side `curse:decrepify`
+  (Wave-D); `SpawnSpec.is_boss → CombatantState.is_boss` (cross-seam).
+- **The wider "1615 passed" claim** from `9f3135a` stays stamped **UNVERIFIED**; jack-ryan did not
+  require the stash-bisect re-run and no conclusion rests on it. Not cited as evidence.
+- **The L0 retirement.** C1 and C2 are closed, which is what the ruling made it contingent on — but
+  the retirement fires on **knight-rider's** confirmation, not on my say-so.
+
+**Signed:** gamora, 2026-07-25. Remediation of Gate-2 CLEAR-WITH-CONDITIONS; closure is
+knight-rider's to confirm.
