@@ -25,15 +25,13 @@ path with forward slashes.
 *(Backups if a01 spawns nothing: `zombie_b01.dbr`, `zombie_c01.dbr`, and
 `testdummy_killable.dbr` — same folder.)*
 
-**Bonus fix from the same research:** `game.PlayStats` takes NO argument — the bare command
-is the working form (that's why `game.PlayStats true` errored but the panel still showed).
-For the toggles, if `character.ShowAngerLevels true` errors again, try
-`character.ShowAngerLevels 1` and note which form takes.
+**Toggle syntax (Matt-corrected):** `<command> true` is the working form — bare
+`game.PlayStats` errors; `game.PlayStats true` shows the panel. Use `true` on all toggles
+(`character.LogData true`, `character.ShowAngerLevels true`), same as round 1.
 
 ## TEST 2 — Does the console print DAMAGE lines during a fight?
 
-1. Make sure `character.LogData true` was entered this session (if it errors, try
-   `character.LogData` with no argument — note which form is accepted).
+1. Make sure `character.LogData true` was entered this session.
 2. Fight ONE zombie with the console open (backtick toggles; fight, then reopen).
 3. Screenshot the console right after the kill.
 

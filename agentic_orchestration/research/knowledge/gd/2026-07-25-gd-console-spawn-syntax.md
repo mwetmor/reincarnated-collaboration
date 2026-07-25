@@ -172,3 +172,17 @@ resolver expected.
 | `fearlessrevolution.com/viewtopic.php?t=10727` | Not retrievable (403) | 2026-07-25 |
 | `~/Games/vendor/grim-dawn/Grim Dawn.exe` — mangled-symbol + console-string extraction | Primary — binary | 2026-07-25 |
 | `~/Games/vendor/grim-dawn/database/database.arz` — 34,114 records via `gd_arz_adapter_2026_07_24.py` | Primary — game data | 2026-07-25 |
+
+---
+
+## LIVE-EVIDENCE CORRECTION (gandalf-appended, Matt observation 2026-07-25 — governs over § 3's binary inference)
+
+Matt, verbatim: *"PlayStats errored, then I used PlayStats true which displayed the gameplay
+statistics."* So the arity inference above is **REVERSED for `game.PlayStats`**: bare form
+errors; **`game.PlayStats true` is the working form.** The zero-arg `?Display@PlayStats@…XZ`
+symbol is evidently not the console binding (or a bool-taking toggle wrapper sits in front).
+Composes with the T8 finding (`character.ShowAngerLevels true` worked 2026-07-24): the
+console toggle convention is **`<command> true`** across observed commands. The § 3
+"arity resolution" is retired; the `true`-vs-`1` fork closes as `true`. Lesson logged:
+binary-symbol inference lost to live observation twice today — the oracle outranks the
+disassembly for console-surface questions.
