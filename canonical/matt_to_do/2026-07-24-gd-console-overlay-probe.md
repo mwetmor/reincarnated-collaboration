@@ -3,7 +3,14 @@
 **Raised:** 2026-07-24 by gandalf
 **Revised:** 2026-07-25 — **v2, restructured as a three-rung ladder** after Matt hit the
 Custom-Game precondition ("I can't make a custom game without a custom map").
-**Status:** READY TO RUN
+**Status:** ✓ **DONE 2026-07-25.** Overlay read-out obtained — the anger overlay is a **directed
+graph edge** (solid red mob→target line at the instant of commitment, correctly pointing at *other
+mobs* during infighting), not the scalar the "number / bar / on-off" framing anticipated. That
+framing was the wrong option space; the relational primitive is richer than any of its three
+branches. `character.LogData true` prints green per-entity text carrying AI state and entity IDs.
+Fixtures banked at `agentic_orchestration/gandalf/fixtures/2026-07-25-gd-anger-overlay/`.
+**Successor: T9** — `agentic_orchestration/gandalf/pc-handoff/2026-07-25-gd-teleport-probe-directions.md`
+(coordinates / teleport / the `SetPlayerInvisible` trial trigger).
 **Why only Matt:** requires a running Grim Dawn on his PC. No agent can press a key in his game.
 
 **PC-side copy (the operative one — self-contained, no repo access needed):**
