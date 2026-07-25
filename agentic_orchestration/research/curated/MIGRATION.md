@@ -7,6 +7,35 @@
 
 ---
 
+## gd-edition-pin-2026-07-24 — GD Edition-I `source_version` backfill (snapshot-with-editions): 1 `exact_skill` row pinned NULL→composite manifest pin, ZERO DDL — 2026-07-24 — **APPLIED (Matt RULING-A; dedicated MIGRATION note carries rationale + finding)**
+
+### What happened (one line)
+
+Backfilled the owed Edition-I pin (RULING-A snapshot-with-editions, Matt 2026-07-24; freeze §7.1 / cut §7.1): set `exact_skill.source_version` on `gd-flames-of-ignaffar-purifier` from `NULL` → a composite self-describing pin `gd-edition-I-20260723; depot=642280(gdx1/AshesOfMalmouth); manifest=2275863479823292335; arz_sha256=e28ab2…ae3f`, **before** any Edition-II row lands, eliminating the mixed-blank hazard. DATA-ONLY (no DDL); the existing `source_version` column fit. `integrity_check=ok`, FK clean; 1 total / 1 pinned / 0 blank.
+
+### Pin value + why (short)
+
+Composite, not bare label and not bare manifest. Passes the steward test "which bytes produced this row, two years out, even if the freeze note is lost": edition label (legible, resolves to freeze §4) + depot/friendly-name (which archive) + manifest ID (immutable, byte-validated key — cut §3 proved identical-manifest⇒identical-bytes) + `arz_sha256` (verifiable against frozen bytes with zero note dependency). Full rationale + rejected alternatives in the dedicated note.
+
+### FINDING (surfaced for a ruling — LOW materiality)
+
+Cut record §6 says "FoI lives in gdx2." For this banked record that is **incorrect**: `records/skills/playerclass07/purifyingflame1.dbr` is present in `gdx1/GDX1.arz`, absent from `gdx2/GDX2.arz` and `base/database.arz` (verified via the adapter's own reader against frozen Edition-I). The base skill record ships in gdx1 (Ashes of Malmouth); gdx2 carries only FoI *item-skill modifiers*. Both manifests are byte-identical across editions (cut §2), so NOT version-skewed either way — but the pin names the archive that actually produced the row (**gdx1 / 642280**). Flagged for gandalf to annotate the cut record; no corpus change hinges on it.
+
+### Coverage-boundary declaration (Discipline D-a)
+
+INSPECTED (= the complete `.arz`-datamine population): `exact_skill` (all 1 row, pinned) + `exact_skill_field` (all 136, no `source_version` col — version carried by header). Column-scanned all 42 tables/views: `exact_skill.source_version` is the DB's ONLY manifest/edition/depot/arz column. Spot-checked FoI's `kit_numeric`/`kit_dossier`/`skill_geometry_band` — all community-web/dossier-prose, correctly NOT pinned. NOT inspected / out of scope: the 40 non-FoI GD kits' community rows, `monster_numeric`, non-GD lanes (no `.arz` datamine exists for them yet). **A clean pin on the one row implies the one `.arz`-datamined kit carries provenance — not that every GD row does.**
+
+### Deliverables + paths
+
+- **MIGRATION note (full rationale + finding + coverage decl):** `MIGRATION-gd-edition-pin-2026-07-24.md` (this dir).
+- **Backup:** `corpus.db.pre-gd-edition-pin-20260725T002454Z-backup` (+ `.md5.txt` = `d0bf037c22555b3ce4352bc18d23e4f4`), pre-write.
+- **Post-write corpus.db md5:** `113ebccbd06a9b62cdaa8a068a4b89e6`.
+- **schema_meta:** version `gd-edition-pin-2026-07-24`.
+- **Reversible:** restore from backup, or `UPDATE exact_skill SET source_version=NULL WHERE kit_id='gd-flames-of-ignaffar-purifier';` (exact inverse). Write was transactional + `WHERE source_version IS NULL`-guarded (idempotent; re-run touches 0 rows).
+- **ADR-004:** elrond data-layer only; no engine-telemetry / engine-source change; DB gitignored (committed artifacts = notes + schema_meta record). Auto-committed per discipline; **NO push.**
+
+---
+
 ## le-park-2026-07-24 — Last Epoch PARK-not-DELETE: +3 `canon_corpus` columns, 37 kits flagged parked, active record-bucket 270→233 — 2026-07-24 — **APPLIED (Matt TSR-7 fork ii; dedicated MIGRATION note carries the ruling)**
 
 ### What happened (one line)
