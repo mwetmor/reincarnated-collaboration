@@ -83,6 +83,19 @@ not the measurement act.**
   the spec, per instrument. **This is the real axis of "best at building" and the program has been
   proxying it with wall-clock.** Report the count, and what each cycle was spent fixing.
 
+- **P-6 — THE SAVE-DUPLICATION HAZARD ON ADDED GEOMETRY.** *Added 2026-07-25 after L4-PREP, before
+  any instrument ran — legitimate preregistration: no results exist.* **TCP-24** found that Godot's
+  `PackedScene.pack()` duplicates instanced FBX sub-scenes on save (808 nodes in → **1320 out**), and
+  that **no route gives both correct node count and surviving materials** (own-all → duplicates;
+  own-root-only → every material silently dropped). PREP flattened that confound out of the
+  *substrate*. **It is NOT removed from the addition** — pillars and props are FBX, so any instrument
+  that instances them and saves duplicates them. **The question this makes measurable: can the
+  instrument place geometry WITHOUT going through scene-instancing?** *Forecast (and per TCP-22 a
+  forecast is measured, not obeyed): at least one instrument ships duplicated pillars and does not
+  notice, because every call returned `ok` — L-K, sixth instance.* **No known-good route is being
+  handed over.** Each instrument finds a non-lossy path or **names its ceiling, and a named ceiling
+  is a PASS (L-G).** Every cell reports node-count-in vs node-count-out across a save/reload.
+
 **Every prediction resolves to a recorded fact. A FAIL is a finding (L-G).** **Report medians with n
 and exclusions for any timing claim (TCP-19)** — a mean containing retry timeouts is not a measurement.
 
@@ -147,7 +160,14 @@ must stand alone.
    calibrated** (§3b) — the H dispatch does not build the instrument that judges its own cell.
 2. **P-2 resolved numerically** — masked pixel diff of the non-addition region, per instrument,
    **against a differ with both calibration points published** (§3b).
-3. **P-1, P-3, P-4, P-5 each resolved** to a recorded fact with its evidence.
+2b. **A DETAIL CROP per cell, tightly framed on the dais.** *Added 2026-07-25 by the conductor after
+   looking at PREP's reference frame.* At `__box` (CAM_DIST 50) the 6×4 m dais is roughly a ninth of
+   the floor and lands in a few hundred pixels — **the six spec clauses (4 steps, 0.15 m rise, 0.5 m
+   pillar inset, symmetric props) are not judgeable at that size.** L-A requires a *judgeable* frame,
+   and a frame in which the thing under test occupies 100 px does not satisfy it. Same camera
+   parameters for every cell's crop, declared once. **The wide shot proves non-destruction; the crop
+   proves conformance. Both are required.**
+3. **P-1, P-3, P-4, P-5, P-6 each resolved** to a recorded fact with its evidence.
 4. **Spec conformance checklist** — the six spec clauses, per instrument, PASS/FAIL with the measurement.
 5. **The Pro swap restored and verified by inventory** (§4), plus the class-name-cache rescan.
 6. **Blast radius verified per TCP-20** — fingerprint of `reincarnated-godot`'s ignored tree, before
