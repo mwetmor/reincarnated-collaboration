@@ -77,9 +77,13 @@ the lap or the contract the (i) cells will be handed.
 
 **Executed by:** drax · **2026-07-25** · **Status: BUILT. All eight gates met. G4 PASSES.**
 
-**Authoring clock: Phase A 27.8 min + Phase B 30.6 min = 58.4 min (0.97 h) for the whole cell**,
+**Authoring clock: Phase A 27.8 min + Phase B 23.3 min = 51.1 min (0.85 h) for the whole cell**,
 thinking included. **Method H throughout both phases — no wire, so no swap and no transport.**
-Five Godot processes, one scene each (TCP-23), plus two repeat runs for determinism checks.
+Phase B ran `20:51:23Z → 21:14:40Z`, stopping where Phase A's clock stopped — deliverables complete
+and substrate re-verified — with report authoring outside it, as in Phase A. **Un-truncated
+wall-clock to the commit landing: 27.6 min** (cell total 55.4 min); both numbers are in the report
+so the smaller one is not hiding anything. Five Godot processes, one scene each (TCP-23), plus two
+repeat runs for the determinism checks.
 
 **Report:** `agentic_orchestration/drax/notes/2026-07-25-tcp-l5d-seam-arrival-phase-b-report.md`
 **Build:** `~/Games/mcp-lab/prep/l5d_residue/l5d_scene_after.tscn` (sha `c7b9e950…`), 330 nodes.

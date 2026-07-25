@@ -12,15 +12,22 @@
 | Mark | UTC | Elapsed |
 |---|---|---|
 | Phase A | `20:04:33Z → 20:32:19Z` | **27.8 min** |
-| Phase B | `20:51:23Z → 21:22:00Z` | **30.6 min** |
-| **CELL TOTAL** | | **58.4 min (0.97 h)** |
+| Phase B | `20:51:23Z → 21:14:40Z` | **23.3 min** |
+| **CELL TOTAL** | | **51.1 min (0.85 h)** |
 
 Thinking included, per TCP-32. **Method H throughout, both phases — no wire engaged, so none of
-the 58.4 min is swap or transport** (Matt R-7, agreed). Phase B breakdown: substrate re-read and
-material/basis harvesting ~6 min; builder authoring ~8 min; three build-time defects found and
-fixed ~7 min; census authoring + two check-definition corrections ~5 min; G4 sweep incl. the
-instrument defect ~6 min; frames, diff, vacate ~4 min. Report authoring is outside the clock,
-consistent with Phase A.
+the 51.1 min is swap or transport** (Matt R-7, agreed).
+
+**The boundary, stated so it cannot be gamed:** the clock stops where Phase A's stopped — at
+deliverables-complete and substrate re-verified (Phase A: "SITING_PLAN complete, probes banked,
+substrate re-verified"). For Phase B that is `21:14:40Z`, the vacate plus the closing substrate
+check. Report authoring sits outside it, as in Phase A. **For completeness the un-truncated
+wall-clock to the commit landing is `20:51:23Z → 21:19:00Z` = 27.6 min**, and the cell total on
+that basis is 55.4 min. Both numbers are here so the smaller one is not doing any hiding.
+
+Phase B breakdown: substrate re-read and material/basis harvesting ~5 min; builder authoring ~6 min;
+three build-time defects found and fixed ~5 min; census authoring plus two check-definition
+corrections ~4 min; G4 sweep including the instrument defect ~4 min; frames, diff, vacate ~4 min.
 
 Five Godot processes, one scene each (TCP-23): build (headless) · census (headless) · sweep
 (Metal) · `__box` (Metal) · money frame (Metal). Plus one repeat `__box` for the byte-identity
