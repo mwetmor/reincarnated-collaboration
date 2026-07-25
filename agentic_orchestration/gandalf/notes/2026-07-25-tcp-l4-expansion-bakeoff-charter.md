@@ -178,6 +178,41 @@ must stand alone.
 the exact blocking artifact**, and **its cell still appears on the contact sheet** — showing the
 failure. A named ceiling is a PASS. **An unattributed failure is the only real failure.**
 
+## §5b — OPEN FINDING carried out of L4a: the rainbow pillar, and the gap in its own control
+
+**Ratified:** drax's attribution is sound and L4a is **not** at fault. Same mesh, same UVs to five
+decimals, same texture, same scale as the room's own pillar; the side-by-side control shows the two
+are indistinguishable. P-5's cycle count is not penalized, and TCP-27 ③ propagates the note so L4b
+and L4c do not burn cycles on it.
+
+**But the control answers a narrower question than the picture asks, and the difference matters.**
+The control proves ***"L4a did not break it."*** It does **not** prove ***"it is not broken."*** If
+the fault predates the cell — in the pack, in `kit_replica_level.gd`, or in **PREP's flattening** —
+then two equally-broken pillars compare equal and the control passes anyway. **This is the rubric
+law (`desirable-run-pattern.md` §6.3) firing on us: a VERIFIED claim must name its rubric AND show
+that rubric is the owner's question.** The owner's question at the picture is *"do these read as
+stone?"* They do not — they read as **atlas swatch bands with a green glyph**, which is the exact
+signature of **L-K instance #3**, the void-cap rainbow (*"sampled a tiling texture the pack does not
+ship; returned a palette swatch strip instead of stone, without complaint"*).
+
+**The live hypothesis, and it points at prep rather than the pack.** Flattening extracts the mesh
+from the FBX instead of instancing it — and that path is **already known to lose things**: prep
+itself found the pillar FBX's internal mesh node carries a **+0.004478 m Y offset that instancing
+applies for you and extraction does not.** Material/UV binding is the same class of loss. Against
+that: L2 picked `polygon-dark-fortress` *because* it ships genuine tiling stone, and Synty pillars
+are atlas-mapped **by design** — so the pack answer is live too.
+
+**Decidable by one cheap probe, and it is NOT run inside this lap:** render the pillar module in
+the **production** room and look. Production stone → prep's substrate is unfaithful and TCP-24's
+*"the fix is a fix and not a workaround"* needs qualifying. Production rainbow → a standing
+`reincarnated-godot` defect that L4 surfaced for free, hidden all this time because the room's
+corner pillars are ~89% buried in the walls.
+
+**Why it does not block:** all three cells inherit the identical substrate, so the comparison is
+unaffected — and running a second Godot process against the lab project concurrently with a live
+cell is precisely L3's orphan-editor hazard. **Queued for after the lap. Named on the contact
+sheet, so Matt is not asked to wonder why every cell looks broken.**
+
 ## §6 — Conductor interface
 
 - **In-run rulings (drax, logged, veto-open):** prop selection and declared substitutions; how to read
