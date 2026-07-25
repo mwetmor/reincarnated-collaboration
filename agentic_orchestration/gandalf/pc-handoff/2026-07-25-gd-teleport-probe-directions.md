@@ -222,25 +222,19 @@ take either on faith.
 - Does the sequence differ when you're **far** vs **close**? My expectation is that the
   in-between state, if it exists, is visible for noticeably longer at range.
 
-### 4b. One observation of yours that could destroy my whole reading — please re-check it
+### 4b. ✓ RESOLVED — you already answered this. Nothing to do.
 
-You listed **`Walk`** as appearing in *either* position. But the full 40-entry monster AI list
-came back and **there is no `Walk` in it.** `Walk` exists only in the *other* table.
+*(Kept for context.)* `Walk` renders **only bottom-right**, which confirms the two-layer
+reading. The mapping is settled:
 
-If my "top-left is one layer, bottom-right is the other" reading is right, `Walk` in the
-top-left position should be **impossible**. So this single observation is the thing that can
-falsify the model I'm about to build the measurement protocol on.
+| Position | What it means |
+|---|---|
+| **top-left** | the **decision** — what the monster has decided to do (`Roam`, `Pursue`, `AlertBeforePursue`, `WaitToAttack`, …) |
+| **bottom-right** | the **action** — what the body is physically doing (`Walk`, `Move`, `Attack`, …) |
 
-**Please just look again** and tell me which of these it is:
-1. `Walk` really does appear top-left sometimes → my two-layer reading is wrong, and I need to
-   know that *before* I spec anything.
-2. `Walk` only ever appears bottom-right, and it got grouped with `Idle` in the notes → the
-   model holds.
-3. The two labels aren't reliably top-left/bottom-right — they move, or there are more than
-   two → also important, and it changes what an OCR pipeline has to look for.
-
-**No wrong answer here and no need to be careful about it.** I would much rather find out my
-model is broken from a second look than from a protocol that quietly produces bad numbers.
+**So: for everything in this probe, watch the TOP-LEFT word.** The bottom-right one is
+confirmation, not signal. `Roam` top-left with `Walk` bottom-right — decision *roam*, body
+*walk* — is exactly the pairing the model predicts, and it's what you saw.
 
 ### 4c. A 60-second bonus test — do console-spawned monsters behave the same as real ones?
 

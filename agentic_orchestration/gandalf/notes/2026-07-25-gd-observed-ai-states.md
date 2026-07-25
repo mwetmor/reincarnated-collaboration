@@ -159,15 +159,34 @@ valuable state in the table, sitting on top of two of our five blocked KPIs.
 string extraction, and I am not filling that gap by inference. It is cheap to distinguish live
 and the live test is now in probe #2 § 4a.
 
-### 7.3 The ANOMALY that could falsify the two-layer model
+### 7.3 ✓ RESOLVED — the two-layer model SURVIVED its falsification test
 
-Matt reported **`Walk`** in *either* position. **Table 3 contains no `Walk`.** If top-left
-renders Table 3, `Walk` top-left is impossible.
+Matt's initial notes listed **`Walk`** in *either* position, and **Table 3 contains no `Walk`**
+— so if top-left renders Table 3, `Walk` top-left is impossible. That single observation was
+the falsifier for the entire model, and it was routed back rather than explained away.
 
-This is the one observation that can destroy the model, so it is the one worth re-checking
-before any protocol is built on it. Routed back to Matt as probe #2 § 4b, framed as three
-outcomes with no wrong answer. **Do not resolve this by assuming the observer misremembered** —
-that is the cheap resolution and it is the one that silently corrupts protocols.
+**Matt, 2026-07-25:** *"My mis-communication. Walk only renders on the bottom-right."*
+
+Outcome (2) of the three offered. **The model is confirmed, and the confirmation is worth more
+than the original agreement was**, because it was reached by naming what would break the model
+and then checking that specific thing — not by accumulating consistent observations.
+
+**The mapping is now LOCKED:**
+
+| Overlay position | Table | What it is | Entries |
+|---|---|---|---|
+| **top-left** | Table 3 — ControllerMonster AI State | the **decision** layer: what the monster has decided to do | 40 |
+| **bottom-right** | Table 1 — AI Action State (prefix `"Action State: "`) | the **action** layer: what the body is physically doing | 19 |
+
+And the resolution supplied a *positive* confirmation instance, not merely the absence of a
+contradiction: Matt observed `Roam` top-left while `Walk` rendered bottom-right — decision says
+*roam*, body says *walk*. That is exactly the pairing the two-layer model predicts.
+
+**Consequence for the capture pipeline (galadriel):** every one of the five KPIs reads off the
+**top-left label alone**. The OCR pipeline needs **one** label region per monster, not two. The
+bottom-right label is retained as an optional cross-check, not a requirement. That is a real
+simplification arriving before a line of pipeline code was written — which is the point of
+resolving the anomaly first rather than after.
 
 ### 7.4 A SIXTH gap-register candidate — the combat-spacing cluster
 
