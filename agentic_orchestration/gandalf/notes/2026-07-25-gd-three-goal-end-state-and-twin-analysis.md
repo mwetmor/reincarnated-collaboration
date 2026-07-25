@@ -49,7 +49,7 @@ set + the decision procedure that closes it.
 | Artifact | Content | Owner |
 |---|---|---|
 | **G1-A — Mechanism coverage matrix** | All 40 `ControllerMonster` states → the 7 mechanism families (+ 2 loose items) → per state: `MODELLED` / `PARTIAL` / `ABSENT` / `OUT-OF-SCOPE`, with our sim's equivalent construct **named** (not asserted) | gamora (audit), gandalf (family design) |
-| **G1-B — Scope declaration** | Which states are declared out. Matt said *combat* mechanisms — the ~7 quest/cosmetic states (`QuestWalk`…`Emote`, `Sleeping`, `Patrol`) are presumptively OUT, but that is a **ruling, not a default** — one line from Matt closes it | Matt (ruling) |
+| **G1-B — Scope declaration** | Which states are declared out. **⟶ MECHANISM UPGRADED 2026-07-25 — Matt's attestation principle** (*"remove any GD metrics which we don't have a build for in our corpus and which GD monsters don't need"*) replaces hand-triage with a **two-sided attestation census**: metric M is IN-SCOPE iff **(P)** a GD-lane corpus kit's resolution exercises it OR **(M)** a combat-relevant monster carries it; neither ⇒ OUT-BY-ATTESTATION with a re-entry condition (annex precedent — tagged, never deleted). Census dispatched to elrond (`dispatches/2026-07-25-elrond-gd-attestation-scope-census.md`); **Matt ratifies the census OUTPUT roster, not a hand-drafted list.** Composes with the build ruling: *build everything attested; remove everything unattested* | elrond (census) → Matt (ratifies roster) |
 | **G1-C — Per-family behavior specs + implementations + tests** | For each `ABSENT`/`PARTIAL` family (telegraph, combat spacing, fear granularity, pack hierarchy, idle tri-state, ranged modelling, monster support skills, pathing-recovery): a spec of the state's *transition semantics* (entry trigger, exit trigger, parameter bindings — e.g. `AlertBeforePursue` bound to `SightAngerRate`/`InnerSightAngerRate`), then sim code + a behavioral test per state | gandalf (spec) → gamora (build) |
 
 > **⟶ RULED — Matt 2026-07-25 (verbatim):** *"We ARE building our all mechanics needed into
@@ -191,7 +191,7 @@ reported, resolution formulas validated-or-flagged; conductor per pattern § 3 f
 | 4 | **Unit calibration** (G2-C) | Matt hands (one trial) | Matt + gamora | folded into T9 item 2 |
 | 5 | **L0 fixture schema** — incl. N-trial spread capture | agent | elrond + gandalf | needs drafting |
 | 6 | **G2-A key-domain grill** — gear? devotion? skill width? | elicitation | ELICITOR ↔ Matt | not scheduled |
-| 7 | **G1-B combat-scope ruling** — the 7 non-combat states declared out | ruling (one line) | Matt | can ride the grill |
+| 7 | **G1-B combat-scope ruling** — now **census-derived** (Matt attestation principle 2026-07-25): elrond census in flight (`dispatches/2026-07-25-elrond-gd-attestation-scope-census.md`) produces the IN/OUT roster; Matt ratifies the roster, and the ratification can ride the grill. Census also yields per-family attestation density → build-queue prioritization input for the § 2.1 build program | census (agent) → ruling | elrond → Matt | census FIRED |
 | 8 | **Q47 bar** — DEFERRED-EMPIRICAL; rules itself against L0 deltas | ruling, post-evidence | Matt | re-surfaces at first fixture bank |
 
 **Sequence:** T9 probe → L0 trials + calibration (one PC sitting) → fixtures banked (schema
