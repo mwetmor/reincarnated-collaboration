@@ -3,6 +3,24 @@
 **Author:** gandalf (ELICITOR), 2026-07-25. Six forks, decision-shaped. You rule; my leans
 are stated and non-binding. Everything here is queued-ready — no fork blocks another.
 
+> **RULING LEDGER (live, in-session 2026-07-25):**
+> - **G-1 RULED:** ratify as-is **with both reversals** (`Emote` IN, `WaitToAttack` IN). Matt: "G1 - agree with (a)."
+> - **G-2 RULED: (a)** GD-lane kits only — **GD-program-scoped, not corpus-wide** (D2's claim
+>   intact for its own future census; re-entry tags preserve reversibility). Ruled after the
+>   four-lane robustness read + the era-substrate reframe (both Q1/Q2 YES → canonized at
+>   `canonical/reap-die-rise-engine/era-substrate-architecture-2026-07-25.md`, which retires the
+>   4-way exact join and makes G-2(a) the on-ramp rather than a limit).
+> - **G-3 RULED: (2) Control-role dedicated payload.** Matt verbatim: *"We struggled with
+>   CC-focused kits the entire time while building our pipeline and sim. This is simply Grim
+>   Dawn illustrating our deficiency."* — i.e. this closes a KNOWN pipeline deficiency, not
+>   merely a GD-fidelity gap. The 2026-06-20 `is_control != hard` ruling stands untouched
+>   (budgeted hard CC on control-role skill slots, never every chain_A primary). Riders
+>   attached: (i) freeze/stun exclusion-widening retro-ratification — **pending Matt's word,
+>   presented with G-4**; (ii) **G-4 is a HARD PREREQUISITE** to the G-3 calibration run
+>   (~12× budget-skew hazard on corpse-landed counters). Build: rocket 10–17 h ~$0 LLM +
+>   gandalf+gamora DR-guardrail math note; control-density BC axis re-opens.
+> - **G-4 / G-5:** pending below. **G-6:** needs no ruling (standing).
+
 ---
 
 ## G-1. Census roster ratification (G1-B scope) — smallest fork, biggest unlock
