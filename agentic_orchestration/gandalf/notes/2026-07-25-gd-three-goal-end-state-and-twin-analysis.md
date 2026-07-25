@@ -52,6 +52,17 @@ set + the decision procedure that closes it.
 | **G1-B — Scope declaration** | Which states are declared out. Matt said *combat* mechanisms — the ~7 quest/cosmetic states (`QuestWalk`…`Emote`, `Sleeping`, `Patrol`) are presumptively OUT, but that is a **ruling, not a default** — one line from Matt closes it | Matt (ruling) |
 | **G1-C — Per-family behavior specs + implementations + tests** | For each `ABSENT`/`PARTIAL` family (telegraph, combat spacing, fear granularity, pack hierarchy, idle tri-state, ranged modelling, monster support skills, pathing-recovery): a spec of the state's *transition semantics* (entry trigger, exit trigger, parameter bindings — e.g. `AlertBeforePursue` bound to `SightAngerRate`/`InnerSightAngerRate`), then sim code + a behavioral test per state | gandalf (spec) → gamora (build) |
 
+> **⟶ RULED — Matt 2026-07-25 (verbatim):** *"We ARE building our all mechanics needed into
+> our engine. If we don't yet have CC in the sim, then we build it in — we don't work around
+> it."* **Goal 1 is a BUILD program.** The G1-A register's BLOCKED families are a build queue,
+> not a gap ledger; the constraint ladder is *measurement* sequencing only, and every
+> measurement constraint (e.g. L0's no-CC test character, added after the F8 finding) carries
+> a named expiry — it retires when the gating build clears Gate 2. First build fired same
+> session: F8 CC-consumer wiring (`dispatches/2026-07-25-gamora-f8-cc-consumer-wiring.md`).
+> Remaining build-queue sequencing (F1/F2/F4–F7/F9/L1/L2 + the F6 shared displacement
+> prerequisite) folds into `current-to-end-state-engine.md` and rides KR sequencing; "needed"
+> in Matt's ruling still gets its boundary from the G1-B scope ruling (quest/cosmetic states).
+
 **Decision procedure:** goal 1 is DONE when every in-scope state's row in G1-A reads
 `MODELLED` and its behavioral test passes — *the sim's controller, given the GD parameters,
 enters and exits the state under the trigger conditions the binary defines.* Fully decidable,
