@@ -4,6 +4,8 @@
 **Status:** READY TO RUN
 **Time:** ~5 minutes, plus however long it takes to find a mob pack
 **Why only Matt:** requires a running Grim Dawn on his PC. No agent can press a key in his game.
+**PC-side copy:** `reincarnated` share → `agent-prompts/2026-07-24-gd-console-overlay-probe-directions.md`
+(self-contained; no repo access needed). **Screenshot drop:** share → `visual-artifacts/2026-07-24-gd-console-probe/`
 
 ---
 
@@ -49,7 +51,8 @@ crossing threshold — so we'd get two of the five gaps from one overlay.
    mobs. This one is documented as *"displays a variety of data above player, NPCs, and monsters."*
    If it shows world coordinates, it's worth as much as the anger overlay.
 
-8. **Drop the images anywhere** and tell me the path.
+8. **Drop the images** into the share at `visual-artifacts/2026-07-24-gd-console-probe/` (folder
+   already created — no need to report a path; I read it from the Mac side).
 
 ## What I'm actually reading out of those images
 
