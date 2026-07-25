@@ -190,12 +190,53 @@ topper mesh within the chosen pack · texture/atlas selection · measurement met
   pieces route to the seam's named agent, never an unnamed spawn). §4c execution order added at
   dispatch. Run live.
 
+- **2026-07-24 — COMPLETE.** 3 rooms shipped, 3 ceilings mapped, contact sheet produced. Report:
+  `agentic_orchestration/drax/notes/2026-07-24-kit-replica-lap1-run-report.md`. Captures:
+  `reincarnated-godot/harness_logs/kit_replica_2026-07-24/`. **Exit predicate MET** — the frames exist.
+
+### Conductor's closeout — two charter defects, owned
+
+Both were found by drax in execution and **reported rather than worked around**, which is the behaviour
+the pattern is supposed to produce. Both are mine.
+
+**I7 ("bit-identical camera") is unsatisfiable as written — and it hides a live question.** The v8
+reference frame the invariant points at was shot when `FLOOR_TILES` was 6 — a **7.5 m** room. Matt
+grew the room to 17.5 m on 2026-07-07. At 17.5 m the bit-identical `CAM_DIST 16.5` telephoto frames
+**floor only**; `CONTACT_SHEET_cam.png` is genuinely wall-free in all four cells. **I wrote a
+bit-identical-camera invariant into a wall-swap test whose bit-identical camera shows no wall.** The
+substitution (same pitch/yaw/FOV/aim, dollied to 50 m, applied identically to all four rooms) is
+correct and preserves exact cross-room comparison. The question underneath is NOT a harness question
+and is Matt's: **the play camera and the room have drifted apart**, and the reference frame we judge
+against is from a room 1/2.33 the current size.
+
+**I4 conflates two numbers.** `interior_half = 8.30` is the occupant **movement clamp**; the clip box
+is the wall inner face at `floor_edge * 0.5 = 8.75`, which is what `playshell.gd` actually passes. I
+put the clamp in the invariant table as though it were the clip. drax implemented reference behaviour
+and used 8.30 to exercise the box for the G2 frames. Correct call.
+
+**Taxonomy amendment ACCEPTED (conductor, KRL-3):** the four-surface register inherited from the
+bake-off — import / introspection / persistence / skeleton-and-material remap — **assumes a creation
+primitive exists** and asks which surface fails downstream. For M1 the answer is upstream of all four.
+**`authoring/creation` becomes the fifth surface from lap 2.**
+
 ### Ruling ledger (KRL-n) — conductor, veto open to Matt
 
 | # | Ruling | Basis |
 |---|---|---|
 | KRL-1 | Execution order R1→R2→R3, strictly sequential, single agent | §4c — prediction validity + import-cache contention. *Reasoning* boundary; conductor's to make. |
 | KRL-2 | Cost ledger splits one-time pipeline cost from per-room method cost | §4c — otherwise the content roadmap reads a contaminated number. *Reasoning* boundary. |
+| KRL-3 | `authoring/creation` accepted as a **fifth** failure surface from lap 2 | drax §8 — the inherited four-surface register presumes a creation primitive exists; M1 fails upstream of all four. *Reasoning* boundary. |
+| KRL-4 | The §4a difficulty ranking is **retired as a selection method.** Packs are ranked by **measured module compatibility**, never by catalogue asset count | Measurement inverted the prediction: dwarven-dungeon + ancient-egypt ship Synty's shared base kit **byte-identical** to the reference (`2.499991 × 3.005743 × 0.225`); dungeon-realms carries its own 5 m grid and needed every constant re-derived. **Count ≠ compatibility.** *Reasoning* boundary; my error, corrected. |
+
+### HALTs to Matt raised by the result (commitment boundaries — not mine to rule)
+
+| # | Question |
+|---|---|
+| **H1** | **Register separation did not happen, and the sheet shows it.** Two of three rooms are the reference's own geometry re-textured. All three read pale tan against the reference's dark stone. If most POLYGON packs share the base kit, **register must be earned somewhere other than architecture** — props, palette, lighting. Lap-2 subject? |
+| **H2** | **R2's floor reads as an untextured plane** (verified against the M3 control — a dressing-selection outcome, not an M2 defect). Does it pass Matt's eye, or is a flat-swatch floor a FAIL? |
+| **H3** | **Camera-vs-room drift** (I7 above). The reference frame we judge by is a 7.5 m room; the room is 17.5 m; the play camera frames floor-only at room centre. Is that the intended ARPG framing, or has the grammar drifted? |
+| **H4** | **Aura vs skill-VFX conflation** (KT-3 ruling, not drax's to overturn). The purifier's ruled VFX is `beam_vfx_04` — a *channelled beam*. Bound to the rig unconditionally, it lies on the floor at idle as a permanent orange stripe. A channelled skill has no idle state; an **aura is identity (always on)**, a **skill VFX is performance (fires on use)**. The rig binds them as one thing. |
+| **H5** | **G4 collision NOT TESTED** — every frame is a static render built `with_collision = false`. Matt's ruling-2 required "no player or weapon should be able to poke through the walls"; the *render clip* half is verified (G2 PASS ×3), the *collider* half is not. Needs the play-shell. Owed. |
 
 ---
 
