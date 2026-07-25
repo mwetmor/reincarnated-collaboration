@@ -226,3 +226,69 @@ asked that it be watched rather than treated as routine telemetry. Carry that fo
 smoke-gate proposal.
 
 **Signed:** knight-rider, 2026-07-25. C5 routing per Gate-2 finding. Analysis first; the ruling gates the build.
+
+---
+
+## Completion record
+
+**Agent:** rocket (generation seam) · **Date:** 2026-07-25 · **Status:** COMPLETE
+**Output:** `agentic_orchestration/rocket/notes/2026-07-25-hard-cc-generation-analysis.md`
+**Constraints honored:** no production code, no config change, no ailment-registry edit, no
+re-derivation of gamora's census (reproduced as a control only), no simulation-seam work.
+**Probes (throwaway, read-only, under `rocket/notes/`):** `2026-07-25-hard-cc-probe.py` (P1-P7
+surface probes), `2026-07-25-hard-cc-probe2.py` (census-population effect histogram).
+**Tag:** none owed (no code). **Push:** not performed (ADR-006).
+
+### Answers, one line each
+
+- **Q1 (WHERE).** Two pipelines. **Pipeline A — live:** `per_skill_emitter.py:1337-1342` (primary
+  effect, role-named) and `:1351-1356` → `_make_signature_ailment_effect():800` with its hard-control
+  gate at **`:817`**. **Pipeline B — orphaned:** `ability_grammar._sample_effects():556` /
+  `_make_ailment():649` (root/knockback/shock at `:712-718`) / `_make_effect():636-638` (silence),
+  plus `role_constraints.py:120`. Pipeline B has **no production caller** — `MonsterGenerator` /
+  `TrialGenerator` are instantiated only in `scripts/` and `tests/`; `season_orchestrator.py` is gone.
+- **Q2 (WHY).** Per type: **root = (b) gated** — unconditional `return None` at `:817`, keyed on the
+  registry `is_control` field; not a weight, so **not (c)**. **freeze / stun = (a) then (b)** —
+  `SECONDARY_AILMENT_MAP` (`element_biases.py:120`) has **zero production readers**, and even with a
+  reader `:817` refuses them. **silence = (a)** — out of registry, no site exists in the live emitter
+  to gate. **(d) ruled out** for all: `_build_real_player_class` consumes `kit.skills` unfiltered.
+- **Q3 (COST).** **Not a config change** — stated plainly as the dispatch asked. Smallest honest
+  build is Option A (control-role payload), **10-17 h / 2-3 sessions**, ~$0 LLM, plus a DR-guardrail
+  math note that is gandalf+gamora's, not mine. `MIGRATION.md` **IS owed** (no key moves, but the
+  `effects[].name` value domain widens — three downstream readers).
+
+### Flagged for gandalf's elicitation (dispatch § 6 / acceptance item 4)
+
+1. **Matt already ruled adjacent to this, on 2026-06-20** — the `is_control != hard` cut
+   (`gandalf/notes/2026-06-20-is-control-cut-classification-and-signature-assignment.md`). The live
+   exclusion is a faithful implementation of it. **Its scope was hard CC riding every chain_A primary
+   attack, not hard CC in a dedicated control slot**; gandalf's own §5 says the guardrail is
+   "retired for this cut, not deleted from the design space." The elicitation should rule on the
+   question the cut never reached, not re-litigate the cut.
+2. **The exclusion set silently widened after that ruling.** `freeze` and `stun` joined
+   `_HARD_CONTROL_AILMENTS` at registry-edit time (2026-07-16) with no design ruling — inverting the
+   ailment-layer spec's own §3.4 intent for ice→freeze. Unnamed Discipline-#12 shift; the stale
+   comment at `per_skill_emitter.py:797` is its visible trace.
+3. **The larger gap is not hard CC — it is that the control role has no mechanism at all.** 133
+   effects literally named `"control"` in the 66-config census population; `damage_resolver`'s effect
+   loop has no branch for that string and no `else`. Control-role skills are inert on both axes. This
+   sharpens the `simulation/MIGRATION.md` control-density caveat: for control-role skills there was
+   not even an emitted property, only a placeholder string.
+4. **Silence is design-blocked, not engineering-blocked** — working producer and consumer predate the
+   registry ailments; no spec anywhere says what it is for.
+5. **Corpse ordering matters more for hard CC than for chill** — a lockout budget fitted to `landed:`
+   counters at the measured 91.8% corpse ratio would be ~12× the realized one. Resolve before the
+   calibration run, not after.
+
+### Non-blocking items surfaced, routed not actioned
+
+- **star-lord:** `export/season_exporter.py:255-266` — the player-facing ailment table is stale
+  beyond the one sentence in the dispatch ledger. Documents 6 of 16 ailments, marks `root` "(demo2)",
+  and labels `silence` **"Fire-element signature"** (silence has no element and is not in the
+  registry). Whole-table pass, not a one-line fix.
+- **rocket (own seam, future):** `mechanic_alteration.py:1235` `zone_control_effect:
+  "element_signature"` — declared, zero consumers anywhere. A second inert control declaration.
+- **rocket (own seam, future):** `d10_kit_constraints._element_specific_effects:364` omits
+  freeze/stun/silence/knockback — a curation-path drop risk the moment hard CC is emitted.
+
+**Routes to:** knight-rider, for the gandalf elicitation packet.
