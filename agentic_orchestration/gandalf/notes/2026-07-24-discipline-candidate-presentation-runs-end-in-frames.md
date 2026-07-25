@@ -104,6 +104,45 @@ gap and adds nothing else.
 - It does not require *beautiful* frames. It requires *judgeable* ones. A frame showing a failure is
   a passing deliverable.
 
+## ⚠ NECESSARY, NOT SUFFICIENT — added 2026-07-25, and jack-ryan MUST fold this in before ratifying
+
+**Ratify the rule with this clause attached, or canon over-claims.** The evidence above says pixels are
+the only detector that has ever caught a silent failure in this stack. **TCP-L4b found the counter-case,
+and proved it rather than asserting it.**
+
+Pro's cycle 1 shipped **four exactly-co-located duplicate meshes** — same mesh, same world extents to five
+decimals, one dressed and one with a null material — under each FBX prop root. Census on reload:
+**318 nodes out against 314 expected, 4 untextured `MeshInstance3D`.** All 37 wire calls returned `ok`.
+
+**A rendered frame is structurally incapable of catching it.** The duplicate is occluded by its own
+original at every camera. drax computed the cycle-1 → cycle-2 pixel change mask — cycle 2's only
+structural act was deleting the four duplicates — and **both pillar shafts and both braziers appear as
+unchanged black silhouettes.** Every changed pixel lay on the platform, the treads, or their shadows: the
+triplanar-UV ruling, not the deletion. The `__box` numbers agree independently — the *outside* figure did
+not move at all (59 → 59). **Removing four duplicated meshes was worth exactly zero pixels.**
+
+The instrument that caught it was a **reload-from-disk structural census**, and it must reload rather than
+parse the `.tscn` text, per the rig's own header: *"whether Godot double-creates it is an engine
+behaviour, not a text property."*
+
+> **The corrected rule: a presentation run terminates in frames AND, where the run writes a scene to
+> disk, a reload-from-disk structural census. Two instruments, two failure modes, and they do not share
+> one.** Frames catch what changes the picture. A census catches what changes the file. A silently
+> duplicated co-located node **doubles the draw calls, the file size, and the cost of every later
+> reparent, while changing nothing a human or a differ can see.**
+
+**The comparative result this produced is the strongest argument the whole program has made** — and
+neither cell could have produced it alone, which is the direct vindication of Matt's TCP-22 overrule:
+
+| instrument | ownership choice | consequence at save | caught by |
+|---|---|---|---|
+| **W-PRO** (`add_scene_instance`) | own-all | duplicates on reload, materials correct | **census only** |
+| **W-MUR** (`node-create`) | own-root-only | correct node count, **materials silently dropped** | **frame only** — white blobs |
+
+**Opposite poles of the same trilemma (TCP-24), each needing a different workaround, each invisible to
+the other's detector.** A discipline that mandated only frames would have shipped Pro's defect. A
+discipline that mandated only censuses would have shipped Murzak's.
+
 ## Already in force downstream
 
 KIT-REPLICA LAP-1 (`2026-07-24-kit-replica-lap1-run-charter.md` §6) was written under this rule
