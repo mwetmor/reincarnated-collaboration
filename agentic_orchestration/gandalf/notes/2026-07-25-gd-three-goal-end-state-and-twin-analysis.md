@@ -106,10 +106,21 @@ carries their *parameters*. Goal 1 as currently instrumented (AI states) covers 
 goal 3's differential will diverge on resolution formulas and the divergence would be
 **unattributable** — the same confound the constraint ladder was built to kill, one layer down.
 
-**The mitigation is cheap and digital:** GD's resolution formulas are extensively
-community-documented (a decade of wiki/grimtools/forum derivation). A legolas Mode-A lane can
-enumerate the resolution vocabulary into a **G1-A′ resolution coverage matrix** (the twin of
-the state matrix), with each formula *validated against L0 fixtures* rather than trusted.
+**⟶ CORRECTED SAME SESSION (Matt: "don't we have other GD data sources with this data?" — yes,
+we do, and it was part of why GD made the corpus-of-record).** The datamine coverage matrix
+(`agentic_orchestration/research/datamine-coverage-matrix-2026-07-21.md` § 3, Matt-ruled
+corpus-of-record D2/GD/PoE1/PoE2/LE) grades GD **Category E (formula compendia / calculators):
+A** — grimtools calc named as the reference oracle, grimdawn.com's official combat guide as
+formula source. And the **KF-2 lane already anchored the core resolution formulas VERBATIM**
+in corpus.db (gamora, 2026-07-23): **R-H5** PTH chance-to-hit + crit-tier thresholds off OA/DA
+(floor 55, crit offset 90) · **R-C2** crit-EV multiplier tiers · **R-G3** armor absorption
+(70%) · **R-A2** attribute coefficients (HP/OA/DA/energy per point, level coeffs) · tick basis
+— all pinned to grimdawn.com (PIN #8, "character formulas curated"). **So gap 3 is NOT a fresh
+research commission — it is an INVENTORY GAP-CHECK:** enumerate the full resolution checklist
+(resist + RR ordering, damage-conversion order, ADCtH, retaliation, DoT stacking, racial
+bonuses, per-piece armor location) against what KF-2/curated already holds; commission legolas
+only for the named residuals, each against the already-vetted sources. Each formula is
+*validated against L0 fixtures* rather than trusted, exactly as before.
 L0 was already the right first rung for the key; it is ALSO the right first rung for formula
 validation — one melee monster, fight to death, is nearly pure resolution with minimal
 behavior. **L0 does double duty and nothing about the ladder changes.**
@@ -165,7 +176,7 @@ reported, resolution formulas validated-or-flagged; conductor per pattern § 3 f
 |---|---|---|---|---|
 | 1 | **T9 items 1–3** — `game.Spawn` / `WarpCursor` / `PlayStats`: determines the entire rig shape (spawn-identity vs world-monster fallback; readout instrument) | Matt hands | Matt | SIMPLE sheet on the pi share now |
 | 2 | **gamora 40-state audit** — converts G1-A from provisional to ground truth | agent | gamora | owed, dispatchable now |
-| 3 | **★ Resolution-vocabulary enumeration** (§ 3 — NEW) | agent | legolas Mode A | needs commission |
+| 3 | **★ Resolution-vocabulary GAP-CHECK** (§ 3 — re-scoped 2026-07-25 after Matt holdings-check: core formulas ALREADY curated by KF-2; inventory the checklist against corpus.db, legolas only for named residuals) | agent | gamora/elrond (inventory) → legolas (residuals only) | needs inventory query |
 | 4 | **Unit calibration** (G2-C) | Matt hands (one trial) | Matt + gamora | folded into T9 item 2 |
 | 5 | **L0 fixture schema** — incl. N-trial spread capture | agent | elrond + gandalf | needs drafting |
 | 6 | **G2-A key-domain grill** — gear? devotion? skill width? | elicitation | ELICITOR ↔ Matt | not scheduled |
