@@ -112,8 +112,35 @@ Edition-II carries the file. Edition-I's record is annotated below rather than r
 
 ## 6. Consequences for banked work
 
-- **The FoI 22-row byte-match certificate SURVIVES unchanged.** Flames of Ignaffar lives in
-  gdx2; `GDX2.arz` is byte-identical across editions.
+- **The FoI 22-row byte-match certificate SURVIVES unchanged.** ~~Flames of Ignaffar lives in
+  gdx2; `GDX2.arz` is byte-identical across editions.~~ ⚠ **CORRECTED same-day (elrond,
+  verified against the frozen archives with the GD adapter's own reader): Flames of Ignaffar
+  lives in `gdx1` / `GDX1.arz`, not gdx2.** `records/skills/playerclass07/purifyingflame1.dbr`
+  is present in `GDX1.arz` and absent from both `GDX2.arz` and base `database.arz`; gdx2
+  carries only FoI *item-skill modifiers*. The conclusion is unaffected — both archives are
+  byte-identical across editions — but the pin now names the archive that actually produced
+  the row (depot 642280, gdx1 / Ashes of Malmouth).
+
+  **How I got it wrong, recorded because the shape matters more than the fact.** I reasoned:
+  *FoI is an Inquisitor skill → Inquisitor shipped with Forgotten Gods → therefore gdx2.* The
+  second step is simply false — **Ashes of Malmouth (gdx1) added Inquisitor and Necromancer;
+  Forgotten Gods (gdx2) added Oathkeeper.** But the deeper error is that I never established
+  a join at all: I inferred an archive from a *thematic association* and banked it in a record
+  whose whole purpose is provenance. That is **discipline D-b — resemblance mistaken for a join
+  key** — committed by me, in a provenance artifact, hours after I drafted D-b and while the
+  ratification request was still open on jack-ryan's desk.
+
+  Three independent lines now agree and are recorded so nobody re-derives this from memory:
+  (1) elrond's empirical archive read; (2) the localization tag on the record itself is
+  `tagGDX1Class07SkillName04A` — the archive is **named in the tag**, and it was sitting in our
+  own notes the whole time; (3) mastery arithmetic from the gdx3 lap — base 6 + gdx1's two +
+  gdx2's one = the 9 `playerclass01–09` namespaces observed pre-Asterkarn, which places
+  `playerclass07` in gdx1 exactly.
+
+  This is the **fourth** instance of the inference-shape tabulated in the canon-change proposal
+  § 4, and the second one banked rather than routed. The proposal's finding — *the differentiator
+  is not intelligence or model tier, it is whether the inference was banked or routed* — now has
+  its author as a data point.
 - **The controller spatial fields survive** (`ViewDistance`, `SightAngerRate`,
   `MaxPursuitDistance`, `fleeDistance`) — same archives, same bytes. TSF6/VDM work is not
   version-skewed.
