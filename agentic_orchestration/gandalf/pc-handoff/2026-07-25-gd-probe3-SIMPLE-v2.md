@@ -5,17 +5,30 @@ this round: 2 spawn retries, 1 damage-log check, and the first 3 real trials.*
 
 ---
 
-## TEST 1 — Spawn retry (2 commands, 30 seconds)
+## TEST 1 — Spawn retry (research came back — round 1 had TWO problems: no quotes AND a wrong path)
 
-Type each; note EXACTLY what the console says:
+The real record lives at `records/creatures/enemies/` (there is no `creatures/monsters/`
+anywhere in the database — 34,114 records checked). Documented working form is a QUOTED
+path with forward slashes.
 
-1. `game.Spawn "records/creatures/monsters/zombie/zombie01.dbr"`   ← WITH double quotes
-2. If error: `game.Spawn records/creatures/monsters/zombie/zombie01.dbr 1`   ← trailing count
+1. **PASTE this line** (don't type it — the quote key registers poorly in the console,
+   per the modder who documented the command):
+
+   `game.Spawn "records/creatures/enemies/zombie_a01.dbr"`
+
+2. If nothing happens: type `game.Spawn records/creatures/` and press **TAB, not Enter** —
+   the console autocompletes file paths. Screenshot whatever it shows.
 
 - [ ] Result 1: ______________________
-- [ ] Result 2: ______________________
+- [ ] Tab autocomplete screenshot: yes / no
 
-*(If both fail, stop — research on the exact syntax is running; don't burn time on variants.)*
+*(Backups if a01 spawns nothing: `zombie_b01.dbr`, `zombie_c01.dbr`, and
+`testdummy_killable.dbr` — same folder.)*
+
+**Bonus fix from the same research:** `game.PlayStats` takes NO argument — the bare command
+is the working form (that's why `game.PlayStats true` errored but the panel still showed).
+For the toggles, if `character.ShowAngerLevels true` errors again, try
+`character.ShowAngerLevels 1` and note which form takes.
 
 ## TEST 2 — Does the console print DAMAGE lines during a fight?
 
