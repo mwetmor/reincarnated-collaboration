@@ -30,6 +30,61 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-24 (same session, latest) — **TOOL-CAPABILITY PROGRAM CHARTERED** (Matt reframe + T4-both ruling) · Murzak manifest audit **reopens the closed column** · GridMap/CSG/Particles found · the wire can author our own winning method
+
+**Matt reframed the workstream and it is no longer about replicas.** Verbatim: *"after the
+re-assembly with new assets against control, we do need to try them against new designs as well. We
+already know that we can rebuild pre-built scene and kit configurations out of similar assets with
+python/etc but there are MANY BIG unknowns that we need to test such as, which tool/process
+combination is best at building **new** scenes, **expanding** scenes or building out other new
+concepts like new **VFX** or **HUD/UX/UI**… Based on that, we owe Murzak some more testing too."*
+And the ruling that closed the last fork: *"I would like to see **T4 with both (i) and (ii) as
+separate tests of capability**."*
+
+**GOVERNING DOC:** `agentic_orchestration/gandalf/notes/2026-07-24-tool-capability-program-charter.md`
+— task-class **T1 REPLICA / T2 EXPANSION / T3 NEW SCENE / T4 NEW SURFACE** × judgment-mode
+**(i) held-constant spec** (execution fidelity) / **(ii) loose brief** (design arrival); nine standing
+laws; per-lap fit test; veto-open ruling ledger TCP-1..TCP-8. KIT-REPLICA becomes lap **L1** of it.
+
+**THE MURZAK AUDIT REOPENS A CLOSED COLUMN** (`…/2026-07-24-murzak-manifest-audit.md`).
+`IvanMurzak/Godot-MCP` (187★, Apache-2.0, core pushed 2026-07-21) ships **39 tools across 11
+families** plus a **ten-package extension family pushed 2026-07-20** — including **`Godot-AI-GridMap`**
+(the 3D modular primitive I had called a structural gap across the field), **`Godot-AI-CSG`**
+(boolean blockout from nothing — T3 with no asset pack at all) and **`Godot-AI-Particles`** (the
+T4-VFX axis). Plus `reflection-method-call` (any C# method, any loaded assembly) and
+`Godot-AI-Tools-Template` — **the tool surface is extensible by us; the AABB gap is one C# method.**
+
+**The finding that breaks the framing:** Murzak's `script` family CRUDs `.gd`/`.cs`, validates, and
+attaches. **The wire can author our own winning method (M3).** So "MCP vs headless script" is not a
+rivalry here — the ruled `pipeline-game.md` doctrine (*"MCP authors recipes / headless scripts run
+production"*) is **one tool doing both halves**. Scored as a first-class path **W→H** (TCP-5).
+
+**The bake-off closure was wrong on the merits, and it is the third instance of one defect.** The
+Murzak column was closed because *"strengths (C# reflection, editor-time authoring) map to **no
+proven need**."* Four days later both named strengths are exactly the two named unknowns. Same
+*proven*-needs rubric error as the bake-off's 4:2 observation-over-authoring probe weighting and the
+replica lap chartered to favour the already-winning method. **New standing law L-C: capability
+verdicts expire — re-read the manifest every lap, record the version, never carry a verdict forward.**
+
+**LAP SEQUENCE.** **L2 PRO CALIBRATION — launchable now, no gate** (reframed from competition to
+calibration: if Pro cannot reproduce a known room it cannot author a new one; predictions P-A..P-D
+pre-registered, P-B decisive). **L3 Murzak standup — Matt-gated** (Q45 cloud-vs-self-hosted + T4
+`godot-cli login`). **L4 T2 EXPANSION — the first lap the wire can genuinely win** (no measurement,
+few calls; named GridMap prediction: integer-grid + orientation-enum authoring makes L1's silent
+transpose trap **unrepresentable by construction**). **L5 T4-UI, both modes, before VFX** (no new
+harness; latency reverses at N≈12 controls × ~40 iterations). **L6 T3 — gated on H1 register.**
+**L7 T4-VFX — gated on a motion harness we must build ourselves** (stills cannot judge VFX; TCP-8).
+
+**MATT QUEUE:** `matt_decision_needed` **Q45** (Murzak cloud vs self-hosted — outbound project data to
+a third party; gandalf lean SELF-HOSTED) and **Q44** (L1's five owed rulings H1–H5; **H1 register
+blocks T3 entirely**). `matt_to_do` **T4** (the standup, credential-gated, conditional on Q45).
+
+**Also flagged, deliberately not chased:** `IvanMurzak/ai-game-dev-plugin` — a **Claude Code plugin**
+integration surface, a fourth method-class we have not modelled; and `IvanMurzak/Context-Engine`
+(*"AI-first, file-authoritative, headless-complete game engine"*, pushed 2026-07-25) — uncanny
+convergence with our own ruled doctrine, but an **engine, not a tool.** Chasing it would be exactly
+the drift this program exists to discipline.
+
 ### 2026-07-24 (same session, later) — KIT-REPLICA program OPENED (lap 1 ratified + dispatched): the bake-off's correction · **modular-combinatorial assembly** named as the real subject · discipline candidate raised
 
 **Matt re-stated the goal more precisely than it had ever been written down:** *"our goal is to assemble 3D synty assets within godot in a modular combinatorial fashion (kits, monsters, dungeons, biomes, UI, UX, etc)."* Judged against **that**, the just-closed MCP bake-off tested the wrong axis — 18 cells weighted 4:2 toward *observation* over *authoring*, because its own rubric law asked which instrument serves our **proven** (i.e. verification-era) needs. **The instrument pick survives** (nothing here reopens it; the incumbent remains the sole standing wire, and the repo's `build_*.gd` → `bake_*.sh` → `check_*.gd` pattern already casts the wire as the *observation* half of a generate-then-inspect loop) — but it was chosen on evidence about watching, for a program whose subject is building. The bake-off's own P6 latency finding is the proof the wire must never carry assembly: **114–180 ms/call ≈ 2.5 min of pure wire time per 1,000 nodes**, and a dungeon floor is 10³ ops, the catalogue sweep 10⁴. That verdict sat in the matrix filed under "wire stability," unread.
