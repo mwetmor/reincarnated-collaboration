@@ -82,9 +82,36 @@ a **design instrument**. That is the actual verdict shape the program is trying 
   here regardless of ratification.)* Corollary with teeth: Murzak's `screenshot-isolated` is a model
   viewer — **the viewing condition Diablo III's team moved monster review OFF of.** `screenshot-camera`
   is the legal one.
-- **L-B — Manifest before behaviour.** Capability is read from the manifest or the source; reliability
-  is read from behaviour; **neither is inferred from the other.** Proven twice in one session, both
-  times against my own committed claims. *(Second discipline candidate — file to jack-ryan.)*
+- **L-B — Manifest before behaviour — and THE MANIFEST IS THE WIRE, NOT THE DOCS.** Capability is read
+  from the manifest; reliability is read from behaviour; **neither is inferred from the other.**
+  **Amended 2026-07-24 by L2, which caught me one level up:** I read
+  `godot-mcp-pro-v1/docs/tools-reference.md` — 77 documented tools — and called it the manifest.
+  **The server exposes 175**, confirmed in `package.json` and over the wire, including **`add_gridmap`**
+  (I wrote "no gridmap" as a field-wide structural gap), `batch_add_nodes`, a second escape hatch
+  `execute_game_script`, the `create_particles` family, and `record_frames` / `start_recording` /
+  `replay_recording` / `compare_screenshots` — a **motion-capture surface** that bears directly on
+  TCP-8. Three documented schemas disagree with the wire. **A vendor's doc is a claim about the
+  manifest, not the manifest. Enumerate the live tool list at every lap.**
+- **L-K — In this stack, failure returns SUCCESS.** *(Born 2026-07-24 from five instances across two
+  laps and three instruments — the single most important finding of this workstream.)* Every failure we
+  have found so far reported `ok`:
+  1. **M2's transpose** — loaded with zero errors, zero warnings, passed full structural inspection;
+     every rotation mirrored.
+  2. **`aura_tint`** — host wrote a `tint` uniform the ruled shader variants do not expose. Silent
+     no-op for **every pilot**, indefinitely.
+  3. **The void-cap rainbow** — sampled a tiling texture the pack does not ship; returned a palette
+     swatch strip instead of stone.
+  4. **`custom_aabb`** *(L2, and the most dangerous of the five)* — returns a field **shaped exactly
+     like the answer**, identically zero, unrelated to the mesh, with `ok=true`. An agent that trusts
+     it derives a **zero-sized wall** and every downstream call still succeeds.
+  5. **Pro's own round-trip** *(L2)* — 252 `update_property` calls on paths **Pro itself reported**,
+     returned **255/255 ok**, and wrote nothing.
+
+  **The law:** any write across a seam boundary — file format, shader uniform, texture slot, wire call
+  — is unverified until a **rendered frame** confirms it. Not a return code. Not a structural
+  inspection. Not a property read-back from the same surface that lied. **A rendered frame diffed
+  against a control is the only instrument that has ever caught one of these.** *(This is the real
+  evidentiary basis for discipline candidate #63 — stronger than the one it was filed with.)*
 - **L-C — Capability verdicts expire.** Murzak's ten-package extension family shipped 2026-07-20; our
   bake-off ruled on it 2026-07-23 without seeing it. **Re-read the manifest at every lap, record the
   version/SHA read, never carry a prior lap's verdict forward as fact.**
@@ -152,14 +179,43 @@ itself inside one tool, and it is the single most likely winner of the whole pro
 | Lap | Class × mode | Instrument(s) | Gate | Ready? |
 |---|---|---|---|---|
 | ~~L1~~ | T1 × (i) | W-INC / T / H | — | **CLOSED** — H won; W-INC has no create primitive; T failed silently |
-| **L2** | **T1 × (i) — CALIBRATION** | **W-PRO** | none | **LAUNCHABLE NOW** |
+| ~~**L2**~~ | T1 × (i) — CALIBRATION | W-PRO | none | **CLOSED 2026-07-24 — Pro is an EXECUTOR.** See below |
 | **L3** | standup | **W-MUR** | **Matt** (cloud-vs-self-host **+** `godot-cli login`) | blocked |
 | **L4** | **T2 × (i)** | W-PRO · W-MUR · H control | L3 for the three-way | partially ready |
 | **L5a/b** | **T4-UI × (i)** then **× (ii)** | W-PRO · W-MUR · H control | L3 | **no new harness needed** |
 | **L6a/b** | **T3 × (i)** then **× (ii)** | field | **H1 register ruling** | blocked |
 | **L7a/b** | **T4-VFX × (i)** then **× (ii)** | field + `Godot-AI-Particles` | **motion harness** | blocked |
 
-### L2 — PRO CALIBRATION (immediately launchable)
+### L2 — RESULT (CLOSED 2026-07-24; drax report `…/2026-07-24-tcp-l2-pro-calibration-run-report.md`)
+
+**VERDICT: Godot MCP Pro 1.15.1 is an EXECUTOR, not an author.** It builds a correct node graph from
+constants somebody else derived and cannot derive them. Its only route to a measurement is
+`execute_editor_script` — GDScript over a wire — which is **M3 with added latency. Transport, not
+rival.** Every later Pro result reads "given the right numbers, can it build."
+
+- **P-A CONFIRMED** — 1307/1307 calls, zero failures, 776-node `.tscn`.
+- **P-B CONFIRMED, decisively and dangerously** — see L-K instance #4. Zero `aabb|bounds|extents`
+  matches across all **175** live tools.
+- **P-C CONFIRMED** — hatch needed, worked first try, six decimals identical to `kit_measure.gd`.
+- **P-D FALSIFIED** — 8.33 ms/call, not 114–180. See **TCP-15**.
+- **Frames:** `reincarnated-godot/harness_logs/tcp_l2_2026-07-24/CONTACT_SHEET_tcp_l2.png` — PRO | M3 |
+  `|diff| ×4`. **Geometry registered** (silhouette bbox agrees to ≤3 px of 1673; wall faces cancel to
+  black). **Material failed** (whole-frame PRO 107.07 vs M3 37.24) — and the frame is the only thing
+  that said so.
+
+**Two ceilings past the predicate.** (1) *The white floor is P-B one level down* — the FBX carry 2
+surfaces, `set_material_3d` is single-surface, and no tool reports a surface count. **Handing an
+executor the dimensions is not enough**; the author/executor test should generalize to *dimensions +
+surface count + node structure*. (2) **A Pro-authored scene does not round-trip through Pro** —
+`add_scene_instance` calls `set_owner_recursive`, so internal nodes save owned *and* re-instance on
+reload, colliding and renaming. **L4 must not assume a Pro-authored scene is re-addressable by Pro.**
+
+**L-J amended by two residues the restore predicate did not cover:** Pro rewrites `project.godot`'s
+`[autoload]`, and addon removal **silently empties the global class-name cache**. Byte-perfect file
+restore is necessary and **not sufficient** — a rescan is required. (Restore itself verified 3×:
+74 files / 36 `.gd`, byte-identical, `project.godot` sha256 exact.)
+
+### L2 — PRO CALIBRATION (charter, retained)
 
 **Not a competition — calibration.** Same logic that made drax calibrate `kit_measure.gd` against the
 reference pack before trusting it: **if Pro cannot reproduce a known room, it cannot author a new
@@ -257,6 +313,12 @@ the declared interface had put his eyes only at the finish.
 | **TCP-8** | The motion harness must be **ours**, not an instrument's, or the laps score capture rigs | gandalf, veto-open |
 | **TCP-9** | **One wire installed at a time**; swap laps restore against a **file inventory**, never a version string (L-J) | gandalf, veto-open |
 | **TCP-10** | L2's control is a **fresh** M3 build of a **new** pack — a pack with derived constants on disk voids P-B | gandalf, veto-open |
+| **TCP-11** | Q45 ruled SELF-HOSTED; **mechanism = `stdio`**, not Docker (all three paths equally self-hosted; stdio is least machinery and how Claude Code natively runs MCP) | gandalf, veto-open — **Matt's word overrides** |
+| **TCP-12** | **I7 RETIRED** (H3). The bit-identical reference-camera invariant is dead — it was authored against a 7.5 m room and the room is 17.5 m, so it frames floor only, and it has been unsatisfiable **two laps running**. **`__box` is the standing judgment framing** (same pitch/yaw/FOV/aim, dollied to fit, applied identically to every cell). **Boundary:** this rules the *harness reference* camera only. The **product** camera (Camera B′ / E4, Matt-ruled) is a different artifact and is untouched | gandalf, veto-open |
+| **TCP-13** | **H4 ruled.** The **rig** owns aura colour, through the shader's **declared** uniforms (`primary_color`/`secondary_color`/`tertiary_color`). Host-side writes to undeclared uniforms are forbidden — they are L-K instance #2. Any host→shader write validates against the declared uniform list or is not made | gandalf, veto-open |
+| **TCP-14** | **H5 ruled.** G4 collision is **not** owed by rooms that are only photographed. It becomes a **hard gate on the first lap that produces a room intended to be walked**, and no such room passes without it. L1's and L2's rooms are photographic; the debt is real but not theirs | gandalf, veto-open |
+| **TCP-15** | **P-D FALSIFIED — my latency constant was stale by ~14×.** Measured on Pro: **8.33 ms/call** (1307 calls, 10.886 s), not 114–180 ms. **Latency is not the wire's binding constraint**, and my bake-off claim that *"the wire will never carry assembly"* was a one-instrument constant generalized to a category — **the same error class, fourth instance.** Consequences: the T4-UI case gets *stronger*, not weaker; L4's three-way is worth running on capability rather than conceding on speed. M3 still wins outright on this task at **1.09 s** for the same room *plus* void caps and shaders | gandalf, veto-open |
+| **TCP-16** | **H2 disposition (not a Matt call).** R2's flat cream floor is **accepted as a lap artifact** — an experimental room that will never ship. Program consequence: dressing selection must verify **measured texture presence**, not merely a valid material slot (L-K instance #3, and L2 found it one level deeper: the FBX carry **2 surfaces** while `set_material_3d` is single-surface, and **no tool reports a surface count**) | gandalf, veto-open |
 
 ---
 

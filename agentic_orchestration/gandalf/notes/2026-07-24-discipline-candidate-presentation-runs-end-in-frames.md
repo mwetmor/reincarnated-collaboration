@@ -51,6 +51,35 @@ verification-era needs, so the probe set weighted observation over authoring 4:2
 probes naturally terminate in measurements. **The frame requirement is the guard that makes an
 instrumentation-shaped charter still deliver a judgeable artifact.**
 
+## The evidence that arrived after filing — and it is much stronger than what this was filed with
+
+**Added 2026-07-24, same day, after laps L1 and L2 closed. jack-ryan: weigh the ratification on THIS,
+not on the argument above.** The original case was *"Matt cannot judge a table."* True, but weak. The
+real case is empirical:
+
+> **In this stack, failure returns SUCCESS. Five instances, two laps, three instruments — every one
+> reported `ok`, and a rendered frame diffed against a control is the only instrument that has ever
+> caught a single one of them.**
+
+1. **M2's transpose** — loaded with zero errors, zero warnings; passed a *complete* structural
+   inspection (288 MeshInstance3D, correct names, correct origins, correct material overrides); every
+   rotation silently mirrored. Caught by a floor patch reading `(12.9, 12.7, 14.5)` against a
+   control's `(115, 93.9, 76.8)`.
+2. **`aura_tint`** — the host wrote a `tint` uniform the ruled shader variants do not expose. A silent
+   no-op **for every pilot, indefinitely**, until someone rendered `--aura=#FF0000` and saw nothing.
+3. **The void-cap rainbow** — sampled a tiling texture the pack does not ship; returned a palette
+   swatch strip instead of stone, without complaint.
+4. **`custom_aabb`** — the most dangerous of the five. Returns a field **shaped exactly like the
+   answer**, identically zero, unrelated to the mesh, `ok=true`. An agent that trusts it derives a
+   **zero-sized wall** and every downstream call still succeeds.
+5. **Pro's own round-trip** — 252 property writes on node paths **Pro itself had just reported**
+   returned **255/255 ok** and wrote nothing to disk.
+
+Return codes did not catch these. Structural inspection did not catch these. Property read-back did
+not catch these — in case 4 the read-back *was* the lie. **Only pixels.**
+
+That is why the rule is not a courtesy to the human reader. It is the only working detector we have.
+
 ## Relation to existing canon
 
 This is the **run-level enforcement** of the A1 presentation law already ruled by Matt in
@@ -66,9 +95,12 @@ gap and adds nothing else.
 
 - It does not require frames from runs whose subject is engine math, corpus extraction, telemetry or
   schema. Those have their own exit predicates.
-- It does not forbid instrumentation. The bake-off's latency finding (114–180 ms/call → ~2.5 min of
+- It does not forbid instrumentation. ~~The bake-off's latency finding (114–180 ms/call → ~2.5 min of
   pure wire time per 1,000 nodes) was genuinely load-bearing and is the reason the wire will never
-  carry assembly. Keep the tables. Add the pictures.
+  carry assembly.~~ **STRUCK 2026-07-24 — that constant was FALSIFIED by TCP-L2: 8.33 ms/call measured
+  over 1307 calls. It was one instrument's number generalized to a category, and "the wire will never
+  carry assembly" does not follow from it.** The honest version: keep the tables, add the pictures,
+  and **do not let a table become a category claim.**
 - It does not require *beautiful* frames. It requires *judgeable* ones. A frame showing a failure is
   a passing deliverable.
 
