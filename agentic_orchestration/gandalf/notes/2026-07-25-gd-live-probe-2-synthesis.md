@@ -1,5 +1,11 @@
 # GD Live Probe — Round 2 synthesis (T9 CLOSED · first L0 datapoints)
 
+> ## ⚠ CORRECTED SAME-DAY — read § 7 before citing any number in § 2–3
+> Elrond's full-resolution re-read (schema draft `elrond/notes/2026-07-25-l0-fixture-schema-draft.md`
+> § 7.1, spot-verified by gandalf via independent crops) found **nine wrong numbers in § 2 and one
+> structurally wrong claim in § 1.2**. The § 7 appendix below is authoritative; § 1–3 retained
+> unedited as the record of what the downscaled read produced.
+
 **Author:** gandalf, 2026-07-25. **Source:** Matt's PC sitting #2 — raw notes + 8 screenshots
 banked at `research/knowledge/gd/live-probe-2/` (notes verbatim in
 `GD-console-notes-v2-raw.md`; capture window 15:17–15:34 by file mtime).
@@ -93,3 +99,67 @@ two sightings across two sittings is the expected base rate, not evidence agains
 
 **Signed:** gandalf. The oracle spoke in state names, not damage numbers — and state names
 are our native tongue.
+
+---
+
+## 7. CORRECTION APPENDIX (gandalf, same day — DRIFT-CRITIC on own artifact)
+
+Elrond re-read all six panels at native 1920×1080 while drafting the fixture schema; I
+independently re-cropped and confirmed every spot-check. **His § 7.1 table supersedes my § 2
+table entirely.** The corrections, by severity:
+
+### 7.1 Withdrawn claim — `Fidget` is NOT a census confirmation
+
+§ 1.2's *"`Fidget` is now LIVE-ATTESTED (census row confirmation #4)"* is **withdrawn**.
+`Fidget`, `Flying`, and `Moving` appear in **none** of the 40 `ControllerMonster` rows
+(grep-verified). The `LogData` console and the anger overlay speak **two different
+vocabularies** — overlay emits controller states (the thing our sim also emits); LogData
+appears to emit from an animation/actor-state layer. Round 1's three confirmations
+(AlertBeforePursue / Startup / followtheleader) stand — they came from the overlay channel.
+The LogData trace remains valuable, but comparing it to sim controller output requires a
+`trace_token → controller_state` mapping table, each row its own inference — **new G1-C
+scope, added to the gap register (gap 9)**.
+
+### 7.2 Corrected numbers (full-res, elrond § 7.1 authoritative)
+
+- `defaultweaponattack` series: **427/429/429/431/433/435** (I misread the hundreds digit
+  as 6). The **+2-per-trial delta survives** — the two-hit-kill finding stands.
+- Play times: **137–142 min**, not 157–162. T1 and T3 each spanned **6 s** of play time.
+- **The player levelled 5→6 between T1 and T2** (and changed area). The three trials are
+  **two fixture sets (N=1 + N=2), not one N=3 spread** — pooling them would fold a level-up
+  into Q47's variance.
+- **Ledger discontinuity between T2-after and T3-before**: +1 kill, +2 attacks, +18.51
+  healed happened *off-trial*. Invisible in a delta table; visible only because readings
+  were re-read. T3 is contamination-flagged (`ledger-discontinuity`) in the fixture rows.
+- T2 `life_healed` delta is **+34.77**, not ~+24 — and it disagrees ~2× with Matt's
+  hand-noted 15–20 HP cost (window includes post-fight regen; both readings stand,
+  unreconciled, per schema O-7).
+- T2-after DPS reads **0.00** — the recent window had *expired* by capture time (55 s
+  trial span). The DPS field is conditionally valid on capture latency; a naive store
+  would have banked a false zero.
+
+### 7.3 J4 anchor RE-STATED (conditional — do not fire gamora's evaluation on § 3 as written)
+
+§ 3's *"zombie_a01 effective HP at charLevel≈6"* embeds **two unattested assumptions**:
+(a) **monster identity** — no note or nameplate ties the three trials to `zombie_a01`; the
+spawn confirmation and the trials sit under separate headings in Matt's notes; and
+(b) **monster level** — GD monster HP is a bio-formula in the **monster's own** `charLevel`
+(e.g. `((charLevel*18)^1.50)-20`), which is NOT the player's level (which was 5 for T1
+anyway). A level-4 vs level-8 zombie differs ~2.6× in HP under that formula. The honest
+anchor: *an unidentified Devil's-Crossing-area zombie died to exactly 2 basic attacks from
+a level-5-then-6 character, across two areas* — a **robustness** observation, not a
+controlled fixture. gamora's formula evaluation should bracket across plausible area-band
+monster levels, or wait for nameplate attestation (next-sitting sheet line).
+
+### 7.4 What survives intact
+
+Spawn confirmed · two-hit kills (now across two character levels — arguably stronger) ·
+kick counter static · no per-hit damage anywhere · delta-and-trace observable surface ·
+AlertBeforePursue ~3 s beat from far · killMonsters mass-`Dying` broadcast · DPS field as
+recent-window meter (with the validity caveat sharpened).
+
+**Method lesson (banked):** my § 2 was read from Read-tool-downscaled images with a
+"±1 digit" caveat — then quoted without the caveat's consequences. The schema's answer is
+structural (`read_method = 'screenshot-downscaled'` rows can't certify anything); mine is
+behavioral: **full-res crop before banking any panel digit.** Elrond's crop one-liner is
+now the standard instrument.
