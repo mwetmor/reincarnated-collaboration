@@ -180,11 +180,18 @@ itself inside one tool, and it is the single most likely winner of the whole pro
 |---|---|---|---|---|
 | ~~L1~~ | T1 × (i) | W-INC / T / H | — | **CLOSED** — H won; W-INC has no create primitive; T failed silently |
 | ~~**L2**~~ | T1 × (i) — CALIBRATION | W-PRO | none | **CLOSED 2026-07-24 — Pro is an EXECUTOR.** See below |
-| **L3** | standup | **W-MUR** | **Matt** (cloud-vs-self-host **+** `godot-cli login`) | blocked |
-| **L4** | **T2 × (i)** | W-PRO · W-MUR · H control | L3 for the three-way | partially ready |
+| **L3** | standup | **W-MUR** | ~~Matt~~ **CLEARED** — Q45 ruled self-hosted, mechanism `stdio` (TCP-11); Custom mode needs no credential | **CHARTERED + DISPATCHED 2026-07-24** — charter `…-tcp-l3-murzak-standup-charter.md`; runs in `~/Games/mcp-lab/`, not in the product repo (TCP-17/18) |
+| **L4** | **T2 × (i)** | W-PRO · W-MUR · H control | L3 for the three-way | next |
 | **L5a/b** | **T4-UI × (i)** then **× (ii)** | W-PRO · W-MUR · H control | L3 | **no new harness needed** |
-| **L6a/b** | **T3 × (i)** then **× (ii)** | field | **H1 register ruling** | blocked |
-| **L7a/b** | **T4-VFX × (i)** then **× (ii)** | field + `Godot-AI-Particles` | **motion harness** | blocked |
+| **L6a/b** | **T3 × (i)** then **× (ii)** | field | **the STORY session** (Q44 deferred there 2026-07-24) | **blocked on story, not on tooling** |
+| **L7a/b** | **T4-VFX × (i)** then **× (ii)** | field + `Godot-AI-Particles` + Pro's `create_particles` | motion harness — **and L2 found Pro ships `record_frames`/`replay_recording`/`compare_screenshots`**, so TCP-8 needs re-examining: if we borrow it we score capture rigs, but it may be worth one lap to learn what the shape should be | blocked |
+
+**Re-sequencing note (2026-07-24).** Matt deferred Q44 to the story session — *"we need to flesh the
+story out further before we decide."* Correct: act-register is a consequence of what the acts ARE,
+and settling it from tooling evidence would be the tail wagging the dog. **Only L6 waits.** An
+expansion lap inherits the register of the scene it expands; a HUD has no act-register; VFX gates on
+a harness. **L3 → L4 → L5 is a clear runway.** Meanwhile the story session now gates Q43's seven
+persistence rulings, Q44, and L6 — making it the highest-value unfired item on the board.
 
 ### L2 — RESULT (CLOSED 2026-07-24; drax report `…/2026-07-24-tcp-l2-pro-calibration-run-report.md`)
 
@@ -265,10 +272,13 @@ suite; Murzak brings node CRUD + `screenshot-viewport`.
    stills**; our stack produces only stills. L-A is unsatisfiable for L7 without it. Pro has
    `capture_frames`; Murzak has none — so the harness must be **ours**, or the instruments are being
    scored on their capture rigs rather than their authoring.
-2. **H1 register ruling** (Matt) — L6 cannot be judged without knowing what register a new room is
-   supposed to arrive at. L1's contact sheet showed all three new rooms reading pale tan against a
-   dark reference; that is the open question, and T3 inherits it.
-3. **Murzak standup** — §7.
+2. **H1 register ruling** — **deferred by Matt to the story session** 2026-07-24 (*"we need to flesh
+   the story out further before we decide"*). L6 cannot be judged without knowing what register a new
+   room is supposed to arrive at. L1's contact sheet showed all three new rooms reading pale tan
+   against a dark reference; that is the open question, and T3 inherits it. **Blocks L6 only.**
+3. ~~**Murzak standup**~~ — **now lap L3, dispatched.** Two toolchain prerequisites the audit missed
+   and recon found: **no `dotnet` SDK on this machine at all**, and **no Godot .NET editor build** —
+   only the standard 4.6.3. Both install user-local under TCP-18's blast radius.
 4. **Gutted-addon hazard** (drax, flag) — `npx …--install-addon` reads `plugin.cfg`, sees the right
    version, prints *"Addon is already up to date"* and exits **without an integrity check**. The
    installed W-INC addon was 3 `.gd` files against an expected 36. **A gutted addon never
@@ -277,11 +287,15 @@ suite; Murzak brings node CRUD + `screenshot-viewport`.
 ## §7 — Matt interface
 
 **Reserved to Matt (commitment-boundaries):**
-- **Cloud vs self-hosted for W-MUR.** Default connects to the ai-game.dev hosted cloud — our scene
-  geometry, script contents and screenshots transit a third party. Self-hosting is supported (Docker
-  image published). ADR-006 does not cover this shape. → `matt_decision_needed`.
-- **`godot-cli login`** — OAuth 2.1 device login, browser, machine-wide credential. → `matt_to_do`.
-- **H1 register**, and the H2–H5 rulings still owed from L1.
+- ~~**Cloud vs self-hosted for W-MUR**~~ — **RULED 2026-07-24 (Q45): self-hosted**, mechanism `stdio`
+  (TCP-11). Nothing of ours transits a third party.
+- ~~**`godot-cli login`**~~ — **DISSOLVED.** Custom connection mode requires no OAuth, no login and no
+  token; the queue row was struck. There was never a credential to gate on.
+- **Converting `reincarnated-godot` to .NET** — if L4 ever needs it, that is Matt's, not mine
+  (TCP-17/18). L3 is charged with finding the route that avoids asking.
+- **Any toolchain step requiring `sudo` or a machine-wide install** (TCP-18 constraint 3).
+- **H1 register** — **deferred by Matt to the story session** 2026-07-24; L6 waits on it.
+  ~~H2–H5~~ ruled by me as seam calls (TCP-12/13/14/16) — they were never his.
 - Terminal quality verdicts on every mode-(ii) lap (§4).
 
 **Conductor rules in-run (reasoning-boundaries), veto-open:** pack selection, lap ordering within the
@@ -297,7 +311,7 @@ the declared interface had put his eyes only at the finish.
 |---|---|---|---|---|---|
 | mode (i) laps | ✓ pack/scene/spec finite | ✓ control-diff | ✓ | ✓ | **autonomous run**, gandalf conducts |
 | mode (ii) laps | ✓ brief + look-budget | ✓ **trace-completeness only** (§4) | ✓ | ✓ for process; ✗ for quality → Matt | **autonomous run + reserved terminal verdict** |
-| standup (L3) | ✓ | ✓ readiness predicate | — | Matt-gated credential | **Matt action, then a drax lap** |
+| standup (L3) | ✓ tool surface is finite + enumerable over the wire | ✓ readiness predicate, **behavioural not return-code** (L-K) | ✓ — Q45 ruled, mechanism ruled (TCP-11), blast radius pinned (TCP-18) | ✓ **now resident** — no credential exists to gate on (Custom mode needs none) | **autonomous run**, gandalf conducts |
 
 ## §9 — Ruling ledger (veto-open)
 
@@ -318,6 +332,8 @@ the declared interface had put his eyes only at the finish.
 | **TCP-13** | **H4 ruled.** The **rig** owns aura colour, through the shader's **declared** uniforms (`primary_color`/`secondary_color`/`tertiary_color`). Host-side writes to undeclared uniforms are forbidden — they are L-K instance #2. Any host→shader write validates against the declared uniform list or is not made | gandalf, veto-open |
 | **TCP-14** | **H5 ruled.** G4 collision is **not** owed by rooms that are only photographed. It becomes a **hard gate on the first lap that produces a room intended to be walked**, and no such room passes without it. L1's and L2's rooms are photographic; the debt is real but not theirs | gandalf, veto-open |
 | **TCP-15** | **P-D FALSIFIED — my latency constant was stale by ~14×.** Measured on Pro: **8.33 ms/call** (1307 calls, 10.886 s), not 114–180 ms. **Latency is not the wire's binding constraint**, and my bake-off claim that *"the wire will never carry assembly"* was a one-instrument constant generalized to a category — **the same error class, fourth instance.** Consequences: the T4-UI case gets *stronger*, not weaker; L4's three-way is worth running on capability rather than conceding on speed. M3 still wins outright on this task at **1.09 s** for the same room *plus* void caps and shaders | gandalf, veto-open |
+| **TCP-17** | **L3 runs OUTSIDE `reincarnated-godot`. Mandatory, no exceptions.** Verified 2026-07-24: the project is **pure GDScript on Godot 4.6.3, non-.NET** — no `.csproj`, no `.sln`, no `[dotnet]` block, `config/features` lists only `("4.6","Forward Plus")`, and `/Applications/Godot.app` is the standard build. **Murzak is a C# addon and needs the .NET editor build + `Godot.NET.Sdk` + a `.csproj`.** Standing it up in the live project would add `C#` to `config/features` and make the project effectively **.NET-only** (the standard editor then errors on it) — a change to Matt's standing product environment, i.e. an external-state commitment-boundary, not a lap decision. Outside it, the same work is a reasoning-boundary and stays mine. ~~**SCRATCH CLONE**~~ **AMENDED before dispatch — the clone form was falsified by its own recon.** `git clone` yields **2.67 MiB against 18 GB on disk**: the whole Synty tree is gitignored under the license rule, so a clone is scripts with no assets. **And L3 needs no assets** — a standup lap proves a wire, not a room. So L3 runs in a **fresh minimal .NET project** in a lab dir. The asset question moves to **L4**, where it is real, and **L3 is charged with measuring it** (symlink one pack, time the import) so L4 launches informed instead of surprised | gandalf, veto-open |
+| **TCP-18** | **Toolchain installs for L3 are a reasoning-boundary, under a pinned blast radius.** Neither `dotnet` nor a Godot .NET editor exists on this machine; Murzak cannot run without both, and Q45 ruled self-hosted *before* that requirement was visible — so this is a genuinely new axis and I am ruling it rather than parking a whole runway (L4 **and** L5 gate on L3). It stays a reasoning-boundary **only** under five constraints, and any one of them failing is a HALT to gandalf, then to Matt: (1) **everything lands in `~/Games/mcp-lab/`** — not in any of the four product repos; (2) **`/Applications/Godot.app` is never touched, replaced or upgraded**; the .NET editor installs side-by-side in the lab dir; (3) the .NET SDK installs **user-local via `dotnet-install.sh --install-dir`** inside the lab dir — **no `sudo`, no system-wide install, no PATH edit outside the lap's own shell**; removal is `rm -rf`; (4) **`reincarnated-godot` ends the lap byte-unmodified**, verified by a clean `git status` *including untracked*; (5) the **uninstall procedure is written down** as part of the deliverable. **If any step demands `sudo` or a machine-wide install, stop — that is Matt's call, not mine** | gandalf, veto-open |
 | **TCP-16** | **H2 disposition (not a Matt call).** R2's flat cream floor is **accepted as a lap artifact** — an experimental room that will never ship. Program consequence: dressing selection must verify **measured texture presence**, not merely a valid material slot (L-K instance #3, and L2 found it one level deeper: the FBX carry **2 surfaces** while `set_material_3d` is single-surface, and **no tool reports a surface count**) | gandalf, veto-open |
 
 ---
