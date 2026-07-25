@@ -191,6 +191,33 @@ Step 4 is the part that matters. Every measurement we need has the shape *"how l
 does Y happen"* — and until now we had no clean **X**. Walking toward a monster gives you a
 fuzzy start instant. Flipping visibility gives you a **sharp** one.
 
+### 4a. What word to watch for — from your own state notes
+
+Your invisible/visible notes sorted the state words cleanly, and the sort is more useful than
+it looks:
+
+| Seen while INVISIBLE | Seen only when VISIBLE + near |
+|---|---|
+| `Idle`, `Walk`, `Roam` | `Move`, `Attack`, `Dying`, `Pursue`, `Reposition for Attack` |
+
+**So the aggro event has a name.** It is the top-left word going `Idle` or `Roam` → **`Pursue`**.
+That's a second, completely independent readout of the same instant the red anger line appears
+— which means the two overlays can check each other. If the line and the word agree
+frame-for-frame across many trials, the instrument is self-validating and we don't have to
+take either on faith.
+
+**When you run § 4, watch the top-left word, not just the line.** Specifically:
+
+- Does `Pursue` appear at the **same instant** as the red line, or does one lead the other?
+- **Is there a word in between?** I am looking for a state called **`AlertBeforePursue`** —
+  it exists in the game's code and I believe it may be the "noticed you, hasn't committed yet"
+  state. You didn't list it, but you also weren't looking for it, so its absence proves
+  nothing. If you see *any* word appear between the peaceful state and `Pursue` — even for a
+  fraction of a second — **that word is the most valuable thing in this probe.** Write down
+  exactly what it says.
+- Does the sequence differ when you're **far** vs **close**? My expectation is that the
+  in-between state, if it exists, is visible for noticeably longer at range.
+
 **Please try this once and report:**
 - **Does anger reset when you go invisible?** Specifically: let a monster aggro on you (red
   line up), then `SetPlayerInvisible true`. Does the line drop immediately? Then go
