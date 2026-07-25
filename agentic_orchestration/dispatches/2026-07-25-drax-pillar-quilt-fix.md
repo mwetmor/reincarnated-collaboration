@@ -57,3 +57,64 @@ bug's origin story; your call, logged. Product repo, normal seam work, auto-comm
 material intent is how the quilt was born); anything touching mcp-lab.
 
 **Signed:** gandalf, 2026-07-25 (`RUN-CONDUCTOR`).
+
+---
+
+## Completion record
+
+**Executor:** drax · **Closed:** 2026-07-25 · **Verdict: DONE** — all four §4 exit predicates met.
+**Report:** `agentic_orchestration/drax/notes/2026-07-25-pillar-quilt-fix-run-report.md`
+**Commits (`reincarnated-godot`, NOT pushed):** `ce1c1af` fix · `188fd27` instruments + proofs ·
+`398609c` AGENT_STATE.
+
+**Result.** 11 module surfaces across 5 kits; **4 change binding**. dark-fantasy and
+dungeon-realms are legitimately atlased and changed **0 pixels in every framing** — the sentinel
+provably does not catch them. Across 20 before/after frame pairs: 396,108 changed pixels, **0
+outside the rendered pillar/topper silhouette** (proven by a mask pass + containment test, not by
+eye); every kit's I7 play-camera frame differs by exactly 0 px. Resolver moved to
+`scripts/synty_material_list.gd` and shared by both scripts; `render_catalogue.gd`'s delegation
+proven behaviour-identical over 13,229 meshes / 203,453 slot entries / **0 mismatches**.
+
+**Three things the dispatch did not anticipate** (detail in report §7):
+
+1. **§0 named two call sites; there are four.** The atlas also reaches the column through the
+   SE-occlude `ShaderMaterial` (`_build_occlude_mat(shader, tex_atlas)`), which covers **3 of 4
+   corners**. Curing only the two named sites would have left 75% of the columns quilted.
+2. **§0's "declares no albedo" is not what `Generic_Concrete (Uses custom shader)` means.**
+   `render_catalogue`'s sentinel fires on the parenthesised descriptor only; resolution then falls
+   through to the material name, which resolves to a real PNG. Its neutral route is reserved for
+   meshes with **zero** slot lines. A literal execution of §1 would have painted three kits' pillars
+   flat grey and discarded the concrete/stucco Synty authored. Sentinel implemented as specified
+   **and** the resolution the sibling script actually performs — the latter is what cures the quilt.
+3. **The "library-wide" clause is answered with evidence, not a change.** Corpus scan (43 lists /
+   26,394 mesh blocks / 231,990 slot lines) found 974 pure-sentinel slots and 7 zero-slot meshes.
+   **None is in the builder's blast radius.** The 974 are overwhelmingly *character* surfaces where
+   the atlas is the correct read — rerouting them to neutral grey would have regressed hundreds of
+   thumbnails to cure a defect they don't have. Enumerated, deliberately not changed.
+
+**HALT item → gandalf (does not block; behaviour unchanged).** ancient-egypt
+`SM_Bld_Pillar_Ornate_01` surface 1 names `Stone_Wall_Mural_02`; no such file ships and the three
+plausible neighbours (`Wall_Mural_02`, `White_Wall_Mural_02`, `Wall_Stone_02`) are three different
+intents. **Not guessed** — left on the atlas, exactly as before. Needs a human ruling if it is to
+resolve.
+
+**Beyond scope, fixed with reason:** `scenes/kit_replica_r2_dwarven.tscn` and its emitter
+`scripts/emit_r2_tscn.py` baked the same defect into text; without the emitter fix a re-emit would
+resurrect it. **Beyond scope, deliberately NOT fixed:** `scripts/tcp_l2_gen_pro_plan.py` /
+`scenes/tcp_l2_pro_room.tscn` keep the pre-fix binding — closed-lap records; a future lap re-running
+the Pro plan must take the corrected one.
+
+**§3 scope guard honoured — `~/Games/mcp-lab/` had ZERO writes.** Read only:
+`evidence/l4/sheet/L4_ROW3_pillars.png` (referenced, not re-shot, per §2.2),
+`evidence/L4_KIT_CONSTANTS.md`, `project/scene_before.tscn` (grep, to confirm the crypt kit is
+**dark-fortress**). The frozen substrate keeps its quilt.
+
+**Evidence** (frames are Synty derivative IP and stay LOCAL per the repo's `.gitignore`; text proofs
+are committed): `/Users/admin/Games/reincarnated-godot/harness_logs/quiltfix_2026-07-25/` —
+`MONEY_before_after.png` is the judge-unaided sheet.
+
+**Note for the concurrent L5-D cell:** `reincarnated-godot` is left with **no uncommitted change of
+mine**. `project.godot` carries an uncommitted `[rendering] mesh_lod` deletion that **predates this
+session** — not this dispatch's, left untouched.
+
+**Signed:** drax, 2026-07-25 (presentation seam).
