@@ -135,3 +135,54 @@ you.** Arm 1 made this instruction sharper rather than weaker: I flagged the Dia
 prime suspect *in the dispatch itself* and **it steered you anyway** — so self-flagging is not
 mitigation, and I have removed the exemplar rather than labelled it. **Tell me what I did wrong this
 time instead.**
+
+---
+
+## Completion record
+
+**Executed by:** drax (presentation seam) · **Closed:** 2026-07-25 · **Verdict: PASS.**
+
+**Report:** `agentic_orchestration/drax/notes/2026-07-25-tcp-l8u2-dark-fantasy-kit-report.md`
+**Floor:** `~/Games/mcp-lab/l8ui/` — **extended, not replaced**; arm 1's `ui/` untouched and
+re-rendered this cell for the A/B.
+
+**Clock:** 30 m 27 s total · execution ~69 s = **3.8%** · authoring **96.2%**.
+**Arm-1 contamination declared** (§2): 3 layout passes is a *re-dress* number, not an arrival one.
+
+**Headline results**
+- ★ **The art changed the design in 3 places, confirmed it in 7, and beat me in 1.**
+  `Frame_Orb_01_Glass` is a **teardrop widest at 0.76 down**, not a circle — measured crit/mid
+  sensitivity **1.11× area / 1.32× motion** vs arm 1's straight vessel at 0.99× / 1.00×.
+  **R-5a overturned by measurement against my own prior ruling.**
+- ★ **CEILING (L-G):** the kit cannot express `holy`, `shadow`, `physical` (elements) or
+  `knockback`, `consecrate`, `freeze` (ailments) — **zero glyphs across 3,573 PNG**, named
+  exactly. `lightning` exists only as a borrowed `Icons_Map` pin. Rendered on screen as gaps,
+  not substituted.
+- **Vendoring:** 88 / 3,573 = **2.46%**, selected on a measured two-sub-library split
+  (`HUD/`+`Icons_*` sat 0.000 = tintable/functional; `DarkFantasy/` sat 0.18–0.46 = baked/decorative).
+- **Legibility instrument repaired:** true HUD alpha layer (two-flat solve) + **per-region** void
+  gate + ink-presence gate. Both arms measured under ONE instrument; **both clear 3.0:1
+  everywhere**. Deltas show *illustration costs contrast, framing buys it*.
+- ★ **Instrument passes (4) OUTNUMBERED layout passes (3).** Three of the four would have
+  published confident, quantitative, false findings about the art. TCP-30 was the largest single
+  category of work on this lap.
+- **Wire (§2.3): case does NOT revive.** Import was 5.57 s / 86 files batched from one command;
+  total execution 3.8% of clock. Owed to the wire: a **9-slice-based kit** would be the fair
+  re-test; Synty ships compositing rigs, so slice-margin work never arose. L-J respected.
+
+**HALT to Matt — 3 added** (arm 1's three untouched and NOT re-decided):
+(d) 6 missing glyphs = a content-purchase fork (commission / second pack / re-scope) — re-scope
+is a game-systems call, not mine. (e) `Down_01` is the only glyph for BOTH `stun` and `knockback`,
+which are mechanically distinct — a simulation-legibility question. (f) *observation only:* the
+kit ships **Ice and no Water**, independently corroborating the 2026-07-12 `water`→`ice` ruling.
+
+**Steer reported (§10):** §0's kit inventory named 6 of 14 folders and **enumeration order became
+attention order** — I built almost entirely from the named 6, and the verdict-changing sprite was
+in `Icons_Map`, which was not named. Labelling it "inventory, not recommendation" did not defuse
+it. Also revised my own arm-1 recommendation: **seal the numbers, state the suspicions** —
+qualitative directional hypotheses (§2.2) aimed the investigation productively without fixing its
+answer.
+
+**Exit predicate:** all met. Substrate `d45db0f5…de1966` / `-r--r--r--` verified **start and end**.
+`l7vfx/` and `evidence/l5/` demonstrably untouched by me (per-file attribution in report §8).
+`user://` clean — 0 PNG, 0 log.
