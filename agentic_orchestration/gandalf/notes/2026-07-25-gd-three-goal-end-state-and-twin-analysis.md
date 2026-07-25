@@ -175,7 +175,7 @@ reported, resolution formulas validated-or-flagged; conductor per pattern § 3 f
 | # | Gap | Type | Owner | Status |
 |---|---|---|---|---|
 | 1 | **T9 items 1–3** — `game.Spawn` / `WarpCursor` / `PlayStats`: determines the entire rig shape (spawn-identity vs world-monster fallback; readout instrument) | Matt hands | Matt | SIMPLE sheet on the pi share now |
-| 2 | **gamora 40-state audit** — converts G1-A from provisional to ground truth | agent | gamora | owed, dispatchable now |
+| 2 | ~~**gamora 40-state audit**~~ **✓ DONE 2026-07-25** — `agentic_orchestration/gamora/notes/2026-07-25-gd-40-state-coverage-audit.md`. Headline: **4 MODELLED / 9 PARTIAL / 21 ABSENT / 6 PROPOSED-OUT** (gandalf's provisional ~12 modelled was wrong in both directions). Register expanded 5 KPIs → 9 families + 2 loose. New status class **BLOCKED-CONSUMER** (built-and-unwired ≠ never-built): the hard-CC family F8 — application stack complete, zero live consumers, probe-verified (stunned+frozen+rooted mob acts and moves at full speed). Ladder re-pricings: F3 leash DONE (+0.15%, existence proof); F2 telegraph is a **symmetrization** of the existing player wind-up FSM, not green-field | agent | gamora | **DONE** |
 | 3 | **★ Resolution-vocabulary GAP-CHECK** (§ 3 — re-scoped 2026-07-25 after Matt holdings-check: core formulas ALREADY curated by KF-2; inventory the checklist against corpus.db, legolas only for named residuals) | agent | gamora/elrond (inventory) → legolas (residuals only) | needs inventory query |
 | 4 | **Unit calibration** (G2-C) | Matt hands (one trial) | Matt + gamora | folded into T9 item 2 |
 | 5 | **L0 fixture schema** — incl. N-trial spread capture | agent | elrond + gandalf | needs drafting |
