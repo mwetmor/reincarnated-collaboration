@@ -38,7 +38,7 @@ cells that follow.
 |---|---|---|---|
 | **0** | Substrate pin — pristine `~/Games/mcp-lab/project/scene_before.tscn`, sha `d45db0f507f6b835e14447c9ceb7e7e6bd645e070bc1fe1241dd6e8522de1966`, mode 0444. **The dais scenes are L4 residue, not substrate.** | conductor | done at charter |
 | **1** | **L5-D, mode (ii) design arrival** — the loose brief (§2), method-unconstrained. **Phase A:** arrive at a siting plan, bank it, **STOP**. **Phase B (after owner-eye):** build, evidence, report | drax | **OWNER-EYE ① — Matt sees the siting plan before the wall is cut** (desirable-run §6.2: the eye gates *before* downstream state builds on it). **OWNER-EYE ② — Matt sees the built seam** before the contract freezes |
-| **2** | **Contract freeze** — conductor extracts the connection contract from the built arrival, **in the executor's measured numbers only** (TCP-35 standing rule; the conductor's recollection of a scene is not a description of it) | conductor (`⚠ SWITCH: RUN-CONDUCTOR → SPEC-AUTHOR`) | contract diffed against §0 intent out loud (rubric law); Matt red-flag window |
+| **2** | **Contract freeze** — conductor extracts the connection contract from the built arrival, **in the executor's measured numbers only** (TCP-35 standing rule; the conductor's recollection of a scene is not a description of it). **AMENDED by TCP-40 ①: the contract specifies the portal VOLUME + the checkable INVARIANT (wall-top cap ribbon unbroken, cap-node census exact) and does NOT hand the removal set by node name** — each cell derives its own, because the natural name-based expression takes the cap and that trap is the lap's sharpest finding | conductor (`⚠ SWITCH: RUN-CONDUCTOR → SPEC-AUTHOR`) | contract diffed against §0 intent out loud (rubric law); Matt red-flag window |
 | **3** | **Three (i) cells vs the frozen contract** — roster per TCP-37 ②: **L5a W-MUR → L5b H → L5c W-PRO**, one at a time (L-J), blind (§5), redacted charters (TCP-34) | drax, fresh spawn per cell | **ROSTER GATE at each cell close:** running comparison surfaces to Matt; **he may cull any remaining cell** (*"I will retain the ability to rule one out if it seems they are redundant"*). The cull is his, on composited evidence — never the conductor's forecast (TCP-22, twice now) |
 | **4** | **Composite + recipe + room #3** — contact sheet (conductor-assigned per TCP-34 ③); recipe extracted from the winning route; **room #3 emitted from the recipe**; authoring-minutes compared | drax executes, conductor composites | terminal Matt verdict on the lap |
 
@@ -64,8 +64,14 @@ its legitimate inheritance, exactly as a real author would use it.
    **removals**: removed wall modules absent, **no orphaned collision shapes / occluders** surviving
    at the cut, plus the L4 trio (expected-vs-actual counts, duplicates, untextured).
 3. **G4 WALKABILITY lands** — the lap's own gate: a **0.4 m-radius × 1.7 m capsule sweep** travels
-   room-A center → room-B center through the portal without penetration. Implementation is the
-   executor's ruling; the claim is decidable and the sweep artifact ships.
+   room-A center → room-B center through the portal without penetration. **AMENDED by TCP-40 ②: the
+   substrate has ZERO collision bodies, so the sweep runs against generated collision (trimesh from
+   visible geometry) or the kit's own proxies — and is measured against the PROXY, never the render
+   (the kit's collision hole is 4.9 cm narrower than its visible one).** The removal also **exposes a
+   0.45 m hole in the walking surface** (no floor has ever existed under the wall band): closing it
+   is part of the build, and **the recipe must emit collision or the rooms are set dressing.** The
+   census's orphaned-collision clause is satisfied **with its reason stated** (empty by
+   construction), never silently passed — L-L.
 4. **TCP-31 flatten rule binds every cell** — instancing FBX sub-scenes into a saved `.tscn`
    duplicates via `PackedScene.pack()`; the flatten idiom (compose the FBX-internal transform on the
    right) is the known-good route. Declared per cell.
@@ -100,7 +106,11 @@ its legitimate inheritance, exactly as a real author would use it.
 
 The ruling ledger is now an answer key; from this lap on, (i) cells receive **redacted dispatch
 charters**: the frozen contract + binding laws + the §3 mechanics, and **nothing of** — mode (ii)'s
-scene/report, other cells' scenes/reports, the L4/L5 residues, the ledger itself. Forbidden-list
+scene/report, other cells' scenes/reports, the L4/L5 residues, the ledger itself. **AMENDED by
+TCP-40 ⑤: `L4_KIT_CONSTANTS.md` is handed to every cell and is ITSELF an answer key — it withholds
+scene placements but pins L4's brazier dressing decision in §6, steering by adjacency rather than
+statement. Scrub it before Stage 3, and correct §3's two-surface claim (door variants carry three;
+the 2-override pattern leaves an untextured architrave at eye level).** Forbidden-list
 enumerated per cell at dispatch time, including the executor's own prior-note trap (the L4c lesson:
 "read your own recent notes" is the leak). Declared read-lists mandatory. **A contaminated control
 declared is worth more than a clean one asserted** — accidental reads HALT-and-declare.
