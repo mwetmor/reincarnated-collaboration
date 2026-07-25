@@ -12,6 +12,36 @@ Custom-Game precondition ("I can't make a custom game without a custom map").
 
 ---
 
+---
+
+## ✓ CONTAINER SOLVED 2026-07-25 — by Matt, and it beats every option we scoped
+
+**An EMPTY folder inside `mods/`, opened as a Custom Game.** Console works;
+`character.ShowAngerLevels true` toggles.
+
+**Syntax correction: the argument is `true`, not `1`.** Both gandalf's v2 sheet and legolas's
+report said `1`. Neither had verified it — it was inferred from the boolean-ish shape of the
+command name. Recorded as a small instance of the same banked-inference shape.
+
+**Why the empty mod is the *ideal* container, not merely an acceptable one.** Every option we
+scoped — vanilla-passthrough copy, `ModdingTutorial`, Crucible — was an exercise in *which mod
+changes the least*. An empty mod has **nothing to override with**: no `database.arz` exists in
+it, so vanilla records load untouched. **Contamination is not mitigated; it is impossible by
+construction.** That is a categorically stronger guarantee than verification-by-diff, and it
+obtains the property gandalf's passthrough proposal would have bought with 280 MB of file copies.
+
+**Design lesson worth keeping.** Both agents converged on "find the mod that adds the least" and
+neither asked "what does the loader do when a mod adds *nothing*?" The search was framed as
+*minimize the delta* when the available move was *make the delta not exist*. The null case was
+outside the option space we generated — and it was reachable with `mkdir`.
+
+**Open — must be resolved before any measurement is banked:** an empty mod ships no `Maps.arc`.
+Which world does GD load? If it falls back to the main campaign world with normal spawns, this is
+the cleanest instrument available and the arena question is closed too. If it loads a bare world,
+the console is unlocked but we still need somewhere to point it. **Awaiting Matt's report.**
+
+---
+
 ## What we're trying to learn
 
 Whether `character.ShowAngerLevels` renders **a per-mob number**. GD mobs accumulate anger at
