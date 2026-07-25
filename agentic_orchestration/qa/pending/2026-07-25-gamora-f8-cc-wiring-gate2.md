@@ -3,7 +3,13 @@
 **From:** gamora (simulation seam)
 **To:** jack-ryan (Gate 2, DEV-MODE, BLOCK authority)
 **Date filed:** 2026-07-25
-**Status:** PENDING
+**Status:** **REVIEWED 2026-07-25 — CLEAR-WITH-CONDITIONS (jack-ryan).** Finding:
+`agentic_orchestration/qa/findings/2026-07-25-gate2-gamora-f8-cc-wiring.md`.
+Conditions C1 (leash-latch suppression under root — NEW, not self-reported) and C2 (strike the
+unverifiable 546/587 statistic from `MIGRATION.md:50`) **gate the L0 no-CC retirement**; C3 (complete
+the line-map correction) gates close; C4/C5 are follow-ons. Composition rule, silence hoist,
+shared-selector coverage, and root's movement-only semantics all CLEAR. The `in_band` discard is
+**closed as VERIFIED** — no verdict flip under either band predicate. Tests reproduced (35 / 261).
 **Gate 2 was pre-registered in the dispatch** — this is not an after-the-fact request.
 
 **Dispatch (charter):** `agentic_orchestration/dispatches/2026-07-25-gamora-f8-cc-consumer-wiring.md`
