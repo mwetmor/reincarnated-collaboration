@@ -236,3 +236,133 @@ Legolas's declared boundary, carried forward: **the transition conditions for
 class is live and event-responsive; it does not establish when it is entered. Resolving that
 requires either disassembly of `OnBegin`/`OnUpdate`/`HandleEvent` or a live measurement
 protocol. **Live measurement is the cheaper path and is now specced.**
+
+---
+
+## 8. Matt's second observation round — 2026-07-25
+
+### 8.1 ✓ Anger resets instantly — the trial design is sound, and REPEATABLE
+
+**Matt:** *"Anger resets instantly. Red lines disappear and attacking monsters walk away."*
+
+Confirms the visibility-flip trial: every trial starts from a true zero, no carryover.
+
+**The larger consequence is repeatability.** Because monsters *disengage* rather than merely
+losing the line, one pack supports an unbounded trial loop — invisible → reposition → visible
+→ measure → invisible → reset → repeat, **without moving**.
+
+That is decisive for **KPI 5 (distress propagation)**, where `ChanceToRespondToDistressCall` is
+**75** — a rate, requiring dozens of trials for a usable estimate. Hunting a fresh pack per
+trial was never realistic. The KPI was, quietly, the least tractable of the five; it is now
+arguably the *most* tractable, because it is the one that benefits most from cheap repetition.
+
+**Residual check (one observation, folded into the next trial):** on going visible again, is
+re-aggro *instant* (accumulator merely paused) or *normal-delay* (accumulator zeroed)? Matt's
+description strongly implies zeroed — they walked away — but the distinction is what makes the
+loop valid, so it gets confirmed rather than assumed.
+
+### 8.2 ★ THE TELEGRAPH — Matt saw `AlertBeforePursue` before we had a name for it
+
+**Matt:** *"I have seen monsters slow down their state transition to allow for graphics such as
+a zombie yelling and waving his hands angrily during a long beat of what seems like alert."*
+
+He offered this as an aside about why he hadn't seen the state word. It is the most
+consequential thing in the round.
+
+He is describing **an observable, animated, pre-commitment beat** — which is exactly what
+`AlertBeforePursue` looks like from outside the code. It corroborates independently: the
+animation table (Table 2) carries a state named **`Alert`**. Behaviour observed live, state
+confirmed in the binary, animation confirmed in a second table — three lines converging without
+being derived from each other.
+
+**Not banked.** The join between the observed beat and the named state is not established (D-b).
+Resolving it costs one glance at the top-left word during the beat, and that is now the probe's
+narrowest and highest-value ask.
+
+### 8.3 The design finding — KPI 2 is not an AI parameter, it is a TELEGRAPH
+
+This reframes the hardest of the five gaps, and it reframes it *out of* the engine lane and
+*into* the design lane.
+
+`SightAngerRate` 3.0 and `InnerSightAngerRate` 12.0 have been treated here as AI tuning
+constants. If the anger window is occupied by an animated alert beat, then **those two numbers
+are the duration of a player-facing telegraph**, and the 4× inner/outer ratio is a deliberately
+authored **fairness curve**:
+
+| Situation | Anger rate | Telegraph length | What the player experiences |
+|---|---|---|---|
+| spotted at range (outer zone) | 3.0/s | **long** | "it's seen me — I have time to decide" |
+| walked into its face (inner zone) | 12.0/s | **short** | "that's on me, I was careless" |
+
+The monster does not silently flip to pursuit. It **performs noticing you**, and the length of
+that performance is inversely proportional to how much the situation is your own fault. That is
+why GD encounters read as reactive and fair rather than arbitrary — and it is authored, not
+emergent.
+
+**Our sim has no telegraph concept at all.** Not a missing parameter — a missing *category*.
+This is the clearest instance yet of the pattern § 7.4 named: TSF6-TRACK-A scored pursuit
+distance at **+0.15% faithful** while the sim cannot represent the thing that makes GD's
+encounters feel the way they do. **A perfect score on the parameters we model says nothing
+about the ones we don't** — and the ones we don't are turning out to be the play-feel ones.
+
+**Genre note.** This is not a Grim Dawn idiosyncrasy; it is ARPG craft with a long lineage.
+Diablo II's Fallen shamans have a wind-up before they act; D3 formalised telegraphing into
+ground decals and explicit wind-up frames as a readability discipline; D4 made telegraph
+legibility a stated design pillar. GD's version is subtler — it lives in the AI state machine
+rather than in a VFX layer — but it is doing the same job: **giving the player a beat in which
+the encounter is comprehensible before it is dangerous.**
+
+### 8.4 ✗ Rung 0 CLOSED NEGATIVE — no coordinate readout exists
+
+**Matt:** *"I have tried hovering while I have pressed tilde… nothing prints or appears, and
+no origin at all."*
+
+Tested correctly (console open, cursor over objects). Accepted as a real finding.
+
+Corroborated statically: the 51-command table contains **no object-inspection command** in any
+namespace — the closest is `character.ShowPlayerTokens` ("dumps to the console"), which is
+trigger tokens, not position. The `Origin = %f %f %f` block at exe 2687760 appears to be
+unreachable from the shipped console.
+
+**We have no coordinate readout in Grim Dawn.** `game.Teleport` therefore has no anchor and
+drops to a low-priority probe.
+
+### 8.5 ★ RECOVERY — `character.WarpCursor`, and it is better than teleport
+
+Re-reading the command table after the negative surfaced an entry skimmed past on the first
+pass:
+
+> **`character.WarpCursor`** (exe 2684992) — *"Makes it so player always warps to destination"*
+
+Click-to-move becomes click-to-**teleport**.
+
+**This makes the coordinate problem irrelevant rather than merely survivable**, and it is worth
+being precise about why, because the first framing was wrong. We wanted coordinates in order to
+*know the separation numerically*. But the binding constraint was never the numbers — it was
+that **the approach contaminates the trial**: walking toward a monster accumulates anger the
+entire way, so the measurement starts dirty. Warping arrives with the clock at zero.
+
+**Same option-space error as the empty-mod episode**, and worth recording as such. There, the
+question was framed *"which mod changes the least"* when the move was *"make the delta not
+exist."* Here it was framed *"how do we read the coordinates"* when the move was *"stop needing
+them."* Both times the answer was already inside the material we held — an empty `mkdir`, and a
+command sitting in a table we had already extracted, transcribed, and committed. **The failure
+is not in the gathering. It is in the shape of the question asked of what was gathered.**
+
+Full rig, assuming `WarpCursor` behaves as described:
+
+```
+character.SetPlayerInvisible true     → nothing reacts
+character.WarpCursor true             → click to place, instantly, no approach
+[position]                            → exact spot, clock at zero
+character.SetPlayerInvisible false    → THE START INSTANT
+[watch top-left word + red line]      → two independent channels
+character.SetPlayerInvisible true     → reset
+[repeat]                              → N trials, standing still
+```
+
+No coordinates required anywhere in it.
+
+**Unverified — the probe asks:** max warp range, whether it respects pathing, whether it is
+instant or animated, and critically **whether warping past a monster trips its aggro.** If
+warping through a detection zone is silent, trials are clean; if not, routes need planning.

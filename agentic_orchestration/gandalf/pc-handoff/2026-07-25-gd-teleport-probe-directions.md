@@ -64,7 +64,21 @@ So: this is the highest-value 15 minutes available to us right now.
 
 ## 3. THE LADDER — stop at the first rung that works
 
-### Rung 0 — Can we READ a coordinate? *(30 seconds, do this first)*
+### ✗ Rung 0 — CLOSED NEGATIVE 2026-07-25. Do not re-run.
+
+Matt tested it properly — console open, cursor held over objects — and **nothing printed at
+all, no `Origin`, nothing.** The hover inspector is not reachable this way. There is also no
+object-inspection command anywhere in the 51-command table, so there is no second route to it.
+
+**Accepted as a real finding, not a failed attempt.** We have no coordinate readout in Grim Dawn.
+
+**This does NOT cost us the rig — see § 3.5, which is now the lead.** The thing we actually
+needed was never "know the numbers." It was "get to a precise spot without the approach itself
+contaminating the trial." There is a command that does exactly that, and I missed it on the
+first pass through the table.
+
+<details>
+<summary>Original Rung 0 text, retained for the record</summary>
 
 Everything else gets easier if this works.
 
@@ -88,6 +102,44 @@ the inspector only responds to certain object classes.
 
 **Report:** did anything print on hover? Screenshot if yes. If nothing at all prints, say so —
 a clean negative is a real answer and we move to Rung 1.
+
+</details>
+
+---
+
+### ★ Rung 0.5 — `character.WarpCursor` — THE NEW LEAD *(2 min, do this first)*
+
+I went back through the 51-command table after your hover result and found this, which I had
+skimmed past:
+
+> **`character.WarpCursor`** — *"Makes it so player always warps to destination"*
+
+If that does what it says, **you click the ground and you're instantly there.** No walking.
+
+**That is better than teleport for our purposes, and it makes the coordinate problem
+irrelevant rather than merely survivable.** The reason we wanted coordinates was never really
+the numbers — it was to place you at a precise spot *without the approach itself contaminating
+the trial*. Walking toward a monster accumulates anger the whole way; that's the thing that
+ruins a clean measurement. Warping doesn't. You arrive with the clock at zero.
+
+**Test it:**
+
+1. `character.WarpCursor true`
+2. Click somewhere on the ground a moderate distance away.
+3. Do you teleport there instantly, or still walk?
+
+**Report:**
+- Does it work, and is it instant or animated?
+- Does it have a **maximum range** — can you click across the whole visible screen, or only
+  a short hop?
+- Does it work **through walls / across gaps**, or does it respect pathing?
+- **Does warping past a monster aggro it?** This is the important one. If you warp *through*
+  a monster's detection zone and out the other side without it noticing, the trial is clean.
+  If warping trips aggro, we have to plan routes.
+- Any weirdness — stuck geometry, camera issues, does it persist through zoning?
+
+**If this works, the rig is:** go invisible → `WarpCursor` to an exact spot → go visible →
+watch the top-left word. Repeat. Nothing else required.
 
 ---
 
@@ -222,6 +274,29 @@ take either on faith.
 - Does the sequence differ when you're **far** vs **close**? My expectation is that the
   in-between state, if it exists, is visible for noticeably longer at range.
 
+**★ And you have already seen it — you just didn't have the word for it.** You wrote:
+
+> *"I have seen monsters slow down their state transition to allow for graphics such as a
+> zombie yelling and waving his hands angrily during a long beat of what seems like alert."*
+
+**That beat is almost certainly `AlertBeforePursue`.** You described the behaviour before we
+had the name for it. It also lines up with the animation table, which carries a state literally
+called `Alert`. You put this in as an aside; it may be the most important thing you've reported.
+
+**So the ask is now much narrower and much easier:** next time a zombie does the
+yelling-and-waving beat, **read the top-left word while it's happening.** That's it. One word.
+
+Three possible outcomes, all useful:
+1. It says **`AlertBeforePursue`** → confirmed, and its duration is a quantity we can measure.
+2. It says something else → tell me what; the state list has 40 entries and I'll find it.
+3. It stays on the peaceful word until it flips straight to `Pursue` → the beat is
+   *animation-only*, the controller has already committed, and we measure the animation instead.
+
+**Then the question that actually matters:** does the beat run **longer when you're spotted
+from far away** than when you walk right up to something? I'll say my prediction plainly so you
+can prove me wrong — **it should be roughly 4× longer at range.** If it looks the same either
+way, my model of how this works is wrong and I want to know.
+
 ### 4b. ✓ RESOLVED — you already answered this. Nothing to do.
 
 *(Kept for context.)* `Walk` renders **only bottom-right**, which confirms the two-layer
@@ -256,8 +331,31 @@ for a pack you spawned yourself.
 
 Either answer is worth having. If you only see world packs this session, that alone is useful.
 
-**Please try this once and report:**
-- **Does anger reset when you go invisible?** Specifically: let a monster aggro on you (red
+### 4d. ✓ ANSWERED — anger resets, and the consequence is bigger than the question
+
+**Matt, 2026-07-25:** *"Anger resets instantly. Red lines disappear and attacking monsters
+walk away."*
+
+That's the answer the trial design needed. Every trial starts from a true zero — no carryover,
+no contamination from the previous run.
+
+**But the real prize is repeatability.** Because the reset is instant and the monsters
+*disengage* rather than merely losing the line, the same pack can be re-run indefinitely:
+
+> invisible → reposition → visible → measure → invisible → *reset* → repeat
+
+**N trials on one pack without moving.** That is the difference between feasible and infeasible
+for the distress-call KPI, which is a **75% chance** — a rate estimate needs dozens of trials,
+and hunting down a fresh pack for each one was never going to happen. Now it's a loop you run
+standing still.
+
+**One thing left to confirm, and it's a single observation during any trial:** when you go
+visible again, does the monster re-aggro **instantly** or after the **normal delay**? Your
+answer strongly implies the accumulator zeroed (they walked away, they didn't just lose the
+line) — but instant re-aggro would mean it merely *paused*, and that would break repeatability.
+Just note which it is next time you flip.
+
+**Remaining from the original § 4:** Specifically: let a monster aggro on you (red
   line up), then `SetPlayerInvisible true`. Does the line drop immediately? Then go
   `false` again — does it re-aggro **instantly** (anger was retained) or after a **delay**
   (anger was reset to zero)? This one answer determines whether the whole trial design above
