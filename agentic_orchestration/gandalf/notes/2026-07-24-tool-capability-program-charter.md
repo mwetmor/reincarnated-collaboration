@@ -102,6 +102,13 @@ a **design instrument**. That is the actual verdict shape the program is trying 
 - **L-I — Rubric law, inherited.** *(desirable-run-pattern §6.3.)* At each lap launch, diff the exit
   predicate against §0's intent sentence and **name out loud what fell out.** Three separate defects
   in this workstream trace to a *proven*-needs rubric quietly narrowing the owner's question.
+- **L-J — One wire at a time, restore verified by inventory.** All three instruments install to
+  `res://addons/godot_mcp/` — the incumbent occupies it, Pro carries ~70 hardcoded refs to it,
+  Murzak's installer downloads into it. **They cannot coexist.** Every lap that swaps records the
+  outgoing addon's file inventory first and restores against **that inventory, not a version string**
+  — because `--install-addon` reads `plugin.cfg`, sees the right version, prints *"already up to
+  date"* and exits without an integrity check. The installed incumbent was **3 `.gd` files against an
+  expected 36**. A gutted addon reports itself healthy and never self-heals.
 
 ## §4 — Judgment instruments
 
@@ -159,8 +166,15 @@ reference pack before trusting it: **if Pro cannot reproduce a known room, it ca
 one**, and nothing it does in L4–L7 can be trusted. It also exercises the swap procedure, the
 control-diff and the frame capture *once, on the cheap instrument*, before we spend the expensive one.
 
-One room. One new pack. Pro authors; the existing H build of the same room is the control; diff the
-frames. Pre-registered:
+**One room, one NEW pack, control built in the same lap.** Full charter:
+`2026-07-24-tcp-l2-pro-calibration-charter.md` (CHARTERED + DISPATCHED 2026-07-24).
+
+*Amending my own §5 recommendation in the Pro audit, and the reason matters:* the control must be a
+**fresh** M3 build of the same new pack, not an existing one — because a pack whose constants are
+already derived and committed lets a Pro agent **read the answer instead of measuring it**, which
+voids P-B. Same contamination guard the L1 charter §4c applied when it forced M1 to run before M3
+existed. Pack picked by **measured** module compatibility (L-D); the measurement is the pick.
+Pre-registered:
 
 - **P-A** — Pro creates the node graph. *High confidence; tools documented.*
 - **P-B** — **decisive.** Pro cannot measure an un-instantiated FBX. The
@@ -241,6 +255,8 @@ the declared interface had put his eyes only at the finish.
 | **TCP-6** | T4-UI sequenced before T4-VFX (harness dependency) | gandalf, veto-open |
 | **TCP-7** | Capability verdicts expire; re-read manifests per lap (L-C) | gandalf, veto-open |
 | **TCP-8** | The motion harness must be **ours**, not an instrument's, or the laps score capture rigs | gandalf, veto-open |
+| **TCP-9** | **One wire installed at a time**; swap laps restore against a **file inventory**, never a version string (L-J) | gandalf, veto-open |
+| **TCP-10** | L2's control is a **fresh** M3 build of a **new** pack — a pack with derived constants on disk voids P-B | gandalf, veto-open |
 
 ---
 
