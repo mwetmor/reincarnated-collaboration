@@ -137,6 +137,28 @@ a **design instrument**. That is the actual verdict shape the program is trying 
   date"* and exits without an integrity check. The installed incumbent was **3 `.gd` files against an
   expected 36**. A gutted addon reports itself healthy and never self-heals.
 
+  **Three residues the restore predicate does not cover** — L2 found two, and a third surfaced during
+  L3's dispatch: (1) Pro rewrites `project.godot`'s `[autoload]`; (2) addon removal **silently empties
+  the global class-name cache**; (3) **merely OPENING the project in an editor rewrites
+  `project.godot`.** Evidence for (3), caught 2026-07-25 while checking L3's blast radius:
+  `reincarnated-godot/project.godot` carried an uncommitted deletion —
+
+  ```
+  -[rendering]
+  -mesh_lod/lod_change/threshold_pixels=1.0
+  ```
+
+  — mtime `00:08`, **29 minutes before the L3 lab directory existed**, with `.godot/` stamped the same
+  minute. Not this lap's. The mechanism is Godot stripping a setting whose value equals the engine
+  default on save. Effect here is nil (1.0 *is* the default), but the class is not nil: **a setting
+  written explicitly because a human wanted it explicit becomes implicit, and then tracks the default
+  silently if the default ever moves.** `mesh_lod` in particular is a capture-fidelity setting.
+
+  **Consequence for the program:** an editor open is a WRITE. Any lap that opens a product project in
+  any editor — even to look — owes a `git diff` of `project.godot` before and after. **Byte-perfect
+  belief is not byte-perfect verification** (L-K wearing configuration clothes: the editor reported
+  nothing, logged nothing, and edited the file).
+
 ## §4 — Judgment instruments
 
 **Mode (i) — control-diff.** Deliverable: play-camera frame + the control's frame + a pixel diff +
