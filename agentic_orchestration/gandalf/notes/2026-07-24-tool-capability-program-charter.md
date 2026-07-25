@@ -202,7 +202,7 @@ itself inside one tool, and it is the single most likely winner of the whole pro
 |---|---|---|---|---|
 | ~~L1~~ | T1 × (i) | W-INC / T / H | — | **CLOSED** — H won; W-INC has no create primitive; T failed silently |
 | ~~**L2**~~ | T1 × (i) — CALIBRATION | W-PRO | none | **CLOSED 2026-07-24 — Pro is an EXECUTOR.** See below |
-| **L3** | standup | **W-MUR** | ~~Matt~~ **CLEARED** — Q45 ruled self-hosted, mechanism `stdio` (TCP-11); Custom mode needs no credential | **CHARTERED + DISPATCHED 2026-07-24** — charter `…-tcp-l3-murzak-standup-charter.md`; runs in `~/Games/mcp-lab/`, not in the product repo (TCP-17/18) |
+| ~~**L3**~~ | standup | **W-MUR** | — | **CLOSED 2026-07-25 — PASS.** All six exit items. **W→H proven with a picture; Murzak runs fully headless.** See below |
 | **L4** | **T2 × (i)** | W-PRO · W-MUR · H control | L3 for the three-way | next |
 | **L5a/b** | **T4-UI × (i)** then **× (ii)** | W-PRO · W-MUR · H control | L3 | **no new harness needed** |
 | **L6a/b** | **T3 × (i)** then **× (ii)** | field | **the STORY session** (Q44 deferred there 2026-07-24) | **blocked on story, not on tooling** |
@@ -214,6 +214,50 @@ and settling it from tooling evidence would be the tail wagging the dog. **Only 
 expansion lap inherits the register of the scene it expands; a HUD has no act-register; VFX gates on
 a harness. **L3 → L4 → L5 is a clear runway.** Meanwhile the story session now gates Q43's seven
 persistence rulings, Q44, and L6 — making it the highest-value unfired item on the board.
+
+### L3 — RESULT (CLOSED 2026-07-25 **PASS**; drax report `…/2026-07-24-tcp-l3-murzak-standup-run-report.md`)
+
+**The headline: TCP-5's W→H path is CLOSED, with a frame.** The wire wrote a GDScript builder via
+`script-create`; the lab Godot ran it headless in **0.30 s**; the output `.tscn` carries the exact
+arithmetic progression specified and the frame agrees —
+`~/Games/mcp-lab/evidence/frames/BUILT_wire_authored_builder.png`, eight pillars ringed on
+`h = 1.0 + 0.35i`, judgeable by eye without a table. **The doctrine executed itself inside one tool:
+MCP authors the recipe, headless script runs production.** I called W→H "the single most likely
+winner of the whole program" on the strength of a *tool list*. It is now the only path in the field
+demonstrated end-to-end by the instrument under test.
+
+**A structural argument the frame hands us for free.** The generated builder used `looking_at()` and
+the engine's own node API — it never wrote a basis by hand. **A wire-authored builder is
+constitutionally incapable of L1's transpose trap**, which silently killed the T path (Python emits
+`.tscn` text: row-major floats, basis vectors are the *columns*, emitting axes as triples writes the
+inverse). That is not "W→H happened to be correct here." It is a class of error W→H cannot commit.
+
+**Murzak runs fully headless — 39/39 tools, byte-identical name set.** This does not discipline the
+three-orphaned-editor failure class; **it deletes it. L4 needs no editor window at all.**
+
+- **P-B FALSIFIED (for Murzak).** Exactly **39 tools / 11 families**, `gamedev-mcp-server 9.2.0.0` +
+  addon `0.19.1`, proto `2025-06-18` — **my audit's documented prior was exactly right.** First
+  documented number in this program to survive contact with the wire. Pro's docs said 77; the wire
+  served 175. **L-B's "trust the wire" stands; L-B's implied "docs always lie" does not.**
+- **P-C CONFIRMED.** The ten `Godot-AI-*` packages are catalogued, **not installed** — 63 tools across
+  10 packages, none live. Class split (read from `extensions.catalog.json`): **Class A** — Particles ·
+  Tilemap · Navigation · Animation · **CSG** · **GridMap** — wrap built-in Godot, no dependency, all
+  six **published on nuget.org at `0.1.0`**. **Class B** — PhantomCamera · Beehave · Dialogic ·
+  Terrain3D — wrap third-party addons the installer explicitly **never** vendors. **Every capability
+  that reopened this column is Class A**; every Class-B wraps an addon we do not use. **L4's opening
+  move installs CSG + GridMap at PINNED versions** — the catalog declares them `version: null`
+  (floating), and floating a `0.1.x` reference through a comparative lap makes it unreproducible.
+- **P-D / P-E.** Asset import **50 s cold / 10 s warm**, cache reusable, **sibling .NET project
+  viable — no Matt-gated conversion of `reincarnated-godot`.** TCP-17's fear did not materialize.
+- **Latency corrected, see TCP-19.** Murzak steady-state **8.03 ms** vs Pro **8.33 ms** — same class.
+- **Honest residues, self-reported:** an inherited orphan `gamedev-mcp-server` (PID 25887, listening
+  since 00:43, outlived the editors I killed) found and reaped; **14 files + 17 dirs escaped to
+  `~/.dotnet`** because `DOTNET_CLI_HOME` was not redirected — a partial TCP-18 constraint-1 breach,
+  named with removal commands rather than buried. Exit state verified: no Godot, no server, port
+  closed.
+- **→ Matt (Q46):** the addon's **compiled-in default is Cloud** and it transmits `machine_name` +
+  project identity **before any tool call**. A second Q45 violation in a different component from the
+  banked `setup-mcp` one — and unlike that one, **this one actually transmits.**
 
 ### L2 — RESULT (CLOSED 2026-07-24; drax report `…/2026-07-24-tcp-l2-pro-calibration-run-report.md`)
 
@@ -356,6 +400,9 @@ the declared interface had put his eyes only at the finish.
 | **TCP-15** | **P-D FALSIFIED — my latency constant was stale by ~14×.** Measured on Pro: **8.33 ms/call** (1307 calls, 10.886 s), not 114–180 ms. **Latency is not the wire's binding constraint**, and my bake-off claim that *"the wire will never carry assembly"* was a one-instrument constant generalized to a category — **the same error class, fourth instance.** Consequences: the T4-UI case gets *stronger*, not weaker; L4's three-way is worth running on capability rather than conceding on speed. M3 still wins outright on this task at **1.09 s** for the same room *plus* void caps and shaders | gandalf, veto-open |
 | **TCP-17** | **L3 runs OUTSIDE `reincarnated-godot`. Mandatory, no exceptions.** Verified 2026-07-24: the project is **pure GDScript on Godot 4.6.3, non-.NET** — no `.csproj`, no `.sln`, no `[dotnet]` block, `config/features` lists only `("4.6","Forward Plus")`, and `/Applications/Godot.app` is the standard build. **Murzak is a C# addon and needs the .NET editor build + `Godot.NET.Sdk` + a `.csproj`.** Standing it up in the live project would add `C#` to `config/features` and make the project effectively **.NET-only** (the standard editor then errors on it) — a change to Matt's standing product environment, i.e. an external-state commitment-boundary, not a lap decision. Outside it, the same work is a reasoning-boundary and stays mine. ~~**SCRATCH CLONE**~~ **AMENDED before dispatch — the clone form was falsified by its own recon.** `git clone` yields **2.67 MiB against 18 GB on disk**: the whole Synty tree is gitignored under the license rule, so a clone is scripts with no assets. **And L3 needs no assets** — a standup lap proves a wire, not a room. So L3 runs in a **fresh minimal .NET project** in a lab dir. The asset question moves to **L4**, where it is real, and **L3 is charged with measuring it** (symlink one pack, time the import) so L4 launches informed instead of surprised | gandalf, veto-open |
 | **TCP-18** | **Toolchain installs for L3 are a reasoning-boundary, under a pinned blast radius.** Neither `dotnet` nor a Godot .NET editor exists on this machine; Murzak cannot run without both, and Q45 ruled self-hosted *before* that requirement was visible — so this is a genuinely new axis and I am ruling it rather than parking a whole runway (L4 **and** L5 gate on L3). It stays a reasoning-boundary **only** under five constraints, and any one of them failing is a HALT to gandalf, then to Matt: (1) **everything lands in `~/Games/mcp-lab/`** — not in any of the four product repos; (2) **`/Applications/Godot.app` is never touched, replaced or upgraded**; the .NET editor installs side-by-side in the lab dir; (3) the .NET SDK installs **user-local via `dotnet-install.sh --install-dir`** inside the lab dir — **no `sudo`, no system-wide install, no PATH edit outside the lap's own shell**; removal is `rm -rf`; (4) **`reincarnated-godot` ends the lap byte-unmodified**, verified by a clean `git status` *including untracked*; (5) the **uninstall procedure is written down** as part of the deliverable. **If any step demands `sudo` or a machine-wide install, stop — that is Matt's call, not mine** | gandalf, veto-open |
+| **TCP-19** | **The latency number is corrected AGAIN — and this time the fix is the STATISTIC, not the number.** L3b withdrew its own banked figure: *"114 ms/call, 14× spread vs Pro"* was a **mean contaminated by 10-second disconnected-wire retries.** Server-side median across 252 calls: **3.67 ms**; true steady state **8.03 ms** against Pro's **8.33 ms** — *the same class.* **TCP-15 is NOT amended** — it records a falsification with its own evidence and date, and overwriting it would hide the error trail this program is partly valuable for. TCP-19 supersedes the number and names the method: **every performance claim in this program states its statistic, its n, and its exclusions. Medians, never bare means. A mean containing timeout retries is not a latency measurement.** Error-class tally, said plainly: this is the **fifth** instance of a number measured in one condition generalized to a class, and the fourth of them was **mine — I relayed drax's 114 ms to Matt as a 14× instrument spread before it was withdrawn.** A median would have caught it at either hop | gandalf, veto-open |
+| **TCP-20** | **The blast-radius predicate was STRUCTURALLY BLIND, and it was my charter's defect.** L3b §4.4 made *"clean `git status` including untracked"* the proof that the product repo was unharmed — of a repo whose **entire 18 GB of value is gitignored** under the Synty license rule. The same charter then prescribed P-E's **symlink**, which would have written `.import` rewrites into exactly that blind spot, while making writes to that tree a HALT. **A self-contradicting predicate: it forbade an act it also instructed, and could not have detected it.** drax substituted a copy at the mirrored path (1 s) and verified four ways including a **2494-file fingerprint. That fingerprint becomes STANDING** — answering drax's second escalation: **any lap touching a repo with gitignored payload takes a file-count + fingerprint of the ignored tree before and after; `git status` alone is not a blast-radius predicate there.** Generalized: *a verification predicate must cover the surface that carries the value, not the surface that happens to be tracked* | gandalf, veto-open |
+| **TCP-21** | **L-K gains its converse, because the law was one near-miss from becoming a paranoia generator.** L3b almost filed a sixth L-K instance: a mesh assignment looked like textbook silent failure and was **a missing `scene-save` — operator error, not instrument mendacity.** One tracked relaunch exonerated the tool. **Amendment: an L-K instance requires BOTH that the tool reported success AND that the operation was correctly invoked.** Without the second clause a law meant to catch lying instruments starts convicting innocent ones, and a program that mis-attributes its failures is worth less than one that has none — mis-attribution is the *only* failure this program calls real (L-G). drax's own words are the rule: **"the independent read exonerates as well as convicts."** | gandalf, veto-open |
 | **TCP-16** | **H2 disposition (not a Matt call).** R2's flat cream floor is **accepted as a lap artifact** — an experimental room that will never ship. Program consequence: dressing selection must verify **measured texture presence**, not merely a valid material slot (L-K instance #3, and L2 found it one level deeper: the FBX carry **2 surfaces** while `set_material_3d` is single-surface, and **no tool reports a surface count**) | gandalf, veto-open |
 
 ---
