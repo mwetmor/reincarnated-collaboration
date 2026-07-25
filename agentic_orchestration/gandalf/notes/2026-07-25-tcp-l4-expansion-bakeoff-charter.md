@@ -86,9 +86,46 @@ not the measurement act.**
 **Every prediction resolves to a recorded fact. A FAIL is a finding (L-G).** **Report medians with n
 and exclusions for any timing claim (TCP-19)** — a mean containing retry timeouts is not a measurement.
 
+## §3b — AMENDMENT at dispatch: L4-PREP, and the two charter defects that forced it
+
+**Amended 2026-07-25 by the conductor, before any instrument ran.** Reviewing §2/§5 for dispatch I
+found two defects in my own charter. Both are recorded here rather than quietly fixed, because the
+program's value is in its error trail.
+
+1. **§2 had the first instrument build `scene_before`. That confounds P-3.** P-3 asks whether Murzak
+   *naturally* routes through W→H. An operator who has just hand-written a GDScript room builder will
+   reach for W→H reflexively — the measurement would be reading the operator's fresh habit, not the
+   tool's groove. **The substrate must be built by a party that then runs no instrument.**
+2. **§5 had the diff instrument judging before anyone calibrated it.** P-2 is the decisive prediction
+   and it resolves through a masked pixel diff — an instrument nobody had shown to work. **That is
+   textbook L-K wearing our own uniform:** `custom_aabb` returned a field shaped exactly like the
+   answer, identically zero, `ok=true`. A differ that silently returns a plausible number is the same
+   trap. **Two-point calibration is now mandatory: self-diff must be EXACTLY zero, and a diff against
+   a deliberately-nudged copy must be non-zero with the bright pixels on the nudged node.** An
+   instrument not shown to detect a change it was handed is not evidence about a change it was not.
+
+**L4-PREP therefore runs first, as a control, and runs no instrument.** It copies + imports
+`polygon-dark-fortress`, builds and **freezes** `scene_before.tscn` (SHA-256 published), **relocates
+its builder out of the project directory** (L1 §4c contamination guard — a worked room-builder on
+disk lets a wire agent read the method instead of solving the task), pins the two dais props with
+**measured texture presence** (TCP-16) so a held-constant spec does not resolve three different ways,
+renders the `__box` reference frame, and calibrates the differ.
+
+**The line PREP draws, and it is deliberate — it is what keeps P-4 alive:**
+
+| | |
+|---|---|
+| **HANDED to all three** (`L4_KIT_CONSTANTS.md`) | module **natives** + asset/texture paths + exact camera parameters. L2 P-B settled decisively that Pro cannot derive these; re-testing it would burn a lap re-answering a closed question and confound what we *are* measuring |
+| **NOT handed — must be read out of `scene_before.tscn`** | where the far (−Z) wall sits, its inner-face Z, the floor extent, the node names |
+
+Hand over the placements too and P-4 is gutted — nobody would need to read the scene at all, and
+*"expansion requires reading a scene you did not author"* is the entire structural difference between
+this lap and a replica lap. **Instruments may read `scene_before.tscn` by any means; no instrument may
+read the builder that produced it.**
+
 ## §4 — Sequence, and why it is forced
 
-**W-MUR → W-PRO → H.** Three sequential dispatches, one instrument each.
+**L4-PREP → W-MUR → W-PRO → H.** Prep, then three sequential dispatches, one instrument each.
 
 - **Murzak first** — already installed; saves a full swap cycle.
 - **Pro second** — swap in, run, **restore verified by file inventory, never a version string** (L-J /
@@ -106,8 +143,10 @@ must stand alone.
 
 1. **A four-cell contact sheet** at the `__box` framing: `scene_before` | W-MUR | W-PRO | H — plus a
    **`|diff| ×4` strip against `scene_before` for each**, so non-destruction is visible to the eye and
-   not only in a table (**L-A**). Assembled by the H dispatch, which owns the harness.
-2. **P-2 resolved numerically** — masked pixel diff of the non-addition region, per instrument.
+   not only in a table (**L-A**). Assembled by the H dispatch, **running the differ PREP already
+   calibrated** (§3b) — the H dispatch does not build the instrument that judges its own cell.
+2. **P-2 resolved numerically** — masked pixel diff of the non-addition region, per instrument,
+   **against a differ with both calibration points published** (§3b).
 3. **P-1, P-3, P-4, P-5 each resolved** to a recorded fact with its evidence.
 4. **Spec conformance checklist** — the six spec clauses, per instrument, PASS/FAIL with the measurement.
 5. **The Pro swap restored and verified by inventory** (§4), plus the class-name-cache rescan.
