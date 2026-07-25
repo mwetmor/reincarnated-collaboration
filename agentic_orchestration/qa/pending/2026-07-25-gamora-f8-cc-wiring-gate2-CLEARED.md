@@ -432,3 +432,114 @@ the C5 routing item.
 5. **Push remains Matt-gated** (ADR-006). Both repos are committed, neither is pushed.
 
 **Signed:** gamora, 2026-07-25. Remediation complete; closure confirmation is knight-rider's.
+
+---
+
+# 10. CLOSURE CONFIRMATION — knight-rider, 2026-07-25
+
+**Status: CLOSED — CLEARED.** Gate 2 verdict CLEAR-WITH-CONDITIONS is discharged. No further Gate
+required; the finding's L0 ruling assigned closure confirmation to knight-rider, not to a second
+Gate review.
+
+**Authority:** `agentic_orchestration/qa/findings/2026-07-25-gate2-gamora-f8-cc-wiring.md`
+§ "L0 ruling" — *"Once C1 and C2 land, the retirement fires without a further Gate — knight-rider
+confirms closure and the constraint lifts."*
+
+**Method:** spot-check of the finding's per-condition Action block against disk. I did NOT re-derive
+gamora's measurements or re-run her suites — that was jack-ryan's Gate scope and it is discharged.
+I verified that the artifacts the remediation claims exist, exist, and say what they are claimed to
+say.
+
+## 10.1 Per-condition verification
+
+| # | Gates L0? | Verified on disk | Verdict |
+|---|---|---|---|
+| **C1** | **YES** | Math note **§ 3.4.1** exists (`…/simulation/math/f8-hard-cc-consumer-wiring-2026-07-25.md:231`) and § 3.4 names **four** shifts with shift 4 flagged as the C1 remediation (`:213`, `:228`). Code: `_f8_leash_latch_under_lock` defined `spatial_engine.py:608`, latch write `:639`, called inside the locked branch at `:1825` — i.e. the latch is evaluated *under* the F8 move lock, which is the hoist. Tests: 3 named `test_c1_*` (`:635`, `:660`, `:691`) — the latch-suppression case jack-ryan flagged as untested is now `test_c1_cc_never_makes_an_out_of_leash_mob_more_dangerous_than_no_cc:660`. | **CLOSED** |
+| **C2** | **YES** | `simulation/MIGRATION.md` — the bolded *"546 of 587 / 93%"* string is **gone** (grep: zero hits). Replaced by a re-measured table at `:83` (`4,696 / 5,116` = **91.8%** post arm; pre 93.1%; `burn` control 92.5%) plus a **"Correction of record (Gate-2 C2)"** block at `:93` that names the provenance failure, keeps the *mechanism* claim qualitatively, and correctly declines to rewrite the immutable commit messages. Counter source + result JSONs present: `…-f8-blast-radius-ab-{smoke,full}-liveness.json`. | **CLOSED** |
+| **C3** | no (gates close) | Line map re-derived at math note **§ 8**; the stale `:4171 / :4366` pair is retired at all three sites the finding enumerated — `spatial_engine.py:2156` and `:4339` now carry explicit *"Gate-2 C3: previously cited…"* correction comments, and `tests/test_f8_hard_cc_consumer.py:414` reframes the pair as *"the pre-implementation estimates from commit `9f3135a`'s message."* Root citation corrected to `config/ailments.yaml` at math note § 2 and `spatial_engine.py:551`. "Falsifies" retired for "regression pin" (math note `:170`, `:180`). § 4.3 qualified with the Track-1 predicate (report § 4.3, *"below the floor, pre and post… no verdict flip under either predicate"*). | **CLOSED** |
+| **C4** | no | 5 `test_c4_*` tests present (`:882`–`:942`) driving the real `SpatialFightEngine.run()` loop, including the `_e4_move_scale × M(player)` composition (`test_c4_player_chill_scales_the_realized_step_multiplicatively:899`) and a wire-flag inertness pin (`:942`). Suite total 45 test functions / 51 collected cases. | **CLOSED** |
+| **C5** | no | knight-rider's routing item — discharged below, § 10.3. | **ROUTED** |
+| INFO | no | star-lord `export/season_exporter.py:266` — logged as non-blocking follow-up, § 10.4. | **LOGGED** |
+
+Commits/tags confirmed: engine `fff3257` tagged `gamora/v-f8-cc-2` (parent `fe5d5ea` = `v-f8-cc-1`);
+collaboration `2d80917b`. **Neither repo pushed** — push remains Matt-gated (ADR-006).
+
+## 10.2 Ladder consequence — the L0 no-CC constraint RETIRES
+
+**As of this closure, the L0 no-CC test-character constraint is RETIRED.**
+
+Authority chain, stated in full because a constraint retirement should be traceable without
+re-reading four documents:
+
+1. **Matt ruling 2026-07-25** (verbatim, at the build dispatch): *"We ARE building all mechanics
+   needed into our engine. If we don't yet have CC in the sim, then we build it in — we don't work
+   around it."* Goal 1 became a **build program**; the constraint ladder is *measurement* sequencing
+   only, and every measurement constraint carries a **named expiry**.
+2. **Build dispatch § 4** (`dispatches/2026-07-25-gamora-f8-cc-consumer-wiring.md:66`) named this
+   constraint's expiry: *"the L0 no-CC character constraint retires when this clears Gate 2."*
+3. **Gate-2 finding L0 ruling** narrowed the trigger: not the verdict alone — **C1 + C2 closed**.
+4. **This closure** confirms C1 + C2 closed. The expiry condition is met. The constraint lifts.
+
+**Constraint-ladder home** (where the ladder itself lives, and where this retirement should be
+reflected): `agentic_orchestration/gandalf/notes/2026-07-25-gd-three-goal-end-state-and-twin-analysis.md`
+— the G1 ruling block at `:55-63`, which is the doc that introduced *"L0's no-CC test character,
+added after the F8 finding"* as the worked example of a named-expiry constraint. **gandalf owns that
+doc; this note does not edit it.** The retirement is recorded here and cross-referenced there by
+gandalf at next touch.
+
+**What retirement actually buys:** a CC-bearing character may now be laddered on **realized**
+behavior. Soft CC (chill) is wired, measured across 64 cells, and its blast radius is characterized
+(−9.74% kpm / +10.85% duration, `magic_pack`-confined, no verdict flip under either band predicate).
+Hard CC is wired and unit-proven but **has never fired in a production frame** — see the standing
+watch item below.
+
+**Standing watch item, carried forward from the finding (jack-ryan, verbatim intent):** *when the
+first hard-CC ladder run happens, watch it — it will be the first production exercise of
+`select_action_locked` / `nav_move_locked` in the engine's history.* Both counters are currently hard
+zeros across 5.66 M navigate calls and 1.69 M selector calls. First non-zero reading is a novel-path
+event and should be treated as such, not as routine telemetry.
+
+**Second-order note (not a condition, recorded so it is not lost):** the C1 hoist is currently
+**unreachable in production** — the 64-cell full-frame re-run carrying C1 is byte-identical to the
+pre-C1 archive on all 64 cells, because the pool emits no hard CC. C1 fixed a real player-adverse
+inversion that no production frame can presently reach. It becomes reachable exactly when C5's
+question is answered in the affirmative and built. C1's correctness therefore rests on its 7
+ablation-proven unit tests until then, which is adequate and is the honest framing.
+
+## 10.3 C5 — routed
+
+Dispatch authored: `agentic_orchestration/dispatches/2026-07-25-rocket-hard-cc-generation-analysis.md`.
+**ANALYSIS-FIRST, no production code.** Rocket establishes where in the generation pipeline hard-CC
+effects would be emitted, why they currently are not, and what a build would look like. The **design
+ruling** on whether kits *should* emit hard CC is **not rocket's and not knight-rider's** — it is
+queued for Matt's grill session with gandalf owning the elicitation, and it **gates any build**.
+
+## 10.4 star-lord INFO — logged, non-blocking
+
+`~/Games/reincarnated-engine/src/reincarnated/export/season_exporter.py:266` publishes to players
+*"`silence` | Prevents ability use"* with no mobility/defensive carve-out. Realized behavior is
+narrower: the F8 wiring gates **offensive** skills only (role-string `not in` match), so a silenced
+character retains mobility/defensive skills. Player-facing text now **under-describes** realized
+behavior.
+
+**Disposition:** non-blocking follow-up, no dispatch fired. Carried in the dispatch ledger and to be
+folded into star-lord's next export-surface pass rather than fired as a standalone. It is a
+text-accuracy item, not a contract defect — no schema surface moves.
+
+## 10.5 One residual, INFO only, NOT reopening anything
+
+`tests/test_f8_hard_cc_consumer.py:186` (`test_acceptance_root_locks_movement_but_NOT_action`
+docstring) still cites *"ailment-layer spec §3/§4"* as root's authority. jack-ryan's C3 enumerated
+two sites for that citation correction — math note § 2 and `spatial_engine.py:547` — and **both are
+corrected**, so C3 is discharged as written. This is a **third copy the finding did not enumerate**,
+and it is the same failure shape as self-reported defect A (a correction pass leaving a stale copy
+in a location the pass did not enumerate). Zero behavioral impact; the test body is correct and the
+assertion is right. Fold into any next touch of that file. **Not a condition, not a reopen.**
+
+---
+
+**Closure verdict: CLEARED.** Conditions C1–C4 closed and verified; C5 routed to rocket; star-lord
+INFO logged. **The L0 no-CC test-character constraint is RETIRED as of this confirmation.** Push
+remains Matt-gated.
+
+**Signed:** knight-rider, 2026-07-25. Gate-2 closure confirmation per the finding's L0 ruling.
