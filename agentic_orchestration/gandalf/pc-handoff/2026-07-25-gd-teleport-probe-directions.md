@@ -209,14 +209,58 @@ take either on faith.
 **When you run § 4, watch the top-left word, not just the line.** Specifically:
 
 - Does `Pursue` appear at the **same instant** as the red line, or does one lead the other?
-- **Is there a word in between?** I am looking for a state called **`AlertBeforePursue`** —
-  it exists in the game's code and I believe it may be the "noticed you, hasn't committed yet"
-  state. You didn't list it, but you also weren't looking for it, so its absence proves
-  nothing. If you see *any* word appear between the peaceful state and `Pursue` — even for a
-  fraction of a second — **that word is the most valuable thing in this probe.** Write down
-  exactly what it says.
+- **Is there a word in between?** I am looking for **`AlertBeforePursue`** — and it is now
+  **confirmed to exist**, as entry #40 of the monster AI state list, with a full live class
+  behind it in the game's code. It is very likely the "noticed you, hasn't committed yet"
+  state. You didn't list it, but you also weren't looking for it, so its absence from your
+  notes proves nothing. If you see *any* word appear between the peaceful state and `Pursue` —
+  even for a fraction of a second — **that word is the most valuable thing in this probe.**
+
+  Note the spelling: the game writes these **without spaces**, e.g. `AlertBeforePursue`,
+  `RepositionForAttack`, `WaitToAttack`. (You wrote "Reposition for Attack" — that's entry #5,
+  `RepositionForAttack`. Same thing, confirmed in the binary, no mystery there.)
 - Does the sequence differ when you're **far** vs **close**? My expectation is that the
   in-between state, if it exists, is visible for noticeably longer at range.
+
+### 4b. One observation of yours that could destroy my whole reading — please re-check it
+
+You listed **`Walk`** as appearing in *either* position. But the full 40-entry monster AI list
+came back and **there is no `Walk` in it.** `Walk` exists only in the *other* table.
+
+If my "top-left is one layer, bottom-right is the other" reading is right, `Walk` in the
+top-left position should be **impossible**. So this single observation is the thing that can
+falsify the model I'm about to build the measurement protocol on.
+
+**Please just look again** and tell me which of these it is:
+1. `Walk` really does appear top-left sometimes → my two-layer reading is wrong, and I need to
+   know that *before* I spec anything.
+2. `Walk` only ever appears bottom-right, and it got grouped with `Idle` in the notes → the
+   model holds.
+3. The two labels aren't reliably top-left/bottom-right — they move, or there are more than
+   two → also important, and it changes what an OCR pipeline has to look for.
+
+**No wrong answer here and no need to be careful about it.** I would much rather find out my
+model is broken from a second look than from a protocol that quietly produces bad numbers.
+
+### 4c. A 60-second bonus test — do console-spawned monsters behave the same as real ones?
+
+The full state list contains **`FollowLeader`** and **`DefendLeader`**. That means GD monsters
+have a **pack hierarchy** — some monster is the leader and others behave relative to it.
+
+This matters because the experiment rig in § 1 wants to *spawn* monsters with `game.Spawn`, and
+a spawned monster may well arrive with **no pack and no leader** — in which case it is a
+different animal from the ones placed in the world, and measurements taken on it would not
+describe the game. I flagged that as a risk earlier; now it has a visible signature.
+
+**The test:** with `character.LogData true`, watch a **normal world pack** and see whether
+`FollowLeader` or `DefendLeader` ever appears in the top-left word. Then, later, do the same
+for a pack you spawned yourself.
+
+- If world packs show these states and spawned packs never do → **spawned monsters are
+  impoverished**, and the whole rig has to be built on world packs instead.
+- If both show them → spawning is safe and the rig is much more powerful.
+
+Either answer is worth having. If you only see world packs this session, that alone is useful.
 
 **Please try this once and report:**
 - **Does anger reset when you go invisible?** Specifically: let a monster aggro on you (red

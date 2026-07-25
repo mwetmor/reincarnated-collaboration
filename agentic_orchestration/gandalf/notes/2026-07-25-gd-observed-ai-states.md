@@ -3,7 +3,10 @@
 **Date:** 2026-07-25
 **Observer:** Matt, at the PC, empty-mod Custom Game, `character.LogData true`
 **Recorded by:** gandalf
-**Status:** PRIMARY OBSERVATION — first-hand, not derived. Binary cross-check in flight (legolas).
+**Status:** PRIMARY OBSERVATION — first-hand, not derived.
+**Binary cross-check RETURNED 2026-07-25** (legolas):
+`agentic_orchestration/research/knowledge/gd/2026-07-25-gd-ai-state-tables-complete.md`.
+See § 7 for what it confirmed, corrected, and reframed.
 
 ---
 
@@ -97,3 +100,120 @@ Matt's message, verbatim:
 > Can be seen when invisible: Idle, Walk
 > Can be seen when visible and nearby: Dying, Move, Attack
 > Can only be the top-left green word: Reposition for Attack, Pursue, Roam (both when visible or invisible)
+
+---
+
+## 7. Binary cross-check returned — the complete 40-entry table
+
+Source: `agentic_orchestration/research/knowledge/gd/2026-07-25-gd-ai-state-tables-complete.md`
+(legolas, `Game.dll` 5418372–5418812, count verified at exactly 40).
+
+```
+ 1 Idle              11 Dying             21 Confused          31 QuestWalk
+ 2 Startup           12 Return            22 Paralyze          32 QuestMove
+ 3 Attack            13 FollowLeader      23 Trapped           33 QuestUseSkill
+ 4 Pursue            14 Dead              24 Immobile          34 QuestPlayAnimation
+ 5 RepositionForAttack 15 NavigateObstacle 25 KnockedDown      35 TakeHit
+ 6 JumpAttack        16 DefendLeader      26 Stunned           36 GettingUp
+ 7 Roam              17 Charge            27 Scared            37 UseSkillOnPoint
+ 8 Flee              18 Move              28 Sleeping          38 UseSkillOnAlly
+ 9 WanderPause       19 Panic             29 WaitToAttack      39 Emote
+10 Wander            20 DodgeAttack       30 Patrol            40 AlertBeforePursue
+```
+
+### 7.1 What it CONFIRMED
+
+- **`AlertBeforePursue` is real** — entry #40, offset 5418812, with a full RTTI class
+  `ControllerMonsterStateAlertBeforePursue@GAME` carrying `OnBegin` / `OnUpdate` / `OnEnd`.
+  It is a live state, not a vestigial string.
+- **`RepositionForAttack` is entry #5** — not a fourth table. The spaced form Matt reported
+  does not exist in any binary; the states are CamelCase and he read it naturally. **The
+  "possible fourth table" worry is CLOSED.**
+- **The two tables are genuinely disjoint state machines, not one falling back to the other.**
+  Table 3 carries its own `Idle` (#1), `Attack` (#3), `Dying` (#11), `Move` (#18) as
+  independent entries. Seeing `Idle` at both overlay positions therefore means **both FSMs are
+  simultaneously in `Idle`** — two readings, not one echoed twice.
+
+### 7.2 What it CORRECTED — and it corrects me
+
+I pre-registered `AlertBeforePursue` as the answer to **KPI 2** (anger accumulation), on the
+reading that it is the state a monster occupies *while accumulating anger*. Anger accumulation
+is rate × time — a **timer**.
+
+Legolas found the class carries **its own `HandleEvent` override, which most states do not.**
+That is evidence the state is at least partly **event-driven**, which is not what a pure anger
+timer looks like.
+
+This does not destroy the hypothesis — `OnUpdate` can still run an anger timer while
+`HandleEvent` handles an interrupt. But it opens a second reading I had not considered:
+`AlertBeforePursue` may be the **distress-call response** state (KPI 5) — where a monster sits
+after hearing a neighbour's alert, before deciding whether to commit. `ChanceToRespondToDistressCall`
+is 75, i.e. a *decision*, and a decision made on receipt of an event is exactly what a
+`HandleEvent` override implements.
+
+**Most likely it is both**: entered on sight, running an anger timer, and additionally
+short-circuited to `Pursue` by an incoming distress event. If so it is the single most
+valuable state in the table, sitting on top of two of our five blocked KPIs.
+
+**Not banked.** Legolas states plainly that transition conditions cannot be determined from
+string extraction, and I am not filling that gap by inference. It is cheap to distinguish live
+and the live test is now in probe #2 § 4a.
+
+### 7.3 The ANOMALY that could falsify the two-layer model
+
+Matt reported **`Walk`** in *either* position. **Table 3 contains no `Walk`.** If top-left
+renders Table 3, `Walk` top-left is impossible.
+
+This is the one observation that can destroy the model, so it is the one worth re-checking
+before any protocol is built on it. Routed back to Matt as probe #2 § 4b, framed as three
+outcomes with no wrong answer. **Do not resolve this by assuming the observer misremembered** —
+that is the cheap resolution and it is the one that silently corrupts protocols.
+
+### 7.4 A SIXTH gap-register candidate — the combat-spacing cluster
+
+Four entries describe behaviour our simulation has no concept of whatsoever:
+
+| Entry | What it implies |
+|---|---|
+| **#5 `RepositionForAttack`** | monsters take up position rather than closing to contact |
+| **#29 `WaitToAttack`** | monsters *hold* rather than all committing at once |
+| **#20 `DodgeAttack`** | reactive evasion |
+| **#6 `JumpAttack`** | committed gap-closer as a distinct state |
+
+`WaitToAttack` is the structurally important one. A state whose entire job is *not attacking
+yet, while able to* is the signature of an **attack-token / turn-taking system** — the
+Arkham-lineage device that stops every engaged enemy swinging simultaneously. It is a large
+part of why a GD pack reads as a *group of fighters* rather than a blob converging on the
+player, and it is invisible to any parameter audit: TSF6-TRACK-A scored our pursuit distance
+at **+0.15% faithful** while the sim has no repositioning, holding, or dodging concept at all.
+**A perfect score on the parameters we model says nothing about the ones we don't.**
+
+### 7.5 A SEVENTH candidate — pack hierarchy
+
+**#13 `FollowLeader`** and **#16 `DefendLeader`** establish that GD packs have a **leader**.
+Our sim has no leader concept.
+
+This also converts a risk into a test. I registered earlier that console-spawned monsters may
+arrive without the pack association world-placed monsters carry — biasing KPI 4 (wander is
+anchor-relative) and KPI 5 (if pack membership gates distress response). That risk was
+unfalsifiable when raised. It now has a **visible signature**: if world packs show
+`FollowLeader`/`DefendLeader` and spawned packs never do, spawned monsters are impoverished and
+the experiment rig must be built on world packs. Added to probe #2 as § 4c.
+
+### 7.6 Other entries that map onto existing KPIs
+
+- **#12 `Return`** — the leash disengage has a name. KPI 3's end-event is now readable as text.
+- **#9 `WanderPause` / #10 `Wander` / #7 `Roam`** — three distinct idle-locomotion states where
+  we assumed one. `MaxTimeBeforeRoam` may be the `Idle`→`Roam` dwell, but `WanderPause` sitting
+  beside `Wander` suggests the idle loop has internal structure (move, pause, move) that a
+  single `WanderDistance` parameter does not capture.
+- **#8 `Flee` / #19 `Panic` / #27 `Scared`** — three distinct fear states against our one
+  `fleeDistance`. The flee-on-low-HP gap is probably larger than "add an HP trigger."
+
+### 7.7 Standing coverage boundary (D-a)
+
+Legolas's declared boundary, carried forward: **the transition conditions for
+`AlertBeforePursue` cannot be determined from string extraction.** The binary establishes the
+class is live and event-responsive; it does not establish when it is entered. Resolving that
+requires either disassembly of `OnBegin`/`OnUpdate`/`HandleEvent` or a live measurement
+protocol. **Live measurement is the cheaper path and is now specced.**
