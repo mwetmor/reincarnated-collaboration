@@ -2,7 +2,17 @@
 
 **Author:** gandalf (CANON-STEWARD / DRIFT-CRITIC)
 **Date:** 2026-07-24
-**Status:** PROPOSED — awaiting Matt ruling on scope, then jack-ryan ratification
+**Status:** ✓ **RULED REFRAME (Matt, 2026-07-24)** — text sites (§ 5a) EXECUTED same session;
+disciplines D-a/D-b (§ 5b) + the TSR-4 coverage tier (§ 5c) routed to jack-ryan for
+ratification at `agentic_orchestration/qa/pending/2026-07-24-gandalf-true-sources-reframe-ratification.md`.
+BROADEN (§ 6) parked for its own charter.
+
+**Post-ruling addendum — a second worked example, ours.** The Edition-II diff found that our
+own Edition-I freeze silently omitted `survivalmode2/resources/text_en.arc` (case-sensitive
+`find`), while its 11/11 SHA-256 verification passed cleanly — a value-level check blind to a
+missing population, committed in the same session this proposal was drafted. Left unrepaired
+and annotated as the discipline's best evidence. See
+`2026-07-24-gd-edition-I-freeze-fingerprint.md` § 5 and `2026-07-24-gd-edition-II-cut-record.md` § 5.
 **Evidence:** `agentic_orchestration/research/knowledge/gd/2026-07-24-rank-array-adjudication.md` (legolas)
 **Trigger:** Matt asked whether grimtools had simply been updated for the new DLC ahead of us.
 

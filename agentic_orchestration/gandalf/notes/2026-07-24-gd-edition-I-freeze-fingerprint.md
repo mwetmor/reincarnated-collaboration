@@ -25,7 +25,7 @@ The source directory is **untouched** — this is an additive copy, not a move.
 | Included | Size | Why |
 |---|---|---|
 | All `*.arz` (6 files) | 139 MB | The primary source. Everything the GD adapter consumes. |
-| All `Text_EN.arc` (5 files) | 900 KB | Localization tag-bridge. Currently PENDING in the adapter (`name_provenance` flag) — skill display names are localization tags in the `.arz`, resolvable only here. Frozen now so the bridge can be built later against the same edition. |
+| All `Text_EN.arc` (5 files — **CORRECTION: should have been 6, see § 5**) | 900 KB | Localization tag-bridge. Currently PENDING in the adapter (`name_provenance` flag) — skill display names are localization tags in the `.arz`, resolvable only here. Frozen now so the bridge can be built later against the same edition. |
 | `.DepotDownloader/` manifests | ~1 MB | The version pin. See § 4. |
 
 **Excluded:** ~9.7 GB of art/asset `.arc` archives and the Windows binaries. Nothing in
@@ -85,6 +85,20 @@ label originally recorded here):** `897670` = gdx2 / Forgotten Gods main content
 `897671` = gdx2 Crucible / SurvivalMode2. No longer an inference.
 
 ## 5. Known gaps in this edition (recorded, not fixed)
+
+- **COVERAGE GAP IN THIS FREEZE — found 2026-07-24 by the Edition-II diff, not by any check
+  in this document.** `survivalmode2/resources/text_en.arc` (2,048 bytes) exists in the
+  source directory and is **absent from this freeze**. Cause: the freeze's `find` used
+  case-sensitive `-name "Text_EN.arc"`; this one file ships lowercase. § 2 claims "All
+  `Text_EN.arc` (5 files)" — it was 5 of 6.
+  **The 11/11 SHA-256 verification could not have caught this**, because it verified the
+  files collected, not the files that exist. Value-level checks are blind to missing
+  populations — the exact hazard named as discipline **D-a (coverage-boundary declaration)**
+  in `2026-07-24-true-sources-founding-evidence-canon-change-proposal.md § 5b`, committed here
+  in our own artifact in the same session the discipline was drafted.
+  **Not repaired by re-cutting.** The file is a 2 KB stub carrying nothing the pipeline reads,
+  and Edition-II carries it. Repairing the bytes would erase the worked example; the record
+  is worth more than the stub. Edition-I remains an 11-file snapshot with a declared boundary.
 
 - **`templates/` absent.** Zero `.tpl` files in the depot. The 2026-07-23 probe expected
   them "alongside `database/`". Every `.arz` record references a template by path via

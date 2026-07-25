@@ -1,7 +1,12 @@
 # Matt to-do — Grim Dawn Edition-II depot fetch (Steam-authenticated)
 
 **Raised:** 2026-07-24 by gandalf
-**Status:** READY TO RUN — depot verification complete (legolas, 2026-07-24). Awaiting Matt.
+**Status:** ✓ **DONE 2026-07-24.** Matt ran it; fetch succeeded on the first invocation.
+The closing `find` errored only because `DST` was unset in the `bash` subshell (typed during
+shell startup), so DepotDownloader fell back to its default `~/depots/` layout. gandalf
+assembled `/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/`. **Outcome + the
+manifest-identity finding: `agentic_orchestration/gandalf/notes/2026-07-24-gd-edition-II-cut-record.md`.**
+Kept for lineage — the two-invocation correction below is what made the fetch complete.
 **Why only Matt:** Steam blocks anonymous manifest requests for paid content.
 DepotDownloader prompts interactively for password + Steam Guard. An agent cannot
 execute this, and an agent that *could* would be a credential-handling surface we

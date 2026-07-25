@@ -1,0 +1,192 @@
+Last login: Fri Jul 24 18:17:08 on console
+admin@Matthews-Mac-mini ~ % bash
+DST=/Users/admin/Games/vendor/grim-dawn-edition-II-20260724
+mkdir -p "$DST"
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ cat > /tmp/gd-filelist.txt <<'EOF'
+> regex:.*\.arz$
+> regex:.*Text_EN\.arc$
+> EOF
+bash-3.2$ cat > /tmp/gd-filelist.txt <<'EOF'
+> regex:.*\.arz$
+> clear
+> 
+> 
+> regex:.*Text_EN\.arc$
+> EOF
+bash-3.2$ cat > /tmp/gd-filelist.txt <<'EOF'
+> regex:.*\.arz$
+> regex:.*Text_EN\.arc$
+> EOF
+bash-3.2$ depotdownloader -app 219990 \
+>   -username mhwetmore -os windows \
+>   -filelist /tmp/gd-filelist.txt \
+>   -dir "$DST"
+Using filelist: '/tmp/gd-filelist.txt'.
+Account "mhwetmore" has stored credentials. Did you forget to specify -remember-password?
+Enter account password for "mhwetmore": *********
+Connecting to Steam3... Done!
+Logging 'mhwetmore' into Steam3...
+ Done!
+Using Steam3 suggested CellID: 12
+Got 37 licenses for account!
+Got AppInfo for 219990
+Using app branch: 'public'.
+Got AppInfo for 228980
+Got depot key for 228983 result: OK
+Got depot key for 228984 result: OK
+Got depot key for 228985 result: OK
+Got depot key for 228986 result: OK
+Got depot key for 228990 result: OK
+Got depot key for 229003 result: OK
+Got depot key for 219991 result: OK
+Depot 441580 is not available from this account.
+Depot 450612 is not available from this account.
+Got depot key for 483840 result: OK
+Got depot key for 642280 result: OK
+Got depot key for 642281 result: OK
+Got depot key for 897670 result: OK
+Got depot key for 897671 result: OK
+Got depot key for 2699230 result: OK
+Got depot key for 2699231 result: OK
+
+Processing depot 228983
+Downloading depot 228983 manifest
+Got manifest request code for depot 228983 from app 228980, manifest 8124929965194586177, result: 9099269791057131878
+Manifest 8124929965194586177 (10/10/2013 21:06:22)
+Processing depot 228984
+Downloading depot 228984 manifest
+Got manifest request code for depot 228984 from app 228980, manifest 2547553897526095397, result: 13878350982232201002
+Manifest 2547553897526095397 (04/11/2017 18:18:48)
+Processing depot 228985
+Downloading depot 228985 manifest
+Got manifest request code for depot 228985 from app 228980, manifest 3966345552745568756, result: 10358760594991122509
+Manifest 3966345552745568756 (04/11/2017 18:18:50)
+Processing depot 228986
+Downloading depot 228986 manifest
+Got manifest request code for depot 228986 from app 228980, manifest 8782296191957114623, result: 1496741339884564543
+Manifest 8782296191957114623 (12/14/2018 01:06:36)
+Processing depot 228990
+Downloading depot 228990 manifest
+Got manifest request code for depot 228990 from app 228980, manifest 1829726630299308803, result: 4683477197923175065
+Manifest 1829726630299308803 (02/18/2013 21:47:57)
+Processing depot 229003
+Downloading depot 229003 manifest
+Got manifest request code for depot 229003 from app 228980, manifest 8740933542064151477, result: 15837373929168364991
+Manifest 8740933542064151477 (10/10/2013 21:06:37)
+Processing depot 219991
+Downloading depot 219991 manifest
+Got manifest request code for depot 219991 from app 219990, manifest 8006922163969537169, result: 13755624521172455617
+Manifest 8006922163969537169 (07/23/2026 02:59:09)
+Processing depot 483840
+Downloading depot 483840 manifest
+Got manifest request code for depot 483840 from app 219990, manifest 4219096235914851781, result: 10974357024955569587
+Manifest 4219096235914851781 (07/23/2026 02:56:45)
+Processing depot 642280
+Downloading depot 642280 manifest
+Got manifest request code for depot 642280 from app 219990, manifest 2275863479823292335, result: 4649747831626585892
+Manifest 2275863479823292335 (07/23/2026 02:56:59)
+Processing depot 642281
+Downloading depot 642281 manifest
+Got manifest request code for depot 642281 from app 219990, manifest 1006721765621603920, result: 17220298938835265520
+Manifest 1006721765621603920 (07/09/2026 20:14:13)
+Processing depot 897670
+Downloading depot 897670 manifest
+Got manifest request code for depot 897670 from app 219990, manifest 4804720554373426689, result: 16413096842635471038
+Manifest 4804720554373426689 (07/23/2026 02:57:27)
+Processing depot 897671
+Downloading depot 897671 manifest
+Got manifest request code for depot 897671 from app 219990, manifest 2984427886892515994, result: 16687040811472271005
+Manifest 2984427886892515994 (07/23/2026 02:57:40)
+Processing depot 2699230
+Downloading depot 2699230 manifest
+Got manifest request code for depot 2699230 from app 219990, manifest 1575323658468418166, result: 16175653189803665851
+Manifest 1575323658468418166 (07/23/2026 03:00:32)
+Processing depot 2699231
+Downloading depot 2699231 manifest
+Got manifest request code for depot 2699231 from app 219990, manifest 2924790412415164930, result: 13055086608404870290
+Manifest 2924790412415164930 (07/23/2026 03:01:19)
+Downloading depot 228983
+Depot 228983 - Downloaded 0 bytes (0 bytes uncompressed)
+Downloading depot 228984
+Depot 228984 - Downloaded 0 bytes (0 bytes uncompressed)
+Downloading depot 228985
+Depot 228985 - Downloaded 0 bytes (0 bytes uncompressed)
+Downloading depot 228986
+Depot 228986 - Downloaded 0 bytes (0 bytes uncompressed)
+Downloading depot 228990
+Depot 228990 - Downloaded 0 bytes (0 bytes uncompressed)
+Downloading depot 229003
+Depot 229003 - Downloaded 0 bytes (0 bytes uncompressed)
+Downloading depot 219991
+Pre-allocating depots/219991/24346246/resources/Text_EN.arc
+Pre-allocating depots/219991/24346246/database/database.arz
+ 13.28% depots/219991/24346246/resources/Text_EN.arc
+100.00% depots/219991/24346246/database/database.arz
+Depot 219991 - Downloaded 5274800 bytes (58808737 bytes uncompressed)
+Downloading depot 483840
+Pre-allocating depots/483840/24346246/mods/survivalmode/database/SurvivalMode.arz
+Pre-allocating depots/483840/24346246/mods/survivalmode/resources/Text_EN.arc
+ 89.22% depots/483840/24346246/mods/survivalmode/resources/Text_EN.arc
+100.00% depots/483840/24346246/mods/survivalmode/database/SurvivalMode.arz
+Depot 483840 - Downloaded 655296 bytes (7060593 bytes uncompressed)
+Downloading depot 642280
+Pre-allocating depots/642280/24346246/gdx1/resources/Text_EN.arc
+Pre-allocating depots/642280/24346246/gdx1/database/GDX1.arz
+ 97.54% depots/642280/24346246/gdx1/resources/Text_EN.arc
+100.00% depots/642280/24346246/gdx1/database/GDX1.arz
+Depot 642280 - Downloaded 3391280 bytes (42594822 bytes uncompressed)
+Downloading depot 642281
+Pre-allocating depots/642281/24346246/survivalmode1/database/SurvivalMode1.arz
+Pre-allocating depots/642281/24346246/survivalmode1/resources/Text_EN.arc
+ 85.29% depots/642281/24346246/survivalmode1/resources/Text_EN.arc
+100.00% depots/642281/24346246/survivalmode1/database/SurvivalMode1.arz
+Depot 642281 - Downloaded 209712 bytes (2461428 bytes uncompressed)
+Downloading depot 897670
+Pre-allocating depots/897670/24346246/gdx2/resources/Text_EN.arc
+Pre-allocating depots/897670/24346246/gdx2/database/GDX2.arz
+ 38.45% depots/897670/24346246/gdx2/resources/Text_EN.arc
+100.00% depots/897670/24346246/gdx2/database/GDX2.arz
+Depot 897670 - Downloaded 3178592 bytes (33344654 bytes uncompressed)
+Downloading depot 897671
+Pre-allocating depots/897671/24346246/survivalmode2/resources/text_en.arc
+Pre-allocating depots/897671/24346246/survivalmode2/database/SurvivalMode2.arz
+ 00.09% depots/897671/24346246/survivalmode2/resources/text_en.arc
+100.00% depots/897671/24346246/survivalmode2/database/SurvivalMode2.arz
+Depot 897671 - Downloaded 183584 bytes (2353616 bytes uncompressed)
+Downloading depot 2699230
+Pre-allocating depots/2699230/24346246/gdx3/resources/Text_EN.arc
+Pre-allocating depots/2699230/24346246/gdx3/database/GDX3.arz
+ 95.59% depots/2699230/24346246/gdx3/resources/Text_EN.arc
+100.00% depots/2699230/24346246/gdx3/database/GDX3.arz
+Depot 2699230 - Downloaded 4088336 bytes (47525742 bytes uncompressed)
+Downloading depot 2699231
+Pre-allocating depots/2699231/24346246/survivalmode3/resources/Text_EN.arc
+Pre-allocating depots/2699231/24346246/survivalmode3/database/SurvivalMode3.arz
+ 73.26% depots/2699231/24346246/survivalmode3/resources/Text_EN.arc
+100.00% depots/2699231/24346246/survivalmode3/database/SurvivalMode3.arz
+Depot 2699231 - Downloaded 364576 bytes (3921932 bytes uncompressed)
+Total downloaded: 17346176 bytes (198071524 bytes uncompressed) from 14 depots
+Disconnected from Steam
+bash-3.2$ depotdownloader -app 2699230 \
+>   -username mhwetmore -os windows \
+>   -filelist /tmp/gd-filelist.txt \
+>   -dir "$DST"
+Using filelist: '/tmp/gd-filelist.txt'.
+Account "mhwetmore" has stored credentials. Did you forget to specify -remember-password?
+Enter account password for "mhwetmore": *********
+Connecting to Steam3... Done!
+Logging 'mhwetmore' into Steam3...
+ Done!
+Using Steam3 suggested CellID: 12
+Got 37 licenses for account!
+Got AppInfo for 2699230
+Using app branch: 'public'.
+Couldn't find any depots to download for app 2699230
+Disconnected from Steam
+bash-3.2$ find "$DST" -name "*.arz" | sort
+find: : No such file or directory
+bash-3.2$ 
