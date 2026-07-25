@@ -203,7 +203,7 @@ itself inside one tool, and it is the single most likely winner of the whole pro
 | ~~L1~~ | T1 × (i) | W-INC / T / H | — | **CLOSED** — H won; W-INC has no create primitive; T failed silently |
 | ~~**L2**~~ | T1 × (i) — CALIBRATION | W-PRO | none | **CLOSED 2026-07-24 — Pro is an EXECUTOR.** See below |
 | ~~**L3**~~ | standup | **W-MUR** | — | **CLOSED 2026-07-25 — PASS.** All six exit items. **W→H proven with a picture; Murzak runs fully headless.** See below |
-| **L4** | **T2 × (i)** | W-PRO · W-MUR · H control | L3 for the three-way | next |
+| **L4** | **T2 × (i)** | W-PRO · W-MUR · H control | none — L3 cleared it | **CHARTERED 2026-07-25** — `2026-07-25-tcp-l4-expansion-bakeoff-charter.md`. Three sequential dispatches **W-MUR → W-PRO → H**. **Chartered over its conductor's objection (TCP-22)** |
 | **L5a/b** | **T4-UI × (i)** then **× (ii)** | W-PRO · W-MUR · H control | L3 | **no new harness needed** |
 | **L6a/b** | **T3 × (i)** then **× (ii)** | field | **the STORY session** (Q44 deferred there 2026-07-24) | **blocked on story, not on tooling** |
 | **L7a/b** | **T4-VFX × (i)** then **× (ii)** | field + `Godot-AI-Particles` + Pro's `create_particles` | motion harness — **and L2 found Pro ships `record_frames`/`replay_recording`/`compare_screenshots`**, so TCP-8 needs re-examining: if we borrow it we score capture rigs, but it may be worth one lap to learn what the shape should be | blocked |
@@ -315,6 +315,8 @@ Pre-registered:
 
 ### L4 — T2 EXPANSION: the first lap the wire can genuinely win
 
+**CHARTERED 2026-07-25** — full charter at `2026-07-25-tcp-l4-expansion-bakeoff-charter.md`.
+
 Existing scene, bounded modification, **no measurement needed** (constants already derived), **few
 calls**. Every structural disadvantage the wire carried in L1 is absent. If MCP loses here it loses
 everywhere; if it wins here that is the shape of its real job.
@@ -324,6 +326,16 @@ failure class by construction** — orientation is an enum index on an integer g
 `Transform3D` basis, so the transpose trap is unrepresentable. If true, GridMap is not a convenience;
 it is a *correctness* property, and it is the first thing in the program that beats H on something
 other than speed.
+
+**The two axes that earn the lap** — and neither has ever been measured here:
+
+- **P-2, NON-DESTRUCTION.** L2 found a **Pro-authored** scene does not round-trip through Pro:
+  `add_scene_instance` calls `set_owner_recursive`, so internal nodes save owned *and* re-instance on
+  reload, colliding and renaming. **Whether Pro damages a scene it did NOT author is untested** —
+  and expansion structurally requires exactly that. Replica laps cannot ask this question.
+- **P-5, ITERATION COUNT.** Every lap so far proxied "best at building" with **wall-clock**. None
+  counted **author→look→fix cycles to land a spec**. That is the actual axis, and L4 is the first lap
+  that counts it.
 
 ### L5 — T4-UI first, before VFX
 
@@ -404,6 +416,7 @@ the declared interface had put his eyes only at the finish.
 | **TCP-20** | **The blast-radius predicate was STRUCTURALLY BLIND, and it was my charter's defect.** L3b §4.4 made *"clean `git status` including untracked"* the proof that the product repo was unharmed — of a repo whose **entire 18 GB of value is gitignored** under the Synty license rule. The same charter then prescribed P-E's **symlink**, which would have written `.import` rewrites into exactly that blind spot, while making writes to that tree a HALT. **A self-contradicting predicate: it forbade an act it also instructed, and could not have detected it.** drax substituted a copy at the mirrored path (1 s) and verified four ways including a **2494-file fingerprint. That fingerprint becomes STANDING** — answering drax's second escalation: **any lap touching a repo with gitignored payload takes a file-count + fingerprint of the ignored tree before and after; `git status` alone is not a blast-radius predicate there.** Generalized: *a verification predicate must cover the surface that carries the value, not the surface that happens to be tracked* | gandalf, veto-open |
 | **TCP-21** | **L-K gains its converse, because the law was one near-miss from becoming a paranoia generator.** L3b almost filed a sixth L-K instance: a mesh assignment looked like textbook silent failure and was **a missing `scene-save` — operator error, not instrument mendacity.** One tracked relaunch exonerated the tool. **Amendment: an L-K instance requires BOTH that the tool reported success AND that the operation was correctly invoked.** Without the second clause a law meant to catch lying instruments starts convicting innocent ones, and a program that mis-attributes its failures is worth less than one that has none — mis-attribution is the *only* failure this program calls real (L-G). drax's own words are the rule: **"the independent read exonerates as well as convicts."** | gandalf, veto-open |
 | **TCP-16** | **H2 disposition (not a Matt call).** R2's flat cream floor is **accepted as a lap artifact** — an experimental room that will never ship. Program consequence: dressing selection must verify **measured texture presence**, not merely a valid material slot (L-K instance #3, and L2 found it one level deeper: the FBX carry **2 surfaces** while `set_material_3d` is single-surface, and **no tool reports a surface count**) | gandalf, veto-open |
+| **TCP-22** | **A CONFIDENT FORECAST IS NOT A SUBSTITUTE FOR A LAP — Matt overruled the conductor, and was right to.** After L3 closed I recommended **cancelling L4's three-way** and promoting L5, on the argument that the outcome was already known: the wire is a feedback loop, H is the builder, and expansion would show it again. Matt: *"Maybe you know how it ends but I want to see the requested bake off."* **My entire case was a prediction — inside a program whose founding discipline is that predictions are PRE-REGISTERED AND THEN MEASURED.** My prediction record here is **five wrong generalizations**, four of them mine: the 114 ms latency constant (twice), *"the wire will never carry assembly,"* *"Pro has no gridmap"* (77 documented vs 175 live), and the scratch-clone premise falsified by its own recon. **The standing rule: the conductor may recommend cancelling a lap, but a lap whose only argument for cancellation is the conductor's forecast of its result is a lap that MUST run.** Cancelling on forecast is the program grading its own homework. L4 is chartered, and its §0 records this as its reason for existing | **Matt, ruling over gandalf's recommendation** |
 
 ---
 
