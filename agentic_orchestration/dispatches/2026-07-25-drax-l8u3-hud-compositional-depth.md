@@ -328,8 +328,16 @@ was right and its conclusion was wrong; *un-tintable by `modulate`* ≠ *un-tint
 consecutive lap in which the executor overturned his own prior ruling by measurement. Honest ceiling
 beside it: `Orb_03` / `Orb_06` have no closed annulus and cannot host a fill.
 
-**Ceilings: seven**, the flat one being `kit3/font/` **EMPTY** — the kit ships no typeface, so Matt's
-"dark fantasy fonts" item is a purchase, not an authoring pass. **Six new HALTs to Matt.**
+**Ceilings: seven.** ⚠ **Conductor correction, and it is L-Q again within the hour:** I saw
+`kit3/font/` empty and wrote *"the fonts item is a purchase."* **It is not.** C-2 is real — zero
+`.ttf`/`.otf`/`.fnt` anywhere in `recent-synty-packs/` — but it was solved at **no cost** from
+`polygon-interface-fantasy-menus`, same vendor, same family, **already owned via
+`reincarnated-godot/`**, each font under its own OFL. ★ **The pack boundary is not the asset
+boundary.** Genuinely unsolved: **C-1** player portrait (a complete portrait rig and zero faces),
+**C-5** discrete-economy pips (the only un-arted element left on screen), **C-6** graded rank marks,
+**C-7** a soft minimap facing beam (`Map_ViewCone_01` is α 1.0 over 49% of its canvas with no falloff).
+**Six new HALTs (H-7…H-12)** — two of which are story questions wearing HUD clothes: what the portrait
+DEPICTS under body-swap, and what the level number COUNTS.
 
 **Exit predicate:** met, and independently confirmed by the conductor — substrate
 `d45db0f5…de1966` at `-r--r--r--`; arms 1+2 intact (40 PNG in `out2/`); `AB3_full_critical.png`

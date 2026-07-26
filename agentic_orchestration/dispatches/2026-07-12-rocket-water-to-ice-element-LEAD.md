@@ -82,3 +82,47 @@ N/A for numerics (no resistance/pool-probability change — Law 6). But the INT-
 
 ## Completion record
 _(append: census result, normalizer location + contract, gandalf-review surfaces held/cleared, `rime` flag, INT-pool note, smoke result, MIGRATION.md path, tag, notes for jack-ryan Gate-2)_
+
+### rocket completion — 2026-07-12
+
+**Commit:** `2ae665b` (50 files) · **Tag:** `rocket/v2.7-water-to-ice-element-1` · **Auto-committed, NOT pushed** (KR owns wave push).
+**Path correction:** config lives at repo-root `config/` (NOT `src/reincarnated/config/`); the dispatch's `src/reincarnated/config/` path is wrong — `config/` is authoritative (verified via `foundation/config_loader.py`).
+
+#### Census result (substrate-vs-slot classification)
+Full-repo `grep -w water` census of my seams (generation/element/anchor/foundation/canonical): **109 `.py` hits + config + data + tests.** Classified:
+- **RENAMED → `ice` (SUBSTRATE-ELEMENT display layer):** config/elements.yaml, config/substrate_identities/water.yaml→ice.yaml (+ fire/holy/shadow reciprocal refs), config/ailments.yaml (chill desc + comment); `foundation.py CANONICAL_SUBSTRATES`, `color_spectrum.ELEMENT_COLOR_RANGES` key, `substrate_identity_loader` comments; `season_generation_pipeline STAT_ELEMENT_POOLS/_ALL_8`; `element_biases` (2 dict keys), `element_application_binder`, `geometry_derivation` (branches + `_water_geometry`→`_ice_geometry`), `bc_target_source` (`_FIRE_ICE..` const+branch), `bc_target_player_class`/`typed_monster_skills`/`kit_space_schema` (canonical-8 lists), `substrate_templates`(10)/`endgame_encounter_catalog`(6)/`companion_generation` (`element=`/`preferred_element=`/`dominant_element` literals), `mechanic_alteration`(2), `gear_generation`/`gear_catalog`/`keystone_loadout_materializer` (name-flavor + resistance-vector keys), `bc_target_substrate_engine`/`substrate_weapon_binding`/`phase5_skill_naming`/`phase5_t4_narration` (naming-vocab dict KEYS), `phase5_pm1_multimodal_clustering._ELEMENT_MAP` (ordinal key, value 0.143 kept), `kit_architecture` (merged redundant water key into ice; value refs), canonical `library_generator`/`emit_substrate_registry` (doc strings). anchor/ = **0 hits.**
+- **LEFT `water` (CANONICAL-FOUR SLOT-ROUTING, Discipline #14):** `element/selector.py` ENTIRELY (VALID_SLOTS, ~18 water_slot/water_sel JSON keys, _SLOT_TO_GROUPING, Q7 audit refs) · `element/schema.py` ENTIRELY (water_slot structural emitted-kit field) · `data/seasonal_elements/pool.json` (41 primary_slot + 14 substrate_native — provenance mirroring primary_slot, zero display consumer) · `bc_target_composer.py:858` (slot-layer comment "slots from selector.py").
+- **LEFT `water` (read-compat legacy detection nets — documented):** regex/keyword superset bags in `bc_target_substrate_engine` (element regex), `synergy_scan_layer7` (element_seeds), `substrate_weapon_binding`/`phase5_skill_naming` (keyword bags) — so historical water-named text still classifies to `ice`.
+- **No ambiguous hits required KR escalation** — every hit classified cleanly against the two-layer rule.
+
+#### Normalizer RULE + location
+`src/reincarnated/element/MIGRATION.md` [2026-07-12] entry. RULE `elem_rekey_water_to_ice`: on reading a persisted **substrate-element display VALUE** = `"water"` from any historical artifact, normalize → `"ice"` before canonical-set comparison / forward emit. Scope guards: NEVER normalize slot-routing keys (water_slot/primary_slot/slots-dict-keys); NEVER rewrite the on-disk artifact; leave read-side detection-net water tokens. **One RULE, applied at three genuinely-different boundaries** (rocket element-load / gamora fight-log+telemetry read / star-lord export-bundle+telemetry read) — documented so all three apply it identically; not forced into one shared function.
+
+#### gandalf-review register surfaces (DRAFTED, HELD — route via KR before Gate-2)
+1. `config/elements.yaml` ice entry: `theme_tags: [cold, preservation, stillness]` (flow/depth retired; preservation carried); `display: Ice`; `color_range [560000,700000]` KEPT.
+2. `config/substrate_identities/ice.yaml`: identity content pass (cosmological_commitment → state-change-by-cold/preservation/stillness; court_resonance → Frostbinders; iconic_verbs submerges→encases; telegraph/dodge comment prose). Mechanical identity UNCHANGED (suffusion grouping, chill ailment, SUSTAINED_PRESENCE pillar, geometry/role affinities, windup/i-frame params).
+3. `config/ailments.yaml` chill: description → "the cold/freeze register". **Params UNTOUCHED (Law 6).**
+4. `config/substrate_identities/fire.yaml`: `forbidden_hybrid_with: [ice]` (functional-required for cross-declaration validation) + i-frame comment. holy/shadow prose comments.
+5. `canonical/library_generator.py`: "Tide Shroud"→"Frost Shroud" example; ELEMENT_COLOR_HINTS blue/cyan kept.
+
+#### INT-pool note (design reading of record)
+`STAT_ELEMENT_POOLS["INT"] = ["fire", "ice", "lightning", "shadow"]` — the classic mage quartet (Matt-noted). Documented in MIGRATION as a design reading, not a numeric change. DEX 8-pool + `_ALL_8_ELEMENTS` are pure string swaps.
+
+#### `rime` flag (Matt one-word call — NOT self-decided, NOT blocking)
+`rime` (D1 vocab pool, demoted allow-list→eligible 2026-05-12 under *water* register) is register-coherent under *ice*. Re-promotion is a Matt call. Flagged in MIGRATION §"Open Matt-decision item". Did not touch pool.json.
+
+#### Smoke result
+- Config loads clean: ice element (display Ice, ailment chill, theme [cold,preservation,stillness], grouping suffusion).
+- **Zero-numeric-drift PROVEN:** ice inherits water's exact numerics (color band 560000–700000, ailment chill, scaling intelligence, resistance_type percentage, dodge_iframes 0.35, windup 0.7); chill params byte-unchanged (slow 0.2–0.5, duration 2.0–5.0). Only the element key string differs.
+- **leg2 primary-T4 route smoke: 14/14 GREEN, `S2_non_summoner_byte_identical: true`** — including the `ice` corpus row (byte-identical off the route).
+- My-seam tests (per-file isolated): green except **7 PRE-EXISTING failures** in test_foundation(4)/test_substrate_identity_loader(2)/test_d2_substrate_coupling(1) — all canonical-7-config-vs-stale-canonical-4-count assertions, **PROVEN identical on HEAD via git-stash** (NOT this rename; predate this wave). Updated substrate-element `water`→`ice` in ~14 test files; LEFT slot-layer (VALID_SLOTS/water_slot) test assertions untouched.
+
+#### MIGRATION path + tag
+`src/reincarnated/element/MIGRATION.md` [2026-07-12] · tag `rocket/v2.7-water-to-ice-element-1`.
+
+#### Notes for jack-ryan Gate-2 (scrutinize)
+1. **star-lord export normalizer is REQUIRED and surfaced:** `tests/test_one_realm_bundle_assembler.py::test_season_000001_generates_nonzero_pool` now FAILS with `KeyError: Unknown element: water` — a HISTORICAL season_000001 catalog is read by `export/one_realm_bundle_assembler.py::generate_gear_pool_from_catalog` (STAR-LORD's seam) and hits the ice-only pipeline. This is the intended serialization — star-lord must apply `elem_rekey_water_to_ice` at that catalog read. NOT patched by rocket (export/ is not my seam). Flag to star-lord via KR.
+2. **gamora-lockstep smoke:** `generation/notes/typed_resistance_roundtrip_smoke_2026_06_21.py` asserts on the resistance_matrix `water` key (gamora's rename target) — LEFT `water` deliberately; must be rekeyed IN LOCKSTEP with gamora's `resistance_matrix` element-KEY rename to avoid breaking mid-serialize.
+3. **elrond CHECK constraint:** `kit_space_schema.CANONICAL_ELEMENTS_LOWERCASE` now emits `ice` — verify elrond's shadow-table element CHECK constraint accepts `ice` (elrond `elem_raw` note already filed provenance-only).
+4. **Pre-existing test debt (NOT mine):** the 7 canonical-count failures + the grouping-layer-vocabulary.md doc-path RuntimeError (any test importing `llm.naming` fails on a missing collaboration-repo doc; star-lord/env issue) both pre-date this wave — proven on HEAD.
+5. Register surfaces (item list above) are gandalf-review-BEFORE-Gate-2 per dispatch Law 4.
