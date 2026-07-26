@@ -1,0 +1,422 @@
+{
+  "capability": "C4 nameplate OCR (E4)",
+  "generated": "2026-07-26T14:08:40.531Z",
+  "method_law": "colour/luminance mask on native-resolution pixels; 8x/16x nearest upscale of the binary mask for OCR only",
+  "engines": {
+    "text_lines": "tesseract.js frk (Fraktur) psm 7",
+    "level_numeral": "tesseract.js eng psm 8, whitelist 0-9"
+  },
+  "truth": {
+    "name": "Walking Dead",
+    "level": 6,
+    "third": "Aether Corruption"
+  },
+  "finding_calibration_n": "Protocol § 4.4 lists 6 zombie trial frames as the E4 calibration source. Only the 3 *_start frames carry a nameplate; the 3 *_end frames have none (target cleared on death). n = 3, not 6.",
+  "nameplate_presence_detection": {
+    "detected_present": [
+      "t1s",
+      "t2s",
+      "t3s"
+    ],
+    "detected_absent": [
+      "t1e",
+      "t2e",
+      "t3e"
+    ],
+    "correct": true,
+    "detector": "target-frame gold chrome pixel count in {\"left\":870,\"top\":52,\"width\":200,\"height\":16} >= 150",
+    "counts": {
+      "t1s": 396,
+      "t1e": 0,
+      "t2s": 400,
+      "t2e": 0,
+      "t3s": 405,
+      "t3e": 0
+    }
+  },
+  "name_line": {
+    "n": 3,
+    "exact": 1,
+    "normalized_exact": 2,
+    "mean_cer": 0.1111111111111111
+  },
+  "level_numeral": {
+    "n": 3,
+    "exact": 3
+  },
+  "third_line": {
+    "n": 3,
+    "exact": 0,
+    "normalized_exact": 0,
+    "mean_cer": 0.0588235294117647
+  },
+  "rank_calibration": {
+    "classes_with_a_calibration_source": [
+      "normal"
+    ],
+    "classes_without": [
+      "champion",
+      "hero",
+      "boss"
+    ],
+    "normal_ink_rgb_samples": [
+      {
+        "frame": "t1s",
+        "rgb": [
+          221,
+          227,
+          225
+        ]
+      },
+      {
+        "frame": "t2s",
+        "rgb": [
+          230,
+          231,
+          230
+        ]
+      },
+      {
+        "frame": "t3s",
+        "rgb": [
+          214,
+          222,
+          216
+        ]
+      }
+    ],
+    "note": "Protocol § 2.1 item 8 (the three rank tooltips) remains the only calibration blocker. One class does not make a classifier."
+  },
+  "frames": [
+    {
+      "frame": "t1s",
+      "source": "zombie-01-start.png",
+      "nameplate_present_detected": true,
+      "chrome_gold_px": 396,
+      "ink_pixels": {
+        "name": 1051,
+        "third": 501,
+        "level": 61
+      },
+      "rank_feature_mean_ink_rgb": [
+        221,
+        227,
+        225
+      ],
+      "name": {
+        "ocr": "Walking Dead!",
+        "confidence": 80,
+        "exact": false,
+        "normalized_exact": true,
+        "cer": 0.08333333333333333
+      },
+      "level": {
+        "ocr": 6,
+        "confidence": 46,
+        "exact": true
+      },
+      "third_line": {
+        "ocr": "Aetber Corruption",
+        "confidence": 87,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 0.058823529411764705
+      },
+      "crops": {
+        "name": {
+          "left": 868,
+          "top": 13,
+          "width": 184,
+          "height": 24
+        },
+        "level": {
+          "left": 948,
+          "top": 41,
+          "width": 28,
+          "height": 16
+        },
+        "third": {
+          "left": 868,
+          "top": 88,
+          "width": 184,
+          "height": 18
+        }
+      }
+    },
+    {
+      "frame": "t1e",
+      "source": "zombie-01-end.png",
+      "nameplate_present_detected": false,
+      "chrome_gold_px": 0,
+      "ink_pixels": {
+        "name": 25,
+        "third": 248,
+        "level": 0
+      },
+      "rank_feature_mean_ink_rgb": [
+        143,
+        167,
+        151
+      ],
+      "name": {
+        "ocr": "",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 1
+      },
+      "level": {
+        "ocr": null,
+        "confidence": 0,
+        "exact": false
+      },
+      "third_line": {
+        "ocr": "",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 1
+      },
+      "crops": {
+        "name": {
+          "left": 868,
+          "top": 13,
+          "width": 184,
+          "height": 24
+        },
+        "level": {
+          "left": 948,
+          "top": 41,
+          "width": 28,
+          "height": 16
+        },
+        "third": {
+          "left": 868,
+          "top": 88,
+          "width": 184,
+          "height": 18
+        }
+      }
+    },
+    {
+      "frame": "t2s",
+      "source": "zombie_02_start.png",
+      "nameplate_present_detected": true,
+      "chrome_gold_px": 400,
+      "ink_pixels": {
+        "name": 943,
+        "third": 501,
+        "level": 61
+      },
+      "rank_feature_mean_ink_rgb": [
+        230,
+        231,
+        230
+      ],
+      "name": {
+        "ocr": "Walking Dead",
+        "confidence": 83,
+        "exact": true,
+        "normalized_exact": true,
+        "cer": 0
+      },
+      "level": {
+        "ocr": 6,
+        "confidence": 46,
+        "exact": true
+      },
+      "third_line": {
+        "ocr": "Aetber Corruption",
+        "confidence": 87,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 0.058823529411764705
+      },
+      "crops": {
+        "name": {
+          "left": 868,
+          "top": 13,
+          "width": 184,
+          "height": 24
+        },
+        "level": {
+          "left": 948,
+          "top": 41,
+          "width": 28,
+          "height": 16
+        },
+        "third": {
+          "left": 868,
+          "top": 88,
+          "width": 184,
+          "height": 18
+        }
+      }
+    },
+    {
+      "frame": "t2e",
+      "source": "zombie_02_end.png",
+      "nameplate_present_detected": false,
+      "chrome_gold_px": 0,
+      "ink_pixels": {
+        "name": 30,
+        "third": 388,
+        "level": 0
+      },
+      "rank_feature_mean_ink_rgb": [
+        135,
+        174,
+        167
+      ],
+      "name": {
+        "ocr": "",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 1
+      },
+      "level": {
+        "ocr": null,
+        "confidence": 0,
+        "exact": false
+      },
+      "third_line": {
+        "ocr": "",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 1
+      },
+      "crops": {
+        "name": {
+          "left": 868,
+          "top": 13,
+          "width": 184,
+          "height": 24
+        },
+        "level": {
+          "left": 948,
+          "top": 41,
+          "width": 28,
+          "height": 16
+        },
+        "third": {
+          "left": 868,
+          "top": 88,
+          "width": 184,
+          "height": 18
+        }
+      }
+    },
+    {
+      "frame": "t3s",
+      "source": "zombie-03-start.png",
+      "nameplate_present_detected": true,
+      "chrome_gold_px": 405,
+      "ink_pixels": {
+        "name": 1197,
+        "third": 501,
+        "level": 61
+      },
+      "rank_feature_mean_ink_rgb": [
+        214,
+        222,
+        216
+      ],
+      "name": {
+        "ocr": "Walking gDZrad",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 0.25
+      },
+      "level": {
+        "ocr": 6,
+        "confidence": 46,
+        "exact": true
+      },
+      "third_line": {
+        "ocr": "Aetber Corruption",
+        "confidence": 87,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 0.058823529411764705
+      },
+      "crops": {
+        "name": {
+          "left": 868,
+          "top": 13,
+          "width": 184,
+          "height": 24
+        },
+        "level": {
+          "left": 948,
+          "top": 41,
+          "width": 28,
+          "height": 16
+        },
+        "third": {
+          "left": 868,
+          "top": 88,
+          "width": 184,
+          "height": 18
+        }
+      }
+    },
+    {
+      "frame": "t3e",
+      "source": "zombie-03-end.png",
+      "nameplate_present_detected": false,
+      "chrome_gold_px": 0,
+      "ink_pixels": {
+        "name": 129,
+        "third": 14,
+        "level": 0
+      },
+      "rank_feature_mean_ink_rgb": [
+        152,
+        171,
+        145
+      ],
+      "name": {
+        "ocr": "",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 1
+      },
+      "level": {
+        "ocr": null,
+        "confidence": 0,
+        "exact": false
+      },
+      "third_line": {
+        "ocr": "",
+        "confidence": 0,
+        "exact": false,
+        "normalized_exact": false,
+        "cer": 1
+      },
+      "crops": {
+        "name": {
+          "left": 868,
+          "top": 13,
+          "width": 184,
+          "height": 24
+        },
+        "level": {
+          "left": 948,
+          "top": 41,
+          "width": 28,
+          "height": 16
+        },
+        "third": {
+          "left": 868,
+          "top": 88,
+          "width": 184,
+          "height": 18
+        }
+      }
+    }
+  ]
+}

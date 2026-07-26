@@ -1,0 +1,815 @@
+{
+  "capability": "C3 HP globe (E3)",
+  "generated": "2026-07-26T14:04:29.589Z",
+  "method_law": "all measurement on native-resolution pixels; numeral crop upscaled 6x nearest for OCR only",
+  "orb_geometry": {
+    "cx": 630,
+    "cy": 1013,
+    "r": 58
+  },
+  "numeral_box": {
+    "left": 572,
+    "top": 994,
+    "width": 120,
+    "height": 34
+  },
+  "c3a_numeral_ocr": {
+    "engine": "tesseract.js 6 (eng), psm 7, whitelist 0-9/",
+    "frames_attempted": 12,
+    "frames_read": 10,
+    "banked_fields_scored": 8,
+    "hits": 8,
+    "misses": 0,
+    "accuracy": 1
+  },
+  "c3b_fill_fraction": {
+    "labelled_points": [
+      "1.0000",
+      "0.9539"
+    ],
+    "distinct_estimates_produced": [
+      "1.0000",
+      "0.1983",
+      "0.1638",
+      "0.1207",
+      "0.0948"
+    ],
+    "produces_varying_estimates": true,
+    "order_consistency": {
+      "concordant_pairs": 0,
+      "discordant_pairs": 4,
+      "tied_truth_pairs": 36
+    },
+    "null_band_on_identical_truth": {
+      "min": 0.09482758620689657,
+      "max": 1
+    },
+    "labelled_separation": 0.046099290780141855,
+    "residuals": [
+      {
+        "capture_id": "gd-live-2026-07-25-s2/15",
+        "truth": 1,
+        "height_model": 1,
+        "residual": 0
+      },
+      {
+        "capture_id": "gd-live-2026-07-25-s2/16",
+        "truth": 1,
+        "height_model": 1,
+        "residual": 0
+      },
+      {
+        "capture_id": "gd-live-2026-07-25-s2/17",
+        "truth": 1,
+        "height_model": 1,
+        "residual": 0
+      },
+      {
+        "capture_id": "gd-live-2026-07-25-s2/18",
+        "truth": 1,
+        "height_model": 1,
+        "residual": 0
+      },
+      {
+        "capture_id": "gd-live-2026-07-26-s3/t1s",
+        "truth": 1,
+        "height_model": 0.19827586206896552,
+        "residual": -0.8017241379310345
+      },
+      {
+        "capture_id": "gd-live-2026-07-26-s3/t1e",
+        "truth": 1,
+        "height_model": 0.1637931034482759,
+        "residual": -0.8362068965517241
+      },
+      {
+        "capture_id": "gd-live-2026-07-26-s3/t2s",
+        "truth": 1,
+        "height_model": 1,
+        "residual": 0
+      },
+      {
+        "capture_id": "gd-live-2026-07-26-s3/t2e",
+        "truth": 1,
+        "height_model": 0.12068965517241381,
+        "residual": -0.8793103448275862
+      },
+      {
+        "capture_id": "gd-live-2026-07-26-s3/t3s",
+        "truth": 1,
+        "height_model": 0.09482758620689657,
+        "residual": -0.9051724137931034
+      },
+      {
+        "capture_id": "gd-live-2026-07-26-s3/t3e",
+        "truth": 0.9539007092198581,
+        "height_model": 1,
+        "residual": 0.046099290780141855
+      }
+    ]
+  },
+  "frames": [
+    {
+      "capture_id": "gd-live-2026-07-25-s2/13",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (13).png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_25_s2_13@6x.png",
+      "numeral_ocr_raw": "",
+      "numeral_ocr": null,
+      "numeral_confidence": 0,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 0,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.068,
+          0,
+          0.25,
+          0.339,
+          0.333,
+          0.364,
+          0.424,
+          0.406,
+          0.411,
+          0.421,
+          0.444,
+          0.47,
+          0.471,
+          0.506,
+          0.488,
+          0.524,
+          0.543,
+          0.512
+        ]
+      },
+      "implied_true_fraction": null
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/14",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (14).png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_25_s2_14@6x.png",
+      "numeral_ocr_raw": "",
+      "numeral_ocr": null,
+      "numeral_confidence": 0,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 0,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.068,
+          0,
+          0.269,
+          0.356,
+          0.365,
+          0.379,
+          0.439,
+          0.435,
+          0.425,
+          0.421,
+          0.444,
+          0.458,
+          0.424,
+          0.471,
+          0.488,
+          0.524,
+          0.543,
+          0.512
+        ]
+      },
+      "implied_true_fraction": null
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/15",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (15).png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_25_s2_15@6x.png",
+      "numeral_ocr_raw": "7 282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 57,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 0,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.068,
+          0,
+          0.077,
+          0.271,
+          0.317,
+          0.333,
+          0.394,
+          0.391,
+          0.397,
+          0.408,
+          0.432,
+          0.458,
+          0.4,
+          0.471,
+          0.488,
+          0.519,
+          0.537,
+          0.512
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/16",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (16).png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_25_s2_16@6x.png",
+      "numeral_ocr_raw": "7 282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 49,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 0,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.068,
+          0,
+          0.25,
+          0.339,
+          0.317,
+          0.197,
+          0.212,
+          0.319,
+          0.37,
+          0.395,
+          0.42,
+          0.361,
+          0.365,
+          0.458,
+          0.452,
+          0.506,
+          0.532,
+          0.5
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/17",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (17).png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_25_s2_17@6x.png",
+      "numeral_ocr_raw": "7 282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 61,
+      "numeral_scored": [
+        {
+          "measure_key": "hp_current",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "282/282",
+          "verdict": "HIT"
+        },
+        {
+          "measure_key": "hp_max",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "282/282",
+          "verdict": "HIT"
+        }
+      ],
+      "fill_fraction": {
+        "boundary_row": 0,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.068,
+          0,
+          0.25,
+          0.339,
+          0.333,
+          0.364,
+          0.424,
+          0.377,
+          0.219,
+          0.316,
+          0.395,
+          0.373,
+          0.386,
+          0.458,
+          0.47,
+          0.506,
+          0.538,
+          0.5
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/18",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (18).png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_25_s2_18@6x.png",
+      "numeral_ocr_raw": "7 282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 46,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 0,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.068,
+          0,
+          0.25,
+          0.356,
+          0.365,
+          0.379,
+          0.424,
+          0.377,
+          0.205,
+          0.289,
+          0.42,
+          0.41,
+          0.398,
+          0.47,
+          0.482,
+          0.519,
+          0.538,
+          0.5
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t1s",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-01-start.png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_26_s3_t1s@6x.png",
+      "numeral_ocr_raw": "282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 85,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 93,
+        "height_model": 0.19827586206896552,
+        "area_model": 0.14062514464801112,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          1,
+          1,
+          0.903,
+          0.919,
+          0.86,
+          0.851,
+          0.824,
+          0.8,
+          0.763,
+          0.774,
+          0.719,
+          0.758,
+          0.731,
+          0.769,
+          0.758,
+          0.758,
+          0.739,
+          0.776,
+          0.768,
+          0.736,
+          0.707,
+          0.679,
+          0.643,
+          0.632
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t1e",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-01-end.png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_26_s3_t1e@6x.png",
+      "numeral_ocr_raw": "282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 86,
+      "numeral_scored": [
+        {
+          "measure_key": "hp_current",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "282/282",
+          "verdict": "HIT"
+        },
+        {
+          "measure_key": "hp_max",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "282/282",
+          "verdict": "HIT"
+        }
+      ],
+      "fill_fraction": {
+        "boundary_row": 97,
+        "height_model": 0.1637931034482759,
+        "area_model": 0.10683341170219585,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          1,
+          1,
+          0.903,
+          0.919,
+          0.86,
+          0.851,
+          0.824,
+          0.8,
+          0.763,
+          0.742,
+          0.672,
+          0.742,
+          0.731,
+          0.754,
+          0.758,
+          0.758,
+          0.739,
+          0.776,
+          0.754,
+          0.736,
+          0.693,
+          0.679,
+          0.643,
+          0.632
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t2s",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie_02_start.png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_26_s3_t2s@6x.png",
+      "numeral_ocr_raw": "282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 73,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": null,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          1,
+          1,
+          0.871,
+          0.892,
+          0.837,
+          0.809,
+          0.784,
+          0.764,
+          0.729,
+          0.629,
+          0.631,
+          0.652,
+          0.672,
+          0.716,
+          0.742,
+          0.727,
+          0.739,
+          0.761,
+          0.768,
+          0.736,
+          0.693,
+          0.692,
+          0.643,
+          0.632
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t2e",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie_02_end.png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_26_s3_t2e@6x.png",
+      "numeral_ocr_raw": "282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 82,
+      "numeral_scored": [
+        {
+          "measure_key": "hp_current",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "282/282",
+          "verdict": "HIT"
+        },
+        {
+          "measure_key": "hp_max",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "282/282",
+          "verdict": "HIT"
+        }
+      ],
+      "fill_fraction": {
+        "boundary_row": 102,
+        "height_model": 0.12068965517241381,
+        "area_model": 0.06854382897368139,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          1,
+          0.952,
+          0.871,
+          0.838,
+          0.814,
+          0.787,
+          0.765,
+          0.745,
+          0.763,
+          0.758,
+          0.672,
+          0.742,
+          0.716,
+          0.754,
+          0.758,
+          0.758,
+          0.725,
+          0.776,
+          0.754,
+          0.75,
+          0.707,
+          0.679,
+          0.643,
+          0.621
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t3s",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-03-start.png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_26_s3_t3s@6x.png",
+      "numeral_ocr_raw": "282/282",
+      "numeral_ocr": {
+        "hp_current": 282,
+        "hp_max": 282
+      },
+      "numeral_confidence": 77,
+      "numeral_scored": [],
+      "fill_fraction": {
+        "boundary_row": 105,
+        "height_model": 0.09482758620689657,
+        "area_model": 0.04813855846228088,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          1,
+          1,
+          0.871,
+          0.865,
+          0.837,
+          0.809,
+          0.765,
+          0.745,
+          0.763,
+          0.726,
+          0.667,
+          0.712,
+          0.701,
+          0.754,
+          0.742,
+          0.742,
+          0.739,
+          0.776,
+          0.768,
+          0.75,
+          0.707,
+          0.705,
+          0.655,
+          0.644
+        ]
+      },
+      "implied_true_fraction": 1
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t3e",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-03-end.png",
+      "numeral_crop": {
+        "left": 572,
+        "top": 994,
+        "width": 120,
+        "height": 34
+      },
+      "numeral_upscaled": "upscaled/c3-numeral-gd_live_2026_07_26_s3_t3e@6x.png",
+      "numeral_ocr_raw": "269/282",
+      "numeral_ocr": {
+        "hp_current": 269,
+        "hp_max": 282
+      },
+      "numeral_confidence": 92,
+      "numeral_scored": [
+        {
+          "measure_key": "hp_current",
+          "truth": 269,
+          "ocr": 269,
+          "verbatim": "269/282",
+          "verdict": "HIT"
+        },
+        {
+          "measure_key": "hp_max",
+          "truth": 282,
+          "ocr": 282,
+          "verbatim": "269/282",
+          "verdict": "HIT"
+        }
+      ],
+      "fill_fraction": {
+        "boundary_row": null,
+        "height_model": 1,
+        "area_model": 1,
+        "params": {
+          "emptyThreshold": 0.35,
+          "runLen": 3
+        },
+        "top_of_orb_red_profile": [
+          1,
+          1,
+          0.935,
+          0.919,
+          0.86,
+          0.83,
+          0.804,
+          0.8,
+          0.78,
+          0.774,
+          0.698,
+          0.742,
+          0.716,
+          0.754,
+          0.742,
+          0.758,
+          0.754,
+          0.791,
+          0.768,
+          0.75,
+          0.707,
+          0.692,
+          0.643,
+          0.632
+        ]
+      },
+      "implied_true_fraction": 0.9539007092198581
+    }
+  ]
+}

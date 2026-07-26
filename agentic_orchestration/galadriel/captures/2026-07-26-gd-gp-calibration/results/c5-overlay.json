@@ -1,0 +1,604 @@
+{
+  "capability": "C5 overlay text (E5)",
+  "generated": "2026-07-26T14:11:35.953Z",
+  "method_law": "green mask + band grouping on native-resolution pixels; 6x nearest upscale of the binary mask for OCR only",
+  "engine": "tesseract.js 6 (eng) psm 6",
+  "detector": {
+    "isGreenInk": "g>140 && g-r>50 && g-b>50",
+    "hud_exclusions": [
+      {
+        "x0": 1150,
+        "y0": 930,
+        "x1": 1400,
+        "y1": 1080
+      }
+    ],
+    "MIN_ROW_INK": 4,
+    "ROW_GAP": 3,
+    "MIN_BAND_INK": 150
+  },
+  "totals": {
+    "banked_entities": 4,
+    "entity_id_located": 3,
+    "action_state": {
+      "n": 4,
+      "hit": 3
+    },
+    "controller_state": {
+      "n": 3,
+      "hit": 2
+    },
+    "token_only_action_state": {
+      "n": 4,
+      "hit": 4
+    },
+    "token_only_controller_state": {
+      "n": 3,
+      "hit": 3
+    }
+  },
+  "accuracy": {
+    "entity_id": 0.75,
+    "action_state": 0.75,
+    "controller_state": 0.6666666666666666,
+    "token_only_action_state": 1,
+    "token_only_controller_state": 1
+  },
+  "frames": [
+    {
+      "frame": "t1s",
+      "source": "zombie-01-start.png",
+      "bands_detected": 2,
+      "reads": [
+        {
+          "band": {
+            "y0": 276,
+            "y1": 301,
+            "x0": 1227,
+            "x1": 1426,
+            "ink": 1091
+          },
+          "crop": {
+            "left": 1223,
+            "top": 272,
+            "width": 208,
+            "height": 34
+          },
+          "upscaled": "upscaled/c5-t1s-band0.png",
+          "raw_ocr": "Pursue ]\n| 68257 | Action State: Move",
+          "confidence": 47,
+          "parsed": {
+            "entity_id": "68257",
+            "action_state": "Move",
+            "controller_state": "Pursue",
+            "lines": [
+              "Pursue ]",
+              "| 68257 | Action State: Move"
+            ]
+          }
+        },
+        {
+          "band": {
+            "y0": 471,
+            "y1": 497,
+            "x0": 961,
+            "x1": 1167,
+            "ink": 1182
+          },
+          "crop": {
+            "left": 957,
+            "top": 467,
+            "width": 215,
+            "height": 35
+          },
+          "upscaled": "upscaled/c5-t1s-band1.png",
+          "raw_ocr": "Lomgldle i A _\n|17677| Action State: Fidget",
+          "confidence": 48,
+          "parsed": {
+            "entity_id": "17677",
+            "action_state": "Fidget",
+            "controller_state": "LongIdle",
+            "lines": [
+              "Lomgldle i A _",
+              "|17677| Action State: Fidget"
+            ]
+          }
+        }
+      ],
+      "scored": [
+        {
+          "truth": {
+            "entity_ref": "entity-17677",
+            "entity_id": "17677",
+            "controller_state": "LongIdle",
+            "action_state": "Fidget"
+          },
+          "action_state_read_somewhere": true,
+          "controller_state_read_somewhere": true,
+          "matched_band": 1,
+          "ocr": {
+            "entity_id": "17677",
+            "action_state": "Fidget",
+            "controller_state": "LongIdle",
+            "lines": [
+              "Lomgldle i A _",
+              "|17677| Action State: Fidget"
+            ]
+          },
+          "entity_id_ok": true,
+          "action_state_ok": true,
+          "controller_state_ok": true
+        },
+        {
+          "truth": {
+            "entity_ref": "monster-68957",
+            "entity_id": "68957",
+            "controller_state": "Pursue",
+            "action_state": "Move"
+          },
+          "action_state_read_somewhere": true,
+          "controller_state_read_somewhere": true,
+          "matched_band": null,
+          "ocr": null,
+          "entity_id_ok": false,
+          "action_state_ok": false,
+          "controller_state_ok": false
+        }
+      ],
+      "unbanked_entities": [
+        {
+          "entity_id": "68257",
+          "action_state": "Move",
+          "controller_state": "Pursue",
+          "lines": [
+            "Pursue ]",
+            "| 68257 | Action State: Move"
+          ]
+        }
+      ]
+    },
+    {
+      "frame": "t1e",
+      "source": "zombie-01-end.png",
+      "bands_detected": 2,
+      "reads": [
+        {
+          "band": {
+            "y0": 471,
+            "y1": 496,
+            "x0": 961,
+            "x1": 1149,
+            "ink": 915
+          },
+          "crop": {
+            "left": 957,
+            "top": 467,
+            "width": 197,
+            "height": 34
+          },
+          "upscaled": "upscaled/c5-t1e-band0.png",
+          "raw_ocr": "Idle ]\n|17677] Action State: Idle",
+          "confidence": 69,
+          "parsed": {
+            "entity_id": "17677",
+            "action_state": "Idle",
+            "controller_state": "Idle",
+            "lines": [
+              "Idle ]",
+              "|17677] Action State: Idle"
+            ]
+          }
+        },
+        {
+          "band": {
+            "y0": 532,
+            "y1": 559,
+            "x0": 923,
+            "x1": 1128,
+            "ink": 1132
+          },
+          "crop": {
+            "left": 919,
+            "top": 528,
+            "width": 214,
+            "height": 36
+          },
+          "upscaled": "upscaled/c5-t1e-band1.png",
+          "raw_ocr": "pyme ] ]\n[68957] Action State: Dying",
+          "confidence": 51,
+          "parsed": {
+            "entity_id": "68957",
+            "action_state": "Dying",
+            "controller_state": null,
+            "lines": [
+              "pyme ] ]",
+              "[68957] Action State: Dying"
+            ]
+          }
+        }
+      ],
+      "scored": [],
+      "unbanked_entities": [
+        {
+          "entity_id": "17677",
+          "action_state": "Idle",
+          "controller_state": "Idle",
+          "lines": [
+            "Idle ]",
+            "|17677] Action State: Idle"
+          ]
+        },
+        {
+          "entity_id": "68957",
+          "action_state": "Dying",
+          "controller_state": null,
+          "lines": [
+            "pyme ] ]",
+            "[68957] Action State: Dying"
+          ]
+        }
+      ]
+    },
+    {
+      "frame": "t2s",
+      "source": "zombie_02_start.png",
+      "bands_detected": 2,
+      "reads": [
+        {
+          "band": {
+            "y0": 330,
+            "y1": 355,
+            "x0": 1118,
+            "x1": 1317,
+            "ink": 1088
+          },
+          "crop": {
+            "left": 1114,
+            "top": 326,
+            "width": 208,
+            "height": 34
+          },
+          "upscaled": "upscaled/c5-t2s-band0.png",
+          "raw_ocr": "Pursue ]\n| 75289] Achion State: Move",
+          "confidence": 63,
+          "parsed": {
+            "entity_id": "75289",
+            "action_state": "Move",
+            "controller_state": "Pursue",
+            "lines": [
+              "Pursue ]",
+              "| 75289] Achion State: Move"
+            ]
+          }
+        },
+        {
+          "band": {
+            "y0": 442,
+            "y1": 497,
+            "x0": 961,
+            "x1": 1299,
+            "ink": 2309
+          },
+          "crop": {
+            "left": 957,
+            "top": 438,
+            "width": 347,
+            "height": 64
+          },
+          "upscaled": "upscaled/c5-t2s-band1.png",
+          "raw_ocr": ": Dying _ _\n| 7.206%] Action State: Dying\nLomgldle i ;\n|17677| Acton State: Fidget",
+          "confidence": 55,
+          "parsed": {
+            "entity_id": "17677",
+            "action_state": "Fidget",
+            "controller_state": "Dying",
+            "lines": [
+              ": Dying _ _",
+              "| 7.206%] Action State: Dying",
+              "Lomgldle i ;",
+              "|17677| Acton State: Fidget"
+            ]
+          }
+        }
+      ],
+      "scored": [
+        {
+          "truth": {
+            "entity_ref": "monster-75289",
+            "entity_id": "75289",
+            "action_state": "Move"
+          },
+          "action_state_read_somewhere": true,
+          "controller_state_read_somewhere": false,
+          "matched_band": 0,
+          "ocr": {
+            "entity_id": "75289",
+            "action_state": "Move",
+            "controller_state": "Pursue",
+            "lines": [
+              "Pursue ]",
+              "| 75289] Achion State: Move"
+            ]
+          },
+          "entity_id_ok": true,
+          "action_state_ok": true,
+          "controller_state_ok": false
+        }
+      ],
+      "unbanked_entities": [
+        {
+          "entity_id": "17677",
+          "action_state": "Fidget",
+          "controller_state": "Dying",
+          "lines": [
+            ": Dying _ _",
+            "| 7.206%] Action State: Dying",
+            "Lomgldle i ;",
+            "|17677| Acton State: Fidget"
+          ]
+        }
+      ]
+    },
+    {
+      "frame": "t2e",
+      "source": "zombie_02_end.png",
+      "bands_detected": 2,
+      "reads": [
+        {
+          "band": {
+            "y0": 471,
+            "y1": 496,
+            "x0": 960,
+            "x1": 1148,
+            "ink": 1084
+          },
+          "crop": {
+            "left": 956,
+            "top": 467,
+            "width": 197,
+            "height": 34
+          },
+          "upscaled": "upscaled/c5-t2e-band0.png",
+          "raw_ocr": "UseSkill\n|17677| Action State: Idle",
+          "confidence": 60,
+          "parsed": {
+            "entity_id": "17677",
+            "action_state": "Idle",
+            "controller_state": "UseSkill",
+            "lines": [
+              "UseSkill",
+              "|17677| Action State: Idle"
+            ]
+          }
+        },
+        {
+          "band": {
+            "y0": 557,
+            "y1": 583,
+            "x0": 1004,
+            "x1": 1208,
+            "ink": 1119
+          },
+          "crop": {
+            "left": 1000,
+            "top": 553,
+            "width": 213,
+            "height": 35
+          },
+          "upscaled": "upscaled/c5-t2e-band1.png",
+          "raw_ocr": "Dvi\n| 75285] Action State: Dying",
+          "confidence": 55,
+          "parsed": {
+            "entity_id": "75285",
+            "action_state": "Dying",
+            "controller_state": null,
+            "lines": [
+              "Dvi",
+              "| 75285] Action State: Dying"
+            ]
+          }
+        }
+      ],
+      "scored": [],
+      "unbanked_entities": [
+        {
+          "entity_id": "17677",
+          "action_state": "Idle",
+          "controller_state": "UseSkill",
+          "lines": [
+            "UseSkill",
+            "|17677| Action State: Idle"
+          ]
+        },
+        {
+          "entity_id": "75285",
+          "action_state": "Dying",
+          "controller_state": null,
+          "lines": [
+            "Dvi",
+            "| 75285] Action State: Dying"
+          ]
+        }
+      ]
+    },
+    {
+      "frame": "t3s",
+      "source": "zombie-03-start.png",
+      "bands_detected": 2,
+      "reads": [
+        {
+          "band": {
+            "y0": 324,
+            "y1": 349,
+            "x0": 1130,
+            "x1": 1329,
+            "ink": 1037
+          },
+          "crop": {
+            "left": 1126,
+            "top": 320,
+            "width": 208,
+            "height": 34
+          },
+          "upscaled": "upscaled/c5-t3s-band0.png",
+          "raw_ocr": "Pursue ]\n| 77775] Action State: Move",
+          "confidence": 46,
+          "parsed": {
+            "entity_id": "77775",
+            "action_state": "Move",
+            "controller_state": "Pursue",
+            "lines": [
+              "Pursue ]",
+              "| 77775] Action State: Move"
+            ]
+          }
+        },
+        {
+          "band": {
+            "y0": 471,
+            "y1": 497,
+            "x0": 960,
+            "x1": 1166,
+            "ink": 1188
+          },
+          "crop": {
+            "left": 956,
+            "top": 467,
+            "width": 215,
+            "height": 35
+          },
+          "upscaled": "upscaled/c5-t3s-band1.png",
+          "raw_ocr": "Lomgldle i _\n|17677| Action State: Fidget",
+          "confidence": 53,
+          "parsed": {
+            "entity_id": "17677",
+            "action_state": "Fidget",
+            "controller_state": "LongIdle",
+            "lines": [
+              "Lomgldle i _",
+              "|17677| Action State: Fidget"
+            ]
+          }
+        }
+      ],
+      "scored": [
+        {
+          "truth": {
+            "entity_ref": "monster-77775",
+            "entity_id": "77775",
+            "controller_state": "Pursue",
+            "action_state": "Move"
+          },
+          "action_state_read_somewhere": true,
+          "controller_state_read_somewhere": true,
+          "matched_band": 0,
+          "ocr": {
+            "entity_id": "77775",
+            "action_state": "Move",
+            "controller_state": "Pursue",
+            "lines": [
+              "Pursue ]",
+              "| 77775] Action State: Move"
+            ]
+          },
+          "entity_id_ok": true,
+          "action_state_ok": true,
+          "controller_state_ok": true
+        }
+      ],
+      "unbanked_entities": [
+        {
+          "entity_id": "17677",
+          "action_state": "Fidget",
+          "controller_state": "LongIdle",
+          "lines": [
+            "Lomgldle i _",
+            "|17677| Action State: Fidget"
+          ]
+        }
+      ]
+    },
+    {
+      "frame": "t3e",
+      "source": "zombie-03-end.png",
+      "bands_detected": 2,
+      "reads": [
+        {
+          "band": {
+            "y0": 428,
+            "y1": 455,
+            "x0": 835,
+            "x1": 1040,
+            "ink": 1076
+          },
+          "crop": {
+            "left": 831,
+            "top": 424,
+            "width": 214,
+            "height": 36
+          },
+          "upscaled": "upscaled/c5-t3e-band0.png",
+          "raw_ocr": "pymng ] ]\n[¥7775] Action State: Dying",
+          "confidence": 47,
+          "parsed": {
+            "entity_id": "7775",
+            "action_state": "Dying",
+            "controller_state": "Dying",
+            "lines": [
+              "pymng ] ]",
+              "[¥7775] Action State: Dying"
+            ]
+          }
+        },
+        {
+          "band": {
+            "y0": 471,
+            "y1": 496,
+            "x0": 961,
+            "x1": 1149,
+            "ink": 1084
+          },
+          "crop": {
+            "left": 957,
+            "top": 467,
+            "width": 197,
+            "height": 34
+          },
+          "upscaled": "upscaled/c5-t3e-band1.png",
+          "raw_ocr": "UseSkill\n|17677| Action State: Idle",
+          "confidence": 60,
+          "parsed": {
+            "entity_id": "17677",
+            "action_state": "Idle",
+            "controller_state": "UseSkill",
+            "lines": [
+              "UseSkill",
+              "|17677| Action State: Idle"
+            ]
+          }
+        }
+      ],
+      "scored": [],
+      "unbanked_entities": [
+        {
+          "entity_id": "7775",
+          "action_state": "Dying",
+          "controller_state": "Dying",
+          "lines": [
+            "pymng ] ]",
+            "[¥7775] Action State: Dying"
+          ]
+        },
+        {
+          "entity_id": "17677",
+          "action_state": "Idle",
+          "controller_state": "UseSkill",
+          "lines": [
+            "UseSkill",
+            "|17677| Action State: Idle"
+          ]
+        }
+      ]
+    }
+  ]
+}
