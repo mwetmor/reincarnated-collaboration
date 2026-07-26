@@ -55,7 +55,8 @@ contamination-free custom-game container — established T8/T9, 2026-07-24/25).
 
 | Grade | Definition | Where it applies |
 |---|---|---|
-| **MEASURED** | verified against a live game oracle (fixtures, L0–L5 ladder) | GD lane only — kit key AND monster/AI substrate |
+| **MEASURED** | verified against a live game oracle (fixtures, L0–L5 ladder) — attests runtime BEHAVIOR | GD lane only — kit key AND monster/AI substrate |
+| **DATAMINED** *(minted 2026-07-25, devotion-banking run — the LAW's original three had no term for a pinned primary-source extraction)* | verified against the source game's own shipped data files, edition-pinned + checksum-verified — attests AUTHORED DATA, not runtime behavior (stronger than any community model; weaker than a live-oracle behavioral claim) | GD devotion payload lane (`gd-edition-II-20260724`, 4/4 `.arz` sha256) · future game-file lanes (D2 monstats/`.arz`-class extractions) |
 | **MODEL-VERIFIED** | verified against a maintained external model/calculator | D2 kit keys (20 years of community-documented formulas/breakpoints) · PoE1/2 kit keys (**Path of Building** — a community-maintained conversion key we validate ours against) |
 | **AUTHORED** | designed for feel, data-seeded, playtest-tuned — no fidelity claim | Era profiles (§5); all non-GD monster/combat-feel |
 

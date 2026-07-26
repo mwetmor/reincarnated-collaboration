@@ -12,6 +12,16 @@
 > (1) L0-CLOSE launch is effectively answered by Matt's standing v3-sitting commitment —
 > scheduling only; (2) magnitude-lane widening stays HALT until Loop B's first verdict names
 > the per-kit price. Routes to knight-rider for wave dispatch.
+>
+> **POST-EXTRACTION ADDENDA (devotion banking landed, same date):** (a) B2's data gate is
+> CLEARED — 7,114 payload fields banked at grade **DATAMINED** (grade minted into LAW §4 this
+> date; "source-MEASURED" in §2/Wave-3 prose reads as DATAMINED). (b) **B1 spec MUST carry two
+> dimensions the fork presentation lacked:** `trigger_param` as a 4th trigger dimension
+> (e.g. `LowHealth@40/45/50%`) and level-scalable ICDs — both attested in the banked lane;
+> KR's B1 dispatch lifts these from `MIGRATION-devotion-payloads-2026-07-25.md`. (c) Devotion
+> attestation refines: 12 kits name a power / 21 a constellation / 26 either — the census's 18
+> sat between two true numbers; B2's kit-count basis is 26. (d) Four pet `engine_inexpressible`
+> rows: class call on gandalf's docket, resolves in the pets OPEN thread, gates nothing here.
 
 **Author:** gandalf (named sub-agent, SPEC-AUTHOR piece) · **Commissioned by:** gandalf-prime, 2026-07-25
 **Type:** PROGRAM CHARTER — sequenced build queue + wave partition + conversion lane. No production code.
