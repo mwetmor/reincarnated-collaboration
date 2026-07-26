@@ -1,0 +1,172 @@
+{
+  "question": "P0 / verification-note 6b: does PlayStats skill_use_count count SWINGS or ACTIVATIONS?",
+  "window": {
+    "pts_start": 4012.0,
+    "pts_end": 4032.0,
+    "duration_s": 20.0,
+    "fps": 60,
+    "n_frames": 1200,
+    "play_time_start": 4324,
+    "play_time_end": 4344,
+    "selection_rationale": "sustained combat, no zone transition, no death, no level-up"
+  },
+  "instruments": {
+    "panel": "PlayStats skill_use_count, read at native 60fps by binary-mask change detection, values confirmed by human read of native crops",
+    "player_action_state": "green character.LogData overlay line [42992] Action State: X. Entity 42992 identified as the PLAYER (werewolf-transform sprite, camera-centred, controller states MoveTo/UseSkill/MoveToUseSkill). Located per frame by binary template correlation of the id glyph block; the Action-State value word classified by shift-tolerant IoU against exemplars harvested from the run and labelled by human read.",
+    "log_file": "NONE. character.LogData was ON but produces an ON-SCREEN overlay only; no parseable text log was produced or shipped. The overlay was therefore used as the swing instrument."
+  },
+  "player_attack_episodes": {
+    "onsets_pts_s": [
+      4013.03,
+      4015.88,
+      4016.82,
+      4017.32,
+      4019.13,
+      4023.07,
+      4029.68
+    ],
+    "durations_s": [
+      0.517,
+      0.583,
+      0.233,
+      0.367,
+      0.6,
+      0.517,
+      0.517
+    ],
+    "count_bridge_0.33s": 7,
+    "count_bridge_0.50s": 6,
+    "total_attack_state_s": 3.33,
+    "note": "4015.88 and 4016.82 are probably one animation split by 0.25s of contaminated frames"
+  },
+  "panel_increments": {
+    "werewolf1_skill01_claws": {
+      "from": 173,
+      "to": 176,
+      "delta": 3,
+      "times": [
+        4016.35,
+        4019.15,
+        4022.27
+      ]
+    },
+    "werewolf1_skill02_charge": {
+      "delta": 3,
+      "times": [
+        4013.03,
+        4017.33,
+        4023.08
+      ]
+    },
+    "defaultkickattack": {
+      "delta": 1,
+      "times": [
+        4029.68
+      ]
+    },
+    "playerclass10_onslaught": {
+      "delta": 0,
+      "times": []
+    },
+    "total_attack_activations": 7
+  },
+  "temporal_pairing": [
+    {
+      "attack": 4013.03,
+      "counter": "charge 4013.03",
+      "lag_s": 0.0
+    },
+    {
+      "attack": 4015.88,
+      "counter": "claws 4016.35",
+      "lag_s": 0.47,
+      "note": "increment lands INSIDE the 0.583s attack animation"
+    },
+    {
+      "attack": 4017.32,
+      "counter": "charge 4017.33",
+      "lag_s": 0.01
+    },
+    {
+      "attack": 4019.13,
+      "counter": "claws 4019.15",
+      "lag_s": 0.02
+    },
+    {
+      "attack": 4023.07,
+      "counter": "charge 4023.08",
+      "lag_s": 0.01
+    },
+    {
+      "attack": 4029.68,
+      "counter": "kick 4029.68",
+      "lag_s": 0.0
+    },
+    {
+      "attack": null,
+      "counter": "claws 4022.27",
+      "note": "falls in a 0.65s window where the player overlay was NOT locatable; marked unreadable, not contradictory"
+    }
+  ],
+  "kills_trajectory": {
+    "from": 464,
+    "to": 477,
+    "delta": 13,
+    "steps": [
+      [
+        4013.2,
+        465,
+        1
+      ],
+      [
+        4016.72,
+        466,
+        1
+      ],
+      [
+        4016.95,
+        468,
+        2
+      ],
+      [
+        4017.65,
+        469,
+        1
+      ],
+      [
+        4019.52,
+        470,
+        1
+      ],
+      [
+        4022.63,
+        474,
+        4
+      ],
+      [
+        4023.18,
+        476,
+        2
+      ],
+      [
+        4023.45,
+        477,
+        1
+      ]
+    ],
+    "multi_kill_steps": 3,
+    "max_step": 4
+  },
+  "verdict": {
+    "cause": "1 (AoE multi-kill), with a possible minor cause-2 residual",
+    "cause_3_activations_not_swings": "REFUTED",
+    "evidence": "7 player attack animations vs 7 panel increments, 1:1, with 5 pairings exact to the frame. skill_use_count increments once per attack animation. The deficit is entirely on the KILLS side: 13 kills from 7 swings, including one claws activation that produced +4 kills in a single step and two that produced +2.",
+    "global_consistency": "626 attack activations vs 882 kills over the run = 1.41 kills/swing; this window = 1.86 kills/swing. Same order."
+  },
+  "consequence_for_protocol_1_1": {
+    "numerator_valid": true,
+    "denominator_not_attributable": true,
+    "ruling": "attacks-per-kill is NOT a well-defined per-kill statistic. A single swing frequently resolves several kills simultaneously, so swings cannot be attributed to kills 1:1 and the S1 kill-to-kill segmentation cannot carry an attacks-per-kill measure. The well-defined statistic is KILLS-PER-SWING, or swings-per-engagement carrying an explicit target-count term.",
+    "named_field_is_near_dead": "1.1 names skill_use_count[defaultweaponattack] specifically. That field totals 74 for the whole run and stopped incrementing before play_time 71:52. The live attack fields are werewolf1_skill01_claws (358) and werewolf1_skill02_charge (175)."
+  }
+}
