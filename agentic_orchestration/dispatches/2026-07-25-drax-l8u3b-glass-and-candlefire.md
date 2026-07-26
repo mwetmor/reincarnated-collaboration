@@ -162,3 +162,59 @@ minutes later by reading an empty `kit3/font/` and declaring your fonts item a p
 already solved it at zero cost from a pack we own.** Both are struck in place in the record rather
 than edited away. **Tell me what this one does wrong instead.** My Agent launch prompt will be one
 sentence pointing here, so that everything that can steer you is greppable in the committed record.
+
+---
+
+## §7 — AMENDMENT, landed AFTER launch (2026-07-25, mid-flight, owner's eye on the live frames)
+
+**I have no channel to a running agent. This is in the committed record at the moment it was ruled,
+which is the only thing available to me. It is yours at close-out or it becomes arm 3c.**
+
+### §7.1 — The §0 fork is CLOSED, and the candles win on their own merits
+
+Matt, verbatim: *"the or is: we can just use the bat wings … Regardless … now that I've seen the
+candle VFX, I really like it!!"*
+
+**The alternative was to drop the candles and use bat wings instead. He has withdrawn it after seeing
+your flames.** The candles and their VFX are **kept and ratified.** Nothing in §0–§6 changes.
+
+### §7.2 — A NEW ruling, and it REVERSES arm 3's item-4 structural fix
+
+Matt, verbatim: *"the bar surrounding the skills in our HUD is now way too big … remove that box
+around the skills and instead either use exactly what's around the skill boxes in the bat wings
+version or what's around the skill boxes in the candles version."*
+
+**Reference:** `matt_notes_handoff_docs/recent-synty-packs/synty-dark-fantasy-hud-recommended-uses/`
+→ `01_INT_DarkFantasyHUD_Components_ActionBars_*.webp`, the vendor's own composition of their own
+parts. **Two rows are named, and either is acceptable — Matt's word is "either." The choice is yours.**
+Identifying them unambiguously by content, since row indices are ambiguous on a two-column sheet:
+
+- **the BAT WINGS row** — LEFT column, third from the top. Globes with large bat wings spreading
+  outward and chain greebles beneath; **six** slots; `H`-shaped dividers between slots; small skull at
+  the crest, small demon greeble at bottom centre; the rail tapers to points where it meets the globes.
+- **the CANDLES row** — RIGHT column, third from the top. Globes topped with **lit candles**, dark
+  spiked collars; **five** slots with chevron dividers; a **spiked top edge** of small triangular
+  teeth; a skull at the crest; the bracket flares to points at both ends.
+
+**What I see in both, stated as observation and not as a specification — the measurement is yours:**
+the bar's vertical extent is close to the slot height plus a thin margin. **The slots dominate and the
+ironwork is an edge, not a panel.** In both rows the number pips hang **below and outside** the bar.
+
+★ **THE PART THAT MUST NOT BE LOST, and it is the reason this is an amendment rather than a tweak:
+this reverses your arm-3 item-4 fix.** That fix answered Matt's overlap complaint by seating the slots
+*inside* `Frame_Hotbar_04`'s measured interior opening (y 275–423) so the ironwork framed them. **It
+worked, and it is the cause of the new complaint** — the container that stopped the overlap is the box
+that is now too big. **So the overlap problem returns the moment the box goes, and it must be solved a
+second time by different means.** Both reference rows have already solved it: their slots sit in a
+slim rail without overlapping anything. **The answer exists in the art, and the parts are the vendor's
+own — they are findable by name rather than by reconstruction.** Do not re-derive what the pack ships.
+
+**Owner-ruled, not yours to re-open:** the box goes. **Yours entirely:** which of the two rows, which
+sprites realise it, and how the overlap is solved without a panel. **If neither row's construction can
+be assembled from named sprites in the packs we own, that is a CEILING and a PASS (L-G)** — say which
+sprite fails and show the frame.
+
+**Signed:** gandalf, 2026-07-25 (`RUN-CONDUCTOR`), amending in place rather than deleting, as with
+arm 3's struck weapon-wheel steer. **This amendment names two reference rows and nothing else about
+them; I have deliberately not ranked them, not counted their slots as a target, and not named a
+sprite.** Arm 3 proved that what I enumerate becomes what gets built.
