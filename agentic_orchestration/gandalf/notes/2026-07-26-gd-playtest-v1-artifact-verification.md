@@ -128,9 +128,12 @@ video**, which proves it is game-UI layering rather than compression. Costs a sm
 
 **D-3 — counters to distrust.**
 `Total Score` reads `0` and `Damage per second` reads `0.00` for the entire run: dead fields, do not
-model them. `Health potions used` / `Mana potions used` read `0` at 118 min with 2 deaths — either
-genuinely zero or non-incrementing. One word from Matt settles it; until then neither is a
-calibration signal.
+model them.
+
+`Health potions used` / `Mana potions used` reading `0` is **RESOLVED — not a dead counter.**
+Matt ruled (2026-07-26): *"I decided not to use any potions for the run so that it could be a more
+controlled oracle."* The counters are live and correct; the run is a deliberate no-potion control.
+See §8 for what that control buys — it is worth more than it cost.
 
 ## 6. Ledger trajectory — sanity
 
@@ -140,6 +143,52 @@ calibration signal.
 **882 kills in 113 minutes ≈ 7.8 kills/min.** For a distribution oracle whose primary statistic is
 attacks-per-kill, that is a dense sample, not a thin one. Areas traversed on the sampled frames:
 Lower Crossing → Devil's Crossing → The Old Dump.
+
+## 6b. FINDING — `skill_use_count` may not count swings. §1.1's central claim is now conditional.
+
+Complete `Skills Used` block at end of run (Screenshot 352, `play_time` 118:08, **882 kills**),
+read from the native still — the video frame had `onslaught` occluded by D-2, the screenshot did not:
+
+| Skill | Count |
+|---|---|
+| `default/defaultkickattack.dbr` | 19 |
+| `default/defaultweaponattack.dbr` | 74 |
+| `playerclass10/onslaught.dbr` | 54 |
+| `playerclass10/werewolf1.dbr` | 12 |
+| `playerclass10/werewolf1_skill01_claws.dbr` | **358** |
+| `playerclass10/werewolf1_skill02_charge.dbr` | **175** |
+| **total** | **692** |
+| `Life healed` | 12468.06 |
+| `Shield block chance` | 18.00 |
+
+**692 skill uses against 882 kills — 0.78 per kill.** Excluding the two plausible non-attacks
+(`werewolf1` transform toggle, 12; `onslaught` if it is a buff, 54) gives 626 attacks, **0.71 per
+kill.** Fewer attack activations than corpses.
+
+Protocol §1.1 asserts *"kill events = exact integer increments; attacks-per-kill needs zero
+segmentation judgment."* The denominator claim holds. **The numerator claim does not, yet.** Three
+candidate explanations, and they are not equally survivable:
+
+1. **AoE multi-kill** — one `claws`/`charge` activation kills several enemies. Benign: the
+   aggregate is still meaningful, but the statistic is *attacks-per-engagement with variable target
+   count*, not attacks-per-kill, and it needs a target-count term.
+2. **Non-player kills** — pet, retaliation, DoT tick, or environmental kills increment `kills`
+   without any player activation. Benign but requires an attribution term.
+3. **`skill_use_count` counts ACTIVATIONS, not SWINGS.** `werewolf1_skill01_claws` at 358 uses over
+   113 minutes is ~3.2/min, which is implausibly low for a primary attack — consistent with a
+   held/channelled auto-attack-replacer registering one "use" per button-press rather than per
+   swing. **If this is the cause, the panel cannot serve as the attack-rate ledger at all**, and the
+   T-B video tier (60 fps, per-swing) becomes the authoritative counter instead.
+
+**This is decidable before any modelling, and cheaply.** `character.LogData` was on for the run.
+Cross-check a bounded window: count swings from the log (or from T-B video frames) against the
+`skill_use_count` delta across the same `play_time` interval. Equal ⇒ cause 1 or 2, and the ledger
+survives with an added term. Unequal ⇒ cause 3, and §1.1 must be rewritten to demote the panel to a
+*coarse* ledger with the video as the attack-rate instrument.
+
+**Do not model attacks-per-kill until this is settled.** This is precisely the class of error the
+math-before-code discipline exists to intercept: the statistic looks free, reads cleanly, and would
+have been wrong by an unknown multiplicative factor.
 
 ## 7. Matt's screenshot caveat — disposition: NO DEGRADATION
 
@@ -160,6 +209,40 @@ than infer it.** A missing slot is honest; an inferred slot poisons the oracle. 
 either way — the character record survives with a gap, which is a graded degradation and exactly
 what fidelity LAW §4 exists to express.
 
+## 8. Control properties of run v1 — what the no-potion decision bought
+
+Matt ran the session with **zero potions, deliberately**, for oracle control. Recording what that
+actually purchased, because it is more than the obvious:
+
+**Purchased — `life_healed` becomes a clean measurement.** With potions at zero, the run's
+`Life healed: 12468.06` is **entirely endogenous**: health regeneration, lifesteal, devotion procs.
+No exogenous step-functions in the series. That is ~106 HP/min, roughly **18.5 max-health pools**
+(peak observed 672) recovered over 113 minutes without a single player-triggered heal. Under any
+potion usage this field is a sum of two unrelated processes and worth nothing; under this control it
+is a direct measurement of sustain throughput — the exact quantity the era-substrate needs to
+calibrate its sustain curve against. This was the highest-value side effect of the decision.
+
+**Purchased — the HP series is interpretable.** Every downward move is incoming damage; every upward
+move is endogenous recovery. No annotation pass is required to strip out player heals.
+
+**NOT purchased — full control. Three residual discontinuities must still be marked:**
+
+- **2 deaths.** Each is an HP reset *and* a position reset. These are hard segmentation breaks; they
+  must be located on the `play_time` axis and excluded from any continuous-series fit. The `deaths`
+  counter tells us there are exactly two and the panel samples bracket them (0 by t=900, 1 by
+  t=3259, 2 by t=5600).
+- **Zone transitions.** Already identified in §3 as the `play_time` loss mechanism; they are also
+  combat-continuity breaks.
+- **Endogenous recovery is not constant.** It scales with gear and level, both of which changed
+  (level 1 → 12). The sustain measurement is a curve across the run, not a scalar.
+
+**Design note.** The instinct here is correct and worth keeping as a standing protocol principle:
+*eliminate the exogenous, accept the endogenous, mark the discontinuities.* Potions were the right
+thing to remove because they are player-triggered, unlogged in magnitude, and confound a field that
+is otherwise a free measurement. This should become an explicit §2.2 run rule for v2 rather than a
+one-off choice, alongside a directive to call out each death aloud on the audio track so the two
+break points land on the timeline without a search.
+
 ## Action
 
 - [ ] galadriel: T-A ledger-tier CV pass against the real MP4. Binding constraints from this
@@ -169,8 +252,12 @@ what fidelity LAW §4 exists to express.
 - [ ] elrond: `fixtures.db` ingestion per §5. Screenshot→timeline placement is mtime arithmetic
       against `video_start_epoch = 1785096216.5`; store `pts_ms` AND `play_time_ms`, with
       `play_time_ms` as the join key.
-- [ ] gandalf: fold §3 into protocol §1.1 and D-2 into §2.0 before the v2 run.
-- [ ] Matt: one word on D-3 — did you use zero potions across the run, or is that counter dead?
+- [ ] **galadriel / BLOCKING on §6b:** settle the `skill_use_count` question first, on a bounded
+      window, before any attack-rate modelling. Swings-from-video vs panel-delta over the same
+      `play_time` interval.
+- [ ] gandalf: fold §3 into protocol §1.1, D-2 into §2.0, and §8's no-potion rule + call-out-deaths
+      directive into §2.2 before the v2 run. §1.1's attacks-per-kill claim is conditional pending §6b.
+- [x] Matt: D-3 RESOLVED — zero potions was a deliberate control (2026-07-26). Counters are live.
 
 ## References
 
