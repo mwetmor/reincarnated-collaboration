@@ -19,7 +19,21 @@ are stated and non-binding. Everything here is queued-ready — no fork blocks a
 >   presented with G-4**; (ii) **G-4 is a HARD PREREQUISITE** to the G-3 calibration run
 >   (~12× budget-skew hazard on corpse-landed counters). Build: rocket 10–17 h ~$0 LLM +
 >   gandalf+gamora DR-guardrail math note; control-density BC axis re-opens.
-> - **G-4 / G-5:** pending below. **G-6:** needs no ruling (standing).
+> - **G-3 rider (i) RULED: REVERSED.** Matt: "G3 - reverse it." The 2026-07-16 silent
+>   freeze/stun exclusion-widening is reversed — freeze and stun are LEGAL payload primitives
+>   for the budgeted control-role slots (DR immunity windows + boss resist tiers absorb the
+>   CC-soup hazard the widening feared). Registry edit rides the G-3 build dispatch.
+> - **G-4 RULED: (2) liveness-gate at application — UNIVERSAL.** Matt: "agree on
+>   Liveness-gate at application, but we need this for everything else too, right?" —
+>   ratified as the universal effect-application boundary rule: dead defenders receive
+>   nothing; no counter ever counts a corpse (all families: chill/slow/DoT/freeze/stun/procs).
+>   **Two exemptions:** (1) on-death payloads exempt BY DIRECTION (emission-from-corpse ≠
+>   application-to-corpse; PoE-era signature element, GD census on-death rows); (2) intentional
+>   corpse-consumers exempt BY FLAG (`targets_corpse` on the effect — D2 Corpse Explosion is
+>   the canonical future case). **Forward-only:** pre-gate telemetry `landed:` counters stay
+>   poisoned; historical-season analyses must bracket or discard them (goes in the charter).
+>   G-4 remains the HARD PREREQUISITE to the G-3 calibration run.
+> - **G-5:** pending below. **G-6:** needs no ruling (standing).
 
 ---
 
