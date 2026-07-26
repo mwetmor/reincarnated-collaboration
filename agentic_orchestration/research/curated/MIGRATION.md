@@ -7,6 +7,52 @@
 
 ---
 
+## gd-devotion-payloads-2026-07-25 — GD devotion payload bank: rank axis RESOLVED, 7,114 payload rows + 3 new tables, `exact_skill` re-identified — 2026-07-25 — **APPLIED** (dedicated note: `MIGRATION-devotion-payloads-2026-07-25.md`)
+
+### What happened (one line)
+
+Landed the full GD devotion lane commissioned by gandalf off elrond's own probe: **674 `exact_skill` headers + 7,114 `exact_skill_field` payload rows + `devotion_power` (65) + `devotion_constellation` (110) + `devotion_trigger_vocab` (29)**, at fidelity **MEASURED / `primary-source-datamine`**, edition-pinned `gd-edition-II-20260724` with all four `.arz` sha256-verified **before** parsing. Spec substrate for build items **B1** (proc chance + ICD) and **B2** (proc binding).
+
+### GATE 0 — the rank axis, resolved before a single row landed
+
+Probe §4.3 said `skillMaxLevel=1` vs 20-element arrays, max depth 48, "must be resolved before banking." **RESOLVED: the axis is the power's own SKILL-EXPERIENCE LEVEL** (`skillExperienceLevels`, 4 distinct tables of 25/20/15/10 levels; deeper tree tier ⇒ fewer, steeper levels). Decisive evidence: array length == XP-table length on 60/65 powers; **0 of 694** player-class skills and **0 of 2,728** item skills carry an XP table (the two lanes are cleanly separated by that one field); constellation stars max at 8; `_devotiontree.dbr` authors every `skillLevel` as `'0'`; 500/502 star-node passives carry no arrays at all. **The "48" was `skillTemplates`, a boilerplate string array — not an axis.** Every header now carries a NOT-NULL CHECK-constrained `rank_axis` ∈ {`skill_xp_level` 69, `none` 605, `bought_rank` 1} plus `rank_axis_source` evidence.
+
+### Field policy (the 10× cost lever the probe named)
+
+Written as code + self-census (`scripts/gd_devotion_field_policy_2026_07_25.py`): 16,469 naive → −8,325 scaffolding deny (each with a reason string) → −1,030 string-valued **routed to `ext_json`/`devotion_power`, not dropped** → **7,114 banked**, **unclassified residual 0**. Driving the residual to zero recovered real behaviour a family-regex would have discarded — including the **only authored contagion parameters in the lane** (gandalf mapping row #60). `canon_key_provenance` tags 2,231 curated vs 4,883 mechanical snake_case so a transliteration is never mistaken for a cross-game semantic claim.
+
+### Schema change (the one non-additive part)
+
+`exact_skill.kit_id` was PK+FK→`canon_corpus`; a devotion power is **not** a corpus kit. Re-identified on `entity_id` + `entity_kind ∈ {corpus_kit, game_skill}`, `kit_id` retained as a **nullable real FK** (CHECK-enforced when kind=corpus_kit) rather than weakened. Rejected: minting 674 fake kit rows (corrupts every kit count); a separate payload table (abandons TSR-2). **Prior tables RENAMED not dropped** (`*_pre_devotion_20260725`); compat views `v_exact_skill_by_kit` / `v_exact_skill_field_by_kit` reproduce the old surface. Banker is **idempotent** (verified by a second real apply).
+
+### Trigger enum — the surface B1 keys on
+
+**6 events × 3 target frames × 8 chance values**, 27 of 144 realized, derived from **decoded controller fields** not filename parsing. Two additions the probe did not name: **`trigger_param` is a 4th optional dimension** (`LowHealth@40/45/50%` — invisible in the filename), and **ICD is itself sometimes level-scaled** (`icd_is_rank_array`), so F5's "chance + ICD pair" must model ICD as a scaling quantity. ICD present on 57 of 63 live powers, 0.1 s–60 s.
+
+### Three corrections to elrond's own probe note
+
+1. **"65 celestial powers" is 65 RECORDS; the live count is 63.** `power_role` splits them: 52 `tree_node` + 11 `buff_half` (the tree node delegates via `buffSkillName`; the pair is ONE power) + **2 `unreferenced`** — two Aeon's Hourglass variants with **ZERO inbound references across all 82,131 union records**, i.e. dead design iterations. `COUNT(*)` reads 65 and silently includes them.
+2. **The probe's §2.2 "VERBATIM PROOF" was truncated** — 25-element arrays transcribed as 20. Caught by the G5 gate (3/17 anchors FAILED first apply); HALT-diagnosed per GD-SLICE law, **layer named: the ORACLE, not the parse**. Twin Fangs is 128–221 vitality + 165 pierce + 22% weapon damage at level 25 of 25, not "108–186 / 140 / 20% at rank 20 of 20". Anchors now read from the archive, never from a note.
+3. **"Max depth 48"** was `skillTemplates` boilerplate; the concern dissolves.
+
+### §4.2 soft-count obligation DISCHARGED
+
+Of 41 GD kits: **12** name an actual celestial power, **21** name a constellation, **26 (63%)** name either. The census's "18 kits / 44%" sat between two different true numbers — system footprint is larger, named-proc subset smaller. **B2 must not be specced off a count that mixes them.** Three defects in elrond's own first-pass query found and fixed before publishing (unscoped scan crediting 48 PoE/TL/TQ kits; substring matching crediting "Raven" inside "**Raven**ous"; a cursor re-entrancy bug truncating the table scan).
+
+### Docket re-verification — 153 CLOSED, second stale row found
+
+Additive `resolution_status`/`_evidence`/`_date` on `kit_deviation`; `deviation_class` **unchanged by design** (the authored claim is history; the resolution columns are current truth). **Docket 153 `gd-retaliation-warlord` CLOSED** — surface verified BUILT in engine source on both seams (`resource_economy.py:185` `stack-fill` whose comment literally names GD retaliation; `damage_resolver.py:502` Wave-C TH reflect; bin LIFTED). **Second stale row found by re-verifying rather than by report: docket 149 `gd-berserker-wereforms`** claimed "Fangs of Asterkarn is unshipped" — GDX3 is now banked and byte-verified (333 wereform records, a `playerclass10` mastery lane), so the cause is void; routed to legolas for a gdx3 re-crawl, **not** silently resolved. Four pet/summoner rows marked `partial-surface-class-under-review` (SUMMON + proxy hosting BUILT and bins LIFTED; P2 nav/command SPEC-ONLY) and **routed to gandalf — the class call is design, not stewardship.**
+
+### Open + routed
+
+Fidelity LAW §4 has **no term for a pinned primary-source datamine** (MODEL-VERIFIED is plainly wrong; MEASURED is a literal overclaim). Banked as `MEASURED` + a `fidelity_basis` column rather than minting a canon grade in a migration doc — **sub-grade naming routed to gandalf**. Also open: devotion→skill *binding* is a save-game/runtime choice, unfindable by any crawl (design question for B2); the 147-record pet-actor lane is excluded and named; `devotion_node` normalized topology deferred (raw preserved in `links_json`/`buttons_json`).
+
+### Reversibility + backups
+
+`corpus.db.pre-devotion-20260726T032913Z-backup` (md5 `84dd4ca4269eb750fd15f81630b9650a`); `corpus.db.pre-devreverify-20260726T033140Z-backup` (md5 `da1547fb4fa996a372ff943d77f3116c`). G5 read-back 20/20 PASS float32-canonical, `integrity_check ok`, FK clean. Scripts: `gd_devotion_rank_axis_probe{,2}_2026_07_25.py`, `gd_devotion_field_policy_2026_07_25.py`, `gd_devotion_bank_2026_07_25.py`, `gd_deviation_reverify_2026_07_25.py`. No engine writes (engine source read-only for evidence); no ADR-004 cross-seam request. **Auto-committed per project discipline; NO push.**
+
+---
+
 ## gd-edition-pin-2026-07-24 — GD Edition-I `source_version` backfill (snapshot-with-editions): 1 `exact_skill` row pinned NULL→composite manifest pin, ZERO DDL — 2026-07-24 — **APPLIED (Matt RULING-A; dedicated MIGRATION note carries rationale + finding)**
 
 ### What happened (one line)
