@@ -51,7 +51,20 @@ are stated and non-binding. Everything here is queued-ready — no fork blocks a
 >   kits touch vs (b) two-sided attestation w/ re-entry tags (G-1 principle, player side).
 >   Lean (b). **Next artifact:** player-side surface-fit census (twin of the monster-state
 >   census) — fit table + gap register = ARCHITECT-pass input for the key-program charter.
+> - **G-5 residual RULED: attestation-breadth triage.** Matt: *"checking across GD kits to
+>   see if it's an outlying mechanic and only impacts one build. If there are a handful of
+>   builds using the mechanic, then we probably need to build it as we go."* Single-kit
+>   outlier → re-entry tag (not built now); handful+ of kits → build as we go. The
+>   surface-fit census gap register carries a **per-mechanic kit-count column** as the
+>   decision metric — the player-side twin of the monster census's attestation percentages.
 > - **G-6:** needs no ruling (standing).
+>
+> **GRILL CLOSED 2026-07-25 — all six forks resolved.** Post-grill sequence: ARCHITECT
+> completeness pass → (1) elrond player-side mechanism census (kit-counts) → gandalf
+> surface-fit mapping vs engine inventory → gap register w/ breadth triage; (2) G-4
+> universal liveness-gate (gamora, hard prereq); (3) G-3 control-payload build (rocket,
+> 10–17 h; freeze/stun registry reversal rides it) + gandalf/gamora DR-guardrail math
+> note; (4) L0-CLOSE; (5) Matt's v3 PC sitting → first CERTIFIED fixtures → Q47.
 
 ---
 
