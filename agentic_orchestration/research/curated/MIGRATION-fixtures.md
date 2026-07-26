@@ -20,6 +20,10 @@ durable record.** A byte-equivalent rebuild is:
 python3 agentic_orchestration/research/scripts/fixtures_m1_landing_2026_07_26.py
 python3 agentic_orchestration/research/scripts/fixtures_m2_backfill_r12_2026_07_26.py
 python3 agentic_orchestration/research/scripts/fixtures_m3_ingest_r3_2026_07_26.py
+# M4 (fixtures-v0.2) — CROSS-STORE: requires corpus.db to carry the GD bridge first.
+python3 agentic_orchestration/research/scripts/gd_bridge_m1_display_tags_2026_07_26.py
+python3 agentic_orchestration/research/scripts/gd_bridge_m2_monster_records_2026_07_26.py
+python3 agentic_orchestration/research/scripts/gd_bridge_m3_bridge_and_fixtures_2026_07_26.py
 ```
 
 ---
@@ -161,10 +165,126 @@ Row counts, per-trial certification verdicts and the Q47 evaluation are in the s
 
 ---
 
+## M4 — 2026-07-26 · schema `fixtures-v0.2` · the tag bridge lands, `monster_record` populated
+
+**Script:** `research/scripts/gd_bridge_m3_bridge_and_fixtures_2026_07_26.py` (the fixtures half of it)
+**Companion ledger:** `MIGRATION-gd-displayname-bridge-2026-07-26.md` — the corpus side, where the
+bridge itself lives. **This is the first cross-store migration in the fixtures ledger.**
+**Backup:** `fixtures.db.pre-v0.2-20260726T144128Z-backup` (md5 `c062bf4a0ecc6747ac6ded847c784fda`)
+**Class:** ADDITIVE. Seven `ALTER TABLE … ADD COLUMN`; one `UPDATE` on one row; zero drops.
+
+M3's summary note closed with `monster_record` still NULL on the certified rows and named that the
+last link between a certified fixture and the `.arz` statline it is meant to predict. That link now
+exists.
+
+### Schema delta
+
+| Table | New column | Why |
+|---|---|---|
+| `fixture_set` | `monster_record_candidates` | JSON array of ALL bridge candidates. `monster_record` is a heuristic pick; this is the evidence it was picked from. Never discarded. |
+| `fixture_set` | `monster_bio_record` | **The column a statline prediction should actually join on.** Far less ambiguous than the record path. |
+| `fixture_set` | `monster_rank` | GD `monsterClassification` (`Common` here). The nameplate's implicit second axis. |
+| `fixture_set` | `monster_race` | `characterRacialProfile` resolved — the nameplate's third line. |
+| `fixture_set` | `monster_record_method` | Provenance of the RECORD, kept separate from `monster_identity_method`. |
+| `fixture_set` | `monster_record_evidence` | The full two-hop derivation with its caveats. |
+| `measure_dict` | `off_trial_semantics` | v0.1 §7 item 1. Seeded on all 17 keys. |
+
+### The one design call that matters: `monster_identity_method` is NOT overwritten
+
+Legolas §4 recommended `monster_identity_method` gain a value like `tag-bridge-inferred` "so a
+bridged row is never mistaken for `spawn-command-verbatim`." The goal is right; the mechanism would
+have cost something. `L0-gd-s3-set1` is certified **because** of `screenshot-nameplate`, and
+`v_fixture_bank_certified` predicates on that column. Writing a bridge inference into it would have
+**decertified the only certified set in the bank** — or, worse, kept it certified on the strength of
+an inference.
+
+So the identity column is untouched and a **separate `monster_record_method`** carries the record's
+provenance: `tag-bridge-inferred+spawn-command-convergent`. Two different questions, two columns.
+`v_fixture_bank_certified` still returns 3 rows, post-write, unchanged.
+
+### What is now on the certified row
+
+```
+monster_display_name    Walking Dead                                        [nameplate, certified]
+monster_record          records/creatures/enemies/zombie_a01.dbr            [HEURISTIC — tiebreak]
+monster_record_candidates  25 entries, JSON, with per-candidate bio + penalty + rank
+monster_bio_record      records/creatures/enemies/bios/bio_zombie_01.dbr    [23 of 25 support]
+monster_rank            Common
+monster_race            Aether Corruption
+monster_identity_method screenshot-nameplate                                [UNCHANGED]
+monster_record_method   tag-bridge-inferred+spawn-command-convergent
+```
+
+`monster_record_evidence` records, in full: that hop 1 is *unique* in the string direction (exactly
+one of 2,060 creature tag keys yields "Walking Dead"); that hop 2 fans out 25 ways and the stored
+path is a heuristic; that Matt's round-2 console note `game.Spawn "records/creatures/enemies/
+zombie_a01.dbr"` succeeding is **convergent, not attesting**, because that spawn happened in session
+`gd-live-2026-07-25-s2` under a heading separate from any trial while this set is the round-3 *world*
+spawn in Vicinity of The Coffinmakers; and that which specific record a world spawn instantiates
+lives in `Levels.arc` spawn tables that are not parsed.
+
+### Round-2 sets stay NULL — deliberately
+
+`L0-gd-s2-set1` / `set2` remain `monster_record IS NULL`. The round-2 spawn command attests **the
+record**, not that those trials fought it — which is exactly why M2 banked them `assumed-unverified`.
+O-8 admits NULL identity and the certified view already excludes them. Populating them from the
+bridge would launder an assumption into a fact.
+
+### ANOMALY A1 — RESOLVED, and it retires one of my own recommendations
+
+v0.1 §4 anomaly A1 was the unexplained third nameplate line "Aether Corruption", flagged as
+possibly meaning the fixture was an **affixed variant** and therefore not a vanilla zombie statline.
+v0.1 §7 item 3 recommended `fixture_set.monster_affix` / `monster_variant` on that basis.
+
+Legolas §3 resolved it: it is `characterRacialProfile = 'Race005'`, a creature-type noun, confirmed
+by the singular/plural pair `tagRace005` / `tagRace005P` and by an exhaustive scan of every EN tag
+file finding exactly three occurrences of the literal string — two of them that pair, the third a
+player-side item-component skill in gdx1 that cannot appear on a hostile nameplate. The banked
+`gd_monster_record` row for `zombie_a01.dbr` carries `race_display = 'Aether Corruption'` directly.
+
+**There is no affix. `monster_affix` / `monster_variant` are therefore NOT added** — building them
+anyway would bank a superseded hypothesis as schema. `monster_race` is what the line actually is, so
+that is what landed. **The fixture is a vanilla zombie; A1 no longer qualifies the set.**
+
+### `off_trial_semantics` seed (v0.1 §7 item 1)
+
+`v_ledger_continuity` flagged `life_healed` as DISCONTINUOUS between every trial pair — correctly,
+and uselessly, because regeneration legitimately accrues off-trial. That judgment was the analyst's;
+it now lives in the dictionary. All 17 keys seeded across four values:
+
+| value | keys |
+|---|---|
+| `must-not-advance` | `kills`, `skill_use_count`, `deaths`, `health_potions_used`, `mana_potions_used`, `max_level_achieved` |
+| `may-advance` | `life_healed`, `play_time`, `hp_current`, `total_score` |
+| `invariant-within-character` | `hp_max`, `shield_block_chance` |
+| `trial-scoped` | `fight_seconds`, `hp_cost_band`, `hp_cost_abs`, `dps_field`, `capture_latency` |
+
+### Still open after v0.2
+
+- **Applied-modifier chain.** `bio_zombie_01` gives the BASE statline. `damage_totaladjuster` /
+  `armorbase01` passives and difficulty globals stack on top and are not traced. A fixture HP
+  prediction is not scoreable until they are.
+- **World-spawn → specific record.** `Levels.arc` lane, unopened.
+- Q47 remains PARTIAL FIRE per the v0.1 note §3. Nothing in v0.2 moves it.
+
+### Verification
+
+`PRAGMA integrity_check` ok · `foreign_key_check` clean · `v_fixture_bank_certified` = 3 rows
+(unchanged) · `measure_dict.off_trial_semantics` 17/17 populated · 1 `fixture_set` row updated.
+
+---
+
 ## Cross-seam notes
 
 No engine-side schema change is requested by any migration in this ledger. `fixtures.db` reads
-nothing from `reincarnated-engine/data/telemetry.db`. The only cross-store dependency is a
-prospective read-only `ATTACH` of `corpus.db` to resolve `.dbr` record paths
-(`trial_measurement.measure_subkey` → `exact_skill.record_path`;
-`fixture_set.monster_record` → the `.arz` monster slice). Neither is exercised yet.
+nothing from `reincarnated-engine/data/telemetry.db`.
+
+**The cross-store dependency is now exercised (M4).** `fixture_set.monster_record` /
+`monster_bio_record` / `monster_rank` / `monster_race` are all derived from `corpus.db`
+(`monster_display_tag` → `gd_monster_record` → `v_gd_monster_bridge`). The join keys are strings
+(`.dbr` record paths) as anticipated at landing, so the coupling is by value, not by FK — the two
+stores remain physically independent and either can be rebuilt alone. The rebuild ORDER, however,
+is now constrained: `corpus.db`'s bridge must exist before `fixtures.db` M4 runs. That order is
+written into the rebuild block at the top of this ledger.
+
+The remaining unexercised join is `trial_measurement.measure_subkey` → `exact_skill.record_path`.
