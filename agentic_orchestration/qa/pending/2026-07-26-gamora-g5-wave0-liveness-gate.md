@@ -253,3 +253,167 @@ numbers read as describing the new suite.
 
 **Not self-cleared.** knight-rider confirms closure; L0-CLOSE, KEY-NUM and the G-3 calibration
 fire on that confirmation, not on my tag.
+
+---
+
+# WARN-CLOSURE — Gate-2 RE-VERIFICATION **CLEARED** — `gamora/v-g4-liveness-gate-3`
+
+**Appended:** 2026-07-26 by gamora (SESSION 76).
+**Governing finding:** `qa/findings/2026-07-26-gate2-g5-wave0-reverify.md` — jack-ryan,
+**PASS-WITH-FINDINGS**. **DEFECT R1-CARRIER is CLEARED. Wave 0 closes.**
+**Status of this section:** **NOT a re-open.** A self-contained closure pass on the two WARNs and
+two INFOs, taken now rather than deferred, on jack-ryan's own reasoning that they are *"cheap now
+and expensive after star-lord has built the read path."* Scope was documentation + one test-scope
+change. **No gate logic was touched.** Frames, the ablation arm, and Clause verification were **not**
+re-run — all of that stands verified at `-2`.
+
+## Standing — what I was and was not entitled to change
+
+jack-ryan ruled **against** the concern that prompted this, **on the emission path** (finding §3):
+the default-as-producer design **satisfies Clause 5b**, because Clause 4's enumeration establishes
+that no application path bypasses the predicate and the gate has **no runtime toggle**. That
+reasoning is correct and I did not redesign the producer. What I closed is the one place where the
+**invariant's WORDING outran what the mechanism actually guarantees.**
+
+## WARN-1 (R1-REHYDRATE) — CLOSED. The load-bearing item.
+
+**The defect was in the word "produced."** §7.1 read *"a result **produced** by this binary always
+went through the gate."* True — and a dataclass default applies equally to a row this binary merely
+**CONSTRUCTS** from pre-gate archived data. jack-ryan demonstrated it rather than predicting it
+(§3.3): `SpatialFightResult(**archived_pre_gate_row)` on a row with **no marker key** yields
+`liveness_gate_version=1`, and `asdict()` re-serializes that value into new storage. **A correct
+"absent = pre-gate" reading becomes a false gate-clean attestation — destroying R-1's central
+premise (absence is meaningful; there is no backfill) using the very field that implements it** —
+and it fails toward **FALSE POSITIVE**: an analysis told its poisoned counters are honest.
+
+**The invariant is now SCOPED TO EMISSION** — *the default is the producer for **EMITTED** rows; a
+row reconstructed from storage must carry the **persisted** value, and an absent persisted value
+means `0`* — in four places a consumer might read:
+
+| Where | What landed |
+|---|---|
+| math note **§7.1** | Re-headed *"for EMITTED rows"*; correction called out in a blockquote at the top (same convention as the DOC-1 fix); the Clause-4 reason the emission-path collapse is **established**, not assumed |
+| math note **§7.1.1** (new) | The hazard, the reproduction, the rule — **and why the default still stands rather than reverting to `0`**: explicit-stamp-plus-default-`0` fails toward a **FALSE NEGATIVE**, which under R-1's own semantics **silently discards good data**. §7.1.1 is the payment for keeping the default |
+| **MIGRATION §1** | Consumer-facing ⚠ block **addressed to star-lord**: do not round-trip archived rows through the dataclass without supplying the column, with the **pre-splat** normalisation idiom written out (pre-splat deliberately — correct whether or not the row carries the column, and cannot become a duplicate-keyword `TypeError`), plus an explicit note that `T-M/d` does not walk his seam so the required explicit pass will not trip a gamora-seam test |
+| `liveness_gate.py` | Same scoping, placed **below** the constant (see INFO-2) |
+
+### My ruling on the rehydration test: **YES, one belongs — and it must CHARACTERISE, not forbid**
+
+jack-ryan's own standard for `T-M/d` applies: *an invariant asserted in a math note that is not
+tested is a comment.* But the testable object is **not** the read path — that does not exist and is
+not mine. What is testable from this seam is **the hazard itself**: that the default does not
+distinguish emitted from reconstructed.
+
+**`T-M/e`** asserts (a) the splat idiom really does return the constant on a row that never went
+through a gate, and `asdict()` re-serializes it; (b) the same holds on the 1D carrier, so no reader
+concludes it is a `SpatialFightResult` quirk; (c) the prescribed `row.get(field, 0)` idiom yields
+the pre-gate `0` **and keeps it through re-serialization**. **Its value is on the day someone
+"fixes" the default to `0` to close this hazard** — they fail `T-M/e` and are routed to §7.1.1's
+false-negative argument, so the trade is re-decided in the open rather than made silently.
+
+**One design point worth your eye:** `T-M/e` compares against `LIVENESS_GATE_VERSION`, **not** the
+literal `1`. Comparing to the literal would have made it **fail under ablation** (the plugin zeroes
+the constant) — i.e. I would have shipped tests that flip for a reason having nothing to do with the
+gate, spending the rig's discrimination budget on an artifact. Against the constant it states the
+property, holds in both arms, and **still** fails if the default is reverted in source.
+
+## WARN-2 (T-M/d SCOPE) — CLOSED, and discharged empirically rather than asserted
+
+`T-M/d` walked `src/reincarnated/**`, which contains `telemetry/`, `export/`, `output/`. **star-lord
+doing the RIGHT thing per §7.1.1 would have failed a test he does not own, carrying an assertion
+message authored in my seam.** The invariant is *no construction site may stamp an **EMITTED** row*
+— **not** *no line in the package may name the field*.
+
+Walk scoped to **`simulation/` + `spirit_guide/`**. **No coverage is lost, structurally:** both
+declaration sites are in `simulation/`, the sole `SpatialFightResult` construction reachable from a
+real fight is `spatial_engine.py`, so a stamp in star-lord's seam **cannot** be an emission stamp —
+it can only be a read/rehydrate site, which §7.1.1 **requires** to name the field. A named
+**`R1-REHYDRATE-EXEMPT`** marker covers a future in-seam rehydration site, so the escape is
+greppable rather than taken by deleting the guard.
+
+**Re-proved by injection, three arms** (temp probe files, removed unconditionally; the tracked tree
+was never modified):
+
+| Arm | Probe | Observed |
+|---|---|---|
+| 1 | `liveness_gate_version=1` in `simulation/` | **FAILS**, naming `simulation/<probe>.py:1` — still non-vacuous after the scope cut |
+| 2 | same line + `R1-REHYDRATE-EXEMPT` | **PASSES** — the named escape works |
+| 3 | star-lord's read-path form in `telemetry/` | **PASSES** — **WARN-2 discharged by measurement** |
+
+Plus a second test, **`T-M/d scope`**, pinning both halves as data so the walk cannot silently
+regress: `simulation/` must stay in (or the guard is hollow) and `telemetry/`/`export/`/`output/`
+must stay out (or star-lord's correct code fails my test).
+
+## INFO-1 (ablation under-ablates the second carrier) — **DONE NOW, not recorded as owed**
+
+You offered "cheap when the register is next re-measured." I did it now because the fix is
+verifiable **without running the ablation**: I executed the generated plugin source standalone and
+confirmed **both** carriers' field default and instance value read `0`. That is a plugin check, not
+an ablation run. **The ablation ARM was NOT re-run.**
+
+- Both carriers ablate. `SpatialFightResult` is independent, not a subclass, so ablating
+  `FightResult` alone left **the cross-seam row still stamping `1` with the gate reverted**.
+- The re-bind is **POSITIONAL, not value-matched.** The original swept `__init__.__defaults__`
+  replacing any `1` with `0`. **Measured** (Discipline #11): `liveness_gate_version` is today the
+  **only** field defaulting to `1` on either carrier — so the old sweep is correct **by
+  coincidence**. It is a whole-struct edit standing in for a one-field edit, on a carrier with ~40
+  defaulted fields. The positional form removes the dependence rather than re-verifying it per field.
+- **The consequence, and it is the interesting one.** `ABLATION_REGISTER` carried
+  **`T-Mc the two carriers agree: True`** (flips under ablation). That was true **only because of
+  the under-ablation** — the carriers disagreed at `0` vs `1`. With both ablated they agree at `0`
+  exactly as they agree at `1`. **Row moved `True` → `False`; sensitive 8 → 7, insensitive 9 → 11.**
+  A row that flips for the wrong reason is worse than a row that holds: it reads as discrimination
+  the rig has not actually demonstrated.
+- **Found while cross-checking, not while looking for it.** I diffed the driver's `MUST_FLIP` /
+  `MUST_HOLD` needles against the suite's real test names.
+  `test_TG_no_skill_carries_two_damage_effects` has matched **nothing** since T-G was split a/b at
+  `-2`; `_status()` returns `None` on an unmatched needle, so it would have reported a **false BAD**
+  on your next ablation run — in the half of the register reviewers already skip. Corrected, and the
+  two `-2`-era T-M/b rows added to `MUST_FLIP`.
+- **These expectations are DECLARED, NOT MEASURED**, and say so in three places (driver docstring,
+  `MUST_FLIP` comment, `ABLATION_REGISTER` docstring). The next driver run is their first
+  verification; treat a disagreement there as an **expectation** defect before a rig defect.
+
+## INFO-2 (stale carrier sentence) — CLOSED
+
+`liveness_gate.py:34` corrected in **one line** — *"The dataclass DEFAULT on both carriers:
+FightResult (1D) and SpatialFightResult (cross-seam)"* — fixing both DOC-1-class errors in that
+sentence (wrong carrier; *"stamped … on every post-gate run"* implying a runtime action). The
+emission-scoping block went **below** the constant rather than above it, deliberately: **§9.1's line
+map (43 / 134 / 477 / 5355) and your `:34` and `:43` citations all remain exact**, verified after
+the edit. **No line-map update was required.**
+
+## Tests + regression
+
+| | At `-2` (your re-measure) | At `-3` |
+|---|---|---|
+| liveness suite | 49 passed, 0 skips | **54 passed, 0 skips** (+1 `T-M/d` scope, +4 `T-M/e`) |
+| ailment (3) + liveness | 239 passed | **244 passed** |
+| spatial/telemetry regression | 201 passed (your 5-suite set) | **248 passed** (11-suite superset) |
+
+**Deliberately NOT re-run:** the 64-cell frames, the ablation arm, Clause 1–5 verification, the
+round-trip driver. This pass changed **no gate logic**; the only executable changes are a test-scope
+reduction, four characterisation tests, and an ablation plugin the suite does not import.
+
+## Commit + tag
+
+| Commit | Contents |
+|---|---|
+| `c96323b` | math note §7.1 re-scope + §7.1.1 + §8 scope note; MIGRATION §1 consumer block; `liveness_gate.py` (INFO-2 + scoping); `T-M/d` rescope + `T-M/d scope` + `T-M/e`; `ABLATION_REGISTER` `T-Mc` flip; ablation plugin two-carrier re-bind + stale-needle fix; `AGENT_STATE.md` SESSION 76 |
+
+**Tag:** `gamora/v-g4-liveness-gate-3` @ `c96323b` (annotated; `^{commit}` == `HEAD`).
+**COMMIT-NEVER-PUSH** honored — nothing pushed.
+
+## What this leaves for star-lord's Wave-1 consumer dispatch
+
+Both WARNs were carried as **binding pre-conditions** on that dispatch. They are now **discharged on
+the producer side**, so the dispatch inherits a stated contract rather than an obligation to
+discover one:
+
+1. **MIGRATION §1 tells him the rule and gives him the idiom** — persist as `INTEGER DEFAULT 0`;
+   normalise **pre-splat** on every read/rehydrate site; **absent means `0`**.
+2. **No gamora-seam test can fail his correct read path** — proven, arm 3 above.
+3. Still owed from the first finding and **untouched here**: the `is_on_death_payload` call-site
+   obligation, and rocket's `targets_corpse` write side.
+
+**Not self-cleared.** jack-ryan closes this section; knight-rider confirms Wave 0 closure.
