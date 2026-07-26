@@ -1,0 +1,1455 @@
+{
+  "capability": "C1 panel OCR (E1)",
+  "generated": "2026-07-26T14:00:30.167Z",
+  "method_law": "native-resolution crop from 1920x1080 PNG; 4x nearest-neighbour upscale for legibility only",
+  "engine": "tesseract.js 6 (eng), LSTM default",
+  "variant": "graynorm4x",
+  "parser": "v2",
+  "crop_box": {
+    "left": 1400,
+    "top": 20,
+    "width": 520,
+    "height": 330
+  },
+  "frames_scored": 13,
+  "totals": {
+    "scored_fields": 144,
+    "value_hits": 120,
+    "absent_hits": 13,
+    "misses": 11
+  },
+  "accuracy_all": 0.9236111111111112,
+  "accuracy_valued_only": 0.916030534351145,
+  "per_key": {
+    "play_time": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "total_score": {
+      "n": 7,
+      "hit": 2,
+      "acc": 0.2857142857142857
+    },
+    "deaths": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "kills": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "health_potions_used": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "mana_potions_used": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "max_level_achieved": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "dps_field": {
+      "n": 13,
+      "hit": 13,
+      "acc": 1
+    },
+    "life_healed": {
+      "n": 13,
+      "hit": 12,
+      "acc": 0.9230769230769231
+    },
+    "shield_block_chance": {
+      "n": 7,
+      "hit": 7,
+      "acc": 1
+    },
+    "skill_use_count": {
+      "n": 26,
+      "hit": 21,
+      "acc": 0.8076923076923077
+    }
+  },
+  "frames": [
+    {
+      "capture_id": "gd-live-2026-07-25-s1/playstats",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-1/playstats-panel.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s1_playstats-graynorm4x@4x.png",
+      "raw_ocr": "Play Statistics:\nPlay Time: 115 min 27 sec\nTotal Score: 0\nNumber of deaths: ©\nNumber of kills: 16\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 2\nDamage per second: 0.00\nSkills Used:\nrecords/skills/default/defaultweaponattack dbr - 9\nLife healed: 6.34\nShield block chance : 15.00\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 6927,
+          "ocr": 6927,
+          "verdict": "HIT",
+          "verbatim": "115 min 27 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 16,
+          "ocr": 16,
+          "verdict": "HIT",
+          "verbatim": "16"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 2,
+          "ocr": 2,
+          "verdict": "HIT",
+          "verbatim": "2"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 6.34,
+          "ocr": 6.34,
+          "verdict": "HIT",
+          "verbatim": "6.34"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth": 15,
+          "ocr": 15,
+          "verdict": "HIT",
+          "verbatim": "15.00"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 9,
+          "ocr": 9,
+          "verdict": "HIT",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 9"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 12,
+      "scored": 12
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/13",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (13).png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s2_13-graynorm4x@4x.png",
+      "raw_ocr": "AF] BRE RRER\nPlay Statistics: yd :\n\nPlay Time: 137 min 48 sec 4 \\\nTotal Score: 0 |\nMumber of deaths: 0 |\nNumber of kills: 161\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 5 -\nDamage per second: 0.00\nSkills Used:\n\nrecords/skills/default/defaultkickattack .dbr : 1\n\nrecords/skills/default/defaultweaponattack dbr - 427\nLife healed: 2245 44\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8268,
+          "ocr": 8268,
+          "verdict": "HIT",
+          "verbatim": "137 min 48 sec"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 161,
+          "ocr": 161,
+          "verdict": "HIT",
+          "verbatim": "161"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 5,
+          "ocr": 5,
+          "verdict": "HIT",
+          "verbatim": "5"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 2245.44,
+          "ocr": 2245.44,
+          "verdict": "HIT",
+          "verbatim": "2245.44"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 427,
+          "ocr": 427,
+          "verdict": "HIT",
+          "verbatim": ": 427"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth": 1,
+          "ocr": 1,
+          "verdict": "HIT",
+          "verbatim": ": 1"
+        }
+      ],
+      "hits": 10,
+      "scored": 10
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/14",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (14).png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s2_14-graynorm4x@4x.png",
+      "raw_ocr": "AF] BRE BFWER\nPlay Statistics: a | :\n\nPlay Time: 137 min 54 sec ; \\\nTotal Score: 0 [|\nMumber of deaths: 0 |\nNumber of kills: 162\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 5 =\nDamage per second: 19.17\nSkills Used:\n\nrecords/skills/default/defaultkickattack dbr : 1\n\nrecords/skills/default/defaultweaponattack dbr - 429\nLife healed: 2245 44\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8274,
+          "ocr": 8274,
+          "verdict": "HIT",
+          "verbatim": "137 min 54 sec"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 162,
+          "ocr": 162,
+          "verdict": "HIT",
+          "verbatim": "162"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 5,
+          "ocr": 5,
+          "verdict": "HIT",
+          "verbatim": "5"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 19.17,
+          "ocr": 19.17,
+          "verdict": "HIT",
+          "verbatim": "19.17"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 2245.44,
+          "ocr": 2245.44,
+          "verdict": "HIT",
+          "verbatim": "2245.44"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 429,
+          "ocr": 429,
+          "verdict": "HIT",
+          "verbatim": ": 429"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth": 1,
+          "ocr": 1,
+          "verdict": "HIT",
+          "verbatim": ": 1"
+        }
+      ],
+      "hits": 10,
+      "scored": 10
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/15",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (15).png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s2_15-graynorm4x@4x.png",
+      "raw_ocr": "dr a’ WR Nr I Re A 2\nPlay Statistics: Vd ‘\n\nPlay Time: 140 min 52 sec \\\nTotal Score: 0 x\nNumber of deaths: ©\nNumber of kills: 162\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 6\nDamage per second: 0.00\nSkills Used:\n\nrecords/skills/default/defaultkickattack dbr : 1\n\nrecords/skills/default/defaultweaponattack dbr - 429\nLife healed: 2258.09\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8452,
+          "ocr": 8452,
+          "verdict": "HIT",
+          "verbatim": "140 min 52 sec"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 162,
+          "ocr": 162,
+          "verdict": "HIT",
+          "verbatim": "162"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 2258.09,
+          "ocr": 2258.09,
+          "verdict": "HIT",
+          "verbatim": "2258.09"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 429,
+          "ocr": 429,
+          "verdict": "HIT",
+          "verbatim": ": 429"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth": 1,
+          "ocr": 1,
+          "verdict": "HIT",
+          "verbatim": ": 1"
+        }
+      ],
+      "hits": 10,
+      "scored": 10
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/16",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (16).png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s2_16-graynorm4x@4x.png",
+      "raw_ocr": "rf WR Nr I ul AEE RE\nPlay Statistics: yo |\n\nPlay Time: 141 min 47 sec : X\nTotal Score: 0\nMumber of deaths: 0 |\nNumber of kills: 163\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 6 =\nDamage per second: 0.00\nSkills Used:\n\nrecords/skills/default/defaultkickattack dbr : 1\n\nrecords/skills/default/defaultweaponattack dbr - 431\nLife healed: 2292 86\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8507,
+          "ocr": 8507,
+          "verdict": "HIT",
+          "verbatim": "141 min 47 sec"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 163,
+          "ocr": 163,
+          "verdict": "HIT",
+          "verbatim": "163"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 2292.86,
+          "ocr": 2292.86,
+          "verdict": "HIT",
+          "verbatim": "2292.86"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 431,
+          "ocr": 431,
+          "verdict": "HIT",
+          "verbatim": ": 431"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth": 1,
+          "ocr": 1,
+          "verdict": "HIT",
+          "verbatim": ": 1"
+        }
+      ],
+      "hits": 10,
+      "scored": 10
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/17",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (17).png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s2_17-graynorm4x@4x.png",
+      "raw_ocr": "Lh pal Aut JERCER'S Ry\nPlay Statistics: 4 |\n\nPlay Time: 142 min 37 sec ; \\\nTotal Score: 0 I\nMumber of deaths: 0 |\nNumber of kills: 164\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 6 =\nDamage per second: 0.00\nSkills Used:\n\nrecords/skills/default/defaultkickattack dbr : 1\n\nrecords/skills/default/defaultweaponattack dbr - 433\nLife healed: 2311.37\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8557,
+          "ocr": 8557,
+          "verdict": "HIT",
+          "verbatim": "142 min 37 sec"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 164,
+          "ocr": 164,
+          "verdict": "HIT",
+          "verbatim": "164"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 2311.37,
+          "ocr": 2311.37,
+          "verdict": "HIT",
+          "verbatim": "2311.37"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 433,
+          "ocr": 433,
+          "verdict": "HIT",
+          "verbatim": ": 433"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth": 1,
+          "ocr": 1,
+          "verdict": "HIT",
+          "verbatim": ": 1"
+        }
+      ],
+      "hits": 10,
+      "scored": 10
+    },
+    {
+      "capture_id": "gd-live-2026-07-25-s2/18",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-2/Screenshot (18).png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_25_s2_18-graynorm4x@4x.png",
+      "raw_ocr": "Lh RS Ju SERS AE\nPlay Statistics: J ;\nPlay Time: 142 min 43 sec : \\\nTotal Score: 0 j\nNumber of deaths: © |\nNumber of kills: 165\nHealth potions used: 0\nMana potions used: 0\nMax. level achieved: 6 =\n| Damage per second: 19.43\n\nSkills Used:\n\nrecords/skills/default/defaultkickattack dbr : 1\n\nrecords/skills/default/defaultweaponattack. dbr - 435\nLife healed: 2311.37\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8563,
+          "ocr": 8563,
+          "verdict": "HIT",
+          "verbatim": "142 min 43 sec"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 165,
+          "ocr": 165,
+          "verdict": "HIT",
+          "verbatim": "165"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 19.43,
+          "ocr": 19.43,
+          "verdict": "HIT",
+          "verbatim": "19.43"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 2311.37,
+          "ocr": 2311.37,
+          "verdict": "HIT",
+          "verbatim": "2311.37"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 435,
+          "ocr": 435,
+          "verdict": "HIT",
+          "verbatim": ": 435"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth": 1,
+          "ocr": 1,
+          "verdict": "HIT",
+          "verbatim": ": 1"
+        }
+      ],
+      "hits": 10,
+      "scored": 10
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t1s",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-01-start.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_26_s3_t1s-graynorm4x@4x.png",
+      "raw_ocr": "a BRA AR Se LS\nPlay Statistics: ; | i.\nPlay Time: 145 min 35 sec A>\nTotal Score: 0 y\nNumber of deaths: 0 f\nNumber of kills: 172 {\nHealth potions used: 0 ‘\nMana potions used: 0\nMax level achieved: 6 4\na\nDamage per second: 0.00 fe &\n-\nSkills Used: .\nrecords/skills/default/defauliweaponattack dbr - 22° =\nLife healed: 0.00 —a\nDE Mctive Quests\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8735,
+          "ocr": 8735,
+          "verdict": "HIT",
+          "verbatim": "145 min 35 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 172,
+          "ocr": 172,
+          "verdict": "HIT",
+          "verbatim": "172"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 22,
+          "ocr": null,
+          "verdict": "NO-READ",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 22"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 11,
+      "scored": 12
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t1e",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-01-end.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_26_s3_t1e-graynorm4x@4x.png",
+      "raw_ocr": "BRA AT Se RS\nPlay Statistics: - “v\nPlay Time: 145 min 40 sec “\nTotal Score: 1] |\nNumber of deaths: 0 i\nNumber of kills: 173 {\nHealth potions used: 0\nMana potions used: 0 -\nMax _ level achieved: 6 a 4\nDamage per second: 23.57 i\n%\nSkills Used: [\nrecords/skills/default/defauliweaponattack dbr - 24 »\n\"  Lifc healcd: 0.00 a\nEe of -  Beemmmlmw Hetioe Quests\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8740,
+          "ocr": 8740,
+          "verdict": "HIT",
+          "verbatim": "145 min 40 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 1,
+          "verdict": "MISREAD",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 173,
+          "ocr": 173,
+          "verdict": "HIT",
+          "verbatim": "173"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 23.57,
+          "ocr": 23.57,
+          "verdict": "HIT",
+          "verbatim": "23.57"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": null,
+          "verdict": "NO-READ",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 24,
+          "ocr": null,
+          "verdict": "NO-READ",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 24"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 9,
+      "scored": 12
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t2s",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie_02_start.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_26_s3_t2s-graynorm4x@4x.png",
+      "raw_ocr": "a BRA AT Se RS\nPlay Statistics: Iw. 5.\nPlay Time: 147 min 44 sec A\nTotal Score: 1] {\nNumber of deaths: 0 |\nNumber of kills: 174 {\nHealth potions used: 0\nMana potions used: 0 fo\nMaz. level achieved: 6 | a a\nDamage per second: 0.00\nSkills Used: AS\nrecords/skills/default/defauliweaponattack dbr : 26 os =.\nLife healed: 4.24 s -\n. = EAT Hctioe Quests\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8864,
+          "ocr": 8864,
+          "verdict": "HIT",
+          "verbatim": "147 min 44 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 1,
+          "verdict": "MISREAD",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 174,
+          "ocr": 174,
+          "verdict": "HIT",
+          "verbatim": "174"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 4.24,
+          "ocr": 4.24,
+          "verdict": "HIT",
+          "verbatim": "4.24"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 26,
+          "ocr": null,
+          "verdict": "NO-READ",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 26"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 10,
+      "scored": 12
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t2e",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie_02_end.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_26_s3_t2e-graynorm4x@4x.png",
+      "raw_ocr": "a BRA AT Se RS\nPlay Statistics: Dr i\nPlay Time: 147 min 49 sec A\nTotal Score: 1] S\nNumber of deaths: 0\nNumber of kills: 175\nHealth potions used: 0 ih ¥\nMana potions used: 0\nMax level achieved: 6 3\nDamage per second: 22.88\nSkills Used: &\nrecords/skills/default/defauliweaponattack dbr - 28 —~\nLife healed: 20.28 =~\nDl Active Quests\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8869,
+          "ocr": 8869,
+          "verdict": "HIT",
+          "verbatim": "147 min 49 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 1,
+          "verdict": "MISREAD",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 175,
+          "ocr": 175,
+          "verdict": "HIT",
+          "verbatim": "175"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 22.88,
+          "ocr": 22.88,
+          "verdict": "HIT",
+          "verbatim": "22.88"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 20.28,
+          "ocr": 20.28,
+          "verdict": "HIT",
+          "verbatim": "20.28"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 28,
+          "ocr": null,
+          "verdict": "NO-READ",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 28"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 10,
+      "scored": 12
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t3s",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-03-start.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_26_s3_t3s-graynorm4x@4x.png",
+      "raw_ocr": "BRA AT Se RS\nPlay Statistics: PWN Gk.\nPlay Time: 149 min 3 sec A\nTotal Score: 1] |\nNumber of deaths: 0\nNumber of kills: 175 {\nHealth potions used: 0 A\nMana potions used: 0\nMax _ level achieved: 6 :\n=a —\nDamage per second: 0.00 -\nha\nSkills Used- =\nrecords/skills/default/defauliweaponattack dbr - 28\nLife healed: 24 42 -—\nBN TET Hcetive Quests\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8943,
+          "ocr": 8943,
+          "verdict": "HIT",
+          "verbatim": "149 min 3 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 1,
+          "verdict": "MISREAD",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 175,
+          "ocr": 175,
+          "verdict": "HIT",
+          "verbatim": "175"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0.00"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 24.42,
+          "ocr": 24.42,
+          "verdict": "HIT",
+          "verbatim": "24.42"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 28,
+          "ocr": 28,
+          "verdict": "HIT",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 28"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 11,
+      "scored": 12
+    },
+    {
+      "capture_id": "gd-live-2026-07-26-s3/t3e",
+      "source": "agentic_orchestration/research/knowledge/gd/live-probe-3/zombie-03-end.png",
+      "crop_box": {
+        "left": 1400,
+        "top": 20,
+        "width": 520,
+        "height": 330
+      },
+      "variant": "graynorm4x",
+      "parser": "v2",
+      "upscaled": "upscaled/c1-gd_live_2026_07_26_s3_t3e-graynorm4x@4x.png",
+      "raw_ocr": "wha Cod hoi di\nPlay Statistics: pT ta\nPlay Time: 149 min 7 sec “ul\nTotal Score: 1] | ;\nNumber of deaths: 0 \\\nNumber of kills: 176 {\nHealth potions used: 0 A\nMana potions used: 0\nMax. level achieved: 6 ; —\nDamage per second: 26.96 Es\n3 Skills Used:\n= records/skills/default/defauliweaponattack dbr : 31 \"\n, 2 Life healed: 25.37 4\nDE Ee EE Active Quests\n",
+      "fields": [
+        {
+          "measure_key": "play_time",
+          "measure_subkey": null,
+          "truth": 8947,
+          "ocr": 8947,
+          "verdict": "HIT",
+          "verbatim": "149 min 7 sec"
+        },
+        {
+          "measure_key": "total_score",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 1,
+          "verdict": "MISREAD",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "deaths",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "kills",
+          "measure_subkey": null,
+          "truth": 176,
+          "ocr": 176,
+          "verdict": "HIT",
+          "verbatim": "176"
+        },
+        {
+          "measure_key": "health_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "mana_potions_used",
+          "measure_subkey": null,
+          "truth": 0,
+          "ocr": 0,
+          "verdict": "HIT",
+          "verbatim": "0"
+        },
+        {
+          "measure_key": "max_level_achieved",
+          "measure_subkey": null,
+          "truth": 6,
+          "ocr": 6,
+          "verdict": "HIT",
+          "verbatim": "6"
+        },
+        {
+          "measure_key": "dps_field",
+          "measure_subkey": null,
+          "truth": 26.96,
+          "ocr": 26.96,
+          "verdict": "HIT",
+          "verbatim": "26.96"
+        },
+        {
+          "measure_key": "life_healed",
+          "measure_subkey": null,
+          "truth": 25.37,
+          "ocr": 25.37,
+          "verdict": "HIT",
+          "verbatim": "25.37"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultweaponattack.dbr",
+          "truth": 31,
+          "ocr": null,
+          "verdict": "NO-READ",
+          "verbatim": "records/skills/default/defaultweaponattack.dbr : 31"
+        },
+        {
+          "measure_key": "skill_use_count",
+          "measure_subkey": "records/skills/default/defaultkickattack.dbr",
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        },
+        {
+          "measure_key": "shield_block_chance",
+          "measure_subkey": null,
+          "truth_absent": true,
+          "ocr": null,
+          "verdict": "HIT-ABSENT"
+        }
+      ],
+      "hits": 10,
+      "scored": 12
+    }
+  ]
+}
