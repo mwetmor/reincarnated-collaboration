@@ -185,3 +185,43 @@ one pack over. Arm 3b — put a thumb on the scale by naming which verdict was "
 claimed a "cost" with no unit. Arm 3c v1 — **built a cell that rewarded deletion when the owner
 wanted a replacement**, and only the owner's own second ruling caught it. **Tell me what it is this
 time.**
+
+---
+
+## Completion record
+
+**Executed by:** drax (presentation seam) · **Closed:** 2026-07-25 · **Verdict: PASS.**
+**Report:** `agentic_orchestration/drax/notes/2026-07-25-tcp-l8u3c-hotbar-backing-report.md`
+**Floor:** `~/Games/mcp-lab/l8ui/ui3c/` — resumed, not restarted. Arms 1/2/3/3b byte-identical.
+
+**Fork: CANDLES**, on a structural reason rather than taste — `PANEL_batwings` has no candles on its
+globes, so choosing it means dropping ratified work. Branch W built and shipped behind `--tray=wings`.
+
+★ **The forbidden outcome was already on disk.** `out3c/T2_wings.png` / `T2_candles.png`, written
+03:07:47Z and 03:07:50Z — one minute before the stop — are nine slots on bare stone with the crest
+floating unattached. **§0 of the re-dispatch predicted it and the prediction is an artifact, not a
+counterfactual.** Conductor viewed and confirms.
+
+★ **The backing was never missing — it was tinted to a shadow.** The plate was being drawn the whole
+time at Y = 0.054 against the exemplars' Y mean 0.144 / 0.156: our plate sat at their tenth
+percentile and its brightest pixel was darker than their median.
+
+★ **CONDUCTOR DEFECT: "~6 minutes" is wrong by 5×.** Segment 1 ran **30 m 54 s**. Six minutes was the
+first-write-to-last-write span, not the run. §3.1's unattributable cost is 5× what was declared and
+§0's own argument ("minute 6, not minute 46") is arithmetic on the wrong number — it was applied at
+minute 31. **L-Q clock corollary born.** The decision survives; its stated reason does not.
+
+**Numbers (two-flat instrument):** assembly ink 9.110% → 6.187% (−32.1%) · backing extent 135 → 102 px
+(−24.4%) · band ink mass −20.4% · exemplar-ratio B1 0.912 → 1.020 against exemplars at 1.021 / 1.014 ·
+translucency 36.63 → 36.54, ratified glass intact. F2/F3 withheld as not comparable across the change.
+
+**Cost split:** swap 16% · overlap re-solve 10% · **everything else 74%, instrument alone 28%** — third
+consecutive arm with a non-build dominant cost, and §2 offered a two-branch frame in which both
+branches were build categories.
+
+**HALTs: 3 new** (H-17 exemplar proportions vs 9 slots · H-18 crest-as-mount · H-19 the utility slot
+the exemplars cannot arbitrate). **Ceilings: 3. Rulings: R-17…R-20.**
+
+**Exit predicate:** met. Substrate `scene_before.tscn` = `d45db0f5…` at `-r--r--r--` verified
+independently at close. Executor self-reported a SIGPIPE-truncated start snapshot (41 of 14,285 lines),
+covered by mtime, **reported rather than substituted.**
