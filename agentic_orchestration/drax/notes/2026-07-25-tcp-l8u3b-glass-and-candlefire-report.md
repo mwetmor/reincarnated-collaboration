@@ -392,7 +392,7 @@ sampled. Δ is against the pooled flames-OFF control (6.3417 ms):
 | **ARM 3 HUD** (opaque, unlit) | 6.3455 | +0.004 | **below floor** |
 | arm 3b, flames OFF | 6.3417 | — | control |
 | flames + halos, 0 embers (12 additive sprites) | 6.3560 | **+0.014** | **below floor** |
-| 36 particles | 6.3635 | +0.022 | below floor |
+| 36 particles ⚠ | 6.3635 | +0.022 | below floor |
 | 144 particles | 6.3715 | +0.030 | at floor |
 | 576 particles | 6.3846 | +0.043 | just above |
 | 2,304 particles | 6.3864 | +0.045 | just above |
@@ -401,6 +401,15 @@ sampled. Δ is against the pooled flames-OFF control (6.3417 ms):
 | 144 @ ×16 area | 6.3596 | +0.018 | below floor |
 | 144 @ ×64 area | 6.3861 | +0.044 | just above |
 | **2,304 @ ×16 area** | **6.4433** | **+0.102** | **3.4× floor** |
+
+⚠ Every row is the mean of the two runs **except the 36-particle row**, which is run 1
+alone: run 2's value for that case (6.4574) carried sd 0.4728 against ~0.30 everywhere
+else and is a scheduling outlier, not a measurement. Pooling it would have moved the row
+to +0.069 and manufactured a count effect out of noise. **Flagged rather than silently
+dropped, because dropping an inconvenient sample is how a sweep produces the answer it
+wanted** — and note that including it would have made the count axis look MORE expensive,
+i.e. the direction that favours the more interesting verdict, which is exactly the bias
+§15.1 warns about.
 
 **★ gandalf's suspicion was RIGHT about the flames and WRONG about the translucency, and
 both halves are worth having.** The flames sit at +0.014 ms — below the floor, as he
