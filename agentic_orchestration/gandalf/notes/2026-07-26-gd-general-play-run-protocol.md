@@ -179,7 +179,7 @@ protocol.
 |---|---|
 | Source | **Game Capture** (not Display Capture) — must include nameplates, HP globe, panel, green overlay |
 | Base + Output resolution | 1920 × 1080 both. **No downscale.** |
-| FPS | **60 preferred, 30 acceptable** — see § 3.3 |
+| FPS | **60 preferred, 30 acceptable** — see § 3.3. **CFR** (constant framerate — OBS default; do not enable VFR). Extraction is PTS-based and VFR-robust, but CFR is free insurance. |
 | Encoder | NVENC H.264 (or AV1 if available) |
 | Rate control | **CQP 18–20**, or CBR **≥ 25 Mbps @ 1080p60 / ≥ 15 Mbps @ 1080p30** |
 | Keyframe interval | 2 s (default) — keeps `ffmpeg -accurate_seek` cheap |
