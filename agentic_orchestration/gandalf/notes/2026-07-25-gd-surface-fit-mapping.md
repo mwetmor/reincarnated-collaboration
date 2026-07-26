@@ -233,6 +233,28 @@ consistent with it.
 
 ## §4 — Open design forks (Matt rules; I state leans and stop)
 
+> **ALL FIVE RULED — Matt, in-session 2026-07-25.** Overall condition, verbatim: *"These need
+> to be based on what fits our pipeline/sim's mechanics. I should NOT make these choices
+> arbitrarily. If you have already inspected the engine mechanisms and deemed these the best
+> options, then I agree with all of your leans."* Gandalf attestation on record: every verdict
+> cites the engine surface by code identity (BUILT/SPEC-ONLY labeled); caveat — shape-grade,
+> magnitudes verify at extraction+gauntlet.
+> - **F1 RULED (b):** proc-binding absorbs into soul-bound gear operators; no devotion-analogue
+>   tree. (The pilgrimage-vs-purchase cost was stated and accepted.)
+> - **F2 RULED (c):** conversion carried BOTH ways at different grades — capstone specialist,
+>   gear capped-garnish.
+> - **F3 RULED (fixed, engine-expressed):** Matt verbatim: *"If these are based on our engine's
+>   mechanics, then it is expressed as a selection of skills in a tree, capstone(s), gear, etc."*
+>   Canon sentence (gandalf restatement, adopted): a converted character is a FIXED kit — the
+>   key expresses the source build as a fixed selection across our native expression surfaces
+>   (skills, trait floors, T4 capstone(s), soul-bound gear operators) chosen at conversion time;
+>   live player expression remains gear-side, not point re-investment. **Consequence: B6
+>   collapses into the gear lane; register is nine items.**
+> - **F4 RULED (a):** debuff stacking-class enum adopted now (S-size).
+> - **F5 RULED (a):** `proc_chance` + `proc_internal_cooldown_seconds` as a PAIR, with the
+>   high-frequency-triggers-require-ICD invariant. Empirical backing: 62/65 GD celestial powers
+>   carry explicit ICDs (devotion payload probe, same date).
+
 ### F1 — Does *Reap. Die. Rise.* want a second, player-directed proc-binding progression surface?
 
 18 GD kits (44%) build around devotions. PoE trigger gems and D4 Aspects are the same shape. But we
