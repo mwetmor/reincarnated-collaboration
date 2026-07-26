@@ -218,3 +218,75 @@ sprite fails and show the frame.
 arm 3's struck weapon-wheel steer. **This amendment names two reference rows and nothing else about
 them; I have deliberately not ranked them, not counted their slots as a target, and not named a
 sprite.** Arm 3 proved that what I enumerate becomes what gets built.
+
+---
+
+## Completion record
+
+**Executed by:** drax (presentation seam) · **Closed:** 2026-07-26 · **Verdict: PASS.**
+**Report:** `agentic_orchestration/drax/notes/2026-07-25-tcp-l8u3b-glass-and-candlefire-report.md`
+**Floor:** `~/Games/mcp-lab/l8ui/ui3b/` · **Clock:** 46 m 45 s authoring, unbroken, no stall.
+
+**Both rulings realised.** The void is glass; six candles are lit. `Frame_Orb_01_Glass`'s
+alpha was re-measured **as a material** and is a **THICKNESS MAP** — 0.364 inner → 0.525 at
+the rim, a +44% Fresnel-shaped rise. The property that made it useless as a mask is what
+makes it the correct material, so §2's open question resolves **for** the sprite and
+**against my own banked prediction**. Wick tips measured by dark-blob connected components
+after a column-top profile failed to separate three overlapping candles.
+
+**★ Matt's sentence was treated as a testable claim and it found a structural conflict.**
+Translucency = per-pixel spread of the globe across three backgrounds (an opaque surface
+scores 0). Arm 3: **0.00**. Arm 3b with the tray seat kept: **1.36**. Arm 3b with the seat
+punched: **33.96** — so the seat fork resolves on a 25× measurement, not on taste. But
+translucency was **NOT monotone** in life: R-5 VOID-FILLS-BRIGHT's opacity ramp closes the
+glass exactly where the ruling wants it opening. Resolved by moving the danger channel onto
+brightness (`glow_opac` 0.44 → 0.08) — **faithful to R-5's own name, which says BRIGHT and
+never said OPAQUE.** Now monotone 0.00 → 38.36. HALTed as **H-14** regardless.
+
+**§1's registered prediction: THE LAW PREDICTED THIS LAP. PASS — and weak, as I registered
+in advance.** 46 m vs arm 3's ~66 m; **4 sprites vendored vs 70** (17.5×); substrate
+measurement **44% → 17%**; zero new frame families; R-9 reused verbatim on a second problem
+at zero cost. **But FIRST_INTENT §7 pre-registered that this is a weak pass** because the
+candles ARE a new node class and cost nothing only by being tiny. **Candidate amendment:
+the law predicts BUILD cost and is silent on PROOF cost — instrument tripled to 19% and a
+new category, `sweep`, took 13%.**
+
+**§1's secondary question, answered as the dispatch pre-blessed.** COUNT swept 64× and AREA
+swept 256×; **neither leaves a 0.03 ms measurement floor on a 6.34 ms frame.** L7-V ④ is not
+refuted, it is **untestable in this medium**. Six lit candles cost **+0.014 ms — below the
+floor.** gandalf's suspicion right on the flames, **refuted on the translucency: arm 3 opaque
+and arm 3b glass are indistinguishable (+0.004 ms). Glass is free.** ★ **UI VFX budgets at
+zero.**
+
+**Three defects found, two inherited.** ★ Arm 3's `facet_ref = 0.29` was a whole-sprite mean
+used on a windowed sample — **pinned at its clamp over 85.2% of the disc, so three arms
+shipped a faceting term that was a flat multiply.** ★ The ailment plate has covered the left
+candle crowns since arm 3 and was undetectable while they were unlit — **lighting something
+is a free audit of everything that occludes it.** The glass silently broke R-6 (empty energy
+globes went grey) and is repaired by staining the vessel with what it holds.
+
+**Instrument unmodified, fourth arm.** FIRST_INTENT's worry that translucency would break it
+was **misconceived** — `legibility2` measures the composite over real backgrounds. Cost:
+life_vessel **−2.65** at critical (still 9.52:1, 3.2× threshold), **+0.36 at healthy**, and
+**four of seven regions bit-identical**, which is a containment proof.
+
+**Moving artifact:** `out3b/mov/` — 12 s deterministic take (flames idle → continuous sweep
+1.00 → 0.02 → hold), plus an assembly strip and a 3× candle close-up. 262 stills.
+**Exit predicate met:** substrate `d45db0f5…de1966` at 0444 start and end; `project/` and
+`evidence/l5/` **0 files modified, per-file**; `user://` **0 non-shader-cache files**;
+**`ui3/` byte-identical at close and re-rendered as the A/B's own inputs.**
+
+**Ceilings: 3 new (C-8 lit candle · C-9 one soft glow in 27 assets · C-10 glass mask).
+HALTs: 4 new (H-13…H-16), incl. H-13 the unstated second branch of the "either", not
+invented. Rulings: 5 new + 1 amendment.**
+
+**Census correction offered to the dispatch's §3:** 33 FX files, **27 distinct** by sha256 —
+and the numbering does not correspond across packs (Source `Glow_02` == Menus `Glow_04`).
+**A name is not an identity across packs.**
+
+**Steer reported:** §2-as-one-paragraph **worked, in the hardest way** — it produced a
+measurement that refuted my own opposite prediction where a numbered list would have
+produced agreement. Faults named instead: **§1 pre-registers a prediction and then names
+which verdict is "worth more", putting a thumb on the scale toward refutation**; and **§1
+registers a claim about "cost" without a unit** — lap cost and frame time gave opposite
+answers.
