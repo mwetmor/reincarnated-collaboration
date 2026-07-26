@@ -67,5 +67,23 @@ Captured verbatim by gandalf.**
    Gandalf lean: archetype-across-eras (matches engine role taxonomy; mechanical faction
    identity, not cosmetic retro).
 
+## Matt rulings — same session, post-capture (2026-07-25)
+
+1. **Preservation core: ADOPTED.** Verbatim: *"they should slowly realize they are the last
+   person who can carry these worlds out — every champion uploaded is a world that doesn't
+   die when the disk does."* The emotional spine is preservation-as-heroism, not escape.
+2. **IP boundary law: ADOPTED.** Measure internally, ship AUTHORED homage — original
+   era-flavored factions, never recognizable franchises.
+3. **Embodiment: RULED — you WEAR the builds you save.** Verbatim: *"The entire time, you're
+   in the VR as an ARPG champion. You are never the teenager in the game world."* The
+   teenager exists only in the frame layer (real world / adapter interface); in-world you are
+   always an embodied champion. Spirit-swap stays fully load-bearing; "they see you as a
+   peer" is now mechanically literal. Concept-capture tension #6 is CLOSED (wears).
+
+**Remaining grill forks:** faction axis (era vs archetype-across-eras) · tone register · act
+structure vs wave/season architecture · spirit-guide identity in this frame (adapter voice?
+prior player? future self?) · first-form entry beat (candidate, gandalf: the disk's original
+decades-old save file — you enter wearing a previous player's abandoned champion).
+
 **Next step:** ELICITOR grill sheet for a dedicated story session; no canon writes to
 `reap-die-rise-story/` before Matt rules the grill.
