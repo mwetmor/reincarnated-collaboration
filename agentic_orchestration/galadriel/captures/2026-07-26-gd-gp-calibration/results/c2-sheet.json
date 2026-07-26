@@ -1,0 +1,2137 @@
+{
+  "capability": "C2 character-sheet OCR",
+  "parser": "tuned",
+  "generated": "2026-07-26T14:16:57.697Z",
+  "method_law": "native-resolution crop from 1920x1080 PNG; 4x nearest upscale for legibility only",
+  "engine": "tesseract.js 6 (eng) psm 6",
+  "crop_box": {
+    "left": 1028,
+    "top": 165,
+    "width": 305,
+    "height": 545
+  },
+  "preprocessing": {
+    "scale": 4,
+    "grayscale": true,
+    "normalize": true
+  },
+  "totals": {
+    "banked_rows": 175,
+    "label_matched_rows": 164,
+    "label_rows": 165,
+    "verbatim_hits": 164,
+    "numeric_rows": 163,
+    "numeric_hits": 162,
+    "grid_rows": 10,
+    "grid_hits": 10
+  },
+  "accuracy": {
+    "overall_verbatim": 0.9942857142857143,
+    "label_rows_verbatim": 0.9939393939393939,
+    "label_rows_numeric": 0.9938650306748467,
+    "resist_icon_grid": 1,
+    "label_match_rate": 0.9939393939393939
+  },
+  "failures": [
+    {
+      "frame": "S19",
+      "stat_key": "defensive_ability",
+      "mode": "label",
+      "panel_label": "Defensive Ability (?)",
+      "matched_label": "Defensive Ability",
+      "truth": "225",
+      "ocr": "715"
+    }
+  ],
+  "frames": [
+    {
+      "frame": "S19",
+      "source": "Screenshot (19).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S19@4x.png",
+      "raw_ocr": "==\nVAUGHT\nLevel 6\nATTRIBUTES 5 Available Points\n[+ Physique 58\n[# Cunning 56\n[+ Spirit 54\nHealth 282 / 282 J\nEnergy 258 / 258 >\nCOMBAT STATS \\\nOffensive Ability (7) 218 %\nDefensive Ability (7) 715\nDamage Per Second (7) 66 :\nArmor Rating (7) 16 “iy\nRESISTANCES kL a\nd * X & | |B8\n0% 0% 11% 14% 0% r\n0% 0% 0% 0% 0%\n§ to\n& ar\n",
+      "ocr_confidence": 72,
+      "banked_rows": 24,
+      "verbatim_hits": 23,
+      "scored": [
+        {
+          "stat_key": "character_name",
+          "mode": "label",
+          "panel_label": "VAUGHT",
+          "matched_label": "VAUGHT",
+          "label_edit_distance": 0,
+          "truth_verbatim": "VAUGHT",
+          "ocr_value": "VAUGHT",
+          "verbatim_hit": true,
+          "numeric_hit": null
+        },
+        {
+          "stat_key": "char_level",
+          "mode": "label",
+          "panel_label": "Level",
+          "matched_label": "Level",
+          "label_edit_distance": 0,
+          "truth_verbatim": "Level 6",
+          "ocr_value": "Level 6",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "available_attribute_points",
+          "mode": "label",
+          "panel_label": "Available Points",
+          "matched_label": null,
+          "label_edit_distance": null,
+          "truth_verbatim": "5 Available Points",
+          "ocr_value": "5 Available Points",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "physique",
+          "mode": "label",
+          "panel_label": "Physique",
+          "matched_label": "[+ Physique",
+          "label_edit_distance": 0,
+          "truth_verbatim": "58",
+          "ocr_value": "58",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "cunning",
+          "mode": "label",
+          "panel_label": "Cunning",
+          "matched_label": "[# Cunning",
+          "label_edit_distance": 0,
+          "truth_verbatim": "56",
+          "ocr_value": "56",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "spirit",
+          "mode": "label",
+          "panel_label": "Spirit",
+          "matched_label": "[+ Spirit",
+          "label_edit_distance": 0,
+          "truth_verbatim": "54",
+          "ocr_value": "54",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "health",
+          "mode": "label",
+          "panel_label": "Health",
+          "matched_label": "Health",
+          "label_edit_distance": 0,
+          "truth_verbatim": "282 / 282",
+          "ocr_value": "282 / 282",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "health_max",
+          "mode": "label",
+          "panel_label": "Health",
+          "matched_label": "Health",
+          "label_edit_distance": 0,
+          "truth_verbatim": "282 / 282",
+          "ocr_value": "282 / 282",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "energy",
+          "mode": "label",
+          "panel_label": "Energy",
+          "matched_label": "Energy",
+          "label_edit_distance": 0,
+          "truth_verbatim": "258 / 258",
+          "ocr_value": "258 / 258",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "energy_max",
+          "mode": "label",
+          "panel_label": "Energy",
+          "matched_label": "Energy",
+          "label_edit_distance": 0,
+          "truth_verbatim": "258 / 258",
+          "ocr_value": "258 / 258",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "offensive_ability",
+          "mode": "label",
+          "panel_label": "Offensive Ability (?)",
+          "matched_label": "Offensive Ability",
+          "label_edit_distance": 0,
+          "truth_verbatim": "218",
+          "ocr_value": "218",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defensive_ability",
+          "mode": "label",
+          "panel_label": "Defensive Ability (?)",
+          "matched_label": "Defensive Ability",
+          "label_edit_distance": 0,
+          "truth_verbatim": "225",
+          "ocr_value": "715",
+          "verbatim_hit": false,
+          "numeric_hit": false
+        },
+        {
+          "stat_key": "damage_per_second",
+          "mode": "label",
+          "panel_label": "Damage Per Second (?)",
+          "matched_label": "Damage Per Second",
+          "label_edit_distance": 0,
+          "truth_verbatim": "66",
+          "ocr_value": "66",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "armor_rating",
+          "mode": "label",
+          "panel_label": "Armor Rating (?)",
+          "matched_label": "Armor Rating",
+          "label_edit_distance": 0,
+          "truth_verbatim": "16",
+          "ocr_value": "16",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "resist.fire",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.cold",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.lightning",
+          "mode": "grid",
+          "truth": "11%",
+          "ocr": "11%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.poison_acid",
+          "mode": "grid",
+          "truth": "14%",
+          "ocr": "14%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.pierce",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.bleeding",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.vitality",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.aether",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.chaos",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        },
+        {
+          "stat_key": "resist.stun",
+          "mode": "grid",
+          "truth": "0%",
+          "ocr": "0%",
+          "verdict": "HIT"
+        }
+      ]
+    },
+    {
+      "frame": "S20",
+      "source": "Screenshot (20).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S20@4x.png",
+      "raw_ocr": "== A\n= Damace Per HiT\nWeapon Attack\n31-83\nN/A\n0\nWeapon Damage\n31-83\n= CHARACTER \\\nAttacks per Second 1.15 :\nAttack Speed 85% he\nCritical Damage + 0%  - ’,\nRun Speed 100%\nHealing Increase + 0% P +3\nHealth Regeneration 0.33\nEnergy Regeneration 6.54\nEnerev Absorption 0% |B\n¥ -\n& rl\n",
+      "ocr_confidence": 71,
+      "banked_rows": 13,
+      "verbatim_hits": 13,
+      "scored": [
+        {
+          "stat_key": "weapon_attack_min",
+          "mode": "label",
+          "panel_label": "Weapon Attack",
+          "matched_label": "Weapon Attack",
+          "label_edit_distance": 0,
+          "truth_verbatim": "31 - 83",
+          "ocr_value": "31-83",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "weapon_attack_max",
+          "mode": "label",
+          "panel_label": "Weapon Attack",
+          "matched_label": "Weapon Attack",
+          "label_edit_distance": 0,
+          "truth_verbatim": "31 - 83",
+          "ocr_value": "31-83",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "damage_per_hit.na",
+          "mode": "label",
+          "panel_label": "N/A",
+          "matched_label": "N/A",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "weapon_damage_min",
+          "mode": "label",
+          "panel_label": "Weapon Damage",
+          "matched_label": "Weapon Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "31 - 83",
+          "ocr_value": "31-83",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "weapon_damage_max",
+          "mode": "label",
+          "panel_label": "Weapon Damage",
+          "matched_label": "Weapon Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "31 - 83",
+          "ocr_value": "31-83",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "attacks_per_second",
+          "mode": "label",
+          "panel_label": "Attacks per Second",
+          "matched_label": "Attacks per Second",
+          "label_edit_distance": 0,
+          "truth_verbatim": "1.15",
+          "ocr_value": "1.15",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "attack_speed",
+          "mode": "label",
+          "panel_label": "Attack Speed",
+          "matched_label": "Attack Speed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "85%",
+          "ocr_value": "85%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "critical_damage",
+          "mode": "label",
+          "panel_label": "Critical Damage",
+          "matched_label": "Critical Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "run_speed",
+          "mode": "label",
+          "panel_label": "Run Speed",
+          "matched_label": "Run Speed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "100%",
+          "ocr_value": "100%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "healing_increase",
+          "mode": "label",
+          "panel_label": "Healing Increase",
+          "matched_label": "Healing Increase",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "health_regeneration",
+          "mode": "label",
+          "panel_label": "Health Regeneration",
+          "matched_label": "Health Regeneration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0.33",
+          "ocr_value": "0.33",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "energy_regeneration",
+          "mode": "label",
+          "panel_label": "Energy Regeneration",
+          "matched_label": "Energy Regeneration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "6.54",
+          "ocr_value": "6.54",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "energy_absorption",
+          "mode": "label",
+          "panel_label": "Energy Absorption",
+          "matched_label": "Enerev Absorption",
+          "label_edit_distance": 2,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S21",
+      "source": "Screenshot (21).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S21@4x.png",
+      "raw_ocr": "——— =\nConstitution Bonus + (%\nExperience Gained + (%\nLight Radius + (0%\nAll Skills 0\nSoldier Skills 0\nDemolitionist Skills 0\nOccultist Skills 0\nNightblade Skills 0 3\nArcanist Skills 0 1\nShaman Skills 0 y\nInquisitor Skills 0\nMecromancer Skills 0\nOathkeeper Skills 0 ip\nBerserker Skills 0 wr\n= PruysicaL =\nPhysical Damage 31-83\nPhysical Modifier + 26%\nw\n¥ -\n& ~Y'\n",
+      "ocr_confidence": 73,
+      "banked_rows": 17,
+      "verbatim_hits": 17,
+      "scored": [
+        {
+          "stat_key": "constitution_bonus",
+          "mode": "label",
+          "panel_label": "Constitution Bonus",
+          "matched_label": "Constitution Bonus",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "experience_gained",
+          "mode": "label",
+          "panel_label": "Experience Gained",
+          "matched_label": "Experience Gained",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "light_radius",
+          "mode": "label",
+          "panel_label": "Light Radius",
+          "matched_label": "Light Radius",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.all",
+          "mode": "label",
+          "panel_label": "All Skills",
+          "matched_label": "All Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.soldier",
+          "mode": "label",
+          "panel_label": "Soldier Skills",
+          "matched_label": "Soldier Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.demolitionist",
+          "mode": "label",
+          "panel_label": "Demolitionist Skills",
+          "matched_label": "Demolitionist Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.occultist",
+          "mode": "label",
+          "panel_label": "Occultist Skills",
+          "matched_label": "Occultist Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.nightblade",
+          "mode": "label",
+          "panel_label": "Nightblade Skills",
+          "matched_label": "Nightblade Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.arcanist",
+          "mode": "label",
+          "panel_label": "Arcanist Skills",
+          "matched_label": "Arcanist Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.shaman",
+          "mode": "label",
+          "panel_label": "Shaman Skills",
+          "matched_label": "Shaman Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.inquisitor",
+          "mode": "label",
+          "panel_label": "Inquisitor Skills",
+          "matched_label": "Inquisitor Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.necromancer",
+          "mode": "label",
+          "panel_label": "Necromancer Skills",
+          "matched_label": "Mecromancer Skills",
+          "label_edit_distance": 1,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.oathkeeper",
+          "mode": "label",
+          "panel_label": "Oathkeeper Skills",
+          "matched_label": "Oathkeeper Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_bonus.berserker",
+          "mode": "label",
+          "panel_label": "Berserker Skills",
+          "matched_label": "Berserker Skills",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "physical_damage_min",
+          "mode": "label",
+          "panel_label": "Physical Damage",
+          "matched_label": "Physical Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "31 - 83",
+          "ocr_value": "31-83",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "physical_damage_max",
+          "mode": "label",
+          "panel_label": "Physical Damage",
+          "matched_label": "Physical Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "31 - 83",
+          "ocr_value": "31-83",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "physical_modifier",
+          "mode": "label",
+          "panel_label": "Physical Modifier",
+          "matched_label": "Physical Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 26%",
+          "ocr_value": "+ 26%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S22",
+      "source": "Screenshot (22).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S22@4x.png",
+      "raw_ocr": "pry 7S\nPierce Damage 0\nPierce Modifier + 0%\nBleed Damage 0\nBleed Modifier + 6%\nBleed Duration + 0%\nTrauma Damage 0\nTrauma Modifier + 28%\nTrauma Duration + 0% J\nLife Steal 0% ~\n= MacicaL\nCast Speed 100% NS 4\nCooldown Reduction + 0% Se\nSkill Energy Cost - 0%\nHealth Damage 0%\nFire Damage 0\nEira Afar = nor ja\n¥ -\n[\n& FEE\n",
+      "ocr_confidence": 76,
+      "banked_rows": 15,
+      "verbatim_hits": 15,
+      "scored": [
+        {
+          "stat_key": "pierce_damage",
+          "mode": "label",
+          "panel_label": "Pierce Damage",
+          "matched_label": "Pierce Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pierce_modifier",
+          "mode": "label",
+          "panel_label": "Pierce Modifier",
+          "matched_label": "Pierce Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "bleed_damage",
+          "mode": "label",
+          "panel_label": "Bleed Damage",
+          "matched_label": "Bleed Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "bleed_modifier",
+          "mode": "label",
+          "panel_label": "Bleed Modifier",
+          "matched_label": "Bleed Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 6%",
+          "ocr_value": "+ 6%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "bleed_duration",
+          "mode": "label",
+          "panel_label": "Bleed Duration",
+          "matched_label": "Bleed Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "trauma_damage",
+          "mode": "label",
+          "panel_label": "Trauma Damage",
+          "matched_label": "Trauma Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "trauma_modifier",
+          "mode": "label",
+          "panel_label": "Trauma Modifier",
+          "matched_label": "Trauma Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 28%",
+          "ocr_value": "+ 28%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "trauma_duration",
+          "mode": "label",
+          "panel_label": "Trauma Duration",
+          "matched_label": "Trauma Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "life_steal",
+          "mode": "label",
+          "panel_label": "Life Steal",
+          "matched_label": "Life Steal",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "cast_speed",
+          "mode": "label",
+          "panel_label": "Cast Speed",
+          "matched_label": "Cast Speed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "100%",
+          "ocr_value": "100%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "cooldown_reduction",
+          "mode": "label",
+          "panel_label": "Cooldown Reduction",
+          "matched_label": "Cooldown Reduction",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "skill_energy_cost",
+          "mode": "label",
+          "panel_label": "Skill Energy Cost",
+          "matched_label": "Skill Energy Cost",
+          "label_edit_distance": 0,
+          "truth_verbatim": "- 0%",
+          "ocr_value": "- 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "health_damage",
+          "mode": "label",
+          "panel_label": "Health Damage",
+          "matched_label": "Health Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "fire_damage",
+          "mode": "label",
+          "panel_label": "Fire Damage",
+          "matched_label": "Fire Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "fire_modifier",
+          "mode": "label",
+          "panel_label": "Fire Modifier",
+          "matched_label": "Pierce Modifier",
+          "label_edit_distance": 3,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S23",
+      "source": "Screenshot (23).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S23@4x.png",
+      "raw_ocr": "== =\nFire Modifier +0%\nCold Damage 0\nCold Modifier + 0%\nLightning Damage 0\nLightning Modifier + 0%\nAcid Damage 0\nAcid Modifier + 0% %\nVitality Damage 0 .\nVitality Modifier + 0%\nAether Damage 0\nAether Modifier + 0% A\nChaos Damage 0 -\nChaos Modifier + 8% :\nBurn Damage 0\nBurn Modifier + 0%\nDEEN. din PT |\n¥\n& | ;\n",
+      "ocr_confidence": 67,
+      "banked_rows": 14,
+      "verbatim_hits": 14,
+      "scored": [
+        {
+          "stat_key": "cold_damage",
+          "mode": "label",
+          "panel_label": "Cold Damage",
+          "matched_label": "Cold Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "cold_modifier",
+          "mode": "label",
+          "panel_label": "Cold Modifier",
+          "matched_label": "Cold Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "lightning_damage",
+          "mode": "label",
+          "panel_label": "Lightning Damage",
+          "matched_label": "Lightning Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "lightning_modifier",
+          "mode": "label",
+          "panel_label": "Lightning Modifier",
+          "matched_label": "Lightning Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "acid_damage",
+          "mode": "label",
+          "panel_label": "Acid Damage",
+          "matched_label": "Acid Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "acid_modifier",
+          "mode": "label",
+          "panel_label": "Acid Modifier",
+          "matched_label": "Acid Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "vitality_damage",
+          "mode": "label",
+          "panel_label": "Vitality Damage",
+          "matched_label": "Vitality Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "vitality_modifier",
+          "mode": "label",
+          "panel_label": "Vitality Modifier",
+          "matched_label": "Vitality Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "aether_damage",
+          "mode": "label",
+          "panel_label": "Aether Damage",
+          "matched_label": "Aether Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "aether_modifier",
+          "mode": "label",
+          "panel_label": "Aether Modifier",
+          "matched_label": "Aether Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "chaos_damage",
+          "mode": "label",
+          "panel_label": "Chaos Damage",
+          "matched_label": "Chaos Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "chaos_modifier",
+          "mode": "label",
+          "panel_label": "Chaos Modifier",
+          "matched_label": "Chaos Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 8%",
+          "ocr_value": "+ 8%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "burn_damage",
+          "mode": "label",
+          "panel_label": "Burn Damage",
+          "matched_label": "Burn Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "burn_modifier",
+          "mode": "label",
+          "panel_label": "Burn Modifier",
+          "matched_label": "Burn Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S24",
+      "source": "Screenshot (24).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S24@4x.png",
+      "raw_ocr": "pry =\nBurn Duration + (0%\nFrostburn Damage 0\nFrostburn Modifier + (0%\nFrostburn Duration + (0%\nElectrocute Damage 0\nElectrocute Modifier + (0%\nElectrocute Duration + (0% .\nPoison Damage 0\nPoison Modifier + (0% b\nPoison Duration + (0%\nVitality Decay Damage 0 ~i\nVitality Decay Modifier +0% |\nVitality Decay Duration +0% y\n= Petr Bonuses\nLife + 0%\nDamage +0%  |R#\n¥ -\n]\n& ENL\n",
+      "ocr_confidence": 68,
+      "banked_rows": 15,
+      "verbatim_hits": 15,
+      "scored": [
+        {
+          "stat_key": "burn_duration",
+          "mode": "label",
+          "panel_label": "Burn Duration",
+          "matched_label": "Burn Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "frostburn_damage",
+          "mode": "label",
+          "panel_label": "Frostburn Damage",
+          "matched_label": "Frostburn Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "frostburn_modifier",
+          "mode": "label",
+          "panel_label": "Frostburn Modifier",
+          "matched_label": "Frostburn Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "frostburn_duration",
+          "mode": "label",
+          "panel_label": "Frostburn Duration",
+          "matched_label": "Frostburn Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "electrocute_damage",
+          "mode": "label",
+          "panel_label": "Electrocute Damage",
+          "matched_label": "Electrocute Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "electrocute_modifier",
+          "mode": "label",
+          "panel_label": "Electrocute Modifier",
+          "matched_label": "Electrocute Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "electrocute_duration",
+          "mode": "label",
+          "panel_label": "Electrocute Duration",
+          "matched_label": "Electrocute Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "poison_damage",
+          "mode": "label",
+          "panel_label": "Poison Damage",
+          "matched_label": "Poison Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "poison_modifier",
+          "mode": "label",
+          "panel_label": "Poison Modifier",
+          "matched_label": "Poison Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "poison_duration",
+          "mode": "label",
+          "panel_label": "Poison Duration",
+          "matched_label": "Poison Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "vitality_decay_damage",
+          "mode": "label",
+          "panel_label": "Vitality Decay Damage",
+          "matched_label": "Vitality Decay Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "vitality_decay_modifier",
+          "mode": "label",
+          "panel_label": "Vitality Decay Modifier",
+          "matched_label": "Vitality Decay Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "vitality_decay_duration",
+          "mode": "label",
+          "panel_label": "Vitality Decay Duration",
+          "matched_label": "Vitality Decay Duration",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.life",
+          "mode": "label",
+          "panel_label": "Life",
+          "matched_label": "Life",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.damage_s24",
+          "mode": "label",
+          "panel_label": "Damage",
+          "matched_label": "Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S25",
+      "source": "Screenshot (25).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S25@4x.png",
+      "raw_ocr": "— ett |\nDamage + 0%\nCritical Damage + 0%\nAttack Speed + 0%\nCast Speed + 0%\nRun Speed + 0%\nOffensive Ability + 0%\nDefensive Ability + 0%\nPhysical Resist + 0% .\nFire Resist + 0%\nCold Resist + 0% e 4\nLightning Resist + 0%\nPoison/Acid Resist + 0%\nPierce Resist + 0% a\nBleeding Resist + 0% un - r\nVitality Resist +0% \"5\nAether Resist + 0% =\nChaos Resist + 0%\nStun Resist + 0%\nTrap Resist + 0% =\n¥ =\nB\n& Ed\n",
+      "ocr_confidence": 59,
+      "banked_rows": 19,
+      "verbatim_hits": 19,
+      "scored": [
+        {
+          "stat_key": "pet_bonus.damage",
+          "mode": "label",
+          "panel_label": "Damage",
+          "matched_label": "Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.critical_damage",
+          "mode": "label",
+          "panel_label": "Critical Damage",
+          "matched_label": "Critical Damage",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.attack_speed",
+          "mode": "label",
+          "panel_label": "Attack Speed",
+          "matched_label": "Attack Speed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.cast_speed",
+          "mode": "label",
+          "panel_label": "Cast Speed",
+          "matched_label": "Cast Speed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.run_speed",
+          "mode": "label",
+          "panel_label": "Run Speed",
+          "matched_label": "Run Speed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.offensive_ability",
+          "mode": "label",
+          "panel_label": "Offensive Ability",
+          "matched_label": "Offensive Ability",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.defensive_ability",
+          "mode": "label",
+          "panel_label": "Defensive Ability",
+          "matched_label": "Defensive Ability",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.physical_resist",
+          "mode": "label",
+          "panel_label": "Physical Resist",
+          "matched_label": "Physical Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.fire_resist",
+          "mode": "label",
+          "panel_label": "Fire Resist",
+          "matched_label": "Fire Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.cold_resist",
+          "mode": "label",
+          "panel_label": "Cold Resist",
+          "matched_label": "Cold Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.lightning_resist",
+          "mode": "label",
+          "panel_label": "Lightning Resist",
+          "matched_label": "Lightning Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.poison_acid_resist",
+          "mode": "label",
+          "panel_label": "Poison Acid Resist",
+          "matched_label": "Poison/Acid Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.pierce_resist",
+          "mode": "label",
+          "panel_label": "Pierce Resist",
+          "matched_label": "Pierce Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.bleeding_resist",
+          "mode": "label",
+          "panel_label": "Bleeding Resist",
+          "matched_label": "Bleeding Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.vitality_resist",
+          "mode": "label",
+          "panel_label": "Vitality Resist",
+          "matched_label": "Vitality Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.aether_resist",
+          "mode": "label",
+          "panel_label": "Aether Resist",
+          "matched_label": "Aether Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.chaos_resist",
+          "mode": "label",
+          "panel_label": "Chaos Resist",
+          "matched_label": "Chaos Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.stun_resist",
+          "mode": "label",
+          "panel_label": "Stun Resist",
+          "matched_label": "Stun Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.trap_resist",
+          "mode": "label",
+          "panel_label": "Trap Resist",
+          "matched_label": "Trap Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S26",
+      "source": "Screenshot (26).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S26@4x.png",
+      "raw_ocr": "— ett |\nRun Speed + 0%\nOffensive Ability + 0%\nDefensive Ability + 0%\nPhysical Resist + 0%\nFire Resist + 0%\nCold Resist + 0%\nLightning Resist + 0%\nPoison/Acid Resist + 0%\nPierce Resist + 0%\nBleeding Resist + 0%\nVitality Resist + 0% .\nAether Resist + 0%\nChaos Resist + 0%\nStun Resist + 0% 4d v\nTrap Resist + 0% 7\nPetrify Resist + 0% i\nFreeze Resist + 0%\nSleep Resist + 0%\nSlow Resist + 0%\nwv\n¥ -\nB\n& [T—\n",
+      "ocr_confidence": 58,
+      "banked_rows": 4,
+      "verbatim_hits": 4,
+      "scored": [
+        {
+          "stat_key": "pet_bonus.petrify_resist",
+          "mode": "label",
+          "panel_label": "Petrify Resist",
+          "matched_label": "Petrify Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.freeze_resist",
+          "mode": "label",
+          "panel_label": "Freeze Resist",
+          "matched_label": "Freeze Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.sleep_resist",
+          "mode": "label",
+          "panel_label": "Sleep Resist",
+          "matched_label": "Sleep Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "pet_bonus.slow_resist",
+          "mode": "label",
+          "panel_label": "Slow Resist",
+          "matched_label": "Slow Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S27",
+      "source": "Screenshot (27).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S27@4x.png",
+      "raw_ocr": "== A\n= Derense\nChance to Block 0%\nDamage Blocked 0\nBlock Recovery 0%\nDodge Chance 0%\nDeflect Chance 0%\nStun Resist 0% p\nDisruption Resist 0% \\\nLife Leech Resist 0% \"\nEnergy Leech Resist 0%\nTrap Resist 0%\nPetrify Resist 0% i\nFreeze Resist 0% La\nSlow Resist 0% at\nReflect Resist 0% I\n= RETALIATION\nPhysical 0 |=\n¥ -\nx\n& Bed\n",
+      "ocr_confidence": 81,
+      "banked_rows": 15,
+      "verbatim_hits": 15,
+      "scored": [
+        {
+          "stat_key": "defense.chance_to_block",
+          "mode": "label",
+          "panel_label": "Chance to Block",
+          "matched_label": "Chance to Block",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.damage_blocked",
+          "mode": "label",
+          "panel_label": "Damage Blocked",
+          "matched_label": "Damage Blocked",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.block_recovery",
+          "mode": "label",
+          "panel_label": "Block Recovery",
+          "matched_label": "Block Recovery",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.dodge_chance",
+          "mode": "label",
+          "panel_label": "Dodge Chance",
+          "matched_label": "Dodge Chance",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.deflect_chance",
+          "mode": "label",
+          "panel_label": "Deflect Chance",
+          "matched_label": "Deflect Chance",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.stun_resist",
+          "mode": "label",
+          "panel_label": "Stun Resist",
+          "matched_label": "Stun Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.disruption_resist",
+          "mode": "label",
+          "panel_label": "Disruption Resist",
+          "matched_label": "Disruption Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.life_leech_resist",
+          "mode": "label",
+          "panel_label": "Life Leech Resist",
+          "matched_label": "Life Leech Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.energy_leech_resist",
+          "mode": "label",
+          "panel_label": "Energy Leech Resist",
+          "matched_label": "Energy Leech Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.trap_resist",
+          "mode": "label",
+          "panel_label": "Trap Resist",
+          "matched_label": "Trap Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.petrify_resist",
+          "mode": "label",
+          "panel_label": "Petrify Resist",
+          "matched_label": "Petrify Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.freeze_resist",
+          "mode": "label",
+          "panel_label": "Freeze Resist",
+          "matched_label": "Freeze Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.slow_resist",
+          "mode": "label",
+          "panel_label": "Slow Resist",
+          "matched_label": "Slow Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "defense.reflect_resist",
+          "mode": "label",
+          "panel_label": "Reflect Resist",
+          "matched_label": "Reflect Resist",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0%",
+          "ocr_value": "0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.physical",
+          "mode": "label",
+          "panel_label": "Physical",
+          "matched_label": "Physical",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S28",
+      "source": "Screenshot (28).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S28@4x.png",
+      "raw_ocr": "—— =\nPhysical Modifier +0%\nPierce 0\nPierce Modifier + (0%\nBleed 0\nBleed Modifier + (0%\nTrauma 0\nTrauma Modifier + (0% 5\nFire 0 -\nFire Modifier + (0%\nCold 0\nCold Modifier + 0% 4 v\nLightning 0 >.\nLightning Modifier + 0% eZ\n- se” 5\nAcid 0 _\nAcid Modifier + 0% ; |\n[5%\nart 4\n5)\n& | +d\n",
+      "ocr_confidence": 61,
+      "banked_rows": 15,
+      "verbatim_hits": 15,
+      "scored": [
+        {
+          "stat_key": "retaliation.physical_modifier",
+          "mode": "label",
+          "panel_label": "Physical Modifier",
+          "matched_label": "Physical Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.pierce",
+          "mode": "label",
+          "panel_label": "Pierce",
+          "matched_label": "Pierce",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.pierce_modifier",
+          "mode": "label",
+          "panel_label": "Pierce Modifier",
+          "matched_label": "Pierce Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.bleed",
+          "mode": "label",
+          "panel_label": "Bleed",
+          "matched_label": "Bleed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.bleed_modifier",
+          "mode": "label",
+          "panel_label": "Bleed Modifier",
+          "matched_label": "Bleed Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.trauma",
+          "mode": "label",
+          "panel_label": "Trauma",
+          "matched_label": "Trauma",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.trauma_modifier",
+          "mode": "label",
+          "panel_label": "Trauma Modifier",
+          "matched_label": "Trauma Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.fire",
+          "mode": "label",
+          "panel_label": "Fire",
+          "matched_label": "Fire",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.fire_modifier",
+          "mode": "label",
+          "panel_label": "Fire Modifier",
+          "matched_label": "Fire Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.cold",
+          "mode": "label",
+          "panel_label": "Cold",
+          "matched_label": "Cold",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.cold_modifier",
+          "mode": "label",
+          "panel_label": "Cold Modifier",
+          "matched_label": "Cold Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.lightning",
+          "mode": "label",
+          "panel_label": "Lightning",
+          "matched_label": "Lightning",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.lightning_modifier",
+          "mode": "label",
+          "panel_label": "Lightning Modifier",
+          "matched_label": "Lightning Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.acid",
+          "mode": "label",
+          "panel_label": "Acid",
+          "matched_label": "Acid",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.acid_modifier",
+          "mode": "label",
+          "panel_label": "Acid Modifier",
+          "matched_label": "Acid Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S29",
+      "source": "Screenshot (29).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S29@4x.png",
+      "raw_ocr": "Vitality 0\n\nVitality Modifier + 0%\n\nAether 0\n\nAether Modifier + (0%\n\nChaos 0\n\nChaos Modifier + (0%\n\nBurn 0 4\n\nBurn Modifier + (0% :\n\nFrostburn 0 ;\n\nFrostburn Modifier + (%\n\nElectrocute 0 i\n\nElectrocute Modifier + 0% hia” il\n\nPoison 0 x ho\n\nPoison Modifier + 0% - 7\n\nVitality Decay 0 =>\n\nVitalitw Nerav Modifier +05 |= i -\n\nA\n\ney\n",
+      "ocr_confidence": 62,
+      "banked_rows": 10,
+      "verbatim_hits": 10,
+      "scored": [
+        {
+          "stat_key": "retaliation.vitality",
+          "mode": "label",
+          "panel_label": "Vitality",
+          "matched_label": "Vitality",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.vitality_modifier",
+          "mode": "label",
+          "panel_label": "Vitality Modifier",
+          "matched_label": "Vitality Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.aether",
+          "mode": "label",
+          "panel_label": "Aether",
+          "matched_label": "Aether",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.aether_modifier",
+          "mode": "label",
+          "panel_label": "Aether Modifier",
+          "matched_label": "Aether Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.chaos",
+          "mode": "label",
+          "panel_label": "Chaos",
+          "matched_label": "Chaos",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.chaos_modifier",
+          "mode": "label",
+          "panel_label": "Chaos Modifier",
+          "matched_label": "Chaos Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.burn",
+          "mode": "label",
+          "panel_label": "Burn",
+          "matched_label": "Burn",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.burn_modifier",
+          "mode": "label",
+          "panel_label": "Burn Modifier",
+          "matched_label": "Burn Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.frostburn",
+          "mode": "label",
+          "panel_label": "Frostburn",
+          "matched_label": "Frostburn",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.frostburn_modifier",
+          "mode": "label",
+          "panel_label": "Frostburn Modifier",
+          "matched_label": "Frostburn Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        }
+      ]
+    },
+    {
+      "frame": "S30",
+      "source": "Screenshot (30).png",
+      "crop_box": {
+        "left": 1028,
+        "top": 165,
+        "width": 305,
+        "height": 545
+      },
+      "upscaled": "upscaled/c2-S30@4x.png",
+      "raw_ocr": "— =\nElectrocute 0\nElectrocute Modifier + (%\nPoison 0\nPoison Modifier + (0%\nVitality Decay 0\nVitality Decay Modifier +0%\n\n= Stats\nAverage Item Level 1 +\nElapsed Time 0:2:21\nMonsters Killed 162\nBosses and Heroes Killed 2 - -\nDamage Dealt 80 Le\nDamage Taken 47 =\nTotal Deaths 0 i\nGreatest Monster Killed\nKyzogg the Reanimator .\n\n~ ;\na— |\n& 4\n",
+      "ocr_confidence": 74,
+      "banked_rows": 14,
+      "verbatim_hits": 14,
+      "scored": [
+        {
+          "stat_key": "retaliation.electrocute",
+          "mode": "label",
+          "panel_label": "Electrocute",
+          "matched_label": "Electrocute",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.electrocute_modifier",
+          "mode": "label",
+          "panel_label": "Electrocute Modifier",
+          "matched_label": "Electrocute Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.poison",
+          "mode": "label",
+          "panel_label": "Poison",
+          "matched_label": "Poison",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.poison_modifier",
+          "mode": "label",
+          "panel_label": "Poison Modifier",
+          "matched_label": "Poison Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+ 0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.vitality_decay",
+          "mode": "label",
+          "panel_label": "Vitality Decay",
+          "matched_label": "Vitality Decay",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "retaliation.vitality_decay_modifier",
+          "mode": "label",
+          "panel_label": "Vitality Decay Modifier",
+          "matched_label": "Vitality Decay Modifier",
+          "label_edit_distance": 0,
+          "truth_verbatim": "+ 0%",
+          "ocr_value": "+0%",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.average_item_level",
+          "mode": "label",
+          "panel_label": "Average Item Level",
+          "matched_label": "Average Item Level",
+          "label_edit_distance": 0,
+          "truth_verbatim": "1",
+          "ocr_value": "1",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.elapsed_time",
+          "mode": "label",
+          "panel_label": "Elapsed Time",
+          "matched_label": "Elapsed Time",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0:2:21",
+          "ocr_value": "0:2:21",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.monsters_killed",
+          "mode": "label",
+          "panel_label": "Monsters Killed",
+          "matched_label": "Monsters Killed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "162",
+          "ocr_value": "162",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.bosses_and_heroes_killed",
+          "mode": "label",
+          "panel_label": "Bosses and Heroes Killed",
+          "matched_label": "Bosses and Heroes Killed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "2",
+          "ocr_value": "2",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.damage_dealt",
+          "mode": "label",
+          "panel_label": "Damage Dealt",
+          "matched_label": "Damage Dealt",
+          "label_edit_distance": 0,
+          "truth_verbatim": "80",
+          "ocr_value": "80",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.damage_taken",
+          "mode": "label",
+          "panel_label": "Damage Taken",
+          "matched_label": "Damage Taken",
+          "label_edit_distance": 0,
+          "truth_verbatim": "47",
+          "ocr_value": "47",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.total_deaths",
+          "mode": "label",
+          "panel_label": "Total Deaths",
+          "matched_label": "Total Deaths",
+          "label_edit_distance": 0,
+          "truth_verbatim": "0",
+          "ocr_value": "0",
+          "verbatim_hit": true,
+          "numeric_hit": true
+        },
+        {
+          "stat_key": "stats.greatest_monster_killed",
+          "mode": "label",
+          "panel_label": "Greatest Monster Killed",
+          "matched_label": "Greatest Monster Killed",
+          "label_edit_distance": 0,
+          "truth_verbatim": "Kyzogg the Reanimator",
+          "ocr_value": "Kyzogg the Reanimator",
+          "verbatim_hit": true,
+          "numeric_hit": null
+        }
+      ]
+    }
+  ]
+}
