@@ -1,3 +1,8 @@
 node_modules/
 *.log
 .DS_Store
+
+# tesseract.js language models, fetched on first run from the tessdata CDN.
+# Regenerable artifacts, not source. eng + frk (Fraktur — GD nameplate blackletter).
+*.traineddata
+*.traineddata.gz
