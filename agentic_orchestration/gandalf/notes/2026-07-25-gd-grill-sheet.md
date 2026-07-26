@@ -33,7 +33,25 @@ are stated and non-binding. Everything here is queued-ready — no fork blocks a
 >   the canonical future case). **Forward-only:** pre-gate telemetry `landed:` counters stay
 >   poisoned; historical-season analyses must bracket or discard them (goes in the charter).
 >   G-4 remains the HARD PREREQUISITE to the G-3 calibration run.
-> - **G-5:** pending below. **G-6:** needs no ruling (standing).
+> - **G-5 RULED — REFRAMED BY MATT (gandalf's four leans SUPERSEDED as projection-shaped):**
+>   Matt verbatim: *"We need to key each character into our engine's mechanics, not the other
+>   way around. If our engine doesn't have the mechanics, we need to build as we go... if we
+>   don't have enough mechanic surfaces to faithfully represent GD builds, then we need to add
+>   more mechanical surfaces or change the ones we have."* **The key runs FIT-OR-EXTEND:**
+>   each GD build decomposes into pieces; each piece lands on a native engine surface
+>   (skills / trees / T4 capstones / gear affixes / stats / traits); unmappable pieces are
+>   mechanic-surface BUILD ITEMS, not fidelity caveats. Sub-fork consequences: 5a spine maps
+>   into our stat/skill vocabulary; 5b gear re-expresses as OUR gear system (affix gaps →
+>   build queue), NOT realized deltas; 5c devotion procs must find or force a trigger/proc
+>   surface (likely the first big gap); 5d FULL BUILD maps into the progression skeleton
+>   (tree → skill ranks + trait floors, mastery capstones → T4), not the bar. Era-substrate
+>   consistency: Smash rebuilds Mario from native mechanics — it does not import stat deltas.
+>   Divergence at L0–L5 now reads as engine-deficiency signal feeding the build queue.
+>   **Residual sub-fork pending:** gap-triage discipline — (a) build every surface the 41
+>   kits touch vs (b) two-sided attestation w/ re-entry tags (G-1 principle, player side).
+>   Lean (b). **Next artifact:** player-side surface-fit census (twin of the monster-state
+>   census) — fit table + gap register = ARCHITECT-pass input for the key-program charter.
+> - **G-6:** needs no ruling (standing).
 
 ---
 
