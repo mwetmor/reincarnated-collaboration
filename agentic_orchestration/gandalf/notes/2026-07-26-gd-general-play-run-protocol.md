@@ -76,7 +76,7 @@ this gate exists to prevent.
        - [ ] Panel digits legible (kills, play time, skill counts)
        - [ ] Green `[entityId] Action State: X` text legible
        - [ ] A monster nameplate: **name AND level** readable
-       - [ ] HP globe fill boundary crisp
+       - [ ] HP orb **numerals** legible (requires the § 3.1 always-show UI option — fill-boundary reading is a rejected method)
        - [ ] **The game did not stutter while recording**
 5. - [ ] Any FAIL → raise bitrate / drop to 30 fps / drop `ShowAngerLevels` (see § 3.4), re-smoke.
 6. - [ ] Keep the smoke clip. Ship it with the run.
@@ -170,6 +170,7 @@ protocol.
 | Windowed/borderless scaling | **OFF** | any rescale breaks pixel-coordinate transfer from the stills |
 | Zoom | **LOCK at default, never change mid-run** | zoom is player-adjustable; any spatial calibration dies with it |
 | UI scale | note it; don't change it | panel/nameplate crop offsets depend on it |
+| **HP/energy orb NUMERALS** | **ALWAYS-SHOW — set the UI option before recording (CANNOT be fixed post-hoc)** | Calibration verdict (galadriel 2026-07-26): pixel fill-fraction reading is **REJECTED** (4.6 pp signal vs a 90.5 pp null band), but orb **numerals** read at 100% when rendered — and GD renders them only on hover unless the UI option pins them. Numerals ARE the E3 instrument. If no such option exists on this build, tell gandalf — E3 falls back to intermittent hover sampling and § 4.6 G-d shrinks to hover frames. |
 | Console flags | `PlayStats true`, `LogData true`, `ShowAngerLevels true` | see § 3.4 |
 
 ### 3.2 OBS
