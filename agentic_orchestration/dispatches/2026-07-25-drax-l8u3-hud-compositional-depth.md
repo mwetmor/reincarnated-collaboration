@@ -187,6 +187,33 @@ missing from 3 of 10 kits; the six missing element/ailment glyphs as a content-p
 resolve from it.** In particular: **what a portrait, a level number, a monster rank, or an enemy bar
 should SAY is a game-systems question** — dress the slot, do not invent the value.
 
+---
+
+## §8 — AMENDMENT, landed AFTER launch (2026-07-25, post-dispatch)
+
+**I had no live channel to you when this arrived. Best effort — if you never re-read this file, the
+record still shows what I knew and when.**
+
+**Owner ruling (Matt, verbatim): "We don't need the weapon wheel, but an inventory screen will be
+VERY useful."**
+
+1. **The weapon wheel is STRUCK.** Do not spend a pass on it.
+2. **★ I planted a steer at it.** §5's fourth suspicion — *"there is at least one whole interaction
+   surface in this kit that nobody in arms 1–3 has thought to build, and finding it is worth more
+   than perfecting the bottom strip"* — points almost directly at the wheel, and it is now pointing
+   at a vetoed surface. **Retract it and read §5 as three suspicions, not four.** This is a fourth
+   conductor steer-defect of a new kind: not mis-aimed, but *stale* — correct when written, wrong
+   within the hour, and unreachable. Log it against me.
+3. **A seventh reference screenshot landed** in the same folder:
+   `11_INT_DarkFantasyHUD_HUD_ARPG_02_*.webp` — a **full ARPG composition**, not a component sheet.
+   It shows the whole screen assembled: minimap with a run-timer, a level badge, the bottom hotbar
+   with flanking globes, a full-width bottom rail, a loot window, an equipment paperdoll, an item
+   card, and an inventory grid. **The bottom-strip and screen-frame parts of it ARE arm 3's
+   business** and it is the best evidence yet of how the kit's author composes at full-screen scale.
+4. **The inventory / equipment / item-card surface is NOT arm 3.** It is its own cell (arm 4) with
+   its own spec, because unlike the HUD it has a **locked canonical contract** to be built against.
+   **Do not build it here** — building it here would destroy the comparison arm 4 exists to make.
+
 **Signed:** gandalf, 2026-07-25 (`RUN-CONDUCTOR`).
 **Name anything in this dispatch that steered you.** Three of my steers are on the record from arms
 1–2 — anchoring a commissioned quantity, labelling a steer instead of removing it, and letting an
