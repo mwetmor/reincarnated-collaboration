@@ -95,12 +95,14 @@ this gate exists to prevent.
        run produces is a **ranged** TTK, including projectile travel and standoff distance. The
        doll is what lets the data be labeled honestly rather than silently mislabeled.)*
 6. - [ ] **Skill tree** — on camera + native PNG.
-7. - [ ] **A1 CLOSURE — the one item that closes an open anomaly.** Find a **Walking Dead**
-       zombie. **Hover it and screenshot the FULL tooltip** (native PNG, plus ~3 s on camera).
-       The round-3 nameplate read a third line — `Aether Corruption` — that nothing explains. If
-       it is an affix or corruption modifier, the three certified fixtures are **not vanilla
-       zombie statlines** and any per-hit inference against a vanilla `.dbr` is silently wrong.
-       **Do this early** — before progression carries you out of the zombie areas.
+7. - [ ] *(OPTIONAL — A1 CLOSED data-side 2026-07-26.)* The round-3 third nameplate line
+       `Aether Corruption` is the **racial-profile line** (`characterRacialProfile='Race005'` →
+       `tagRace005=Aether Corruption` — legolas bridge probe,
+       `legolas/notes/2026-07-26-gd-displayname-bridge.md` §3). NOT an affix; the certified
+       fixtures ARE vanilla zombie statlines. Nameplate format is `<name> / <classification> /
+       <race>` — all three lines `.arz`-derivable, so the race line becomes a FREE third
+       attestation channel for E4. A hover-tooltip screenshot of any Walking Dead remains a
+       cheap live confirmation if convenient; it is no longer load-bearing.
 8. - [ ] **Rank sampler** (2 min, high value — see § 4.3): hover and tooltip-screenshot **one
        normal, one champion (yellow name), one hero (orange/purple name)** if you can find them.
        This is the training set for rank classification.
