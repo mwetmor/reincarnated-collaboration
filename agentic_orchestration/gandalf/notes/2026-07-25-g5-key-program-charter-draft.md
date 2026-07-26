@@ -345,3 +345,56 @@ The register's nine items are one absence wearing nine names — we built a magn
 and never built the hand that chooses them. What this charter adds is the order in which the hand
 grows fingers, and one correction that matters more than its size: the kit we can actually check our
 numbers against was never blocked. It has been waiting since the eleventh.
+
+---
+
+## WAVE-0 PRE-FIRE RULINGS — charter-ambiguity resolutions (gandalf-prime, 2026-07-26)
+
+> KR's Wave-0 dispatch (`dispatches/2026-07-26-gamora-liveness-gate-wave0.md`) surfaced four
+> ambiguities (its Q-1…Q-4) that this charter ruled around without ruling. They are MINE — the
+> charter is my artifact. Resolved here as charter clarifications so gamora reads them via the
+> dispatch's ruling-citation #2 instead of burning a HALT cycle. All four are reasoning-boundary
+> resolutions inside the ruled G-4 intent; each is veto-open to Matt. Q-5 (scope width per engine)
+> stays gamora's to enumerate — that was always the agent's question.
+
+**Q-1 RULED: roll-then-discard (gate AFTER the application roll).** The gate consumes the RNG draw
+and discards the application. Rationale: (a) Clause 1 (byte-identical outcomes) exists as a
+no-regression guard — the gate's intended observable is *counters go honest*, not *streams shift*;
+(b) roll-then-discard is the ONLY ordering under which Clauses 1 and 2 are jointly satisfiable, and
+both clauses are pre-registered — the ordering that satisfies the registered gates is the ordering
+the charter meant; (c) stream-discipline precedent: deterministic-replay engines (D2's seeded map
+gen is the genre's oldest example) preserve draw alignment across behavior patches for exactly this
+reason. A wasted draw per corpse-application is the price of a readable diff; W1 may retire it
+behind an explicit stream-version bump if it ever matters. **Fallback stays pre-registered:** if the
+smoke season diverges ANYWAY (candidate cause: an application class that fed attacker-side state
+from corpse hits pre-gate), that divergence is the gate *working* — but relaxing Clause 1 is Matt's
+call, not gamora's. HALT with the trace per the dispatch.
+
+**Q-2 RULED: Wave 0 gates DEFENDER-side receptions only.** Attacker-side on-hit appends
+(`damage_resolver.py:1152/1164/1173`) mutate a living attacker and are NOT "a corpse receiving" —
+G-4's plain text governs. Consistency check that settles it: gating attacker-side effects would
+itself break Clause 1 (attacker state diverges), so the registered gates already vote this reading.
+The REAL question underneath — *does a hit on a corpse count as a qualifying trigger event for
+attacker procs?* — is a trigger-semantics question and is ROUTED to W1/B1, where `trigger_param`
+and the qualifying-event vocabulary get built deliberately. Gamora names the routing in the math
+note's semantic-shift register; no behavior change in Wave 0.
+
+**Q-3 RATIFIED as dispatched.** Gamora implements the `targets_corpse` READ side with an explicit
+config-named default (absent/false = not a corpse-consumer; no silent default per P7). The WRITE
+side (registry schema) is rocket's, recorded as owed in `MIGRATION.md`, routed to Wave 1. This is
+KR's scoping; it is correct.
+
+**Q-4 RULED: exemption (a) carries END-TO-END for the self-target case.** A self-targeted on-death
+effect (dying entity emits AND receives) is EXEMPT — on-death payloads may legally apply to their
+own dead source. The exemption exists precisely so death-triggered payloads function; a self-target
+reading that gates the receive side makes exemption (a) vacuous for the entire death-rattle family.
+Genre precedent: D2 Fire Enchanted's death nova and PoE's on-death effects both resolve *from* the
+dead entity by design — the corpse is the payload's origin AND legal carrier. Unit-test this case
+explicitly under Clause 5 (it is the exemption case the ruling "does not resolve on its face" — now
+it does).
+
+**Gate-1 note:** KR recommends a jack-ryan DESIGN-MODE pass on Q-1 alone; Matt's call per the
+dispatch. Gandalf lean: spend it — it is the one question that touches two registered exit clauses
+at once, and the check is cheap against the ruling above.
+
+**Signed:** gandalf-prime (SPEC-AUTHOR, resolving own charter), 2026-07-26.
