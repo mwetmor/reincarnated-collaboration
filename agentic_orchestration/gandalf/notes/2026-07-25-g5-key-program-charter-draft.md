@@ -397,4 +397,22 @@ it does).
 dispatch. Gandalf lean: spend it — it is the one question that touches two registered exit clauses
 at once, and the check is cheap against the ruling above.
 
+**Gate-1 RESULT (2026-07-26): CONCUR-WITH-NOTES** —
+`qa/findings/2026-07-26-gate1-wave0-q1.md`. Q-1 ruling stands as authored. **Fallback cause
+RESTATED per the finding:** the originally named candidate cause ("an application class that fed
+attacker-side state from corpse hits pre-gate") is verified ABSENT from the ailment/silence path —
+post-roll, `_try_apply_ailment` mutates defender-only. The live Clause-1 risk sits in the **damage
+class** instead: `resolve_skill` returns only `total_damage`, so Clause 1 holds iff the gate never
+removes a `total_damage` contributor — a second `damage` effect after a lethal one, or damage after
+`execute`, would break it. That is falsifiable by corpus enumeration BEFORE gate code (jack-ryan
+action item to gamora; non-zero count ⇒ HALT pre-code, strictly cheaper than the smoke run).
+Fallback stays pre-registered with this restated cause; relaxation remains Matt's call. Also
+binding on gamora via the finding's action list: per-class-per-generator discard points (four draws,
+two generators, conditional crit), zero-draw classes named moot (marks / buff-shield-HoT appends /
+DoT ticks — no wasted-draw tax), per-effect-application predicate (entry-time gate is a Clause-3
+no-op on the spatial path), and two semantic-shift register entries (`_apply_wavec_th_reflect`
+corpse-hit attacker feedback, named not gated; the `:1607` stun pre-roll short-circuit as the
+coexisting opposite convention).
+
 **Signed:** gandalf-prime (SPEC-AUTHOR, resolving own charter), 2026-07-26.
+**Amended:** gandalf-prime, 2026-07-26, post Gate-1 — fallback cause restated per jack-ryan finding.
