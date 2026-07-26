@@ -67,21 +67,41 @@ menu** (A6 — `skill_use_count` and `life_healed` are session-scoped and reset)
 Burning a 45-minute sitting and finding the overlay text is compression mush is the failure
 this gate exists to prevent.
 
-1. - [ ] Console on, `character.PlayStats true`, `character.LogData true`,
+1. - [ ] **Smoke in the SAME arena / mode / character setup the real run will use** (the
+       v3-probe setup — the console demonstrably works there). If the run's intended arena
+       differs and the console won't open in it, **STOP and tell gandalf** — that is an arena
+       fork, not a settings problem.
+2. - [ ] Console on: **`game.PlayStats true`** · `character.LogData true` ·
        `character.ShowAngerLevels true`.
-2. - [ ] Record **60 seconds**. Kill 2 monsters. Stop.
-3. - [ ] Extract 3 frames:
+       *(Namespace matters: PlayStats lives in `game.*` — bare `game.PlayStats` errors, and
+       `character.PlayStats` does not exist. These three are the live-verified forms from probe
+       rounds 1–3.)*
+3. - [ ] **Clean state:** confirm no leftover probe toggles are active —
+       `character.WarpCursor false`, `character.SetPlayerInvisible false`, and no
+       `game.God` / `Invincible` / `Uber`. *(All were used in probe sittings; any of them
+       silently poisons a MEASURED-grade run — WarpCursor distorts movement AND may trigger
+       respawns.)*
+4. - [ ] *(Optional)* `graphics.Stats true` during the smoke to eyeball frame-rate stability;
+       turn it **OFF before the § 2.1 start block** (clutter near load-bearing pixels).
+5. - [ ] Record **60 seconds**. Kill 2 monsters. Stop.
+6. - [ ] Extract 3 frames:
        `ffmpeg -ss 30 -i <clip>.mp4 -frames:v 1 smoke_30.png` (repeat at 40, 50).
-4. - [ ] Eyeball each frame against **all five** criteria:
+7. - [ ] Eyeball each frame against **all five** criteria:
        - [ ] Panel digits legible (kills, play time, skill counts)
        - [ ] Green `[entityId] Action State: X` text legible
        - [ ] A monster nameplate: **name AND level** readable
        - [ ] HP orb **numerals** legible (requires the § 3.1 always-show UI option — fill-boundary reading is a rejected method)
        - [ ] **The game did not stutter while recording**
-5. - [ ] Any FAIL → raise bitrate / drop to 30 fps / drop `ShowAngerLevels` (see § 3.4), re-smoke.
-6. - [ ] Keep the smoke clip. Ship it with the run.
+8. - [ ] Any FAIL → raise bitrate / drop to 30 fps / drop `ShowAngerLevels` (see § 3.4), re-smoke.
+9. - [ ] Keep the smoke clip. Ship it with the run.
+
+*The smoke may be its own session — quitting to menu after it is fine. The § 2.6 no-menu rule
+begins at the § 2.1 START block, not before.*
 
 ### 2.1 START BLOCK — before free play begins
+
+*Native PNGs throughout: use the **same screenshot method** that produced the banked v3 stills
+(`Screenshot (NN).png`) — CV crop calibration transfers only if the instrument stays the same.*
 
 1. - [ ] **Start recording FIRST.** Everything below happens on camera *and* as native PNGs.
 2. - [ ] All three console flags ON and **stay on for the whole run**.
@@ -116,6 +136,15 @@ this gate exists to prevent.
 - **Do not toggle the panel off.** The panel's `play_time` in every frame IS the video↔ledger sync.
 - Potions are fine — it's general play. They are flagged at analysis, not forbidden.
 - Deaths are fine and are **data**, not failures. Say so in the notes when one happens.
+- **The console is for the three overlay toggles ONLY. During the run, NO state-modifying
+  commands:** `game.Spawn` · `game.killMonsters` · `game.KillMe` · `game.Teleport` ·
+  `game.Speed` · `game.God` / `Invincible` / `Uber` · `game.Give`/`Gives` ·
+  `game.Increment*` / `*devotion` / `resetattributes` · `game.IgnoreRequirements` ·
+  `character.WarpCursor` · `character.SetPlayerInvisible` · `character.MoveTo*` ·
+  `character.GiveTake*`. Every one of them either distorts the fights, the character, or the
+  panel-counter arithmetic the § 4.6 gates audit. **If one fires by accident:** say it out loud
+  with the panel `play_time` and keep playing — the containing epoch gets flagged at analysis;
+  the run survives.
 
 ### 2.3 EPOCH BOUNDARY — every time your character changes
 
@@ -171,7 +200,7 @@ protocol.
 | Zoom | **LOCK at default, never change mid-run** | zoom is player-adjustable; any spatial calibration dies with it |
 | UI scale | note it; don't change it | panel/nameplate crop offsets depend on it |
 | **HP/energy orb NUMERALS** | **ALWAYS-SHOW — set the UI option before recording (CANNOT be fixed post-hoc)** | Calibration verdict (galadriel 2026-07-26): pixel fill-fraction reading is **REJECTED** (4.6 pp signal vs a 90.5 pp null band), but orb **numerals** read at 100% when rendered — and GD renders them only on hover unless the UI option pins them. Numerals ARE the E3 instrument. If no such option exists on this build, tell gandalf — E3 falls back to intermittent hover sampling and § 4.6 G-d shrinks to hover frames. |
-| Console flags | `PlayStats true`, `LogData true`, `ShowAngerLevels true` | see § 3.4 |
+| Console flags | `game.PlayStats true` · `character.LogData true` · `character.ShowAngerLevels true` | live-verified forms (probe rounds 1–3); see § 3.4 |
 
 ### 3.2 OBS
 
