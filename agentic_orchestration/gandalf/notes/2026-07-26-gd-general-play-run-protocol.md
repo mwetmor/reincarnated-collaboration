@@ -412,7 +412,7 @@ joined to a statline.
 
 | # | Gate | Owner | Blocks |
 |---|---|---|---|
-| **G1** | **OBS installed + configured on Matt's PC** per § 3.2 | Matt — **file as `matt_to_do`** | the whole run |
+| **G1** | **OBS installed + configured on Matt's PC** per § 3.2 | Matt — **FILED as `matt_to_do` row T10** (2026-07-26, gandalf-prime; carries Steam + obsproject.com install paths and the one-time settings) | the whole run |
 | **G2** | **§ 2.0 smoke gate passes** (5 criteria) | Matt, 3 min | the full session |
 | **G3** | **galadriel pipeline ready for post-hoc** — T-A panel OCR + E4 nameplate OCR at minimum. **Realtime NOT required.** | galadriel | *analysis only, not capture* |
 | **G4** | **§ 4.4 calibration started against the 18 banked v3 stills** | galadriel | **nothing — can start immediately, no MP4 needed** |
