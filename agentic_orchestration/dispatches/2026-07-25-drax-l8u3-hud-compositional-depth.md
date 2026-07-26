@@ -214,6 +214,58 @@ VERY useful."**
    its own spec, because unlike the HUD it has a **locked canonical contract** to be built against.
    **Do not build it here** — building it here would destroy the comparison arm 4 exists to make.
 
+---
+
+## §9 — CONTINUATION after an agent stall (2026-07-25)
+
+**Your session stalled — no stream progress for 600 s, watchdog did not recover. This is
+infrastructure, not you, and it is the SECOND stall in this session** (L7-V stalled the same way at
+its close-out step). Two in one session is a pattern and it is logged against the harness, not
+against either of us.
+
+**Your last words before the stall, and they are a finding:**
+
+> *"The rim doesn't contain the fill — the glass and ring sprites have different ink centres. Let me
+> measure the offset and correct it properly."*
+
+**RESUME. Do not restart.** I verified your floor myself before writing this; here is what is on disk
+and it is substantial:
+
+- `ui3/hud_deep.gd` **753 lines** · `ui3/palette3.gd` 176 · `ui3/orb_fill.gdshader` 78 · `hud_deep.tscn`
+- `kit3/` **70 PNG** across assembly 6 · bar 9 · flat 8 · fx 5 · map 26 · ornament 9 · portrait 7 —
+  **and `kit3/font/` is EMPTY, which I read as you independently hitting the typeface ceiling.**
+- `out3/` — `T_first` → `T5`, plus `S3_greebles` / `S3_hotbars` / `S3_orbs` sheets, `PROBE_heads`,
+  `PROBE_example_characters`, `PROBE_ge_Tendrils_01/02`, `ITER_01_both_tendrils`, and crops
+  `C_orb` / `C_orbR` / `C_assy` / `C_top` / `C_full`.
+
+**I looked at `T5.png` and `C_orb.png`.** The composition landed: portrait + level badge sited, a boss
+plate with a rank mark, a framed buff row, a circular minimap with chrome, and the bottom assembly
+reading as **one continuous piece** rather than three floating widgets. **The defect you named is
+visible and you diagnosed it correctly** — in `C_orb` the fill spills past the rim at lower-left and
+the ring's lower arc is buried. Finish that fix.
+
+### Accounting under a stall (declare, do not engineer around — §2 of arm 2, your own rule)
+
+1. **Wall-clock is corrupted; iteration count is not.** Report authoring time as **two segments with
+   the stall gap named**, and do not sum them into a single clean number.
+2. **Bank a FIRST_INTENT reconstruction, marked as reconstructed**, if the original was never written
+   to disk. A reconstructed intent labelled as such is worth more than a missing one and far more
+   than a silently back-dated one.
+3. **The stall itself is a datum for the bake-off** — an authoring method whose agent dies at 600 s of
+   quiet is a method with a session-length ceiling. Say whether you were doing something unusually
+   long-running at the moment it went quiet, or nothing at all. That distinction matters.
+
+### Owner rulings that landed while you were down
+
+- **Weapon wheel: STRUCK** (see §8). My §5 fourth suspicion is retracted.
+- **Inventory / equipment / item-card is NOT yours** — it is arm 4, against a **locked 10-slot
+  canonical contract** the engine already emits. Do not build it here.
+- **Reference `11_INT_DarkFantasyHUD_HUD_ARPG_02_*.webp` is in the folder** — the full ARPG
+  composition. The bottom-strip, screen-frame, portrait, level-badge and minimap parts of it are
+  yours; the panels are not.
+
+**Everything in §0–§7 still governs.** Close out to the report path in §6 and the exit predicate in §7.
+
 **Signed:** gandalf, 2026-07-25 (`RUN-CONDUCTOR`).
 **Name anything in this dispatch that steered you.** Three of my steers are on the record from arms
 1–2 — anchoring a commissioned quantity, labelling a steer instead of removing it, and letting an
