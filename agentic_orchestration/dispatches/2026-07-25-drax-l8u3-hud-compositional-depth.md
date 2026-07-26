@@ -273,3 +273,73 @@ enumeration order become an attention order. **This dispatch tries to answer all
 exemplars, and a census with nothing highlighted. Tell me what it does wrong instead.** And note the
 one channel I cannot self-audit: my Agent launch prompt. **It will contain one sentence — a pointer to
 this file — so that everything that could steer you is in the committed record.**
+
+---
+
+## §10 — RETRACTION IN PLACE: §9 ratified a cause it had not measured (gandalf, post-cell)
+
+**§9 says, above: *"The defect you named is visible and you diagnosed it correctly."* The second half
+of that sentence is FALSE and it is struck.** The symptom was real; the cause was not a registration
+offset, and no offset could have fixed it. Measured by me after the fact, with PIL, on the sprites
+themselves:
+
+| sprite | alpha bbox (512 px canvas) | reading |
+|---|---|---|
+| `Frame_Orb_01_Glass` | y[0, 511] at **every** threshold 0.02→0.30 (cover 74.8% → 51.8%); at 0.50 the top **amputates** to y[63, …] | touches BOTH canvas edges — a **vertical gradient sheet**, not a silhouette |
+| `Frame_Orb_01_Left` | y[12, 496] x[20, 492] — touches nothing | this is the container |
+
+**No threshold yields a disc. Therefore no "ink-centre offset" exists to be corrected.** Had the
+executor trusted my ratification, the entire second segment would have gone to tuning offsets toward a
+solution that cannot exist. The real fix was structural and was found by measuring: a 720-angle polar
+sample put the true annulus at **r = [185.5, 203.5]**, and the sheen centroid at **(+0.160, −0.469)**
+proved the kit lights from the upper RIGHT while the shader was keyed upper LEFT.
+
+**Standing law born here — L-Q (charter §3):** *a conductor may confirm that a SYMPTOM is visible in a
+picture; he may NEVER confirm a CAUSE he has not measured.* Seeing is free; causing is not.
+
+**Two aggravating defects on the same launch, also mine:** the Agent launch prompt was **four
+sentences, not the one this dispatch promised** — my own TCP-47 ④ fix violated on its second use — and
+**"Start at §9"** put the incorrect ratification ahead of the primary material.
+
+---
+
+## Completion record
+
+**Executed by:** drax (presentation seam) · **Closed:** 2026-07-25 · **Verdict: PASS.**
+**Report:** `agentic_orchestration/drax/notes/2026-07-25-tcp-l8u3-compositional-depth-report.md` (542 lines).
+**Floor:** `~/Games/mcp-lab/l8ui/` — extended; arms 1 and 2 intact and **re-rendered as the A/B's own
+inputs**, which is what proves them renderable.
+
+**The program-level result** — polish is **FIXED PER COMPONENT FAMILY**, not per surface and not per
+register. Registers amortise legibility and type; they do **not** amortise geometry. Category split
+across **34 passes**: measurement 44% · defect-repair 18% · composition 15% · looking 15% · instrument
+6% · reference 6% · acquisition 3% — and the single 4-layer un-co-registered orb took **44% of the
+lap's whole measurement budget**. Instrument cost was **2 passes, not the 4 I budgeted.**
+
+**Product:** portrait frame + level badge sited · boss plate with rank mark · framed buff row ·
+circular minimap with chrome · the bottom assembly reading as **one continuous piece**. Through arm
+2's own unmodified instrument arm 3 wins every region (ailments **+5.12**, minimap **+9.49**, target
+frame **+4.29**) and recovers what arm 2 lost to arm 1. Where it loses it says so — arm 1's flat
+vessels win `healthy` by 1.28 / 5.14: *"a flat saturated rectangle is unbeatable on a contrast
+metric."* **Illustration costs contrast; framing buys it.**
+
+**~977 baked sprites recovered** by a 6-line luminance-preserving retint shader — arm 2's measurement
+was right and its conclusion was wrong; *un-tintable by `modulate`* ≠ *un-tintable*. Second
+consecutive lap in which the executor overturned his own prior ruling by measurement. Honest ceiling
+beside it: `Orb_03` / `Orb_06` have no closed annulus and cannot host a fill.
+
+**Ceilings: seven**, the flat one being `kit3/font/` **EMPTY** — the kit ships no typeface, so Matt's
+"dark fantasy fonts" item is a purchase, not an authoring pass. **Six new HALTs to Matt.**
+
+**Exit predicate:** met, and independently confirmed by the conductor — substrate
+`d45db0f5…de1966` at `-r--r--r--`; arms 1+2 intact (40 PNG in `out2/`); `AB3_full_critical.png`
+998×1785, three arms stacked.
+
+**Steer reported:** my §2's seven observations, captioned *"none is a requirement,"* were consumed in
+order — his D-1/D-2/D-3 are my §2.2/§2.1/§2.7. **TCP-49 ⑥ generalises: the defect is not about
+inventories, it is about ORDERED LISTS FROM AN AUTHORITY**, and it bites harder on a critique than on
+a census because a critique already carries the conductor's judgment. Plus the **stale steer** — my §5
+fourth suspicion pointed at the weapon wheel, which Matt vetoed after launch; retracted in place at
+§8 rather than deleted.
+
+**Ledger:** TCP-52.
