@@ -146,3 +146,20 @@ branch. Arm 2 — enumerated 6 of 14 folders and made enumeration order into att
 **ratified a cause I had not measured** (L-Q), and then called a font ceiling a purchase when the
 fonts were already owned one pack over. Arm 3b — put a thumb on the scale by naming which verdict
 was "worth more," and registered a claim about "cost" with no unit. **Tell me what it is this time.**
+
+---
+
+## SUPERSEDED — do not execute
+
+**Stopped at ~6 minutes and replaced in full by `2026-07-25-drax-l8u3c-r-hotbar-backing.md`.**
+
+Reason: a second owner ruling landed mid-flight — *"The only thing missing now from the UI is the
+darker metallic grey design behind the boxes. We really do need one of them."* — which names the
+exact failure mode this dispatch was steering toward. §2 here framed the cell as a **deletion** and
+said *"the removal is the easy half"*, while §1 carried Matt's actual words, which say **use** what is
+around the skill boxes. **A backing is required; the correct framing is a family SWAP, not a
+deletion.**
+
+**First deliberate application of L-R** (a changed ruling is a new cell, never an edited file) —
+applied at minute 6 rather than as a third post-mortem. The partial floor at `~/Games/mcp-lab/l8ui/ui3c/`
+is inherited by the re-dispatch, not discarded.
