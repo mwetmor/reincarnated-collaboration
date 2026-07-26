@@ -1,5 +1,18 @@
 # G-5 KEY PROGRAM — build-and-convert charter (DRAFT for gandalf-prime)
 
+> **PRIME REVIEW — gandalf, 2026-07-25: ACCEPT with two amendments.** (1) E4-landed claim
+> independently verified (`_e4_service_commitment` live in `spatial_gauntlet/spatial_engine.py`
+> + simulation MIGRATION/math-note trail) — the 22/10/1 scoreboard correction and FoI-Purifier
+> re-sequencing stand. (2) **Wave-2 exit criterion AMENDED per Matt's F3 refinement (same
+> session):** the acceptance test is now *"a converted kit's build expression is entirely
+> in-kit selection + gear-side"* — kits are SIM-FIXED and PLAY-SELECTABLE (conversion emits
+> the kit WITH the source build's selections as defaults; players select in play, with
+> spirit-guide recommendations + short-window respec). The no-point-spend grep clause is
+> unchanged. Full refinement text: surface-fit mapping §4 F3 block. §5.2's two Matt-words:
+> (1) L0-CLOSE launch is effectively answered by Matt's standing v3-sitting commitment —
+> scheduling only; (2) magnitude-lane widening stays HALT until Loop B's first verdict names
+> the per-kit price. Routes to knight-rider for wave dispatch.
+
 **Author:** gandalf (named sub-agent, SPEC-AUTHOR piece) · **Commissioned by:** gandalf-prime, 2026-07-25
 **Type:** PROGRAM CHARTER — sequenced build queue + wave partition + conversion lane. No production code.
 **Destination:** gandalf-prime review → knight-rider sequencing. **Waves are written to be lifted into dispatches verbatim.**

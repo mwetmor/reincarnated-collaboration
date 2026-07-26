@@ -250,6 +250,21 @@ consistent with it.
 >   (skills, trait floors, T4 capstone(s), soul-bound gear operators) chosen at conversion time;
 >   live player expression remains gear-side, not point re-investment. **Consequence: B6
 >   collapses into the gear lane; register is nine items.**
+>   **F3 REFINED (Matt, same session, later):** two-clause model. Verbatim: *"the kit is fixed
+>   during simulation, but the player will level up and select their own set of skills. If a
+>   whirlwind barbarian chooses not to select whirlwind, that's on the player. This is where we
+>   will lean into strong recommendations from the spirit guide... you will also start with the
+>   default kit's selected skills/T4 capstone/etc but with your soulbound gear. You will have a
+>   few respec within a short amount of time if you disagree with the way the kit is built."*
+>   Canon sentence v2: a kit is **SIM-FIXED and PLAY-SELECTABLE** — for simulation and
+>   conversion-key measurement, selections freeze at the source build's choices (conversion
+>   emits the kit WITH its defaults = the source build); in play, the player selects skills/T4
+>   from what the kit rolled, arriving at each new kit (every couple of levels) with its default
+>   selections + persistent soulbound gear, a short-window respec allowance, and strong
+>   spirit-guide recommendations. Expression = **in-kit selection + gear**; open point-investment
+>   build-crafting stays absent. B6's collapse UNCHANGED (selection ≠ modification). New
+>   native-game design thread (not a GD-program item): spirit-guide skill-selection
+>   recommendations — gandalf docket.
 > - **F4 RULED (a):** debuff stacking-class enum adopted now (S-size).
 > - **F5 RULED (a):** `proc_chance` + `proc_internal_cooldown_seconds` as a PAIR, with the
 >   high-frequency-triggers-require-ICD invariant. Empirical backing: 62/65 GD celestial powers
