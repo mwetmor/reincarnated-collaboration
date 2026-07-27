@@ -1,0 +1,104 @@
+{
+  "round": 3,
+  "date": "2026-07-26",
+  "scope": "Single bounded question: cause of the full-HP restores flagged UNEXPLAINED in r2-evidence.json at pts ~2769 and ~2775.",
+  "artifact": "/Volumes/reincarnated/visual-artifacts/GD-matt-test/play-test-v1/",
+  "instruments": [
+    "globe_series.py at 60 fps over pts 2750-2782 (globe numerals; r2 templates) -> globe-hp-2750-2782-60fps.jsonl",
+    "probe_panel.py single-frame seeks pts 2750:2792:2 (PlayStats panel) -> panel-2750-2792.jsonl",
+    "ffmpeg single-frame grabs -> frames/ (tight crops only; full frames discarded after read)",
+    "r2 ta-shots-all-313.jsonl re-queried for level/death transitions (native PNG tier, no re-read of the share)"
+  ],
+
+  "correction_to_r2": {
+    "claim_retracted": "HP restores to full 491 at pts ~2769 and again at ~2775, from ~340 and ~330 respectively.",
+    "finding": "There is exactly ONE restore, not two. The second event does not exist.",
+    "evidence": "60 fps globe trace reads hp=491 continuously 2769.317 -> 2775.017, is unreadable 2775.033 -> 2777.717, and reads 491 again at 2777.733. HP was already full on BOTH sides of the second gap. The r2 '~330 -> 491' second restore was a read taken across an occlusion, i.e. r2 reproduced its own D-1 failure mode (legibility is not accuracy) at the window level rather than the glyph level.",
+    "corroboration": "panel life_healed is FLAT at 3351.78 across pts 2770, 2772, 2774, 2778 -- zero healing of any kind, including regen, because the character was pinned at max HP. A second +160 HP restore in that stretch is arithmetically impossible."
+  },
+
+  "the_single_real_event": {
+    "cause": "LEVEL/MAP TRANSITION (loading screen).",
+    "window_pts": [2766.500, 2769.317],
+    "duration_s": 2.82,
+    "hp_before": 342,
+    "hp_after": 491,
+    "hp_max": 491,
+    "delta_hp": 149,
+    "visual_proof": "frames/c_center_2767.5.jpg is a Grim Dawn loading-screen splash illustration, not world geometry. frames/c_center_2765.5.jpg (before) and c_center_2770.5.jpg (after) show two DIFFERENT maps: green-lit poison cavern before, dry rock passage with a lit opening after.",
+    "second_transition": {
+      "window_pts": [2775.033, 2777.717],
+      "duration_s": 2.68,
+      "visual_proof": "frames/c_center_2776.5.jpg is a second, different GD loading-screen splash.",
+      "hp_across": "491 -> 491 (no restore; already capped)",
+      "reading": "the player stepped out of the poison map and immediately back in. frames/c_center_2778.5.jpg confirms re-entry to the green poison cavern at 2778.5. The measured death stretch begins here."
+    }
+  },
+
+  "hypotheses_eliminated": {
+    "a_level_up": {
+      "verdict": "ELIMINATED",
+      "evidence": "max_level = 8 at pts 2766, 2770, 2772, 2774, 2782 (panel) and at shots 178 (pts 2774.0) and 179 (pts 2789.3) (native PNG). The 7->8 transition is bracketed at pts 2725.9-2730.1, ~38 s before the event. Level 8->9 is at pts 3772.7."
+    },
+    "c_unlogged_death": {
+      "verdict": "ELIMINATED",
+      "evidence": "deaths = 0 at every panel sample pts 2750-2790 and at native shots 178/179. deaths 0->1 occurs at shot 182, pts 2838.2, which is the deliberate death being measured."
+    },
+    "potion": {
+      "verdict": "ELIMINATED",
+      "evidence": "health_potions = 0 and mana_potions = 0 at every sample across the boundary. The no-potion control holds through this event."
+    },
+    "combat_lifesteal": {
+      "verdict": "ELIMINATED",
+      "evidence": "dps = 0.00 at every panel sample pts 2750-2790; kills constant at 271 from pts 2730.1 to well past the death. No combat occurred."
+    },
+    "regen": {
+      "verdict": "ELIMINATED as the mechanism, CONFIRMED as the baseline",
+      "evidence": "life_healed advances +3.22 per 2 s (1.61 HP/s) at every step from pts 2750 to 2766, then +149.36 across the single 4 s step spanning the transition, then flat, then +3.2/2s again from 2780. 149 HP in <=2.82 s is 53 HP/s, 33x the regen rate."
+    }
+  },
+
+  "what_the_game_counted": {
+    "life_healed_pts_2766": 3202.42,
+    "life_healed_pts_2770": 3351.78,
+    "delta": 149.36,
+    "globe_delta": 149,
+    "cross_check": "the panel's cumulative-healing field and the globe numerals agree to 0.36 HP. Two independent fields in the same frames, per the two-field cross-check rule. The game booked the restore as HEALING, not as a stat reset."
+  },
+
+  "unresolved_and_stated_as_such": {
+    "question": "WHICH Grim Dawn mechanic the transition fires -- a flat restore-to-full on map load, or a released out-of-combat/Constitution regen that the continuous poison DoT had been suppressing.",
+    "why_not_settled": "the restore is entirely contained inside a 2.82 s loading screen during which the HUD does not render, so no intermediate HP sample exists. Both mechanisms predict the identical observable here (booked as healing, capped at max, no counter movement).",
+    "what_would_settle_it": "one deliberate v2 trial: take damage to ~50% in a non-DoT area, walk out of combat WITHOUT a transition, hold 10 s, and read the globe. Full recovery without a loading screen = out-of-combat regen. No recovery = the transition itself is the trigger. Cost: about 30 s of recorded play.",
+    "note": "the protocol rule below is identical under both mechanisms, so this gap does not block v2."
+  },
+
+  "control_disposition": {
+    "verdict": "BENIGN. Not a control breach.",
+    "reasons": [
+      "It is not a potion, not a devotion proc, not an unlogged death, not a level-up. The three declared controls of the run are all intact across it.",
+      "It is entirely upstream of the measured stretch. The last loading screen ends at pts 2777.717; the poison stretch is 2778.0-2836.6.",
+      "Its signature is unmistakable and provably absent from the measured stretch (see below)."
+    ]
+  },
+
+  "measured_stretch_clearance": {
+    "window_pts": [2778.0, 2836.6],
+    "frames": 3517,
+    "readable": 3453,
+    "longest_unreadable_run_s": 1.0,
+    "longest_unreadable_run_pts": [2785.0, 2785.983],
+    "disposition_of_that_run": "NOT a transition. HP is 433 entering it and 415 leaving it -- a continuous -18 decline, i.e. two poison ticks net of regen. Compare the real transitions, which are 2.68-2.82 s and cross from partial HP to capped HP.",
+    "loading_screens_in_window": 0,
+    "positive_hp_jumps_in_window": "3 apparent, all recoveries from single-frame digit-drop misreads (4->464, 3->375, 3->342); no true restore",
+    "life_healed_in_window": "3351.78 -> 3445.00 = 93.22 over 59.0 s = 1.58 HP/s, exactly the regen baseline. A restore inside the window would have to appear here and does not.",
+    "conclusion": "the -10 HP / 1.000 s poison figure and the 1.58 HP/s regen figure are unaffected. The r2 headline number stands."
+  },
+
+  "v2_protocol_rule_proposed": {
+    "name": "Loading screen is a segment boundary",
+    "text": "Any level/map transition (identified by a full-screen loading illustration and by the HP/energy globe numerals vanishing for >2 s) may restore health to maximum. Transitions are therefore SEGMENT BOUNDARIES, not events inside a segment: no measurement stretch may span one, and the first sample after one is a fresh full-HP initial condition rather than a continuation. This is a known control-exempt event and does not invalidate the no-potion control.",
+    "detector": "the existing globe reader already emits it for free -- a contiguous NO_INK/LOWCONF run longer than 2 s in the globe crop is a transition; runs of ~1 s are ordinary HUD occlusion and are benign.",
+    "companion_rule": "r2's 'screenshot the devotion screen at run start and run end' remains the other open v2 item."
+  }
+}
