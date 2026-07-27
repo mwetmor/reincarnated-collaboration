@@ -1,0 +1,131 @@
+{
+  "round": 2,
+  "date": "2026-07-26",
+  "artifact": "/Volumes/reincarnated/visual-artifacts/GD-matt-test/play-test-v1/",
+  "video_start_epoch": 1785096216.5,
+  "clock_note": "pts_s = video offset; play_time = panel game-state clock = the join key. Inherited from round 1, not re-derived.",
+
+  "fct_instrument": {
+    "exists": true,
+    "verdict_magnitude_sampling": "READY",
+    "verdict_automatic_per_hit_census": "NOT-READY",
+    "render": {
+      "colour": "near-white / light grey, low saturation, dark outline",
+      "colour_coded_by_damage_type": false,
+      "colour_census_dummy_window_pts_6000_6002_every_3rd_frame_bright_saturated_px": {
+        "green": 62533, "red": 10999, "blue": 383, "yellow": 8, "other": 113,
+        "reading": "green is the character.LogData debug overlay plus foliage; red is world/blood. No saturated numeral class exists. Direct damage and DoT are NOT separable by colour."
+      },
+      "glyph_height_px_native": [9, 24],
+      "three_digit_number_width_px_native": [30, 66],
+      "lifetime_s": [0.4, 0.7],
+      "scale_behaviour": "spawns small, GROWS to peak over ~0.5 s, then fades. Observed ink 110 -> 307 and width 33 -> 66 px over frames 8..36 of a 60 fps burst at pts 6046.13-6046.60.",
+      "spatial_semantics": "per TARGET (independent numbers at each of two dummies' screen positions) AND multiple numbers per target within ~0.2 s, i.e. per damage COMPONENT, not one per swing."
+    },
+    "why_census_fails": [
+      "SNR: naive bright+achromatic detection over a 10 s dummy window (pts 6044-6054) yields 298 tracked candidates against a true count of order 10-30. Wet-rock specular, torchlight and bone props are the same colour, same size and equally transient.",
+      "The green character.LogData overlay renders in exactly the region FCT spawns (over the target) at the same 10-16 px glyph height; its anti-aliased edges pass the brightness test.",
+      "Numbers OVERLAP each other. At pts 6046.60 three numbers overlap; only the topmost ('449') is legible, the other two are mutually destroyed.",
+      "Multi-scale life plus camera pan defeats naive centroid tracking; instances fragment and are multiply counted."
+    ],
+    "v2_recommendation": "Record a dedicated dummy segment with character.LogData OFF. That removes the single largest confound and makes the census tractable. Keep the overlay ON for the swing-count segment where it is the instrument."
+  },
+
+  "damage_per_second_field": {
+    "kind": "ROLLING-WINDOW MEAN, not instantaneous and not cumulative",
+    "evidence": "pts 6046-6052: a ~1 s damage burst produces a 6.0-6.5 s non-zero plateau that then drops to 0.00 in one step. Bout onsets ramp monotonically (97.42 -> 171.54 -> 357.32 -> 519.55 ...) and offsets decay smoothly.",
+    "window_length_s_estimate": 6.0,
+    "consequence": "integral(dps dt) over a whole bout equals TOTAL DAMAGE DEALT in that bout, with no per-hit census required. This is the usable outgoing-damage instrument.",
+    "bout_integrals": [
+      {"bout": 1, "pts": [5990.0, 6013.0], "play_time": [6282, 6306], "integral_damage": 18553.5, "peak_dps": 1356.37},
+      {"bout": 2, "pts": [6026.0, 6042.0], "play_time": [6318, 6334], "integral_damage": 18050.8, "peak_dps": 1825.55},
+      {"bout": 3, "pts": [6046.0, 6052.0], "play_time": [6338, 6344], "integral_damage": 2938.9, "peak_dps": 526.77}
+    ],
+    "sampling": "2 fps panel OCR; trapezoid integration; None values forward-filled (3 of 180 samples in range)"
+  },
+
+  "dummy_segment": {
+    "zero_kill_window": {
+      "kills_constant_at": 692,
+      "pts": [5515.0, 6183.5],
+      "play_time": [5808, 6474],
+      "play_time_hms": ["96:48", "107:54"],
+      "next_kill_pts": 6184.0,
+      "next_kill_play_time": 6475,
+      "duration_play_time_s": 667
+    },
+    "gandalf_bracket_disposition": "CONFIRMED and WIDENED. His 98:12-106:11 sits inside the true 96:48-107:55.",
+    "dummy_contact_total_s": 46,
+    "level_at_dummy_test": 11,
+    "correction": "max level went 10 -> 11 at pts 5515.0, i.e. at the START of the no-kill window. It is NOT the 11 -> 12 transition. The dummy work happened at level 11.",
+    "menu_content_in_window": {
+      "5600": "character sheet + equipment doll",
+      "5760": "inventory with TWO item tooltips open side by side (the weapon comparison)",
+      "5800": "mastery/skill tree (Berserker) -- NOT devotion",
+      "5900-5960": "inventory",
+      "6000-6055": "world, training dummies"
+    },
+    "gear_change_bracket_pts": [5760, 5990],
+    "screenshot_burst_disposition": "Screenshots 288-319 (pts 6075.5-6167.5, 41 shots in 92 s) are inventory/equipment browsing AFTER the dummy work, not during it."
+  },
+
+  "poison_dot_dummy_side": {
+    "verdict": "NOT MEASURED",
+    "reason": "blocked on the FCT census; the panel dps field is a rolling mean and cannot separate DoT from direct damage. An honest NOT-READY rather than a modelled guess."
+  },
+
+  "poison_dot_player_side_death_1": {
+    "verdict": "MEASURED",
+    "method": "health-globe NUMERALS at 60 fps (fill-fraction NOT consulted -- round-1 rejected it at 4.6 pp signal against a 90.5 pp null band)",
+    "window_pts": [2778.0, 2836.0],
+    "window_play_time": [3097, 3155],
+    "frame_read_coverage": 0.982,
+    "max_hp_at_death": 491,
+    "tick_magnitude_hp": -10,
+    "tick_cadence_s": {"mean": 0.996, "sd": 0.072, "n": 57},
+    "tick_size_histogram": {"-10": 43, "-9": 12, "merged_-18": 1},
+    "poison_dps_gross": 10.0,
+    "poison_pct_max_hp_per_s": 2.04,
+    "net_hp_slope_per_s": -8.207,
+    "time_from_full_to_death_s": 59.8,
+    "regen_hp_per_s": 1.580,
+    "regen_source": "PANEL life_healed delta: 3351.78 at pts 2777 -> 3445.00 at pts 2836 = 93.22 over 59.0 s. Pure regeneration because potions are zero (deliberate control) AND dps reads 0.00 throughout the window, so there is no lifesteal term.",
+    "regen_uncertainty_hp_per_s": 0.02,
+    "consistency_check": "10.00 gross - 1.58 regen = 8.42 expected net vs 8.21 measured (2.5% apart, inside the 1.8% dropped-frame budget).",
+    "death_moment_pts": 2836.5,
+    "respawn_full_hp_by_pts": 2844.6,
+    "unexplained": "HP restores to full 491 at pts ~2769 and again at ~2775, from ~340 and ~330 respectively. Not potions (counter is 0) and far too fast for 1.58 HP/s regen. Flagged, not modelled. The 2778-2836 stretch used is downstream of both and is clean."
+  },
+
+  "devotion_control": {
+    "verdict": "NOT VERIFIED off a still. Remains OPEN.",
+    "searched": "pts 5700-6080 at 1 fps for the constellation screen, covering the whole menu block including gandalf's offset-5800 candidate",
+    "finding_at_5800": "mastery/skill tree (Berserker). A 'Devotion' TAB is visible beside 'Berserker' but is not open in any sampled frame.",
+    "top_dark_screen_candidates": [5804, 5814, 5904, 5913, 5953, 5958],
+    "candidate_disposition": "all skill tree or inventory",
+    "strongest_indirect_evidence": "Across all 313 native screenshots the Skills Used list contains exactly six paths -- default/defaultkickattack, default/defaultweaponattack, playerclass10/onslaught, playerclass10/werewolf1, playerclass10/werewolf1_skill01_claws, playerclass10/werewolf1_skill02_charge. NO devotion/ path ever appears.",
+    "what_that_does_and_does_not_prove": "It proves no devotion PROC skill fired in 118 minutes, which closes the unattributed-kill channel that motivated the control. It does NOT prove zero points assigned: stat-only constellation nodes proc nothing and would leave no trace here.",
+    "recommendation": "v2 protocol: screenshot the devotion screen at run start and run end. Converts a believed control into a verified one for the cost of two keystrokes."
+  },
+
+  "ta_full_pass_screenshot_arm": {
+    "status": "COMPLETE",
+    "n_shots": 313,
+    "missing_fields": {"play_time": 0, "kills": 0, "deaths": 0, "max_level": 0,
+                       "total_score": 0, "life_healed": 0, "dps": 0,
+                       "health_potions": 0, "mana_potions": 0},
+    "non_monotonic_pairs": {"play_time": 0, "kills": 0, "deaths": 0,
+                            "max_level": 0, "life_healed": 0, "total_score": 0},
+    "end_state": {"shot": 352, "pts_s": 6806.254, "play_time": 7088, "kills": 882,
+                  "deaths": 2, "max_level": 12, "life_healed": 12468.06},
+    "note": "reproduces gandalf verification-note 6b exactly"
+  },
+
+  "corrections_to_gandalf_round_2_note": [
+    "The dummy test is at LEVEL 11, not just-before-12. max level 10 -> 11 happens at pts 5515.0, at the start of the no-kill window, not inside it.",
+    "The no-kill window is wider than bracketed: 96:48 to 107:55 play_time, 667 s, not 98:12-106:11.",
+    "The offset-5800 node grid is the MASTERY tree, not devotion. Devotion remains unverified.",
+    "Regen does NOT need an out-of-combat recovery stretch at matched level and gear. The panel life_healed delta gives it exactly, in-window, at the same instant, because the no-potion control removes the only exogenous term and zero dps removes lifesteal.",
+    "FCT and the rolling dps field cannot cross-validate as posed, because the FCT census is not extractable at this capture. The dps field is nevertheless a complete outgoing-damage instrument on its own once you recognise it as a rolling mean and integrate it."
+  ]
+}
