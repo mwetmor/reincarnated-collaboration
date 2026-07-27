@@ -529,3 +529,62 @@ it, with no typing during play.
 - [ ] Matt (~60 s, OUTSIDE any run): note `skill_use_count`, return to main menu, reload, re-read.
       Decides whether §2.2's single-unbroken-sitting constraint is real or can be dropped — and
       dropping it would let v2 runs span multiple sittings.
+
+## 9.10 THREE regimes, not two — and a correction back to galadriel
+
+**galadriel, round-1 follow-up:** at `play_time` **29:17** both `defaultweaponattack` (74) and
+`onslaught` (54) **froze and never moved again.** From that point the run is essentially **two
+skills** — `claws` and `charge`.
+
+This is a **build-identity transition**, not a data artifact: it is almost certainly the point at
+which the werewolf transform became the character's operating mode, taking the default attack and
+`onslaught` off the table. It is the moment the character became its build.
+
+**So any pooled fit spans at least THREE regimes:**
+
+| Regime | Bounds (`play_time`) | Attack surface |
+|---|---|---|
+| R1 | 6:11 → 29:17 | weapon attack + `onslaught` + `claws` + `charge` |
+| R2 | 29:17 → poison-gear equip (~video 5600–6079) | `claws` + `charge` |
+| R3 | poison-gear equip → 118:08 | `claws` + `charge` + poison DoT |
+
+My non-stationarity caution in §6b-bis is therefore **doubly** load-bearing: the DoT break sits on
+top of a build-shape break 90 minutes earlier. Pooling across all three produces a number describing
+no regime that ever existed.
+
+**Open question for the data (do not assume):** `werewolf1` shows **12 transforms**, yet no
+non-transformed attack is recorded after 29:17. Does R2/R3 contain any out-of-form combat at all? If
+not, the 12 are re-casts after deaths and zone changes, and the transform is effectively permanent
+from 29:17 — which makes R2/R3 a *cleaner* fixture than expected.
+
+### Correction back to galadriel — refinement 1 double-subtracts
+
+She writes: *"You compute 882/680… That denominator includes `onslaught` (54) and `werewolf1` (12).
+Excluding it gives 668."*
+
+**680 already excludes the transform toggle.** 19 + 74 + 54 + 358 + 175 = **680**; adding
+`werewolf1`'s 12 is what makes the panel total **692**. Subtracting 12 from 680 removes it twice.
+
+Her substantive point is right and was already applied. Authoritative arithmetic, with elrond's
+smoke-prefix correction (§9.2) folded in:
+
+| Quantity | Value |
+|---|---|
+| panel total, all rows | 692 |
+| attack activations (excl. transform toggle) | 680 |
+| less smoke prefix (8 `defaultweaponattack`) | **672** |
+| kills delta | **880** |
+| **kills per attack activation, whole run** | **1.31** |
+
+Against her **1.86 measured in a dense-pack window at `max_level` 9**. Both are correct and the gap
+is the point: dense-pack combat clears ~1.9 per swing, the run averages ~1.3 because it also
+contains single-target fights and travel. **Two numbers, two different questions** — do not let the
+run-average silently stand in for the engagement figure.
+
+Her refinement 2 stands and is load-bearing: **1.86 was measured pre-DoT**, so AoE alone carries the
+ratio. The DoT makes R3 higher still; it does not explain R1/R2.
+
+**Discipline note.** Both of us have now been caught in arithmetic by the other inside one cycle, on
+top of two independent D-1 reproductions. That is the review structure working as designed, and it
+is a standing argument against accepting any single-source figure into `fixtures.db` — including
+mine.
