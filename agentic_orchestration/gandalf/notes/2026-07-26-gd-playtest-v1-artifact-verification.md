@@ -784,6 +784,117 @@ Gear must not change between them, and the pass boundary is called out on the au
 
 ---
 
+# 9.12 ROUND-3 — the unexplained full-heal, closed (galadriel, 2026-07-26)
+
+**Verdict: BENIGN, not a control breach — and there was only ONE event, not two.**
+
+## 9.12.1 The second event does not exist — D-1 reproduced a FOURTH time, at a new scale
+
+The 60 fps globe trace reads **491 continuously from 2769.317 to 2775.017**, is **unreadable
+2775.033–2777.717**, and reads **491 again at 2777.733**. Full HP on both sides. `life_healed` is
+**flat at 3351.78** across pts 2770 / 2772 / 2774 / 2778 — no healing of any kind occurred there.
+
+galadriel's round-2 "~330 → 491" was **a read taken across an occlusion.** Her own words: *"my own
+D-1 failure mode at window scale instead of glyph scale."*
+
+> ### The D-1 generalisation, now forced by a fourth instance
+>
+> D-1 is **not** about crop geometry. Four instances, three distinct mechanisms:
+>
+> | # | Who | Mechanism | Wrong value returned |
+> |---|---|---|---|
+> | 1 | gandalf | large crop + large upscale ⇒ downsample at read time | `50:37` for `59:36` |
+> | 2 | elrond | same, different field | `kills: 0` for `kills: 2` |
+> | 3 | galadriel (r2) | **read spanning a data gap** — interpolation across an occluded window | a 161 HP drop that never happened |
+> | 4 | — | (D-2/anger-overlay occlusion is the same family, caught early) | — |
+>
+> **The invariant across all of them: the reader returned a PLAUSIBLE value and did not announce
+> that it had guessed.** Instance 2 is the sharpest — the wrong value was the *more* plausible one,
+> so a sanity check would have confirmed the error.
+>
+> **Binding rule, promoted from method-note to pipeline constraint: every reader must emit COVERAGE,
+> not just values.** A reader that cannot report its own coverage is not an instrument. This is
+> precisely why instance 3 was catchable at all — the globe reader reports coverage (98.2%), so the
+> gap was visible once looked at. The panel readers that produced instances 1 and 2 did not.
+
+## 9.12.2 The one real event — a level/map transition, and both mechanisms are eliminated on two fields each
+
+pts **2766.500 → 2769.317** (2.82 s) is a Grim Dawn **loading-screen splash**; the maps either side
+differ (green poison cavern → dry rock passage). **HP 342 → 491** (Δ +149). A second loading screen
+at 2775.033–2777.717 returns him to the poison cavern at full — he stepped out the door and back in,
+then rode the poison down to the death that produced the oracle.
+
+| Candidate cause | Eliminated by |
+|---|---|
+| level-up full-heal | `max_level` = **8** throughout (7→8 fired at pts ~2728) |
+| unlogged death | `deaths` = **0** until 2838.2 |
+| potion | counter **0** (Matt's control, holding) |
+| lifesteal | `dps` = **0.00**, `kills` pinned at 271 |
+
+The game booked it as healing: **`life_healed` +149.36 against a globe delta of +149.**
+
+## 9.12.3 The honest gap she held open — and why it does not touch the oracle
+
+She cannot separate **flat restore-on-load** from **out-of-combat / Constitution regen released when
+the DoT stopped**: the whole restore sits inside a 2.82 s HUD-less window, and both predict identical
+observables. Correct refusal to claim.
+
+**My addition — the mechanism question cannot reach the number, and here is why.** `life_healed` is
+**mechanism-agnostic**: it books *all* healing regardless of source. Over the measurement stretch it
+moved **93.22** total. Whatever restored 149 HP at the transition, it contributed nothing unbooked
+during 2778.0–2836.6. The DoT figure is safe under either resolution.
+
+**But one LABEL must change.** 1.580 HP/s is *"total healing from all sources while under DoT"* — an
+**in-combat** figure, not base regen. If GD's Constitution pool is suppressed in combat (the likely
+reading, given a 149 HP restore in 2.82 s is ~94 s of work at 1.58 HP/s), then the two are different
+quantities and must not be conflated. **For the hazard-tempo ratio we want the in-combat one anyway**,
+so the transferable ~6.3× stands — but it is now labelled correctly.
+
+Her v2 settlement is 30 seconds of work: drop to ~50% in a non-DoT area, stand out of combat 10 s
+with **no transition**, read the globe.
+
+## 9.12.4 A protocol rule that closes an open item in §3 for free
+
+> **A loading screen is a segment boundary.** No measurement stretch may span one; the first sample
+> after one is a **fresh full-HP initial condition**, not a continuation.
+
+The rule holds identically under either mechanism, so it can be adopted **without** settling 9.12.3.
+
+**And the detector is free from the existing globe reader:** a contiguous unreadable run **> 2 s** is
+a transition; ~1 s runs are ordinary HUD occlusion.
+
+**This is the convergence worth noticing.** §3 ruled that `play_time` freezes during loading and that
+the affine video↔ledger map is piecewise slope-1 with **breaks at zone transitions** — and left those
+breaks to be *fitted from panel samples.* §9.12's detector finds the same boundaries **independently,
+from the globe channel, at 60 fps.** One physical event, two consequences (clock discontinuity **and**
+state discontinuity), now detectable by two independent instruments that can cross-check each other.
+**Adopt the detector as the break-finder for the §3 clock fit.**
+
+## 9.12.5 The measurement stretch is clear
+
+2778.0–2836.6: **3453 / 3517 frames read, zero transitions**, longest unreadable run **1.0 s** at 2785
+(433 → 415, a continuous two-tick decline — not a gap that hides anything). **The −10 HP / 1.000 s
+tick and the 1.580 HP/s in-combat healing figure both stand.**
+
+Artifacts: `galadriel/captures/2026-07-26-gd-playtest-v1-r3/` (`r3-evidence.json`,
+`globe-hp-2750-2782-60fps.jsonl`, `panel-2750-2792.jsonl`, `frames/`). Commit `23e3e25f`.
+
+## 9.12.6 Action
+
+- [x] full-heal anomaly — **CLOSED, benign.** No control breach. Oracle unaffected.
+- [ ] gandalf: §2.2 amendment — **a loading screen is a segment boundary**; measurement stretches
+      may not span one.
+- [ ] gandalf/galadriel: adopt the **>2 s unreadable-run transition detector** as the independent
+      break-finder for the §3 piecewise clock fit.
+- [ ] gandalf/elrond: **every reader emits coverage.** A reader that cannot report its own coverage
+      does not write to `fixtures.db`. Retrofit the panel readers (D-1 instances 1 and 2 were
+      undetectable precisely because they could not).
+- [ ] elrond: label the healing figure **"in-combat healing, all sources"**, never "regen."
+- [ ] v2 (~30 s): non-DoT 50%-HP out-of-combat stand, no transition — settles restore-on-load vs
+      Constitution regen.
+
+---
+
 # 10. Design recognition — form identity, and the transform Matt made for no reason
 
 ▶ **ROLE: STORYWRIGHT** — trigger: an unprompted player behaviour in the substrate that speaks to a
@@ -821,26 +932,86 @@ to hold an identity that pays zero.
 D4 removed the friction and lost the identity. **Nobody in the lineage has shipped identity without
 friction** — and that is the space Reincarnated's form library is actually aiming at.
 
-**Three concrete protections** (design recommendations, not rulings — Matt's call):
+## 10.1 AMENDMENT (same session, Matt's challenge) — the frame above is borrowed from the wrong game
 
-1. **No duration decay on a worn form outside combat.** The form ends when the player chooses, when
-   combat resolves it, or when the season does — not on a timer. A timer converts identity into
-   uptime management.
-2. **No penalty for remaining in form in hub / safe space.** If town is cheaper out-of-form in *any*
-   dimension — movement, vendor access, dialogue, stash — the game has told the player his identity
-   is a combat costume. Matt's town transform must remain *free*, or it stops happening.
-3. **Hub NPCs and the Spirit Guide react to the worn form.** This is the cheap one and the one that
-   converts a tolerated behaviour into a rewarded one. A single acknowledging line makes the form
-   the player is wearing *legible to the world*, which is the difference between wearing an identity
-   and carrying an item.
+**Matt asked: *"are we just talking about shapeshift forms here?"* The answer is no, and the D2/D4
+framing above is mis-transposed. It is corrected here rather than deleted, because the mis-transposition
+is instructive.**
 
-**Player consequence, stated concretely.** Under the current lineage-default (D2/D4), the player
-enters town and reflexively drops form because the game has trained him that form is for fighting.
-Under these three protections, the player walks into the hub as a wolf, the Spirit Guide says
-something to a wolf, and the form-library becomes a wardrobe of *selves* rather than a list of
-*loadouts*. That is the entire difference between the gacha-accumulation loop feeling like collection
-and feeling like reincarnation — which is the game's name.
+Grim Dawn's werewolf is a **removable** identity — and it is the *only* removable identity GD has,
+which is why the principle surfaced there wearing a shapeshift costume. In *Reap. Die. Rise.* the body
+**cannot be taken off**: possession destroys the old body (`story-keystone.md` §§118–122, "mechanically
+legible irreversibility"), bodies are vessels and the self is the controller (§159). There is no
+duration, no re-cast, no toggle.
 
-**Cross-reference owed:** `canonical/reap-die-rise-story/` form-library material and
-`canonical/current-to-end-state/current-to-end-state-story.md` open-question queue. Recorded here
-first because the evidence is here.
+**Therefore protections 1 and 2 above are MOOT for this game as written.** Strike them in that form.
+
+**What actually generalises is one sentence:**
+
+> **Any identity the player chose, that the game can make cheaper to abandon than to keep.**
+
+Shapeshift is merely the surface on which that is most visible in the source game.
+
+### 10.1.a Already ruled — this is EVIDENCE FOR a locked decision, not a new proposal
+
+`canonical/reap-die-rise-story/gameplay-loop-design.md` §8:
+
+> *"Besting a lieutenant **offers** reincarnation… It is **opt-in, always.** Declining keeps your
+> current kit. (Forcing a swap would gut the kit identity the whole project is built on; the player
+> who loves their bone-spear-necromancer must never be made to abandon it.)"*
+
+That is protection 1, correctly translated into this game's terms, and it was **already locked on
+instinct.** The town-transform observation does not propose it; it **corroborates** it empirically —
+a bone-spear-necromancer player caught in the wild, in a game that is not even ours, under
+experimental discipline that gave him every incentive not to.
+
+### 10.1.b What survives unprotected — LEGIBILITY (protection 3 stands, alone)
+
+`gameplay-loop-design.md` §306 establishes the hub as *"the **daily** relationship that replaces the
+old guide's ever-present voice."* Nothing currently says the hub reacts to **which body you came home
+in.** That is the cheapest unbought thing on this board, and it is the one that converts a *tolerated*
+attachment into a *rewarded* one. Protection 3 stands unmodified and is now the whole of the
+recommendation.
+
+### 10.1.c The live fork — DOES THE POWER CURVE RIDE THE KIT? *(open; Matt rules)*
+
+§8 says declining is free. **It is only free if power does not ride the kit.**
+
+`gameplay-loop-design.md` §206: *"You **must best one lieutenant to descend** (the gate is preserved —
+power injection happens on schedule, sawtooth intact)… **Whether** you reincarnate is optional."* The
+gate is **besting**, not **becoming** — good. But if lieutenant kits scale with depth, a player who
+declines twice carries an early kit into late content, and the game has made loyalty expensive
+**without ever forcing a swap.** That is D2's re-cast tax in a different costume: the identity is
+permitted, and then billed for.
+
+| Option | Consequence | Cost |
+|---|---|---|
+| **A — power rides the kit** | ascension is felt directly; taking a stronger body *is* stronger; the "ascending conqueror" ladder is literal | declining is a real power sacrifice ⇒ §8's protection is **nominal**, and the attachment player pays rent |
+| **B — power rides gear + soul level** (the axes that already cross runs per `agnostic-loot-story-spec.md` §32); kits near-flat in magnitude, differing in **expressiveness** — more operators, different geometry, different matchups | declining costs *variety* and *situational fit*, never *viability* | the becoming stops reading as ascension; the ladder must be carried entirely by soul level |
+| **C — split** (LEAN): magnitude near-flat, **complexity/expressiveness escalating**, ascension banked in soul level | keeps the ladder without taxing loyalty | requires kit power to be authored to a band, which constrains the generator |
+
+**Lean: C.** Precedent is **Diablo II class design** — not power-equal, but all *viable*, each
+distinctly itself. It is the only shipped model in the lineage where identity survived alongside a
+real power curve. **This is a keystone-adjacent economic ruling and is Matt's, not mine.**
+
+### 10.1.d Flagged tension — a record you spend is a currency, not a record
+
+`gameplay-loop-design.md` §1: *"your collection of conquered spirits **is** the record of who you have
+become."* But §240: grimoire pages are **spent** on summoning. The depletion economy is good design —
+§244 is right that the forfeit branch is what gives it weight — but it is in tension with the
+collection-as-identity line. **One of the two framings will have to yield, and it is cheaper to know
+which before any marketing copy is written.** Not ruled here; flagged.
+
+### 10.1.e Player consequence, restated for THIS game
+
+Under option A with no hub legibility: the player takes every offered body because declining is
+taxed, arrives in the hub as an interchangeable vessel nobody comments on, and the grimoire becomes a
+power ledger. Under option C with hub legibility: the player *chooses* which lives to keep, walks into
+the hub wearing that choice, someone speaks to **that** body — and the collection becomes the record
+§1 says it already is. That is the difference between the loop feeling like an economy and feeling
+like reincarnation, which is the game's name.
+
+**Cross-reference owed:** `canonical/reap-die-rise-story/gameplay-loop-design.md` §§1, 8, 206, 233–246,
+306; `canonical/current-to-end-state/current-to-end-state-story.md` open-question queue (the 10.1.c
+fork and the 10.1.d tension both belong there as rows). Recorded here first because the evidence is
+here.
