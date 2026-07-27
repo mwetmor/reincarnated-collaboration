@@ -1,0 +1,2960 @@
+{
+  "n_samples": 13633,
+  "field_stats": {
+    "play_time": {
+      "present": 13427,
+      "accepted": 13424,
+      "rejected_nonmonotonic": 3,
+      "missing": 206
+    },
+    "kills": {
+      "present": 13357,
+      "accepted": 13357,
+      "rejected_nonmonotonic": 0,
+      "missing": 276
+    },
+    "deaths": {
+      "present": 13511,
+      "accepted": 13511,
+      "rejected_nonmonotonic": 0,
+      "missing": 122
+    },
+    "max_level": {
+      "present": 13339,
+      "accepted": 13330,
+      "rejected_nonmonotonic": 9,
+      "missing": 294
+    },
+    "life_healed": {
+      "present": 12913,
+      "accepted": 12500,
+      "rejected_nonmonotonic": 413,
+      "missing": 720
+    },
+    "total_score": {
+      "present": 13539,
+      "accepted": 13511,
+      "rejected_nonmonotonic": 28,
+      "missing": 94
+    },
+    "defaultkickattack": {
+      "present": 11065,
+      "accepted": 11060,
+      "rejected_nonmonotonic": 5,
+      "missing": 2568
+    },
+    "defaultweaponattack": {
+      "present": 12718,
+      "accepted": 12718,
+      "rejected_nonmonotonic": 0,
+      "missing": 915
+    },
+    "onslaught": {
+      "present": 10362,
+      "accepted": 10362,
+      "rejected_nonmonotonic": 0,
+      "missing": 3271
+    },
+    "werewolf1": {
+      "present": 10808,
+      "accepted": 10808,
+      "rejected_nonmonotonic": 0,
+      "missing": 2825
+    },
+    "werewolf1_skill01_claws": {
+      "present": 10019,
+      "accepted": 10019,
+      "rejected_nonmonotonic": 0,
+      "missing": 3614
+    },
+    "werewolf1_skill02_charge": {
+      "present": 10549,
+      "accepted": 10547,
+      "rejected_nonmonotonic": 2,
+      "missing": 3084
+    }
+  },
+  "clock_segments": [
+    {
+      "pts_start": 0.0,
+      "pts_end": 107.5,
+      "offset_s": 357.0
+    },
+    {
+      "pts_start": 107.5,
+      "pts_end": 1031.5,
+      "offset_s": 353.5
+    },
+    {
+      "pts_start": 1031.5,
+      "pts_end": 2496.0,
+      "offset_s": 331.0
+    },
+    {
+      "pts_start": 2496.0,
+      "pts_end": 2765.0,
+      "offset_s": 322.0
+    },
+    {
+      "pts_start": 2765.0,
+      "pts_end": 2832.0,
+      "offset_s": 319.5
+    },
+    {
+      "pts_start": 2832.0,
+      "pts_end": 3842.5,
+      "offset_s": 316.5
+    },
+    {
+      "pts_start": 3842.5,
+      "pts_end": 4001.5,
+      "offset_s": 312.5
+    },
+    {
+      "pts_start": 4001.5,
+      "pts_end": 4307.0,
+      "offset_s": 306.0
+    },
+    {
+      "pts_start": 4307.0,
+      "pts_end": 5157.0,
+      "offset_s": 302.5
+    },
+    {
+      "pts_start": 5157.0,
+      "pts_end": 5186.0,
+      "offset_s": 299.0
+    },
+    {
+      "pts_start": 5186.0,
+      "pts_end": 6563.0,
+      "offset_s": 292.0
+    },
+    {
+      "pts_start": 6563.0,
+      "pts_end": 6589.0,
+      "offset_s": 285.5
+    },
+    {
+      "pts_start": 6589.0,
+      "pts_end": 6816.0,
+      "offset_s": 282.5
+    }
+  ],
+  "clock_accounting": {
+    "total_divergence_loss_s": 80.0,
+    "located_in_breaks_s": 41.0,
+    "unlocated_residual_s": 39.0,
+    "break_floor_s": 1.5,
+    "note": "Losses below the floor are REAL but individually unresolvable at 2 fps with an integer-second play_time. They are absorbed into the cumulative divergence curve, which stays exact at its endpoints. Resolving them needs native-rate sampling around candidate transitions."
+  },
+  "divergence_curve": [
+    {
+      "pts_s": 0.0,
+      "divergence_s": 358.0
+    },
+    {
+      "pts_s": 10.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 21.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 31.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 41.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 51.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 61.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 71.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 81.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 91.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 101.0,
+      "divergence_s": 356.5
+    },
+    {
+      "pts_s": 111.0,
+      "divergence_s": 355.0
+    },
+    {
+      "pts_s": 121.0,
+      "divergence_s": 354.5
+    },
+    {
+      "pts_s": 132.5,
+      "divergence_s": 355.0
+    },
+    {
+      "pts_s": 142.5,
+      "divergence_s": 355.0
+    },
+    {
+      "pts_s": 152.5,
+      "divergence_s": 355.0
+    },
+    {
+      "pts_s": 163.0,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 175.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 185.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 196.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 206.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 216.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 227.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 237.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 247.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 257.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 267.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 277.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 287.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 297.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 307.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 318.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 328.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 338.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 348.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 358.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 369.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 379.0,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 389.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 399.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 409.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 419.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 429.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 439.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 449.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 459.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 469.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 479.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 489.5,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 500.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 510.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 520.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 530.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 540.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 550.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 561.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 571.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 581.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 591.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 601.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 611.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 621.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 631.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 641.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 651.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 661.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 671.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 681.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 691.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 701.0,
+      "divergence_s": 354.0
+    },
+    {
+      "pts_s": 713.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 723.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 733.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 743.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 753.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 763.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 773.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 783.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 793.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 803.0,
+      "divergence_s": 353.5
+    },
+    {
+      "pts_s": 813.0,
+      "divergence_s": 353.0
+    },
+    {
+      "pts_s": 823.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 833.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 843.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 853.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 863.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 873.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 883.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 893.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 903.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 913.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 924.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 934.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 944.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 954.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 964.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 974.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 984.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 994.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 1004.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 1014.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 1024.0,
+      "divergence_s": 352.5
+    },
+    {
+      "pts_s": 1034.0,
+      "divergence_s": 344.0
+    },
+    {
+      "pts_s": 1044.0,
+      "divergence_s": 337.0
+    },
+    {
+      "pts_s": 1054.0,
+      "divergence_s": 336.5
+    },
+    {
+      "pts_s": 1064.0,
+      "divergence_s": 336.5
+    },
+    {
+      "pts_s": 1074.0,
+      "divergence_s": 336.5
+    },
+    {
+      "pts_s": 1084.0,
+      "divergence_s": 337.0
+    },
+    {
+      "pts_s": 1094.5,
+      "divergence_s": 337.0
+    },
+    {
+      "pts_s": 1105.5,
+      "divergence_s": 336.5
+    },
+    {
+      "pts_s": 1117.0,
+      "divergence_s": 336.5
+    },
+    {
+      "pts_s": 1127.5,
+      "divergence_s": 336.5
+    },
+    {
+      "pts_s": 1137.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1147.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1157.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1167.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1177.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1187.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1197.5,
+      "divergence_s": 336.0
+    },
+    {
+      "pts_s": 1208.0,
+      "divergence_s": 335.5
+    },
+    {
+      "pts_s": 1218.0,
+      "divergence_s": 335.5
+    },
+    {
+      "pts_s": 1228.0,
+      "divergence_s": 335.5
+    },
+    {
+      "pts_s": 1239.0,
+      "divergence_s": 335.5
+    },
+    {
+      "pts_s": 1249.0,
+      "divergence_s": 335.0
+    },
+    {
+      "pts_s": 1259.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1269.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1279.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1289.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1299.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1309.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1319.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1329.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1339.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1349.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1359.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1369.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1379.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1389.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1399.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1409.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1419.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1429.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1439.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1449.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1459.0,
+      "divergence_s": 334.5
+    },
+    {
+      "pts_s": 1469.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1479.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1489.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1499.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1509.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1519.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1529.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1539.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1549.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1559.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1569.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1579.0,
+      "divergence_s": 333.5
+    },
+    {
+      "pts_s": 1589.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1599.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1617.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1627.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1637.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1647.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1658.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1668.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1678.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1688.0,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1698.5,
+      "divergence_s": 333.0
+    },
+    {
+      "pts_s": 1708.5,
+      "divergence_s": 333.0
+    },
+    {
+      "pts_s": 1718.5,
+      "divergence_s": 333.0
+    },
+    {
+      "pts_s": 1728.5,
+      "divergence_s": 332.5
+    },
+    {
+      "pts_s": 1738.5,
+      "divergence_s": 332.0
+    },
+    {
+      "pts_s": 1748.5,
+      "divergence_s": 332.0
+    },
+    {
+      "pts_s": 1758.5,
+      "divergence_s": 331.5
+    },
+    {
+      "pts_s": 1768.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1778.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1788.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1798.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1808.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1818.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1828.5,
+      "divergence_s": 331.0
+    },
+    {
+      "pts_s": 1839.0,
+      "divergence_s": 330.5
+    },
+    {
+      "pts_s": 1849.0,
+      "divergence_s": 330.5
+    },
+    {
+      "pts_s": 1859.0,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1869.0,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 1879.0,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 1889.0,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 1899.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 1909.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1919.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1929.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1939.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1949.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1959.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1969.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1979.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1989.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 1999.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2009.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2019.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2029.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2039.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2049.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2059.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2069.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2079.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2089.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2099.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2109.5,
+      "divergence_s": 330.0
+    },
+    {
+      "pts_s": 2119.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2129.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2139.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2149.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2159.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2169.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2179.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2189.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2199.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2209.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2219.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2229.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2239.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2249.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2259.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2269.5,
+      "divergence_s": 329.5
+    },
+    {
+      "pts_s": 2279.5,
+      "divergence_s": 329.0
+    },
+    {
+      "pts_s": 2289.5,
+      "divergence_s": 329.0
+    },
+    {
+      "pts_s": 2299.5,
+      "divergence_s": 328.0
+    },
+    {
+      "pts_s": 2309.5,
+      "divergence_s": 328.0
+    },
+    {
+      "pts_s": 2319.5,
+      "divergence_s": 328.0
+    },
+    {
+      "pts_s": 2329.5,
+      "divergence_s": 328.0
+    },
+    {
+      "pts_s": 2339.5,
+      "divergence_s": 328.0
+    },
+    {
+      "pts_s": 2349.5,
+      "divergence_s": 328.0
+    },
+    {
+      "pts_s": 2361.0,
+      "divergence_s": 327.5
+    },
+    {
+      "pts_s": 2371.0,
+      "divergence_s": 327.5
+    },
+    {
+      "pts_s": 2381.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2391.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2401.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2411.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2421.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2431.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2441.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2451.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2461.0,
+      "divergence_s": 326.5
+    },
+    {
+      "pts_s": 2471.5,
+      "divergence_s": 326.0
+    },
+    {
+      "pts_s": 2481.5,
+      "divergence_s": 325.5
+    },
+    {
+      "pts_s": 2491.5,
+      "divergence_s": 325.0
+    },
+    {
+      "pts_s": 2501.5,
+      "divergence_s": 325.0
+    },
+    {
+      "pts_s": 2512.0,
+      "divergence_s": 323.0
+    },
+    {
+      "pts_s": 2522.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2532.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2542.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2552.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2562.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2572.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2582.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2592.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2602.0,
+      "divergence_s": 323.5
+    },
+    {
+      "pts_s": 2613.0,
+      "divergence_s": 322.5
+    },
+    {
+      "pts_s": 2623.0,
+      "divergence_s": 322.5
+    },
+    {
+      "pts_s": 2633.0,
+      "divergence_s": 322.5
+    },
+    {
+      "pts_s": 2643.0,
+      "divergence_s": 322.5
+    },
+    {
+      "pts_s": 2653.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2663.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2673.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2683.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2693.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2703.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2713.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2723.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2733.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2743.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2753.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2763.0,
+      "divergence_s": 321.5
+    },
+    {
+      "pts_s": 2775.0,
+      "divergence_s": 320.0
+    },
+    {
+      "pts_s": 2785.0,
+      "divergence_s": 319.5
+    },
+    {
+      "pts_s": 2795.0,
+      "divergence_s": 319.5
+    },
+    {
+      "pts_s": 2805.0,
+      "divergence_s": 319.5
+    },
+    {
+      "pts_s": 2815.0,
+      "divergence_s": 319.5
+    },
+    {
+      "pts_s": 2825.0,
+      "divergence_s": 319.5
+    },
+    {
+      "pts_s": 2835.0,
+      "divergence_s": 319.5
+    },
+    {
+      "pts_s": 2845.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2855.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2865.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2875.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2885.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2895.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2905.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2915.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2925.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 2935.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 2945.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 2955.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 2965.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 2975.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 2985.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 2995.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3005.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3015.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3025.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3035.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3045.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3055.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3065.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3075.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3085.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3095.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3105.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3115.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3125.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3135.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3145.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3155.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3165.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3175.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3185.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3195.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3205.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3215.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3225.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3235.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3245.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3255.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3265.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3275.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3285.5,
+      "divergence_s": 317.0
+    },
+    {
+      "pts_s": 3296.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 3306.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 3316.0,
+      "divergence_s": 317.5
+    },
+    {
+      "pts_s": 3326.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3336.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3346.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3356.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3366.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3376.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3386.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3397.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3407.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3417.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3427.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3437.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3447.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3457.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3467.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3477.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3487.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3497.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3507.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3517.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3527.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3537.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3547.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3557.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3567.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3577.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3588.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3599.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3609.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3619.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3629.0,
+      "divergence_s": 316.5
+    },
+    {
+      "pts_s": 3642.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3652.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3662.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3672.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3682.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3692.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3702.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3712.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3722.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3732.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3742.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3752.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3762.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3772.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3783.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3793.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3803.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3813.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3823.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3833.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3843.0,
+      "divergence_s": 315.5
+    },
+    {
+      "pts_s": 3853.0,
+      "divergence_s": 313.0
+    },
+    {
+      "pts_s": 3863.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3873.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3883.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3893.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3903.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3913.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3923.0,
+      "divergence_s": 312.5
+    },
+    {
+      "pts_s": 3933.0,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 3943.5,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 3953.5,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 3963.5,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 3973.5,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 3983.5,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 3993.5,
+      "divergence_s": 312.0
+    },
+    {
+      "pts_s": 4003.5,
+      "divergence_s": 311.5
+    },
+    {
+      "pts_s": 4013.5,
+      "divergence_s": 306.5
+    },
+    {
+      "pts_s": 4024.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4034.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4044.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4054.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4064.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4074.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4084.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4094.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4104.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4114.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4124.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4134.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4144.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4154.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4164.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4174.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4184.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4194.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4204.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4214.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4224.5,
+      "divergence_s": 306.0
+    },
+    {
+      "pts_s": 4234.5,
+      "divergence_s": 305.5
+    },
+    {
+      "pts_s": 4244.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4254.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4264.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4274.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4284.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4294.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4304.5,
+      "divergence_s": 305.0
+    },
+    {
+      "pts_s": 4314.5,
+      "divergence_s": 304.0
+    },
+    {
+      "pts_s": 4324.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4334.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4344.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4354.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4364.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4374.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4384.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4394.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4404.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4415.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4425.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4435.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4445.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4475.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4485.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4495.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4505.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4515.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4525.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4535.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4545.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4555.0,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4569.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4579.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4589.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4599.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4609.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4619.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4629.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4639.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4649.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4659.5,
+      "divergence_s": 303.0
+    },
+    {
+      "pts_s": 4671.0,
+      "divergence_s": 303.5
+    },
+    {
+      "pts_s": 4683.5,
+      "divergence_s": 302.5
+    },
+    {
+      "pts_s": 4694.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4704.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4718.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4728.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4739.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4749.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4759.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4769.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4779.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4789.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4799.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4809.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4819.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4829.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4839.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4849.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4859.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4869.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4879.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4889.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4899.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4909.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4919.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4929.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4939.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4949.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4959.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4969.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4979.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4989.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 4999.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 5009.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 5019.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 5029.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 5041.0,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 5051.0,
+      "divergence_s": 302.5
+    },
+    {
+      "pts_s": 5062.5,
+      "divergence_s": 302.0
+    },
+    {
+      "pts_s": 5073.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5083.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5093.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5103.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5113.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5123.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5133.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5143.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5153.5,
+      "divergence_s": 301.0
+    },
+    {
+      "pts_s": 5163.5,
+      "divergence_s": 299.0
+    },
+    {
+      "pts_s": 5173.5,
+      "divergence_s": 299.0
+    },
+    {
+      "pts_s": 5183.5,
+      "divergence_s": 298.0
+    },
+    {
+      "pts_s": 5193.5,
+      "divergence_s": 298.0
+    },
+    {
+      "pts_s": 5203.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5213.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5223.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5234.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5244.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5254.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5264.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5274.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5284.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5294.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5304.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5314.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5324.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5334.5,
+      "divergence_s": 296.0
+    },
+    {
+      "pts_s": 5346.0,
+      "divergence_s": 295.5
+    },
+    {
+      "pts_s": 5356.0,
+      "divergence_s": 295.5
+    },
+    {
+      "pts_s": 5366.0,
+      "divergence_s": 295.5
+    },
+    {
+      "pts_s": 5376.0,
+      "divergence_s": 295.0
+    },
+    {
+      "pts_s": 5386.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5396.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5406.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5416.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5426.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5436.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5446.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5456.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5466.0,
+      "divergence_s": 294.5
+    },
+    {
+      "pts_s": 5476.0,
+      "divergence_s": 294.0
+    },
+    {
+      "pts_s": 5486.0,
+      "divergence_s": 293.0
+    },
+    {
+      "pts_s": 5496.5,
+      "divergence_s": 293.0
+    },
+    {
+      "pts_s": 5506.5,
+      "divergence_s": 293.0
+    },
+    {
+      "pts_s": 5516.5,
+      "divergence_s": 293.0
+    },
+    {
+      "pts_s": 5526.5,
+      "divergence_s": 293.0
+    },
+    {
+      "pts_s": 5536.5,
+      "divergence_s": 293.0
+    },
+    {
+      "pts_s": 5546.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5556.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5566.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5576.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5586.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5596.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5606.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5616.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5626.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5636.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5646.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5656.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5666.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5676.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5686.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5696.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5706.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5716.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5726.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5736.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5746.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5756.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5766.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5776.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5786.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5796.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5806.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5816.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5826.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5836.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5846.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5856.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5866.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5876.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5886.5,
+      "divergence_s": 292.0
+    },
+    {
+      "pts_s": 5897.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5907.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5917.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5927.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5937.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5947.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5958.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5968.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5978.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5988.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 5998.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6008.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6018.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6028.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6038.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6048.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6058.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6068.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6078.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6088.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6098.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6108.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6118.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6128.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6138.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6148.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6158.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6168.0,
+      "divergence_s": 292.5
+    },
+    {
+      "pts_s": 6180.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6190.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6200.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6210.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6220.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6230.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6240.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6250.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6260.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6270.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6280.0,
+      "divergence_s": 291.5
+    },
+    {
+      "pts_s": 6290.0,
+      "divergence_s": 291.0
+    },
+    {
+      "pts_s": 6300.0,
+      "divergence_s": 290.5
+    },
+    {
+      "pts_s": 6310.0,
+      "divergence_s": 290.5
+    },
+    {
+      "pts_s": 6321.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6331.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6341.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6351.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6361.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6371.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6382.0,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6392.0,
+      "divergence_s": 289.5
+    },
+    {
+      "pts_s": 6402.0,
+      "divergence_s": 289.5
+    },
+    {
+      "pts_s": 6412.0,
+      "divergence_s": 289.5
+    },
+    {
+      "pts_s": 6422.5,
+      "divergence_s": 289.0
+    },
+    {
+      "pts_s": 6434.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6444.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6454.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6464.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6474.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6484.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6494.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6505.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6515.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6525.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6535.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6545.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6555.5,
+      "divergence_s": 288.0
+    },
+    {
+      "pts_s": 6565.5,
+      "divergence_s": 286.0
+    },
+    {
+      "pts_s": 6577.5,
+      "divergence_s": 285.5
+    },
+    {
+      "pts_s": 6587.5,
+      "divergence_s": 285.0
+    },
+    {
+      "pts_s": 6600.0,
+      "divergence_s": 283.5
+    },
+    {
+      "pts_s": 6612.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6622.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6632.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6642.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6652.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6662.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6672.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6682.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6692.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6702.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6712.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6722.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6732.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6742.0,
+      "divergence_s": 282.5
+    },
+    {
+      "pts_s": 6752.5,
+      "divergence_s": 283.0
+    },
+    {
+      "pts_s": 6762.5,
+      "divergence_s": 283.0
+    },
+    {
+      "pts_s": 6772.5,
+      "divergence_s": 283.0
+    },
+    {
+      "pts_s": 6784.5,
+      "divergence_s": 283.0
+    },
+    {
+      "pts_s": 6794.5,
+      "divergence_s": 283.0
+    },
+    {
+      "pts_s": 6804.5,
+      "divergence_s": 283.0
+    },
+    {
+      "pts_s": 6814.5,
+      "divergence_s": 279.5
+    }
+  ],
+  "clock_breaks_zone_transitions": [
+    {
+      "pts_s": 107.5,
+      "lost_s": 2.0
+    },
+    {
+      "pts_s": 1031.5,
+      "lost_s": 15.5
+    },
+    {
+      "pts_s": 2496.0,
+      "lost_s": 2.0
+    },
+    {
+      "pts_s": 2765.0,
+      "lost_s": 1.5
+    },
+    {
+      "pts_s": 2832.0,
+      "lost_s": 1.75
+    },
+    {
+      "pts_s": 3842.5,
+      "lost_s": 2.25
+    },
+    {
+      "pts_s": 4001.5,
+      "lost_s": 5.0
+    },
+    {
+      "pts_s": 4307.0,
+      "lost_s": 1.5
+    },
+    {
+      "pts_s": 5157.0,
+      "lost_s": 2.0
+    },
+    {
+      "pts_s": 5186.0,
+      "lost_s": 2.5
+    },
+    {
+      "pts_s": 6563.0,
+      "lost_s": 2.5
+    },
+    {
+      "pts_s": 6589.0,
+      "lost_s": 2.5
+    }
+  ],
+  "deaths": [
+    {
+      "deaths": 1,
+      "play_time": 3156,
+      "pts_s": 2837.0
+    },
+    {
+      "deaths": 2,
+      "play_time": 5453,
+      "pts_s": 5151.5
+    }
+  ],
+  "level_ups": [
+    {
+      "level": 2,
+      "play_time": 655,
+      "pts_s": 301.0
+    },
+    {
+      "level": 3,
+      "play_time": 1133,
+      "pts_s": 779.0
+    },
+    {
+      "level": 4,
+      "play_time": 1563,
+      "pts_s": 1227.5
+    },
+    {
+      "level": 5,
+      "play_time": 1907,
+      "pts_s": 1573.0
+    },
+    {
+      "level": 6,
+      "play_time": 2174,
+      "pts_s": 1843.5
+    },
+    {
+      "level": 7,
+      "play_time": 2820,
+      "pts_s": 2495.0
+    },
+    {
+      "level": 8,
+      "play_time": 3052,
+      "pts_s": 2731.0
+    },
+    {
+      "level": 9,
+      "play_time": 3925,
+      "pts_s": 3609.0
+    },
+    {
+      "level": 10,
+      "play_time": 4607,
+      "pts_s": 4301.5
+    },
+    {
+      "level": 11,
+      "play_time": 5808,
+      "pts_s": 5515.0
+    },
+    {
+      "level": 12,
+      "play_time": 6816,
+      "pts_s": 6528.0
+    }
+  ]
+}

@@ -118,11 +118,11 @@ def main():
     # absorbed into the cumulative divergence curve, which remains exact at
     # its endpoints. Locating them needs native-rate sampling around candidate
     # transitions (a T-C ask), not a smarter filter on T-A.
-    BREAK_MIN_S = 3.0
+    BREAK_MIN_S = 1.5
     MED_W = 15
     div = [(r["pts_s"], r["play_time"] - r["pts_s"])
            for r in rows if r.get("play_time") is not None]
-    segments, breaks, divergence = [], [], []
+    segments, breaks, divergence, clock_note = [], [], [], {}
     if div:
         pts_a = np.array([p for p, _ in div])
         d_a = np.array([d for _, d in div], dtype=float)
@@ -135,20 +135,47 @@ def main():
             med = d_a
         divergence = [{"pts_s": float(p), "divergence_s": round(float(m), 2)}
                       for p, m in zip(pts_a[::20], med[::20])]
-        seg_start, cur = pts_a[0], med[0]
-        for i in range(1, len(med)):
-            if cur - med[i] >= BREAK_MIN_S:
-                segments.append({"pts_start": float(seg_start),
-                                 "pts_end": float(pts_a[i]),
-                                 "offset_s": round(float(cur), 2)})
-                breaks.append({"pts_s": float(pts_a[i]),
-                               "lost_s": round(float(cur - med[i]), 2)})
-                seg_start, cur = pts_a[i], med[i]
-            else:
-                cur = min(cur, med[i]) if med[i] < cur else cur
-        segments.append({"pts_start": float(seg_start),
+        # Step detection: `d` is a monotone-decreasing STEP function plus
+        # dither, so a break is a SUSTAINED drop, not a single-sample one.
+        # Compare the median of a window BEFORE each candidate against the
+        # median AFTER it. The earlier running-minimum tracker silently
+        # followed the staircase down and reported zero breaks across a
+        # divergence that demonstrably fell by ~78 s.
+        W = 40                       # 20 s either side at 2 fps
+        cand = [(float(np.median(med[i - W:i]) - np.median(med[i:i + W])), i)
+                for i in range(W, len(med) - W)]
+        cand = [c for c in cand if c[0] >= BREAK_MIN_S]
+        cand.sort(key=lambda t: -t[0])
+        chosen = []
+        for drop, i in cand:                    # non-maximum suppression
+            if all(abs(i - j) > W for _, j in chosen):
+                chosen.append((drop, i))
+        chosen.sort(key=lambda t: t[1])
+
+        prev_i = 0
+        for drop, i in chosen:
+            segments.append({"pts_start": float(pts_a[prev_i]),
+                             "pts_end": float(pts_a[i]),
+                             "offset_s": round(float(np.median(med[prev_i:i])), 2)})
+            breaks.append({"pts_s": float(pts_a[i]), "lost_s": round(drop, 2)})
+            prev_i = i
+        segments.append({"pts_start": float(pts_a[prev_i]),
                          "pts_end": float(pts_a[-1]),
-                         "offset_s": round(float(med[-1]), 2)})
+                         "offset_s": round(float(np.median(med[prev_i:])), 2)})
+
+        total_loss = float(med[0] - med[-1])
+        located = float(sum(b["lost_s"] for b in breaks))
+        clock_note = {
+            "total_divergence_loss_s": round(total_loss, 2),
+            "located_in_breaks_s": round(located, 2),
+            "unlocated_residual_s": round(total_loss - located, 2),
+            "break_floor_s": BREAK_MIN_S,
+            "note": ("Losses below the floor are REAL but individually "
+                     "unresolvable at 2 fps with an integer-second play_time. "
+                     "They are absorbed into the cumulative divergence curve, "
+                     "which stays exact at its endpoints. Resolving them needs "
+                     "native-rate sampling around candidate transitions."),
+        }
 
     # --- hard breaks: deaths --------------------------------------------
     deaths = []
@@ -186,6 +213,7 @@ def main():
         "n_samples": len(rows),
         "field_stats": stats,
         "clock_segments": segments,
+        "clock_accounting": clock_note,
         "divergence_curve": divergence,
         "clock_breaks_zone_transitions": breaks,
         "deaths": deaths,
@@ -199,6 +227,11 @@ def main():
         print(f"  {f:28s} present={s['present']:6d} accepted={s['accepted']:6d} "
               f"rejected={s['rejected_nonmonotonic']:5d} missing={s['missing']:6d}")
     print(f"clock segments: {len(segments)}  breaks: {len(breaks)}")
+    if clock_note:
+        print(f"  divergence fell {clock_note['total_divergence_loss_s']}s total; "
+              f"{clock_note['located_in_breaks_s']}s located in breaks, "
+              f"{clock_note['unlocated_residual_s']}s below the "
+              f"{clock_note['break_floor_s']}s floor")
     for b in breaks:
         print(f"    break at pts={b['pts_s']:.1f}s  play_time lost {b['lost_s']:.1f}s")
     print("deaths:", deaths)
