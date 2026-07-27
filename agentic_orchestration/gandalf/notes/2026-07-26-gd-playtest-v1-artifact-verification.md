@@ -180,15 +180,51 @@ candidate explanations, and they are not equally survivable:
    swing. **If this is the cause, the panel cannot serve as the attack-rate ledger at all**, and the
    T-B video tier (60 fps, per-swing) becomes the authoritative counter instead.
 
-**This is decidable before any modelling, and cheaply.** `character.LogData` was on for the run.
-Cross-check a bounded window: count swings from the log (or from T-B video frames) against the
-`skill_use_count` delta across the same `play_time` interval. Equal ⇒ cause 1 or 2, and the ledger
-survives with an added term. Unequal ⇒ cause 3, and §1.1 must be rewritten to demote the panel to a
-*coarse* ledger with the video as the attack-rate instrument.
+### 6b-bis — Matt's build testimony (2026-07-26). Resolves one observation, sharpens the other.
 
-**Do not model attacks-per-kill until this is settled.** This is precisely the class of error the
-math-before-code discipline exists to intercept: the statistic looks free, reads cleanly, and would
-have been wrong by an unknown multiplicative factor.
+Matt supplied the build facts after the finding was filed:
+
+> *"The werewolf claws had huge AOE damage. I think onslaught likely had a very strong AOE damage
+> component as well. Also, on the last level (12) I also had poison (dot) which was almost
+> equivalent to the main skill damage itself per tick."*
+
+This is decisive for causes 1 and 2 and it moves the prior substantially. But it is important to be
+precise about *which* observation it resolves, because there are two and they are not the same:
+
+**Observation A — the RATIO.** 692 uses < 882 kills. **RESOLVED.** Confirmed heavy AoE on the two
+dominant skills (533 of 680 attack activations) plus poison DoT killing with zero activation makes
+kills-exceeding-activations entirely expected. 882 / 680 = **1.30 kills per attack activation**,
+which is unremarkable for an AoE melee build. Cause 1 + cause 2, confirmed by the player.
+
+**Observation B — the ABSOLUTE RATE. NOT resolved, and this is the load-bearing one.**
+680 attack activations over 6816 s = **one attack every 10.0 seconds, sustained, for the entire
+run.** For that to be the true swing count, all sustained attacking in the session must fit inside
+~11.3 minutes (at 1 attack/s) or ~7.6 minutes (at 1.5 attacks/s) — i.e. **6.6–10% attack uptime in a
+session where 882 things died.**
+
+That is low. It is not impossible — ARPG sessions carry a lot of travel, town, stash and menu time,
+and a heavy-AoE build clears packs fast. **So this is now a marginal call rather than a strong
+inference, and it must be measured rather than argued.** I decline to claim cause 3 is established;
+Matt's testimony genuinely weakened it. I equally decline to drop it, because a 10% attack-uptime
+implication is exactly the kind of quietly-implausible number that turns out to be an instrument
+artifact.
+
+**The test is now better specified and cheaper than it was.** In one clean sustained-combat window:
+count `claws` activations from the video AND corpses produced, then compare both against the panel
+deltas over the same `play_time` interval. Two independent ratios fall out — swings-per-activation
+(1.0 ⇒ the panel counts swings; >1.0 ⇒ it counts button-presses) and kills-per-activation (should
+land near 1.3 if the run is homogeneous). Either answer is usable; not knowing is not.
+
+**Third mechanism, and it carries its own requirement — the poison DoT is a REGIME CHANGE, not a
+constant.** It arrived at **level 12 only**, at a magnitude Matt puts near the main skill's per-tick
+damage. So the attack→kill relationship is **not stationary across the run**: the final segment has
+a large kill source with no activation behind it, and the earlier segments do not. This is a
+structural break on the `play_time` axis, in addition to the two deaths and the zone transitions,
+and any fit that pools across it will produce a number describing no regime that actually existed.
+
+**Do not model attacks-per-kill until Observation B is settled.** This is precisely the class of
+error the math-before-code discipline exists to intercept: the statistic looks free, reads cleanly,
+and would have been wrong by an unknown multiplicative factor.
 
 ## 7. Matt's screenshot caveat — disposition: NO DEGRADATION
 
@@ -215,12 +251,41 @@ Matt ran the session with **zero potions, deliberately**, for oracle control. Re
 actually purchased, because it is more than the obvious:
 
 **Purchased — `life_healed` becomes a clean measurement.** With potions at zero, the run's
-`Life healed: 12468.06` is **entirely endogenous**: health regeneration, lifesteal, devotion procs.
-No exogenous step-functions in the series. That is ~106 HP/min, roughly **18.5 max-health pools**
-(peak observed 672) recovered over 113 minutes without a single player-triggered heal. Under any
-potion usage this field is a sum of two unrelated processes and worth nothing; under this control it
-is a direct measurement of sustain throughput — the exact quantity the era-substrate needs to
-calibrate its sustain curve against. This was the highest-value side effect of the decision.
+`Life healed: 12468.06` is **entirely endogenous**: health regeneration and lifesteal. No
+exogenous step-functions in the series. That is ~106 HP/min, roughly **18.5 max-health pools** (peak
+observed 672) recovered over 113 minutes without a single player-triggered heal. Under any potion
+usage this field is a sum of two unrelated processes and worth nothing; under this control it is a
+direct measurement of sustain throughput — the exact quantity the era-substrate needs to calibrate
+its sustain curve against. This was the highest-value side effect of the decision.
+
+**A SECOND control was in force — zero devotion.** Matt (2026-07-26): *"I saw a devotion menu but I
+decided not to select any devotion points… I left devotion out as a control (at least I think I
+did)."* This narrows the run further, in three ways that matter:
+
+- **`life_healed` is cleaner than first recorded.** My original text listed devotion procs as a
+  contributor; with zero devotion assigned they contribute nothing. The field is regen + lifesteal
+  **only** — a two-source measurement, not a three-source one. Corrected above.
+- **It removes a candidate cause from §6b.** Devotion constellation procs are a significant source
+  of unattributed damage and therefore of kills with no skill activation behind them. With devotion
+  off, that channel is closed, and the §6b kill attribution is correspondingly simpler: skills,
+  weapon, and the level-12 poison DoT. Nothing else.
+- **VERIFY IT, do not take it on memory.** Matt flagged his own uncertainty (*"at least I think I
+  did"*), which is the right instinct. This is cheaply verifiable from the banked stills — the
+  devotion/constellation screen or the character sheet will show assigned points. **galadriel: read
+  it off a still and confirm zero.** A control believed-but-unverified is worse than no control,
+  because it licenses inferences the data may not support.
+
+**The cost side, stated plainly — controls buy interpretability and spend representativeness.**
+Two controls are now in force (no potions, no devotion). Both are correct for a *mechanism* oracle:
+they isolate the sustain and attribution channels we actually want to measure. But together they
+make run v1 a **de-powered build**, materially weaker than a normal player's at level 12. Anything
+derived from it that describes *pacing* — time-to-kill, kills/min, damage-taken rate, the felt
+difficulty curve — is biased slow and must be labelled as such, not read as "what GD combat is
+like." That is a real limitation and it is the correct trade to have made at this stage; the
+mechanism questions come first and they need clean channels. But the record must carry the label, or
+a future reader will mistake a controlled sample for a typical one. **Recommend: a later
+representativeness run with both controls released, explicitly for pacing calibration, once the
+mechanism questions are closed.**
 
 **Purchased — the HP series is interpretable.** Every downward move is incoming damage; every upward
 move is endogenous recovery. No annotation pass is required to strip out player heals.
