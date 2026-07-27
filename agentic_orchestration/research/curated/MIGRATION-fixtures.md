@@ -24,7 +24,17 @@ python3 agentic_orchestration/research/scripts/fixtures_m3_ingest_r3_2026_07_26.
 python3 agentic_orchestration/research/scripts/gd_bridge_m1_display_tags_2026_07_26.py
 python3 agentic_orchestration/research/scripts/gd_bridge_m2_monster_records_2026_07_26.py
 python3 agentic_orchestration/research/scripts/gd_bridge_m3_bridge_and_fixtures_2026_07_26.py
+# M5 (fixtures-v0.3) — schema. M6 — GP run 01 ingest.
+python3 agentic_orchestration/research/scripts/fixtures_m5_v0_3_schema_2026_07_26.py
+# M7 (fixtures-v0.4) — MUST run before M6: it rebuilds fixture_trial.
+python3 agentic_orchestration/research/scripts/fixtures_m7_trial_participant_2026_07_26.py
+bash    agentic_orchestration/research/scripts/gp_run01_precompute_2026_07_26.sh   # sha256/mtime/dims
+python3 agentic_orchestration/research/scripts/fixtures_m6_gp_run01_ingest_2026_07_26.py
 ```
+
+**M6 requires the `/Volumes/reincarnated` share to be mounted.** Its precompute step reads
+13.2 GB over SMB at ~3.5 MB/s (~70 min); the results are committed under
+`research/curated/gp-run01-manifest/` so a rebuild does not have to repeat it.
 
 ---
 
@@ -271,6 +281,303 @@ it now lives in the dictionary. All 17 keys seeded across four values:
 
 `PRAGMA integrity_check` ok · `foreign_key_check` clean · `v_fixture_bank_certified` = 3 rows
 (unchanged) · `measure_dict.off_trial_semantics` 17/17 populated · 1 `fixture_set` row updated.
+
+---
+
+## M5 — 2026-07-26 · schema `fixtures-v0.3` · the ledger layer splits from the trial layer
+
+**Script:** `research/scripts/fixtures_m5_v0_3_schema_2026_07_26.py`
+**Backup:** `fixtures.db.pre-v0.3-20260726T232202Z-backup`
+**Commission:** gandalf, `2026-07-26-gd-general-play-run-protocol.md` §5 (data contract), against
+`2026-07-26-gd-playtest-v1-artifact-verification.md`.
+**Class:** ADDITIVE + THREE TABLE REBUILDS (`capture`, `fixture_trial`, `fixture_set`). Zero rows
+lost: 28 / 7 / 4 preserved, `v_fixture_bank_certified` still 3.
+
+### The change that matters: the unit of observation moved
+
+v0.1/v0.2 assume the unit of observation is a **trial**. Every number lands in
+`trial_measurement` under a `(trial_id, phase)` key. That is exactly right for L0, where Matt
+hand-brackets each fight with a before/after screenshot pair.
+
+It is **wrong for a general-play run.** There the unit of observation is a **session-continuous
+ledger**, sampled ~2 fps off a panel that is on in every frame. That series exists *prior to* and
+*independent of* any segmentation into engagements — and protocol §4.5 asks for **three competing
+segmentations at once** (S1 kill-to-kill / S2 combat-window / S3 per-entity). Routing the ledger
+through `trial_measurement` would have stored the same readings three times, once per
+segmentation, and let the three copies drift.
+
+So v0.3 splits the layers:
+
+| Layer | Table | Keyed on |
+|---|---|---|
+| **observed** | `session_ledger` (new) | `(session_id, measure_key, measure_subkey, capture_id, play_time_ms)` |
+| **windowed** | `fixture_trial` (rebuilt) | `(fixture_set_id, segmentation, trial_ordinal)` |
+| **attributed** | `trial_measurement` (unchanged) | as before |
+
+A trial is now a **window over the ledger**, carrying which rule cut it. `trial_measurement`
+survives untouched for the hand-bracketed L0 rows and for values attributed to a specific fight.
+
+### New tables
+
+| Table | Purpose |
+|---|---|
+| `session_ledger` | the observed panel series. `play_time_ms` is the join key; `pts_ms` rides along for frame retrieval. Carries `read_confidence` + `cross_check_status` — gandalf D-1 made structural. |
+| `session_break` | deaths / zone transitions / epoch boundaries, first-class. Location is a **band** (`play_time_ms_lo/hi`), because a death known only to lie between two panel samples is located to that bracket. |
+| `session_control` | run properties that change what a measure **means** — the no-potion control, linked to `life_healed` with `effect_on_measure='confound-retired'`. |
+| `clock_anchor` / `clock_map` | the piecewise slope-1 `play_time ↔ pts` map, **fitted per session, never assumed** (gandalf §3 ruling, made into a table). |
+| `character_gear_slot` | per-slot equipment provenance. `slot_state='occupied-unread'` is what "drop the slot, never infer it" looks like — and it is not a validation error. |
+| `read_method_dict` | the read-method vocabulary of record. Adds `video-frame-human` and `video-frame-ocr` as **separate** methods. |
+
+### Three break flags, not one
+
+`session_break` carries `breaks_combat_continuity`, `breaks_clock_affine` and
+`breaks_character_state` as independent booleans, because the three break kinds are genuinely
+different events:
+
+| | combat | clock | character |
+|---|---|---|---|
+| death | ✔ | — | — |
+| zone transition | ✔ | ✔ | — |
+| epoch boundary | — | — | ✔ |
+
+Collapsing them into one "is a break" flag would have made every death a clock knot and every
+zone transition a character epoch.
+
+### The §6b block is enforced, not remembered
+
+`measure_dict` gains `layer ∈ (observed, derived)`, `derivation`, `depends_on`, `ingest_block`,
+`block_ref`, `semantics_status ∈ (settled, contested, unknown)`. Two `BEFORE INSERT` triggers
+(`trg_block_derived_trial_measurement`, `trg_block_derived_session_ledger`) `RAISE(ABORT)` on any
+measure carrying a non-NULL `ingest_block`.
+
+`attacks_per_kill` is registered and **BLOCKED**, citing the verification §6b swings-vs-activations
+question. `skill_use_count` is `semantics_status='contested'` but **not** blocked — raw counts are
+observed values and ingest fine. `total_score` and `dps_field` are `unknown` per D-3.
+Unblocking is one `UPDATE measure_dict SET ingest_block=NULL`.
+
+### `fixture_trial.segmentation` joins the unique key
+
+§5 asked for `fixture_trial.segmentation ∈ S1/S2/S3`. Adding it as a plain column would have
+collided with `UNIQUE (fixture_set_id, trial_ordinal)` the moment two segmentations covered one
+set. It is now `UNIQUE (fixture_set_id, segmentation, trial_ordinal)`, and `v_set_spread` /
+`v_ledger_continuity` / `v_differential` group and self-join on it — without that, the first S1+S2
+ingest would have silently averaged three windowings of the same kills into one "spread".
+
+A fourth value, **`S0-explicit`**, was added and is the default. The seven banked L0 trials are
+hand-bracketed by Matt's screenshot pairs; no kill-to-kill rule produced them, and labelling them
+`S1` would have been a lie.
+
+### `monster_rank` collision — averted
+
+§5.1 requested `fixture_set.monster_rank`. **That column already exists** (M4) carrying the
+corpus-derived GD `monsterClassification` (`Common`). §4.3's rank is a *different quantity* from a
+*different instrument* — nameplate colour, `∈ {normal, champion, hero, boss, unknown}`. Writing OCR
+into the existing column would have destroyed the M4 bridge evidence. v0.3 adds
+`monster_rank_observed` + `_method` + `_evidence` alongside. Disagreement between the two is
+**evidence** (an affixed spawn), not an error to reconcile — O-7.
+
+### Other rebuild-forced corrections
+
+- `capture.kind` gains `video-session`, `equipment-doll`, `skill-tree`, `nameplate-tooltip`
+  (and `unclassified`, added in M6). `kind` was carrying two axes at once, so **`media_kind`**
+  (`still|video|video-frame|text-log`) is now the media axis and `kind` stays the content-role axis.
+- `capture.storage_root` — `path` was documented repo-relative; a 13 GB session MP4 will never be
+  in the repo.
+- `capture.mtime_semantics` — v0.1 documented `mtime_utc` as **transfer** time. For the GP run it
+  is demonstrably **capture** time (it aligns to the video timeline at four independent points).
+  Same column, two meanings, previously silent. Existing 28 rows backfilled `transfer-time`.
+- `capture.pts_ms` / `play_time_ms` / `burst_id` / `parent_capture_id` / `duration_s`.
+- `fixture_set.ladder_rung` gains `'GP'`, **plus** `evidence_class ∈ (ladder-calibration,
+  distribution-sample)`. §5.1 proposed `rung='GP'`; a general-play set is not a rung on the L0–L5
+  constraint ladder — it holds none of L0's constraints by construction. Both columns exist so the
+  ladder stays honest and the grade is still expressible.
+- `fixture_trial.spans_break_id` → a trial straddling a death or zone transition is excluded from
+  `v_fixture_bank_certified` by a JOIN rather than by an analyst remembering.
+- `fixture_character.completeness_detail` / `provenance_gap` / `epoch_trigger`.
+- `fixture_session.video_start_epoch` (+ method + uncertainty), `playtime_banked_prefix_s`.
+
+### New views
+
+`v_session_ledger_wide` (the observed series, keyed on the game-state clock, exposing the weakest
+cross-check and weakest confidence per sample) · `v_measure_interpretability` (what a measure means
+in a given session, given that session's controls) · `v_character_provenance` (honest inventory of
+what an epoch actually has behind it, including `n_slots_unread`).
+
+### Verification
+
+`integrity_check` ok · `foreign_key_check` CLEAN · 28/7/4 rows preserved across the three rebuilds ·
+`v_fixture_bank_certified` = 3 (unchanged) · both ingest-block triggers confirmed to ABORT.
+
+---
+
+## M6 — 2026-07-26 · GP run 01 ingest — the spine, and nothing invented
+
+**Script:** `research/scripts/fixtures_m6_gp_run01_ingest_2026_07_26.py`
+**Session:** `GP-gd-2026-07-26-s1` · **Artifacts:**
+`/Volumes/reincarnated/visual-artifacts/GD-matt-test/play-test-v1/` (313 PNG + 2 MP4, 13.2 GB)
+
+Ingests the **spine**: 315 `capture` rows with sha256 + mtime + video-timeline placement; 10
+`clock_anchor` rows and the 9-segment `clock_map`; the `session_break` set; 12 `session_control`
+rows; and every panel digit that has actually been **read by a human at full resolution**.
+
+**No `fixture_character`, `fixture_set` or `fixture_trial` rows are created.** Those need monster
+identity and character sheets, which need the OCR pass galadriel owns. A `fixture_set` with a
+hypothesised monster would poison exactly the oracle this bank exists to be.
+
+`attacks_per_kill` was not ingested — the M5 trigger would have refused it.
+
+### Timeline placement
+
+`video_start_epoch = 1785096216.5`; `pts_ms = round((mtime − video_start_epoch) × 1000)`. All 313
+stills place by mtime arithmetic alone. Banked with `pts_uncertainty_ms = 500`: the *fractional*
+video mtime gives `1785103033.4488 − 6816.516667 = 1785096216.932`, 0.43 s later than the banked
+constant. gandalf's value is banked as directed and the discrepancy sits inside the uncertainty.
+
+**`play_time_ms` is populated on 4 of 313 stills** and left NULL on the other 309, with
+`play_time_method='absent'`. The clock map cannot substitute: up to 19 s of frozen loading time
+sits unallocated inside a single segment (see `clock_map.residual_max_ms`) and an engagement lasts
+~5 s. Interpolating would be a silent transformation of the join key itself.
+
+### Three qualifications on `play_time_ms`-as-join-key
+
+The ruling is right — video offset is the camera clock and 73.5 s of loading must not be
+attributed to gameplay. Three things about it need saying anyway, none of which retires it:
+
+1. **Granularity.** The panel renders `play_time` to **whole seconds**. `play_time_ms` is
+   quantised at 1000 ms, an engagement is ~5 s, and an AoE multi-kill puts several kills in one
+   tick. `play_time` **cannot order events within a second** — and S1 kill-to-kill segmentation is
+   exactly about ordering kill increments. The operative key is the **composite
+   `(play_time_ms, pts_ms)`**: `play_time_ms` is the correctness axis (the only one that survives
+   the loading discontinuity), `pts_ms` at 16.7 ms is the ordering axis *within* a clock segment.
+   Every `session_ledger` and `capture` row carries both.
+2. **Not injective.** `play_time` freezes during loading, so many frames map to one
+   `play_time_ms` across a zone transition. Lookup by `play_time` alone is one-to-many precisely
+   at the breaks — where it matters most.
+3. **Save-scoped, not session-scoped.** `play_time` is SAVE-cumulative, so the true key is
+   `(save_identity, play_time_ms)`. A second run on this save continues from ~7088 s and orders
+   correctly; a run on a **new character restarts at 0 and collides**.
+   `fixture_session.save_identity` is NULL here because it was never attested — §2.1 item 9 asks
+   for difficulty, starting area and character level, but not for save identity.
+
+### Capture bursts and epoch-boundary candidates
+
+Screenshot mtimes cluster: 59 bursts at a ≤ 8 s gap threshold, banked as `capture.burst_id` /
+`burst_ordinal` (a structural fact, independent of what the shots contain). Bursts with **n ≥ 10
+and duration ≥ 25 s** are banked as `session_break` rows of kind `epoch-boundary`, `confidence =
+'hypothesis'`, `detection_method = 'mtime-burst-inference'` — protocol §2.3 says a boundary costs
+~60–90 s of overlapping sheet crops, which is exactly this signature. **Eleven candidates.**
+Protocol §7 F-1 predicted 2–4 epoch boundaries; `max_level_achieved` went 1 → 12, so ~11 is the
+consistent number and F-1's cost estimate is low by roughly 3×.
+
+Not one pixel was read to produce these. They are hypotheses for galadriel to confirm or drop.
+Two known sensitivities, stated rather than tuned away: the last candidate is the §2.5 **END
+BLOCK** sheet, which is a character snapshot but not a §2.3 boundary; and two adjacent candidate
+pairs sit ~40 s apart and may each be one boundary that the 8 s gap threshold split in two. So the
+honest reading is *8–11 boundaries*, and the coincidence with 11 level-ups should not be leaned on.
+
+### The run's counters do not start at zero
+
+Two frames were extracted and read during this ingest — the run video at `pts=14.5` and the smoke
+clip at `t=25` — because A6 declares `skill_use_count` and `life_healed` session-scoped and §2.0
+permits the smoke to be its own session, which makes that boundary semantically load-bearing.
+
+| counter | smoke @ t=25 | run @ pts=14.5 | run end (shot 352) | **run delta** | used in the verification |
+|---|---|---|---|---|---|
+| `kills` | 2 | 2 | 882 | **880** | 882 |
+| `skill_use_count` total | 8 | 8 | 692 | **684** | 692 |
+| …`defaultweaponattack` | 8 | 8 | 74 | **66** | 74 |
+| `life_healed` | 16.33 | 16.33 | 12468.06 | **12451.73** | 12468.06 |
+| `deaths` | 0 | 0 | 2 | 2 | 2 |
+| `max_level_achieved` | 1 | 1 | 12 | — | 1 → 12 ✓ |
+| `shield_block_chance` | 15.00 | 15.00 | 18.00 | — | 18.00 |
+
+Two consequences.
+
+**(1) Every bookend delta needs the baseline subtracted.** §6b's ratio is 684 / 880 = 0.777, not
+692 / 882 = 0.784 — conclusion unchanged, number corrected. §8's endogenous healing is 12451.73.
+
+**(2) A6's session-scoping split is in question.** `kills` reading 2 at both points is exactly
+A6's SAVE-cumulative behaviour. But `skill_use_count` and `life_healed` also survived that
+boundary, and A6 classifies them SESSION-scoped and resettable by a menu return. Either Matt did
+not return to the menu between the smoke and the run, or the split is wrong. 550.9 s of wallclock
+separates the two clips while `play_time` advanced 13 s (358 → 371) — a lot of frozen time for an
+unbroken session. Banked as an open question on `fixture_session GP-gd-2026-07-26-smoke`.
+
+**And a live D-1 reproduction, mine.** My first read of the run's head frame used a 460×290 crop
+at 2.5× and returned `Number of kills: 0`. The same pixels at 430×90 / 1.6× read `2`. Legible and
+wrong, exactly as D-1 warns — and the wrong value was the *more plausible* one, which is what makes
+the failure mode dangerous. Only tight reads are banked; `session_ledger.validity_note` records the
+crop geometry on every one.
+
+**A second occlusion source.** D-2 named the quest tracker. In the smoke clip the green
+`ShowAngerLevels` `[entityId] Action State: X` text renders **over** the PlayStats potion counters
+and makes them unreadable. §3.4's priority order (`PlayStats > LogData > ShowAngerLevels`) is
+correct and this is the evidence that the conflict is real rather than hypothetical.
+
+### Absent, not inferred
+
+**No `notes.md` was delivered** (protocol §3.5). Therefore: `difficulty` is NULL; starting area is
+absent; per-boundary `play_time` jots (§2.3 item 1) and per-transition area names (§2.4) are
+absent; and `no-state-modifying-console` is banked `held='unknown'` rather than `'held'`. Three
+`session_control` rows carry the gap explicitly so it does not read as an oversight later.
+
+### Verification
+
+`foreign_key_check` CLEAN · **315 captures** (313 stills + 2 videos, all 1920×1080, 313 distinct
+sha256 → no duplicate stills) · 59 capture bursts · **10 clock anchors** · **9 clock-map segments**
+· **23 session breaks** (2 death + 2 zone-transition + 8 unallocated-clock-loss + 11
+epoch-boundary candidates) · **17 session controls** · **49 session-ledger readings** (41 run + 8
+smoke) · **0** `fixture_character` / `fixture_set` / `fixture_trial` rows · captures carrying
+`play_time_ms` = **5 / 315**, by design. Re-run is idempotent (row counts identical).
+
+Two sessions are written: `GP-gd-2026-07-26-s1` (the run) and `GP-gd-2026-07-26-smoke` (the §2.0
+gate clip), because A6 makes that boundary semantically load-bearing.
+
+---
+
+## M7 — 2026-07-26 · schema `fixtures-v0.4` · a trial is a MANY-monster event
+
+**Script:** `research/scripts/fixtures_m7_trial_participant_2026_07_26.py`
+**Backup:** `fixtures.db.pre-v0.4-*-backup` · **Class:** additive + one `fixture_trial` rebuild
+(7 rows preserved, `v_fixture_bank_certified` still 3).
+
+### The defect
+
+v0.1 defines `fixture_set` as "the N-trial group: **one monster**, one rig, one ladder rung", and
+`fixture_trial.fixture_set_id` is `NOT NULL`. Protocol §5.1 carries that hierarchy into the
+general-play run — `fixture_set` "partitioned by `(epoch, monster_display_name, monster_level,
+monster_rank, area, difficulty)`", `fixture_trial` "one per engagement". **Those two sentences
+cannot both hold,** and §5.3 of the same document declares `single-monster` **violated (packs)**.
+
+A pack engagement has several monsters, of several display names, at several levels, of several
+ranks. It belongs to several of those partitions *at once*. There are exactly two ways to force it
+into one:
+
+- pick a "representative" monster per engagement → **a fabricated identity**
+- duplicate the trial into every set it touches → **double-counted engagements**
+
+Both are worse than the problem. Monster participation in an engagement is **many-to-many**, and a
+one-to-many parent cannot carry it.
+
+### The fix
+
+- `fixture_trial.fixture_set_id` → **NULLABLE**. A trial can be a window over the session ledger
+  with no set. A partial unique index (`WHERE fixture_set_id IS NULL`) keys ledger-derived trials
+  on `(session_id, segmentation, trial_ordinal)` instead.
+- `fixture_trial.session_id` added, `NOT NULL`. The session is the real parent.
+- **`trial_participant`** — one row per monster in the engagement, each with its own
+  `monster_display_name` / `monster_level` / `monster_rank_observed` / `identity_method` /
+  `role` / `kill_attributed_to`. `identity_method='unidentified'` is first-class: **O-8 pushed
+  down from the set to the individual**, which is where §5.4 says most failures will land.
+  `kill_attributed_to ∈ (player, pet, dot, retaliation, environment, unknown)` is the attribution
+  term §6b explanation 2 needs, and `entity_id` (F4) is the only channel that can *count* pack
+  members without identifying them — the target-count term explanation 1 needs.
+- **`fixture_set` is unchanged** and still means one monster. L0 is untouched.
+
+New views: `v_trial_participants_rollup`, `v_trial_homogeneous`. The second one matters
+philosophically: a general-play engagement that turns out to be single-monster, single-level,
+single-rank and fully identified is structurally an L0 fixture — and it is now **discovered by
+query** rather than **asserted in order to be storable**.
 
 ---
 
