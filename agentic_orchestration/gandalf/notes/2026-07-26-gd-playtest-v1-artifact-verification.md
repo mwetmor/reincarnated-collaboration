@@ -895,6 +895,162 @@ Artifacts: `galadriel/captures/2026-07-26-gd-playtest-v1-r3/` (`r3-evidence.json
 
 ---
 
+# 9.13 FULL-RUN T-A RETURNS — the extraction, and two corrections it forces
+
+**Grade: MEASURED.** 13,633 samples at 0.5 s across the whole 6816.5 s artifact, four parallel
+segments, zero gaps at the joins. Source: `galadriel/captures/2026-07-26-gd-playtest-v1/
+ta-full-2fps-gated.csv`. Screenshot arm: `ta-shots-313-gated.csv` (313 native reads).
+
+Everything §9.1–§9.12 established was **verification** — *does the instrument work?* This section is
+the first **extraction** — *what does the artifact say?* The distinction was not visible until Matt
+asked for a conclusion and the honest answer was "the instrument passes; the artifact has not been
+read." It has now been read.
+
+## 9.13.1 Gate returns, and the two-method closure
+
+| Field | Present | Non-monotonic rejections |
+|---|---|---|
+| `kills` | 13,357 | **0** |
+| `deaths` | 13,511 | **0** |
+| `play_time` | 13,427 | 3 |
+| claws / charge / weaponattack / onslaught | 10,019–12,718 | 0 |
+| `life_healed` | 12,913 | **413 (3.1%)** — the noisiest series in the run |
+
+**Every series terminates exactly on the §6b human-read totals** — 882 kills, 74 weaponattack,
+54 onslaught, 358 claws, 175 charge, 12468.06 healed — which were reached by OCR down a fully
+independent path. Two methods, one number, no shared failure mode. Missing samples are refusals; the
+gate never interpolates. Screenshot arm: **313/313, zero rejections on every core field.**
+
+**The §3 clock model is confirmed out-of-sample.** Divergence falls **80.0 s** across the run
+(358.0 → 279.5). The piecewise slope-1 model was fitted from a handful of hand-read frames; it is now
+reproduced at 13,633 points by independent code. 12 breaks located totalling 41.0 s; **39.0 s is
+declared as residual** below the 1.5 s detector floor rather than attributed to invented breaks —
+correct handling, because sub-second transitions are genuinely unresolvable at 2 fps against an
+integer-second `play_time`.
+
+Deaths land on the game clock at **`play_time` 3156 (52:36)** and **5453 (90:53)**. Clock breaks
+cluster at both: dying costs wallclock the game does not count. Free cross-validation of §3.
+
+Level-ups: `play_time` 655 / 1133 / 1563 / 1907 / 2174 / 2820 / 3052 / 3925 / 4607 / 5808 / 6816.
+
+## 9.13.2 CORRECTION C-1 — the poison-DoT regime is 16× larger than reported
+
+galadriel bounded the DoT regime by **level 12** (`play_time` 6816) → 12 kills → 1.5% of the run, and
+recommended ingesting with `WHERE play_time < 6816` as the pre-DoT filter.
+
+**The DoT is gear-gated, not level-gated.** That correction was made in round 1 (§9.11.4) and did not
+survive into the regime arithmetic. Gear equip brackets to `play_time` **6052–6282** (level 11).
+Kills at 6052 = 692; kills at run end = 882. **True R3 = 190 kills = 21.6%.**
+
+Her filter would have left **178 poison-DoT kills sitting inside the pool labelled "pre-DoT."** This
+is not a rounding error; it is a mislabelled fifth of the artifact, and it would have propagated
+silently into every downstream fit.
+
+**Failure mode worth naming:** a correction that is accepted at the point it is made, and then not
+propagated to the arithmetic downstream of it. The fix is not "be careful" — it is that **a boundary,
+once corrected, must be re-derived from the series rather than carried forward as a remembered
+number.**
+
+## 9.13.3 CORRECTION C-2 — the build-identity break is 623 s earlier than §9.10 recorded, and it was my error
+
+§9.10 put the four-skill → two-skill transition at `play_time` 1757 (29:17). **It is 1134.**
+
+The series shows `defaultweaponattack` climbing **one at a time** 61 → 74 between `play_time` 1019
+and 1134, `onslaught` bursting 47 → 54 by 1145, and then **11,486 consecutive samples reading exactly
+74.** Verified as a clean monotone climb, not an OCR jump.
+
+1757 was merely the first sample anyone had checked after the freeze. **A spot-sampled boundary is an
+upper bound, not a location.** I filed it as a location. The dense series is what turns a bound into
+a coordinate, and this is the argument for running the full T-A pass before publishing any regime
+partition — not after.
+
+## 9.13.4 The regime partition — TWO usable distributions, not three
+
+| Regime | `play_time` | Kills | Engagements | Kills/engagement |
+|---|---|---|---|---|
+| **R1** — four-skill pre-transform build | 358 → 1134 | **43** | 13 | **3.3** |
+| **R2** — two-skill werewolf | 1134 → 6052 | **647** | 77 | **8.4** |
+| **R3** — werewolf + poison DoT | 6052 → 7094 | **190** | 16 | **11.9** |
+
+- **R2 is the distribution.** 647 kills over 77 engagements. This is the fixture.
+- **R3 is usable with its own error bars** — thin in engagements, rich in kills, because its packs run
+  ~3.6× the size of R1's.
+- **R1 is not a distribution.** 43 kills over 13 engagements is an anecdote about the opening
+  nineteen minutes. Report it; do not fit it.
+
+**The progression 3.3 → 8.4 → 11.9 kills/engagement is itself a finding.** The build does not merely
+kill faster — it *engages larger packs*. Pack size is a consequence of build power, not an
+independent axis. Any pooled fit across the three describes a run that never happened.
+
+## 9.13.5 Engagement census — 106, at the floor of §1's band
+
+Segmenting on inter-kill-event gaps (median gap 1.5 s, mean 12.3 s, p90 12.5 s, max 669 s):
+
+| Threshold | Engagements | Median duration |
+|---|---|---|
+| gap > 5 s | **106** | **4.5 s** (mean 6.1, max 37.5) |
+| gap > 8 s | 75 | — |
+| gap > 10 s | 67 | — |
+
+§1 targets **100–250**. We clear it **only at the most permissive defensible threshold** and fall
+below at any conservative one. **Resolution caveat:** a 4.5 s median engagement sampled at 0.5 s is
+9 samples — engagement TTK carries ~11% quantization. Usable, not tight.
+
+## 9.13.6 §1.1's structural insight PARTLY FAILS
+
+§1.1 asserted that `skill_use_count[defaultweaponattack]` deltas between kill increments give
+attacks-per-kill with zero read uncertainty across 100–250 kills. Two independent failures:
+
+1. **The named field is dead for 95% of the run.** `defaultweaponattack` covers `play_time`
+   358–1134 — **11.5% of elapsed time and 43 of 882 kills (4.9%).** The instrument that shaped the
+   entire capture spec measures one-twentieth of the artifact.
+2. **The live substitutes alias.** 514 samples carry a kill increment covering 880 kills:
+   313 singles, 113 doubles, 38 triples, 31 quads, 12 fives, 6 sixes, 1 seven — **201 (39%)
+   multi-kill.** At 0.5 s, attacks cannot be attributed to kills inside those. Attacks-per-kill
+   survives only on the 313 single-kill events, and those are **conditioned on being single-target** —
+   the non-AoE tail, not the distribution.
+
+**Consequence:** the run delivers **engagement-level** TTK and kills-per-engagement — which is what §1
+actually asked for — and does **not** deliver per-kill attack cost. Not recoverable by reprocessing at
+this sampling rate. **Q47's original problem (a kill cost with three quanta, 42.9% spread) is solved
+at the engagement level for R2 and R3; it is not solved per-kill.**
+
+## 9.13.7 Damage-intake — the one bounded pass that remains
+
+Intake has exactly one instrument, the health-globe numerals, proven at 60 fps with 98.2% coverage
+over the 58 s death window (§9.11.4). **Run-wide coverage is 0.85%.** It does not need a full-run
+pass: restricted to the 106 engagement windows with 3 s padding, total engagement wallclock is
+**1287 s = 18.9% of the run = 19,305 frames at 15 fps** (vs 408,991 for a full-run pass). 15 fps is
+sufficient — the measured DoT tick period is 1.000 s, so intake events resolve 15× over. Digit
+templates already exist. Roughly 5× the work already completed on the death window, in one pass.
+
+## 9.13.8 D-1, fifth instance — mine, within the hour
+
+While reporting on the in-flight chain I filtered `ps` on `ffmpeg|python.*gd-playtest|python.*globe|
+python.*fct|cp|rsync`. The workers are named `run_ta.py` and **would never have matched at any
+time.** I told Matt the full-run pass had not been run; it had just been launched.
+
+Same failure as the other four: **a reader returned a plausible value and did not announce that it
+had guessed.** I wrote the coverage rule into §9.12 and then broke it inside an hour, which is the
+best available argument that the rule has to be *mechanical* — a reader that cannot report its own
+coverage is not an instrument, and that includes a grep.
+
+## 9.13.9 Action
+
+- [x] full-run T-A extraction — **DELIVERED**, 13,633 samples, gated, two-method closure.
+- [x] efficacy verdict authored — `gandalf/notes/2026-07-26-gd-playtest-v1-efficacy-verdict.md`
+      (**CONDITIONAL PASS**).
+- [ ] galadriel: the T-B intake pass — 15 fps globe OCR over the 106 engagement windows + 3 s
+      padding (§9.13.7). **This is the single highest-value remaining action on the artifact** and it
+      converts the verdict to PASS.
+- [ ] elrond: ingest **regime-partitioned**, never pooled. `life_healed`'s 3.1% rejection rate rides
+      as a column, not smoothed away. Use `play_time` 6052 as the DoT boundary — **not 6816**.
+- [ ] gandalf: rewrite protocol §1.1 around kills-per-swing at the engagement level; drop the
+      `defaultweaponattack` premise.
+- [ ] gandalf: v2 targets **~2× the engagements** — combat-weighted play, not longer play.
+
+---
+
 # 10. Design recognition — form identity, and the transform Matt made for no reason
 
 ▶ **ROLE: STORYWRIGHT** — trigger: an unprompted player behaviour in the substrate that speaks to a

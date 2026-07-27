@@ -1,0 +1,282 @@
+{
+  "n_samples": 313,
+  "field_stats": {
+    "play_time": {
+      "present": 313,
+      "accepted": 313,
+      "rejected_nonmonotonic": 0,
+      "missing": 0
+    },
+    "kills": {
+      "present": 313,
+      "accepted": 313,
+      "rejected_nonmonotonic": 0,
+      "missing": 0
+    },
+    "deaths": {
+      "present": 313,
+      "accepted": 313,
+      "rejected_nonmonotonic": 0,
+      "missing": 0
+    },
+    "max_level": {
+      "present": 313,
+      "accepted": 313,
+      "rejected_nonmonotonic": 0,
+      "missing": 0
+    },
+    "life_healed": {
+      "present": 313,
+      "accepted": 313,
+      "rejected_nonmonotonic": 0,
+      "missing": 0
+    },
+    "total_score": {
+      "present": 313,
+      "accepted": 313,
+      "rejected_nonmonotonic": 0,
+      "missing": 0
+    },
+    "defaultkickattack": {
+      "present": 284,
+      "accepted": 284,
+      "rejected_nonmonotonic": 0,
+      "missing": 29
+    },
+    "defaultweaponattack": {
+      "present": 312,
+      "accepted": 312,
+      "rejected_nonmonotonic": 0,
+      "missing": 1
+    },
+    "onslaught": {
+      "present": 284,
+      "accepted": 284,
+      "rejected_nonmonotonic": 0,
+      "missing": 29
+    },
+    "werewolf1": {
+      "present": 268,
+      "accepted": 268,
+      "rejected_nonmonotonic": 0,
+      "missing": 45
+    },
+    "werewolf1_skill01_claws": {
+      "present": 268,
+      "accepted": 268,
+      "rejected_nonmonotonic": 0,
+      "missing": 45
+    },
+    "werewolf1_skill02_charge": {
+      "present": 268,
+      "accepted": 268,
+      "rejected_nonmonotonic": 0,
+      "missing": 45
+    }
+  },
+  "clock_segments": [
+    {
+      "pts_start": 14.753,
+      "pts_end": 1368.55,
+      "offset_s": 352.63
+    },
+    {
+      "pts_start": 1368.55,
+      "pts_end": 2191.362,
+      "offset_s": 331.93
+    },
+    {
+      "pts_start": 2191.362,
+      "pts_end": 2594.95,
+      "offset_s": 328.52
+    },
+    {
+      "pts_start": 2594.95,
+      "pts_end": 3789.611,
+      "offset_s": 316.38
+    },
+    {
+      "pts_start": 3789.611,
+      "pts_end": 4623.475,
+      "offset_s": 311.61
+    },
+    {
+      "pts_start": 4623.475,
+      "pts_end": 6128.082,
+      "offset_s": 292.34
+    },
+    {
+      "pts_start": 6128.082,
+      "pts_end": 6806.254,
+      "offset_s": 281.99
+    }
+  ],
+  "clock_accounting": {
+    "total_divergence_loss_s": 74.5,
+    "located_in_breaks_s": 68.33,
+    "unlocated_residual_s": 6.17,
+    "break_floor_s": 1.5,
+    "note": "Losses below the floor are REAL but individually unresolvable at 2 fps with an integer-second play_time. They are absorbed into the cumulative divergence curve, which stays exact at its endpoints. Resolving them needs native-rate sampling around candidate transitions."
+  },
+  "divergence_curve": [
+    {
+      "pts_s": 14.753,
+      "divergence_s": 356.25
+    },
+    {
+      "pts_s": 558.962,
+      "divergence_s": 352.71
+    },
+    {
+      "pts_s": 1098.568,
+      "divergence_s": 335.43
+    },
+    {
+      "pts_s": 1422.861,
+      "divergence_s": 333.72
+    },
+    {
+      "pts_s": 1716.25,
+      "divergence_s": 331.33
+    },
+    {
+      "pts_s": 2223.207,
+      "divergence_s": 328.65
+    },
+    {
+      "pts_s": 2551.572,
+      "divergence_s": 322.93
+    },
+    {
+      "pts_s": 2830.019,
+      "divergence_s": 318.84
+    },
+    {
+      "pts_s": 3259.734,
+      "divergence_s": 316.36
+    },
+    {
+      "pts_s": 3780.897,
+      "divergence_s": 314.29
+    },
+    {
+      "pts_s": 3862.387,
+      "divergence_s": 312.25
+    },
+    {
+      "pts_s": 4601.587,
+      "divergence_s": 302.32
+    },
+    {
+      "pts_s": 5072.007,
+      "divergence_s": 300.75
+    },
+    {
+      "pts_s": 6103.024,
+      "divergence_s": 291.1
+    },
+    {
+      "pts_s": 6296.217,
+      "divergence_s": 288.78
+    },
+    {
+      "pts_s": 6764.78,
+      "divergence_s": 281.89
+    }
+  ],
+  "clock_breaks_zone_transitions": [
+    {
+      "pts_s": 1368.55,
+      "lost_s": 19.74
+    },
+    {
+      "pts_s": 2191.362,
+      "lost_s": 3.38
+    },
+    {
+      "pts_s": 2594.95,
+      "lost_s": 12.13
+    },
+    {
+      "pts_s": 3789.611,
+      "lost_s": 4.72
+    },
+    {
+      "pts_s": 4623.475,
+      "lost_s": 18.2
+    },
+    {
+      "pts_s": 6128.082,
+      "lost_s": 10.16
+    }
+  ],
+  "deaths": [
+    {
+      "deaths": 1,
+      "play_time": 3157,
+      "pts_s": 2838.22
+    },
+    {
+      "deaths": 2,
+      "play_time": 5453,
+      "pts_s": 5152.246
+    }
+  ],
+  "level_ups": [
+    {
+      "level": 2,
+      "play_time": 857,
+      "pts_s": 504.599
+    },
+    {
+      "level": 3,
+      "play_time": 1385,
+      "pts_s": 1049.463
+    },
+    {
+      "level": 4,
+      "play_time": 1702,
+      "pts_s": 1368.55
+    },
+    {
+      "level": 5,
+      "play_time": 1974,
+      "pts_s": 1642.636
+    },
+    {
+      "level": 6,
+      "play_time": 2512,
+      "pts_s": 2183.76
+    },
+    {
+      "level": 7,
+      "play_time": 2863,
+      "pts_s": 2540.007
+    },
+    {
+      "level": 8,
+      "play_time": 3051,
+      "pts_s": 2730.051
+    },
+    {
+      "level": 9,
+      "play_time": 4087,
+      "pts_s": 3772.698
+    },
+    {
+      "level": 10,
+      "play_time": 4882,
+      "pts_s": 4579.224
+    },
+    {
+      "level": 11,
+      "play_time": 6367,
+      "pts_s": 6075.634
+    },
+    {
+      "level": 12,
+      "play_time": 6996,
+      "pts_s": 6714.415
+    }
+  ]
+}
