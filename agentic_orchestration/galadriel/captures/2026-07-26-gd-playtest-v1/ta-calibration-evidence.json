@@ -1,0 +1,66 @@
+{
+  "purpose": "T-A panel-OCR calibration + accuracy evidence prior to the full-run pass",
+  "instruments_calibrated": [
+    "native 1920x1080 PNG screenshot",
+    "h264 15.4 Mbps video frame"
+  ],
+  "model": "panel-ocr-model.json \u2014 11 glyph templates x 2 instruments, 6 skill-path signatures x 2 instruments",
+  "accuracy": {
+    "native_screenshots": {
+      "n_shots": 9,
+      "shots": [
+        40,
+        60,
+        100,
+        140,
+        200,
+        240,
+        280,
+        320,
+        352
+      ],
+      "result": "every field read; all monotonic series consistent; play_time / kills / deaths / max_level at shots 40, 200, 352 reproduce gandalf verification-note \u00a72 exactly (6:11 / 59:36 kills 271 deaths 1 lvl 8 / 118:08 kills 882 deaths 2 lvl 12)"
+    },
+    "video_frame_vs_screenshot": {
+      "pts_s": 6805.5,
+      "shot": 352,
+      "result": "ALL 16 fields identical across the two instruments, including onslaught=54 which \u00a76b reported as D-2-occluded in the video"
+    },
+    "held_out_video_frames": {
+      "n_frames": 6,
+      "n_fields_human_verified": 12,
+      "correct": 12,
+      "substitution_errors": 0,
+      "refusals": 2,
+      "note": "refusals emit null; the failure mode is refusal, not a wrong digit"
+    }
+  },
+  "gate": {
+    "method": "longest non-decreasing subsequence per monotonic field; rejected values emitted null, never interpolated",
+    "probe_result": "0 non-monotonic rejections among reads that passed the glyph-confidence gate \u2014 the two independent gates agree"
+  },
+  "known_limits": [
+    "kickattack path identity refused on ~15% of video samples (shortest path, occasionally ambiguous); emitted missing, not guessed",
+    "zone-transition breaks smaller than ~3 s are below the dither floor at 2 fps sampling and are not located individually; they are absorbed into the cumulative divergence curve, which stays exact at its endpoints",
+    "shield_block_chance is ABSENT (row not rendered) for a mid-run stretch rather than zero; reader emits null"
+  ],
+  "divergence_cross_check": {
+    "pts_14.5": {
+      "galadriel": 356.5,
+      "gandalf": 356.5
+    },
+    "pts_3259.5": {
+      "galadriel": 316.5,
+      "gandalf": 317
+    },
+    "pts_5071.5": {
+      "galadriel": 300.5,
+      "gandalf": 300.5
+    },
+    "pts_6805.5": {
+      "galadriel": 282.5,
+      "gandalf": 283
+    },
+    "verdict": "gandalf divergence table CONFIRMED within his rounding"
+  }
+}
