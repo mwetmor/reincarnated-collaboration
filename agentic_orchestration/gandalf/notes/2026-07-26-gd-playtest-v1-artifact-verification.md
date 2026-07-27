@@ -329,3 +329,176 @@ break points land on the timeline without a search.
 - `/Volumes/reincarnated/visual-artifacts/GD-matt-test/play-test-v1/` (video, smoke, 313 screenshots)
 - `agentic_orchestration/gandalf/notes/2026-07-26-gd-general-play-run-protocol.md` (§§1.1, 2.0–2.2, 3.1–3.2, 5.1)
 - Working crops: `/tmp/gp-align/` (transient)
+
+---
+
+# §9 — ROUND-2 RETURNS (galadriel + elrond + Matt). Corrections to this document.
+
+**Appended 2026-07-26 after both commissioned agents reported and Matt disclosed two instruments.**
+Everything above stands except where corrected here. **This section governs on conflict.**
+
+## 9.1 §6b is CLOSED — the panel counts swings
+
+galadriel measured it on a 20 s window at 60 fps at `max_level` 9, **before** the poison existed:
+
+- **swings-per-activation = 1.0** — 7 player attack animations against 7 panel increments (claws +3,
+  charge +3, kick +1), five pairings exact to the frame. **Cause 3 REFUTED. The panel counts swings.**
+- **kills-per-swing = 1.86** — 13 kills from 7 swings, in steps +1, +1, **+2**, +1, +1, **+4**, **+2**, +1.
+  **Cause 1 (AoE) CONFIRMED by direct measurement**, matching Matt's testimony.
+- Attack uptime in dense combat **16.6%**; the global 1-per-10 s implies that density over ~29% of
+  the run — ordinary ARPG travel time, not an instrument artifact. **Observation B answered.**
+
+Instrument used: the green `[42992] Action State:` overlay, entity 42992 being the player.
+`character.LogData` produces **no text log** — it is an on-screen overlay only. Record that: the
+protocol implies a log file exists. It does not.
+
+**Consequence for §1.1:** the numerator is sound, but **attacks-per-kill is not well-defined per
+kill** — one swing resolves several. The measurable quantity is **kills-per-swing**. §1.1 must be
+rewritten to name that instead.
+
+**Dead field found:** `skill_use_count[defaultweaponattack]` totals 74 and **froze before `play_time`
+29:17** — dead for 75% of the run (werewolf form replaces the default attack). §1.1 names this field
+specifically. The live attack fields are `claws` and `charge`.
+
+## 9.2 CORRECTION — the counters do NOT start at zero. My ratios were wrong.
+
+elrond, from the artifacts: at `pts=14.5` the panel already reads **`kills=2`,
+`defaultweaponattack=8`, `life_healed=16.33`** — the smoke gate's two monsters, carried on the save.
+
+Every figure I quoted as a run total was a **SAVE-cumulative endpoint**. Corrected deltas:
+
+| Quantity | I said | Truth (delta) |
+|---|---|---|
+| kills | 882 | **880** |
+| total skill uses | 692 | **684** |
+| `life_healed` | 12468.06 | **12451.73** |
+| uses-per-kill ratio | 0.783 | **0.777** |
+
+Conclusions unchanged; the arithmetic was wrong anyway. **Standing rule: on a SAVE-cumulative
+ledger, always difference against the first frame — never read the last frame as a total.**
+
+**And a live contradiction against A6.** `skill_use_count` and `life_healed` **survived the
+smoke→run boundary**, which A6 classifies as SESSION-scoped and therefore destroyed by any return to
+main menu. Either A6's classification is wrong, or Matt never returned to the menu between the smoke
+and the run. **This must be settled before v2** — the whole no-menu-return rule in §2.2 rests on it,
+and if A6 is wrong we are paying for a constraint we do not owe. One question to Matt.
+
+## 9.3 CORRECTION — `Damage per second` is NOT dead (D-3 was half wrong)
+
+galadriel: it reads **74.19 / 394.63 / 832.31** in combat, and `0.00` only out of combat. My two
+samples were the run's bookends, which are out-of-combat *by construction* — that is the entire
+reason it looked dead. **It is a live rolling outgoing-damage field**, and combined with §9.5 it is
+half of a cross-validating pair. `Total Score = 0` still holds as genuinely dead.
+
+This was the most valuable correction of the round: I nearly discarded an instrument.
+
+## 9.4 D-1 IS WORSE THAN I FILED — it fails toward the PLAUSIBLE value
+
+elrond reproduced D-1 independently, and the reproduction is more alarming than my original:
+a 460×290 crop at 2.5× read **`kills: 0`**; the same pixels at 430×90 / 1.6× read **`2`**.
+
+**The wrong value was the more plausible one.** Zero kills at the start of a run is exactly what a
+reviewer expects to see, so a plausibility check would have *confirmed* the error. This is not
+random noise — **it fails toward the expected answer**, which is the single most dangerous shape a
+measurement error can take, because every human safeguard we have is pattern-matching on
+expectation. The cross-field monotonicity gate is therefore not optional hygiene; it is the only
+thing standing between us and confidently-wrong data.
+
+Both agents hit this independently, from different crops, on different fields. **Elevate D-1 from a
+methodological note to a binding pipeline constraint.**
+
+**D-2 revised in both directions:** galadriel narrowed it (video and screenshot are pixel-identical
+on the `onslaught` row and *both* read 54 — my "the screenshot recovered what the video occluded"
+claim was wrong; I simply failed to read the video). elrond widened it — a **second occlusion
+source** exists: the green `ShowAngerLevels` overlay renders over the panel digits, not just the
+quest tracker. Net: occlusion is real, has two sources, and is recoverable by channel separation
+(tracker text is orange; requiring a high blue channel deletes it).
+
+## 9.5 THREE new instruments (Matt, 2026-07-26) — the run is worth more than assessed
+
+**(1) Floating combat text is a per-hit damage ledger.** Matt: *"ALL damage types show up on screen
+(whether direct damage or damage over time)… as floating damage numbers on top of the enemy."*
+Everything in round 1 counted *events*; this measures *magnitudes*. Paired with the recovered
+rolling DPS field (§9.3) it forms **two independent outgoing-damage instruments that cross-validate**
+— summed FCT over a window should reconcile against rolling DPS over the same window.
+
+**(2) A training-dummy segment — a controlled fixture, arrived at by accident.** Stationary target,
+no death, no retaliation, no movement. The cleanest calibration surface in the run.
+**Located from the ledger:** `kills` reads 692 at `play_time` 98:12 *and still 692 at 106:11* —
+**eight minutes in which nothing died.** Video offsets ~5600–6079. Inside it: equipment doll open at
+5650 (the weapon testing), a full-screen node grid at 5800, back in the world at 6000.
+
+> **CORRECTION to §6b-bis:** I wrote the poison DoT "arrived at level 12." It did not — it arrived
+> when Matt **equipped two green poison items**, around the dummy test. The regime break is a **gear
+> change near offsets 5600–6079**, not a level-up.
+
+**(3) The first death is a deliberate player-side DoT oracle.** Matt died on purpose in a
+poison-flooded cave and captured it, *specifically* to give us incoming-damage data: *"Damage to the
+player character does not appear as floating numbers, but you can calculate the poison damage based
+on the health globe tick minus regen."* This is the **incoming** side, on which we had nothing.
+
+It works because globe **numerals** are always-shown — the §3.1 pre-run UI dependency, now paid for.
+Note the near-miss: galadriel's earlier calibration **rejected** globe *fill-fraction* (4.6pp signal
+against a 90.5pp null band) while numerals scored 100% READY. Matt's method reads the surviving
+instrument. **Numerals only; never fill-fraction.**
+
+> **Disposition change:** §8 tells consumers both deaths are hard breaks to exclude from fits. That
+> holds for *combat* fits — but **death #1 is a FIXTURE to retain and label**, not discard. The two
+> deaths now require different handling.
+
+## 9.6 The §5 data contract was wrong in five places (elrond)
+
+Schema landed as `fixtures-v0.3` / `v0.4`; DDL in `research/scripts/`, narrative in
+`research/curated/MIGRATION-fixtures.md`. Ingested `GP-gd-2026-07-26-s1` + smoke: 315 captures,
+10 clock anchors, 9 map segments, 23 breaks, 17 controls, 49 ledger readings. `attacks_per_kill`
+**refused by trigger**, as instructed.
+
+1. **`fixture_trial`'s shape does not survive contact.** `segmentation` as a plain column collides
+   with `UNIQUE(fixture_set_id, trial_ordinal)`; the first S1+S2 ingest silently triple-counts. It
+   now joins the key. Also **S1/S2/S3 was missing a value** — the seven L0 trials are hand-bracketed,
+   not kill-to-kill. Added `S0-explicit`.
+2. **`fixture_set` is a one-monster group; a general-play engagement is a many-monster event.**
+   §5.1 partitions by `monster_display_name` while §5.3 declares single-monster *violated (packs)* —
+   those cannot both hold. `fixture_set_id` is now nullable; `trial_participant` carries per-monster
+   identity, rank, and **`kill_attributed_to`** — which is exactly §6b's attribution term.
+3. **The ledger is not trial-shaped at all.** Three segmentations over one series meant three copies.
+   `session_ledger` is the observed layer; a trial is a **window** over it. (This is the right
+   shape and I had it wrong.)
+4. **`monster_rank` already existed**, carrying corpus `monsterClassification` from M4 — my §4.3
+   request would have **overwritten bridge evidence**. Added `monster_rank_observed`; disagreement
+   between them is evidence, not error.
+5. **`ladder_rung='GP'` is wrong** — a general-play set is not a rung on the L0–L5 ladder and holds
+   none of L0's constraints. Added `evidence_class`.
+
+## 9.7 The join key — right, with three qualifications I did not see
+
+`play_time_ms` is correct, **but the panel renders whole seconds.** So it is quantised at 1000 ms
+while an engagement is ~5 s and an AoE multi-kill puts several kills inside one tick. **It cannot
+order events within a second — and S1 is precisely about ordering kill increments.**
+
+- **Operative key is the composite `(play_time_ms, pts_ms)`** — `play_time` for correctness across
+  the discontinuity, `pts` for ordering within a segment.
+- `play_time` **freezes during loading**, so it is one-to-many exactly at the breaks.
+- It is **SAVE-scoped**, so the true key is `(save_identity, play_time_ms)` — and **§2.1 item 9 never
+  asks for save identity.** A second character or a reload collides silently. **Protocol gap; fix
+  before v2.**
+
+## 9.8 Missing deliverable — §3.5 `notes.md` was not produced
+
+No `notes.md` accompanied the run, so difficulty, area sequence and boundary jots are recorded
+`absent` rather than inferred (correct handling by elrond). 11 epoch-boundary candidates were
+inferred from mtime bursts alone — and note **§7 F-1's estimate of 2–4 epochs is low: 11 level-ups
+happened.** Cheap fix for v2: the running audio commentary already required by §2.2 can carry all of
+it, with no typing during play.
+
+## 9.9 Consolidated action
+
+- [ ] gandalf: rewrite §1.1 around **kills-per-swing** (not attacks-per-kill); drop the
+      `defaultweaponattack` reference; record that `LogData` yields no file; fold §§9.2–9.8 into the
+      protocol; add **save identity** to §2.1 and **quest-tracker + anger-overlay collapse** to §2.0.
+- [ ] galadriel (round 2, in flight): FCT extractability verdict, dummy-segment bounds, FCT↔DPS
+      cross-validation, poison DoT both directions, **zero-devotion verification off a still**.
+- [ ] elrond: `fixture_character` / `fixture_set` / `fixture_trial` rows still need identity input.
+- [ ] **Matt — one question:** between the smoke test and the run, did you return to the main menu?
+      This settles the A6 contradiction in §9.2 and decides whether §2.2's no-menu-return rule is a
+      real constraint or one we are paying for without owing it.
