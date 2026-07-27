@@ -4,6 +4,33 @@ This log records **team-level events** — agent additions, ADR additions/amendm
 
 ---
 
+## 2026-07-26 — TCP: L8 closes · provision-first ruled · L7/L6 bake-offs designed · next session = suite architecture (gandalf, Matt-ruled)
+
+**L8 UI closed** (TCP-53/54): full dark-fantasy HUD arrived, five arms all method H, candle VFX
+Matt-ratified verbatim; zero-backing rejected only by the owner's advance prohibition → standing
+distinction *a conductor may not put a thumb on the scale; an owner may take an outcome off the
+table* (TCP-54 ⑩). **Two law events:** **L-R** (a dispatch is delivered once; a changed ruling is a
+new cell — no channel to a running cell exists) and the **L-Q clock corollary** (confirm timestamps,
+never infer unmeasured durations — born from the conductor's 5× "~6 minutes" error). **Instrument-
+dominance law on its third confirmation:** build is a minority of lap cost; the instrument proving
+content right dominates → suite architecture mandates shared instruments in prep cells.
+
+**Matt ruled provision-first** (inverting the conductor's bare-tools lean — TCP-55 ⑧): all helpful
+plugins download up front, pinned, as test elements. legolas Mode-A run delivered the **45-row
+provisioning menu** (`legolas/notes/2026-07-26-plugin-provisioning-menu.md`): `Godot-AI-Particles`
+exposed as an emitter-with-a-count (NOT `create_particles`' counterpart — charter L7 row corrected);
+Q46 now gates Murzak's **entire** ten-package extension family (none CI-tested on 4.6); Pro has
+nothing to provision (clean, loopback-only public addon); Mixamo Animation Batcher = R4-retarget
+adaptation reference for L6.
+
+**Designed + ratification-ready:** L7 VFX three-tool bake-off (V-PREP + sequential H/PRO/MUR cells,
+CAST/AURA/AMBIENT frozen contracts, blind A/B/C strips) and L6 animation capability ladder (TCP-43
+inverted the fork — H proven headless end-to-end, wires unproven). **Next session:** architect the
+full test suite for the remaining generation surfaces (characters, monsters, VFX, beautiful corners,
+proc-gen maps/corners, biomes, lighting, complete UI). Hand-off:
+`gandalf/notes/2026-07-26-tcp-wind-down-and-suite-architecture-handoff.md` (§4 five forks gating
+V-PREP; §5 suite grid, wave sequencing, T6 GENERATOR keystone fork).
+
 ## 2026-07-25 — GD instrumentation: the three-goal reframe + the constraint ladder (gandalf, Matt-corrected)
 
 Matt corrected the program's framing mid-session and the correction restructured the work. gandalf had been reasoning about **goal 1 only** — *"we'd tune to our own feel anyway, so GD's exact numbers don't matter"* — which is true for goal 1 and **false for goal 3**, where fidelity-to-a-reference is exactly what cannot be eyeballed. Matt's three goals, verbatim: **(1)** ensure all of GD's combat mechanisms exist in our battle sim; **(2)** develop a conversion key for their player and monster characters; **(3)** measure the key's comparative correctness and tune toward acceptable accuracy.

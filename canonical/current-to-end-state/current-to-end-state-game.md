@@ -30,7 +30,22 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
-### 2026-07-24 (same session, latest) — **TOOL-CAPABILITY PROGRAM CHARTERED** (Matt reframe + T4-both ruling) · Murzak manifest audit **reopens the closed column** · GridMap/CSG/Particles found · the wire can author our own winning method
+### 2026-07-26 (latest) — **L8 UI CLOSED (all-H, HUD arrived, candles Matt-ratified) · 45-row plugin provisioning menu · L7/L6 bake-offs designed · NEXT SESSION = SUITE ARCHITECTURE**
+
+**L8 closed at TCP-54:** full dark-fantasy HUD, five arms, all method H; hotbar backing landed on the
+exemplars' own ratio; 18 game-systems HALTs queued for Matt. **Matt ruled provision-first** — legolas's
+45-row pinned/audited plugin menu landed (TCP-55; headline: `Godot-AI-Particles` is NOT
+`create_particles`' counterpart — W-MUR's VFX reach hangs on one V-PREP probe; Q46 now gates Murzak's
+entire extension family). **L7 VFX three-tool bake-off + L6 animation capability ladder designed and
+ratification-ready** (TCP-43 inverted the L6 fork: H proven, wires unproven — *"the wires do not own
+rigged content"*). **Matt's next-session brief: architect the full test SUITE for the remaining
+generation surfaces** — characters, monsters, VFX, beautiful corners, proc-gen maps/corners, biomes,
+lighting, complete UI (HUD + menus). **HAND-OFF (read first):**
+`agentic_orchestration/gandalf/notes/2026-07-26-tcp-wind-down-and-suite-architecture-handoff.md`
+— §4 decision queue (5 forks gate V-PREP) · §5 suite grid + wave sequencing + the T6 GENERATOR
+keystone fork (Godot-side vs engine-side generation).
+
+### 2026-07-24 — **TOOL-CAPABILITY PROGRAM CHARTERED** (Matt reframe + T4-both ruling) · Murzak manifest audit **reopens the closed column** · GridMap/CSG/Particles found · the wire can author our own winning method
 
 **Matt reframed the workstream and it is no longer about replicas.** Verbatim: *"after the
 re-assembly with new assets against control, we do need to try them against new designs as well. We
