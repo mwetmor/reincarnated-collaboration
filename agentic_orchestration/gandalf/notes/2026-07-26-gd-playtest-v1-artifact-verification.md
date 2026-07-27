@@ -377,11 +377,34 @@ Every figure I quoted as a run total was a **SAVE-cumulative endpoint**. Correct
 Conclusions unchanged; the arithmetic was wrong anyway. **Standing rule: on a SAVE-cumulative
 ledger, always difference against the first frame — never read the last frame as a total.**
 
-**And a live contradiction against A6.** `skill_use_count` and `life_healed` **survived the
-smoke→run boundary**, which A6 classifies as SESSION-scoped and therefore destroyed by any return to
-main menu. Either A6's classification is wrong, or Matt never returned to the menu between the smoke
-and the run. **This must be settled before v2** — the whole no-menu-return rule in §2.2 rests on it,
-and if A6 is wrong we are paying for a constraint we do not owe. One question to Matt.
+**The apparent A6 contradiction — RESOLVED, but read the resolution carefully.**
+Matt (2026-07-26): *"I never went back to the main menu after the smoke run."* So the smoke and the
+run are **one A6 session**, the counters carrying over is exactly what A6 predicts, and there is no
+contradiction. elrond's differencing against the first frame was the correct handling.
+
+**But A6 is now confirmed UNVIOLATED, not confirmed TRUE.** We have evidence that we never tested
+the rule — a different epistemic state from evidence that the rule holds. The no-menu-return
+constraint in §2.2 is currently carried on trust.
+
+**That constraint is expensive and it is cheap to test.** It forces a general-play run to be a
+single unbroken sitting; v1 was 113 minutes. If A6 is wrong, runs may be **split across sittings**,
+which makes longer runs feasible and v2 far easier to schedule. The experiment takes ~60 seconds and
+does not belong inside a run: note `skill_use_count`, return to the main menu, reload, re-read.
+Zeroed ⇒ A6 holds and the rule is real. Unchanged ⇒ **drop the constraint.** Either answer is worth
+more than the minute it costs.
+
+**Better — make the rule AUDITABLE rather than obeyed (recommended, lands regardless of the
+experiment).** `skill_use_count` and `life_healed` are strictly non-decreasing *within* a session.
+Add them to the cross-field monotonicity gate: **a drop in either is a menu-return detector.**
+
+Note the existing gate would NOT have caught this by itself — `play_time` and `kills` are
+SAVE-cumulative and survive a menu return untouched, so **only the session-scoped fields carry the
+signal.** The gate as specified is blind to precisely the event it most needs to see.
+
+With that gate in place the run self-reports the break: if the rule is broken in a future run we
+learn exactly where and segment around it, instead of silently losing two fields and never knowing.
+**A rule a human must remember is a rule that will eventually be broken unobserved; a rule the data
+enforces is not.**
 
 ## 9.3 CORRECTION — `Damage per second` is NOT dead (D-3 was half wrong)
 
@@ -499,6 +522,10 @@ it, with no typing during play.
 - [ ] galadriel (round 2, in flight): FCT extractability verdict, dummy-segment bounds, FCT↔DPS
       cross-validation, poison DoT both directions, **zero-devotion verification off a still**.
 - [ ] elrond: `fixture_character` / `fixture_set` / `fixture_trial` rows still need identity input.
-- [ ] **Matt — one question:** between the smoke test and the run, did you return to the main menu?
-      This settles the A6 contradiction in §9.2 and decides whether §2.2's no-menu-return rule is a
-      real constraint or one we are paying for without owing it.
+- [x] **Matt — ANSWERED 2026-07-26:** no menu return after the smoke. A6 is unviolated, not
+      verified; smoke + run are one session. See §9.2.
+- [ ] gandalf/galadriel: add `skill_use_count` + `life_healed` to the monotonicity gate as a
+      **menu-return detector** — the gate is currently blind to the one event it must catch.
+- [ ] Matt (~60 s, OUTSIDE any run): note `skill_use_count`, return to main menu, reload, re-read.
+      Decides whether §2.2's single-unbroken-sitting constraint is real or can be dropped — and
+      dropping it would let v2 runs span multiple sittings.
