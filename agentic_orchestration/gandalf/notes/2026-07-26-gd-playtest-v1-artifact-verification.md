@@ -519,8 +519,9 @@ it, with no typing during play.
 - [ ] gandalf: rewrite §1.1 around **kills-per-swing** (not attacks-per-kill); drop the
       `defaultweaponattack` reference; record that `LogData` yields no file; fold §§9.2–9.8 into the
       protocol; add **save identity** to §2.1 and **quest-tracker + anger-overlay collapse** to §2.0.
-- [ ] galadriel (round 2, in flight): FCT extractability verdict, dummy-segment bounds, FCT↔DPS
-      cross-validation, poison DoT both directions, **zero-devotion verification off a still**.
+- [x] **galadriel (round 2) — RETURNED 2026-07-26.** FCT verdict, dummy bounds, dps-integral
+      substitute for the failed cross-validation, player-side poison DoT, T-A close. Devotion still
+      OPEN; dummy-side DoT NOT MEASURED. **See §9.11 — it governs over §9.10 and §5 on conflict.**
 - [ ] elrond: `fixture_character` / `fixture_set` / `fixture_trial` rows still need identity input.
 - [x] **Matt — ANSWERED 2026-07-26:** no menu return after the smoke. A6 is unviolated, not
       verified; smoke + run are one session. See §9.2.
@@ -588,3 +589,258 @@ ratio. The DoT makes R3 higher still; it does not explain R1/R2.
 top of two independent D-1 reproductions. That is the review structure working as designed, and it
 is a standing argument against accepting any single-source figure into `fixtures.db` — including
 mine.
+
+---
+
+# 9.11 ROUND-2 RETURNS — galadriel (2026-07-26)
+
+> **Governs over §5, §9.10 and my own §6b-bis on any conflict.** Two corrections to me are recorded
+> in-line. One correction back to galadriel is recorded in §9.11.4 — the closure residual is a
+> denominator artifact, not physics, and the number is *better* than she reported.
+
+## 9.11.1 FCT — READY as a sampler, NOT-READY as a ledger, and we built the confound ourselves
+
+Matt's description is exactly right and is now verified on both instruments: near-white,
+low-saturation, dark-outlined numerals over the target, legible at native. Glyph height **9–24 px**;
+a number spawns small, *grows* to peak over ~0.5 s, then fades. It is per-**target** and per damage
+**component** — at pts 6001.3 two numbers (384, 372) land on one dummy inside 0.2 s.
+
+**Verdict split.** READY as an **assisted magnitude sampler** (a human or a targeted read pulls
+individual magnitudes). NOT-READY as an **automated per-hit ledger**, for three measured reasons:
+
+| Failure | Measurement |
+|---|---|
+| Detector has no discriminating feature | bright+achromatic detector returns **298 candidate tracks in a 10 s window** against a true count of order 10–30; wet-rock specular and torchlight share FCT's colour, size and transience |
+| Self-inflicted occlusion | the green `character.LogData` overlay renders **in the same region at the same glyph height** as FCT spawns |
+| Overlap and no colour channel | at pts 6046.60 three numbers land together, only the topmost (`449`) survives; a saturated-pixel census over the whole dummy window found green, red, **8 yellow pixels**, nothing else — **no colour coding, so direct and DoT cannot be separated** |
+
+The second row is the one that stings: the overlay we turned on to instrument the run is the thing
+occluding the instrument we most wanted. This is the **third** distinct occlusion finding of the
+cycle (D-2 skill-panel, elrond's anger-overlay-over-digits, now this), and all three share one cause
+— *debug overlays are additive to the frame, and the frame is the instrument.*
+
+**The third-row consequence is the design-relevant one.** Grim Dawn's FCT does **not** colour-code
+damage type. Any Reincarnated-side design that assumes "read the numbers to attribute damage type"
+inherits that limitation from the oracle, not from the game we are building. If we want type
+attribution out of a future oracle it must come from the log/panel layer, never from the pixels.
+
+## 9.11.2 The cross-validation died — and its replacement is worth more than it was
+
+The planned FCT↔DPS cross-validation **could not run as posed** (no census ⇒ no per-hit sum). What
+survived is better:
+
+> **`Damage per second` is a rolling-window mean, ~6 s wide.** A 1 s burst at pts 6046 produces a
+> **6.5 s non-zero plateau** and then drops to 0.00 in a single step.
+
+Therefore **∫ dps dt over a bout = total damage dealt**, and it needs **no per-hit census at all.**
+
+| Dummy bout | Total damage (∫dps dt) |
+|---|---|
+| pts 5990–6013 | **18554** |
+| pts 6026–6042 | **18051** |
+| pts 6046–6052 | **2939** |
+
+This is the single most load-bearing methodological result of round 2. The instrument I twice nearly
+discarded — first by declaring `Damage per second` dead off two out-of-combat bookend samples
+(§5 D-3, corrected in §9.3), now by treating FCT as its only route to total damage — is the **primary**
+total-damage instrument, and the FCT census was never on the critical path. **Standing rule: before
+declaring a field dead, sample it inside the condition it measures.** I have now violated that rule
+once and been rescued from it twice.
+
+**Qualification I attach (not in her return).** A ~6 s boxcar means the integral is only exact when
+the integration bounds sit in dps≡0 on both sides. Bouts 1 and 2 satisfy that; **bout 3's window
+(6 s) is the same order as the kernel width**, so its 2939 is the least trustworthy of the three and
+should not anchor anything alone. Bounds must be taken at the *plateau edges*, not the contact edges.
+
+## 9.11.3 Dummy segment — confirmed, widened, and two corrections to me
+
+`kills` sits frozen at **692** from `play_time` **96:48 → 107:55** (**667 s**), not the 98:12–106:11
+I bracketed. Damage lands in **exactly three bouts, 46 s of contact total.** Gear change brackets to
+pts **5760–5990** (two green tooltips side by side at 5760).
+
+**Correction 1 — the test is at level 11, not "just before 12."** 10→11 fires at pts 5515.0, at the
+*start* of the window. My §6b-bis phrasing put the dummy test at the top of the level-12 shelf; it
+sits at the bottom of the level-11 one.
+
+**Correction 2 — the node grid at offset ~5800 is the MASTERY TREE, not devotion.** I read it as
+devotion evidence. It is not evidence of anything about devotion.
+
+Correction 2 matters more than it looks: it removes the only *positive* frame I had for the devotion
+question and leaves that question resting entirely on absence-of-evidence. See §9.11.5.
+
+## 9.11.4 Player-side poison DoT — the cleanest number in the run, and cleaner than reported
+
+Matt's deliberate death was the right instinct and it produced the best-conditioned measurement in
+the artifact set. Globe **numerals** at 60 fps, **98.2% coverage over 58 s**:
+
+| Quantity | Value | Basis |
+|---|---|---|
+| **Tick magnitude** | **−10 HP exactly** | 57 consecutive ticks |
+| **Tick period** | **1.000 s exactly** | sd **0.072 s** across 57 ticks |
+| Max HP implied | **≈490** | from 10 HP = 2.04% of max |
+| Time-to-kill from full, unresisted | **59.8 s** | |
+| **Regen** | **1.580 HP/s — MEASURED, not modelled** | `life_healed` 3351.78 → 3445.00 (Δ **93.22**) with potions **0** and dps **0.00** ⇒ no exogenous term, no lifesteal |
+
+The out-of-combat matched-gear regen stretch I had planned to ask for is **not needed**. The death
+window contains its own regen control, because the two confounds that would have polluted it
+(potions, lifesteal) are both pinned to zero by fields already in the panel. That is Matt's
+no-potion control paying off in a place nobody designed it for.
+
+### The closure residual is a denominator artifact — the physics closes ~30× tighter than reported
+
+galadriel reports **8.42 expected vs 8.21 measured** and correctly flags that she has *not*
+double-subtracted. But the three rates are computed over **three different windows**:
+
+- 10.00 HP/s = 570 HP / **57.0 s** (tick coverage)
+- 1.580 HP/s = 93.22 HP / **59.0 s** (`life_healed` endpoints)
+- 8.21 HP/s = net drop / **≈58 s** (globe endpoints)
+
+Put all three over one common window **W = 58.0 s**:
+
+```
+raw DoT   570.00 / 58.0 = 9.828 HP/s
+regen      93.22 / 58.0 = 1.607 HP/s
+net                      = 8.221 HP/s      vs measured 8.21   →  0.13% closure
+```
+
+The 2.5% gap is arithmetic, not biology. **The closure is essentially exact.**
+
+**And the durable quantity is the TICK, not the rate.** "10.0 HP/s" is window-dependent (over a
+58 s window with 98.2% coverage the *effective* raw rate is 9.83). "**−10 HP per tick, period
+1.000 s, sd 0.072 s**" is exact and window-independent. Only the tick form goes into the oracle.
+
+**One more thing the uniformity buys us, which neither of us said.** 57 ticks of *identical*
+magnitude is itself the evidence that this is a **single DoT instance continuously refreshed**, not
+overlapping stacks from a flooded cave — stacking would produce a stepped or varying magnitude. That
+is what makes it oracle-grade rather than merely large. A stacked reading would have been useless.
+
+**Design-relevant figure for Reincarnated (not GD trivia):** an environmental hazard that kills an
+unresisting player in **~60 s at ~2% max-HP per second**, ticking on a **flat 1 s cadence**, against
+a regen of ~0.32% max-HP/s — i.e. the hazard runs **~6.3× regen**. That ratio is the hazard-tempo
+number, and it is far more transferable than the raw 10.
+
+**Flagged and unexplained:** HP restores to **full** at pts ~2769 and ~2775 with potions at **zero**.
+The measurement stretch is downstream of both, so the number is unaffected — but an unexplained
+full-heal on a run whose whole value is its controls is a **live thread**, not a footnote. Candidate
+causes to test, cheapest first: (a) a level-up (GD full-heals on level-up) — check `max_level` at
+those pts; (b) a shrine/rift/town transition; (c) a death not yet in the deaths series. If (a), it is
+fully explained and should be written into §2.2 as a known control-exempt event.
+
+## 9.11.5 Two honest gaps, held open
+
+**Dummy-side poison DoT — NOT MEASURED.** Blocked on the census; the dps field cannot separate DoT
+from direct damage. Recorded as an honest gap rather than an estimate. **This is the one deliverable
+Matt specifically set up gear for, and it did not land** — through no fault of his setup. The v2 fix
+(§9.11.7) recovers it.
+
+**Devotion — still OPEN, and galadriel declined to claim it.** No constellation screen exists
+anywhere in pts 5700–6080. The best indirect evidence is that **no `devotion/` path appears in
+`Skills Used` across all 313 stills** — which proves **no devotion proc ever fired**, and therefore
+closes the kill-attribution channel that actually threatened the oracle. It does **not** prove zero
+points assigned, because stat-only nodes leave no trace in that list.
+
+**My disposition:** the control that matters for this fixture is *"no unmodelled damage source
+contributed to kills"*, and that is **PROVEN** by the absent `devotion/` path. The stronger claim
+*"zero devotion points assigned"* is **UNVERIFIED and should be recorded as such rather than
+searched for further** — a stat-only node would perturb the damage magnitudes we are calibrating,
+but it perturbs them *inside* the character sheet, and the character sheet is screenshotted. Route
+it to the gear/stat reconciliation pass, not to another video search. Matt's own hedge ("at least I
+think I did") is the correct confidence level and should survive into the fixture metadata verbatim.
+
+## 9.11.6 T-A screenshot arm — CLOSES
+
+**313/313 stills, zero missing fields, zero monotonicity violations across six series.** The arm that
+began with my D-1 misread ends clean. Both independent D-1 reproductions (mine on `play_time`,
+elrond's on `kills`) are now behind a gate that catches them.
+
+## 9.11.7 The v2 change that buys the most for the least
+
+> **Record one dummy segment with the debug overlay OFF.**
+
+One toggle, one segment. It removes the self-inflicted occlusion, makes the FCT census tractable, and
+recovers the dummy-side DoT measurement that is the only thing round 2 failed to deliver. Everything
+else about v2 can stay as it is.
+
+**Protocol form (§2.2 amendment, owed):** the dummy-test segment runs in **two passes over the same
+gear state** — pass 1 overlay ON (panel fields, dps, `life_healed`), pass 2 overlay OFF (FCT census).
+Gear must not change between them, and the pass boundary is called out on the audio track.
+
+## 9.11.8 Consolidated action from round 2
+
+- [ ] gandalf: §2.2 amendment — **two-pass dummy segment** (overlay ON, then OFF, same gear).
+- [ ] gandalf: §5 amendment — FCT is an **assisted sampler**, not a ledger; **`∫dps dt` is the
+      primary total-damage instrument**; integration bounds at plateau edges, never contact edges.
+- [ ] gandalf: §5 amendment — **no colour coding in FCT**; damage-type attribution can never come
+      from the pixel layer.
+- [ ] gandalf/elrond: record the poison DoT as **tick-form** (−10 HP / 1.000 s / sd 0.072), never as
+      a rate; carry the ~6.3× hazard-to-regen ratio as the transferable figure.
+- [ ] galadriel or elrond (~5 min): check `max_level` at pts **2769** and **2775**. Level-up would
+      fully explain the unexplained full-heals; anything else is a live control breach.
+- [ ] elrond: fixture metadata records devotion as **"no proc fired — PROVEN; zero points assigned —
+      UNVERIFIED (player-reported, self-hedged)"**. Do not collapse those two into one flag.
+- [ ] gandalf: correction of record — dummy test is at **level 11**; the ~5800 node grid is the
+      **mastery tree**. §6b-bis and §9.10 amended by this section.
+- [x] galadriel: T-A screenshot arm CLOSED, 313/313.
+
+---
+
+# 10. Design recognition — form identity, and the transform Matt made for no reason
+
+▶ **ROLE: STORYWRIGHT** — trigger: an unprompted player behaviour in the substrate that speaks to a
+locked Reincarnated design thesis.
+
+**The observation.** Matt transformed into the werewolf **in town**, where it bought him nothing —
+no combat, no threat, no mechanical benefit. His own account: *"for no specific reason other than to
+preserve the role-play experience."*
+
+**Why this is evidence and not anecdote.** It is an *unprompted, mechanically-worthless* action taken
+by a player who was at that moment operating as an instrument-runner under a controlled protocol —
+i.e. the one condition under which he had every reason **not** to add unnecessary actions. He did it
+anyway. Behaviour that survives an incentive to suppress it is the strongest kind of preference
+signal there is.
+
+**What it is evidence OF.** That the form is not experienced as an ability with an uptime. It is
+experienced as **who the character is**. The player wants to *be* the thing, and only tolerates being
+the other thing when the game makes him.
+
+This is precisely the thesis the Reincarnated **form library** is built on — forms as accumulated
+identities, not as cooldowns. We now have a player, under experimental discipline, spending actions
+to hold an identity that pays zero.
+
+**Genre precedent, and the trap sitting inside it.**
+
+- **Diablo II Druid** — shapeshift is duration-based and must be re-cast. Identity is *present* (the
+  Werewolf/Werebear player thinks of himself as the animal), but it is **taxed**: every re-cast is
+  the game reminding you that the form is temporary and you are really the human underneath.
+- **Diablo IV Druid** — per-skill momentary shifting removed that friction entirely, and dissolved
+  the identity with it. The community complaint that followed was never about power; it was
+  literally ***"I can't stay a werewolf."*** D4 optimised away the tax and destroyed the thing the
+  tax was protecting.
+
+**The trap:** the friction and the identity look like separate variables and are not. D2 has both.
+D4 removed the friction and lost the identity. **Nobody in the lineage has shipped identity without
+friction** — and that is the space Reincarnated's form library is actually aiming at.
+
+**Three concrete protections** (design recommendations, not rulings — Matt's call):
+
+1. **No duration decay on a worn form outside combat.** The form ends when the player chooses, when
+   combat resolves it, or when the season does — not on a timer. A timer converts identity into
+   uptime management.
+2. **No penalty for remaining in form in hub / safe space.** If town is cheaper out-of-form in *any*
+   dimension — movement, vendor access, dialogue, stash — the game has told the player his identity
+   is a combat costume. Matt's town transform must remain *free*, or it stops happening.
+3. **Hub NPCs and the Spirit Guide react to the worn form.** This is the cheap one and the one that
+   converts a tolerated behaviour into a rewarded one. A single acknowledging line makes the form
+   the player is wearing *legible to the world*, which is the difference between wearing an identity
+   and carrying an item.
+
+**Player consequence, stated concretely.** Under the current lineage-default (D2/D4), the player
+enters town and reflexively drops form because the game has trained him that form is for fighting.
+Under these three protections, the player walks into the hub as a wolf, the Spirit Guide says
+something to a wolf, and the form-library becomes a wardrobe of *selves* rather than a list of
+*loadouts*. That is the entire difference between the gacha-accumulation loop feeling like collection
+and feeling like reincarnation — which is the game's name.
+
+**Cross-reference owed:** `canonical/reap-die-rise-story/` form-library material and
+`canonical/current-to-end-state/current-to-end-state-story.md` open-question queue. Recorded here
+first because the evidence is here.
