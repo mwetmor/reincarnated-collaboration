@@ -100,8 +100,15 @@ def main():
         g = segment(mask, y, L + SKILL_INDENT, 1915, gap=6)
         if not g:
             continue
-        px0, px1 = g[0]
-        prof = mask[y:y + ROW_H, px0:px1 + 1].sum(axis=0).astype(float)
+        # profile the FULL path span (indent -> detached colon), matching
+        # panel_ocr.skill_row
+        colon_x0 = None
+        for gx0, gx1 in g[:-1]:
+            if gx1 - gx0 + 1 <= 4:
+                colon_x0 = gx0
+        px0 = L + SKILL_INDENT
+        px1 = (colon_x0 - 2) if colon_x0 else (g[-1][0] - 6)
+        prof = mask[y:y + ROW_H, px0:px1].sum(axis=0).astype(float)
         idx = np.linspace(0, len(prof) - 1, 64)
         skills.setdefault(name, []).append(list(np.interp(idx, np.arange(len(prof)), prof)))
         print(f"  skill sig '{name}' x={px0}-{px1} ({px1-px0+1}px)")

@@ -223,40 +223,51 @@ class PanelReader:
 
     # -- skill rows (G-2) --------------------------------------------------
     def skill_row(self, mask, y, L):
-        groups = segment(mask, y, L + SKILL_INDENT, 1915, gap=6)
+        """Identify the skill on a row and read its count.
+
+        The path profile is taken over the FULL path span (row indent up to the
+        detached colon), not over segment()'s first group. Background bleed can
+        dim a mid-path glyph below threshold and split the path into two
+        groups; profiling only the first group then yields a different-length
+        signature that scores ~0.82 against the right skill and is refused.
+        Anchoring on the span rather than on a group fixes that.
+        """
+        x_lo = L + SKILL_INDENT
+        groups = segment(mask, y, x_lo, 1915, gap=6)
         if len(groups) < 2:
             return None, -2.0, None, 0.0
-        px0, px1 = groups[0]
-        prof = mask[y:y + ROW_H, px0:px1 + 1].sum(axis=0).astype(float)
-        if len(prof) < 32:
+        num_x0, num_x1 = groups[-1]
+        # the detached colon (G-4) is the narrow group before the count
+        colon_x0 = None
+        for gx0, gx1 in groups[:-1]:
+            if gx1 - gx0 + 1 <= 4:
+                colon_x0 = gx0
+        path_x1 = (colon_x0 - 2) if colon_x0 else (num_x0 - 6)
+        if path_x1 - x_lo < 32:
             return None, -2.0, None, 0.0
+        prof = mask[y:y + ROW_H, x_lo:path_x1].sum(axis=0).astype(float)
         idx = np.linspace(0, len(prof) - 1, 64)
         sig = np.interp(idx, np.arange(len(prof)), prof)
+
         scores = {}
         for k, refs in self.skill_sigs.items():
             for ref in refs:
                 if np.std(sig) < 1e-6 or np.std(ref) < 1e-6:
                     continue
-                c = float(np.corrcoef(sig, ref)[0, 1])
-                scores[k] = max(scores.get(k, -2.0), c)
-        if not scores:
-            return None, -2.0, None, 0.0
-        ranked = sorted(scores.items(), key=lambda kv: -kv[1])
-        name, corr = ranked[0]
-        runner_up = ranked[1][1] if len(ranked) > 1 else -2.0
-        # Refuse on low match OR on an ambiguous one: two paths within 0.02
-        # cannot be told apart, and a mis-assigned skill silently corrupts two
-        # counter series at once. The monotonicity gate is the second net.
-        if corr < SKILL_MIN_CORR or (corr - runner_up) < 0.02:
-            name = None
-        # the count is the first group after the path that is not the detached
-        # colon (G-4); the colon is <= 4 px wide
-        cnt, cconf = None, 0.0
-        for gx0, gx1 in groups[1:]:
-            if gx1 - gx0 + 1 <= 4:
-                continue
-            cnt, cconf = self.read_number(mask, y, gx0, min(gx1 + 3, 1915), "int")
-            break
+                scores[k] = max(scores.get(k, -2.0),
+                                float(np.corrcoef(sig, ref)[0, 1]))
+        name, corr = (None, -2.0)
+        if scores:
+            ranked = sorted(scores.items(), key=lambda kv: -kv[1])
+            name, corr = ranked[0]
+            runner_up = ranked[1][1] if len(ranked) > 1 else -2.0
+            # Refuse on a low match OR on an ambiguous one: two paths within
+            # 0.02 cannot be told apart, and a mis-assigned skill silently
+            # corrupts two counter series at once. The monotonicity gate in
+            # gate_and_fit.py is the second net.
+            if corr < SKILL_MIN_CORR or (corr - runner_up) < 0.02:
+                name = None
+        cnt, cconf = self.read_number(mask, y, num_x0, min(num_x1 + 3, 1915), "int")
         return name, corr, cnt, cconf
 
     # -- frame level -------------------------------------------------------

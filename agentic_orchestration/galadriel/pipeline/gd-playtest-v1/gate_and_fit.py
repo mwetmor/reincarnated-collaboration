@@ -105,27 +105,50 @@ def main():
         if bad:
             r["gate"] = "REJECT:" + ",".join(bad)
 
-    # --- two-clock affine fit -------------------------------------------
+    # --- two-clock divergence + break location ---------------------------
+    # d = play_time - pts. Within a slope-1 segment d is constant, but
+    # `play_time` is rendered as INTEGER seconds and sampled at 2 fps, so the
+    # measured d dithers over a ~1 s band. A raw threshold on consecutive
+    # samples therefore invents breaks out of dither. d is smoothed with a
+    # rolling median first, and only shifts above the dither floor are called.
+    #
+    # HONEST LIMIT: gandalf measured one real zone transition costing exactly
+    # 1 s. A 1 s loss is INDISTINGUISHABLE from the dither band at this sample
+    # rate. Breaks below BREAK_MIN_S are not located individually; they are
+    # absorbed into the cumulative divergence curve, which remains exact at
+    # its endpoints. Locating them needs native-rate sampling around candidate
+    # transitions (a T-C ask), not a smarter filter on T-A.
+    BREAK_MIN_S = 3.0
+    MED_W = 15
     div = [(r["pts_s"], r["play_time"] - r["pts_s"])
            for r in rows if r.get("play_time") is not None]
-    segments, breaks = [], []
+    segments, breaks, divergence = [], [], []
     if div:
-        cur_d = div[0][1]
-        seg_start = div[0][0]
-        for pts, d in div[1:]:
-            # play_time is integer seconds sampled at 2 fps, so the difference
-            # dithers by +-1s within a segment; a real break is larger.
-            if abs(d - cur_d) > 2.0:
-                segments.append({"pts_start": seg_start, "pts_end": pts,
-                                 "offset_s": round(cur_d, 2)})
-                breaks.append({"pts_s": pts,
-                               "lost_s": round(cur_d - d, 2)})
-                cur_d = d
-                seg_start = pts
+        pts_a = np.array([p for p, _ in div])
+        d_a = np.array([d for _, d in div], dtype=float)
+        k = min(MED_W, len(d_a) if len(d_a) % 2 else len(d_a) - 1)
+        if k >= 3:
+            pad = k // 2
+            padded = np.pad(d_a, pad, mode="edge")
+            med = np.array([np.median(padded[i:i + k]) for i in range(len(d_a))])
+        else:
+            med = d_a
+        divergence = [{"pts_s": float(p), "divergence_s": round(float(m), 2)}
+                      for p, m in zip(pts_a[::20], med[::20])]
+        seg_start, cur = pts_a[0], med[0]
+        for i in range(1, len(med)):
+            if cur - med[i] >= BREAK_MIN_S:
+                segments.append({"pts_start": float(seg_start),
+                                 "pts_end": float(pts_a[i]),
+                                 "offset_s": round(float(cur), 2)})
+                breaks.append({"pts_s": float(pts_a[i]),
+                               "lost_s": round(float(cur - med[i]), 2)})
+                seg_start, cur = pts_a[i], med[i]
             else:
-                cur_d = 0.9 * cur_d + 0.1 * d
-        segments.append({"pts_start": seg_start, "pts_end": div[-1][0],
-                         "offset_s": round(cur_d, 2)})
+                cur = min(cur, med[i]) if med[i] < cur else cur
+        segments.append({"pts_start": float(seg_start),
+                         "pts_end": float(pts_a[-1]),
+                         "offset_s": round(float(med[-1]), 2)})
 
     # --- hard breaks: deaths --------------------------------------------
     deaths = []
@@ -163,6 +186,7 @@ def main():
         "n_samples": len(rows),
         "field_stats": stats,
         "clock_segments": segments,
+        "divergence_curve": divergence,
         "clock_breaks_zone_transitions": breaks,
         "deaths": deaths,
         "level_ups": levels,
