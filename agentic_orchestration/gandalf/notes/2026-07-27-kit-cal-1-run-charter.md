@@ -689,4 +689,42 @@ its exact job — two testimony errors caught by instruments within hours of ban
 because grades were carried instead of trust. Kit-spec + H-2 bands now redraft on measured
 identity (level 13, claws 16, Onslaught 13, four greens + shield) per G-4 §6.5.
 
+### 14.6 — H-3 comparability verdict: G-5a × G-5b × G-7-note synthesis (decision package to Matt)
+
+All three passes landed (legolas `9838449d` G-5a ledger; gamora `4b972902` G-5b census; legolas
+`d311ec1b` G-7 findings note — all pushed).
+
+**G-7 note headlines:** gear names **4/4 EXACT** character-for-character against Matt's testimony
+— hard verification of the whole `.gdc`→`.arz`→`.arc` chain. Ranks proven **base hard points**
+(budget closes 37 = 36-from-levels + 1 quest; +skills sources empty). Level 13 proven twice from
+`.arz` arithmetic (XP thresholds; attribute bytes). "All four green" refines to: weapon+amulet
+Rare **bases**, armor+belt Common bases with Rare-class **suffixes** — Matt's major/minor split
+partitions exactly along that boundary. **`werewolf1b` = "Blight of Ch'thon"** (`GDX3.arz`,
+transmuter, max 1): its whole effect is **100% Pierce→Chaos conversion** + blighted mesh. **The
+kit's pierce output is chaos-typed.** Resolution: conversion is static/total, so it compiles into
+the kit spec as retyped damage — no sim conversion mechanism needed (degradation-model note).
+Follow-on **U-1**: extract rank-16 array values for werewolf1/claws/charge + the four items'
+rolled stats (reader exists in scratch).
+
+**Comparability verdict (H-3):** GD level-12 Normal/1P opposition (28 protos, 16 spawn pools):
+monster HP 181→35,198 (200× span — HP is the differentiation axis) while per-hit damage sits in
+a **33–67 band ≈ 2.5% of the 1600 post-gear pool**; concurrent melee capped by
+`numAttackSlots=4` (~10% pool/round). Sim today: player 14,555 (floor 10k), hits 625–2,500
+(4–17% pool), cadence 1.4 s. **Absolute scales ~10× apart — but moot under pinning**, which
+G-5b proved possible for monsters with zero engine change. Two genuine gaps: (1) **BQ-3** —
+player `max_hp` floor + hardcoded-zero defence path block the fixture's 759→1600 pools (~9
+default-inert lines, gamora + Gate-2); (2) **attack-slot arbitration likely ABSENT in sim** —
+with GD pack sizes injected and no 4-slot cap, concurrent pressure overstates ~2.5×; harness
+compensation (cap effective attackers) or manifest row. G-5a's one DERIVED risk — the
+`monsterAttributePak` multiplicative reading — is validatable **against the fixture itself**
+(predicted 33–67 band vs the measured intake distribution; `hitsReceived=500`), no live client
+needed.
+
+**Proposed R-KC1-15 (HALT — H-3 is Matt's commitment-boundary):** (a) BQ-3 lines via gamora,
+Gate-2 reviewed; (b) U-1 rank/item-value extraction; (c) pak validation via fixture-intake join;
+(d) harness pins monsters from the G-5a ledger (spawn pools + 4-slot compensation) and player
+from the measured kit, pre-flight asserts armed (`pack_proxy_size==0`, ×1.5 HP multiplier off,
+0.6 damage scale accounted, no skill-less mobs); (e) chaos retype at spec-compile; (f) **then
+G-5 fires.** Awaiting Matt's ruling.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
