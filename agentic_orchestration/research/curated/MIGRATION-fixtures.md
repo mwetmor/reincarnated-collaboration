@@ -30,6 +30,12 @@ python3 agentic_orchestration/research/scripts/fixtures_m5_v0_3_schema_2026_07_2
 python3 agentic_orchestration/research/scripts/fixtures_m7_trial_participant_2026_07_26.py
 bash    agentic_orchestration/research/scripts/gp_run01_precompute_2026_07_26.sh   # sha256/mtime/dims
 python3 agentic_orchestration/research/scripts/fixtures_m6_gp_run01_ingest_2026_07_26.py
+# M8 (fixtures-v0.5) -- the measured-fixture layer. Needs NO /Volumes mount: both
+# galadriel capture dirs are committed.
+python3 agentic_orchestration/research/scripts/fixtures_m8_gd_playtest_v1_fixture_2026_07_28.py
+python3 agentic_orchestration/research/scripts/fixtures_m8b_engagement_grain_2026_07_28.py
+python3 agentic_orchestration/research/scripts/fixtures_m8c_rollup_and_fixture_2026_07_28.py
+python3 agentic_orchestration/research/scripts/fixtures_m8d_fixture_conditions_claims_2026_07_28.py
 ```
 
 **M6 requires the `/Volumes/reincarnated` share to be mounted.** Its precompute step reads
@@ -595,3 +601,149 @@ is now constrained: `corpus.db`'s bridge must exist before `fixtures.db` M4 runs
 written into the rebuild block at the top of this ledger.
 
 The remaining unexercised join is `trial_measurement.measure_subkey` → `exact_skill.record_path`.
+
+---
+
+## M8 — 2026-07-28 · schema `fixtures-v0.5` · the MEASURED-FIXTURE layer
+
+**Commission:** G-3, phase P-1 of run `KC1-2026-07-27` (KIT-CAL-1). Conductor gandalf.
+**Charter:** `gandalf/notes/2026-07-27-kit-cal-1-run-charter.md` §1, §2 T-3, §8.
+**Scripts** (run in order; each transactional, each idempotent on re-run):
+
+```bash
+python3 agentic_orchestration/research/scripts/fixtures_m8_gd_playtest_v1_fixture_2026_07_28.py   # DDL + the two series
+python3 agentic_orchestration/research/scripts/fixtures_m8b_engagement_grain_2026_07_28.py        # 106 engagements + quality
+python3 agentic_orchestration/research/scripts/fixtures_m8c_rollup_and_fixture_2026_07_28.py      # regime rollup + TTK recompute
+python3 agentic_orchestration/research/scripts/fixtures_m8d_fixture_conditions_claims_2026_07_28.py # fixture, targets, conditions, grades
+```
+
+**DDL:** `research/scripts/fixtures_v0_5_ddl.sql` · **Backup:** `fixtures.db.pre-v0.5-*-backup`
+**Class:** additive (11 new tables, 7 new views, 24 new `measure_dict` keys) + one table rebuild.
+
+### Why `fixtures.db` and not `corpus.db`
+
+Ruling O-1 already separates them, and this ingest is the case the ruling anticipated.
+`corpus.db` holds curated **kit knowledge** — what a skill *is*, per the `.arz`. This is a
+**measurement of one afternoon**: two OCR readers walking one recording. The join between
+them is `measured_fixture.kit_id` → `corpus.db` kit rows, by value, one `ATTACH` away. The
+stores stay physically independent, so the calibration run cannot damage the corpus and a
+corpus rebuild cannot silently move a fixture.
+
+### What landed
+
+| Grain | Table | Rows |
+|---|---|---|
+| Build-stable span | `session_regime` | **3** (R1 report-only · R2 fixture · R3 secondary) |
+| A named cut into engagements | `segmentation_run` | **1** (`…/S1-gap5s-v1`, status `current`) |
+| T-A panel series, 0.5 s | `panel_series_sample` / `panel_series_reading` | **13,633** / **175,985** |
+| T-B globe series, 15 fps | `globe_series_frame` | **19,348** (17,183 OK + **2,165 refusals kept**) |
+| Engagement | `fixture_trial` (+`trial_measurement`) | **106** (+1,368) |
+| Reader quality, three grains | `series_field_quality` | **1,761** |
+| Regime rollup | `regime_stat` | **329** |
+| Fixture identity / contract | `measured_fixture` / `fixture_target` | **3** / **11** |
+| Declared holes | `fixture_condition` | **19** (9 high · 7 moderate · 3 low) |
+| Evidence grades | `evidence_claim` | **14** (5 MEASURED · 2 DERIVED · 3 ATTESTED · 1 INFERRED · 3 UNVERIFIED) |
+
+Per regime, on the segmentation of record: **R1 13 engagements / 43 kills · R2 77 / 647 ·
+R3 16 / 190** — the verdict §3 table reproduced cell-for-cell from the banked rows.
+
+### The four constraints, made structural rather than documentary
+
+1. **Regime-partitioned, never pooled.** `regime_stat.regime_id` is an FK to `session_regime`,
+   which holds only real build-stable spans. There is no `ALL` row to point at, so a pooled
+   table is not a thing you have to remember not to build — it is a thing you cannot insert.
+   Verified: the insert fails `FOREIGN KEY constraint failed`.
+2. **`life_healed`'s rejection rate rides as a column.** `series_field_quality` carries
+   `n_present / n_accepted / n_rejected_nonmonotonic / n_missing` at **session, regime and
+   engagement** grain, and the rejected reads themselves are banked with their raw value in
+   `panel_series_reading.value_raw`. Nothing was smoothed; nothing was interpolated.
+3. **Coverage travels with every intake figure.** `measure_dict.requires_coverage` plus two
+   `RAISE(ABORT)` triggers make a NULL coverage on a coverage-bearing figure unrepresentable.
+   Verified: the insert fails with the named message.
+4. **Evidence grades are first-class.** `evidence_claim` carries WHO said it, WHEN, and the
+   **empirical criterion** that would move it. Devotion-zero is ATTESTED (Matt 2026-07-28)
+   with `upgrade_criterion` naming the R-KC1-4 `.gdc` probe. Grades also ride on
+   `regime_stat`, `trial_measurement`, `session_regime.boundary_grade` and `session_control`.
+
+And the fifth: **kills/engagement is not the headline.** `fixture_target.tier` = `provisional`
+with `gate_ref` = the G-2b decomposition. `measure_dict.semantics_status` = `contested`.
+`v_fixture_accountability` shows the tier beside every target, so no consumer can read the
+number without reading its standing.
+
+### Re-ingestion tolerance (the G-2b question, answered in the schema)
+
+A re-segmentation is **a new `segmentation_run` row, never an UPDATE.** `fixture_trial` gained
+`segmentation_id`, and the ledger-scoped unique index was re-keyed onto it, so two cuts of the
+same session can each hold an `e007`. `regime_stat` and `measured_fixture` are both keyed on
+`segmentation_id`. A consumer that pinned one keeps reading exactly what it read before.
+
+Concretely, when HALT H-1 rules a different grain: insert the new `segmentation_run`, re-run
+M8b/M8c against it, flip the old row to `status='superseded'` with `superseded_by`, and
+re-point `measured_fixture.segmentation_id`. **The two series underneath are untouched** —
+they are the measurement; everything above them is a partition of it. That is the whole reason
+the 13,633 panel samples and 19,348 globe frames were banked rather than just the rollup.
+
+### Four things found while ingesting that the sources did not say
+
+**(1) The totals gate is FRAME coverage, not DELTA coverage — and the two disagree.** My first
+pass stored delta coverage on the intake figures. An independent recompute of the coverage-gated
+totals then **disagreed with galadriel's rollup**: R2 n=63 instead of 62, R3 n=10 instead of 9,
+and the R3 mean moved **163.3 → 188.4**. The gate is on frame coverage. Both quantities are
+real and neither is "the" coverage, so the store now holds both:
+`trial_measurement.coverage` = frame coverage (the gate coverage — filtering `>= 0.80`
+reproduces the inclusion sets exactly), and `series_field_quality.covered_s / wallclock_s` =
+the delta family. After the correction all three regimes **AGREE** on n / mean / median / max.
+Discipline #11 earned its keep here: the disagreement only existed because the rollup was
+recomputed rather than trusted.
+
+**(2) `life_healed`'s 3.1% is a run-wide average that hides a 5× regime skew.**
+Banked at regime grain: **R1 0.20% · R2 1.26% · R3 15.15%** of present reads. The noise is
+concentrated almost entirely in R3 — the same regime that carries the coverage hole, and the
+regime whose figures rest on nine engagements. The headline rate is not wrong; it is flat
+where the substrate is not.
+
+**(3) The verdict's "3.1%" sits between two defensible denominators.** 413 rejections is
+**3.198%** of the 12,913 present reads and **3.029%** of the 13,633 samples. This store
+records the counts and lets `v_series_rejection` show both rates. It does not choose.
+
+**(4) The R2/R3 boundary is DERIVED, not MEASURED.** The verdict grades everything MEASURED.
+But the poison-DoT boundary comes from a gear-equip event that **brackets** to `play_time`
+6052–6282 — a 230 s band — and 6052 is the band's lower edge. The bracket is measured; its
+collapse to a point is a derivation, and it can move up to 230 s of engagements between R2
+and R3. `session_regime.boundary_grade` reads **DERIVED** for R3 and MEASURED for R2, and
+`EC-DOT-BOUNDARY-6052` names the criterion that would settle it.
+
+### One defect closed in passing
+
+`trial_measurement`'s inline `read_method` CHECK had frozen the v0.1 nine-value list while
+`read_method_dict` grew to fifteen. Any honest `video-frame-ocr` provenance would have been
+forced into a wrong bucket. The table was rebuilt (179 rows preserved) with the CHECK replaced
+by an **FK to the dictionary**, so the two cannot drift again. **`character_stat` carries the
+same latent drift and was left alone** — out of scope here, logged for a later pass.
+
+### Verification
+
+`foreign_key_check` **CLEAN** · `integrity_check` **ok** · DB 51 MB · re-run of all four
+scripts is idempotent (row counts identical).
+
+Closure checks that passed: panel `kills` endpoint **882** vs segmentation total **880** —
+they agree exactly once the 2 pre-run kills are subtracted (control `counters-start-at-zero`
+VIOLATED, banked as `C-COUNTERS-NONZERO`). Regime table reproduced cell-for-cell. Per-field
+accepted/rejected counts match `ta-full-2fps-summary.json` **exactly on all twelve fields**.
+Coverage-gated intake totals **AGREE** with `tb-rollup.json` on all three regimes after the
+coverage-semantics correction above.
+
+### ADR-004 + reversibility
+
+No engine-telemetry change; star-lord's ledger is unaffected. `fixtures.db` still reads nothing
+from `reincarnated-engine/data/telemetry.db`. Reversible: `fixtures.db.pre-v0.5-*-backup`
+restores the exact PRE state. The `.db` remains gitignored — **the four scripts plus the DDL
+are the durable record**, and both source capture directories are committed, so a byte-
+equivalent rebuild needs no `/Volumes` mount (unlike M6).
+
+### Known limits of the guards
+
+The pooled-regime guard is an **FK**, and SQLite enforces foreign keys **per connection**
+(`PRAGMA foreign_keys=ON`, off by default in the CLI). A consumer that opens the file with FKs
+off can insert a pooled row. The `requires_coverage` guard is a **trigger** and holds
+unconditionally. Named here rather than left to be discovered.
