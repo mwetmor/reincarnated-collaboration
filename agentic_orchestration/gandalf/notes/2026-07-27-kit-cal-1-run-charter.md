@@ -727,4 +727,33 @@ from the measured kit, pre-flight asserts armed (`pack_proxy_size==0`, ×1.5 HP 
 0.6 damage scale accounted, no skill-less mobs); (e) chaos retype at spec-compile; (f) **then
 G-5 fires.** Awaiting Matt's ruling.
 
+### 14.7 — G-6 lands (galadriel `3425c062`): triangulation complete, and the pixels carry history the save cannot
+
+All chartered instruments have now reported. G-6 ran **blind** to T11/G-7 (they landed mid-pass)
+and **independently agrees on every shared claim** — testimony, save bytes, and pixels now
+triangulate. What only the pixels know (37 skill-window frames, dated on `play_time` via the
+panel reader; ledger endpoints read exactly at f352):
+
+- **Ranks are DATED, and R2 is NOT A-stationary:** claws' target cap grew **2→3→4→5** and its
+  arc **90°→150°**, capping at `play_time` 2918; transform maxed (16) at 3619; Onslaught sat at
+  rank 1 until level 9 with its counter frozen at 54. H-2's A-step band must segment R2 or draw
+  from the post-2918 window — v2 fork.
+- **Two allocated skills the v1 spec missed, both switching on mid-R2:** **Battle Surge** r1
+  (crit-gated self-heal, 8% max-HP/s × 3 s on 6 s recharge — unmodelled sustain channel) and a
+  **cold aura** r1 (+16 Armor / +20 DA).
+- **U-1 substantially delivered from tooltips:** the 759→1600 step is **87.6% itemised** (+737
+  of +841 from four flat +Health affixes); ~109+ Armor accounted; weapon poison DoT **50 dmg /
+  5 s**; the kit runs **six damage channels and two conversions** vs the v1 spec's two channels.
+- **Fifth independent line for the G-4 skillSet ruling, in GD's own words:** the transform
+  tooltip reads *"cannot trigger weapon pool skills."*
+- BQ-1/BQ-2 sharpened: GD's target cap is a *rank-scaling* mechanic (2→5) and claws' end-state
+  arc is **150°**, not the sim's fixed global 90°.
+- Devotion tab visible in all 37 frames, never selected — no devotion frames exist; the save's
+  MEASURED zero stands as the sole (and sufficient) source.
+
+**Consequence fired (pre-authorized by G-4 §6.5):** kit-spec **v2** redraft dispatched to the
+named gandalf sub-agent — full measured identity (level 13, chaos retype, Battle Surge + cold
+aura, dated A-step, six channels), normalized-units bands per G-5b §7.3, ending in the **H-2
+pin-sheet** for Matt. R-KC1-15 remains HALTed to Matt; the redraft is robust to any line-strike.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
