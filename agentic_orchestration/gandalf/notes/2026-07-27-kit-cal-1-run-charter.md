@@ -173,3 +173,58 @@ R-KC1-4 `.gdc` probe (legolas); R-KC1-5 iconic shortlist (legolas). **Held:** P-
 G-2b onslaught answer + carries testimony amendment 1; P-3 G-5 awaits HALT H-2 band ratification.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+
+---
+
+## §9 — IN-RUN FINDING F-KC1-1 — the R2/R3 boundary is a COMPOUND event (2026-07-28)
+
+**Trigger:** Matt testimony, in-run — *"the weapon, shield and amulet I equipped at level 12 added
+HUGE health boosts."* Checked immediately against the T-B rollup. **Confirmed, and larger than the
+testimony implies.**
+
+| Regime | max-HP range (observed) | largest single-frame drop (RAW HP) | median drop | drops ≥10% EHP |
+|---|---|---|---|---|
+| R1 | 250 → 314 | 14 | 5.0 | 0 |
+| R2 | 366 → **759** | **541** | 5.0 | **27** (46.8% of intake) |
+| R3 | **1600 → 1600 (flat)** | **136** | **1.0** | 0 |
+
+**The finding.** Max HP steps **759 → 1600 (2.11×) at the R2/R3 boundary and is then FLAT for all
+of R3.** The verdict located that boundary by *gear-equip bracketing off the poison DoT*
+(`play_time` 6052–6282, correction C-1). The max-HP series is a **far sharper instrument** for the
+same boundary and it corroborates the placement independently.
+
+**⚠ SWITCH: (claim-relayer) → DRIFT-CRITIC — correcting a claim I endorsed one turn earlier.**
+The T-B headline — *"hazard inverts; the player got safer by out-scaling the size of what lands"* —
+was relayed by me as a build/world fact. It is substantially a **gear fact**. R3's flat 1600 EHP
+and its collapsed drop magnitudes (median 5.0 → **1.0** raw HP; max 541 → 136) are what a
+weapon+shield+amulet step *does*: more pool, and — since these are post-mitigation reads — more
+armor/block eating the incoming hits. The **inversion survives in raw HP** (541 → 136 is not a
+denominator artifact; the fixture's largest hit fell 4× in absolute terms), so the *shape* finding
+stands. Its **attribution** does not.
+
+> **R3 is not "R2 plus a poison DoT." It is a different character on both sides of the ledger** —
+> offense (DoT) *and* defense (2.11× pool + mitigation) stepped together at one gear event. Every
+> R3 figure must travel with **"post-gear-step"** as a condition, alongside its existing
+> coverage-hole condition.
+
+**Ripples, ruled in-run (veto-open):**
+
+1. **A fourth causal channel enters G-2b: SURVIVABILITY.** The kills/engagement climb into R3
+   (11.9) now has four candidate causes, not three — pack size, dash-chaining segmentation-merge,
+   AoE proficiency, **and a tankier character able to hold pack centers.** G-2b is in flight with
+   the first three; the fourth rides a **G-2c follow-up** rather than killing the running pass.
+2. **R2's own EHP is not constant either** (366 → 759, 2.07× across the regime). G-2c must check
+   whether the 27 ≥10%-EHP hits cluster early (low-denominator artifact) or late. The 72.4% hit
+   sits at EHP 747 — late-regime, near-max pool — so at least the extreme is a genuine huge hit.
+3. **The `.gdc` probe (R-KC1-4) is upgraded from convenience to load-bearing.** Identifying those
+   three items is now required for G-4 to model R3 at all. Gear identity was already in its scope.
+4. **Accountability-target consequence:** this strengthens R-KC1-2. Intake bands must be fit
+   per-regime against per-window EHP (galadriel already did this — `max_hp_range` is instrumented,
+   not assumed), and **R2 remains the fixture** precisely because it is the longest stretch without
+   a compound step.
+
+**Also banked:** Matt's Onslaught refinement — masking is CERTAIN (werewolf form hides it; claws
+were the visible effect); the OPEN question is *augment vs replacement*, which the Edition-II
+`.arz` transform records should settle outright (G-4 task, §8 amendment 1).
+
+**Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
