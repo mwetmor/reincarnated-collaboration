@@ -1307,4 +1307,47 @@ carrying the trace writer + the terminal-max 1607 re-check) → G-5 fires both a
 ring roll / B roll ×1.6), trash + champion sustain-free with insensitivity assertion, scenario
 HP per §14.19.
 
+---
+
+## §14.21 — R-KC1-20 + R-KC1-21 RATIFIED: the scratch-max_hp fix pulls forward, pre-G-5 — and Matt's argument beat the conductor's
+
+**Banked 2026-07-28. Gamora commissioned (background, seam write-work, tag target
+`gamora/v-scratch-maxhp-wake-1`); harness assembly queues directly behind her.**
+
+**The reversal, honestly recorded.** §14.20 held the dormancy line ("balance change in a
+bug-fix costume; wake-up owed to the Q-KC1-1 wave"). Matt challenged it twice and won on the
+second pass: *"we don't have a validated RDR battle sim… we are LITERALLY making the first
+validated emitted kit/monster production."* The conductor's D3-1.0.3 comparability argument
+FAILS here — Diablo had a live economy load-bearing on its bug; we have zero shipped seasons
+and zero players. Every telemetry baseline the dormancy protected is pre-validation output of
+an engine with a dead mechanic. And the deeper point is the substrate discipline itself:
+**validating a state you already know is wrong is backwards** — if G-5 stamps engine-state N
+and the wave immediately produces N+1, the verdict attaches to a corpse. The verdict must
+attach to the state we keep. Conductor lean withdrawn; Matt's ruling governs.
+
+- **R-KC1-20 (RATIFIED):** fix `spatial_resolver_adapter.py:233` scratch `max_hp = 1.0` → real
+  attacker pool, PRE-G-5, under a **blast-radius battery** (before/after distributional: KF-4 +
+  season-telemetry smoke; every awakened mechanic's delta enumerated — execute, freeze-shatter,
+  heal cap, production lifesteal; anomalies are findings, not silent patches). Plus a
+  **no-stack assertion**: the O-d door (leech as per-scenario VALUE, R-KC1-17) and the awakened
+  kernel path must contribute zero double-healing for the fixture kit — tested, not assumed.
+  OD-10 flips semantics (pins-dormant → pins-awake-with-measured-deltas); digest re-registered
+  as a RULED change, not a smuggled one.
+- **R-KC1-21 (RATIFIED, class umbrella per Matt's "if so, I ratify the others"):** the clamp is
+  one member of a family — *kernel operators the spatial seam silently kills via scratch-clamp
+  or sync-omission*. Census bounded to the mapped sites (adapter scratch construction, the
+  math-note §6 discard list, sync sites ~`:5163/:5186`). Named additional candidate: the **HoT
+  bridge** (HoTs land on scratch and evaporate — if sync-list-omission class, it fixes now).
+  **Class line, one sentence: known-wrong operands get fixed before validation; not-yet-built
+  mechanics get built in their wave.** Explicitly HELD in the Q-KC1-1 wave regardless: BQ-4
+  Battle Surge, BQ-1, BQ-2, regen HP-tick (build-class by ruling; measured 1.10 HP/s is
+  undetectable by G-5 — magnitude, not caution, keeps it out).
+- **A/B arms SURVIVE the fix** (Matt probed this): the arms test the quantified-absent Battle
+  Surge proc (~1,500 HP in-fight), which no operand fix resurrects. R-KC1-18 stands, in its
+  §14.20 distributional form.
+
+**Board:** gamora fix+census+battery → consolidated Gate-2 (now THREE items, one review:
+BQ-3 + O-d + wake) → harness assembly (trace writer per R-KC1-19; terminal-max 1607 re-check)
+→ G-5 both arms on the POST-FIX engine.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
