@@ -1,0 +1,41 @@
+=== R1 / player level 1-2 : atomic candidates (drops with mag>2, mag<8 excluded? no) ===
+  all R1 drops: [1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 9, 10, 10, 11, 14]
+  atomic candidate set (mag>2), n= 25 : [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 9, 10, 10, 11, 14]
+  observed counts: {4: 11, 5: 9, 9: 1, 10: 2, 11: 1, 14: 1}
+  single-hit set (mag 3-7), n= 20 : {4: 11, 5: 9}
+
+ charLevel 1, tier-01 (Default Phys Dmg for Normal Enemies):
+  ADDITIVE         band[ 3.83, 5.32]  best p=  0.2  logL=   -13.76  logL@p=0=   -14.17
+    predicted pmf @bestp: {4: 0.544, 5: 0.456}
+  MULTIPLICATIVE   band[ 6.46, 8.98]  best p=  4.3  logL=   -18.43  logL@p=0=  -184.21
+    predicted pmf @bestp: {3: 0.018, 4: 0.398, 5: 0.398, 6: 0.186}
+
+ charLevel 2, tier-01 (Default Phys Dmg for Normal Enemies):
+  ADDITIVE         band[ 4.35, 6.40]  best p=  1.3  logL=   -14.49  logL@p=0=   -35.01
+    predicted pmf @bestp: {3: 0.031, 4: 0.486, 5: 0.483}
+  MULTIPLICATIVE   band[ 7.14,10.52]  best p=  5.2  logL=   -24.37  logL@p=0=  -184.21
+    predicted pmf @bestp: {4: 0.296, 5: 0.296, 6: 0.296, 7: 0.113}
+
+=== Bayes-factor style comparison at charLevel 1, tier-01, single-hit set ===
+  max logL ADDITIVE       = -13.764
+  max logL MULTIPLICATIVE = -18.435
+  delta logL (add - mult) = 4.670   -> likelihood ratio = 107
+  at p=0 (physically correct for a level-1-2 character):
+    logL ADDITIVE=-14.168  logL MULT=-184.207  delta=170.039
+
+=== supplementary: mid-run bands (contaminated; directional only) ===
+ L3-4 n=21 counts={3: 3, 4: 3, 5: 13, 8: 1, 10: 1}
+  ADDITIVE         band[ 4.66, 7.35]  best p=  2.6  logL=   -38.51  logL@p=0=   -88.82
+    predicted pmf @bestp: {3: 0.245, 4: 0.371, 5: 0.371, 6: 0.013}
+  MULTIPLICATIVE   band[ 7.46,11.78]  best p=  8.9  logL=   -45.22  logL@p=0=  -177.92
+    predicted pmf @bestp: {2: 0.201, 3: 0.323, 4: 0.231, 5: 0.231, 6: 0.013}
+ L7-8 n=55 counts={6: 2, 7: 7, 8: 6, 9: 6, 10: 11, 11: 1, 12: 6, 13: 5, 14: 1, 15: 1, 16: 3, 17: 4, 18: 1, 21: 1}
+  ADDITIVE         band[12.64,15.17]  best p=  7.6  logL=  -281.69  logL@p=0=  -449.74
+    predicted pmf @bestp: {7: 0.072, 8: 0.396, 9: 0.396, 10: 0.137}
+  MULTIPLICATIVE   band[18.59,22.31]  best p= 17.4  logL=  -263.80  logL@p=0=  -498.67
+    predicted pmf @bestp: {6: 0.023, 7: 0.269, 8: 0.269, 9: 0.269, 10: 0.17}
+ L9 n=19 counts={3: 4, 6: 1, 10: 2, 11: 1, 12: 4, 13: 2, 16: 1, 22: 1, 23: 1, 27: 1, 31: 1}
+  ADDITIVE         band[17.72,22.33]  best p= 11.8  logL=  -105.85  logL@p=0=  -167.51
+    predicted pmf @bestp: {9: 0.009, 10: 0.217, 11: 0.217, 12: 0.217, 13: 0.217, 14: 0.123}
+  MULTIPLICATIVE   band[25.15,31.69]  best p= 22.3  logL=  -102.30  logL@p=0=  -160.33
+    predicted pmf @bestp: {10: 0.146, 11: 0.153, 12: 0.153, 13: 0.153, 14: 0.153, 15: 0.153, 16: 0.089}

@@ -1,0 +1,19 @@
+R1 by player level:
+  pL1: n=5 [4, 4, 4, 5, 5]
+  pL2: n=22 [1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 9, 10, 10, 11, 14]
+
+R1 by engagement (t, mag):
+  eng2 pt623-625 cov=1.0 maxhp=250 kills=2: 5@269.77 5@270.23 4@271.97
+  eng3 pt637-649 cov=1.0 maxhp=250 kills=6: 4@293.83
+  eng4 pt655-655 cov=1.0 maxhp=250 kills=2: 4@299.80
+  eng8 pt1018-1024 cov=0.9947 maxhp=314 kills=4: 5@664.40 4@664.87 14@665.40 5@666.13 4@666.40 9@666.67 10@666.93 5@667.13 4@669.47 5@669.93 4@670.47 4@671.20 5@671.47 4@671.60 4@672.07
+  eng10 pt1066-1077 cov=1.0 maxhp=314 kills=6: 2@716.00 1@719.00 11@720.00
+  eng12 pt1126-1135 cov=1.0 maxhp=314 kills=5: 5@772.33 10@773.73 4@774.13 5@775.87
+
+eng8 drop-event rate = 1.96 events/s over 7.67s
+  P(k>=2 aliased | frame) implied by observed 2x-band share: 0.16
+  Poisson lambda=2/s -> P(2 in frame)/P(1 in frame) = 0.067
+  Poisson lambda=3/s -> P(2 in frame)/P(1 in frame) = 0.100
+  Poisson lambda=4/s -> P(2 in frame)/P(1 in frame) = 0.133
+  Poisson lambda=5/s -> P(2 in frame)/P(1 in frame) = 0.167
+  Poisson lambda=6/s -> P(2 in frame)/P(1 in frame) = 0.200

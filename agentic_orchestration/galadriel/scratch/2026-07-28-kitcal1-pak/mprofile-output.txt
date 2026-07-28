@@ -1,0 +1,18 @@
+R1 single-hit set: {4: 11, 5: 9} n= 20
+
+MLE effective multiplier m_hat = 0.1935  (logL=-14.372)
+95% profile-likelihood interval for m: [0.1820, 0.2945]
+  ADDITIVE  (1 + (-55-25)/100)         m=0.2000  profile logL=  -14.374  dLogL vs MLE=  -0.002  INSIDE 95%
+  MULTIPLICATIVE ((1-0.55)*(1-0.25))   m=0.3375  profile logL=  -18.939  dLogL vs MLE=  -4.567  EXCLUDED
+
+  likelihood ratio ADD:MULT (p profiled out) = 96.0 : 1
+
+Hard-feasibility (band entirely within [3.5,5.5], i.e. zero 3s and zero 6s possible):
+  feasible m range: [0.1830, 0.2670]
+  feasible p range: [0.00, 2.30]
+  ADDITIVE m=0.2000 feasible? True
+  MULTIPLICATIVE m=0.3375 feasible? False
+
+MULTIPLICATIVE best case: p=4.3, pmf={3: 0.018, 4: 0.398, 5: 0.398, 6: 0.186}
+  -> predicts 20.4% of hits outside {4,5}; observed 0/20.  P(0 outside | n=20) = 1.03e-02
+ADDITIVE best case: p=0.2, pmf={4: 0.544, 5: 0.456}

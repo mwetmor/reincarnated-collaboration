@@ -1,0 +1,16 @@
+records/creatures/enemies/zombiemutated_a01.dbr spawn=13 charLevel=14
+   passive TDM sources: [('records/skills/nonplayerskills/passive/armorbase03.dbr', -77.0)]
+   sum skill TDM = -77.0   + pak -25.0  => ADDITIVE mult = -0.020   MULT mult = 0.1725
+   physMin/Max raw = 91.0/92.0
+records/creatures/enemies/boss&quest/warden01.dbr spawn=15 charLevel=18
+   passive TDM sources: [('records/skills/nonplayerskills/passive/damage_totaladjuster.dbr', 4.0), ('records/skills/nonplayerskills/passive/armorbase05.dbr', -73.0)]
+   sum skill TDM = -69.0   + pak -25.0  => ADDITIVE mult = +0.060   MULT mult = 0.2325
+   physMin/Max raw = 85.0/108.0
+records/creatures/enemies/boss&quest/warden02.dbr spawn=15 charLevel=18
+   passive TDM sources: [('records/skills/nonplayerskills/passive/damage_totaladjuster.dbr', 4.0), ('records/skills/nonplayerskills/passive/armorbase05.dbr', -73.0)]
+   sum skill TDM = -69.0   + pak -25.0  => ADDITIVE mult = +0.060   MULT mult = 0.2325
+   physMin/Max raw = 85.0/108.0
+records/creatures/enemies/zombie_a01.dbr spawn=1 charLevel=1
+   passive TDM sources: [('records/skills/nonplayerskills/passive/armorbase01.dbr', -55.0)]
+   sum skill TDM = -55.0   + pak -25.0  => ADDITIVE mult = +0.200   MULT mult = 0.3375
+   physMin/Max raw = 18.0/25.0
