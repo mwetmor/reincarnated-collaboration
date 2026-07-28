@@ -814,4 +814,31 @@ Spec: `gandalf/notes/2026-07-28-kitcal1-g4-kit-spec-v2.md`. Headlines:
   timebase. R-KC1-8's death-visibility clause **stands as originally written**. M10 rider
   amended accordingly (elrond gets C-6 with C-1/C-3).
 
-**Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
+### 14.10 — P-8 returns: the pak's multiplicative reading is FALSIFIED — the fixture corrects the ledger (galadriel `5d6c004e`)
+
+**Verdict: FAIL as stated — the fixture confirms the ADDITIVE pak stage** (LR 96:1 in the
+cleanest window, 733:1 in the second; hard integer-feasibility closes it — the multiplicative
+floor of 6.46 sits above five measured level-1 drops of 4–5). The composite-drop aliasing rate
+independently re-derives `numAttackSlots=4`. Reframing finding: the fixture has ~35 s of
+level-12 combat — the 759 pool is **level 11**; the level-12 band is DERIVED-by-extrapolation.
+
+**Consequences for the G-5a ledger (corrections owed):**
+- Trash damage rows rescale **×0.74** — charLevel-12 tier-01 becomes **27–33**, not 36.6–45.1.
+  §14.6's "33–67 band" headline was an artifact of the falsified operator.
+- **Champion/hero/boss damage rows fall into an unmeasured clamp regime → UNRESOLVED, not
+  DERIVED** — they must NOT enter G-5 pinning until the clamp is resolved. This holds the
+  champion-pack and Slith-boss scenario tiers (§14.8 item 4) on their *damage* side; the
+  boss's 15,822 life+mana cross-check (HP-side) is unaffected. U-1 (in flight) resolves Slith
+  under the old operator — its damage rows re-grade on landing.
+- G-5a's falsification-of-additive was itself thinner than stated (Warden's `+4` adjuster not
+  carried); the operator question is now settled the other way by measurement.
+
+**Hardening options for the clamp (route after U-1 lands, not before):** (a) legolas source
+pass on the `armorbase03–06` clamp behavior; (b) galadriel's cheapest-hardening proposal — **60
+seconds of level-1–2 GD capture with nameplate OCR** (a micro-ask for Matt, C4-calibrated
+reader ready). **Process note:** this is P-8 doing precisely what Matt ratified it for — a
+wrong operator caught by pre-registered validation *before* it entered the harness, at the cost
+of one read-only pass. The pin-sheet itself is unaffected (bands are fixture-side; opposition
+numbers feed the harness).
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
