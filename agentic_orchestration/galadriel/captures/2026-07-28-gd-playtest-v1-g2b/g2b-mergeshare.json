@@ -1,0 +1,295 @@
+{
+ "grid_s": [
+  5.0,
+  4.0,
+  3.0,
+  2.5,
+  2.0,
+  1.5,
+  1.0
+ ],
+ "nboot": 20000,
+ "note": "merge_share(g) = 1 - log R(g)/log R(5). Positive means part of the climb dissolved when the segmentation grain was tightened -- i.e. it was merge. Negative means the climb grew SHARPER at finer grain, which merge cannot produce.",
+ "R1_to_R2": {
+  "gap_gt_5.0": {
+   "ratio": 2.5403,
+   "ratio_ci95": [
+    1.86,
+    3.621
+   ],
+   "merge_share": 0.0,
+   "merge_share_ci95": [
+    0.0,
+    0.0
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_4.0": {
+   "ratio": 2.5647,
+   "ratio_ci95": [
+    1.86,
+    3.559
+   ],
+   "merge_share": -0.0103,
+   "merge_share_ci95": [
+    -0.251,
+    0.169
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_3.0": {
+   "ratio": 3.1598,
+   "ratio_ci95": [
+    2.329,
+    4.338
+   ],
+   "merge_share": -0.2341,
+   "merge_share_ci95": [
+    -0.603,
+    0.021
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_2.5": {
+   "ratio": 3.0357,
+   "ratio_ci95": [
+    2.317,
+    3.957
+   ],
+   "merge_share": -0.1911,
+   "merge_share_ci95": [
+    -0.629,
+    0.099
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_2.0": {
+   "ratio": 2.6217,
+   "ratio_ci95": [
+    2.015,
+    3.39
+   ],
+   "merge_share": -0.0338,
+   "merge_share_ci95": [
+    -0.417,
+    0.235
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_1.5": {
+   "ratio": 2.849,
+   "ratio_ci95": [
+    2.371,
+    3.454
+   ],
+   "merge_share": -0.123,
+   "merge_share_ci95": [
+    -0.605,
+    0.15
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_1.0": {
+   "ratio": 2.3997,
+   "ratio_ci95": [
+    2.113,
+    2.732
+   ],
+   "merge_share": 0.0611,
+   "merge_share_ci95": [
+    -0.36,
+    0.308
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "surviving_ratio_at_finest_grain": 2.3997
+ },
+ "R2_to_R3": {
+  "gap_gt_5.0": {
+   "ratio": 1.4133,
+   "ratio_ci95": [
+    0.919,
+    2.009
+   ],
+   "merge_share": 0.0,
+   "merge_share_ci95": [
+    0.0,
+    0.0
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "gap_gt_4.0": {
+   "ratio": 1.2921,
+   "ratio_ci95": [
+    0.939,
+    1.703
+   ],
+   "merge_share": 0.2591,
+   "merge_share_ci95": [
+    -1.154,
+    0.932
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "gap_gt_3.0": {
+   "ratio": 1.2768,
+   "ratio_ci95": [
+    0.955,
+    1.738
+   ],
+   "merge_share": 0.2936,
+   "merge_share_ci95": [
+    -2.536,
+    1.068
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "gap_gt_2.5": {
+   "ratio": 1.3949,
+   "ratio_ci95": [
+    1.068,
+    1.839
+   ],
+   "merge_share": 0.0378,
+   "merge_share_ci95": [
+    -4.314,
+    0.651
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "gap_gt_2.0": {
+   "ratio": 1.2921,
+   "ratio_ci95": [
+    0.918,
+    1.875
+   ],
+   "merge_share": 0.2591,
+   "merge_share_ci95": [
+    -5.716,
+    1.247
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "gap_gt_1.5": {
+   "ratio": 1.4597,
+   "ratio_ci95": [
+    1.014,
+    2.203
+   ],
+   "merge_share": -0.0934,
+   "merge_share_ci95": [
+    -9.438,
+    0.963
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "gap_gt_1.0": {
+   "ratio": 1.2166,
+   "ratio_ci95": [
+    0.998,
+    1.515
+   ],
+   "merge_share": 0.4332,
+   "merge_share_ci95": [
+    -3.441,
+    0.996
+   ],
+   "boot_usable_frac": 0.9454
+  },
+  "surviving_ratio_at_finest_grain": 1.2166
+ },
+ "R1_to_R3": {
+  "gap_gt_5.0": {
+   "ratio": 3.5901,
+   "ratio_ci95": [
+    2.284,
+    5.534
+   ],
+   "merge_share": 0.0,
+   "merge_share_ci95": [
+    0.0,
+    0.0
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_4.0": {
+   "ratio": 3.314,
+   "ratio_ci95": [
+    2.269,
+    4.737
+   ],
+   "merge_share": 0.0626,
+   "merge_share_ci95": [
+    -0.189,
+    0.245
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_3.0": {
+   "ratio": 4.0344,
+   "ratio_ci95": [
+    2.87,
+    5.809
+   ],
+   "merge_share": -0.0913,
+   "merge_share_ci95": [
+    -0.553,
+    0.179
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_2.5": {
+   "ratio": 4.2345,
+   "ratio_ci95": [
+    3.117,
+    5.762
+   ],
+   "merge_share": -0.1292,
+   "merge_share_ci95": [
+    -0.632,
+    0.151
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_2.0": {
+   "ratio": 3.3876,
+   "ratio_ci95": [
+    2.332,
+    5.083
+   ],
+   "merge_share": 0.0454,
+   "merge_share_ci95": [
+    -0.568,
+    0.39
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_1.5": {
+   "ratio": 4.1587,
+   "ratio_ci95": [
+    2.929,
+    6.234
+   ],
+   "merge_share": -0.115,
+   "merge_share_ci95": [
+    -0.885,
+    0.265
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "gap_gt_1.0": {
+   "ratio": 2.9194,
+   "ratio_ci95": [
+    2.446,
+    3.59
+   ],
+   "merge_share": 0.1618,
+   "merge_share_ci95": [
+    -0.316,
+    0.403
+   ],
+   "boot_usable_frac": 1.0
+  },
+  "surviving_ratio_at_finest_grain": 2.9194
+ }
+}

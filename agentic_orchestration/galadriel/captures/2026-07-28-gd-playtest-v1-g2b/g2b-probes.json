@@ -1,0 +1,530 @@
+{
+ "n_engagements": 106,
+ "p1_permutation": {
+  "R1_vs_R2": {
+   "ratio": 2.5403,
+   "n_a": 13,
+   "n_b": 77,
+   "mean_a": 3.308,
+   "mean_b": 8.403,
+   "p_two_sided": 0.00054
+  },
+  "R2_vs_R3": {
+   "ratio": 1.4133,
+   "n_a": 77,
+   "n_b": 16,
+   "mean_a": 8.403,
+   "mean_b": 11.875,
+   "p_two_sided": 0.12886
+  },
+  "R1_vs_R3": {
+   "ratio": 3.5901,
+   "n_a": 13,
+   "n_b": 16,
+   "mean_a": 3.308,
+   "mean_b": 11.875,
+   "p_two_sided": 0.00026
+  },
+  "note": "Unit = engagement. Two-sided on log-ratio of mean kills per engagement. No distributional assumption."
+ },
+ "p2_adjacency_R2late_vs_R3": {
+  "R2_last_quartile_n19": {
+   "baseline": {
+    "A": 1.9643,
+    "B": 2.2105,
+    "C": 2.0,
+    "KE": 8.684,
+    "kills": 165,
+    "n": 19,
+    "play_time": [
+     4518,
+     5808
+    ],
+    "level": [
+     9,
+     11
+    ]
+   },
+   "R3": {
+    "A": 1.9,
+    "B": 2.9412,
+    "C": 2.125,
+    "KE": 11.875,
+    "kills": 190,
+    "n": 16,
+    "play_time": [
+     6475,
+     6847
+    ],
+    "level": [
+     11,
+     12
+    ]
+   },
+   "test": {
+    "ratio": 1.3674,
+    "n_a": 19,
+    "n_b": 16,
+    "mean_a": 8.684,
+    "mean_b": 11.875,
+    "p_two_sided": 0.2005
+   }
+  },
+  "R2_last_16_matched_n": {
+   "baseline": {
+    "A": 1.8971,
+    "B": 2.2667,
+    "C": 1.875,
+    "KE": 8.062,
+    "kills": 129,
+    "n": 16,
+    "play_time": [
+     4604,
+     5808
+    ],
+    "level": [
+     9,
+     11
+    ]
+   },
+   "R3": {
+    "A": 1.9,
+    "B": 2.9412,
+    "C": 2.125,
+    "KE": 11.875,
+    "kills": 190,
+    "n": 16,
+    "play_time": [
+     6475,
+     6847
+    ],
+    "level": [
+     11,
+     12
+    ]
+   },
+   "test": {
+    "ratio": 1.4729,
+    "n_a": 16,
+    "n_b": 16,
+    "mean_a": 8.062,
+    "mean_b": 11.875,
+    "p_two_sided": 0.14362
+   }
+  },
+  "R2_playtime_ge_4500": {
+   "baseline": {
+    "A": 1.931,
+    "B": 2.175,
+    "C": 2.0,
+    "KE": 8.4,
+    "kills": 168,
+    "n": 20,
+    "play_time": [
+     4506,
+     5808
+    ],
+    "level": [
+     9,
+     11
+    ]
+   },
+   "R3": {
+    "A": 1.9,
+    "B": 2.9412,
+    "C": 2.125,
+    "KE": 11.875,
+    "kills": 190,
+    "n": 16,
+    "play_time": [
+     6475,
+     6847
+    ],
+    "level": [
+     11,
+     12
+    ]
+   },
+   "test": {
+    "ratio": 1.4137,
+    "n_a": 20,
+    "n_b": 16,
+    "mean_a": 8.4,
+    "mean_b": 11.875,
+    "p_two_sided": 0.1596
+   }
+  }
+ },
+ "p3_time_trace_500s_bins": [
+  {
+   "play_time": [
+    0,
+    500
+   ],
+   "n": 0
+  },
+  {
+   "play_time": [
+    500,
+    1000
+   ],
+   "n": 7,
+   "kills": 18,
+   "kills_per_eng": 2.57,
+   "A": 1.0,
+   "B": 1.125,
+   "C": 2.286,
+   "regimes": [
+    "R1"
+   ],
+   "level": [
+    1,
+    2
+   ]
+  },
+  {
+   "play_time": [
+    1000,
+    1500
+   ],
+   "n": 9,
+   "kills": 39,
+   "kills_per_eng": 4.33,
+   "A": 1.147,
+   "B": 1.7,
+   "C": 2.222,
+   "regimes": [
+    "R1",
+    "R2"
+   ],
+   "level": [
+    2,
+    3
+   ]
+  },
+  {
+   "play_time": [
+    1500,
+    2000
+   ],
+   "n": 9,
+   "kills": 67,
+   "kills_per_eng": 7.44,
+   "A": 1.457,
+   "B": 1.769,
+   "C": 2.889,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    3,
+    4
+   ]
+  },
+  {
+   "play_time": [
+    2000,
+    2500
+   ],
+   "n": 7,
+   "kills": 68,
+   "kills_per_eng": 9.71,
+   "A": 1.943,
+   "B": 1.667,
+   "C": 3.0,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    5,
+    5
+   ]
+  },
+  {
+   "play_time": [
+    2500,
+    3000
+   ],
+   "n": 7,
+   "kills": 68,
+   "kills_per_eng": 9.71,
+   "A": 1.744,
+   "B": 2.438,
+   "C": 2.286,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    6,
+    7
+   ]
+  },
+  {
+   "play_time": [
+    3000,
+    3500
+   ],
+   "n": 2,
+   "kills": 9,
+   "kills_per_eng": 4.5,
+   "A": 2.25,
+   "B": 1.333,
+   "C": 1.5,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    7,
+    7
+   ]
+  },
+  {
+   "play_time": [
+    3500,
+    4000
+   ],
+   "n": 15,
+   "kills": 163,
+   "kills_per_eng": 10.87,
+   "A": 1.598,
+   "B": 2.833,
+   "C": 2.4,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    8,
+    8
+   ]
+  },
+  {
+   "play_time": [
+    4000,
+    4500
+   ],
+   "n": 14,
+   "kills": 90,
+   "kills_per_eng": 6.43,
+   "A": 1.8,
+   "B": 2.174,
+   "C": 1.643,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    9,
+    9
+   ]
+  },
+  {
+   "play_time": [
+    4500,
+    5000
+   ],
+   "n": 6,
+   "kills": 51,
+   "kills_per_eng": 8.5,
+   "A": 1.962,
+   "B": 1.857,
+   "C": 2.333,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    9,
+    10
+   ]
+  },
+  {
+   "play_time": [
+    5000,
+    5500
+   ],
+   "n": 7,
+   "kills": 80,
+   "kills_per_eng": 11.43,
+   "A": 1.905,
+   "B": 2.8,
+   "C": 2.143,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    10,
+    10
+   ]
+  },
+  {
+   "play_time": [
+    5500,
+    6000
+   ],
+   "n": 7,
+   "kills": 37,
+   "kills_per_eng": 5.29,
+   "A": 1.947,
+   "B": 1.727,
+   "C": 1.571,
+   "regimes": [
+    "R2"
+   ],
+   "level": [
+    10,
+    11
+   ]
+  },
+  {
+   "play_time": [
+    6000,
+    6500
+   ],
+   "n": 2,
+   "kills": 11,
+   "kills_per_eng": 5.5,
+   "A": 2.2,
+   "B": 2.5,
+   "C": 1.0,
+   "regimes": [
+    "R3"
+   ],
+   "level": [
+    11,
+    11
+   ]
+  },
+  {
+   "play_time": [
+    6500,
+    7000
+   ],
+   "n": 14,
+   "kills": 179,
+   "kills_per_eng": 12.79,
+   "A": 1.884,
+   "B": 2.969,
+   "C": 2.286,
+   "regimes": [
+    "R3"
+   ],
+   "level": [
+    11,
+    12
+   ]
+  }
+ ],
+ "p3_R1_internal": {
+  "n": 13,
+  "engagements": [
+   {
+    "pt": 592,
+    "kills": 2,
+    "dur": 3.5,
+    "nb": 2,
+    "level": 1
+   },
+   {
+    "pt": 611,
+    "kills": 2,
+    "dur": 3.5,
+    "nb": 2,
+    "level": 1
+   },
+   {
+    "pt": 623,
+    "kills": 2,
+    "dur": 2.0,
+    "nb": 2,
+    "level": 1
+   },
+   {
+    "pt": 637,
+    "kills": 6,
+    "dur": 11.5,
+    "nb": 5,
+    "level": 1
+   },
+   {
+    "pt": 655,
+    "kills": 2,
+    "dur": 0.5,
+    "nb": 1,
+    "level": 2
+   },
+   {
+    "pt": 979,
+    "kills": 2,
+    "dur": 2.0,
+    "nb": 2,
+    "level": 2
+   },
+   {
+    "pt": 996,
+    "kills": 2,
+    "dur": 2.0,
+    "nb": 2,
+    "level": 2
+   },
+   {
+    "pt": 1009,
+    "kills": 1,
+    "dur": 0.0,
+    "nb": 1,
+    "level": 2
+   },
+   {
+    "pt": 1018,
+    "kills": 4,
+    "dur": 6.5,
+    "nb": 2,
+    "level": 2
+   },
+   {
+    "pt": 1044,
+    "kills": 5,
+    "dur": 6.5,
+    "nb": 3,
+    "level": 2
+   },
+   {
+    "pt": 1066,
+    "kills": 6,
+    "dur": 11.5,
+    "nb": 4,
+    "level": 2
+   },
+   {
+    "pt": 1097,
+    "kills": 4,
+    "dur": 9.5,
+    "nb": 3,
+    "level": 2
+   },
+   {
+    "pt": 1126,
+    "kills": 5,
+    "dur": 9.0,
+    "nb": 3,
+    "level": 2
+   }
+  ],
+  "spearman_pt_vs_kills": [
+   0.502,
+   0.0803070201015491
+  ],
+  "gap_to_first_R2_engagement_s": 344
+ },
+ "p4_R1_purity": {
+  "r1_kill_events": 43,
+  "r1_multi_kill_events": 0,
+  "r2_multi_rate": 0.4194,
+  "p_zero_multi_if_r2_rate": 7.049606640602279e-11,
+  "reading": "A probability this small rules out sampling luck: R1's single-kill purity is a property of the run, not of the instrument. The instrument DID resolve multi-kills 373 times later at the same 0.5 s cadence."
+ },
+ "p5_charge_accounting": {
+  "run_total_charge_human_read": 175,
+  "sum_of_engagement_deltas_approach_pad": 157,
+  "coverage_engagements": 0.8585,
+  "fraction_of_run_total_inside_engagements": 0.8971,
+  "note": "Windows are [first_kill - 3 s, last_kill]. Charges outside are traversal dashes between engagements -- the movement use of the skill, not the chaining use."
+ }
+}
