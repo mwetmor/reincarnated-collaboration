@@ -637,4 +637,30 @@ piece G-5 proves. Skipping G-5 abandons the werewolf fixture at peak value — p
 upgrade it from attested to measured identity. **Veto-open:** if Matt rules the commissioning lap
 itself expendable, T-5 strikes cleanly and the run closes at §13's state.
 
+### 14.4 — C-5 correction + Matt's opposition-comparability gate (H-3) — G-5a/G-5b fired
+
+- **C-5 (Matt, corrects §14.2 and the T11 doc's framing):** `save\user\` is NOT a custom
+  campaign. It is *"a blank folder that opens the game in full production mode, but with the
+  console capability."* The play test ran **shipping Act-1 campaign tuning** — the fixture's
+  opposition is production-canonical, which *strengthens* its authority as ground truth.
+- **H-3 (Matt gate, verbatim):** *"Before I agree to any value in G-5, I need to know how our
+  current RDR battle sim's monsters compare to GD level 12 monsters. Otherwise, what is the
+  point? We build it so that the werewolf loses to high level monsters?"* — G-5 is now
+  additionally held on an **opposition-comparability audit**. This is R-KC1-12's authority
+  asymmetry applied to the monster side: with untuned opposition, a G-5 miss is unattributable
+  (kit-model failure vs opposition mistuning are confounded). Resolution frame: **measure GD's
+  level-12 opposition from `.arz` source and PIN the sim's opposition to those values** — the
+  kit becomes the only free variable. Two read-only passes fired in parallel:
+  - **G-5a (legolas):** GD level-12 opposition ledger from the Edition-II corpus — scaling
+    mechanism, Act-1 proto values at level 12 Normal (HP / damage-per-hit / cadence), pack
+    priors, and the dimensionless ratios vs the fixture's measured player pools (759/1600).
+  - **G-5b (gamora, read-only census):** the sim's monster stat model; the **injection
+    question** (can a harness supply bespoke monster + player stats without code change —
+    YES / NO / YES-WITH-CHANGE); today's generated ranges at an early-game tier for the
+    side-by-side; `pack_proxy_size` reachability.
+  **Decision rule:** G-5a × G-5b compose into a comparability verdict Matt reads *before*
+  ruling on G-5. If injection = NO and the change is non-trivial, that is itself a build-queue
+  finding (the sim cannot currently be pointed at external ground truth — a capability absence
+  senior to BQ-1/BQ-2).
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
