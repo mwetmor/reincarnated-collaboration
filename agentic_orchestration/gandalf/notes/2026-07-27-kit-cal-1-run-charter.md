@@ -997,4 +997,60 @@ FRAGILE, which is the honest direction to miss in, and it is now quantified, not
 on_crit self-heal, HoT spatial bridge) — three of its four members now have measured fixture
 targets. BQ-1/BQ-2/BQ-4 route to knight-rider for sequencing after Matt rules Q-KC1-1.
 
+### 14.15 — Matt REJECTS the sustain-free framing (C-7); Primordian lands and IS the Slith boss; the save yields four unregistered fields; sustain fork opened (proposed R-KC1-17)
+
+**C-7 — Matt (verbatim):** *"No, this is not possible. The 5,649 self heal loss is too large of
+a deficit, unless some of this comes with natural Health Regen and that makes it into the
+sim."* ⚠ SWITCH: RUN-CONDUCTOR → DRIFT-CRITIC on my own §14.14: the "conservative miss / honest
+direction" line is **withdrawn**. G-5's verdict is FIDELITY — a sim werewolf that dies where the
+player lived fails calibration exactly as badly as the reverse. Conservative bias is still
+bias; §14.14's closing claim does not survive its own run-intent (rubric law, desirable-pattern
+amendment 3: the owner's question is twin-fidelity, not survival-with-handicap).
+
+**Four play_stats fields surfaced from the G-7 parse, previously unregistered:**
+`hitsReceived = 500` (one hit per ~11 s lifetime average — intake is sparse),
+`criticalHitsInflicted = 66` (→ Battle Surge is BOUNDED: ≤66 procs all run),
+`criticalHitsReceived = 0`, `greatestDamageReceived = 260.498` (hardest single hit of the whole
+run — a measured POST-mitigation bound the held §14.10 boss damage regime must respect; third
+live-client number). One contradiction flagged: `lastHitBy = 273.704 > greatestDamageReceived`
+— same-scale numbers can't do that; semantics probe assigned. Rate framing: 5,649 over 5,453 s
+≈ **1.04 HP/s lifetime** — trivial per trash engagement (~20 HP per 20 s vs a 1600 pool),
+decisive only where it concentrates: long boss fights. **The deficit is a boss-tier problem,
+not a global one — but boss-tier is S-3's home, so Matt's challenge stands where it bites.**
+
+**Primordian proto lands (legolas `c714174c`) — three reshaping finds:**
+1. **`tagSlithBossB02` IS Primordian.** One entity — the measured 15,822 triple belongs to the
+   monster that dealt death 2. §14.11's "Slith cross-check" was already a Primordian check;
+   §14.13's "hero-tier candidate ALONGSIDE Slith" is corrected: the run has ONE measured boss.
+2. **The 15,822 carries a ≈+300 stochastic gear term** (`chanceToEquipMisc2 = 100` — it wears
+   a rolled rare necklace every spawn; the fixture amulet's own base, before it dropped). The
+   §14.11 closure criterion TIGHTENS: the next triple must come from a monster with zero
+   `chanceToEquip*` slots. Also: charLevel 13-vs-16 ambiguity (`+3` remapper on `lv6_hero`) —
+   cl 13, cl 17-multiplicative, and cl 11+gear all land within 1–2% of measured; one number
+   cannot separate them.
+3. **The death-2 encounter is a mandatory TRIO** (`slitha_melee_b01` + `slitha_shaman_c01`,
+   both `alwaysSpawn`) with an ~85%-cold kit: 16-projectile 360° freeze ring
+   (`projectileUsesAllDamage`), 8 s blizzard field, ice-armor phases (25% absorption, 12s-on/
+   32s-off), `NeverFlee`, 75 m pursuit. Burst-heavy — which is exactly the profile that
+   punishes cheap sustain approximations. Boss-tier scenario = the trio, or the simplification
+   named. Classification `Quest`, `numAttackSlots 8`, no weapon / no `damagebonus_*` (better
+   clamp fixture than Warden Krieg).
+
+**Lanes fired (read-only):** legolas — sustain decomposition ("Life healed" inclusion
+semantics: constitution / passive regen / leech / skill heals / overheal; passive regen/s
+computed from save+corpus incl. Menhir's Wall + Soulwarding suffix resolution; Battle Surge
+band under the 66-crit bound; the lastHitBy contradiction). gamora — passive-regen census
+(does ANY per-tick HP regen reach spatial HP; minimal door-gated tick estimate; EHP fold-in
+distortion verdict against Primordian's burst profile). G-8 galadriel still in flight (char-
+sheet regen frame added to its follow-up scope on completion — no SendMessage surface).
+
+**Proposed R-KC1-17 (held for Matt, decision-shaped):** boss/champion-tier scenarios carry
+measured sustain via one of — **O-a** pin native sim regen (if it exists) · **O-b** minimal
+flat-HP/s tick gated behind the BQ-3 door (small gamora build, dies when the real wave ships) ·
+**O-c** EHP fold-in via existing door (zero code; burst-ordering distortion under assessment).
+NOT on the table: sustain-free boss scenarios (C-7), or blocking G-5 on full BQ-4. Conductor
+lean: O-a if native, else O-b — a measured tick is honest where EHP is convenient, and
+Primordian's nova punishes convenience. Trash tier proceeds sustain-free with an insensitivity
+assertion either way. Ruling lands after the two probes return.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
