@@ -468,3 +468,85 @@ record, claws AoE radius, density priors) + adapter-spec addendum + secondary-ba
 **Elrond amendment pass** fired non-gating. **G-5 remains held on H-2.**
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+
+---
+
+## §13 — G-4 + G-2c LANDED · T-2 FULLY CLOSED · four corrections banked (2026-07-28)
+
+All three cascade agents returned. Elrond's M9: `fixtures-v0.6` (harness_version as a *table*
+carrying harness-v1's meaning + limits; retirement on a new axis preserving `contested`;
+`DERIVED-NONIDENTIFYING` adopted; A/B values flagged `C-AB-NOT-INGESTED`, queued M10).
+
+### 13.1 — G-4: augment-vs-replacement is REPLACEMENT, MEASURED (R-KC1-6 closes fully)
+
+Spec: `gandalf/notes/2026-07-28-kitcal1-g4-kit-spec.md`. GD partitions skills into numbered
+**skill sets**; `werewolf1.dbr` selects `activeSkillSet=1`; claws + charge carry `skillSet=1`;
+`onslaught1.dbr` carries no `skillSet` field → set 0 → **excluded while transformed.** Corpus-wide:
+`skillSet` non-zero on exactly 18 records, all transform-granted. Fourth corroborating line, novel:
+**`defaultweaponattack` froze at 74 at the same instant** — set-partition exclusion predicts both
+set-0 skills freezing; augment predicts neither. **The werewolf kit is 2-active (claws + charge);
+Onslaught leaves the spec's active set entirely.** Matt's testimony sub-question: answered.
+
+**Mechanism manifest (R-KC1-12's genre-gap map):** A-step 3 PRESENT-CALIBRATABLE ·
+1 PRESENT-MISCALIBRATED (**BQ-2**: cone fixed at 90°/5.0 m as module globals — not per-skill,
+not per-rank) · 1 ABSENT (**BQ-1**: no `skillTargetNumber` target cap — the *only* genre-obligatory
+absence). B DoT-tail **6/6 present** (incl. lethal DoT ticks + independent poison stacking).
+Gear-step **6/6 present.** **The 2026-05-08 "no melee geometry" prior is SUPERSEDED** — 1D kernel
+deleted 2026-06-16; the 2D spatial engine is the sole sim; grading on the stale prior would have
+wrongly failed every A-step row. Trap flagged: deprecated `pack_proxy_size` path multiplies AoE
+damage by aggregate pack size — under it the A-step is structurally inexpressible; **G-5 pre-flight
+must assert `pack_proxy_size == 0` and fail loud.** Retaliation confirmed absent-and-out-of-scope.
+Claws footprint is an **arc with a cap, not a radius**; density priors extracted for the G-5 sweep.
+Bands drafted (§6 of the spec) with the structure-primary preamble; R2's A ≈ 1.74 is derived —
+**G-5 re-centres A/B from `fixtures.db` (M10), not from the spec's arithmetic.**
+
+### 13.2 — G-2c: the survivability channel is CLOSED (null), and the tail is real but terminal
+
+Artifact: `galadriel/notes/2026-07-28-gd-playtest-v1-g2c-survivability.md`. **Q1 null at the
+premise:** within-R2 EHP is a monotone nine-step function of the clock (ρ=+0.985) — zero residual
+variance, so EHP-vs-behaviour is **structurally undecidable** from this fixture; all four
+instruments null (|ρ|≤0.28, wrong-signed where near-significant). Raw hazard rises with EHP but
+dies when EHP-normalised: **the 2.07× pool bought no net safety.** Cross-regime, R2-tail→R3 moves
+**B alone** (×1.39) — the DoT signature again. The fourth causal channel is retired; R-KC1-9's
+structural triad is now corroborated from every direction the substrate allows. **Q2: LATE,
+decisively** (≥40 HP hits ×4.70 exposure-matched, p=9.3e-6; lowest-denominator plateaus carry
+zero) — the R2 intake tail is genuine, **but** above ~75 HP it is carried by the terminal 8
+engagements: **5.8% of covered time holds 43% of intake.** H-2 bands must carry that concentration
+qualifier or R2's tail band will be mis-read as stationary.
+
+### 13.3 — ⚠ SWITCH: RUN-CONDUCTOR → DRIFT-CRITIC — four corrections, two against my own §12
+
+- **C-1 (corrects §9 and §12):** the 72.4%-EHP anchor hit **is death 1** — 541→0, 0.067 s before
+  the counter increment; **floor-censored** (true damage ≥541) and not like-for-like against R3's
+  max 136 (R3 has no death). My §12/R-KC1-8 claim that death 1 was *"invisible to every
+  instrument"* is **WRONG**: the fatal hit is IN the banked intake series; what lies outside the
+  windows is the lagged *counter increment* (respawn), which I had also measured in the wrong
+  timebase —
+- **C-3 (corrects §12):** the death timestamps I banked (pt 2837 / 5152) are **`pts_s`**, not
+  `play_time`; true `play_time` values **3156 / 5453**. Harness-v1's declared-limits text (here and
+  in elrond's `harness_version` table) must be restated: *the 19.2%/240 s combat-time non-overlap
+  stands (internally consistent timebase); the death-visibility clause is corrected to "death
+  events are visible as terminal intake drops (floor-censored); death-counter increments are
+  lagged respawn markers and must never be used as death timestamps."* → **M10 rider for elrond.**
+- **C-2 (corrects §9 ripple 4):** R2 is **not** "the longest stretch without a compound step" —
+  it contains three gear events, one compound (~`play_time` 3256: +36.9% pool AND the run's only
+  block change). R2 remains the fixture on sample size, not purity; the rationale is amended.
+- **C-4:** globe OCR coverage degrades exactly where Q2's mass lands (ρ=−0.432) — the terminal-
+  concentration figure carries a coverage caveat of its own.
+
+### 13.4 — Run state after §13
+
+**T-1 ✓ T-2 ✓ (fully) T-3 ✓ T-4 ✓.** Only **T-5 (G-5)** remains, held on **HALT H-2**. Build-queue
+findings **BQ-1** (target-count cap) + **BQ-2** (per-skill/per-rank cone params) route to
+knight-rider for sequencing — they are design findings, exactly the outcome R-KC1-12 predicted,
+and pleasingly small: *one* absent class, *one* miscalibration, everything else present.
+**M10 (elrond):** A/B ingestion + harness-v1 limits restatement per C-1/C-3.
+
+**Owner-eye items pending Matt (charter §5 checkpoint):** (1) the spec's **largest sensitivity —
+`werewolf2`**: if allocated, claws carries a second bleed DoT + life-leech the spec does not model;
+answerable from memory (ATTESTED) or definitively by the T11 save (MEASURED). (2) **H-2 timing
+fork** (G-4 §6.5): pin the drafted bands now and fire G-5, or hold for T11 — which upgrades gear
+identity AND answers werewolf2 — and redraft once, then fire. (3) The ATTESTED-grade list in the
+spec's closing section.
+
+**Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
