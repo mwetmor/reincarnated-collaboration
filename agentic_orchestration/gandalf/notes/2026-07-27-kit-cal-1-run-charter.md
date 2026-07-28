@@ -415,3 +415,56 @@ cannot narrow it either). Consistent, and immaterial for the same reason.
   §10.3 and a reason the dual grain (Option C) is cheaper: it re-derives nothing.
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
+
+---
+
+## §12 — ELICITATION OUTCOME · RULINGS R-KC1-7…12 RATIFIED · HALT H-1 RELEASED (2026-07-28)
+
+Matt requested the launch-grill's descendants be answered rather than merely elicited ("ultra
+think through your own questions … let me know … what your recommendations are"), then ran two
+further ultra-think rounds that reshaped the slate — the **instrument-canonical** resolution of
+Fork α, and the **authority-asymmetry / capability-gate** recognition. All six rows ratified
+verbatim: **"Ratified on all six rows, cascade."**
+
+### 12.1 — The ratified ledger extension (veto-open, as all rulings)
+
+| # | Ruling |
+|---|---|
+| **R-KC1-7** | **Two join layers, both required.** *Identity* join = `.arz` record path (community build ↔ corpus ↔ `.gdc` save ↔ sim kit spec). *Measurement* join = common ledger schema + `harness_version`. Neither substitutes for the other. |
+| **R-KC1-8** | **The engagement grain is INSTRUMENT-CANONICAL** — neither fixture-local nor RDR design ontology. It is a versioned property of the shared measurement harness (`harness-v1` = §10.3 Option C: encounter gap > 5 s for reporting/TTK/intake; burst ≤ 1.5 s as pack-proxy carrying A and B). Applied identically to any ledger: GD-OCR, sim-adapter, Godot-OCR. Comparisons join on `harness_version` (structural like-for-like). Declared instrument limits of harness-v1 on this fixture: **19.2% of combat-state time (240 s of 1,250 s where dps > 0) falls outside padded windows (27 stretches)**; death-counter increments at pt **2837** (outside windows AND dps spans — invisible to every instrument on the table) and pt **5152** (inside both). The dps-span/E family defers to **harness-v2**, informed empirically by the Godot calibration leg; death attribution closes only at v2 capture (input log / death-moment capture — added to the v2 recording requirements). |
+| **R-KC1-9** | **R-KC1-2 amended: STRUCTURAL fidelity is the primary claim.** Targets: (i) the **A-step** (multi-kill emergence at the build swap — R1: 43 kills in 43 separate half-seconds, p = 7.0e-11; R2/R3 multi-kill routinely), (ii) the **B DoT-tail** (R3 lift confined to kill-events-per-burst), (iii) the **gear-step survivability regime change** (2.11× pool step flipping hazard shape). TTK-shape + intake-tail numeric bands are **secondary corroboration** with wide honest bands. **kills/engagement RETIRED as an accountability target** (already banked `provisional/contested`); **C declared a non-target** (player + level routing). Rationale triple-reinforced: structure is what identity-bears about a build; structural quantities are grain-robust; structure cannot be faked without the producing mechanism class. |
+| **R-KC1-10** | **T-C enemy census CANCELLED.** Replaced by (a) a G-4 `.arz` task — claws AoE radius + spawn/proxy density priors (rides the same corpus pass as the transform-record read), and (b) a G-5 **density sweep** — the sim must reproduce the A-step at `.arz`-plausible densities; needing implausible density = miscalibration finding. Strictly stronger than measuring GD's density from pixels. |
+| **R-KC1-11** | **Measurement architecture.** *Findings* (calibration targets) flow into sim mechanics; *parameters* (grain, sampling, gating) flow into harness + adapter, **never** into sim mechanics (the D3 Greater-Rift-timer Goodhart guard). The sim never sees pixels: a **sim-side export adapter + degradation model** (star-lord/gamora seam; spec via G-4 addendum) renders native telemetry into the common ledger schema at OCR-like conditions for fair comparison, with the exact ledger retained for diagnosis. The **Godot OCR leg** (future run, drax + galadriel) is BOTH the reverse test and the **instrument-calibration rig**: OCR-vs-known-truth yields the pipeline's error model, applied backward to tighten this fixture's error bars. |
+| **R-KC1-12** | **Authority asymmetry + capability gate.** GD = genre-canon authority (100% genre-canonical); fixture = lossy evidence of it; RDR sim = **unvalidated hypothesis**; Godot = downstream presentation. Default miss attribution, after instrument error is excluded: **the sim is wrong.** G-4 carries a **mechanism-requirements manifest** — per structural signature, the mechanism classes required to express it, each marked **genre-obligatory** (absence = gap) vs **GD-specific** (absence = fine; RDR identity governs — spirit-swap, form-library, elements are design divergence, not error). G-5 grades each signature **PRESENT-CALIBRATABLE / PRESENT-MISCALIBRATED / ABSENT** *before* any numeric comparison; ABSENT routes to the build queue as a design finding. §7's honorable fallback gains its fourth miss category: **mechanism-class absence.** KC1's primary deliverable restated: **genre-gap map first, tuning target second.** Two prior collisions now read as instances of this gate firing ad hoc: retaliation (absent from simulation code → shortlist exclusion) and melee geometry (2026-05-08 finding: none exists — a live risk to A-step expressibility). Fixture portfolio consequence: iconic builds are **genome samples** — chosen to maximize mechanism-class coverage (validates the C2+C6 hedge; governs picks three+). |
+
+### 12.2 — Consequential updates
+
+- **HALT H-1 is RELEASED.** F-1 ruled via R-KC1-8. §11.1's selection-pressure flag
+  (`C-SEG-GRAIN-UNRULED`) is discharged for the accountability targets — A is grain-invariant, B
+  lives on the burst — and the reporting-unit pressure is a documented property of harness-v1.
+- **HALT H-2 lightens but stands:** bands are now secondary corroboration; Matt still pins them
+  before G-5 executes (preregistration discipline unchanged).
+- **§7 honorable fallback amended** per R-KC1-12 (fourth category: mechanism-class absence →
+  build queue).
+- **Homebrew/GD-install contradiction RESOLVED on disk:** `/opt/homebrew/bin/depotdownloader`
+  exists; `~/depots/` holds 45 files / 190 MB of `.arz` + `Text_EN.arc` + manifests (depots 219991,
+  2699230/2699231, 897670/897671 …); Steam.app is present but `steamapps/common/` has **no Grim
+  Dawn**. Matt's recollection is accurate — GD *data* was fetched via the homebrew-installed
+  DepotDownloader with his credentials — and the `.gdc` probe's finding stands: a depot fetch
+  contains no save; the character was played on the GD PC. **T11 unchanged.**
+- **New routed work items:** (a) galadriel — `tb_rollup.py` refactor to a **source-agnostic,
+  versioned harness** (home of harness-v1; discharges §11.4's rules-live-in-Python admission);
+  (b) star-lord/gamora — adapter + degradation model, spec first via G-4 addendum;
+  (c) Godot OCR leg — chartered later as its own desirable-pattern run, NOT a KC1 phase;
+  (d) elrond — fixtures.db semantic amendments (kills_per_engagement retirement note,
+  `harness_version` column convention, `DERIVED-NONIDENTIFYING` boundary grade per §11.3).
+
+### 12.3 — Cascade fired
+
+**G-2c** (galadriel): survivability fourth-channel + ≥10%-EHP-hit clustering within R2 (§9 ripples
+1–2), with the T-C cancellation communicated. **G-4** (named `gandalf` sub-agent per §2.1
+corollary): kit spec + mechanism-requirements manifest + enlarged `.arz` task list (transform
+record, claws AoE radius, density priors) + adapter-spec addendum + secondary-band draft for H-2.
+**Elrond amendment pass** fired non-gating. **G-5 remains held on H-2.**
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
