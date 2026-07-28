@@ -228,3 +228,122 @@ were the visible effect); the OPEN question is *augment vs replacement*, which t
 `.arz` transform records should settle outright (G-4 task, §8 amendment 1).
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
+
+---
+
+## §10 — G-2b RETURNED · T-2 RESOLVED · HALT H-1 package (2026-07-28)
+
+Source: `galadriel/notes/2026-07-28-gd-playtest-v1-g2b-causal-decomposition.md` + captures
+`2026-07-28-gd-playtest-v1-g2b/`. Gate 0 reproduced the 106-window derivation field-identical
+before anything downstream fired.
+
+### 10.1 — The headline: the climb is a STEP, not a ramp
+
+Within R2, **build held constant, 4,338 game-seconds, levels 3 → 11**: kills/engagement
+7.90 / 8.16 / 8.90 / 8.68 by quartile — **Spearman ρ = 0.075, p = 0.52.** Charge-per-engagement
+drifts *down* (1.78 → 1.58). Bursts ρ = −0.115. Simultaneity ρ = 0.091.
+
+> **A proficiency ramp would show there. A zone-depth pack ramp would show there. Neither does.**
+> The entire established climb is the **2.54× jump across the 335-second build-swap intermission**
+> (`play_time` 1135 → 1470). Permutation tests, engagement unit, 50k: R1→R2 **p = 0.00054**;
+> R1→R3 p = 0.00026; **R2→R3 p = 0.129 — NOT established.**
+
+R1's purity is a world-fact, not an instrument artifact: **43 kills in 43 separate half-seconds,
+zero multi-kills**, P(0 of 43 | R2's rate) = **7.0e-11**, and the same 0.5 s instrument resolved
+373 multi-kills afterwards. The four-skill build **never once killed two things at the same time.**
+The werewolf did so immediately (R2's first four engagements read 1.33 / 1.80 / 1.00 / 1.40).
+
+**Matt's contested attribution adjudicated:** the *mechanism* he named is real and measured —
+charge predicts burst count at ρ = 0.665 (R2, p = 7.5e-11) and ρ = 0.772 (R3); R3's long
+engagements carry **31.6%** travel-band gaps against 4.3% in its short ones. But chaining **cannot
+be the cause of the climb**: it survives re-segmentation to one sample of separation (R3/R1 = 2.91
+at gap>1.0 s vs 3.59 at gap>5 s; merge share **+16.2% [−32%, +40%]**, ≤ +4.5% at 2.0 s), and the
+merge channel is flat-to-falling across regimes (2.46 → 2.20 → 2.13). **Half-right, and not the
+half he expected** — his mechanism exists, his causal role for it does not.
+
+**Verdict §3's "R3 packs ~3.6× R1" — FINAL GRADE: NOT SUPPORTED as a pack-size claim.** 3.590
+decomposes A ×1.900 · B ×2.188 · C ×0.863, and **no instrument in this artifact measures pack size
+at all.** R1 is also the wrong denominator (different build, skills, level, zone, gear). My claim,
+struck.
+
+### 10.2 — T-2 RESOLVED, and a correction to the pass that resolved it
+
+**The ledger answer is airtight: ZERO Onslaught increments after `play_time` 1145.** 10,065
+consecutive samples read exactly 54; zero non-monotone reads; the series terminates on the
+human-read total 54; the reader stayed live on Soldier rows to `play_time` 6780. Refusals cannot
+hide an increment in a monotone series terminating on its own endpoint.
+
+**⚠ SWITCH: (receiver) → DRIFT-CRITIC — one G-2b conclusion is contradicted by G-2b's own data.**
+The pass ruled transform-remap *"ruled out by timing — the freeze at 1145 precedes the first
+`werewolf1` read at 1469 by 324 s."* **That argument does not hold.** Direct ledger read of
+`play_time` 1145 → 1470:
+
+| | |
+|---|---|
+| kills | **45 → 45. Zero.** |
+| span | 325 game-seconds / 342 wallclock-seconds |
+| only moving counter | `life_healed` (out-of-combat regen at pt 1335/1344/1345) |
+
+**There is no combat in that window** — it is the respec/traversal intermission. Onslaught had
+**zero opportunity** to increment. Its last use is the last press of the last pre-swap fight; the
+next fight is the first fight of the werewolf era. The freeze does not precede the transform in any
+*behavioral* sense, only in wallclock. **Transform-suppression is NOT ruled out — it is back to
+being the leading hypothesis, and it matches Matt's testimony.**
+
+What survives from the pass and is decisive: **the panel carries exactly six skill signatures**,
+built from the final-frame native screenshot, and GD's panel is cumulative — **there is no seventh
+row the presses could have gone to.** (Set aside the claws-rate comparison: it measured Onslaught's
+*in-combat* rate against claws' *run-wide* rate; not apples-to-apples, and not load-bearing.)
+
+> **RULING R-KC1-6 (veto-open): T-2 resolves to branch (b) of R-KC1-3.** Counter frozen →
+> transform-suppression adopted; the third active is graded **ATTESTED** on Matt's testimony.
+> **Augment-vs-replacement is NOT answerable from any telemetry instrument** and routes wholly to
+> **G-4's Edition-II `.arz` read** of the Fangs werewolf-transform record (skill-exclusion /
+> conversion machinery). A skill-use counter cannot see a press that never fired.
+> **New v2 requirement:** player-intent attribution needs an input log or keybind-visible HUD.
+
+### 10.3 — HALT H-1: the F-1 grain question, and why it partly dissolves
+
+The decomposition supplies an identity that is exact by construction:
+
+> **kills/engagement = A (kills per kill-event) × B (kill-events per burst) × C (bursts per
+> engagement)**, burst = maximal run with internal gaps ≤ b.
+
+That identity reframes F-1. The three factors are **three different kinds of quantity**:
+
+| Factor | What it measures | Whose behaviour is it? |
+|---|---|---|
+| **A** — simultaneity | AoE breadth / how many die at once | **the kit's** — sim must reproduce |
+| **B** — kill-events per burst | sustained pressure, DoT tail | **the kit's** — sim must reproduce |
+| **C** — bursts per engagement | dash-chaining, routing, travel | **the player's + the level's** — the sim should NOT be accountable to it |
+
+R3's entire (unestablished) lift sits in **B** (2.27 → 2.94) with A and C unchanged — the
+mechanical signature of a damage-over-time tail, exactly as the gear event predicts.
+
+**gandalf lean — R-KC1-2 amendment, for Matt's ruling:** **retire kills/engagement as an
+accountability target** rather than de-provisionalise it. It is a composite of two kit quantities
+and one player quantity, and G-2b shows it behaves as a **step function of build identity**, not a
+continuous measurable. Replace it with **A and B as the accountability targets**, and treat **C as
+a declared non-target** (a routing artifact the sim is not asked to match). This makes the grain
+choice nearly moot for accountability — A is grain-invariant by construction, B is defined on the
+burst, and only C depends on the engagement boundary.
+
+**Residual grain decision, still Matt's:** what the canonical "engagement" is *for reporting*.
+- **Option A — keep gap > 5 s** (verdict-compatible, 106 units, largest sample, reads as "a fight").
+- **Option B — tighten to gap > 2.5–3.0 s** (closer to a single pack; note the climb ratio gets
+  *bigger*, 4.03–4.23, so this does not flatter the prior claim).
+- **Option C — dual grain (gandalf lean):** keep **gap > 5 s = "encounter"** as the reporting and
+  TTK/intake unit (it is what the intake pass already measured, so nothing is re-derived), and
+  adopt **burst (gaps ≤ 1.5 s) = "pack-proxy"** as the unit for A and B. Two names, two jobs, no
+  conflation — and it is what the decomposition already used.
+
+### 10.4 — The one gap nothing above closes
+
+**No enemy-count instrument exists in this artifact.** The split *inside* A — "the player centred
+an AoE on a pair" vs "a pair happened to be standing there" — is unmeasurable from counters.
+Galadriel names a **T-C frame-level enemy census over the 106 windows** as the highest-value next
+pass, and I concur: it is the only thing that measures pack size at all, and pack size is a
+quantity RDR needs independently for encounter geometry. **Surfaced to Matt as a decision, not
+fired** — it is a substantial new CV pass on the same footage.
+
+**Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
