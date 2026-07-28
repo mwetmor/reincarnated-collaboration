@@ -228,6 +228,7 @@ were the visible effect); the OPEN question is *augment vs replacement*, which t
 `.arz` transform records should settle outright (G-4 task, §8 amendment 1).
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
+*(Amended by §11 — the block-mitigation half of this finding is falsified; the pool half stands.)*
 
 ---
 
@@ -345,5 +346,72 @@ Galadriel names a **T-C frame-level enemy census over the 106 windows** as the h
 pass, and I concur: it is the only thing that measures pack size at all, and pack size is a
 quantity RDR needs independently for encounter geometry. **Surfaced to Matt as a decision, not
 fired** — it is a substantial new CV pass on the same footage.
+
+**Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
+
+---
+
+## §11 — G-3 LANDED · two corrections and one boundary upgrade (2026-07-28)
+
+Fixture ingested: `research/curated/fixtures.db`, schema `fixtures-v0.5` — series as the
+measurement, regimes/engagements/rollup/fixture as *named replaceable partitions of it*. Regime
+partition is enforced structurally (no `ALL` row exists to point at; a pooled insert fails), coverage
+is unrepresentable-if-NULL via triggers, and `kills_per_engagement` is banked
+`tier='provisional'` / `semantics_status='contested'` so it cannot be read as a headline. Verdict §3
+reproduced cell-for-cell from banked rows. MIGRATION: `research/curated/MIGRATION-fixtures.md` (M8).
+
+### 11.1 — Elrond's flag belongs IN the H-1 package: the grain had selection pressure
+
+`C-SEG-GRAIN-UNRULED`, banked UNVERIFIED: **gap > 5 s is simultaneously the most permissive
+defensible threshold AND the only one that reaches §1's 100–250 engagement target band** (>8 s → 75,
+>10 s → 67). That is a researcher-degrees-of-freedom hazard stated out loud, and it is a fact Matt
+should hold while ruling F-1. **It strengthens the §10.3 dual-grain lean**: separating the reporting
+unit (which hit a band) from the pack-proxy unit (which carries A and B) is precisely what removes
+the pressure from the quantities the sim is accountable to.
+
+### 11.2 — CORRECTION to F-KC1-1 (§9): block is NOT the mitigation mechanism
+
+`shield_block_chance` is a T-A column, and it **changes exactly once in the entire run: 15.0 → 18.0
+at `play_time` 3256** — mid-R2, nowhere near the boundary. Matt was **already wearing a shield long
+before level 12**; the level-12 shield did not introduce blocking.
+
+**§9 speculated "armor/block eating the incoming." The block half is FALSIFIED.** What stands: the
+**2.11× max-HP pool step** (759 → 1600, then flat) is measured and real; armour remains an
+uninstrumented candidate for the residual magnitude collapse (median drop 5.0 → 1.0 raw HP). The
+hazard-shape finding survives on raw HP either way; only my proposed mechanism narrows.
+
+### 11.3 — BOUNDARY UPGRADE: the R2/R3 placement is *non-identifying*, not merely DERIVED
+
+Elrond graded the boundary DERIVED because it collapses a 230 s gear bracket (6052–6282) to its
+lower edge. The ledger says something stronger:
+
+| | |
+|---|---|
+| last kill before the boundary | `play_time` **5808** (engagement 89, 1 kill, max HP 759) |
+| next kill after the boundary | `play_time` **6475** (engagement 90) |
+| `dps` series | falls to 0 at 5814, does not resume until **6282** |
+
+> **There is no combat between `play_time` 5808 and 6475 — a 667-game-second gap.** Every candidate
+> boundary in that interval, including 6052 and 6282, **partitions the engagement data identically.**
+> The placement is therefore **non-identifying** for every engagement-level quantity, not merely
+> derived-and-uncertain. Recommend `boundary_grade` carry that distinction (DERIVED-NONIDENTIFYING),
+> since "DERIVED" invites a precision worry that does not exist here.
+
+The max-HP step is bracketed to the same dead interval (last confirmed 759 at engagement 89; first
+confirmed 1600 at engagement 94 — engagements 90–93 are the zero-coverage hole, so the globe series
+cannot narrow it either). Consistent, and immaterial for the same reason.
+
+### 11.4 — Two further items carried
+
+- **Elrond's coverage-gate disagreement with galadriel is material and unresolved-by-design:** frame
+  coverage vs delta coverage moves **R3 mean intake 163.3 → 188.4** (n 9 → 10). Both quantities are
+  real; the store holds both. **The figure I relayed to Matt (163.3) is the delta-gated one.** R3
+  intake must never travel as a bare number.
+- **`life_healed`'s 3.1% rejection hides a 5× regime skew: R1 0.20% · R2 1.26% · R3 15.15%** —
+  concentrated in the same thin regime that carries the coverage hole. R3 is fragile on every axis.
+- **Admission carried:** intake re-derivation after a grain change needs a galadriel `tb_rollup.py`
+  re-run (adjacency/bridging/spike rules live in Python, not the store). Frames are banked, so it is
+  cheap — but the DB cannot re-cut the intake half by itself. This is a real cost of Option B in
+  §10.3 and a reason the dual grain (Option C) is cheaper: it re-derives nothing.
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
