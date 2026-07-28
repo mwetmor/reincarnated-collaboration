@@ -1,0 +1,663 @@
+{
+ "P1_death_collision": {
+  "death_increments": [
+   {
+    "i": 5674,
+    "pts_s": 2837.0,
+    "play_time": 3156,
+    "deaths": 1
+   },
+   {
+    "i": 10303,
+    "pts_s": 5151.5,
+    "play_time": 5453,
+    "deaths": 2
+   }
+  ],
+  "final_deaths": 2,
+  "largest_drops": [
+   {
+    "eng_id": 82,
+    "t": 5151.4333,
+    "mag": 541,
+    "hp_before": 541,
+    "hp_after": 0,
+    "dt": 0.1333,
+    "dist_to_nearest_death_pts_s": 0.067
+   },
+   {
+    "eng_id": 88,
+    "t": 5504.1,
+    "mag": 304,
+    "hp_before": 431,
+    "hp_after": 127,
+    "dt": 0.0667,
+    "dist_to_nearest_death_pts_s": 352.6
+   },
+   {
+    "eng_id": 89,
+    "t": 5515.1333,
+    "mag": 244,
+    "hp_before": 759,
+    "hp_after": 515,
+    "dt": 0.0666,
+    "dist_to_nearest_death_pts_s": 363.633
+   },
+   {
+    "eng_id": 84,
+    "t": 5235.1,
+    "mag": 185,
+    "hp_before": 430,
+    "hp_after": 245,
+    "dt": 0.0667,
+    "dist_to_nearest_death_pts_s": 83.6
+   },
+   {
+    "eng_id": 84,
+    "t": 5230.9667,
+    "mag": 142,
+    "hp_before": 423,
+    "hp_after": 281,
+    "dt": 0.0667,
+    "dist_to_nearest_death_pts_s": 79.467
+   },
+   {
+    "eng_id": 102,
+    "t": 6470.1667,
+    "mag": 136,
+    "hp_before": 1511,
+    "hp_after": 1375,
+    "dt": 0.2,
+    "dist_to_nearest_death_pts_s": 1318.667
+   }
+  ],
+  "note": "charter R-KC1-8 writes these two events as 'pt 2837' and 'pt 5152'; those are pts_s (video clock) values. Their play_time values are different and are recorded here."
+ },
+ "P2_within_plateau_clock": {
+  "kills": {
+   "n_pooled": 74,
+   "pearson_on_within_plateau_ranks": -0.039,
+   "p": 0.74125
+  },
+  "dur_s": {
+   "n_pooled": 74,
+   "pearson_on_within_plateau_ranks": 0.0606,
+   "p": 0.608166
+  },
+  "A": {
+   "n_pooled": 74,
+   "pearson_on_within_plateau_ranks": -0.1195,
+   "p": 0.310512
+  },
+  "B": {
+   "n_pooled": 74,
+   "pearson_on_within_plateau_ranks": -0.0355,
+   "p": 0.764028
+  },
+  "n_bursts": {
+   "n_pooled": 74,
+   "pearson_on_within_plateau_ranks": 0.0148,
+   "p": 0.900472
+  },
+  "intake_hp_per_covered_s": {
+   "n_pooled": 71,
+   "pearson_on_within_plateau_ranks": 0.3829,
+   "p": 0.000983
+  },
+  "coverage": {
+   "n_pooled": 66,
+   "pearson_on_within_plateau_ranks": -0.2495,
+   "p": 0.043388
+  }
+ },
+ "P3_raw_threshold_rates": {
+  "raw_ge_10": {
+   "366": {
+    "n": 4,
+    "covered_s": 75.5,
+    "per_100s": 5.3
+   },
+   "443": {
+    "n": 5,
+    "covered_s": 74.1,
+    "per_100s": 6.75
+   },
+   "451": {
+    "n": 18,
+    "covered_s": 85.0,
+    "per_100s": 21.18
+   },
+   "471": {
+    "n": 0,
+    "covered_s": 34.2,
+    "per_100s": 0.0
+   },
+   "491": {
+    "n": 30,
+    "covered_s": 61.1,
+    "per_100s": 49.07
+   },
+   "672": {
+    "n": 27,
+    "covered_s": 205.3,
+    "per_100s": 13.15
+   },
+   "707": {
+    "n": 18,
+    "covered_s": 195.1,
+    "per_100s": 9.22
+   },
+   "747": {
+    "n": 23,
+    "covered_s": 82.1,
+    "per_100s": 28.03
+   },
+   "759": {
+    "n": 12,
+    "covered_s": 17.9,
+    "per_100s": 67.17
+   }
+  },
+  "raw_ge_20": {
+   "366": {
+    "n": 3,
+    "covered_s": 75.5,
+    "per_100s": 3.97
+   },
+   "443": {
+    "n": 4,
+    "covered_s": 74.1,
+    "per_100s": 5.4
+   },
+   "451": {
+    "n": 14,
+    "covered_s": 85.0,
+    "per_100s": 16.47
+   },
+   "471": {
+    "n": 0,
+    "covered_s": 34.2,
+    "per_100s": 0.0
+   },
+   "491": {
+    "n": 9,
+    "covered_s": 61.1,
+    "per_100s": 14.72
+   },
+   "672": {
+    "n": 15,
+    "covered_s": 205.3,
+    "per_100s": 7.31
+   },
+   "707": {
+    "n": 8,
+    "covered_s": 195.1,
+    "per_100s": 4.1
+   },
+   "747": {
+    "n": 16,
+    "covered_s": 82.1,
+    "per_100s": 19.5
+   },
+   "759": {
+    "n": 11,
+    "covered_s": 17.9,
+    "per_100s": 61.57
+   }
+  },
+  "raw_ge_40": {
+   "366": {
+    "n": 0,
+    "covered_s": 75.5,
+    "per_100s": 0.0
+   },
+   "443": {
+    "n": 0,
+    "covered_s": 74.1,
+    "per_100s": 0.0
+   },
+   "451": {
+    "n": 2,
+    "covered_s": 85.0,
+    "per_100s": 2.35
+   },
+   "471": {
+    "n": 0,
+    "covered_s": 34.2,
+    "per_100s": 0.0
+   },
+   "491": {
+    "n": 5,
+    "covered_s": 61.1,
+    "per_100s": 8.18
+   },
+   "672": {
+    "n": 9,
+    "covered_s": 205.3,
+    "per_100s": 4.38
+   },
+   "707": {
+    "n": 5,
+    "covered_s": 195.1,
+    "per_100s": 2.56
+   },
+   "747": {
+    "n": 15,
+    "covered_s": 82.1,
+    "per_100s": 18.28
+   },
+   "759": {
+    "n": 10,
+    "covered_s": 17.9,
+    "per_100s": 55.97
+   }
+  },
+  "raw_ge_75": {
+   "366": {
+    "n": 0,
+    "covered_s": 75.5,
+    "per_100s": 0.0
+   },
+   "443": {
+    "n": 0,
+    "covered_s": 74.1,
+    "per_100s": 0.0
+   },
+   "451": {
+    "n": 2,
+    "covered_s": 85.0,
+    "per_100s": 2.35
+   },
+   "471": {
+    "n": 0,
+    "covered_s": 34.2,
+    "per_100s": 0.0
+   },
+   "491": {
+    "n": 0,
+    "covered_s": 61.1,
+    "per_100s": 0.0
+   },
+   "672": {
+    "n": 1,
+    "covered_s": 205.3,
+    "per_100s": 0.49
+   },
+   "707": {
+    "n": 2,
+    "covered_s": 195.1,
+    "per_100s": 1.02
+   },
+   "747": {
+    "n": 9,
+    "covered_s": 82.1,
+    "per_100s": 10.97
+   },
+   "759": {
+    "n": 9,
+    "covered_s": 17.9,
+    "per_100s": 50.38
+   }
+  },
+  "raw_ge_100": {
+   "366": {
+    "n": 0,
+    "covered_s": 75.5,
+    "per_100s": 0.0
+   },
+   "443": {
+    "n": 0,
+    "covered_s": 74.1,
+    "per_100s": 0.0
+   },
+   "451": {
+    "n": 2,
+    "covered_s": 85.0,
+    "per_100s": 2.35
+   },
+   "471": {
+    "n": 0,
+    "covered_s": 34.2,
+    "per_100s": 0.0
+   },
+   "491": {
+    "n": 0,
+    "covered_s": 61.1,
+    "per_100s": 0.0
+   },
+   "672": {
+    "n": 1,
+    "covered_s": 205.3,
+    "per_100s": 0.49
+   },
+   "707": {
+    "n": 0,
+    "covered_s": 195.1,
+    "per_100s": 0.0
+   },
+   "747": {
+    "n": 7,
+    "covered_s": 82.1,
+    "per_100s": 8.53
+   },
+   "759": {
+    "n": 3,
+    "covered_s": 17.9,
+    "per_100s": 16.79
+   }
+  },
+  "early_late": {
+   "split_play_time": 3800,
+   "early_covered_s": 413.1,
+   "late_covered_s": 417.1,
+   "raw_ge_10": {
+    "n_early": 63,
+    "n_late": 74,
+    "rate_early_per_100s": 15.25,
+    "rate_late_per_100s": 17.74,
+    "rate_ratio_late_over_early": 1.16,
+    "binom_p_vs_covered_time_exposure": 0.39374028
+   },
+   "raw_ge_20": {
+    "n_early": 32,
+    "n_late": 48,
+    "rate_early_per_100s": 7.75,
+    "rate_late_per_100s": 11.51,
+    "rate_ratio_late_over_early": 1.49,
+    "binom_p_vs_covered_time_exposure": 0.0932146
+   },
+   "raw_ge_40": {
+    "n_early": 8,
+    "n_late": 38,
+    "rate_early_per_100s": 1.94,
+    "rate_late_per_100s": 9.11,
+    "rate_ratio_late_over_early": 4.7,
+    "binom_p_vs_covered_time_exposure": 9.34e-06
+   },
+   "raw_ge_75": {
+    "n_early": 2,
+    "n_late": 21,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 5.03,
+    "rate_ratio_late_over_early": 10.4,
+    "binom_p_vs_covered_time_exposure": 6.631e-05
+   },
+   "raw_ge_100": {
+    "n_early": 2,
+    "n_late": 11,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 2.64,
+    "rate_ratio_late_over_early": 5.45,
+    "binom_p_vs_covered_time_exposure": 0.02248038
+   },
+   "raw_ge_150": {
+    "n_early": 0,
+    "n_late": 4,
+    "rate_early_per_100s": 0.0,
+    "rate_late_per_100s": 0.96,
+    "rate_ratio_late_over_early": null,
+    "binom_p_vs_covered_time_exposure": 0.1250174
+   }
+  }
+ },
+ "P4_ehp_steps_and_gear": {
+  "level_ups": [
+   {
+    "pts_s": 301.0,
+    "play_time": 655,
+    "level": 2
+   },
+   {
+    "pts_s": 779.0,
+    "play_time": 1133,
+    "level": 3
+   },
+   {
+    "pts_s": 1227.5,
+    "play_time": 1563,
+    "level": 4
+   },
+   {
+    "pts_s": 1573.0,
+    "play_time": 1907,
+    "level": 5
+   },
+   {
+    "pts_s": 1843.5,
+    "play_time": 2174,
+    "level": 6
+   },
+   {
+    "pts_s": 2495.0,
+    "play_time": 2820,
+    "level": 7
+   },
+   {
+    "pts_s": 2731.0,
+    "play_time": 3052,
+    "level": 8
+   },
+   {
+    "pts_s": 3609.0,
+    "play_time": 3925,
+    "level": 9
+   },
+   {
+    "pts_s": 4301.5,
+    "play_time": 4607,
+    "level": 10
+   },
+   {
+    "pts_s": 5515.0,
+    "play_time": 5808,
+    "level": 11
+   },
+   {
+    "pts_s": 6528.0,
+    "play_time": 6816,
+    "level": 12
+   }
+  ],
+  "block_changes": [
+   {
+    "pts_s": 2939.0,
+    "play_time": 3256,
+    "frm": 15.0,
+    "to": 18.0
+   }
+  ],
+  "ehp_steps": [
+   {
+    "ehp_from": 366,
+    "ehp_to": 443,
+    "delta_hp": 77,
+    "pct": 21.04,
+    "bracket_play_time": [
+     1563,
+     1824
+    ],
+    "bracket_s": 261,
+    "level_ups_in_bracket": [],
+    "n_level_ups": 0,
+    "hp_per_level_up": null,
+    "block_changes_in_bracket": []
+   },
+   {
+    "ehp_from": 443,
+    "ehp_to": 451,
+    "delta_hp": 8,
+    "pct": 1.81,
+    "bracket_play_time": [
+     1903,
+     2068
+    ],
+    "bracket_s": 165,
+    "level_ups_in_bracket": [
+     5
+    ],
+    "n_level_ups": 1,
+    "hp_per_level_up": 8.0,
+    "block_changes_in_bracket": []
+   },
+   {
+    "ehp_from": 451,
+    "ehp_to": 471,
+    "delta_hp": 20,
+    "pct": 4.43,
+    "bracket_play_time": [
+     2153,
+     2637
+    ],
+    "bracket_s": 484,
+    "level_ups_in_bracket": [
+     6
+    ],
+    "n_level_ups": 1,
+    "hp_per_level_up": 20.0,
+    "block_changes_in_bracket": []
+   },
+   {
+    "ehp_from": 471,
+    "ehp_to": 491,
+    "delta_hp": 20,
+    "pct": 4.25,
+    "bracket_play_time": [
+     2815,
+     2939
+    ],
+    "bracket_s": 124,
+    "level_ups_in_bracket": [
+     7
+    ],
+    "n_level_ups": 1,
+    "hp_per_level_up": 20.0,
+    "block_changes_in_bracket": []
+   },
+   {
+    "ehp_from": 491,
+    "ehp_to": 672,
+    "delta_hp": 181,
+    "pct": 36.86,
+    "bracket_play_time": [
+     3045,
+     3689
+    ],
+    "bracket_s": 644,
+    "level_ups_in_bracket": [
+     8
+    ],
+    "n_level_ups": 1,
+    "hp_per_level_up": 181.0,
+    "block_changes_in_bracket": [
+     {
+      "pts_s": 2939.0,
+      "play_time": 3256,
+      "frm": 15.0,
+      "to": 18.0
+     }
+    ]
+   },
+   {
+    "ehp_from": 672,
+    "ehp_to": 707,
+    "delta_hp": 35,
+    "pct": 5.21,
+    "bracket_play_time": [
+     3919,
+     4256
+    ],
+    "bracket_s": 337,
+    "level_ups_in_bracket": [
+     9
+    ],
+    "n_level_ups": 1,
+    "hp_per_level_up": 35.0,
+    "block_changes_in_bracket": []
+   },
+   {
+    "ehp_from": 707,
+    "ehp_to": 747,
+    "delta_hp": 40,
+    "pct": 5.66,
+    "bracket_play_time": [
+     4604,
+     4987
+    ],
+    "bracket_s": 383,
+    "level_ups_in_bracket": [
+     10
+    ],
+    "n_level_ups": 1,
+    "hp_per_level_up": 40.0,
+    "block_changes_in_bracket": []
+   },
+   {
+    "ehp_from": 747,
+    "ehp_to": 759,
+    "delta_hp": 12,
+    "pct": 1.61,
+    "bracket_play_time": [
+     5648,
+     5791
+    ],
+    "bracket_s": 143,
+    "level_ups_in_bracket": [],
+    "n_level_ups": 0,
+    "hp_per_level_up": null,
+    "block_changes_in_bracket": []
+   }
+  ],
+  "final_block": 18.0
+ },
+ "P5_survivability_signature": {
+  "baseline": "R2 last 16 engagements (play_time 4604-5808)",
+  "comparand": "R3 (play_time 6475-6847)",
+  "metrics": {
+   "A_simultaneity": {
+    "r2_last16_mean": 1.763,
+    "r3_mean": 1.984,
+    "ratio": 1.125,
+    "mannwhitney_p": 0.53316,
+    "n_r2": 16,
+    "n_r3": 16
+   },
+   "B_events_per_burst": {
+    "r2_last16_mean": 2.51,
+    "r3_mean": 3.495,
+    "ratio": 1.392,
+    "mannwhitney_p": 0.09617,
+    "n_r2": 16,
+    "n_r3": 16
+   },
+   "C_bursts_per_engagement": {
+    "r2_last16_mean": 1.875,
+    "r3_mean": 2.125,
+    "ratio": 1.133,
+    "mannwhitney_p": 0.3112,
+    "n_r2": 16,
+    "n_r3": 16
+   },
+   "duration_s": {
+    "r2_last16_mean": 4.906,
+    "r3_mean": 7.688,
+    "ratio": 1.567,
+    "mannwhitney_p": 0.73368,
+    "n_r2": 16,
+    "n_r3": 16
+   },
+   "kills": {
+    "r2_last16_mean": 8.062,
+    "r3_mean": 11.875,
+    "ratio": 1.473,
+    "mannwhitney_p": 0.19885,
+    "n_r2": 16,
+    "n_r3": 16
+   }
+  },
+  "prediction_table": {
+   "survivability_holds_pack_centres": "C up and/or duration up; A may rise",
+   "dot_tail": "B up alone; A and C unchanged",
+   "observed": "see metrics"
+  }
+ }
+}

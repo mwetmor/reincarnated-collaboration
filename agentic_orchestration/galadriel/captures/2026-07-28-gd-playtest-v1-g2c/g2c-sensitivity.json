@@ -1,0 +1,330 @@
+{
+ "S1_late_enrichment_sensitivity": {
+  "full": {
+   "raw_ge_20": {
+    "thr": 20,
+    "n_early": 32,
+    "n_late": 48,
+    "rate_early_per_100s": 7.75,
+    "rate_late_per_100s": 11.51,
+    "rate_ratio": 1.49,
+    "binom_p": 0.0932146,
+    "excluded": []
+   },
+   "raw_ge_40": {
+    "thr": 40,
+    "n_early": 8,
+    "n_late": 38,
+    "rate_early_per_100s": 1.94,
+    "rate_late_per_100s": 9.11,
+    "rate_ratio": 4.7,
+    "binom_p": 9.34e-06,
+    "excluded": []
+   },
+   "raw_ge_75": {
+    "thr": 75,
+    "n_early": 2,
+    "n_late": 21,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 5.03,
+    "rate_ratio": 10.4,
+    "binom_p": 6.631e-05,
+    "excluded": []
+   },
+   "raw_ge_100": {
+    "thr": 100,
+    "n_early": 2,
+    "n_late": 11,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 2.64,
+    "rate_ratio": 5.45,
+    "binom_p": 0.02248038,
+    "excluded": []
+   }
+  },
+  "no_death_engagement": {
+   "raw_ge_20": {
+    "thr": 20,
+    "n_early": 32,
+    "n_late": 43,
+    "rate_early_per_100s": 7.75,
+    "rate_late_per_100s": 10.47,
+    "rate_ratio": 1.35,
+    "binom_p": 0.20552662,
+    "excluded": [
+     82
+    ]
+   },
+   "raw_ge_40": {
+    "thr": 40,
+    "n_early": 8,
+    "n_late": 33,
+    "rate_early_per_100s": 1.94,
+    "rate_late_per_100s": 8.04,
+    "rate_ratio": 4.15,
+    "binom_p": 6.571e-05,
+    "excluded": [
+     82
+    ]
+   },
+   "raw_ge_75": {
+    "thr": 75,
+    "n_early": 2,
+    "n_late": 17,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 4.14,
+    "rate_ratio": 8.55,
+    "binom_p": 0.00038819,
+    "excluded": [
+     82
+    ]
+   },
+   "raw_ge_100": {
+    "thr": 100,
+    "n_early": 2,
+    "n_late": 8,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 1.95,
+    "rate_ratio": 4.02,
+    "binom_p": 0.0646504,
+    "excluded": [
+     82
+    ]
+   }
+  },
+  "no_post_death_tail": {
+   "raw_ge_20": {
+    "thr": 20,
+    "n_early": 32,
+    "n_late": 25,
+    "rate_early_per_100s": 7.75,
+    "rate_late_per_100s": 6.77,
+    "rate_ratio": 0.87,
+    "binom_p": 0.69118198,
+    "excluded": [
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89
+    ]
+   },
+   "raw_ge_40": {
+    "thr": 40,
+    "n_early": 8,
+    "n_late": 17,
+    "rate_early_per_100s": 1.94,
+    "rate_late_per_100s": 4.61,
+    "rate_ratio": 2.38,
+    "binom_p": 0.04457808,
+    "excluded": [
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89
+    ]
+   },
+   "raw_ge_75": {
+    "thr": 75,
+    "n_early": 2,
+    "n_late": 4,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 1.08,
+    "rate_ratio": 2.24,
+    "binom_p": 0.43059702,
+    "excluded": [
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89
+    ]
+   },
+   "raw_ge_100": {
+    "thr": 100,
+    "n_early": 2,
+    "n_late": 2,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 0.54,
+    "rate_ratio": 1.12,
+    "binom_p": 1.0,
+    "excluded": [
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89
+    ]
+   }
+  },
+  "engagement_unit": {
+   "raw_ge_20": {
+    "n_eng_early": 12,
+    "of_early": 35,
+    "n_eng_late": 21,
+    "of_late": 42,
+    "frac_early": 0.343,
+    "frac_late": 0.5,
+    "fisher_p": 0.247458
+   },
+   "raw_ge_40": {
+    "n_eng_early": 4,
+    "of_early": 35,
+    "n_eng_late": 16,
+    "of_late": 42,
+    "frac_early": 0.114,
+    "frac_late": 0.381,
+    "fisher_p": 0.00943
+   },
+   "raw_ge_75": {
+    "n_eng_early": 2,
+    "of_early": 35,
+    "n_eng_late": 9,
+    "of_late": 42,
+    "frac_early": 0.057,
+    "frac_late": 0.214,
+    "fisher_p": 0.05837
+   },
+   "raw_ge_100": {
+    "n_eng_early": 2,
+    "of_early": 35,
+    "n_eng_late": 7,
+    "of_late": 42,
+    "frac_early": 0.057,
+    "frac_late": 0.167,
+    "fisher_p": 0.170329
+   }
+  },
+  "leave_one_out_worst": {
+   "raw_ge_40": {
+    "thr": 40,
+    "n_early": 8,
+    "n_late": 30,
+    "rate_early_per_100s": 1.94,
+    "rate_late_per_100s": 7.4,
+    "rate_ratio": 3.82,
+    "binom_p": 0.00026273,
+    "excluded": [
+     88
+    ],
+    "dropped_eng": 88
+   },
+   "raw_ge_75": {
+    "thr": 75,
+    "n_early": 2,
+    "n_late": 14,
+    "rate_early_per_100s": 0.48,
+    "rate_late_per_100s": 3.46,
+    "rate_ratio": 7.14,
+    "binom_p": 0.002152,
+    "excluded": [
+     88
+    ],
+    "dropped_eng": 88
+   }
+  },
+  "contributors_ge_75": {
+   "29": 1,
+   "31": 1,
+   "55": 1,
+   "61": 1,
+   "73": 1,
+   "81": 1,
+   "82": 4,
+   "84": 2,
+   "86": 2,
+   "88": 7,
+   "89": 2
+  }
+ },
+ "S2_within_plateau_hazard_by_plateau": {
+  "366": {
+   "n": 8,
+   "rho": 0.5123,
+   "p": 0.19422,
+   "median_intake_hp_per_s": 2.007
+  },
+  "443": {
+   "n": 4,
+   "rho": 1.0,
+   "p": 0.0,
+   "median_intake_hp_per_s": 2.352
+  },
+  "451": {
+   "n": 7,
+   "rho": 0.2224,
+   "p": 0.63175,
+   "median_intake_hp_per_s": 3.75
+  },
+  "471": {
+   "n": 4,
+   "rho": 0.9487,
+   "p": 0.05132,
+   "median_intake_hp_per_s": 0.316
+  },
+  "491": {
+   "n": 4,
+   "rho": 0.0,
+   "p": 1.0,
+   "median_intake_hp_per_s": 9.847
+  },
+  "672": {
+   "n": 15,
+   "rho": 0.4991,
+   "p": 0.05821,
+   "median_intake_hp_per_s": 3.101
+  },
+  "707": {
+   "n": 19,
+   "rho": -0.0465,
+   "p": 0.85014,
+   "median_intake_hp_per_s": 0.0
+  },
+  "747": {
+   "n": 10,
+   "rho": 0.6848,
+   "p": 0.02888,
+   "median_intake_hp_per_s": 12.487
+  },
+  "759": {
+   "n": 2,
+   "note": "n<4"
+  }
+ },
+ "S3_ABC_reconciliation": {
+  "R2_last16": {
+   "n": 16,
+   "A_ratio_of_means": 1.8971,
+   "A_mean_of_ratios": 1.7633,
+   "B_ratio_of_means": 2.2667,
+   "B_mean_of_ratios": 2.5104,
+   "C_ratio_of_means": 1.875,
+   "C_mean_of_ratios": 1.875,
+   "kills_per_engagement": 8.0625
+  },
+  "R3": {
+   "n": 16,
+   "A_ratio_of_means": 1.9,
+   "A_mean_of_ratios": 1.9844,
+   "B_ratio_of_means": 2.9412,
+   "B_mean_of_ratios": 3.4949,
+   "C_ratio_of_means": 2.125,
+   "C_mean_of_ratios": 2.125,
+   "kills_per_engagement": 11.875
+  },
+  "note": "G-2b SS5d reports the RATIO-OF-MEANS form (regime aggregate). This pass's P-5 Mann-Whitney runs on the per-engagement distribution, hence MEAN-OF-RATIOS. Both are printed so the two artifacts cannot read as a discrepancy."
+ }
+}

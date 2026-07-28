@@ -1,0 +1,34 @@
+{
+ "gate0a_window_derivation": {
+  "n_engagements": 106,
+  "n_kill_event_samples": 515,
+  "n_multi_kill_samples": 202,
+  "total_kills": 880,
+  "dur_median": 4.5,
+  "dur_mean": 6.151,
+  "dur_max": 37.5,
+  "by_regime": {
+   "R1": {
+    "n": 13,
+    "kills": 43
+   },
+   "R2": {
+    "n": 77,
+    "kills": 647
+   },
+   "R3": {
+    "n": 16,
+    "kills": 190
+   }
+  },
+  "field_diffs_vs_committed": [],
+  "PASS": true
+ },
+ "gate0b_drop_replay": {
+  "n_windows": 106,
+  "n_mismatches": 0,
+  "mismatches": [],
+  "PASS": true
+ },
+ "PASS": true
+}
