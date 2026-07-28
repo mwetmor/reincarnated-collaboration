@@ -309,7 +309,22 @@ arm, still stamped as calibration output (`OD-9`).
 | Clamp is at the spatial entity | `OD-6d` | `pytest tests/test_od_leech_carryback.py::TestLeechArithmetic -q` |
 | Kernel lifesteal still dead | `OD-10` + counterfactual `OD-10b` | `pytest tests/test_od_leech_carryback.py::TestKernelLifestealStillDormant -q` |
 | Smoke gate (Discipline #2) | KF-4 kit-compiler smoke **36 GREEN / 0 RED / 1 known GAP — SMOKE PASS**, identical to BQ-3's baseline | `python3 -m reincarnated.simulation.kit_compiler.smoke_kf4_compiler` |
-| New suite | **32/32**; both door suites together **71/71** | `pytest tests/test_od_leech_carryback.py tests/test_bq3_calibration_override_door.py -q` |
+| New suite | **33/33**; both door suites together **72/72** | `pytest tests/test_od_leech_carryback.py tests/test_bq3_calibration_override_door.py -q` |
+| Regression | **1,585 passed / 55 FAILED-ERROR** on the same `-k` selection BQ-3 documented — the same failure count | see the ⚠ immediately below |
+
+⚠ **My baseline instrument was weaker than BQ-3's, and I am flagging it rather than letting the
+numbers imply more than they support.** BQ-3 compared against a `git stash` baseline on the *same*
+working tree. By the time I ran mine the changes were committed, so I used a `git worktree` at
+`c067bbd` — which does **not** carry the main tree's untracked data/emitted artifacts. Result:
+baseline **1,494 passed / 88 skipped**, mine **1,585 passed / 0 skipped**. **Those pass counts are
+not comparable**, and the difference is environmental, not a code delta.
+
+What the comparison *does* support, and all it supports: the **failure-name diff is a strict
+subset** — 55 post-change vs 56 baseline, the single extra being
+`test_glob_pattern_matches_emitted_manifests` (a glob over emitted manifests the worktree lacks).
+**O-d introduces zero new failure names.** If you want the stronger instrument before clearing,
+the reproducible form is: `git stash` the O-d commits on the main tree and re-run the identical
+selection. I would rather you ask for that than accept a number I do not think is clean.
 
 **Two edits to the BQ-3 suite you reviewed above, both deliberate — please check them:**
 
