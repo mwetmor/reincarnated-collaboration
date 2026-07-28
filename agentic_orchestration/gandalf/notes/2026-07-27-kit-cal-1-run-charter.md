@@ -1143,4 +1143,42 @@ against save + `lv6_hero` remap — the §14.15 charLevel ambiguity collapses.
 opposition-ledger HP table (trash/champion/boss re-graded, §14.11's ×0.837/×0.810 replaced by
 the measured rule), and grade the six trash maxima against the G-5a pool predictions.
 
+### 14.18 — R-KC1-17 RATIFIED (O-d) · Q-KC1-1 RATIFIED · Matt's compensation question → proposed R-KC1-18 (A/B arms); O-d build fired
+
+**R-KC1-17 — RATIFIED (Matt: "Ratify O-d").** Leech carry-back behind the BQ-3 door, pinned
+per-scenario as a door VALUE. Build fired to gamora same turn: extends the door with a new
+namespaced field under the full six-layer containment; the Discipline-#12 surface (math note
+§6's parity decision, relaxed inside the door only) named in the commission; the clamp must be
+applied against the SPATIAL entity's live hp/max (the kernel's own clamp computes against
+scratch max_hp=1.0 in this path — a wrong-state trap the commission calls out). Target tag
+`gamora/v-od-leech-carryback-1`; Gate-2 consolidated with BQ-3 as one door review.
+
+**Q-KC1-1 — RATIFIED as recommended.** The defensive-mechanics wave (max-HP derivation,
+armor/mitigation, on_crit self-heal + HoT spatial bridge [BQ-4], PERMANENT leech carry-back
+replacing the door version, target-cap rank-scaling [BQ-1], per-skill cone [BQ-2]) is the
+NEXT wave, spec-frozen against the kit spec + G-5 output as acceptance fixture, knight-rider
+sequenced. Hand-off note to KR owed at run wind-down. Measured targets already banked for the
+wave: leech ~1,200 / Battle Surge ~1,500 / regen 1.10 HP/s / "Life healed" 5,649-clamped.
+
+**Matt's question (verbatim): "would it make sense to increase life steal by roughly half of
+the in-battle-heal amount that the missing battle-surge procs would have healed for?"**
+Conductor answer: not folded into the canonical kit — the kit spec's build identity is
+MEASURED and a synthetic uplift would smear calibration attribution (survival no longer
+traceable to measured kit vs compensation). Instead, **proposed R-KC1-18: run boss-tier as an
+A/B pair through the same door, zero code delta** —
+- **Arm A:** leech at the ring's measured rolled percent. Canonical candidate; Battle Surge
+  absent-and-named.
+- **Arm B (Matt's proposal):** leech uplifted by half the Battle-Surge point estimate
+  (~750 HP over the run's hit budget ≈ ring roll × ~1.6).
+- **Decision rule, pre-registered:** outcome FLIPS between arms → Battle Surge is load-bearing
+  → BQ-4 promoted in the Q-KC1-1 wave with evidence. No flip → the absence is PROVEN
+  non-load-bearing → Arm A canonical. Either way Matt's compensation instinct becomes an
+  instrument instead of a contaminant (same key as P-8: pre-registered arms beat post-hoc
+  fudges). Distortion honestly stated: uplifted leech smooths Battle Surge's lumpy transfer
+  function (3 s proc bursts → continuous drip) — second-order for a calibration lap, unlike
+  the rejected EHP fold-in's outcome-flip ordering error.
+
+**Awaiting Matt:** one word on R-KC1-18. **In flight:** O-d build (gamora), HP re-grade
+(legolas). **Unchanged:** Gate-2 with jack-ryan (now BQ-3 + O-d consolidated).
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
