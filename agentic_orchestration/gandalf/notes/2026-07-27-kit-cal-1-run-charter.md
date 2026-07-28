@@ -471,6 +471,29 @@ record, claws AoE radius, density priors) + adapter-spec addendum + secondary-ba
 
 ---
 
+## §12a — POST-§13 MATT RULINGS (2026-07-28; recorded here to keep §13's run-state authoritative)
+
+*(Sectioned out of order to avoid renumbering §13's cross-references; chronology: after §13.)*
+
+- **R-KC1-13:** **KIT-1 = C2, Eye of Reckoning Warlord** — Matt ratified the shortlist lean.
+  Names the play-test-v2 recording target; C6 Cadence remains the hedge, unruled.
+- **Owner-eye item 1 RESOLVED:** Matt attests **no points in `werewolf2`/`werewolf3`/`werewolf1b`**
+  ("no I didn't"). Spec §7.1 item 4 upgrades inference → ATTESTED. Matt further discloses he
+  **screenshotted all of his skills** — the 313 stills at
+  `/Volumes/reincarnated/visual-artifacts/GD-matt-test/play-test-v1/screenshots/` should contain
+  skill-window frames. → **G-6 fired (galadriel):** locate + read skill-window shots; upgrades
+  skill ranks (incl. Onslaught's exact rank, previously T11-gated) and werewolf-line absence to
+  **MEASURED-by-screenshot**. Consequence for H-2: G-4 §6.5 said exact claws rank re-centres the
+  A band — G-6 may deliver that **without waiting on T11**. T11 keeps its distinct payload (gear
+  identity, devotion conjunctive test, potions counters, `save_identity` uid).
+- **Onslaught mechanism confirmed to Matt in plain terms:** the transform swapped the active skill
+  *set*; his mouse bindings kept working but drove the form's set-1 skills (claws/charge); his
+  Onslaught presses fired nothing (set 0 excluded). Both set-0 counters froze at the same instant.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+
+---
+
 ## §13 — G-4 + G-2c LANDED · T-2 FULLY CLOSED · four corrections banked (2026-07-28)
 
 All three cascade agents returned. Elrond's M9: `fixtures-v0.6` (harness_version as a *table*
