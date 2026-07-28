@@ -573,3 +573,68 @@ identity AND answers werewolf2 — and redraft once, then fire. (3) The ATTESTED
 spec's closing section.
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
+
+---
+
+## §14 — Matt's attested-claims round + T11 executed by SSH (2026-07-28)
+
+### 14.1 — The five attested claims, banked verbatim (owner-eye round, charter §5 checkpoint)
+
+Matt's answers to the spec's ATTESTED list, recorded before G-6/G-7 return so that the
+independent instruments confront testimony rather than inherit it:
+
+1. **Devotion = 0.** (Stands; G-7's conjunctive three-part test will upgrade to MEASURED.)
+2. **Onslaught = pressed-but-inert** — mechanism now source-proven (G-4 skillSet partition).
+3. **Gear — TESTIMONY CORRECTED.** *"They were actually 4 total items, all green (rare), with two
+   major items and two minor items. Major items were in the slots of weapon and amulet while the
+   minor items were in the slots of Armor and Belt."*
+   - **Weapon** = *Poisoned Pusquill's Tail of Corrosion* (Screenshot 323) — major
+   - **Amulet** = *Menacing Putrid Necklace of Protection* (Screenshot 328) — major
+   - **Armor** = *Mystic Salvaged Armor of Menhir's Wall* — minor
+   - **Belt** = *Mystic Woven Cord of Soulwarding* — minor
+   This **corrects §9 / F-KC1-1's "weapon, shield and amulet"**: FOUR items, **no shield** in the
+   level-12 event. The correction *harmonizes* with §11.2's own falsification (block stats showed
+   the shield was worn long before level 12) — testimony and telemetry now agree. "Poisoned …
+   of Corrosion" on the weapon is the poison-DoT carrier the B-signature predicted. Screenshots
+   (323) and (328) confirmed present on the share (numbering range 40–352).
+4. **Werewolf line unallocated** (werewolf2/3/1b = 0) — resolves G-4 §7.3's largest sensitivity
+   at ATTESTED grade; G-7 upgrades to MEASURED.
+5. **Potions used = 0** — G-7's `healthPotionsUsed`/`manaPotionsUsed` upgrades to MEASURED.
+
+**Grade note:** all five remain ATTESTED until G-7 lands. Any G-6/G-7 contradiction with this
+section is a **loud finding**, not a silent overwrite.
+
+### 14.2 — T11 EXECUTED (Matt directive: "please SSH into the PC"; character name supplied)
+
+Matt authorized direct SSH and supplied the character name **"Fresh Character 01"**. Executed via
+the retired PC-team target (`mhwet@192.168.1.133`, recovered from pre-teardown CLAUDE.md in git).
+**Finding en route:** the save lives in **`save\user\`** (custom-game campaign directory), not
+`save\main\` — the play test ran on a custom campaign, which is why the to-do's two candidate
+paths both missed. Whole folder copied (tar-pipe) to
+`/Volumes/reincarnated/matt-notes-from-pc/gd-save/_Fresh Character 01/`; `player.gdc` 15,473 B,
+SHA-256 `0be3a99f…d5ee91`, source mtime **2026-07-26 5:57 PM — play-test day, untouched since**:
+the end-of-run state survives intact. No `Backup/` subfolder exists in the cloud-save layout.
+**G-7 fired** (legolas, `.gdc` parse per the probe map): devotion conjunctive test, every skill
+rank incl. Onslaught's hidden rank, gear record paths joined against the four §14.1 names,
+`playTime` drift vs ≈7094, `uid` for the `save_identity` join key. To-do doc marked DONE.
+
+### 14.3 — R-KC1-14: G-5 remains the run's finale — the run-vs-program distinction (Matt challenge, ruled veto-open)
+
+Matt: *"how could this be the finale of the run? We just decided that making a random werewolf
+character early on would have little to no value versus making the end game character (C2 Eye of
+Reckoning Warlord) as first run kit."*
+
+Ruling: **both stand, at different scopes.** R-KC1-13 (KIT-1 = C2 EoR Warlord) governs the
+*program* — which build the accountability pipeline serves first at production grade. G-5 governs
+*this run* — KC1 is the **commissioning lap**, and the werewolf fixture is **the only build in
+existence with measured GD gameplay**. C2 has no fixture until play-test v2 is played; a C2-first
+G-5 would compare the sim against nothing. G-5's product is not "werewolf balance data" — it is
+**proof the whole pipeline closes**: kit-spec → sim run → common-ledger export → structural triad
+comparison → capability-gate grading, exercised end-to-end on a fixture that cost nothing further
+to obtain, *before* Matt spends an expensive v2 session generating the C2 fixture. Commissioning
+on the cheap fixture protects the expensive one. The C2 lap is the **next run**, reusing every
+piece G-5 proves. Skipping G-5 abandons the werewolf fixture at peak value — precisely as G-6/G-7
+upgrade it from attested to measured identity. **Veto-open:** if Matt rules the commissioning lap
+itself expendable, T-5 strikes cleanly and the run closes at §13's state.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.

@@ -1,7 +1,15 @@
 # Matt to-do — copy the Grim Dawn character save off the GD PC
 
 **Raised:** 2026-07-28 by legolas (G-7 probe, ruling R-KC1-4)
-**Status:** OPEN
+**Status:** ✓ **DONE 2026-07-28** — executed by gandalf over SSH per Matt's directive ("please SSH
+into the PC"), using the retired PC-team connection target (`mhwet@192.168.1.133`) recovered from
+git history. Character name Matt-supplied: **"Fresh Character 01"**. Found at
+`…\Steam\userdata\116655798\219990\remote\save\user\_Fresh Character 01\` — **`save\user\`
+(custom-game campaign), not `save\main\`**, which is why this doc's two candidate paths missed it.
+Whole folder copied to `/Volumes/reincarnated/matt-notes-from-pc/gd-save/_Fresh Character 01/`
+(player.gdc 15,473 B, SHA-256 `0be3a99f…d5ee91`, source mtime 2026-07-26 5:57 PM — play-test day,
+**untouched since**; end-of-run state intact, no drift expected). No `Backup/` subfolder exists in
+the cloud-save layout. Parse lane G-7 fired (legolas). Kept for lineage.
 **Queue row:** T11
 **Why only Matt:** the save lives on your Windows PC. No agent session on the Mac can reach it —
 verified exhaustively (ten search paths, findings note § 1). This is a file-copy across a machine
