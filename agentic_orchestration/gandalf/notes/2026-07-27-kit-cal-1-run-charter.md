@@ -1178,7 +1178,11 @@ A/B pair through the same door, zero code delta** —
   function (3 s proc bursts → continuous drip) — second-order for a calibration lap, unlike
   the rejected EHP fold-in's outcome-flip ordering error.
 
-**Awaiting Matt:** one word on R-KC1-18. **In flight:** O-d build (gamora), HP re-grade
-(legolas). **Unchanged:** Gate-2 with jack-ryan (now BQ-3 + O-d consolidated).
+**R-KC1-18 — RATIFIED (Matt: "agreed on A/B pair").** Boss-tier G-5 runs both arms through the
+door; the flip rule above is the pre-registered gate. The ruling ledger for this run is now
+**closed on the sustain question end-to-end**: C-7 challenge → decomposition → O-d ratified →
+A/B arms ratified, every step measured. **In flight:** O-d build (gamora), HP re-grade
+(legolas). **Unchanged:** Gate-2 with jack-ryan (BQ-3 + O-d consolidated). **G-5 preconditions
+remaining:** Gate-2 · O-d lands · re-graded HP table · harness assembly.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
