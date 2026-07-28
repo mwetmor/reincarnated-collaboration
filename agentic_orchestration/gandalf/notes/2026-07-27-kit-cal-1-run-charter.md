@@ -913,4 +913,55 @@ harness itself has returned. G-5 now waits on exactly four things: (1) Matt's pi
 closure for the champion/hero/boss tiers (§14.10–§14.11 corrections applied; other-saves ask
 open with Matt).
 
+### 14.13 — R-KC1-16: the pin-sheet RATIFIED as leaned; the death-2 killer named; frame 281 turns out to carry the client's own scoreboard
+
+**R-KC1-16 (Matt, verbatim: "Ratify all as leaned"):** the full H-2 pin-sheet lands on the
+conductor's stated leans — **P-1** window = W-c (`play_time ≥ 3619`, post-saturation, 49
+engagements / 421 kills) · **P-2** structural triad S-1/S-2/S-3 ratified (S-2 at the W-c-hardened
+×1.218) · **P-3** normalized units N-1..N-12 ratified · **P-4** N-12 at R2-whole grain (no
+galadriel re-cut) · **P-5** coverage gate ≥0.80 WITH the named exception for the worst hazard
+event (D3 Goodhart discipline) · **P-7** dual-hand compile (charge's 295% off-hand reads) ·
+P-6/P-8 were process pins (P-8 already executed §14.10). **The G-5 gate set by R-KC1-15 is now
+pin-complete.** Remaining before G-5 fires: jack-ryan Gate-2 on BQ-3, the P-6 check (in
+flight), boss/champ-tier clamp + HP-composition closure.
+
+**Matt's second attestation of the message — the death-2 killer has a name:** *"it looks like I
+did screenshot my death number two (screenshot 281) from the Primordian, The Forgotten One
+(Beastkin) enemy monster."* Conductor read of the full-res frame
+(`/Volumes/reincarnated/visual-artifacts/GD-matt-test/play-test-v1/screenshots/Screenshot (281).png`)
+finds far more than the killer's nameplate — **the console Play-Statistics overlay is OPEN at
+the death instant** (provisional naked-eye reads, all pending galadriel C4 calibration, G-8):
+
+- Play Time **90 min 53 s = 5453 s** — the frame self-dates to C-6's death-2 anchor (e082)
+  exactly. Deaths **2**, kills **~655** (vs 882 final), potions **0/0**.
+- **"Damage per second: 743.22"** — the client's OWN lifetime-DPS figure. First measured
+  damage-output scalar for the fixture; a direct external check on the kit-spec's compiled
+  output and on S-1/S-2 once windowing semantics are established (lifetime-average vs W-c).
+- **"Life healed: ~5649"** — measured lifetime healing. Battle Surge's mechanism (P-6/BQ-4)
+  now has a fixture total waiting for it, whichever way the expressibility check lands.
+- **Skills Used table with per-record USE COUNTS** (claws ~245, charge ~125, weaponattack ~74,
+  defaultbioattack ~13, …) — the measured **skill-mix channel** for the G-5 harness driver.
+  Nobody chartered this instrument; the fixture volunteered it.
+- **One collision flagged, not smoothed:** the left orb may read `0/747` at death — inside R3,
+  where the banked gear-step timeline says max HP is 1600. G-8 is tasked to verify or refute
+  LOUDLY before anything re-opens.
+- The named-exception loop closes on itself: P-5's excluded worst-hazard event is a fight
+  against the monster whose **guaranteed drop is the fixture's amulet** — Matt died to
+  Primordian at 5453, then killed it and wore its necklace through the rest of the run.
+
+**Lanes fired (all read-only):** **G-8** galadriel — calibrated OCR of frame 281 + the
+270–295 neighborhood + a corpus-wide sweep for any monster-HP numeric (a second HP triple pins
+the §14.11-corrected composition rule). **P-6** gamora — on_crit attacker-targeted consequence
+expressibility, file:line evidence, verdict EXPRESSIBLE-NOW / WITH-GLUE / BQ-4. **Primordian
+proto** legolas — raw fields from the Edition-II corpus (damage rows raw, NOT composed through
+the held champion/hero/boss regime; HP fields staged for when the composition rule pins);
+Primordian is the natural hero/boss-tier scenario candidate alongside Slith.
+
+**Open to Matt (from his own question, held as Q-KC1-1):** whether the P-6/BQ-4 outcome should
+expand into building the REAL mechanisms behind gamora's 9 inert lines now. Conductor
+recommendation delivered in-session: yes, but as the **next wave, with G-5's output as its
+acceptance fixture** — not coupled to G-5 (full argument in the session record; the door was
+built precisely so calibration need not wait for mechanisms, and mechanisms built pre-G-5
+would be fitted to theorycraft instead of measurement). Awaiting Matt's ruling.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
