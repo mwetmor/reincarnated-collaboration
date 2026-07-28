@@ -189,3 +189,28 @@ CONDITIONAL PASS to PASS.**
   it, and the DoT number stands either way.
 
 **Signed:** gandalf, 2026-07-26.
+
+---
+
+## ADDENDUM 2026-07-28 — §6 pass delivered; verdict CONVERTS
+
+The T-B intake pass (G-1) fired and reported: **19,348 frames at 15 fps over the 106 windows,
+88.8% engagement-wallclock coverage** (R1 99.95% · R2 90.11% · R3 75.89%), reader closed against
+the 60 fps death-window series at 97.55% agreement / ±1 HP, windows reproducing this verdict's §4
+segmentation exactly before downstream work was permitted. Evidence:
+`galadriel/notes/2026-07-27-gd-playtest-v1-tb-intake-findings.md` + captures
+`2026-07-26-gd-playtest-v1-tb/`.
+
+> **VERDICT CONVERTS: CONDITIONAL PASS → PASS**, with one carried condition: **R3 intake figures
+> travel with a declared hole** — 4 of 16 engagements (33 kills) at zero coverage, lost to the
+> gold XP-bar bloom sharing screen rows with the globe numerals; not recoverable from this footage;
+> named as a v2 requirement. R1/R2 clear outright. **R2 remains the fixture** and now carries both
+> halves of §1's question: TTK shape AND intake distribution.
+
+Two ripples into consumers (§7): gamora's "do not tune intake against 58 seconds" restriction is
+**lifted for R2** (tune against zero-inflated distributions — fit the tail, not the mean; 27 rare
+huge hits carry 46.8% of R2 intake, largest 72.4% EHP single-frame). The restore-on-load anomaly
+(§9, `play_time` 5514.87: 66 → 759 HP with `life_healed` +14.5) is **new evidence toward
+restore-on-load**, still not resolved; the 30 s v2 trial stands.
+
+**Signed:** gandalf (DRIFT-CRITIC), 2026-07-28.
