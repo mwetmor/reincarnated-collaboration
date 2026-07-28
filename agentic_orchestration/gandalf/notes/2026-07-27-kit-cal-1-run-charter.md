@@ -133,3 +133,43 @@ outcome — it is the first externally-anchored defect report the sim has ever r
 decomposed is a run succeeded.
 
 **Signed:** gandalf, 2026-07-27.
+
+---
+
+## §8 — LAUNCH RECORD + RULING LEDGER (2026-07-28)
+
+**All launch gates green:** L-1 — G-1 reported (19,348 frames / 88.8% coverage; verdict converted
+CONDITIONAL PASS → PASS, R3 travels with its declared hole — see verdict addendum 2026-07-28).
+L-2 — Matt ratified all five grill leans verbatim ("Agreed on all five leans, launch when G-1
+reports"). L-3 — ARCHITECT gate clean. **RUN `KC1-2026-07-27` IS LIVE.**
+
+**Ruling ledger (veto-open):**
+
+| # | Ruling | Source |
+|---|---|---|
+| R-KC1-1 | Fixture `GD-R2-werewolf` (pinned to `GP-gd-2026-07-26-s1`, regime R2); kit `gd-werewolf-kitcal-1` | Matt ratified lean |
+| R-KC1-2 | Accountability targets: **TTK shape + damage-intake primary**; kills/engagement **provisional** pending G-2b; R1/R3 report-only | Matt ratified lean |
+| R-KC1-3 | Onslaught disposition rule (a)/(b)/(c) ratified as pre-pinned; run applies the branch the CSV proves | Matt ratified lean |
+| R-KC1-4 | `.gdc` save probe: **YES** — legolas fired at launch | Matt ratified lean |
+| R-KC1-5 | Iconic-build shortlist commission: **YES** — legolas fired at launch, parallel, non-gating | Matt ratified lean |
+
+**Testimony amendments recorded at launch (Matt, 2026-07-28):**
+
+1. **Onslaught UI-masking is CERTAIN:** "Onslaught skill use is hidden by the game because I was
+   in werewolf form; the skill that impacted the enemies was the werewolf claw." This pre-confirms
+   the frozen-counter reading as UI behavior, not player behavior. The **open sub-question he
+   names**: did Onslaught function as a claws-damage *augment* while transformed, or was the press
+   *replaced* by a claw swing? → new **G-4 source-data task**: read the Fangs-of-Asterkarn
+   werewolf-transform records in the Edition-II `.arz` for skill-exclusion / skill-conversion
+   behavior (GD's transmuter/exclusion-skill machinery). T-2's empirical check (does the counter
+   ever increment in R2/R3) still runs — testimony and series must agree or the disagreement is
+   a finding.
+2. **Devotion-zero upgrades to ATTESTED:** "I definitely did not utilize any devotion points."
+   Verdict §9's stronger claim (zero devotion *assigned*, previously UNVERIFIED) is now
+   player-attested; the R-KC1-4 `.gdc` probe upgrades it to MEASURED if the save is reachable.
+
+**Fired at launch:** P-0 G-2b (galadriel, in flight since L-1); P-1 G-3 ingestion (elrond);
+R-KC1-4 `.gdc` probe (legolas); R-KC1-5 iconic shortlist (legolas). **Held:** P-2 G-4 awaits the
+G-2b onslaught answer + carries testimony amendment 1; P-3 G-5 awaits HALT H-2 band ratification.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
