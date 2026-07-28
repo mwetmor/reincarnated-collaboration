@@ -1219,4 +1219,92 @@ remaining:** Gate-2 · O-d lands · re-graded HP table · harness assembly.
 / champion verbatim / Primordian 14,812 + trio protos pending / hero slot at measured 4,702).
 Remaining before G-5: O-d lands · Gate-2 · harness assembly.
 
+---
+
+## §14.20 — O-d LANDS: there was nothing to carry back · a production-wide dormant-lifesteal finding · R-KC1-18 semantics corrected · the replay-trace rider accepted (R-KC1-19)
+
+**Banked 2026-07-28, post-compaction turn (charter-freshness gate executed from disk before
+processing). Engine pushed `c067bbd..67d165b` + tag `gamora/v-od-leech-carryback-1`; meta pushed
+`1a6ee7ae..00e720ca`.**
+
+### The build — operator REPRODUCED, not carried (C-8-class correction, stated not smuggled)
+
+Gamora's diagnosis inverted the ratified framing: **kernel lifesteal has never fired in a spatial
+fight.** The kernel's `stolen = min(dmg × pct, max_hp − hp)` clamps against the projection
+attacker's *scratch* `max_hp = 1.0` (`spatial_resolver_adapter.py:233`), so the operand is ≤ 0 in
+every reachable state — three resync regimes probed, heal 0.000 in all three, `on_lifesteal`
+never emitted. Counterfactual with the real pool: 254.585. **The operator is right; the clamp's
+operand is wrong.** So O-d is the kernel operator *reproduced* at
+`spatial_engine._apply_skill_damage` (adapter untouched; `resolve_spatial_hit` signature +
+return shape literally unchanged; its parity docstring amended, not left to mislead) — behind
+the BQ-3 door, leech percent as per-scenario door VALUE per R-KC1-17. Gamora stated this as a
+C-8-class correction in math note §0 rather than quietly shipping something other than what was
+ratified. The commission's pre-flag of the scratch-max_hp trap is what enabled the diagnosis.
+
+- **Clamp placement:** against the SPATIAL entity, re-evaluated per hit inside the target loop
+  (AOE headroom can't go stale). Sentinel test `OD-6d` fails if it had stayed put.
+- **Named deviation:** heal base is `delivered` damage, not the raw roll — crediting healing for
+  damage never dealt inflates hardest where the fixture has the most samples (trash, 1,606 hits).
+
+### Dormant production lifesteal — the finding nobody ordered
+
+The "obvious repair" (fixing scratch `max_hp`) was REFUSED: it would wake execute,
+freeze-shatter, and the heal cap simultaneously, and would make production kits' existing
+`lifesteal` effects **start healing in every season** — a balance change in a bug-fix costume.
+Pinned dormant by test `OD-10`. **The wake-up is owed to the Q-KC1-1 defensive-mechanics wave**
+(joins BQ-1 / BQ-2 / BQ-4 / permanent leech / hero-scaling on that wave's ledger). Every spatial
+season ever run has had lifesteal silently dead; whatever balance was tuned, was tuned around it.
+
+### R-KC1-18 semantics CORRECTED — arms are DISTRIBUTIONAL, not paired
+
+Gamora's suite falsified her own §2.3 claim: the A/B arms do **not** share per-seed RNG streams.
+The flip-rule comparison is **distribution-vs-distribution**, not per-seed paired deltas. The
+pre-registered flip rule survives unchanged in intent — "outcome flips" is evaluated on the
+arms' outcome distributions — but any per-seed delta table would have been an instrument error.
+Recorded in MIGRATION §7. Baseline honesty: the regression baseline ran in a `git worktree`
+whose pass counts are not comparable to main-tree counts; it supports **"zero new failure
+names"** and nothing more — which is exactly what was claimed.
+
+**Evidence bundle:** 33 new tests; 72/72 across both door suites; pre-registered digest
+`25c212eb…` UNCHANGED; KF-4 smoke 36 GREEN / 0 RED; digest exclusion growth made structural by
+`OD-1c`. Consolidated Gate-2 (BQ-3 + O-d, one door review) queued at
+`agentic_orchestration/qa/pending/2026-07-28-gamora-bq3-calibration-override-door.md`.
+
+### Out-of-seam flag — routed, not committed
+
+A test run rewrote `src/reincarnated/output/leg3_pilot_section8a1_band_measurement.json`
+(star-lord's seam). Gamora left it UNCOMMITTED, deliberately. **Routed to star-lord via KR at
+wind-down: inspect, then restore or adopt — the conductor does not commit into another's seam.**
+
+### R-KC1-19 — the G-5 replay-trace rider: ACCEPTED (conductor ruling, reasoning-boundary)
+
+The unexplained meta commit `00e720ca` resolved: a **rider request from the TCP
+suite-architecture session** (gandalf, same date), delivered by Matt — the only legitimate
+channel into a running conduction — at
+`agentic_orchestration/gandalf/notes/2026-07-28-g5-replay-trace-rider-request.md`. Ask: before
+harness assembly freezes, the harness writes a **replay-grade trace** per scenario run
+(non-gating side artifact; header / per-tick entity state / timestamped events; raw series
+only), so the TCP program's Godot REPLAY capstone can render the werewolf battle without
+re-running G-5.
+
+**RULING: ACCEPTED, riding harness assembly.** Rationale: (1) it arrives at exactly the phase
+boundary it names — harness assembly has NOT fired, so this is one commission line, not a
+retrofit; (2) non-gating is verifiable — no exit predicate, band, or verdict dependency changes;
+(3) the pre-registered §4 fallback (post-verdict re-run of only the canonical arm, same seeds)
+makes a mid-assembly drop bounded and honorable; (4) the alternative — re-running a chartered
+calibration finale for presentation reasons — is exactly the epistemically-ugly path the rider
+itself names. **One premise correction, material to the writer:** the rider assumes "the O-d
+door already receives the kernel's `on_lifesteal` event." Per this section, that event has NEVER
+been emitted in spatial — O-d *reproduces* the operator at the spatial seam. The trace's
+leech-heal events therefore come from **the door's own heal application site** in
+`spatial_engine._apply_skill_damage`, not from a kernel event stream. Format within the rider's
+§3 constraints is gamora's call; if she prefers star-lord's export seam to own the writer, that
+is her recommendation to make at assembly. **If the rider threatens G-5 timing, the §4 fallback
+fires without further ruling — pre-authorized here.**
+
+**Board after this section:** Gate-2 (jack-ryan, consolidated) → harness assembly (gamora, now
+carrying the trace writer + the terminal-max 1607 re-check) → G-5 fires both arms (A measured
+ring roll / B roll ×1.6), trash + champion sustain-free with insensitivity assertion, scenario
+HP per §14.19.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
