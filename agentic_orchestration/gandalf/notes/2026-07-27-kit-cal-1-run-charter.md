@@ -663,4 +663,30 @@ itself expendable, T-5 strikes cleanly and the run closes at §13's state.
   finding (the sim cannot currently be pointed at external ground truth — a capability absence
   senior to BQ-1/BQ-2).
 
+### 14.5 — G-7 save parse landed + Matt reconciles testimony to the measured record
+
+The G-7 parse completed (artifacts at `legolas/scratch/2026-07-28-gdc-parse-g7/`; findings note
+in flight after the first agent died post-parse on a stream timeout). **Fixture identity
+proven:** `playTime` 7096 vs run's ≈7094 (2 s), deaths 2 (exact telemetry match), kills 882.
+Measured record: devotion conjunctive test **PASSES** (3 earned / 3 unspent / 0 reclaimed / all
+`devotionLevel` 0); **Onslaught rank 13**; **werewolf1 rank 16** (claws/charge mirror at 16,
+`enabled=0` while untransformed — second-source confirmation of the G-4 skillSet partition);
+**werewolf1b rank 1**; potions 0/0 MEASURED; attributes 122/74/50; level **13** (bio; play_stats
+`maxLevel` lags at 12); greatest kill `tagSlithBossB02` level 13, 15,822 life+mana; `uid` all
+zeros → `save_identity` falls back to SHA-256 (flags artifact-verification §505). Gear: all four
+attested items match structurally (rare blunt weapon + rare necklace + Menhir's-Wall-class torso
+suffix + Soulwarding-class belt suffix); shield IS equipped (rare base) — consistent with §11.2's
+"worn long before level 12", not with the level-12 event. English-name verification in flight.
+
+**Matt reconciliation (verbatim, supersedes §14.1 rows 4 and the level attestation):** *"I did
+level to 13, you're right. I mis-quoted my level at 12. I did level the two werewolf nodes, and
+if I indicated otherwise, I must not have understood your question in context."* → Level = 13
+MEASURED+CONFIRMED; werewolf1 (16) + werewolf1b (1) allocation MEASURED+CONFIRMED; the §14.1
+"werewolf line unallocated" attestation is retired as a question-framing artifact, not a memory
+dispute. **werewolf2 (bleed+leech, the spec's largest sensitivity) remains measured-absent** —
+the save lists no allocation. **Process note:** this is the attested→measured discipline doing
+its exact job — two testimony errors caught by instruments within hours of banking, zero drama,
+because grades were carried instead of trust. Kit-spec + H-2 bands now redraft on measured
+identity (level 13, claws 16, Onslaught 13, four greens + shield) per G-4 §6.5.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
