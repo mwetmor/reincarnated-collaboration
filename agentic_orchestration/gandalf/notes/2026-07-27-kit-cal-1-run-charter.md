@@ -1053,4 +1053,57 @@ lean: O-a if native, else O-b — a measured tick is honest where EHP is conveni
 Primordian's nova punishes convenience. Trash tier proceeds sustain-free with an insensitivity
 assertion either way. Ruling lands after the two probes return.
 
+### 14.16 — The sustain question RESOLVES by measurement (gamora `72976462`, legolas `e2f3e3fe`): the pivot is LIFE LEECH, and the kernel already knows how
+
+**Regen census (gamora):** O-a DEAD — no passive HP regen reaches spatial HP anywhere (the
+energy twin ticks at `spatial_engine.py:5057`; the HP side of the same loop simply does not
+exist; upstream `regen_per_sec` dies three breaks before a fight — the same corpse as the BQ-4
+HoT bridge). O-c DEAD for boss tier — EHP fold-in vs a 16-projectile nova is an
+**outcome-flip** error, not magnitude (the engine's own `bc_measurement.py:199-205` already
+demotes fold-in to fallback). O-b sized at ~16 lines but see below — the measured rate makes
+it moot.
+
+**Sustain decomposition (legolas) — the premise reshapes:**
+- **"Life healed" is CLAMPED** — no overheal, no respawn refill. It measures *damage absorbed
+  and recovered from*. Cleanest proof: 5,649 ÷ 500 hitsReceived = **24.94 HP/hit — landing
+  exactly on the G-5a post-mitigation trash ledger** (the fourth independent client-side
+  validation of the corrected damage operator).
+- **~52% is Constitution** (out-of-fight; live in this edition, `acceleratedLifeRegenPercent
+  = 25.0`, measured ceiling 26.4% maxHP/s) — **free by harness construction**.
+- **~48% in-fight (~2,712)**, split: **ADCTH leech ~1,200 · Battle Surge point ~1,500**
+  (ceiling 2,883 — bounded by the clamp, not the 66 crits: 69.1% of in-combat frames sit at
+  FULL health).
+- **Passive regen = 1.10 HP/s total** (base 1.0 × one +10% helm affix — the ONLY regen source
+  in twelve slots; **Menhir's Wall and Soulwarding grant NO regen** — genre memory would have
+  been wrong; C-8-class correction to §14.15's candidate framing). O-b at 1.10 HP/s moves no
+  outcome (~66 HP/min) → **dropped as not load-bearing**. UNRESOLVED flag carried honestly:
+  the measured in-fight floor 1.61 HP/s exceeds computed 1.10.
+- **The kit HAS LIFE LEECH:** *Vampiric* ring, `offensiveLifeLeechMin = 5.0` (jitter band
+  3.25–6.75% ADCTH) over 1,606 hits — capacity exceeds the run's entire realised healing.
+- **lastHitBy contradiction DISSOLVED:** `lastHit`/`lastHitBy` are the last target's **DA /
+  last attacker's OA**, not damage (Plague Walker ledger OA 274 vs 273.704 — two M-grade
+  opposition values validating G-5a derivations to <0.5%). And **`greatestDamageReceived =
+  260.50` is confirmed post-mitigation**: across boss + 3 heroes + 7 champions, no single
+  event exceeded it; both deaths were compounding (death-2 `drop_max` 541 over 3 s), not
+  one-shots — a ceiling the held §14.10 boss damage regime must respect.
+
+**Conductor reconnaissance (evidence-only, this session):** the kernel ALREADY RESOLVES
+lifesteal — `damage_resolver.py:1253-1263`: secondary effect, `stolen = min(total_damage ×
+pct, max_hp − hp)`, attacker-healed, `on_lifesteal` evented. The spatial adapter **discards it
+by documented design** — `spatial_resolver_adapter.py:342-344`: side effects "mutate the
+attacker scratch state and are … not carried back (parity with the simplified model's
+information content; math note § 6)". The gap is ONE carry-back seam, not a missing mechanism.
+
+**R-KC1-17 proposal REVISED (held for Matt):**
+1. **O-d — leech carry-back behind the BQ-3 door** (supersedes O-a/O-b/O-c): gamora build,
+   Gate-2, carrying the kernel's already-correct lifesteal heal back to the spatial attacker
+   entity, active ONLY through `_calibration_overrides`, pinned at the Vampiric ring's rolled
+   percent (U-1 all-rolled-stats per Matt's amendment). Discipline-#12 surface named: math
+   note §6's parity decision is being deliberately relaxed inside the door.
+2. Battle Surge stays **named-absent (BQ-4)**, quantified: ~1,500 of run-wide healing the sim
+   werewolf goes without, concentrated where crits concentrate.
+3. Passive regen 1.10 HP/s: declared negligible, no build. 4. Constitution: free by
+   construction. 5. Trash tier sustain-free + insensitivity assertion. 6. The 1.61-vs-1.10
+   floor UNRESOLVED flag rides to G-8/char-sheet confirmation, non-blocking.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
