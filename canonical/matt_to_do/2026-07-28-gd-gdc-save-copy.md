@@ -66,8 +66,14 @@ Upgrades the KIT-CAL-1 kit spec's build identity from **ATTESTED** to **MEASURED
 - **Onslaught's exact rank** — the number the UI hid behind werewolf form all run.
 - **Every skill rank**, including the whole werewolf-transform line.
 - **Attribute allocation** (physique/cunning/spirit) and confirmed level.
-- **The poison-DoT item's identity** — if it was still equipped at the end. Its record path joins
-  straight to the Edition-II `.arz` corpus we already hold, so no further acquisition is needed.
+- **The equipped gear's identity** — if it was still worn at the end. Record paths join straight to
+  the Edition-II `.arz` corpus we already hold, so no further acquisition is needed. **Priority
+  raised 2026-07-28 by finding F-KC1-1:** Matt's testimony that the level-12 weapon + shield +
+  amulet "added HUGE health boosts" was checked against the telemetry and confirmed as a **2.11×
+  max-HP step (759 → 1600, then flat)** landing exactly at the R2/R3 regime boundary — the same
+  gear event that carries the poison DoT. Those three items are therefore load-bearing for the
+  *defensive* half of the R3 fixture, not merely the offensive half. Gear identity moved from
+  convenience to required. (`…/2026-07-27-kit-cal-1-run-charter.md` § 9.)
 - **Bonus, same parse:** `healthPotionsUsed` / `manaPotionsUsed` turn the potions-0/0 control from
   observed into measured, and the save's `uid` supplies the `save_identity` join key that
   artifact-verification § 505 flagged as missing from the §2.1 protocol.
