@@ -756,4 +756,36 @@ named gandalf sub-agent — full measured identity (level 13, chaos retype, Batt
 aura, dated A-step, six channels), normalized-units bands per G-5b §7.3, ending in the **H-2
 pin-sheet** for Matt. R-KC1-15 remains HALTed to Matt; the redraft is robust to any line-strike.
 
+### 14.8 — R-KC1-15 RATIFIED AS AMENDED (Matt) — the path to G-5 is live
+
+Matt ratified all six lines with three amendments:
+
+1. **BQ-3 + CONTAINMENT MANDATE (verbatim):** *"I agree, but ultra-think and implement whatever
+   is needed to ensure these lines/values are NEVER used in the sim/pipeline. We need to build
+   out real mechanisms and fit them to the kits in the future."* — The overrides are a
+   calibration-harness-only door, structurally sealed against production leakage (namespaced
+   `_calibration_overrides` block, NOT the existing `defense` key; explicit opt-in flag default
+   False; negative asserts at production boundaries; output stamping; byte-identity regression
+   test). Gamora implements + Gate-2. **Design significance:** the mandate also states the
+   forward obligation — the real player-defence/HP mechanisms remain OWED and must be built and
+   fit to kits later; the override must never dull that pressure.
+2. **U-1 EXPANDED:** *"use all of the item's rolled stats"* — all 12 equipped slots, not just
+   the four greens. Plus rank-16 arrays (claws/charge/transform), Blight r1, Battle Surge +
+   cold aura confirmation, Onslaught r13 marked INERT.
+3. Pak validation vs fixture intake — ratified; galadriel joins predicted 33–67 band against the
+   measured per-regime intake distribution (mitigation-aware, alias/DoT/censoring-aware).
+4. Harness pins ratified; **Matt's addition ACCEPTED — tiered scenarios:** *"should we also
+   represent one rare/elite/boss fights as well using GD rare+ monsters tuned to level 13ish?"*
+   → YES: (a) trash-pack scenarios (spawn-pool pinned, A-step target), (b) champion/hero mixed
+   pack, (c) **boss single-target pinned to `tagSlithBossB02` at charLevel 13 — the fixture's
+   own greatest kill (15,822 life+mana measured)**, giving a measured single-target/DoT-tail
+   endpoint the pack scenarios can't. U-1 resolves its record; the 15,822 cross-check doubles
+   as a live-client validation of the whole G-5a resolution chain.
+5. Chaos retype at spec-compile — ratified.
+6. G-5 fires when (1)–(5) + the H-2 pin land.
+
+**Fired in parallel:** gamora (BQ-3 + containment), legolas (U-1 expanded + Slith/champion/hero
+resolution), galadriel (pak validation). Kit-spec v2 redraft still in flight; its pin-sheet is
+the remaining Matt gate (H-2) before G-5.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
