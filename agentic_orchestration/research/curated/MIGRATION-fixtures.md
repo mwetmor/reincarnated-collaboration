@@ -36,6 +36,8 @@ python3 agentic_orchestration/research/scripts/fixtures_m8_gd_playtest_v1_fixtur
 python3 agentic_orchestration/research/scripts/fixtures_m8b_engagement_grain_2026_07_28.py
 python3 agentic_orchestration/research/scripts/fixtures_m8c_rollup_and_fixture_2026_07_28.py
 python3 agentic_orchestration/research/scripts/fixtures_m8d_fixture_conditions_claims_2026_07_28.py
+# M9 (fixtures-v0.6) -- KC1 ruling amendments. Semantics only; no new measurement.
+python3 agentic_orchestration/research/scripts/fixtures_m9_kc1_ruling_amendments_2026_07_28.py
 ```
 
 **M6 requires the `/Volumes/reincarnated` share to be mounted.** Its precompute step reads
@@ -747,3 +749,195 @@ The pooled-regime guard is an **FK**, and SQLite enforces foreign keys **per con
 (`PRAGMA foreign_keys=ON`, off by default in the CLI). A consumer that opens the file with FKs
 off can insert a pooled row. The `requires_coverage` guard is a **trigger** and holds
 unconditionally. Named here rather than left to be discovered.
+
+---
+
+## M9 — 2026-07-28 · schema `fixtures-v0.6` · the KC1 rulings land as structure
+
+**Commission:** elrond amendment pass, fired non-gating from charter §12.2 item (d),
+run `KC1-2026-07-27`. **Charter:** `gandalf/notes/2026-07-27-kit-cal-1-run-charter.md`
+§11 (my G-3 landing as recorded), §12 (rulings R-KC1-7…12, Matt-ratified verbatim:
+*"Ratified on all six rows, cascade"*).
+
+**Script:** `research/scripts/fixtures_m9_kc1_ruling_amendments_2026_07_28.py`
+**Backup:** `fixtures.db.pre-v0.6-*-backup` (+ `.md5.txt`)
+**Class:** semantics + vocabulary. **No new measurement was ingested.** Four table
+rebuilds (CHECK widening only — column lists byte-identical to v0.5), one new table,
+four new columns, three new `measure_dict` keys, four new `fixture_target` rows, three
+new `fixture_condition` rows, two superseded/successor `evidence_claim` pairs, four
+views. Idempotent; re-run verified as a no-op.
+
+### The design question M9 actually turned on
+
+Three rulings arrived. Two of them (retirement, boundary upgrade) look like value
+edits. They are not — each one needed a **new axis** before it could be recorded
+honestly, and the temptation each time was to overload an existing column instead.
+
+**(1) Retirement is not a semantics status.** The obvious move was
+`measure_dict.semantics_status = 'retired-as-target'`. That column answers *"do we
+know what this number means?"* — and for `kills_per_engagement` the answer is still
+**contested**, exactly as M8 banked it: it is a composite of two kit quantities and one
+player quantity. Retirement answers a different question: *"is the sim held to it?"*
+Two questions, two columns. M9 adds **`measure_dict.target_standing`**
+(`structural-accountability-target` / `secondary-corroboration` / `retired-as-target` /
+`declared-non-target` / `not-a-target`) with `target_standing_ref` for provenance, and
+leaves `semantics_status` alone. A measure can be perfectly understood and not a target;
+it can be a target and contested. Collapsing them would have hidden one behind the other.
+
+**(2) `DERIVED-NONIDENTIFYING` is stronger than `DERIVED`, not weaker.** M8 graded the
+R2/R3 boundary DERIVED because the gear bracket 6052–6282 collapses to its lower edge.
+Charter §11.3 says more: there is **no combat between `play_time` 5808 and 6475** — a
+667 game-second gap (last kill 5808 / engagement 89; next kill 6475 / engagement 90;
+`dps` falls to 0 at 5814 and does not resume until 6282). Every candidate boundary in
+that interval **partitions the engagement data identically**. So the placement is
+uncertain *and provably immaterial*. "DERIVED" alone invites a precision worry that does
+not exist. The grade vocabulary now carries the distinction on `session_regime`,
+`evidence_claim` and `fixture_condition.cause_grade`. R2 keeps `MEASURED` — its
+*identity-determining* edge is the lower one, the C-2 build break at 1134 — with the
+non-identifying note appended so nobody has to rediscover why the grades differ.
+
+**(3) The grain is a property of the instrument, so it needs its own table.**
+R-KC1-8 makes the engagement grain **instrument-canonical**: not a fact about this
+fixture and not RDR design ontology, but a versioned property of the shared harness,
+applied identically to GD-OCR, sim-adapter and Godot-OCR ledgers. A bare
+`harness_version` string column would have recorded the *label* and lost the *content*.
+M9 adds a **`harness_version` table** whose row is what `harness-v1` **means** —
+encounter rule, burst rule, `params_json`, where the code of record lives, which ledgers
+it applies to, and its **declared limits as part of its identity rather than a footnote**
+(19.2% of combat-state time outside the padded windows: 240 s of 1,250 s across 27
+stretches; the death-counter increment at `play_time` 2837 invisible to every instrument,
+the one at 5152 inside both; the dps-span/E family deferred to v2). `segmentation_run`
+gains `harness_version` (FK) + `grain_role`, so the grain travels with every partition
+below it. `source_agnostic` is banked **0** — that flag is the acceptance test for
+galadriel's routed refactor (§12.2 item a), not a claim already true.
+
+### What changed, table by table
+
+| Table | Change |
+|---|---|
+| `harness_version` | **NEW.** 1 row: `harness-v1`, status `current`, `source_agnostic=0` |
+| `segmentation_run` | `+harness_version` (FK), `+grain_role`; existing cut → `harness-v1`/`encounter`; **+1 row** for the burst unit (below) |
+| `measure_dict` | `+target_standing`, `+target_standing_ref`; **+3 keys** (A/B/C); 1 retired, 3 marked structural, 4 marked secondary |
+| `fixture_target` | tier CHECK widened to 7; 4 rows `primary`→`secondary-corroboration`, 1 `provisional`→`retired`, **+4 rows** (3 structural-primary, 1 non-target) |
+| `session_regime` | `boundary_grade` CHECK `+DERIVED-NONIDENTIFYING`; R3 upgraded |
+| `evidence_claim` | `grade` CHECK `+DERIVED-NONIDENTIFYING`; 2 superseded, **+2 successors** |
+| `fixture_condition` | `condition_kind` `+data-gap`, `cause_grade` `+DERIVED-NONIDENTIFYING`; 2 amended, **+3 rows** |
+| views | `v_fixture_accountability` + `v_regime_stat_conditioned` recreated; `v_measurement_join_key` + `v_harness_ledger` new |
+
+**Target slate on `GD-R2-werewolf` after M9** (`v_fixture_accountability`, ordered by tier):
+
+| target_key | tier | measure_key | rows behind it |
+|---|---|---|---|
+| `a_step_multikill_emergence` | structural-primary | `kills_per_kill_event` | **0** |
+| `b_dot_tail` | structural-primary | `kill_events_per_burst` | **0** |
+| `gear_step_survivability` | structural-primary | `hp_max_observed` | 101 (trial grain) |
+| `ttk_shape` · `damage_intake_total` · `damage_intake_rate` · `hazard_tail` | secondary-corroboration | — | 8 / 8 / 8 / 1 regime rows |
+| `damage_per_kill` · `per_kill_attack_cost` | report-only | — | 1 / 0 |
+| `c_bursts_per_encounter` | **non-target** | `bursts_per_engagement` | 0 |
+| `kills_per_engagement` | **retired** | `kills_per_engagement` | 8 regime · 106 trial |
+
+### The gap, declared rather than filled — and why that was the right call
+
+**A and B are named as the accountability targets and are NOT in this store.** The
+21 measure keys at regime grain do not include A, B or C. They exist and are computed —
+in G-2b's committed capture, `galadriel/captures/2026-07-28-gd-playtest-v1-g2b/`:
+`g2b-abc-factors.csv` carries A/B/C per regime with confidence intervals at **three**
+burst thresholds (b = 1.0, 1.5, 2.0), and `g2b-per-engagement.csv` carries
+`n_bursts_b*` / `active_s_b*` / `travel_s_b*` per engagement.
+
+Copying those numbers in would have been cheap and wrong for this pass. M9 is a
+**semantics amendment**; ingesting a new measurement family is a measurement pass with
+its own Gate-0 reproduction obligation (M8's Discipline #11 lesson earned exactly here:
+recomputing rather than trusting the rollup is what surfaced the frame-vs-delta coverage
+disagreement). So the gap is banked three ways, none of them a sentence in a document:
+
+1. `segmentation_run` row **`…/S1-burst1.5s-v1`**, status `candidate`, `n_engagements`
+   NULL, `grain_role='pack-proxy-burst'` — the burst unit exists as a **declared-empty
+   partition**, so A and B have an address before they have values.
+2. Condition **`C-AB-NOT-INGESTED`** (new kind `data-gap` — distinct from
+   `coverage-hole`, which is footage the instrument missed; this is a quantity the store
+   is *accountable to* but does not hold), naming the exact source files and the M10
+   remedy, including *bank all three burst thresholds so the b-sensitivity is visible
+   rather than chosen*.
+3. `v_fixture_accountability` carries `n_regime_rows` / `n_trial_rows` / `condition_ids`
+   per target, so **the emptiness is visible in the same row as the target**. A consumer
+   reading the slate sees `structural-primary … 0 … C-AB-NOT-INGESTED`, not a target that
+   looks satisfied.
+
+Nothing is blocked today: R-KC1-12 makes G-5's first act a **PRESENT/ABSENT signature
+grading**, not a numeric comparison.
+
+### Discharges, with lineage kept
+
+- **`C-SEG-GRAIN-UNRULED` → `accepted`** (not `resolved`). The original hazard text —
+  gap>5 s is simultaneously the most permissive defensible threshold *and* the only one
+  reaching §1's 100–250 band (>8 s → 75, >10 s → 67) — is retained **verbatim**, with the
+  discharge appended as a marked block. What discharges it: the accountability targets no
+  longer depend on the encounter boundary (A grain-invariant, B burst-defined, C a
+  declared non-target). The residual pressure applies to the **reporting unit only** and
+  is now a documented property of a versioned instrument. `accepted` rather than
+  `resolved` deliberately — `affects_measure_keys` is still accurate for the
+  reporting-unit figures and should keep riding on those rows in the conditioned view.
+- **`C-KPE-PROVISIONAL` → `superseded`**, by new **`C-KPE-RETIRED`** (`open`). The T-1
+  gate cleared, and the confound turned out to be *structural rather than removable*. The
+  caution does not lapse; it changes character. Keeping it `open` on a successor row is
+  what preserves the do-not-headline warning on the 106 banked rows — marking the old one
+  `resolved` would have silently dropped it out of `v_regime_stat_conditioned`.
+- **`EC-DOT-BOUNDARY-6052` → `EC-DOT-BOUNDARY-NONIDENTIFYING`** (`supersedes` FK set).
+- **`EC-SEGMENTATION-GRAIN` → `EC-HARNESS-V1-GRAIN`**. Note this is a **dissolution, not
+  an upgrade**: the old claim asked whether gap>5 s is the *correct* definition of an
+  engagement, and R-KC1-8 rules that is not a question with a truth value. Graded
+  `ATTESTED` — it is a ruling, so its authority is its source; `upgrade_criterion` names
+  harness-v2 via the Godot calibration leg.
+- **`C-HARNESS-V1-LIMITS`** banked `accepted` — R-KC1-8's declared limits surface
+  alongside every other condition instead of living only in the harness row.
+
+### The cross-ledger join surface (R-KC1-7 / R-KC1-8)
+
+`v_measurement_join_key` is the structural like-for-like surface: `(harness_version,
+grain_role, ledger_lane, ledger_adapter, regime_key, measure_key, target_standing,
+statistic, value_num, coverage, evidence_grade)`. A sim-adapter or Godot-OCR ledger
+banked here (or `ATTACH`ed) exposes the same columns; the comparison is an equi-join on
+`(harness_version, grain_role, measure_key)`. Ledgers on different harness versions do
+not join — which is the point, and is now checkable rather than remembered.
+`v_harness_ledger` shows every segmentation grouped under its harness version.
+
+**Design note on placement.** `harness_version` lives on `segmentation_run` **only** —
+one source of truth — and reaches `regime_stat` / `fixture_trial` / `measured_fixture`
+through their existing `segmentation_id` FK, surfaced by the views. Denormalising it onto
+each partition table would have made the join a one-hop convenience at the cost of a
+drift surface; the grain is a property of the *cut*, and that is where it belongs.
+
+### Verification
+
+`foreign_key_check` **CLEAN** · `integrity_check` **ok** · all four rebuilds preserved
+their row counts exactly (3 / 14 / 11 / 19) · re-run of the script is a **no-op**
+(state-guarded rebuilds skip; row writes are `ON CONFLICT DO UPDATE` and marked-block
+appends fire once).
+
+Closure check: `v_measurement_join_key` reproduces `kills_per_engagement` mean
+**3.3077 / 8.4026 / 11.875** for R1/R2/R3 — cell-identical to G-2b's `abc_decomposition`
+column, now travelling with `target_standing='retired-as-target'` attached.
+
+### ADR-004 + reversibility
+
+No engine-telemetry change; star-lord's ledger untouched; `fixtures.db` still reads
+nothing from `reincarnated-engine/data/telemetry.db`. Two cross-seam dependencies are
+**recorded, not assumed**: (a) galadriel's source-agnostic harness refactor is the
+acceptance test for `harness_version.source_agnostic=1`; (b) the star-lord/gamora
+sim-adapter ledger must emit `harness_version` to join here at all — that is a schema
+expectation on their side and should reach them via knight-rider with the G-4 adapter-spec
+addendum. Reversible: `fixtures.db.pre-v0.6-*-backup` restores the exact PRE state. The
+`.db` remains gitignored — **the script plus this entry are the durable record**, and a
+rebuild reproduces the amended state with no `/Volumes` mount.
+
+### Carried forward
+
+- **M10:** ingest A/B/C onto `…/S1-burst1.5s-v1` (all three burst thresholds; Gate-0
+  recompute from `g2b-per-engagement.csv`, do not trust the rollup). Closes
+  `C-AB-NOT-INGESTED`.
+- **Still open from M8:** `character_stat` carries the same latent `read_method` CHECK
+  drift that `trial_measurement` had; untouched here, still logged.
+- **Guard limit, restated:** the pooled-regime guard is an **FK**, enforced per
+  connection. A consumer opening the file with `PRAGMA foreign_keys=OFF` can still insert
+  a pooled row. The `requires_coverage` trigger holds unconditionally.
