@@ -1,0 +1,156 @@
+{
+ "purpose": "Two-method validation of the T-B 15 fps reader against the committed 60 fps death-window series (globe-hp-death1-60fps.jsonl), same footage, same templates, independent sampling rate.",
+ "window_pts": [
+  2775.0,
+  2845.0
+ ],
+ "fps_new": 15.0,
+ "fps_reference": 60.0,
+ "coverage_new": 0.9076,
+ "coverage_reference_same_window": 0.9088,
+ "co_read_frames": 939,
+ "agree": 916,
+ "disagree": 23,
+ "agreement_rate": 0.97551,
+ "reference_read_new_refused": 15,
+ "new_read_reference_refused": 14,
+ "disagreement_character": "all +/-1 HP, consistent with sub-frame sampling phase against a 1 HP/frame DoT decay, EXCEPT one case (t=2795.733) where the 60 fps reference accepted a truncated read of 3 and the T-B truncation guard correctly refused it",
+ "disagreements": [
+  [
+   2780.133,
+   465,
+   464
+  ],
+  [
+   2781.267,
+   457,
+   456
+  ],
+  [
+   2782.4,
+   449,
+   448
+  ],
+  [
+   2789.667,
+   392,
+   391
+  ],
+  [
+   2790.8,
+   384,
+   383
+  ],
+  [
+   2791.933,
+   376,
+   375
+  ],
+  [
+   2795.733,
+   342,
+   3
+  ],
+  [
+   2796.333,
+   334,
+   333
+  ],
+  [
+   2797.467,
+   326,
+   325
+  ],
+  [
+   2804.733,
+   269,
+   268
+  ],
+  [
+   2805.867,
+   261,
+   260
+  ],
+  [
+   2810.267,
+   219,
+   218
+  ],
+  [
+   2811.4,
+   211,
+   210
+  ],
+  [
+   2812.533,
+   203,
+   202
+  ],
+  [
+   2818.067,
+   153,
+   152
+  ],
+  [
+   2819.8,
+   146,
+   145
+  ],
+  [
+   2820.933,
+   138,
+   137
+  ],
+  [
+   2825.333,
+   96,
+   95
+  ],
+  [
+   2826.467,
+   88,
+   87
+  ],
+  [
+   2827.6,
+   80,
+   79
+  ],
+  [
+   2832.0,
+   38,
+   37
+  ],
+  [
+   2833.133,
+   30,
+   29
+  ],
+  [
+   2834.867,
+   23,
+   22
+  ]
+ ],
+ "closure_check": {
+  "claim": "intake over the death window must equal the independently measured DoT tick count x tick magnitude",
+  "round2_measurement": "57 identical ticks at -10 HP, period 1.000 s (sd 0.072)",
+  "tb_measurement": {
+   "intake_hp": 570,
+   "n_drops": 59,
+   "drop_p50": 10,
+   "drop_max": 10
+  },
+  "result": "EXACT: 570 HP = 57 x 10 HP, drop median = drop max = 10 HP, zero spike demotions"
+ },
+ "refusal_hist": {
+  "OK": 953,
+  "LOWCONF": 11,
+  "NSEG1": 1,
+  "FLASH": 3,
+  "NO_INK": 64,
+  "NSEG0": 1,
+  "TRUNC": 14,
+  "NODIG": 3
+ }
+}
