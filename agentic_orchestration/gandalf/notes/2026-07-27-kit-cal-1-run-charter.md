@@ -868,4 +868,49 @@ numbers feed the harness).
   from ANY other GD save pins the composition rule → ask Matt whether other character saves
   exist on the PC (SSH re-check is a one-line dir listing; new-scope, so Matt-gated).
 
+### 14.12 — BQ-3 lands (gamora, tag `gamora/v-bq3-calibration-door-1` @ engine `c067bbd`): the calibration door built under Matt's NEVER-used mandate; Gate-2 filed
+
+Matt's amendment to ruling 1 (§14.8, verbatim): *"ultra-think and implement whatever is needed
+to ensure these lines/values are NEVER used in the sim/pipeline."* Gamora's implementation
+honours the mandate **structurally, not conventionally** — six layers:
+
+- **L1 — namespaced key.** Overrides ride ONLY under `class_dict["_calibration_overrides"]`.
+  **Gamora overruled her own G-5b census §5.3 here**, and the overrule is the best call in the
+  work: the census proposed soft-reading the existing `defense` key ("it already exists"), but
+  the kit compiler emits `defense` on *every* compiled kit — so the day the REAL defence
+  mechanism (the one Matt's amendment says is still owed) starts emitting `defense.armor`, the
+  census design would have **silently activated the calibration door** on every production
+  fight. The trap was armed by the future roadmap itself.
+- **L2 — keyword-only `allow_calibration_overrides=False`** at all three player-building
+  entries (`entity_from_class_dict`, `combatant_projection_from_class_dict`,
+  `run_spatial_fight`).
+- **L3 — the teeth: present-but-not-allowed RAISES.** A dict carrying the key cannot be
+  simulated *at all* by a non-opted-in path. Not "production must remember not to pass the
+  flag" — a structural crash, which is what NEVER means.
+- **L4 — unconditional asserts** (no opt-in parameter even exists) at the four production
+  entrypoints: `run_slot`, `run_slot_smoke`, `_run_kit_slot_worker`, `_w4g_run_fight_batch`.
+- **L5 — AST sweep** (not grep — docstrings quote the flag name) for `=True` call-sites;
+  allow-list currently empty.
+- **L6 — provenance stamp** on `SpatialFightResult` + MIGRATION entry.
+
+Deliberately NOT built: env var, global flag, registry — all forms of process state a run can
+inherit by accident. **Evidence:** production-path digest `25c212eb…` captured on the
+pre-change commit, byte-identical post-merge AND with the door present but no overrides;
+39/39 new tests; 1,578-test regression with 55 pre-existing failures **diff-empty** vs a
+stash baseline; KF-4 smoke 36 GREEN. Forward obligation restated per Matt's ruling: this door
+is scaffolding — *real* defence + HP mechanisms fitted to kits are owed, and L1's namespacing
+is what keeps that future work from colliding with this one.
+
+**Gate-2:** `agentic_orchestration/qa/pending/2026-07-28-gamora-bq3-calibration-override-door.md`
+(meta `11a441f9`) — §1 asks jack-ryan to rule *explicitly* on the census departure rather than
+letting it pass as implementation detail. Both repos + tag pushed per the cycle push-pattern;
+the Gate-2 file's "committed never pushed" line is superseded by this landing record.
+
+**Run-state after §14.12:** every chartered instrument and every R-KC1-15 work item except the
+harness itself has returned. G-5 now waits on exactly four things: (1) Matt's pin rulings
+(P-1/P-2/P-3 gate; P-4/P-5/P-7 shape), (2) jack-ryan Gate-2 on BQ-3, (3) the P-6 gamora check
+(attacker-targeted `on_crit` consequence for Battle Surge, else BQ-4), (4) clamp/HP-composition
+closure for the champion/hero/boss tiers (§14.10–§14.11 corrections applied; other-saves ask
+open with Matt).
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
