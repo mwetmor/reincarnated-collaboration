@@ -2,7 +2,7 @@
 
 > **STATUS:** ROUTER (thin). On 2026-06-30 (canonical reorg, Tranche 2) this doc's heavy per-doc CURRENT/HISTORICAL/DEAD **registry was dissolved** — canon now lives in **three folders** (below). The old "ground-state oracle" content is in **git history** (`git show <pre-reorg>:canonical/00-ground-state.md`), recoverable, not pre-load material.
 > **Status:** LIVING. Still the **first read for every agent on every invocation.** The path is unchanged, so every "read `00-ground-state.md` first" instruction stays valid — you now get a *router*, not a registry.
-> **Game:** **Reap. Die. Rise.** — ARPG / roguelite-descent, **death-faith** frame (retitled from "Reincarnated" 2026-06-29; the isekai positioning is RETIRED).
+> **Game:** **Reap. Die. Rise.** — ARPG / roguelite-descent, **Glitch Archive** frame (Matt ruling 2026-07-28: the death-faith frame is DISSOLVED — no longer story canon). The premise: a teenage kid finds an old ARPG floppy disk, 3D-prints an adapter for his VR console, and gets stuck inside the glitching game — saving the ARPG kits (and himself) from deletion by defeating them one by one, adding them to the adapter, and *becoming* them. Frame authority: `reap-die-rise-story/archive-frame.md` (RULED 2026-07-21) + founding capture `agentic_orchestration/gandalf/notes/2026-07-25-glitch-archive-story-concept-capture.md`. (Retitled from "Reincarnated" 2026-06-29; the isekai positioning is RETIRED.)
 > **Maintained by:** gandalf.
 
 ---
@@ -11,7 +11,7 @@
 
 | You want… | Go to |
 |---|---|
-| **The STORY spec** — death-faith frame, demigod-jailer / death-god patron / hub-ensemble cast, projection / Hall of Heroes / cosmograph / molting, the manufactured-rebellion keystone, villain-protagonist arc | `canonical/reap-die-rise-story/` |
+| **The STORY spec** — **Glitch Archive** frame (kid / floppy disk / VR adapter / rescue-kits-from-deletion / become-them; `archive-frame.md` is the frame authority) — the death-faith-era docs (demigod-jailer / death-god patron / manufactured-rebellion keystone / villain-protagonist arc) are SUPERSEDED pending re-reconciliation fold | `canonical/reap-die-rise-story/` |
 | **The ENGINE spec** — generation, simulation, balance, gear / stat / T4 architecture, progression, content-emission, the build / networking / perf / render stack | `canonical/reap-die-rise-engine/` |
 | **The GAME spec** — the playable product: the One Realm MVP demo scope (THE DENOMINATOR for demo-critical vs launch-scope), roster accounting, wishlist machinery | `canonical/reap-die-rise-game/` (born 2026-07-02) |
 | **Where the build is vs. the spec** — the deltas, what's still owed | `canonical/current-to-end-state/` → `…-engine.md` (build gaps) + `…-story.md` (open story decisions) + `…-game.md` (playable-presentation-build / Godot gaps — born 2026-06-30) + `…-serial-content-emission.md` (the content-factory product: emission current→end, run registry, demo bundle — born 2026-07-02) |
@@ -64,7 +64,7 @@ Plus role-specific:
 *Held in the router — cheap to keep at the first-read surface.*
 
 - **Locked term — `flavor element`:** thematic flavor variant of a primary `canonical_element` (pure naming/visual layer; does NOT change damage_scaling_type, affinity, or resistance). Retired: `sub-element`, `element canonical-pair flavor`.
-- **DEAD — do not build on these:** isekai framing · the warm future-self **spirit guide** as an entity (RETIRED 2026-06-30; splits 3 ways — demigod-jailer / death-god patron / hub ensemble) · **seasonal-RELEASE** cadence (retired 2026-06-02; we ship runs/descents, not seasons) · pure-auto-combat (rejected; variable-execution-by-build is the lock) · mobile-first (PC/console-first) · non-humanoid playable forms · pre-imposed aesthetic/axis taxonomy (substrate votes). If you're building on any of these, stop — you're in a dead branch.
+- **DEAD — do not build on these:** isekai framing · **the death-faith frame** (DISSOLVED by Matt ruling 2026-07-28 — demigod-jailer / death-god patron / manufactured-rebellion keystone are superseded story canon; the Glitch Archive frame governs, `reap-die-rise-story/archive-frame.md`) · the warm future-self **spirit guide** as an entity (RETIRED 2026-06-30) · **seasonal-RELEASE** cadence (retired 2026-06-02; we ship runs/descents, not seasons) · pure-auto-combat (rejected; variable-execution-by-build is the lock) · mobile-first (PC/console-first) · non-humanoid playable forms · pre-imposed aesthetic/axis taxonomy (substrate votes). If you're building on any of these, stop — you're in a dead branch.
 
 ---
 

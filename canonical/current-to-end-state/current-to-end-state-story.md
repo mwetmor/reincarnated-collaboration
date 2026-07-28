@@ -29,6 +29,16 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-07-28 — DEATH-FAITH FRAME DISSOLVED (Matt ruling) — Glitch Archive is THE frame; re-skin fold QUEUED
+
+- **Matt RULED (verbatim core):** *"we have definitely dissolved the RDR death faith game - it is no longer story canon."* The governing frame is the **Glitch Archive**: the teenage kid finds the old ARPG floppy disk, 3D-prints the adapter to his VR console, gets stuck in the glitching game, and saves the ARPG kits (and himself) from **deletion** by defeating them one by one — adding them to the adapter and *becoming* them.
+- **What was already true:** `archive-frame.md` was RULED world-frame canon 2026-07-21 (rescue motive · devourers · element-courts k=5 · eras-for-shelves) and is death-faith-agnostic; the founding capture (`agentic_orchestration/gandalf/notes/2026-07-25-glitch-archive-story-concept-capture.md`) holds Matt's pitch + three rulings (preservation core · authored-homage IP law · you WEAR the builds). **What was missing was the dissolution declaration** — this ruling completes it.
+- **Landed this session:** `canonical/00-ground-state.md` game-line + STORY-row + drift-guards updated (death-faith now DEAD-listed); `reap-die-rise-story/00-index.md` carries a FRAME SUPERSESSION banner.
+- **QUEUED — the re-skin fold (PART C successor work):** re-reconcile `story-keystone.md` (manufactured rebellion), the demigod-jailer / death-god-patron cast layer, and the death-faith voicings in `story-expansion.md` + `gameplay-loop-design.md` story-half into the Glitch Archive frame — reconcile-don't-amputate; structure may survive re-skinned (the kin-faction loop, persistence contract R1, agnostic-loot mechanics are frame-portable). This composes with the QUEUED story design session (2026-07-22 entry): Q43 R2–R8 were gated on *"a fleshed-out story AND a new title"* — the frame half of that gate now exists; Q37 (title) elicits against Glitch-Archive world-nouns.
+- **Decisions-log entry:** flagged for knight-rider to draft (gandalf recommends; Matt approved 2026-07-28; jack-ryan reviews).
+
+**Signed:** gandalf, 2026-07-28.
+
 ### 2026-07-22 (second) — B-RUN PERSISTENCE CONTRACT RATIFIED (Q43 R1) · R2–R8 STORY-GATED · title-bias catch re-confirms Q37
 
 - **Matt RULED Q43 R1 (a)-ratify verbatim:** *"Items survive death. Death taxes PROGRESS, not PROPERTY."* First ruled row of the persistence world-contract (B-RUN boundary — death within a season). Genre-universal (D2 corpse recovery; PoE XP-deduct), story- and title-independent. **Unblocks:** the §1.6 scaling-curve lane may now define the A5 +3-becoming acceptance band (the only build item that waited on this contract).

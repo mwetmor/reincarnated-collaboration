@@ -6,9 +6,13 @@
 
 ---
 
-## What this folder will hold
+> **⚠ FRAME SUPERSESSION (Matt ruling 2026-07-28): the death-faith frame is DISSOLVED — no longer story canon.**
+> The governing frame is the **Glitch Archive**: a teenage kid finds an old ARPG floppy disk, 3D-prints an adapter to his VR console, and gets stuck inside the glitching game — saving the ARPG kits (and himself) from **deletion** by defeating them one by one, adding them to the adapter, and *becoming* them. Frame authorities: **`archive-frame.md`** (RULED world-frame canon, 2026-07-21 — rescue motive, devourers, element-courts k=5, eras-for-shelves; already frame-agnostic of death-faith) + the founding capture `agentic_orchestration/gandalf/notes/2026-07-25-glitch-archive-story-concept-capture.md` (Matt's verbatim pitch + three rulings: preservation core · authored-homage IP law · you WEAR the builds).
+> **Consequences pending the re-reconciliation fold** (queued in the delta tracker): `story-keystone.md` (manufactured rebellion), the demigod-jailer / death-god-patron cast layer, and the death-faith reads of projection / Hall-of-Heroes / molting in `story-expansion.md` are **SUPERSEDED as frame** — structure may survive re-skinned (reconcile-don't-amputate, `spec-index.md` §4), but nothing new builds on the death-faith premise. `agnostic-loot-story-spec.md` mechanics (two clocks / three verbs, soul weapons, banking triad) are frame-portable and remain live pending re-voice.
 
-The locked story frame of *Reap. Die. Rise.* — death-faith premise, the demigod-jailer / death-god patron / hub-ensemble cast, the projection / Hall-of-Heroes / cosmograph / molting experiential structure, the manufactured-rebellion keystone, the villain-protagonist arc.
+## What this folder holds
+
+The locked story frame of *Reap. Die. Rise.* — the **Glitch Archive** premise (see supersession banner above; `archive-frame.md` governs), the hub-ensemble cast and experiential structure pending re-reconciliation from their death-faith-era voicing.
 
 ## ✓ AUTHORED IN (post-assembly new spec docs)
 
