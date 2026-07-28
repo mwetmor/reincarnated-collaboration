@@ -1106,4 +1106,41 @@ information content; math note § 6)". The gap is ONE carry-back seam, not a mis
    construction. 5. Trash tier sustain-free + insensitivity assertion. 6. The 1.61-vs-1.10
    floor UNRESOLVED flag rides to G-8/char-sheet confirmation, non-blocking.
 
+### 14.17 — G-8 lands (galadriel `1e9d41f3`): the client rendered monster HP numerals — the composition rule PINS without another save; the orb "collision" resolves AGAINST the charter
+
+**The headline: §14.11's closure path is CLOSED, from inside the corpus we already held.** The
+client renders monster health as numerals; galadriel found **ten readouts across seven
+frames**. Frame 281 itself carries Primordian at **13,571 / 14,812**:
+- **14,812 max pins the net life modifier at −36.000% ± 0.004 pp** — measured independently,
+  landing EXACTLY on the value §14.11 said integrality demanded (−36.00%). The composition
+  rule is no longer inferred from one over-determined triple; it is read off the screen.
+- The 15,822-vs-14,812 residual = **1,010 ≈ bio mana 1,009.74** — confirming the
+  `LifeAndMana` split as a byproduct.
+- **Second tier measured:** champion Thundersnout ~ Thundering, L10, **max 4,702** (Δ0.28 pp
+  vs bar). **Six trash maxima:** 58, 326×2, 434, 649, 813, 1,820. Three tiers of the HP table
+  now carry client-measured anchors. (The other-saves ask to Matt drops from *required* to
+  *redundancy-nice-to-have*.)
+
+**The orb collision (§14.13 flag) dissolves — and the charter was the wrong party.** Death 2
+reads **HP 0/747, mana 239/349**; `play_time` 5453 sits in **R2** (ratified 1134–6052), and
+747 is the banked ladder level for (4987, 5648]. §14.13's "inside R3, where max is 1600" was a
+conductor regime-assignment error, now corrected: the 759→1600 gear step lands AFTER death 2.
+Galadriel reproduced the whole orb ladder still-side: 250→366→451→672→707→**747**→759→1600→
+**1607** — terminal max is **1607, not 1600** (small G-6 §7.1 correction; kit-spec N-band
+endpoints re-check at harness compile).
+
+**Two provisional conductor reads corrected (C-9):** Onslaught was used **54** times (not ~5 —
+it was a live rotation piece, consistent with its INERT-stat-but-cast status); and **"Damage
+per second" is a rolling ~5 s meter, NOT lifetime** (14.0 … 743.22 … 1492.47 across frames —
+743.22 is the death-window value; G-5 must window any comparison, never treat it as a run
+average). Skills-Used counts all M-OCR ≥0.957: kick 13 · weapon 74 · onslaught 54 · transform
+7 · claws 243 · charge 125. Death-window rate (f280→f281, 81 s): +59 kills, +19 claws, +9
+charge, 0 everything else — **a pure claws:charge 2.11:1 window** (harness driver's boss-tier
+mix, measured at the actual death). Primordian's nameplate level **13** over-determined
+against save + `lv6_hero` remap — the §14.15 charLevel ambiguity collapses.
+
+**Lane fired:** legolas — fold the ten HP readouts + −36.000% modifier into a corrected
+opposition-ledger HP table (trash/champion/boss re-graded, §14.11's ×0.837/×0.810 replaced by
+the measured rule), and grade the six trash maxima against the G-5a pool predictions.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
