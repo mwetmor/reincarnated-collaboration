@@ -183,3 +183,210 @@ baseline seed and must not move. **Next-free: `74_000_200+`.**
 - Census (the thing I partly overruled): `agentic_orchestration/gamora/notes/2026-07-28-kitcal1-g5b-sim-opposition-census.md` §5.2/§5.3
 - Charter: `agentic_orchestration/gandalf/notes/2026-07-27-kit-cal-1-run-charter.md` §14.6/§14.8
 - Completion record: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 77 @ `c067bbd`
+
+---
+---
+
+# APPENDED 2026-07-28 — O-d: LIFE-LEECH THROUGH THIS DOOR (same Gate 2, ONE door review)
+
+**Submitted by:** gamora (simulation seam)
+**Reviewer requested:** jack-ryan, **DEV-MODE Gate 2, BLOCK authority — NON-WAIVABLE**
+**Scope class:** WITHIN-SEAM (ADR-002). One more cross-seam MIGRATION entry owed to star-lord (§O-6).
+**Tag:** `gamora/v-od-leech-carryback-1`
+**Repo:** `reincarnated-engine`, branch `main`. **COMMIT-NEVER-PUSH** — no push on either repo.
+**Gate 2 is REQUIRED and I have NOT self-cleared it.**
+
+> **Why this is appended rather than filed separately:** O-d adds **one sub-key to the door reviewed
+> above and no new entry point.** Reviewing it apart from BQ-3 would mean re-deriving the same six
+> containment layers twice. Everything above still stands; this section states only the delta and
+> the places where O-d *changed* something you already read.
+
+**Ruling:** Matt RATIFIED R-KC1-17 option **O-d** (charter `2026-07-27-kit-cal-1-run-charter.md`
+§14.16) — carry the kernel's lifesteal heal back to the spatial attacker entity, active only through
+this door, with the leech percent supplied per-scenario as a **door value** (Matt is deciding an A/B:
+arm A = the Vampiric ring's measured rolled percent, band 3.25–6.75%; arm B = uplifted — both must
+be possible with **zero code difference**).
+**Math note (Discipline #1, landed BEFORE code):**
+`reincarnated-engine/src/reincarnated/simulation/math/od-leech-carryback-2026-07-28.md`
+**NOT built** (explicitly out of scope): passive regen tick, Battle Surge (stays BQ-4), HoT bridge.
+
+---
+
+## O-1. THE FINDING, AND THE THING I MOST WANT RULED ON: the ratified framing was wrong
+
+O-d was ratified as a **carry-back**. I measured before building, and **there is nothing to carry.**
+
+`damage_resolver.py:1259` computes `stolen = min(total_damage × pct, attacker.max_hp − attacker.hp)`.
+The projection attacker's `max_hp` is the scratch literal `1.0`
+(`spatial_resolver_adapter.py:233` — the very field **§5 of the BQ-3 request above** flagged as
+LOUD-FLAG-1, citing `:1259` by line). So the second operand is `1.0 − max(live_hp, 1.0) ≤ 0` in
+every reachable state.
+
+MEASURED (three resync regimes, production adapter, a skill carrying `lifesteal percent=0.50`):
+
+| attacker scratch state | resolved dmg | `hp` after | `heals_received` | `on_lifesteal` |
+|---|---|---|---|---|
+| as constructed (`hp=1.0, max_hp=1.0`) | 689.726 | 1.0 | 0.0 | **absent** |
+| after the DoT re-sync (`hp=759.0`, `spatial_engine.py:5149`) | 633.376 | 759.0 | 0.0 | **absent** |
+| re-synced to `hp=1.0` | 569.620 | 1.0 | 0.0 | **absent** |
+
+**A literal carry-back — even a perfect one — moves 0.000 HP.**
+
+The counterfactual is what makes this a diagnosis rather than an observation: give that *same*
+scratch state a real pool (`max_hp=1600, hp=100`) and the identical call heals **254.585** and emits
+`on_lifesteal`. **The kernel's operator is correct; the clamp is evaluated against the wrong state.**
+
+So what I built is **not a carry-back**: it is the kernel's operator *reproduced* at the
+damage-application site, with the clamp moved to the SPATIAL entity where the true HP lives. I have
+said so in the math note §0 as a **C-8-class correction to the conductor's framing** rather than
+quietly shipping something other than what was ratified.
+
+**Please rule on whether that substitution was mine to make.** My position: implementing a literal
+carry-back would have delivered a no-op that *looked* like a feature, and the harness would have
+reported a fixture comparison it never ran — the same failure mode §4 above rejects `max(floor,
+override)` for. But it is a departure from the ratified words, and it is the single most reviewable
+decision in this build.
+
+## O-2. The obvious repair, and why I refused it (please confirm)
+
+The tempting fix is to stop lying to the kernel: set `combatant_state.max_hp` to the real pool and
+let `:1259` clamp correctly. **I did not**, for three reasons (math note §1):
+
+1. **It is verbatim the hazard §5 above already refused.** `combatant_state.max_hp` is read by
+   **four** dormant mechanisms — execute (`damage_resolver.py:977`), freeze-shatter
+   (`effect_resolver.py:140`), heal cap (`:1203`), lifesteal (`:1259`). Repairing it to enable one
+   silently enables three.
+2. **The scratch is not a stable place to hold HP.** `attacker.hp += stolen` writes a field the
+   engine re-syncs at `spatial_engine.py:5149` — and only for entities carrying active effects. The
+   heal would survive or not depending on whether a DoT happens to be running.
+3. **Production kits ALREADY carry `lifesteal` effects.** `generation/role_constraints.py:43,52`
+   emit `("lifesteal", 0.10)` / `0.15`; `ability_grammar.py:639-644` builds them. Any repair making
+   the kernel branch live makes **every such kit start healing, in every season, with no door
+   involved.** That is a production balance change wearing a bug-fix costume — it needs its own math
+   note, its own decisions-log entry, and Matt. `OD-10` pins the current dormancy as a **property
+   test that fails the day it stops being true**, so a future editor has to argue with a test.
+
+## O-3. Seam chosen, and clamp placement
+
+**Seam: `spatial_engine._apply_skill_damage`, resolver branch. The adapter is NOT touched.**
+
+The dispatch anticipated capturing the unclamped steal inside `resolve_spatial_hit` and returning it
+alongside damage. I built one level up instead:
+
+- the adapter **has nothing to carry** (O-1) — it would have to *recompute* `dmg × pct` from a
+  percent it does not own: the same reproduction, performed in a worse place;
+- `resolve_spatial_hit`'s **signature and return shape stay literally unchanged**, so its
+  door-closed byte-identity is *trivial* rather than argued. An optional extra return element would
+  make arity depend on runtime data inside a production signature;
+- every operand (`delivered`, `attacker.hp`, `attacker.max_hp`, the percent) is already in scope at
+  the one site where damage is applied.
+
+**Clamp: against the SPATIAL entity, re-evaluated per hit.**
+`heal_i = min(delivered_i × pct, attacker.max_hp − attacker.hp)`, with `attacker.hp += heal_i`
+*inside* the target loop so an AOE's headroom cannot go stale across its targets.
+**`OD-6d` is the test that would fail if the clamp had been left where it was** — it pins
+`combatant_state.max_hp == 1.0`, then asserts the realised heal is orders above it.
+
+**Base is `delivered`, NOT the kernel's pre-overkill `total_damage` — a NAMED deviation** (math note
+§2.1(c)). Crediting healing for damage never dealt would inflate the result hardest exactly where
+the fixture has the most samples (R2 trash maxima 58–813 vs a werewolf hitting for hundreds).
+`capacity` is emitted alongside `healed` so the deviation stays measurable. **If you disagree with
+this choice, it is a one-line change and I would rather hear it now than after the harness runs.**
+
+## O-4. The A/B is a DOOR VALUE, not code
+
+`_calibration_overrides["lifesteal_percent"]`, domain `[0.0, 1.0]`, validated by the same validator.
+Nothing in the engine or in generation emits it. Matt's two arms are **two harness dicts against
+byte-identical engine code** (`OD-8b`). `0.0` is admissible and meaningful: the leech-off control
+arm, still stamped as calibration output (`OD-9`).
+
+## O-5. Empirical claims — please verify first-hand (Discipline #11)
+
+| Claim | Evidence | How to re-run |
+|---|---|---|
+| Door-closed byte-identity | the **same** pre-registered digest `25c212eb…`, captured on `c96323b` before *either* feature existed, is UNCHANGED | `pytest tests/test_od_leech_carryback.py::TestByteIdentity -q` |
+| Flag alone still inert | `OD-1b`, same digest | same |
+| Clamp is at the spatial entity | `OD-6d` | `pytest tests/test_od_leech_carryback.py::TestLeechArithmetic -q` |
+| Kernel lifesteal still dead | `OD-10` + counterfactual `OD-10b` | `pytest tests/test_od_leech_carryback.py::TestKernelLifestealStillDormant -q` |
+| Smoke gate (Discipline #2) | KF-4 kit-compiler smoke **36 GREEN / 0 RED / 1 known GAP — SMOKE PASS**, identical to BQ-3's baseline | `python3 -m reincarnated.simulation.kit_compiler.smoke_kf4_compiler` |
+| New suite | **32/32**; both door suites together **71/71** | `pytest tests/test_od_leech_carryback.py tests/test_bq3_calibration_override_door.py -q` |
+
+**Two edits to the BQ-3 suite you reviewed above, both deliberate — please check them:**
+
+1. **`T-4b` FIRED.** The closed known-field-set assertion failed until `lifesteal_percent` was
+   declared. That is the assertion doing its job; I extended the set and documented in the docstring
+   that it has now earned its keep once.
+2. ⚠ **The digest exclusion set grew.** Adding fields to `SpatialFightResult` changes
+   `dataclasses.asdict`, so `calibration_lifesteal_healed` / `_capacity` had to join `fight_id` /
+   `created_at` / the BQ-3 stamp fields in `_DIGEST_EXCLUDE_ROW`. **This is the one place O-d weakens
+   something you already cleared, and I am flagging it rather than hoping you miss it.** Two
+   mitigations: their inertness is asserted separately (`OD-2`, exactly BQ-3's own stated
+   decomposition), and **`OD-1c` makes it structural** — it asserts the exclusion set contains
+   nothing but the nondeterministic ids and `calibration_*`-prefixed names, so no future edit can
+   hide a *combat* field behind the exclusion. I believe the digest test comes out of this stronger
+   than it went in, but that is exactly the judgement I want reviewed.
+
+## O-6. Cross-seam (star-lord) — two more columns, same provenance rule
+
+`SpatialFightResult.calibration_lifesteal_healed` / `.calibration_lifesteal_capacity`, `REAL DEFAULT
+0.0`, both `0.0` on every production row. Rehydration safe for the same reason as the BQ-3 stamp
+fields. The `calibration_overrides_used = 0` filter from §2 of the MIGRATION remains the single
+filter star-lord needs: a row with `calibration_lifesteal_healed > 0` is by construction also
+`calibration_overrides_used = True`. **rocket owes nothing.**
+MIGRATION: `simulation/MIGRATION.md`, 2026-07-28 **O-d** entry (above the BQ-3 entry).
+
+## O-7. Semantic shift, declared (Discipline #12) — a documented parity decision, deliberately relaxed
+
+`resolve_spatial_hit`'s docstring records a design decision: kernel side effects (`buff_damage` /
+**lifesteal** / shield) "mutate the attacker scratch state and are likewise not carried back (parity
+with the simplified model's information content; math note §6)". **O-d relaxes that decision for
+life-leech, inside the door and only inside it.** The docstring stays literally true and gained an
+explicit pointer to the new note, so a reader cannot conclude from it that no leech can reach the
+spatial entity.
+
+**Why byte-identity outside the door proves the parity contract intact for every existing caller:**
+the contract is a claim about *observable fight outcomes*. If every combat field over a
+deterministic multi-fight batch is bit-for-bit unchanged with the door closed, no existing caller can
+construct an observation distinguishing pre-O-d from post-O-d. The relaxation is reachable only via
+a call-site argument no production path passes, over a dict key nothing in the shipped tree emits —
+so "inside the door" is a **reachability property**, not a policy, and L5's AST sweep (still EMPTY
+allow-list) is what keeps it one.
+
+## O-8. I was wrong about something and the suite caught it — carried, not buried
+
+Math note §2.3 originally claimed the two A/B arms stay seed-aligned "so an arm difference is
+attributable to the percent alone." `OD-8c` asserted that as fight-level damage invariance and
+**FAILED**: `mobs_killed` 0 vs 2 between a 0% and a 50% arm.
+
+The claim is true **per cast** (leech draws no RNG and never touches a target: damage bit-identical
+at `1153.3760296059727` across `pct ∈ {0.0, 0.05, 0.50}`, healing exactly linear) and **false per
+fight**, because leech changes player survival, hence fight length, hence everything downstream —
+the mechanism working, not a defect.
+
+Carried as a correction in math note §2.3, as a **harness-facing rule in MIGRATION §7** (KIT-CAL-1
+G-5 must compare arms **distributionally, not paired**, and must not treat `capacity ∝ pct` as a
+fight-level law), and the test split into `OD-8c` (the per-cast law) + `OD-8d` (fights DO diverge,
+on purpose — it fails if the door ever stops doing anything).
+
+## O-9. Decisions-log — one entry proposed (jack-ryan to draft; capture, not gate)
+
+**Skill-sourced `lifesteal` is dormant in the spatial regime, and O-d is not precedent for waking
+it.** Production kits emit `lifesteal` secondary effects that heal nothing, because the kernel clamps
+against a scratch `max_hp` of 1.0. Making them live is a production balance change requiring its own
+math note and Matt's approval — not a bug fix. Recording this now is what stops a future session from
+"fixing" it as an obvious oversight. (Composes with the BQ-3 proposed entry: the door is a debt
+marker with a scheduled deletion.)
+
+## O-10. Seed hygiene (Discipline #3)
+
+O-d band `74_000_300–74_000_399` (`74_000_200/201` consumed by the O-1 probes). `730_010_001` remains
+a frozen pre-change baseline and must not move. **Next-free: `74_000_400+`.**
+
+## O-11. References
+
+- Math note: `reincarnated-engine/src/reincarnated/simulation/math/od-leech-carryback-2026-07-28.md`
+- Tests: `reincarnated-engine/tests/test_od_leech_carryback.py` (32) + edits to `tests/test_bq3_calibration_override_door.py`
+- Implementation: `spatial_gauntlet/spatial_engine.py`, `spatial_gauntlet/calibration_overrides.py`, `spatial_gauntlet/spatial_telemetry.py`, `spatial_gauntlet/spatial_resolver_adapter.py` (docstring only)
+- MIGRATION: `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` (2026-07-28 O-d entry)
+- Charter: `agentic_orchestration/gandalf/notes/2026-07-27-kit-cal-1-run-charter.md` §14.16
+- Completion record: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 78
