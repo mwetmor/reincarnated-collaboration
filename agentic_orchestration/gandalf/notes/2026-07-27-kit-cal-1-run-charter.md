@@ -788,4 +788,30 @@ Matt ratified all six lines with three amendments:
 resolution), galadriel (pak validation). Kit-spec v2 redraft still in flight; its pin-sheet is
 the remaining Matt gate (H-2) before G-5.
 
-**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+### 14.9 — Kit-spec v2 lands (`19ddb998`): six channels, W-c window, the 8-pin H-2 sheet, and C-6
+
+Spec: `gandalf/notes/2026-07-28-kitcal1-g4-kit-spec-v2.md`. Headlines:
+
+- **Six damage channels compiled** (v1 had two): physical (weapon 14–40), acid (weapon base +
+  18% phys→acid affix conversion), chaos (claws 237 + charge 375 flat, Blight retype), poison
+  DoT 50/5s (weapon affix roll — falsifies v1's `componentName` hypothesis), bleed DoT (charge,
+  810 over 3 s, present R2 *and* R3), cold (Amatok's Pact; Onslaught's cold cannot fire). Plus
+  the near-missed seventh contributor: **charge's 295% off-hand reads LARGER than main-hand**
+  (the shield) — single-weapon compile would understate ~2× (pin P-7).
+- **A-step window: W-c, `play_time ≥ 3619`** (49 engagements, 421 kills) — kit-exactness binds,
+  not A-stationarity: A's pre/post-2918 CIs overlap, but **B moves ×1.347 across the
+  composition event** (Blight+Battle Surge+Amatok, bracketed to (2918, 3619]) with no DoT added
+  at that boundary. Whole-R2 would contaminate B by a lift the size of S-2's own signal.
+  Segmenting to W-c *hardens* the S-2 target: v1 ×1.30 → **×1.218**. Costs 5 engagements.
+- **Pin-sheet (8):** P-1 window choice (lean W-c) · P-2 ratify S-1/S-2/S-3 structural bands ·
+  P-3 ratify N-1..N-12 numeric bands · P-4 N-12 grain (accept R2-whole vs galadriel re-cut) ·
+  P-5 coverage gate (a ≥0.80 gate would EXCLUDE the fixture's worst hazard event) · P-6 gamora
+  D1 check (attacker-targeted `on_crit` consequence expressible? else Battle Surge → BQ-4) ·
+  P-7 off-hand compile · P-8 pak-validation-first (already in flight, §14.8). **P-1/P-2/P-3
+  gate G-5.**
+- **C-6 (⚠ SWITCH: SPEC-AUTHOR → DRIFT-CRITIC, against my own §13.3):** the 72.4% anchor is
+  death **2** (`play_time` 5453, e082), not death 1 — C-1's numbering was made in the pre-C-3
+  timebase. R-KC1-8's death-visibility clause **stands as originally written**. M10 rider
+  amended accordingly (elrond gets C-6 with C-1/C-3).
+
+**Signed:** gandalf (`RUN-CONDUCTOR` / DRIFT-CRITIC), 2026-07-28.
