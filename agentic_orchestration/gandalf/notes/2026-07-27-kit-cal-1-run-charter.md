@@ -964,4 +964,37 @@ acceptance fixture** — not coupled to G-5 (full argument in the session record
 built precisely so calibration need not wait for mechanisms, and mechanisms built pre-G-5
 would be fitted to theorycraft instead of measurement). Awaiting Matt's ruling.
 
+### 14.14 — P-6 resolves (gamora `c3907354`): NOT-EXPRESSIBLE → **BQ-4**. Battle Surge exits the kit spec's live surface
+
+Verdict with file:line evidence (note:
+`agentic_orchestration/gamora/notes/2026-07-28-kitcal1-p6-oncrit-expressibility.md`). Three
+legs, one healthy:
+
+- **on_crit trigger — produced, then dropped.** `"on-crit"` is legal spec vocabulary
+  (`resource_economy.py:126-134`) and the damage resolver emits crit events
+  (`damage_resolver.py:1349`), but NO call site logs them into the Wave-C event stream — the
+  five live triggers are on-hit / on-kill / on-defender-death / on-block-successful /
+  on-damage-taken (`spatial_engine.py:4545-4731`). The player attack path never sets
+  `return_events=True`; only mob→player does. A vocabulary naming bridge (`on_crit` vs
+  `on-crit`) is also absent.
+- **Attacker-targeted consequence — EXISTS** (`_wave_c_dispatch_consequence` resolves
+  `resource-fill` onto the attacker, `spatial_engine.py:3759-3761`) — **but no heal payload**:
+  `CONSEQUENCE_TYPES` has no heal member.
+- **3s HoT + 6s ICD — NO on both.** The deepest find: `heal_over_time` exists
+  (`effect_resolver.py:121-130`) but **its recovery lands on scratch state and never reaches
+  spatial HP** (`spatial_engine.py:5163/5186` — only the DoT side syncs). No per-proc ICD
+  primitive at all.
+
+Gamora correctly declined to glue: the HoT→spatial-HP bridge is a Discipline #12 semantic
+shift, and trigger-vocabulary extension crosses into rocket's seam. **Consequences for the
+run:** Battle Surge r1 moves from PRESENT-CALIBRATABLE-candidate to **ABSENT (BQ-4)** under
+the R-KC1-9 capability taxonomy — the kit spec carries it as a named inert entry with its
+fixture number attached (client-measured "Life healed: ~5649" over 5453 s, G-8-pending). G-5
+proceeds without self-heal; the fixture's death-2 hazard event is *conservative* in the sim's
+favor is NOT claimable (healing helped Matt survive R3 — its absence biases the sim werewolf
+FRAGILE, which is the honest direction to miss in, and it is now quantified, not vibes).
+**BQ-4 joins the Q-KC1-1 defensive-mechanics wave** (max-HP derivation, armor/mitigation,
+on_crit self-heal, HoT spatial bridge) — three of its four members now have measured fixture
+targets. BQ-1/BQ-2/BQ-4 route to knight-rider for sequencing after Matt rules Q-KC1-1.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
