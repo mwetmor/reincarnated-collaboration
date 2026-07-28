@@ -841,4 +841,31 @@ wrong operator caught by pre-registered validation *before* it entered the harne
 of one read-only pass. The pin-sheet itself is unaffected (bands are fixture-side; opposition
 numbers feed the harness).
 
+### 14.11 — U-1 lands (legolas `156229b2`): kit values closed to source; the Slith check FAILS clean and corrects the ledger's HP side too
+
+- **Claws @16 fully pinned, five-for-five against G-6's tooltip frame:** 150% weapon dmg, flat
+  237 pierce→chaos, **target cap 5, arc 150°**, mana 5, no cooldown. Cap+arc **saturate at rank
+  13** — the whole W-c window sits post-saturation. Kit carries **no skill-native physical**
+  (spec-v2 channel-1 reconciliation item: physical exists only as weapon-carried, post the 18%
+  acid conversion).
+- **The transform grants ZERO stats at any rank** (`werewolf1.dbr` has no `characterLife`
+  arrays) — G-7 §7's parked transform-HP hypothesis is dead; the gear-step is gear, full stop.
+- **+Health cross-check PASS** — nominal 700, window [627,773], G-6's +737 at the 52nd
+  percentile; the boots' affix is a **5% modifier** whose resolution (76.2 vs pixel-read +75)
+  *independently corroborates the 1600 endpoint*. Gear step now **≈96.6% itemised**. Residuals:
+  weapon flat 220 vs pixel 242; armour 337-base/≈380-resolved vs G-6's "109+" needs a re-crop
+  before `mitigation_delta` (N-band) is pinned — galadriel item.
+- **Slith cross-check: FAIL by +22%** (chain 19,294 vs measured 15,822) — and the miss is a
+  *finding*: only charLevel 13 yields integrality, requiring a net life-modifier pool of
+  exactly −36.00% where the chain composes −21%. The client's number over-determines the level
+  and indicts the HP composition rule by a flat 15 points. **Every G-5a HP figure is 16–19%
+  high** (trash ×0.837, boss ×0.810; Warden 61,353 → 49,706). Damage side untouched (that
+  correction came independently from §14.10).
+- **The symmetry worth naming:** the fixture carried exactly two live-client numbers — the
+  intake distribution and one boss HP triple — and each falsified a *different* half of the
+  derived opposition ledger (damage operator; HP composition). Co-pinning discipline, vindicated
+  twice in one evening. **Closure path:** one more `greatestMonsterKilledLifeAndMana` triple
+  from ANY other GD save pins the composition rule → ask Matt whether other character saves
+  exist on the PC (SSH re-check is a one-line dir listing; new-scope, so Matt-gated).
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
