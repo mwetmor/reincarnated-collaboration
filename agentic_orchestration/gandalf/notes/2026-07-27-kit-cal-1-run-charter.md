@@ -1185,4 +1185,38 @@ A/B arms ratified, every step measured. **In flight:** O-d build (gamora), HP re
 (legolas). **Unchanged:** Gate-2 with jack-ryan (BQ-3 + O-d consolidated). **G-5 preconditions
 remaining:** Gate-2 · O-d lands · re-graded HP table · harness assembly.
 
+### 14.19 — HP re-grade lands (legolas `73e986b1`): §14.11's provisional factors WITHDRAWN both ways — trash/champion stand verbatim, boss takes one −15 pp rule, heroes carry a measured anomaly
+
+- **Trash + champion: NO correction.** Frame 287's four numerals reproduce EXACTLY under the
+  unmodified G-5a chain at charLevel 11 (Eastmire Warrior 813.28→813, Deepmire Vanguard
+  649.75→649, Eastmire Herder 326.39→326 ×2 — creature, level and HP landing together off one
+  nameplate). The provisional ×0.837 is **falsified**; those tables stand as first derived.
+- **Boss/quest: additive −15.000 pp on the life-modifier pool**, not a ratio:
+  23,145.108 × (1 + (−71+35)/100) = 14,812.869 → the measured 14,812. §14.11's two
+  provisional factors (×0.837 / ×0.810) were **one rule wearing two hats** (−15 pp restated
+  per-tier). The `armorbase03–06` clamp gate is KILLED (Eastmire Warrior, Champion at −71,
+  validates at +50); surviving gates are classification-based. Additive-15pp vs
+  multiplicative-×0.81013 separate by 1.4% at charLevel ≥20 — the named discriminator for any
+  future higher-level fixture. **The §14.10 clamp-hardening asks (armorbase source pass /
+  60 s level-1–2 capture) are RETIRED — closed from inside the existing corpus.**
+- **Necklace residual EXACTLY zero** — monster equipped-gear life is not applied to HP; the
+  proto note's stochastic-contamination warning retires. **Nameplate = charLevel** proven on
+  two remappers → Primordian closes at 13; the cl-17 and cl-11+gear candidates are dead.
+- **Warden Krieg re-graded: 21,189 / 28,514** (49,703 combined; §14.11's rough 49,706 was
+  1.00006 off — the direction of honest error).
+- **Two flags, not smoothed:** Thundersnout is a **Hero** (`hero/boar_h07`, GDX3 — "~ Affix"
+  is archetype, not tier), and its measured 4,702 is **unreachable by ANY record × charLevel ×
+  operator in the corpus** (exhaustive negative, 8 hypotheses) — 2.49× ABOVE model, the
+  opposite direction from every prior correction. 434 and 1,820 fail the same frame-176
+  window. **Ruling (conductor, reasoning-boundary): heroes are NOT re-graded downward; the
+  mixed-pack scenario uses the MEASURED 4,702 for its hero slot** (instrument-canonical grain:
+  measured beats derived where derivation fails), and the unmodeled hero-HP source is a named
+  finding for the Q-KC1-1 wave's ledger — likely GDX3 hero scaling the chain doesn't model.
+- **Damage rows stay HELD** — with teeth now: 260.50 post-mitigation **falsifies any clamp
+  flooring boss-tier TDM at or above ≈−42%**.
+
+**Harness-ready state:** all three scenario tiers now carry client-anchored HP (trash verbatim
+/ champion verbatim / Primordian 14,812 + trio protos pending / hero slot at measured 4,702).
+Remaining before G-5: O-d lands · Gate-2 · harness assembly.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
