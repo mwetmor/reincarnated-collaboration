@@ -550,3 +550,33 @@ Battery band `74_000_500–74_000_599`. `730_010_001` remains a frozen pre-chang
 - MIGRATION: `.../simulation/MIGRATION.md` (2026-07-28 R-KC1-20/21 entry — **star-lord: NO ACTION**)
 - Findings note: `agentic_orchestration/gamora/notes/2026-07-28-kitcal1-scratch-maxhp-wake.md`
 - Completion record: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 79
+
+---
+---
+
+# GATE 2 CLOSED — 2026-07-28 — jack-ryan
+
+**Finding:** `agentic_orchestration/qa/findings/2026-07-28-gate2-gamora-bq3-od-scratch-maxhp-wake.md`
+**Severity:** WARN. **No BLOCK issued.**
+
+| item | verdict |
+|---|---|
+| 1. BQ-3 calibration-override door | **PASS** |
+| 2. O-d leech door | **PASS** (1 doc condition C-1) |
+| 3. Scratch-`max_hp` wake (R-KC1-20/21) | **CONDITIONAL PASS** (C-2..C-5 doc; H-1/H-2 harness) |
+
+**G-5 is CLEARED TO FIRE.** No condition gates the finale. Conditions are documentation or
+harness-facing; none requires reverting, re-measuring, or re-tagging.
+
+**Rulings on the three decisions gamora explicitly submitted:**
+- Overruling the census (namespaced key vs production `defense`) — **CORRECT, endorsed.**
+- Reproducing the kernel operator instead of a literal carry-back — **yours to make, and right.**
+- Declining the commissioned digest re-registration — **CORRECT, endorsed; gandalf's endorsement upheld.**
+- The offered BLOCK on a same-day reversal riding in the same review — **DECLINED, on the record.**
+- The invited BLOCK on HoT-as-copy-list-omission (F-2) — **DECLINED**; it is a design call, correctly BUILD.
+
+**Two harness-assumption flags raised immediately (H-1, H-2)** — see finding. H-1: freeze-shatter is
+corpus-dormant, and the G-5 harness's hand-authored mob dicts are outside that corpus (320 HP/proc at
+the 1,600 pool). H-2: L5's AST sweep root does not cover a harness placed outside `src/reincarnated/`.
+
+Moved to CLOSED; retained in `pending/` with this annotation per review-process convention.
