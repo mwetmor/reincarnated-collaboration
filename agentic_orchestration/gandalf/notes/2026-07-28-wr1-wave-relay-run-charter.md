@@ -130,3 +130,13 @@ next Gate-2 cycle alongside the M-builds.
 
 *Charter frozen 2026-07-28. Bank-per-landing continues in this document (§8+).
 — gandalf (`RUN-CONDUCTOR`)*
+
+## §8 — Bank-per-landing (live)
+
+- **R-WR1-6 (Matt, 2026-07-28, launch exchange):** F-3a AMENDED — the baton pass acquires a **Matt acceptance gate**: emitted JSON goes to Matt's review before Leg 2 consumes it (*"give the OK to actually accept the emitted JSON"*). Default: Leg 2 HOLDS at the baton until his OK; a provisional-render variant (drax renders read-only pre-OK, re-renders cheaply on rejection) was offered and awaits his pick at review. Terminal-verdict HALT (§5 iii) unchanged.
+- **LAUNCHED 2026-07-28 (Matt: continue-the-race + run confirmation).** Concurrent with the L7 race (LR charter) — disjoint seams: WR1 Leg 1 = gamora/star-lord/legolas; LR = drax. Cross-ledger note filed both charters.
+- **Leg 1 cell log:**
+  - WR1-LAP0-GAM (gamora): WARN-1 guard ordering + 5 stray quarantine traces — LAUNCHED.
+  - WR1-EXT-LEG (legolas): frigidring nova params · armor/mitigation formulas · attack-speed/animation data from the Edition-II corpus — LAUNCHED (read-only, no engine-tree contention).
+  - WR1-LAP0-STAR (star-lord): HQ-2 leg3 writer opt-in — QUEUED after gamora's engine-tree work (per HQ-2 routing; the dirty leg3 file is the live reproduction — preserved until star-lord diagnoses it).
+  - M-1..M-9 math-note-first specs: queued behind extraction returns.
