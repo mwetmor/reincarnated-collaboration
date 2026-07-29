@@ -1961,3 +1961,60 @@ lap) and legolas's EoR unlock extraction (gates the §7-RESOLVED amendment; does
 Matt starting play, per the two-window rule). Nothing else is owed before the terminal lap.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.32.
+
+---
+
+## §14.33 — GATE-2 ON THE KERNEL FIX: **BLOCK** — single-application repair verified perfect; the refresh phase-carry is an opposite-signed regression on the dominant production path · repair lap commissioned
+
+**Banked 2026-07-28. Jack-ryan finding
+`qa/findings/2026-07-28-gate2-gamora-dot-tick-delivery-r-kc1-25.md` (`edf6d3fb`, pushed).**
+
+- **Root cause: hers supersedes his, conceded without hedging.** His float-race derivation
+  explained integral-duration cells only; her 1.0 s-lump (M-1) + over-delivery (M-3) mechanisms
+  reproduced on his independent harness cell-for-cell, including a cell her matrix missed
+  (D=0.3, ts=1.0 → **333%**). Symmetric honesty across two laps: he corrected her 90%, she
+  rooted past his 66.7%, he ratified her supersession.
+- **Single-application repair: NOTHING FAULTED.** Full 12×4 matrix 100.0% every cell,
+  adversarials, degenerates, determinism, cadence, 13-name control byte-neutrality, HoT
+  conservation — all independently reproduced. The ledger design stands (his §8).
+- **The BLOCK (his §3): refresh phase-carry under-credits by a factor of `n_pulses`.**
+  Time-to-next-pulse after refresh = `ceil((N+phase)/P′) − phase` → credits `phase/P′`,
+  forfeits `phase·(P′−1)/P′` per refresh; at `P′=1` the credit is exactly zero (total
+  starvation under continued re-application; worst measured reachable-by-future-content cell
+  0.182). Sustained 120 s grids: post-fix **0.55–1.00** where pre-fix read a uniform
+  **0.992** — worse in 34/54 cells. Gamora's own math note §3.4 names the approximation in a
+  parenthesis, then concludes "non-starving" — *the parenthesis is the bug.* Production
+  reachability: `primary_attack` cooldown 0.0–1.5 s × ailment_chance 0.25 — the refresh band
+  is the dominant DoT mode, not the exotic one.
+- **Double structural blindness, one layer down:** the guard test scores **8 pre-fix and 8
+  post-fix** (non-discriminating), and `_fix2` exercises refresh **zero times** (W-c bleed
+  rows `{3:30}` — one application per fight; R3 poison never re-binds). The fixture chosen to
+  validate the repair is the one fixture that cannot exercise the repaired path — gamora's
+  own smoke-gate diagnosis, recursed.
+- **`_fix2` headline numbers: every one reproduces exactly** on his independent recomputation
+  (his §4 table) — but **`_fix2` is NOT final** (C-3). Two evidence-integrity defects: `_fix2`
+  stamped with pre-fix hash `7483a21` (C-4); quarantined `kitcal_g5/smoke/` WAS overwritten
+  despite the commit's "UNTOUCHED" claim (C-5) — recoverable from git, but the declared
+  meaning was violated.
+- **Leech question asked-and-answered:** NO leech on the DoT tick path at all (O-d is per-hit
+  in `_apply_skill_damage`). But `delivered` is HP-pinned, so the DoT gain is exactly offset
+  by direct-hit loss → `leech_capacity_total` falls by `Δ_DoT × door_pct`: **non-poolable
+  across fix generations**, to be named in SS-1 (C-6). SS-2 understates the HoT
+  overheal-clamp interaction (magnitude, not just timing).
+- **Conditions:** C-1 (phase credit to FIRST post-refresh interval only — his §3.2 / her own
+  parenthesis) · C-2 (discriminating ≥120 s refresh sweep, non-vacuity by stash) · C-3
+  (`_fix3` batteries; his prediction — verify, don't assume — headlines invariant) all BLOCK;
+  C-4/C-5/C-6 WARN; C-7 INFO (banker's-rounding cadence note).
+- **Routing (ADR-002):** within-seam; gamora implements, jack-ryan re-reviews; **Matt
+  escalation only if** (a) gamora disputes / argues ship-as-named-shift, or (b) C-1 moves the
+  G-5 headlines — either makes `_fix2` non-final in substance.
+- **Repair lap COMMISSIONED** (named gamora sub-agent, background) with C-1..C-7 verbatim +
+  both HALT triggers; commit-not-push; target tag `gamora/v-dot-delivery-2`; batteries into
+  `kitcal_g5_fix3/` on matched seeds/flags, sequential.
+
+**Run state:** the terminal-verdict stack moves `_fix2` → **`_fix3`** (pending repair +
+re-review). Amendment lap holds on the re-review PASS. Sixth consecutive instance of the run
+finding its own instruments disconnected — and the fifth operand-class fix now audits its own
+first draft. FORK-1 (legolas, EoR unlock) still in flight, independent.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.33.
