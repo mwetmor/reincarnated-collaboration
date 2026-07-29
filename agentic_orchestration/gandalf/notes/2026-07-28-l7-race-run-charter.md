@@ -77,7 +77,7 @@ The race answers **WHICH ARM PRODUCES THE BETTER JUDGED VFX UNDER IDENTICAL CONT
 
 | Cell | State |
 |---|---|
-| V-H (drax) | **LAUNCHED 2026-07-28** — torch dressing first (R-LR-2), then CAST/AURA/AMBIENT |
+| V-H (drax) | **RELAUNCHED 2026-07-28** — first instance died on stream timeout (same class as PC's W1-B) AFTER landing Task-0 work uncommitted (torch dressing +242 in `kit_replica_level.gd`, values-unchanged refactor; 5 stage draw-pass .tres in `vfx/stage/`; vh_* scripts) and BEFORE any capture. Resume brief: verify + commit inherited state, then the three briefs, with per-brief commits + incremental note (the relaunch cost = exactly the un-committed span; incremental-write discipline named in-brief) |
 | V-PRO | queued |
 | V-MUR | queued |
 | Verdict assembly | queued |
