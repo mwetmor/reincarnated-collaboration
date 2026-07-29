@@ -512,3 +512,10 @@ the record) / G-B (PASS-shaped per P-3) / M-8a (P-3 disposition, legs separate) 
 (G-C: schema-valid trace set, all four tiers × both gear regimes, pinned post-repair hash,
 MIGRATION/consumer notes incl. crossing grain + `realized_count` location + canonical-`element`
 caveat) → **HOLD at Matt (R-WR1-6) for baton acceptance.**
+
+### §8.20 — R-WR1-17 (MATT-SIGNED): the parallel pair fires — carpentry is not trace consumption (2026-07-29)
+
+- **Matt ruling (verbatim intent):** the run-shape is already frozen in the banked battery (same tree + seeds the baton emits from); R-WR1-6 protects trace CONSUMPTION (Leg 2 depiction), not room construction. **"Fire the parallel pair."** The acceptance HOLD on the baton JSON is UNTOUCHED — G-D still waits for Matt's OK.
+- **Binding design rule for all room work (conductor, from the open-field caveat):** the sim traces contain NO walls — **rooms CONTAIN the fight envelope, never constrain it.** A room tighter than the envelope depicts collisions the sim never resolved (KIT-FIDELITY-class lie). Boss room ≥ ~16 m clear floor (12 m nova footprint + 5.62 m standoff arc); connectors are non-combat tissue, art-free. Walls-the-sim-respects = the encounter-geometry sequel run, NOT this wave.
+- **WR1-ENV LAUNCHED** (gamora, read-only): per-tier spatial envelopes from the banked 450 traces → room-sizing spec at `gamora/notes/2026-07-29-wr1-envelope-spec.md`. Zero engine writes (repair cell WR1-BATTERY-3 concurrently active in-tree; no collision by construction).
+- **WR1-ROOMS LAUNCHED** (drax): race-verdict fixes first (werewolf facing/walking-backwards; AMBIENT torch-cone deletion; AURA floor-ring follow) → multi-room shells + connector grammar under the containment rule, boss room sized now, non-boss sized/verified against the envelope spec when it lands. Stage law inherited (PC-LIGHT fix, LSTAT-2, R-LR-4 containment, stage-supplied draw_pass_1). **NO trace consumption.**
