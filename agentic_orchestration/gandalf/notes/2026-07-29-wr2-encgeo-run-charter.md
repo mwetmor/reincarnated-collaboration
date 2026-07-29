@@ -167,4 +167,19 @@ cells only, sequential · conductor writes no production code — seams execute.
   render is presentation's call; matches R-WR2-3's carcasses-don't-block). (5) AFTER-baton documents
   tick 0 as post-resolution.
 
+- **§8.6 — Gate-2 on Cell A: CLEAR-with-notes** (jack-ryan, `cf64c696`, pushed). Regression name-diff
+  EMPTY both directions (81/81, T8 absent, full 24 m suite); kernel-untouched confirmed on the strong
+  form (whole `spatial_gauntlet/` diffs to the harness alone); R-WR2-2 refalsified with NO a-priori
+  exclusions (72 stratified pairs, recursive field-diff → `engine_git_hash` ×72, nothing else); S-5
+  refalsified on a decision-free denominator; default-OFF proven at artifact level with an
+  independent paired battery. Cell-C datum STRENGTHENED: `advance` is seed- AND arm-invariant —
+  exactly 6/7/11/16 ticks in all 450 fights. **Conductor dispositions:** **WARN-1** (second, ungated
+  `frame_sink.decision` at spatial_engine.py:4258 on the evade branch — unreachable today, but Cell C
+  touches that branch) → ADDED to Cell C's build obligations: gate or unify it under
+  `_trace_decisions` so the flag names a trace-content invariant, not a battery arm. **INFO-1** →
+  ADOPTED: Cell B's flag-OFF byte-identity baseline pins at **`9bfbdda`+**, not pre-landing (the
+  report key emits unconditionally now). Remaining 7 INFO ledgered in the finding; none blocks.
+- **§8.7 — Cell B (collision) FIRED** (gamora; spec §B + §D + R-WR2-7/-8/-11/-12/-14; Gate-2
+  obligations per spec §G as adopted in §8.1, baseline per INFO-1).
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
