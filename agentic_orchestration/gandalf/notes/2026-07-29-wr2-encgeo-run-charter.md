@@ -230,4 +230,28 @@ cells only, sequential · conductor writes no production code — seams execute.
   landing). **Cell C holds for CLEAR.** R-WR2-8/-17 veto window to Matt effectively closes at this
   gate's verdict.
 
+- **§8.13 — Gate-2 on combined Cell B: CLEAR-with-notes; Cell C releases** (jack-ryan, `188ca160`,
+  pushed). Name-diff EMPTY (baseline + the 2 judged new tests); frozen-row conformance on every row;
+  R-WR2-16 transfer matches the erratum banner clause-by-clause; flag-OFF legacy-verbatim; SS-1
+  intact. Falsification pass validated its OWN instrument on the preserved HALT battery first
+  (129/450 reproduced to 17 s.f.) then confirmed B-FIX every digit; provenance closed by re-firing
+  the armed battery from the clean tree (third determinism replicate — only `engine_git_hash`
+  differs). One prose falsification: the worst-slack pair is player↔mob on the SOUTH-WALL clamp
+  (residual chain terminates on a corner-pinned player) — conclusions survive, sentences don't.
+  **Conductor dispositions:** **WARN-1** (two "no wall involved" claims) → jack-ryan's finding is
+  the correction of record; no re-run owed. **WARN-2** (ITER_MAX=8 has ZERO measured headroom — the
+  7 residual ticks spent the full budget, and Cell C changes contact geometry) → ITER_MAX stays
+  frozen; the §B-6 counters ARE the instrument. Distinction ledgered for the future boundary:
+  raising ITER_MAX to pass a GATE is drift (refused at R-WR2-16); raising it to answer a MEASURED
+  over-constraint reported by the counters post-C would be a mechanism amendment ruled on evidence.
+  Cell C/BAT watch the counters. **WARN-3** (SS-B-2's in-code rationale cites the errata'd NaN
+  mechanism on two unflagged default-path changes) → comment correction added to Cell C's build
+  obligations (same file). **INFO-AoE ADOPTED into Cell C's brief:** SS-B-1 opens a
+  select-but-whiff window for circle AoEs vs the boss (`aoe_radius` 3.0 < selection 3.5) and C's
+  preferred-range band walks toward it — named S-3 diagnosis candidate.
+- **§8.14 — Cell C (movement policy v2) FIRED** (gamora; spec §C + §D; R-WR2-9/-10/-13/-14; Cell-A
+  WARN-1 evade-branch gating + Cell-B WARN-3 comment fix ride along; flag-OFF baseline pins at
+  `4f09e35`). Gate owes S-2, S-3, S-4, flag-OFF regression, and the `boss__B__seed74000802`
+  trajectory reconstruction — the drift trace must turn.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
