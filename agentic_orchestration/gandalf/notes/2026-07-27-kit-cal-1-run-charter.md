@@ -1350,4 +1350,76 @@ attach to the state we keep. Conductor lean withdrawn; Matt's ruling governs.
 BQ-3 + O-d + wake) → harness assembly (trace writer per R-KC1-19; terminal-max 1607 re-check)
 → G-5 both arms on the POST-FIX engine.
 
+---
+
+## §14.22 — THE WAKE LANDS: five operands fixed, zero outcomes moved — the census draws the fix/build line at 19 members, and two conductor framings take corrections
+
+**Banked 2026-07-28. Engine pushed `67d165b..9218238` + tag `gamora/v-scratch-maxhp-wake-1`;
+meta pushed `94d2704c..0c645ee0` (ride-along: two parallel-session gandalf commits —
+PROVISION-CAL §5/§6 rulings and the canon supersession — pushed under the cycle pattern, owned
+by their sessions). Findings note:
+`agentic_orchestration/gamora/notes/2026-07-28-kitcal1-scratch-maxhp-wake.md`; math note
+`src/reincarnated/simulation/math/scratch-maxhp-wake-2026-07-28.md`.**
+
+### Census verdict (R-KC1-21) — 19 members
+
+**FIXED (operand class, 5):** S1 kernel lifesteal clamp (0→42 fires) · S2 heal cap (same
+operand) · S3 HoT tick cap (0→51 heals) · S4 freeze-shatter (fixed, still 0 — **corpus-dormant,
+not structurally dormant**: nothing in generation emits `freeze`, 0/4,772 class + 0/2,332 mob)
+· S5 execute threshold (fixed, still 0 — shim lacks the field AND 0/5,021 corpus).
+**BUILD-class findings for the Q-KC1-1 wave (F-1..F-7):** spatial-vs-kernel max_hp divergence
+with gear (F-1); **HoT healing (F-2) — the named candidate RULED BUILD**, and the reason is
+solid: `tick_effects` returns one scalar and the only zero-signature carrier `heals_received`
+conflates lifesteal/heal/HoT, so a delta-read would double-count against the O-d door; direct
+heal (F-3); kernel-lifesteal out-carry (F-4 — would stack with the door); thorns (F-5);
+offense-site events (F-6); attacker scratch hp not re-synced at offense site (F-7 — the one
+HALT: in-sync without out-carry is more truthful but still discarded).
+**Docstring debt repaid:** Y6–Y9 (shield/buffs/silence/kill-element) were NEVER dropped — the
+§6 discard list was over-broad and is corrected.
+
+### Battery — all quiet, and the quiet is EXPLAINED, not lucky
+
+Before/after on both arms (PROD season path + PROJ), 6 fights: **all three digests UNCHANGED**
+(`25c212eb…` did not move), `mean_mobs_killed` 3.5→3.5, anomalies NONE. Awakened on PROJ:
+`on_lifesteal` 0→42, HoT scratch heals 0→51 (max 432 HP), nonzero scratch heals 0→84 — and
+every one **evaporates** (no carrier reaches spatial HP or an emitted field; the carriers ARE
+the wave's F-findings). **Gamora declined the commissioned digest re-registration** because the
+digest didn't move — a note claiming a golden-master reset that never happened is worse than
+none. Right call; the commission's prediction was wrong, hers governs.
+
+### No-stack (R-KC1-20's assertion) — three-legged, not vacuous
+
+NS-1 compiled pilot kits carry no skill-borne lifesteal (SKIP-guarded, non-vacuous) · NS-2 door
+`healed` equals its formula even with a kernel-lifesteal skill firing · NS-3 spatial HP gain ==
+door `healed` exactly. Tests 76/76 door suites (+OD-6d2, NS-1/2/3); OD-10 and OD-6d rewritten
+with inverted semantics (OD-6d now perturbs the scratch across three regimes — proof-by-
+magnitude had stopped discriminating); KF-4 36 GREEN / 0 RED, four pilot fights numerically
+identical; regression 1,587 vs 1,585 same-tree stash baseline, 55 failure names diff-empty.
+
+### Two corrections to the conductor's §14.20/§14.21 framing (C-10, C-11)
+
+- **C-10:** "make production kits' lifesteal start healing in every season" was structurally
+  impossible either way — **season generation never takes the projection path.** No season
+  could move; the safety was reachability, not restraint. Both the original dormancy caution
+  AND the ratified wake's season-risk framing overstated the blast radius.
+- **C-11:** "kernel lifesteal never fired in spatial" (§14.20) needs sharpening: the
+  **production-path** kernel lifesteal was never dormant — it fires (55× in battery) and its
+  heal is **thrown away** for want of an out-carry (F-4). The projection-path clamp death and
+  the production-path discard are two different deaths; §14.20 named only the first.
+
+### What G-5's harness now assumes (gamora's flags, adopted)
+
+1. **The fixture's max_hp override reaches the kernel state too — one body, not two.** Before
+   the fix, the kernel saw a 1-HP attacker while the entity saw 1,600. This is the wake's one
+   material G-5 improvement, and it is exactly the fixture-truthfulness Matt's ruling bought.
+2. **The O-d door remains the ONLY leech reaching spatial HP** (NS-3 proves it).
+3. **Freeze-shatter and execute are corpus-dormant, not structurally dormant** — the day
+   generation emits `freeze`, player-side shatter goes live at 20% max-HP per proc. Named
+   hazard for any future kit that compiles freeze effects.
+
+**Board:** consolidated Gate-2 (THREE items, one review: BQ-3 + O-d + wake) → harness assembly
+(trace writer per R-KC1-19; terminal-max 1607 re-check; the three assumptions above) → G-5
+both arms. `leg3_pilot_section8a1_band_measurement.json` still flagged, still uncommitted,
+still star-lord's.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
