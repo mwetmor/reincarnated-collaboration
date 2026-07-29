@@ -66,6 +66,8 @@ The race answers **WHICH ARM PRODUCES THE BETTER JUDGED VFX UNDER IDENTICAL CONT
 - **R-LR-1 (conductor):** blind strips assemble at END of all three V-cells, one strip per brief — per-arm interim eye-returns would unblind attribution. Matt's declared interface: three strips + reveal, red-flag pings only mid-run.
 - **R-LR-2 (conductor):** corner-torch dressing is authored by the H cell as its first act (stage work, pre-race, not judged, then FROZEN into the shared stage) — someone must hold the brush, and the stage's keeper (drax) holds it before any arm races.
 - **R-LR-3 (conductor):** AURA's "survives motion" is tested on the werewolf's retargeted walk (the 0.0000° map) — same clip, all arms.
+- **R-LR-4 (Matt-directed 2026-07-28, mid-run eye on V-H ambient): CONTAINMENT is a binding AMBIENT contract clause** — *"we need to make sure the ambient particles don't pass through/out of the walls into the void."* Room-owned means room-CONTAINED: no particle visibly crosses the wall plane into the void at the locked camera. States TRUE not how (L-K — collision, emission-volume sizing, lifetime, or masking all legal). Applies symmetrically to all three arms; a leak at verdict time is a contract MISS, not a style note.
+- **Matt mid-run eye (2026-07-28): corner torches "100% perfect"** — Task-0 stage dressing PASSED at the owner's eye; frozen as-is into the shared stage.
 
 ## §7 — Matt interface
 
