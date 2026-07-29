@@ -147,4 +147,24 @@ cells only, sequential · conductor writes no production code — seams execute.
 - **§8.3 — Gate-2 on Cell A fired** (jack-ryan; harness threading + driver are code landings; §4
   per-landing law). Cell B holds until CLEAR.
 
+- **§8.4 — drax playback machinery COMPLETE; owner-eye #1 READY** (godot `4f69e93`+`7e0507a`, pushed;
+  cell note banked by conductor — found untracked, arm-3c precedent). Trace loader / leg registry /
+  decomposer / playback scene land additive (`replica_playback.gd` untouched; the shared parser gains
+  a `g5_header` arm it lacked). Smoke MP4: `reincarnated-godot/tmp/wr2/wr2_smoke_pre_boss_A_74000802.mp4`
+  — 658 frames/21.93 s vs footer 22.0 s; a 2×207.40 crossing (the decomposition-exercising case), the
+  drift, the (0.5, 0.5) pin, a death. Coverage 5/5 record types; `leech` STUB (fires at healed 0.0 —
+  drawing it is a lie); `decision` SCHEMA-READY, dark until AFTER. Decomposer reproduces the banked
+  crossing histogram `{1×:30, 2×:14}` on all legs. **§6.2 vindicated: three render lies caught on
+  cheap traces** (settle window ate the nova every seed; two floaters collapsed near the view axis;
+  parallel fade tween rendered N−1 of N).
+- **§8.5 — R-WR2-15 (conductor, veto-open): dispositions on drax's five baton ambiguities.**
+  (1) `leech` consumer note ADDED to the AFTER-baton obligations (stub stands; healed-0.0 events do
+  not draw). (2) **Per-leg unit payload moves to its right owner:** Cell BAT emits it in the leg
+  report/header of the AFTER battery — emission metadata, not fight content; the presentation seam
+  stops hard-coding 207.40/235.40. (3) AFTER-baton documents telegraph `damage_amount` ≠ decomposed
+  payload, by field name. (4) Emission behavior stands (dead entities DROP from frames — frozen
+  instrument); AFTER-baton documents it, renderer carries corpses at last-known position (carcass
+  render is presentation's call; matches R-WR2-3's carcasses-don't-block). (5) AFTER-baton documents
+  tick 0 as post-resolution.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
