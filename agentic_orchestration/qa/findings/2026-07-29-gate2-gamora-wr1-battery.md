@@ -2,6 +2,10 @@
 
 **Reviewer:** jack-ryan (DEV-MODE, read-only)
 **Severity:** **BLOCK** (overall) — per-commit verdicts in §0
+> **⚠ STATUS AMENDMENT, 2026-07-29 (added on re-check; the BLOCK text below is left standing, not
+> rewritten).** The BLOCK was discharged by engine `7c16fec` and is **LIFTED**. See
+> **RE-CHECK VERDICT — PART 1 / PART 2** at the end of this file. Open items after the lift:
+> **WARN-4** (conductor's grading lap, charter §8.20/§8.23) and **WARN-5** (new, §R8) — neither gates.
 **Target:** engine `2594bbb` → `d38e00d` → `5f830d3` → `cf99b5d` → `d4cc2dc` → `7f77ea0` → `05a294f` → `98d3891`
 **Developer:** gamora
 **Run / cell:** WR1-2026-07-28 · WR1-BATTERY + WR1-BATTERY-2 · conductor gandalf (`RUN-CONDUCTOR`), charter §8.16–§8.18
@@ -974,3 +978,230 @@ instance. **Nothing was self-cleared.**
 `jr_wr1_after_7c16fec.txt` · `jr_wr1d_after_names_jr.txt` · baselines `jr_wr1b_after_names_jr.txt`
 (a42d052) / `jr_wr1c_after_names_jr.txt` (98d3891) · `jr_recheck_harness_BACKUP.py` (neuter/restore)
 **Banked list diffed:** `agentic_orchestration/gamora/notes/2026-07-29-wr1-battery-3-regression-failure-names.txt`
+
+---
+
+# RE-CHECK VERDICT — PART 2 (jack-ryan, 2026-07-29, relaunch instance)
+
+**This part completes the section above.** Nothing in PART 1 is retracted. It adds: the full
+regression result (item 2), three falsifiers run on the repair rather than read off it, one NEW
+WARN found in the repair itself, and one disclosure about my own instrument.
+
+**VERDICT ON `7c16fec`: ✅ CLEAR-with-notes. BLOCK-1 is CLOSED. The overall BLOCK on the
+WR1-BATTERY landing is LIFTED.** One new **WARN-5** and one **INFO-8** ride to the conductor's
+grading lap beside the known-unclosed WARN-4. Neither gates the baton.
+
+## §R6 — Item 2: FULL REGRESSION — **COMPLETE. The name diff is empty against my own baseline.**
+
+```
+JR_REG4_START  2026-07-29T14:10:13Z   HEAD = 18f2c14  (= 7c16fec + AGENT_STATE.md only, verified)
+JR_REG4_END    2026-07-29T14:34:36Z   (24 m 21 s)  foreground, -p no:randomly
+  60 failed, 6042 passed, 3 warnings, 21 errors
+  failure_name_count = 81
+  tracked-dirty src/ tests/ : EMPTY before AND after
+```
+
+**Three-way diff, all of it reviewer-side:**
+
+| comparison | names only in LEFT | names only in RIGHT |
+|---|---|---|
+| my `a42d052` baseline (81) vs **`7c16fec` (81)** | **(none)** | **(none)** |
+| my `98d3891` lap (82) vs **`7c16fec` (81)** | `…::test_T8_no_production_callsite_enables_overrides` | **(none)** |
+| gamora's banked list (81) vs **`7c16fec` (81)** | **(none)** | **(none)** |
+
+**The pre-registered criterion is met exactly.** The diff against my own baseline is empty in both
+directions; the diff against the BLOCKed tip is exactly `{T8 removed}`; and nothing else moved.
+
+**The arithmetic closes and identifies every mover.** `6040 → 6042` passed = T8 flipping red→green
+(+1) plus one newly collected test, `test_G5_W1_untracked_loaded_source_is_invisible_until_it_is_imported`
+(+1). `61 → 60` failed = T8 alone. **No test was deleted, skipped or renamed to make the diff
+empty** — the count rises by exactly the one test the repair adds.
+
+**And, separately worth banking: gamora's 81-name list is byte-identical to mine.** Zero difference
+in either direction, on a list neither of us saw the other produce. Her banked artifact
+`agentic_orchestration/gamora/notes/2026-07-29-wr1-battery-3-regression-failure-names.txt` is a
+faithful record. That does not retire the reviewer-side re-run — the diff had to come from a tree
+I drove — but it is the first time this run that the builder's regression record has been
+independently confirmed name-for-name, and it belongs on the record.
+
+## §R7 — THE THREE FALSIFIERS (what I broke, rather than what I read)
+
+PART 1 established the guard-diff is 14-insertions/0-deletions. That proves nothing *moved*; it
+does not prove the guard still *bites*. These do.
+
+**(i) The door is still OPEN at 153/205 — the allow-list is doing the work, not a quiet flag
+removal.** Driving `_door_opening_sites()` myself at `7c16fec`:
+
+```
+('src/reincarnated/simulation/spatial_gauntlet/kitcal_g5_harness.py', 806)
+('src/reincarnated/simulation/wr1_battery_probes_2026_07_29.py', 153)
+('src/reincarnated/simulation/wr1_battery_probes_2026_07_29.py', 205)
+OFFENDERS (not allow-listed): []
+```
+
+Both original sites are still detected and still open. T8 passes **because they are declared**, not
+because the containment question was made to disappear. This is the check that separates a
+declaration from a workaround, and it is the one I most wanted to make.
+
+**(ii) The next undeclared door still BLOCKS. The entry is not a rubber stamp.** I planted
+`src/reincarnated/simulation/_jr_probe_undeclared_door.py` with one `allow_calibration_overrides=True`
+call site and re-ran T8:
+
+```
+FAILED …::test_T8_no_production_callsite_enables_overrides
+E  AssertionError: BQ-3 CONTAINMENT BREACH … Offending sites:
+   [('src/reincarnated/simulation/_jr_probe_undeclared_door.py', 2)]
+```
+
+Removed; T8 green again. **The guard's reach is intact and file-scoped exactly as designed.** ✓
+
+**(iii) The `-dirty` detector fails BOTH ways when neutered, not just one.** PART 1 neutered it to
+`return []`. I ran the other direction too, because a detector that always fires is as useless as
+one that never does and only one of those failure modes was pinned:
+
+| neuter | result |
+|---|---|
+| `_git_hash` no longer consults the detector | **FAILED** — `assert '7c16fec' == '7c16fec-dirty'` |
+| detector always returns a hit (permanent `-dirty`) | **FAILED** — the clean-stamp leg, `…'7c16fec-dirty'.endswith` |
+| unmodified | **31 passed** (door suite **39 passed** alongside) |
+
+**The test is non-vacuous in both directions.** ✓
+
+## §R8 — 🔶 WARN-5 (NEW) — the detector's REACH IS `simulation/` ONLY, and all three places it is declared say `reincarnated/`
+
+`_untracked_loaded_source()` computes its root as:
+
+```python
+_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # .../src/reincarnated
+```
+
+`__file__` is `…/src/reincarnated/simulation/spatial_gauntlet/kitcal_g5_harness.py`. Two `dirname`
+calls from there land on `…/src/reincarnated/**simulation**` — **not** `…/src/reincarnated`. The
+inline comment is off by one directory, and so is every prose statement of the scope: the
+docstring says *"Files of ALREADY-IMPORTED `reincarnated` modules"*, the commit message says
+*"a module the process imported"*, and MIGRATION.md §4 says *"a module already imported by the
+producing process has a file git does not track"* — none of them qualified by package subtree.
+
+**Measured, not inferred.** At `7c16fec`, importing two untracked modules and asking the detector:
+
+```
+detector hits: ['../_jr_scope_probe_sim.py']
+sees src/reincarnated/simulation/_jr_scope_probe_sim.py : True
+sees src/reincarnated/generation/_jr_scope_probe.py     : False
+```
+
+**Why it is WARN and not BLOCK.** The defect class WARN-1 named is genuinely fixed: both WR1
+drivers live under `src/reincarnated/simulation/`, so the exact failure that produced the false
+`7f77ea0` stamp is now caught, which is what the three falsifiers above show. No banked number is
+affected. No guard is red. The pre-registered criterion is met.
+
+**Why it is nonetheless a WARN and not an INFO.** It is the same shape as the defect it repairs —
+**a record that is false about the code it describes** — and it is filed in a **cross-seam
+consumer contract**. MIGRATION.md §4's *"FOR STAR-LORD, the two things that follow"* invites
+exactly the over-trust the gap permits: a producer under `export/`, `telemetry/` or `llm/` that
+imports a never-committed module will stamp a **clean hash**, and star-lord's record says it would
+have said `-dirty`. ADR-004 asks that an entry be parseable cold; this one is parseable cold and
+wrong at the edge. Discipline #12 (declare the semantic shift) is satisfied in form; Discipline #9
+(attribution clarity) is not yet satisfied in substance.
+
+**Remedy, and it is one line.** Either widen the reach to match the declaration —
+
+```python
+_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # .../src/reincarnated
+```
+
+— or narrow all three declarations to say `reincarnated.simulation`. **I recommend widening**: the
+stamp's claim is *"the code that ran"*, and code that ran from `generation/` or `export/` is code
+that ran. The scoping argument in the docstring (loaded module set, not a repo-wide sweep) is
+correct and unaffected by which subtree the root names — widening keeps every word of that
+rationale true. If widened, the existing test cannot detect the change either way: it plants into
+`os.path.dirname(H.__file__)`, i.e. inside `spatial_gauntlet/`, which is under both roots. **A
+second plant outside `simulation/` is what pins the declared scope**, and that is the test the
+repair is missing.
+
+**Routing:** rides with WARN-4 into the conductor's grading lap. Does **not** gate the baton and
+does **not** reopen BLOCK-1.
+
+## §R9 — INFO-8 (NEW, and it is about MY instrument, not gamora's commit)
+
+**`pytest` run inside a git worktree of this repo still imports `reincarnated` from the MAIN tree.**
+The editable install is a `.pth`
+(`site-packages/_editable_impl_reincarnated_engine.pth`) that appends
+`/Users/admin/Games/reincarnated-engine/src` to `sys.path`. Measured inside `/tmp/jr_repair`:
+
+```
+H.__file__ = /Users/admin/Games/reincarnated-engine/src/reincarnated/…/kitcal_g5_harness.py
+```
+
+A worktree run therefore exercises **main-tree source** for anything resolved by import, unless
+`PYTHONPATH=<worktree>/src` is forced (which does take precedence — it is a path entry, not an
+import hook). Tests that locate their subject by **path arithmetic from the test file** — T8's AST
+sweep is one — do read the worktree correctly, so a worktree run can mix the two.
+
+**What this does and does not disturb here.** Every result in this PART 2 was either (a) taken with
+`PYTHONPATH` forced to the worktree, or (b) taken where the two trees are byte-identical in `.py`
+(`git diff --name-only 7c16fec 18f2c14` = `AGENT_STATE.md`, a markdown file). The full regression
+ran in the main tree, as REG1–REG3 did, which is what makes the baseline comparison
+apples-to-apples. **No conclusion in this finding, or in the landing review above, changes.**
+Recorded because it is a live trap for any future per-tree claim of the form *"I ran it at commit
+X in a worktree"*, and because Discipline #10 (empirical inspection over assumption) applies to the
+reviewer's own instruments first.
+
+## §R10 — WARN-4: confirmed NOT claimed closed by `7c16fec`
+
+`git show 7c16fec | grep -n "55 *%\|55%\|WARN-4"` → **no matches.** The repair commit does not
+mention WARN-4, does not touch any of its three sites, and makes no claim about it in the commit
+message, the MIGRATION entry, or either erratum. **Correct behaviour** under charter §8.20: it is
+the grading lap's item, and `7c16fec` neither closes it nor pretends to. Charter §8.23 records the
+conductor accepting it as his own erratum, which is the right owner. **No action asked of gamora
+here.** PART 1 §R5's caveat (one of the three sites is inside the banked artifact and SS-1 forbids
+editing it in place) stands unchanged.
+
+## §R11 — RE-CHECK ACTION
+
+- [x] **BLOCK-1 — CLOSED.** Declaration present and deliberate; door still open and still swept;
+      new undeclared doors still blocked; T8 green; door suite 39/39; full-regression name diff
+      empty against my baseline.
+- [x] **WARN-1 / WARN-2 / WARN-3 — DISCHARGED** (PART 1 §R2–§R4, falsifiers added in §R7).
+- [ ] **gamora — WARN-5 (§R8), before the baton, may ride with the grading lap:** widen `_root` by
+      one `dirname` to match the declaration (recommended), or narrow the docstring, commit-message
+      lineage and MIGRATION.md §4 to say `reincarnated.simulation`. **If widened, add a second
+      plant outside `simulation/`** — the present test cannot see this either way.
+- [ ] **gandalf (conductor) — grading lap:** WARN-4 as already routed (§8.20/§8.23), with PART 1
+      §R5's SS-1 caveat on the artifact-resident site.
+- [x] **Matt — no decision owed.** Nothing here exceeds seam authority; no ADR is implicated; no
+      locked decisions-log entry is in conflict. The BLOCK I raised is discharged by its own
+      prescribed remedy and is lifted on the evidence above.
+
+## §R12 — Reviewer method and hygiene (PART 2)
+
+**Re-run, not audited — the fifth consecutive lap.** The full regression was reproduced in the main
+tree, foreground, `-p no:randomly`, and diffed three ways against name lists I produced myself on
+the two prior laps. **What I accepted from gamora's banked list: nothing.** It was compared, and it
+matched — that is corroboration, not input.
+
+**Read-only on the engine.** No tracked file in `src/` or `tests/` was modified: `git status
+--porcelain --untracked-files=no -- src/ tests/` is empty before and after. All three falsifiers
+(planted door module, both detector neuters, both scope probes) ran in a detached worktree at
+`7c16fec` with `PYTHONPATH` forced to it, restored from byte-backup, and **the worktree was removed
+at close**. No engine push. No banked artifact read-modify-written.
+
+**Reviewer artifacts** (`/tmp`, ephemeral): `jr_wr1_g2d_regression.sh` · `jr_wr1d_reg_meta_jr.txt` ·
+`jr_wr1d_after_names_jr.txt` · `jr_wr1_after_7c16fec.txt` · `jr_harness_orig.py` (byte-backup) ·
+worktree `/tmp/jr_repair` (removed).
+
+**Files reviewed at `7c16fec`** (all five in the commit, whole):
+- `src/reincarnated/simulation/spatial_gauntlet/kitcal_g5_harness.py` (`_untracked_loaded_source`, `_git_hash`)
+- `tests/test_bq3_calibration_override_door.py` (`_DOOR_ALLOW_LIST`, `_door_opening_sites`, T8/T8b)
+- `tests/test_kitcal_g5_harness.py` (`test_G5_W1_…`)
+- `src/reincarnated/simulation/MIGRATION.md` (the 2026-07-29 WR1-BATTERY-3 entry, §1–§5)
+- `src/reincarnated/simulation/math/wr1-battery-ga-gb-m8a-2026-07-29.md` (§2.4 second erratum, §15)
+
+**Claims spot-verified at source rather than accepted:** `git diff 7f77ea0..05a294f --
+spatial_gauntlet/` is **empty** ✓ · the statistics driver's add-commit is **`05a294f`** and the
+probes driver's is **`cf99b5d`** ✓ · `statistics_engine_git_hash = "7f77ea0"`, `battery_runs = {}`,
+`wall_seconds = 7.0` read from the artifact ✓ · the §2.4 erratum's `by_arm` table reproduces to the
+digit from the banked artifact (endpoint boss A `2.2700`/`1.1350`/n=540, B `1.1350`/`1.1350`/n=794;
+`pre` both `1.0000`, n=711/1117) ✓ · every non-boss tier's `by_arm` key is `none`, so the erratum's
+"boss-tier only" qualifier is correct ✓ · `_git_hash()` has **no hot-loop call site** (report-time
+only, 5 sites), so the added `git ls-files` costs one subprocess per run ✓.
