@@ -417,3 +417,300 @@ is a **subset** of what the solver resolved. Radii come from the header's per-en
 ---
 
 *gamora, 2026-07-29. The cell computes; the conductor grades. Math before code; the HALT is arithmetic, not opinion.*
+
+---
+---
+
+# ⚑ B-FIX — R-WR2-16 implemented, S-1 re-gated
+
+**Run:** WR2-ENCGEO-2026-07-29 · **Cell:** B-FIX · **Seam:** gamora · **Date:** 2026-07-29
+**Ruling implemented:** **R-WR2-16** (charter §8.9) — resolution **R1, clamp-aware shortfall
+transfer**. R2 (`ITER_MAX` raising) REFUSED as drift; R3 (defer S-1 post-C) REFUSED as goalpost
+motion. **R-WR2-17** ratified the all-attacker surface-to-surface build — nothing changed for it.
+**Baseline:** engine `6dca36a` · **Math note:** `simulation/math/wr2-b-body-separation-2026-07-29.md`
+**§12** (new) · **Status:** COMPLETE. **The HALT is cleared. No new HALT.**
+
+## Verdict table
+
+| # | Gate-2 deliverable | verdict |
+|---|---|---|
+| 1 | **S-1** — min pairwise LIVING separation ≥ rᵢ+rⱼ − 1 cm, every tick, 450 fights | **PASS — 450/450 traces; worst slack −0.000998 m** (was 129/450, −0.25216) |
+| 2 | `collision_residual_ticks` / `_max_m` | **7 and 0.0012118** (was 95,852 and 0.28018) — §B-4 below locates all 7 and shows they are §B-6's deliberate over-report, not over-constraint |
+| 3 | **S-4** — battery byte-reproducible at fixed seed, twice | **PASS — 450/450, all three legs, 0 differing** |
+| 4 | **Flag-OFF full regression** — name-diff vs the 81-name baseline | **see §B-5** |
+| 5 | **Flag-OFF path byte-identical vs `6dca36a`** | **PASS — 150/150 traces identical; the ONLY differing bytes in the whole battery are the header's `engine_git_hash`, which differs by construction** |
+| 6 | Unit tests — wall-pinned exact in ≤2 sweeps; both-clamped residual COUNTED; shuffled-order still passes | **DONE — 42 tests, all pass** (was 40) |
+| 7 | Math note updated — transfer law, one-sweep proof, corner residual | **DONE — §12, five subsections** |
+| 8 | **SS-1** — `wr1_battery_2/` and `wr1_battery_2_aim/` untouched | **PASS — porcelain empty, 908 files, zero mtimes after session start** |
+
+---
+
+## B-1 — What changed, in one paragraph
+
+Inside `_apply_body_separation_v2`'s pair resolution only. After the intended split move and the
+clamp, each body's **realized post-clamp displacement along the separation normal** is measured; the
+**annulled magnitude** (`intended share − realized`, clamped into `[0, share]`) **transfers to the
+pair partner in the same pass**, and the partner re-clamps. Both shortfalls are measured *before*
+either transfer is written, so the two transfers touch disjoint bodies from a common state and the
+pair outcome does not depend on write order — the transfer adds **no new ordering dependency** on
+top of the existing index-order invariant. Zero RNG, index tuples only, in-place float adds only.
+
+**Nothing else moved.** `ITER_MAX = 8`, `ε_touch = 0.001`, the split law, dead-exempt,
+clamp-outermost, the S-1 predicate, the §B-6 counter semantics, the two flags' `False` defaults —
+all at their spec values. The `git diff 6dca36a` on `spatial_engine.py` is **two hunks, both inside
+`_apply_body_separation_v2`**; the legacy branch is not touched by a single character.
+
+## B-2 — Why one pass is exact (math note §12.3), and why that kills R2 rather than merely beating it
+
+With `Δᵢ`, `Δⱼ` the total per-pass displacements and `j` unconstrained:
+
+```
+Δᵢ·n̂ = g·wᵢ − σᵢ          −Δⱼ·n̂ = g·wⱼ + σᵢ
+normal component of the new separation = d + (g·wᵢ − σᵢ) + (g·wⱼ + σᵢ) = d + g = rᵢ + rⱼ   (exact)
+```
+
+**`σᵢ` cancels identically.** The split always decided who moves, never how much in total (§2's sum
+check); the clamp was eating the total, and the transfer puts it back. Corner pin: pinned player
+realizes 0, `σᵢ = 0.90g`, free boss absorbs `0.10g + 0.90g = g`. One pass, zero perpendicular error.
+
+Consequently §10.2's per-tick recurrence `g_{k+1} = (g_k + Δ)·q` has `q = 0`, so `g* = 0` **and the
+mob speed `Δ` disappears from the expression**. That is the decisive argument against R2 and it is
+worth stating as arithmetic rather than as preference: under R2 the required `ITER_MAX` (34 for
+S-1's 1 cm, 56 for `ε_touch`) is **a function of mob movement speed**, so the gate would need
+re-deriving every time a scenario re-tunes a mob. Under R1 it is a function of geometry alone.
+`ITER_MAX = 8` is now *correct* rather than *incidental*.
+
+**Sweep accounting.** The `break` reads a **pre-correction** measurement (§4, frozen), so any tick
+with real overlap costs **two** sweeps — sweep 0 corrects, sweep 1 finds `gap ≤ ε` and breaks — and
+a clean tick still costs one. `2 ≤ 8` with a factor-of-four margin, which is the margin §3.1 spends
+on multi-body chains.
+
+## B-3 — S-1: 450/450, and the worst slack is the frozen ε, not a wall
+
+| | `6dca36a` | **B-FIX** |
+|---|---|---|
+| traces passing S-1 | 129 / 450 | **450 / 450** |
+| worst slack | −0.25216185 m | **−0.00099845 m** |
+| violating pair-samples | 81,861 / 340,828 (24.0 %) | **0 / 323,780** |
+| violating ticks | 81,756 / 133,848 | **0 / 134,460** |
+
+Worst slack is **−0.000998 m — inside `ε_touch = 0.001`**, i.e. inside the solver's own target and
+an **order of magnitude inside S-1's 1 cm**, exactly the margin math note §1 promised. It is
+identical to 17 s.f. across all three legs and it occurs on a **mob↔mob** pair
+(`gd-werewolf-kitcal-1` ↔ `hero_boar_h07_0`, contact 1.0 m, `mixed_pack__none__seed74000806`
+tick 80) — **not a wall pair at all.** It is the `gap ≤ ε_touch → continue` skip threshold showing
+up as its own value, which is what a correctly-converged solver's worst case should look like.
+
+S-1 is measured **from the emitted frames, never from the solver's counters** (math note §8) — an
+instrument that grades itself is not a gate. Method unchanged from the HALT run.
+
+## B-4 — The 7 residual ticks: located, diagnosed, and NOT the corner case
+
+`collision_residual_ticks` went **95,852 → 7**; `_max_m` **0.28018 → 0.0012118**.
+
+| tier | fights with residual, `6dca36a` | fights with residual, **B-FIX** | max_m |
+|---|---|---|---|
+| boss | 180 / 180 | **0 / 180** | **0.0** |
+| trash | 90 / 90 | **0 / 90** | **0.0** |
+| mixed_pack | 90 / 90 | **7 / 90** | 0.0012118 |
+| champion | 0 / 90 | 0 / 90 | 0.0 |
+
+**No wall-pinned pair anywhere in the battery is residual any more** — which is precisely the claim
+§12.3 makes, and `boss` going 180/180 → 0 is the corner pin being solved rather than argued about.
+
+All 7 are `mixed_pack`, seeds **74000801 / 74000816 / 74000824** (three fights in each of the two
+R2-family legs, one in the R3 leg). **Registered prediction was 0, so the miss is reported, not
+absorbed.** They are a *different* mechanism, and it is the one §4 pre-registered: `max_residual` is
+a **pre-correction** measurement of the last executed sweep, so a tick counts non-convergent iff
+sweep 8 *observed and corrected* a gap above `ε_touch` — even when a 9th sweep would have broken
+clean. Verified rather than asserted (Discipline #11) — worst **post-solver** overlap on the three
+flagged fights:
+
+| seed | worst post-solver slack | pair | vs `ε_touch` |
+|---|---|---|---|
+| 74000801 | −0.00094849 m | `hero_boar_h07_0` ↔ `slitha_melee_b01_2` | inside |
+| 74000816 | −0.00071342 m | same pair | inside |
+| 74000824 | −0.00094849 m | same pair | inside |
+
+All inside 1 mm; all mob↔mob in a **pack chain**, no wall involved. `mixed_pack` is the only tier
+whose contact graph is a genuine chain rather than a union of pairs, so it is the only tier where
+§3.1's per-sweep *constraint propagation* — not §12.3's per-pair exactness — is the binding cost.
+
+**Reported, not repaired.** Raising `ITER_MAX` to silence it is the same drift R2 was refused for;
+re-defining the counter as a post-state measurement would turn a tripwire that errs toward *firing*
+into one that errs toward *silence*, which §4 rules is the wrong direction. The disposition is the
+one §4 pre-registered: **counter non-zero + S-1 green = the tripwire fired on sweep 8 and the ninth
+would have been clean** — now with a measurement behind it instead of a hypothesis.
+
+## B-5 — Flag-OFF full regression: **name-diff EMPTY both directions — on the THIRD run**
+
+```
+python3 -m pytest tests/ -q -p no:randomly --tb=no -rfE
+60 failed, 6084 passed, 3 warnings, 21 errors in 1201.47s (0:20:01)
+
+baseline names: 81   mine: 81
+removed (in baseline, not mine): 0
+added (mine, not baseline): 0
+```
+
+**`removed=0  added=0`.** `60 failed / 21 errors` reproduces the baseline exactly; `6084 passed` is
+the baseline's `6082` plus the **two tests B-FIX adds** — the arithmetic the name-diff cannot show
+and the count can.
+
+### ⚑ Runs 1 and 2 each came back with added names, and BOTH were my process, not my code
+
+Recorded because Cell C will be standing in the same room. Neither cause was the solver; both were
+**me perturbing the measurement while it ran**. Each was diagnosed to a mechanism before being
+dismissed — an added name is never waved away here.
+
+**Run 1 — `added=3`. Cause: I edited `spatial_engine.py` MID-RUN.** The three names were
+
+```
++ test_od_leech_carryback.py::TestTwoPathReachability::test_TW5_the_projection_factory_is_reachable...
++ test_wr1_m12b_m3_realized_count_telegraph_response.py::test_T_M3_8_an_EVADE_tick_resolves_NO_attack
++ test_wr2_b_body_separation.py::test_flag_off_does_not_perturb_the_run_spatial_fight_RETURN_SHAPE
+```
+
+**All three call `inspect.getsource` on objects in `spatial_engine.py`.** I had appended four comment
+lines at ~line 2420 while the suite ran; the module was already imported, so every `co_firstlineno`
+downstream of the edit still pointed at pre-edit line numbers while `linecache` served the post-edit
+file — misaligned source slices, failing string assertions on source text.
+**The confirmation is the test that did NOT fail:** the same file's other source-inspecting test
+targets `_mint_telegraph_spec` at **line 1666, UPSTREAM of the edit**, and it passed. Downstream
+fails, upstream passes. That is a mechanism, not a coincidence.
+*Lesson, stated as law: a full regression is a MEASUREMENT; the tree is frozen for its duration.*
+
+**Run 2 — `added=1`. Cause: I ran a SECOND pytest suite concurrently, and the two shared a package.**
+The name was
+`test_kitcal_g5_harness.py::test_G5_W1_untracked_loaded_source_is_invisible_until_it_is_imported`,
+and the failure was inside its own **teardown**:
+
+```
+os.remove(os.path.join(cached, f))
+E FileNotFoundError: .../spatial_gauntlet/__pycache__/_wr1_warn1_probe_module.cpython-312.pyc
+```
+
+That test plants a probe module in the package directory and deletes it afterwards. I had a
+`git worktree` at `6dca36a` running the full suite at the same time — and **`reincarnated` is
+installed EDITABLE, pinned to the main tree's `src/`**
+(`_editable_impl_reincarnated_engine.pth -> /Users/admin/Games/reincarnated-engine/src`). A bare
+`cd <worktree> && pytest` therefore imports the **main tree's** package, so both suites planted and
+removed the *same* probe file in the *same* `__pycache__`: a listdir/remove race.
+**Discipline #3 in a form the discipline does not spell out — "no parallel regens of the same seed"
+generalises to "no parallel suites sharing an editable install."**
+
+**That same fact invalidated the worktree run as a baseline**, and it is worth saying rather than
+quietly dropping: it reported `71 failed / 5944 passed / 127 skipped` with 11 extra names, because
+it ran *my* engine against the *worktree's* fixtures with the main tree's untracked `output/`
+artifacts absent. **It is not evidence of anything and it is cited as none.**
+
+**⚑ §B-7's `6dca36a` comparison is NOT affected — checked, not assumed.** Those runs passed
+`PYTHONPATH=src` from inside the worktree, which precedes the `.pth` in `sys.path`. The proof is in
+the artifacts: the base battery's trace headers record `engine_git_hash = 6dca36a` (clean) while
+HEAD's record `6dca36a-dirty`. Two different trees, as intended.
+
+**Run 3 — fired ALONE, tree frozen, no worktree, nothing else touching the repo.** That is the run
+reported above, and it is the one that counts.
+
+## B-6 — S-4 determinism: 450/450, twice, all three legs
+
+Each leg fired **twice** into two scratch roots **by one process from one tree**, traces compared
+**byte-for-byte, un-normalized**. Reports excluded (they embed absolute scratch paths).
+
+| leg | regime | traces | matched | differed |
+|---|---|---|---|---|
+| pre | `R2_proxy` | 150 | 150 | 0 |
+| post | `R3` | 150 | 150 | 0 |
+| pre_endpoint | `R2_proxy_resists_low` | 150 | 150 | 0 |
+
+`S4_PASS_ALL = true`. The transfer introduces no RNG draw and no ordering dependency, and this is
+the measurement of that rather than the assertion of it.
+
+## B-7 — Flag-OFF byte-identity vs `6dca36a`, measured across two trees
+
+Static: the diff is two hunks, both inside `_apply_body_separation_v2`, which is unreachable at
+`body_separation_v2=False`. **Dynamic, because static is not evidence:** a `git worktree` was cut at
+`6dca36a` and the **flag-OFF** 30-seed leg (`R2_proxy`, 150 traces) fired from *both* trees.
+
+```
+traces: 150 / 150, same names
+identical modulo header provenance : 150 / 150
+header fields that differed        : ['engine_git_hash']      <- differs BY CONSTRUCTION
+report identical modulo provenance : True
+```
+
+The only differing bytes in the entire 150-trace battery are the header's `engine_git_hash`. That is
+the honest form of the claim — a raw byte compare across two commits *cannot* match on a field that
+records the commit.
+
+## B-8 — Unit tests: 42, all pass
+
+| test | what it pins |
+|---|---|
+| `test_wall_pinned_SMALL_body_NOW_reaches_the_predicate_R_WR2_16` | **rewritten, not deleted.** Same geometry as the HALT test. Runs with `ITER_MAX` monkeypatched to **2** and asserts exact contact (`d == 2.0` to 1e-12, boss at 2.5) with the player still pinned at 0.5 and counters `(0, 0.0)` — so "≤2 sweeps" is *mechanical*, not a docstring claim. Also asserts the superseded `gap·0.9⁸` value is **no longer produced**, so the old law's arithmetic survives in the test rather than only in git. |
+| `test_both_bodies_clamped_leaves_a_residual_that_is_COUNTED_not_silent` | **new.** A 1.6 m corridor pins both 0.5 m bodies against **opposing** walls; every share and every transfer is annulled; neither body moves; the predicate is violated; `resid == 1` and `resid_m == 0.4` **fire**. The corner case is COUNTED, and the boundary still wins (R-WR2-3). |
+| `test_shortfall_transfer_never_exceeds_the_gap_partial_clamp_slides_the_wall` | **new.** Partial clamp (body sliding a flat wall): one axis annulled, the other realized. Asserts the pair lands **at or beyond** contact and that the over-resolution is bounded by the perpendicular slide the wall forced — i.e. the `[0, share]` bound holds. |
+| `test_wall_pinned_LARGE_body_yields_the_predicate_in_one_tick` | unchanged, still passes — the favourable direction did not regress. |
+| `test_shuffled_order_differs_the_invariant_is_real` | **unchanged, still passes.** The ordering invariant is still load-bearing; the transfer did not accidentally make the solver order-independent. |
+| `test_over_constrained_tick_reports_loud_rather_than_silently_violating` | unchanged, still fires — the tripwire is proven live, not merely unfired. |
+| `test_free_space_pair_is_exact_in_one_sweep_...` | unchanged — free-space exactness to 1e-12 at every radius ratio. |
+| `test_iter_max_and_eps_are_the_frozen_values` | unchanged — `8` / `0.001` / `1e-6`. **The frozen row is asserted, not promised.** |
+
+## B-9 — Semantic shift SS-B-3 (Discipline #12), named not buried
+
+**`ITER_MAX` stops meaning "how many decay passes we can afford" and starts meaning "how far a
+constraint may propagate through a contact chain."** Before, a clamped body's share was *lost* each
+pass, so sweeps were a convergence budget against a geometric decay whose rate depended on the split
+and whose fixed point depended on mob speed. After, a clamped body's share is *relocated* within the
+pass, so each pair is exact in one pass and sweeps buy only chain propagation — which is what §3.1
+always claimed `ITER_MAX = 8` was for.
+
+Stated plainly: **`_apply_body_separation_v2` produces different positions than `6dca36a` on every
+tick where a clamp binds.** That is the ruled change of law, not a bug fix smuggled in, and it lands
+behind the **same** `body_separation_v2` flag — flag-OFF is untouched (§B-7).
+
+## B-10 — INFO for the conductor: what the ARMED arm's outcomes did
+
+Not graded here (R-WR2-11; S-3/S-6 are not Cell B's), reported because B-FIX moves the armed arm and
+the conductor should not discover it at Cell BAT:
+
+| leg | fights differing in ≥1 report field | winners identical | total mobs killed | mean elapsed |
+|---|---|---|---|---|
+| `R2_proxy` | 120 / 150 | **yes, 150/150** | 690 → **690** | 31.117 → 31.237 s |
+| `R2_proxy_resists_low` | 120 / 150 | **yes, 150/150** | 661 → **661** | 28.011 → 28.131 s |
+| `R3` | 120 / 150 | **yes, 150/150** | 720 → **720** | 30.105 → 30.273 s |
+
+Positions move on every clamp-binding tick, so 80 % of fights differ somewhere — but **every winner
+and every per-leg kill total is unchanged**, and mean fight length moves by **+0.12 to +0.17 s
+(+0.4 % to +0.6 %)**. Small, one-directional, and consistent with bodies now being held slightly
+further apart.
+
+## B-11 — Artifacts
+
+| path | committed |
+|---|---|
+| `output/kitcal_g5/wr2_cell_b_s1_r2/` — the B-FIX battery, 450 traces + 3 leg reports, 142 MB | **no** (per the cell brief; regenerable from one command) |
+| `wr2_cell_b_s1_r2/wr2_cell_b_statistics.json` — S-1 per-leg/per-trace + residual census | **yes** |
+| `wr2_cell_b_s1_r2/wr2_cell_b_s4.json` — S-4, all three legs | **yes** |
+| `output/kitcal_g5/wr2_cell_b_s1/` — the **pre-fix HALT battery**, left in place | unchanged; its two committed JSONs remain the HALT's evidence |
+
+**I emitted to a SIBLING `wr2_cell_b_s1_r2/` rather than overwriting `wr2_cell_b_s1/`**, so the
+HALT's measurement and its resolution's measurement can be diffed against each other — which is what
+§B-10's table is, and it would not exist if I had overwritten. Determinism scratch roots removed
+after comparison; the `6dca36a` worktree removed after §B-7's comparison.
+
+## B-12 — For the conductor
+
+* **The HALT is cleared, and no new HALT is raised.** S-1 450/450, S-4 450/450, flag-OFF identical,
+  SS-1 intact.
+* **One registered prediction missed and is reported as missed:** math note §12.5 predicted
+  `collision_residual_ticks = 0`; measured **7**. The over-constrained half of the prediction held
+  (zero wall residuals, boss 180/180 → 0); the 7 are §B-6's deliberate pre-correction over-report on
+  pack chains, verified against the post-solver frames (§B-4). **Nothing was widened to absorb it.**
+* **Cell C's flag-OFF baseline still pins at `6dca36a`** — B-FIX adds no key to any returned dict and
+  changes no report surface, so §8.9's ruling on that is unaffected.
+* **R-WR2-11 still honoured:** S-2 is not computed, not claimed, not implied. B alone still
+  provably worsens the corner *pin* (the 90/10 bulldozer moves the centroid faster); what B-FIX
+  repairs is the solver failing **its own predicate**, which is a different thing. The docstring
+  now says both, so the two cannot be conflated later.
+* **Not pushed.** The engine commit is local; the conductor pushes.
