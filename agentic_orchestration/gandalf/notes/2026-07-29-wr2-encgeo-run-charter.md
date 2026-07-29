@@ -214,4 +214,20 @@ cells only, sequential · conductor writes no production code — seams execute.
 - **§8.10 — Cell B-FIX fired** (gamora): implement R-WR2-16, re-run S-1 + S-4 + flag-OFF regression +
   unit tests. Gate-2 on the combined B landing follows the fix.
 
+- **§8.11 — Cell B-FIX lands; the HALT clears** (engine `4f09e35`, meta `5bc0fdf6`, pushed).
+  **S-1 PASS 450/450** (from 129/450); worst slack −0.000998 m, inside ε_touch and 10× inside the
+  gate; zero violating pair-samples. Residual counters 95,852→**7** ticks / 0.28018→**0.0012 m** —
+  all 7 are mixed_pack mob↔mob pack chains (seeds 74000801/-16/-24) hitting §B-6's deliberate
+  pre-correction over-report; emitted-frame verification shows worst POST-solver overlap ≤ 0.95 mm.
+  Reported, not repaired; gamora's own 0-prediction recorded as missed (her call — right one).
+  Zero wall-pinned residuals anywhere. S-4 PASS twice all legs; flag-OFF regression name-diff EMPTY
+  (60/6084/21 = baseline + 2 new tests); flag-OFF traces byte-identical to `6dca36a` modulo git-hash
+  header. HALT battery `wr2_cell_b_s1/` PRESERVED as evidence beside the passing `_r2`. Two process
+  catches self-ledgered: mid-run source edit tripping `inspect.getsource` tests, and a `__pycache__`
+  race from PARALLEL suites sharing the editable install (Discipline #3 generalization; corroborates
+  WR1 INFO-8) → wave-tail item: no parallel pytest against a shared editable install.
+- **§8.12 — Gate-2 on the combined Cell B landing FIRED** (jack-ryan; `6dca36a`+`4f09e35` as one
+  landing). **Cell C holds for CLEAR.** R-WR2-8/-17 veto window to Matt effectively closes at this
+  gate's verdict.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
