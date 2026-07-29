@@ -1514,4 +1514,61 @@ seconds soaking up damage while I attempted to take a screenshot. Still worth th
   stat-checking. The replay trace already carries monster skill-activation events, so tell
   windows render in Godot for free when the REPLAY capstone consumes it.
 
+---
+
+## §14.25 — HARNESS LANDS, CHECKS PASS, **G-5 FIRES** — and the smoke catches a contract with no writer (REPLICA-1's gap)
+
+**Banked 2026-07-28. Engine pushed `9218238..bef1f55` + tag `gamora/v-g5-harness-1`; meta
+pushed `996b6c54..d1f5a033` (ride-alongs: PROVISION-CAL §8 + drax PC-T12, owned by their
+lanes). Assembly notes: `src/reincarnated/simulation/math/g5-harness-assembly-2026-07-28.md` +
+`agentic_orchestration/gamora/notes/2026-07-28-kitcal1-g5-harness-assembly.md`. Harness:
+`spatial_gauntlet/kitcal_g5_{scenarios,trace,harness}.py`.**
+
+**Landing checklist (Matt's go pre-authorized on pass — ALL PASS):**
+- **H-1 ✓** `A-FRZ-1`: no `freeze` on kit or any mob — the shatter hazard cannot reach the
+  boss fight. **H-2 ✓** harness inside the AST sweep root. **Terminal-1607 ✓ — both halves:**
+  W-c *is* R2b, so the canonical pool is **759**; 1607 belongs to the R3 arm alone. A harness
+  that merely "corrected 1600→1607" would have been precisely wrong; gamora caught the
+  conductor's half-framed re-check. **R-KC1-19a ✓ satisfied by the BASE schema** — conductor
+  verification found `replica-frame/v1` already ships per-frame `heading_rad`, a `decision`
+  event streaming `(tick, chosen_target_id, intent)` (the aim-line), and `telegraph` events
+  with damage amounts — the §14.24 tell-rendering channel EXISTS. Raw-if-held was already the
+  schema's law; nothing added. **C-1..C-5** doc-only, don't gate execution (Gate-2 cleared the
+  fire); owed in the wind-down follow-up.
+- **Pin enforcement (assembly note §10 map):** trash/champion HP verbatim (champion = the
+  frame-287 roster — the one tier whose whole opposition HP vector is measured); Primordian
+  14,812 **+ the trio built** (protos were available, cold identity all three, nothing
+  invented); hero slot MEASURED 4,702 with `A-HP-3` failing on any re-derivation; arms
+  boss-only (`A-ARM-1`), leech as door VALUE never compiled (`A-ARM-2`), distributional with
+  **no paired-delta surface existing** (`A-ARM-3`); one-body (`A-HP-2`); trash/champion
+  sustain-free with `INS-1` non-vacuous (86.9/91.1 HP of heal ignored, fights bit-identical).
+- **Dry-run smoke PASS:** 8/8 static pins, 4 tiers, both arms, 5 traces. 18/18 new tests;
+  76/76 door suites (digest unmoved); KF-4 36 GREEN; regression +18 = exactly the new tests,
+  failure names diff-empty.
+
+**THE SMOKE FINDING — a documented contract with no writer (REPLICA-1's gap, not this run's):**
+intake read 0.00% on every tier while boss arms healed 721 HP — impossible, since leech only
+fills headroom. `ReplicaFrameSink.on_hit` has carried documented received-side semantics since
+KF-5 and **the mob→player branch never called it**. Consequences, named: every replica trace
+ever emitted shows a player taking no damage; G-5's N-7..N-11 and the **entire S-3
+hazard-shape signature** would have read identically zero — *a comparison reported but never
+run*, the same class jack-ryan BLOCKed in Wave 0. Repaired + tested in assembly; filed in
+MIGRATION as REPLICA-1's gap. **Downstream routing: drax's Godot lane is the other consumer of
+replica frames — the repair reaches him via the wind-down hand-off.** The instrument-first
+discipline paid for itself an hour before the finale: G-5 without this repair would have
+produced a defensive verdict on a channel that was silently all-zeros.
+
+**HALTs carried into interpretation (right calls, all three):** boss damage rows HELD — swept
+at 33/50/67 with the 260.50 post-mitigation ceiling as falsification gate; `primordian_
+frigidring` **named-absent** (biases the sim boss LESS bursty — named as bias per C-7's law,
+not smoothed); crit is out of the trace (P-6's un-glued seam — BQ-4 territory). Star-lord's
+`leg3_pilot…json` was rewritten AGAIN despite test deselection — still uncommitted, still
+routed; the rewrite trigger is now itself a named item for the wind-down.
+
+**FIRE RECORD:** all checks green + Matt's pre-authorized go →
+`python3 -m reincarnated.simulation.spatial_gauntlet.kitcal_g5_harness --run --seeds 30`
+launched in background, 2026-07-28. Both arms, four tiers, 30 seeds. The run's verdict
+processes under R-KC1-18 (distributional flip rule) + R-KC1-22 (death-2 band anchor) + the
+sweep/named-absent qualifications above.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
