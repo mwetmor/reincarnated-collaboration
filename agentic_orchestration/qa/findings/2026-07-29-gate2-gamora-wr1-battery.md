@@ -695,3 +695,174 @@ multiplicity, radius and timing measured from the traces; `pytest` on
 `test_wr1_battery2_a_dmg1_grain.py` (14), `test_wr1_battery_arms.py` (20),
 `test_wr1_m6_crit_labelling.py` (21) — 55 passed. No full-regression re-run in this pass. Anchor
 provenance read at origin in `legolas/notes/2026-07-28-kitcal1-sustain-decomposition.md` §6.
+
+---
+---
+
+# RE-CHECK VERDICT — 2026-07-29 — WR1-G2-RECHECK-2 (narrow, repair-commit only)
+
+**Reviewer:** jack-ryan (DEV-MODE) · **Target:** engine `7c16fec` (+ `18f2c14` AGENT_STATE),
+meta `8da0539d` · `613ec895` · **Developer:** gamora · **Run/cell:** WR1-2026-07-28 ·
+WR1-BATTERY-3 · conductor gandalf, charter §8.19–§8.20
+**Scope:** BLOCK-1 and WARN-1/-2/-3 only. Everything PASSed in the landing review above stays passed.
+**Status of this section:** PART 1 — items 1, 3, 4, 5, 6 CLOSED. Item 2 (full regression)
+IN FLIGHT, foreground, appended below on completion. Committed early by design; the first
+re-check instance died with its evidence uncommitted.
+
+## Method note
+
+This is a **relaunch**. A first re-check instance died on a stream stall after verifying the
+repair guard-diff. Its full-regression process (`/tmp/jr_wr1_g2d_regression.sh`, started
+14:10:13Z at `18f2c14`) **survived the instance** and is still running; I killed my own duplicate
+rather than run two laps of the same suite concurrently (Discipline #3 — no parallel regens of
+the same seed). Its script diffs against **my own** banked name lists from the previous two laps
+(`/tmp/jr_wr1b_after_names_jr.txt` = a42d052 baseline 81, `/tmp/jr_wr1c_after_names_jr.txt` =
+98d3891 82) **and** against the builder's banked list — three-way, which is stronger than the
+brief asked for. Those /tmp artifacts survived; the name diff is therefore a true reviewer-side
+diff, not a comparison against the builder's own record.
+
+## §R1 — 🛑 BLOCK-1: **DISCHARGED.**
+
+| check | result |
+|---|---|
+| repair guard-diff on `tests/test_bq3_calibration_override_door.py` | **14 insertions / 0 deletions** ✓ |
+| `_DOOR_ALLOW_LIST` predicate sites | **exactly one** (line 561); definition 503, message 566 ✓ |
+| door suite, re-run by me | **39 passed in 9.36 s** ✓ |
+| T8 `test_T8_no_production_callsite_enables_overrides` | **GREEN** ✓ |
+| deletions anywhere in `7c16fec` | **one, and it is not in the guard** (`_git_hash`'s old return) ✓ |
+
+**The guard was not weakened, and I checked that structurally rather than taking the commit
+message's word for it.** Fourteen insertions and zero deletions in that file means no predicate,
+no AST sweep and no assert could have moved; the entire diff is one allow-list string plus its
+comment. The whole commit carries exactly **one** deleted line, `-    return _h + "-dirty" if
+_dirty else _h`, in `_git_hash` — the WARN-1 repair, not the guard.
+
+**The allow-list entry is a deliberate declaration, not a silencing.** It carries: the date and
+cell, the Gate-2 finding path and section, the conductor's acceptance, the two call sites named
+(`_fight` / `_fight_engine_direct`), the *reason the flag must be on* (it must match the
+allow-listed harness or `verify_instrument_fidelity()` is not comparing comparable paths), the
+class-membership argument against the existing `kitcal_g5_harness.py` entry (no season, no
+convergence loop, no endgame-BC batch, artifacts to `simulation/output/`), and — the line I care
+most about — **an admission that it shipped at `cf99b5d` without the declaration and ran two
+commits before the full regression caught it.** That is the written act the guard exists to
+force. Principle 4, Discipline #9. ✓
+
+## §R2 — WARN-1: **DISCHARGED.**
+
+**(a) SS-1 byte-check — nothing under the banked battery moved.**
+
+```
+git diff --name-status 05a294f..HEAD -- src/reincarnated/simulation/output/kitcal_g5/wr1_battery_2/
+  -> EMPTY
+git status --porcelain            -- src/reincarnated/simulation/output/kitcal_g5/wr1_battery_2/
+  -> EMPTY          (454 files tracked; working-tree bytes == HEAD bytes)
+git show --stat 7c16fec           -- src/reincarnated/simulation/output/
+  -> EMPTY
+```
+
+Not one banked byte was edited, added or removed. `git status --porcelain --untracked-files=no --
+src/ tests/` is **empty** before and after my work. ✓
+
+**(b) The errata are present where the false claims were made.** Math note **§15** carries a
+titled erratum (*"THE 'TWO HASHES, ON PURPOSE' CLAIM IS FALSE"*); cell note §8 erratum landed at
+meta `8da0539d`, and §3.1 gained a forward erratum pointer so the first cell's then-true sentence
+is not read cold. Both name what falsified them and when — R-WR1-8 discipline, amended in place
+with lineage rather than silently rewritten. ✓
+
+**(c) The `_untracked_loaded_source()` detector carries its Discipline #12 declaration** in three
+places, each aimed at a different reader: the `_git_hash` docstring (`⚠ SEMANTIC SHIFT,
+2026-07-29 … declared, not buried`), MIGRATION.md §4 with a before/after table and a
+**FOR STAR-LORD** two-point consumer instruction, and the detector's own docstring carrying the
+scoping rationale. The value set is stated unchanged and the "a clean tree stamps exactly what it
+stamped before, so no banked artifact is re-interpreted" claim is the right one to have made. ✓
+
+**(d) NON-VACUITY PROVEN BY NEUTERING, not by reading.** I edited
+`_untracked_loaded_source()` to `return []` at the top of the body and re-ran the detector test:
+
+```
+E  AssertionError: the detector did not see an imported, never-committed module: []
+   tests/test_kitcal_g5_harness.py:651
+   1 failed in 0.11s
+```
+
+Restored from a byte-backup; `git status --porcelain --untracked-files=no -- src/ tests/` empty;
+`tests/test_kitcal_g5_harness.py` **31 passed**; no stray probe module left behind. **The test is
+live.** ✓
+
+I also record *why* it is live, because the builder's construction is the non-obvious part and it
+is the right one: the test **monkeypatches the tracked-modification branch to return clean for its
+whole duration**, so every `-dirty` it observes can only have come from the new branch. Without
+that, the test would have passed vacuously on the very commit that introduces the repair — any
+working tree with an edit in it satisfies the old branch. It then pins **four** states on one
+planted file (absent → clean stamp; untracked-and-unimported → still clean, which is what proves
+the scoping rule carries signal; imported → `-dirty`; removed → clean again). The
+untracked-but-unimported leg is the one that stops `-dirty` becoming permanent and therefore
+meaningless. This is a better test than my finding asked for.
+
+## §R3 — WARN-2: **DISCHARGED.**
+
+Second erratum banked in place at math note **§2.4** (line 149), R-WR1-8 class, explicitly
+"amended in place with its lineage, never silently rewritten". It reproduces the falsifying
+`by_arm` table (endpoint boss arm A 2.2700 / n_pre 540, arm B 1.1350 / n_pre 794), states that
+the sentence **was true when written** and names why (the `R2_proxy_resists_low` leg did not exist
+as an object until `7f77ea0`), and adds two imprecisions I had not itemised: the A/B split is
+**boss-tier only** (`by_arm` is `none` elsewhere, so "every tier" was never the right quantifier),
+and pooling **does** move the endpoint figure. It then routes arm B's 1.1350 into the G-A record
+as the third corroboration.
+
+**Estimator and pooling rule UNCHANGED — verified structurally.** `7c16fec` touches five files;
+`wr1_battery2_2026_07_29.py` and `wr1_battery_probes_2026_07_29.py` are **not among them**. The
+one thing that could have been quietly re-picked at the moment a falsification supplied the motive
+was not touched. On the record, per §5.4 of the landing review. ✓
+
+## §R4 — WARN-3: **DISCHARGED, and it is the best MIGRATION entry this run has produced.**
+
+Present, dated, cold-parseable, and it does the thing I have now asked for three times:
+
+- **The third recurrence is named as a recurrence, in a table**, with all three occurrences
+  (`1e5b136` M-6 `MovementIntent.EVADE` · `3183efb` M-5 `hp_provenance` · `5f830d3` these three
+  keys) and the observation that occurrence 3 shipped *inside the very commit sequence whose
+  Step-0b existed to repair occurrence 2*.
+- **It names the distinction that kept failing to transfer**: *the ADR-004 trigger is "a
+  consumer's parse surface gained a key", not "a player-visible number moved"*. That sentence is
+  the actual fix; the three key descriptions are the deliverable.
+- Each key gets its own **THE ONE THING A CONSUMER MUST NOT DO** line — `piloted_competence_m3:
+  null` is a *no-such-door* statement not an unset flag; a regime must not be consumed without
+  both grades (`PROXY` armour vs `BRACKET` resists at the same rendered confidence is the hazard);
+  `clean: true` must not be read without `counts`.
+- **INFO-1 is folded in as a named known limitation** rather than closed — `effects_total`
+  excludes `gd_nova_blocks`, so a consumer asserting non-vacuity must check `gd_nova_blocks >= 1`
+  itself. Naming it in the consumer contract is the correct disposition for a runtime gap that is
+  only pinned in tests.
+- §5 "What did NOT change" states the door allow-list entry is *a declaration of an already-existing,
+  already-correct call site — no call site was opened or closed by this repair*. Correct, and it
+  is the sentence a future reader auditing the containment boundary will need. ✓
+
+## §R5 — WARN-4: **not discharged here, and that is correct. Routing confirmed. One caveat for the grading lap.**
+
+All three sites still read the underived figure — banked artifact
+`wr1_battery2_statistics.json:1066`, math note line 777, cell note line 750 (my earlier
+digit-only grep missed the spaced `55 %` form; all three are live). Charter **§8.20** routes it:
+*"If BATTERY-3 lands without WARN-4, the correction executes in the grading lap BEFORE the baton,
+never after."*
+
+**Consistent with my addendum.** §A.8 asked for it *"before baton emission"*; the grading lap is
+before the baton. Nothing in the addendum must precede this CLEAR — §A.8 states explicitly that
+BLOCK-1 was the only gating item, and INFO-4/-6/-7 were filed as riders. **Nothing to flag as
+mis-routed.**
+
+**One caveat the grading lap needs, offered so it is not discovered mid-correction (INFO, not a
+gate):** one of the three sites is **inside the banked artifact**, which SS-1 forbids editing.
+The correction there cannot be in-place; it takes the same disposition WARN-1 took — erratum in
+prose at the point the claim was made, plus the corrected figure in the grading record, with the
+banked string left standing and flagged known-wrong. Only the math note and cell note can be
+amended directly.
+
+## §R6 — Item 2: full regression — IN FLIGHT
+
+Foreground lap running at `18f2c14` (= `7c16fec` + AGENT_STATE only; `git diff --name-only
+7c16fec HEAD` = `[src/reincarnated/simulation/AGENT_STATE.md]`, verified). Result and the
+three-way name diff append below. **I am reproducing the suite rather than judging the banked
+list sufficient**, because my own baseline name lists survived and the pre-registered criterion
+is a reviewer-side diff.
+
