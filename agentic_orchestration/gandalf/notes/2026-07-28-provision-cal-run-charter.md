@@ -66,6 +66,8 @@ The run is DONE when ALL of:
 - **R-PC-3 (Matt, 2026-07-28):** G-L1 ruled **FIX** — the crypt lighting defect is repaired in-run and measured as the program's first lighting-authoring datum.
 - **R-PC-4 (Matt, 2026-07-28):** G-L3 ruled **WEREWOLF** — the L7 caster body is the normal Synty werewolf (composing with R-PC-1). The Sidekick `.glb` stands down as caster; remains available as control/reference.
 - **R-PC-5 (steward, veto-open):** `Godot Shaders Library` (menu row 4, telemetry finding T3 — in-editor downloads from godotshaders.com by design) carries a **network-quiet fence**: it never runs during a timed/measured cell; verdict annotated `LOADS-DIRTY(network-by-design)` if it otherwise loads clean.
+- **R-PC-7 (conductor, in-run, veto-open):** PC-W1-A returned the ruled body **LOADS-DIRTY(missing-embedded-texture)** — `SK_Chr_Werewolf_01.fbx` references a *different pack's* `.psd` (`PolygonFantasyGothic_Texture_01.psd`); all materials import albedo-null; the pack's own 4096² PNG loads clean standalone. **Ruling: the albedo re-wire to the pack's own PNG is in-scope stage prep** (charter §2 T-5 territory), executes in the PC-T12 cell (drax), and the re-wired body re-verdicts. Reasoning-boundary: this is repair-to-spec, not content authoring.
+- **R-PC-8 (conductor, in-run, veto-open):** **fact correction + scope extension of R-PC-1.** The "51 bones" datum (Synty product page) belongs to `SM_Werewolf_01.fbx` (generic-named rig, which also BUNDLES the undead *mesh* — drax finding F6). The ruled body `SK_Chr_Werewolf_01.fbx` is **52 bones, UE-named** (7 inert `ik_*` helpers). Ruling: `SM_Werewolf_01.fbx` is **EXCLUDED from the pipeline entirely** (it is not the ruled body AND it carries undead content R-PC-1 forbids); the 52-bone SK rig is THE body everywhere. Composes with R-PC-1, narrows nothing Matt ruled.
 - **R-PC-6 (Matt, 2026-07-28):** **Q46 RULED: LOCAL-ONLY.** The Murzak core addon runs with the four launch env vars suppressing the `wss://ai-game.dev` cloud connection; loopback transport only. **Verification is part of the ruling:** a packet-quiet assert during the Tier-4 boot precedes any Tier-4 LOADS verdict; a failed silence-check reopens the fork to Matt as a measured finding, never a silent acceptance. Capability basis confirmed pre-ruling: extensions are transport-agnostic (telemetry finding T2) — local-only forfeits nothing Murzak-compatible. T7 rider composes: `DOTNET_CLI_HOME` redirect per the known `env.sh` fix before the ten `dotnet restore` operations.
 
 ## §7 — Fit test + fallback + Matt interface
@@ -79,5 +81,17 @@ The run is DONE when ALL of:
 - **Seam execution (pattern Element 7):** Godot-project installs/imports/probes → **drax** (named); menu VERDICT-column append + version-bump re-reads → **legolas** (named, his doc); render/framediff evidence → **galadriel** (named) where CV grading is needed; conductor writes no production code. Reconnaissance (`lipo`, `ls`, fingerprints) may use Explore-class, evidence-only.
 
 ---
+
+## §8 — Wave results (running)
+
+**PC-W1-A ✓ (drax, `5a87dbdc`; evidence `/Users/admin/Games/reincarnated-godot/tmp/pcw1a/`):**
+- **T-3(a)** LOADS-DIRTY(missing-embedded-texture) → repair ruled in-run (R-PC-7).
+- **T-3(b)** 52 bones (fact-corrected from 51 → R-PC-8).
+- **T-3(c)** **RETARGET-READY** — `sidekick_bone_map.tres` unmodified; **0.0000° mean AND max rest-Δ across all 40 mapped profile bones** vs hero body, boss body, and base-locomotion clip character (TCP-43 instrument). The nonzero whole-skeleton means are carried entirely by inert IK helpers + eyes/eyebrows. Drax's own KT-2 pass (2026-07-23) had already provisioned this — the cell *measured*, it did not create.
+- **T-3(d)** 2 meshes / 2 materials confirmed (albedo-null pending R-PC-7).
+- **T-4** **0/6 COVERED — the L8 arm-2 purchase fork does NOT dissolve.** The six missing glyphs (`holy`/`shadow`/`physical`/`knockback`/`consecrate`/`freeze`) are *element/mechanic iconography*; the menus pack's Icons_Input is 653 *platform button prompts* — different problem domain. Zero hits across 2,784 files, nearest-24 contact sheet inspected and rejected. Fork stays on Matt's L8 HALT queue with sharpened options (different pack / commissioned icons).
+- **Findings F1–F10 logged not acted** (drax note) — conductor flags F3 for the REPLAY brief: **the tail is an unparented 5-bone skeleton absent from the body rig** — a tail-less werewolf at the fixed ARPG camera is a player-visible absence; capstone prep must resolve mount-or-omit. F8 (headless `--import` silently prunes default-equal project settings) and F9 (`.md5` delete does not force reimport; only dest-`.scn` delete does) are **instrument findings** — carried into every later cell's method.
+
+**PC-W1-B:** first attempt lost to a stream timeout (nothing written); relaunched with incremental-write discipline + ruling-critical question first. In flight.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28. Chartered on Matt's *"GO ahead"*; fires on §5.
