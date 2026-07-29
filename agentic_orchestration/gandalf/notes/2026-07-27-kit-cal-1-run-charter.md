@@ -2086,3 +2086,52 @@ gates the run.**
   to the Q-KC1-1 wave / HP-closure lane, pending conductor verification if ever load-bearing.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.35.
+
+---
+
+## §14.36 — C-1..C-7 REPAIR LANDS (`67e7ccb` + `2be600f`, tag `gamora/v-dot-delivery-2`, pushed): gamora REJECTS C-1's letter by measurement, ships an absolute-time carry · C-3 verdict "nothing moved" — 450 traces byte-identical · Gate-2 re-review fired
+
+**Banked 2026-07-28, post-repair-lap. Conductor verified commits/tag/`_fix3` arms/tree state
+before pushing; substance verification is the re-review's (in flight).**
+
+- **C-1 — the letter rejected, the intent shipped.** She derived, prototyped, and MEASURED
+  jack-ryan's prescription (phase credit to first interval only): still 0.964 at Δ=0.1 /
+  **0.708 at Δ=0.5** (D=6.37) — restarting at k=0 traverses only the systematically-longest
+  interval: the blocked defect class plus smoke/full divergence, one order down. Shipped
+  instead: **phase carried in absolute time** — `sched_carry_us` accrues µs, debited
+  `round(1e6·D/P)` per pulse; microseconds are the only re-bind-invariant unit, so refresh
+  converts nothing and loses nothing; `_add_or_refresh` collapses to one line; a
+  final-settlement clause keeps INV-1 exact; **new INV-4** (delivery rate independent of Δ,
+  cadence, and duration to 1 µs). *Whether the substitute stands is the re-review's call —
+  a developer measuring her reviewer's prescribed fix failing is the discipline working,
+  not defiance.*
+- **C-2 — discriminating at last:** 44/50 fail on the pre-C-1 kernel (survivors exactly the
+  `reapply=1.0` column, the one lattice-aligned cadence). Reproduces jack-ryan's §3.1 grid
+  cell-for-cell through the production writer. **And a correction back at the reviewer:**
+  his §3.2 prose transposes his own formula's credit/forfeit split (her §10.1) — teed for
+  his ruling.
+- **Post-repair grid: 48/48 at 1.000000** (single exception 0.999736 = one settlement pulse
+  in flight at the 120 s window edge — rate-correct); rows constant across cadence AND
+  identical between Δ=0.1/Δ=0.5; the `P=1` total-starvation cell reads 1.000000, was 0.000.
+- **C-3 — THE ESCALATION TRIGGER READS ZERO:** 33 headline cells, 0 moved; invariant blocks
+  byte-identical; **all 450 trace files byte-identical with header hash stripped** (a check
+  nobody asked for — the strongest possible form of the invariance claim). `_fix2` final in
+  substance; **`_fix3` supersedes in provenance only.** No Matt escalation on either trigger
+  (no dispute — she out-measured the prescription rather than disputing the block; no
+  headline movement).
+- **C-4/C-5/C-6/C-7:** `-dirty` hash suffix (root cause was a dirty tree); ordering now
+  code-commit → clean-tree battery → outputs-commit (`_fix3` stamps `67e7ccb`);
+  `output/kitcal_g5/` restored byte-identical + writer now REFUSES cross-hash overwrite;
+  SS-1/SS-2 extended, SS-5/SS-6 added; banker's-rounding note in. Tests: **442 / 263 / 904,
+  0 failed.**
+- **HQ-2 root cause found in passing:** her session-82 claim that
+  `leg3_pilot_section8a1_band_measurement.json` doesn't mutate is **false — the batteries
+  write it.** Restored, left unstaged as the live reproduction. Handoff queue HQ-2 updated:
+  star-lord's search space collapses from "unknown import-time trigger" to "the battery
+  writer path."
+
+**Run state:** Gate-2 re-review in flight (jack-ryan; adjudicates the C-1 substitute, his
+own §3.2 transposition, and the C-3 zero). On PASS → amendment lap reads **`_fix3`** and
+the run terminates. Matt interface: nothing owed; both escalation triggers read clean.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.36.

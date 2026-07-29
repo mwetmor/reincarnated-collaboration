@@ -41,6 +41,14 @@ or conftest side effect that fires on collection, not on the deselected test its
 write opt-in. A measurement artifact that rewrites itself when unrelated tests COLLECT is a
 provenance leak in an emission seam. Until fixed, no one should trust that file's mtime as evidence.
 
+**UPDATE 2026-07-28 (charter §14.36):** root cause narrowed by gamora during the C-1..C-7 repair
+lap — **the KIT-CAL G-5 batteries themselves write this file** (her earlier "doesn't mutate" claim
+retracted by her own correction). The search space collapses from "unknown import/collection
+trigger" to the battery writer path. The file sits restored-but-unstaged in the engine tree as the
+live reproduction. Star-lord's fix: make the write opt-in (explicit flag), since a calibration
+battery silently rewriting a star-lord measurement artifact is the provenance leak in its clearest
+form.
+
 ## HQ-3 → knight-rider — Q-KC1-1 wave charter inputs (the build-class wave)
 
 The run's class line (R-KC1-21): *known-wrong operands get fixed before validation; not-yet-built
