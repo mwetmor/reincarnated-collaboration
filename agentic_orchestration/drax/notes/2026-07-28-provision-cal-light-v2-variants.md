@@ -123,7 +123,122 @@ that also does not respond. What is missing on the wall tops is not level; it is
 
 ## §3 — Variants
 
-*(appended per variant)*
+All four rendered through the unchanged `tmp/pclight/light_rig.gd` at settle 90, R-6, 1280×720.
+Variant deltas are applied by `tmp/pclight/setvar.py`, a scoped regex switcher, so a variant is
+never a hand-edit and cannot drift between renders.
+
+### 3.1 What each variant IS
+
+| | delta from A | one property? | mechanism |
+|---|---|---|---|
+| **A** | — (the accepted PC-LIGHT state, uncommitted +56/−9) | control | — |
+| **B** | `Key.light_energy` **0.0 → 0.06** (colour already cold, staged) | yes, 1 value | directional sky-leak |
+| **C** | wall-cap `black_point` **0.0 → 0.20** | yes, 1 shader uniform | the void-cap's own outer-lip floor |
+| **D** | both of the above | 2 values, disjoint surfaces | composite |
+
+**Why C is a material property and not a light.** Because §2.1 measured that a light cannot do it.
+The wall-cap slabs are `render_mode unshaded`; a 2.0-energy directional sun moves them **1.5 %**.
+The rider left the mechanism to my call and forbade props; the only remaining channel into the
+wall-top surface is the void-cap material itself. `black_point` is the uniform that sets the value
+of the cap's outer lip — the exact 38.4 % of wall-top pixels that measure at or under luma 12 in A.
+Both cap paths (`_build_void_mat`, `_build_void_cap_occlude_mat`) route through the single
+constructor `_build_walltop_cap_mat`, so this is one edit at one site.
+
+> **A scoping catch, kept because the assert caught it and my reading had not.** `black_point`
+> appears **twice** in the builder. The second (`_south_mat_common`, line ~806) is the SOUTH WALL
+> FACE material on a different shader — not a wall top. An unscoped replace would have made C a
+> two-surface change and quietly invalidated the one-property claim. The switcher is scoped to the
+> body of `_build_walltop_cap_mat`.
+
+**The value 0.20 was picked against a gate declared BEFORE any C frame was rendered:**
+*wall tops must stop containing a pure-black region (`wt_under12 < 5 %`, down from 38.4 %) while
+not becoming the brightest thing in frame (`wt_mean` below the shipped room's own p95 of 68.5).
+Take the SMALLEST black_point on a coarse ladder that clears both.* The ladder, all three rendered:
+
+| black_point | wt_mean | wt_mod | wt_under12 | gate |
+|---|---|---|---|---|
+| 0.00 (= A) | 31.03 | 65.47× | 38.4 % | fails |
+| **0.20** | **38.44** | **4.23×** | **1.0 %** | **clears — selected** |
+| 0.30 | 41.07 | 3.17× | 0.2 % | clears (not smallest) |
+| 0.40 | 43.36 | 2.64× | 0.1 % | clears (not smallest) |
+
+### 3.2 ★ WTMASK — the rider's headline table
+
+56,250 px, full resolution. **Higher `wt_mean` = wall tops carry more value. `wt_mod` = p95/p05
+across the wall tops; it falls when the band stops being half-black.**
+
+| | **wt_mean** | Δ vs A | wt_p05 | wt_p50 | wt_p95 | **wt_mod** | **wt_under12** |
+|---|---|---|---|---|---|---|---|
+| BEFORE (defect) | 31.51 | +1.5 % | 1.2 | 38.1 | 65.3 | 53.88× | 38.3 % |
+| **A** as-fixed | **31.03** | — | 1.0 | 38.0 | 65.5 | **65.47×** | **38.4 %** |
+| **B** cold sky-leak | **31.04** | **+0.03 %** | 1.0 | 38.0 | 65.5 | **65.47×** | **38.4 %** |
+| **C** wall-top light | **38.44** | **+23.9 %** | 15.5 | 40.0 | 65.5 | **4.23×** | **1.0 %** |
+| **D** B+C | **38.45** | **+23.9 %** | 15.5 | 40.0 | 65.5 | **4.23×** | **1.0 %** |
+
+**The rider asked directly whether B lights the wall tops on its own. It does not.** B moves the
+wall-top mean by **0.01 luma out of 31.03** — 0.03 %, one two-hundredth of a display level — and
+moves `wt_p05`, `wt_p50`, `wt_p95`, `wt_mod` and `wt_under12` by **nothing at all** to the
+reported precision. Sky light does land on wall tops first in a physical room; in this room the
+wall tops are not in the lighting pass, so it lands on them not at all.
+
+The 58-pixel `Topper_*` sub-population is the only wall-top surface B touches: **43.60 → 45.61
+(+4.6 %)**. Four corner-pillar caps, 0.10 % of the mask.
+
+**D is therefore not redundant, and it is not optional** — B and C act on disjoint surfaces, so a
+composite is the only variant that can carry both a cold room rim and lit wall tops.
+
+### 3.3 Contrast cost vs A
+
+LSTAT-2 (mask-locked to `before00`, the metric the predecessor cell steered by). The counter-gate
+of predecessor §2.2 is reproduced unchanged: **legibility `u12 < 15 %`, key `p50` in 25–45.**
+
+| | **LSTAT-2 contrast** | **cost vs A** | p50 | mean | u12 | gate |
+|---|---|---|---|---|---|---|
+| **A** | **7.63×** | — | 24.8 | 31.2 | 11.1 % | clears (p50 marginal, as shipped) |
+| **B** | **6.83×** | **−10.5 %** | 26.9 | 32.7 | 7.1 % | clears |
+| **C** | **7.56×** | **−0.9 %** | 24.8 | 31.3 | 11.0 % | clears (p50 marginal, as A) |
+| **D** | **6.83×** | **−10.5 %** | 27.0 | 32.8 | 7.1 % | clears |
+
+**C's contrast cost is 0.9 % — essentially free**, and it is 0.9 % rather than 0 % only because
+some wall-cap pixels fall inside the BEFORE-derived LSTAT-2 room mask. **D costs exactly what B
+costs**: C adds no measurable contrast cost on top of it (6.83× either way).
+
+LSTAT-1, still reported and still given no weight (predecessor §3.2): A 5.16× · B 4.86× ·
+C 5.08× · D 4.81×. It ranks D as identical to the original defect. It is wrong for the reason
+established in the predecessor cell.
+
+### 3.4 The spatial number, per variant
+
+The predecessor's §3.1 test: freeze the 82 cells of the 16×9 map that BEFORE rendered as the
+daylit plateau (cell mean > 60), read the same cells after.
+
+| | min | max | max/min | **p90/p10** |
+|---|---|---|---|---|
+| BEFORE | 60.3 | 105.0 | 1.74× | **1.22×** |
+| **A** | 14.8 | 106.7 | 7.21× | **2.62×** |
+| **B** | 16.2 | 107.1 | 6.61× | **2.45×** |
+| **C** | 14.8 | 99.4 | 6.72× | **2.52×** |
+| **D** | 16.2 | 99.8 | 6.16× | **2.36×** |
+
+> **Instrument caveat, stated because it cuts against C.** The 16×9 cell map averages only pixels
+> over luma 12 **per frame**, so it carries the LSTAT-1 hazard. C's `max` falling 106.7 → 99.4 is
+> not the room's brightest cell getting darker — C cannot darken anything, it is a monotone lift.
+> It is cap pixels *crossing the 12 threshold from below* and joining a cell they were previously
+> excluded from, pulling that cell's mean down. **Read the WTMASK table (3.2) and the LSTAT-2 table
+> (3.3) for C; this one is reported for continuity with the predecessor, not for C's verdict.**
+
+### 3.5 D composes cleanly — measured, not assumed
+
+Per-pixel test of whether D is exactly A plus B's delta plus C's delta:
+
+```
+| D - (A + (B-A) + (C-A)) |    max 1/255   mean 0.0049   pixels with error > 2:  0  (0.0000%)
+```
+
+Zero pixels diverge by more than one display level over the whole 1280×720 frame. The overlap
+between B's changed pixels (510,495) and C's changed pixels (69,036) is **6,922 px (1.4 % of B's,
+10 % of C's)** — glow spill and the shaded toppers, the only surfaces both deltas can reach.
+**D is a clean composite; the rider's "only if it composes cleanly" condition is met.**
 
 ---
 
