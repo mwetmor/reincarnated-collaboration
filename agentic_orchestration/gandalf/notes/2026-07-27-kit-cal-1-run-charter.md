@@ -1740,3 +1740,49 @@ during her test run (mtime unmoved; still dirty from the prior session) — one 
 HQ-2's diagnosis: the trigger is not the harness tests per se.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+
+---
+
+## §14.29 — GATE-2 SPLITS: control landing CONDITIONAL PASS · **BLOCK on `g5_r3arm/` — the poison DoT NEVER TICKED** · S-2 was a null instrument, not a miss · R-KC1-24 fires the repair
+
+**Banked 2026-07-28. Jack-ryan findings `b2267f6d`
+(`qa/findings/2026-07-28-gate2-gamora-g5-s1control.md`), pushed.**
+
+**What PASSED (conditional):** the control arm itself — independent leaf diff confirms exactly
+7 differing leaves, all geometry; flag threading cannot masquerade; pins non-vacuous by
+injection. **The coincidence floor is TRUE, reproduced at event level** — one kill per 0.1 s
+tick, eight kills into three bins; `compute_abc` is not buggy; no alternative explanation
+survives.
+
+**The 1.36-vs-2.58 contradiction: RESOLVED — aggregation scope, no computational error on
+either side.** The verdict doc pooled three tiers ex-boss (1374/1009 = 1.3617); gamora quoted
+trash alone (253/98 = 2.5816); both reproduce to 4 dp; **neither is a valid §1.1p comparator**
+(the pool is 75% mixed_pack; adding boss's 2,082 presses swings it to 1.1485). **Keeper (3)
+SURVIVES on better evidence than it was born with:** `max_targets` is read NOWHERE in the
+engine — the cap never binds (max observed hits/press anywhere = 4 vs cap 5) — and
+`CONE_HALF_ANGLE_RAD = π/4` puts the A2 premise at the source. "Don't tighten the cap"
+stands, restated density-conditional.
+
+**The BLOCK (and jack-ryan's escalation to Matt):** across all 300 r3-arm fights, **zero DoT
+events**. Live probe: 27.8 s boss fight, 95 hits, `DOT_TICKS=0` both arms; A/B/C bit-identical
+W-c vs R3. Root cause: **`resolve_spatial_hit` discards the kernel's DoT into scratch — the
+`_tick_effects` gate never opens.** So S-2's lever was never connected: **B lift 1.000 is a
+NULL INSTRUMENT, not a MISS** — the third instrument-validity catch of this run (REPLICA-1's
+zero-intake, the A coincidence floor, now this). Escalation scope, jack-ryan verbatim: *"the
+projection-seam discard voids `dot` on every kit the spatial engine has run."* The canonical
+claws kit carries **bleed** — if bleed routes through the same discarded path, the canonical
+battery's offense side was wrong too.
+
+**R-KC1-24 (conductor ruling, veto-open): the DoT discard IS the R-KC1-21 operand class** —
+a kernel operator killed at the projection seam, sibling of the S1–S5 census fixes and C-11's
+thrown-away kernel lifesteal. Fix pre-ratified by the ratified class line ("known-wrong
+operands get fixed before validation"). **Gamora commissioned (in flight): blast-radius census
+FIRST** (which effect types route through the discard; which of the three batteries carried
+one; historical scope measured not speculated), then math note → minimal single-sourced fix →
+re-run of every affected battery at matched seeds into `_fix` out-dirs (BLOCKed + banked
+artifacts preserved as evidence), plus the undisclosed control-boss-loss asymmetry (10/60 vs
+0/60) disclosed properly. Gate-2 re-reviews; the BLOCK is not self-cleared. **The amendment
+lap now holds for the post-fix batteries** — the terminal signature verdict reads S-1 (settled
+above) + S-2/S-3 from instruments that are actually connected.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`; R-KC1-24 veto-open), 2026-07-28.
