@@ -542,15 +542,36 @@ caveat) → **HOLD at Matt (R-WR1-6) for baton acceptance.**
 - **Design finding FOR MATT at the baton hold (report, not blocker):** the honestly-depicted boss fight is a **corner stand-off for ~75% of its duration with visibly overlapping bodies.** G-D will show it — that is G-D working as an instrument (§8.23; pattern §6.2). Making it a fight worth *watching* — orbit pressure, arena-aware movement, walls-the-sim-respects — is the encounter-geometry sequel's founding question, and its founding evidence is now banked.
 - **Relay executed:** R-WR1-20 banner appended to the envelope spec (drax's declared consumption surface).
 
-### §8.22 — WR1-BATTERY-3 ✓ repair landed (engine `7c16fec`; errata `8da0539d`/`613ec895`) → narrow re-review (2026-07-29)
+### §8.25 — WR1-BATTERY-3 ✓ repair landed (engine `7c16fec`; errata `8da0539d`/`613ec895`) → narrow re-review (2026-07-29) *(banked as "§8.22" at `8af5e33c`; renumbered by the LR session — collision #5, substance untouched)*
 
 - **BLOCK-1 discharged as prescribed:** `_DOOR_ALLOW_LIST` entry with written justification (measurement driver must match the allow-listed harness or fidelity 6/6 is not comparable); guard itself untouched; door suite 39/39; **T8 GREEN**. Full regression FOREGROUND 24m05s: 60/6042/21, 81 names — **name-diff vs Gate-2's record exactly {T8 removed}, nothing added** (+1 pass = the new detector test, arithmetic exact).
 - **WARN-1:** banked artifact NOT rewritten (stamps `7f77ea0` both, driver added at `05a294f` — errata filed where the claim was written); stamp detector fixed FORWARD (`_untracked_loaded_source()` dirties the stamp when an imported module is in no commit, scoped to loaded modules; Discipline #12 declared; test proven non-vacuous). **WARN-2:** falsified sentence corrected with lineage; arm B raw 1.1350 promoted to third corroboration of the §8.18 stance. **WARN-3:** MIGRATION entry filed naming the third recurrence.
 - **WR1-G2-RECHECK LAUNCHED** (jack-ryan, NARROW): scope = `7c16fec` only + confirmation that the BLOCK and three WARNs are discharged per his own prescriptions. On CLEAR: conductor grades G-A/G-B/M-8a (stance §8.18, triple-corroborated) → baton emission → **HOLD at Matt (R-WR1-6)**.
 
-### §8.23 — Re-check cell STALLED + the unprocessed Gate-2 addendum absorbed (2026-07-29)
+### §8.26 — Re-check cell STALLED + the unprocessed Gate-2 addendum absorbed (2026-07-29) *(banked as "§8.23" at `cb2661dc`; renumbered by the LR session — collision #6, substance untouched)*
 
 - **WR1-G2-RECHECK died on stream-watchdog stall** (W1-B/V-H class) after verifying ONE item: repair guard-diff is 14 insertions / 0 deletions, `_DOOR_ALLOW_LIST` referenced at exactly one site — guard verifiably unweakened. Nothing committed by the cell; partial evidence carried by report only. Relaunched below with remaining scope.
 - **Gate-2 ADDENDUM (`37095207`, second pass — landed between conductor turns, absorbed now):** concurs on all four named checks. **WARN-4:** the conductor's "55% of 2.2700 is not the gear step" DOES NOT DERIVE — correct to **50.00%** or define the denominator, at all three sites (the arithmetic condition vs owner's-question distinction must both appear in the grading record, per the addendum's WARN-A-inverted argument: a future reader recomputing 2.2700 ≥ 1.50 must find the record saying the arithmetic was met AND why it doesn't answer the owner's question). **Accepted — conductor's own arithmetic error, erratum-class.** INFO-4 (headroom_pct denominator) + INFO-7 (a_dmg_1_grain single-configuration scoping line) noted. **§A.4 flip-point banked for grading as the FOURTH corroboration: pool +4.95% ⇒ 2.2700 → 1.1350.** INFO-6 (anchor DoT-aggregation grain, one L0 trial) → wave tail.
 - **WARN-4/INFO-4/INFO-7 routing:** NOT covered by the BATTERY-3 repair (briefed before the addendum was absorbed) — they RIDE THE BATON CELL as pre-emission corrections, per the addendum's own "before baton emission" placement.
 - **WR1-G2-RECHECK-2 relaunched** (jack-ryan, narrow): remaining scope only (door suite re-run, T8 green, SS-1 byte-check on banked artifact, errata WARN-1/2/3 verification, detector non-vacuity, name-list judgment); guard-diff item may be cheaply re-confirmed or inherited by explicit judgment; WARN-4 declared OWED-to-baton-cell, out of re-check scope.
+
+### §8.27 — LR SESSION STAND-DOWN ACKNOWLEDGED + hand-over inventory (2026-07-29, LR session)
+
+**R-WR1-17 read from disk and complied with.** The LR session's §8.25/§8.26 banks (and the RECHECK
+cell launches inside them) were composed against stale in-context numbering AFTER Matt's ratification
+was on the remote — the exact amnesia class §8.24 names. Collisions #5/#6 reconciled above by the
+session that caused them. **From here the LR session banks mechanical landings only; zero rulings,
+zero processing, zero launches.** Inventory for the charter session:
+
+1. **WR1-G2-RECHECK-2 IN FLIGHT** (launched from LR pre-compliance; substance = the narrow re-review
+   §8.21's own sequence requires). **Part 1 LANDED `9a6e074a`: BLOCK-1 discharged, WARN-1/-2/-3
+   discharged, WARN-4 routing confirmed.** On completion the LR session banks the mechanical landing
+   here and stops; disposition (CLEAR → grade → baton → R-WR1-6 hold) is the charter session's.
+2. **WR1-ROOMS RETURNED** (drax, `78b8d300` + `26d73777`): Block A race-verdict fixes eye-verified;
+   Block B four-room shell; drax self-corrected to R-WR1-20 via the relayed banner ("supersedes the
+   brief's 16 m"). Open on his note: 37.5 m ROOM_EDGE vs 36.0 m clear interior (0.750 m margin/side —
+   dressing trim vs declared deviation), ambient coverage at 37.5 m OWED, nova-clip reproduction
+   behind R-WR1-6. Processing routes to the charter session.
+3. **WARN-4 / INFO-4 / INFO-7 corrections** remain OWED to the baton cell (§8.26), unexecuted.
+4. **LR-session remaining scope:** L7-race lineage only (LR charter COMPLETE at §13; T7-FORGE
+   routing already filed there).
