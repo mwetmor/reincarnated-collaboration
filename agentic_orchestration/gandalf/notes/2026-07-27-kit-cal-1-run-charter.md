@@ -1905,3 +1905,59 @@ tick-rate ruling, which decides which batteries it reads.
 > application of the operand-class principle, and the first to touch the production-shared
 > kernel path — Gate-2 review is therefore MANDATORY on the fix before the amendment lap
 > reads its output. Gamora commissioned.
+
+---
+
+## §14.32 — R-KC1-25 EXECUTED: kernel delivery ledger lands (`3aa4a55`) · `_fix2` batteries are the terminal stack · mandatory Gate-2 fired · and the KIT-CAL-2 capture protocol ships to Matt
+
+**Banked 2026-07-28, post-kernel-fix landing.**
+
+**1 — Gamora's fix lap confirmed jack-ryan's correction AND extended past it.** The cull-race
+derivation was verified — and then rooted one level deeper: the defect is **a continuous
+declaration paid in indivisible 1.0 s pulse lumps**. Her falsifier: at `ts=0.25` (exact
+binary, zero float drift) a 1.5 s DoT still delivers 66.7% — so the race is a symptom, the
+lump quantization is the disease. Her 52-cell duration×tick-size matrix spans **0%–200% of
+declared** (both under- and over-delivery), and non-integral durations are *ordinary*, not
+edge-case: `control_duration_bonus` affixes add 0.5–2.0 s continuously. Smoke (`ts=0.5`)
+and full (`ts=0.1`) batteries had been silently measuring DIFFERENT DoT totals — a
+validation-integrity defect, not just a balance one. Extension routed to Gate-2 for
+adjudication alongside the fix itself.
+
+**2 — The fix: an integer delivery ledger** (engine `3aa4a55`, tag `gamora/v-dot-delivery-1`).
+`n_pulses = max(1, round(D / 1.0))`; `per_pulse = tick_damage · D / n_pulses`; pulse *k*
+fires at the first sub-tick where `e·n_pulses ≥ k·n_subticks` — total delivered ≡ declared,
+by construction, at any tick size. 3 sites, +134/−7. **Scope fence held:** DoT + HoT only;
+the control-ailment layer is byte-identical under an 8-name pin; refresh carries intra-pulse
+phase. Evidence: 393 invariant tests (212 fail on the pre-fix kernel — non-vacuous), 251/251
+regression unchanged, exactly ONE pinned expectation moved (DW-5 900→1000 — the fixed-clock
+probe now measuring a correct kernel).
+
+**3 — `_fix2` is the terminal-verdict stack** (`output/kitcal_g5/kitcal_g5_fix2/`, all three
+batteries re-run per R-KC1-25). Deltas from `_fix`: boss R3/W-c kill-time delta
+0.9309 → **0.9160 s**; DoT damage share R3 4.770 → **6.215%**; **no tier outcome changed**;
+S-3 11/12 unmoved. The re-expressed S-2 instruments (boss kill-time delta + DoT share)
+both survive the repair with signal intact. W-c boss elapsed unmoved — the canonical bleed
+remains corpse-refused by the G-4 liveness gate (S-2's lever is overkill-gated, as found).
+
+**4 — Mandatory Gate-2 fired** (jack-ryan, in flight) per R-KC1-25's first-production-kernel
+condition. The amendment lap (terminal signature verdict on `_fix2`) holds until his verdict.
+
+**5 — KIT-CAL-2 substrate capture: the EoR Warlord play-test protocol is authored and on
+Matt's share.** `gandalf/notes/2026-07-28-eor-warlord-playtest-directions.md`, byte-identical
+copy at `/Volumes/reincarnated/matt-notes-from-pc/eor-warlord-playtest/DIRECTIONS.md`.
+Design: **same arena, new fighter** — same campaign, path, and Primordian endpoint as the
+werewolf fixture, so the measured opposition side is held constant and every fixture delta
+is the kit. Every KIT-CAL-1 capture cost is encoded as a rule: name pre-chosen (`EoR
+Warlord 01`), devotion-zero as rule not attestation, no mid-combat screenshots, mic
+narration of load-bearing moments, batched gear steps, three screenshot ceremonies, the
+**10-hold channel probe** (closes the shortlist's `skill_use_count` activation-vs-tick
+unknown), deaths-are-data, save-flush + don't-play-after-end (T11 SSH copy). **FORK-1 open:**
+EoR earliest-online timing — legolas extracting the measured answer from the `.arz` (in
+flight); the share copy gets amended **§7-RESOLVED** when it lands; the doc's §5.1
+two-window rule makes the run right either way.
+
+**Run state:** two in-flight inputs — jack-ryan's Gate-2 on `3aa4a55` (gates the amendment
+lap) and legolas's EoR unlock extraction (gates the §7-RESOLVED amendment; does NOT gate
+Matt starting play, per the two-window rule). Nothing else is owed before the terminal lap.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.32.
