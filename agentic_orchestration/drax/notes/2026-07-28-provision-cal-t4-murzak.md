@@ -632,3 +632,234 @@ camera) and I am not offering an opinion on the images. They are Matt's to look 
 
 **Signed:** drax, 2026-07-28. Cell PC-T4. Written incrementally; every verdict carries the
 measurement that earned it.
+
+---
+---
+
+# MOTION — cell PC-T4-MOTION (rider on step 7)
+
+**Run:** PROVISION-CAL · **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Executor:** drax
+**Trigger:** Matt reviewed the step-7 static Pro renders and ruled the checkpoint format
+insufficient — *"I need to see it in motion. A static VFX is just a picture."* Correct per rubric
+law: check 4's question is judgeable-EFFECT-or-stub, and **effect is temporal.** A single frame
+cannot answer it.
+**Date:** 2026-07-28 · **Status:** COMPLETE — 3 clips captured.
+
+> **JUDGEMENT WITHHELD, same as step 7.** Below is the capture method, the conditions, the
+> verification that the clips are valid recordings, and the paths. **Nothing below is an aesthetic
+> claim.** Matt's eye is the instrument.
+
+---
+
+## M.1 · Where this ran, and why it is a SEPARATE project inside the same lab
+
+`reincarnated-godot` has cell **PC-LIGHT in flight in another session** and was declared untouchable
+for this cell. **Zero reads and zero writes were made to it.** (The one live `Godot` process on the
+host during this cell — `/Applications/Godot.app … tmp/pclight/light_rig.tscn` — is that session's
+and was deliberately left running. My binary is the lab's own
+`mcp-lab/godot-net/Godot_mono.app`, a different build entirely, so the two runs cannot collide.)
+
+Everything happened under `/Users/admin/Games/mcp-lab/pct4/`. New capture project:
+
+**`/Users/admin/Games/mcp-lab/pct4/motion/`** — minimal, no addons, no autoloads, no C#.
+
+It is separate from `pct4/project/` for a concrete reason, not tidiness: **step 7.1 restored the lab
+to its Murzak configuration, but `pct4/project/project.godot` still declares three Pro GDScript
+autoloads** (`MCPScreenshot`, `MCPInputService`, `MCPGameInspector` → `res://addons/godot_mcp/mcp_*_service.gd`).
+Those files moved to `parked/pro_godot_mcp` with the rest of Pro. Booting that project now throws on
+autoload resolution before a rig could run. Rather than mutate the parent project (and destroy the
+"lab left intact as evidence" property), the capture project stands alongside it.
+
+**The three preset scenes were copied, not re-authored — md5-verified identical to the ones Pro's
+`apply_particle_preset` wrote in step 7:**
+
+| scene | md5 (`project/` original == `motion/` copy) |
+|---|---|
+| `pct4_pro_fire.tscn` | `66a7d63612c845456012529cb979c973` |
+| `pct4_pro_smoke.tscn` | `c018885b6cec50f45a5681eef208034c` |
+| `pct4_pro_sparks.tscn` | `bb3dfd489da53bd7b50550ac5456aa68` |
+
+All three are fully self-contained (`sub_resource` only, zero `ext_resource`), so the copy carries no
+dependency on the addon that authored them.
+
+---
+
+## M.2 · CAPTURE METHOD — Godot **Movie Maker mode**, named and justified
+
+**Method: Godot 4.6's built-in Movie Maker writer (`--write-movie`), MJPEG-AVI at quality 1.0,
+transcoded to H.264 MP4 with ffmpeg 8.1.2.** Not a screen recording, not a frame-grab loop.
+
+Exact invocation, one per preset:
+
+```bash
+source /Users/admin/Games/mcp-lab/env.sh
+"$GODOT_NET" --rendering-driver metal --resolution 1280x720 \
+  --path /Users/admin/Games/mcp-lab/pct4/motion \
+  --write-movie /Users/admin/Games/mcp-lab/pct4/renders/raw/pro_<preset>_rigquad.avi \
+  --fixed-fps 60 \
+  -- res://pct4_pro_<preset>.tscn
+
+ffmpeg -i raw/pro_<preset>_rigquad.avi \
+  -c:v libx264 -preset slow -crf 16 -pix_fmt yuv420p -r 60 \
+  -movflags +faststart pro_<preset>_rigquad.mp4
+```
+
+**Why Movie Maker and not a frame-dump loop.** Movie Maker forces a **fixed delta of 1/fps**
+regardless of how long each frame takes to render and encode. A hand-rolled "grab the viewport every
+frame" loop advances on wall-clock delta, so a slow GPU-readback frame makes the particles jump — the
+clip would then be a record of *my capture cost*, not of the effect. Encoding cost here was
+4.6 ms/frame; under wall-clock that would have been visible motion corruption. Fixed delta makes the
+clip **temporally faithful**, which is the entire point of the rider.
+
+Godot's own report per run confirms the mode engaged, e.g. fire:
+
+```
+Movie Maker mode enabled, recording movie in 1280×720 @ 60 FPS...
+301 frames at 60 FPS (movie length: 00:00:05:01), recorded in 00:00:03 (166% of real-time speed).
+Encoding time: 1.44 seconds (average: 4.78 ms/frame)
+```
+
+Rig: `/Users/admin/Games/mcp-lab/pct4/motion/pct4_motion.gd` + `.tscn`.
+Project settings: `editor/movie_writer/fps=60`, `mjpeg_quality=1.0`, `disable_vsync=true`.
+
+### Conditions — IDENTICAL to the step-7 stills, deliberately
+
+Same stage, same fixed ARPG camera, so the clips are comparable to the PNGs frame-for-frame:
+**R-6 — dist 34, fov 24, yaw 47, pitch −50, aim_h 1.0**; ground plane per R-10; 1280×720; Metal,
+Forward+, windowed; glow ON at threshold 1.25; **SDFGI OFF**. Same rig quad on `draw_pass_1`
+(0.5 m `QuadMesh`, unshaded, vertex-colour, particle-billboard) — **the rig supplies this, neither
+wire does** (PC-T4 finding 4). Every clip log line still reads `draw_pass_1=null` on load.
+
+**The camera is the judge; the judge was not moved.**
+
+### fps and durations
+
+| clip | fps | frames | duration | source AVI |
+|---|---|---|---|---|
+| fire | 60 | 301 | **5.017 s** | 5 860 658 B |
+| smoke | 60 | 361 | **6.017 s** | 6 747 058 B |
+| sparks | 60 | 271 | **4.517 s** | 5 472 176 B |
+
+---
+
+## M.3 · The emission TIMELINE — a rig action, disclosed
+
+The brief asked for the **full lifecycle: spawn → motion → decay.** A continuous emitter left running
+for the whole clip only ever shows spawn → steady state; it never decays. So emission is driven on a
+clock. **No preset PARAMETER was touched.** This is the same class of action step 7.5 already
+disclosed (re-firing the one-shot `sparks` emitter for the still) — pressing play, now on a schedule:
+
+| preset | as shipped | timeline applied |
+|---|---|---|
+| **fire** | continuous, `amount=24 lifetime=1.2` | emit from t=0; **emission stopped at t=3.60 s**; clip runs to 5.02 s so the population dies out on camera (last particle ≈ 4.8 s) |
+| **smoke** | continuous, `amount=16 lifetime=3.0` | emit from t=0; **emission stopped at t=3.00 s**; clip runs to 6.02 s (last particle ≈ 6.0 s) |
+| **sparks** | `one_shot=true emitting=false lifetime=0.4 explosiveness=0.95` | **5 bursts re-fired at t = 0.40 / 1.20 / 2.00 / 2.80 / 3.60 s**; clip runs to 4.52 s, so the 5th burst fully decays on camera (≈ 4.0 s) with a 0.5 s empty tail |
+
+A single `sparks` burst is 0.4 s long. One burst inside a 4.5 s clip would be 91 % empty stage, so the
+burst is repeated — **each burst is the preset's own complete lifecycle**; the clip simply contains
+five of them.
+
+---
+
+## M.4 · ★ CAPTURE ANOMALIES — two found, both mine, both fixed
+
+**1 · Float-accumulation drift in the burst schedule (fixed, re-captured).**
+First `sparks` pass accumulated the schedule in float seconds (`_next_burst += 0.8`). Burst 2 fired at
+**t = 1.21667 instead of 1.200 — one frame late.** Cause: `0.4 + 0.8 == 1.2000000000000002` in IEEE
+double, which is greater than frame 72's exact `t == 1.2`, so the `>=` test missed by 1 ulp and
+fired on frame 73. Fixed by resolving each burst to an exact **integer frame index**
+(`round((start + i*period) * fps)`), which cannot drift. Re-captured; the log now reads
+`0.400 / 1.200 / 2.000 / 2.800 / 3.600` exactly. **The shipped `pro_sparks_rigquad.mp4` is the
+corrected capture.**
+
+**2 · Clip ended mid-burst (fixed, re-captured).** The uncapped schedule fired a 6th burst at
+**t = 4.400 s with only 0.1 s of clip remaining** — the clip cut off a burst in flight, so the
+"decay" third of spawn→motion→decay was missing from the ending. Fixed with an explicit
+`burst_n` cap chosen so the last burst has room to decay to empty inside the clip.
+
+**3 · Godot teardown noise (cosmetic, not fixed, not ours).** Every run exits with
+`ERROR: 1 shaders of type ParticlesShaderRD were never freed` +
+`ERROR: 1 RID allocations of type '…Shader' were leaked at exit`. This is Godot 4.6.3's own
+particles-shader teardown on `get_tree().quit()`, after the movie file is already closed and
+finalised. It does not touch the output. Recorded rather than smoothed.
+
+---
+
+## M.5 · Verification that the clips are VALID RECORDINGS (not a verdict on the effects)
+
+**Instrument: per-frame mean luminance (`ffmpeg signalstats YAVG`) across every frame of each clip.**
+An empty stage renders a constant YAVG; a clip with content varies. Measured:
+
+| clip | frames | YAVG min | YAVG max | range | distinct values | peak frame | **last frame** |
+|---|---|---|---|---|---|---|---|
+| fire | 301 | 79.1357 | 79.6782 | 0.5425 | 269 | 83 (t=1.38 s) | **79.1357** |
+| smoke | 361 | 79.1357 | 79.2797 | 0.1440 | 222 | 147 (t=2.45 s) | **79.1357** |
+| sparks | 271 | 79.1357 | 81.8268 | 2.6911 | 121 | 227 (t=3.78 s) | **79.1357** |
+
+Two things this settles:
+- **`79.1357` is the empty-stage constant** — it is the min of all three clips, and it is the value of
+  `sparks` frame 0 (before the first burst). All three clips **return to it exactly on their last
+  frame**, which is the decay tail landing where it should. The timeline in M.3 did what it claimed.
+- **All three vary, and vary differently from each other.** Unlike the step-7 `_asemitted` stills
+  (byte-identical to each other and to an empty stage), these are three distinct recordings.
+
+**On-screen occupancy at each clip's peak frame**, measured against the empty-stage reference
+(per-pixel RGB difference > 8):
+
+| clip | pixels differing | % of 1280×720 frame | bounding box |
+|---|---|---|---|
+| fire | 6 415 | 0.696 % | 100 × 120 px |
+| smoke | 1 542 | **0.167 %** | 48 × 42 px |
+| sparks | 19 528 | 2.119 % | 277 × 262 px |
+
+**Stated as a capture condition, not as a judgement:** at the fixed R-6 camera these effects subtend a
+small fraction of the frame, and `smoke` is the smallest by an order of magnitude relative to
+`sparks`. This is consistent with the step-7 stills (`pro_smoke_rigquad.png` was 7 547 B against an
+empty stage's 7 300 B). **It is a property of the preset at this camera, not a defect in the capture**
+— the recording is confirmed valid by the frame-to-frame variance above. If Matt wants the effects
+larger in frame, that is a camera change and it is his call, not mine; R-6 was held because it is the
+camera the stills were judged at.
+
+**I confirmed the capture path is valid (correct codec, correct dimensions, correct frame count,
+correct camera, real frame-to-frame variance, clean decay to baseline). I am not offering an opinion
+on the effects. They are Matt's to watch.**
+
+---
+
+## M.6 · ★ CLIP PATHS — the Matt-eye checkpoint
+
+All under **`/Users/admin/Games/mcp-lab/pct4/renders/`** — H.264 / MP4, 1280×720, 60 fps,
+`+faststart` (they will stream/scrub without a full download):
+
+| File | duration | bytes | md5 |
+|---|---|---|---|
+| **`pro_fire_rigquad.mp4`** | 5.017 s | 178 279 | `0f303d1fbe56065e589793fa9a0c2e9b` |
+| **`pro_smoke_rigquad.mp4`** | 6.017 s | 42 593 | `02d28f21ffa5ae9016df01a38064dfbe` |
+| **`pro_sparks_rigquad.mp4`** | 4.517 s | 219 151 | `545dbcfe63bfb14a5812887c1f28929d` |
+
+Supporting artifacts, kept:
+- `renders/raw/pro_{fire,smoke,sparks}_rigquad.avi` — the Movie Maker originals (MJPEG q1.0), 18 MB
+  total. The MP4s are derived from these; kept so the transcode can be redone without re-rendering.
+- `renders/motion_peakframes/` — the peak frame of each clip extracted as PNG, plus
+  `EMPTY_STAGE_ref_sparks_f000.png`, the empty-stage reference the occupancy table was measured
+  against.
+
+**`_rigquad` only.** There is no `_asemitted` motion clip and there should not be: step 7.4 measured
+that an as-emitted preset has `draw_pass_1 == null` and therefore **draws nothing**. A 5-second clip
+of it would be 300 identical frames of empty stage. The still already carries that finding.
+
+---
+
+## MOTION EXIT SUMMARY
+
+| Item | Result |
+|---|---|
+| Clips | ✓ **3 MP4s**, 1280×720 / 60 fps / H.264, 4.5–6.0 s each, at the same fixed R-6 camera as the stills |
+| Method | ✓ **Godot 4.6.3 Movie Maker mode** (`--write-movie`, fixed delta 1/60) → ffmpeg H.264 CRF 16. Fixed delta chosen so the clip records the effect, not the capture cost |
+| Lifecycle | ✓ spawn → motion → decay in all three; verified by every clip returning to the exact empty-stage YAVG constant (`79.1357`) on its last frame |
+| Anomalies | ✓ 2 found and fixed (1-frame float drift in burst schedule; clip ending mid-burst) — both re-captured. 1 cosmetic Godot teardown shader-leak error, not ours, does not touch output |
+| `reincarnated-godot` | ✓ **untouched — zero reads, zero writes.** PC-LIGHT's live Godot process was left running |
+| Lab state | ✓ `pct4/project/` **byte-unchanged**; all new work isolated in `pct4/motion/` + `pct4/renders/`. All my processes reaped |
+| Judgement | **withheld — Matt's** |
+
+**Signed:** drax, 2026-07-28. Cell PC-T4-MOTION.
