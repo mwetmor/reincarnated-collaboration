@@ -1701,3 +1701,42 @@ self-rewriting `leg3_pilot…json`→star-lord (sequences first — active hazar
 wave inputs→knight-rider.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`; R-KC1-23 veto-open), 2026-07-28.
+
+---
+
+## §14.28 — S-1 CONTROL LANDS (gamora `ee5930a`): the control FAILS its band — and thereby exposes a COINCIDENCE FLOOR in the A statistic · plus a contradiction sent to Gate-2
+
+**Banked 2026-07-28. Engine `ee5930a`, tag `gamora/v-g5-s1control-1`, pushed. Gamora flagged
+"Gate 2 REQUIRED, not self-cleared" — Gate-2 FIRED (jack-ryan, in flight). The amendment lap
+HOLDS until his verdict; this section records the landing, not conclusions.**
+
+**Design choice (hers, conservative):** neutralize BOTH multi-target geometries — claws
+cone→single_target AND charge line→single_target — at otherwise-EXACT canonical values,
+because a weaker control drives A→1 by spacing kills out, which would make A≈1 stop meaning
+"the arc was the mechanism." Hardest control to pass. Pins A-S1C-1/A-S1C-2 injection-proved;
+27/27 harness tests; canonical `g5/`, conductor-fired `g5_r3arm/`, and `g5_s1control/`
+outputs all banked in-repo (the canonical battery output had been sitting untracked — her
+catch).
+
+**Result: the control returns A = 2.667 / 1.333 / 1.200 (trash/champion/mixed) — OUTSIDE
+[0.98, 1.05] at every pack tier; boss 1.000 passes.** And the pre-registered §1.1p second
+instrument says why: the control reads **exactly 1.0000 hits/press, every tier, every seed**
+— no press ever hit two bodies — so the excess A is **bin coincidence**: claws compile at
+`cooldown_seconds = 0.0` (no player attack-speed model), sequential single kills land in the
+same 0.5 s bin, and **A carries a coincidence floor above 1 at every pack tier.** Canonical A
+must be read against that floor, not against 1. She did NOT repair it — the floor is a
+property of the pinned canonical kit; changing it is a balance change in a control's costume.
+Named, routed (attack-speed model → Q-KC1-1 wave input).
+
+**CONTRADICTION → Gate-2 item 3:** verdict keeper (3) computed canonical breadth **1.36
+hits/press** vs fixture 2.36 ("arc NARROWER; tightening the cap would move the sim
+backwards"); gamora's landing computes **2.5816** vs 2.362 (within 9% — arc looks RIGHT).
+Both cannot hold under one §1.1p definition. Jack-ryan adjudicates byte-level; whichever
+number dies takes its conclusion with it. The amendment lap inherits the ruling.
+
+**Also carried:** MIGRATION.md updated — the control/r3-arm artifact-shape changes are ones
+**drax's REPLICA lane must widen for** (compounds HQ-1). `leg3_pilot…json` did NOT re-fire
+during her test run (mtime unmoved; still dirty from the prior session) — one data point for
+HQ-2's diagnosis: the trigger is not the harness tests per se.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
