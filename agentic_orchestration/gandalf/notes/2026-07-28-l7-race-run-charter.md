@@ -126,3 +126,13 @@ Watch, in any order — each is 6 s, three panels side by side:
 3. `tmp/l7race/STRIPS/strip_ambient.mp4` — room-owned, contained (your R-LR-4)?
 
 Per strip: which panel wins, which is unacceptable (if any), one line why. Then I unseal, reveal attribution, and file the verdict record → T7-FORGE.
+
+## §12 — MATT'S VERDICT (recorded verbatim BEFORE unseal, per §11 seal discipline) (2026-07-29)
+
+1. **CAST:** "C wins for charge-up and detonation burst, but I like the traveling of A. All readable, but the werewolf is facing backwards."
+2. **AURA:** "A wins, but the floor portion of the aura doesn't follow the werewolf. I don't quite understand the question on the silhouette, but the werewolf is facing backwards and walking backwards."
+3. **AMBIENT:** "A wins. Leak is gone, but I would still get rid of the remaining part of the particle aura around the four torches. What is remaining is something like a 30 degree cone of particles facing towards the center of the room in each picture. We dont need the cone I don't think."
+
+**Cross-strip stage finding (Matt, twice):** the werewolf is FACING BACKWARDS (and in AURA, walking backwards) — a capture/retarget orientation defect, symmetric across arms (same clip, all arms, R-LR-3), so no arm advantaged; verdicts stand. Routed below post-reveal.
+
+Key unsealed AFTER this block was written.
