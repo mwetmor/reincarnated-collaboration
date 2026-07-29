@@ -1437,4 +1437,53 @@ no mid-flight channel into the running assembly exists this session; the amendme
 the harness landing — trace schema inspected, missing raw-if-held fields added in a small
 follow-up BEFORE G-5 fires (zero timing cost: G-5 already gates on Gate-2 + conductor go).
 
+---
+
+## §14.23 — GATE-2 LANDS: NO BLOCK, G-5 CLEARED — with two harness flags that bite, five doc conditions, and every judgment call upheld
+
+**Banked 2026-07-28. Verdict:
+`agentic_orchestration/qa/findings/2026-07-28-gate2-gamora-bq3-od-scratch-maxhp-wake.md`
+(jack-ryan `93db6a8a`, pushed `2a531b33..58f7bed9` — ride-alongs: legolas PC-W1-B Q46 null-diff
++ gandalf PROVISION-CAL §8, owned by their sessions/lanes).**
+
+**Verdicts:** BQ-3 **PASS** · O-d **PASS** (1 doc condition) · wake **CONDITIONAL PASS** (4 doc
++ 2 harness conditions). **No BLOCK.** Verified-not-accepted highlights: 76/76 with **zero
+skips** (NS-1 executed — cannot have passed vacuously); digest `25c212eb…` holds; battery
+digests byte-identical while PROJ counters moved in the same run; the two-path premise (C-10)
+confirmed in code at `spatial_engine.py:5813-5828`; Y6/Y8 spot-checks hold; the wake regression
+**reproduces exactly** (34F/1,587P/21E). Every contested judgment upheld: the census `defense`
+overrule (correct — the key would open the door prematurely), reproduce-not-carry (gamora's to
+make, and right), the declined digest re-registration (upheld with the sharpest phrasing of the
+day: *"a reset note for a reset that didn't happen is a false evidentiary artifact"*). Two
+offered/invited BLOCKs — same-day dormancy reversal, HoT/F-2 — both declined on the merits.
+
+**Harness flags (ADOPTED as landing checks — no channel into the running assembly, so both
+apply the moment gamora reports, before G-5 fires):**
+
+- **H-1 (bites the boss scenario):** freeze-shatter's dormancy is **corpus**-scoped, and G-5's
+  hand-authored GD mob dicts are OUTSIDE the corpus. `_resolver_skill_from_dict` copies effects
+  verbatim; `freeze` is a live ailment; post-wake, one freeze expiry below 25% HP costs **320
+  HP against the fixture's 1,600 pool**. And the Primordian's kit is ~85% cold with a
+  16-projectile freeze nova — this flag aims straight at our boss dict. **Conductor lean
+  (fidelity law):** GD freeze is CC — it has NO shatter-on-expiry burst; RDR's shatter is an
+  RDR mechanic. The boss dict must NOT carry RDR `freeze` (assert it); the nova compiles as
+  cold damage, and the un-modeled freeze-CC joins the named-gap ledger ADJACENT to the evasion
+  finding (§ pending Matt's R-KC1-22 ruling) — both are "the nova's danger was more than its
+  damage" gaps, on the same side of the ledger.
+- **H-2:** the L5 AST sweep root is `src/reincarnated/` only — a harness placed outside keeps
+  T-8 green while hollowing BQ-3's deletion inventory. Landing check: harness path must sit
+  inside the sweep root.
+
+**Doc conditions C-1..C-5 (no re-tag):** owed by gamora in the same follow-up that closes the
+harness landing checks — notably C-5 (stale comment at `spatial_engine.py:2570-2596` asserting
+kernel dormancy at the exact site no-stack must hold) and C-3 (42-not-45, including a
+production docstring). `leg3_pilot…json`: confirmed no landed test depends on it; residual
+risk named (tracked-dirty file in a shared tree) — still star-lord's.
+
+**Gate state:** G-5 is cleared by Gate-2. Remaining before fire: harness lands → landing checks
+(H-1 freeze assert · H-2 path · R-KC1-19a trace fields · C-1..C-5 docs · terminal-1607) →
+Matt's evasion-anchor ruling (proposed R-KC1-22: boss-tier interpretation anchors to the
+death-2 no-evasion trajectory; dodge-on-tell logged as build-class inexpressible) → conductor
+go.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
