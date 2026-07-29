@@ -1571,4 +1571,55 @@ launched in background, 2026-07-28. Both arms, four tiers, 30 seeds. The run's v
 processes under R-KC1-18 (distributional flip rule) + R-KC1-22 (death-2 band anchor) + the
 sweep/named-absent qualifications above.
 
-**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+---
+
+## §14.26 — G-5 EXECUTES CLEAN: NO FLIP → **ARM A CANONICAL** — and the boss fight's whole drama turns out to live in the two inexpressibles
+
+**Banked 2026-07-28. Exit 0; 150 fights (30 seeds × [trash + champion + mixed_pack + boss×2]);
+engine hash `bef1f55`; report
+`src/reincarnated/simulation/output/kitcal_g5/g5/kitcal_g5_g5_report.json`; 150 replay traces
+(`g5-replay-trace/v1`) alongside. All 8 static assertions passed in-run, incl. A-HP-1 pool
+{759, 1607} with "1600 superseded" recorded in the assertion string itself.**
+
+**Results:** player wins **30/30 on every tier and both arms.** Trash 4.2–4.3 s / champion
+4.4–4.5 s / mixed pack 10.1–11.5 s, all sustain-free (leech 0, INS-probe confirms ~87 HP of
+would-be healing ignored with bit-identical fights). Boss: 27.3–30.3 s, intake **156.3% of the
+759 pool**, worst single drop **7.8%**, leech healed 698–748 (Arm A @ 5%) vs 979–1043 (Arm B @
+8%).
+
+**R-KC1-18 RESOLVES — NO FLIP → ARM A CANONICAL** (pre-registered rule applies itself): both
+arms 30/30, indistinguishable elapsed/intake distributions; Arm B's extra ~290 HP absorbed by
+capacity clamping without touching any outcome. **Within the sim's behavior space, the missing
+Battle Surge proc is NOT load-bearing.** Named deviation, visible in the report and named
+here: `arm_a_jitter=false` (flat 5.0%, not the 3.25–6.75% measured jitter) — immaterial to
+the flip verdict since 5% vs 8% produced zero outcome difference, but it is a deviation from
+R-KC1-18's arm spec as written, recorded not smoothed.
+
+**R-KC1-22 anchor reading (DRIFT-CRITIC):** the sim does NOT reproduce the death-2 trajectory
+— it wins where the no-evasion human died. **Processed as the named-absent ledger's predicted
+consequence, not as calibration failure and not smoothed into one:** the sim boss deals
+chip-only damage (worst drop 7.8% ≈ 59 HP; Matt's nova was a burst killer), because
+`primordian_frigidring` is named-absent (HALT-2 — its compile is forbidden by the §14.23 H-1
+freeze ruling and its magnitude sits inside the HELD damage clamp). Robustness: at the
+declared sweep ceiling (67 DPH) the worst drop scales to ~10% — still chip; **no value inside
+the swept range kills the werewolf without the burst mechanic.**
+
+**The symmetry finding (the section's keeper):** Matt's WIN required evasion — inexpressible
+(R-KC1-22). Matt's DEATH required the frigidring nova — also inexpressible (HALT-2 + H-1).
+**Both outcomes of the real boss fight lived in mechanics the sim cannot yet express; what the
+sim CAN express — the sustain economy — it resolved decisively (no flip).** The boss-tier join
+is therefore thin by construction until the Q-KC1-1 wave builds telegraph/burst + dodge; the
+tiers where opposition is MEASURED (trash/champion verbatim HP) are where fidelity claims
+attach. This is C-7's law honored in both directions: no survival-with-handicap framing, and
+no victory-parade framing either.
+
+**What the finale still owes (the verdict-processing lap):** the N-band JOIN — sim-side
+series (intake shape, A/B/C, kill-times, R2b-grain windows) against the fixture's measured
+endpoints per the kit spec — producing the run's efficacy-verdict document. N-12 carries its
+non-stationarity caveat (R2-whole grain both sides); coverage note carried like-for-like.
+Then wind-down: C-1..C-5 doc closures · REPLICA-1 hand-off to drax · star-lord json rewrite
+trigger · Q-KC1-1 wave hand-off to knight-rider (BQ-1/BQ-2/BQ-4 + leech carriers F-1..F-7 +
+hero-scaling + dodge-on-tell + frigidring/telegraph modeling — with Matt's win banked as the
+evasion acceptance fixture and this G-5 dataset as the before-baseline).
+
+**Signed:** gandalf (`RUN-CONDUCTOR` / `DRIFT-CRITIC` reading), 2026-07-28.
