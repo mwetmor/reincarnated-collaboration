@@ -1792,3 +1792,62 @@ above) + S-2/S-3 from instruments that are actually connected.
 > now the DoT discard), all under the same principle: validation attaches to the state we
 > keep. The historical-scope question (what re-validation the census's blast radius triggers
 > OUTSIDE this run) remains Matt's, pending gamora's measurement.
+
+---
+
+## §14.30 — THE REPAIR LANDS (gamora `9f6805a`+`7483a21`) and OVERTURNS THE ESCALATION'S PREMISE: production is CLEAN, the "discard" was a SPELLING, and under the first null instrument sat a SECOND
+
+**Banked 2026-07-28. Engine pushed through `7483a21`, tag `gamora/v-g5-dotfix-1`. Gate-2
+re-review FIRED (jack-ryan, in flight; BLOCK not self-cleared). Re-run batteries at
+`output/kitcal_g5_fix/`; BLOCKed + banked artifacts untouched, as evidence.**
+
+**Root cause CORRECTED — jack-ryan's observation stood, his mechanism did not.**
+`resolve_spatial_hit` discards nothing: `defender_state` IS `target.combatant_state`, the
+object `_tick_effects` reads — proven by a measured falsifier (registry-spelled DoT through
+the exact call: 8 poison stacks off 30 hits). The real site: **`resolve_skill`'s effect loop
+handles exactly 26 names (10 literals + 16 registry ailments) with NO `else`** — the G-5 kit
+dicts spelled `{"name":"dot"}`, which is in none of them, and it fell through in silence.
+Voided class = the `dot` spelling, **2 sites, both in `kitcal_g5_scenarios.py`.**
+
+**The census DEFUSES the escalation: production is CLEAN — 0 of 3,462 effect instances
+across 632 season files fall outside the handled set; `git log -S` bounds the spelling's
+entire history to `bef1f55` — today. Zero prior batteries.** Matt's reserved historical-scope
+ruling dissolves if Gate-2 upholds the census (spot-verification commissioned). But **all
+three G-5 batteries carried it** — the charge bleed was spelled the same way — so canonical
+offense was wrong too; all three re-ran.
+
+**Fix shape:** re-spell to `bleed`/`poison`, `tick_damage = magnitude/duration`, byte-neutral
+`apply_chance` door; exactly one writer + one ticker on the path — a carry-back at the adapter
+would have been a second writer, i.e. the O-d hazard, and was refused. **Residual hazard
+NAMED, not fixed:** the no-`else` silent fall-through remains — Discipline #8 material, routed
+to Gate-2 disposition. Tests 39 pass; 251 kernel-adjacent regression tests unchanged.
+
+**The lever woke — and exposed a SECOND null instrument.** DoT ticks 0→60/0→180/0→3,150;
+R3 boss elapsed 28.45→26.48 s. Yet **S-2's B lift is STILL 1.0000, structurally:**
+`A×B×C ≡ kills/encounter`, which is CONSTANT in designed batteries (every tier always
+clears) — **B is a residual of A and C, not an independent measurement; it returns 1.000 for
+ANY DoT magnitude.** Two null instruments were stacked: first the lever was disconnected,
+then the gauge it should have moved turns out to read a tautology in this frame. This is a
+defect in the kit spec's OWN §6.2 S-2 predicate (conductor's spec — owned as such): B was a
+live quantity in the fixture's telemetry, where encounter composition varied; in a designed
+battery it degenerates. **The amendment lap must rule what S-2 evidence is valid** (DoT
+damage share; kill-time delta R3-vs-W-c — 28.45→26.48 s IS a real S-2-shaped signal) —
+and must re-read keeper (2)'s "B inverts" against the same degeneracy.
+
+**Boss-loss disclosure (owed from §14.29):** control 50/60 → 56/60 post-fix (the control
+overkills less, so its bleed lands 3× more often); canonical 60/60 both. Narrowed, not
+closed; rides into the amendment. Jack-ryan's §3 keeper survives on corrected grounds: in
+canonical the charge one-shots its targets and the liveness gate correctly refuses
+corpse-DoT.
+
+**NEW FINDING → MATT (decision-shaped, not part of the BLOCK): DoT delivery is tick-rate
+dependent.** `sum(0.1×10) = 0.9999999999999999` — at `TICK_SIZE=0.1` **every DoT the engine
+has ever ticked delivered 90% of its declared damage** (0.25/0.5/1.0 tick sizes → 100%).
+Pre-existing, production-wide, floating-point accumulation. Decision teed in-session; if
+unruled at session end, files to `canonical/matt_decision_needed/`.
+
+**`leg3_pilot…json`:** shows modified but hash `b73ec83…` IDENTICAL at session start and end,
+mtime pre-session — HQ-2 data point: the mutation event is real but not reproduced by any
+harness/test session today.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
