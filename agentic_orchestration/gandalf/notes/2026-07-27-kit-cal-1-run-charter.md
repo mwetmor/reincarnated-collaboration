@@ -1422,4 +1422,19 @@ identical; regression 1,587 vs 1,585 same-tree stash baseline, 55 failure names 
 both arms. `leg3_pilot_section8a1_band_measurement.json` still flagged, still uncommitted,
 still star-lord's.
 
+### R-KC1-19a — trace-writer amendment (Matt query 2026-07-28: "will this run also ship the AI state?")
+
+**Ruling:** the replay trace ships **no live AI** — in the REPLAY capstone Godot renders, it
+does not think; the sim is the mind, the trace carries every AI decision's *outcomes* (per-tick
+kinematics + timestamped events). But the rider's own "facing if the spatial layer holds it"
+rule extends by the same logic: **per-tick current-target id and any behavior/intent fields the
+spatial layer ACTUALLY HOLDS ship raw; nothing is fabricated.** A synthetic behavior enum the
+engine doesn't have would be derived data wearing a raw costume — the consumer computes those
+honestly (idle/engaged from engagement boundaries; anim states from kinematics + events). The
+explicit target id matters most for the charge path (the L6∩L7 trail case — "who is that
+monster charging at" should not require detective work on movement vectors). **Delivery path:**
+no mid-flight channel into the running assembly exists this session; the amendment applies at
+the harness landing — trace schema inspected, missing raw-if-held fields added in a small
+follow-up BEFORE G-5 fires (zero timing cost: G-5 already gates on Gate-2 + conductor go).
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
