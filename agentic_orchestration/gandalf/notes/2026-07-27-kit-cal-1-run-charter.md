@@ -2135,3 +2135,46 @@ own §3.2 transposition, and the C-3 zero). On PASS → amendment lap reads **`_
 the run terminates. Matt interface: nothing owed; both escalation triggers read clean.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.36.
+
+---
+
+## §14.37 — GATE-2 RE-REVIEW: **CONDITIONAL PASS, BLOCK LIFTED** — jack-ryan rebuilds his own prescription, measures it failing to four decimals of her numbers, and concedes both the fix and the transposition · AMENDMENT LAP FIRED on `_fix3`
+
+**Banked 2026-07-28. Finding
+`qa/findings/2026-07-28-gate2-gamora-dot-delivery-2-rereview.md` (`5f13049c`, pushed) +
+appended correction in the original BLOCK finding.**
+
+- **C-1-letter adjudication — her rejection UPHELD, by his own hand.** He did not take her
+  measurement: he built his own prescribed mechanism in a worktree at `3aa4a55` and measured
+  it through the production writer — **0.9643 at Δ=0.1, 0.7078 at Δ=0.5: her numbers to four
+  decimals.** His words: a repair leaving smoke and full 26 points apart is his own BLOCK's
+  defect class one order down. The absolute-µs carry (V2b) reads 1.000000 in 48/48 (D=6.37
+  boundary term falsified as rate error: residual always < one period across window sweeps;
+  underlying rate inside her 5·10⁻⁷ bound). *Intent satisfied, letter rejected, rejection
+  upheld.*
+- **§3.2 transposition — conceded.** His formula gives credit `phase·(P′−1)/P′` / forfeit
+  `phase/P′`; his prose said the reverse; the P′=1 limiting case he himself wrote decides it.
+  Named as the same failure mode he blocked her for (prose diverging from its own math).
+  Correction APPENDED to the original finding, not silently edited — the discipline's
+  symmetry holds in both directions.
+- **C-3 — ZERO MOVED, independently rebuilt:** his §4 extractor from scratch — 33 cells,
+  0 MOVED; **450 traces SHA-compared with header hash normalized — 0 differ, 0 missing.**
+  Matt escalation does NOT fire; in-seam under ADR-002, closed.
+- **Everything else verified by his own reproduction:** C-2 stash 44/6 with survivors exactly
+  the lattice column; C-4 `67e7ccb` stamps everywhere + `-dirty` live; C-5 restoration clean
+  vs `7483a21` + guard refuses rc=2; SS-6 lattice confirmed. 865 tests re-run, 0 failures.
+  He also accidentally reproduced her §11.3 leg3-mutation finding (his probe dirtied the
+  file; restored) — third independent confirmation of the HQ-2 hazard.
+- **Residuals (non-blocking, carried to wind-down):** **WARN-1** — the C-5 guard is partial:
+  refusal fires at report-write, AFTER 5 trace files landed in the protected dir;
+  `kitcal_g5/smoke/traces/` holds 5 tracked strays (cleanup + guard-ordering fix → gamora,
+  wind-down). **WARN-2** — SS-6 understates 5/8 cells (Δ=1.0 coalescence vs index shift;
+  zero shipped-Δ exposure). Four INFO items in the finding.
+- **AMENDMENT LAP FIRED** (named gandalf sub-agent, DRIFT-CRITIC): terminal signature
+  verdict on the `_fix3` stack — S-1 vs the coincidence floor, S-2 on the re-expressed
+  instruments (grading call explicitly the lap's, with post-registration honesty required),
+  S-3 from `_fix3/g5_r3arm`, keeper (2) re-read vs residual-B degeneracy, band deltas under
+  R-KC1-23's stands-unedited rule, join-forward split for HQ-3. On its banking, **the run
+  terminates.**
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.37.
