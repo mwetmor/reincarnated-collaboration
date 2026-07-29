@@ -158,5 +158,25 @@ Two gandalf sessions banked into this ledger concurrently (§8.1 = charter-autho
 - **R-WR1-9 (conductor, veto-open) — telegraph windup is a measured-input, not an authored value:** windup is NOT in the corpus pin (no `.anm` assets ship; `skill_attackprojectilering.tpl` declares zero timing fields). No value is improvised. Empirical criterion: **galadriel measures tell-onset → damage-application frame-by-frame from Matt's 2026-07-26 werewolf capture** (death-2 is the primary event; any other visible nova casts are corroboration). M-2 carries windup as a named measured-input slot; M-3's dodge window derives from the same measurement. Fallback if the capture can't resolve it: the 3.0 s `specialAttackTimeout` brackets it from above; spec ships with the measured-range + bracket, flagged.
 - **Remaining gaps (5, carried into specs as named unknowns):** `specialAttackTimeout` global-vs-per-slot; base attack interval in seconds; resistance-cap operator; TDM stacking (unchanged from KC1); monster absorption after −20% modifier.
 
+### §8.5 — WR1-SPEC-AMEND ✓ CLOSED: the 3 owed kit-spec amendments land (`587a17a1`, pushed)
+
+All three as §10 of `2026-07-28-kitcal1-g4-kit-spec-v2.md` + inline pointer banners; no ruled
+text rewritten (append-a-correction style). Enumeration from verdict §A-8.3, cross-confirmed
+KC1 §14.28/§14.31/§14.33/§14.38: **(1)** §6.3 tier-weighting pinned for composition-designed
+batteries — CUT-1 + CUT-2 mandatory, **CUT-3 illegitimate by rule** (the cut that most
+flattered N-4), equal-seed pooling, three-state grading, boss-overweight caveat travels;
+**(2)** S-1 coincidence-floor clause; **(3)** S-2 re-registered on paired kill-time delta —
+**BLOCKING: the S-2 band must be measured from fixtures BEFORE grading; KC1's ×0.9160/×4.80
+barred from becoming the band** (a threshold authored after the measurement is not a
+threshold — now spec law). **Repaired A-floor predicate** grades the SIGNATURE: control leg
+graded against the control's own measured A when the floor is degenerate (else S-1
+NOT-EVALUABLE); `A_lift = A_canonical ÷ A_control` > 1.25 per tier at matched seeds (the
+1.25 transplanted verbatim, moved to the right denominator, not re-picked); spread tier
+strictly below smallest pack lift. Pinned in the specs phase, before the post-wave battery —
+preregistration holds. **Conductor's brief-error, owned:** the cell brief addressed the
+predicate repair to gate G-A; G-A is the S-3 gate — the repair governs the **S-1 structural
+re-read**. Sub-agent caught it (framing-audit working as designed); preregistration pin
+unaffected.
+
 *Charter frozen 2026-07-28. Bank-per-landing continues in this document (§8+).
 — gandalf (`RUN-CONDUCTOR`)*
