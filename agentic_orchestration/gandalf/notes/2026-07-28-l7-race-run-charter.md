@@ -136,3 +136,22 @@ Per strip: which panel wins, which is unacceptable (if any), one line why. Then 
 **Cross-strip stage finding (Matt, twice):** the werewolf is FACING BACKWARDS (and in AURA, walking backwards) — a capture/retarget orientation defect, symmetric across arms (same clip, all arms, R-LR-3), so no arm advantaged; verdicts stand. Routed below post-reveal.
 
 Key unsealed AFTER this block was written.
+
+## §13 — THE REVEAL + verdict record — RUN COMPLETE (2026-07-29)
+
+Key (`STRIPS/SEALED_KEY.json`): CAST A=PRO B=MUR C=H · AURA A=H B=PRO C=MUR · AMBIENT A=MUR B=PRO C=H.
+
+| Brief | Winner | Also-noted | Fix owed on winner |
+|---|---|---|---|
+| CAST | **H (hand-authored)** — charge-up + detonation burst | **PRO's travel** liked — graft candidate | — |
+| AURA | **H (hand-authored)** | — | floor ring must FOLLOW the werewolf |
+| AMBIENT | **MUR (general-property wire)** | leak confirmed gone at the eye | delete residual ~30° torch-facing cones (×4) |
+
+- **Headline:** the hand takes 2/3; **the GENERAL-PROPERTY wire beats the hand on the room-owned brief at a blind eye** — with no readback, no particle tooling, and five of Pro's six ceilings not applicable to it (§10). **PRO — the dedicated particle tool — wins zero briefs** but authors the one motion element Matt singled out (CAST travel). T-3's split verdict lands in the money: the wire's weakness (can't see what it wrote) hurt beat-timing briefs, not the ambient brief where composition is static.
+- **No unacceptable panels** — all nine slots cleared the eye; no ceiling card was needed (honorable fallback never fired).
+- **T7-FORGE feed:** (1) winner-composite CAST = H's beat structure + PRO-style travel; (2) arm-strength map: H=beat structure/lighting · MUR=room-owned ambience · PRO=travel motion; (3) the create-time re-author tax (PRO) and readback blindness (MUR) are the two wire costs to price into any forge pipeline; (4) stage supplies `draw_pass_1` (asymmetry corrected §10).
+- **Stage finding routed to drax (pre-next-capture):** werewolf FACING BACKWARDS in CAST/AURA clips, walking backwards in AURA — symmetric across arms (same clip, R-LR-3), verdicts unaffected; likely a root-yaw/facing convention mismatch the 0.0000° rest-pose retarget metric cannot see (it measures bone deltas, not facing convention). Fix the clip's facing before any T7-FORGE capture.
+- **Silhouette clause answered for the record (Matt asked):** the AURA metric guarded against the effect visually swallowing the werewolf's body outline (measured as "eaten" fraction of frame-height silhouette). Your winner ate least — the clause did its job silently.
+- **T-4 ✓ DELIVERED — ALL TARGETS CLOSED. Run LR-2026-07-28 COMPLETE.** Fix items route as post-run work (H aura-follow, MUR/stage torch cones, drax facing), sequenced with T7-FORGE.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-29.
