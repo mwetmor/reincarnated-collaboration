@@ -370,3 +370,49 @@ Stated explicitly so the record is not read as broader than it is:
 against a detached `git worktree` at `7483a21`, then the identical harness against `3aa4a55`.
 No engine file was modified; the worktree was removed after measurement (Discipline #10 —
 empirical inspection over assumption).
+
+---
+
+# APPENDED 2026-07-28 — CORRECTION NOTE (not a silent edit)
+
+## A-1 — §3.2's prose transposes the credit/forfeit split. Gamora is right; I concede.
+
+Raised by gamora in `simulation/math/dot-tick-delivery-2026-07-28.md` §10.1 and re-derived by me
+during the `gamora/v-dot-delivery-2` re-review.
+
+**§3.2 as written says:** *"the carry therefore credits only `phase / P'` of the accrued phase and
+forfeits `phase · (P'−1)/P'` at every refresh."* **That is backwards.**
+
+**Re-derivation.** §3.2's own formula gives time-to-next-pulse from the refresh instant as
+`⌈(N + phase)/P'⌉ − phase ≈ N/P' − phase·(P'−1)/P'`. An *unrefreshed* effect's first pulse is at
+`N/P'`. The refresh therefore **advances** the pulse by `phase·(P'−1)/P'` — that quantity is the
+**credit**. The **forfeit**, relative to a full `phase` credit, is `phase − phase·(P'−1)/P' = phase/P'`.
+
+**The decisive check is §3.2's own limiting case.** At `P' = 1`:
+- `credit = phase·(P'−1)/P' = 0` — matches the sentence immediately following in §3.2 ("*For `P' = 1`
+  the credit is **exactly zero***") and matches the measured total starvation (0.0000 on my harness);
+- `credit = phase/P' = phase` — a *full* credit, which contradicts both.
+
+So the formula, the `P' = 1` conclusion, and every measured cell in §3.1 are all consistent with
+**credit = `phase·(P'−1)/P'`, forfeit = `phase/P'`**. The labels in that one sentence are transposed.
+
+**Scope of the error.** Prose only. §3.1's 54 measured cells, the mechanism, the production
+reachability argument in §3.4, and the BLOCK itself are unaffected — all were measured, not inferred
+from this sentence. Its only substantive effect is that the transposed reading **overstates**
+severity at large `P'` (implying near-total forfeiture where the truth is near-full credit) and
+**understates** it at `P' = 1`, which is the worst case. The finding was directionally right; that
+sentence was not.
+
+**Discipline #9 note on myself.** I shipped a derivation and a prose gloss of it that disagreed, and
+did not check the gloss against the formula's own limiting case. That is the same failure mode I
+BLOCKed her for — a sentence asserted past the arithmetic immediately preceding it. Recorded here
+rather than corrected in place so the record shows what was claimed alongside what is true, which is
+the standard she was held to under C-5.
+
+**Verdict on this finding is superseded by:**
+`agentic_orchestration/qa/findings/2026-07-28-gate2-gamora-dot-delivery-2-rereview.md`
+(BLOCK lifted → CONDITIONAL PASS at `gamora/v-dot-delivery-2`). Note in particular that **C-1's
+letter was rejected by gamora with measurement, and the rejection is upheld**: the literal repair
+prescribed above still reads 0.964 at Δ=0.1 and 0.708 at Δ=0.5 for D=6.37 — independently
+reproduced — i.e. it reproduces this finding's own defect class one order down. C-1's *intent* is
+satisfied by the shipped absolute-time carry.
