@@ -290,8 +290,19 @@ alongside damage. I built one level up instead:
 **Base is `delivered`, NOT the kernel's pre-overkill `total_damage` — a NAMED deviation** (math note
 §2.1(c)). Crediting healing for damage never dealt would inflate the result hardest exactly where
 the fixture has the most samples (R2 trash maxima 58–813 vs a werewolf hitting for hundreds).
-`capacity` is emitted alongside `healed` so the deviation stays measurable. **If you disagree with
+~~`capacity` is emitted alongside `healed` so the deviation stays measurable.~~ **If you disagree with
 this choice, it is a one-line change and I would rather hear it now than after the harness runs.**
+
+> **STRUCK — Gate-2 condition C-1 (jack-ryan, WARN, 2026-07-28; Discipline #10).** The struck
+> sentence was **false as built**. `capacity` accumulates from the **same** `_delivered_this_hit`
+> base as `healed` (`spatial_engine.py:2599`), so `capacity − healed` measures the **overheal
+> clamp's refusal**, not the raw-vs-delivered gap the deviation creates. Neither emitted leech
+> field measures that gap. It is recoverable at **fight level** as an upper bound —
+> `(total_damage_dealt − delivered_damage_dealt) × pct`, both fields already on `SpatialEntity`
+> (`spatial_engine.py:1321`/`:1331`) — and the harness must read it **there**, not from
+> `capacity − healed`. Full correction: math note `od-leech-carryback-2026-07-28.md` §2.1(c).
+> The **choice** of `delivered_i` as the base is unchanged and jack-ryan endorsed it; only its
+> stated justification was wrong.
 
 ## O-4. The A/B is a DOOR VALUE, not code
 
