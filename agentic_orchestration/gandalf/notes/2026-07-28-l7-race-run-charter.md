@@ -68,6 +68,10 @@ The race answers **WHICH ARM PRODUCES THE BETTER JUDGED VFX UNDER IDENTICAL CONT
 - **R-LR-3 (conductor):** AURA's "survives motion" is tested on the werewolf's retargeted walk (the 0.0000° map) — same clip, all arms.
 - **R-LR-4 (Matt-directed 2026-07-28, mid-run eye on V-H ambient): CONTAINMENT is a binding AMBIENT contract clause** — *"we need to make sure the ambient particles don't pass through/out of the walls into the void."* Room-owned means room-CONTAINED: no particle visibly crosses the wall plane into the void at the locked camera. States TRUE not how (L-K — collision, emission-volume sizing, lifetime, or masking all legal). Applies symmetrically to all three arms; a leak at verdict time is a contract MISS, not a style note.
 - **Matt mid-run eye (2026-07-28): corner torches "100% perfect"** — Task-0 stage dressing PASSED at the owner's eye; frozen as-is into the shared stage.
+- **R-LR-5 (conductor, on V-H's measurement):** the AURA silhouette clause is **restated at 9.31%** — the werewolf's actual frame height at the locked R-6 camera (the 12.5% of record omitted the −50° pitch, cos 50° = 0.643; the clause as written was unreachable by the frozen substrate). Same number for all arms; no arm advantaged. Companion method note: "eaten fraction" alone can't tell lit-from-covered — the no-particles light-only control decomposes it (V-H: 98% of apparent silhouette loss was illumination; sprites *raised* edge retention).
+- **R-LR-6 (conductor):** `void_leak.py` (V-H's instrument, fires both directions: 3,752 px pre-fix / 0 px shipped) is **THE R-LR-4 verdict instrument for all arms** — stage frame + pass frame, 0 leak px is the bar. Portable, identical, symmetric.
+- **Next-lap finding (post-freeze law, not applied mid-race):** TCP-51's *ordering* holds but its *exclusivity* doesn't — at 4K, ×16 area = +0.241 ms vs ×16 count = +0.142 ms (~1.7×, count term ~1.4σ). "Area is the entire cost" should read "area is the larger driver." At 720p the whole pass hides under the 6.05 ms vsync floor.
+- **Ceilings banked (L-G — PASSes):** 9.31% scale gap · macOS/Metal windowed vsync survives `VSYNC_DISABLED` · `viewport_get_measured_render_time_gpu` returns 0.0 on Metal 4.6.3.
 
 ## §7 — Matt interface
 
@@ -80,7 +84,7 @@ The race answers **WHICH ARM PRODUCES THE BETTER JUDGED VFX UNDER IDENTICAL CONT
 | Cell | State |
 |---|---|
 | V-H (drax) | **RELAUNCHED 2026-07-28** — first instance died on stream timeout (same class as PC's W1-B) AFTER landing Task-0 work uncommitted (torch dressing +242 in `kit_replica_level.gd`, values-unchanged refactor; 5 stage draw-pass .tres in `vfx/stage/`; vh_* scripts) and BEFORE any capture. Resume brief: verify + commit inherited state, then the three briefs, with per-brief commits + incremental note (the relaunch cost = exactly the un-committed span; incremental-write discipline named in-brief) |
-| V-PRO | queued |
+| V-PRO | **LAUNCHED 2026-07-28** — W-PRO arm on the frozen post-torch stage; R-LR-4 containment binding with `void_leak.py` as verdict instrument; AURA clause at 9.31% (R-LR-5) |
 | V-MUR | queued |
 | Verdict assembly | queued |
 
