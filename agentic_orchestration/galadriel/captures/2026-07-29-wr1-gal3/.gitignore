@@ -1,0 +1,6 @@
+# Raw PNG frame dumps (863 MB) are NOT committed: they are exactly regenerable
+# from the source MP4 with the frame-indexing convention f = round(pts * 60).
+#   ffmpeg -ss <pts> -i /Users/admin/gd-scratch/play_test_2026-07-26.mp4 \
+#          -frames:v N -start_number <f0> frames/f%06d.png
+# Everything derived from them (evidence/*.jpg, *.json) IS committed.
+frames/
