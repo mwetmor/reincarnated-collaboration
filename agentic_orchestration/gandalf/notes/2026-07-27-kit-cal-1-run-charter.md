@@ -1896,3 +1896,12 @@ re-expressed instruments · S-3 from `_fix`) now waits on exactly ONE input — 
 tick-rate ruling, which decides which batteries it reads.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+
+> **R-KC1-25 RATIFIED by Matt, 2026-07-28** (verbatim: *"Agree - (a) Fix now under the
+> R-KC1-21 principle and re-run the _fix batteries once more, so the terminal verdict sits
+> on a fully-repaired stack."*) — the cull-driven DoT under-delivery (66.7% at 3.0 s per
+> Gate-2's corrected derivation) gets fixed at the kernel ticker NOW; all three batteries
+> re-run into `_fix2`; the terminal verdict reads the fully-repaired stack. Fifth
+> application of the operand-class principle, and the first to touch the production-shared
+> kernel path — Gate-2 review is therefore MANDATORY on the fix before the amendment lap
+> reads its output. Gamora commissioned.
