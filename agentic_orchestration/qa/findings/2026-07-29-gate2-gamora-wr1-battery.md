@@ -866,3 +866,111 @@ three-way name diff append below. **I am reproducing the suite rather than judgi
 list sufficient**, because my own baseline name lists survived and the pre-registered criterion
 is a reviewer-side diff.
 
+---
+
+## §R6 (COMPLETED) — Item 2: FULL REGRESSION RE-RUN BY ME. **THE NAME DIFF IS EMPTY. CRITERION MET.**
+
+**I reproduced the suite. I did not judge the banked list sufficient** — my own baseline name
+lists from the two prior laps survived in `/tmp`, so a true reviewer-side diff was available and
+the pre-registered criterion is a reviewer-side diff. Fifth consecutive lap re-run rather than
+audited.
+
+```
+JR_REG4_START  2026-07-29T14:10:13Z   HEAD = 18f2c14 ( = 7c16fec + AGENT_STATE.md only, verified)
+JR_REG4_END    2026-07-29T14:34:36Z   (24 m 21 s, foreground, exit 1 = failures present)
+  60 failed, 6042 passed, 3 warnings, 21 errors
+  failure_name_count = 81
+  tracked-dirty src/ tests/ : [] before AND after
+```
+
+**Three-way name diff — stronger than the brief asked for:**
+
+| comparison | names only on the LEFT | names only on the RIGHT |
+|---|---|---|
+| my `98d3891` lap (82) → my `7c16fec` lap (81) | **T8** (fixed) | **(none)** |
+| **my `a42d052` BASELINE (81) → my `7c16fec` lap (81)** | **(none)** | **(none)** |
+| builder's banked list (81) → my `7c16fec` lap (81) | **(none)** | **(none)** |
+
+**The middle row is the pre-registered acceptance criterion and it is EMPTY IN BOTH DIRECTIONS.**
+My post-repair failure set is **name-for-name identical to my own pre-landing baseline** — not
+merely equal in count. The whole eight-commit battery landing plus its repair moved the failure
+set by exactly zero names, and the one name it had moved is gone.
+
+| term | my `a42d052` baseline | my `98d3891` lap | my `7c16fec` lap |
+|---|---|---|---|
+| failed | 60 | 61 | **60** |
+| passed | 6004 | 6040 | **6042** |
+| errors | 21 | 21 | **21** |
+| failure names | 81 | 82 | **81** |
+| **name diff vs baseline** | — | NOT EMPTY (1) | **EMPTY** ✓ |
+
+**The arithmetic closes on both movers, and the builder named the one it had mispredicted rather
+than leaving it for me.** `6040 + 1 (T8 flips green) + 1 (the new WARN-1 detector test) = 6042` ✓;
+`61 − 1 = 60` ✓; `82 − 1 = 81` ✓. The repair brief predicted 6041 on the assumption the stamp fix
+would ship untested; it shipped tested, and the cell note states that in those words. **Exactly one
+test function was added to `test_kitcal_g5_harness.py` at `7c16fec`** (30 → 31), and **zero test
+functions were added to or removed from the guard suite** (25 defs → 39 parametrized cases, both
+before and after) — so "+1 new detector test" is verified structurally, not inferred from a count.
+
+**The residual 81 are outside the seam under review, and I checked the composition rather than
+taking it:** `test_cycle12_layer4_convergence` 33 · `test_cycle13_wave5_season_generation` 21 ·
+`test_cycle12_layer6_t4_wireup` 12 · 15 across ten other files. `grep -Ei
+"spatial|kitcal|wr1|g5|bq3"` over the banked list returns **0**. They are the standing pre-existing
+set, unchanged since `a42d052`.
+
+### Method caveat, stated because it is mine and not the builder's
+
+I neutered `_untracked_loaded_source()` on disk for the WARN-1 non-vacuity proof (§R2d) during a
+**~13-second window, 14:24:49Z–14:25:02Z, which falls inside this lap**. That is my own Discipline
+#3 slip and I record it rather than let it be discovered. **Assessed as immaterial, on grounds that
+are falsifiable rather than reassuring:** pytest binds `kitcal_g5_harness` into `sys.modules` at
+collection (14:10:13Z), so a 13-second on-disk edit cannot reach an already-imported module; the
+lap was in its 90 % band (convergence / season-generation suites) throughout the window; the
+planted probe module carried the same 13-second exposure and left nothing behind (verified 0 stray
+files, `__pycache__` clean). **The falsifier:** any simulation-seam name appearing in my list and
+not the builder's would expose it. **My list and the builder's are identical in both directions,
+and the builder's lap ran foreground on a clean tree with no such window.** Two independent laps
+converging name-for-name is what retires the caveat; the caveat itself does not survive the
+convergence, but the record of it should.
+
+---
+
+## §R7 — RE-CHECK VERDICT: **✅ CLEAR**
+
+| item | verdict |
+|---|---|
+| **BLOCK-1** — door declaration + guard green | **DISCHARGED** — 39/39, T8 green, guard structurally unweakened, declaration substantive |
+| **Regression criterion** — empty failure-NAME diff | **MET** — reproduced by me; EMPTY both directions vs my own baseline |
+| **WARN-1** — stamp / SS-1 / detector | **DISCHARGED** — SS-1 byte-clean, errata in place, Discipline #12 declared, non-vacuity proven by neutering |
+| **WARN-2** — pooling sentence | **DISCHARGED** — erratum with lineage; estimator + pooling rule verified untouched |
+| **WARN-3** — ADR-004 entry | **DISCHARGED** — recurrence named and tabled; per-key consumer contracts; INFO-1 folded in |
+| **WARN-4** — the "55 %" | **CORRECTLY DEFERRED** — charter §8.20 routes to the grading lap, before the baton; consistent with the addendum |
+
+**The BLOCK is lifted.** Nothing in the addendum must precede this CLEAR. **Conductor is unblocked
+to grade** (stance §8.18, now triple-corroborated) → baton → **HOLD at Matt (R-WR1-6)**.
+
+**Two items ride forward, neither gating:**
+1. **WARN-4 must execute in the grading lap** per §8.20 — with the caveat in §R5: one of its three
+   sites is inside the banked artifact and SS-1 forbids editing it, so that site takes WARN-1's
+   disposition (erratum in prose + corrected figure in the grading record; banked string left
+   standing, flagged known-wrong). Only the math note and cell note can be amended directly.
+2. **The §8.19 process lesson is now evidenced twice over and should reach the run-pattern doc:**
+   the only blocking defect in this entire eight-commit range was found by the full regression and
+   was structurally unreachable by every targeted pass that looked for it — including my own
+   second pass. Discipline #2.
+
+**What I want on the record about the repair itself.** It moved no number, re-ran no fight, edited
+no banked byte, and weakened no guard — and I verified each of those four structurally rather than
+by reading the commit message that claims them. The two places it exceeded the finding are worth
+naming: the detector test's forced-clean construction (which is what stops it passing vacuously on
+the very commit that introduces it — a trap I did not warn about and it avoided anyway), and the
+MIGRATION entry's recurrence table, which names the pattern rather than just filing the third
+instance. **Nothing was self-cleared.**
+
+## Re-check references
+
+**Verified:** engine `7c16fec` · `18f2c14` · meta `8da0539d` · `613ec895`
+**Reviewer artifacts** (`/tmp`): `jr_wr1_g2d_regression.sh` · `jr_wr1d_reg_meta_jr.txt` ·
+`jr_wr1_after_7c16fec.txt` · `jr_wr1d_after_names_jr.txt` · baselines `jr_wr1b_after_names_jr.txt`
+(a42d052) / `jr_wr1c_after_names_jr.txt` (98d3891) · `jr_recheck_harness_BACKUP.py` (neuter/restore)
+**Banked list diffed:** `agentic_orchestration/gamora/notes/2026-07-29-wr1-battery-3-regression-failure-names.txt`
