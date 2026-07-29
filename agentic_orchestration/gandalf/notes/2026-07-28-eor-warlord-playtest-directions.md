@@ -129,13 +129,34 @@ what KIT-CAL-1 just repaired and exposed: the DoT delivery ledger, the attack-sp
 tick model, and the A-statistic coincidence floor. Read-only on our side throughout; nothing
 ever writes to your save.
 
-## 7 · FORK-1 (open until legolas reports — likely closed before you play)
+## 7 · FORK-1 — **RESOLVED** (2026-07-28, measured from the `.arz`; legolas
+`2026-07-28-eor-unlock-timing.md`)
 
-**When does EoR actually come online?** Legolas is extracting the measured answer from the
-`.arz` right now (mastery-bar tier, skill-point income, earliest-castable level, and whether
-a fresh Warlord can even sustain the channel's energy cost). The share copy of this doc gets
-amended with the answer as **§7-RESOLVED**. If you start before that lands: follow §5.1's
-two-window rule and the run is right either way.
+**EoR rank 1 is castable at character level 10 — the earliest possible.** Two independent
+gates land on the same level, by design: tier-6 skills need Oathkeeper mastery bar 25
+(27 points = exactly level 10's income), and the game first permits a second mastery at
+level 10. So you *can* take EoR right at Ceremony 1.
+
+**But castable ≠ main attack.** Two measured reasons:
+
+1. **Points:** an unrespecced natural build has EoR as the genuine main attack around
+   **level ~20** (an efficient split gets there ~15).
+2. **Energy:** the channel drains **25 energy/sec at rank 1** against a ~575 pool with ~1/s
+   base regen — **≈24 seconds of continuous spin from a full bar**, and it gets shorter as
+   you rank it up. Early EoR runs in bursts, not as a hold-the-button style.
+
+**So plan on §5.1's two-window path as the EXPECTED path, not the fallback:** Primordian
+(you fought him around level 12 last time) will almost certainly happen in the
+Righteous-Fervor window — that IS the werewolf-comparable window. Then keep playing until
+EoR is truly your main attack (~15–20), run the 10-hold probe, get one more boss-grade
+fight, and stop.
+
+**Empty energy bar is data, not error.** When the spin cuts out because the bar ran dry,
+say so on the mic ("out of energy") — broken channel segments will show up in the capture
+and we need to attribute them to energy, not to your piloting. If energy runs dry during
+the 10-hold probe, pause and regen between holds: the COUNT of activations is the
+experiment, not their timing. Spirit attribute points are the energy-sustain lever if the
+channel feels starved — still your free choice per §2.5.
 
 ---
 

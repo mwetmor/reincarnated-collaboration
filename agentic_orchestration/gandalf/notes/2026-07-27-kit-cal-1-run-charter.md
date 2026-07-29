@@ -2018,3 +2018,43 @@ finding its own instruments disconnected — and the fifth operand-class fix now
 first draft. FORK-1 (legolas, EoR unlock) still in flight, independent.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.33.
+
+---
+
+## §14.34 — FORK-1 RESOLVED: EoR castable at level 10, main attack ~20, and the channel's energy cost is charged PER TICK — play-test directions amended §7-RESOLVED on both copies
+
+**Banked 2026-07-28. Legolas findings `legolas/notes/2026-07-28-eor-unlock-timing.md`
+(committed by legolas; pushed by conductor).**
+
+- **Earliest castable: character level 10** — two independent gates land on the same level
+  (tier-6 gate = Oathkeeper bar 25, whose 27-point minimum equals level 10's income exactly;
+  and `masteryIncrementLevel = [1,10]` first legalises the second mastery there). Level 12
+  (werewolf band) reachable with 6 points spare.
+- **The trap, banked:** `skillMasteryLevelRequired` reads 0 on EVERY Oathkeeper skill — the
+  real gate is `skillTier` against `gameengine.dbr :: skillMasteryTierLevel =
+  [1,5,10,15,20,25,32,40,50]`, found only by brute-force scan of all **93,190 records**
+  across the four archives. Base-game record; no expansion overrides it.
+- **The sharp finding: `skillManaCost` on channels is per TICK, not per second** (dev text:
+  0.16 s ticks at 100% attack speed; `timeBetweenAttacks × 0.8` reproduces it on EoR, FoI,
+  AAR alike). EoR r1 = **25 energy/s** vs ~575 pool @ 1.0/s regen → **≈24 s of continuous
+  channel**; r16 → ~8.5 s. Fixture consequence declared in the directions: broken channel
+  segments are energy-attributed data, not piloting error. This lands directly on the
+  KIT-CAL-2 gap family (sustained channel) — the sustain *constraint* is now a measured
+  input to the kit spec, not something to be reverse-engineered from pixels.
+- **Realistic main-attack band ~15–21 (~20 honest)** — point-budget + sustain argument, NOT
+  a DPS crossover (flagged; crossover is a tractable follow-up if wanted). EoR's own
+  modifier line (`eyeofreckoning2.dbr`) is tier 8 = bar 40 ≈ level 28 minimum — a "complete"
+  kit is a materially later character than a "castable" one.
+- **Directions amended:** §7 → **§7-RESOLVED** on the meta-repo record AND the share copy
+  (byte-verified identical). Headline change to Matt's plan: the §5.1 two-window path is now
+  the EXPECTED path — Primordian in the Righteous-Fervor window (werewolf-comparable), then
+  continue to the EoR era (~15–20) + 10-hold probe + one boss-grade fight.
+- **Open residue (his §7, one-directional):** quest skill-point rewards unenumerated (can
+  only LOWER the floor, by ≤1 level); Spirit→regen conversion engine-side (1.0/s is a
+  floor); `masteryMilestoneValueMax = 56` recorded as an oddity. None gates play.
+
+**Run state:** FORK-1 closed. Outstanding: gamora's C-1..C-7 repair lap → jack-ryan
+re-review → amendment lap on `_fix3`. Matt may start the KIT-CAL-2 capture whenever he
+likes — the directions are final.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.34.
