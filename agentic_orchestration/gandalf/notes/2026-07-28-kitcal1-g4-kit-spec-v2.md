@@ -15,6 +15,14 @@ forced each change.
 
 **Status:** **DRAFT for HALT H-2.** §6 bands do not bind until Matt pins them (§8 pin-sheet).
 
+> **⚠ AMENDED 2026-07-28 (run `WR1-2026-07-28`, cell WR1-SPEC-AMEND).** Three spec amendments are
+> appended at **§10** per the KC1 terminal verdict §A-8.3 (*"Kit spec v2 cannot be quoted again until
+> three amendments land"*). They touch **§6.3** (tier-weighting + boss-tier window membership),
+> **§6.2 S-1** (coincidence-floor clause) and **§6.2 S-2** (re-registration off the pinned residual).
+> **No band, predicate or ruled sentence below is rewritten** — §10 corrects by appendix, and where
+> §10 and the original text conflict, **§10 governs for all FUTURE batteries only.** Every KC1 grade
+> stands exactly as pre-registered.
+
 ---
 
 ## §0 — What changed, in one paragraph, and the sentence that governs reading this
@@ -601,6 +609,11 @@ carry that caveat.
 
 ### 6.2 STRUCTURAL TARGETS (PRIMARY — these outrank §6.3–6.4)
 
+> **⚠ AMENDED — S-1 by §10.2, S-2 by §10.3 (2026-07-28).** The S-1 control predicate below
+> (`A ∈ [0.98, 1.05]`) is a **defective instrument** — see §10.2. The S-2 predicate below is
+> **degenerate on both legs** — see §10.3. Both rows stand as the pre-registered text KC1 was graded
+> against; **neither may be quoted forward as-written.** S-3 stands unamended (see §10.4).
+
 | # | Claim | Window | Fixture value (grade) | **Pass/fail predicate** | Honorable-fallback category on miss |
 |---|---|---|---|---|---|
 | **S-1** | **A-step exists**: a single-target basic attack yields A ≈ 1; an arc-with-cap kit yields A > 1, at `.arz`-plausible density | R1 (control) vs **W-c** | R1 **A = 1.000** exactly (43 kills / 43 kill-events, 0 multi-kills, p = 7.0e-11); **W-c A = 1.7615** (MEASURED) | Single-target arm returns A ∈ [0.98, 1.05]; arc arm returns **A > 1.25** at G-5a pack sizes (O-5), **without** needing density outside those pools | **(ii) sim-mechanics divergence** if the arc arm fails at plausible density; **(iv) mechanism-class absence** if it fails *because* A3 (no target cap) or A2 (90° cone) is the proximate cause — which G-5 must state, not infer |
@@ -615,6 +628,11 @@ semantics are UNCERTAIN**, so it is offered as a **diagnostic, not a band** — 
 A3 directly, which A alone may not.
 
 ### 6.3 SECONDARY NUMERIC BANDS — normalized units, W-c window
+
+> **⚠ AMENDED by §10.1 (2026-07-28).** Eleven of the twelve bands below bind to "W-c", a window whose
+> **sim-side membership was never pinned** for a composition-*designed* battery, and every aggregate
+> below is a function of a **tier-weighting rule that was never pre-registered** (verdict §2.3). No
+> band below is citable — as pass OR fail — on any battery until it is read through §10.1's cut rule.
 
 All fixture values MEASURED from `fixtures.db` (`regime_stat` / `v_engagement_wide`, session
 `GP-gd-2026-07-26-s1`, segmentation `S1-gap5s-v1`) or DERIVED from the banked per-engagement ledger,
@@ -750,3 +768,285 @@ names the address, and I re-cut from it:
 
 **Signed:** gandalf (`SPEC-AUTHOR` / `DRIFT-CRITIC`), 2026-07-28.
 *v2 supersedes v1 in total. G-5 remains held on **HALT H-2** (P-1, P-2, P-3) and on **H-3**.*
+
+---
+---
+
+# §10 — AMENDMENT — 2026-07-28 — THE THREE OWED SPEC AMENDMENTS
+
+**▶ ROLE: SPEC-AUTHOR (DRIFT-CRITIC posture — amending predicates this seam authored).**
+**Cell:** `WR1-SPEC-AMEND` of run `WR1-2026-07-28` (charter §8.3, conductor-claimed).
+**Authorizing verdict:** `gandalf/notes/2026-07-28-kitcal1-g5-efficacy-verdict.md` **§A-8.3**
+(*"Kit spec v2 cannot be quoted again until three amendments land: §6.3 gains a tier-weighting rule
+and an explicit boss-tier window-membership clause (§7.3, unchanged); §6.2 S-2 is re-registered on an
+instrument that is not a pinned residual; §6.2 S-1 gains its coincidence-floor clause. All three are
+spec amendments, not re-grades."*)
+**Cross-confirmed:** KC1 charter `…2026-07-27-kit-cal-1-run-charter.md` §14.28 (the coincidence floor,
+reproduced at event level), §14.31/§14.33 (S-2's registered instrument proven unsatisfiable **by
+construction**), §14.38 (terminal). **Enumeration is EXACTLY three; no fourth was found owed** (§10.4).
+
+### §10.0 — The rule that governs reading §10
+
+> **These are amendments to INSTRUMENTS, not re-grades of RESULTS.** Every band, every predicate and
+> every grade in run `KC1-2026-07-27` stands exactly as pre-registered — including the three misses
+> these repairs explain. §10 binds **forward only**: the first battery it governs is WR1's post-wave
+> re-run, and it is pinned **BEFORE** that battery executes. *Repairing a predicate before results
+> exist is preregistration; repairing it after they exist is goalpost-moving. The date on this section
+> and the run-state it was written into are the whole of its legitimacy — check them.*
+>
+> **The general law KC1 taught, carried above all specifics** (verdict §A-8.3): *a fixture-side
+> statistic does not keep its meaning when carried onto a designed battery. The fixture's window was
+> composition-**sampled**; the sim's is composition-**designed**. Every statistic whose value depends
+> on what varied — B, and every tier-weighted aggregate — degenerates across that join.*
+
+---
+
+## §10.1 — AMENDMENT 1 — §6.3 gains a tier-weighting rule and a boss-tier window-membership clause
+
+**Authority:** verdict **§2.3** (*"A DEFECT IN MY OWN SPEC — the window's membership for the boss tier
+was never pinned"*) + **§7.3** (*"Kit spec v2 §6.3 must gain a tier-weighting rule and an explicit
+boss-tier window-membership clause before any band from it is quoted again"*), consolidated at §A-8.3.
+
+**The defect.** On the fixture side W-c is unambiguous (`play_time ≥ 3619` inside R2 — a natural
+49-engagement sequence that demonstrably contains the boss encounter). On the sim side there is no
+natural sequence: there is a 4-tier battery with **equal seed counts**. §6.3 never said which tiers
+constitute W-c. The report labelled the whole run `window_id: "W-c"` (boss **in**); the conductor's
+dispatch framing read boss **out**. Both readings were defensible and the spec did not adjudicate.
+
+**AMENDED RULE — R-A1. Sim-side window membership and cut arithmetic.** Any battery quoting a §6.3
+band must report **two cuts, both, always**:
+
+| Cut | Membership | Status |
+|---|---|---|
+| **CUT-1** | trash + champion + mixed_pack (packs only) | **MANDATORY** — the robustness cut |
+| **CUT-2** | packs + boss **Arm A only** | **MANDATORY** — the like-for-like-with-fixture-W-c cut |
+| **CUT-3** | all tiers, all arms | **ILLEGITIMATE. May be computed; may never be graded.** |
+
+- **Arm B never enters an aggregate.** Arms A/B are *the same encounter under two door values*; Arm A
+  is canonical (charter §14.26). Pooling both double-counts the boss to 40 % of the sample. CUT-3 is
+  named illegitimate **in the spec** precisely because in KC1 it was the cut that most **flattered**
+  N-4 — the most flattering cut must be disqualified by rule, not by the grader's restraint.
+- **Weighting inside a cut is equal-seed unweighted pooling over encounters** — never a per-tier mean
+  of means, never a fixture-frequency reweight. Stated so the arithmetic is not re-invented per lap.
+
+**AMENDED RULE — R-A2. Three-state grading.** **PASS** only where *both* legitimate cuts pass;
+**MISS** where *both* miss; **CUT-DEPENDENT** where they disagree. A **conservative binary**
+(cut-dependent → MISS) must be reported alongside, and the verdict must state whether it changes under
+either presentation. *(In KC1 the disagreements split one each way — N-1 passed on CUT-1 and missed on
+CUT-2; N-3 and N-4 missed on CUT-1 and passed on CUT-2 — which is the evidence that the third state is
+not a device for absorbing misses. It must not become one; if a future lap's cut-dependencies all fall
+the same way, that asymmetry is itself a reportable finding.)*
+
+**AMENDED RULE — R-A3. Weighting-free per-tier table is CO-EQUAL, not supplementary.** Because every
+aggregate is weighting-contingent, each §6.3 band must be accompanied by its per-tier decomposition
+(the verdict §3.1 table shape). Where the aggregate and the per-tier reads disagree in direction, the
+**per-tier read is the durable evidence** and the verdict must say so.
+
+**AMENDED RULE — R-A4. The boss-overweight caveat travels with every tail band.** CUT-2's boss is
+~25 % of encounters against roughly **2–6 %** of the fixture's W-c engagements. CUT-2 therefore
+**over**-weights the sim's heaviest tier. Any tail band (N-10, N-11, N-12) that misses **low** under
+CUT-2 has missed robustly to the distortion that would most help it; any tail band that passes **only**
+on CUT-2 must be reported as suspect for exactly that reason.
+
+**Composition:** R-A1..R-A4 are additive to §6.3. **No band value, no band width and no fixture value
+in §6.3 is changed by this amendment.**
+
+---
+
+## §10.2 — AMENDMENT 2 — §6.2 **S-1** gains its coincidence-floor clause · **THE A-FLOOR PREDICATE REPAIR**
+
+**Authority:** verdict **§A-2** in full — §A-2.1 (the control's literal miss, conceded first), §A-2.2
+(three pre-registered facts establishing instrument-not-sim), §A-2.3 (the A-lift with its unplanned
+negative control), **§A-2.4** (*"§6.2's S-1 control predicate must gain a coincidence-floor clause…
+plus `hits/press = 1.0` promoted from diagnostic to co-equal predicate"*). Event-level reproduction:
+KC1 charter **§14.28** + Gate-2 `…-gate2-gamora-g5-s1control.md`.
+
+**The defect, stated exactly.** S-1's control leg reads *"Single-target arm returns A ∈ [0.98, 1.05]."*
+**That band assumed A's floor is 1.0.** It is not. Claws compile at `cooldown_seconds = 0.0` and the
+sim has **no player attack-speed model**, so sequential *single-target* kills land inside one 0.5 s
+`kill_event_bin_s`: one kill per 0.1 s tick, eight kills into three bins. `compute_abc` is not buggy.
+**A's floor in this battery is 2.667 / 1.333 / 1.200 / 1.000 by tier** — a property of the *pinned kit
+and the binning grain*, not of the geometry S-1 exists to test. The control therefore missed the band
+**letter** at every pack tier while the signature the leg exists to establish **reproduced**: the
+pre-registered second instrument read `hits/press = 1.0000` on every tier, every seed, max 1.0 across
+150 fights — no press ever touched two bodies — and the A-step it exists to isolate read
+**×1.50 / ×1.50 / ×1.25** over the floor, with a **×1.0000** boss-tier negative control.
+
+### THE REPAIRED S-1 PREDICATE (binding on all future batteries)
+
+> **S-1 — "the A-step exists" — REPAIRED PREDICATE, three legs, ALL THREE REQUIRED:**
+>
+> **Leg 1 — GEOMETRY NEUTRALIZATION (promoted: diagnostic → co-equal predicate).** The control arm
+> must return **mean `len(targets_hit)` per player skill press = 1.000, and max = 1.0 over every fight
+> in the arm.** This — not A — is what establishes that the control's multi-target geometry is
+> neutralized. *(§6.2's closing note offered `hits/press` as a diagnostic because its **fixture**-side
+> semantics are UNCERTAIN — `hitsInflicted` may or may not count DoT ticks. That uncertainty is
+> **fixture-side only**; on the **sim** side `len(targets_hit)` is exact and unambiguous. The promotion
+> is therefore of the SIM-SIDE instrument only; the fixture-side 2.362 hits/press comparison remains a
+> diagnostic, exactly as originally written.)*
+>
+> **Leg 2 — THE COINCIDENCE-FLOOR CLAUSE.** *The control leg is graded against **the control's own
+> measured A**, not against 1.0, whenever `cooldown_seconds = 0.0` on the compiled kit **or** no
+> player attack-speed model is compiled.* Under that condition the control's per-tier A **IS** the
+> floor, by definition; it is a measured constant of the battery, and **no band binds it.** The
+> control's A must be **reported per tier** (it is the denominator of Leg 3) and it must be
+> **verified degenerate** — mean = min = max across all seeds — or the floor is not a floor and S-1 is
+> NOT-EVALUABLE.
+>
+> **Leg 3 — THE A-LIFT (this is the graded leg; it replaces the absolute-A test).** Grade
+> **`A_lift = A_canonical ÷ A_control`, per tier, at matched seeds**, not `A_canonical` against a
+> constant. **The arc arm passes iff `A_lift > 1.25` at the G-5a pack sizes, without needing density
+> outside those pools.** *The **1.25 constant is transplanted verbatim from the pre-registered
+> predicate** (§6.2 S-1: "arc arm returns A > 1.25 at G-5a pack sizes"). It is not a new threshold and
+> it was not chosen with knowledge of any result — this repair moves the constant from the wrong
+> denominator to the right one and changes nothing else. That is the entire claim to legitimacy here,
+> and if the constant had been re-picked, the repair would be goalpost-moving.*
+>
+> **Leg 3b — THE NEGATIVE-CONTROL ORDERING CHECK (required report; ONE-SIDED, no magnitude band).**
+> The battery must include at least one **spread** tier where the arc has nothing to catch
+> (`hits/press` ≈ 1.0 on the canonical arm). On that tier, `A_lift` must read **strictly below the
+> smallest pack-tier lift.** Ordering is what the signature claims — *the A-step appears where breadth
+> appears and vanishes where breadth vanishes*. **No numeric band is set here, because none was
+> pre-registered and inventing one now would be exactly the error Leg 3's constant avoids.** A
+> violation of the ordering is a **NOT-REPRODUCED** verdict for S-1, not a tuning note.
+>
+> **Confound clause (required check, not an assumption).** Before any lift is quoted, the two arms
+> must be shown **outcome-comparable at the tiers where the lift is measured** — matched win rate,
+> matched DoT rows and HP, matched kill counts. Divergences confined to tiers *outside* the lift
+> measurement do not invalidate it, but must be named. *(In KC1 all divergences were boss-tier; the
+> three pack tiers delivered identical DoT and 30/30 wins in both arms.)*
+>
+> **Honorable-fallback routing (UNCHANGED from §6.2 as pre-registered):** **(ii) sim-mechanics
+> divergence** if the arc arm fails at plausible density; **(iv) mechanism-class absence** if it fails
+> *because* A3 (no target cap) or A2 (90° cone) is the proximate cause — which the grading lap must
+> **state, not infer.**
+
+**What the repaired predicate grades that the old one could not.** The old predicate graded a
+**band letter on an absolute statistic whose floor was a battery artifact**. The repaired predicate
+grades the **SIGNATURE**: geometry provably neutralized (Leg 1), floor measured rather than assumed
+(Leg 2), the step isolated as a ratio over that floor (Leg 3), and the step shown to *disappear where
+its mechanism disappears* (Leg 3b). Applied to KC1's banked numbers it returns **REPRODUCED** — which
+is the verdict §A-2.4 already reached on the evidence, now reachable by the instrument itself.
+
+### Preregistration pin — and one correction to this cell's dispatch
+
+**Pinned 2026-07-28, BEFORE the WR1 post-wave battery executes.** WR1 charter §4 sequences
+*"extraction + specs in parallel … → mechanism builds M-1..M-9 … → full battery re-run (same seeds
+74000800×30, sequential) → gates G-A/G-B graded."* This section lands in the specs phase; no post-wave
+number exists. The repair is preregistration.
+
+> **⚠ CORRECTION, filed rather than smoothed.** The dispatch that commissioned this cell stated that
+> the repaired A-floor predicate *"is what gate G-A of run WR1 will be graded with."* **It is not.**
+> WR1 charter §2 defines **G-A** as the **S-3** gate (*normalized fall ÷ EHP ratio reads 2.12-class,
+> not 1.000*) — the S-1 repair does not touch it. What the repaired predicate governs is the
+> **S-1 structural re-read** on WR1's post-wave battery (and every battery after). The
+> preregistration requirement the dispatch was protecting is **satisfied either way** — the repair is
+> pinned pre-results — but the gate letter is wrong and a predicate repair filed under the wrong gate
+> is exactly the kind of drift this cell exists to prevent. *Naming it costs nothing; leaving it would
+> have put a mis-addressed instrument into the WR1 grading lap.*
+
+---
+
+## §10.3 — AMENDMENT 3 — §6.2 **S-2** is re-registered off the pinned residual
+
+**Authority:** verdict **§A-3** — §A-3.1 (*"the predicate is not merely unsatisfiable — it is also
+unfalsifiable, and the second half is worse"*), §A-3.2 (the lever measured live), **§A-3.3**
+(*"S-2 must be re-registered on the kill-time-delta instrument with a band set from **fixture** data,
+before KIT-CAL-2 runs"*). Cross-confirmed: KC1 charter §14.31/§14.33 (Gate-2's six-order-of-magnitude
+sweep proving leg (a) **unsatisfiable by construction**), §14.38.
+
+**The defect, both legs.**
+- **Leg (a) — *"lifts B by ≥ 1.10×"* — UNSATISFIABLE BY CONSTRUCTION.** B held flat at 1.0000 on three
+  of four tiers across **six orders of magnitude** of DoT magnitude. B is a ratio-decomposition
+  statistic; the battery's design **pins its product**, so B cannot move for any intervention that
+  does not change what the design pinned. A predicate no intervention can satisfy is not strict — it
+  is null.
+- **Leg (b) — *"with A and C each within their bootstrap CI of the no-DoT arm"* — UNFALSIFIABLE, and
+  worse.** It is satisfied *by the same degeneracy* that kills leg (a): where the statistics cannot
+  move, they are trivially "unchanged." A predicate whose failure condition cannot occur passes
+  vacuously and certifies nothing.
+
+**AMENDED RULE — R-A5. S-2 is UNGRADEABLE on the §6.2 instrument. It may not be scored, and its
+absence may not be counted against the sim.** Any battery reading §6.2 as-written must record S-2 as
+**INSTRUMENT-VOID** — *not reproduced* for §6.0's arithmetic (an instrument defect of the grader's own
+must never buy the run a better verdict), and *not absent* for the honorable-fallback decomposition
+(the sim was never validly asked; grading it a sim inadequacy converts the **grader's** instrument
+defect into the **builder's** calibration verdict — the error R-KC1-23 already refused once).
+
+**AMENDED RULE — R-A6. The replacement instrument, registered by SHAPE now and by NUMBER before the
+next battery.** S-2's claim is re-expressed on **paired kill-time delta** — DoT-arm vs no-DoT-arm
+median kill time at matched seeds, per tier — with **DoT share of delivered damage** as its co-reported
+second instrument. Both are **product-independent**: neither is a component of a ratio the battery
+design pins.
+
+> **BLOCKING PRECONDITION (R-A7).** The band for the kill-time-delta instrument **must be MEASURED
+> from `fixtures.db` (the W-c → R3 like-for-like cut) before the battery that grades it runs.** Until
+> that fixture measurement lands, **S-2 remains UNGRADEABLE and must be reported as such.** Explicitly
+> and by name: KC1's measured values — kill-time ratio **×0.9160** (8.40 % cut, 60/60 paired) and DoT
+> share **1.295 % → 6.215 %** (×4.80) — **are NOT the band and must never be promoted into one.** They
+> were measured after the registered predicate was found null, in full knowledge of the result any
+> threshold would have to admit. *A threshold authored after the measurement is not a threshold, it is
+> a description wearing a predicate's costume.* They may be quoted as **prior-lap magnitudes for
+> sizing the fixture-side cut** — never as goalposts.
+
+**AMENDED RULE — R-A8. The general instrument-selection law, carried into §6.2 permanently.**
+*A ratio-decomposition statistic whose product is pinned by battery design carries **zero** information
+about any intervention that does not change the product.* Before any future structural target is
+registered on a decomposition component (A, B, C or any successor), the spec must state **what the
+battery design holds fixed** and demonstrate that the candidate statistic is free to move under the
+intervention it is meant to detect. **Two of this spec's twelve bands and one of its three signatures
+were defective for that single reason, and it was foreseeable.**
+
+**Honorable-fallback routing** for the re-registered S-2 is otherwise **unchanged** from §6.2 as
+pre-registered: **(ii)** if the lift fails to appear; **(iii) fixture-measurement error** if the
+segmentation is implicated.
+
+---
+
+## §10.4 — WHY THERE IS NO FOURTH AMENDMENT (S-3, and the enumeration check)
+
+The enumeration was tested against the possibility of a fourth, because verdict **§A-4.2** records
+that **both of S-3's acceptance legs are VACUOUS** — the ≥10 %-EHP drop count was 0 on the *pre*-step
+side too, and the p99 worst-drop was already inside the "< 12 % post-step" target before the step. Any
+step at all, including no step, would have passed both legs. That is a real instrument defect of the
+same family as §10.2 and §10.3.
+
+**It is nonetheless NOT a fourth owed amendment, for two reasons, both external to this cell:**
+
+1. **§A-8.3 enumerates exactly three**, and it is the terminal consolidation. §A-4 files no
+   "owed to the spec" line — because S-3's *substantive* verdict did not depend on its legs. The
+   predicate **pre-committed its own failure attribution** (honorable-fallback column: *"(iv) if it
+   survives because player defence cannot be pinned"* — BQ-3, named before results), and §A-4.3
+   graded it **NOT REPRODUCED** on a discriminating statistic despite a clean letter sweep.
+2. **The repair already exists upstream, in a live charter.** WR1 charter §2 defines **G-A** as
+   *"normalized fall ÷ EHP ratio reads 2.12-class (fixture), not 1.000 (pure scale)"* — precisely the
+   discriminating instrument §A-4.3 used, and precisely what S-3's vacuous legs could not test.
+   **G-A supersedes S-3's acceptance legs for the WR1 battery.** Duplicating it here would fork the
+   instrument across two documents.
+
+> **Recorded for the KIT-CAL-2 spec, not executed here:** when §6.2 is next redrafted, S-3's legs
+> should be replaced by the G-A form (**normalized fall ÷ EHP pool ratio**, banded from fixture), and
+> every acceptance leg in §6.2 should be checked for **pre-step satisfaction** — the vacuity test
+> §A-4.2 discovered. That is a redraft item under the next run's charter, **not** one of the three
+> amendments KC1 ruled owed, and it is filed here so it is not lost.
+
+---
+
+## §10.5 — PROVENANCE + STATUS
+
+- **Every fixture value, band, predicate and grade in §§0–9 is UNCHANGED.** §10 adds rules and marks
+  two §6.2 rows and one §6.3 block as not-quotable-as-written. Nothing was silently rewritten; the
+  three inline banners (header, §6.2, §6.3) point here and alter no ruled text.
+- **No number was computed in this cell.** Every figure quoted above is transcribed from the KC1
+  terminal verdict (`…-kitcal1-g5-efficacy-verdict.md` §2.3, §3, §3.1, §A-2, §A-3, §A-4, §A-8.3) or
+  from the KC1 charter §14.28 / §14.31 / §14.33 / §14.38. **No fixture value was recomputed** —
+  recomputing goalposts at amendment time is the same failure as recomputing them at grading time.
+- **Sources read:** KC1 terminal verdict (full) · KC1 run charter §14.x (amendment/predicate rulings)
+  · WR1 charter `…-2026-07-28-wr1-wave-relay-run-charter.md` §2 (gates), §4 (sequencing), §8.3 (cell
+  claim). **No production code, no engine-repo write, no canonical doc amended.**
+- **Status of the spec after §10:** **QUOTABLE AGAIN**, under §10's rules, for batteries executed
+  after 2026-07-28. **S-2 remains UNGRADEABLE until R-A7's fixture-side band lands.**
+- **Veto-open.** Per the KC1/WR1 ledger convention, every rule above is open to Matt's veto; the
+  §10.2 dispatch correction (G-A ≠ S-1) is carried to the conductor explicitly.
+
+**Signed:** gandalf (`SPEC-AUTHOR` / `DRIFT-CRITIC`), cell `WR1-SPEC-AMEND`, 2026-07-28.
