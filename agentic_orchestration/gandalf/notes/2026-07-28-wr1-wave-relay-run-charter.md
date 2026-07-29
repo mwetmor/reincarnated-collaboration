@@ -181,3 +181,57 @@ unaffected.
 *Charter frozen 2026-07-28. Bank-per-landing continues in this document (§8+).
 — gandalf (`RUN-CONDUCTOR`)*
 - **WR1-EXT-LEG ✓ CLOSED** (`52290822`; note `legolas/notes/2026-07-28-wr1-extraction.md`). Headlines that BEND THE SPECS: **M-2** nova fully parameterized (118 phys + 200 cold flat/projectile, 16 proj @ 22.5°, explosion r 1.5, v 14, range 12 — 140% band reachable only 9–12 m; freeze 1.3–1.8 s + cold DoT; fire ≤10 m @ 80%, delay 6/timeout 3; **GD freeze has NO shatter operator** — H-1 fidelity flag now source-confirmed). **M-1** armor is deterministic `taken = dmg − 0.70×min(dmg, armour)`, physical-only — nova is 62.9% cold so death-2 `mitigation_delta` is **21–35%, not 70%**; CA-4 blocker named (sumProtectionDV 342 total vs 56 region-weighted, 340 HP swing at 541). **M-3** GD has NO scaling evasion — the Primordian WIN was POSITIONAL → M-3 respecs as a spatial telegraph policy, not a chance roll. **M-4** caps measured (player 200% / boss 500%); swing interval CANNOT-ANSWER (`Animations.arc` absent from pin). **Gate-2 flag carried:** the measured 541 killing blow is unreachable under additive −95% TDM even at the 16-projectile ceiling (254) — creature-TDM depth offered as a NAMED BUILD ASSUMPTION, grade D. Eight CANNOT-ANSWERs, each with its terminating probe.
+
+### §8.6 — WR1-WINDUP-GAL ✓ CLOSED: telegraph windup MEASURED — 0.750 s (`d60a6aff`, pushed) · **this entry is the note of record** (harness blocked the cell's `.md` write)
+
+Video: `/Users/admin/gd-scratch/play_test_2026-07-26.mp4` (KC1 working copy; share holds only console notes + `gd-save`). 60.000 fps CFR, read-only throughout.
+
+| Event | Tell onset (s) | Damage/release (s) | Interval | Confidence |
+|---|---|---|---|---|
+| A — death-2 (Primordian, killed) | 5150.6667 | 5151.4167 | **0.750 s (45 f)** | High |
+| B — retry-fight nova, survived at range | 5237.5167 | 5238.2667 | **0.750 s (45 f)** | High |
+
+Two independent casts, 87 s apart, different camera distances — **frame-identical**. The tell is
+three beats: (1) cyan ice-shard starburst at caster's ground point = onset; (2) collapse to noise
+floor ~+0.6 s (**the cue actively disappears**); (3) ring of ~16 orbs fans radially = damage
+application. Onset placed by windowed cold-ink pixel metric, not eye (predicate + rejected
+candidates recorded in the cell result; evidence frames + strips at
+`galadriel/captures/2026-07-29-wr1-windup/`, scripts at `galadriel/pipeline/gd-playtest-v1/wr1_*`).
+Honest bracket **0.717–0.750 s** under a stricter visibility rule. Beats-1-and-3 one-animation vs
+chained is stated as INFERENCE (45-frame identity is the argument); pessimistic floor if separate
+~0.13–0.15 s. **Death-2 corroboration:** HP RISING through the whole telegraph (630→664), then
+543/747 → 0/747 in ≤1 frame — **≥72.7% of max pool in one frame**; R-KC1-22's no-evasion
+trajectory is footage, not interpretation. **The R-WR1-9 slot fills: M-2 windup = 0.75 s**
+(bracket 0.72–0.75); **M-3 actionable window ≈ 0.70 s** (beat 2 removes the cue for the last
+~0.2 s; the requirement is clear-the-radius, not react). **Conductor correction to R-WR1-9's
+fallback, owned:** `specialAttackTimeout` 3.0 s is a cooldown gate, NOT animation time (4× the
+measured telegraph) — it may not stand in for M-2; the fallback clause is retired unused.
+
+### §8.7 — DUAL-EXTRACTION COLLISION → cross-validation (mutex note) + WR1-EXT-ADJ CLAIMED
+
+The LR session's own legolas cell (`52290822`, note `legolas/notes/2026-07-28-wr1-extraction.md`)
+was already in flight when the §8.3 mutex landed — no fault; the claim postdates the launch. Result:
+TWO independent extractions of the same corpus. Structural agreement is strong (16-projectile ring,
+r 1.5 explosion, v 14/range 12, 140% band only at 9–12 m, freeze-no-shatter → **H-1 fidelity flag
+now source-confirmed twice**, armor physical-only/70% absorption). **Named discrepancies needing
+adjudication before any build fires:**
+- **D-1 nova damage/rank:** `6de3e38d` reads cold 247 + phys 148 (rank 5, charLevel 17–18);
+  `52290822` reads 200 cold + 118 phys. Likely DIFFERENT RANK ASSUMPTIONS — and the fixture fight
+  was at ~charLevel 12, so the FIXTURE-ACTIVE rank must be pinned (calibration-material).
+- **D-2 cold share:** §8.4 banked "~85%-cold" (conductor's compression error — both extractions
+  read ≈62.5–62.9% cold); §8.4 stands corrected here.
+- **D-3 swing interval:** `6de3e38d` answers via controller `minSwingPause`/`maxSwingPause`
+  (Primordian 0.30/0.40 s); `52290822` grades it CANNOT-ANSWER (`Animations.arc` absent). Not
+  necessarily contradictory (pause ≠ full swing time) — adjudicate what M-4 actually needs.
+- **D-4 TDM depth (Gate-2 flag, carried):** `52290822` — the measured 541 killing blow is
+  unreachable under additive −95% TDM even at the 16-projectile ceiling (254); creature-TDM depth
+  is a NAMED BUILD ASSUMPTION, grade D. Galadriel's ≥543-in-one-frame (§8.6) independently
+  corroborates the 541-class blow — the assumption gap is real and travels to Gate-2.
+- **M-3 respec finding (adopted):** GD has NO scaling evasion — the Primordian WIN was POSITIONAL.
+  Consistent with the M-3 brief (spatial policy, not a chance roll); the adjudication confirms the
+  spec landed that way.
+
+**WR1-EXT-ADJ — CLAIMED (this conductor):** fires when WR1-SPEC-M123 lands. Named gandalf
+sub-agent, DRIFT-CRITIC posture: adjudicate D-1..D-4 against BOTH extraction notes + §8.6, amend
+the three specs to the adjudicated values (fixture-active rank pinned; windup 0.75 s / actionable
+0.70 s written into M-2/M-3), file the delta. Builds fire only from adjudicated specs.
