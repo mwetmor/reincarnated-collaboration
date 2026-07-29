@@ -2178,3 +2178,64 @@ appended correction in the original BLOCK finding.**
   terminates.**
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.37.
+
+---
+
+## §14.38 — TERMINAL: the amendment lap banks (`c0910060`, pushed) — **HONORABLE FAIL, confirmed on a complete signature set and re-decomposed. RUN KC1-2026-07-27 TERMINATES.**
+
+**Banked 2026-07-28. Amendment at verdict doc §A-1..§A-9
+(`2026-07-28-kitcal1-g5-efficacy-verdict.md`). Conductor spot-verified the lap's report
+against the banked document before closing (2.1173 / 143-150 / 0.9160 / N-1 7.100 all
+reproduce).**
+
+**The verdict's letter stands across four repair laps; its reason is entirely replaced.**
+T-5 failed on *coverage* (1 of 6 legs run). The terminal lap ran **6 of 6** and fails on
+*substance* — the first time in the run §6.0 sentence 2 could fire on measurement rather
+than on a fire-command omission.
+
+- **S-1 REPRODUCED.** Geometry-neutralized control + pre-registered `hits/press ≡ 1.0000`
+  instrument; A-lift over the coincidence floor ×1.50/×1.50/×1.25 with a ×1.0000 boss-tier
+  negative control the signature could not have faked. (Band-letter miss = predicate defect,
+  owned: A's floor is 2.667, not 1.0.)
+- **S-2 INSTRUMENT-VOID, declared not-reproduced.** Both pre-registered legs degenerate (B
+  unsatisfiable; A/C bit-identical across arms → unfalsifiable). Lever confirmed LIVE
+  (kill-time ×0.9160, 60/60 paired zero ties; DoT share 1.295→6.215%; confinement measured)
+  — but *a threshold authored after the measurement is not a threshold.* The honest grade.
+- **S-3 NOT REPRODUCED — the deciding row.** Band-letter HIT with the signature ABSENT
+  (§6.0 sentence 2 verbatim). Falsified cleanly: normalized fall = **×2.1173 = the EHP pool
+  ratio to five significant figures**; `worst_drop_abs` identical on **143/150** matched
+  fights; fixture's fall÷EHP-ratio 2.12 vs sim's 1.000. Pure scale — the sim's gear step
+  changes the pool, not the *shape* of danger. Mechanism-class absence (mitigation
+  itemization), named owner, category (iv).
+- **CONDITIONAL declined on principle:** inventing a milder word after seeing the result is
+  goalpost movement in its softest form. Recorded as the run's last discipline act.
+- **Keeper (2) TRANSFORMS + REROUTES:** survives descriptively, dies interventionally (no B
+  knob when kills are pinned); T-5's "highest-value calibration delta → gamora" is
+  **retracted** — one bin-occupancy fact seen twice, rooted in the absent attack-speed
+  model; category (ii)→(iv), wave inheritance.
+- **Band verdicts: zero changed** (six series moved; ⚠ **N-1 now fragile** — CUT-2
+  7.300→7.100, 0.1 s from ceiling; never quote as a stable miss).
+- **Join-forward (→ HQ-3):** **9 wave-inherited mechanisms** (frigidring, dodge-on-tell,
+  attack-speed model *new*, mitigation/`mitigation_delta` *new*, hero-slot, crit labelling,
+  freeze-CC, BQ-4 re-open, no-`else`) own 8 of 10 non-passing bands **plus S-3** · 4
+  calibration items own 2 bands · **3 spec amendments owed by this seam** (the S-1 A-floor
+  predicate defect among them).
+
+**Wind-down queue (routes via knight-rider, per the handoff-queue note):** HQ-1 (drax
+replica re-emission) · HQ-2 (star-lord, root cause now pinned to the battery writer; third
+independent confirmation) · HQ-3 (wave charter inputs, now including the amendment's
+join-forward table + keeper-2 retraction) · gamora residuals (WARN-1 guard ordering + 5
+stray traces; WARN-2 SS-6 wording) · this seam's 3 spec amendments.
+
+**Desirable-run-pattern closure:** bounded substrate held frozen; the pre-registered gates
+fired six times and were never bent; the honorable fallback was USED, twice, as designed —
+first for coverage, then for substance. An HONORABLE FAIL that hands the wave charter nine
+named mechanisms, a calibrated fixture pair, a certified kernel, and a verdict nobody has
+to squint at is the run doing exactly what it was chartered to do. **Validation attaches to
+the state we keep** (R-KC1-20) — and what we keep is: the `_fix3` stack, the kit spec with
+its three owed amendments, the KIT-CAL-2 protocol on Matt's share, and a ledger of 25
+rulings that never once moved a goalpost.
+
+**RUN KC1-2026-07-27 TERMINATED, 2026-07-28.**
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.38 — terminal.

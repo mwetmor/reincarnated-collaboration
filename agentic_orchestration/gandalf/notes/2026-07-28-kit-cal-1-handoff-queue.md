@@ -64,7 +64,7 @@ mechanics get built in their wave.* This is the wave. Inputs banked and ready:
 | Freeze-shatter + execute operators: woken but corpus-dormant (nothing emits `freeze`; execute 0 fires) — the wave decides whether content should emit them | wake census, charter §14.22 |
 | **Before-baseline dataset:** the full G-5 battery (150 fights, 30 seeds, engine `bef1f55`, Arm A canonical) — any wave build must re-run this battery and diff | `output/kitcal_g5/g5/` |
 | Acceptance symmetry (the wave's exit shape): with the nova modeled, the no-evasion sim player must become killable at the fixture's death-2 band; with evasion modeled, the win must become reachable | charter §14.26 |
-| T-5 band verdict's join-forward section (which MISSes are wave-inheritance vs current-class calibration deltas) | `2026-07-28-kitcal1-g5-efficacy-verdict.md` (in flight) |
+| Terminal join-forward table (SUPERSEDES the T-5 section): **9 wave-inherited mechanisms** (frigidring, dodge-on-tell, attack-speed model, mitigation/`mitigation_delta`, hero-slot, crit labelling, freeze-CC, BQ-4, no-`else`) owning 8/10 non-passing bands + S-3; 4 calibration items owning 2 bands. **Keeper-2 "route to gamora" RETRACTED** — rerouted to wave inheritance (attack-speed model). | `2026-07-28-kitcal1-g5-efficacy-verdict.md` §A-1..§A-9 (terminal, banked `c0910060`) |
 
 **Non-blocking carried flags:** `arm_a_jitter=false` deviation (flat 5%, measured band 3.25–6.75%);
 1.61-vs-1.10 regen-floor UNRESOLVED; galadriel armour re-crop residual (`mitigation_delta` pin);
