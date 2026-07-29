@@ -450,3 +450,39 @@ unwind an in-flight build — the pick that loses least is theirs.
 - **The four special checks — all clear, several stronger than claimed:** **(a) R-WR1-16 reclassification APPROVED** with a fourth corroborating leg and the decisive form: if GD bucketed per-crossing, a 541 HP death at a forced-multi-hit radius would set `greatestDamageReceived ≥ 541` — it reads 260.4977. The panel's grain is proven per-projectile by the fixture's own statistic. Falsifier LIVE across nine planted blocks (+26% fires; non-nova full strength). **(b)** 1.667× contamination sweep: NOTHING to retract (m3-m12b figures identical on both dm values). **(c)** the 2.0000 factor PROVEN the count step by payload-quantum histogram `{1.0: 30, 2.0: 14}` on all three legs. **(d) conductor's G-A stance ENDORSED and UNDER-stated** — third corroboration: endpoint arm B reads 1.1350 raw (WARN-2's falsification of the "arms same ratio" claim IS the corroboration — the count-step artifact lives in one arm's rank position, the gear step in both).
 - **WARNs routed into the repair cell:** WARN-1 dual-hash claim FALSE (artifact stamps `7f77ea0` both; root cause `--untracked-files=no`; C-4 class — stamp fixed or note corrected with erratum, never silently) · WARN-2 "arms give the same ratio" corrected in note with erratum banner (R-WR1-8 class) · WARN-3 the three additive report keys at `5f830d3` gain their MIGRATION entry (third recurrence of the ADR-004 gap this run — recurrence count named in the entry).
 - **WR1-BATTERY-3 (repair) LAUNCHED** (gamora): allow-list entry per the guard's prescription + WARN-1/2/3 repairs + full regression FOREGROUND to completion (the lesson applied) — then jack-ryan narrow re-review of the repair commit only. On CLEAR: conductor grades (stance §8.18, now triple-corroborated) → baton → **HOLD at Matt (R-WR1-6)**.
+
+### §8.20 — ⚑ MATT RATIFICATIONS (in-chat, charter session) + Gate-2 second pass + BATTERY-3 riders (2026-07-29)
+
+**Read before processing any further landing, whichever session you are.**
+
+- **R-WR1-17 (MATT, ratified in-chat): the §8.8 conductor question CLOSES — the CHARTER SESSION
+  conducts WR1 to termination.** Verbatim: "1) Yes." on "ratify this session finishes WR1."
+  Consequences: the charter session's §8.9 stand-down is LIFTED; grading G-A/G-B/M-8a, baton
+  emission, and the R-WR1-6 hold execute under the charter session. **LR session:** your
+  §8.10–8.19 conduction is ADOPTED wholesale; if you hold WR1-BATTERY-3's completion
+  notification, bank its mechanical landing and stop there — grading + baton route to the charter
+  session; no further WR1 cells launch from the LR session.
+- **Matt also blessed (same exchange): R-WR1-16 and the G-A honest-MISS grading stance** ("Ok,
+  both make sense") — both now carry Matt ratification atop dual-pass Gate-2 endorsement.
+- **P-1..P-3 pre-ratification set PROPOSED to Matt, awaiting his word:** P-1 the MISS closes G-A
+  for this run (no mitigation-remediation lap); P-2 the 2.12 ambition re-registers as an
+  ENCOUNTER-COMPOSITION target (boss-before-gear-plateau scenario modeling, wave vocabulary),
+  retired from the mitigation ledger; P-3 G-B grades on OUTCOMES (killable at death band ✓ / win
+  reachable ✓), attribution surprise (sustain carries the win; dodge pilot moves 0.000; the real
+  WIN was positional per corpus) reported and routed to the wave tail.
+- **Gate-2 SECOND PASS landed (`37095207`, addendum on the same finding):** the charter session
+  re-fired the declared cell (the first pass's commit was local-unpushed and invisible), ran to
+  completion independently, discovered the first pass, and APPENDED. **Concurs on all four named
+  checks and on BLOCK** — the verdict now stands on two independent derivations; both passes
+  reached "report the literal bracket [1.0000, 2.2700], grade intent on 1.1350, name the rubric,
+  never switch estimators" unprompted. Honest scope note: the second pass's targeted suite could
+  not reach BLOCK-1 (Discipline #2); BLOCK stands on the first pass's full regression.
+- **⚑ RIDERS for WR1-BATTERY-3's landing (from the addendum, which §8.19 predates — gate the
+  baton WITH WARN-1/-3):** **WARN-4:** the grader-facing string "55% of it is NOT the gear step"
+  (three sites: banked artifact, math note, cell note) derives from nothing — correct to
+  **multiplicative share 50.000%** (log share 84.6% / excess share 89.4% if a second basis is
+  wanted; basis named either way). **INFO adopted into the G-A grading record:** endpoint
+  flip-point banked beside arm B's 1.1350 (pool +4.95%, 1334→1400, collapses 2.2700→1.1350);
+  `headroom_pct` one-word/two-denominator ambiguity; 132-crossings-one-geometry caveat (headroom
+  is not a distributional bound). If BATTERY-3 lands without WARN-4, the correction executes in
+  the grading lap BEFORE the baton, never after.
