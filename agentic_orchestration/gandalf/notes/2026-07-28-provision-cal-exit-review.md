@@ -55,7 +55,7 @@ R-PC-1 werewolf normal variant (Matt) · R-PC-2 Synty asset home (Matt) · R-PC-
 | 1 | ~~Check 4 verdict~~ **✓ RULED: PASS ×3** — W-PRO's preset surface enters the race as judgeable | closed |
 | 2 | **PC-LIGHT acceptance + S14 ruling** (§3.2–3) — gates committing `kit_replica_level.gd` (+56/−9, held uncommitted) and the `walltop_level.gd` twin's disposition | eye + one ruling |
 | 3 | **Layer-3 host provisioning** (R-PC-10) — all 7 binaries absent (`blender`, glTF CLI chain); NOT a measurement failure. One brew/npm session → 6 EXCLUDED rows close with one CLI invocation each (test `.glb`s already emitted) | ~15 min install session (candidate for `matt_to_do/`) |
-| 4 | **L8 arm-2 purchase fork** — 0/6 glyph coverage; sharpened options: different pack vs commissioned icons | standing HALT, unchanged |
+| 4 | ~~L8 arm-2 purchase fork~~ **✓ DISSOLVED post-exit** — Fantasy Warrior HUD pack (Matt-surfaced) covers 5/6 (shadow=Cursed02 + air=Air02 Matt-ruled, R-PC-11); holy closed by composed **H-C dawn-rise (R-PC-12, Matt-signed)**. Family complete 6/6, zero purchases | closed |
 | 5 | **Push authorization** — the run's commit backlog is local-only | one word |
 
 ## §7 — Race re-freeze recommendation (L-J discharge)
