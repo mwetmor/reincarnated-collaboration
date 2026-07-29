@@ -111,3 +111,18 @@ The race answers **WHICH ARM PRODUCES THE BETTER JUDGED VFX UNDER IDENTICAL CONT
 - **Next-lap findings (post-freeze law):** (a) `animation-add-track` accepts a `targetPath` resolving to NOTHING and reports `isError: false` — killed the CAST travel beat through two iterations while every call passed; caught by added-luma census (0.019 M = empty-stage torch floor), not by eye; confirmed by deliberate probe. (b) `Godot.StringName` unwritable across four encodings → `AnimationPlayer.autoplay` unreachable; answered by a disclosed press-play in the rig. Both are findings for the wire's next lap, not this race's problem.
 - **Declared deviation (judgment call, named §0.3 of the cell note):** the wire ran on the PROVISION-CAL lab project (addon is C#; the frozen stage project is not), with md5-verified transfer in BOTH directions. Stage bytes governed; the lab was a typist's desk.
 - **Next:** V-H RE-CAPTURE cell fires now (capture-only, authored effects untouched, originals kept as lineage); strips assemble AFTER re-capture, by the conductor's hands (R-LR-1), A/B/C seal held by the conductor.
+
+## §11 — Re-capture close + blind strips assembled — RACE AT MATT'S EYE (2026-07-29)
+
+- **V-H-RECAP ✓ COMPLETE, no anomalies** (note § appended to `drax/notes/2026-07-28-l7-race-vh.md`, `15152bec`). Drift pair PRE=POST=`bf818b61…c139d1c` (LSTAT-2 6.63, p05/p50/p95 identical) — **stage provably stationary across three consecutive cells; all nine strip inputs same-stage by construction.** R-LR-7 satisfied without the halt clause firing. Containment re-read on the new ambient render: **0 leak px** (VOID-1 unmodified). R-LR-8: `project.godot` NO DELTA; `git status` zero tracked deltas repo-wide — zero authoring confirmed rather than asserted. Originals in `tmp/l7race/VH/` untouched (hashes held). Supporting datum: ambient photometric lift invariant across the stage shift (+5.7% now vs +5.6% of record; p05 unmoved) — only the substrate moved, the briefs behave identically.
+- **T-2 ✓ DELIVERED — three blind strips assembled by the conductor** (R-LR-1): `reincarnated-godot/tmp/l7race/STRIPS/strip_{cast,aura,ambient}.mp4`, each 3840×720 · 180 f · 30 fps, three panels labelled A/B/C via overlay. **Per-strip independent shuffle** (a label does NOT mean the same arm across strips — each brief is judged on its own). **Seal integrity: the key was generated and written without ever being displayed — the conductor is also blind.** Key at `STRIPS/SEALED_KEY.json`, read only AFTER Matt's per-strip calls are recorded. LOCAL-ONLY (Synty-derivative IP).
+- **T-1 ✓** (nine deliverables + clocks + ledgers, per cell notes) · **T-3 ✓ answered with a split verdict** (§10) · **T-4 OPEN — the only remaining item**, and it is Matt's: watch three strips (M-EYE: motion), call each brief, then the reveal + verdict record closes the run.
+
+### Matt — the verdict surface (when you're back)
+
+Watch, in any order — each is 6 s, three panels side by side:
+1. `tmp/l7race/STRIPS/strip_cast.mp4` — flash → travel → impact readable?
+2. `tmp/l7race/STRIPS/strip_aura.mp4` — survives the walk, doesn't eat the silhouette?
+3. `tmp/l7race/STRIPS/strip_ambient.mp4` — room-owned, contained (your R-LR-4)?
+
+Per strip: which panel wins, which is unacceptable (if any), one line why. Then I unseal, reveal attribution, and file the verdict record → T7-FORGE.
