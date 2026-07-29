@@ -486,3 +486,29 @@ unwind an in-flight build — the pick that loses least is theirs.
   `headroom_pct` one-word/two-denominator ambiguity; 132-crossings-one-geometry caveat (headroom
   is not a distributional bound). If BATTERY-3 lands without WARN-4, the correction executes in
   the grading lap BEFORE the baton, never after.
+
+### §8.21 — R-WR1-18 (MATT, in-chat): P-1..P-3 RATIFIED — the path to the baton hold is fully pre-registered (2026-07-29)
+
+**Verbatim: "Ratify all three."** The §8.20 proposal set becomes gate law:
+
+- **P-1 — G-A's honest MISS CLOSES the gate for this run.** No mitigation-remediation lap fires
+  off the MISS inside WR1; the measured source-side reason (armour saturated both regimes; 62.9%
+  of payload immobile across the gear step; danger was situational) is the finding, and the
+  finding routes to the wave tail.
+- **P-2 — the 2.12 danger-signature ambition RETIRES from the mitigation ledger and RE-REGISTERS
+  as an ENCOUNTER-COMPOSITION target** (boss-encountered-before-the-gear-plateau scenario
+  modeling — KIT-CAL/wave vocabulary, future lap). The terminal verdict states this as settled
+  direction, not an open question.
+- **P-3 — G-B grades on OUTCOMES:** no-evasion player killable at the death-2 band ✓ / win
+  reachable ✓. The attribution surprise (sustain carries the win at 14/30; the dodge pilot moves
+  0.000; consistent with the corpus — GD has no scaling evasion, the real WIN was positional)
+  is REPORTED in the grade and routed to the wave tail beside the 5.62 m standoff finding.
+
+**Consequence: zero judgment stops remain between WR1-BATTERY-3's clean return and the R-WR1-6
+baton hold.** Sequence is mechanical: BATTERY-3 lands (WARN-1/-2/-3 + rider WARN-4 verified
+closed) → jack-ryan narrow re-review of the repair commit (failure-name diff EMPTY) → conductor
+grades G-A (MISS per stance, bracket + decomposition + arm-B corroboration + INFO caveats all in
+the record) / G-B (PASS-shaped per P-3) / M-8a (P-3 disposition, legs separate) → baton emission
+(G-C: schema-valid trace set, all four tiers × both gear regimes, pinned post-repair hash,
+MIGRATION/consumer notes incl. crossing grain + `realized_count` location + canonical-`element`
+caveat) → **HOLD at Matt (R-WR1-6) for baton acceptance.**
