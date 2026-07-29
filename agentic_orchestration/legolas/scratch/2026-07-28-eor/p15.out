@@ -1,0 +1,288 @@
+=== (a) SkillChanneled.tpl ===
+Group
+{
+	name = "All Groups"
+	type = "list"
+
+	Variable
+	{
+		name = "Include File"
+		class = "static"
+		type = "include"
+		description = ""
+		value = ""
+		defaultValue = "database\Templates\TemplateBase\Skill_Base.tpl"
+	}
+
+	Variable
+	{
+		name = "Include File"
+		class = "static"
+		type = "include"
+		description = ""
+		value = ""
+		defaultValue = "database\Templates\TemplateBase\Skill_Activated.tpl"
+	}
+
+	Variable
+	{
+		name = "Include File"
+		class = "static"
+		type = "include"
+		description = ""
+		value = ""
+		defaultValue = "database\Templates\TemplateBase\Skill_Attack.tpl"
+	}
+
+	Variable
+	{
+		name = "Include File"
+		class = "static"
+		type = "include"
+		description = ""
+		value = ""
+		defaultValue = "database\Templates\TemplateBase\Skill_Spell.tpl"
+	}
+
+	Group
+	{
+		name = "Header"
+		type = "system"
+
+		Variable
+		{
+			name = "ActorName"
+			class = "variable"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "Class"
+			class = "static"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = "SkillChanneled"
+		}
+
+		Variable
+		{
+			name = "FileDescription"
+			class = "variable"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+	}
+
+	Group
+	{
+		name = "Skill Config"
+		type = "list"
+
+		Variable
+		{
+			name = "duration"
+			class = "variable"
+			type = "real"
+			description = ""
+			value = ""
+			defaultValue = "0.2"
+		}
+
+		Variable
+		{
+			name = "canUseWhileMoving"
+			class = "variable"
+			type = "bool"
+			description = ""
+			value = ""
+			defaultValue = "0"
+		}
+
+		Variable
+		{
+			name = "useResetsDuration"
+			class = "variable"
+			type = "bool"
+			description = ""
+			value = ""
+			defaultValue = "1"
+		}
+
+	}
+
+}
+
+
+
+=== (b) gameengine.dbr numeric fields ===
+    2hWeaponDamageFactor                                 1.0
+    CameraDepthFogClamp                                  -1.0
+    CameraDistanceDefault                                36.0
+    CameraDistanceMax                                    48.0
+    CameraDistanceMin                                    20.0
+    CameraPitchDefault                                   46.0
+    CameraPitchMax                                       52.0
+    CameraPitchMin                                       38.0
+    GrayStats2Indent                                     10
+    GrayStats3Indent                                     20
+    GrayStats4Indent                                     30
+    ItemBonusesIndent                                    10
+    ItemEnchantmentStatsIndent                           0
+    ItemEnchantmentStatsNotAvailableIndent               0
+    ItemPetSkillStatsIndent                              20
+    ItemRelicBonusIndent                                 10
+    ItemSetBonusesIndent                                 20
+    ItemSetBonusesNotAvailableIndent                     20
+    ItemSetBonusesSkillIndent                            30
+    ItemSetComponentAvailableIndent                      10
+    ItemSetComponentNotAvailableIndent                   10
+    ItemSetComponentTitleIndent                          20
+    ItemSkillDescriptionIndent                           10
+    ItemSkillDescriptionSetIndent                        20
+    ItemSkillNameIndent                                  10
+    ItemSkillNameSetIndent                               20
+    ItemSkillStatsIndent                                 10
+    PetBonusIndent                                       10
+    PetBonusNextIndent                                   10
+    PetSkillStatsCurrentIndent                           10
+    PetSkillStatsNextIndent                              10
+    UICharWindowInventorySack0DimsX                      384
+    UICharWindowInventorySack0DimsY                      256
+    UICharWindowInventorySack1DimsX                      256
+    UICharWindowInventorySack1DimsY                      256
+    absAetherMaxScale                                    1.149999976158142
+    absAetherMinScale                                    0.75
+    absChaosMaxScale                                     1.149999976158142
+    absChaosMinScale                                     0.75
+    absColdMaxScale                                      1.149999976158142
+    absColdMinScale                                      0.75
+    absDisruptionMaxScale                                1.149999976158142
+    absDisruptionMinScale                                1.0
+    absFireMaxScale                                      1.149999976158142
+    absFireMinScale                                      0.75
+    absLifeMaxScale                                      1.149999976158142
+    absLifeMinScale                                      0.800000011920929
+    absLightningMaxScale                                 1.149999976158142
+    absLightningMinScale                                 0.75
+    absManaBurnMaxScale                                  1.149999976158142
+    absManaBurnMinScale                                  0.75
+    absMaxDamageScaling                                  100.0
+    absPercentCurrentLifeMaxScale                        1.149999976158142
+    absPercentCurrentLifeMinScale                        0.75
+    absPhysicalMinScale                                  1.0
+    absPhysicsMaxScale                                   1.149999976158142
+    absPoisonMaxScale                                    1.149999976158142
+    absPoisonMinScale                                    0.75
+    absoluteRunSpeedCapMax                               350.0
+    absoluteRunSpeedCapMin                               [n=3] [40.0, 30.0, 20.0]
+    alertDistance                                        6.0
+    armorDefensiveAbsorption                             70.0
+    bossAttackSpeedCapMax                                500.0
+    bossAttackSpeedCapMin                                50.0
+    bossRange                                            32.0
+    bossRunSpeedCapMax                                   500.0
+    bossRunSpeedCapMin                                   40.0
+    bossSpellCastSpeedCapMax                             500.0
+    bossSpellCastSpeedCapMin                             50.0
+    combatIdleTime                                       1.2000000476837158
+    damageMagnitude                                      100.0
+    defaultLoadDistance                                  250.0
+    dwWeaponDamageFactor                                 1.0
+    dwWeaponSpeedFactor                                  0.5
+    enchanterRecoveryFactor                              0.05000000074505806
+    enemyOutlineColor.A                                  0.6000000238418579
+    enemyOutlineColor.B                                  0.0
+    enemyOutlineColor.G                                  0.0
+    enemyOutlineColor.R                                  1.0
+    enemyOutlineColor.b                                  0
+    enemyOutlineColor.g                                  0
+    enemyOutlineColor.r                                  255
+    friendOutlineColor.A                                 0.6000000238418579
+    friendOutlineColor.B                                 0.0
+    friendOutlineColor.G                                 1.0
+    friendOutlineColor.R                                 0.0
+    friendOutlineColor.b                                 0
+    friendOutlineColor.g                                 255
+    friendOutlineColor.r                                 0
+    itemOutlineColor.b                                   255
+    itemOutlineColor.g                                   0
+    itemOutlineColor.r                                   0
+    itemOverlayFontSize                                  16
+    lightingTransformation                               110.0
+    longRange                                            15.0
+    marketFactionDiscount                                0
+    maxPlayerRotationSpeed                               30.0
+    maxRotationSpeed                                     16.0
+    maximumRange                                         18.0
+    meleeAutoTargetDistance                              4.0
+    meleeRange                                           1.25
+    meleeTargetDistance                                  2.4000000953674316
+    minPlayerRotationSpeed                               19.0
+    minRotationSpeed                                     8.0
+    mindControlledOutlineColor.A                         0.6000000238418579
+    mindControlledOutlineColor.B                         1.0
+    mindControlledOutlineColor.G                         0.0
+    mindControlledOutlineColor.R                         0.6700000166893005
+    miniPetLimit                                         3
+    moderateRange                                        9.0
+    monsterAttackSpeedCapMax                             500.0
+    monsterAttackSpeedCapMin                             [n=3] [20.0, 30.0, 40.0]
+    monsterDefenseCap                                    [n=3] [100.0, 100.0, 100.0]
+    monsterLevelGapFixer                                 [n=3] [0, 5, 7]
+    monsterRunSpeedCapMax                                500.0
+    monsterRunSpeedCapMin                                [n=3] [20.0, 25.0, 30.0]
+    monsterSleepAggressionFalloffRate                    [n=3] [0.25, 0.25, 0.25]
+    monsterSpellCastSpeedCapMax                          500.0
+    monsterSpellCastSpeedCapMin                          [n=3] [20.0, 30.0, 40.0]
+    newCharacterTime                                     2.0
+    numMonsterRaces                                      18
+    objectOutlineColor.A                                 0.6000000238418579
+    objectOutlineColor.B                                 1.0
+    objectOutlineColor.G                                 0.5
+    objectOutlineColor.R                                 0.5
+    omPanicRate                                          250
+    omPanicThreshold                                     25000
+    pathSlowdownLength                                   0.10000000149011612
+    playerAttackSpeedCapMax                              200.0
+    playerAttackSpeedCapMin                              20.0
+    playerDefenseCap                                     [n=3] [80.0, 80.0, 80.0]
+    playerPathSlowdownLength                             0.0
+    playerReflectCap                                     30.0
+    playerRunSpeedCapMax                                 135.0
+    playerRunSpeedCapMin                                 20.0
+    playerSpellCastSpeedCapMax                           200.0
+    playerSpellCastSpeedCapMin                           20.0
+    potionStackLimit                                     100
+    pvpCrowdControlDurationMultiplier                    0.4000000059604645
+    pvpDamageMultiplier                                  0.20000000298023224
+    questItemStackLimit                                  100
+    scrollStackLimit                                     100
+    selectionBiasBaseMultiplier                          0.5
+    selectionBiasBaseOffset                              0.5
+    selectionBiasComparisonMultiplier                    0.20000000298023224
+    selectionBiasComparisonOffset                        0.15000000596046448
+    selectionBiasLockOnMultiplier                        1.7999999523162842
+    selectionBiasLockOnOffset                            1.899999976158142
+    selectionBiasMouseDownOffset                         1.600000023841858
+    selectionBiasVelocityMultiplier                      0.5
+    shortRange                                           4.75
+    skillComboChargeMultipliers                          [n=40] [15.0, 30.0, 45.0, 60.0, 75.0, 90.0, 105.0, 120.0, 135.0, 150.0, 165.0, 180.0, 195.0, 210.0, 225.0, 240.0, 255.0, 270.0, 285.0, 300.0, 315.0, 330.0, 345.0, 360.0, 375.0, 390.0, 405.0, 420.0, 435.0, 450.0, 465.0, 480.0, 495.0, 510.0, 525.0, 540.0, 555.0, 570.0, 585.0, 600.0]
+    skillComboChargeTime                                 0.3499999940395355
+    skillComboChargeTimeRanged                           0.25
+    skillMasteryTierLevel                                [n=9] [1, 5, 10, 15, 20, 25, 32, 40, 50]
+    ugCharacterHighlight                                 0.10000000149011612
+
+=== (c) localization: EoR tags + energy-cost UI line ===
+Traceback (most recent call last):
+  File "/Users/admin/Games/reincarnated-collaboration/agentic_orchestration/legolas/scratch/2026-07-28-eor/probe15_channel_and_spirit.py", line 45, in <module>
+    for k, v in tags.items():
+                ^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'items'
