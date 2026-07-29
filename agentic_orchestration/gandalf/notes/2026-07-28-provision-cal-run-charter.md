@@ -53,11 +53,11 @@ The run is DONE when ALL of:
 | Gate | Fork (handoff §4) | Status |
 |---|---|---|
 | **G-L1** | #1 — crypt lit as daylit court (CEILING-1, 4.66× contrast): fix in-run or hold constant | **✓ RULED (Matt 2026-07-28): FIX** — executed as the program's first measured lighting-authoring datum (→ R-PC-3) |
-| **G-L2** | #2 — **Q46** Murzak cloud telemetry: local-only config / accept / park | **OPEN** — Matt asked for the explanation 2026-07-28 (delivered: cloud-default transmits machine_name + project hash to `wss://ai-game.dev` on load; four env vars mitigate). Steward lean: **local-only-VERIFIED** (network-quiet assert during Tier-4 boot before any LOADS verdict). Gates Tier 4 only — Tiers 1–3 launch without it |
+| **G-L2** | #2 — **Q46** Murzak cloud telemetry: local-only config / accept / park | **✓ RULED (Matt 2026-07-28): LOCAL-ONLY** (*"Ok, agreed on local only"*, after capability-cost briefing: local-only = 100% Murzak capability, zero identity transmission). Verification mandatory: packet-quiet assert during Tier-4 boot BEFORE any LOADS verdict; if the env vars fail to silence the connection, the fork REOPENS to Matt as a measured finding (→ R-PC-6) |
 | **G-L3** | #4 — caster body for L7 | **✓ RULED (Matt 2026-07-28): THE WEREWOLF** — normal variant per R-PC-1; one body serves L7 caster + L6 second body + REPLAY protagonist (→ R-PC-4) |
 | *(folded)* | #3 — menu bulk-ruling | Lean stands: bulk-install CLEAN+licensed; the 4 named exceptions + 5 unlicensed rows verdict `EXCLUDED(licence)` per menu §5 unless Matt rules otherwise |
 
-**Launch state: Tiers 1–3 + riders are launch-clear.** Tier 4 fires on the Q46 ruling.
+**Launch state: ALL GATES CLOSED (except the standing folded lean on #3, unobjected). RUN LAUNCHED 2026-07-28.**
 
 ## §6 — Rulings ledger (veto-open, running)
 
@@ -66,6 +66,7 @@ The run is DONE when ALL of:
 - **R-PC-3 (Matt, 2026-07-28):** G-L1 ruled **FIX** — the crypt lighting defect is repaired in-run and measured as the program's first lighting-authoring datum.
 - **R-PC-4 (Matt, 2026-07-28):** G-L3 ruled **WEREWOLF** — the L7 caster body is the normal Synty werewolf (composing with R-PC-1). The Sidekick `.glb` stands down as caster; remains available as control/reference.
 - **R-PC-5 (steward, veto-open):** `Godot Shaders Library` (menu row 4, telemetry finding T3 — in-editor downloads from godotshaders.com by design) carries a **network-quiet fence**: it never runs during a timed/measured cell; verdict annotated `LOADS-DIRTY(network-by-design)` if it otherwise loads clean.
+- **R-PC-6 (Matt, 2026-07-28):** **Q46 RULED: LOCAL-ONLY.** The Murzak core addon runs with the four launch env vars suppressing the `wss://ai-game.dev` cloud connection; loopback transport only. **Verification is part of the ruling:** a packet-quiet assert during the Tier-4 boot precedes any Tier-4 LOADS verdict; a failed silence-check reopens the fork to Matt as a measured finding, never a silent acceptance. Capability basis confirmed pre-ruling: extensions are transport-agnostic (telemetry finding T2) — local-only forfeits nothing Murzak-compatible. T7 rider composes: `DOTNET_CLI_HOME` redirect per the known `env.sh` fix before the ten `dotnet restore` operations.
 
 ## §7 — Fit test + fallback + Matt interface
 
