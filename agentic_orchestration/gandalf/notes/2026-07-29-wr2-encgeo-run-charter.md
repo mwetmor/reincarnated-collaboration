@@ -182,4 +182,36 @@ cells only, sequential · conductor writes no production code — seams execute.
 - **§8.7 — Cell B (collision) FIRED** (gamora; spec §B + §D + R-WR2-7/-8/-11/-12/-14; Gate-2
   obligations per spec §G as adopted in §8.1, baseline per INFO-1).
 
+- **§8.8 — Cell B lands at a ⚑ HALT: S-1 FAILS 321/450, and the defect is the SPEC's** (engine
+  `6dca36a`, meta `d8ae0637`, pushed). Build complete and honest — nothing tuned, failure pinned by
+  test. Mechanism: every violation involves a wall-clamped body (free-space pairs exact to 1e-12;
+  champion tier zero-residual in 90/90); the clamped player's 0.90 share is annulled per pass, gap
+  decays `0.90^m`, `0.9^8 = 0.43` survives per tick (worst slack −0.252 m; the recurrence's fixed
+  point returns the measured boss speed). **Spec §B-2's prose promised shortfall redistribution its
+  own frozen pseudocode never implemented.** Passing gates: S-4 450/450 twice all legs; regression
+  name-diff EMPTY (60/6082/21); shuffled-order PASS; D-3 AST sweep 2 hits converted, re-sweep 0.
+  Process catch ledgered: first regression came back `added=4` (TestByteIdentity digests caught the
+  §B-6 keys emitted unconditionally — dict SHAPE, combat untouched, adjacent suites green the whole
+  time); fixed emit-when-armed, battery re-proven byte-identical. Battery `wr2_cell_b_s1/` 141 MB
+  on-disk uncommitted, statistics committed (per cell brief).
+- **§8.9 — conductor rulings on the HALT** (⚠ SWITCH: SPEC-AUTHOR → DRIFT-CRITIC — the judged
+  artifact is this seam's own spec):
+  - **R-WR2-16:** resolution **R1 — clamp-aware shortfall transfer** (realized post-clamp
+    displacement measured per pass; annulled magnitude transfers to the pair partner, same index
+    order). The prose IS the mechanism; the pseudocode was its defective transcription — spec §B-2
+    carries the erratum banner. **R2 REFUSED** by spec §E's own line (raising ITER_MAX to pass S-1
+    is drift; and Δ→34/56 sweeps is the smell, not the fix). **R3 REFUSED** — S-1 is a pre-registered
+    geometric invariant; deferring it post-C is goalpost motion, the exact thing pre-registration
+    exists to catch. S-1 predicate, ε_touch, ITER_MAX all UNCHANGED.
+  - **R-WR2-17:** SS-B-1 surface-to-surface range applies to **ALL attackers** (mobs and boss too),
+    ratifying gamora's build. Mirror-image units bug otherwise: post-B boss↔player separation holds
+    at 2.0, a 2.0 m boss melee goes permanently out of range, boss DPS → 0, and S-3's "player still
+    killable" dies the same death as the player's side. One law everywhere (R-WR2-12's spirit).
+  - **Spec §D-3(3) erratum banked** (gamora's correction ACCEPTED): `list.__contains__` short-circuits
+    on identity — the NaN self-miss cannot occur; live hazard is D-3(1) value-equality between
+    distinct equal entities. Sweep + index-only law unchanged.
+  - **Cell C's flag-OFF baseline pins at `6dca36a`** (same class as INFO-1, adopted).
+- **§8.10 — Cell B-FIX fired** (gamora): implement R-WR2-16, re-run S-1 + S-4 + flag-OFF regression +
+  unit tests. Gate-2 on the combined B landing follows the fix.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*

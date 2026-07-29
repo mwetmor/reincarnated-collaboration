@@ -134,6 +134,16 @@ Three properties this shape buys, and each is load-bearing:
 **`ITER_MAX = 8`.** Contact graphs here are ≤ ~12 bodies and sparse. If 8 sweeps do not converge, the
 tick is genuinely over-constrained; see B-6.
 
+> **⚠ ERRATUM (R-WR2-16, 2026-07-29, Cell B S-1 FAIL 321/450):** the pseudocode above does NOT
+> implement the redistribution the first bullet below promises. With the player wall-pinned and
+> area-weighted split, the clamped body's 0.90 share is annulled each pass and the gap decays as
+> `0.90^m` — `0.9^8 = 0.43` of the overlap survives every tick (measured worst slack −0.252 m;
+> the recurrence's fixed point reproduces the scenario's boss speed exactly). **The prose is the
+> mechanism; the pseudocode was its defective transcription.** Corrected law: **clamp-aware
+> shortfall transfer** — within the pass, measure each body's REALIZED post-clamp displacement;
+> any annulled magnitude transfers to the pair partner in the same pass (same index order, same
+> determinism contract). `ITER_MAX` stays 8 (raising it was and remains drift, §E). S-1 unchanged.
+
 **Ordering:** the index order of `all_entities = [self.player] + self.mobs + self._positioned_allies`
 (:4569), constructed once per fight. Dead entities are **skipped in place, never removed** — removal
 reindexes and reindexing is a silent determinism break. Do not sort. Do not build a `set` of entities
@@ -413,6 +423,13 @@ Three consequences, all live:
    True for a boss *against its own entry* — the boss would be resolved as both a boss and an "other,"
    double-correcting its position, and it would do so **only on the fights where some float went
    NaN**. Seed-dependent, silent, and it would present as a determinism failure with no local cause.
+
+   > **⚠ ERRATUM (Cell B, 2026-07-29):** this mechanism does NOT reproduce — CPython's
+   > `list.__contains__` tests `x is e or x == e`, so an entity always matches its OWN entry by
+   > identity before equality runs; NaN cannot make a body miss itself. The consequence stands
+   > corrected: the LIVE hazard is item 1 (value-equality false positives between two DISTINCT
+   > entities carrying equal fields). The grep sweep and the index-only law are unchanged — and
+   > were executed by Cell B (66 compares, 2 entity hits converted, re-sweep clean).
 
 Mechanism B deletes the block that contains this, which removes the instance. It does not remove the
 trap. **Gate-2 ask:** grep the spatial seam for `in <list-of-entities>` / `not in <list-of-entities>`
