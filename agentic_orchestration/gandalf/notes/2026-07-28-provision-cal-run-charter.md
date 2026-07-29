@@ -164,4 +164,9 @@ The run is DONE when ALL of:
 - **Air icon:** winged emblem ruled awkward; **Air02 triple-spiral swirl** (identical asset in both packs) surfaced as the tornado-read candidate — no literal funnel exists in any pack (name-sweep empty). Sheet: `gandalf/notes/2026-07-28-l8-glyph-hud-eye/air_candidates.png`. Matt's eye owed. No collision with shadow (spiral ≠ eye).
 - **Lighting = B (S14 cold sky-leak) RULED.** Open sub-question before drax finalizes + commits: **upper-wall color temperature under B** — cold "daylight grey" vs warm glow (conductor lean filed in-session: cold tops / warm-only-where-fire-is; V3 plate pair offered). `kit_replica_level.gd` + B held uncommitted until this rules.
 
-**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28. Chartered on Matt's *"GO ahead"*; fires on §5. **All cells home; PC-EXIT delivered; R-PC-10 discharged. Open at Matt's eye: B color-temperature sub-question · Air02 swirl · holy glyph closure · Auto-Rig Pro purchase.**
+**FINAL RULINGS (Matt, 2026-07-28, "I agree, continue"):**
+- **Lighting LOCKED: B-cold** — S14 cold sky-leak with daylight-grey uppers; NO warm on wall tops ("warm belongs only where fire lives" — warm reserved for floor pools + future motivated corner torches, race-brief dressing). Variant C not adopted; caps stay dark. → **PC-LIGHT-FINAL fired** (drax: apply B, verify vs plate-B numbers, resolve the `walltop_level.gd` twin, commit+push reincarnated-godot).
+- **R-PC-11 (steward, veto-open): Air02 triple-spiral swirl ADOPTED as the working air glyph** (Matt asked for the tornado-read; delivered candidate unobjected; winged emblem retired from the air slot).
+- **L8 glyph endgame:** 5/6 from the Fantasy Warrior HUD pack (freeze/physical/consecrate/knockback-rotated/shadow=Cursed02) + Air02 swap. **Open: holy** — commission-one vs compose-from-pack-parts. **Open: Auto-Rig Pro purchase** (row 18's only gate).
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28. Chartered on Matt's *"GO ahead"*; fires on §5. **RUN CLOSED pending PC-LIGHT-FINAL's commit. Residual Matt queue: holy glyph · Auto-Rig Pro · L-J re-freeze go.**
