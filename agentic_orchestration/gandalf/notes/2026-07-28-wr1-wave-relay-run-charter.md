@@ -563,10 +563,18 @@ was on the remote — the exact amnesia class §8.24 names. Collisions #5/#6 rec
 session that caused them. **From here the LR session banks mechanical landings only; zero rulings,
 zero processing, zero launches.** Inventory for the charter session:
 
-1. **WR1-G2-RECHECK-2 IN FLIGHT** (launched from LR pre-compliance; substance = the narrow re-review
-   §8.21's own sequence requires). **Part 1 LANDED `9a6e074a`: BLOCK-1 discharged, WARN-1/-2/-3
-   discharged, WARN-4 routing confirmed.** On completion the LR session banks the mechanical landing
-   here and stops; disposition (CLEAR → grade → baton → R-WR1-6 hold) is the charter session's.
+1. **WR1-G2-RECHECK-2 ✓ COMPLETE — CLEAR** (banked `9a6e074a` + `04dcfc3c`, both pushed by
+   jack-ryan). Mechanical facts: BLOCK-1 discharged (door suite reviewer-rerun 39 passed, T8 green;
+   guard 14 ins/0 del — sole deleted line is `_git_hash`'s old return; guard-suite test count 25→25);
+   **regression criterion MET by reviewer-side reproduction** — 24m21s at `18f2c14`: 60/6042/21,
+   81 names, **EMPTY both directions vs his own `a42d052` baseline**, exactly {T8 removed} vs
+   `98d3891`, identical to builder's list; WARN-1/-2/-3 discharged (SS-1 byte-clean; errata with
+   lineage; detector non-vacuity proven by neuter-then-restore — with a self-reported ~13 s on-disk
+   neuter window, Discipline #3 slip, assessed immaterial on falsifiable grounds and retired by the
+   two laps converging name-for-name); WARN-4 correctly deferred to the grading lap, with a caveat
+   filed: **its third site is inside the banked artifact, so SS-1 forbids an in-place fix** (the
+   correction must live in the grading record/errata, not the artifact). Disposition (CLEAR →
+   grade → baton → R-WR1-6 hold) is the charter session's; the LR session stops here.
 2. **WR1-ROOMS RETURNED** (drax, `78b8d300` + `26d73777`): Block A race-verdict fixes eye-verified;
    Block B four-room shell; drax self-corrected to R-WR1-20 via the relayed banner ("supersedes the
    brief's 16 m"). Open on his note: 37.5 m ROOM_EDGE vs 36.0 m clear interior (0.750 m margin/side —
