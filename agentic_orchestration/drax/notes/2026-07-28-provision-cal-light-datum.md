@@ -376,11 +376,17 @@ their authored values.
 `tmp/pclight/light_rig.gd` · `light_rig.tscn` · `shoot.sh` · `light_stats.py` · `make_plates.py` ·
 `frames/` (19 PNG) · `REVIEW/` (5 PNG) · `stats_*.json` · `*.log`
 
-**Repo left clean otherwise:** one tracked modification, deliberate and listed above. The
-pre-existing untracked state (13 addon trees from PC-T12/PC-T3, the `.uid` sidecars, the
-uncommitted `project.godot` `mesh_lod` deletion that predates all TCP work) is **not touched and not
-tidied** — it is not this cell's to resolve. `project.godot` was not written; F8 (headless `--import`
-pruning default-equal settings) could not fire because no import pass was run.
+**Repo left clean otherwise.** `git status --untracked-files=no` at cell exit returns **exactly one
+line**: `M scripts/kit_replica_level.gd`. The pre-existing untracked state (13 addon trees from
+PC-T12/PC-T3, the `.uid` sidecars) is **not touched and not tidied** — it is not this cell's to
+resolve. **`project.godot` is unmodified and was never written**; F8 (headless `--import` pruning
+default-equal settings) could not fire because no import pass was run. *(Correction to my own
+PC-T12 state note, which recorded an uncommitted `[rendering] mesh_lod` deletion as outstanding —
+it is not present in the working tree now; verified, not assumed.)*
+
+**`AGENT_STATE.md` in `reincarnated-godot` is deliberately NOT updated.** Writing it would add a
+second tracked modification to a repo this cell is instructed not to commit, leaving the next agent
+a dirty file with no commit explaining it. **This note is the cell's record.**
 
 ### Findings logged, not acted on
 
