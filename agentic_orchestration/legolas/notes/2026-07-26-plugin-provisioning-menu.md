@@ -531,12 +531,21 @@ under `~/Games/mcp-lab/` touched.
 
 ---
 
-## VERDICT column — PC-VERDICT cell (2026-07-28)
+## VERDICT column — PC-VERDICT cell (2026-07-28) · **revised R2 (2026-07-28)**
 
-**Status:** IN PROGRESS
+**Status:** COMPLETE (R2)
 
 **Cell:** PC-VERDICT (task #7) · **Run:** PROVISION-CAL · **Conductor:** gandalf (`RUN-CONDUCTOR`)
 **Author:** legolas · **Boundary law:** LOADS? / REACHES?, **never BETTER.** Nothing below ranks a row.
+
+**Revision R2 (2026-07-28, rider PC-VERDICT-R2).** The six rows this cell originally recorded as
+`EXCLUDED(no-positive-control on <instrument>)` — 18 and 41–45 — now carry **measured** verdicts.
+Matt authorised host provisioning (charter §8 **R-PC-10**), drax executed **PC-L3-INSTALL**
+(`agentic_orchestration/drax/notes/2026-07-28-provision-cal-l3-install.md`, commit `eaebe49f`), and
+every Layer-3 binary was installed and probed. The instrument gap that forced the exclusions is
+**closed**; the exclusions are withdrawn on evidence, not re-argued. Everything else in this section
+is unchanged from R1 except the tallies, which are recomputed below, and one added contradiction-log
+entry (#13). §1 remains byte-frozen.
 
 ### How this is recorded, and why it is a separate table
 
@@ -562,7 +571,8 @@ drax's own tier notes used; it is adopted here rather than re-invented.
 measurement supports — `REACHES(<what did>)` · `REACHES-NOT(<what did not>)`.
 
 **Evidence tags:** `[W1A]` PC-W1-A · `[W1B]` PC-W1-B · `[T12]` PC-T12 · `[T3]` PC-T3 · `[T4]` PC-T4 ·
-`[charter §N]`. Every tier note is committed; every verdict below traces to one.
+`[L3I]` PC-L3-INSTALL (R2) · `[charter §N]`. Every tier note is committed; every verdict below traces
+to one.
 
 **`GATED-Q46`: zero rows.** Q46 was ruled **LOCAL-ONLY** mid-run (Matt, charter §6 R-PC-6) and its
 verification clause was **discharged** by PC-T4's packet-quiet PASS (390 polls / 90 s, 9 sockets, 0
@@ -590,7 +600,7 @@ row retains `GATED-Q46`.
 | 15 | Advanced Model Import (4.6) | `LOADS-CLEAN` | Compiles, enables, dock tab `Advanced Model Import` + control `BulkImporterDock` found live `[T3 §2.2]` |
 | 16 | Animation Library Unique-ifier | `LOADS-CLEAN` | Compiles, enables; registers via `add_inspector_plugin` — no tree surface to find, and none claimed `[T3 §2.2]` |
 | 17 | Animation Property Tracks – Batch Modification | `LOADS-DIRTY(zh-CN-only UI)` · `REACHES(per-animation loop-mode editing on a real Synty scene)` · `REACHES-NOT(per-track property edits — 0 of 95 tracks reachable; it counts TYPE_VALUE tracks only and the Synty corpus is 100% TYPE_POSITION_3D / TYPE_ROTATION_3D)` | Loads, docks, discovers real `AnimationPlayer`s, every call executes without error. Tab title `动画属性轨道批量修改`; no English string table, zero `tr()` calls, and an `_on_language_selected()` whose body is `pass`. The menu's "bulk edits across 3,386 clips" is half true `[T3 §2.5, §5.3, T3-F3, T3-F13]` |
-| 18 | fix_synty_anim_to_godot_with_autorigpro | `EXCLUDED(no-positive-control on the Blender-extension instrument)` | **Unresolvable — see below.** No tier owns Blender-hosted rows; the row was never installed, and Blender itself was never invoked by any cell. Recording FAILS-LOAD here would violate L-N `[charter §3 — no tier covers Layer-3 hosts]` |
+| 18 | fix_synty_anim_to_godot_with_autorigpro | `LOADS-CLEAN` · `REACHES-NOT(arp-operator-absent — bpy.ops.arp.build_bones_list() does not resolve; Auto-Rig Pro is a paid addon and is not installed)` | **R2 — measured.** Installed into Blender's user extension repo and enabled headless on **Blender 5.2** despite the manifest declaring only `blender_version_min 4.2.0`: `enable=OK`, the operator `…retarget` polls `True`, the panel registers, the scene properties install. Reach fails at the **call**, not at the attribute — `hasattr(bpy.ops.arp, …)` returns `True` for anything (`bpy.ops` sub-namespaces are lazily constructed), and only the invocation resolves it: `AttributeError: Calling operator "bpy.ops.arp.build_bones_list" error, could not be found`. Row 41 is now satisfied, so the menu's own "cannot run without row 41" blocker is cleared `[L3I §7]` |
 | 19 | Godot4-OpenAnimationLibraries | `EXCLUDED(licence)` | No licence declared = all rights reserved. Not installed, not downloaded, not executed `[T12 §3.8]` `[charter §5 folded lean]` |
 | 20 | GodotHumanoidRetargetPlugin (D3ZAX) | `EXCLUDED(licence)` | No licence declared. Not installed, not downloaded, not executed. Its stated purpose (retarget across different rest poses) remains the menu's highest-relevance / lowest-confidence row and is now untested for a licence reason, not a technical one `[T12 §3.8]` |
 | 21 | GodotIK (monxa) | `LOADS-CLEAN` | 4/4 declared classes register and instantiate on 4.6.3/arm64 — `GodotIK` (parent `SkeletonModifier3D`), `GodotIKEffector`, `GodotIKConstraint`, `GodotIKRoot`. **This row is the Tier-2 L-N control**: it proves the GDExtension load path works in the same process and the same run that rows 12 and 14 fail in `[T12 §4.1]` |
@@ -613,59 +623,78 @@ row retains `GATED-Q46`.
 | 38 | `…MCP.Terrain3D` | `LOADS-CLEAN` | Registers **6** live tools, not the README's 4 — and **two README-named tools do not exist** (`terrain3d-set-height`, `terrain3d-get-info`), replaced by `-get`, `-set-data-directory`, `-set-material`, `-set-region-size`. Wraps a third-party addon we do not have `[T4 §4.5]` |
 | 39 | `…MCP.Tilemap` | `LOADS-CLEAN` | Registers **6** live tools; README count matches `[T4 §4.5]` |
 | 40 | godot-mcp-pro extension mechanism | `EXCLUDED(the mechanism does not exist — there is nothing to provision)` | The menu recorded this as a negative finding held as a row so it could not be lost. PC-T4 confirmed the ceiling **on the wire**: `[MCP] Registered 174 commands`, `tools/list` over stdio returns **175**, and the manifest, `plugin.cfg` description and wire all agree at 175. No plugin API, no extension registry, nothing on npm. **Precision:** the *Pro tool surface* was separately probed under check 4 and reaches (see the note below the table) — that is W-PRO the contestant, which is not a menu row `[T4 §7.1]` `[menu §3.3]` |
-| 41 | Blender 5.2.0 (headless) | `EXCLUDED(no-positive-control on the CLI-invocation instrument)` | **Unresolvable — see below.** Adjacent evidence only, and it is Godot-side, not Blender-side: PC-T12 measured Godot's `.blend` importer emitting `Blender path is invalid or not set … Cannot configure blender path in headless mode`. That says the editor setting is unconfigured; it is **not** a measurement of whether the cask is installed or the binary runs. Recording FAILS-LOAD from it would violate L-N `[T12 §3.4]` |
-| 42 | FBX2glTF (godotengine fork) | `EXCLUDED(no-positive-control on the binary-execution instrument)` | **Unresolvable — see below.** The macOS-x86_64-only release fact is re-confirmed by PC-T3 **as a menu fact, explicitly not a new measurement**; the binary was never fetched or executed by any cell `[T3 §2.4]` |
-| 43 | glTF-Transform CLI | `EXCLUDED(no-positive-control on the npm-CLI instrument)` | **Unresolvable — see below.** No cell invoked it. The `.glb` emit + inspect work in PC-T3 ran on Godot's own `GLTFDocument` and drax's `pose_gate.gd`, not on this instrument `[T3 §3.3, §4bis]` |
-| 44 | glTF-Validator (Khronos) | `EXCLUDED(no-positive-control on the npm-CLI instrument)` | **Unresolvable — see below.** No cell invoked it; no emitted `.glb` was independently conformance-checked this run |
-| 45 | gltfpack / meshoptimizer | `EXCLUDED(no-positive-control on the npm-CLI instrument)` | **Unresolvable — see below.** No cell invoked it |
+| 41 | Blender 5.2.0 (headless) | `LOADS-CLEAN` · `REACHES(headless glb import — 3 objects / 2 meshes / 1 armature / 88 bones read out of a PC-T3 emit in 0.05 s)` | **R2 — measured.** `brew install --cask blender` served **exactly the menu pin 5.2.0 LTS** (hash `fbe6228777e7`, native arm64 on this M2); `blender --version` exit 0. `blender -b -P` imported `pct3/proj/emitted/lib_a.glb` and reported its contents. The PC-T12 evidence I declined to convert into a verdict in R1 remains true and remains a **different fact**: installing the cask does not populate Godot's `filesystem/import/blender/blender_path`, so that error is still live and still un-probed. R1's refusal was correct — the fact it withheld was Godot-side `[L3I §2]` `[T12 §3.4]` |
+| 42 | FBX2glTF (godotengine fork) | `LOADS-DIRTY(rosetta — x86_64-only binary on an arm64 host)` · `REACHES(SK_Chr_Werewolf_01.fbx → werewolf01.glb, 1,291,784 B, 0.126 s wall)` | **R2 — measured.** The menu's arm64 claim is now settled by instrument rather than by release-page reading: `lipo -info` → `Non-fat file: … x86_64`, and **no arm64 artefact exists in either fork** (godotengine v0.13.1; facebookincubator upstream v0.9.7 @ 2019). Rosetta 2 is installed and functional here (`oahd` running, `arch -x86_64` succeeds), so a runnable macOS binary does exist — this is `LOADS-DIRTY`, explicitly **not** `FAILS-LOAD(no-macos-binary)`. Banked side-finding: row 44's instrument reports **1 error** on this output (`/meshes/0/primitives/0/attributes/TANGENT … not of unit length`) and a 52-joint skin against the Godot emits' 88 `[L3I §6, §6.1, §1.2]` |
+| 43 | glTF-Transform CLI | `LOADS-CLEAN` · `REACHES(inspect on a PC-T3 emitted .glb — full report captured)` | **R2 — measured.** Installed at **exactly the menu pin `@gltf-transform/cli@4.4.2`**; `--version` → 4.4.2. `gltf-transform inspect lib_a.glb` exit 0: generator `Godot Engine v4.6.3.stable`, `extensionsUsed GODOT_single_root`, 8,424 vertices, 1 material, no textures, no animations. **Provisioning caveat that travels with this row and with 44/45:** the host's global npm prefix is root-owned (`/usr/local`, `root:wheel`), so all npm installs went to a confined prefix at `/Users/admin/Games/mcp-lab/pcl3/npm-global/bin/`. A consuming cell that types `gltf-transform` with no PATH change gets `command not found` `[L3I §3, §1.1]` |
+| 44 | glTF-Validator (Khronos) | `LOADS-DIRTY(rosetta — x86_64-only binary on an arm64 host)` · `REACHES(validate — all eight PC-T3 emits, 0 errors each)` | **R2 — measured, and two menu facts corrected.** (a) **The npm route cannot satisfy this row at all:** `gltf-validator@2.0.0-dev.3.10` resolves and installs but has **`bin: null`** — it is a dart2js library with a JS API, and no `gltf-validator-cli` exists on the registry. This is a **release-binary** row, not an npm row, and my R1 instrument label ("npm CLI") was wrong. (b) The menu pins `commit HEAD @ 2025-12-30`; the newest *published* release is `2.0.0-dev.3.10 @ 2024-10-22`, over a year older — a HEAD pin implies a Dart build from source, which was not done. What is installed and probed is the release binary, `lipo`-confirmed x86_64-only with **no arm64 artefact in any of the 8 published releases**. ★ Its report on our own corpus is the run's highest-value banked finding — 0 errors in all eight emits, and one identical warning in every file: `NODE_SKINNED_MESH_NON_ROOT` `[L3I §5, §5.1]` |
+| 45 | gltfpack / meshoptimizer | `LOADS-CLEAN` · `REACHES(pack lib_a.glb 1,144,920 B → 231,776 B; output re-validates at 0 errors)` | **R2 — measured.** No brew formula exists under either name (`brew search gltf` returns only `glfw` and `gltfquicklook`), so the npm route was used at **exactly the menu pin `gltfpack@1.2.0`**. Transform facts, recorded as facts about the transform and not as quality: the defaults are lossy on this asset — `maxUVs` 4 → **0**, `maxInfluences` 8 → **4**, `maxAttributes` 12 → 5, vertices 8,424 → 7,150, and the output declares `KHR_mesh_quantization` as required. Re-validated with row 44's instrument: 0 errors, 2 warnings (the input already carried 1) `[L3I §4]` |
 
-### Tally
+### Tally (R2 — recomputed)
 
 **Load axis — every one of the 45 rows carries exactly one load-axis verdict:**
 
-| Verdict | N | Rows |
-|---|---:|---|
-| `LOADS-CLEAN` | **23** | 1 · 8 · 9 · 11 · 13 · 15 · 16 · 21 · 22 · 23 · 24 · 25 · 29 · 30 · 31 · 32 · 33 · 34 · 35 · 36 · 37 · 38 · 39 |
-| `LOADS-DIRTY` | **9** | 2 · 3 · 4 · 6 · 7 · 10 · 17 · 26 · 28 |
-| `FAILS-LOAD` | **2** | 12 · 14 |
-| `EXCLUDED` | **11** | 5 · 18 · 19 · 20 · 27 · 40 · 41 · 42 · 43 · 44 · 45 |
-| `GATED-Q46` | **0** | — (ruled LOCAL-ONLY; verification discharged by the packet-quiet PASS) |
+| Verdict | N (R2) | N (R1) | Rows |
+|---|---:|---:|---|
+| `LOADS-CLEAN` | **27** | 23 | 1 · 8 · 9 · 11 · 13 · 15 · 16 · **18** · 21 · 22 · 23 · 24 · 25 · 29 · 30 · 31 · 32 · 33 · 34 · 35 · 36 · 37 · 38 · 39 · **41** · **43** · **45** |
+| `LOADS-DIRTY` | **11** | 9 | 2 · 3 · 4 · 6 · 7 · 10 · 17 · 26 · 28 · **42** · **44** |
+| `FAILS-LOAD` | **2** | 2 | 12 · 14 |
+| `EXCLUDED` | **5** | 11 | 5 · 19 · 20 · 27 · 40 |
+| `GATED-Q46` | **0** | 0 | — (ruled LOCAL-ONLY; verification discharged by the packet-quiet PASS) |
 
-The 11 `EXCLUDED` decompose as **4 on licence** (5, 19, 20, 27 — charter §5 folded lean), **1 on
-non-existence** (40), and **6 on L-N** (18, 41–45 — no instrument was ever cleared, so no negative
-was recorded).
+**The recount, stated precisely.** Six rows left `EXCLUDED` (18, 41, 42, 43, 44, 45) and **all six**
+took a measured load verdict — **four** into `LOADS-CLEAN` (18, 41, 43, 45) and **two** into
+`LOADS-DIRTY(rosetta)` (42, 44). 27 + 11 + 2 + 5 = 45. Row 18 is one of the four that **load clean**;
+its `REACHES-NOT` sits on the reach axis and does not move the load count. (The rider's expectation of
+"five" entering the load verdicts does not survive the recount: it matches the **reach** side, where
+five of the six reach and row 18 does not.)
 
-**Reach axis — 8 rows carry a measured reach verdict; the other 37 had no reach probe and none is claimed:**
+The remaining 5 `EXCLUDED` decompose as **4 on licence** (5, 19, 20, 27 — charter §5 folded lean) and
+**1 on non-existence** (40). **Zero rows are now excluded on L-N.** The L-N exclusions were never a
+property of the rows; they were a property of the host, and the host changed.
 
-| Verdict | N | Rows |
-|---|---:|---|
-| `REACHES` | **5** | 17 (per-animation loop mode) · 24 (check 5, amended) · 25 (bake kernel) · 29 (46/46) · 36 (`particles-create`) |
-| `REACHES-NOT` | **5** | 2 (3D surface) · 3 (3D surface) · 17 (per-track edits) · 22 (check 6) · 36 (`ParticleProcessMaterial`) |
+**Reach axis — 14 rows carry a measured reach verdict; the other 31 had no reach probe and none is claimed:**
+
+| Verdict | N (R2) | N (R1) | Rows |
+|---|---:|---:|---|
+| `REACHES` | **10** | 5 | 17 (per-animation loop mode) · 24 (check 5, amended) · 25 (bake kernel) · 29 (46/46) · 36 (`particles-create`) · **41** (headless glb import) · **42** (FBX → glb) · **43** (inspect) · **44** (validate ×8) · **45** (pack + re-validate) |
+| `REACHES-NOT` | **6** | 5 | 2 (3D surface) · 3 (3D surface) · **18** (arp operator absent) · 17 (per-track edits) · 22 (check 6) · 36 (`ParticleProcessMaterial`) |
 
 Rows 17 and 36 appear on both lines: each has one probe that reaches and a distinct probe that does
 not. That is the enum working, not a contradiction.
 
-### Unresolvable rows — 6, and exactly what each would need
+### ~~Unresolvable rows — 6, and exactly what each would need~~ → **RESOLVED IN R2. Zero remain.**
 
-These are the rows where the banked evidence supports **no** verdict on the merits. Under **L-N**
-(clear the instrument before recording a NO) they are recorded as
-`EXCLUDED(no-positive-control on <instrument>)` rather than as a manufactured `FAILS-LOAD`. **This is
-a gap in tier coverage, not a property of the rows.** The charter's four tiers (§3) address pure
-resources, runtime GDExtensions, editor-only plugins and the Murzak/Pro family — **no tier owns
-Layer 3, the external host and CLI tools.** Five of the six unresolvable rows are the whole of Layer 3.
+> **R2 annotation (2026-07-28).** All six rows below have been struck. They resolved **via host
+> provisioning** — Matt authorised the installs (charter §8 **R-PC-10**) and drax's PC-L3-INSTALL
+> cleared every instrument and fired every probe — **not** via the instrument I lacked at R1 and not
+> by any re-reading of the R1 evidence. The R1 diagnosis therefore stands exactly as written: this was
+> **a gap in tier coverage, not a property of the rows**, and the fix was a host mutation, not a
+> verdict revision. The "What would settle it" column is left in place as the record of what was
+> asked for; the added column records what was actually done. Live verdicts are in the table above.
 
-| # | Row | Instrument never cleared | What would settle it |
-|---|---|---|---|
-| 18 | fix_synty_anim_to_godot_with_autorigpro | Blender-extension host | Blender present + the paid Auto-Rig Pro dependency resolved, then the extension installed and run on one Synty clip. Note the menu's own field: it cannot run without row 41 |
-| 41 | Blender 5.2.0 (headless) | CLI invocation | `blender --version` (or the cask query), then one headless `--background --python-expr` round-trip. A positive control the same instrument can also fail |
-| 42 | FBX2glTF | binary execution | Fetch the pinned release, `lipo -info` the macOS artefact (settles the arm64 claim by measurement rather than by release-page reading), then one conversion |
-| 43 | glTF-Transform CLI | npm CLI invocation | `npx @gltf-transform/cli@4.4.2 inspect` on one of PC-T3's emitted `lib_*.glb` files |
-| 44 | glTF-Validator | npm CLI invocation | Same corpus: validate one emitted `.glb` and read the conformance report |
-| 45 | gltfpack / meshoptimizer | npm CLI invocation | `gltfpack` one emitted `.glb` and confirm it re-loads |
+Under **L-N** (clear the instrument before recording a NO) these six were recorded at R1 as
+`EXCLUDED(no-positive-control on <instrument>)` rather than as a manufactured `FAILS-LOAD`. The
+charter's four tiers (§3) address pure resources, runtime GDExtensions, editor-only plugins and the
+Murzak/Pro family — **no tier owned Layer 3, the external host and CLI tools.** Five of the six were
+the whole of Layer 3.
 
-Rows 43–45 share a ready corpus: PC-T3 left emitted `.glb` libraries at
-`/Users/admin/Games/mcp-lab/pct3/proj/emitted/`. A single Layer-3 cell would close all five Layer-3
-rows against artefacts that already exist.
+| # | Row | ~~Instrument never cleared~~ | ~~What would settle it~~ | **How it actually resolved (R2)** |
+|---|---|---|---|---|
+| 18 | ~~fix_synty_anim_to_godot_with_autorigpro~~ | ~~Blender-extension host~~ | ~~Blender present + the paid Auto-Rig Pro dependency resolved, then the extension installed and run on one Synty clip. Note the menu's own field: it cannot run without row 41~~ | Instrument cleared: extension installed + enabled + registered on Blender 5.2 → `LOADS-CLEAN`. Reach still fails, but now **as a measurement**: `REACHES-NOT(arp-operator-absent)` `[L3I §7]` |
+| 41 | ~~Blender 5.2.0 (headless)~~ | ~~CLI invocation~~ | ~~`blender --version` (or the cask query), then one headless `--background --python-expr` round-trip. A positive control the same instrument can also fail~~ | Exactly this, executed: cask install → `--version` exit 0 → headless `-b -P` glTF import `[L3I §2]` |
+| 42 | ~~FBX2glTF~~ | ~~binary execution~~ | ~~Fetch the pinned release, `lipo -info` the macOS artefact (settles the arm64 claim by measurement rather than by release-page reading), then one conversion~~ | Exactly this, executed: `lipo` confirms x86_64-only in both forks; conversion ran under Rosetta `[L3I §6]` |
+| 43 | ~~glTF-Transform CLI~~ | ~~npm CLI invocation~~ | ~~`npx @gltf-transform/cli@4.4.2 inspect` on one of PC-T3's emitted `lib_*.glb` files~~ | Exactly this corpus, executed at the exact pin `[L3I §3]` |
+| 44 | ~~glTF-Validator~~ | ~~npm CLI invocation~~ | ~~Same corpus: validate one emitted `.glb` and read the conformance report~~ | Resolved, **but not by the named route** — the npm package is a library (`bin: null`). Release binary used; all eight emits validated `[L3I §5]` |
+| 45 | ~~gltfpack / meshoptimizer~~ | ~~npm CLI invocation~~ | ~~`gltfpack` one emitted `.glb` and confirm it re-loads~~ | Exactly this, executed at the exact pin; output re-validated at 0 errors `[L3I §4]` |
+
+R1's closing prediction held: rows 43–45 shared a ready corpus at
+`/Users/admin/Games/mcp-lab/pct3/proj/emitted/`, and **a single Layer-3 cell closed all five Layer-3
+rows plus row 18** against artefacts that already existed.
+
+**Row 18's remaining gate is a purchase, not a measurement.** Its only outstanding dependency is the
+**Auto-Rig Pro** commercial Blender-Market addon — a Matt-queue purchase decision. No further probe
+can move this row; row 41, its other blocker, is now satisfied. Nothing here is `EXCLUDED` and nothing
+here awaits an instrument.
 
 ### One precision the table cannot carry: W-PRO is not row 40
 
@@ -726,16 +755,26 @@ Recorded as fact, in the run's boundary (LOADS? / REACHES?), with no ranking imp
 12. **One correction inbound to my own PC-W1-B source read, from PC-T4's wire capture:**
     `project_path_hash_legacy` **is** sent at v0.20.1 — **six** identity fields observed on the
     handshake, not five. All six went to `localhost`; the ruling is unaffected `[T4 §2.4]`.
+13. **★ §1 stars "macos-x86_64 only — no arm64" on row 42 but not on row 44; row 44 is x86_64-only
+    too** — in **all 8 published Khronos releases** — and its npm namesake is not the CLI §1's pin
+    implies but a dart2js **library** (`bin: null`), so row 44 is a release-binary row that deserves
+    the same ★ `[L3I §5]`.
 
 ### Provenance and boundary
 
 - Every verdict above is **synthesis from banked, committed evidence**. This cell installed nothing,
-  executed nothing, launched no Godot, and touched neither `reincarnated-godot` nor `mcp-lab`.
+  executed nothing, launched no Godot, and touched neither `reincarnated-godot` nor `mcp-lab`. **That
+  remains true at R2:** the six revised verdicts are adopted from drax's PC-L3-INSTALL measurements
+  (`eaebe49f`), not re-run here. The installs were drax's; the enum conformance is mine.
 - The only file modified by this cell is **this one**, and only by the addition of this section. §1
-  and §§2–7 are byte-unchanged.
+  and §§2–7 are byte-unchanged — **including at R2**, where the two row-44 menu-fact corrections and
+  contradiction #13 are recorded here rather than applied to the frozen substrate.
 - **No verdict expresses a preference.** Where a row loads and does not reach, both facts are
-  recorded and neither is scored. BETTER is the L7 race's question, not this run's.
+  recorded and neither is scored. BETTER is the L7 race's question, not this run's. Nothing in the R2
+  Layer-3 evidence — the pack ratio, the lossy defaults, the tangent error, the 0-error corpus — is a
+  quality judgement of any tool; each is a measured property of a transform.
 
-**Status:** COMPLETE
+**Status:** COMPLETE (R1 2026-07-28) · **REVISED R2 2026-07-28** — six L-N exclusions withdrawn on
+measurement; load axis now 27 / 11 / 2 / 5 / 0; zero unresolvable rows remain.
 
-**Signed:** legolas, 2026-07-28, cell PC-VERDICT.
+**Signed:** legolas, 2026-07-28, cell PC-VERDICT · revised, cell PC-VERDICT-R2.
