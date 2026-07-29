@@ -1486,4 +1486,32 @@ Matt's evasion-anchor ruling (proposed R-KC1-22: boss-tier interpretation anchor
 death-2 no-evasion trajectory; dodge-on-tell logged as build-class inexpressible) → conductor
 go.
 
+---
+
+## §14.24 — R-KC1-22 RATIFIED: the boss verdict anchors to death 2 — and Matt discloses the observer effect that makes the anchor MORE honest
+
+**Banked 2026-07-28. Matt (verbatim core): "We can ratify (a) as R-KC1-22, but I should also
+note that the first time I died [to the Primordian], I was standing still for a couple of
+seconds soaking up damage while I attempted to take a screenshot. Still worth the A/B."**
+
+- **R-KC1-22 (RATIFIED, option a):** boss-tier G-5 interpretation anchors to the **death-2
+  no-evasion trajectory**, not the win. The win required **sustain AND evasion**; dodge-on-tell
+  is a build-class inexpressible (no tell modeling, no dodge policy — new AI architecture, not
+  an operand) and joins the Q-KC1-1 wave ledger beside BQ-4 and the H-1-adjacent freeze-CC gap.
+  The A/B flip rule is UNTOUCHED: it compares Arm A vs Arm B *within the sim's no-evasion
+  behavior space* — Matt explicitly reaffirmed the arms' worth. **Matt's winning attempt is
+  banked as the future acceptance fixture for the evasion mechanic** — the measured proof that
+  dodge-on-tell converts this exact loss into a win.
+- **Disclosed observer-effect artifact (fixture caveat, ledgered not smoothed):** during the
+  first Primordian attempt (death 2), Matt stood still ~2 s soaking damage while taking the
+  screenshot. **Grading implication runs in the anchor's FAVOR:** standing still under fire is
+  the sim player's native behavior for the whole fight — the contamination pushes the human
+  sample TOWARD the sim's behavior space. Honest treatment regardless: the anchor is a
+  **trajectory BAND, not a punctual match**, and tolerance on the screenshot window widens for
+  the disclosed pause. The sample is more sim-like AND less clean; both facts recorded.
+- **Design-DNA note carried with the ruling:** "slow, readable tells" is the telegraph contract
+  (dangerous = visible = dodgeable) — the Primordian fight was winnable through skill, not
+  stat-checking. The replay trace already carries monster skill-activation events, so tell
+  windows render in Godot for free when the REPLAY capstone consumes it.
+
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
