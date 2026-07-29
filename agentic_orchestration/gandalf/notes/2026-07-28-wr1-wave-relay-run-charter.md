@@ -282,3 +282,76 @@ conflict, and two gamora build cells queued against one engine tree is an extern
 - **WR1-LAP0-STAR ✓ CLOSED** (engine `77b1b86`, note `22bd3747`). Leak fixed AT THE WRITE SITE (`run_w3_emission()` STEP 4 — the engine's only writer; closes every caller class), default-OFF + `--write-band-report` + WARNING on forgotten flag (silent overwrite → silent non-write is not a fix). **Attribution correction to §14.36/HQ-2:** the "battery writer path" DOES NOT EXIST — the dirty artifact self-identified its writer (`generation_seed: 55000000, n_candidates: 5` = the test suite's signature, not the battery's `74_000_8xx`); true observation, wrong subject, banked as the corrected record. **Second defect found + fixed:** the 2026-07-22 wave made `encounters` required in `validate_bundle()` but never updated the driver's parallel bundle dict — every full run halted loud for 7 days AND the §8-A1 write fired before the halt (failing runs rewrote the measurement of record on the way down). Repaired byte-identical to the assembler. Leak proof: pre-fix md5 moved live; post-fix 36/36 with content+mtime identical across 12 invocations. Regression 389 passed; ONE pre-existing failure flagged NOT-MINE (`test_no_canonical_four_in_llm_prompts`, rocket's `ability_grammar.py`, reproduced at HEAD~1) — **carried flag routed to rocket post-run.** Gate-2 NOT self-cleared — fired below.
 - **LAP-0 COMPLETE.** Engine tree free. Launched in parallel: **WR1-G2-STAR** (jack-ryan Gate-2 on `77b1b86`, read-only) + **WR1-BUILD-M12** (gamora, fused M-1+M-2 per R-WR1-7's gate-fusion + specs + R-WR1-8 errata; unit-tested landing, full battery deferred to the all-mechanisms re-run per §4).
 - **WR1-G2-STAR ✓ PASS-with-notes** (`5bca712a`; finding `qa/findings/2026-07-29-gate2-star-lord-wr1-lap0-hq2.md`). All five claims re-measured and held (caller census, byte-identity incl. a checked-for second drift across all 12 required keys, attribution reproduction, honest-confound handling, NOT-MINE repro); guard verified under concurrent pytest load — the exact HQ-2 condition. **Carried non-gating WARN:** `--smoke --write-band-report` is an unguarded clobber path (5-kit smoke report can land on the 18-candidate measurement of record); fix shape named (refuse on smoke, or stamp `smoke: bool`) — **routed to star-lord as a wave-tail hygiene item**, plus INFO items (key-set guard #9, WARNING branch untested). Cleared at Gate-2 tier per ADR-002, no Matt escalation.
+
+### §8.9 — HALT DE-ESCALATION (charter-session conductor) — freeze raced; dangers dissolved by unilateral stand-down; conductor-pick question stays open with a recommendation
+
+**Observed:** §8.279–284 were banked AFTER §8.8's push (`a5f2fce2`, 01:49) without engaging it —
+including the **WR1-BUILD-M12 launch** (02:09, §8.283), whose uncommitted work now sits in the
+engine tree (`gd_mitigation.py` 18.4KB + math note + 548 insertions across 6 simulation files;
+it also overlapped WR1-LAP0-STAR in the same worktree — star-lord's landing note independently
+records "a second thread ran this same cell in this worktree"). A race, not defiance — but the
+freeze failed as a mutex the same way §8.3's cell claims did: **a mutex only one party observes
+protects nothing.** And the ledger now holds a SECOND number collision: two R-WR1-8s (§8.4 nova
+attribution, pushed first, vs §8.280 binding errata).
+
+**Both HALT grounds are dissolvable by this conductor's own action, so dissolving them:**
+
+- **(b) external-state danger → CLEARED by stand-down.** The charter session fires NO engine
+  build cells — not now, not after adjudication — unless Matt explicitly re-assigns. WR1-BUILD-M12
+  (LR-fired) is the sole engine writer. Single-writer discipline restored de facto.
+- **(a) committed-truth conflict → CLEARED by ceding the numbers.** These are this conductor's own
+  veto-open rulings to renumber: §8.3's reconciliation ruling **withdraws its number** (stands as
+  an unnumbered conductor note); §8.4's nova-attribution ruling **renumbers R-WR1-12**. The
+  operative ledger is therefore the LR session's: R-WR1-7 = G-A ≥1.50 predicate (§8.239, restated
+  §8.281), R-WR1-8 = binding errata (§8.280). §8.8's renumber proposal is superseded by this
+  cession. Substance everywhere untouched.
+
+**The conductor-pick question (§8.8) remains Matt's — with this conductor's recommendation,
+veto-open: pick the LR session.** Grounds: their build is in flight and their banked work is
+sound (R3JOIN, the errata, Lap-0 close, Gate-2 routing all check out under DRIFT-CRITIC read);
+everything distinctive from this session (spec-set deltas, both extractions, §8.6 windup, GAL-2)
+transfers through WR1-EXT-ADJ regardless of the pick. Choosing "charter session" now would
+unwind an in-flight build — the pick that loses least is theirs.
+
+**Conditions that survive the de-escalation (addressed to whichever conductor):**
+
+1. **WR1-BUILD-M12 must pass WR1-EXT-ADJ before its battery/grading** (landing unit-tested is
+   fine; G-A does not grade from an unadjudicated spec). The adjudication now folds in: both spec
+   sets, both extractions, §8.6 windup, R-WR1-8 errata, R3JOIN, and GAL-2 (below).
+2. **GAL-2 ✓ CLOSED (`89cc3b72`; durable record `captures/2026-07-29-wr1-gal2/
+   wr1-gal2-findings.json` + evidence dir) — it binds the build AND corrects two banked
+   premises:**
+   - **(i) Knockback: ZERO.** Exactly `dx=0,dy=0` for ≥10 frames each side at the verified nova
+     impact and at a stationary non-nova boss hit; <1 px possible. Four running-case boss hits
+     show smooth heading, no impulse. Galadriel's reading: `ragDollDirection=Push` governs
+     **corpse ragdoll on death, not live-target displacement** — the spec's knockback omission is
+     VINDICATED; do not model displacement. (Honest caveat carried: the only verified nova impact
+     killed the player; the four clean non-nova impacts are the live-target evidence.)
+   - **(ii) U-M2-1 multi-hit: closes INDIRECTLY — FCT renders NO floaters for player-TAKEN damage**
+     (two isolated-drop calibrations, 106 and 304, no floater; do not use FCT to count hits).
+     Arithmetic: ≥543 one-frame loss vs ~395 pre-mitigation per projectile ⇒ **≥2 projectiles**
+     (single-hit-crit not pixel-excludable). Geometry (stronger): the player stood ~30 px from the
+     launch origin — INSIDE the launch ring, where adjacent projectile paths sit ~12 px apart.
+     **Build rule: nova supports multi-projectile hits on one target, count scaling with
+     proximity to launch origin — never fixed 1.**
+   - **(iii) Distance: melee regime.** Cast A separation 57.5 px, sprites overlapping, a melee hit
+     landed mid-windup — the **50% weighting band**, not 9–12 m/140%. Metric conversion
+     CANNOT-ANSWER (no scale anchor in frame); open dependency = DBR camera-distance or a
+     known-size anchor. Matt fought this boss in the lower quartile of its observed engagement
+     range.
+   - **(iv) COMPOSITION CONFOUND CONFIRMED + fixture premise corrected: there is NO single gear
+     step.** Max HP walks 759→1017→1099→1241→1600→**1341**→1600 across ~470 s (incl. a
+     Training-Dummy test area) — **three regimes (759 / 1341 / 1600) + a tinkering window**, not
+     two. R3 census (47 readouts, 11 nameplates): zero boss-grade encounters; the Primordian is
+     fought ONLY in R2, twice. **The 2.12-vs-1.22 gap is currently indistinguishable from "R2 is
+     where the boss is"** — G-A's interpretation must either recut matched-composition (R3 cannot
+     supply a boss) or state explicitly that the gap measures encounter mix, not mitigation
+     curvature. This travels with R-WR1-7's ratio at grading.
+   - **(v) Cast-count discrepancy vs §8.6 (flagged, not papered over):** the windup+release
+     signature resolves exactly ONCE at 60 fps; §8.6's "event B" red torus is an **item-drop loot
+     beacon** (label read: "Searing Tarnished Arbalest of the Void") — the red-torus channel is
+     contaminated by loot beacons. Windup duration itself CONFIRMED (0.717 s/43 f vs 0.750 s/45 f,
+     within 1–2 frames; R-WR1-9's value stands) but **the two-cast claim needs reconciling before
+     any cadence/`specialAttackTimeout` use.**
+3. Ruling numbering from here forward starts at **R-WR1-13** (12 = nova attribution per the
+   cession above; 9 = windup; 10 reserved-retired by §8.8's superseded proposal; 11 unused).
