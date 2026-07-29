@@ -1623,3 +1623,81 @@ hero-scaling + dodge-on-tell + frigidring/telegraph modeling — with Matt's win
 evasion acceptance fixture and this G-5 dataset as the before-baseline).
 
 **Signed:** gandalf (`RUN-CONDUCTOR` / `DRIFT-CRITIC` reading), 2026-07-28.
+
+---
+
+## §14.27 — T-5 VERDICT LANDS: **HONORABLE FAIL — DECOMPOSED** · and the largest miss is the CONDUCTOR'S OWN FIRE COMMAND · repair lap fired same hour
+
+**Banked 2026-07-28.** The T-5 verdict lap (named gandalf sub-agent, DRIFT-CRITIC, doc
+`2026-07-28-kitcal1-g5-efficacy-verdict.md`, commit `ed26723e`) returned before band arithmetic
+even mattered: **the coverage gate — run FIRST per pattern §6.1, exactly as T-5 orders — found
+`r3_arm: false` and `player_pool: 759.0` on all 150 fights.** The kit spec's §6.0 sentence 1
+("a band hit with a signature absent is a FAIL") therefore governs: **S-2 (DoT-tail lift) and
+S-3 (gear-step hazard inversion) were never executed, and S-1 ran only its arc leg** (single-
+target control unrun). Five of six primary signature legs missing → the battery-as-run cannot
+reach PASS regardless of bands. Band table on the surface it CAN see: **1 weighting-robust PASS
+(N-2) · 7 weighting-robust MISS (N-5, N-7…N-12) · 3 CUT-DEPENDENT (N-1/N-3/N-4 — a §6.3
+defect owned in the verdict: no tier-weighting rule was pre-registered; both legitimate cuts
+graded, the flattering one named and rejected) · 1 NOT SCORED (N-6).**
+
+**Conductor verification + ownership (⚠ SWITCH: RUN-CONDUCTOR → DRIFT-CRITIC on my own fire
+command).** Trust-but-verify confirmed every load-bearing claim byte-level: `r3_arm: False` in
+the report, single pool 759, §6.0 sentence verbatim at spec line 540–541. And the decomposition
+lands on ME: **gamora's harness SHIPPED `--r3-arm` (pool 1607 + poison DoT, built precisely to
+serve S-2/S-3, assembly note §"CLI") and `--arm-a-jitter` — both default-OFF per assembly §3.2
+— and the conductor's fire command took the defaults.** One deviation (jitter) I named at fire
+time in §14.26; the other I did not even see. The verdict lap caught it. This is the desirable-
+run pattern's coverage-before-accuracy observation (§6.1, the KIT-FIDELITY lesson) doing its
+job against its own author.
+
+**Consequence for §6.0's application — argued, not asserted:** "a band hit with a signature
+absent is a FAIL" presumes the signature was TESTED and absent in result. A signature leg
+*unrun because of a fire-command omission* is a coverage gap, not a sim inadequacy — grading
+the sim FAILED on legs it was never asked to run would convert a conductor error into a
+calibration verdict. **The verdict document stands as the verdict on the battery-as-run** (no
+goalposts move); the honest repair is to RUN the missing legs under the same pre-registered
+predicates and seeds, then amend.
+
+**R-KC1-23 (conductor ruling, veto-open): repair lap fired immediately.**
+- **R3-arm supplement: FIRED and LANDED** — same fire shape (`--run --r3-arm --seeds 30
+  --seed-base 74000800`), separate out-dir `output/kitcal_g5/g5_r3arm/` (canonical report
+  untouched). 150 fights, pool **1607.0** all fights, `r3_arm: true` in the report, engine
+  `f54c547` (delta from `bef1f55` is gamora's Gate-2 C-1..C-5 comments-only pass — digest
+  `25c212eb…` unchanged, so the batteries are metric-comparable; named, not assumed). The
+  W-c→R3 like-for-like that S-2/S-3 pre-registered now exists on both sides at matched seeds.
+- **S-1 control arm: COMMISSIONED** (gamora, in flight) — the one leg with NO harness support:
+  `--s1-control`, arc skill swapped for a single-target basic attack, conservative-reading
+  rule if ambiguous, predicate A ∈ [0.98, 1.05]. Tag `gamora/v-g5-s1control-1` on landing.
+- **Amendment lap queued:** when the control lands, one verdict-amendment pass reads S-1
+  (both legs) / S-2 / S-3 against their ratified predicates and re-applies §6.0 to a COMPLETE
+  signature set. Until then the run's status line is: **honorable fail on the battery-as-run;
+  signature verdict PENDING on the completed batteries.**
+- Jitter stays OFF and stays a named deviation: the flip rule already resolved with a
+  281–345 HP inter-arm gap; intra-arm jitter cannot reach it. Re-running for jitter would be
+  motion, not information.
+
+**The verdict's three keepers, banked before amendment (they survive it):** (1) the W-c hazard
+distribution is **collapsed to its middle** — sim zero-intake 0.00 vs fixture 0.378, median
+drop 3.8× too high, max 9.5× too low: *the quiet is gone for want of evasion, the violence for
+want of burst* — the §14.26 symmetry finding now measured as a distribution shape. (2) The
+A/B multi-kill statistics **invert** (sim A 2.25 vs fixture 1.76; sim B 1.12 vs fixture 2.41)
+at identical grain — the one genuine category-(ii) sim-mechanics delta on the table (note:
+A/B/C here are the kit-spec kill-structure statistics, NOT the leech arms). (3) The S-1
+breadth diagnostic reads **1.36 hits/press vs the fixture's 2.36** — the sim's arc is
+*narrower* than the fixture's, so the intuitive BQ-1/BQ-2 fix ("tighten the target cap")
+would have moved the sim BACKWARDS. **N-11 graded MISS, not NOT-EVALUABLE** (sub-agent's
+argument adopted: R-KC1-22 pre-committed to the death-2 anchor before results; un-grading it
+after seeing the miss is goalpost movement), attributed wholly to category-(iv) mechanism-class
+absence (frigidring) — **a MISS the build-class cannot close and which must never be cited as
+a calibration error.** Carried to Matt veto-open, as is this whole section.
+
+**Parallel landings this window:** Gate-2 doc conditions **C-1..C-5 CLOSED** (gamora: C-1
+corrected at 4 sites not 2; C-2 citation fixed + `TestTwoPathReachability` added, 78 tests
+green; C-3 45→42 at 3 sites; C-4 §7.0 names ARM PROJ `94236eb0…` as the discriminating
+instrument; C-5 rewritten + 2 uncited sites of identical dormancy drift found and fixed;
+engine `f54c547`, meta `5123cabd`). Hand-off queue filed and pushed
+(`2026-07-28-kit-cal-1-handoff-queue.md`, `6a050059`): HQ-1 REPLICA-1→drax, HQ-2
+self-rewriting `leg3_pilot…json`→star-lord (sequences first — active hazard), HQ-3 Q-KC1-1
+wave inputs→knight-rider.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`; R-KC1-23 veto-open), 2026-07-28.
