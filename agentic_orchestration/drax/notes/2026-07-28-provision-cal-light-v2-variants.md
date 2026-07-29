@@ -364,3 +364,132 @@ instructed not to commit. **This note is the record.**
 
 **Signed:** drax (presentation seam), 2026-07-28.
 Evidence: `/Users/admin/Games/reincarnated-godot/tmp/pclight/REVIEW2/`.
+
+---
+
+# §9 — FINAL (cell PC-LIGHT-FINAL) — ruled, applied, committed
+
+**Appended 2026-07-28 by drax.** Closes cells PC-LIGHT + PC-LIGHT-V2.
+
+## 9.1 The ruling
+
+**Matt, two rounds, final: variant B** — the S14 cold sky-leak — **with cold "daylight grey" upper
+walls, and NO warm glow on wall tops.** Verbatim: *"warm belongs only where fire lives"* — warm
+stays reserved for the floor pools and future **motivated** corner torches, which are race-brief
+dressing and not this cell. **Variant C (wall-top `black_point` lift) is NOT adopted. Wall caps
+stay dark — Matt likes the contrast.**
+
+So of the fork this rider measured, the ruling takes **B and refuses C**, which also means **D is
+off the table**. `black_point` is left at **0.0 at both of its sites**; nothing from §3.1's C
+mechanism is in the tree. Finding **V-4** (C touches a design-owned constant) is therefore moot,
+and **V-3**'s hard black outer lip is now a *ruled* property of the crypt rather than an open
+question.
+
+## 9.2 Applied state
+
+One property on top of the accepted state-A fix, exactly as §3.1 defined B:
+
+```
+key.light_energy   0.0 -> 0.06        (light_color already cold (0.55, 0.66, 0.95))
+```
+
+Everything else in state A is unchanged. `black_point` 0.0 · `fog_density` 0.015 ·
+`glow_hdr_threshold` 1.25 — all untouched, per §4.4 of the predecessor.
+
+## 9.3 Verify — the fork, at R-6, settle 90
+
+| | plate B (this rider) | **PC-LIGHT-FINAL re-render** | agrees |
+|---|---|---|---|
+| LSTAT-2 contrast p95/p05 | 6.83× | **6.833×** | ✓ |
+| cost vs state A (7.63×) | −10.5 % | **−10.44 %** | ✓ |
+| p50 | 26.9 | **26.887** | ✓ |
+| mean | 32.7 | **32.739** | ✓ |
+| room ≤ luma 12 | 7.1 % | **7.149 %** | ✓ |
+| LSTAT-1 (no weight) | 4.86× | **4.863×** | ✓ |
+
+Counter-gate clears: `u12` 7.1 % < 15 %, `p50` 26.9 ∈ [25, 45].
+
+**Determinism (abbreviated, per the brief).** Three fresh processes this session — settle 90,
+a second settle 90, and **settle 40** (the discriminating axis per the predecessor's §4.2 method
+note) — all return **sha256 `12beadd132d4…`**, which is also `v2_B`'s and `s14`'s sha from the two
+earlier sessions. **Five processes, three sessions, one sha. LOADS-CLEAN, settle-invariant.**
+
+## 9.4 Twin disposition — FIXED, and it earned its own measurement
+
+**The old block was not intentional in the twin. It was propagated.** But `scripts/walltop_level.gd`
+is **not a dead twin**: it is THE level-content seam, consumed by **`playshell.gd` (the live
+play-shell)**, the PNG harness `build_walltop_void_test.gd`, and two probes. So this was a change to
+the stage a player actually walks around in, and it was not made by copy-paste.
+
+- **The defect was really there.** Twin BEFORE, same R-6 camera: room p50 **100.3**, contrast
+  5.35×, **0.0 %** under threshold — the same daylit plateau CEILING-1 describes.
+- **The values port exactly**, because the two rooms are dimensionally identical: `FLOOR_EDGE`
+  17.5, `WALL_H` 3.005743, pillars at the same `half + WALL_THICK` corners. Verified, not assumed.
+- **★ It was re-measured WITH THE KING IN FRAME**, because the only live Matt ruling on this
+  scene's photography — **2026-06-22**, `glow_hdr_threshold` 1.0 → 1.25 — was made against *the
+  king's LIT white-plate gauntlet under the 2.0-energy key this change deletes*. A lighting cell
+  that only rendered the empty room would have invalidated a live ruling and not known. New rig
+  `tmp/pclight/twin_rig.gd`; king mask 28,109 px, rendered and depth-resolved (the WTMASK
+  technique of §1.2), not projected.
+
+| twin, R-6 | BEFORE | AFTER | |
+|---|---|---|---|
+| room p50 | 100.3 | **31.4** | the plateau goes |
+| room contrast (mask-locked) | 5.35× | **5.75×** | +7.5 % — *see the caveat below* |
+| **walked-floor p90/p10** (86-cell frozen set) | **1.51×** | **2.44×** | **+62 %** |
+| walked-floor max/min | 2.43× | **6.80×** | 2.8× more range |
+| KING mask mean luma | 141.55 | **109.79** | still **3.5×** the room's median pixel |
+| KING p05 | 93.1 | **50.5** | |
+| **KING pixels ≤ luma 12** | 0.0 % | **0.0 %** | **the king does not go dark** |
+| KING modulation p95/p05 | 2.53× | **4.46×** | shaped by light, no longer flat-lit |
+
+**★ Read the SPATIAL number on the twin, not p95/p05 — and this is stated because it cuts against
+the flattering figure.** The twin's mask-locked contrast moves only +7.5 % where the fork's moved
++42 %. That is not a weaker fix; it is a squeezed ratio. The king's near-clipping white plate pins
+p95 in **both** frames, and this room's floor stone is lighter than the fork's, which lifts p05 —
+so both ends of `p95/p05` are held by things that are not the defect. CEILING-1 is an **evenness**
+defect and evenness is spatial: on the identical-86-cell test the twin goes **1.51× → 2.44×**, the
+same class of win as the fork's 1.22× → 2.62×.
+
+**The 2026-06-22 glow ruling is over-served, not broken.** King pixels over luma 200, by hue:
+near-neutral (the white plate) **633 → 199**, teal-emissive (the blade) **110 → 77**. The ruling
+asked for *less* bloom on the lit gauntlet; deleting the key moves it further in the ruling's own
+direction, while the genuinely-emissive blade still halos. **`glow_hdr_threshold` left at 1.25.**
+
+**Twin determinism — the lighting is clean; the KING free-runs.** Twin frames *with* the king
+differ run-to-run (max channel delta 198, **76 % of differing pixels inside the king mask**). With
+`--noking`, the same stage is **byte-identical across three processes and settle-invariant**
+(sha `fe9d95e2…`). So the divergence is the king's unpinned animation / cape / aura phase in my
+rig — **not an accumulator, and not introduced by the lighting.** The king stats above are robust
+to it: across three animation phases, mask mean 109.79 / 110.26 / 107.79 (2.3 % spread), p05
+50.5 / 51.0 / 50.8, `≤12` **0.0 % in all three**.
+
+> **METHOD NOTE (standing).** Any future check-9 on the play-shell stage must run **`--noking`**
+> or pin the king's pose. Otherwise it will read nondeterministic for a reason that has nothing
+> to do with what it is testing — the same class of error as the fixed-settle trap in the
+> predecessor's §4.2, one level up.
+
+## 9.5 Owed, named rather than silently skipped
+
+- **The four sconces still have no fixture mesh**, and the fix has now put them in **both** files.
+  Prop work, out of a lighting-only scope. This is exactly where Matt's *"future motivated corner
+  torches"* are expected to land — the mounts are already at the four corner pillars.
+- **The twin runs the fork's values against a different floor albedo.** They repair the defect
+  there (§9.4), but a twin-specific tune is owed if the play-shell becomes a judged surface.
+- **L-3 / the room is still empty** — untouched, and no lighting change addresses it.
+
+## 9.6 Repo
+
+**Committed and pushed** in `reincarnated-godot`: **`8caa733`** — `scripts/kit_replica_level.gd`,
+`scripts/walltop_level.gd`, `AGENT_STATE.md`. The PC-T3 "nothing is committed" discipline of §7
+was scoped to the measurement cells; this cell was authorised to land it. `AGENT_STATE.md` is now
+written, since there is finally a commit to explain it.
+
+Instrument and plates stay **untracked** under `tmp/pclight/` — they show Synty textures and the
+`/Assets/Synty/` licence rule forbids a shared remote. New this cell: `twin_rig.gd` ·
+`twin_rig.tscn` · `shoottwin.sh` · `make_plates_final.py` · `masks/mask_king.png` ·
+`REVIEW_FINAL/{FINAL_B_shipped,TWIN_AB,KING_MASK}.png`.
+
+---
+
+**Signed:** drax (presentation seam), 2026-07-28. PC-LIGHT · PC-LIGHT-V2 · PC-LIGHT-FINAL closed.
