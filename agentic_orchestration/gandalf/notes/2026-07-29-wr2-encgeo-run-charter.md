@@ -127,4 +127,24 @@ cells only, sequential · conductor writes no production code — seams execute.
   - Spec §E's tunable/frozen wall and §G's per-cell Gate-2 obligations are ADOPTED as charter law;
     §D-7 (`total_displacement` semantics shift) added to the S-6 diff table as a named line item.
 
+## §8 — Landing log (per-landing law: push → bank → report)
+
+- **§8.1 — Cell SPEC banked** (`26f812b1`, rulings `ad6bd378`). Spec §0 adopted as mechanism record:
+  the sim ALREADY collides at a mis-set 80%-of-contact setpoint (1.600 = 0.8×2.0, the measured flat);
+  the player has NO contact-range policy (motionless from first contact; the "drift" is the boss
+  bulldozing). Eight forks ruled R-WR2-7..-14; R-WR2-8 (surface-to-surface range) flagged to Matt,
+  veto window open until Cell B's Gate-2.
+- **§8.2 — Cell A COMPLETE, all five items PASS** (engine `c8ef0ba`/`6b13b25`/`9bfbdda`, meta
+  `96a26365`, pushed). Zero kernel change CONFIRMED — the instrument existed since BW-1; the G-5
+  harness had simply never threaded it. Aim battery at `output/kitcal_g5/wr1_battery_2_aim/` (145 MB,
+  committed per wr1_battery_2 precedent); **R-WR2-2 non-perturbation PASS 450/450** (declared digest;
+  raw digest 0/450 proves the comparison live; sole exclusion `header.engine_git_hash`, inspected
+  field-list == declared set); **S-5 holds all three legs** (450/450 attack fights ≥1 decision;
+  decision count == tick count exactly); determinism 150/150 twice (first attempt caught a `-dirty`
+  straddle — cell re-fired clean rather than explained away). SS-1 asserted mechanically; banked
+  battery untouched. **Cell-C datum banked:** `advance` = 1,680 per leg, IDENTICAL across all three
+  regimes (6/7/11/16 ticks per fight), then HOLD forever — independent corroboration of spec §0.2.
+- **§8.3 — Gate-2 on Cell A fired** (jack-ryan; harness threading + driver are code landings; §4
+  per-landing law). Cell B holds until CLEAR.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
