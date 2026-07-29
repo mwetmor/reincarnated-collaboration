@@ -239,3 +239,40 @@ the three specs to the adjudicated values (fixture-active rank pinned; windup 0.
 - **R-WR1-7 (conductor, pre-registration — closes the spec's R-X-2 flag):** G-A acquires its numeric predicate BEFORE the post-wave battery: **PASS iff W_pre ÷ W_post ≥ 1.50** on the post-wave battery with the MEASURED R3 resist vector in place (1.50 > geometric midpoint of null 1.000 and fixture 2.1205 — the shape change must be doing more than half the fixture's work on the log scale); the full ratio + fixture distance reported alongside; resist vector unmeasurable ⇒ G-A NOT-EVALUABLE per (b). Veto-open at Matt's review.
 - **WR1-EXT-R3JOIN (legolas) LAUNCHED** — the owed R3-regime gear resist join (the measured input (b) requires); parallel, read-only, no engine-tree contention.
 - **Build sequencing note:** gamora M-1+M-2 build HOLDS until WR1-LAP0-STAR exits the engine tree (single-writer discipline), then fires with per-landing Gate-2.
+
+### §8.8 — ⛔ CONDUCTION-COLLISION HALT (commitment-boundary) — **BUILDS FROZEN, both sessions, pending Matt's conductor pick**
+
+**Read this first, whichever session you are.** The per-cell mutex (§8.3) has now failed twice —
+both sessions fired their own WR1-SPEC-M123 (`7af93e1b` three specs in `gandalf/notes/`;
+`861b57ea` one spec in `gandalf/design-inputs/`), and the ruling ledger holds a **number
+collision: two different R-WR1-7s** (f17f1558 = dual-conductor reconciliation, pushed first;
+2a1a4732 = G-A ≥1.50 numeric predicate). Per desirable-run-pattern §4 this is a committed-truth
+conflict, and two gamora build cells queued against one engine tree is an external-state danger —
+**both are commitment-boundary HALT classes. This is that HALT.**
+
+- **FROZEN until Matt names the single WR1 conductor:** ALL engine-repo build cells (M-1..M-9),
+  the battery re-run, baton emission. Neither session fires gamora. WR1-LAP0-STAR (already
+  in-flight, this conductor's cell) runs to completion — it predates the freeze.
+- **NOT frozen (read-only, conductor-neutral, feeds whoever wins):** WR1-EXT-R3JOIN (LR-launched
+  resist join — good, needed for three-channel `mitigation_delta`); WR1-GAL-2 (claimed below).
+- **Ruling-number repair (proposal, effective on Matt's pick):** first-pushed precedence —
+  R-WR1-7 = reconciliation (f17f1558); the G-A ≥1.50 predicate restates as **R-WR1-10** (its
+  substance is untouched and this conductor AGREES with it — pre-registering the numeric
+  predicate before the battery is exactly right; it composes with the composition-confound
+  check routed to WR1-GAL-2).
+- **The two spec sets CONVERGE on physics** (fractional/size-invariant armor cannot move G-A off
+  1.000 — found independently twice; M-1+M-2 must be graded together; resist channel required)
+  and each adds real deltas the other lacks (`861b57ea`: three-channel `mitigation_delta`, R3
+  resist join, TDM two-arm design, `piloted_competence` inertness; `7af93e1b`: two-phase
+  telegraph commit + TelegraphSpec MIGRATION owed to drax, knockback omission, multi-hit-ring
+  unknown U-M2-1, cold-DoT-not-slow correction, composition-confound on the 2.12).
+  **WR1-EXT-ADJ rescopes:** adjudicate BOTH spec sets + BOTH extractions + §8.6 + GAL-2/R3JOIN
+  returns into ONE adjudicated build-spec set. Fires under whichever conductor Matt names.
+- **WR1-GAL-2 — CLAIMED (this conductor), read-only, firing now:** floaters-per-nova (multi-hit
+  U-M2-1), knockback push displacement, Matt's distance-from-caster per nova event, and the
+  R2/R3-window composition audit (does the R3 regime window contain any boss-grade encounter —
+  the residual candidate behind the 2.12 vs 1.22 gap).
+- **To Matt, the one-word decision:** which session conducts WR1 — **"charter session"** (this
+  one: authored the charter, elicited F-1..F-4) or **"LR session"** (running the L7 race, banked
+  R-WR1-6 at your launch exchange)? The other stands down to its own run. Everything banked by
+  both stays adopted; nothing is lost by either answer.
