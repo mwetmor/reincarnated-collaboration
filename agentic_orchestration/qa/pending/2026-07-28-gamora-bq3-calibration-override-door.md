@@ -405,3 +405,148 @@ a frozen pre-change baseline and must not move. **Next-free: `74_000_400+`.**
 - MIGRATION: `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md` (2026-07-28 O-d entry)
 - Charter: `agentic_orchestration/gandalf/notes/2026-07-27-kit-cal-1-run-charter.md` §14.16
 - Completion record: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 78
+
+---
+
+# ITEM 3 — R-KC1-20 / R-KC1-21: THE SCRATCH `max_hp` WAKE + THE SAME-CLASS CENSUS
+
+**Tag:** `gamora/v-scratch-maxhp-wake-1` @ `9218238` · **Author:** gamora · **Date:** 2026-07-28
+**Math note:** `reincarnated-engine/src/reincarnated/simulation/math/scratch-maxhp-wake-2026-07-28.md`
+**Gate 2: REQUIRED, NOT SELF-CLEARED.** Third item of this ONE door review — read BQ-3 and O-d first;
+this item **reverses a decision recorded in O-d**, and that is the thing to review hardest.
+
+## W-1. What jack-ryan should look at first
+
+This item repairs the operand **O-d refused to repair**, twelve hours after O-d shipped, on a Matt
+ruling. The two artifacts now disagree by design, and I have marked the disagreement in place rather
+than rewriting history:
+
+- O-d's math note carries a **PARTIALLY SUPERSEDED** banner; its **LOUD-FLAG-1 / -2 / -5 are struck
+  through in place** (not deleted) with the reason.
+- `OD-10` and `OD-6d` are **rewritten with inverted semantics**, and the test file's module docstring
+  says so in a dedicated R-KC1-20 AMENDMENT block. **A passing `OD-10` today asserts the OPPOSITE of
+  what a passing `OD-10` asserted this morning.**
+
+If the reviewer's judgement is that a same-day reversal should not ride inside the same review as the
+thing it reverses, that is a legitimate BLOCK and I have not pre-empted it.
+
+## W-2. The ruling, and whose call each part was
+
+**Matt (R-KC1-20):** repair `spatial_resolver_adapter.py:233`'s scratch `max_hp = 1.0` to the
+attacker's real pool. Reasons, verbatim in substance: there is no validated sim yet, so the seasons
+the fix would "disturb" are pre-validation output of an engine with a dead mechanic, and the imminent
+G-5 verdict must attach to the engine-state we keep. **Matt (R-KC1-21):** census every kernel operator
+the spatial seam silently kills; fix the operand/sync-list class now, report the build class.
+
+**Mine:** the blast-radius bound (W-3), the census rulings (W-5), the refusal to re-register a digest
+that did not move (W-4), and the F-7 HALT.
+
+## W-3. MEASURED BEFORE IMPLEMENTING — and it corrected the commission and me both
+
+Both O-d and the commission framed the hazard as "production kits' lifesteal wakes in every season".
+**Measured, that is not where the defect lives.** Two player-build paths:
+
+| path | selector | scratch `max_hp` | used by |
+|---|---|---|---|
+| PRODUCTION | `player_class is not None` | **REAL** | `balance_loop`, `gauntlet_sim` — season generation, convergence, gauntlet |
+| PROJECTION | `player_class is None` | **1.0** | KF-4, harnesses, KIT-CAL fixture |
+
+**Season generation never takes the projection path**, so the repair edits a factory the season path
+does not call. That is a reachability property, not a digest argument.
+
+And production-path lifesteal was never dormant — it **fires 55×** in a 6-fight battery, plus 75 HoT
+scratch heals (max 888 HP) and 170 nonzero scratch heals, **every one discarded**, because the spatial
+loop carries back exactly two scalars. Same symptom, two different mechanisms, and only one is the
+clamp. **Reviewer check worth making: is my two-path claim right?** It is the load-bearing premise for
+"no season can move", and it is checkable at `spatial_engine.py:5813-5825`.
+
+## W-4. The digest did not move, and I declined to re-register it
+
+The commission stated the pre-registered digest `25c212eb…` **will** change and instructed me to
+re-register it. **It did not change.** All three digests are byte-identical before/after (BQ-3
+pre-registered; battery ARM PROD `9c4da4f7…`; battery ARM PROJ `94236eb0…`).
+
+I did not perform a re-registration to satisfy the expectation, because a note recording that a golden
+master was reset when it was not is worse than no note. Why it holds: the woken operators write only to
+the kernel scratch `hp`, which nothing reads for damage, for liveness, or for emission
+(`SpatialFightResult` has no heal field among its 47). **All five pre-registered predictions in math
+note §5 confirmed, none amended.**
+
+## W-5. The census (R-KC1-21) — and the ruling that most deserves challenge
+
+Full table: math note §3 (9 scratch-clamp members, 10 sync-omission members). Fixed as operand class:
+kernel lifesteal clamp, heal cap, HoT tick cap, freeze-shatter threshold+magnitude, execute threshold
+— **all five were the same operand**.
+
+**The ruling to challenge: I classified the HoT bridge — the commission's explicitly NAMED candidate
+for the sync-list class — as BUILD, and did not fix it.** My argument: `tick_effects` *returns* one
+scalar (DoT damage); healing is not in its return contract and the kernel is READ-ONLY at this seam
+(Phase 0, MIGRATION v1.64); the only zero-signature-change carrier is a delta-read of `heals_received`,
+which is **conflated** across lifesteal + `heal` + HoT, so a delta-read would carry lifesteal heals back
+too — building O-d's mechanism through the back door and **double-counting against the ratified O-d
+door**. A clean HoT-only carrier does exist (`bc_signals.hot_recovered`), which is precisely why this is
+a *design* call rather than a copy-list omission. **If the reviewer reads "missing field in a copy list"
+as covering this, that is a defensible reading and I should be BLOCKed on it.**
+
+Other findings, reported not built: F-1 spatial-vs-kernel `max_hp` divergence with gear; F-3 direct
+`heal`; F-4 kernel lifesteal heal (would stack with the door); F-5 thorns structurally inert; F-6
+offense-site events discarded; **F-7 HALTED** — the missing attacker-side offense re-sync looks like a
+one-line fix but is half of a decision whose other half is F-2/F-3/F-4; adding the in-sync alone makes
+operators compute a more truthful heal that is still discarded.
+
+**Two corpus facts with expiry dates, flagged as such rather than filed as guarantees:** `freeze` is
+emitted by NOTHING (0 / 4,772 class skills, 0 / 2,332 mob skill effects) and `execute_threshold_fraction`
+by nothing (0 / 5,021). **The day generation emits `freeze`, player-side shatter goes live at 20% of max
+HP per proc.** That is a new live consequence of this change and it should be recorded somewhere durable.
+
+## W-6. A claim of my own that was wrong, corrected rather than left standing
+
+`resolve_spatial_hit`'s docstring listed `buff_damage` and `shield` among the side effects "not carried
+back". **They work today** — the attacker scratch is the same persistent object every call, so shields
+are read by `absorb_with_shield` (`:1076/:1159`) and buffs by `get_buff_percent` (`:818`). The docstring
+now names the genuinely-dropped set (the attacker-side HEAL family) instead.
+
+## W-7. No-stack (R-KC1-17 interaction)
+
+R-KC1-17 ruled the fixture's leech a per-scenario DOOR VALUE, so the woken kernel operator must
+contribute zero. **NS-1** the compiled pilot kits carry no skill-borne `lifesteal` — evaluated against
+`compile_kit`, and **SKIPs rather than passing vacuously** if the corpus DB is absent; **NS-2** the
+door's emitted `healed` is exactly its own formula with a kernel-lifesteal skill also firing;
+**NS-3** the spatial HP gain equals the door's `healed` exactly. Today the kernel's contribution is zero
+because its heal never leaves the scratch — a coincidence of two open defects, which is why NS-3 is
+written to survive fixing F-4.
+
+## W-8. Evidence
+
+- **Battery** (before/after, both arms): `agentic_orchestration/gamora/notes/2026-07-28-kc1-scratch-maxhp-wake-battery-{before,after}.json`; harness `simulation/scripts/gamora_kc1_scratch_maxhp_wake_battery_2026_07_28.py`.
+- **KF-4 kit-compiler smoke:** 36 GREEN / 0 RED / 1 known GAP, four pilot fights **numerically identical**, diffed against a same-tree `git stash` baseline rather than a remembered number.
+- **Door suites:** 76/76 (4 new: OD-6d2, NS-1, NS-2, NS-3; OD-6d + OD-10 rewritten in place).
+- **Regression:** 1,587 passed vs 1,585 on a same-tree `git stash` baseline; 34 failed / 21 errors on **both** sides; 55 failure NAMES **diff-empty**.
+- `tests/test_w3_emission_driver.py` deselected because it writes into star-lord's `src/reincarnated/output/`; verified by mtime that the file was **not** rewritten this session, and it is **not** in this commit.
+
+## W-9. Decisions-log — the O-9 entry proposed under O-d is now WRONG and must not be filed as written
+
+O-d's item O-9 proposed: *"Skill-sourced `lifesteal` is dormant in the spatial regime, and O-d is not
+precedent for waking it."* **R-KC1-20 woke it, by Matt ruling, the same day.** The replacement entry:
+
+> **The spatial projection player has a real HP pool in kernel eyes (R-KC1-20).** Four kernel clamps
+> (lifesteal, heal cap, HoT tick cap, execute/freeze-shatter HP fraction) were evaluated against a
+> scratch `max_hp` of 1.0 since the spatial re-point shipped — they computed defined answers to the
+> wrong question. Repaired on Matt's ruling that no sim is validated yet, so the engine-state the G-5
+> verdict attaches to must be the one we keep. Skill-borne kernel lifesteal is now AWAKE and still does
+> not reach spatial HP (carry-back is unbuilt, deliberately, per census finding F-4).
+
+## W-10. Seed hygiene (Discipline #3)
+
+Battery band `74_000_500–74_000_599`. `730_010_001` remains a frozen pre-change baseline.
+**Next-free: `74_000_700+`.**
+
+## W-11. References
+
+- Math note: `reincarnated-engine/src/reincarnated/simulation/math/scratch-maxhp-wake-2026-07-28.md`
+- Superseded-in-place: `.../math/od-leech-carryback-2026-07-28.md` (banner + struck LOUD-FLAGs)
+- Implementation: `spatial_gauntlet/spatial_resolver_adapter.py`, `spatial_gauntlet/spatial_engine.py`
+- Tests: `reincarnated-engine/tests/test_od_leech_carryback.py`
+- MIGRATION: `.../simulation/MIGRATION.md` (2026-07-28 R-KC1-20/21 entry — **star-lord: NO ACTION**)
+- Findings note: `agentic_orchestration/gamora/notes/2026-07-28-kitcal1-scratch-maxhp-wake.md`
+- Completion record: `reincarnated-engine/src/reincarnated/simulation/AGENT_STATE.md` SESSION 79

@@ -1,0 +1,82 @@
+{
+  "label": "before",
+  "seed": 74000500,
+  "n_fights": 6,
+  "arms": {
+    "PROD": {
+      "arm": "PROD",
+      "digest": "9c4da4f780743edc6a9c7b0be4ced24a8818963a97fba1f798440168c8a56097",
+      "spatial_max_hp": 15130.0,
+      "scratch_hp": 15130.0,
+      "scratch_max_hp": 15130.0,
+      "counts": {
+        "mob.lifesteal.FIRED": 239,
+        "mob.lifesteal.branch": 1466,
+        "mob.scratch_heal.NONZERO": 239,
+        "player.heal.branch": 134,
+        "player.hot.HEALED_SCRATCH": 75,
+        "player.hot.applied": 134,
+        "player.lifesteal.FIRED": 55,
+        "player.lifesteal.branch": 64,
+        "player.scratch_heal.NONZERO": 170,
+        "player.shield.applied": 134
+      },
+      "observed": {
+        "mob.lifesteal.headroom_at_branch": 1069.48321,
+        "mob.scratch_heal.max": 15.506371,
+        "player.hot.heal_max": 888.0,
+        "player.lifesteal.headroom_at_branch": 15031.718614,
+        "player.scratch_heal.max": 243.76
+      },
+      "aggregate": {
+        "class_id": "kc1_wake_battery_class",
+        "dominant_geometry": "circle",
+        "max_flanking_count_max": 40,
+        "mean_elapsed_s": 21.1166666666667,
+        "mean_flanking_ticks": 139.0,
+        "mean_mobs_killed": 9.666666666666666,
+        "n_fights": 6,
+        "player_kills": 0,
+        "scenario_id": "open_arena",
+        "total_aoe_hits": 198,
+        "win_rate": 0.0,
+        "wins": 0
+      }
+    },
+    "PROJ": {
+      "arm": "PROJ",
+      "digest": "94236eb0b61f60072a64d0294ac9edece053817524012bed4231d5d85aa86cd3",
+      "spatial_max_hp": 15130.0,
+      "scratch_hp": 1.0,
+      "scratch_max_hp": 1.0,
+      "counts": {
+        "mob.lifesteal.FIRED": 192,
+        "mob.lifesteal.branch": 1010,
+        "mob.scratch_heal.NONZERO": 192,
+        "player.heal.branch": 60,
+        "player.hot.applied": 60,
+        "player.lifesteal.branch": 48,
+        "player.shield.applied": 60
+      },
+      "observed": {
+        "mob.lifesteal.headroom_at_branch": 615.198889,
+        "mob.scratch_heal.max": 17.686532,
+        "player.lifesteal.headroom_at_branch": 0.0
+      },
+      "aggregate": {
+        "class_id": "kc1_wake_battery_class",
+        "dominant_geometry": "point",
+        "max_flanking_count_max": 40,
+        "mean_elapsed_s": 14.699999999999974,
+        "mean_flanking_ticks": 93.16666666666667,
+        "mean_mobs_killed": 3.5,
+        "n_fights": 6,
+        "player_kills": 0,
+        "scenario_id": "open_arena",
+        "total_aoe_hits": 108,
+        "win_rate": 0.0,
+        "wins": 0
+      }
+    }
+  }
+}
