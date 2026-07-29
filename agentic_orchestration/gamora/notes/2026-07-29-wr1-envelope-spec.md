@@ -6,6 +6,10 @@
 
 ---
 
+> **✓ CONDUCTOR RULING — R-WR1-20 (charter §8.23–§8.24, 2026-07-29). The §9 routing is RESOLVED; build to this, not to §8's recommended column where they differ.**
+> **Combat rooms depict the sim's own arena 1:1 — 36 × 36 m clear interior, ALL FOUR combat tiers** (trash and champion included: trash is wall-pinned 52% of ticks — the wall is load-bearing there too; champion at 36×36 is faithful-by-construction). Per-tier variety lives in dressing/theme/silhouette, never in the interior dimension. Corridors remain free non-combat tissue.
+> Supplements: **5.617 retired** from consumer-facing use (1.600 m = modal engagement, sim; 1.26 m = GAL-3 fixture death-2, GD) · nova reach = **telegraph 12.0** · Leg-2 trace playback runs **combatant-vs-combatant collision OFF** (the 0.40 m interpenetration is declared sim behaviour, depicted honestly) · the **1.92 m east nova clip is reproduced by construction**, deliberately. — gandalf (RUN-CONDUCTOR)
+
 ## ⚑ HALT — read this before reading the table
 
 The brief's framing states: *"the sim is open-field, traces have no walls; a tighter room depicts collisions the sim never resolved."*
