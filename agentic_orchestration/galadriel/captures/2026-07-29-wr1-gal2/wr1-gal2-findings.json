@@ -1,0 +1,153 @@
+{
+  "run": "WR1-GAL-2",
+  "date": "2026-07-29",
+  "agent": "galadriel",
+  "video": "/Users/admin/gd-scratch/play_test_2026-07-26.mp4",
+  "video_facts": {"w": 1920, "h": 1080, "fps": 60, "cfr": true,
+                  "n_frames": 408991, "duration_s": 6816.5167},
+
+  "instruments": {
+    "player_screen_locus": {
+      "value_px": [974, 483],
+      "method": "wr2_camera.py --locus: register consecutive frames by phase correlation on a Hann-windowed DC-removed terrain crop (x60 y90 w1216 h768); accumulate the post-registration residual, which is large exactly where content is stationary in SCREEN space; take the smoothed peak inside the play area",
+      "reproducibility": "identical (974,483) in two independent 30 s windows 1000 s apart and in different zones: pts 5290-5320 (peak 72.6 vs mean 6.67) and pts 6300-6330 (peak 74.0 vs mean 7.07)",
+      "note": "this is the player sprite's visual-mass centre, not its ground point; the ground point is ~100 px lower (y~583), read off the release frame"
+    },
+    "caster_screen_position": {
+      "method": "wr2_caster_pos.py: the monster's over-head '(cur/max)' readout is a rigid marker for that monster's screen position; detected by bright-achromatic band, h 8-16, w 45-260, >=6 ink groups, paren at each end",
+      "primordian_fingerprint": {"w_px": 146, "ink_groups": 15, "string": "(13,917/14,812)"}
+    },
+    "nova_signature": {
+      "windup": "compact cyan bloom on the caster; cold mask B>150, B-R>60, B>=G-12; rms radius stays <110 px while count climbs",
+      "release": "16 white-headed frost lances launched radially; cold rms radius climbs ~linearly while count falls",
+      "script": "wr2_nova_scan2.py"
+    },
+    "fct": {
+      "script": "wr2_fct.py / wr2_fct_crops.py",
+      "rule": "min(RGB)>140 and chroma<45, horizontal close DIL=4, 7<=h<=26, 8<=w<=90, reject y-bands carrying >115 px of ink (kills the monster HP readout), track across frames, keep n>=4"
+    }
+  },
+
+  "cast_A": {
+    "identity": "Primordian, the Forgotten One (Beastkin) frigidring nova, R2 regime",
+    "windup_start_f": 309042, "windup_start_s": 5150.700,
+    "release_f": 309085, "release_s": 5151.4167,
+    "windup_frames": 43, "windup_s": 0.7167,
+    "cold_peak_px": 28909, "cold_peak_f": 309062,
+    "ring_channel_peak_f": 309096,
+    "player_hp_before": 543, "player_hp_after": 0,
+    "single_frame_loss_min": 543,
+    "caster_readout_px": [1031.5, 371.0],
+    "player_locus_px": [974, 483],
+    "dx_px": 57.5,
+    "dx_screen_height_frac": 0.0532,
+    "fan_origin_px_eye": [1004, 574],
+    "fan_origin_uncertainty_px": 20,
+    "visible_lances_f309096": 8,
+    "visible_lances_f309102": 6
+  },
+
+  "q1_floaters_per_nova": {
+    "verdict": "CANNOT-ANSWER as posed",
+    "reason": "this build renders NO floating combat text for damage TAKEN by the player; FCT is damage DEALT only",
+    "calibration_1": {"f": 107396, "hp_before": 401, "hp_after": 295, "drop": 106,
+                      "floaters_in_window_f107370_107450": ["364 @f107380"],
+                      "no_floater_matching_drop": true},
+    "calibration_2": {"f": 330246, "hp_before": 431, "hp_after": 127, "drop": 304,
+                      "floaters_near": ["768 @~f330244", "397 @~f330262"],
+                      "no_floater_matching_drop": true},
+    "cast_A_floaters": {"window_f": [309000, 309180],
+                        "instances_detected": 20, "true_numbers_after_eye_pass": 3,
+                        "values": [{"v": 681, "f": 309000}, {"v": 309, "f": 309017}, {"v": 515, "f": 309089}],
+                        "note": "none matches either the player HP drop (127 @f309060, >=543 @f309085) or the boss HP readout deltas (38-77 per step); they are hits the player dealt to other targets"},
+    "substitute_evidence_for_multi_hit": {
+      "hp_step": ">=543 lost in ONE frame (f309084 -> f309085)",
+      "corpus_per_projectile_pre_mitigation": 395,
+      "inference": ">=2 projectiles landed, unless the single hit critted",
+      "geometry": "the player's ground point lay ~30 px from the nova launch origin, i.e. INSIDE the launch ring; at that radius adjacent projectile paths are ~12 px apart, far narrower than one lance, so multiple projectile paths necessarily crossed the player's footprint"
+    }
+  },
+
+  "q2_knockback": {
+    "verdict": "ZERO measurable displacement at every measured impact",
+    "unit": "native px of camera pan per frame (camera is player-locked, so pan == player world displacement)",
+    "events": [
+      {"id": "castA", "impact_f": 309085, "loss": ">=543",
+       "baseline_pan_p50": 0.0, "baseline_pan_p95": 1.0,
+       "impact_window_max_pan": 0.0, "median_reg_peak": 0.777,
+       "note": "player stationary for >=18 frames before and >=10 after; pan is exactly 0 px through the impact"},
+      {"id": "h1", "impact_f": 313857, "loss": 149,
+       "baseline_pan_p50": 7.2, "baseline_pan_p95": 19.3,
+       "impact_window_max_pan": 8.5, "median_reg_peak": 0.297,
+       "note": "player running; smooth heading change, no impulse"},
+      {"id": "h2", "impact_f": 314104, "loss": 186,
+       "baseline_pan_p50": 7.1, "baseline_pan_p95": 9.2,
+       "impact_window_max_pan": 10.0, "median_reg_peak": 0.387},
+      {"id": "h3", "impact_f": 314851, "loss": 184,
+       "baseline_pan_p50": 6.4, "baseline_pan_p95": 9.2,
+       "impact_window_max_pan": 7.8, "median_reg_peak": 0.295},
+      {"id": "h4", "impact_f": 315174, "loss": 201,
+       "baseline_pan_p50": 4.5, "baseline_pan_p95": 25.6,
+       "impact_window_max_pan": 0.0, "median_reg_peak": 0.451,
+       "note": "player stationary before and after; pan exactly 0 px"}
+    ],
+    "detection_floor": "1 px of camera pan in a single frame; at castA and h4 the reading is exactly 0 for >=10 frames each side, so any knockback is < 1 px = < 0.001 screen heights",
+    "player_run_speed_measured": "6.4-8.5 px/frame = 384-510 px/s at 60 fps"
+  },
+
+  "q3_distance_from_caster": {
+    "metric_conversion": "CANNOT-ANSWER -- no pixel-anchorable scale reference exists in this footage; no in-frame object of known world size, no scale bar, and the minimap carries no legend",
+    "reported_units": ["native px", "fraction of screen height (1080 px)"],
+    "cast_A": {
+      "caster_readout_x": 1031.5, "player_locus_x": 974.0,
+      "dx_px": 57.5, "dx_screen_height_frac": 0.0532,
+      "player_to_fan_origin_px": "~30 (eye, +/-20)",
+      "regime": "MELEE CONTACT -- the two sprites visibly overlap in evidence/strip-death2-f309020-309124.jpg; separation is ~1/3 of the werewolf sprite's own width"
+    },
+    "phase2_separation_distribution": {
+      "window": "f313700-f315900 sampled every 10 frames, Primordian readout only (groups>=14, w>=130)",
+      "n": 63, "abs_dx_px": {"min": 11.0, "p25": 49.8, "p50": 95.5, "p75": 104.0, "max": 283.0},
+      "note": "the whole observed engagement range for this boss is 11-283 px; cast A at 57.5 px sits in the lower quartile"
+    }
+  },
+
+  "q4_composition_audit": {
+    "gear_step_is_not_a_step": {
+      "finding": "max HP does NOT make a single jump 759 -> 1607; it walks through a ~470 s gear-tinkering window with reversals",
+      "series": [
+        {"pts": 5520, "max_hp": 759}, {"pts": 5540, "max_hp": 759}, {"pts": 5560, "max_hp": 759},
+        {"pts": 5575, "max_hp": 1017}, {"pts": 5600, "max_hp": 1099}, {"pts": 5700, "max_hp": 1241},
+        {"pts": 5820, "max_hp": 1600}, {"pts": 5850, "max_hp": 1341}, {"pts": 5870, "max_hp": 1341},
+        {"pts": 5900, "max_hp": 1341}, {"pts": 5950, "max_hp": 1341}, {"pts": 5990, "max_hp": 1341},
+        {"pts": 6010, "max_hp": 1341}, {"pts": 6030, "max_hp": 1600}, {"pts": 6040, "max_hp": 1600},
+        {"pts": 6050, "max_hp": 1600}, {"pts": 6120, "max_hp": 1600}, {"pts": 6190, "max_hp": 1600},
+        {"pts": 6250, "max_hp": 1600}, {"pts": 6400, "max_hp": 1600}, {"pts": 6600, "max_hp": 1600}
+      ],
+      "R2_end": 5560, "transition": [5560, 6030], "R3_start": 6030,
+      "R3_stable_max_hp": 1600
+    },
+    "R3_encounter_census": {
+      "nameplates_eye_read": ["Training Dummy (3)", "Deepmire Shaman (11)", "Deepmire Warrior (10)",
+                              "Groble ~ Snake Clan Warrior (11)", "Groble ~ Snake Clan Witchdoctor (12)",
+                              "Dreadweave Arachnid (11)", "Devouring Swarm (11)", "Tainted Hound (12)",
+                              "Walking Dead (12)", "Aether Crystal Cluster (13)", "Cave Entrance"],
+      "titled_bosses": 0,
+      "tier_subtitle_lines": 0,
+      "machine_test": {
+        "R2_control_5100_5520": {"readouts": 106, "max_w_px": 146, "instances_with_15_ink_groups": 39,
+                                 "interpretation": "5-digit/5-digit health present == the Primordian"},
+        "R3_6030_6610": {"readouts": 47, "max_w_px": 88, "max_ink_groups": 12,
+                         "instances_with_15_ink_groups": 0,
+                         "interpretation": "no monster in R3 carries 5-digit health"}
+      },
+      "R3_engagement_shape": "16 engagements, 1-29 kills each (median 12), from agentic_orchestration/galadriel/captures/2026-07-26-gd-playtest-v1-tb/tb-rollup-engagements.csv -- pack signature, not boss signature"
+    },
+    "verdict": "R3 contains NO boss-grade encounter. The 2.12-vs-1.22 worst-fall/EHP gap is at minimum PARTLY a composition confound: the only boss in the fixture is fought exclusively in R2."
+  },
+
+  "discrepancy_with_prior_lap": {
+    "claim": "prior lap (2026-07-29-wr1-windup) reported TWO frame-identical frigidring casts",
+    "this_lap": "the windup+release signature is frame-resolvable exactly ONCE in the windows scanned (pts 5125-5170 and 5222-5282): f309042 -> f309085. The prior lap's 'event B' at pts 5237.5-5238.6 shows dispersed cold (rms 300-380 px = projectiles already in flight) and no 43-frame compact bloom on the caster, and the red torus there is an item-drop beacon ('Searing Tarnished Arbalest of the Void'), not a nova ring.",
+    "action": "windup duration 0.717 s (43 frames) is confirmed to within 1-2 frames of the prior 0.750 s / 45 frames; the cast COUNT needs reconciling before it is used"
+  }
+}
