@@ -1,0 +1,93 @@
+### (a) timeBetweenAttacks by skill Class (all archives)
+  Skill_AttackPathCharge           n=  29 values=[100]
+      e.g. [GDX2.arz] records/skills/base_template skills/skill_attackpathcharge.dbr
+  SkillSecondary_Tether            n=  13 values=[300, 330, 500, 600, 800]
+      e.g. [GDX1.arz] records/skills/base_template skills/skill_skillsecondary_tether.dbr
+  Skill_AttackSpellBeam            n=   6 values=[300, 50]
+      e.g. [database.arz] records/skills/itemskills/relics/relic_conflagration.dbr
+  Skill_AttackSpellCone            n=   3 values=[300]
+      e.g. [GDX1.arz] records/skills/base_template skills/skill_attackspellcone.dbr
+  Skill_AttackRadiusSpin           n=   3 values=[200]
+      e.g. [GDX2.arz] records/skills/base_template skills/skill_attackradiusspin.dbr
+  Skill_AttackSpellDrain           n=   2 values=[300]
+      e.g. [GDX1.arz] records/skills/base_template skills/skill_attackspelldrain.dbr
+  Skill_AttackRadiusGrow           n=   2 values=[200]
+      e.g. [GDX3.arz] records/skills/base_template skills/skill_attackradiusgrow.dbr
+
+### (b) characterBaseAttackSpeedTag census on weapons
+  WeaponArmor_Offhand        CharacterAttackSpeedAverage        n=  625  e.g. records/items/gearweapons/focus/b018d_focus.dbr
+  WeaponArmor_Shield         CharacterAttackSpeedAverage        n=  467  e.g. records/items/gearweapons/shields/a00_shield01.dbr
+  WeaponHunting_Ranged1h     tagAttackSpeedAverage              n=  213  e.g. records/items/gearweapons/guns1h/d004_gun1h.dbr
+  WeaponHunting_Ranged1h     tagAttackSpeedFast                 n=   80  e.g. records/items/gearweapons/guns1h/c011_gun1h.dbr
+  WeaponHunting_Ranged1h     tagAttackSpeedSlow                 n=    5  e.g. records/items/gearweapons/guns1h/a06_gun1h001.dbr
+  WeaponHunting_Ranged2h     tagAttackSpeedAverage              n=    1  e.g. records/items/gearweapons/guns2h/c110_gun2h.dbr
+  WeaponHunting_Ranged2h     tagAttackSpeedSlow                 n=   64  e.g. records/items/gearweapons/guns2h/c041_gun2h.dbr
+  WeaponHunting_Ranged2h     tagAttackSpeedVerySlow             n=  320  e.g. records/items/gearweapons/guns2h/b008c_gun2h.dbr
+  WeaponMagical_Staff        tagAttackSpeedVeryFast             n=    1  e.g. records/sandbox/jakub/test_spear.dbr
+  WeaponMelee_Axe            CharacterAttackSpeedAverage        n=    2  e.g. records/items/transmutes/loyalistpack03set01/dlc_mogdrogen_axe.dbr
+  WeaponMelee_Axe            tagAttackSpeedAverage              n=   49  e.g. records/items/gearweapons/axe1h/c021_axe.dbr
+  WeaponMelee_Axe            tagAttackSpeedFast                 n=  223  e.g. records/items/faction/weapons/axe1h/f003c_axe.dbr
+  WeaponMelee_Axe            tagAttackSpeedVeryFast             n=   83  e.g. records/items/gearweapons/axe1h/a02_axe002.dbr
+  WeaponMelee_Axe2h          tagAttackSpeedAverage              n=    8  e.g. records/items/gearweapons/melee2h/b006b_axe2h.dbr
+  WeaponMelee_Axe2h          tagAttackSpeedSlow                 n=   18  e.g. records/items/gearweapons/melee2h/c010_axe2h.dbr
+  WeaponMelee_Axe2h          tagAttackSpeedVerySlow             n=  107  e.g. records/items/gearweapons/melee2h/b012a_axe2h.dbr
+  WeaponMelee_Dagger         tagAttackSpeedAverage              n=    1  e.g. records/items/enemygear/gear_bloodskeleton_dagger.dbr
+  WeaponMelee_Dagger         tagAttackSpeedFast                 n=    9  e.g. records/items/gearweapons/swords1h/b001d_sword.dbr
+  WeaponMelee_Dagger         tagAttackSpeedVeryFast             n=  375  e.g. records/items/gearweapons/caster/c005_dagger.dbr
+  WeaponMelee_Mace           tagAttackSpeedAverage              n=  110  e.g. records/items/gearweapons/blunt1h/d003_blunt.dbr
+  WeaponMelee_Mace           tagAttackSpeedFast                 n=  159  e.g. records/items/faction/weapons/blunt1h/f002b_blunt.dbr
+  WeaponMelee_Mace           tagAttackSpeedModerate             n=    1  e.g. records/items/enemygear/m07_groblestaff001.dbr
+  WeaponMelee_Mace           tagAttackSpeedSlow                 n=   54  e.g. records/items/gearweapons/blunt1h/c019_blunt.dbr
+  WeaponMelee_Mace           tagAttackSpeedVeryFast             n=    5  e.g. records/items/gearweapons/blunt1h/c012_blunt.dbr
+  WeaponMelee_Mace           tagAttackSpeedVerySlow             n=    4  e.g. records/items/gearweapons/blunt1h/a04_blunt003.dbr
+  WeaponMelee_Mace2h         tagAttackSpeedSlow                 n=   56  e.g. records/items/gearweapons/melee2h/b014c_blunt2h.dbr
+  WeaponMelee_Mace2h         tagAttackSpeedVeryFast             n=    1  e.g. records/items/enemygear/gear_medeahammer.dbr
+  WeaponMelee_Mace2h         tagAttackSpeedVerySlow             n=  112  e.g. records/items/gearweapons/melee2h/d013_blunt2h.dbr
+  WeaponMelee_Scepter        tagAttackSpeedAverage              n=  307  e.g. records/items/faction/weapons/caster/f005a_scepter.dbr
+  WeaponMelee_Scepter        tagAttackSpeedFast                 n=   16  e.g. records/items/gearweapons/blunt1h/d002_blunt.dbr
+  WeaponMelee_Scepter        tagAttackSpeedSlow                 n=    5  e.g. records/items/gearweapons/blunt1h/b005_blunt.dbr
+  WeaponMelee_Scepter        tagAttackSpeedVeryFast             n=    4  e.g. records/items/gearweapons/caster/d314_scepter.dbr
+  WeaponMelee_Spear2h        CharacterAttackSpeedAverage        n=    2  e.g. records/items/transmutes/dragongeneral/dlc_dragongeneral_spear.dbr
+  WeaponMelee_Spear2h        tagAttackSpeedSlow                 n=   70  e.g. records/items/gearweapons/melee2h/b311c_axe2h.dbr
+  WeaponMelee_Spear2h        tagAttackSpeedVeryFast             n=    3  e.g. records/items/enemygear/gear_beavertundraspear.dbr
+  WeaponMelee_Spear2h        tagAttackSpeedVerySlow             n=   42  e.g. records/items/gearweapons/melee2h/b208e_axe2h.dbr
+  WeaponMelee_Sword          CharacterAttackSpeedAverage        n=    2  e.g. records/items/transmutes/knight/dlc_blackknight_sword.dbr
+  WeaponMelee_Sword          tagAttackSpeedFast                 n=   51  e.g. records/items/gearweapons/swords1h/b008c_sword.dbr
+  WeaponMelee_Sword          tagAttackSpeedModerate             n=    1  e.g. records/sandbox/arthur/a07_sword010.dbr
+  WeaponMelee_Sword          tagAttackSpeedVeryFast             n=  286  e.g. records/items/gearweapons/swords1h/b000_sword.dbr
+  WeaponMelee_Sword2h        tagAttackSpeedAverage              n=   11  e.g. records/items/faction/weapons/melee2h/f001b_sword2h.dbr
+  WeaponMelee_Sword2h        tagAttackSpeedSlow                 n=   73  e.g. records/items/gearweapons/melee2h/b016b_blunt2h.dbr
+  WeaponMelee_Sword2h        tagAttackSpeedVerySlow             n=   84  e.g. records/items/gearweapons/melee2h/b013a_sword2h.dbr
+
+### (c) defensiveAbsorption carriers (non-zero), sample of 25
+  [database.arz] records/sandbox/passive_target.dbr                                         defensiveAbsorption=100.0
+
+### (d) player pak (balancingadjustment_mp+difficulty_players01)
+  [database.arz] records/game/balancingadjustment_mp+difficulty_players01.dbr
+    Class                                        'AttributePak'
+    characterBaseAttackSpeedTag                  'CharacterAttackSpeedAverage'
+    defensiveAether                              [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0]
+    defensiveBleeding                            [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0]
+    defensiveChaos                               [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0]
+    defensiveCold                                [0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0, -50.0, -50.0, -50.0, -50.0]
+    defensiveFire                                [0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0, -50.0, -50.0, -50.0, -50.0]
+    defensiveLife                                [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0]
+    defensiveLightning                           [0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0, -50.0, -50.0, -50.0, -50.0]
+    defensivePierce                              [0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0, -50.0, -50.0, -50.0, -50.0]
+    defensivePoison                              [0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0, -50.0, -50.0, -50.0, -50.0]
+    defensiveSlowLifeLeach                       [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -25.0, -25.0, -25.0, -25.0]
+    templateName                                 'database/templates/attributepak.tpl'
+
+### (e) sample player armour: defensiveProtection + slot
+  [database.arz] records/items/gearhead/c001_head.dbr class=ArmorProtective_Head itemSkillLevel? 
+    Class                                    'ArmorProtective_Head'
+    defensiveAbsorption                      0.0
+    defensiveAbsorptionChance                0.0
+    defensiveAbsorptionModifier              0.0
+    defensiveAbsorptionModifierChance        0.0
+    defensiveProtection                      61.0
+    defensiveProtectionChance                0.0
+    defensiveProtectionModifier              0.0
+    defensiveProtectionModifierChance        0.0
+    itemClassification                       'Epic'
+    levelRequirement                         14

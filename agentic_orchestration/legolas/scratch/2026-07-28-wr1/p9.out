@@ -1,0 +1,366 @@
+### (a) player record attack-speed / cadence fields
+  --- records/creatures/pc/malepc01.dbr [database.arz]
+    characterAttackSpeed                     1.25
+    characterAttackSpeedModifier             0.0
+    characterBaseAttackSpeedTag              'CharacterAttackSpeedAverage'
+    dHandedAttackIdleAnimSpeed               1.0
+    dHandedChannelAnimSpeed                  1.0
+    dHandedChannelEndAnimSpeed               1.0
+    dHandedChannelStartAnimSpeed             1.0
+    dHandedChatAnimSpeed                     1.0
+    dHandedCriticalHitAnimSpeed              1.0
+    dHandedGetUpFaceDownAnimSpeed            1.0
+    dHandedGetUpFaceUpAnimSpeed              1.0
+    dHandedIdleTranAnimSpeed                 1.0
+    dHandedKickAnimSpeed                     1.0
+    dHandedLongIdleAnimSpeed                 1.0
+    dHandedPassItemAnimSpeed                 1.0
+    dHandedPickupAnimSpeed                   1.0
+    dHandedRespawnAnimSpeed                  1.0
+    dHandedRunAnimSpeed                      1.0
+    dHandedSpawnAnimSpeed                    1.0
+    dHandedSpellAttackAnimSpeed              1.0
+    dHandedStunAnimSpeed                     1.0
+    dHandedTakeHitAnimSpeed                  1.0
+    dHandedWalkAnimSpeed                     1.0
+    dualRangedAttTurnRight90AnimSpeed        1.0
+    dualRangedAttackIdleAnimSpeed            1.0
+    dualRangedChatAnimSpeed                  1.0
+    dualRangedCriticalHitAnimSpeed           1.0
+    dualRangedIdleTranAnimSpeed              1.0
+    dualRangedKickAnimSpeed                  1.0
+    dualRangedLongIdleAnimSpeed              1.0
+    dualRangedPassItemAnimSpeed              1.0
+    dualRangedPickupAnimSpeed                1.0
+    dualRangedRespawnAnimSpeed               1.0
+    dualRangedRunAnimSpeed                   1.0
+    dualRangedSpawnAnimSpeed                 1.0
+    dualRangedSpellAttackAnimSpeed           1.0
+    dualRangedStunAnimSpeed                  1.0
+    dualRangedWalkAnimSpeed                  1.0
+    fallAnimSpeed                            1.0
+    idleTransitionAnimSpeed                  1.0
+    ranged1hAttTurnRight90AnimSpeed          1.0
+    ranged1hAttackIdleAnimSpeed              1.0
+    ranged1hChannelAnimSpeed                 1.0
+    ranged1hChannelEndAnimSpeed              1.0
+    ranged1hChannelStartAnimSpeed            1.0
+    ranged1hChatAnimSpeed                    1.0
+    ranged1hCriticalHitAnimSpeed             1.0
+    ranged1hGetUpFaceDownAnimSpeed           1.0
+    ranged1hGetUpFaceUpAnimSpeed             1.0
+    ranged1hIdleTranAnimSpeed                1.0
+    ranged1hKickAnimSpeed                    1.0
+    ranged1hLongIdleAnimSpeed                1.0
+    ranged1hPassItemAnimSpeed                1.0
+    ranged1hPickupAnimSpeed                  1.0
+    ranged1hRespawnAnimSpeed                 1.0
+    ranged1hRunAnimSpeed                     1.0
+    ranged1hSpawnAnimSpeed                   1.0
+    ranged1hSpellAttackAnimSpeed             1.0
+    ranged1hStunAnimSpeed                    1.0
+    ranged1hTakeHitAnimSpeed                 1.0
+    ranged1hWalkAnimSpeed                    1.0
+    ranged2hAttackIdleAnimSpeed              1.0
+    ranged2hChannelAnimSpeed                 1.0
+    ranged2hChannelEndAnimSpeed              1.0
+    ranged2hChannelStartAnimSpeed            1.0
+    ranged2hChatAnimSpeed                    1.0
+    ranged2hCriticalHitAnimSpeed             1.0
+    ranged2hGetUpFaceDownAnimSpeed           1.0
+    ranged2hGetUpFaceUpAnimSpeed             1.0
+    ranged2hIdleTranAnimSpeed                1.0
+    ranged2hKickAnimSpeed                    1.0
+    ranged2hLongIdleAnimSpeed                1.0
+    ranged2hPassItemAnimSpeed                1.0
+    ranged2hPickupAnimSpeed                  1.0
+    ranged2hRespawnAnimSpeed                 1.0
+    ranged2hRunAnimSpeed                     1.0
+    ranged2hSpawnAnimSpeed                   1.0
+    ranged2hSpellAttackAnimSpeed             1.0
+    ranged2hStunAnimSpeed                    1.0
+    ranged2hTakeHitAnimSpeed                 1.0
+    ranged2hWalkAnimSpeed                    1.0
+    riseAnimSpeed                            1.0
+    sHandedAttackIdleAnimSpeed               1.0
+    sHandedChannelAnimSpeed                  1.0
+    sHandedChannelEndAnimSpeed               1.0
+    sHandedChannelStartAnimSpeed             1.0
+    sHandedChatAnimSpeed                     1.0
+    sHandedCriticalHitAnimSpeed              1.0
+    sHandedGetUpFaceDownAnimSpeed            1.0
+    sHandedGetUpFaceUpAnimSpeed              1.0
+    sHandedIdleTranAnimSpeed                 1.0
+    sHandedKickAnimSpeed                     1.0
+    sHandedLongIdleAnimSpeed                 1.0
+    sHandedPassItemAnimSpeed                 1.0
+    sHandedPickupAnimSpeed                   1.0
+    sHandedRespawnAnimSpeed                  1.0
+    sHandedRunAnimSpeed                      1.0
+    sHandedSpawnAnimSpeed                    1.0
+    sHandedSpellAttackAnimSpeed              1.0
+    sHandedStunAnimSpeed                     1.0
+    sHandedTakeHitAnimSpeed                  1.0
+    sHandedWalkAnimSpeed                     1.0
+    spearAttackIdleAnimSpeed                 1.0
+    spearChatAnimSpeed                       1.0
+    spearCriticalHitAnimSpeed                1.0
+    spearIdleTranAnimSpeed                   1.0
+    spearKickAnimSpeed                       1.0
+    spearLongIdleAnimSpeed                   1.0
+    spearPassItemAnimSpeed                   1.0
+    spearPickupAnimSpeed                     1.0
+    spearRespawnAnimSpeed                    1.0
+    spearRunAnimSpeed                        1.0
+    spearSpawnAnimSpeed                      1.0
+    spearSpellAttackAnimSpeed                1.0
+    spearStunAnimSpeed                       1.0
+    spearWalkAnimSpeed                       1.0
+    staffAttackIdleAnimSpeed                 1.0
+    staffChatAnimSpeed                       1.0
+    staffCriticalHitAnimSpeed                1.0
+    staffIdleTranAnimSpeed                   1.0
+    staffKickAnimSpeed                       1.0
+    staffLongIdleAnimSpeed                   1.0
+    staffPassItemAnimSpeed                   1.0
+    staffPickupAnimSpeed                     1.0
+    staffRespawnAnimSpeed                    1.0
+    staffRunAnimSpeed                        1.0
+    staffSpawnAnimSpeed                      1.0
+    staffSpellAttackAnimSpeed                1.0
+    staffStunAnimSpeed                       1.0
+    staffWalkAnimSpeed                       1.0
+    unarmedAttTurnRight90AnimSpeed           1.0
+    unarmedAttackIdleAnimSpeed               1.0
+    unarmedChannelAnimSpeed                  1.0
+    unarmedChannelEndAnimSpeed               1.0
+    unarmedChannelStartAnimSpeed             1.0
+    unarmedChatAnimSpeed                     1.0
+    unarmedCriticalHitAnimSpeed              1.0
+    unarmedGetUpFaceDownAnimSpeed            1.0
+    unarmedGetUpFaceUpAnimSpeed              1.0
+    unarmedIdleTranAnimSpeed                 1.0
+    unarmedKickAnimSpeed                     1.0
+    unarmedLongIdleAnimSpeed                 1.0
+    unarmedPassItemAnimSpeed                 1.0
+    unarmedPickupAnimSpeed                   1.0
+    unarmedRespawnAnimSpeed                  1.0
+    unarmedRunAnimSpeed                      1.0
+    unarmedSpawnAnimSpeed                    1.0
+    unarmedSpellAttackAnimSpeed              1.0
+    unarmedStunAnimSpeed                     1.0
+    unarmedTakeHitAnimSpeed                  1.0
+    unarmedWalkAnimSpeed                     1.0
+  --- records/creatures/pc/femalepc01.dbr [database.arz]
+    characterAttackSpeed                     1.25
+    characterAttackSpeedModifier             0.0
+    characterBaseAttackSpeedTag              'CharacterAttackSpeedAverage'
+    dHandedAttackIdleAnimSpeed               1.0
+    dHandedChannelAnimSpeed                  1.0
+    dHandedChannelEndAnimSpeed               1.0
+    dHandedChannelStartAnimSpeed             1.0
+    dHandedChatAnimSpeed                     1.0
+    dHandedCriticalHitAnimSpeed              1.0
+    dHandedGetUpFaceDownAnimSpeed            1.0
+    dHandedGetUpFaceUpAnimSpeed              1.0
+    dHandedIdleTranAnimSpeed                 1.0
+    dHandedKickAnimSpeed                     1.0
+    dHandedLongIdleAnimSpeed                 1.0
+    dHandedPassItemAnimSpeed                 1.0
+    dHandedPickupAnimSpeed                   1.0
+    dHandedRespawnAnimSpeed                  1.0
+    dHandedRunAnimSpeed                      1.0
+    dHandedSpawnAnimSpeed                    1.0
+    dHandedSpellAttackAnimSpeed              1.0
+    dHandedStunAnimSpeed                     1.0
+    dHandedTakeHitAnimSpeed                  1.0
+    dHandedWalkAnimSpeed                     1.0
+    dualRangedAttTurnRight90AnimSpeed        1.0
+    dualRangedAttackIdleAnimSpeed            1.0
+    dualRangedChatAnimSpeed                  1.0
+    dualRangedCriticalHitAnimSpeed           1.0
+    dualRangedIdleTranAnimSpeed              1.0
+    dualRangedKickAnimSpeed                  1.0
+    dualRangedLongIdleAnimSpeed              1.0
+    dualRangedPassItemAnimSpeed              1.0
+    dualRangedPickupAnimSpeed                1.0
+    dualRangedRespawnAnimSpeed               1.0
+    dualRangedRunAnimSpeed                   1.0
+    dualRangedSpawnAnimSpeed                 1.0
+    dualRangedSpellAttackAnimSpeed           1.0
+    dualRangedStunAnimSpeed                  1.0
+    dualRangedWalkAnimSpeed                  1.0
+    fallAnimSpeed                            1.0
+    idleTransitionAnimSpeed                  1.0
+    ranged1hAttTurnRight90AnimSpeed          1.0
+    ranged1hAttackIdleAnimSpeed              1.0
+    ranged1hChannelAnimSpeed                 1.0
+    ranged1hChannelEndAnimSpeed              1.0
+    ranged1hChannelStartAnimSpeed            1.0
+    ranged1hChatAnimSpeed                    1.0
+    ranged1hCriticalHitAnimSpeed             1.0
+    ranged1hGetUpFaceDownAnimSpeed           1.0
+    ranged1hGetUpFaceUpAnimSpeed             1.0
+    ranged1hIdleTranAnimSpeed                1.0
+    ranged1hKickAnimSpeed                    1.0
+    ranged1hLongIdleAnimSpeed                1.0
+    ranged1hPassItemAnimSpeed                1.0
+    ranged1hPickupAnimSpeed                  1.0
+    ranged1hRespawnAnimSpeed                 1.0
+    ranged1hRunAnimSpeed                     1.0
+    ranged1hSpawnAnimSpeed                   1.0
+    ranged1hSpellAttackAnimSpeed             1.0
+    ranged1hStunAnimSpeed                    1.0
+    ranged1hTakeHitAnimSpeed                 1.0
+    ranged1hWalkAnimSpeed                    1.0
+    ranged2hAttackIdleAnimSpeed              1.0
+    ranged2hChannelAnimSpeed                 1.0
+    ranged2hChannelEndAnimSpeed              1.0
+    ranged2hChannelStartAnimSpeed            1.0
+    ranged2hChatAnimSpeed                    1.0
+    ranged2hCriticalHitAnimSpeed             1.0
+    ranged2hGetUpFaceDownAnimSpeed           1.0
+    ranged2hGetUpFaceUpAnimSpeed             1.0
+    ranged2hIdleTranAnimSpeed                1.0
+    ranged2hKickAnimSpeed                    1.0
+    ranged2hLongIdleAnimSpeed                1.0
+    ranged2hPassItemAnimSpeed                1.0
+    ranged2hPickupAnimSpeed                  1.0
+    ranged2hRespawnAnimSpeed                 1.0
+    ranged2hRunAnimSpeed                     1.0
+    ranged2hSpawnAnimSpeed                   1.0
+    ranged2hSpellAttackAnimSpeed             1.0
+    ranged2hStunAnimSpeed                    1.0
+    ranged2hTakeHitAnimSpeed                 1.0
+    ranged2hWalkAnimSpeed                    1.0
+    riseAnimSpeed                            1.0
+    sHandedAttackIdleAnimSpeed               1.0
+    sHandedChannelAnimSpeed                  1.0
+    sHandedChannelEndAnimSpeed               1.0
+    sHandedChannelStartAnimSpeed             1.0
+    sHandedChatAnimSpeed                     1.0
+    sHandedCriticalHitAnimSpeed              1.0
+    sHandedGetUpFaceDownAnimSpeed            1.0
+    sHandedGetUpFaceUpAnimSpeed              1.0
+    sHandedIdleTranAnimSpeed                 1.0
+    sHandedKickAnimSpeed                     1.0
+    sHandedLongIdleAnimSpeed                 1.0
+    sHandedPassItemAnimSpeed                 1.0
+    sHandedPickupAnimSpeed                   1.0
+    sHandedRespawnAnimSpeed                  1.0
+    sHandedRunAnimSpeed                      1.0
+    sHandedSpawnAnimSpeed                    1.0
+    sHandedSpellAttackAnimSpeed              1.0
+    sHandedStunAnimSpeed                     1.0
+    sHandedTakeHitAnimSpeed                  1.0
+    sHandedWalkAnimSpeed                     1.0
+    spearAttackIdleAnimSpeed                 1.0
+    spearChatAnimSpeed                       1.0
+    spearCriticalHitAnimSpeed                1.0
+    spearIdleTranAnimSpeed                   1.0
+    spearKickAnimSpeed                       1.0
+    spearLongIdleAnimSpeed                   1.0
+    spearPassItemAnimSpeed                   1.0
+    spearPickupAnimSpeed                     1.0
+    spearRespawnAnimSpeed                    1.0
+    spearRunAnimSpeed                        1.0
+    spearSpawnAnimSpeed                      1.0
+    spearSpellAttackAnimSpeed                1.0
+    spearStunAnimSpeed                       1.0
+    spearWalkAnimSpeed                       1.0
+    staffAttackIdleAnimSpeed                 1.0
+    staffChatAnimSpeed                       1.0
+    staffCriticalHitAnimSpeed                1.0
+    staffIdleTranAnimSpeed                   1.0
+    staffKickAnimSpeed                       1.0
+    staffLongIdleAnimSpeed                   1.0
+    staffPassItemAnimSpeed                   1.0
+    staffPickupAnimSpeed                     1.0
+    staffRespawnAnimSpeed                    1.0
+    staffRunAnimSpeed                        1.0
+    staffSpawnAnimSpeed                      1.0
+    staffSpellAttackAnimSpeed                1.0
+    staffStunAnimSpeed                       1.0
+    staffWalkAnimSpeed                       1.0
+    unarmedAttTurnRight90AnimSpeed           1.0
+    unarmedAttackIdleAnimSpeed               1.0
+    unarmedChannelAnimSpeed                  1.0
+    unarmedChannelEndAnimSpeed               1.0
+    unarmedChannelStartAnimSpeed             1.0
+    unarmedChatAnimSpeed                     1.0
+    unarmedCriticalHitAnimSpeed              1.0
+    unarmedGetUpFaceDownAnimSpeed            1.0
+    unarmedGetUpFaceUpAnimSpeed              1.0
+    unarmedIdleTranAnimSpeed                 1.0
+    unarmedKickAnimSpeed                     1.0
+    unarmedLongIdleAnimSpeed                 1.0
+    unarmedPassItemAnimSpeed                 1.0
+    unarmedPickupAnimSpeed                   1.0
+    unarmedRespawnAnimSpeed                  1.0
+    unarmedRunAnimSpeed                      1.0
+    unarmedSpawnAnimSpeed                    1.0
+    unarmedSpellAttackAnimSpeed              1.0
+    unarmedStunAnimSpeed                     1.0
+    unarmedTakeHitAnimSpeed                  1.0
+    unarmedWalkAnimSpeed                     1.0
+
+### (b) base_template skills: timeBetweenAttacks + related
+  [database.arz] records/skills/base_template skills/skill_attackspellbeam.dbr          timeBetweenAttacks=50 class=Skill_AttackSpellBeam
+
+### (b2) census of timeBetweenAttacks values on ALL skill records (database.arz)
+  Skill_AttackSpellBeam              tba=300              n=   3  e.g. records/skills/itemskills/relics/relic_conflagration.dbr
+  Skill_AttackSpellBeam              tba=50               n=   1  e.g. records/skills/base_template skills/skill_attackspellbeam.dbr
+
+### (c) controllers: swing-pause fields
+  minSwingPause=0.0        maxSwingPause=0.0        n=20
+  minSwingPause=0.30000001192092896 maxSwingPause=0.800000011920929 n=11
+  minSwingPause=0.5        maxSwingPause=1.0        n=10
+  minSwingPause=0.6499999761581421 maxSwingPause=1.2000000476837158 n=9
+  minSwingPause=0.20000000298023224 maxSwingPause=0.6000000238418579 n=8
+  minSwingPause=1.0        maxSwingPause=1.0        n=7
+  minSwingPause=1.0499999523162842 maxSwingPause=1.7000000476837158 n=6
+  minSwingPause=0.30000001192092896 maxSwingPause=0.5        n=5
+  minSwingPause=0.5        maxSwingPause=1.100000023841858 n=5
+  minSwingPause=0.30000001192092896 maxSwingPause=0.30000001192092896 n=4
+  minSwingPause=0.4000000059604645 maxSwingPause=0.8999999761581421 n=4
+  minSwingPause=0.4000000059604645 maxSwingPause=0.699999988079071 n=4
+  minSwingPause=1.0499999523162842 maxSwingPause=1.600000023841858 n=4
+  minSwingPause=0.5        maxSwingPause=0.800000011920929 n=3
+  minSwingPause=0.30000001192092896 maxSwingPause=0.699999988079071 n=3
+  minSwingPause=0.6499999761581421 maxSwingPause=1.2999999523162842 n=3
+  minSwingPause=0.0        maxSwingPause=0.25       n=3
+  minSwingPause=0.4000000059604645 maxSwingPause=1.0        n=3
+  minSwingPause=2.0        maxSwingPause=3.0        n=2
+  minSwingPause=0.5        maxSwingPause=0.5        n=2
+
+### (d) KC1 roster: characterAttackSpeed / controller / weaponScale
+  zombie_a01                           aspd=1.1799999475479126 aspdMod=0.0    wpnScale=None   swingPause=0.44999998807907104/1.0 ctrl=controller_zombiea01.dbr
+  zombie_b02h                          aspd=1.0499999523162842 aspdMod=0.0    wpnScale=None   swingPause=0.5/1.0 ctrl=controller_zombiea01h.dbr
+  zombie_g01                           aspd=1.0499999523162842 aspdMod=0.0    wpnScale=None   swingPause=0.8999999761581421/1.2000000476837158 ctrl=controller_zombieburninga01.dbr
+  zombie_soldiera01                    aspd=1.149999976158142 aspdMod=0.0    wpnScale=0.8999999761581421 swingPause=0.44999998807907104/1.0 ctrl=controller_zombiea01.dbr
+  zombiehound_a01                      aspd=1.25   aspdMod=0.0    wpnScale=None   swingPause=0.30000001192092896/0.800000011920929 ctrl=controller_raptor.dbr
+  gazer_a01                            aspd=1.2000000476837158 aspdMod=0.0    wpnScale=None   swingPause=1.149999976158142/1.7999999523162842 ctrl=controller_gazer.dbr
+  ghoul_a01                            aspd=1.0    aspdMod=0.0    wpnScale=1.5    swingPause=0.20000000298023224/0.5 ctrl=controller_ghoul01.dbr
+  boar_a01                             aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.10000000149011612/0.6000000238418579 ctrl=controller_wasp.dbr
+  boar_a02                             aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.10000000149011612/0.6000000238418579 ctrl=controller_wasp.dbr
+  scavenger_a01                        aspd=1.0    aspdMod=0.0    wpnScale=0.8500000238418579 swingPause=0.6000000238418579/1.0 ctrl=controller_scavengermelee01.dbr
+  rifthound_swamp_a01                  aspd=1.100000023841858 aspdMod=0.0    wpnScale=None   swingPause=0.30000001192092896/0.800000011920929 ctrl=controller_raptor.dbr
+  humanoutlaw_melee_a01                aspd=0.8500000238418579 aspdMod=0.0    wpnScale=None   swingPause=0.6499999761581421/1.2000000476837158 ctrl=controller_humanoutlaw_meleebasic.dbr
+  humanoutlaw_ranged_a01               aspd=0.8500000238418579 aspdMod=0.0    wpnScale=None   swingPause=1.0499999523162842/1.7000000476837158 ctrl=controller_humanoutlaw_rangedbasic.dbr
+  humanchthonic_cultist_a01            aspd=0.75   aspdMod=0.0    wpnScale=None   swingPause=0.3499999940395355/0.8999999761581421 ctrl=controller_humanchthonic_meleebasic.dbr
+  prawn_a01                            aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.30000001192092896/0.699999988079071 ctrl=controller_prawn_melee.dbr
+  spidergianta_a01                     aspd=1.149999976158142 aspdMod=0.0    wpnScale=None   swingPause=0.10000000149011612/0.5 ctrl=controller_spider.dbr
+  bonerat_meleea01                     aspd=1.100000023841858 aspdMod=0.0    wpnScale=None   swingPause=0.20000000298023224/0.6000000238418579 ctrl=controller_bonerat_melee.dbr
+  skeleton_a01                         aspd=1.2000000476837158 aspdMod=0.0    wpnScale=None   swingPause=0.44999998807907104/1.0 ctrl=controller_zombiea01.dbr
+  zombiemutated_a01                    aspd=1.2999999523162842 aspdMod=0.0    wpnScale=None   swingPause=0.5/1.100000023841858 ctrl=controller_zombiemutanta01.dbr
+  zombie_c01                           aspd=1.5    aspdMod=0.0    wpnScale=None   swingPause=0.44999998807907104/1.0 ctrl=controller_zombiea01.dbr
+  boar_b01                             aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.10000000149011612/0.6000000238418579 ctrl=controller_wasp.dbr
+  hero/boar_h01                        aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.30000001192092896/0.800000011920929 ctrl=controller_raptor.dbr
+  hero/zombie_h01                      aspd=1.399999976158142 aspdMod=0.0    wpnScale=None   swingPause=0.44999998807907104/1.0 ctrl=controller_zombiea01.dbr
+  hero/rifthound_h01                   aspd=1.2000000476837158 aspdMod=0.0    wpnScale=None   swingPause=0.30000001192092896/0.800000011920929 ctrl=controller_raptor.dbr
+  boss&quest/warden01                  aspd=1.0499999523162842 aspdMod=0.0    wpnScale=1.2999999523162842 swingPause=None/0.30000001192092896 ctrl=controller_boss_warden.dbr
+  boss&quest/warden02                  aspd=1.2000000476837158 aspdMod=0.0    wpnScale=1.2999999523162842 swingPause=None/0.30000001192092896 ctrl=controller_boss_warden.dbr
+  boss&quest/slith_wightmirecave01     aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.30000001192092896/0.4000000059604645 ctrl=controller_boss_viloth.dbr
+  slitha_melee_b01                     aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.6499999761581421/1.2000000476837158 ctrl=controller_slith_melee.dbr
+  slitha_shaman_c01                    aspd=0.75   aspdMod=0.0    wpnScale=None   swingPause=1.0499999523162842/1.600000023841858 ctrl=controller_slith_ranged.dbr
+  hero/slith_h01                       aspd=1.0    aspdMod=0.0    wpnScale=None   swingPause=0.6499999761581421/1.2000000476837158 ctrl=controller_slith_melee.dbr
