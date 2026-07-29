@@ -128,16 +128,35 @@ classifies as non-kernel-touching (no damage-path/ledger math); per §3 the MAND
 per-landing Gate-2 applies to kernel-touching landings; jack-ryan may audit this one at the
 next Gate-2 cycle alongside the M-builds.
 
+### §8.2 — Launch record + Matt's baton-gate amendment (banked by the parallel session; ADOPTED — see §8.3)
+
+- **R-WR1-6 (Matt, 2026-07-28, launch exchange):** F-3a AMENDED — the baton pass acquires a **Matt acceptance gate**: emitted JSON goes to Matt's review before Leg 2 consumes it (*"give the OK to actually accept the emitted JSON"*). Default: Leg 2 HOLDS at the baton until his OK; a provisional-render variant (drax renders read-only pre-OK, re-renders cheaply on rejection) was offered and awaits his pick at review. Terminal-verdict HALT (§5 iii) unchanged. **Supersedes §4's "artifact-only, no human gate."**
+- **LAUNCHED 2026-07-28 (Matt: continue-the-race + run confirmation).** Concurrent with the L7 race (LR charter) — disjoint seams: WR1 Leg 1 = gamora/star-lord/legolas; LR = drax. Cross-ledger note filed both charters.
+- **Leg 1 cell log:** WR1-LAP0-GAM (gamora, WARN-1 + strays) · WR1-EXT-LEG (legolas, corpus extraction) · WR1-LAP0-STAR (star-lord, HQ-2 opt-in) · M-1..M-9 specs queued behind extraction.
+- **WR1-LAP0-GAM ✓ CLOSED** (`b3ba35de`; engine already at `ae5b206`): WARN-1 fixed by ORDERING not policy (refusal predicate extracted, called pre-`drive`; refusal set byte-unchanged — explicitly not a Discipline-#12 shift), 3 tests, 108 passed at filing; 5 orphan traces `git rm`'d, report kept as lineage; leg3 md5 unmoved (live repro preserved); path correction for later cells: batteries live at `src/reincarnated/simulation/output/kitcal_g5*`, NOT repo-root `output/`. Reported-not-fixed: ~1,529 untracked historical battery paths (quarantine call, deferred post-baton), stray `54000` file, unclosed SQLite shm/wal. Surprise: star-lord's HQ-2 fix found ALREADY in-flight uncommitted in the tree (`w3_emission_driver.py` +60/−13 opt-in + test) — WR1-LAP0-STAR verifies + owns it rather than authoring fresh.
+
+### §8.3 — DUAL-CONDUCTOR RECONCILIATION (R-WR1-7) — read this before firing any WR1 cell
+
+Two gandalf sessions banked into this ledger concurrently (§8.1 = charter-authoring session; §8.2 = the LR-race session Matt engaged at launch). Both stacks are valid; the near-miss is real (two gamora cells on WARN-1; a queued star-lord duplicate against an in-flight star-lord). Reconciliation, ruled by the charter author (veto-open):
+
+- **R-WR1-7 (conductor, 2026-07-29):** **WR1 conduction resides with the charter-authoring session** (intent residency — desirable-run-pattern Element 3: *the charter's author conducts*). The LR session retains LR conduction. All §8.2 entries are **ADOPTED** into this ledger — R-WR1-6 is Matt's ruling and binds regardless of which surface banked it. **The charter is the mutex from here:** no session fires a WR1 cell without first pushing a CLAIMED row in this §8; a session finding a cell claimed verifies-not-duplicates (the WR1-LAP0-GAM pattern, which the LR session already executed correctly).
+- **Cell claims as of this entry (charter-authoring conductor):**
+  - **WR1-LAP0-STAR — IN FLIGHT** under this conductor since before §8.2 was banked. The uncommitted `w3_emission_driver.py` opt-in work in the engine tree IS this cell mid-write. LR session's queued duplicate: STAND DOWN — verify after its commit lands if desired.
+  - **WR1-EXT-LEG ✓ CLOSED** (`6de3e38d`, pushed) — this conductor's cell; banked at §8.4.
+  - **WR1-SPEC-M123 — CLAIMED, firing:** named gandalf sub-agent, M-1/M-2/M-3 specs from the extraction note.
+  - **WR1-SPEC-AMEND — CLAIMED, firing:** named gandalf sub-agent, the 3 owed kit-spec amendments (incl. S-1 A-floor predicate defect).
+  - **WR1-WINDUP-GAL — CLAIMED, firing:** galadriel, telegraph-windup frame measurement from the 2026-07-26 werewolf capture (see R-WR1-9).
+
+### §8.4 — WR1-EXT-LEG ✓ CLOSED: extraction lands (`6de3e38d`, pushed) + two conductor rulings
+
+**Note:** `agentic_orchestration/legolas/notes/2026-07-28-wr1-mechanism-extraction.md` (E-1/E-2/E-3, every value cited to record path, 8 gaps named, none improvised). Headlines:
+
+- **E-1 nova:** `primordian_frigidring` (`Skill_AttackProjectileRing`) @ rank 5: cold 247 + phys 148 **flat (Min-only)**, freeze 1.3–1.8 s + cold-slow 77/2.0 s **with no chance gate**; 16 projectiles 360°, explosion radius 1.5, velocity 14 m/s over 12 m; range bands **50% melee / 140% at 9–12 m** (the survival reflex inverts); gapless inside 7.64 m. Wiring: 80% chance, 6.0 s delay, 3.0 s timeout.
+- **E-2 mitigation:** **armor is physical-only** — `combatformulas.dbr` defines exactly two damage-defense equations, both `physical*`; no cold equation exists. The ~85%-cold nova is structurally immune to armor — **that IS G-A's "shape not scale" mechanism, sourced.** `armorDefensiveAbsorption=70.0` (dmg>armor → dmg−0.70·armor; else dmg·0.30); defense caps player 80 / monster 100; PTH ladder floor 55; `defensiveAbsorption` on gear is dead content (1 non-zero in 93,190).
+- **E-3 attack speed:** `timeBetweenAttacks` does NOT generalize (58 records, all channel-class). Monster cadence = `characterAttackSpeed` × controller `minSwingPause`/`maxSwingPause`; **Primordian 0.30/0.40 s — tightest in roster** (trash 0.45–1.20). Caps: player 200%/20%, monster 500%, boss 500%/50%.
+- **R-WR1-8 (conductor, veto-open) — M-2 nova attribution:** the corpus holds TWO Act-1 frigidring lineages — `primordian_frigidring` AND `igrixx_frigidring` (**"Igrixx, the Rimeheart"**, `hero/slith_h01`, same Wightmire pools, 15–40% champion chance: pure cold 171 @ r5, freeze 0.9 s fixed, radius 2.0). Death-2 is NOT uniquely attributable from the corpus. Ruling: M-2 models the `Skill_AttackProjectileRing` mechanism class; **primary calibration = `primordian_frigidring`** (the fixture's boss encounter); igrixx parameterization carried as the secondary set. The attribution ambiguity travels as a named caveat with G-B — G-B grades against the death-2 **band**, not the attacker's identity, so the gate is unaffected.
+- **R-WR1-9 (conductor, veto-open) — telegraph windup is a measured-input, not an authored value:** windup is NOT in the corpus pin (no `.anm` assets ship; `skill_attackprojectilering.tpl` declares zero timing fields). No value is improvised. Empirical criterion: **galadriel measures tell-onset → damage-application frame-by-frame from Matt's 2026-07-26 werewolf capture** (death-2 is the primary event; any other visible nova casts are corroboration). M-2 carries windup as a named measured-input slot; M-3's dodge window derives from the same measurement. Fallback if the capture can't resolve it: the 3.0 s `specialAttackTimeout` brackets it from above; spec ships with the measured-range + bracket, flagged.
+- **Remaining gaps (5, carried into specs as named unknowns):** `specialAttackTimeout` global-vs-per-slot; base attack interval in seconds; resistance-cap operator; TDM stacking (unchanged from KC1); monster absorption after −20% modifier.
+
 *Charter frozen 2026-07-28. Bank-per-landing continues in this document (§8+).
 — gandalf (`RUN-CONDUCTOR`)*
-
-## §8 — Bank-per-landing (live)
-
-- **R-WR1-6 (Matt, 2026-07-28, launch exchange):** F-3a AMENDED — the baton pass acquires a **Matt acceptance gate**: emitted JSON goes to Matt's review before Leg 2 consumes it (*"give the OK to actually accept the emitted JSON"*). Default: Leg 2 HOLDS at the baton until his OK; a provisional-render variant (drax renders read-only pre-OK, re-renders cheaply on rejection) was offered and awaits his pick at review. Terminal-verdict HALT (§5 iii) unchanged.
-- **LAUNCHED 2026-07-28 (Matt: continue-the-race + run confirmation).** Concurrent with the L7 race (LR charter) — disjoint seams: WR1 Leg 1 = gamora/star-lord/legolas; LR = drax. Cross-ledger note filed both charters.
-- **Leg 1 cell log:**
-  - WR1-LAP0-GAM (gamora): WARN-1 guard ordering + 5 stray quarantine traces — LAUNCHED.
-  - WR1-EXT-LEG (legolas): frigidring nova params · armor/mitigation formulas · attack-speed/animation data from the Edition-II corpus — LAUNCHED (read-only, no engine-tree contention).
-  - WR1-LAP0-STAR (star-lord): HQ-2 leg3 writer opt-in — QUEUED after gamora's engine-tree work (per HQ-2 routing; the dirty leg3 file is the live reproduction — preserved until star-lord diagnoses it).
-  - M-1..M-9 math-note-first specs: queued behind extraction returns.
-- **WR1-LAP0-GAM ✓ CLOSED** (`b3ba35de`; engine already at `ae5b206`): WARN-1 fixed by ORDERING not policy (refusal predicate extracted, called pre-`drive`; refusal set byte-unchanged — explicitly not a Discipline-#12 shift), 3 tests, 108 passed at filing; 5 orphan traces `git rm`'d, report kept as lineage; leg3 md5 unmoved (live repro preserved); path correction for later cells: batteries live at `src/reincarnated/simulation/output/kitcal_g5*`, NOT repo-root `output/`. Reported-not-fixed: ~1,529 untracked historical battery paths (quarantine call, deferred post-baton), stray `54000` file, unclosed SQLite shm/wal. Surprise: star-lord's HQ-2 fix found ALREADY in-flight uncommitted in the tree (`w3_emission_driver.py` +60/−13 opt-in + test) — WR1-LAP0-STAR verifies + owns it rather than authoring fresh.
