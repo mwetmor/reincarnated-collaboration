@@ -542,3 +542,156 @@ note. It is load-bearing for WARN-1's fix path.
 `jr_wr1c_after_names_jr.txt` · `jr_wr1_after_98d3891.txt` · `jr_bat_cmp.py` · `jr_p5_probe.py` ·
 `jr_ga_recompute.py` · `jr_167_probe.py` · smoke out-dirs `jr_d_step0` / `jr_d_plumb` / `jr_d_tip`.
 Worktrees `/tmp/jr_bat_step0`, `/tmp/jr_bat_plumb`, `/tmp/jr_bat_tip` removed at close.
+
+---
+---
+
+# ADDENDUM — INDEPENDENT SECOND PASS (jack-ryan, 2026-07-29, same date, later session)
+
+**Why this exists.** The WR1-G2-BATTERY cell was re-dispatched on the belief that it had been
+declared launched in charter §8.18 but never spawned. It had spawned; the finding above is its
+output, committed at `d9628884`. The second pass ran to completion before that was discovered, on
+instruments written independently of both the builder's and the first pass's. **Nothing above is
+retracted or amended.** This addendum records (i) that the four named checks now carry a second
+independent re-derivation, and (ii) four items the second pass surfaced that the first did not.
+
+**Verdict unchanged: BLOCK, on BLOCK-1.** The second pass did **not** re-run the full regression and
+therefore did **not** independently find the BQ-3 guard breach. BLOCK-1 stands on the first pass's
+evidence, and its remedy is unchanged. This is itself a data point for Discipline #2: the check that
+found the only blocking defect in this range is the one a targeted-suite pass structurally cannot
+reach.
+
+## A.1 — What reproduced on a second independent instrument
+
+Re-derived from the 450 banked `replica-frame/v1` traces with a nearest-rank p99 written from the
+math note's words, touching neither builder nor first-pass code:
+
+- **G-A, every cell.** boss `207.4000` post (n=2206) / `207.4000` point (n=1828) / `470.8000`
+  endpoint (n=1334); ratios `1.0000` / `2.2700`; `ratio_max 1.1350`; mixed_pack `1.0696`;
+  trash and champion `1.0000`. `k = ⌈0.99m⌉` = 2184 / 1810 / 1321. All to the digit.
+- **The H-B2-6 decomposition.** `235.40/207.40 = 1.1350048` × `470.80/235.40 = 2.000000`
+  = `2.270010`. Exact.
+- **The geometry claim, in a stronger form than either the note or §2(c) states it.** The
+  **per-fight** `(n_1-projectile, n_2-projectile)` crossing profile is **identical across all three
+  legs on all 60 boss fights** — not merely equal in total. 14 two-projectile crossings on the same
+  seven seeds (`…802, 805, 807, 809, 810, 818, 825`) × both arms, on `pre`, `post` and `endpoint`
+  alike. The mitigation regime moves the payload per projectile and nothing about multiplicity.
+- **A-DMG-1 liveness.** 25.6027 % / 10.6627 % reproduce; `pytest` on the three touched suites,
+  55 passed.
+- **M-8a from trace footers.** pre A 0/30 → B 14/30; endpoint A 0/30 → B **2/30**; post 30/30 both.
+  Boss win (pre) 14/60 = 0.2333. Worst hit 414.80.
+- **§2(b) re-confirmed by a different route.** The battery's own crossing time is `t* = 1.9512 s` on
+  every boss crossing in every fight, and the measured crossing radius sits in the `(2.50, 7.90]`
+  band that yields 207.40/projectile — so the `r* = 5.617 m` figure quoted from the 1.667× path is
+  **corroborated by the battery**, not contaminated by it.
+
+## A.2 — 🔶 WARN-4 (NEW) — the grader-facing "55 %" does not reproduce, and it sits in the G-A path
+
+`H_B2_6_FINDING.boss_decomposition.warning_to_the_grader` reads:
+
+> *"2.2700 clears R-WR1-7's ≥ 1.50 on its face and **55 %** of it is NOT the gear step."*
+
+The same figure appears in math note §723 and gamora note §652 — three sites. It does not derive
+under any natural reading:
+
+| reading | value |
+|---|---|
+| multiplicative share of the gear step (`1.1350 / 2.2700`) | **50.000 %** exactly |
+| log share of the rank step (`log 2.0 / log 2.27`) | 84.6 % |
+| share of the excess over 1 (`(1.27 − 0.135)/1.27`) | 89.4 % |
+
+Nothing yields 55 %. This is the string the conductor is directed to read at the exact moment of
+grading G-A, and the correct statement under the obvious reading is *"half of it is not the gear
+step"* — which is if anything a cleaner sentence. **WARN: correct to 50.00 % or define the
+denominator in place, at all three sites.** Discipline #1 — a number in the artifact of record
+either derives or does not appear. Close with WARN-1 and WARN-3, before baton emission.
+
+## A.3 — INFO-4 (NEW) — `headroom_pct` carries one word and two denominators across artifacts
+
+`A_DMG_1_preflight.headroom_pct` and `a_dmg_1_grain.pin_headroom_pct` carry the
+**inflation-tolerance** value (10.6627 % at the endpoint). Math note §9.2's table labels the same
+quantity's complement *"margin below 260.50"* = 9.64 %, and the new `gd_mitigation.py` comment uses
+the margin convention (*"9.64 % of headroom instead of 20.38 %"*). The math-note table names both
+columns and is unambiguous; **the artifact key is not**, and the artifact is what drax reads cold.
+Rename or annotate. Cheap; ride it with WARN-4.
+
+## A.4 — INFO-5 (NEW) — "razor-thin, exactly 14" quantified: the flip point is a 4.95 % larger pool
+
+§2(c) correctly calls the endpoint rank razor-thin. The threshold is computable and belongs in the
+grading record beside it. With `rank_from_top(m) = m − ⌈0.99m⌉ + 1`:
+
+| m | rank from top | endpoint p99 |
+|---|---|---|
+| 1200 – 1299 | 13 | 470.80 |
+| **1300 – 1399** (banked: **1334**) | **14** | **470.80** |
+| **1400** | **15** | **235.40** |
+
+> **A boss received-event pool ~4.95 % larger (1334 → 1400) collapses the endpoint p99 from 470.80
+> to 235.40 and the headline ratio from 2.2700 to 1.1350.** One-sided: a smaller pool leaves it
+> at 470.80.
+
+This is weaker evidence than §2(d)'s arm-B corroboration (which is an *actual measured instance* of
+the same leg reading 1.1350 under a larger pool, and is the better artifact) but it is independent
+of it and states the margin as a number. Bank both with the grade.
+
+## A.5 — INFO-6 (NEW) — the anchor's DoT grain is UNRESOLVED at source and should ride with the pin
+
+legolas `2026-07-28-kitcal1-sustain-decomposition.md` carries an explicit open item on the very
+field A-DMG-1 is anchored to:
+
+> *"it is not established whether `greatestDamageReceived` is updated by damage-over-time ticks.
+> If DoTs register per tick the bound is still per-event; if excluded it covers direct hits only.
+> Not resolvable from the corpus; resolvable by one L0 trial against a bleeding enemy."*
+
+The sim-side pin excludes DoT structurally (own event type, §2.2's exclusions), so the handling is
+consistent and no defect follows. But the reclassification tightened the pin's grain, and the one
+remaining grain question on the anchor is open with a one-trial resolution path. It should travel
+with the pin rather than dropping out of the record. Wave-tail candidate, not a baton blocker.
+
+## A.6 — INFO-7 (NEW) — a liveness qualification on the 25.60 % / 10.66 % headroom
+
+All 44 nova crossings per leg occur at **one** geometric configuration: measured from the telegraph
+origin, every boss crossing in every fight resolves at `t* = 1.9512 s` at the same radius. The
+falsifier's 132 pre-flight crossings are therefore one configuration sampled 132 times, not a sample
+over geometry. It is fully live against the thing it is aimed at — payload-model inflation, which is
+what the pin exists to catch — and this is **not** a defect. It is a scope statement: the headroom is
+a single-configuration measurement and should not be read as a distributional bound. Worth one line
+in `a_dmg_1_grain` so a later reader does not over-claim it.
+
+## A.7 — Concurrence on the four named checks
+
+| check | first pass | second pass |
+|---|---|---|
+| (a) R-WR1-16 reclassification | SOUND / APPROVED | **concur — upheld** |
+| (b) §8.17 verification clause | no contaminated claim | **concur — and re-confirmed via the battery's own crossing geometry** |
+| (c) H-B2-6 decomposition | re-derived, 2.0000 is the count step | **concur — and the per-fight profile is leg-invariant, stronger than "14 on both legs"** |
+| (d) G-A grading stance | honest, if anything under-stated | **concur — rubric-honest in substance** |
+
+On (d) the two passes converged independently on the same refinement: report the pre-registered p99
+bracket as the estimator's literal output (`[1.0000, 2.2700]`), and grade the predicate's **intent**
+on `1.1350` with the rubric named — rather than stating the grade over a bracket whose two ends are
+different objects. The second pass's added reason for that form: a future reader who re-runs the
+predicate will compute 2.2700 against `≥ 1.50` and must find a record saying the arithmetic condition
+was met and *why it does not answer the owner's question*. Letting the intent grade silently replace
+the arithmetic result is the WARN-A failure shape inverted — a record omitting a channel it carries.
+The first pass's warning against reaching for the max estimator to obtain 1.1350 cleanly is endorsed
+without reservation.
+
+## A.8 — Addendum action (additive to the Action block above; nothing there is superseded)
+
+- [ ] **gamora — with WARN-1 / WARN-3, before baton emission:** correct the "55 %" at all three
+      sites to 50.00 % or define its denominator (**WARN-4**, §A.2); disambiguate the
+      `headroom_pct` denominator (INFO-4, §A.3).
+- [ ] **gamora — may ride:** one line in `a_dmg_1_grain` scoping the headroom as a
+      single-configuration measurement (INFO-7, §A.6).
+- [ ] **gandalf (conductor) — at G-A:** bank §A.4's flip-point (pool +4.95 % ⇒ 2.2700 → 1.1350)
+      alongside arm B's 1.1350 as the fourth corroboration that the gear step is 1.1350.
+- [ ] **wave tail:** the anchor's DoT-aggregation grain, one L0 trial (INFO-6, §A.5).
+- [ ] **Matt — aware only, unchanged:** no decision owed. BLOCK-1 remains the only gating item and
+      its remedy remains gamora's to perform.
+
+**Addendum method:** read-only on the engine. G-A recomputed from the banked traces; nova crossing
+multiplicity, radius and timing measured from the traces; `pytest` on
+`test_wr1_battery2_a_dmg1_grain.py` (14), `test_wr1_battery_arms.py` (20),
+`test_wr1_m6_crit_labelling.py` (21) — 55 passed. No full-regression re-run in this pass. Anchor
+provenance read at origin in `legolas/notes/2026-07-28-kitcal1-sustain-decomposition.md` §6.
