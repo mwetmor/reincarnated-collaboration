@@ -1851,3 +1851,48 @@ mtime pre-session — HQ-2 data point: the mutation event is real but not reprod
 harness/test session today.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
+
+---
+
+## §14.31 — GATE-2 RE-REVIEW: **BLOCK LIFTED** · census verified 5.7× broader · S-2's B proven UNSATISFIABLE BY CONSTRUCTION · and the tick-rate finding CORRECTED UPWARD: the run's own bleed delivers **66.7%**
+
+**Banked 2026-07-28. Jack-ryan addendum
+`qa/findings/2026-07-28-gate2-gamora-g5-dotfix-addendum.md` (`ead08351`).**
+
+- **BLOCK LIFTED on the post-fix artifact.** Pre-fix `g5_r3arm/` permanently quarantined as
+  evidence; the two must never be pooled (his SS-1). Root-cause correction ACCEPTED and filed
+  at his §0, with the Discipline #10 failure owned by name (mechanism inferred from a
+  docstring whose enumerated list was attacker-side only). All DoT-wake tick counts
+  re-derived exactly; boss-loss disclosure verified.
+- **Census VERIFIED on a broader base than gamora's:** 5,110 JSON walked, **19,642 effect
+  instances, 0 unhandled** (5.7× her sample) + AST pass over every `.py` (only unhandled
+  literal left is her own injection test). His words: *"my escalation's scope claim is
+  falsified — Matt's historical ruling is now trivial: no historical scope, no re-run owed."*
+  **Matt's reserved historical-scope question CLOSES as moot.**
+- **No-`else` hazard: wave-routed, not conditioned** (zero live exposure; kernel-level;
+  recommended shape — derived frozenset + strict-raise behind a flag — in his §3). →
+  Q-KC1-1 input.
+- **S-2's B: not just degenerate — UNSATISFIABLE BY CONSTRUCTION.** His sweep (which gamora
+  didn't run): DoT magnitude across six orders — **B flat at 1.0000 on three of four tiers**,
+  including at a magnitude that cuts boss kill-time 4.2×; on the fourth it moves *against*
+  the lever. The identity `A·B·C ≡ kills` holds at 0 violations / 450 fights, kills pinned
+  by design. His recommendation to the amendment lap: re-express S-2 on **boss kill-time
+  delta** (measured 0.93 s, sd 0.63) + **DoT damage share** (0.732% → 4.062%). Grading call
+  stays with the amendment lap, as chartered.
+- **Tick-rate finding NOT verified — CORRECTED, and the defect ENLARGES.** The "90% at
+  TICK_SIZE=0.1" was an artifact of gamora's fixed-wall-clock probe (`sum([0.1]*10)` is
+  exactly 1.0 in his derivation; the drift is CULL-driven, not accumulation-driven — both
+  accumulators drift identically and the race buys a 101st sub-tick → 100% at 10.0 s).
+  **At shipped durations the defect is worse: the 3.0 s charge bleed delivers 540/810 =
+  66.7% of declared** — confirmed in the artifact at 90/90 applications, zero exceptions.
+  **Short DoTs are hit hardest** — inverting the risk shape the 90% number implied. The
+  post-fix batteries' bleed numbers are ~33% light. **The Matt decision teed in §14.30
+  stands with corrected numbers** — (a) fix-now + one more battery re-run vs (b) named
+  deviation — and the (a) lean strengthens: the terminal verdict would otherwise sit on
+  batteries whose newest-woken mechanic delivers two-thirds of its declared damage.
+
+**Run state:** the amendment lap (terminal signature verdict: S-1 settled · S-2 on the
+re-expressed instruments · S-3 from `_fix`) now waits on exactly ONE input — Matt's
+tick-rate ruling, which decides which batteries it reads.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28.
