@@ -2058,3 +2058,31 @@ re-review → amendment lap on `_fix3`. Matt may start the KIT-CAL-2 capture whe
 likes — the directions are final.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.34.
+
+---
+
+## §14.35 — SIDE PROBE (Matt question, not a chartered lap): Primordian endgame availability — two corrections + one fixture opportunity
+
+**Banked 2026-07-28. Legolas `legolas/notes/2026-07-28-primordian-endgame-availability.md`
+(`0c8d54f4`, pushed). Legolas-measured; conductor spot-verification deferred — nothing here
+gates the run.**
+
+- **Correction 1 (naming, mine to own):** Primordian is a **base-game Act-1 (Wightmire)
+  boss**, not a Fangs-of-Asterkarn one — gdx3 contains no Primordian data at all. Earlier
+  conductor messages calling him an Asterkarn boss were wrong; the play-test directions are
+  unaffected (they name him only as the werewolf run's target).
+- **Correction 2 (scaling premise inverted):** the Crucible **overrides the boss life
+  equation** (`((charLevel·25)^1.5)+100` vs campaign `((charLevel·51)^1.53)+2400`) —
+  campaign-Ultimate Primordian (≈4.3–8.0M life at L100) is **6–8× more durable** than
+  Crucible-Gladiator's (≈647K–1.05M at wave ~132). "Endgame Crucible" is the *easier*
+  Primordian.
+- **Availability:** Crucible YES (tier09/w06 guaranteed ≈ wave 86; tier14/w02 50/50 vs
+  Viloth ≈ wave 132; data in-corpus — Crucible ships as a mod, so the depot fetch already
+  holds it). Campaign all difficulties YES (no level gate). Shattered Realm NO in practice
+  (absent from all 16 `proxy_bossall*` variants; selection-rule residue flagged U).
+- **KIT-CAL input (routed, not banked):** the Crucible's own Primordian record has
+  `dropItems=False` and ALL equip slots zeroed → a **gear-uncontaminated HP-closure
+  fixture** candidate for the held HP-operator question (§14.10 lineage). Filed as an input
+  to the Q-KC1-1 wave / HP-closure lane, pending conductor verification if ever load-bearing.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28, §14.35.
