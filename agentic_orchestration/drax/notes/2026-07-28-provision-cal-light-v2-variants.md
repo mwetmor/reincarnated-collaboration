@@ -1,7 +1,7 @@
 # PROVISION-CAL · rider PC-LIGHT-V2 — the wall-top fork, measured
 
 **Agent:** drax (presentation seam) · **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Date:** 2026-07-28
-**Status:** **IN PROGRESS**
+**Status:** **COMPLETE** — plates rendered, numbers reported, fork NOT ruled (§8)
 **Predecessor:** `2026-07-28-provision-cal-light-datum.md` (cell PC-LIGHT — defines LSTAT-1/2, the
 R-6 camera, the counter-gate, and variant S14). Read it first; every instrument named here is
 defined there.
@@ -244,10 +244,123 @@ between B's changed pixels (510,495) and C's changed pixels (69,036) is **6,922 
 
 ## §4 — Determinism
 
-*(appended)*
+Per the rider, a determinism check on at least A, abbreviated, using the predecessor's own
+instrument — including its §4.2 correction that **run-to-run identity at a fixed settle does not
+clear the accumulator lockout; the settle count is the axis the accumulator lives on.**
+
+| test | result |
+|---|---|
+| `v2_A` vs `afterA` — the predecessor cell's frame, **different session, different process** | **byte-identical**, sha256 `992a1ccf…` |
+| `v2_A` vs `v2_A_s40` — **settle 90 vs settle 40** (the discriminating test) | **0 differing px**, same sha |
+| `v2_A_restored` — A re-rendered after six intervening builder edits and seven renders | **byte-identical**, same sha |
+| `v2_B` vs `s14` — B re-produced from the predecessor's parked variant | **byte-identical**, sha `12beadd1…` |
+| `v2_C` vs `v2_C020` — C re-rendered from the ladder step it was selected from | **byte-identical**, sha `8091a8f5…` |
+
+**Verdict: LOADS-CLEAN / no accumulator, and settle-invariant.** Variant A's sha now has **seven
+independent Godot processes** behind it across two sessions. No SDFGI was enabled on any variant.
+The positive control that validated this instrument in both directions is the predecessor's §4.2
+and is not re-run here (abbreviated per the rider).
+
+Variant sha256 prefixes, for anyone reproducing: **A** `992a1ccfba93` · **B** `12beadd132d4` ·
+**C** `8091a8f53e41` · **D** `21cbd8e8818e`.
 
 ---
 
 ## §5 — Plates
 
-*(appended)*
+All under **`/Users/admin/Games/reincarnated-godot/tmp/pclight/REVIEW2/`**. Same camera, same
+render settings, same resolution for every frame. Kept local and untracked — they show Synty
+textures and the `/Assets/Synty/` licence rule forbids a shared remote.
+
+| file | what |
+|---|---|
+| `A_as_fixed.png` | variant A, labelled with both stat sets |
+| `B_cold_skyleak.png` | variant B |
+| `C_walltop_light.png` | variant C |
+| `D_composite.png` | variant D |
+| **`COMPARE_4UP_ABCD.png`** | **the 4-up sheet — A \| B \| C \| D, stats burned in.** The composition plate |
+| **`WALLTOP_DETAIL_4UP.png`** | **the fork at a scale where it is visible** — native pixels at 3× nearest over the near SE wall run. The crop was **not chosen by eye**: it is the 360×150 window maximising the count of pixels where C differs from A by >4 levels (integral-image search, stride 10), so the plate cannot be accused of being framed to flatter a variant |
+| `WALLTOP_MASK.png` | the WTMASK footprint overlaid in red on A — **the mask is auditable, not asserted** |
+| `STATS_TABLE.png` | every number in this rider, as an image |
+
+Raw frames `tmp/pclight/frames/v2_*.png` · masks `tmp/pclight/masks/mask_{top,caps,topper}.png` ·
+per-variant stats `tmp/pclight/{stats,wt}_v2_*.json` · render logs `tmp/pclight/v2_*.log`.
+
+**No aesthetic verdict is offered, here or anywhere above. The fork is Matt's call.**
+
+---
+
+## §6 — Findings, logged
+
+- **★ V-1 — the wall tops are outside the lighting system.** `walltop_void.gdshader` is
+  `render_mode unshaded` and its header says so on purpose. **No light — no energy, no colour, no
+  position, no count — can change the wall-top slabs.** Measured, not inferred: a 2.0-energy
+  directional sun plus a 0.45 fill moves them **1.5 %**, and that is an upper bound because the
+  brighter room also spills more glow. Anyone who later reads "the wall tops need light" as a
+  lighting task will burn a cell on it. It is a **material** task.
+- **★ V-2 — Matt's question and the S14 sky-leak are NOT the same mechanism.** Gandalf's read was
+  that sky light lands on wall tops first, which is true of a physical room and false of this one.
+  **B moves the wall tops by 0.03 %.** The two questions are independent and can be ruled
+  independently — which is also why D exists and composes to within 1/255.
+- **V-3 — "unlit" measures as bimodal, not dim.** In A the wall-top band is 38.4 % pure black
+  (the void-cap's outer half, `black_point = 0.0`) against an inner half at luma 38–65 — which is
+  *brighter* than the shipped room's median floor pixel (24.8). The wall tops are not dark. They
+  are **half-black, and constant**: they do not respond to the fire, so they read as not
+  participating. If Matt's "I also kind of like the contrast" is about that hard black edge, C is
+  precisely the property that removes it, and 0.20 removes 97 % of it (38.4 % → 1.0 %).
+- **V-4 — C touches a design-owned constant, and this note is not proposing it.** `black_point`,
+  `split_frac` and `feather` are the walltop-void design's own knobs (shader authored 2026-06-21,
+  with a Matt ruling of 2026-06-22 attached to the same file's occlusion behaviour). C is a
+  **measurement variant produced to answer a question**, not a recommendation, and it is not
+  committed. If the fork rules toward lit wall tops, whether the mechanism should be `black_point`
+  or `split_frac` (widen the lit band, keep the outer lip at true black so the wall top still
+  dissolves into the background) is a **design call that belongs to gandalf/Matt, not to me** —
+  both are one property, and I measured the one that addresses the measured deficit.
+- **V-5 — the twin file, restated.** `scripts/walltop_level.gd` still carries the byte-identical
+  copy of the old lighting block (predecessor L-1). Untouched by this rider. It does **not** carry
+  a copy of the cap material, which is built only in `kit_replica_level.gd`.
+- **V-6 — an instrument hazard, caught by an assert.** `black_point` appears twice in the builder;
+  the second is the south wall FACE material on a different shader. An unscoped edit would have
+  made C a two-surface change while still being described as one property. The variant switcher is
+  scoped to `_build_walltop_cap_mat`. Named because the failure mode is silent.
+
+---
+
+## §7 — Repo state (PC-T3 discipline)
+
+**Nothing is committed in `reincarnated-godot`.** The working tree is left in **state A**, verified
+two ways: `git diff --stat` returns **`+56 / −9`** on the one tracked file, and
+`git status --untracked-files=no` returns **exactly one line** — `M scripts/kit_replica_level.gd`.
+`v2_A_restored`, rendered *after* the restore, is **byte-identical to A** (sha `992a1ccf…`), so
+the restore is proven at the pixel level rather than by inspection of the diff.
+
+**UNTRACKED, new — this rider's instrument** (`tmp/` is scratch, none of it is repo product):
+`tmp/pclight/mask_rig.gd` · `mask_rig.tscn` · `shootmask.sh` · `wt_stats.py` · `setvar.py` ·
+`make_plates_v2.py` · `masks/` (3 PNG) · `frames/v2_*.png` (9) · `REVIEW2/` (8 PNG) ·
+`wt_v2_*.json` · `stats_v2_*.json` · `v2_*.log`.
+
+`project.godot` unmodified. `AGENT_STATE.md` in `reincarnated-godot` deliberately not written, for
+the predecessor's reason: it would leave a second tracked modification in a repo this work is
+instructed not to commit. **This note is the record.**
+
+---
+
+## §8 — Summary
+
+| | |
+|---|---|
+| **Question** | do the wall tops want light, and is that the same mechanism as the S14 cold sky-leak |
+| **★ Mechanism answer** | **no** — the wall-top caps are `render_mode unshaded`; lights cannot reach them, and a 2.0-energy sun moves them 1.5 % |
+| **★ Does B light the wall tops?** | **no — +0.03 %** (31.03 → 31.04 mean), zero change in p05/p50/p95/modulation/black-fraction |
+| **What C buys** | wall-top mean **+23.9 %**, pure-black fraction **38.4 % → 1.0 %**, modulation 65.47× → 4.23× |
+| **Contrast cost vs A** | **B −10.5 %** (7.63× → 6.83×) · **C −0.9 %** (7.63× → 7.56×) · **D −10.5 %** |
+| **Does D compose?** | **yes** — max residual **1/255**, zero px above 2, across the whole frame |
+| **Counter-gate** | all four clear the predecessor's legibility + key gate |
+| **Determinism** | **CLEAN** — A byte-identical across 7 processes / 2 sessions, settle-invariant |
+| **Repo** | not committed; working tree left in state A, verified by re-render |
+| **Owed to Matt** | the fork itself. Four plates, one sheet, one detail plate, one table. **No recommendation is offered.** |
+
+---
+
+**Signed:** drax (presentation seam), 2026-07-28.
+Evidence: `/Users/admin/Games/reincarnated-godot/tmp/pclight/REVIEW2/`.
