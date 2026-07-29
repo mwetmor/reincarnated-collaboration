@@ -528,3 +528,214 @@ explicit test claim behind them and which have only recency.
 
 **Signed:** legolas, 2026-07-26. Read-only throughout. Nothing installed, nothing executed, nothing
 under `~/Games/mcp-lab/` touched.
+
+---
+
+## VERDICT column — PC-VERDICT cell (2026-07-28)
+
+**Status:** IN PROGRESS
+
+**Cell:** PC-VERDICT (task #7) · **Run:** PROVISION-CAL · **Conductor:** gandalf (`RUN-CONDUCTOR`)
+**Author:** legolas · **Boundary law:** LOADS? / REACHES?, **never BETTER.** Nothing below ranks a row.
+
+### How this is recorded, and why it is a separate table
+
+The §1 menu table already carries nine columns. Adding a tenth would break it on any reasonable width,
+so **the VERDICT is recorded here as a compact `row-id → verdict → evidence` table** rather than as a
+column appended to §1. §1 itself is **unmodified** — it is the frozen substrate (charter §1) and this
+cell does not edit frozen substrate.
+
+**Enum discipline.** Every value below is drawn verbatim from the charter's closed enum:
+`LOADS-CLEAN` · `LOADS-DIRTY(<what>)` · `FAILS-LOAD(<evidence>)` · `REACHES(<probe>)` ·
+`REACHES-NOT(<probe>)` · `EXCLUDED(<reason>)` · `GATED-Q46`.
+
+**Two axes, stated rather than collapsed.** The charter's T-1 asks for one verdict per row. The
+battery measured two independent questions on some rows — *does it load* and *does it reach its named
+target surface* — and they do not always agree (rows 2 and 3 load and cannot reach; row 22 loads
+clean and does not move the number it was put on the menu to move). Where a row carries a measured
+reach, the cell shows **the load verdict, then the reach verdict, joined by ` · `** — both drawn from
+the same closed enum. Collapsing them to one value would destroy the finding. This is the convention
+drax's own tier notes used; it is adopted here rather than re-invented.
+
+**`REACHES-PARTIAL` is not in the enum and is not used.** PC-T3 recorded row 17 as
+`REACHES-PARTIAL`; under charter law that resolves here into the two in-enum verdicts its own
+measurement supports — `REACHES(<what did>)` · `REACHES-NOT(<what did not>)`.
+
+**Evidence tags:** `[W1A]` PC-W1-A · `[W1B]` PC-W1-B · `[T12]` PC-T12 · `[T3]` PC-T3 · `[T4]` PC-T4 ·
+`[charter §N]`. Every tier note is committed; every verdict below traces to one.
+
+**`GATED-Q46`: zero rows.** Q46 was ruled **LOCAL-ONLY** mid-run (Matt, charter §6 R-PC-6) and its
+verification clause was **discharged** by PC-T4's packet-quiet PASS (390 polls / 90 s, 9 sockets, 0
+external). Tier 4 then executed in full. No row's evidence failed to fire because of the gate, so no
+row retains `GATED-Q46`.
+
+### The 45 verdicts
+
+| # | Row | **VERDICT** | Evidence |
+|---|---|---|---|
+| 1 | Compositor Lens Effects | `LOADS-CLEAN` | Instantiates as a real `CompositorEffect`, attaches to a `Compositor` (`effects=1`), GLSL present; structural accumulator scan clean. Honest limit: no shippable `.tscn`, so check-9 rests on the structural detector alone `[T12 §3.1]` |
+| 2 | GODOT-VFX-LIBRARY | `LOADS-DIRTY(uid-duplicate + screen-read shader)` · `REACHES-NOT(3D surface — 0/32 effect scenes contain any Node3D; 0/24 shaders are spatial)` | 32/32 effects paused-delta 0 at settle 90 **and** settle 4. Census: 34 CPUParticles2D, 1 GPUParticles2D, zero `*3D` types. Looked at at the fixed ARPG camera: a hard-pixel smear pinned to the canvas origin. Dirt: UID duplicate `vfx_test.tscn`/`vfx_demo.tscn`; `shaders/water.gdshader` declares and samples `hint_screen_texture` `[T12 §3.2, G1, G12]` |
+| 3 | Godot Projectile Engine | `LOADS-DIRTY(requires-plugin-enable; autoload registers by UID)` · `REACHES-NOT(3D surface — zero *3D types anywhere in the addon)` | Enabled + reimported: `ProjectileEngine exists=true script=OK instantiable=true`. First-pass `LOAD-NULL` was an incomplete install, not the row failing (L-N). Autoload written as `*uid://bcvs3q3df6ql6`, which does not resolve under `--script` — `ERROR: Unrecognized UID` on every headless run `[T12 §3.3, G9]` |
+| 4 | Godot Shaders Library | `LOADS-DIRTY(network-by-design)` | R-PC-5 **discharged**. Installed and probed in its own project, after all other work, outside every timed measurement. 4/4 assertions pass on 4.6.3. **Three** hosts, not the one the menu names, and `api.github.com/.../releases/latest` fires on a 2-second timer at plugin load with no user action. Measured quiescent in headless (cache dir never created over 12 s) `[T3 §6, T3-F5]` `[charter §6 R-PC-5]` |
+| 5 | godot-4-VFX-assets (GDQuest) | `EXCLUDED(licence)` | CC-BY-NC-SA-4.0 art in a project with shipping ambitions. Not installed, not downloaded, not executed. Menu §2.7 already listed it reference-only `[T12 §3.8]` `[charter §5 folded lean]` |
+| 6 | Godot-particle-and-vfx-textures | `LOADS-DIRTY(blend-source-blocks-the-import-pass)` | The row aborts the **whole project's** import pass on a Blender-less machine: **0/134** `.png.import` sidecars generated as shipped vs **134/134** with `materials/blend_file/` excluded. Post-exclusion 82/82 textures load at eight distinct sizes; structural scan clean `[T12 §3.4, G4]` |
+| 7 | proton_trail | `LOADS-DIRTY(class_name collision on Point — row 10 publishes it into the global namespace)` | Genuinely 3D (`Node3D`/`MeshInstance3D`/`Camera3D`); demo scene instantiates. Co-installed with row 10 it emits `Parse Error: Class "Point" hides a global script class` on every load. The fault sits with row 10 (a global `class_name` landgrab), not here. Accumulator clean `[T12 §3.5, G3]` |
+| 8 | Shader Previewer | `LOADS-CLEAN` | Compiles, enables, live control `ShaderPreviewer` found in the editor tree (4.6 `EditorDock` API) `[T3 §2.2]` |
+| 9 | Shader-Lib | `LOADS-CLEAN` | 5/5 sampled `VisualShaderNode*` classes registered. **It has no `plugin.cfg` at all** — it cannot be enabled or disabled; it is present the moment the folder exists, and a headless GDScript pass can instantiate its nodes. The menu's `EW=WIRE` is measurably narrow `[T3 §2.3, T3-F2]` |
+| 10 | TrailRenderer | `LOADS-DIRTY(C# samples unloadable on the STANDARD build; publishes class_name Point into the global namespace)` | GDScript runtime compiles and `TrailRenderer.new()` instantiates as a `Node3D` — capability present. Both sample scenes `LOAD-NULL`: 5 `.cs` files, and this is a non-Mono build. Accumulator clean `[T12 §3.6, G3, G5]` |
+| 11 | UniParticles3D | `LOADS-CLEAN` | `class_name UniParticles3D extends Node3D` compiles and instantiates; **10/10 shaders are `shader_type spatial`** — it does reach the 3D surface, in the same "L7 particle library" brief where rows 2 and 3 do not. Paused-delta 0 both legs. Structural-scan `SubViewportContainer` hit is a false positive (editor-dock string compare) `[T12 §3.7]` |
+| 12 | Vaportrail | `FAILS-LOAD(manifest path ≠ shipped framework name — the bundle ships as bin/macos/macos.framework/ while the manifest declares libvaportrail.macos.template_debug.framework; ClassDB.class_exists VaporTrail = false)` | Re-tiered from Tier 1 by drax — it ships a `.gdextension` + compiled framework, so the menu's "pure runtime node" classification is wrong. `lipo`: `x86_64 arm64` — **architecture is not the problem.** L-N: row 21 registers 4/4 classes in the same process, same run `[T12 §4.3, §4.0, G2]` |
+| 13 | vkaParticleTool | `LOADS-CLEAN` | Compiles, enables, live control `ParticleControlPanel` in `CONTAINER_INSPECTOR_BOTTOM` `[T3 §2.2]` |
+| 14 | YParticles3D | `FAILS-LOAD(declared macos.debug slice absent from the shipped archive — it ships editor.single + template_release.single and no template_debug; ClassDB.class_exists YParticles3D = false)` | `lipo`: both shipped frameworks are `x86_64 arm64`. **A packaging defect, not an architecture defect** — `lipo` alone would have passed this row. Every editor and `--script` run is a debug context. L-N control: row 21 `[T12 §4.2, §4.0, G2]` |
+| 15 | Advanced Model Import (4.6) | `LOADS-CLEAN` | Compiles, enables, dock tab `Advanced Model Import` + control `BulkImporterDock` found live `[T3 §2.2]` |
+| 16 | Animation Library Unique-ifier | `LOADS-CLEAN` | Compiles, enables; registers via `add_inspector_plugin` — no tree surface to find, and none claimed `[T3 §2.2]` |
+| 17 | Animation Property Tracks – Batch Modification | `LOADS-DIRTY(zh-CN-only UI)` · `REACHES(per-animation loop-mode editing on a real Synty scene)` · `REACHES-NOT(per-track property edits — 0 of 95 tracks reachable; it counts TYPE_VALUE tracks only and the Synty corpus is 100% TYPE_POSITION_3D / TYPE_ROTATION_3D)` | Loads, docks, discovers real `AnimationPlayer`s, every call executes without error. Tab title `动画属性轨道批量修改`; no English string table, zero `tr()` calls, and an `_on_language_selected()` whose body is `pass`. The menu's "bulk edits across 3,386 clips" is half true `[T3 §2.5, §5.3, T3-F3, T3-F13]` |
+| 18 | fix_synty_anim_to_godot_with_autorigpro | `EXCLUDED(no-positive-control on the Blender-extension instrument)` | **Unresolvable — see below.** No tier owns Blender-hosted rows; the row was never installed, and Blender itself was never invoked by any cell. Recording FAILS-LOAD here would violate L-N `[charter §3 — no tier covers Layer-3 hosts]` |
+| 19 | Godot4-OpenAnimationLibraries | `EXCLUDED(licence)` | No licence declared = all rights reserved. Not installed, not downloaded, not executed `[T12 §3.8]` `[charter §5 folded lean]` |
+| 20 | GodotHumanoidRetargetPlugin (D3ZAX) | `EXCLUDED(licence)` | No licence declared. Not installed, not downloaded, not executed. Its stated purpose (retarget across different rest poses) remains the menu's highest-relevance / lowest-confidence row and is now untested for a licence reason, not a technical one `[T12 §3.8]` |
+| 21 | GodotIK (monxa) | `LOADS-CLEAN` | 4/4 declared classes register and instantiate on 4.6.3/arm64 — `GodotIK` (parent `SkeletonModifier3D`), `GodotIKEffector`, `GodotIKConstraint`, `GodotIKRoot`. **This row is the Tier-2 L-N control**: it proves the GDExtension load path works in the same process and the same run that rows 12 and 14 fail in `[T12 §4.1]` |
+| 22 | godot-synty-tools (hlarsen) | `LOADS-CLEAN` · `REACHES-NOT(check 6 — the Base-Locomotion fixer does not resolve the 121-bone inversion: output gates at head y −1.615…−1.319 against a −1.628…−1.315 baseline, on both character conventions)` | Compiles, enables, live tool-menu item `Godot Synty Tools`. `process()` returned OK in 0.4 s and emitted its full library tree. Input provenance verified byte-identical to the clip that produced the charter's baseline. It never sets `retarget/remove_tracks/unmapped_bones` — which is what actually dissolves the inversion. Ships 16 correct Synty per-pack BoneMaps, independent of this verdict `[T3 §4, T3-F11, T3-F14]` |
+| 23 | Import Replacer | `LOADS-CLEAN` | Compiles, enables; registers via `add_scene_post_import_plugin` — no tree surface `[T3 §2.2]` |
+| 24 | Mixamo Animation Batcher | `LOADS-CLEAN` · `REACHES(check 5 — the stock patch FAILS the pose gate; the amended patch PASSES)` | Live tool-menu item `Mixamo Animation Batcher...`. Its own `_apply_import_settings()` was **called, not re-implemented**, across five single-variable configs. Stock: its `sample_bone_map.tres` matches **0/34** Synty bone names case-sensitively, so the retarget binds nothing and its own `remove_tracks/unmapped_bones` then deletes every track (91→0, 122→0). Amended (bone-map swap): PASS. **Only the bone-map swap is load-bearing**; `fix_silhouette` is amplitude, not shape. Both menu §2.1 gaps confirmed exactly as written `[T3 §3, T3-F6, T3-F7]` |
+| 25 | Modifier Animation Baker | `LOADS-CLEAN` · `REACHES(dialog + bake kernel execute; declines FBX-imported libraries by design — needs a clip extracted to .res first)` | Live tool-menu item. `_make_dialog()` builds, `_bake_keys()` runs. Its two hard preconditions (a RESET animation; a non-`.import`-backed AnimationLibrary) are both absent from Synty content as imported, and it refuses with a clear message. A prerequisite, not a defect — and invisible from the menu row `[T3 §5.2, T3-F12]` |
+| 26 | Skeleton Poser (3D) | `LOADS-DIRTY(ships a UID duplicate in its own example scene)` | Compiles, enables, three live controls found. Duplicate: `example_scene/pose_collection_snapshot.tres` vs `lizbot_poses_from_rest.tres` — the 6th standing import-warning source. A near-miss recorded rather than smoothed: its apparently-broken `add_autoload_singleton` path is **commented out** Godot template boilerplate and no verdict rests on it `[T3 §2.6, T3-F10]` |
+| 27 | synty-godot-converter (DeniedWorks) | `EXCLUDED(licence)` | No licence declared. Not installed, not downloaded, not executed `[T12 §3.8]` |
+| 28 | Unidot Importer | `LOADS-DIRTY(deps-not-shipped-installed)` | **It loads on 4.6.3 despite self-declaring 4.0–4.2** — compiles, enables, 3/3 live `add_tool_menu_item` calls land (the other two are commented out upstream). The dirt is what it needs and does not ship installed: two sibling addons (`vrm`, `Godot-MToon-Shader`) plus FBX2glTF (row 42, x86_64-only) configured in Editor Settings `[T3 §2.4]` |
+| 29 | Unused Bone Track Remover | `LOADS-CLEAN` · `REACHES(46 of 46 unmapped-bone tracks removed from a real Synty clip)` | `_can_handle(AnimationPlayer) -> true`; 139 tracks → 93, and the removed set is precisely the `*Proc_*` / `upperarm_proportion_*` family named as the 121-bone pack's un-hostable leftovers. AL declares Godot 4.0; runs on 4.6.3 with no deprecation warning. Scope note: one animation at a time via the inspector, no batch mode — and per T3-F4 this is **not** equivalent to `remove_tracks/unmapped_bones` at import `[T3 §5.1, §4bis]` |
+| 30 | `…MCP.Animation` | `LOADS-CLEAN` | Compiles into the consumer and registers **7** live tools (`-add-track` `-create` `-defaults` `-get` `-insert-key` `-library-add` `-player-create`) on `4.6.3.stable.mono`. README count 7 = live 7. No functional probe fired against this family; no reach verdict is claimed `[T4 §4.3, §4.5]` |
+| 31 | `…MCP.Beehave` | `LOADS-CLEAN` | Registers **6** live tools, not the README's 5 (`-add-decorator` is new) and `beehave-create-tree` does not exist — it is `beehave-tree-create`. Wraps a third-party addon we do not have; no probe fired `[T4 §4.5]` |
+| 32 | `…MCP.CSG` | `LOADS-CLEAN` | Registers **7** live tools, not the README's 6 (`csg-defaults` is new) `[T4 §4.5]` |
+| 33 | `…MCP.Dialogic` | `LOADS-CLEAN` | Registers **5** live tools; two README names are wrong (`dialogic-add-event` → `-timeline-add-text`; `dialogic-get-timeline` → `-get`). Wraps a third-party addon we do not have `[T4 §4.5]` |
+| 34 | `…MCP.GridMap` | `LOADS-CLEAN` | Registers **7** live tools; README count matches `[T4 §4.5]` |
+| 35 | `…MCP.Navigation` | `LOADS-CLEAN` | Registers **7** live tools, not the README's 6 (`navigation-defaults` is new) `[T4 §4.5]` |
+| 36 | `…MCP.Particles` | `LOADS-CLEAN` · `REACHES(particles-create emits a real GPUParticles3D that persists to disk with its scalars — amount=64, lifetime=1.5)` · `REACHES-NOT(ParticleProcessMaterial — none of the 63 extension tools reaches it; check 3 was satisfied by the CORE node-modify call, not by this row)` | Registers **5** live tools; parameter surface confirmed unchanged from the menu §3.2 source read. The independent disk read of `pct4_check3.tscn` shows the node this row created carrying `process_material = ExtResource(...)` **assigned by `node-modify`**. The menu §3.2 consequence stands on the wire `[T4 §4.5, §5.2, §5.3]` `[charter §8]` |
+| 37 | `…MCP.PhantomCamera` | `LOADS-CLEAN` | Registers **7** live tools; README count matches. Wraps a third-party addon we do not have; R-6 forbids moving the judge, so no probe was warranted and none fired `[T4 §4.5]` |
+| 38 | `…MCP.Terrain3D` | `LOADS-CLEAN` | Registers **6** live tools, not the README's 4 — and **two README-named tools do not exist** (`terrain3d-set-height`, `terrain3d-get-info`), replaced by `-get`, `-set-data-directory`, `-set-material`, `-set-region-size`. Wraps a third-party addon we do not have `[T4 §4.5]` |
+| 39 | `…MCP.Tilemap` | `LOADS-CLEAN` | Registers **6** live tools; README count matches `[T4 §4.5]` |
+| 40 | godot-mcp-pro extension mechanism | `EXCLUDED(the mechanism does not exist — there is nothing to provision)` | The menu recorded this as a negative finding held as a row so it could not be lost. PC-T4 confirmed the ceiling **on the wire**: `[MCP] Registered 174 commands`, `tools/list` over stdio returns **175**, and the manifest, `plugin.cfg` description and wire all agree at 175. No plugin API, no extension registry, nothing on npm. **Precision:** the *Pro tool surface* was separately probed under check 4 and reaches (see the note below the table) — that is W-PRO the contestant, which is not a menu row `[T4 §7.1]` `[menu §3.3]` |
+| 41 | Blender 5.2.0 (headless) | `EXCLUDED(no-positive-control on the CLI-invocation instrument)` | **Unresolvable — see below.** Adjacent evidence only, and it is Godot-side, not Blender-side: PC-T12 measured Godot's `.blend` importer emitting `Blender path is invalid or not set … Cannot configure blender path in headless mode`. That says the editor setting is unconfigured; it is **not** a measurement of whether the cask is installed or the binary runs. Recording FAILS-LOAD from it would violate L-N `[T12 §3.4]` |
+| 42 | FBX2glTF (godotengine fork) | `EXCLUDED(no-positive-control on the binary-execution instrument)` | **Unresolvable — see below.** The macOS-x86_64-only release fact is re-confirmed by PC-T3 **as a menu fact, explicitly not a new measurement**; the binary was never fetched or executed by any cell `[T3 §2.4]` |
+| 43 | glTF-Transform CLI | `EXCLUDED(no-positive-control on the npm-CLI instrument)` | **Unresolvable — see below.** No cell invoked it. The `.glb` emit + inspect work in PC-T3 ran on Godot's own `GLTFDocument` and drax's `pose_gate.gd`, not on this instrument `[T3 §3.3, §4bis]` |
+| 44 | glTF-Validator (Khronos) | `EXCLUDED(no-positive-control on the npm-CLI instrument)` | **Unresolvable — see below.** No cell invoked it; no emitted `.glb` was independently conformance-checked this run |
+| 45 | gltfpack / meshoptimizer | `EXCLUDED(no-positive-control on the npm-CLI instrument)` | **Unresolvable — see below.** No cell invoked it |
+
+### Tally
+
+**Load axis — every one of the 45 rows carries exactly one load-axis verdict:**
+
+| Verdict | N | Rows |
+|---|---:|---|
+| `LOADS-CLEAN` | **23** | 1 · 8 · 9 · 11 · 13 · 15 · 16 · 21 · 22 · 23 · 24 · 25 · 29 · 30 · 31 · 32 · 33 · 34 · 35 · 36 · 37 · 38 · 39 |
+| `LOADS-DIRTY` | **9** | 2 · 3 · 4 · 6 · 7 · 10 · 17 · 26 · 28 |
+| `FAILS-LOAD` | **2** | 12 · 14 |
+| `EXCLUDED` | **11** | 5 · 18 · 19 · 20 · 27 · 40 · 41 · 42 · 43 · 44 · 45 |
+| `GATED-Q46` | **0** | — (ruled LOCAL-ONLY; verification discharged by the packet-quiet PASS) |
+
+The 11 `EXCLUDED` decompose as **4 on licence** (5, 19, 20, 27 — charter §5 folded lean), **1 on
+non-existence** (40), and **6 on L-N** (18, 41–45 — no instrument was ever cleared, so no negative
+was recorded).
+
+**Reach axis — 8 rows carry a measured reach verdict; the other 37 had no reach probe and none is claimed:**
+
+| Verdict | N | Rows |
+|---|---:|---|
+| `REACHES` | **5** | 17 (per-animation loop mode) · 24 (check 5, amended) · 25 (bake kernel) · 29 (46/46) · 36 (`particles-create`) |
+| `REACHES-NOT` | **5** | 2 (3D surface) · 3 (3D surface) · 17 (per-track edits) · 22 (check 6) · 36 (`ParticleProcessMaterial`) |
+
+Rows 17 and 36 appear on both lines: each has one probe that reaches and a distinct probe that does
+not. That is the enum working, not a contradiction.
+
+### Unresolvable rows — 6, and exactly what each would need
+
+These are the rows where the banked evidence supports **no** verdict on the merits. Under **L-N**
+(clear the instrument before recording a NO) they are recorded as
+`EXCLUDED(no-positive-control on <instrument>)` rather than as a manufactured `FAILS-LOAD`. **This is
+a gap in tier coverage, not a property of the rows.** The charter's four tiers (§3) address pure
+resources, runtime GDExtensions, editor-only plugins and the Murzak/Pro family — **no tier owns
+Layer 3, the external host and CLI tools.** Five of the six unresolvable rows are the whole of Layer 3.
+
+| # | Row | Instrument never cleared | What would settle it |
+|---|---|---|---|
+| 18 | fix_synty_anim_to_godot_with_autorigpro | Blender-extension host | Blender present + the paid Auto-Rig Pro dependency resolved, then the extension installed and run on one Synty clip. Note the menu's own field: it cannot run without row 41 |
+| 41 | Blender 5.2.0 (headless) | CLI invocation | `blender --version` (or the cask query), then one headless `--background --python-expr` round-trip. A positive control the same instrument can also fail |
+| 42 | FBX2glTF | binary execution | Fetch the pinned release, `lipo -info` the macOS artefact (settles the arm64 claim by measurement rather than by release-page reading), then one conversion |
+| 43 | glTF-Transform CLI | npm CLI invocation | `npx @gltf-transform/cli@4.4.2 inspect` on one of PC-T3's emitted `lib_*.glb` files |
+| 44 | glTF-Validator | npm CLI invocation | Same corpus: validate one emitted `.glb` and read the conformance report |
+| 45 | gltfpack / meshoptimizer | npm CLI invocation | `gltfpack` one emitted `.glb` and confirm it re-loads |
+
+Rows 43–45 share a ready corpus: PC-T3 left emitted `.glb` libraries at
+`/Users/admin/Games/mcp-lab/pct3/proj/emitted/`. A single Layer-3 cell would close all five Layer-3
+rows against artefacts that already exist.
+
+### One precision the table cannot carry: W-PRO is not row 40
+
+Row 40 is *the Pro extension mechanism*, and it verdicts `EXCLUDED` because that mechanism does not
+exist. **Pro's own tool surface is a different object and it was measured.** Under check 4, PC-T4
+called `apply_particle_preset` three times (11/11 calls OK across two plans) and an independent disk
+read of each saved `.tscn` shows it building and assigning a full `ParticleProcessMaterial` **plus** a
+`Gradient` / `GradientTexture1D` colour ramp **in one call** — i.e. `REACHES`, measured, discharging
+the menu §3.3 "documented, not measured" caveat. That verdict attaches to W-PRO the contestant, which
+has no row on this menu, so it is recorded here rather than in the table. **The images themselves are
+Matt's to judge and are not verdicted by anyone** — and per **M-EYE** (charter §8) the Matt-eye
+checkpoint is owed in MOTION, not as the captured stills.
+
+### Where the battery contradicted this document's own prior expectations
+
+Recorded as fact, in the run's boundary (LOADS? / REACHES?), with no ranking implied.
+
+1. **★ The menu called row 2 "the single highest-leverage L7 row." It is 2D.** Zero `Node3D` in 32
+   effect scenes; 0/24 shaders spatial. Row 3, listed "L7 cast" with `EW=ALL`, is likewise 2D-only.
+   The root cause is this document's own: **`EW=ALL` read loadability as reach.** The premise was
+   right (all three cells would load these `.tscn` files equally) and the conclusion did not follow
+   (all three would equally load something that cannot appear in a 3D scene). Conductor ruling R-PC-9
+   follows from it `[T12 G1]` `[charter §8]`.
+2. **★ Check 2 settles at 63, not 58 — and the READMEs were the wrong count.** Worse than a miscount:
+   **three README-named tools do not exist** (`terrain3d-set-height`, `terrain3d-get-info`,
+   `beehave-create-tree`) and two more are renamed. §3.1's tool tables were built from those READMEs.
+   A plan authored from this document's §3.1 would have called tools that are not there `[T4 §4.5]`.
+3. **★ The family's headline compat risk did not fire.** §3.1 flagged "no 4.6 leg in any of the ten"
+   as *"a real, named, unresolved compat risk … it applies to the whole family at once."* Measured:
+   **10/10 compile and register on 4.6.3.stable.mono.** The risk was correctly named and did not
+   materialise `[T4 §4.3]`.
+4. **Row 28 loads on 4.6.3 despite this document recording its 4.6 evidence as NEGATIVE** (README:
+   "4.0 through 4.2"). A self-declared ceiling is not a measured one `[T3 §2.4]`.
+5. **Row 24's stock patch fails worse than §2.1 predicted.** §2.1 forecast "a technically-retargeted,
+   silhouette-wrong result." Measured: **zero-track animations** (91→0, 122→0) — the bone map matches
+   0/34 Synty names case-sensitively, so nothing binds and the addon's own unmapped-track strip then
+   deletes everything. And §2.1's recommendation — *"provision as a reference implementation, not as a
+   tool"* — is confirmed and understated: the 60 load-bearing lines contain
+   `retarget/remove_tracks/unmapped_bones`, the single key that dissolves the 121-bone inversion
+   `[T3 §3, T3-F6]`.
+6. **Row 12 is mis-tiered in §1.** Listed as a pure runtime node under Layer 1; it ships a
+   `.gdextension` + compiled framework and was re-tiered to Tier 2, where it fails `[T12 §4]`.
+7. **Row 9's `EW=WIRE` is measurably narrow.** It has no `plugin.cfg`; it cannot be enabled or
+   disabled, and a headless GDScript pass can instantiate its nodes without an editor `[T3 T3-F2]`.
+8. **Row 4's telemetry field understates the surface.** §2.8 reads "fetches godotshaders.com on
+   demand." Measured: **three** hosts, and `api.github.com/.../releases/latest` fires automatically on
+   a 2 s timer at plugin load with no user action `[T3 T3-F5]`.
+9. **§0's "Five rows have no license at all" does not reconcile.** §5 names three (19, 20, 27); row 40
+   carries a blank licence field for a different reason (the thing does not exist). Four at most.
+   Charter §5's folded lean inherited the five. Named, not silently corrected — §1 is frozen substrate
+   `[T12 G10]`.
+10. **Rows 7 and 10 are mutually interfering as shipped**, which no per-row research could have seen:
+    installing both breaks row 7's script on every load via a global `class_name Point` landgrab. A
+    per-row menu has no column for pairwise interaction `[T12 G3]`.
+11. **T6 is larger than §4 filed it.** Predicted "39 `SKILL.md` files, and adding extensions will grow
+    that set." Measured **0 → 42 → 105 files, 708 KB, unasked, on by default** — and in
+    `reincarnated-godot` that would collide with our own `.claude/` tree `[T4 §6]`.
+12. **One correction inbound to my own PC-W1-B source read, from PC-T4's wire capture:**
+    `project_path_hash_legacy` **is** sent at v0.20.1 — **six** identity fields observed on the
+    handshake, not five. All six went to `localhost`; the ruling is unaffected `[T4 §2.4]`.
+
+### Provenance and boundary
+
+- Every verdict above is **synthesis from banked, committed evidence**. This cell installed nothing,
+  executed nothing, launched no Godot, and touched neither `reincarnated-godot` nor `mcp-lab`.
+- The only file modified by this cell is **this one**, and only by the addition of this section. §1
+  and §§2–7 are byte-unchanged.
+- **No verdict expresses a preference.** Where a row loads and does not reach, both facts are
+  recorded and neither is scored. BETTER is the L7 race's question, not this run's.
+
+**Status:** COMPLETE
+
+**Signed:** legolas, 2026-07-28, cell PC-VERDICT.
