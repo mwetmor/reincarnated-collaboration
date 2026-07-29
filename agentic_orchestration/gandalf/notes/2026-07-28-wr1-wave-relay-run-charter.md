@@ -102,5 +102,31 @@ run IS the wave. The handoff-queue note is updated to point here.
 
 ---
 
+## §8 — Run log (bank-per-landing)
+
+### §8.1 — Lap-0 (gamora half) LANDS: WARN-1 closed, strays removed · engine `ae5b206` (pushed)
+
+**WARN-1 root cause pinned:** the C-5 banked-evidence guard was *correct and late* —
+inline at the report-write site in `kitcal_g5_harness.py` `main` (pre-fix :1048), AFTER
+`drive(...)`; but `run_one_fight` writes one `.jsonl` per fight, so REFUSED + rc=2 arrived
+with traces already on disk. **Fix:** predicate extracted as `banked_evidence_refusal(...)`,
+called right after path computation, before `drive` — nothing emits between argparse and the
+check. Second call retained at the write site as a last-moment re-check (long battery,
+concurrent banking). Explicitly ruled NOT a Discipline-#12 semantic shift: refusal set
+unchanged, only the moment. **Evidence:** 3 new tests; the ordering test proves rc==2 with
+`drive` never called, tree byte-identical, zero `traces/`; discrimination by checkout — the
+pre-fix harness fails the ordering assert AND live-reproduces WARN-1's exact signature
+(5 traces: trash/champion/mixed_pack/boss A/boss B). Live run vs the real quarantine
+(`kitcal_g5/smoke/`, banked `9218238` vs `2be600f-dirty`): REFUSED, report md5 unmoved.
+Suites 30/30 harness, 108/108 with door suites. **Strays removed:** the 5
+`kitcal_g5/smoke/traces/*.jsonl` orphans (`git rm`); smoke report retained;
+`kitcal_g5_fix3` 453 files untouched. **leg3 json:** md5 `31d8fc5a…` stable across every
+run incl. the pre-fix discrimination battery — live reproduction preserved, unstaged,
+awaiting star-lord. No math note owed (no constant moved); no MIGRATION (no contract touched).
+**Gate-2 note:** guard-ordering-only change with an unchanged refusal set — conductor
+classifies as non-kernel-touching (no damage-path/ledger math); per §3 the MANDATORY
+per-landing Gate-2 applies to kernel-touching landings; jack-ryan may audit this one at the
+next Gate-2 cycle alongside the M-builds.
+
 *Charter frozen 2026-07-28. Bank-per-landing continues in this document (§8+).
 — gandalf (`RUN-CONDUCTOR`)*
