@@ -166,7 +166,7 @@ The run is DONE when ALL of:
 
 **FINAL RULINGS (Matt, 2026-07-28, "I agree, continue"):**
 - **Lighting LOCKED: B-cold** — S14 cold sky-leak with daylight-grey uppers; NO warm on wall tops ("warm belongs only where fire lives" — warm reserved for floor pools + future motivated corner torches, race-brief dressing). Variant C not adopted; caps stay dark. → **PC-LIGHT-FINAL fired** (drax: apply B, verify vs plate-B numbers, resolve the `walltop_level.gd` twin, commit+push reincarnated-godot).
-- **R-PC-11 (steward, veto-open): Air02 triple-spiral swirl ADOPTED as the working air glyph** (Matt asked for the tornado-read; delivered candidate unobjected; winged emblem retired from the air slot).
+- **R-PC-11 (Matt-SIGNED 2026-07-28, *"I prefer the element_air_02"*): Air02 triple-spiral swirl is THE air glyph** (winged emblem retired from the air slot).
 - **L8 glyph endgame:** 5/6 from the Fantasy Warrior HUD pack (freeze/physical/consecrate/knockback-rotated/shadow=Cursed02) + Air02 swap. **Open: holy** — commission-one vs compose-from-pack-parts. **Open: Auto-Rig Pro purchase** (row 18's only gate).
 
 **PC-LIGHT-FINAL ✓ (drax; godot `8caa733`, collab `d729a956`, both pushed) — B-COLD IS LIVE:**
