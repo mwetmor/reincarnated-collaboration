@@ -169,4 +169,9 @@ The run is DONE when ALL of:
 - **R-PC-11 (steward, veto-open): Air02 triple-spiral swirl ADOPTED as the working air glyph** (Matt asked for the tornado-read; delivered candidate unobjected; winged emblem retired from the air slot).
 - **L8 glyph endgame:** 5/6 from the Fantasy Warrior HUD pack (freeze/physical/consecrate/knockback-rotated/shadow=Cursed02) + Air02 swap. **Open: holy** — commission-one vs compose-from-pack-parts. **Open: Auto-Rig Pro purchase** (row 18's only gate).
 
-**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28. Chartered on Matt's *"GO ahead"*; fires on §5. **RUN CLOSED pending PC-LIGHT-FINAL's commit. Residual Matt queue: holy glyph · Auto-Rig Pro · L-J re-freeze go.**
+**PC-LIGHT-FINAL ✓ (drax; godot `8caa733`, collab `d729a956`, both pushed) — B-COLD IS LIVE:**
+- Applied state verifies EXACTLY against plate B: LSTAT-2 **6.833×** (plate: 6.83×), −10.44% vs A; determinism one sha across 5 processes / 3 sessions, settle-invariant. `black_point` 0.0 at both sites (C not adopted, per ruling).
+- **Twin FIXED** — `walltop_level.gd`'s old block was propagation, not intent; and it feeds the *live play-shell*, so drax re-measured with the King in frame: King never goes dark (0.0% px ≤12), spatial modulation p90/p10 1.51×→2.44×; the 2026-06-22 glow ruling was over-served by the deleted key (hot px 633→199) but its threshold stands untouched.
+- **Minor eye item banked, non-blocking:** play-shell reads warmer/brighter than the fork (lighter floor stone) — `tmp/pclight/REVIEW_FINAL/TWIN_AB.png`; a twin-specific tune is owed ONLY if that stage ever becomes a judged surface.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-07-28. Chartered on Matt's *"GO ahead"*; fired on §5. **✓ RUN CLOSED 2026-07-28 — all five target-states delivered, all ten checks answered, all riders discharged, lighting live in-repo. Residual Matt queue: holy glyph · Auto-Rig Pro · L-J re-freeze go.**
