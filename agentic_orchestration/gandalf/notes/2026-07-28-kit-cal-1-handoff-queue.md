@@ -8,7 +8,14 @@ terminates — knight-rider sequences; nothing here is a dispatch.
 
 ---
 
-## HQ-1 → drax — REPLICA-1 repair changes what your Godot lane has been consuming
+> **ROUTING UPDATE 2026-07-28 — run WR1-2026-07-28 absorbs this queue** (charter §6,
+> `2026-07-28-wr1-wave-relay-run-charter.md`; Matt rulings F-1..F-4):
+> **HQ-1 → SUBSUMED** — the WR1 baton (charter G-C) IS the re-emission at a pinned post-`bef1f55`
+> hash; drax consumes the baton in Leg 2 rather than re-emitting separately.
+> **HQ-2 → ABSORBED into WR1 Lap-0** — star-lord executes the opt-in-flag fix inside the run,
+> sequenced after gamora's engine-tree work.
+> **HQ-3 → THIS RUN** — WR1 is the wave; all inputs below are charter substrate (S-1..S-7).
+> KR sequencing of this queue is no longer needed; the run's ledger governs.
 
 **What happened:** at G-5 harness smoke, gamora found `ReplicaFrameSink.on_hit`'s mob→player branch
 had **never been called since KF-5** — every replica trace ever emitted showed the player taking zero
