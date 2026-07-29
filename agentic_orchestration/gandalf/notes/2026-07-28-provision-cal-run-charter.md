@@ -50,19 +50,22 @@ The run is DONE when ALL of:
 
 ## §5 — Launch gates (Matt rulings owed; leans re-stated, not presumed ruled)
 
-| Gate | Fork (handoff §4) | Lean |
+| Gate | Fork (handoff §4) | Status |
 |---|---|---|
-| **G-L1** | #1 — crypt lit as daylit court (CEILING-1, 4.66× contrast): fix in-run or hold constant | **Fix, and run the fix as the program's first measured lighting-authoring datum** (lighting has only ever been an obstacle, never a subject) |
-| **G-L2** | #2 — **Q46** Murzak cloud telemetry: local-only config / accept / park | Matt's alone; gates Tier 4 only — Tiers 1–3 launch without it |
-| **G-L3** | #4 — caster body for L7 | Lean UPDATED: the **werewolf** is now a live candidate alongside the proven Sidekick `.glb` — same body serving L7 caster + L6 second body + REPLAY protagonist maximizes instrument amortization (the instrument-dominance law working for us). Matt's call. |
+| **G-L1** | #1 — crypt lit as daylit court (CEILING-1, 4.66× contrast): fix in-run or hold constant | **✓ RULED (Matt 2026-07-28): FIX** — executed as the program's first measured lighting-authoring datum (→ R-PC-3) |
+| **G-L2** | #2 — **Q46** Murzak cloud telemetry: local-only config / accept / park | **OPEN** — Matt asked for the explanation 2026-07-28 (delivered: cloud-default transmits machine_name + project hash to `wss://ai-game.dev` on load; four env vars mitigate). Steward lean: **local-only-VERIFIED** (network-quiet assert during Tier-4 boot before any LOADS verdict). Gates Tier 4 only — Tiers 1–3 launch without it |
+| **G-L3** | #4 — caster body for L7 | **✓ RULED (Matt 2026-07-28): THE WEREWOLF** — normal variant per R-PC-1; one body serves L7 caster + L6 second body + REPLAY protagonist (→ R-PC-4) |
 | *(folded)* | #3 — menu bulk-ruling | Lean stands: bulk-install CLEAN+licensed; the 4 named exceptions + 5 unlicensed rows verdict `EXCLUDED(licence)` per menu §5 unless Matt rules otherwise |
 
-If Matt's *"agreed on all counts"* was intended to rule any of these, a one-word confirm per row closes it — they are pinned here so the launch never rests on an inferred ruling (pattern §5 safety 3: reserved ratification points are declared, never inferred).
+**Launch state: Tiers 1–3 + riders are launch-clear.** Tier 4 fires on the Q46 ruling.
 
 ## §6 — Rulings ledger (veto-open, running)
 
 - **R-PC-1 (Matt, 2026-07-28):** the werewolf body is the **normal** variant — `SM_Chr_Werewolf_01` / `SK_Chr_Werewolf_01`. The undead variant (`SK_Chr_Werewolf_Undead_01`) is **NOT used**, in any cell, on any surface.
 - **R-PC-2 (Matt-confirmed, 2026-07-28):** the Synty asset home is `/Users/admin/Games/reincarnated-godot/Assets/Synty/`. Menus pack copied in; werewolf pack verified already-present and import-touched by the engine.
+- **R-PC-3 (Matt, 2026-07-28):** G-L1 ruled **FIX** — the crypt lighting defect is repaired in-run and measured as the program's first lighting-authoring datum.
+- **R-PC-4 (Matt, 2026-07-28):** G-L3 ruled **WEREWOLF** — the L7 caster body is the normal Synty werewolf (composing with R-PC-1). The Sidekick `.glb` stands down as caster; remains available as control/reference.
+- **R-PC-5 (steward, veto-open):** `Godot Shaders Library` (menu row 4, telemetry finding T3 — in-editor downloads from godotshaders.com by design) carries a **network-quiet fence**: it never runs during a timed/measured cell; verdict annotated `LOADS-DIRTY(network-by-design)` if it otherwise loads clean.
 
 ## §7 — Fit test + fallback + Matt interface
 
