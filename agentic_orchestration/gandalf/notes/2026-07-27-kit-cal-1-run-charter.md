@@ -1786,3 +1786,9 @@ lap now holds for the post-fix batteries** — the terminal signature verdict re
 above) + S-2/S-3 from instruments that are actually connected.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`; R-KC1-24 veto-open), 2026-07-28.
+
+> **R-KC1-24 RATIFIED by Matt, 2026-07-28** ("agreed on R-KC1-24") — the ruling closes from
+> veto-open to RATIFIED. Fourth application of the operand-class line (S1–S5 wake · O-d ·
+> now the DoT discard), all under the same principle: validation attaches to the state we
+> keep. The historical-scope question (what re-validation the census's blast radius triggers
+> OUTSIDE this run) remains Matt's, pending gamora's measurement.
