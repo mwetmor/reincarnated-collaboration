@@ -95,5 +95,36 @@ cells only, sequential · conductor writes no production code — seams execute.
 
 - **R-WR2-1 (MATT-SIGNED):** "Go ahead and run with the 3 updates." Founding authority.
 - R-WR2-2..-6: §2 above, conductor, veto-open.
+- **R-WR2-7..-14 — the Cell-SPEC fork drain** (spec: `2026-07-29-wr2-mechanism-spec.md` §F; all
+  conductor, veto-open). Context the spec forced (§0, adopted as the run's mechanism record): the sim
+  ALREADY resolves collision at a mis-set 80%-of-contact setpoint (`SOFT_COLLISION_FRACTION` 0.8 ×
+  2.0 = the measured 1.600 flat), and the player has NO contact-range movement policy at all — the
+  "kite-drift" is the boss bulldozing a motionless puck. B replaces a wrong law; C fills a no-op.
+  - **R-WR2-7 (OQ-1):** split law is **area-weighted (r²)** — the boss wins the shove (player takes
+    0.90 vs boss). Genre-unanimous (D2 Baal, PoE size-asymmetric body-block, GD Nemesis); degenerates
+    to 50/50 at equal radii.
+  - **R-WR2-8 (OQ-2) — ⚑ THE ONE MATT SHOULD EYE (moves damage-side outcomes):** attack range goes
+    **surface-to-surface**: `effective_range = range_m + target.entity_radius`, gated to
+    `body_separation_v2` (B creates the units problem; the fix travels with B's flag). Without it, a
+    2.0 m melee skill vs the 1.5 m-radius boss is permanently out of range once separation holds —
+    player boss-DPS → 0 and S-3 fails on a units bug no tuning can reach. Fidelity ground: Matt's
+    fixture melee reached the werewolf's BODY, not its centre; D2/GD/PoE convention. Veto reverts to
+    spec option (a) or (c) with the lap budgeted for the FAIL.
+  - **R-WR2-9 (OQ-3):** REPOSITION does **not** suppress the attack (C-6). A sidestep is not a trade;
+    EVADE remains the only uptime-costing motion.
+  - **R-WR2-10 (OQ-4):** flip trigger is **state-driven, zero RNG draws** (wall / dwell / target-change,
+    debounced). A wall-answering flip reads as intention on the render; zero draws is zero S-4/S-6 risk.
+  - **R-WR2-11 (OQ-5):** **S-2 is a post-C gate only.** Cell B's Gate-2 grades S-1 + S-4 + flag-OFF
+    byte-identical full regression + the D-2 shuffled-order test + the D-3 identity-membership grep
+    sweep. B alone provably worsens the corner pin (90/10 bulldozer) — a correct B must not be read
+    as a regression.
+  - **R-WR2-12 (OQ-6):** **one split law everywhere** (mob↔mob included). Boss shoves its own adds
+    aside; a second law would be a third physics.
+  - **R-WR2-13 (OQ-7):** boss wall-awareness **out of scope** (R-WR2-4: player only). Ledgered as the
+    FIRST SUSPECT if S-2 fails post-C; the lap's first two dials are `WALL_PUSH_FRAC` / `WALL_BAND_M`.
+  - **R-WR2-14 (OQ-8):** **two flags** (`body_separation_v2`, `movement_policy_v2`), both default OFF.
+    B provable in isolation; the S-3 lap moves C without touching B.
+  - Spec §E's tunable/frozen wall and §G's per-cell Gate-2 obligations are ADOPTED as charter law;
+    §D-7 (`total_displacement` semantics shift) added to the S-6 diff table as a named line item.
 
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
