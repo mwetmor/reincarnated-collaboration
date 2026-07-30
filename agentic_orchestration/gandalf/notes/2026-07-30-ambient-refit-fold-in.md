@@ -246,6 +246,47 @@ in the scope above is superseded by the measurement where the measurement is cle
   (two-cameras-two-jobs, side by side) · framing plates under `tmp/camlock/plates/`.
 - **AMB-HUE unblocked** — fires now; godot tree free at `3449169`.
 
+## Scope 6 (Matt directives 2026-07-30, post-CAM-LOCK review) — rulings + WALL-READ + BEAUTY-CORNER
+
+- **CAM-LOCK verdict (Matt): "the cam lock looks right."** Camera accepted.
+- **Banner ruling (Matt):** the bottom-of-frame text banner (confirmed: that is what "frame
+  banner" meant) **STANDS** — it is documentation instrumentation during sim representation,
+  slated for removal in a more final version. The 28%-near-surface occlusion item is CLOSED.
+  (Caption-size k item not addressed — remains at his eye, non-blocking.)
+- **⚑ NEW QUESTION (Matt): why are the inside faces of the walls BLACK in these versions?** He
+  normally sees bricks; noticed at the zoomed (player_lock) camera; says it predates today.
+  Diagnosis cell **WALL-READ** fired (galadriel, read-only, parallel-safe under AMB-HUE's
+  single-writer hold). Conductor hypotheses to test, not assume: (H1) light starvation — the
+  PC-LIGHT fix DELETED the false sun (CEILING-1, only-deletion-worked); interior wall faces may
+  receive no torch light (omni radius short of the walls); (H2) material/mesh — inward faces
+  unlit-material, culled backfaces, or a different wall construction in the WR1 37.5 m room vs
+  the scenes where bricks read; (H3) exposure/tonemap band. Evidence-only output; the FIX (if
+  lighting) folds into BEAUTY-CORNER below — same surface.
+- **Matt directive — the "beautiful corner" (his framing: one corner of the sim representation
+  constructed close to the end-game artistic look; canonical ARPG / especially Grim Dawn).**
+  Three elements named for ultra-think + scene adoption:
+  1. **Player-circle ground sheen + character detail pop** — conductor read: the LANTERN GRAMMAR
+     (D1 light-radius lineage; GD/PoE player-attached light). Decomposes: (a) player-attached
+     OmniLight3D following the proxy; (b) ground material specular/roughness response (Synty
+     floors are flat-albedo, roughness ~1 — sheen requires a floor-material pass); (c) character
+     fill/rim from the same or a dedicated light. Matt's own intuition ("lit center follows the
+     character") IS mechanism (a). Fork for Matt: player light REPLACES the static lit center vs
+     layers on top (GD does both). With AMB-HUE's cool purple room: a WARM player light = the
+     living soul carrying light through the crypt of the dead — thematically load-bearing for RDR.
+  2. **Shadows** — per-light shadow casting on torch omnis + the player light. Matt's observation
+     ("shadows grow in clarity/contrast as light sources are passed") is exactly per-torch
+     shadow-casting behavior. Synty legibility claim is correct: contact shadow anchors +
+     silhouette separation. Offline render = cost acceptable. Constants (softness, which torches
+     cast) are drax's at the eye.
+  3. **Near-imperceptible haze growing in the shadows** — Godot 4 Forward+ VolumetricFog at very
+     low density (+per-light fog energy → torch shafts); faint fog reads against dark, vanishes
+     against bright — the "grows in the shadows" behavior falls out of tonemapping for free.
+     Riders: VOID-1 (fog must not glow past walls), LSTAT-2 authorized-delta (lighting change is
+     the POINT — stage datum moves by design, declared not smoothed).
+- **Sequencing:** AMB-HUE holds the tree (in flight) → hue verdict clip to Matt → BEAUTY-CORNER
+  charters after WALL-READ evidence returns + Matt rules the forks (player-light fork; element
+  scoping). Wall fix folds into BEAUTY-CORNER if lighting-class.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
