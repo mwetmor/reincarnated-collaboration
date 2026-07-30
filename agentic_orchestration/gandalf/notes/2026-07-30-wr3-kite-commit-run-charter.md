@@ -408,6 +408,44 @@ against the frozen WR2 baseline immediately.
     byte-identity + digests protect it). MIGRATION.md landed at
     `simulation/MIGRATION.md` (ADR-004; drax + galadriel consumers).
 
+- **R-WR3-19 (conductor, veto-open; one fork HELD FOR MATT): the referent extraction is IN —
+  R-WR3-17(d)'s answer, and R-WR3-17(b)'s premise is FALSIFIED.** Legolas
+  (`legolas/research/2026-07-30-wr3-stage2-referent-extraction.md`, verified; the `.anm` format
+  documented first-of-kind, closing the ledgered question):
+  - **(EVADE — parameters DETERMINATE, all MEASURED):** cooldown 3.0 s, 1 charge, max range
+    10.0 u, 11 u root motion in 0.282 s inside a 0.333 s lock, **NO i-frames** (absent from the
+    record, its template, and all nine GDX3 runes). Present + ENABLED in Matt's L13 save,
+    unmodified. Purely positional → the §7.2 walling survives on the mechanism's own nature,
+    not just our fence. R-WR3-17(c) builds to THESE numbers. (In-form werewolf dodge CLIP is
+    U-1-blocked — see matt_to_do T10; the skill parameters above are not.)
+  - **(BOSS TIMINGS — GD DISAGREES with 0.30/0.20, and per R-WR3-17(d) THE REFERENT GOVERNS):**
+    Primordian melee wind-up **0.489 s** / recovery **0.879 s** / T_lock **1.369 s** rooted
+    (0.000 u root motion — the lock model itself CONFIRMED), cycle 1.719 s; nova telegraph
+    0.80–0.89 s (vs our 0.30 written). Cycle length is in band (~15 %); **the duty cycle is
+    INVERTED** — GD's boss is rooted 79.6 % of its cycle, ours 28.6–40 %. Their boss buys
+    cadence with commitment; ours buys it with free idle. **Tension named, not silently
+    adopted:** referent T_lock 1.37 s sits far above gamora's measured safe ceiling
+    (T_lock ≲ 0.75 s at OUR 1.5 s cadence) — adopting referent durations forces the cadence
+    toward the referent's 1.72 s too. This is the stage-2 grill's first agenda item, with
+    gamora feasibility at the table (CAL-C1/C2 re-anchor + cadence draw + §3.4 daylight
+    arithmetic all move together). U-3 (which pak modifier hits the nova telegraph, 0.80 vs
+    0.89) and U-4 (recovery = upper bound) are the spec's to name.
+  - **(SPEED — R-WR3-17(b)'s premise MOVED; fork HELD FOR MATT, commitment boundary):** the
+    charter's 0.99/0.81 "boss faster" row measured **Warden Krieg** — the WRONG boss. Against
+    Primordian (the fixture's boss), Matt was **1.29–1.33× faster** under both open composition
+    models; our 1.43× is IN BAND, 7–11 % over. **Parity (1.00×) would over-correct PAST the
+    referent** — boss-favored beyond anything Matt actually fought — while stage 2 is
+    simultaneously landing a 2.3× longer lock. §3 speed row corrected in place. Fork to Matt
+    (legolas's three options, conductor lean appended): (1) parity as deliberate
+    over-correction; (2) referent-matched 1.30×; **(3) spend the correction on the COMMIT duty
+    cycle instead — the measured fidelity gap — and trim speed only to 1.30× (lean: 3, which
+    subsumes 2; both boss-favoring levers at full strength risks overshooting the 40–60 % band
+    from above).**
+  - **(ROUTED):** matt_to_do **T10** filed (GDX3 `Creatures.arc` pull — werewolf-form player
+    timings, the sole blocking UNKNOWN; boss + speed rows complete without it). Legolas's §6
+    corrections to his own prior artifacts noted (envelope U-1 closed; wr1-extraction G-1/G-3
+    closed for base-game creatures). U-5 carried unchanged.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
@@ -416,7 +454,7 @@ against the frozen WR2 baseline immediately.
 | boss fight duration | 59–118 s | ~65 s | **IN BAND** |
 | player DPS | 310–620 HP/s (width = open cadence U-2) | ~250 HP/s | **BELOW BAND** — F-WR2-1's number |
 | boss heavy hit ÷ pool | worst MEASURED hit taken all run: 34.3% · scripted heavy 10.4% | nova up to 55% (2×414.80/759) | **1.6–3.4× OVER** — the outlier |
-| player:boss speed | 0.99/0.81 (boss FASTER) | 1.43 (boss slower) | we are GENEROUS vs referent |
+| player:boss speed | ~~0.99/0.81 (boss FASTER)~~ **CORRECTED R-WR3-19: that ratio was WARDEN KRIEG. vs Primordian (the fixture's boss): player 1.29–1.33× FASTER** | 1.43× player-faster | **IN BAND, 7–11 % over** |
 | commit/telegraph rhythm | commit windows + telegraphed heavies = the kite | none (76,714/76,714 idle) | **THE MISSING MECHANISM** |
 
 ## §4 — Run shape (two stages; stage boundary is a Matt checkpoint)
