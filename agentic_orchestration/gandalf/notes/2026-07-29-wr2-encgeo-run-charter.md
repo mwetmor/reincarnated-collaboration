@@ -390,4 +390,44 @@ cells only, sequential · conductor writes no production code — seams execute.
     parameter law, not a repair, and S-7 must be attributable to it in isolation. Cell BAT arms
     all three.
 
+- **§8.24 — Cell D lands: ALL PASS; F-WR2-3 CLOSED; conductor rulings on its four ⚑ items** (engine
+  `28386b26`/`b35695c0`/`796a6f6d`, meta `3f1e71a4`, pushed). The nova fires again under the one
+  range law: cast gate 6/6 at d=10.2086 ≤ 10.5, `n_nova_crossings` 0 → 1 on the five seeds Cell C
+  measured dark. Range-predicate sweep: **19 sites, exactly ONE out of law** — the nova's private
+  reach gate was the only per-skill REACH predicate downstream of the shared selector; the class is
+  closed, not just the instance. Mechanism D: T = 12.0/(0.90×5.75) = **2.319 s** vs the measured
+  0.750 (3.09×), zero RNG, per-fight-constant. S-7 spot-check 5/5, worst ratio-to-bound 0.149,
+  matching the math note's a-priori table to 15 s.f. Flag-OFF byte-identity vs `ecea69f` exact
+  (SHA-256, all 6 traces); regression name-diff EMPTY 81/81; 69/69 new tests, 223/223 across
+  B+C+D+nova; all six riding obligations discharged, zero behavior change; residual counters
+  UNCHANGED by D. Process catch self-ledgered: comment-only mid-regression edit → killed and
+  re-ran against the final tree (the Cell B-FIX lesson, applied unprompted). **Rulings:**
+  - **R-WR2-21 (conductor, veto-open) — S-7 clause 2 stays; Cell BAT gains the instrument to
+    measure it.** M-3 is dark on the battery of record (`piloted_competence_m3: null`), so the
+    evade-armed crossing-rate clause is unmeasurable without an arm — dropping the clause is
+    goalpost motion (refused, same law as R-WR2-16 R3). Cell BAT adds a **paired M-3 evade-armed
+    arm** (BEFORE flags-off / AFTER flags-on, same seeds). Pre-named FIRST SUSPECT if the rate
+    does not drop (R-WR2-13 pattern): `ACTIONABLE_WINDOW_S = 0.70` caps the evade budget
+    identically in both arms — D reaches the clause through telegraph tick count (8 → 24), not
+    budget. That constant is **M-graded, outside spec §E: any change HALTs to Matt.** A measured
+    non-drop with the mechanism pinned is a processable finding judged at grading, veto-open —
+    not a silent gate edit.
+  - **Ring reconciliation disposition RATIFIED as name-and-pin:** drawn ring already equals damage
+    ring (one constant, four readers); the WR1 flag was a naming collision across two record
+    blocks, not a lying telegraph. Nothing moved; the pin is the test.
+  - **FOOTPRINT classification RATIFIED:** the circle-AoE select-but-whiff window stays open on a
+    classification argument (blast extent ≠ reach to a body), not convenience. INFO-AoE watch item
+    stands; harmless on this fixture (no circle skill in the boss kit).
+  - **ADOPTED: Cell BAT's flag-OFF REPORT baseline pins at `796a6f6d`** (`wave_regime` gains two
+    unconditional keys); trace byte-identity remains vs `ecea69f`, verified. Third occurrence of
+    the class — standing rule named: *report-baseline pins at the latest landing; trace-identity
+    pins at the mechanism baseline.*
+  - **ADOPTED: the S-7 onset tick is `tick`, NOT `tick − 1`** (gamora's own falsifier: at
+    `tick − 1` the distance 10.7836 exceeds the cast gate's 10.5 ceiling — the telegraph could not
+    exist there; the wrong convention loosens the gate 32%). Cell BAT's grading script MUST use
+    `tick`; no downstream transcript of the earlier draft survives unaudited.
+- **§8.25 — Gate-2 on Cell D FIRED** (jack-ryan; landing = the three engine commits as one; the
+  §8.22(ii) range-semantics checklist law gets its first enforcement — independent re-enumeration
+  of the 19-site sweep). **Cell BAT holds for CLEAR.**
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
