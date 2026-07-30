@@ -213,6 +213,34 @@ against the frozen WR2 baseline immediately.
     t=0.700, first swing t=6.800, σ=0 across 180) — all fight variance enters after t=6.8 s;
     G2's onset>1.5 s exclusion is untouched but instruments should know the opening is constant.
 
+- **R-WR3-14 (MATT-SIGNED 2026-07-30 — "agreed on both"): the GD AI state-machine question
+  resolves as TWO chartered sequels, W-1 + W-2.** Matt's ask: witness aggro/spawn/attack/chase
+  states for monsters/bosses inside the battle simulator. Ground truth from the substrate read:
+  chase EXISTS (100% of ticks — the battery pins engagement), attack EXISTS (the metronome),
+  attack-commit is IN FLIGHT (C2 adds windup/strike/recovery — the first real per-monster state
+  machine), cast EXISTS (nova), leash-reset EXISTS dormant (R2 territory-guard full-heal return,
+  `spatial_engine.py:1957`); idle/wander/spawn/proximity-aggro are ABSENT BY DESIGN in the
+  battery, which forces engagement at t=0. Rulings:
+  - **(W-1 — witness labels; emission truth, post-stage-1):** add a per-frame `ai_state` label
+    to the replica-frame emission — vocabulary {approach, engage, windup, strike, recover,
+    leash-return} — so any watch/render shows the monster's state explicitly rather than
+    inferring it from geometry. NO behavior change; label-only. Rides with the K2-prep
+    replica-frame schema amendment (R-WR3-10) or fires as its own micro-cell, whichever lands
+    first. Godot-would-render-a-lie law applies: the label must derive from the SAME state
+    variables C2 executes, never a parallel reimplementation (one-implementation, R-M3-1 family).
+  - **(W-2 — encounter-AI lap; chartered between stage 2 and the full-mix acceptance gate):**
+    proximity aggro (radius-triggered engagement instead of forced t=0 pinning), pack social
+    aggro (aggroing one member pulls the pack per GD's social-aggro convention), and
+    leash-in-combat (the dormant R2 return armed under battery conditions). SEQUENCING REASON,
+    load-bearing: R-WR3-2's "majority of encounters" is measured on the FULL MIX including pack
+    fights; an always-pinned pack is strictly HARDER than the GD referent (real packs stagger
+    engagement via aggro radii and body-blocking approach) — measuring the acceptance gate
+    without W-2 would bias the win rate DOWN vs the intent sentence. So: stage-1 gates → owner-eye
+    → stage-2 calibration → W-2 lap → R-WR3-2 acceptance measurement (boss + full mix).
+  - Per the conductor's commitment at ratification: **nothing in W-1/W-2 fires until the
+    in-flight stage-1 build lands its G1–G5 gates.** Spawn/wander remain out of scope for the
+    simulator (full-gameplay-loop functions — Matt's own suspicion, confirmed).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
