@@ -801,3 +801,19 @@ sentence to write, not mine.
 
 *Grading synthesis + AFTER-baton closes. The baton ships on this landing; then drax renders; then Matt's
 watch closes the run. — gandalf, named sub-agent (`DRIFT-CRITIC` / `SPEC-AUTHOR`), per charter §8.34*
+
+---
+
+## ⚠ ERRATA (appended by the conductor per charter §8.38, from jack-ryan's R-WR2-23 courtesy read, finding `2026-07-30-courtesy-wr2-s6-quantum-column.md` / `0b76af36`)
+
+Every number in Parts 1–2 was independently reproduced EXACT on fresh instruments (histogram, intake
+deltas, all 8 flips enumerated complete — no ninth exists, zero reverse flips anywhere). Two LABELS
+corrected:
+
+1. **§1.4's "11.2% and 12.7% of the player's 759 HP pool" is leg-specific, not general.** The 759 HP
+   pool belongs to `pre`/`pre_endpoint` — where every catastrophic flip lives and where the percentages
+   HOLD. The `post` player (`r3arm…mitR3`) carries **1607 HP**, so the same +84.85 HP is **5.28%**
+   there. HP figures right on all three legs; the percentage gloss was not.
+2. **§2.2's `post` row is labeled `boss/A+B, 30`; pooled A+B is 60 fights.** The mean is unaffected —
+   A ≡ B per seed on `elapsed_s` to 1e-9, all 30 pairs, both arms (their sole content difference, the
+   lifesteal door 0.05 vs 0.08, cannot move time-to-kill in a leg the player always wins).

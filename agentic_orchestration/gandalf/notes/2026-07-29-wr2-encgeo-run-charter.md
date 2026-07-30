@@ -673,4 +673,21 @@ cells only, sequential · conductor writes no production code — seams execute.
   (star-lord's bundle `movement_speed`) — harmless today, a join hazard the day a telemetry
   column lands; naming-collision item joins the ledgered tails.
 
+- **§8.38 — R-WR2-23 courtesy read RETURNED: ALL FOUR CLAIM-SETS CONFIRMED EXACT on fresh
+  instruments; two label errata appended to the synthesis doc; the S-6 fourth column is now of
+  record on two instruments** (jack-ryan `0b76af36`, pushed with this landing; erratum banner
+  appended to `2026-07-30-wr2-grading-synthesis-after-baton.md` — banner, not rewrite). Histogram,
+  intake deltas, outcome decomposition, flip bifurcation: exact to every digit; flip enumeration
+  COMPLETE (no ninth flip, zero reverse flips anywhere); the lap's instrument validation holds on
+  his instruments too. **Errata (labels, not numbers):** (1) the "11.2%/12.7% of the 759 HP pool"
+  gloss is leg-specific — `post`'s player carries 1607 HP, so +84.85 HP is 5.28% there; every
+  catastrophic flip lives on the 759 HP legs, where the gloss HOLDS. (2) `post` "boss/A+B, 30" is
+  60 pooled; mean unaffected (A ≡ B on `elapsed_s` to 1e-9, all 30 pairs, both arms). Fifth and
+  sixth entries in the true-where-measured/wrong-where-labelled family — both caught BEFORE Matt
+  read the numbers, which is what the courtesy read was for. **Wave-tail addition (jack-ryan's
+  own, self-filed):** his Gate-2 reproduced everything the cell REPORTED and never audited the
+  REPORT against the PRE-REGISTRATION — candidate Gate-2 discipline refinement: diff the report's
+  column set against the gate's registered column set as a checklist step. Joins the
+  every-registered-column-names-its-computing-cell candidate from R-WR2-23.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
