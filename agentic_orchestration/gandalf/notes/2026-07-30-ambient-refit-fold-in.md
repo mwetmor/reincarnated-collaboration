@@ -384,6 +384,41 @@ in the scope above is superseded by the measurement where the measurement is cle
   transform only, no feedback path). The same accepted stack rendering the canonical baton
   fight = **the scene live**.
 
+## Scope 9 (Matt 2026-07-30) — NUM-POP verdicted · two new beautiful-room systems
+
+- **NUM-POP VERDICT (Matt): "The damage numbers look great now."** ACCEPTED — banked ahead of the
+  cell's formal return notification (Matt watched the deliverable directly; wall-band verdict not
+  yet spoken, pending his eye / the cell report).
+- **Matt directive — two beautiful-room systems, ultra-thought and translated:**
+  1. **Per-room floor-mapped skylight ("grandiosity light").** Genre lineage: D3 cathedral
+     god-rays, GD Steps-of-Torment skylight pools. Godot mechanism: tight SpotLight3D from high
+     above + **light projector mask** (window-lattice / oculus / crack motif) so the FLOOR
+     receives a patterned pool — and the BEAUTY-CORNER fog makes the shaft itself visible for
+     free (per-light fog energy; the two features are one system). **Unique per room:**
+     seed-driven selection of motif mask, azimuth, pool position, temperature — deterministic
+     from room index + level seed. Grandiosity mechanism named: the shaft implies architecture
+     above the frame (D3's trick — the light source sells height you never render).
+     **Lineage guard:** this is NOT the deleted false sun (CEILING-1 was an unbounded
+     directional with a falloff defect); this is bounded, motivated, localized light. Conductor
+     temperature lean: COLD pale shafts — three-temperature grammar completes: warm torches
+     (local fire), warm player light (the living soul), cold skylight (the distant world above).
+     Thematically load-bearing for RDR: light from the living world breaking into the crypt —
+     Rise rendered as lighting.
+  2. **Per-room cleanliness/disrepair + doorway dirt-bleed.** Mechanism: seeded dressing pass —
+     Godot Decal nodes (stains/mud/cracks) + scattered Synty rubble/debris meshes; per-room
+     `disrepair` scalar drives density; **doorway overlap** = decal density gradient falling off
+     with distance from the door into the next room (reads as tracked traffic; rooms become
+     CONNECTED, not stamped). Wayfinding bonus: rooms become memorable by state. Narrative
+     bonus (conductor): if disrepair deepens along the traversal path, the gradient IS the
+     descent — the seasonal-journey-as-descent pattern rendered as dirt. Asset discipline:
+     local-first (Synty dungeon packs carry debris/cracked-floor variants); no fetches.
+- **Scoping + sequencing (per the Scope-8 fold-directive):** skylight is LIGHTING-family → folds
+  into **BEAUTY-CORNER** (fires on WALL-FIX+NUM-POP's confirmed return; bake-off + shadows +
+  fog + skylight — fog/shaft synergy argues for same-cell). Cleanliness/dirt is DRESSING-family →
+  new cell **ROOM-DRESS** behind it. Both land in the single integrated hand-off watch; both
+  per-element peelable. Seed convention (conductor): room-unique features derive from
+  room index + level seed — deterministic, reproducible, no per-room authoring debt.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
