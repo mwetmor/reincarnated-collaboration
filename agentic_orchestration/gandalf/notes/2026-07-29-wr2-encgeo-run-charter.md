@@ -723,4 +723,24 @@ cells only, sequential · conductor writes no production code — seams execute.
     (41° projection over a tangent pair); measured sep 2.000 m / floor 2.00 m — no overlap —
     against BEFORE's ⚑ 400 mm overlap. The camera lies; the clock line doesn't.
 
+- **§8.40 — THE WATCH OCCURRED (exit-predicate step 4 of 4 HELD); its verdict is F-WR2-5
+  (MATT-SIGNED); pursuit diagnostic FIRED; the close-out fork is Matt's.** Matt, verbatim: *"The
+  boss movement speed is too fast. Can we not take the ratio of boss to player movement speed
+  from Grim Dawn and implement it to resolve this? As it currently stands, the kiting is
+  worthless and the telegraph is worthless because the boss is pinned to wherever the character
+  moves due to movement speed ratio. Unless it's not movement speed but the AI that pins the boss
+  to the player. It could be a combination of both."* **F-WR2-5 banked:** the run rebuilt the
+  PREY (orbit, separation, escape law) and never touched the PREDATOR — R-WR2-6 kept grades
+  closed and no mechanism touched boss locomotion; the fixture's boss almost certainly runs the
+  SAME ungraded 5.75 as the player (INFO-1's loader fills it for any entity), ratio 1.0, at which
+  no amount of player movement opens separation. Speed-vs-AI decomposition routed to a gamora
+  READ-ONLY diagnostic on the banked battery (ratio from headers, boss speed utilization, pursuit
+  heading purity, contact fraction, attack-commit kite windows, boss behavior during the 132
+  telegraph escapes) — measured before anything is built, per discipline. **Fork presented to
+  Matt (commitment boundary, his ruling):** (A) amend WR2 with a Mechanism-E pursuit law and
+  re-run the battery, or (B) close WR2 on its held predicate — battery frozen as the clean
+  baseline — and charter the sequel with F-WR2-5 leading and F-WR2-1/-2/-4 riding (a pursuit
+  change moves every pacing number; the sequel's own BEFORE/AFTER is the right instrument).
+  Conductor lean: B, stated to Matt with its reasons. Run-close synthesis HOLDS for his ruling.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
