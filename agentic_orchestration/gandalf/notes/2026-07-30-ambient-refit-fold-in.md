@@ -354,6 +354,36 @@ in the scope above is superseded by the measurement where the measurement is cle
   one to watch) · judge-cam twin · `tmp/ambhue/plates/PLATE_ramp_as_displayed.png` (fastest read).
 - **WALL-FIX + NUM-POP unblocked** — tree free at `2c48854`; fires next per Scope-7 sequence.
 
+## Scope 8 (Matt rulings 2026-07-30) — hue ACCEPTED · HAND-OFF manifest · path to live
+
+- **AMB-HUE VERDICT (Matt): "the ambient hue looks good."** Purple spine ACCEPTED as shipped —
+  the declared 42.7% dimming stands, no lever pulled (no desaturation, no alpha-key raise).
+- **Matt directive: fold all remaining additions into the HAND-OFF.** Iteration compresses: after
+  WALL-FIX+NUM-POP returns, ONE remaining cell (BEAUTY-CORNER) folds bake-off + armor-grade
+  shadows + fog, then ONE integrated full watch — THE hand-off deliverable — carries the entire
+  accepted stack. Per-element M-EYE loops end; Matt judges at the hand-off watch (element
+  before/after plates ride along as fallback; each element independently peelable — one
+  constant/toggle each). Sole exception: the player-light BAKE-OFF still delivers its A/B pair
+  (Matt explicitly asked for the comparison).
+- **HAND-OFF MANIFEST — the presentation stack the baton render inherits (all Matt-verdicted
+  unless marked):** ambient refit (extents ×2.14, Option A fill) ✓ · perpetual rise ("perfect",
+  R-10 amended) ✓ · purple hue spine ✓ · `--cam player_lock` on the measured GD decision surface
+  ("looks right") ✓ · AI-state tags (subject-field discipline) ✓ · bottom banner stands
+  (documentation) ✓ · brick wall band [WALL-FIX in flight] · anime damage numbers [NUM-POP in
+  flight] · player-light bake-off winner + shadows (armor-silhouette standard) + shadow-haze fog
+  [BEAUTY-CORNER pending] · caption-size k (non-blocking, at his eye at the hand-off watch).
+- **PATH TO LIVE (two lanes, honestly split):**
+  *Lane 1 — this session (the catching surface):* (1) WALL-FIX+NUM-POP returns [in flight];
+  (2) possible one font pick if the disk lacks a display font; (3) BEAUTY-CORNER fires on true
+  brick, returns; (4) Matt: bake-off arm pick + hand-off watch verdict; (5) the INTEGRATED
+  hand-off watch renders (current wr3 trace); (6) godot push authorization (commits local,
+  ahead 5 — one word).
+  *Lane 2 — the baton itself (charter session's lane, not conducted here):* WR1 re-emission at
+  the pinned post-`bef1f55` hash + wave grading/closeout. When the baton lands, this scene swaps
+  its input trace for the baton trace — MECHANICAL by design (the harness is trace-driven; view
+  transform only, no feedback path). The same accepted stack rendering the canonical baton
+  fight = **the scene live**.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
