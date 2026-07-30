@@ -496,10 +496,22 @@ on multi-body chains.
 
 Worst slack is **−0.000998 m — inside `ε_touch = 0.001`**, i.e. inside the solver's own target and
 an **order of magnitude inside S-1's 1 cm**, exactly the margin math note §1 promised. It is
-identical to 17 s.f. across all three legs and it occurs on a **mob↔mob** pair
-(`gd-werewolf-kitcal-1` ↔ `hero_boar_h07_0`, contact 1.0 m, `mixed_pack__none__seed74000806`
-tick 80) — **not a wall pair at all.** It is the `gap ≤ ε_touch → continue` skip threshold showing
-up as its own value, which is what a correctly-converged solver's worst case should look like.
+identical to 17 s.f. across all three legs and it occurs on the pair
+`gd-werewolf-kitcal-1` ↔ `hero_boar_h07_0` (contact 1.0 m, `mixed_pack__none__seed74000806`
+tick 80). It is the `gap ≤ ε_touch → continue` skip threshold showing up as its own value, which
+is what a correctly-converged solver's worst case should look like.
+
+> **⚠ ERRATUM (WR2 Cell C, 2026-07-29; charter §8.13 WARN-1, jack-ryan's Gate-2, ADR-002
+> documentation-only).** This paragraph previously called that pair "**mob↔mob** … **not a wall
+> pair at all**". Both halves are wrong. `gd-werewolf-kitcal-1` is the **PLAYER** — the trace
+> header records `"is_player": true, "entity_radius_m": 0.5` — so the pair is **player↔mob**; and
+> at that tick both bodies sit at `y = 0.5`, which is exactly the south-wall clamp for a 0.5 m
+> radius on the 36×36 arena, so **both are wall-clamped**.
+>
+> The conclusion is unaffected and the correct statement is narrower: **the pair's separation
+> NORMAL is unaffected by the clamp** (the normal is x-aligned, the binding clamp is on y, so
+> nothing is annulled along the correction axis). Restated in that form rather than as "no wall is
+> involved" — which is broader than the measurement supports, and is the sentence a grader reads.
 
 S-1 is measured **from the emitted frames, never from the solver's counters** (math note §8) — an
 instrument that grades itself is not a gate. Method unchanged from the HALT run.
@@ -532,9 +544,20 @@ flagged fights:
 | 74000816 | −0.00071342 m | same pair | inside |
 | 74000824 | −0.00094849 m | same pair | inside |
 
-All inside 1 mm; all mob↔mob in a **pack chain**, no wall involved. `mixed_pack` is the only tier
+All inside 1 mm; every flagged PAIR is mob↔mob in a **pack chain**. `mixed_pack` is the only tier
 whose contact graph is a genuine chain rather than a union of pairs, so it is the only tier where
 §3.1's per-sweep *constraint propagation* — not §12.3's per-pair exactness — is the binding cost.
+
+> **⚠ ERRATUM (WR2 Cell C, 2026-07-29; charter §8.13 WARN-1/WARN-2, ADR-002 documentation-only).**
+> (1) This block previously added "no wall involved". The flagged PAIRS are mob↔mob, but the
+> residual CHAIN terminates on a **corner-pinned player** at `(35.5, 0.5)` with the boar
+> south-wall pinned at `(34.5, 0.5)` and blocked in `+x` by it (jack-ryan's tick-93
+> reconstruction of seed 74000801). Chain, not pair, is the level at which the wall participates.
+> (2) `ITER_MAX = 8`'s margin on the observed worst case is **1×, not the factor-of-four** the
+> math note claimed: the counter can only increment when all 8 sweeps ran AND the 8th still saw
+> `gap > ε_touch`, so each residual tick spent the entire frozen budget. The frozen row stays
+> frozen (R-WR2-16 refused raising it); the counters are the instrument, and Cell C and Cell BAT
+> carry them as a WATCHED quantity.
 
 **Reported, not repaired.** Raising `ITER_MAX` to silence it is the same drift R2 was refused for;
 re-defining the counter as a post-state measurement would turn a tripwire that errs toward *firing*
