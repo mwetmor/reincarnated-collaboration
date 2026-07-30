@@ -202,6 +202,26 @@ selection 3.5 whiff window jack-ryan named, and there is a unit test pinning tha
 > CORRECT: there it is the slack of the *reach* term (`3.50 − 2.70` boss, `2.50 − 1.70` mob), i.e.
 > how far `band_outer` sits below the selection reach. Two 0.80s, two measurements, one of them
 > wrong — which is exactly why WARN-2 was worth filing.
+>
+> **⚠ ERRATUM-ON-THE-ERRATUM (2026-07-30, Cell BAT; Gate-2 Cell D WARN-2, charter §8.26).** The
+> mitigation above — "this kit carries **no circle skill at all** (cone + line)" — is **FALSE**, and
+> it originated here before propagating to four further sites (D math note §1.4 + §5.2, Cell D cell
+> note §3.2 + §7.10). The boss's **index-1** skill IS circle geometry: `primordian_frigidring_r4`,
+> `geometry_type: "circle"`, `spatial_geometry_type: "circle"`, `range_m` 10.0 — re-verified by Cell
+> BAT from the constructed kit dict, where index 0 is the `range_m` 2.0 melee and the cone/line names
+> quoted above appear nowhere in this boss's kit.
+>
+> The window is shut by the **`_gd_nova` intercept at `spatial_engine.py:6003`**
+> (`if skill.get(_GD_NOVA_KEY) is not None:` precedes the generic-AOE `else`), which diverts that
+> skill to `_gd_nova_cast` before the footprint predicate is ever reached. **True trigger: *a
+> circle-geometry skill WITHOUT a `_gd_nova` block*** — a kit-SHAPE condition, not kit absence.
+> Magnitude for such a skill: `(aoe_radius, range_m + r_target] = (3.5, 10.5]` = **7.0 m**, not
+> 0.5 m (`DEFAULT_AOE_RADIUS` 3.5, `effect_category` absent — both re-verified).
+>
+> **Everything else in this erratum stands**: the 0.30 m clearance, the 2.7× overstatement, the
+> two-0.80s distinction. Only the mitigation is withdrawn — and it was the sentence doing the
+> reassuring, which is why the correction is worth its length. The FOOTPRINT-≠-REACH disposition is
+> unaffected (charter §8.24, re-affirmed §8.26): reported, not repaired, watch item re-armed.
 
 ### ⚑ REPORTED, NOT GRADED — `pre_endpoint`/arm B reaches 0.000
 

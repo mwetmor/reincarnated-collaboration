@@ -47,6 +47,13 @@ spec §E, and M-3 is dark on the battery.
 
 ### 2.1 Item 1 — the nova cast-gate parity fix (rides `body_separation_v2`; NO new flag)
 
+> **LINE-NUMBER CONVENTION for this table (stated 2026-07-30, Cell BAT; Gate-2 Cell D INFO-4).**
+> Every `:NNNN` here is **POST-LANDING** — line numbers as they stand on the tree AFTER Cell D's
+> three commits (`28386b26`/`b35695c0`/`796a6f6d`). They remain valid through Cell BAT, which adds
+> no lines to `spatial_engine.py`. **Contrast** the sweep table in the Cell D MATH note §1.3, whose
+> numbers are **PRE-LANDING** (base `ecea69f`): the two tables cite the same file with different
+> numbers by construction, and neither is wrong. Grep the quoted predicate, not the number.
+
 | file | line (post-landing) | change |
 |---|---|---|
 | `spatial_gauntlet/spatial_engine.py` | `:4485-4533` | The gate. `_eff_fire_range = p.fire_range_m + (target.entity_radius if self._body_separation_v2 else 0.0)`, then `if mob.distance_to(target) > _eff_fire_range: return False`. The bare `> p.fire_range_m` comparison is GONE. |
@@ -170,6 +177,20 @@ is **reported, not repaired.** It is currently unreachable on this battery (this
 circle skill at all**: `feral_claws_r16` cone, `rip_and_tear_r16` line), and Cell C's `band_outer`
 2.70 sits **0.30 m** clear of its binding edge (WARN-2, §6.2). **Conductor's call, not mine** — the
 fix would change footprint semantics on every circle AoE in the corpus, which is far outside Cell D.
+
+> **⚠ ERRATUM (2026-07-30, Cell BAT; Gate-2 Cell D WARN-2, charter §8.26).** "This kit carries **no
+> circle skill at all**" is **FALSE**. The boss's **index-1** skill IS circle geometry —
+> `primordian_frigidring_r4`, `geometry_type: "circle"`, `spatial_geometry_type: "circle"`,
+> `range_m` 10.0 — re-verified by Cell BAT from the constructed kit dict (index 0 is the `range_m`
+> 2.0 melee; the cone/line names quoted above are not in this boss's kit at all). What shuts the
+> window is the **`_gd_nova` intercept at `spatial_engine.py:6003`**, which diverts that skill to
+> `_gd_nova_cast` before the generic-AOE `else` — so the true trigger is *a circle-geometry skill
+> WITHOUT a `_gd_nova` block*, and the magnitude for such a skill is
+> `(aoe_radius, range_m + r_target] = (3.5, 10.5]` = **7.0 m**, not 0.5 m (`DEFAULT_AOE_RADIUS` 3.5
+> and `effect_category` absent — both re-verified). The FOOTPRINT-≠-REACH disposition **STANDS**;
+> only its ground moves. Three hands carried the premise unchecked (jack-ryan's Cell-C finding →
+> gamora → conductor ratification) — the same failure shape as the §8.22 (ii) gate-escape. The
+> `0.30 m` clearance in the same sentence is a DIFFERENT quantity and remains correct.
 
 ---
 
@@ -467,6 +488,31 @@ does change is the NUMBER of telegraph ticks the policy acts on — `ceil(0.750/
 ≤ 0.575 m executed per tick). So the second clause is plausibly reachable **through tick count, not
 through budget** — and if it fails, the suspect is `ACTIONABLE_WINDOW_S`, not the escape law.
 
+> **⚠ ARITHMETIC CORRECTED, restated in ACTING TICKS (2026-07-30, Cell BAT; Gate-2 Cell D WARN-3,
+> charter §8.26).** The table above counts **TELEGRAPH** ticks and an uncapped step. The
+> decision-relevant count is **ACTING** ticks — those on which the policy can move at all — and it
+> is smaller, because `t_remaining_s = ring.t_launch − elapsed` **decays per tick**
+> (`spatial_engine.py:4707`), so the 0.70 s cap binds **only at the first tick**, and the
+> **`t_eff ≤ 0` floor** (`policy/telegraph_response.py:215` → HOLD) silences the **last three ticks
+> of any window** (`t_rem ≤ 0.30` on offsets `T−0.3 … T−0.1` at the 0.1 s grid):
+>
+> | arm | `T` | telegraph ticks | **ACTING ticks** | executed-reach ceiling |
+> |---|---|---|---|---|
+> | D OFF | 0.750 | 8 | **5** | 4 × 0.575 + 5.75 × 0.05 = **2.5875 m** |
+> | D ON | 2.318840579710145 | 24 | **21** | 20 × 0.575 + 5.75 × 0.01884058 = **11.60833 m** |
+>
+> Reach ratio **4.486×**, not 3.0×: D reaches the clause MORE strongly than this section claimed.
+> "Identical budget in both arms" is true **only at the first tick**. Re-derived from the constants
+> by Cell BAT. `ACTIONABLE_WINDOW_S` remains **M-graded and untouched**.
+>
+> **⚑ And the MEASURED census matches NEITHER enumeration** — which is why both tables are ceilings.
+> On Cell BAT's paired M-3 arms the realized `evade` intent count is **4 per firing in BOTH arms**
+> (88 per leg over 22 firings, arm-invariant), because `telegraph_response` HOLDs as soon as no
+> candidate scores strictly better than standing still (`if payload(target) >= payload(here):
+> HOLD`): the player reaches its payload minimum in 4 ticks and every remaining acting tick is a
+> HOLD. **So D does not reach clause 2 through evade-tick count at all.** Clause 2 nevertheless
+> PASSED (rate/firing 1.000 → 0.000); the measured mechanism is in the Cell BAT note.
+
 **Why I did not touch it, and this is a boundary rather than a preference:** `ACTIONABLE_WINDOW_S` is
 **M-graded**; spec §E's frozen wall and R-WR2-19's own scope ("the one dial is `NOVA_ESCAPE_FRAC`")
 put it out of reach; re-deriving an actionable window from a DERIVED telegraph would be circular; and
@@ -483,6 +529,16 @@ predicate (may I fire at that body?) and belongs to the surface measure; a blast
 circle AoE in the corpus. Far outside Cell D, and outside R-WR2-8's own wording. Currently
 unreachable on this battery (this kit has **no circle skill**: cone + line), with Cell C's
 `band_outer` 2.70 sitting **0.30 m** clear of the binding edge.
+
+> **⚠ ERRATUM (2026-07-30, Cell BAT; Gate-2 Cell D WARN-2, charter §8.26).** "This kit has **no
+> circle skill**: cone + line" is **FALSE** — the second propagation of the same unchecked premise
+> (see the §3.2 erratum). The boss's index-1 skill `primordian_frigidring_r4` IS
+> `geometry_type: "circle"`, `range_m` 10.0. The window is shut by the **`_gd_nova` intercept at
+> `spatial_engine.py:6003`**, not by kit absence, so the watch item's true trigger is *a
+> circle-geometry skill WITHOUT a `_gd_nova` block* and its magnitude is
+> `(3.5, 10.5]` = **7.0 m**. The disposition (FOOTPRINT ≠ REACH, reported-not-repaired) **STANDS**;
+> the watch item is re-armed with the corrected trigger and magnitude. The `0.30 m` clearance is a
+> different quantity and remains correct.
 
 ---
 
