@@ -136,6 +136,33 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Sequencing:** AMB-RISE takes the godot tree now; CAM-LOCK queues behind it (needs GAL-CAM's
   operands regardless, still in flight).
 
+## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
+`88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
+
+- **Headline overturns a shared assumption: the GD fixture camera is a PINHOLE, not orthographic**
+  (horizontal ground scale grows 55% top→bottom; ortho rejected at every measured row, 1,582 frame
+  pairs/row, 73 windows across 1h53m). Pitch 52.96° [45.3–62.3]; player-row scale 54.47 px/m;
+  player anchor (962, 595) = +55 px below centre; zoom NO-DRIFT (±10% floor).
+- **The decision surface is ASYMMETRIC: ±17.6 m horizontal · +15.2 m far / −7.0 m near** — and
+  **the 12 m nova does not fit inside it**: ~30% of the ring's circumference (the down-screen arc)
+  was never on Matt's display, under the skill bar then off-frame. The referent player answered
+  novas partially blind on the near side. **Sharpens the perception-clamp flag already routed to
+  the WR3 ledger** — the clamp is not a disk, it is this measured asymmetric box.
+- **GAL-3 SUPERSESSION (provenance, verdicts intact):** the banked px/m anchors were orthographic
+  values; death-2 re-derives **1.390 m (was 1.257, +10.5%)** — still 23% inside the ≤1.804 m
+  window M-12b rests on and inside GAL-3's own [0.96, 1.61] band. **Every threshold verdict
+  survives.** ROUTED to the charter session via this pushed bank (touches the R-WR1-13 / G-B
+  probe operand's provenance, not its verdict; galadriel per discipline did not touch the hive
+  log). Charter session disposes whether the grading record gains an erratum line.
+- **CAM-LOCK operand law:** the §4 decision-surface framing is assumption-free — CAM-LOCK frames
+  to the measured visible-meters box; the pinhole family (godot-spec.json arrays, centre pitch
+  52.95°) sets the projection; least-settled operand is the FAR extent (pinhole-vs-ortho moves it
+  48%) — CAM-LOCK verifies framing against the `surface-overlay.jpg` evidence, not against a
+  single trusted number. Discipline note carried: the 2% pitch-insensitivity from GAL-3 does NOT
+  transfer (that was a ratio; this is not).
+- Two instrument failures committed-not-hidden (trail-riding blobs; a self-failed falsifiability
+  check); three CANNOT-ANSWER rows with leverage quantified. The Mirror behaving as built.
+
 **Answered for the record (Matt's three questions):** camera/perception stats are NOT in the
 battle sim (no camera, no perception model — the pilot reacts to trace-level truth); adding the
 camera scene-side CANNOT move geometry (trace-driven playback, view transform only, no feedback
