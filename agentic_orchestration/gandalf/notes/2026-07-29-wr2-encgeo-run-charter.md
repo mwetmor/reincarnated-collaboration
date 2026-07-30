@@ -743,4 +743,39 @@ cells only, sequential · conductor writes no production code — seams execute.
   change moves every pacing number; the sequel's own BEFORE/AFTER is the right instrument).
   Conductor lean: B, stated to Matt with its reasons. Run-close synthesis HOLDS for his ruling.
 
+- **§8.41 — Pursuit diagnostic RETURNED; the §8.40 premise is FALSIFIED; F-WR2-5's mechanism is
+  decomposed and it is NOT speed** (gamora `66c0e5f3`, pushed with this landing; instrument
+  validated on four banked facts before any new number; all 450 traces, 180 boss fights).
+  **⚠ ERRATUM to §8.40 (eighth family entry — the conductor's own forward premise, hedged
+  "almost certainly," measured false before anything was built):** the boss does NOT run the
+  player's 5.75 default. **Boss 4.025 / player 5.75 = ratio 0.70 EXACTLY, graded**
+  (`kitcal_g5_scenarios.py:620`, `5.75 × run_speed 0.70`) — Matt's proposed Grim-Dawn-band ratio
+  ALREADY EXISTS in the fixture, and building it again would have changed nothing visible.
+  **The pinning decomposes into three parts, none of them chase speed:**
+  1. **Boss AI concedes nothing:** moves on 100% of ticks in all 180 fights (zero stationary
+     ticks; `commit_state` idle 76,714/76,714 — **no attack-commit mechanism exists**), heading
+     error 1.90° mean vs the player's pre-step position, no turn-rate limit, no lag. Realized
+     0.958 of cap; the shortfall is the contact solver's shove, not hesitation.
+  2. **The player policy never kites:** leg-wide intents {reposition 22,758 / advance 960 / hold
+     572} — **no evade intent exists**. Median separation is EXACTLY 2.000 m (the body floor) in
+     every one of 180 fights, 92.1% of ticks in body contact, melee gate entered at t=1.5 s from
+     a 17.05 m spawn and never meaningfully left. The player carries 1.725 m/s of surplus and
+     never once spends it opening distance.
+  3. **The telegraph's production truth:** in 132/132 firings the player NEVER leaves the 12 m
+     footprint (max distance from origin = the 10.209 m onset). The S-7 clause-2 escape lived
+     ONLY in the M-3 piloted arm — the production policy eats the nova at delivery rate 1.0, now
+     majority-2×. Matt's "the telegraph is worthless" is TRUE OF THE PRODUCTION POLICY and false
+     of the piloted player — the run certified counterplay the shipped policy cannot express.
+  Kite windows: 1.267/fight, 4.7% of fight time; every first window is the identical opening
+  charge; the only mid-fight windows are player-initiated escort repositions, not conceded.
+  **Two incidentals banked, uninterpreted:** (i) the ring delivers 3 TICKS AFTER the declared
+  `fire_tick` in 132/132 (true edge ~2.6 s) — unbanked anywhere in Cell D or the discharge;
+  conservative direction for clause-1 (more escape time, not less), but an emission-truth gap →
+  sequel space; (ii) announced 218.076 vs realized 414.80 — already dispositioned at baton §3.6
+  A3. **Consequence for the fork:** option B's sequel scope corrects from "pursuit-speed law" to
+  (a) player-policy threat-response — an EVADE/KITE intent that spends the existing speed
+  surplus, answering telegraphs and setting a kiting rhythm; (b) boss attack-commit windows —
+  wind-ups that cost the boss ground; (c) ratio 0.70 likely STANDS. Fork remains Matt's; the
+  evidence now says what the sequel would actually build.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
