@@ -533,7 +533,52 @@ against the frozen WR2 baseline immediately.
   note for the record: the referent kit is a complete movement-verb curriculum — bearing (star),
   lane (wave), area (blizzard), rhythm (melee commit) — four distinct dodge verbs, one per
   geometry class. That is the boss-design grammar the fixture inherits.
-    not the engine-vendor path the first commission named.
+
+- **R-WR3-23 (conductor rulings on the stage-2 landing, 2026-07-30) — the band FAIL is the
+  priced deferral, and the run buys the load-bearing pair.** Report verified
+  (`gamora/notes/2026-07-30-wr3-stage2-build-report.md`; engine `92381a23`, collab `39cd441f`,
+  conductor pushes). Headline: boss win **1.00** (FAIL, above 0.40–0.60) · full-mix **1.00**
+  (R-WR3-2 majority PASS) · duration 36–39 s (FAIL, below 59–118) · **duty cycle 79.1 % vs
+  referent 79.6 %** — the R-WR3-19 fidelity gap CLOSED to half a point · melee whiff 100 % ·
+  nova crossings 0.733 → 2.20–2.33 (the inert-nova finding discharged). Both FAILs were
+  pre-registered by the math note in direction and cause: **the loss mechanism lives in the
+  phased skills.** Rulings on the report's §10:
+  1. **Phase-A RE-RANKING RATIFIED** — `primordian_wave` + `chillbane_blizzard` are
+     LOAD-BEARING; the band is unreachable without them by any [CAL] setting. This is
+     R-WR3-22's comparability clause landing as arithmetic. **STAGE-2b commissioned:** wave
+     (widening-RECTANGLE resolver, NOT the arc primitive — the arc inverts the r ≈ 9.5 m
+     crossover that makes the wave price the kite), blizzard (drop scheduler + own RNG
+     sub-stream), icearmor (timed absorb), + F-2's in-flight steering half of the angular verb.
+  2. **A-DMG-1 narrowing + A-NOVA-2 RATIFIED** — *"worst-taken is a lower bound; an absence
+     produced by competence cannot ceiling a measured payload"* is the correct discharge shape,
+     and A-NOVA-2 bites (it is the pin that catches the h = 0.60 counterfactual).
+  3. **U-BODY-1 RATIFIED** — the corridor composes from the referent's two bodies; the h = 0.60
+     hybrid (513.6 spike = 67.7 % of pool, manufactured by our 1.56×-fatter body wearing Crate's
+     bands) had no referent behind it. Carried open: `ENTITY_RADIUS_STANDARD` 0.5 vs referent
+     0.32 is a fixture-wide delta with a named consequence — a future Matt fork, not this run's.
+  4. **SS-S2-2 RATIFIED** — Mechanism D disarmed; its Matt-signed premise ("damage cannot be
+     avoided") is discharged by the star's measured 0.42 m escape. Consequence accepted: the A/B
+     is a PACKAGE comparison; no stage-2 column attributes to a single mechanism.
+  5. **F-3 refusal RATIFIED WITH EMPHASIS** — CAL-K2 = 4.00 lands in the band and was REFUSED as
+     a noise fit on a chaotic, non-monotone sweep. A number that will not reproduce is not a
+     calibration. Derived anchors stand. The sweep's chaos itself (kite bout phase-locking
+     against the boss's 1.769 s metronome) is BANKED as a grill/design observation.
+  6. **SCHEMA — lean amendment ADOPTED:** `spoke_offset_rad` + `t_launch` + projectile velocity
+     ride the TELEGRAPH record (additive; consumers reconstruct prong fronts procedurally).
+     Per-frame per-prong positions REFUSED — emission weight in the serial pipeline for a
+     derivable quantity. Built in stage-2b; MIGRATION + replica-frame spec note owed; drax
+     consumes at bake.
+  7. **F-2 in-flight steering** → stage-2b scope (item 1).
+  - **Sequencing ruling:** wave/blizzard payloads are CARRIED-EXT, not M — and stage-2b's
+    headline verdict WILL lean on them, so per the report's own §8 rule a **legolas commission
+    fires FIRST**: measured payload blocks + riders + cadence for `primordian_wave` and
+    `chillbane_blizzard` (+ icearmor confirmation) at boss-level-16 ranks. Stage-2b builds on
+    returned numbers, never on carried-ext.
+  - **EV note:** `ev_dashes = 0` across the whole battery — the walk sufficed under the
+    telegraph limb, as the math note predicted. Evade's marginal moment is expected to arrive
+    WITH the wave (the r ≳ 9.5 m no-walk-escape zone); stage-2b re-measures.
+  - **Owner-eye:** the next watch is the stage-2b render — rendering the current arm would show
+    Matt a boss missing the moves he dodged.
 
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
