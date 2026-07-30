@@ -517,6 +517,24 @@ against the frozen WR2 baseline immediately.
     `/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/` (+ legacy `…/vendor/grim-dawn/`),
     not the engine-vendor path the first commission named.
 
+- **R-WR3-22 (Matt session-recall corroboration, 2026-07-30) — the full kit FIRED in the
+  referent fight.** Matt verbatim: *"aren't there also some other moves with different geometries
+  which we haven't yet represented such as conical or wide lane or a circle which is cast away
+  from the boss, maybe towards the character? I thought I saw Primordian also have some or all of
+  these."* — matches the DBR enumeration (star extraction §9) one-for-one: conical/wide lane =
+  `primordian_wave` (3→6 u widening front over 16 u); remote circle at the character =
+  `chillbane_blizzard` (aerial bombardment targeted at the player, 8 u target radius / 15 u
+  scatter, 8 s). **Significance ruled (veto-open):** Matt's recall is session evidence that wave
+  + blizzard fired in the fight he won — so the 40–60 % band (R-WR3-17) describes a fight that
+  INCLUDES them. Full-kit modeling priority firms from "parity by directive" to
+  "referent-session-observed." Phase-A ranking latitude stands, but any phasing that defers wave
+  or blizzard must state what the deferral does to band comparability — a boss missing the moves
+  Matt dodged is an easier boss, and a win rate measured against it is not Matt's number. Design
+  note for the record: the referent kit is a complete movement-verb curriculum — bearing (star),
+  lane (wave), area (blizzard), rhythm (melee commit) — four distinct dodge verbs, one per
+  geometry class. That is the boss-design grammar the fixture inherits.
+    not the engine-vendor path the first commission named.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
