@@ -1,0 +1,64 @@
+================================================================================
+§A  WALLNUM AFTER frame 0128 (37.5 m boss room, player_lock) — the two walltop bands
+================================================================================
+  clean columns walked: 17
+  LIGHTER BAND (outer, pre-void)     n=   203  mean sRGB=(  55.7,  48.1,  38.9)  L mean= 49.07 p50= 51.98 p95= 65.47
+  band below it (inner walltop)      n=   360  mean sRGB=(  13.5,  14.4,  22.7)  L mean= 14.83 p50= 14.86 p95= 17.87
+
+  WALL-FIX ablation (drax textured the R-WR1-21 slabs on 2026-07-30):
+    lighter band  max Δ =   1.0   mean Δ =  0.547   px with Δ>2:      0 (0.00%)
+    band below it max Δ =  21.0   mean Δ = 16.317   px with Δ>2:    360 (100.00%)
+  => the lighter band is NOT the slab tops. It predates WALL-FIX and is untouched by it.
+  => THE INVERSION: the lighter band is 3.31x brighter than the walltop surface beside it.
+
+================================================================================
+§B  S14 ABLATION — cold sky-leak Key 0.00 vs 0.06 (kit_replica harness, R-6 camera)
+================================================================================
+  Key=0.00  v2_A == REVIEW/02_AFTER_crypt == afterB     sha 992a1ccfba933b34
+  Key=0.06  04_VARIANT_cold_skyleak == s14 == v2_B == final_B   sha 12beadd132d4ea05
+
+  frame-wide: 510495/921600 px moved, max Δ 16, mean Δ 3.439
+  WALLTOP CAP band             n=   7502   max Δ=  1.0   mean Δ= 0.054   px Δ>1:   0.00%
+  interior WALL FACE (brick)   n= 112366   max Δ= 10.0   mean Δ= 3.321   px Δ>1:  53.29%
+  FLOOR                        n= 348652   max Δ= 14.0   mean Δ= 5.800   px Δ>1:  89.37%
+  => the S14 'daylight' lands on the FLOOR. The wall tops receive 0/255 from it.
+
+================================================================================
+§C  CROSS-STACK INVARIANCE — one cap, two rooms, two lighting stacks, two days
+================================================================================
+  pclight 2026-07-28 cap (R-6 cam)   n=  7735  mean sRGB=(  59.7,  50.4,  39.6)  L mean= 51.59 p50= 52.12 p95= 65.63
+  wallnum 2026-07-30 cap (playerlock) n=   203  mean sRGB=(  55.7,  48.1,  38.9)  L mean= 49.07 p50= 51.98 p95= 65.47
+    pclight p99 cap pixel = ( 85.8, 73.4, 60.1)
+    wallnum p99 cap pixel = ( 75.0, 64.1, 53.0)
+  Between those two frames the room changed size, the camera changed, the ambient went
+  warm->purple (-42.7% luma), 4 sconces became 12, and a day passed. The cap did not move.
+
+================================================================================
+§D  CHROMA — light colour, or the shader's hard-coded tint constant?
+================================================================================
+  PREDICTED unlit  stone_tex x stone_tint(0.66,0.58,0.48) =  1.864 :  1.446 : 1.000   [warm]
+  MEASURED  lighter band, wallnum                          =  1.976 :  1.445 : 1.000
+  MEASURED  lighter band, pclight                          =  2.044 :  1.488 : 1.000
+  S14 sky-leak Key light_color (0.55,0.66,0.95)            =  0.296 :  0.442 : 1.000   [cold]
+  MEASURED  the LIT walltop surface beside it (slab top)   =  0.503 :  0.544 : 1.000   [cold -> it DID receive light]
+
+================================================================================
+§E  H3 to scale — the declared beyond-wall glow rim
+================================================================================
+  glow rim (drax WALL-FIX §4)  mean  0.55/255  max   2  n=5735
+  the lighter band             mean 49.07/255  max  66  n=203
+  ratio of means                89.2x  -> not the same object
+
+  masks written for eyeball validation: PLATE_bandmask_validation.png, PLATE_pclight_capmask.png
+================================================================================
+§F  THE WIDEST LIGHTING DELTA THE PROJECT HAS — Key 2.00 warm false-sun -> 0.06 cold crypt
+     (CEILING-1 repair, PC-LIGHT; lighting-only, same R-6 camera, same geometry)
+================================================================================
+                       WALLTOP CAP pixels (n=7735)        FLOOR control (n=348652)
+  Key 2.00 warm false sun  L p50= 53.19 p95= 66.33  sRGB=( 59.5, 51.3, 41.0)   |  L p50=  93.27
+  Key 0.00 no leak        L p50= 52.12 p95= 65.51  sRGB=( 59.6, 50.4, 39.5)   |  L p50=  24.52
+  Key 0.06 cold S14       L p50= 52.12 p95= 65.63  sRGB=( 59.7, 50.4, 39.6)   |  L p50=  26.67
+
+  false sun -> crypt   CAP   : max Δ= 11  mean Δ= 1.798  px Δ>2:  20.40%
+  false sun -> crypt   FLOOR : max Δ=184  mean Δ=66.724  px Δ>2:  96.19%
+  => the room's entire lighting identity was replaced. The walltop band did not move one step.
