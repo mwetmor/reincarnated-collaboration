@@ -254,4 +254,11 @@ cells only, sequential · conductor writes no production code — seams execute.
   `4f09e35`). Gate owes S-2, S-3, S-4, flag-OFF regression, and the `boss__B__seed74000802`
   trajectory reconstruction — the drift trace must turn.
 
+- **§8.15 — Cell C interrupted by infrastructure, RELAUNCHED.** First Cell C agent died on a
+  server-side 529 after ~45 min: zero commits, no cell note, uncommitted WIP across seven engine
+  files + one stray. Relaunch carries a STEP-0 WIP triage (default DISCARD-via-stash — the fragment
+  stays recoverable as evidence; adopt only if fully auditable) and an incremental-commit
+  instruction so a repeat death loses minutes, not the cell. Brief otherwise unchanged. Committed
+  base remains `4f09e35`.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
