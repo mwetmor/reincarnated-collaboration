@@ -660,4 +660,17 @@ cells only, sequential · conductor writes no production code — seams execute.
   (R-WR2-23). star-lord's ADR-004 acknowledgement (ack-only, nothing to ship) fired as a
   micro-task. Then: **Matt watches. The charter closes when that holds or Matt halts.**
 
+- **§8.37 — star-lord ADR-004 acknowledgement LANDED; "telemetry is owed nothing" VERIFIED
+  measured-not-assumed; one substantive forward flag** (star-lord `a37a0d42`, pushed with this
+  landing). Zero seam reads of the five new keys; every export validator is a missing-key check so
+  additive keys cannot trip one; no re-baseline owed at `21abff12`. **Flag banked for the drax
+  thread + sequel space: `export/schemas.py` ships `ExportClass.movement_speed = 8.0`** (7.5 in
+  cycle13) — exported kits grade `"kit"` at v=8.0, NOT the fixture's ungraded 5.75, so for real
+  exported content the escape law yields **T = 1.667 s (2.22×0.750), not the fixture's 2.318 s
+  (3.09×)**. The baton §3.3 "default-specific" caveat is hereby CONCRETE: any tell animation or
+  consumer math keyed to 2.32 s is wrong the day graded content ships; derive from the trace/keys,
+  always. Second flag → wave tail: `movement_speed_ms` now has a THIRD same-quantity name
+  (star-lord's bundle `movement_speed`) — harmless today, a join hazard the day a telemetry
+  column lands; naming-collision item joins the ledgered tails.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
