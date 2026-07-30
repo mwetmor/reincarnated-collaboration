@@ -1,0 +1,113 @@
+# WR3-KITE-COMMIT — run charter v0 (grill-open)
+
+> **STATUS:** DRAFT v0 — founding rulings signed; mechanism forks OPEN for Matt's grill answers.
+> **Conductor:** gandalf (`RUN-CONDUCTOR`). **Lineage:** direct sequel to WR2-ENCGEO-2026-07-29
+> (charter closed §8.42 on the held watch predicate; verdict F-WR2-5). Desirable-run pattern
+> (`operating-procedures/desirable-run-pattern.md`) governs; fit test passes F1–F4 for stage 1
+> (stage 2 carries one Matt commitment-boundary, declared below).
+
+---
+
+## §0 — Intent (the owner's sentence is the target)
+
+**R-WR3-2 (MATT-SIGNED, verbatim, 2026-07-30):** *"If the player kit plays as I did in the GD
+game, and if the player and monster(s) stats and calculations are approximately similar to the GD
+game that I played at level 13, then the player should win the majority of encounters."*
+
+The run makes the sim's boss fight EARN that sentence: a player policy that plays the kit the way
+Matt played it (kite, answer telegraphs, spend the speed surplus) against a boss that fights the
+way the referent boss fought (commits to attacks, pays ground for them) — measured against the GD
+L13 reference envelope, gated on competent-play majority win rate.
+
+**R-WR3-1 (MATT-SIGNED mandate, from the two watch-verdict messages):** build kite + commit
+against the frozen WR2 baseline immediately.
+
+## §1 — Bounded substrate (countable, listable, diffable — frozen at launch)
+
+1. **The WR2 battery of record** — 450 AFTER traces at
+   `reincarnated-engine/src/reincarnated/simulation/output/kitcal_g5/wr2_battery_after/`
+   (frozen §8.42; becomes this run's BEFORE arm — no regeneration, no reinterpretation).
+2. **The F-WR2-5 pursuit diagnostic** (gamora `66c0e5f3`) — the measured decomposition this run
+   builds against: ratio 0.70 graded; boss moves 100% of ticks, `commit_state` idle 76,714/76,714
+   (no commit mechanism exists); player intents {reposition/advance/hold}, NO evade; median
+   separation exactly 2.000 m in 180/180 boss fights; 132/132 novas eaten in production.
+3. **The GD L13 reference envelope** (legolas `e34e6e7e`,
+   `legolas/research/2026-07-30-gd-l13-reference-envelope.md`) — the R-WR3-2 referent, with
+   per-row confidence grades CARRIED (HIGH/measured rows are decision-grade; LOW rows are not).
+4. **WR2's finding cluster** — F-WR2-1 (subsumed into the envelope diff), F-WR2-2 (knife-edge
+   `pre_endpoint` losses), F-WR2-4 (telegraph texture unverified in-ring; M-3 instrumented re-run
+   owed), the 3-ticks-late ring-delivery incidental (§8.41), the WR2 wave-tail ledger.
+
+## §2 — Conductor rulings at founding (veto-open, R-WR3-3 onward)
+
+- **R-WR3-3 — the G-5a correction is ADOPTED.** Legolas falsified his own banked G-5a life rule
+  (difficulty `characterLifeModifier` summed additively) against the one MEASURED monster pool we
+  hold: Primordian 15,822 from the `.gdc`; multiplicative lands 15,891 (0.4%), additive
+  overshoots 1.82×. All G-5a HP figures were high by 1.45× (trash) / 1.81× (champion+).
+  Errata banners owed on the G-5a artifact itself (routed to legolas follow-on).
+- **R-WR3-4 — the werewolf form-swap fact is ADOPTED; the G-7 U-1 hypothesis is CLOSED-FALSE.**
+  `werewolf1.dbr` carries no `characterLife` at any rank — pure form-swap; the 759→1600 pool step
+  is NOT the werewolf. Human-form 759 reconstructs to +6.6% (454 + 135 mastery + 220 weapon).
+  Consequence: pool-fraction envelope rows must state WHICH pool (759 human / 1600 played-form)
+  they divide by — an unlabeled fraction is the ninth family exhibit waiting to happen.
+- **R-WR3-5 — attack-commit is the LOAD-BEARING mechanism; speed ratio 0.70 STANDS.** The
+  envelope's sharpest fact: **the GD referent boss was FASTER than the player**
+  (player:boss 0.99/0.81) **and Matt still kited it** — the kite windows came entirely from
+  attack-commit and telegraph dodges, never from outrunning. Our boss is already 30% slower than
+  the referent's relative speed. No gap-closer question remains for stage 1: the referent ran
+  faster than the player and the fight still worked; commit is what we owe. (This also retires
+  the WR2-era Mechanism-E "pursuit-speed law" sketch — measured moot before built, twice.)
+- **R-WR3-6 — U-5 stands OPEN; 260.498 is the envelope datum.** `lastHitBy` 273.704 >
+  `greatestDamageReceived` 260.498 is impossible for one hit; prefer the measured 260.498 (34.3%
+  of 759) until legolas closes the anomaly. No decision may lean on the 273.704 figure.
+
+## §3 — The envelope diff (what stage 2 calibrates, pending grill)
+
+| metric | GD L13 referent | our fixture | verdict |
+|---|---|---|---|
+| boss:player HP | 22.8× (vs 1600 pool) · Warden ph.1 15,569 | 19.5× · clear 16,235 | **IN BAND** (~15%) |
+| boss fight duration | 59–118 s | ~65 s | **IN BAND** |
+| player DPS | 310–620 HP/s (width = open cadence U-2) | ~250 HP/s | **BELOW BAND** — F-WR2-1's number |
+| boss heavy hit ÷ pool | worst MEASURED hit taken all run: 34.3% · scripted heavy 10.4% | nova up to 55% (2×414.80/759) | **1.6–3.4× OVER** — the outlier |
+| player:boss speed | 0.99/0.81 (boss FASTER) | 1.43 (boss slower) | we are GENEROUS vs referent |
+| commit/telegraph rhythm | commit windows + telegraphed heavies = the kite | none (76,714/76,714 idle) | **THE MISSING MECHANISM** |
+
+## §4 — Run shape (two stages; stage boundary is a Matt checkpoint)
+
+- **STAGE 1 (mechanism build; F1–F4 all YES):** Mechanism K (player evade/kite intent — trigger
+  rules grill-open below) + Mechanism C2 (boss attack-commit wind-ups — durations grill-open).
+  Full battery vs frozen baseline. Pre-registered gates incl.: separation distribution UNPINS
+  from the 2.000 m floor; ≥1 conceded kite window per boss fight beyond the opening charge;
+  production telegraph-escape rate > 0 (F-WR2-4's regime finally sampled); no S-1/S-2 regression.
+  **Every pre-registered column NAMES its computing cell** (the §8.38 lesson, now law here).
+- **OWNER-EYE CHECKPOINT (desirable-pattern §6.2):** Matt watches a stage-1 render BEFORE
+  calibration — geometry verbs first, then numbers.
+- **STAGE 2 (envelope calibration; Matt commitment-boundary):** calibrate the out-of-band rows
+  (player DPS ↑ toward band; nova pool-fraction ↓ toward the ≤34.3% measured worst) under pinned
+  decision rules elicited at the stage boundary. **Acceptance gate: R-WR3-2 majority win rate
+  under the competent policy — measured separately on boss encounters and the full encounter
+  mix** (Matt's "majority of encounters" includes the trash the player shreds).
+
+## §5 — Open grill forks (MATT — decision-shaped, lean stated, you rule)
+
+- **K-1 evade trigger:** does the kite intent fire on (a) telegraph events only, or (b) telegraph
+  + a health/pressure heuristic (sustained-contact timer)? Lean: (b) — the referent play kited
+  rhythmically, not only on telegraphs.
+- **C2-1 commit texture:** flat wind-up stops only, or wind-up + recovery (GD-style animation
+  lock both sides of the swing)? Lean: wind-up + short recovery — the recovery is where the
+  referent's kite windows lived.
+- **CAL-1 nova target:** calibrate the nova's pool-fraction to the measured worst-hit (≤34.3%)
+  or to the scripted-heavy norm (~10–15%) with the 2× quantum kept as the punishment case? Lean:
+  scripted-heavy norm per projectile with 2× reaching ~ the measured worst — punishment stays
+  possible, one-shot pressure stops.
+- **POOL-1:** which pool does R-WR3-2 mean — human 759 or played-form 1600? (R-WR3-4: the 1600
+  is not the werewolf's; the referent experience was mostly played at which pool?) This halves or
+  doubles every fraction in §3.
+
+## §6 — Matt interface
+
+Declared: grill answers to §5 (or "defaults stand" — the leans fire as decision rules); the
+stage-boundary checkpoint watch; stage-2 calibration ratification; final watch = exit predicate.
+Red-flag pings mid-run only. All conductor rulings veto-open in this ledger, one word reverts.
+
+*Charter v0 — awaiting grill returns before mechanism-spec freeze. — gandalf, RUN-CONDUCTOR*
