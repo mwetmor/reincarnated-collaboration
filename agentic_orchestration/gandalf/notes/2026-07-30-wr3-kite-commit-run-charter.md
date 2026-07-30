@@ -111,6 +111,32 @@ against the frozen WR2 baseline immediately.
   cost/lockout, cooldown carry, and — only if a pool-changing form ever lands — HP carry) are
   ledgered as a future ELICITOR grill, not ruled here.
 
+- **R-WR3-11 (conductor, veto-open): the package survey is IN — R-WR3-9 CONFIRMED, and the
+  MECHANISM-SPEC FREEZE IS UNBLOCKED** (both commissioned pre-freeze reads have landed). Legolas
+  (`legolas/research/2026-07-30-player-policy-package-survey.md`, all-primary-source, graded):
+  no player-behavior package exists at any maturity — the behavior layer is empty *by
+  construction* (a policy cannot be packaged without packaging its game); what IS packaged is the
+  interface (Gymnasium — central API **frozen by maintainer commitment** since v1.0.0, seven
+  releases honoring it, SB3 pinning `<2.0` on the bet) and the training stacks (SB3's own docs
+  disclaim cross-platform/cross-torch reproducibility "even when using identical seeds"). BC path
+  confirmed closed: `imitation`/`d3rlpy`/Minari all mandate action-aligned arrays; the `.gdc`
+  holds aggregates. Adopted amendments: (a) **duck-typed Gymnasium compatibility, zero
+  dependency** — the sim core exposes `reset(*, seed, options)`/`step(action)` with exact
+  signatures in plain numpy/dataclasses; a thin `GymEnvAdapter` + `gymnasium` land only behind an
+  optional `[rl]` extra; the 450-trace battery hot path never imports an RL package (auditability:
+  the gate chain stays pure-Python and diffable — no non-diffable weights artifact ever enters a
+  gate). (b) **Preference-comparison reward learning banked as the NAMED STAGE-3 candidate** —
+  the one surveyed route from "no action traces" to "learned policy": Matt labels pairwise "which
+  clip plays more like I did" and his *judgment* becomes the training signal in place of the
+  inputs we don't have. Presupposes stage-1 geometry + the adapter; does not touch stage 1/2.
+  (c) The 0.30 s reaction delay stands as **fast-competent-human by validated precedent**
+  (DeepMind FTW: agents 258 ms vs humans 559 ms; injected-delay handicapping is the established
+  human-likeness lever) — defended by precedent, not by an ARPG-telegraph measurement, which the
+  survey confirms does not exist in the literature (ledgered: if stage 2 wants it numerically, it
+  gets measured from Matt himself). (d) Follow-on probe candidate ledgered, not fired: Lin's
+  playstyle-similarity metric (arXiv 2508.19152, no tooling located) if stage 2 wants a
+  quantitative "plays-like-the-referent" column.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
