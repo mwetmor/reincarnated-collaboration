@@ -475,4 +475,14 @@ cells only, sequential · conductor writes no production code — seams execute.
   F-WR2-2's `pre_endpoint`, worst-hit, nova counts — interpretation-loaded per §8.22 (iii),
   `total_displacement` per §D-7). Grading + AFTER-baton hold for its Gate-2.
 
+- **§8.28 — Cell BAT interrupted by infrastructure (529), RELAUNCHED — and the §8.15 discipline
+  paid.** The agent died server-side ~24 min in, but the incremental-commit law (imposed after Cell
+  C's zero-commit death) turned the wreckage into two AUDITABLE landed units: `5a236697` (BAT math
+  note — the two emissions defined, S-7's instruments separated, jack-ryan's 5→21 re-derived) and
+  `21abff12` (emissions build — R-WR2-15(2) per-leg unit + INFO-1 per-fight `v` with its grade).
+  No battery started, no tracked WIP, no orphan processes, no cell note. Relaunch ADOPTS the two
+  commits after verification-read (committed work is the auditable case; the §8.18 fragment-adoption
+  standard applies with the audit already half-done by git) and resumes at the battery arms.
+  Loss: minutes, exactly as designed.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
