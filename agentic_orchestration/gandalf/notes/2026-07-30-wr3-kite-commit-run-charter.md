@@ -580,6 +580,49 @@ against the frozen WR2 baseline immediately.
   - **Owner-eye:** the next watch is the stage-2b render — rendering the current arm would show
     Matt a boss missing the moves he dodged.
 
+- **R-WR3-24 (payload extraction lands, 2026-07-30) — carried-ext FALSIFIED, a missing damage
+  stage, and the boss-level correction.** Artifact verified
+  (`legolas/research/2026-07-30-wr3-wave-blizzard-payloads.md`, rides this push). Rulings:
+  1. **Carried-ext 122/210 and 58/111 are DEAD** — they are the records' rank-4 arrays exactly,
+     produced by binding `skillLevel = charLevel/4+1` to the PLAYER's 13 instead of the
+     monster's own level. Correct rank **5**, invariant across the whole boss-level band
+     (retroactively securing the star note's rank-5 frigidring block).
+  2. **Boss level 16 → 18–19 ADOPTED** — proxy chain (`p_wightmire_slitha01` → `lv6_hero`) +
+     the envelope note's measured `lifeAndMana` anchor (0.4 %). The commission's "16" treated
+     player level as spawn level. Moves only the charLevel-keyed passives (melee base, damper).
+  3. **THE DAMAGE STAGE:** every Primordian outgoing number passes **×0.2625** at Normal/1p
+     (`armorbase05` −73 pool + `damage_totaladjuster` +8, then pak −25 % multiplicative) —
+     system-wide (93.4 % of 1,307 Monster records), operator adjudicated against a measured HP
+     anchor, corrects the star note's own "nothing projectile-side" claim (§7 correction
+     logged). **ADJUDICATION MANDATE, stage-2b Phase A, BLOCKING:** reconcile GD's outgoing
+     composition with the fixture's delivery chain (M-1 mitigation replica + Matt's gear vector)
+     into ONE named stage map — which GD stage maps to which fixture stage, no double-count, no
+     silent omission. Stage-2's nova delivered 256.82 vs referent worst-taken 260.5 under RAW
+     payload: **convergence or coincidence is exactly what the stage map decides.** A-NOVA-2
+     re-derives under the adopted map; HALT to conductor if the map moves the nova's delivered
+     regime materially (>15 %).
+  4. **Wave adopted M:** rank-5 153 phys / 272 cold (point values, no roll), cold DoT 91/3.0 s,
+     + an UNDOCUMENTED rider — 30 %/3.0 s damage-reduction debuff. Hits ONCE (no tick field
+     exists); geometry 3/6/16/1/1.4 and cadence 100 %/5.0 s confirmed.
+  5. **Blizzard adopted M — and gamora's rank-2 premise WEAKENS:** 76 phys / 137 cold per drop,
+     30 %/5.0 s slow, warning window 0.833 s (no telegraph field — the falling orb IS the
+     warning, lean adopted), hit test = **SPLASH 1.32 u** (fresh class adjudication: 64/64
+     records carry the field, ground-targeting removes the contact event — Reading A correctly
+     did NOT transfer; ratified). **Centre is FIXED at cast** (`targetingMode 'Point'`;
+     `skillTargetInterval` is volley cadence, not re-aim) — so position CAN answer it by leaving
+     the circle. Phase A re-derives the load-bearing ranking under the true mechanics.
+  6. **Icearmor is twice the described ability:** + 35 % attack speed, TOTAL slow immunity,
+     +28 % cold, cold retaliation — up 37.5 % of the fight. Its "zero lethality of its own"
+     rank-3 status revises: it multiplies the boss's other channels.
+  7. **Melee gains a referent:** `damagebase_physical04` at cl 18–19 composes to **43–61
+     effective**, inside the envelope's independently measured 35–85 band (the operator's
+     cross-check). The HELD melee channel now has an M target; whether A-DMG-1's HELD scope
+     graduates is stage-2b's to propose.
+  - **(COMMISSIONED):** gamora stage-2b, background — wave (widening-rectangle resolver) +
+    blizzard (drop scheduler, own RNG sub-stream) + icearmor (full rider set) + F-2 in-flight
+    steering + the R-WR3-23(6) telegraph-record schema fields, ALL on measured numbers, stage
+    map first. Deliverable: `gamora/notes/2026-07-30-wr3-stage2b-build-report.md`.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
