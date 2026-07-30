@@ -137,6 +137,46 @@ against the frozen WR2 baseline immediately.
   playstyle-similarity metric (arXiv 2508.19152, no tooling located) if stage 2 wants a
   quantitative "plays-like-the-referent" column.
 
+- **R-WR3-12 (conductor, veto-open): the stage-1 mechanism spec is ADOPTED**
+  (`gandalf/notes/2026-07-30-wr3-stage1-mechanism-spec.md`, SPEC-AUTHOR draft verified under
+  `⚠ SWITCH: SPEC-AUTHOR → DRIFT-CRITIC`) **with dispositions on its six §8 flags:**
+  - **(8.1 — the §7.2 canon reconciliation. THE MATERIAL RULING; Matt's veto expressly invited.**)
+    Canon (`telegraph-dodge-temporal-decoupling-2026-06-15.md` §7.2, Matt-ratified): *"do not let
+    anyone try to make the sim 'model' the dodge."* Ruling: **§7.2 and Mechanism K do not
+    collide.** §7.2's protected object is the DODGE SKILL — a timing-based ability the autobattle
+    cannot honestly time, whose statistical credit would let the balance loop stop walling
+    glass-close-ST coordinates. K is POSITIONAL MOVEMENT: no skill, no i-frames, no avoidance
+    stat, no chance term (M-3's own header draws the line: "POSITIONAL, not statistical"). And
+    the newer Matt-signed authority is explicit that the sim MUST model competent positioning:
+    F-WR2-5 verbatim ("the kiting is worthless… the boss is pinned") + R-WR3-1's build mandate +
+    R-WR3-2's competent-play target. Adopted fence: `kite_policy_v1` **default OFF**, armed by
+    the WR3 battery-of-record ONLY — never the balance loop, generation, or production content
+    paths; §7.2's actual protection (the balance loop keeps walling dodge-gated coordinates)
+    is untouched. One word from Matt reverts this and stage 1 re-scopes. The spec's
+    third-default-off-flag combinatorics observation is LEDGERED as a wave-tail finding.
+  - **(8.2)** G3 stands as charter law; the `escape_rate` diagnostic column is adopted REPORTED
+    beside it, ungraded. The two-sided band question (total escape would make the nova inert and
+    collide with stage-2 CAL-1) is DEFERRED to the stage boundary, where it lands in the stage-2
+    grill alongside the nova calibration it constrains.
+  - **(8.3)** Reading CONFIRMED: stage-1 boss win rate is predicted to FALL or hold at 0.00 —
+    K costs uptime and the DPS row is stage-2's. Stage-1 gates are geometry gates. **The
+    owner-eye checkpoint brief carries this sentence ABOVE the render link**, so the watch is
+    read against the right question (geometry verbs first, then numbers — charter §4).
+  - **(8.4)** Obs idx 11 (`focus_commit_t_remaining_s`) is EXPOSED, through the delayed buffer.
+    R-WR3-2's own words answer the fidelity fork: "plays as I did" — Matt at L13 had fought the
+    referent repeatedly and knew the animations. The replicated player is the experienced one;
+    the delayed buffer keeps him human.
+  - **(8.5)** `Commitment.recovery_s` cross-seam routing: builder proceeds with the additive,
+    default-inert field per the E4 as-emitted contract; the emitter-side MIGRATION question is
+    ROUTED TO KNIGHT-RIDER and must be dispositioned before jack-ryan's Gate 2 on the build.
+  - **(8.6)** ADOPTED AS A PRE-BUILD GATE: gamora duty-cycle measurement over the frozen
+    `wr2_battery_after/` traces (realized inter-swing intervals; implied duty cycle at
+    `T_lock ∈ {0.40, 0.60, 0.90}`) fires NOW, read-only, before any build line is written —
+    math-before-code points at exactly this number, in both failure directions (G2-fails-on-
+    arithmetic vs broken-easy fixture that stage 2 would calibrate against).
+  - **Build sequencing:** the build commission to gamora fires after the duty-cycle read returns
+    and grounds CAL-C1/CAL-C2 — which also holds a natural veto window open on (8.1).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
