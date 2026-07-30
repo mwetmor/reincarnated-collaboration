@@ -817,3 +817,9 @@ corrected:
 2. **§2.2's `post` row is labeled `boss/A+B, 30`; pooled A+B is 60 fights.** The mean is unaffected —
    A ≡ B per seed on `elapsed_s` to 1e-9, all 30 pairs, both arms (their sole content difference, the
    lifesteal door 0.05 vs 0.08, cannot move time-to-kill in a leg the player always wins).
+
+3. **§3.7 caution 3 is FALSE and contradicts §3.6 A3 in this same document** (drax, at render —
+   charter §8.39): the watch pick's nova is a **2× crossing** (`414.80 = 2 × 207.40`), both arms, both
+   batteries — not "stayed 1×." §3.6 A3 had already printed the 414.80 on this exact seed. Favourable
+   in effect: the watch deliverable already exercises the now-majority 2× decomposition case;
+   74000803's 1×→2× flip render stands as the separate exhibit it was meant to be.

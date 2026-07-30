@@ -690,4 +690,37 @@ cells only, sequential · conductor writes no production code — seams execute.
   column set against the gate's registered column set as a checklist step. Joins the
   every-registered-column-names-its-computing-cell candidate from R-WR2-23.
 
+- **§8.39 — OWNER-EYE #2 RENDERS DELIVERED (exit-predicate step 3 of 4); hard-codes retired at
+  the consumer; six drax flags dispositioned** (drax: godot `3510367`, meta `ba49cf21`, ADR-004
+  acknowledgement filed in the cell note — both ADR-004 acks now discharged; pushed with this
+  landing). Five renders at `~/Games/reincarnated-godot/tmp/wr2/` (untracked, owner-eye #1
+  precedent), every duration matching its trace footer's `elapsed_s`; the 207.40/235.40
+  hard-codes AND five stale nova constants (origin 0.402 m stale) are GONE from
+  `scripts/wr2_traceset.gd` — units now read off `nova_per_projectile_hp`/`presentation_units`
+  with provenance printed on-frame; the tell reads `wind_up_s` 2.318840579710145 s cross-checked
+  to nine decimals, displayed WITH its grade. **The emission exists so the consumer stops
+  hard-coding — as of this landing, it has.** Dispositions:
+  - **⚠ ERRATUM to synthesis §3.7 caution 3 (banner appended):** the pick's nova is a 2× crossing
+    (414.80), both arms — not "stayed 1×"; the doc's own §3.6 A3 already printed the 414.80.
+    SEVENTH true-where-measured/wrong-where-labelled entry, first caught by a CONSUMER.
+    Favourable: the watch already exercises the majority 2× case.
+  - **Camera fork → MATT at the watch (no ruling owed):** "same camera as owner-eye #1" and "a
+    watchable render" are not simultaneously satisfiable — the §3.4(4) warning confirmed by
+    measurement (player reaches normalized screen-y 1.300 under the literal owner-eye pose). Both
+    poses shipped; which answers the §0 question is the owner's call, made by watching.
+  - **Ledgered to wave tail/sequel space (data-contract warts, no gated predicate):**
+    (i) point-shape telegraphs carry `wind_up_s: 0.5` while `fire_tick == tick` — two fields
+    disagreeing; `fire_t_s` governs, consistency owed at emission; (ii) `delivered_unclamped`
+    null on crossings — the unit's definition is not trace-recoverable; (iii) the 150.80 rad
+    drift figure is ACCUMULATOR-DEFINITION-DEPENDENT (drax's accumulator: 125.44 on the same
+    seed; path length reproduces exactly) — heading-change numbers must carry their accumulator
+    definition; family-adjacent label item.
+  - **INFO-4 standing offer status:** the side-by-side render now EXISTS
+    (`wr2_sidebyside_B_74000802.mp4`, built read-only from on-disk BEFORE traces, nothing
+    regenerated); BEFORE traces remain unbanked and `git clean`-exposed, renders untracked per
+    precedent. If Matt wants any of it kept durable, the conductor banks at run close.
+  - **Owner-eye false-alarm pre-empted, on the clock line:** one AFTER frame LOOKS interpenetrated
+    (41° projection over a tangent pair); measured sep 2.000 m / floor 2.00 m — no overlap —
+    against BEFORE's ⚑ 400 mm overlap. The camera lies; the clock line doesn't.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
