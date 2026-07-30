@@ -377,10 +377,50 @@ repaired in-cell*, and I judged this **inside** that law rather than as an excep
 containment **declaration for a file this cell itself added** — the same category as writing one's
 own MIGRATION entry — not a pre-existing mechanism finding. Every *mechanism* finding this cell turned
 up (§5's clause-2 escape mode, §4.1's F-WR2-2, §8's corrected AoE trigger) is reported and none is
-repaired. Zero behaviour change: a frozenset entry and a comment in a test file. Verified with
-`T8b_the_sweep_is_not_vacuous` green, so the entry cannot have blinded the detector. **If the
+repaired. Zero behaviour change: a frozenset entry and a comment in a test file. ~~Verified with
+`T8b_the_sweep_is_not_vacuous` green, so the entry cannot have blinded the detector.~~ **⚑ WRONG
+FALSIFIER — see the erratum below.** **If the
 conductor reads this as a repair that should have HALTed instead, the revert is one line** — but the
 name-diff would then close RED on a declaration gap rather than on any engine behaviour.
+
+> **⚑ ERRATUM — FALSIFIER CITATION CORRECTED, 2026-07-30 (WARN-discharge micro-cell; jack-ryan
+> Gate-2 Cell BAT INFO-2). APPENDED, not rewritten: the struck sentence above stays visible because
+> a consumer of this note may already have inherited it.**
+>
+> The struck claim cited the wrong falsifier. **`T8b_the_sweep_is_not_vacuous` never reads
+> `_DOOR_ALLOW_LIST`** — it re-implements the AST predicate over a *synthetic source string*, so it
+> speaks to whether the **detector detects**, not to whether **this entry blinded it**. Green T8b is
+> necessary and irrelevant to the question asked.
+>
+> **What actually proves non-blinding is the set-difference structure plus the enumeration**, and it
+> is re-run here rather than transcribed from the finding:
+>
+> ```
+> ALL door-opening sites in the shipped tree (4, exhaustive):
+>    src/reincarnated/simulation/spatial_gauntlet/kitcal_g5_harness.py:882
+>    src/reincarnated/simulation/wr1_battery_probes_2026_07_29.py:153
+>    src/reincarnated/simulation/wr1_battery_probes_2026_07_29.py:205
+>    src/reincarnated/simulation/wr2_cell_bat_2026_07_29.py:472
+> allow-list entries: 3
+> offenders WITH the Cell BAT entry :  []
+> offenders WITHOUT the Cell BAT entry: [('…/wr2_cell_bat_2026_07_29.py', 472)]
+> dead allow-list entries (paths not on disk): none
+> ```
+>
+> The argument is structural: `T8` computes `offenders = all_sites − allow_listed_sites`, so an
+> allow-list entry can only ever remove **the sites it names**. Removing this one entry produces
+> **exactly one** offender and it is the exact line the entry declares — so the entry subtracts one
+> site and blinds nothing else, and every other file's containment posture is bit-identical. The
+> enumeration is the falsifier because it is what would *fail* if the entry over-reached (a
+> path-prefix or glob entry would show up as extra sites disappearing).
+>
+> **The conclusion in the struck sentence was right; only the citation was wrong** — and this run's
+> whole discipline is naming the falsifier that actually falsifies. jack-ryan reproduced the same
+> enumeration independently at Gate-2 §1.2.
+>
+> **⚑ And note the line number moved: `:462` at Gate-2, `:472` here** — the WARN-4 comment fix
+> (this same micro-cell) added ten lines above it. Nothing about the site changed. That is INFO-4's
+> convention demonstrating itself in the space of one day: **grep the predicate, not the number.**
 
 **Consequence accepted:** `d05535f9` changes the tree, so the full regression was **RE-RUN against
 the final tree** — a name-diff computed on a superseded tree is not the gate (the Cell B-FIX lesson,
