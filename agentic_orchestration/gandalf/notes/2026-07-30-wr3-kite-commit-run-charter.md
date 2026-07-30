@@ -446,6 +446,36 @@ against the frozen WR2 baseline immediately.
     corrections to his own prior artifacts noted (envelope U-1 closed; wr1-extraction G-1/G-3
     closed for base-game creatures). U-5 carried unchanged.
 
+- **R-WR3-20 (Matt-signed, 2026-07-30) — the stage-2 calibration package: Option 3 +
+  Primordian parity.** Matt verbatim: *"Option 3 — fix the duty cycle, trim speed to 1.30x.
+  Let's bring parity to the dodge and cast/wind up and any other GD Primordian boss behaviors."*
+  - **Ruled by signature:** (a) player:boss speed **1.43× → 1.30×** (referent-matched); (b) boss
+    commit durations go REFERENT — melee wind-up **0.489 s** / recovery **0.879 s** / rooted
+    **1.369 s**, cycle **1.719 s**. Cadence moves WITH the lock (the R-WR3-19 tension resolves
+    referent-ward: 1.5 s cadence dies, 1.719 s replaces it — they are one package). Nova
+    telegraph goes referent-range 0.80–0.89 s (build takes **0.85** midpoint; U-3 pak-modifier
+    flag stays open, veto-open). (c) **Evade enters the player kit at GD parameters** — 3.0 s
+    cooldown, 1 charge, 10.0 u range, 0.333 s lock, NO i-frames — behind the same battery-only
+    fence as `kite_policy_v1` (canon §7.2 untouched; unit conversion derives from the
+    extraction's own §3 composition models, never asserted fresh). (d) *"any other GD Primordian
+    boss behaviors"* = **referent-parity as standing rule for the boss's behavior surface**:
+    where the extraction measured, the measurement governs; unmeasured surfaces get spec-named
+    leans, ledgered here.
+  - **Conductor rulings under the signature (veto-open):** CAL-1 fires in the SAME build as
+    ratified (R-WR3-7 lean) — nova per-projectile to scripted-heavy norm (~10–15 % of pool) with
+    the 2× quantum reaching ≈ the 34.3 % measured worst. This is also the **A-DMG-1 unblock**:
+    the 30-seed battery of record re-fires under stage-2 params (R-WR3-15's deferral discharges).
+    Player DPS calibrates toward the 310–620 band interior (lower-mid ≈ 400) pending T10
+    werewolf-cadence refinement. **Gates RE-REGISTER before the battery** — stage-1 gates were
+    tuned at 1.43×/0.30 s; carrying them forward unexamined would be gate-shopping in reverse.
+    **Feasibility pre-pass MANDATORY** (Discipline #1, math-before-code): daylight arithmetic at
+    referent durations + 1.30× BEFORE code — gamora's T_lock ≲ 0.75 s safe ceiling was measured
+    at 1.5 s cadence and must be re-derived at 1.719 s; if the arithmetic shows a degenerate
+    regime (boss permanently outranged or kite trivially safe), HALT and route back to Matt
+    before build.
+  - **(COMMISSIONED):** gamora stage-2 build, background. Deliverable:
+    `agentic_orchestration/gamora/notes/2026-07-30-wr3-stage2-build-report.md`.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
