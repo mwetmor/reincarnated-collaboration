@@ -211,6 +211,41 @@ in the scope above is superseded by the measurement where the measurement is cle
   carries the WARM ambient — declared, expected; once Matt verdicts the hue clip, the player_lock
   re-render with accepted hue is mechanical (scripted harness, same trace).
 
+## LANDING — CAM-LOCK ✓ (2026-07-30; note `drax/notes/2026-07-30-cam-lock.md` `4d167f4a`; godot `3449169` LOCAL, ahead 3)
+
+- **`--cam player_lock` shipped: HARD translation lock** — camera = player ground position + a
+  constant vector, evaluated on the same interpolated position the proxy draws at, same frame;
+  no spring/deadzone/look-ahead. Full watch rendered (same seed/leg/tier/arm) carrying refit +
+  risen ambient + AI-state tags.
+- **Framing verdict: MATCH against GAL-CAM's own data, not against trusted numbers.** Ray-cast
+  from the actual Camera3D onto the floor vs `rings.json`/`surface.json`: anchor error
+  (−0.0004, −0.0009) px @1080p; decision box within 0.03 m on all four sides (FAR — the
+  least-settled operand — +15.211 vs +15.244); 12 ring-row checks 1.6–12 m, worst on-frame
+  residual 0.69 px = 0.012 m of ground. Depth derived from the measured scale field
+  (z = focal/g_x = 34.8165 m) per GAL-CAM §6's coupled-pair warning — then reproduced three of
+  galadriel's independent rig numbers to 0.01–0.04% with none used as inputs.
+- **Declared non-honors:** bearing is NOT measurable (GD's world is authored TO its camera) —
+  judge camera's 47° adopted so both watches share orientation · 12 m nova does NOT fit, kept
+  (fidelity, per charter) · beyond-wall darkness treatment NOT built — measured unnecessary
+  (worst-case wall clearance 0.500 m at tick 858; beyond-wall already pure black by construction).
+- **⚑ TWO ITEMS AT MATT'S EYE:** (1) captions rendered 2.13× their accepted screen size under the
+  new lens; HELD to accepted pixels via derived k=0.46959 (geometry deliberately not scaled);
+  plate `PLATE_tags_worldheld_vs_screenheld.jpg`; reversal is one constant. (2) the inherited
+  frame banner eats the bottom ~28% of frame — which under player_lock is the NEAR decision
+  surface (the −7.0 m band). Drax refused as out of scope, correctly. Conductor note: GAL-CAM
+  measured the referent's OWN skill bar occluding the near arc — so a bottom occlusion is
+  arguably period-correct — but the banner is an instrument overlay, not a skill bar; whether it
+  slims, moves, or stands under player_lock is Matt's call at the watch.
+- **⚑ Non-determinism flag NARROWED to closure-shape:** null test (identical script, two
+  launches) 8,341–8,658 px/frame speckle vs reverted-vs-applied 8,838–8,931 — indistinguishable.
+  The drift is a **per-launch GPU particle seed made visible by AMB-RISE**, not a stage rewrite.
+  Joint galadriel+drax diagnosis item largely discharged by this null; remaining question is only
+  whether byte-stability is wanted at all (instrument-side seed pin) — wave tail, low priority.
+- **Watch deliverables:** `tmp/camlock/camlock_wr3_after_pre_boss_B_74000802.mp4` (THE fully-baked
+  watch, warm ambient — hue verdict pending) · `tmp/camlock/clips/SBS_judge_vs_playerlock_18s-38s.mp4`
+  (two-cameras-two-jobs, side by side) · framing plates under `tmp/camlock/plates/`.
+- **AMB-HUE unblocked** — fires now; godot tree free at `3449169`.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
