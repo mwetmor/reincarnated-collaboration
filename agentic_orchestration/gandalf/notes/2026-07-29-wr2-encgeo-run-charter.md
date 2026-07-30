@@ -778,4 +778,33 @@ cells only, sequential · conductor writes no production code — seams execute.
   wind-ups that cost the boss ground; (c) ratio 0.70 likely STANDS. Fork remains Matt's; the
   evidence now says what the sequel would actually build.
 
-*Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
+- **§8.42 — CHARTER CLOSED. Exit predicate HELD; the watch's verdict is the next run's mandate.**
+  Sequence of record: S-1..S-5 + S-7 GREEN, first firing, tuning lap unspent → Gate-2 CLEAR on
+  every landing, zero BLOCKs → S-6 grading verdict PASS on the four decidable intent clauses,
+  fourth column recovered and double-instrumented → baton delivered, hard-codes retired at the
+  consumer, both ADR-004 acks filed → owner-eye #2 renders → **Matt watched. Verdict: the
+  geometry stands; the FIGHT does not** — F-WR2-5 (pinning; kiting worthless; telegraph worthless
+  in production), decomposed by measurement into AI-without-commit + a player policy with no
+  evade intent, at a ratio (0.70, graded) that was never the problem. Matt clarified the
+  close-is-not-acceptance point himself; the conductor's framing owed him that clarity earlier.
+  **The battery of record (450 AFTER traces, `wr2_battery_after/`) FREEZES as the BEFORE baseline
+  of the sequel.** Wave-tail items remain ledgered at §8.31/§8.33/§8.38/§8.39; the
+  grounds-vs-dispositions family closes this run at EIGHT exhibits, every one caught by the
+  run's own safeties before it reached a decision.
+  **Founding rulings carried to the sequel charter (MATT-SIGNED, this session):**
+  - **R-WR3-1 (mandate):** build kite + commit against the frozen baseline immediately — (a)
+    player-policy evade/kite intent spending the 1.725 m/s surplus, answering telegraphs; (b)
+    boss attack-commit wind-ups that cost the boss ground. Ratio 0.70 stands unless measurement
+    says otherwise.
+  - **R-WR3-2 (target-state, verbatim):** *"If the player kit plays as I did in the GD game, and
+    if the player and monster(s) stats and calculations are approximately similar to the GD game
+    that I played at level 13, then the player should win the majority of encounters."* —
+    operationalization: competent-play majority win rate is the acceptance gate; "approximately
+    similar to GD level 13" becomes a measured reference envelope (Legolas commission fired:
+    GD L13 player/monster stats, TTK bands, hit-size as fraction of pool, commit/gap-closer
+    norms), against which our fixture's stats are diffed and — stage 2, gated on stage-1
+    measurement — calibrated. F-WR2-1 (19.5× asymmetry) is hereby SUBSUMED into R-WR3-2's
+    envelope question rather than tuned blind.
+
+*Charter CLOSED 2026-07-30 on the held predicate. The fight the run built is measured, watched,
+and found wanting in the two verbs the sequel now owes: kite and commit. — gandalf, RUN-CONDUCTOR*
