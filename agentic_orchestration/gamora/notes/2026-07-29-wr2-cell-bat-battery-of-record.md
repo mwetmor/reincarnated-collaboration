@@ -21,7 +21,7 @@ Adopted from the interrupted cell: `5a236697` (math note) · `21abff12` (emissio
 
 | Gate | Verdict | The numbers |
 |---|---|---|
-| **S-1** separation | **PASS** | 450/450 AFTER traces, **292,305** pair samples, **0** violations. Worst slack **−0.000989 m** vs the 1 cm margin — the known 0.98 mm spawn-adjacency residual, identical on all three legs. |
+| **S-1** separation | **PASS** | 450/450 AFTER traces, **292,305** pair samples, **0** violations. Worst slack **−0.000989 m** vs the 1 cm margin — ~~the known 0.98 mm spawn-adjacency residual~~ **⚑ ERRATUM 2026-07-30 (jack-ryan Gate-2 Cell BAT WARN-5; charter §8.31). APPENDED, not rewritten: "spawn-adjacency" is FALSE ON ORIGIN — the 0.98 mm is a contact-solver ε residual during melee engagement (0 overlapping pairs at tick 0; sub-zero samples at ticks 28–262; worst-slack pair spawns 17.90 m apart), governed by `BODY_SEP_EPS_TOUCH` / `BODY_SEP_ITER_MAX`, not by spawn placement. §6's "post-solver overlap in emitted frames" is the correct form. PASS verdict and every number unchanged**, identical on all three legs. |
 | **S-2** de-cornering | **PASS** both clauses, all four tiers | Boss wall-share **75.032% → 2.722%** (≤ 5%); final-10 s **98.046% → 4.222%** (≤ 20%); corner share **65.989% → 0.000%**. trash 51.987 → 0.000, mixed_pack 75.334 → 0.000, champion 0.065 → 0.000. |
 | **S-3** outcome symmetry | **PASS** (AFTER arm) | S3a killable: pre/A **0.000**. S3b reachable: pre/B **0.267** (> 0). S3c post won: **1.000 / 1.000**. Lap not needed. |
 | **S-4** determinism | **PASS** | **150/150** traces byte-identical across two scratch roots, same process, same tree, un-normalized. |
@@ -157,7 +157,7 @@ up; the grading lap judges it. Non-boss tiers are 1.000 → 1.000 everywhere.
 | `post` boss/A+B | 57.66 | **58.71** | +1.8% |
 | `pre_endpoint` boss/A | 28.57 | **24.02** | −15.9% |
 | `pre_endpoint` boss/B | 41.39 | **34.50** | −16.6% |
-| trash / champion / mixed_pack | 6.05 / 6.89 / 25.43 | 5.90 / 6.95 / 25.88 | ±1% |
+| trash / champion / mixed_pack | 6.05 / 6.89 / 25.43 | 5.90 / 6.95 / 25.88 | ~~±1%~~ **within −3.0%** (⚑ ERRATUM 2026-07-30, jack-ryan Gate-2 Cell BAT INFO-5, APPENDED not rewritten: the band understated trash, measured −2.5% `pre` / −3.0% `post`; the quoted magnitudes are exact) |
 
 Boss fights the player LOSES end **~15% sooner** under the three mechanisms; the fights it wins
 (`post`) take **~2% longer**. This is the measured substrate for **F-WR2-1** (Matt: "the player does
