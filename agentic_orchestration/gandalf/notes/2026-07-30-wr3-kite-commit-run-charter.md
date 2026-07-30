@@ -241,6 +241,54 @@ against the frozen WR2 baseline immediately.
     in-flight stage-1 build lands its G1–G5 gates.** Spawn/wander remain out of scope for the
     simulator (full-gameplay-loop functions — Matt's own suspicion, confirmed).
 
+- **R-WR3-15 (conductor, veto-open): STAGE-1 GATES STAND — the build report
+  (`gamora/notes/2026-07-30-wr3-stage1-build-report.md`, engine `6de80aab`+`a6c6bcf9`, verified:
+  3,523/3,523 unit tests re-run by the conductor at 1.27 s, zero new regression failures against
+  the 81-name baseline) is ACCEPTED, with five finding dispositions:**
+  - **(F-1 — the HALT ruling; disposition (c) with a chartered debt):** the **11-seed diagnostic
+    arm is ACCEPTED as the stage-1 mechanism-existence evidence** — explicitly NOT a battery of
+    record, G2 at-threshold (+0.0091) noted. Option (a) — suspending A-DMG-1 for the WR3 arm —
+    is REFUSED as pin-silencing: the pin fired TRUTHFULLY (the HELD boss-damage regime IS
+    falsified at r≈11 m, per-projectile 290.36 > measured ceiling 260.5); buying 19 more seeds
+    by disarming a falsification pin is grading against a known-broken ruler. Option (b) is
+    fenced by spec §7 (no nova number moves in stage 1) — gamora was right to take nothing.
+    **Chartered debt:** the battery of record (full 30-seed) RE-FIRES after stage-2's CAL-1 nova
+    calibration re-establishes a holdable damage regime — where R-WR3-2's acceptance measurement
+    required a fresh full battery anyway. Stage 1's question — does the geometry exist — is
+    answered decisively on the diagnostic arm: separation unpinned (+0.471 m), degenerate
+    signature 66/66 → 0/66, escapes exist (0 → 60/114), whiffs exist (95.55 %), and the
+    duty-cycle prediction survived contact to four figures (0.400 predicted / 0.3992 realized).
+  - **(F-1+F-2 held together — stage-2's first-order input):** the nova's outer-band payload
+    step (207.40 → 290.36 at r ≈ 10 m) is now indicted from BOTH directions on one battery —
+    over-lethal on seed 74000811, fully INERT (0/114 crossings) on the other eleven. §8.2's
+    two-sided worry is live. **CAL-1 nova calibration and the escape-rate band are ONE stage-2
+    grill item, not two** — both facts are the same number. WARN-N1 (resolved-vs-cast
+    undercount) joins that grill as the emission companion.
+  - **(F-4 — §8.3's prediction FALSIFIED; owner-eye brief REWRITTEN):** boss win rate went
+    0.33/0.36 → **1.00/1.00**, not down — the boss lands 4.45 % of swings and 0 % of novas;
+    K's uptime cost is real and simply dominated. This is §8.6's broken-easy direction,
+    announcing itself. NOT a stage-1 gate failure (stage-1 gates are geometry gates, correctly)
+    and NOT a build defect: `bout_max`/`release_m`/`pressure_threshold` are stage-2-owned [CAL]
+    rows chosen for defensibility, not correctness. **The owner-eye brief's headline sentence is
+    REPLACED** — Matt watches a mechanism-existence proof, not a balance state, and the brief
+    says so ABOVE the render link (the R-WR3-12(8.3) slot, corrected content). Mean boss fight
+    duration 82.2 s landing inside the GD 59–118 s band is banked as the one envelope row the
+    mechanism moved INTO band by itself.
+  - **(F-5 — deviations ratified):** **SC-K-1 RATIFIED as spec completion** — the spec's §2.6
+    field list could not implement its own §2.4 yield condition 3; the omission was the spec
+    author's (conductor's own DRIFT-CRITIC finding against his own spec, on record). **BS-1
+    RATIFIED as declared stage-1 scope** — replay-backed `step` with exact contract; steering is
+    stage-2's named prerequisite. **The S-2 predicate/cell conflict resolves in the cell's
+    favor** (grade the predicate, report the wall-share beside it; wall-share improved
+    0.0223 → 0.0158 — K un-cornered the player, an unasked-for good).
+  - Banked with approval: the Discipline #11 smoke-catch (`is_boss` lives on `SpawnSpec`, not
+    `SpatialEntity` — a mechanism that would have armed and measured NOTHING with every counter
+    a clean zero, caught by the first ablation smoke). SS-C2-1's emitter-side MIGRATION remains
+    OPEN with knight-rider per R-WR3-12(8.5) — must disposition before jack-ryan Gate 2.
+  - **Sequence now:** owner-eye render commission (drax) → Matt watches → stage-2 boundary
+    grill (nova/escape-band + player-DPS + K-calibration rows) → W-2 lap → battery of record →
+    R-WR3-2 acceptance.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
