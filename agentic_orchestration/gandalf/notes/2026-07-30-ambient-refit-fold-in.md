@@ -73,3 +73,23 @@ aim is screen-relative; easing breaks both.
   darkness treatment is in scope if needed to sell it; a full outer-world dress is NOT.
 - Fires as CAM-LOCK immediately on AMB-REFIT's return (same surfaces, single-writer — no parallel
   launch), rendering with the refit ambient + AI-state tags already in place.
+
+### Scope-3 amendment (Matt directive, same day): operands are MEASURED, not genre defaults
+
+Matt's sharpening: the locked camera must reproduce the decision surface he experienced in the GD
+play session ("what's within X meters of me in every direction"), exactly. GD engine constants are
+not extractable and GD's zoom is player-controlled anyway — so the fixture's EFFECTIVE camera is
+being measured from Matt's own footage by cell **GAL-CAM** (galadriel, in flight, parallel-safe:
+read-only, no godot writes): pitch via the nova-ring ellipse (known-radius ground circle, the
+GAL-3 anchor), px/m from the two banked anchors, the visible-meters box around the player's
+measured screen anchor, zoom band if it drifted. **CAM-LOCK consumes GAL-CAM's note as its
+camera operands** (match the visible-ground box, not an offset/pitch guess); genre-typical pitch
+in the scope above is superseded by the measurement where the measurement is clean.
+
+**Answered for the record (Matt's three questions):** camera/perception stats are NOT in the
+battle sim (no camera, no perception model — the pilot reacts to trace-level truth); adding the
+camera scene-side CANNOT move geometry (trace-driven playback, view transform only, no feedback
+path). **Flagged to the WR3 charter session, not ruled here:** the sim-side twin — a
+perception-radius clamp on the pilot (Mechanism K reacting only to screen-visible events at the
+measured camera) is a fidelity refinement candidate; today's pilot is better-informed than the
+referent player was. Mechanism-K territory ⇒ that run's ledger decides.
