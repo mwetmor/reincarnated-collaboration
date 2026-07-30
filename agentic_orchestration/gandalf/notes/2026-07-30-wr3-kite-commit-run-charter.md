@@ -289,6 +289,54 @@ against the frozen WR2 baseline immediately.
     grill (nova/escape-band + player-DPS + K-calibration rows) → W-2 lap → battery of record →
     R-WR3-2 acceptance.
 
+- **R-WR3-16 (conductor, veto-open; Matt's eye recorded): OWNER-EYE #3 LANDED AND PASSED on the
+  geometry verbs.** Drax's render (`drax/notes/2026-07-30-wr3-stage1-owner-eye-render.md`, godot
+  `72723ca` pushed; fight `pre`/boss/B/74000802 — chosen so the BEFORE clip is byte-identically
+  the WR2 owner-eye AFTER clip: one seed, three geometries, one lineage). **Matt watched the
+  side-by-side and signed the geometry: "looking REALLY good"** — with the sequel asks (AI-state
+  labels, then full scene baking) noted. Conductor confession banked: the commission's fallback
+  pick (74000800) fires NO nova in any arm/leg — drax's measured selection caught it; absence is
+  data, and the default was wrong. Finding dispositions:
+  - **(D-F1 — the 7-vs-6 tick disagreement; ROUTED to gamora, blocking the baked watch's label
+    layer):** emitted `commit_state` reads windup 4 / strike 1 / recovery 2 = **7 ticks**
+    (3,096/3,098 episodes, zero variance; telegraph mint-to-fire lead agrees at 4), while the
+    build report declares 6 and the duty arithmetic sides with 6 (measured committed-tick share
+    0.3992 ≈ 6/15 = 0.400; 7 ticks would read ≈0.467). Most probable: the initiation tick emits
+    `windup` but is not movement-locked — an inclusive/exclusive sampling fencepost, prose vs
+    emission. **Gamora verifies which variable each reader reads and DOCUMENTS the convention;
+    if the movement lock is actually 7 ticks, that is a build defect against R-WR3-13 and
+    re-opens F1.** W-1's `ai_state` field must DECLARE its sampling edge so label and lock agree
+    by contract, not coincidence.
+  - **(D-F2 — the metronome, quantified):** from median onset 18.8 s the (windup, strike)
+    separation pair freezes — median fight spends **69 % of commit episodes inside one frozen
+    bit-identical pair** ((2.000, 2.7584) on 46/66). The legible surface of F-4: the swing is
+    clockwork and the deterministic policy solves it exactly. **Stage-2 grill gains a row:**
+    frozen-pair share becomes a REPORTED (ungraded) battery column, and drax's §7 question goes
+    to Matt verbatim at the grill — is "the player has solved the boss's swing" the thing to
+    calibrate away from, or the geometry he wanted proven first?
+  - **(D-F3 — C_reach custody; ADOPTED):** C_reach (2.5 m) lives only in a cell's grading
+    artifact; drax verified it against all 3,096 strikes (0.091 m of clean air between LANDED
+    max 2.4837 and WHIFFED min 2.5750) before drawing. **Emit it beside `presentation_units`**
+    in the leg report/g5_header — same custody argument that closed the nova unit payload
+    (R-WR2-15(2)), one layer out. Rides the schema amendment below.
+  - **(D-F4 — routed to jack-ryan as a consumer-discipline candidate):** third value-set growth
+    in three runs (`reposition`, `evade:*`, `commit_state` non-idle); drax's stated rule — *on
+    this schema, an exhaustive match without a default arm is a latent silent-wrong-render* —
+    is discipline-shaped and belongs in his stack, not this ledger.
+  - **(D-F5/GAP-1 — ledgered):** the telegraph channel is per-attacker-per-skill, NOT per-swing
+    (`commit_state`/W-1 is the only per-swing source — consumers warned); the tracking-camera
+    rule change folds into the presentation baton, not this run.
+  - **Cross-reference:** the parallel LR/presentation session banked cell **AMB-REFIT**
+    (`gandalf/notes/2026-07-30-ambient-refit-fold-in.md`, Matt-directed: ambient extents refit +
+    overhead AI-state tags on enemy NPCs, trace-driven instrument-overlay). Zero WR3 rulings
+    consumed there; this run's W-1 emission is the AUTHORITATIVE source those tags upgrade to
+    when it lands.
+  - **NOW FIRING (post-stage-1 unlocked, per R-WR3-14):** the **K2-prep schema amendment as one
+    bundle** — (i) D-F1 verification + convention doc, (ii) W-1 per-frame `ai_state` with a
+    declared sampling edge, (iii) C_reach into the header (D-F3), (iv) the R-WR3-10 pool-header→
+    per-frame move. Cross-seam schema change → **MIGRATION.md owed** (ADR-004; drax + galadriel
+    consume). Gamora's seam; battery re-emission NOT required for the amendment itself.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
