@@ -573,4 +573,47 @@ cells only, sequential · conductor writes no production code — seams execute.
 - **§8.32 — WARN-discharge micro-cell FIRED** (gamora, doc/bank-only). Grading synthesis +
   AFTER-baton authoring follow; the baton ships only after §8.32 lands CLEAN.
 
+- **§8.33 — WARN-discharge micro-cell LANDED CLEAN on its gate set; baton gate OPEN; one
+  conductor ruling on the M-3 half** (gamora; engine `36ea2a5c`/`33c134b2`/`74a5a5c5`/`54536c30`,
+  meta `fee39348`; conductor pushes with this landing). WARN-1: the ADR-004 MIGRATION entry
+  shipped — keys by exact name/type/unit, provenance semantics (`kit` vs `engine-default-ungraded`
+  5.75, neither M nor D), drax's decomposer named as the 207.40/235.40 consumer, and the
+  `movement_speed_ms` collision between Cell D's conditional trace field and the unconditional
+  report field disambiguated so nobody joins the wrong two things. WARN-4: the self-refuting
+  "derived, not transcribed" comment replaced with a recorded correction (order is TRANSCRIBED;
+  grep-the-builder drift-proof per INFO-4's convention). INFO-2: set-difference proof into the
+  allow-list comment; erratum appended to the BAT cell note §9.1. Verification: containment 39/39
+  (9.07 s final tree, cheap-suite-first), WR2 B/C/D + kitcal slice 185/1.00 s, py_compile +
+  import OK, `AFTER_SUFFIX` and all six `leg_dir()` paths unchanged, door allow-list 3 entries /
+  4 sites / 0 offenders. **Conductor dispositions:**
+  - **R-WR2-22 (veto-open): the M-3 half of WARN-3 is declared OUT-OF-RUN.** The cell proved the
+    12.1944–12.7789 m figures are NOT extractable from any banked file — they are the M-3
+    (`piloted_competence`) arms, built in-process, writing no trace directory; M-3 is dark on the
+    battery of record BY CHARTER DESIGN. What IS banked
+    (`wr2_bat_f_wr2_4_ring_life_distances.json`) reproduces jack-ryan's PROD-AFTER limb at every
+    printed digit (4.0619–5.3358 m, 132/132, r\* 4.4306 at full precision) on an independently
+    written instrument, plus the BEFORE_prod arm. Closing the M-3 half requires an instrumented
+    `s7_clause2` re-run = driver change + simulation execution = scope growth on a doc/bank-only
+    cell gating a baton. Ruling: the M-3 substrate's durable home is jack-ryan's pushed finding
+    (`dfb83982` §4.1 — his own instrument, both rows adjacent in his table); the instrumented
+    re-run routes to the F-WR2-4 SEQUEL space, where distributional clause-1 coverage (§8.29
+    corollary) already lives. **Substrate clarification pinned to F-WR2-4: its 12.19–12.78 m
+    escape figures are M-3 isolation-arm values; the production battery's banked ring-life
+    distances are 4.06–5.34 m** — the grading lap reads both rows from the finding, not from
+    memory.
+  - **⚑ WARN-1 count erratum ledgered (the gate's own ground, third instance of the class):**
+    "four comments cite the missing entry" — the file carries ONE (`kitcal_g5_harness.py:700`);
+    the other four cite entries that exist. Gap real, multiplicity not; §8.31 transcribed the
+    figure and this brief repeated it — corrected on measurement in the MIGRATION entry's own §7
+    rather than transcribed a third time. Same family as WARN-5: true where measured, wrong where
+    labelled. The wave-tail grounds-vs-dispositions item gains its third exhibit.
+  - **Tail (outside the §8.31 gate set, NOT baton-gating):** WARN-5's cell-note-site edit and
+    INFO-5's one-liner (jack-ryan §14 gamora list) remain open — the WARN-5 substance is
+    discharged charter-side (§8.31 erratum). Fired as a doc-only tail micro-task alongside the
+    grading lap; lands before run close, not before the baton.
+- **§8.34 — Grading synthesis + AFTER-baton authoring FIRED** (named gandalf sub-agent per
+  conductor-economics §2.1; the run's largest synthesis piece). Deliverable: S-6 BEFORE/AFTER
+  verdict + the F-WR2-1/-2/-4 evidence book + drax consumer notes + the baton document. The baton
+  ships on its landing; then drax renders; then Matt's watch closes the run.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
