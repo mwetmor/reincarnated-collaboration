@@ -462,6 +462,12 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Fonts — preview routing (no downloads yet):** all four are Google Fonts specimen pages —
   Matt previews in-browser with custom text (type a damage number). Pick + one word = download
   authorization; swap is one constant (banked at WALL-FIX+NUM-POP landing).
+- **FONT RULED (Matt): "go with Bangers."** Download AUTHORIZED and executed same-turn:
+  `Bangers-Regular.ttf` (verified TrueType, 93 KB) + `OFL.txt` license staged at
+  `agentic_orchestration/drax/assets/fonts/bangers/` (godot tree locked by BEAUTY-CORNER —
+  single-writer; the next drax cell moves the file in and flips the one font constant, retiring
+  the logged PLACEHOLDER). Diamond-glyph note carried: Bangers may also lack U+25C6 — the
+  FontVariation fallback chain from WALL-FIX+NUM-POP handles it; drax verifies at swap.
 
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
