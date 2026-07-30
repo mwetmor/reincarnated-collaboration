@@ -485,4 +485,51 @@ cells only, sequential · conductor writes no production code — seams execute.
   standard applies with the audit already half-done by git) and resumes at the battery arms.
   Loss: minutes, exactly as designed.
 
+- **§8.29 — Cell BAT lands: THE BATTERY OF RECORD, every pre-registered gate PASS, tuning lap
+  expires UNSPENT** (engine `f1ab3b09`/`284aacaf`/`82f01917`/`d05535f9` atop the adopted
+  `5a236697`/`21abff12`, meta `144cbb4d`/`22f54914`, pushed; three spawn-529s + one status-page
+  incident — "all models recovered except [ours]" — cost ~4 h wall-clock and zero work). Numbers of
+  record: **S-1** 450/450, 292,305 pair samples, 0 violations, worst slack −0.000989 m. **S-2** boss
+  wall-share 75.032% → **2.722%**, final-10 s 98.046% → **4.222%**, corner 65.989% → **0.000%**,
+  4/4 tiers. **S-3** holds, lap unspent. **S-4** 150/150 twice. **S-7 clause 1** 132/132, worst
+  ratio 0.1493 = the a-priori prediction to 15 s.f. **S-7 clause 2** crossing rate 1.000 → **0.000**
+  (firings 66 → 66 — the nova fires as often and lands NEVER on the piloted player). Residuals:
+  AFTER 180 ticks/1.3506 mm (all trash, 2/fight), BEFORE 0. `v` audit: 900/900 at the ungraded
+  default 5.75. Name-diff EMPTY 81/81. **Conductor rulings:**
+  - **F-WR2-4 (new finding, banked): clause 2 passed by a mechanism §8.21 did not describe.** The
+    M-3 player escapes by OUTRUNNING THE RING'S REACH (12.22–12.78 m vs the front expiring at
+    12.0 m — movement-v2 orbit carries it out of the nova's world entirely), not by in-window
+    radial escape; the transition is 100% → 0% with no middle — not "prompt reaction escapes, late
+    one pays." The GATE stands as pre-registered (rate must drop; it dropped, honestly measured;
+    the policy earned it). What is NOT yet empirically demonstrated is the telegraph's graded
+    penalty texture — clause 1 certifies it analytically for a player inside the ring; no arm
+    SAMPLES that regime. Routed to the grading lap; sequel-run candidate ALONGSIDE F-WR2-1/F-WR2-2
+    (the three share the endpoint-boss/pacing suspect space). `NOVA_ESCAPE_FRAC` untouched; no
+    re-gate; no scope growth. Corollary ledgered: **S-7 clause 1's population is degenerate in
+    onset geometry** (132 firings, ONE distinct `d_onset` = 10.2086) — the law-residual and
+    identity checks are configuration-independent so the gate is not weakened, but analytic
+    coverage is a point, not a distribution; distributional coverage needs varied fixtures =
+    sequel space, named.
+  - **F-WR2-2 CONFIRMED at full grain** (`pre_endpoint` boss/B 0.067 → **0.000**) and the §8.17
+    F-WR2-1 substrate delivered (player-LOSS boss fights end ~15% sooner; player-WIN ~2% longer)
+    — both to the grading lap as chartered.
+  - **STEP-0 deviation RATIFIED — and the conductor's own audit hole owned:** §8.28's "no tracked
+    WIP" was literally true and materially incomplete — a 1,258-line UNTRACKED driver
+    (`wr2_cell_bat_2026_07_29.py`, mtime post-death) existed and MY wreckage audit filtered it
+    with the pre-existing untracked junk. The cell caught it, audited three ways
+    (structural/API/empirical), corrected two wrong comment claims, adopted under the §8.18
+    standard. Amendment to the interruption drill: **wreckage audits diff untracked files by mtime
+    against the death window; wholesale `??`-filtering is the hole.**
+  - **BQ-3 door discharge ACCEPTED; routed to Gate-2 as its FIRST checklist item.** The name-diff
+    law caught the adopted driver opening the calibration-override door undeclared (+1); the cell
+    proved the door MANDATORY by falsification both ways (closing it raises
+    `CalibrationOverrideLeak` AND deletes the M-3 arm), then discharged via `_DOOR_ALLOW_LIST`
+    declaration — third occurrence of a twice-accepted class, regression re-run on the final tree.
+    I judge a containment declaration for the cell's OWN new file to sit inside
+    report-don't-repair. The cell asked for this call to be second-guessed; jack-ryan's
+    independent read IS the standing safety for exactly this concentration — if he reads it as a
+    repair that owed a HALT, the revert is one line and the finding says so.
+- **§8.30 — Gate-2 on Cell BAT FIRED** (jack-ryan; the six BAT commits as one landing).
+  **Grading + AFTER-baton hold for CLEAR.**
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
