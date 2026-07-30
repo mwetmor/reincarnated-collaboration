@@ -339,4 +339,23 @@ cells only, sequential · conductor writes no production code — seams execute.
   - F-WR2-1 note: a longer fuse shifts endpoint-boss damage later — F-WR2-2's zero-win leg gets
     re-measured AFTER D, not before.
 
+- **§8.22 — F-WR2-3 diagnostic verdict: (b) BUG in the S2S wiring; §8.19's hypothesis (a)
+  FALSIFIED** (gamora read-only cell, `e9ff58ac`, pushed; engine tree clean before/after). SS-B-1
+  moved the SHARED SELECTOR to surface-to-surface but not the nova's OWN fire gate — the two
+  predicates disagree by exactly `target.entity_radius`: selector admits at d=10.2086 ≤ 10.5, cast
+  gate refuses > 10.0, and the refusal bills the boss's full 6.0 s action budget; by t=6.8 the
+  player has closed to 2.0 and index-0 melee wins every remaining selection. Seed-invariant to every
+  printed digit (OFF 6/6 novas, ON 0/6). The conductor's romance ("BEFORE novas were an artifact of
+  broken geometry") is dead: **BEFORE novas were the mechanic working**; hypothesis (c) also ruled
+  out (`gd_nova.py` reads no radius). Fix described-not-built: flag-condition the cast gate's
+  effective range identically to the selector; scratch falsifier 6/6. **DISPOSITIONS:** (i) fix
+  lands inside **Cell D** per §8.21's pre-declared sequencing (one gamora cell: nova-gate fix +
+  telegraph escape law). (ii) **Gate-escape ledgered for the wave tail:** Cell B's Gate-2 verified
+  R-WR2-17 on the selector but no one diffed selector-vs-per-skill-gates — the run caught it via
+  owner-render + Cell C's reporting, i.e. §6.2 caught what the gate missed. Gate-2 checklists gain
+  "a range-semantics change must be verified at EVERY predicate that consumes range, enumerated by
+  grep, not at the shared entry point." (iii) The diagnostic's honest caveat carried forward: the
+  fix does NOT reproduce BEFORE nova numbers exactly (fires a tick earlier) and does NOT close
+  F-WR2-2 — S-6 diffs against BEFORE stay interpretation-loaded on the nova line.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
