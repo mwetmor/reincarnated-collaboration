@@ -532,4 +532,45 @@ cells only, sequential · conductor writes no production code — seams execute.
 - **§8.30 — Gate-2 on Cell BAT FIRED** (jack-ryan; the six BAT commits as one landing).
   **Grading + AFTER-baton hold for CLEAR.**
 
+- **§8.31 — Gate-2 on Cell BAT: CLEAR-with-notes; BQ-3 concurrence; two errata against this
+  ledger's own grounds; grading + AFTER-baton RELEASE with WARN-1 gated ahead of the baton**
+  (jack-ryan, `dfb83982`; pushed with this landing). Every gate reproduced on his own instruments
+  to the last printed digit; his S-2 scanner validated on BEFORE's known-failing tiers before a
+  PASS was trusted; S-4 widened past the claim — **all 450 banked traces regenerate from the
+  current tree with `engine_git_hash` the only differing field** (provenance + empirical
+  zero-behavior-change in one stroke). **BQ-3: concurrence, no HALT owed** — he falsified both
+  limbs himself, enumerated exactly four door sites tree-wide via T-8's own AST sweep, and named
+  the decisive category: the offending line was THIS cell's own commit, so the declaration is
+  landing-completion (one's own MIGRATION entry), not repair of another's state. 6 WARN, 6 INFO,
+  no Matt escalation. **Conductor dispositions:**
+  - **⚠ ERRATUM to F-WR2-4 (WARN-2, the gate's check on the conductor — accepted):** §8.29 named
+    the carrier and not the enabler. His isolation arms (which the battery lacks): B+C with D dark
+    → rate **0.955**, never past 11.43 m; **D alone → 0.516**, reaches 12.06 m; both → **0.000**
+    at 12.19–12.78 m. The orbit is the PATH; **D's 3.09× fuse is what makes it long enough** — and
+    a graded middle EXISTS along the mechanism-isolation axis; "no middle" is true only along
+    reaction-timing. Consequence pinned: a tuning lap reading the old wording would reach for C's
+    dials when `NOVA_ESCAPE_FRAC` is doing most of the work. F-WR2-4's sequel routing unchanged;
+    its causal text is hereby the WARN-2 version.
+  - **⚠ ERRATUM to the residual LABEL (WARN-5 — jack-ryan filing against his own Cell C finding):**
+    "spawn-adjacency" is FALSE ON ORIGIN — zero overlapping pairs at tick 0 anywhere; the
+    sub-zero samples occur at ticks 28–262 during melee and the worst-slack pair spawns 17.90 m
+    apart. It is a **contact-solver ε residual**. Lineage of the unchecked premise: §8.19 → his
+    Cell C finding → §8.23 → the BAT note — four hands, second consecutive gate where a ratified
+    GROUND was false while the disposition stood. His new standing habit (re-measure causal labels
+    at the next gate that touches them) ADOPTED into this run's Gate-2 obligations; pattern-class
+    noted for the wave tail (grounds-vs-dispositions audit discipline).
+  - **⚠ ERRATUM to §8.29's own sentence:** "corrected two wrong comment claims" — ZERO were
+    corrected (WARN-4: the driver's self-refuting "derived, not transcribed" comment survives at
+    :82-84; the second item was confirmed-correct, never wrong).
+  - **WARN-1 GATED discharge (the baton does not ship before it):** the three new cross-seam
+    emission keys have four comments citing a MIGRATION entry that does not exist (ADR-004 — and
+    the emission exists precisely so drax stops hard-coding). Content pre-approved under ADR-002.
+    Fired as a gamora micro-cell TOGETHER WITH: the WARN-4 one-line comment fix, WARN-3's banking
+    of the clause-2 distances (a conductor finding's substrate must be reproducible from the
+    tree, as INFO-2's residual table is), and the INFO-2 falsifier-cite fix.
+  - **WARN-6 wave-tail item:** 3-for-3 on a 20-minute regression catching what a 9.21-second
+    containment suite catches — cheap-suite-first sequencing enters the cell-brief template.
+- **§8.32 — WARN-discharge micro-cell FIRED** (gamora, doc/bank-only). Grading synthesis +
+  AFTER-baton authoring follow; the baton ships only after §8.32 lands CLEAN.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
