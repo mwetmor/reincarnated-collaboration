@@ -312,4 +312,31 @@ cells only, sequential · conductor writes no production code — seams execute.
   committed landing; gamora read-only diagnostic — no tree writes, single-writer law preserved).
   Cell BAT holds for BOTH.
 
+- **§8.21 — R-WR2-19 (MATT-SIGNED) — CHARTER AMENDMENT: Mechanism D, telegraph escapability.**
+  Matt, verbatim: *"The telegraph is too fast, it needs to be tuned to be just slower than player
+  movement speed. In the current state, there is no reason for the telegraph as the skill damage
+  cannot be avoided."* Scope §1 grows a fourth mechanism under founding-authority signature:
+  - **Mechanism D (small, parameter-law class):** the nova telegraph-to-detonation window obeys the
+    **escape-speed law** — required escape speed from ANY point inside the damage area is just below
+    player movement speed: `damage_radius / telegraph_duration = NOVA_ESCAPE_FRAC × player_move_speed`,
+    `NOVA_ESCAPE_FRAC` default **0.90**, TUNABLE (the one dial; the law itself frozen). Conductor
+    operationalization of "just slower," veto-open: 0.90 means a prompt reaction always escapes, a
+    late one pays — the D3-postmortem rule. Duration derives at cast from the CASTER's target-kit
+    move speed so it stays deterministic and per-fight-constant.
+  - D must RECONCILE the WR1 flag: telegraph draws at 12.0 but `range_m` is 10.0 — the escape law
+    binds on the DAMAGE radius; the drawn ring must equal the damage ring (a telegraph that lies
+    outward is noise; one that lies inward is a trap).
+  - **New pre-registered gate S-7 (escapability):** for every nova firing in the battery of record,
+    `(distance from player position at telegraph onset to the damage edge) / telegraph_duration
+    ≤ NOVA_ESCAPE_FRAC × player_move_speed`, all firings, analytic from traces. PLUS the M-3
+    evade-armed player's realized nova-crossing rate must DROP vs BEFORE (the telegraph now has a
+    reason; WR1's M-3 moved 0.000).
+  - **Sequencing:** D builds AFTER the F-WR2-3 diagnostic verdict + Cell C's Gate-2 (a dark nova has
+    nothing to telegraph — if the diagnostic returns a wiring bug, its fix and D land as ONE gamora
+    cell; if honest-selection, D still lands and the diagnostic's numbers say how often it shows).
+    Cell BAT then re-verifies S-3's predicates alongside S-1/S-2/S-4 (D moves when damage lands;
+    outcome symmetry gets re-checked cheaply from leg reports, not re-gated blind).
+  - F-WR2-1 note: a longer fuse shifts endpoint-boss damage later — F-WR2-2's zero-win leg gets
+    re-measured AFTER D, not before.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
