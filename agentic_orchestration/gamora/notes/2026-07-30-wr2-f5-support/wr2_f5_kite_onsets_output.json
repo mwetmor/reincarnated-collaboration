@@ -1,0 +1,6716 @@
+{
+ "instrument": "wr2_f5_kite_onsets.py",
+ "mode": "READ-ONLY",
+ "legs": {},
+ "first_window_onset_t_s": {
+  "n": 180,
+  "min": 0.0,
+  "median": 0.0,
+  "mean": 0.0,
+  "max": 0.0,
+  "distinct": [
+   0.0
+  ]
+ },
+ "first_window_end_t_s": {
+  "n": 180,
+  "min": 1.4000000000000001,
+  "median": 1.4000000000000001,
+  "mean": 1.4000000000000001,
+  "max": 1.4000000000000001,
+  "distinct": [
+   1.4
+  ]
+ },
+ "second_window_onset_t_s": {
+  "n": 48,
+  "min": 4.999999999999998,
+  "median": 4.999999999999998,
+  "mean": 4.999999999999998,
+  "max": 4.999999999999998,
+  "distinct": [
+   5.0
+  ]
+ },
+ "window_shape_census": {
+  "n=2 opening_flags=(True, False)": 48,
+  "n=1 opening_flags=(True,)": 132
+ },
+ "theta_gt_5deg_steps": 2824,
+ "theta_gt_5deg_steps_ending_at_body_floor": 2692,
+ "theta_outlier_floor_frac": 0.953257790368272,
+ "first_t_s_at_gate": {
+  "n": 180,
+  "min": 1.5000000000000002,
+  "median": 1.5000000000000002,
+  "mean": 1.5000000000000002,
+  "max": 1.5000000000000002,
+  "distinct": [
+   1.5
+  ]
+ },
+ "first_t_s_at_body_floor": {
+  "n": 180,
+  "min": 1.8000000000000005,
+  "median": 1.8000000000000005,
+  "mean": 1.8000000000000007,
+  "max": 1.8000000000000005,
+  "distinct": [
+   1.8
+  ]
+ },
+ "spawn_sep_m": {
+  "n": 180,
+  "min": 17.05109052386978,
+  "median": 17.05109052386978,
+  "mean": 17.05109052386978,
+  "max": 17.05109052386978,
+  "distinct": [
+   17.051091
+  ]
+ },
+ "nova_onset_ticks_distinct": [
+  7
+ ],
+ "nova_fire_ticks_distinct": [
+  30
+ ],
+ "per_fight": [
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000800.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 52.500000000000476,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 52.30000000000047
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000801.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.20000000000026,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 37.000000000000256
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000802.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 21.90000000000004,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.70000000000004
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000803.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.300000000000047,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 22.100000000000044
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000804.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 34.00000000000021,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 33.80000000000021
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000805.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.000000000000043,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.80000000000004
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000806.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.90000000000007,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.700000000000067
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000807.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.500000000000064,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.30000000000006
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000808.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 35.500000000000234,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 35.30000000000023
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000809.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 21.90000000000004,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.70000000000004
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000810.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.500000000000064,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.30000000000006
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000811.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.200000000000045,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 22.000000000000043
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000812.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.100000000000044,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.90000000000004
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000813.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 49.20000000000043,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 49.000000000000426
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000814.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 47.90000000000041,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 47.70000000000041
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000815.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 35.500000000000234,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 35.30000000000023
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000816.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 50.60000000000045,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 50.400000000000446
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000817.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.000000000000043,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.80000000000004
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000818.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.600000000000065,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.400000000000063
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000819.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.000000000000043,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.80000000000004
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000820.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 47.600000000000406,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 47.400000000000404
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000821.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 46.20000000000039,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 46.000000000000384
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000822.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 35.40000000000023,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 35.20000000000023
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000823.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 34.100000000000215,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 33.90000000000021
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000824.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.40000000000002,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.200000000000017
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000825.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.600000000000023,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.40000000000002
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000826.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.400000000000063,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.20000000000006
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000827.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 50.50000000000045,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 50.300000000000445
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000828.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 46.100000000000385,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 45.90000000000038
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__A__seed74000829.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.700000000000067,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.500000000000064
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000800.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 67.10000000000046,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 66.90000000000047
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000801.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 61.4000000000006,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 61.2000000000006
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000802.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.000000000000256,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.80000000000025
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000803.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 34.30000000000022,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 34.100000000000215
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000804.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 56.700000000000536,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 56.50000000000053
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000805.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 35.600000000000236,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 35.40000000000023
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000806.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 39.000000000000284,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.80000000000028
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000807.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.10000000000026,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.900000000000254
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000808.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.500000000000576,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.30000000000057
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000809.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 32.60000000000019,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 32.40000000000019
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000810.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.000000000000256,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.80000000000025
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000811.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 34.30000000000022,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 34.100000000000215
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000812.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.10000000000026,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.900000000000254
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000813.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 66.20000000000051,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 66.00000000000053
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000814.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 65.30000000000057,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 65.10000000000058
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000815.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.60000000000058,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.400000000000574
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000816.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 68.00000000000041,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 67.80000000000042
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000817.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.000000000000256,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.80000000000025
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000818.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 38.80000000000028,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.60000000000028
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000819.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 35.70000000000024,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 35.500000000000234
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000820.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 68.90000000000036,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 68.70000000000037
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000821.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 67.10000000000046,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 66.90000000000047
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000822.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 61.0000000000006,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 60.800000000000594
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000823.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 56.600000000000534,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 56.40000000000053
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000824.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 32.40000000000019,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 32.20000000000019
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000825.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.10000000000026,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.900000000000254
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000826.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 34.100000000000215,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 33.90000000000021
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000827.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 68.00000000000041,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 67.80000000000042
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000828.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 68.90000000000036,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 68.70000000000037
+  },
+  {
+   "leg": "pre",
+   "trace": "boss__B__seed74000829.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 34.30000000000022,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 34.100000000000215
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000800.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.20000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.00000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000801.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000802.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000803.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000804.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000805.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000806.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000807.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000808.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000809.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.10000000000057,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.90000000000057
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000810.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000811.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.00000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 56.80000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000812.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000813.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000814.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.50000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.300000000000544
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000815.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.20000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.00000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000816.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000817.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000818.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.20000000000056,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.000000000000554
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000819.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000820.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 60.800000000000594,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 60.60000000000059
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000821.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000822.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.00000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 56.80000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000823.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000824.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000825.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000826.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000827.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000828.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.00000000000057,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.800000000000566
+  },
+  {
+   "leg": "post",
+   "trace": "boss__A__seed74000829.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000800.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.20000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.00000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000801.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000802.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000803.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000804.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000805.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000806.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000807.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000808.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000809.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.10000000000057,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.90000000000057
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000810.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000811.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.00000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 56.80000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000812.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000813.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000814.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.50000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.300000000000544
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000815.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.20000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.00000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000816.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000817.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000818.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.20000000000056,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.000000000000554
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000819.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000820.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 60.800000000000594,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 60.60000000000059
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000821.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000822.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.00000000000054,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 56.80000000000054
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000823.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000824.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.800000000000566,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.60000000000056
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000825.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000826.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.70000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.500000000000576
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000827.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.90000000000058,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.70000000000058
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000828.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.00000000000057,
+   "winner": "player",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.800000000000566
+  },
+  {
+   "leg": "post",
+   "trace": "boss__B__seed74000829.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 57.90000000000055,
+   "winner": "player",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.70000000000055
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000800.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 41.70000000000032,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 41.50000000000032
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000801.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 26.70000000000011,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 26.500000000000107
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000802.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 15.89999999999996,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 15.69999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000803.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.599999999999964,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.399999999999965
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000804.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 25.000000000000085,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 24.800000000000082
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000805.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 15.99999999999996,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 15.79999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000806.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 16.19999999999996,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 15.99999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000807.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 15.89999999999996,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 15.69999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000808.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 26.500000000000107,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 26.300000000000104
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000809.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.399999999999965,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.199999999999966
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000810.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 17.49999999999998,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 17.299999999999976
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000811.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.599999999999964,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.399999999999965
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000812.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.399999999999965,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.199999999999966
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000813.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 38.60000000000028,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.400000000000276
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000814.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 40.3000000000003,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 40.1000000000003
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000815.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 28.000000000000128,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 27.800000000000125
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000816.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 41.60000000000032,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 41.40000000000032
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000817.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.499999999999964,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.299999999999965
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000818.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 15.99999999999996,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 15.79999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000819.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 15.99999999999996,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 15.79999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000820.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 38.50000000000028,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.300000000000274
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000821.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 38.70000000000028,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.50000000000028
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000822.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 27.900000000000126,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 27.700000000000124
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000823.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 26.400000000000105,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 26.200000000000102
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000824.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.399999999999965,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.199999999999966
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000825.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.499999999999964,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.299999999999965
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000826.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.399999999999965,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.199999999999966
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000827.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 39.9000000000003,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 39.700000000000294
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000828.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.10000000000026,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.900000000000254
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__A__seed74000829.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 14.499999999999964,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 14.299999999999965
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000800.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 61.600000000000605,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 61.4000000000006
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000801.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 40.2000000000003,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 40.0000000000003
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000802.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.40000000000002,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.200000000000017
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000803.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.800000000000026,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.600000000000023
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000804.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 37.000000000000256,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 36.80000000000025
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000805.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.000000000000043,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.80000000000004
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000806.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.40000000000005,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 22.200000000000045
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000807.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.500000000000064,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.30000000000006
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000808.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 38.50000000000028,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.300000000000274
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000809.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.40000000000002,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.200000000000017
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000810.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.500000000000064,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.30000000000006
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000811.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.200000000000045,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 22.000000000000043
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000812.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.50000000000002,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.30000000000002
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000813.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 61.500000000000604,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 61.3000000000006
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000814.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.40000000000056,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 58.20000000000056
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000815.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 38.50000000000028,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 38.300000000000274
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000816.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 58.100000000000556,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 57.90000000000055
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000817.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.50000000000002,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.30000000000002
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000818.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 23.600000000000065,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 23.400000000000063
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000819.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.50000000000002,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.30000000000002
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000820.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 55.10000000000051,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 54.90000000000051
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000821.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 53.70000000000049,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 53.50000000000049
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000822.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 39.9000000000003,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 39.700000000000294
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000823.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 35.600000000000236,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 35.40000000000023
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000824.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 18.9,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 18.699999999999996
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000825.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 20.600000000000023,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 20.40000000000002
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000826.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 21.90000000000004,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.70000000000004
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000827.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 59.60000000000058,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 59.400000000000574
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000828.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 53.60000000000049,
+   "winner": "monster",
+   "n_out_of_gate_windows": 2,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    },
+    {
+     "start_tick": 50,
+     "end_tick": 55,
+     "start_t_s": 4.999999999999998,
+     "end_t_s": 5.4999999999999964,
+     "ticks": 6,
+     "duration_s": 0.6,
+     "d_at_start_m": 2.648929066482616,
+     "d_max_m": 2.9959267343922904,
+     "is_opening": false
+    }
+   ],
+   "nova_onset_ticks": [],
+   "nova_fire_ticks": [],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 53.40000000000049
+  },
+  {
+   "leg": "pre_endpoint",
+   "trace": "boss__B__seed74000829.jsonl",
+   "c_body_m": 2.0,
+   "c_reach_m": 2.5,
+   "v_boss_ms": 4.0249999999999995,
+   "elapsed_s": 22.100000000000044,
+   "winner": "monster",
+   "n_out_of_gate_windows": 1,
+   "windows": [
+    {
+     "start_tick": 0,
+     "end_tick": 14,
+     "start_t_s": 0.0,
+     "end_t_s": 1.4000000000000001,
+     "ticks": 15,
+     "duration_s": 1.5,
+     "d_at_start_m": 17.05109052386978,
+     "d_max_m": 17.05109052386978,
+     "is_opening": true
+    }
+   ],
+   "nova_onset_ticks": [
+    7
+   ],
+   "nova_fire_ticks": [
+    30
+   ],
+   "first_tick_at_gate": 15,
+   "first_t_s_at_gate": 1.5000000000000002,
+   "first_tick_at_body_floor": 18,
+   "first_t_s_at_body_floor": 1.8000000000000005,
+   "spawn_sep_m": 17.05109052386978,
+   "last_tick_t_s": 21.90000000000004
+  }
+ ]
+}
