@@ -358,4 +358,36 @@ cells only, sequential · conductor writes no production code — seams execute.
   fix does NOT reproduce BEFORE nova numbers exactly (fires a tick earlier) and does NOT close
   F-WR2-2 — S-6 diffs against BEFORE stay interpretation-loaded on the nova line.
 
+- **§8.23 — Gate-2 on Cell C: CLEAR-with-notes; conductor dispositions; R-WR2-20; Cell D releases**
+  (jack-ryan, `7827fb13`, pushed). Regression name-diff EMPTY vs the 81-name baseline; flag-OFF
+  byte-identity re-proven; the trajectory turn verified under BOTH stall conventions (3.84 or
+  7.43 → 150.80 — INFO-1); flip triggers grep-complete (three disjuncts, no fourth); the 180
+  residual ticks independently confirmed as spawn-adjacency (worst 0.98 mm, WARN-2's evidence
+  boundary NOT reached). Five WARNs, six INFO, none blocking. **Conductor dispositions:**
+  - **WARN-4 + WARN-5 RATIFIED TOGETHER (⚠ SWITCH: SPEC-AUTHOR → DRIFT-CRITIC — the judged fork is
+    in this seam's own spec): SS-C-3 stands; spec §C-1 is the operative text.** Post-R-WR2-17,
+    §C-0's prose and §C-1's radial rule name DIFFERENT sets; the builder implemented §C-1, and
+    §C-0's literal reading would have left the band measure-zero post-B — a no-op inside a
+    mechanism chartered to end a no-op. Erratum banner added to spec §C-0 (this landing's commit).
+    **WARN-5 disposed name-and-pin, NOT repair** (jack-ryan's recommendation, adopted): the
+    residual HOLD annulus `d ∈ (1.70, 2.00]` vs standard-radius targets (129 ticks, 0.096% of
+    armed ticks) is named in the erratum with its TUNABLE coupling (`BAND_WIDTH` moves it; any
+    band-touching tuning lap re-measures it). Closing it by widening REPOSITION's claim is a
+    mechanism change no gate is asking for.
+  - **WARN-1/-2/-3 + INFO-1/-4 ride Cell D as doc/pin obligations, zero behavior change:** flip
+    clock named as REPOSITION-tick-clock in the math note + pinned with one test (WARN-1 — the one
+    dial-facing item; `FLIP_DWELL_S` tuning reads that clock); AoE whiff-window clearance corrected
+    0.80 → **0.30 m** at the note/test seam (WARN-2); MIGRATION §5 restated by field name
+    (`total_abs_turn_rad`, path-derived — WARN-3); stall-convention + `azimuth_reversals` deadband
+    docstrings (INFO-1/-4). WARN-5's one-fact line in the math note rides too.
+  - **INFO-5 ADOPTED: Cell BAT's flag-OFF byte-identity baseline pins at `ecea69f`**, not `4f09e35`
+    (the statistics report carries one more key; same class as Cell B's INFO-1).
+  - **R-WR2-20 (conductor, veto-open) — Cell D flag topology:** the nova cast-gate fix rides
+    **`body_separation_v2`** — it is the COMPLETION of R-WR2-8/SS-B-1 (one range law at every
+    predicate that consumes range), not a new mechanism; a third flag there would let the two
+    predicates disagree by flag state, which is the bug's shape. The telegraph escape-speed law
+    (Mechanism D) gets its **own new flag `nova_telegraph_v2`, default OFF** — it is a new
+    parameter law, not a repair, and S-7 must be attributable to it in isolation. Cell BAT arms
+    all three.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*

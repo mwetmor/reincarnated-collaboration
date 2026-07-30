@@ -243,6 +243,14 @@ is consumed here. NO engine state is mutated." Honour it:
   outside the seam are non-exhaustive; add REPOSITION to that warning.)
 - `movement_intent()` returns REPOSITION where it would today return HOLD, **iff** the policy is armed
   and the player is alive and `move_scale > 0`. Unarmed → HOLD, byte-identically.
+
+  > **⚠ ERRATUM (SS-C-3, ratified §8.23, 2026-07-29):** post-R-WR2-17 this prose and §C-1's radial
+  > rule name DIFFERENT sets — `band_outer` (2.70 vs boss) exceeds `min_attack_range` (2.00), so
+  > `d ∈ (2.00, 2.70]` was ADVANCE and becomes REPOSITION. **§C-1 is the operative text**; this
+  > clause's literal reading would leave the band measure-zero post-B. Known residual (Gate-2 Cell C
+  > WARN-5, name-and-pin): vs standard-radius targets `band_outer` (1.70) < `min_attack_range`
+  > (2.00) leaves a HOLD annulus `d ∈ (1.70, 2.00]` — 0.096% of armed ticks; its width moves with
+  > TUNABLE `BAND_WIDTH`; any tuning lap touching band parameters must re-measure it.
 - The **vector** is computed by a new pure helper in `policy/` — `reposition_vector(...)` — taking
   explicit arguments and returning `(dx, dy, new_orbit_sign)`. No RNG, no mutation, unit-testable in
   isolation. Orbit sign is *engine* state on the player entity, passed in and handed back.
