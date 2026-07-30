@@ -419,6 +419,29 @@ in the scope above is superseded by the measurement where the measurement is cle
   per-element peelable. Seed convention (conductor): room-unique features derive from
   room index + level seed — deterministic, reproducible, no per-room authoring debt.
 
+## LANDING — WALL-FIX + NUM-POP ✓ (2026-07-30; note `drax/notes/2026-07-30-wall-fix-num-pop.md` `4515c8ff`; godot `ec9acbc` LOCAL, ahead 5)
+
+- **WALL-FIX:** brick sourced from the BUILT wall mesh (`Brick_Small_01.png`), not the kit table.
+  BoxMesh's 3×2 UV atlas killed `uv1_scale` → world triplanar, period read at runtime off the
+  module's own UV (2.3195×3.0142 m/tile). Course SIZE matches; world-locked phase cannot honestly
+  match — declared. Atlas kits detected + refused world-UV tiling (rainbow-quilt defect). Band
+  |grad| 0.274→2.445, luma 13.22→39.87 (masonry control 4.328 same frame). **Azimuth rider fixed
+  to room-root; preservation MEASURED: 0/921,600 px, byte-identical.**
+- **NUM-POP (Matt-ACCEPTED, Scope 9):** 6×14 px → 46×101 (76× ink); size DERIVED from screen
+  target (8.5/10.5% frame height) through the live camera — both cameras land the same em. Pop:
+  0.35→1.40×→1.0 over 0.150 s ease-out. All other captions HELD; banner STANDS.
+- **⚑ FONT = PLACEHOLDER (logged every run):** Fantasy Warrior HUD ships sprites, NO fonts; best
+  local OFL face (LT Museum Bold) lacks U+25C6. **Shortlist to Matt (all OFL): Bangers (drax +
+  conductor lean) · Luckiest Guy · Titan One · Bowlby One SC** — one pick + one download
+  authorization; swap is one constant.
+- **⚑ Flags:** south wall now observable → renders as unshaded flat plate in TRANSLATED rooms
+  (design call, not patched — BEAUTY-CORNER-adjacent) · beyond-wall glow rim (mean 0.69/255) on
+  a correctly-brighter wall, declared not smoothed.
+- **Deliverables:** `tmp/wallnum/clips/WALLNUM_BEFORE_top_AFTER_bottom.mp4` (watch) ·
+  `plates/PLATE_numbers_before_vs_after.png` (fastest read) + playerlock hit-window clip, wall
+  plate, pop zoom strip, voidcheck plate. **Wall-band verdict pending Matt's eye** (numbers
+  already accepted). **BEAUTY-CORNER unblocked — fires now.**
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
