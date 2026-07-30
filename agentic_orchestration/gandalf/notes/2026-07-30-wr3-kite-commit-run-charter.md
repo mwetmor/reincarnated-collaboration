@@ -177,6 +177,42 @@ against the frozen WR2 baseline immediately.
   - **Build sequencing:** the build commission to gamora fires after the duty-cycle read returns
     and grounds CAL-C1/CAL-C2 — which also holds a natural veto window open on (8.1).
 
+- **R-WR3-13 (conductor, veto-open): the duty-cycle pre-build gate PASSES — T_lock 0.60 GROUNDED;
+  build RELEASED.** Gamora's measurement (`gamora/notes/2026-07-30-wr3-duty-cycle-prebuild.md`,
+  identity-asserted vs the frozen root, digest `b5ce25e6…`): boss realized inter-swing cadence is
+  a METRONOME — median 1.500 s, exactly two values {1.5 s: 89.7%, 1.6 s: 10.3%} (tick-grid
+  rounding of the U(1.411,1.511) draw; closed-form mean recovered to 0.00067 s over 4,432 draws),
+  zero pursuit-gapped intervals — "the boss is pinned" restated at the cadence layer. T_lock 0.60
+  → duty 28.6% (spec-literal) / 40.0% (cooldown-absorbing), fight-locked median 34.8%: neither
+  §8.6 failure fires; safe ceiling on this fixture T_lock ≲ 0.75; bracket neighbours DISQUALIFIED
+  (0.40 = one-tick window, a rounding artifact not a mechanism; 0.90 = degenerate on two
+  independent measures, the broken-easy corner). **Flag rulings:**
+  - **(F1+F2, ruled together — TICK REALIZATION):** T_lock realizes as **exactly 6 locked
+    ticks** with the strike INSIDE it: windup 3 ticks (0.30 s), strike 1 tick (0.10 s, resolves
+    per C2-L1), recovery 2 ticks (0.20 s). CAL register amended: **CAL-C1 := 0.30** (stays
+    M-anchored — the lower bound of the measured 0.30–0.40 dead-time quantum) and
+    **CAL-C2 := 0.20**; nominal T_lock 0.60 and the §3.4 daylight arithmetic (1.725 m) are
+    UNMOVED, and the heavy-vs-basic hierarchy IMPROVES to 0.750/0.30 = 2.5×. This is the
+    state-machine-pure realization of gamora's 3/3 recommendation (his windup=0.30 + 6-tick
+    total are both honored; the spec's idle→windup→strike→recovery states stay distinct).
+  - **(F3 — ADOPT the packet write):** the C2 fixture packet writes `wind_up_s = 0.30` onto the
+    boss melee skill alongside `commitment_bin`/`cast_time`, so the minted telegraph advertises
+    the REAL lead — the advertised-vs-real disagreement (cosmetic 0.5 today) does not survive
+    into a world where the wind-up is mechanical ("Godot would render a lie" law, melee side).
+  - **(F4 — ADOPT, one line of scope law):** C2 arms on the boss MELEE packet only; the nova
+    cast remains UNCOMMITTED in stage 1. (The nova already has its own telegraph mechanism;
+    committing the cast would move every §4 number and is a stage-2+ question.)
+  - **(F5 — ADOPT as a free falsifiable check in the cell):** post-build, engaged swing cadence
+    must stay on {1.5, 1.6}; if it moves, C2 changed the attack cadence — a BUILD DEFECT under
+    the spec's own §3.4 law, not a balance outcome.
+  - **(WARN-N1 — LEDGERED, emission-truth family):** the nova telegraph stream counts RESOLVED
+    novas (132), not CAST novas (180) — a refused cast consumes the 6.0 s action budget and
+    emits nothing; consumers reading cast frequency off the stream under-count 26.7% on this
+    fixture. Routed to sequel space beside the 3-ticks-late ring delivery.
+  - Evidentiary bonus banked: the first 6.8 s of every boss fight is DETERMINISTIC (nova cast
+    t=0.700, first swing t=6.800, σ=0 across 180) — all fight variance enters after t=6.8 s;
+    G2's onset>1.5 s exclusion is untouched but instruments should know the opening is constant.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
