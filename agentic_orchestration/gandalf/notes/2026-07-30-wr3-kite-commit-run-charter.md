@@ -1,6 +1,9 @@
 # WR3-KITE-COMMIT — run charter v0 (grill-open)
 
-> **STATUS:** DRAFT v0 — founding rulings signed; mechanism forks OPEN for Matt's grill answers.
+> **STATUS:** v1 — GRILL CLOSED 2026-07-30. All four §5 forks resolved (R-WR3-7 ratified the
+> K-1/C2-1/CAL-1 leans; R-WR3-8 ruled POOL-1 = BOTH). Mechanism-spec freeze pends two
+> commissioned reads: gamora in-fight form-swap feasibility (R-WR3-8(c)) + legolas policy-package
+> survey (R-WR3-9).
 > **Conductor:** gandalf (`RUN-CONDUCTOR`). **Lineage:** direct sequel to WR2-ENCGEO-2026-07-29
 > (charter closed §8.42 on the held watch predicate; verdict F-WR2-5). Desirable-run pattern
 > (`operating-procedures/desirable-run-pattern.md`) governs; fit test passes F1–F4 for stage 1
@@ -61,6 +64,29 @@ against the frozen WR2 baseline immediately.
   `greatestDamageReceived` 260.498 is impossible for one hit; prefer the measured 260.498 (34.3%
   of 759) until legolas closes the anomaly. No decision may lean on the 273.704 figure.
 
+- **R-WR3-7 (MATT-SIGNED, 2026-07-30): K-1, C2-1, CAL-1 leans RATIFIED as decision rules.**
+  Kite fires on telegraphs + sustained-pressure rhythm; boss commit = wind-up + recovery lock;
+  nova calibrates to scripted-heavy norm per projectile with 2× reaching ~the measured worst-hit
+  fraction.
+- **R-WR3-8 (MATT-SIGNED, 2026-07-30): POOL-1 = BOTH.** Matt, near-verbatim: the player-kit AI in
+  the battle sim should replicate the choices a real player would make — including the form
+  choice. Consequences: (a) all pool-fraction gates are computed against the CURRENT form's pool,
+  never a fixed 759; (b) the policy owes a FORM-SWAP verb alongside kite — noting the battery's
+  own legs already carry both pools (`pre` 759 human-form / `post` 1607 ≈ the played-form 1600),
+  so what's missing is the IN-FIGHT choice; (c) whether in-fight form-swap exists as an engine
+  mechanism is a stage-1 feasibility question routed to gamora before the mechanism-spec freeze —
+  if absent, form-swap is staged as its own mechanism (K2) rather than silently folded into K.
+- **R-WR3-9 (conductor, veto-open): the policy architecture ruling.** Stage 1's policy core is a
+  DETERMINISTIC utility policy built in-seam (extending the existing intent system + the M-3
+  piloted-competence heuristics into production), NOT a learned policy — battery determinism and
+  gate reproducibility are non-negotiable, and adding verbs does not need learning. BUT the
+  policy is built behind a **Gymnasium-compatible env interface from day 1** (observation/action
+  contract), so scripted and learned policies are interchangeable: that adapter is what makes the
+  entire off-the-shelf ecosystem (Stable-Baselines3 et al.) available later at near-zero
+  marginal cost — as a competence probe and exploit-finder, not as the policy of record — without
+  betting the run on it. Package-landscape verification commissioned (legolas, post-cutoff
+  survey); ruling revisits if the survey surfaces a materially better path.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
@@ -88,7 +114,11 @@ against the frozen WR2 baseline immediately.
   under the competent policy — measured separately on boss encounters and the full encounter
   mix** (Matt's "majority of encounters" includes the trash the player shreds).
 
-## §5 — Open grill forks (MATT — decision-shaped, lean stated, you rule)
+## §5 — Grill forks (ALL RESOLVED 2026-07-30 — kept verbatim as the decision record)
+
+> K-1, C2-1, CAL-1: leans RATIFIED as decision rules (R-WR3-7). POOL-1: ruled BOTH (R-WR3-8) —
+> Matt's intent sentence: the player-kit AI replicates the choices a real player would make,
+> including the form choice.
 
 - **K-1 evade trigger:** does the kite intent fire on (a) telegraph events only, or (b) telegraph
   + a health/pressure heuristic (sustained-contact timer)? Lean: (b) — the referent play kited
@@ -110,4 +140,5 @@ Declared: grill answers to §5 (or "defaults stand" — the leans fire as decisi
 stage-boundary checkpoint watch; stage-2 calibration ratification; final watch = exit predicate.
 Red-flag pings mid-run only. All conductor rulings veto-open in this ledger, one word reverts.
 
-*Charter v0 — awaiting grill returns before mechanism-spec freeze. — gandalf, RUN-CONDUCTOR*
+*Charter v1 — grill closed; mechanism-spec freeze pends the gamora form-swap feasibility read
+(R-WR3-8(c)) and the legolas policy-package survey (R-WR3-9). — gandalf, RUN-CONDUCTOR*
