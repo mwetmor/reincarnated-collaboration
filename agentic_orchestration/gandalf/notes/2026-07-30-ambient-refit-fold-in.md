@@ -52,3 +52,24 @@ put above the enemy combatant NPCs."*
 on reincarnated-godot; HALT if another cell's uncommitted work sits on ambient/playback surfaces) ·
 godot repo commits local, NOT pushed (conductor pushes after Matt's eye) · presentation-layer
 change ONLY — zero fight/trace semantics.
+
+## Scope 3 (follow-on cell CAM-LOCK — Matt directive 2026-07-30; relay-on-return, SendMessage unavailable)
+
+**Matt:** when the player moves across the map, the camera must be locked onto the player's
+motion, ARPG-style. Confirmed grammar (conductor, genre-cited): **HARD translation lock** —
+player pinned at screen anchor, fixed offset/pitch/zoom, ZERO easing/lag/deadzone (D2/D3/D4,
+PoE 1/2, Grim Dawn, Last Epoch). No follow-cam smoothing: threat assessment is radial and cursor
+aim is screen-relative; easing breaks both.
+
+- New playback mode `--cam player_lock`: camera transform authored frame-by-frame from the
+  player's trace position + fixed offset vector; genre-typical pitch (~45–55°, drax picks against
+  the room's read); zoom fixed at a distance where the 12 m nova footprint fits the frame with
+  margin. Renders the SAME watch (seed 74000802, same leg/tier/arm) as a variant alongside the
+  judge-cam deliverable — two cameras, two jobs (instrument vs game-feel; `arena_full` remains
+  the grading camera of record).
+- **Declared consequence:** wall-adjacent play frames past the wall into void. Genre-native
+  answer adopted: deliberate darkness beyond the wall line (the Diablo dungeon reading). VOID-1
+  polices unintended light only; deliberate black passes by construction. A cheap beyond-wall
+  darkness treatment is in scope if needed to sell it; a full outer-world dress is NOT.
+- Fires as CAM-LOCK immediately on AMB-REFIT's return (same surfaces, single-writer — no parallel
+  launch), rendering with the refit ambient + AI-state tags already in place.
