@@ -476,6 +476,47 @@ against the frozen WR2 baseline immediately.
   - **(COMMISSIONED):** gamora stage-2 build, background. Deliverable:
     `agentic_orchestration/gamora/notes/2026-07-30-wr3-stage2-build-report.md`.
 
+- **R-WR3-21 (Matt referent observation → DBR-VERIFIED, 2026-07-30) — the nova is a STAR, not a
+  ring.** Matt verbatim: *"Primordian's ice nova is actually not a full circle radius. It seems
+  more like a multi-pronged star ice-shot which can be avoided by moving between prongs of the
+  star (which is what I did)."*
+  - **Conduct:** the in-flight stage-2 build was STOPPED (killed during read-only pre-pass, no
+    code written) rather than let it register gates against a ring the referent doesn't have.
+    Targeted legolas extraction fired first; recording = claim, DBR = verification.
+  - **CONFIRMED** (`legolas/research/2026-07-30-wr3-nova-star-geometry.md`, commit `52bddc33`):
+    `primordian_frigidring` = **16 prongs / 22.5° / 360° even, no randomization**; prong collision
+    radius 0.10 u (threat corridor 0.84 u vs player 0.32); speed **14.0 u/s**, range 12.0 u in
+    0.857 s, despawns without end-blast. Gaps close below **r ≈ 2.15 u** (at melee-hug the star
+    IS our uniform ring); at r = 10 the clear gap is 3.06 u = 4.8× player diameter. **Radial
+    outrun is arithmetically impossible below r ≈ 7.9 u — the referent's escape verb is ANGULAR**
+    (constant 0.42 u lateral clearance ≈ 0.053 s, ~7 % of the 0.80 s telegraph). Payload is full
+    per prong, no piercing, **distance-banded 50/100/140 % at 2.5/9.0 u**; double-hit confined to
+    r ∈ [0.77, 2.15] u and priced to ≈1× by the 50 % close band. Rider our model lacks entirely:
+    **1.3–1.8 s hard freeze + 77 cold over 2 s** at rank 5 — the freeze OUTLASTS the boss's whole
+    1.369 s melee lock. Legolas's one-liner, adopted as the design statement: *the referent's
+    nova is not a test of distance, it is a test of bearing — cheap to pass, expensive to fail.
+    Our sim inverts both halves.* Telegraph attribution confirmed (same skill, same `Roar` anim);
+    Matt's description matches frigidring and nothing else in the kit.
+  - **Conductor rulings under R-WR3-20(d) referent-parity (veto-open):** (1) star geometry
+    ADOPTED, data-driven (prong count / spread / corridor / speed / range as packet fields).
+    (2) The kite policy gains the **angular-dodge verb**; radial escape retained only where the
+    arithmetic permits it (r ≳ 7.9 u). (3) **CAL-1's ratified lean is SUPERSEDED by measurement**:
+    the 2× close quantum RETIRES (the referent prices overlap to ≈1×); per-prong payload takes
+    the measured rank-5 block (148 phys + 247 cold + riders) under the 50/100/140 bands —
+    far-band worst ≈ 34.6 % of the 1600 pool, landing ON the 34.3 % measured-worst ceiling the
+    old lean was aiming at by construction. **A-DMG-1's 260.5 ceiling RE-DERIVES under this
+    model** — the pin discharges by re-derivation, not silencing. (4) Freeze + cold-DoT riders
+    enter (battery-only, as all of stage 2). (5) U-1 ring phase: **hostile assumption** —
+    prong-0 on target — flag carried. (6) **Full-kit parity per Matt's signature** ("any other
+    GD Primordian boss behaviors"): `primordian_wave` (directional cone 3→6 u over 16 u),
+    `chillbane_blizzard` (aerial bombardment, 8 s), `primordian_icearmor` (25 % absorb, 12 s/32 s)
+    enter the spec. Phase-A feasibility RANKS them; the star correction is the non-negotiable
+    core, the other three phase in behind it — phasing is reported, never silently dropped.
+  - **(RE-COMMISSIONED):** gamora stage-2 relaunched with the star baked in; same deliverable
+    path. Pin-path correction noted for the record: the true asset pins are
+    `/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/` (+ legacy `…/vendor/grim-dawn/`),
+    not the engine-vendor path the first commission named.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
