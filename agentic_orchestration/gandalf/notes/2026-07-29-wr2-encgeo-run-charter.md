@@ -616,4 +616,48 @@ cells only, sequential · conductor writes no production code — seams execute.
   verdict + the F-WR2-1/-2/-4 evidence book + drax consumer notes + the baton document. The baton
   ships on its landing; then drax renders; then Matt's watch closes the run.
 
+- **§8.35 — Grading synthesis LANDED; S-6 verdict of record banked; four conductor rulings; two
+  errata; the §8.33 tail discharged** (synthesis: gandalf sub-agent `726efe3b`, 803 lines at
+  `gandalf/notes/2026-07-30-wr2-grading-synthesis-after-baton.md`; tail: gamora `81c328a8` —
+  WARN-5 cell-note strike + INFO-5 −3.0% loosening landed WHILE the synthesis was being written,
+  so its §4.2 lists them open; they are not). **S-6 VERDICT OF RECORD: PASS on all four decidable
+  §0 intent clauses at full battery grain** — corner-pin 65.989% → 0.000%, hard combined-radii
+  floor (292,305 samples / 0 violations), aim-lines live with drift turning 3.84 → 150.80 rad,
+  telegraph escapable on both S-7 clauses — with "worth watching" deferred BY DESIGN to Matt's
+  watch and the price named: held-loss boss fights −13.8…−18.0%, EIGHT fights flipped WIN→LOSS,
+  every surviving win slightly longer. Instrument validated against six independently banked
+  facts before any conclusion. **Conductor dispositions (all four §4.3 recommendations RULED,
+  veto-open):**
+  - **R-WR2-23: the missing S-6 column is ADOPTED as S-6's fourth column, computed at the grading
+    lap.** Nova-crossing quantum histogram `{1×:30, 2×:14}` → `{1×:12, 2×:32}`, all three legs;
+    mean intake per nova-carrying fight **+84.85 HP** (`pre`/`post`) / **+96.30 HP**
+    (`pre_endpoint`) = 11.2–12.7% of the player's pool in one event. **⚠ ERRATUM-class process
+    miss, §8.22(ii) family one level up:** a PRE-REGISTERED diff column went uncomputed through
+    four cells and two gates — verified where computed, never computed where registered. No CLEAR
+    re-opens (no gated predicate moves; worst-hit genuinely still); a **courtesy-read
+    verification routes to jack-ryan IN PARALLEL with the baton, not gating it** — the number
+    informs Matt's sequel decision, and this run's standard is that no number of record reaches
+    Matt on one instrument. Wave-tail rule candidate: every pre-registered column names its
+    computing cell at registration.
+  - **⚠ ERRATUM to the §8.19/§8.29 sequel routing (fourth true-where-measured/wrong-where-labelled
+    exhibit — first in a ROUTING rather than a mechanism ground):** the three findings do NOT
+    share one suspect space. F-WR2-1's five catastrophic flips are nova-quantum-driven on `pre`
+    (1×→2×, boss at 43–56% HP when the player dies); F-WR2-2's two flips are **nova-free**
+    knife-edge losses on `pre_endpoint` (boss at 9.0/10.0% HP). The sequel question Matt rules on
+    is therefore TWO mechanisms, not one cluster — presented as such in the evidence book.
+  - **INFO-3 death-2 band: ledgered UNMEASURED, run closes without measuring it** (S3a was a
+    win-rate proxy by charter design; the artifact self-declares the substitution; carried into
+    baton §3.4-3 so no consumer leans on it).
+  - **INFO-4 BEFORE traces: NOT banked for the baton, said out loud** — deterministic
+    regeneration + SS-1's freeze covers AFTER/WR1 evidence only; `git clean` exposure flagged to
+    drax in §3.1. Standing offer: if Matt asks for a BEFORE/AFTER split-screen watch, banking
+    becomes cheap insurance and the conductor rules then.
+- **§8.36 — BATON DELIVERED (exit-predicate step 2 of 4).** Charter pushed with this landing;
+  drax cell FIRED against baton Part 3: swap the 450 AFTER traces, retire the 207.40/235.40
+  hard-codes via the MIGRATION keys, honor the 2.32 s tell caveat, render the §3.7 pick
+  (`pre/boss__B__seed74000802`, duration-invariant — geometry isolated from pacing) with its
+  cautions, file the ADR-004 acknowledgement. jack-ryan courtesy read fired in parallel
+  (R-WR2-23). star-lord's ADR-004 acknowledgement (ack-only, nothing to ship) fired as a
+  micro-task. Then: **Matt watches. The charter closes when that holds or Matt halts.**
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
