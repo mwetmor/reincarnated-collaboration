@@ -287,6 +287,46 @@ in the scope above is superseded by the measurement where the measurement is cle
   charters after WALL-READ evidence returns + Matt rules the forks (player-light fork; element
   scoping). Wall fix folds into BEAUTY-CORNER if lighting-class.
 
+## LANDING — WALL-READ ✓ (2026-07-30; note `galadriel/notes/2026-07-30-wall-read.md` `db9bf563`)
+
+- **Answer: nothing happened to the walls — a second, untextured wall was built in front of
+  them.** `wr2_playback.gd::_dress_wall_faces()` (landed 2026-07-29, WR2-ENCGEO, first
+  trace-playback commit) fills the R-WR1-21 band with four untextured BoxMesh slabs (albedo
+  0.115/0.118/0.132 — 9.3% of brick reflectance, 10.8× darker, 183× flatter), seated at the kit
+  wall's exact height, totally occluding the masonry from interior cameras. Splits on HARNESS,
+  not lighting/kit/date: `wr1_level`/`kit_replica` paths → bricks (Matt's memory correct);
+  `wr2_playback` watches → black (every WR2/WR3 watch since 2026-07-29).
+- H1 refuted twice (slabs are the CLOSEST surface to all twelve omnis; pclight's certified frame
+  shows lit brick); H3 refuted as cause, named aggravator (0.0% true black). **Fix class:
+  MATERIAL** — give the slabs the kit wall's own material. **Must PRECEDE BEAUTY-CORNER lighting**
+  (judging shadows/haze against a false black band = vacuum-tuning). Rider flag: south-wall
+  blackout measures azimuth from world-origin `ring_center` — breaks under room translation.
+
+## Scope 7 (Matt rulings 2026-07-30) — BEAUTY-CORNER arms ruled + NUM-POP chartered
+
+- **Player-light fork → BAKE-OFF (Matt):** A/B at his eye, same segment, comparative clips:
+  **Arm A** = conductor lean — warm player-carried OmniLight3D layered over DIMMED static center
+  ("both", GD grammar; warm-in-cool-purple carries the soul-carries-firelight read, veto-open);
+  **Arm B** = static-lit center as-is (no carried light) — the baseline his eye compares against.
+- **Shadows → GREEN-LIT with a sharpened acceptance standard (Matt):** shadows must carry a HIGH
+  level of detail — specifically ARMOR PIECES on characters/monsters must read in the cast
+  silhouette. Operationally: high shadow-map/atlas resolution (offline render — spend freely),
+  bias tuned against acne/peter-panning, and the acceptance check is an armor-silhouette read at
+  the eye, not a generic "has shadows" check.
+- **Fog → GREEN-LIT per conductor specs** (low-density VolumetricFog + per-light energy; VOID-1
+  no-glow-past-walls rider; LSTAT-2 authorized-delta declared).
+- **Captions ruling (Matt):** mostly fine as-is, BUT **damage numbers get the juice pass —
+  larger, bold, POP, and a fun anime-style font** ("really show the feel of combat"). Cell
+  **NUM-POP**: floating combat-text treatment — size up, bold weight, outline/contrast for pop,
+  spawn-pop animation (scale-punch + settle, the anime hit-number grammar), anime-style display
+  font. **Font sourcing discipline:** check LOCAL assets first (Fantasy Warrior HUD pack — may
+  bundle display fonts — and any Synty/project font assets); if nothing suitable, route a short
+  OFL-licensed font shortlist to Matt for pick + download authorization (no unauthorized network
+  fetch).
+- **Sequencing:** AMB-HUE (in flight) → hue verdict → **WALL-FIX + NUM-POP** (one small drax
+  cell — same `wr2_playback` surface: slab material + azimuth flag + damage numbers) →
+  **BEAUTY-CORNER** (bake-off arms + armor-detail shadows + fog) on true brick.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
