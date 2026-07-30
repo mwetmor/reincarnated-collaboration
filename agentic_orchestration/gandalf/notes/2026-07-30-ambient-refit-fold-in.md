@@ -86,6 +86,36 @@ measured screen anchor, zoom band if it drifted. **CAM-LOCK consumes GAL-CAM's n
 camera operands** (match the visible-ground box, not an offset/pitch guess); genre-typical pitch
 in the scope above is superseded by the measurement where the measurement is clean.
 
+## LANDING — AMB-REFIT ✓ (2026-07-30; note `drax/notes/2026-07-30-amb-refit.md` `020bb78e`; godot `8c6de28` LOCAL)
+
+- **Complaint measured before anything moved (new instrument AMB-EVEN, VOID-1's mask convention):**
+  Matt's sentence was UNDERSTATED — rings 2–4 read exactly 0.000%; 77.4% of the room received not
+  one ambient pixel. After: 5.030%→1.510% ring 0 (the lessening), 0.000%→0.608%/0.100% rings 2–3
+  (the extension). Recipe held to the letter: extents ×2.142857 X/Z only (Y held — per-AREA 0.2178),
+  counts/sprite/node scale HELD; L5 quieted ×0.3968, magnitude SOLVED by ablation, not guessed.
+- **VOID-1 re-fired WITH control:** AFTER 0 px CONTAINED; 26 m-extents control 566 px LEAK — the
+  zero counts. LSTAT-2 +0.068%; the 4,521 px stage delta proven NOT the cell's (reverted-vs-applied
+  render diff 0/921,600 px — feeds the non-determinism flag below).
+- **Scope-2 refusal ADOPTED (conductor):** trace `decision` records carry NO subject field —
+  `intent: evade` on a boss-targeted record is the PLAYER's evade; painting it on the boss renders
+  the inverse of the fight. Enemy tags ship from enemy-stated data only; player-intent data shows
+  as `player target` in player cyan. Also: first render DISCARDED for a two-statements-one-slot
+  bug (TELL overwrote the commit word on the exact tell-during-commit window WR3 exists to show);
+  fixed as a second slot. Both refusals are the discipline working.
+- **Watch deliverable:** `reincarnated-godot/tmp/ambfit/ambfit_wr3_after_pre_boss_B_74000802.mp4`
+  (same seed/leg/tier/arm/camera; original byte-untouched, sha `910063d1…`).
+- **⚑ FORK ROUTED TO MATT (drax correctly refused to take it):** ring 4 (outer 5.25 m wall band)
+  is still 0.000% — inherited arithmetic: the ambient was authored at 72% fill of its own stage and
+  ×k preserves the fraction exactly. (A) keep 72% — walls stay clean/dark, torches own them;
+  (B) raise fill ~90% — sparse coverage into the wall band, "across the room generally" in full.
+  Conductor lean: B — a field that stops 5 m short of the walls reads as an invisible fence once
+  seen. Matt rules at the eye.
+- **⚑ FLAG (not ruled):** L7 stage frozen in CODE but not in RENDER — byte-stable within a
+  session, drifts across days with no code change. PC-LIGHT settle-variance axis lineage
+  (PROVISION-CAL §2.9: settle-count variance is the discriminating axis, not byte-identity).
+  Routed: joint galadriel+drax instrument diagnosis, wave tail.
+- **CAM-LOCK:** single-writer now free; HOLDS for GAL-CAM's operands (in flight), then fires.
+
 **Answered for the record (Matt's three questions):** camera/perception stats are NOT in the
 battle sim (no camera, no perception model — the pilot reacts to trace-level truth); adding the
 camera scene-side CANNOT move geometry (trace-driven playback, view transform only, no feedback

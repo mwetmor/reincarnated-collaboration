@@ -132,6 +132,66 @@ empty list, NOT a fabricated ailment.
 
 ---
 
+### §2-AMENDMENT (2026-07-30, gamora — WR3 K2-PREP/W-1 cell, commissioned by the RUN-CONDUCTOR under R-WR3-14 / R-WR3-16(D-F1) / R-WR3-10(b))
+
+> **AUTHORITATIVE DETAIL LIVES IN THE PRODUCER + THE MIGRATION LOG.** Full field semantics,
+> derivation law, named decisions and consumer obligations:
+> `reincarnated-engine/src/reincarnated/simulation/MIGRATION.md`, entry
+> *"[2026-07-30] WR3 K2-PREP / W-1"*; math note
+> `simulation/math/wr3-w1-schema-amendment-2026-07-30.md`; producer docstring
+> `spatial_gauntlet/replica_frame_emitter.py::ReplicaFrameSink.tick`.
+> `replica-frame/v1` **stays v1** — every key below is **purely additive**.
+
+**⚑ THE TICK-EDGE CONVENTION — DECLARED. This resolves the D-F1 7-vs-6 disagreement, and it is a
+CONTRACT, not an observation.**
+
+Every per-tick entity field above is sampled at the **END of the tick, AFTER the action phase**
+(`_frame_sink.tick` is the loop bottom). The **movement lock** is read at the **navigation** phase,
+which runs **BEFORE** the action phase. Therefore, for a commitment of `W` wind-up ticks and `R`
+recovery ticks:
+
+- `commit_state` is **INCLUSIVE of the initiation tick** — an episode emits
+  `windup × (W+1)`, `strike × 1`, `recovery × R`. Call it **`N_emit`**.
+- the movement lock **EXCLUDES** it — **`N_lock = W + 1 + R`**.
+- **`N_emit = N_lock + 1`, ALWAYS, by phase order.**
+
+On the WR3 fixture (`W=3, R=2`): `N_emit = 7` (`w4/s1/r2`), `N_lock = 6`, **`T_lock = 0.60 s`**.
+**A consumer measuring `T_lock` from a trace MUST drop the first tick of the run.** A consumer
+drawing the **animation** uses all of `N_emit` — the tell goes up on the initiation tick, which is
+also the tick the telegraph is minted on.
+
+**`commit_state`'s value set has grown** beyond this section's `"idle" | "committing" |
+"channeling"` (the E4 player-side machine): Mechanism C2's mob-side machine adds
+**`"windup" | "strike" | "recovery"`**. Consumers must carry a default arm.
+
+**THREE ADDITIVE PER-TICK ENTITY KEYS:**
+
+```
+    ai_state:          "approach"|"engage"|"windup"|"strike"|"recover"|"leash-return" | null
+                       #  ⚑ ENEMY (mob-side) blocks ONLY — ABSENT on player/ally blocks.
+                       #  W-1, R-WR3-14 (MATT-SIGNED). Vocabulary FIXED. Label-only; derived from
+                       #  the SAME state variables the mechanics execute (commit_state /
+                       #  is_leashing / the selector's own range predicate) — never a parallel
+                       #  state machine. `recovery` -> `recover` is the ONLY rename.
+    max_hp:            float                   #  the pool NOW (K2-prep, R-WR3-10(b)). The HEADER's
+                       #  max_hp keeps its meaning as the pool AT SPAWN; both are present.
+    movement_speed_ms: float                   #  the live speed stat, UNCONDITIONAL here.
+                       #  ⚠ NOT the same field as header.entities[].movement_speed_ms, which is
+                       #  CONDITIONAL on the Mechanism-D arm and means "the escape law governed".
+```
+
+**⚑ `ai_state` PRESENCE IS THREE-VALUED and a consumer must not collapse it:** key **absent** =
+player/ally block (or a pre-amendment trace); key present + **`null`** = **no state to be in** —
+either no live foe, or the body is a corpse (a just-dead entity is still emitted for the death
+transition per §2-note); key present + **string** = a vocabulary member.
+
+**Also emitted (not per-tick):** `g5_header.g5.commit_reach` — **C_reach**, measured per mob
+attacker against the player, with its law (D-F3, R-WR3-16). The boss's C_reach on the WR3 fixture
+is **2.5 m**; the two nearest numbers already in the trace (`skills[].range_m = 2.0` and the
+combined body radii `2.0`) are **BOTH WRONG** for the land/whiff boundary.
+
+---
+
 ## §3 Event stream (discrete gameplay events, tick-stamped)
 
 Events are the **authoritative record of every discrete gameplay moment** — the renderer sources
