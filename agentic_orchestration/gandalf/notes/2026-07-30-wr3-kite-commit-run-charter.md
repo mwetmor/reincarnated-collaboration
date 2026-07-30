@@ -371,6 +371,43 @@ against the frozen WR2 baseline immediately.
     i-frame/immunity behavior, availability at L13 in Matt's session) + boss attack animation
     timings (wind-up/contact-frame/recovery; nova cast time) + exact speed values for (b).
 
+- **R-WR3-18 (conductor, veto-open): the W-1/K2-prep amendment LANDS — D-F1 resolves NO-HALT,
+  and the conductor's own arithmetic is CORRECTED on the record.** Gamora's cell
+  (`gamora/notes/2026-07-30-wr3-w1-schema-amendment.md`, engine `2a33881e`, verified; evidence
+  roots banked at `883c0a49`):
+  - **(D-F1 VERDICT — the lock is SIX ticks; R-WR3-13 F1 STANDS):** `N_emit = N_lock + 1` by
+    loop-phase order — the frame is written AFTER the action phase that enters `windup`, the
+    lock is read at navigation BEFORE it. Inclusive-on-emit, exclusive-on-lock; convention now
+    DOCUMENTED in the schema. Proven by the falsifier, not the prose: with all move scales
+    zeroed, the first emitted `windup` tick still navigates a full 0.4025 m step on
+    3,098/3,098 episodes — the initiation tick is not locked. **Conductor correction banked:**
+    R-WR3-16's "duty arithmetic sides with 6" was WRONG twice — the share counter reads the
+    EMITTED state (it cannot see the lock), and 0.3992 ≈ 6/15 was a coincidence of two wrong
+    inputs (realized period 16.18 ticks + a 68-tick commit-free opening; the true identity is
+    46.94 × 7 / 821.5 = 0.400; a 6-tick emission would read 0.3427). Right verdict, wrong
+    proof — the falsifier is the proof. INFO banked: the lock is a NAVIGATION lock (boid
+    push-apart drifts ≤ 0.148 m, median 0.000); HEADING is bit-exact frozen (C2-L2 intact).
+  - **(Named decisions RATIFIED, all five):** AI-D1 (contact discriminator = the selector's own
+    extracted range predicate, cooldown excluded, ∃-MAX reach not C_reach's MIN — label and
+    swing-legality are one expression); AI-D2 (commit outranks leash-return, movement-path
+    precedence — **with the dormant action-vs-movement precedence DISAGREEMENT ledgered to
+    W-2**: when leash-in-combat arms, the two mechanical paths conflict and W-2 must resolve
+    the MECHANICS, not just the label); AI-D3 (three-valued presence; corpse = `null`);
+    K2P-D1 (additive MIRROR not literal move — the ruling's wording was imprecise, the
+    additive law governs); K2P-D2 (per-frame speed unconditional; **two fields, same name,
+    different meanings** — MIGRATION §4 carries the consumer warning).
+  - **(Custody landed):** `commit_reach` in g5_header AND leg report — boss 2.5 m reproducing
+    drax's verified value, shaman 18.5 m proving a leg-wide scalar would have been wrong.
+  - **(Evidence):** re-emitted smoke fight = the RENDER fight (`pre`/boss/B/74000802) —
+    2,445/2,445 records byte-identical with new keys stripped; 3,553 tests pass; extractions
+    differentially proven (1,470 grid cells + 40k rosters, 0 mismatches). **THE BAKED-WATCH
+    INPUT EXISTS:** `output/kitcal_g5/wr3_w1_smoke/` carries 74000802 with `ai_state` live —
+    the presentation session's AMB-REFIT tags upgrade from derived to authoritative HERE.
+  - **(Owed):** full `tests/` re-run verdict at jack-ryan Gate 2 (in flight >18 min at cell
+    close; corroboration, not the proof). `s11_det` replicate deliberately NOT banked (G5
+    byte-identity + digests protect it). MIGRATION.md landed at
+    `simulation/MIGRATION.md` (ADR-004; drax + galadriel consumers).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
