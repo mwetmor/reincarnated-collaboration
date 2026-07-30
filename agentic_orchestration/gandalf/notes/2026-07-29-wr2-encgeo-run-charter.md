@@ -276,4 +276,40 @@ cells only, sequential · conductor writes no production code — seams execute.
   watch, TTK/damage-pacing charters as a SEQUEL run candidate on the S-6 evidence. Cheap offer open:
   drax renders a post-leg WIN fight from the banked set for pacing contrast on one word.
 
+- **§8.18 — Cell C lands: S-2 / S-3 / S-4 ALL PASS, first lap, no dials moved** (engine
+  `61a6be4`+`ecea69f`, meta `54b437e7`, pushed). **The fight turns:** on the WR1 drift trace the
+  player's cumulative heading change goes 3.84 → **150.80 rad (24 circles)**, a full 2π orbit of the
+  boss, straightness 0.48 → 0.07; B-only measures 4.07, so C is the mechanism. **S-2:** boss
+  wall-share 75.03% → **1.004%** (trash 51.99→0.000, mixed 75.33→0.000); the (0.5,0.5) corner state
+  NEVER occurs on any tier. **S-3:** killable / pre-winnable / post-won all hold; the §E table
+  untouched; the AoE whiff window never reached for (`band_outer` 0.80 m clear, test-pinned). C-1's
+  degeneracy dissolved under R-WR2-17's effective reach, verified. S-4 150/150; regression name-diff
+  EMPTY; flag-OFF byte-identity across two trees. Both riding obligations discharged. **WIP-triage
+  deviation ACCEPTED as correct:** the relaunched cell ADOPTED the dead agent's fragment against the
+  brief's discard-default — but earned it: every changed line audited against spec §C/§D/§E, and
+  every MEASURED claim re-derived rather than trusted (the real hazard — MIGRATION carried numbers
+  with no battery on disk; one wording did not survive re-derivation and was corrected).
+- **§8.19 — conductor dispositions on Cell C's two ⚑ reports:**
+  - **F-WR2-2 (`pre_endpoint`/B win rate 0.067 → 0.033 → 0.000).** Not an S-3 predicate (endpoint
+    excluded by charter design) but a leg's win rate reached ZERO under the new geometry. REPORTED →
+    named line item in S-6; Cell BAT re-measures on the battery of record; grading lap judges it.
+    CONNECTED to Matt's F-WR2-1 (damage-feels-low) — same suspect: endpoint boss tuning vs the
+    no-evasion proxy. If both survive grading, they charter the sequel run TOGETHER.
+  - **F-WR2-3 (the nova goes DARK under `body_separation_v2` — B's effect, not C's; ring 1→0→0 at
+    the base commit).** The BEFORE fight fired 132 novas; the boss's signature telegraph vanishing
+    changes what Matt watches — it collides with the intent sentence ("worth watching") even though
+    S-6 carries it reported-not-gated. Plausible mechanism: R-WR2-8 effective reach makes boss melee
+    eligible where it never was, starving nova selection — i.e. the BEFORE novas may have been an
+    ARTIFACT of broken geometry (unreachable melee). **DIAGNOSTIC fired (read-only, no build): pin
+    the mechanism before Cell BAT.** Bug in the S2S wiring → in-scope fix (B's correctness). Honest
+    consequence of fixed geometry → ledger; the AFTER watch judges whether a nova-less boss is
+    watchable; if flat, boss-kit-behavior-under-fixed-geometry charters as a sequel (bounded-substrate
+    law holds — no boss redesign smuggles into WR2).
+  - Residual counters 7 → **180** ticks (all trash, exactly 2 ticks/fight × 90, 17-s.f.-identical,
+    worst 0.98 mm, neither body clamped — spawn-adjacency signature) → routed to Gate-2 attention +
+    Cell BAT re-report. WARN-2's evidence-boundary not yet reached (overlap inside the 1 mm target).
+- **§8.20 — Gate-2 on Cell C + F-WR2-3 nova diagnostic FIRED in parallel** (jack-ryan on the
+  committed landing; gamora read-only diagnostic — no tree writes, single-writer law preserved).
+  Cell BAT holds for BOTH.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
