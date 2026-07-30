@@ -261,4 +261,19 @@ cells only, sequential · conductor writes no production code — seams execute.
   instruction so a repeat death loses minutes, not the cell. Brief otherwise unchanged. Committed
   base remains `4f09e35`.
 
+- **§8.16 — R-WR2-18 (MATT-SIGNED):** "agreed on 1" — R-WR2-8 + R-WR2-17 (surface-to-surface
+  effective range, all attackers) RATIFIED by Matt explicitly; the veto window closes signed, not by
+  silence. Standing design statement beyond this run: reach is measured to the body, not the centre.
+- **§8.17 — Owner-eye #1 verdict + a NEW owner observation (F-WR2-1, banked, NOT scope-grown).**
+  Matt on the smoke render: machinery "makes sense for what it is," AND — "it seems like the player
+  does too little damage versus monster health." Disposition: F-WR2-1 is a PACING/TTK observation,
+  outside WR2's bounded scope (geometry + observability; R-WR2-6 keeps WR1 grades closed; damage
+  tuning builds nothing here). Context that may partially dissolve it: the smoke fight is the
+  no-evasion proxy player on the PRE leg (weakest configuration) in a fight selected FOR a death and
+  a double nova. Route: (a) S-6's before/after diff (durations, win rates, worst-hit) becomes the
+  measured substrate; (b) the AFTER render is the honest re-test — movement v2 changes uptime and
+  positioning, so TTK feel legitimately moves; (c) if the too-little-damage feel SURVIVES the AFTER
+  watch, TTK/damage-pacing charters as a SEQUEL run candidate on the S-6 evidence. Cheap offer open:
+  drax renders a post-leg WIN fight from the banked set for pacing contrast on one word.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
