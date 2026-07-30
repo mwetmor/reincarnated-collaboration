@@ -337,6 +337,40 @@ against the frozen WR2 baseline immediately.
     per-frame move. Cross-seam schema change → **MIGRATION.md owed** (ADR-004; drax + galadriel
     consume). Gamora's seam; battery re-emission NOT required for the amendment itself.
 
+- **R-WR3-17 (MATT-SIGNED 2026-07-30 — the stage-2 grill OPENED by Matt directly): the target
+  band and three adjustments.** Matt, verbatim intent: *"another few adjustments to get back to
+  the 40%-60% win rate band"* — sequenced AFTER the baton pass (W-1 → baked watch). Rulings:
+  - **(a — TARGET BAND):** stage-2 calibration target is **boss-encounter win rate in the
+    40–60 % band**. Conductor's reading, veto-open: the band governs BOSS fights; R-WR3-2's
+    full-mix "majority of encounters" (>50 %) is unchanged and is still the acceptance sentence.
+    Current state: 100 % (66/66) — the band is the calibration distance.
+  - **(b — SPEED PARITY, Matt-directed):** re-run with player speed = boss speed (today 1.43×
+    player-favored; the GD referent measured the boss FASTER, 0.99/0.81). Adopted as a stage-2
+    CAL row. Design note banked: K's escape windows derive from the LOCK, not the speed delta —
+    parity kills free inter-commit kiting (K-T2b pressure regime), which is the knob working.
+    Gate note: G1–G3 thresholds were registered against 1.43×; stage-2 re-registers its own
+    gates before any battery is graded (no silent threshold reuse).
+  - **(c — DODGE SKILL, Matt-directed, fence-preserving):** add the GD Evade dodge (cooldown +
+    range from the referent) to the player toolkit — **behind the same battery-only fence as
+    `kite_policy_v1`** (flag, default OFF, never the balance loop / generation). Canon §7.2
+    walling is PRESERVED: the grading sim still never models the dodge; the fidelity battery
+    models it because the referent player HAD it. Parameters are OWED FROM THE REFERENT
+    (legolas commission below) — no number enters from memory. Design pairing banked in Matt's
+    framing: boss-you-cannot-outwalk + cooldown-gated-escape = GD's commit-window resource
+    grammar; (b) and (c) are ONE mechanism pair, calibrated together.
+  - **(d — REFERENT CONFIRMATION, Matt-demanded; promoted to MANDATORY):** today's windup
+    0.30 s / recovery 0.20 s are OUR-SIM-anchored (the duty-cycle dead-time quantum,
+    R-WR3-13) — NOT GD-confirmed. The ledgered legolas .anm attack-cadence question is promoted:
+    **the boss's actual GD wind-up/cast/recovery values must be extracted and reconciled before
+    stage 2 locks CAL-C1/CAL-C2.** If GD disagrees with 0.30/0.20, the referent governs.
+  - **(e — envelope honesty restated for the record, answering Matt's last question):** stats
+    are "approximately similar" (his R-WR3-2 wording), NOT exact — kit compiled from his L13
+    save; four named deltas stand in §3 (DPS below band, nova 1.6–3.4× over, speeds generous,
+    HP ratio ~15 % in-band). Stage 2 closes them.
+  - **COMMISSIONED (legolas, referent-extraction):** GD Evade parameters (cooldown, distance,
+    i-frame/immunity behavior, availability at L13 in Matt's session) + boss attack animation
+    timings (wind-up/contact-frame/recovery; nova cast time) + exact speed values for (b).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |

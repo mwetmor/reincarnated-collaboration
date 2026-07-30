@@ -276,8 +276,17 @@ differing records after stripping the amendment keys: 0
 ### 5.3 Frozen roots untouched
 
 `wr2_battery_after/` and `wr3_battery_after_s11*` were opened **READ-ONLY**, never regenerated,
-never written. `git status` reports **no modification** under either root at cell end. No battery
-re-run was performed and none was required.
+never written. `git status` reports **no modification** under either root at cell end (the WR2 root
+is tracked at **457 files** and clean). No battery re-run was performed and none was required.
+
+**⚑ HOUSEKEEPING FINDING, routed to the conductor — not mine to fix.** `wr3_battery_after_s11/` and
+`wr3_battery_after_s11_det/` are **UNTRACKED**: 168 files on disk, **0 in git**. The stage-1 build
+commits (`6de80aab` + `a6c6bcf9`) banked the CODE but not the ARTIFACT. That root is the evidence
+R-WR3-15 accepted as *"the stage-1 mechanism-existence evidence"*, the root drax rendered
+owner-eye #3 from, and the root this cell's non-perturbation proof compares against — and one `git
+clean` removes it. `wr2_battery_after/` is tracked (457 files) and shows the pattern this root is
+missing. **I have not added it**: banking another cell's battery of evidence is a conductor
+decision, not a schema-amendment side effect.
 
 ### 5.4 Unit tests + regression
 
