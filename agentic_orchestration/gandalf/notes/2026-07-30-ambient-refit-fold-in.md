@@ -469,6 +469,27 @@ in the scope above is superseded by the measurement where the measurement is cle
   the logged PLACEHOLDER). Diamond-glyph note carried: Bangers may also lack U+25C6 — the
   FontVariation fallback chain from WALL-FIX+NUM-POP handles it; drax verifies at swap.
 
+## LANDING — WALLTOP-READ ✓ (2026-07-30; note `galadriel/notes/2026-07-30-walltop-read.md` `116c4b29`)
+
+- **The lighter band and the dark void are TWO HALVES OF ONE PAINTED STRIP:** the 0.45 m wall-top
+  void cap (`walltop_void.gdshader`), **`render_mode unshaded` by construction** — a constant
+  warm stone tint ramped to pure black across its outer half. All four conductor hypotheses
+  refuted; H5 survives (unshaded by construction). The inversion, one frame: the unlit painted
+  band reads **3.31× brighter** than the walltop surface that IS lit.
+- **The remembered daylight was NEVER DELIVERED, anywhere:** the S14 sky-leak Key moves 510,495
+  px (floor 89.4%, wall faces 53.3%) and **0.00% of walltop-cap pixels** — no light reaches an
+  unshaded surface; there is no walltop-daylight function to port (both level paths load the
+  same shader, both ARE in `wr2_playback`'s path — the harness-split lean was WRONG this time,
+  refuted by measurement). Matt's ruling exists; its delivery never did.
+- **Fix class: LIGHTING → integration surface** (`_build_walltop_cap_mat()` kit_replica:1610 /
+  walltop_level:598 + the shader's `render_mode` line). **Fork routed to Matt:** (A — conductor
+  lean) author the daylight INTO the cap's ramp — cold sky-lit stone on the inner half falling
+  to void black on the outer — delivers "daylight, then void" exactly, no Key change, no relit
+  geometry; (B) make the cap shaded — lands at ~14.8 (dark; retires the complaint, not the
+  ruling) unless the S14 Key (0.06, Matt-ruled) is raised, which is his call, not ours.
+- Fix rides the next drax cell (BEAUTY-CORNER in flight; fold at integration alongside the
+  Bangers swap). **"22.8 sky" referent still awaiting Matt's pointer** (Scope 10 candidates).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
