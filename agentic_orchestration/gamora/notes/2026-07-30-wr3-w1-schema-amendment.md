@@ -324,6 +324,12 @@ differentially proven against the pre-extraction expression transcribed from `HE
 **2,445 / 2,445 byte-identical** re-emitted fight (§5.2), the behaviour-preservation claim does not
 rest on the regression suite — the suite is corroboration, not the proof.
 
+**The 82nd guard's precondition is now SATISFIED (the brief's explicit ask).** Measured directly
+rather than inferred: `_untracked_loaded_source()` returns **`(none)`** and `_git_hash()` stamps a
+**bare `2a33881e`** with no `-dirty` suffix — so
+`test_G5_W1_untracked_loaded_source_is_invisible_until_it_is_imported` PASSES and the baseline is
+back to **81**, exactly as build report §3 predicted once the stage-1 modules were tracked.
+
 **Regression status at cell close, stated honestly:** the full `tests/` run was launched before the
 final two edits (the AI-D3 corpse branch inside `ai_state_map`, and the parametric rewrite of the
 `N_emit = N_lock + 1` test) and had not yet emitted its summary. Both edits are confined to code
