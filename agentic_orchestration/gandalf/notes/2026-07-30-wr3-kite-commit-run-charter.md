@@ -87,6 +87,30 @@ against the frozen WR2 baseline immediately.
   betting the run on it. Package-landscape verification commissioned (legolas, post-cutoff
   survey); ruling revisits if the survey surfaces a materially better path.
 
+- **R-WR3-10 (conductor, veto-open): the form-swap feasibility verdict is IN — K2 STAGES
+  SEPARATELY, and it SHRINKS.** Gamora's R-WR3-8(c) read (`gamora/notes/2026-07-30-wr3-formswap-feasibility.md`,
+  engine HEAD `54536c30`): **ABSENT-CHEAP at the engine seam** (no mid-fight stat/pool/kit change
+  mechanism exists anywhere in `simulation/`; `class_dict` bound once at `spatial_engine.py:6990`;
+  a swap is a two-body atomic rebind reusing the existing factory functions, NOT a new intent —
+  the movement enum must not carry a non-movement verb) — **ABSENT-STRUCTURAL at the fixture**
+  (exactly ONE compiled kit exists, the transformed form; human-form Onslaught deliberately
+  excluded at `kitcal_g5_scenarios.py:183`; a swap verb today swaps the werewolf for itself).
+  The conditional fires: **form-swap = Mechanism K2, own lane, NOT folded into K.** Rulings:
+  (a) **K2 is scoped CONSTANT-POOL** — per R-WR3-4 + the fixture provenance (`:57-59`), the
+  referent's 759→1607 step is a GEAR event at the R2/R3 boundary, not a form event; the referent's
+  form-swap changed kit/stats at constant pool, so HP-carry semantics (all three options
+  UNDEFINED-by-representation, incl. a proportional-carry that would manufacture ~443 HP of free
+  healing into a fixture whose A/B arms exist because healing is absent) are MOOT for this run and
+  stay unruled. (b) **The R-WR3-8(a) schema amendment is K2-prep, sequenced FIRST in the K2 lane**
+  — pool moves from the replica-frame HEADER (emitted once, `replica_frame_emitter.py:151-173`)
+  onto the per-frame block, making every pool-fraction grader + S-7's `movement_speed_ms` join key
+  form-aware BEFORE any form exists (MIGRATION owed; star-lord + drax downstream). Stage 1's
+  mechanism scope stays frozen at K + C2. (c) **The compiled human-form kit is K2's owed input** —
+  kit-spec extraction routed to legolas before K2's math note; math-before-code cannot start
+  without knowing what the other form IS. (d) The four K2 pre-code decisions (swap trigger, swap
+  cost/lockout, cooldown carry, and — only if a pool-changing form ever lands — HP carry) are
+  ledgered as a future ELICITOR grill, not ruled here.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
