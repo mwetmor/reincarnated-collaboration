@@ -116,6 +116,26 @@ in the scope above is superseded by the measurement where the measurement is cle
   Routed: joint galadriel+drax instrument diagnosis, wave tail.
 - **CAM-LOCK:** single-writer now free; HOLDS for GAL-CAM's operands (in flight), then fires.
 
+## Scope 4 (cell AMB-RISE — Matt directives 2026-07-30, post-landing review)
+
+- **Wall-band fork RULED (Matt): Option A STANDS "so far"** — current fill fraction accepted; the
+  outer band stays dark. Fork remains re-openable at his eye; no fill change ships.
+- **Matt directive (verbatim intent):** make the ambient particles *"perpetually rise in the same
+  way that the torch flame VFX does."*
+- **Recipe:** sample the rise character (initial +Y velocity, variance, damping, lifetime/fade
+  feel) FROM the frozen torch flame VFX — parameters copied as reference, flame sources untouched
+  (they are Matt-verdicted perfect, WR1-ROOMS §7.1 freeze discipline). Apply per layer with seam
+  judgment: embers/motes carry the full rise; ground mist may take a gentler lift if a full
+  fire-rise reads as steam — drax judges at the eye, declares per layer. Perpetual = continuous
+  emission, fade-in at floor / fade-out at height, no pop-in. AMB-REFIT's extents/counts/L5
+  quieting HELD (Matt-accepted state).
+- **Riders:** AMB-EVEN re-run (rising particles shift ring residency — declare the delta, expect
+  it) · VOID-1 with control (height changes the wall-adjacency picture) · LSTAT-2 · M-EYE motion:
+  verdict deliverable is a SHORT room-ambient clip (cheap iteration on motion character), NOT a
+  full watch re-render — the next full watch (CAM-LOCK) carries the accepted rise.
+- **Sequencing:** AMB-RISE takes the godot tree now; CAM-LOCK queues behind it (needs GAL-CAM's
+  operands regardless, still in flight).
+
 **Answered for the record (Matt's three questions):** camera/perception stats are NOT in the
 battle sim (no camera, no perception model — the pilot reacts to trace-level truth); adding the
 camera scene-side CANNOT move geometry (trace-driven playback, view transform only, no feedback
