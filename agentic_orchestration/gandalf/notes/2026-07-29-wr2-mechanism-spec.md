@@ -502,6 +502,20 @@ The wall between the two halves is the one that matters: **feel is tunable; geom
 determinism are not.** A lap that reaches for `ITER_MAX` or `ε_touch` to make S-1 green has stopped
 tuning and started moving the goalposts, and the run's pre-registration exists to catch exactly that.
 
+> **§E-D ADDENDUM (2026-07-29, `SPEC-AUTHOR`; charter §8.26 / Gate-2 Cell D WARN-5).** Mechanism D
+> (R-WR2-19, MATT-SIGNED; charter §8.21) landed with its tunable/frozen wall stated only in gamora's
+> math note (`wr2-d-nova-telegraph-2026-07-29.md` §2.7). Charter §8.23 ruled the SPEC is the
+> operative text, so the wall's home is here — folded verbatim, no behavior change:
+>
+> | Parameter | Default | Mech | Tunable? |
+> |---|---|---|---|
+> | `NOVA_ESCAPE_FRAC` | 0.90 | D | **YES** — the one dial |
+> | escape-speed law `T = R / (frac × v)` | — | D | **NO** — the mechanism (R-WR2-19) |
+> | `R` source (damage radius) | — | D | **NO** — the drawn ring IS the damage ring (name-and-pin, §8.24) |
+> | `v` source (target-kit `movement_speed`) | — | D | **NO** — read from the engine at cast; **⚑ UNGRADED default 5.75 m/s fills an absent kit field** (Gate-2 Cell D INFO-1; Cell BAT emits per-fight `v` in the leg header; the 3.09×/1.57 s consumer figures are default-specific) |
+> | `v ≤ 0` fallback | legacy duration | D | **NO** — bounded, non-time-based (D-5 class) |
+> | `nova_telegraph_v2` default (OFF) | False | D | **NO** |
+
 ---
 
 ## §F — Open questions for the conductor
@@ -569,6 +583,19 @@ won) · S-4 · flag-OFF regression byte-identical · a trajectory reconstruction
 path now turns. That reconstruction is the cheapest honest answer to "is the fight worth watching,"
 and it is available before the render is.
 
+> **§G-D ADDENDUM (2026-07-29, same landing as §E-D).** **Cell D owed** (discharged, Gate-2
+> CLEAR-with-notes `6a720545`): cast-gate/selector parity under both flag states · the grep-enumerated
+> range-predicate sweep (§8.22 (ii) checklist law) · escape-law arithmetic + zero-RNG + per-fight
+> constancy · flag-OFF byte-identity vs `ecea69f` · flag-OFF regression name-diff EMPTY · S-7
+> spot-check. **Cell BAT owes:** S-1/S-2/S-4 recomputed on the armed battery of record · S-3
+> re-verified from leg reports · **S-7 both clauses** — clause 1 analytic over ALL firings using the
+> CORRECTED field contract (onset tick = `tick`; player joined via header `is_player` → `entity_id`;
+> telegraph record is `record_type: "event"` / `event: "telegraph"` — Gate-2 Cell D WARN-4), clause 2
+> on the paired M-3 arms (R-WR2-21) with the FIRST-SUSPECT arithmetic in ACTING ticks (5 → 21, WARN-3)
+> · residual counters re-reported AND banked (INFO-2) · per-leg unit payload + per-fight `v` in leg
+> headers (R-WR2-15(2) + INFO-1).
+
 ---
 
 *Spec closes. Rulings §2 untouched; eight forks routed up. — gandalf, `SPEC-AUTHOR`*
+*§E-D / §G-D addenda 2026-07-29 — Mechanism D's wall folded home per Gate-2 Cell D WARN-5.*

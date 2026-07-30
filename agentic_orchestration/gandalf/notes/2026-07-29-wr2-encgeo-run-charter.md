@@ -430,4 +430,49 @@ cells only, sequential · conductor writes no production code — seams execute.
   §8.22(ii) range-semantics checklist law gets its first enforcement — independent re-enumeration
   of the 19-site sweep). **Cell BAT holds for CLEAR.**
 
+- **§8.26 — Gate-2 on Cell D: CLEAR-with-notes; an erratum against §8.24's own ground; Cell BAT
+  releases** (jack-ryan, `6a720545`; pushed with this landing). Every obligation independently
+  reproduced, several by stronger routes: only **three** sites in all of `simulation/` consume a
+  target radius in a range predicate and all three are surface-aware — no fourth site COULD be out
+  of law; T re-derived to exact IEEE-754 round-trip; his own S-7 grader agrees 5/5 to gamora's last
+  printed digit; flag isolation proven by source partition; regression 60/6197/21 name-diff EMPTY.
+  Five WARNs (one family: true where measured, incomplete where generalized), five INFO, no BLOCK,
+  no Matt escalation. **Conductor dispositions:**
+  - **⚠ ERRATUM against §8.24 (append-only; the ledger does not rewrite):** the FOOTPRINT
+    ratification's parenthetical ground — "no circle skill in the boss kit" — is **FALSE** (WARN-2;
+    origin jack-ryan's own Cell-C finding, propagated by gamora, ratified by me: three hands, one
+    unchecked premise — the same failure shape as the §8.22 (ii) gate-escape). The boss's index-1
+    skill IS circle geometry (`primordian_frigidring_r4`, range 10.0); the window is shut by the
+    `_gd_nova` intercept at spatial_engine.py:6003, not by kit absence. **The disposition STANDS**
+    (FOOTPRINT ≠ REACH, reported-not-repaired — jack-ryan re-affirms) but the ledger item's true
+    trigger is *a circle-geometry skill WITHOUT a `_gd_nova` block* and its magnitude is
+    `(3.5, 10.5]` = **7.0 m**, not 0.5 m. Watch item re-armed with corrected trigger + magnitude;
+    gamora corrects the four propagated sites (rides Cell BAT).
+  - **R-WR2-21's FIRST-SUSPECT arithmetic corrected (WARN-3):** `t_remaining` decays per tick, so
+    the 0.70 s cap binds only at the first tick — ACTING ticks are **5 → 21** (not 8 → 24),
+    executed-reach ceiling 2.59 → 11.61 m. D reaches clause 2 MORE strongly than reported;
+    designation unchanged, ground corrected so Cell BAT's grader cannot mis-diagnose a non-drop.
+    Nothing tuned; `ACTIONABLE_WINDOW_S` stays M-graded.
+  - **S-7 field contract corrected for the gate of record (WARN-4):** onset tick = `tick`; the
+    player joins via header `is_player == true` → `entity_id` (tick-record entity blocks carry no
+    `is_player`); the telegraph record is `record_type: "event"` / `event: "telegraph"`. Cell BAT's
+    grading script writes against THIS contract; jack-ryan's grader is the existence proof. gamora's
+    two MIGRATION/math-note join-fact lines approved directly by jack-ryan under ADR-002.
+  - **Spec is re-made the one home (WARN-5, SPEC-AUTHOR):** §E-D tunable/frozen rows + §G-D
+    obligation class folded into the mechanism spec (this landing's commit) — a tuning lap reading
+    §E now finds D's wall where §8.23 ruled walls live.
+  - **INFO-1 ADOPTED as a named grading gap:** the escape law's one free input `v = 5.75` is an
+    UNGRADED engine default filling an absent kit field. No repair in-run; Cell BAT emits per-fight
+    `v` in the leg header; the S-6/grading lap carries "3.09× / 1.57 s are default-specific" as a
+    consumer caveat (drax's tell-animation warning stands). INFO-2 (bank the four-tier counter
+    table + regression name list) and INFO-3/-4 (label/convention one-liners) ride Cell BAT;
+    INFO-5's ADR-004 acknowledgements route to star-lord + drax at AFTER-baton delivery.
+- **§8.27 — Cell BAT (battery of record) FIRED** (gamora): BEFORE (flags OFF) / AFTER (all three
+  armed) + the R-WR2-21 paired M-3 evade arms, `_trace_decisions` armed; S-1/S-2/S-4 recomputed,
+  S-3 re-verified from leg reports, **S-7 both clauses** on the corrected contract; report baseline
+  `796a6f6d`; leg headers carry the R-WR2-15(2) unit payload + per-fight `v`; residual counters
+  re-reported and banked; S-6 raw diff substrate emitted (durations, per-leg win rates incl.
+  F-WR2-2's `pre_endpoint`, worst-hit, nova counts — interpretation-loaded per §8.22 (iii),
+  `total_displacement` per §D-7). Grading + AFTER-baton hold for its Gate-2.
+
 *Charter closes when the exit predicate holds or Matt halts. — gandalf, RUN-CONDUCTOR*
