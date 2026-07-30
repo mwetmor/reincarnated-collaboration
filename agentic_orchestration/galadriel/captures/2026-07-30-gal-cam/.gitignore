@@ -1,0 +1,22 @@
+# Raw motion-field dumps (~17 MB) are NOT committed: they are exactly
+# regenerable from the source MP4 with the committed instruments.
+# Everything derived from them (evidence/*.jpg, the small *.json) IS committed.
+#
+#   cd agentic_orchestration/galadriel/pipeline/gd-playtest-v1
+#
+#   python3 gc_grid.py --dur 3 \
+#     --starts $(python3 -c "print(' '.join(str(x) for x in range(200,6740,90)))") \
+#     --out ../../captures/2026-07-30-gal-cam/grid-session.json
+#
+#   python3 gc_pan.py --dur 3 --x0 300 --x1 1300 --bands 80 200 320 620 740 --bh 160 \
+#     --starts $(python3 -c "print(' '.join(str(x) for x in range(200,6740,110)))") \
+#     --out ../../captures/2026-07-30-gal-cam/pan-session2.json
+#
+#   python3 gc_pan.py --dur 4 --bands 110 275 440 605 770 --bh 170 \
+#     --starts $(python3 -c "print(' '.join(str(x) for x in range(180,6720,150)))") \
+#     --out ../../captures/2026-07-30-gal-cam/pan-session.json
+#
+# Source: /Users/admin/gd-scratch/play_test_2026-07-26.mp4
+grid-session.json
+pan-session.json
+pan-session2.json
