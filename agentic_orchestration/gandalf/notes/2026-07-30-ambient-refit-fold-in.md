@@ -327,6 +327,33 @@ in the scope above is superseded by the measurement where the measurement is cle
   cell — same `wr2_playback` surface: slab material + azimuth flag + damage numbers) →
   **BEAUTY-CORNER** (bake-off arms + armor-detail shadows + fog) on true brick.
 
+## LANDING — AMB-HUE ✓ (2026-07-30; note `drax/notes/2026-07-30-amb-hue.md` `e02fcb4e`; godot `2c48854` LOCAL, ahead 4)
+
+- **Shipped:** one hue spine across all five layers, authored in DISPLAY space: birth 284°/0.86
+  sat/0.30 val (dark violet) → death 256°/0.52/0.95 (lighter blue-violet); measured at the
+  rise-verdict camera 274.0°, 68% violet / 32% blue, zero magenta/red. Alpha keys byte-identical
+  (Gradient carries RGBA per key — the alpha ramp IS the fourth channel; no collision existed).
+  Hue moved out of `color` → neutral grey albedo, making L5's ×0.62 quieting structural.
+- **Load-bearing finding: rev 1 was arithmetically clean and RENDERED PINK.** Frozen
+  `TONE_MAPPER_FILMIC` is per-channel and saturates ≈1.2 — the ramp's B=2.6 blew the top to
+  white. The invariant was wrong: Matt rules on DISPLAYED color, not emitted. Rev 3 inverts the
+  tonemap per channel. (Two instrument hypotheses died to their own controls; the third error was
+  the seam's own, caught and named.)
+- **⚑ DECLARED, AT MATT'S EYE: ambient is 42.7% dimmer** — physics, not a bug: blue carries 7.2%
+  of Rec.709 luma; saturated purple CANNOT match orange at equal alpha. Falls hardest in ring 0
+  (the centre Matt asked quieted — partially aligned with intent). Levers if too dim:
+  desaturate toward white (= the rev-1 failure mode) or raise the frozen alpha keys — his call.
+- L6 embers now read as arcane motes (declared). No layer fights the torch band — key/fill were
+  ALREADY cool blue; the warm ambient was the last element on the wrong side (the cool-room/
+  warm-source split now complete). **R-10 contract comment amended** (proven comments-only by
+  stripped-source compare: +58 comments, 0 code) — the eye-dated ambient exception is now in the
+  source, closing the Scope-4 conductor ruling.
+- Riders: AMB-EVEN re-run (keys on luma) · VOID-1 0 px, ×8 control did not trip — honestly
+  declared as not proving detection on this axis · LSTAT-2 Δ 0.000000.
+- **Verdict deliverables:** `tmp/ambhue/clips/AMBHUE_eyelevel_BEFORE_top_AFTER_bottom.mp4` (the
+  one to watch) · judge-cam twin · `tmp/ambhue/plates/PLATE_ramp_as_displayed.png` (fastest read).
+- **WALL-FIX + NUM-POP unblocked** — tree free at `2c48854`; fires next per Scope-7 sequence.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
