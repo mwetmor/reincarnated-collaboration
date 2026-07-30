@@ -442,6 +442,27 @@ in the scope above is superseded by the measurement where the measurement is cle
   plate, pop zoom strip, voidcheck plate. **Wall-band verdict pending Matt's eye** (numbers
   already accepted). **BEAUTY-CORNER unblocked — fires now.**
 
+## Scope 10 (Matt 2026-07-30) — wall band accepted · WALLTOP question · font preview routing
+
+- **Wall-band VERDICT (Matt): "the walls look right now"** — brick band ACCEPTED (triplanar
+  phase honesty absorbed without objection).
+- **⚑ NEW QUESTION (Matt): why is there a LIGHTER SHADOW on top of the walls before the dark
+  void?** He reasserts a standing agreement: **DAYLIGHT on the walltop before the void shadow at
+  the edges** (lineage: the PROVISION-CAL S14 cold sky-leak surface — PC-EXIT §3.3 left it OPEN
+  at the conductor's refusal to call a split metric; Matt's sentence today is the ruling of
+  record: walltop daylight AGREED). The wallnum render shows a lighter-gray band instead.
+  Diagnosis cell **WALLTOP-READ** fired (galadriel, read-only, parallel-safe under
+  BEAUTY-CORNER's tree hold). Hypotheses to TEST: (H1) harness split AGAIN — the walltop
+  daylight treatment lives in the `wr1_level`/`kit_replica`/`walltop_level` path and was never
+  ported to `wr2_playback`'s dressing (same root as the black-wall finding); (H2) the band
+  slabs' own TOP faces (now brick-triplanar) reading as the lighter band; (H3) the declared
+  beyond-wall glow rim being misread as a band; (H4) S14 treatment present but crushed/altered
+  by the accepted lighting stack (purple ambient dimming, tonemap). Fix class routes: lighting →
+  fold into BEAUTY-CORNER's surface at integration; dressing → ROOM-DRESS rider.
+- **Fonts — preview routing (no downloads yet):** all four are Google Fonts specimen pages —
+  Matt previews in-browser with custom text (type a damage number). Pick + one word = download
+  authorization; swap is one constant (banked at WALL-FIX+NUM-POP landing).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
