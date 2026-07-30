@@ -136,6 +136,46 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Sequencing:** AMB-RISE takes the godot tree now; CAM-LOCK queues behind it (needs GAL-CAM's
   operands regardless, still in flight).
 
+## LANDING — AMB-RISE ✓ (2026-07-30; note `drax/notes/2026-07-30-amb-rise.md` `59eb9032`; godot `45b51bf` LOCAL atop `8c6de28`)
+
+- **The complaint was understated again: the layers were not rising at all.** Measured pre-rise
+  vertical travel 0.000–0.046 m over 5–6.5 s lives — velocity exhausted in 0.13–0.40 s, then
+  parked for 93–98% of life. Layers named *drift* and *mist*; arithmetic said *parked*. After:
+  0.25–1.78 m per layer, every layer below the torch embers' Matt-verdicted 4.60 m precedent.
+- **Recipe = the flame's grammar as arithmetic, validated by inversion** (solving the flame's own
+  (h, T) returns its authored constants: 0.549/1.047 vs 0.550/1.050). Rise = positive Y gravity
+  mostly cancelling drag, not an impulse. ONLY motion parameters moved; in `gravity` only Y —
+  extents/counts/scale/albedo/lifetime all HELD (Matt-accepted state; holding lifetime holds
+  density by construction). Load-bearing edit: `direction` — the old vectors WERE the draught
+  (layers pointed sideways); now (0,1,0) with the draught surviving as lateral gravity lean.
+- **Per-layer judgment declared:** L1/L6 full rise (1.78/1.60 m); L3 budget-limited 0.71 m (emits
+  high already); L2 mist GENTLER LIFT 0.25 m (half-metre sprites at ash speed = boiler room, not
+  crypt — the brief's named risk, real); L5 gentlest +0.27 m for a MEASURED reason: its 4.5 m
+  emission SPHERE already reached 3.80 m — over the 3.17 m wall — before this cell (AMB-REFIT's
+  "Y held" could never apply to a sphere; inherited, now on record).
+- **⚑ R-10 SUSPENDED, NOT REPEALED (routed to Matt's eye):** `vh_brief_ambient.gd` enforces
+  `flatness = 1.0 # (R-10)` — standing derived law: "ambient volume belongs on the ground plane;
+  at −50° a rise smears against the floor." Matt's directive negates it; executed knowingly and
+  declared. R-10's falsifiable objection is exactly what the verdict clip tests. His eye rules.
+- **⚑ Rises land at 36–73% of design arithmetic** (held `lifetime_randomness` shortens effective
+  lives). NOT compensated, deliberately — the eye rules before velocities are scaled to a number.
+  If Matt wants more: one constant per layer.
+- **Instrument discipline:** AMB-RISE-1 (image-correlation velocity) DISCARDED by its own torch
+  control (0.02 vs 0.74 m/s — steady-state envelope is stationary; it measured the shape, not the
+  particles; kept as the record of a rejected instrument). AMB-RISE-2 (`capture_aabb()` probe)
+  passed its flame control at 3.3% and measured the flames untouched to four decimals — the frozen
+  VFX proven untouched by MEASUREMENT, not only hash.
+- **Riders:** AMB-EVEN shift declared not tuned (rings 1–2 gain, ring 0 falls — no
+  re-concentration; ring 4 stays 0.000%, Option A exactly as ruled; sitting-noise bound declared) ·
+  VOID-1 0 px CONTAINED with a THIS-axis control (v0 ×6 → 9 px LEAK over the wall — the zero
+  counts) · LSTAT-2 Δ 0.000000, **and the L7 stage reproduced bit-for-bit across a day boundary —
+  narrows AMB-REFIT's non-determinism flag: not a simple per-day rewrite.**
+- **Verdict deliverables (M-EYE, motion):** `tmp/ambrise/clips/AMBRISE_eyelevel_BEFORE_top_AFTER_bottom.mp4`
+  (18 s, the one to watch) · judge-cam twin · `tmp/ambrise/plates/PLATE_streaks_ZOOM.png` (fastest
+  read: round dots before, streaks after).
+- **CAM-LOCK now fully unblocked** (godot tree free + GAL-CAM operands landed) — fires next,
+  carrying the rise + refit + AI-state tags into the full watch.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
