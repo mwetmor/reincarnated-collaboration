@@ -176,6 +176,41 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **CAM-LOCK now fully unblocked** (godot tree free + GAL-CAM operands landed) — fires next,
   carrying the rise + refit + AI-state tags into the full watch.
 
+## Scope 4 VERDICT + Scope 5 (cell AMB-HUE — Matt directives 2026-07-30, post-rise review)
+
+- **RISE VERDICT (Matt, verbatim): "rise is perfect."** Consequences, ruled by the conductor from
+  that eye-verdict: (a) the 36–73% design-arithmetic shortfall is CLOSED — no velocity boost; the
+  shipped magnitude IS the accepted state; (b) **R-10 falls for the ambient layers** — its
+  falsifiable objection ("a rise at −50° smears against the floor") was put in front of the owner's
+  eye and did not manifest. R-10 is AMENDED, not deleted: the ground-plane law survives as lineage
+  with an eye-dated exception for ambient (`vh_brief_ambient.gd` contract comment amended by drax
+  in the AMB-HUE cell — the seam that executed the suspension closes it, on the conductor's ruling,
+  veto-open to Matt as all rulings are).
+- **Matt directive (verbatim): change the color to "dark purple, rising into a lighter purple-blue
+  hue."** Colors were HELD in AMB-REFIT/AMB-RISE as Matt-accepted state; Matt has now explicitly
+  reopened them. Design note (conductor): under the rise, particle AGE ≈ HEIGHT — so a
+  color-over-lifetime ramp (dark purple at birth/floor → lighter purple-blue at death/top) IS the
+  height gradient Matt described, with no positional shader needed. Thematically this moves the
+  ambient from fire-adjacent warmth into the arcane/necrotic register — correct for the crypt and
+  for the *Reap. Die. Rise.* death-faith frame — and buys color separation from the frozen warm
+  torch flames for free (ambient legible AS ambient, flame legible AS flame; Diablo dungeons run
+  exactly this cool-room/warm-source split).
+- **Recipe:** per-layer `color` + `color_ramp` (gradient over lifetime) in `vfx/ambient/pp/*.tres`
+  — dark purple base, lighter purple-blue at ramp end; **existing alpha keys PRESERVED to the
+  digit** (the 0→visible→0 ramps are the no-pop guarantee); motion parameters, extents, counts,
+  sprite scales, lifetimes ALL HELD (rise is Matt-verdicted perfect — nothing else moves). Exact
+  hues are drax's to pick against the room's read at the eye; Matt's sentence is the standard.
+  Per-layer judgment declared as always (L6 embers stop being fire-born and become arcane motes —
+  declare it; if any layer's hue fights the torch-glow band, declare that too).
+- **Riders:** M-EYE short room clip (cheap iteration — same pattern as AMB-RISE; the next full
+  watch carries the accepted hue) · LSTAT-2 · VOID-1 re-fire only if luma moved materially
+  (purple-blue at higher value could change wall-adjacency luma; drax judges, declares) ·
+  AMB-EVEN only if the mask convention keys on hue (declare either way).
+- **Sequencing:** CAM-LOCK holds the godot tree (in flight; no relay path — SendMessage
+  unavailable on this host). AMB-HUE fires on CAM-LOCK's return. CAM-LOCK's watch therefore
+  carries the WARM ambient — declared, expected; once Matt verdicts the hue clip, the player_lock
+  re-render with accepted hue is mechanical (scripted harness, same trace).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
