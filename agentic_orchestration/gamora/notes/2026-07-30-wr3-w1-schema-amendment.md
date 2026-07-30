@@ -141,6 +141,15 @@ origin question, not a strike-separation one). **Reported, not ruled.**
 Both are written into: the math note §1.6/§2.7 · `MIGRATION.md` §2 · the schema doc's §2-AMENDMENT ·
 `ReplicaFrameSink.tick`'s docstring · `ai_state_label`'s docstring.
 
+**⚑ THE CONVENTION IS PARAMETRIC IN `W` AND `R`, WHICH MATTERS FOR R-WR3-17(d).** The ruling that
+landed while this cell ran promotes GD referent-confirmation of the boss's wind-up/recovery to
+MANDATORY before stage 2 locks CAL-C1/CAL-C2 — i.e. `W` and `R` may move. `N_emit = N_lock + 1` is
+a statement about **phase order**, not about 3/1/2, so it survives any `W`/`R`. What does NOT
+survive is the literal "7" and the literal "6": the tests assert the identity **and** the fixture's
+current realization, so a referent-driven change to `W` will fail
+`TestDF1Fencepost` **loudly and by name** rather than silently re-opening this same disagreement.
+That is deliberate.
+
 ---
 
 ## §3 — WHAT WAS ADDED
@@ -245,10 +254,12 @@ g5_header.g5.commit_reach = {
                      "slitha_melee_b01_1": 2.5, "slitha_shaman_c01_2": 18.5 } }
 
 tick[0].entities[]:
-  gd-werewolf-kitcal-1   ai_state=<ABSENT>   max_hp=759.0     movement_speed_ms=5.75
-  boss&quest_slith_…_0   ai_state=approach   max_hp=14812.0   movement_speed_ms=4.025
-  slitha_melee_b01_1     ai_state=approach   max_hp=577.0     movement_speed_ms=4.0825
-  slitha_shaman_c01_2    ai_state=engage     max_hp=846.0     movement_speed_ms=4.0825
+  gd-werewolf-kitcal-1   alive=T  ai_state=<ABSENT>  max_hp=759.0    movement_speed_ms=5.75
+  boss&quest_slith_…_0   alive=T  ai_state=approach  max_hp=14812.0  movement_speed_ms=4.025
+  slitha_melee_b01_1     alive=T  ai_state=approach  max_hp=577.0    movement_speed_ms=4.0825
+  slitha_shaman_c01_2    alive=F  ai_state=null      max_hp=846.0    movement_speed_ms=4.0825
+                                  ^ the shaman dies on the opening tick; its ONE emitted block is
+                                    its death-transition frame, and `null` is the honest label.
 
 ai_state census, 950 ticks:  boss {engage 554, windup 220, strike 55, recover 110,
                                    approach 10, null 1}
@@ -295,7 +306,32 @@ decision, not a schema-amendment side effect.
 | New unit tests | **30** in `tests/test_wr3_w1_schema_amendment.py`, all passing |
 | WR3 stage-1 suite (re-run) | **3,523** passing, unchanged |
 | Combined WR3 files | **3,553 passed in 1.52 s** |
-| Full regression vs the 81-name baseline | **PENDING-LINE — see §5.5** |
+| Full regression vs the 81-name baseline | **IN FLIGHT at cell close — see §5.5** |
+
+### 5.5 ⚑ THE ONLY REFACTOR THAT COULD REACH A NON-WR3 TEST, PROVEN EXHAUSTIVELY
+
+Everything in this amendment is either **new code reachable only from the frame emitter**
+(`ai_state_map`, `commit_reach_map`, `ai_state_label`, the two report blocks) or **pure emission**.
+**Exactly two extractions touch a hot production path**, and neither is trusted — both are
+differentially proven against the pre-extraction expression transcribed from `HEAD`:
+
+| extraction | site | differential | mismatches |
+|---|---|---|---|
+| `_skill_range_covers` | the range half of `_select_skill_for_entity.skill_ready` — the SHARED selector governing both actors | **exhaustive grid**: `range_m ∈ {None, 0, 0.0, 0.5, 1.0, 2.0, 2.5, 10, 14, 18, −1, 1e−9} × dist ∈ 15 values straddling every boundary (incl. 1.9999999999 / 2.0 / 2.0000000001) × radius ∈ {0, 0.5, 1.5, 2.0} × body_sep ∈ {T, F}` + the missing-key case = **1,470 cells** | **0** |
+| `wr3_effective_reach` | `_wr3_reach_to`'s body | **40,000 randomized rosters** (0–4 skills, `range_m` drawn from `{None, 0, 0.0, 2, 10, 18, −3}`, geometry drawn from all six incl. `self`/`none`, target radius ∈ {0, 0.5, 1.5}, both flag states) | **0** |
+
+`_wr3_reach_to` is asserted to DELEGATE (source-inspected, not assumed). Together with the
+**2,445 / 2,445 byte-identical** re-emitted fight (§5.2), the behaviour-preservation claim does not
+rest on the regression suite — the suite is corroboration, not the proof.
+
+**Regression status at cell close, stated honestly:** the full `tests/` run was launched before the
+final two edits (the AI-D3 corpse branch inside `ai_state_map`, and the parametric rewrite of the
+`N_emit = N_lock + 1` test) and had not yet emitted its summary. Both edits are confined to code
+reachable **only** from the frame emitter or from `tests/test_wr3_w1_schema_amendment.py`, which was
+re-run green (30/30) after them. **The conductor should re-run `python3 -m pytest tests/ -q
+-p no:randomly` at Gate 2 and read it against the 81-name baseline**; the 82nd untracked-source
+guard is expected to PASS now that the stage-1 modules are tracked at `6de80aab`+`a6c6bcf9`, and the
+files this cell adds are `tests/` + `simulation/` sources that the commit below tracks.
 
 The new file pins: the D-F1 fencepost **in both directions** (including the falsifier that fires if
 the lock ever becomes 7 ticks); the sampling-edge contract per entity per tick; AI-D1/D2/D3; W-1
