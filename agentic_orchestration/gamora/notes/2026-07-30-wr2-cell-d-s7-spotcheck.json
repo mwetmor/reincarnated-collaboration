@@ -1,0 +1,323 @@
+{
+  "NOVA_ESCAPE_FRAC": 0.9,
+  "seeds": [
+    74000800,
+    74000801,
+    74000802,
+    74000803,
+    74000804,
+    74000805
+  ],
+  "arms": {
+    "bsep_mv2": {
+      "fights": [
+        {
+          "seed": 74000800,
+          "winner": "monster",
+          "elapsed_s": 61.600000000000605,
+          "n_nova_crossings": 0,
+          "worst_nova_crossing_hp": 0.0,
+          "max_realized_count": 0
+        },
+        {
+          "seed": 74000801,
+          "winner": "monster",
+          "elapsed_s": 17.59999999999998,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 470.8,
+          "max_realized_count": 2
+        },
+        {
+          "seed": 74000802,
+          "winner": "monster",
+          "elapsed_s": 35.500000000000234,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 235.4,
+          "max_realized_count": 1
+        },
+        {
+          "seed": 74000803,
+          "winner": "monster",
+          "elapsed_s": 37.30000000000026,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 235.4,
+          "max_realized_count": 1
+        },
+        {
+          "seed": 74000804,
+          "winner": "monster",
+          "elapsed_s": 17.49999999999998,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 470.8,
+          "max_realized_count": 2
+        },
+        {
+          "seed": 74000805,
+          "winner": "monster",
+          "elapsed_s": 37.10000000000026,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 235.4,
+          "max_realized_count": 1
+        }
+      ],
+      "s7": [
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 1.45,
+          "wind_up_s": 0.75,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 2.3885459681736285,
+          "move_speed_ms": null,
+          "bound_ms": null,
+          "ratio_to_bound": null,
+          "s7_holds": null,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000801.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 1.45,
+          "wind_up_s": 0.75,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 2.3885459681736285,
+          "move_speed_ms": null,
+          "bound_ms": null,
+          "ratio_to_bound": null,
+          "s7_holds": null,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000802.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 1.45,
+          "wind_up_s": 0.75,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 2.3885459681736285,
+          "move_speed_ms": null,
+          "bound_ms": null,
+          "ratio_to_bound": null,
+          "s7_holds": null,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000803.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 1.45,
+          "wind_up_s": 0.75,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 2.3885459681736285,
+          "move_speed_ms": null,
+          "bound_ms": null,
+          "ratio_to_bound": null,
+          "s7_holds": null,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000804.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 1.45,
+          "wind_up_s": 0.75,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 2.3885459681736285,
+          "move_speed_ms": null,
+          "bound_ms": null,
+          "ratio_to_bound": null,
+          "s7_holds": null,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000805.jsonl"
+        }
+      ],
+      "residual_ticks": 0,
+      "residual_max_m": 0.0,
+      "header_has_movement_speed_ms": false,
+      "s7_summary": {
+        "n_firings": 5,
+        "n_hold": 0,
+        "n_fail": 0,
+        "n_unassessable_no_speed_field": 5,
+        "worst_ratio_to_bound": null,
+        "worst_v_req_ms": 2.3885459681736285
+      }
+    },
+    "bsep_mv2_ntv2": {
+      "fights": [
+        {
+          "seed": 74000800,
+          "winner": "monster",
+          "elapsed_s": 61.600000000000605,
+          "n_nova_crossings": 0,
+          "worst_nova_crossing_hp": 0.0,
+          "max_realized_count": 0
+        },
+        {
+          "seed": 74000801,
+          "winner": "monster",
+          "elapsed_s": 40.2000000000003,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 235.4,
+          "max_realized_count": 1
+        },
+        {
+          "seed": 74000802,
+          "winner": "monster",
+          "elapsed_s": 20.40000000000002,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 470.8,
+          "max_realized_count": 2
+        },
+        {
+          "seed": 74000803,
+          "winner": "monster",
+          "elapsed_s": 20.800000000000026,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 470.8,
+          "max_realized_count": 2
+        },
+        {
+          "seed": 74000804,
+          "winner": "monster",
+          "elapsed_s": 37.000000000000256,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 235.4,
+          "max_realized_count": 1
+        },
+        {
+          "seed": 74000805,
+          "winner": "monster",
+          "elapsed_s": 22.000000000000043,
+          "n_nova_crossings": 1,
+          "worst_nova_crossing_hp": 470.8,
+          "max_realized_count": 2
+        }
+      ],
+      "s7": [
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 3.0188405797101447,
+          "wind_up_s": 2.318840579710145,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 0.7725453365811579,
+          "move_speed_ms": 5.75,
+          "bound_ms": 5.175,
+          "ratio_to_bound": 0.14928412301085175,
+          "s7_holds": true,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000801.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 3.0188405797101447,
+          "wind_up_s": 2.318840579710145,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 0.7725453365811579,
+          "move_speed_ms": 5.75,
+          "bound_ms": 5.175,
+          "ratio_to_bound": 0.14928412301085175,
+          "s7_holds": true,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000802.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 3.0188405797101447,
+          "wind_up_s": 2.318840579710145,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 0.7725453365811579,
+          "move_speed_ms": 5.75,
+          "bound_ms": 5.175,
+          "ratio_to_bound": 0.14928412301085175,
+          "s7_holds": true,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000803.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 3.0188405797101447,
+          "wind_up_s": 2.318840579710145,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 0.7725453365811579,
+          "move_speed_ms": 5.75,
+          "bound_ms": 5.175,
+          "ratio_to_bound": 0.14928412301085175,
+          "s7_holds": true,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000804.jsonl"
+        },
+        {
+          "attack_id": "boss&quest_slith_wightmirecave01_0:nova:1",
+          "onset_tick": 7,
+          "onset_t_s": 0.7,
+          "fire_t_s": 3.0188405797101447,
+          "wind_up_s": 2.318840579710145,
+          "radius_m": 12.0,
+          "d_onset_m": 10.208590523869779,
+          "v_req_ms": 0.7725453365811579,
+          "move_speed_ms": 5.75,
+          "bound_ms": 5.175,
+          "ratio_to_bound": 0.14928412301085175,
+          "s7_holds": true,
+          "margin_identity_1_minus_d_over_R": 0.1492841230108518,
+          "d_at_tick_minus_1_m": 10.78359052386978,
+          "gate_ceiling_satisfied_at_onset": true,
+          "trace": "boss__B__seed74000805.jsonl"
+        }
+      ],
+      "residual_ticks": 0,
+      "residual_max_m": 0.0,
+      "header_has_movement_speed_ms": true,
+      "s7_summary": {
+        "n_firings": 5,
+        "n_hold": 5,
+        "n_fail": 0,
+        "n_unassessable_no_speed_field": 0,
+        "worst_ratio_to_bound": 0.14928412301085175,
+        "worst_v_req_ms": 0.7725453365811579
+      }
+    }
+  }
+}

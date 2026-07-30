@@ -182,10 +182,26 @@ Mean boss durations: pre/A 37.2 → 51.0 → 49.4 s; pre/B 57.9 → 64.9 → 67.
 **The tuning lap was NOT spent, so §E is untouched and every parameter still sits at its spec
 default.** The charter's S-3 diagnosis order (check the circle-AoE whiff window BEFORE touching any
 dial) was therefore never entered. I note explicitly that I did **not** reach for a dial: nothing
-failed. `band_outer` at 2.70 m against the boss also sits **0.80 m clear** of the `aoe_radius` 3.0 /
+failed. `band_outer` at 2.70 m against the boss also sits **0.30 m clear** of the `aoe_radius` 3.0 /
 selection 3.5 whiff window jack-ryan named, and there is a unit test pinning that clearance
 (`test_band_outer_stays_clear_of_the_circle_AoE_whiff_window`) so a future lap that moves
 `BAND_WIDTH` cannot walk into it silently.
+
+> **⚑ ERRATUM (WARN-2, jack-ryan's Gate-2 on this landing; discharged in Cell D per charter §8.23).**
+> This sentence originally read **0.80 m clear**, measured to the WRONG EDGE. The window is
+> `d ∈ (3.0, 3.5]` and its **binding edge is 3.0** — SS-B-1 lets a circle AoE be SELECTED out to 3.5
+> while `_compute_circle_hits` still measures `aoe_radius` = 3.0 centre-to-centre — so the clearance
+> is `3.0 − 2.70 =` **0.30 m**. 0.80 m is the distance to the window's FAR edge, which nothing has to
+> cross to get in. The **test was always right** (it asserts `≈ 0.30`, and its docstring names the
+> window `[3.0, 3.5)`); only this narrative was loose. It overstated available `BAND_WIDTH` headroom
+> by **2.7×** — a lap adding +0.30 m walks INTO the window, not +0.80 m. Mitigating: this kit carries
+> **no circle skill at all** (cone + line), so the window is unreachable on this battery regardless.
+> No re-run, no code change. Math note `wr2-d-nova-telegraph-2026-07-29.md` §5.2.
+>
+> **Do not confuse this 0.80 with §3's band-table 0.80**, which is a DIFFERENT quantity and is
+> CORRECT: there it is the slack of the *reach* term (`3.50 − 2.70` boss, `2.50 − 1.70` mob), i.e.
+> how far `band_outer` sits below the selection reach. Two 0.80s, two measurements, one of them
+> wrong — which is exactly why WARN-2 was worth filing.
 
 ### ⚑ REPORTED, NOT GRADED — `pre_endpoint`/arm B reaches 0.000
 
