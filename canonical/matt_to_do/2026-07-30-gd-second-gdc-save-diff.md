@@ -1,25 +1,27 @@
-# T11 — Pull a SECOND Grim Dawn character save (`.gdc`) for field-semantics diffing
+# T11 — Pull a SECOND Grim Dawn character save (`.gdc`) — now the DECISIVE test for Fork 1
 
-**Filed:** 2026-07-30, gandalf (RUN-CONDUCTOR, WR3-KITE-COMMIT) · **Source:** R-WR3-26(6), legolas discriminator note U-1/U-2
+**Filed:** 2026-07-30, gandalf (RUN-CONDUCTOR, WR3-KITE-COMMIT) · **Source:** R-WR3-26(6) U-1/U-2 · **AMENDED per R-WR3-29(4):** the same pull now closes the VETERAN byte question, which decides the stage-map arm.
 
-## The ask
+## The ask (~2 minutes, upgraded)
 
-Copy **one more `player.gdc`** from the live Grim Dawn install — any character other than the
-referent (a throwaway level-1 works; ideally take a snapshot, get hit once by a known weak enemy,
-save, and snapshot again so we get a before/after pair). Drop it anywhere under
-`/Users/admin/Games/vendor/` and say the word.
+Create a **throwaway GD character with Veteran toggled ON** at creation, save immediately, and copy its
+`player.gdc`. Ideally also: toggle Veteran OFF, save again, copy that too (two files = the byte's
+on/off states known by provenance). Bonus if convenient: get hit once by a known weak enemy between
+snapshots for the damage-field diff. Drop the file(s) anywhere under `/Users/admin/Games/vendor/`
+and say the word.
 
 Save location on a standard install: `<GD user dir>/save/main/_<CharacterName>/player.gdc`.
 
-## What it unblocks
+## What it unblocks — now GATING
 
-The WR3 stage-map arm ruling (S0/S1/S2) currently leans on two save floats
-(`greatestDamageReceived` 260.498 / `lastHitBy` 273.704) whose **labels are community
-convention, not engine truth** (`Game.dll` carries no such symbols), whose ordering **violates
-the invariant `greatest ≥ last` as labelled** (possible label swap, U-1), and whose
-single-event-vs-aggregate semantics are unproven (U-2 — `lastHitBy` is PROVEN aggregate; its
-neighbour is untested). A second save, diffed against known events, closes U-1 + U-2 together —
-legolas: "everything ambiguous in this note traces to having exactly one save."
-
-**Not blocking:** the conductor lean (S1_PAK) rests on the roster ceiling sweep, which is
-independent of save-field semantics. This to-do hardens the ruling; it does not gate it.
+1. **U-2 (difficulty probe): is `0x80` the Veteran bit?** The referent save reads `difficulty = 128`
+   = Normal + bit 7. If a known-Veteran save reads 128, the referent was played on **Veteran**
+   (+40% monster damage), which inverts the S1_PAK basis: S2_FULL + Veteran reaches both measured
+   damage numbers, and S1's signature 269.66 fit breaks (38% overshoot). **Matt's Fork-1 re-ruling
+   and the stage-2c calibration lap wait on this.** (Also answerable from memory: was Veteran
+   checked at character creation?)
+2. **U-1/U-2 (discriminator note): field labels + single-event-vs-aggregate semantics** of
+   `greatestDamageReceived` / `lastHitBy` — the before/after diff closes both.
+3. **U-4: `greatestMonsterKilledLevel` semantics** (monster's level vs player's level at kill) —
+   decides whether Primordian is cl 18 plain or cl 13 Veteran, which re-derives skill rank (5 vs 4)
+   and would re-base the payload pin set.

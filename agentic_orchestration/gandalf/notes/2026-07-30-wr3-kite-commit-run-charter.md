@@ -811,6 +811,52 @@ against the frozen WR2 baseline immediately.
     (R-WR3-25(9)) + instance-5 char_level repair (R-WR3-27(5)) + battery of record →
     owner-eye render.
 
+- **R-WR3-29 (Matt's difficulty hypothesis lands, 2026-07-30) — CONFIRMED where asked, and the
+  unasked half INVERTS Fork 1's basis: the referent save reads VETERAN.** Landing verified
+  (`legolas/research/2026-07-30-wr3-damper-difficulty-probe.md`, commit `886d81d1`; M/C grades
+  carried throughout; parse alignment corroborated by money/texture decode AND third-party
+  parser field order; slot-index scheme validated against the wiki-corroborated asymmetric
+  resist penalty).
+  - **(1) HYPOTHESIS CONFIRMED (the asked half):** the pak −25 % is literally a difficulty-table
+    cell — `balancingadjustment_mp+difficulty_enemies01.dbr`, 12-slot array (3 difficulties ×
+    4 player counts), `offensiveTotalDamageModifier = [−25 Normal, +25 Elite, +40 Ultimate]`.
+    The pool stage is NOT difficulty-keyed — it is a **level-normalising ramp** (−91+rank,
+    crossing ZERO at monster level 88): early-game forgiveness that fully releases by cap. No
+    other difficulty-keyed damage multiplier exists in `gameengine.dbr`; the chain is closed.
+  - **(2) THE UNASKED FINDING (grade C, high confidence):** the referent save's difficulty byte
+    is **128 = Normal with bit 7 set = the VETERAN mutator** (third-party saves read plain 0
+    and 2; `GetGamePlusChallengeDifficulty` packs game+challenge into one int; no other
+    candidate flag). Veteran: monster damage +40 %, life +140 %.
+  - **(3) WHAT IT DOES TO THE ARMS:** S2_FULL + Veteran ceiling 354.1–541.9 — **both measured
+    numbers REACHABLE under either mutator-composition reading**; the 2.9 % shortfall that was
+    S1_PAK's sole mechanical basis does not survive; and S1's signature 269.66-to-the-decimal
+    fit BREAKS under Veteran (377.5 = 38 % overshoot). Q4 answered flatly: ×0.75 is not the
+    Normal composition of anything (composite reaches 0.75 only at monster level 75);
+    **×0.2625 IS the Normal composition, now with a design rationale** (ramp × difficulty
+    cell, unwinding monotonically to ×2.09 at Ultimate/100).
+  - **(4) CONDUCT — R-WR3-28(1) is Matt-signed; the inversion is HELD FOR MATT, not enacted.**
+    S1_PAK REMAINS the regime of record until Matt re-rules — the routes-open clause doing
+    exactly its job. Two evidence asks put to Matt: (a) MEMORY — was Veteran toggled at
+    character creation?; (b) U-2, the cheapest decisive test in the run — one ~2-minute save
+    known-by-provenance to be Veteran-on, read the byte. **T11 UPDATED** to fold this in (the
+    same pull closes the field-semantics questions).
+  - **(5) CASCADE NAMED, not resolved:** the HP anchor is DEGENERATE — "cl 18 plain" and
+    "cl 13 Veteran" predict Primordian's 15,822 within 0.4 % of each other, and the save's own
+    `greatestMonsterKilledLevel = 13` (U-4 semantics open). If cl-13-Veteran confirms, skill
+    rank re-derives 5 → 4 and R-WR3-24(1)'s carried-ext falsification PARTIALLY RE-OPENS (the
+    rank-4 arrays were right under that reading); the payload pin set would re-base. Queued
+    behind U-2; also noted: Veteran is mid-playthrough-toggleable, so per-field mutator states
+    need not agree.
+  - **(6) CONDUCTOR LEAN, regardless of which regime Matt re-rules:** adopt the
+    **difficulty-parameterised OPERATOR, not a scalar** — `outgoing = base ×
+    (1 + Σpool(charLevel)/100) × (1 + pak[difficulty]/100) × mutators` — and NEVER port
+    ×0.2625 into engine work as "GD's damper": it is one cell. **The transferable design fact
+    is the SHAPE** — per-level damage normalisation that releases by cap, crossed with a small
+    difficulty layer — and it is a mechanism our own difficulty system wants. The three-arm
+    stage map graduates from evidence-hedge to design object.
+  - **(7) SEQUENCING:** stage-2c now waits on BOTH the clean ablation (in flight) and Matt's
+    Fork-1 re-ruling; calibrating under an arm whose basis just inverted would burn the lap.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
