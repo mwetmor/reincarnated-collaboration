@@ -1,0 +1,288 @@
+TOTAL controller records: 444
+by class: [('ControllerMonster', 356), ('ControllerStationaryMonster', 54), ('ControllerTotem', 19), ('ControllerMonsterHidden', 6), ('ControllerMonsterSynergy', 2), ('ControllerGraeae', 2), ('ControllerSpirit', 2), ('ControllerPlayer', 1), ('ControllerNpc', 1), ('ControllerNpc2', 1)]
+
+==============================================================================================================
+EXEMPLAR full field dump (first ControllerMonster)
+==============================================================================================================
+records/controllers/pets/controller_whirlwind_normal.dbr  [base]  64 fields
+   AllyAttackedAnger                            0.0
+   AngerTolerance                               99.0
+   AttackedAnger                                0.0
+   BuffAllyBehavior                             WhenEnemyIsSeen
+   BuffAllyTargeting                            BuffStrongest
+   BuffSelfBehavior                             WhenEnemyIsSeen
+   ChanceToIdleOnPatrol                         0
+   ChanceToRespondToDistressCall                100
+   Class                                        ControllerMonster
+   ClearAngerWhenFleeing                        False
+   DebuffEnemyBehavior                          WhenEnemyIsSeen
+   DodgeChance                                  0
+   DodgeDelay                                   5
+   DodgeDistance                                4.0
+   EmoteBeforePursuingChance                    50
+   FleeBehavior                                 NeverFlee
+   FleeChance                                   100
+   FleeDelay                                    6
+   FleeTarget                                   TowardsAllies
+   FleeTime                                     3
+   ForgiveRate                                  0.0
+   InnerSightAngerRate                          0.0
+   InnerViewDistance                            5.0
+   MaxPatrolIdleTime                            0
+   MaxPursuitDistance                           23.0
+   MaxTimeBeforeRoam                            2000
+   MaxYViewDistance                             12.0
+   MinDodgeDistance                             2.0
+   MinPatrolIdleTime                            0
+   MinRoamDistance                              6.0
+   MinTimeBeforeRoam                            100
+   MinWanderDistance                            8.0
+   ProjectileAnger                              0.0
+   PursuitTime                                  10000
+   RandomAngerChance                            0
+   RandomAngerEvaluationTime                    3000
+   RepositionChance                             100
+   ResetOriginAfterFleeing                      False
+   RoamBehavior                                 Roam
+   RoamDistance                                 12.0
+   SightAngerRate                               0.0
+   TeleportToLeaderDistance                     999999.0
+   ViewDistance                                 0.0
+   WanderDistance                               12.0
+   enemyTooClose                                2.0
+   fleeDistance                                 6.0
+   healAllyHealthPercentage                     70
+   healLeaderHealthPercentage                   70
+   ignorePetsChance                             0
+   ignorePetsInterval                           5000
+   ignoreSleepingEnemies                        True
+   maxFleeCount                                 1
+   maxSwingPause                                0.0
+   minSwingPause                                0.0
+   pathingViewDistance                          12.0
+   petAngerTransference                         30
+   petTargetGreatestHealth                      False
+   petTargetLeastAttacked                       False
+   petTargetLevelRange                          1000
+   randomEmoteChance                            100
+   randomEmoteMaxTime                           10000
+   randomEmoteMinTime                           5000
+   randomRepositionChance                       100
+   templateName                                 database/templates/controllermonster.tpl
+
+==============================================================================================================
+FIELD VALUE DISTRIBUTION over 356 ControllerMonster records
+==============================================================================================================
+
+AllyAttackedAnger  (present in 356)
+   [('6.0', 117), ('8.0', 98), ('4.0', 71), ('5.0', 38), ('0.0', 11), ('10.0', 5), ('20.0', 3), ('25.0', 3), ('9.0', 2), ('12.0', 2)]
+
+AngerTolerance  (present in 356)
+   [('0.0', 177), ('1.0', 95), ('6.0', 23), ('3.0', 21), ('2.0', 13), ('4.0', 9), ('12.0', 4), ('8.0', 3), ('5.0', 3), ('10.0', 3)]
+
+AttackedAnger  (present in 356)
+   [('12.0', 155), ('16.0', 72), ('15.0', 58), ('10.0', 14), ('20.0', 11), ('5.0', 9), ('9.0', 8), ('8.0', 7), ('0.0', 6), ('4.0', 5)]
+
+BuffAllyBehavior  (present in 356)
+   [('WhenEnemyIsSeen', 238), ('WheneverPossible', 116), ('NeverUseSkill', 2)]
+
+BuffAllyTargeting  (present in 355)
+   [('BuffStrongest', 305), ('BuffWeakest', 46), ('BuffClosest', 4)]
+
+BuffSelfBehavior  (present in 356)
+   [('WhenEnemyIsSeen', 218), ('WheneverPossible', 136), ('NeverUseSkill', 2)]
+
+ChanceToIdleOnPatrol  (present in 328)
+   [('0', 129), ('20', 124), ('75', 72), ('100', 2), ('33', 1)]
+
+ChanceToRespondToDistressCall  (present in 356)
+   [('20', 122), ('75', 75), ('100', 56), ('50', 51), ('0', 43), ('30', 5), ('40', 4)]
+
+Class  (present in 356)
+   [('ControllerMonster', 356)]
+
+ClearAngerWhenFleeing  (present in 356)
+   [('False', 355), ('True', 1)]
+
+DebuffEnemyBehavior  (present in 356)
+   [('WhenEnemyIsSeen', 354), ('NeverUseSkill', 2)]
+
+DistressResponseBehavior  (present in 312)
+   [('RespondToSameGroup', 268), ('RespondToSameRace', 42), ('RespondToAll', 2)]
+
+DistressResponseGroup  (present in 287)
+   [('Beast', 49), ('Eldritch', 40), ('Aetherial', 37), ('Chthonic', 34), ('Undead', 26), ('Groble', 12), ('Celestial', 11), ('Outlaw', 9), ('Zealot', 7), ('BlackLegion', 6)]
+
+DodgeChance  (present in 320)
+   [('0', 175), ('75', 49), ('50', 38), ('30', 32), ('70', 11), ('65', 10), ('80', 4), ('45', 1)]
+
+DodgeDelay  (present in 320)
+   [('0', 113), ('5000', 61), ('3000', 52), ('4000', 30), ('1500', 28), ('6000', 21), ('2000', 11), ('5', 4)]
+
+DodgeDistance  (present in 320)
+   [('0.0', 132), ('2.0', 97), ('3.0', 63), ('4.0', 17), ('5.0', 9), ('3.5', 1), ('10.0', 1)]
+
+EmoteBeforePursuingChance  (present in 355)
+   [('20', 269), ('0', 47), ('15', 26), ('30', 9), ('100', 2), ('50', 1), ('10', 1)]
+
+FileDescription  (present in 11)
+   [('Default Melee Aggressive', 3), ('Kaylis Ka the Bonehunter', 1), ('Guardian of Bysmiel', 1), ('Venarius the Backbreaker', 1), ('aggressive complex melee', 1), ('aggressive simple melee', 1), ('aggressive complex ranged', 1), ('aggressive hero special', 1), ('passive simple melee', 1)]
+
+FleeBehavior  (present in 356)
+   [('NeverFlee', 278), ('FleeOnDamage', 34), ('FleeOnLowHealth', 32), ('FleeWhenEnemyClose', 12)]
+
+FleeChance  (present in 355)
+   [('0', 231), ('50', 81), ('75', 19), ('100', 7), ('30', 7), ('60', 5), ('20', 3), ('25', 1), ('90', 1)]
+
+FleeDelay  (present in 355)
+   [('5000', 135), ('0', 115), ('3000', 51), ('6000', 23), ('10000', 11), ('8000', 7), ('6', 4), ('2000', 4), ('9000', 2), ('1000', 2)]
+
+FleeTarget  (present in 294)
+   [('AwayFromEnemy', 185), ('TowardsAllies', 95), ('TowardsHome', 14)]
+
+FleeTime  (present in 353)
+   [('0', 180), ('3000', 121), ('2500', 29), ('3', 11), ('2000', 6), ('5000', 4), ('1000', 2)]
+
+ForgiveRate  (present in 356)
+   [('2.0', 131), ('1.0', 129), ('0.0', 79), ('3.0', 12), ('4.0', 2), ('25.0', 1), ('10.0', 1), ('100.0', 1)]
+
+InnerSightAngerRate  (present in 356)
+   [('10.0', 186), ('8.0', 106), ('12.0', 23), ('15.0', 14), ('6.0', 10), ('0.0', 9), ('5.0', 4), ('9.0', 2), ('1.0', 1), ('100.0', 1)]
+
+InnerViewDistance  (present in 356)
+   [('4.0', 297), ('6.0', 22), ('5.0', 19), ('8.0', 8), ('16.0', 3), ('18.0', 2), ('1.0', 2), ('3.0', 1), ('15.0', 1), ('20.0', 1)]
+
+LeadChance  (present in 256)
+   [('0', 104), ('30', 67), ('50', 60), ('100', 10), ('90', 5), ('75', 4), ('80', 3), ('15', 1), ('60', 1), ('85', 1)]
+
+MaxPatrolIdleTime  (present in 329)
+   [('0', 128), ('5000', 126), ('1500', 72), ('25000', 2), ('9000', 1)]
+
+MaxPursuitDistance  (present in 356)
+   [('75.0', 239), ('210.0', 32), ('20.0', 10), ('200.0', 9), ('15.0', 8), ('16.0', 7), ('40.0', 6), ('18.0', 5), ('125.0', 5), ('90.0', 4)]
+
+MaxTimeBeforeRoam  (present in 356)
+   [('12000', 255), ('16000', 38), ('10000', 26), ('9000', 7), ('8000', 6), ('1000', 5), ('6000', 5), ('2000', 4), ('0', 4), ('300', 3)]
+
+MaxYViewDistance  (present in 356)
+   [('10.0', 293), ('12.0', 35), ('15.0', 10), ('0.0', 9), ('20.0', 5), ('5.0', 2), ('16.0', 1), ('3.0', 1)]
+
+MinDodgeDistance  (present in 320)
+   [('0.0', 132), ('2.0', 94), ('4.0', 38), ('3.0', 31), ('6.0', 13), ('5.0', 12)]
+
+MinPatrolIdleTime  (present in 329)
+   [('0', 200), ('1000', 126), ('25000', 2), ('5000', 1)]
+
+MinRoamDistance  (present in 356)
+   [('2.0', 164), ('3.0', 154), ('0.0', 24), ('12.0', 5), ('4.0', 4), ('8.0', 4), ('6.0', 1)]
+
+MinTimeBeforeRoam  (present in 356)
+   [('6000', 296), ('8000', 14), ('100', 8), ('80000', 8), ('4000', 6), ('3000', 6), ('500', 5), ('0', 4), ('60000', 3), ('2000', 2)]
+
+MinWanderDistance  (present in 356)
+   [('2.0', 317), ('4.0', 8), ('0.0', 7), ('3.0', 6), ('1.0', 6), ('8.0', 5), ('20.0', 5), ('5.0', 2)]
+
+ProjectileAnger  (present in 356)
+   [('2.0', 168), ('3.0', 80), ('4.0', 36), ('6.0', 21), ('5.0', 19), ('0.0', 12), ('15.0', 8), ('1.0', 8), ('10.0', 3), ('8.0', 1)]
+
+PursuitTime  (present in 356)
+   [('10000', 330), ('4000', 9), ('12000', 5), ('5000', 4), ('30000', 3), ('60000', 2), ('15000', 1), ('0', 1), ('6000000', 1)]
+
+RandomAngerChance  (present in 356)
+   [('0', 265), ('10', 76), ('50', 5), ('20', 3), ('30', 2), ('15', 2), ('75', 2), ('100', 1)]
+
+RandomAngerEvaluationTime  (present in 356)
+   [('0', 216), ('3000', 124), ('2000', 7), ('5000', 6), ('10000', 2), ('2', 1)]
+
+RepositionChance  (present in 356)
+   [('0', 190), ('100', 88), ('45', 62), ('50', 6), ('25', 4), ('65', 3), ('75', 3)]
+
+ResetOriginAfterFleeing  (present in 356)
+   [('False', 287), ('True', 69)]
+
+RoamBehavior  (present in 356)
+   [('Roam', 261), ('NeverRoam', 95)]
+
+RoamDistance  (present in 356)
+   [('5.0', 130), ('4.0', 119), ('3.0', 39), ('0.0', 24), ('6.0', 13), ('7.0', 9), ('12.0', 5), ('8.0', 5), ('30.0', 5), ('3.5', 3)]
+
+SightAngerRate  (present in 356)
+   [('5.0', 194), ('4.0', 80), ('9.0', 26), ('6.0', 15), ('3.0', 13), ('0.0', 10), ('8.0', 10), ('2.0', 3), ('1.0', 2), ('15.0', 1)]
+
+TeleportToLeaderDistance  (present in 355)
+   [('40.0', 305), ('20.0', 10), ('23.0', 7), ('15.0', 6), ('60.0', 5), ('19.0', 4), ('18.0', 3), ('1000.0', 3), ('50.0', 2), ('200.0', 2)]
+
+ViewDistance  (present in 356)
+   [('15.0', 224), ('15.5', 31), ('18.0', 17), ('17.5', 11), ('16.0', 10), ('20.0', 9), ('19.5', 7), ('24.0', 7), ('200.0', 6), ('14.0', 5)]
+
+WanderDistance  (present in 354)
+   [('0.0', 247), ('5.0', 58), ('4.0', 14), ('7.0', 7), ('6.0', 6), ('3.0', 6), ('12.0', 5), ('30.0', 5), ('10.0', 5), ('8.0', 1)]
+
+dyingSkillCallbackPoint  (present in 1)
+   [('skillFX', 1)]
+
+enemyTooClose  (present in 354)
+   [('3.0', 131), ('0.0', 131), ('4.0', 38), ('5.0', 23), ('2.0', 21), ('8.0', 9), ('16.0', 1)]
+
+fleeDistance  (present in 355)
+   [('0.0', 109), ('8.0', 107), ('10.0', 55), ('5.0', 41), ('16.0', 11), ('6.0', 9), ('12.0', 9), ('4.0', 8), ('3.0', 3), ('20.0', 2)]
+
+healAllyHealthPercentage  (present in 356)
+   [('80', 163), ('70', 74), ('75', 71), ('20', 27), ('60', 15), ('0', 4), ('90', 2)]
+
+healLeaderHealthPercentage  (present in 356)
+   [('80', 158), ('75', 78), ('70', 66), ('20', 27), ('60', 8), ('85', 6), ('66', 4), ('0', 4), ('90', 3), ('65', 1)]
+
+ignorePetsChance  (present in 355)
+   [('0', 190), ('35', 132), ('30', 11), ('18', 9), ('70', 6), ('25', 3), ('20', 1), ('15', 1), ('50', 1), ('40', 1)]
+
+ignorePetsInterval  (present in 356)
+   [('7000', 309), ('5000', 44), ('12000', 2), ('6000', 1)]
+
+ignoreSleepingEnemies  (present in 188)
+   [('True', 188)]
+
+lootDropAttachPointName  (present in 1)
+   [('FX_Weapon', 1)]
+
+lootDropCallbackPoint  (present in 1)
+   [('LootDrop', 1)]
+
+maxFleeCount  (present in 354)
+   [('0', 201), ('2', 52), ('1', 41), ('3', 33), ('999', 23), ('12', 2), ('5', 1), ('500', 1)]
+
+maxSwingPause  (present in 344)
+   [('1.0', 45), ('0.6000000238418579', 44), ('1.2000000476837158', 41), ('0.800000011920929', 26), ('0.0', 22), ('0.699999988079071', 18), ('0.30000001192092896', 18), ('1.600000023841858', 17), ('0.5', 16), ('1.7999999523162842', 14)]
+
+minSwingPause  (present in 342)
+   [('0.5', 43), ('0.30000001192092896', 42), ('0.20000000298023224', 42), ('0.0', 36), ('0.4000000059604645', 28), ('1.0', 21), ('0.6499999761581421', 19), ('1.0499999523162842', 19), ('0.550000011920929', 14), ('0.800000011920929', 13)]
+
+pathingViewDistance  (present in 54)
+   [('18.0', 12), ('14.0', 10), ('50.0', 6), ('8.0', 5), ('20.0', 5), ('15.0', 4), ('25.0', 3), ('6.0', 3), ('12.0', 2), ('4.0', 2)]
+
+petAngerTransference  (present in 356)
+   [('17', 184), ('12', 75), ('30', 40), ('22', 19), ('24', 19), ('27', 10), ('15', 3), ('20', 2), ('10', 2), ('0', 1)]
+
+petTargetGreatestHealth  (present in 356)
+   [('False', 353), ('True', 3)]
+
+petTargetLeastAttacked  (present in 354)
+   [('False', 353), ('True', 1)]
+
+petTargetLevelRange  (present in 354)
+   [('1000', 354)]
+
+randomEmoteChance  (present in 325)
+   [('100', 203), ('0', 59), ('30', 37), ('50', 23), ('33', 2), ('40', 1)]
+
+randomEmoteMaxTime  (present in 354)
+   [('10000', 309), ('0', 35), ('12000', 10)]
+
+randomEmoteMinTime  (present in 354)
+   [('5000', 286), ('0', 35), ('6000', 23), ('9000', 10)]
+
+randomRepositionChance  (present in 356)
+   [('0', 252), ('20', 67), ('30', 14), ('5', 11), ('100', 10), ('25', 2)]
+
+templateName  (present in 356)
+   [('database/templates/controllermonster.tpl', 356)]

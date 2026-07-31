@@ -1,0 +1,208 @@
+Monster records: 3735   Controller records: 447
+Monster fields pointing at controller records: [('controller', 3729), ('controllerAggressive', 4), ('controllerDefensive', 4)]
+join key: controller
+
+monsterClassification counts: [('Hero', 1279), ('Champion', 1030), ('Common', 742), ('Quest', 518), ('Boss', 85), ('(none)', 51), ('SuperBoss', 29), ('Common;Champion;Hero;Boss;Quest;SuperBoss;', 1)]
+
+====================================================================================================
+CONTROLLER AI PARAMS by monsterClassification (joined via controller)
+====================================================================================================
+
+--- Hero  (n=1279) ---
+   AllyAttackedAnger                n= 1278 median=6.0        mode=[(4.0, 437), (6.0, 367), (8.0, 345)]
+   AngerTolerance                   n= 1278 median=1.0        mode=[(0.0, 447), (1.0, 422), (6.0, 111)]
+   AttackedAnger                    n= 1278 median=12.0       mode=[(12.0, 553), (16.0, 271), (15.0, 203)]
+   ChanceToRespondToDistressCall    n= 1278 median=75.0       mode=[(75, 513), (50, 417), (100, 162)]
+   ClearAngerWhenFleeing            n= 1278 median=0.0        mode=[(False, 1278)]
+   DistressResponseBehavior         n= 1278 [('RespondToSameGroup', 1082), ('RespondToSameRace', 196)]
+   ForgiveRate                      n= 1278 median=2.0        mode=[(2.0, 716), (1.0, 283), (0.0, 190)]
+   InnerSightAngerRate              n= 1278 median=10.0       mode=[(10.0, 649), (8.0, 534), (12.0, 54)]
+   InnerViewDistance                n= 1278 median=4.0        mode=[(4.0, 1246), (5.0, 30), (6.0, 2)]
+   MaxPursuitDistance               n= 1278 median=75.0       mode=[(75.0, 1228), (100.0, 20), (90.0, 13)]
+   MaxYViewDistance                 n= 1278 median=10.0       mode=[(10.0, 1275), (20.0, 2), (5.0, 1)]
+   ProjectileAnger                  n= 1278 median=3.0        mode=[(2.0, 511), (3.0, 282), (4.0, 230)]
+   PursuitTime                      n= 1278 median=10000.0    mode=[(10000, 1258), (12000, 13), (30000, 5)]
+   RandomAngerChance                n= 1278 median=0.0        mode=[(0, 959), (10, 319)]
+   ResetOriginAfterFleeing          n= 1278 median=0.0        mode=[(False, 1018), (True, 260)]
+   SightAngerRate                   n= 1278 median=5.0        mode=[(5.0, 578), (4.0, 413), (9.0, 145)]
+   ViewDistance                     n= 1278 median=15.0       mode=[(15.0, 1103), (15.5, 119), (40.0, 20)]
+   enemyTooClose                    n= 1278 median=0.0        mode=[(0.0, 677), (3.0, 367), (5.0, 172)]
+
+--- Champion  (n=1030) ---
+   AllyAttackedAnger                n= 1029 median=6.0        mode=[(6.0, 298), (8.0, 257), (4.0, 238)]
+   AngerTolerance                   n= 1029 median=1.0        mode=[(0.0, 360), (1.0, 346), (3.0, 113)]
+   AttackedAnger                    n= 1029 median=12.0       mode=[(12.0, 403), (15.0, 224), (16.0, 200)]
+   ChanceToRespondToDistressCall    n= 1029 median=75         mode=[(75, 332), (50, 200), (100, 199)]
+   ClearAngerWhenFleeing            n= 1029 median=0          mode=[(False, 1028), (True, 1)]
+   DistressResponseBehavior         n=  970 [('RespondToSameGroup', 815), ('RespondToSameRace', 154), ('RespondToAll', 1)]
+   ForgiveRate                      n= 1029 median=2.0        mode=[(2.0, 482), (1.0, 279), (0.0, 219)]
+   InnerSightAngerRate              n= 1029 median=10.0       mode=[(10.0, 573), (8.0, 336), (12.0, 47)]
+   InnerViewDistance                n= 1029 median=4.0        mode=[(4.0, 956), (8.0, 16), (5.0, 14)]
+   MaxPursuitDistance               n= 1029 median=75.0       mode=[(75.0, 908), (35.0, 23), (30.0, 22)]
+   MaxYViewDistance                 n= 1029 median=10.0       mode=[(10.0, 995), (15.0, 19), (0.0, 6)]
+   ProjectileAnger                  n= 1029 median=3.0        mode=[(2.0, 422), (3.0, 252), (4.0, 161)]
+   PursuitTime                      n= 1029 median=10000      mode=[(10000, 945), (30000, 47), (90000, 20)]
+   RandomAngerChance                n= 1029 median=0          mode=[(0, 824), (10, 202), (75, 2)]
+   ResetOriginAfterFleeing          n= 1029 median=0          mode=[(False, 827), (True, 202)]
+   SightAngerRate                   n= 1029 median=5.0        mode=[(5.0, 531), (4.0, 250), (3.0, 72)]
+   ViewDistance                     n= 1029 median=15.0       mode=[(15.0, 774), (15.5, 136), (18.0, 35)]
+   enemyTooClose                    n= 1029 median=0.0        mode=[(0.0, 533), (3.0, 275), (5.0, 129)]
+
+--- Common  (n=742) ---
+   AllyAttackedAnger                n=  742 median=6.0        mode=[(8.0, 236), (6.0, 205), (4.0, 118)]
+   AngerTolerance                   n=  741 median=1.0        mode=[(0.0, 255), (1.0, 181), (6.0, 97)]
+   AttackedAnger                    n=  742 median=12.0       mode=[(12.0, 365), (0.0, 106), (8.0, 68)]
+   ChanceToRespondToDistressCall    n=  742 median=50.0       mode=[(75, 236), (0, 209), (50, 140)]
+   ClearAngerWhenFleeing            n=  742 median=0.0        mode=[(False, 729), (True, 13)]
+   DistressResponseBehavior         n=  575 [('RespondToSameGroup', 499), ('RespondToSameRace', 75), ('RespondToAll', 1)]
+   ForgiveRate                      n=  742 median=2.0        mode=[(2.0, 350), (1.0, 178), (0.0, 138)]
+   InnerSightAngerRate              n=  742 median=10.0       mode=[(10.0, 277), (8.0, 190), (12.0, 87)]
+   InnerViewDistance                n=  742 median=4.0        mode=[(4.0, 522), (2.0, 50), (6.0, 45)]
+   MaxPursuitDistance               n=  742 median=75.0       mode=[(75.0, 473), (23.0, 76), (10.0, 34)]
+   MaxYViewDistance                 n=  742 median=10.0       mode=[(10.0, 587), (12.0, 85), (9.0, 34)]
+   ProjectileAnger                  n=  742 median=2.0        mode=[(2.0, 280), (4.0, 94), (6.0, 92)]
+   PursuitTime                      n=  742 median=10000.0    mode=[(10000, 526), (30000, 117), (4000, 44)]
+   RandomAngerChance                n=  742 median=0.0        mode=[(0, 464), (10, 236), (20, 23)]
+   ResetOriginAfterFleeing          n=  742 median=0.0        mode=[(False, 668), (True, 74)]
+   SightAngerRate                   n=  742 median=5.0        mode=[(5.0, 300), (9.0, 107), (3.0, 81)]
+   ViewDistance                     n=  742 median=15.0       mode=[(15.0, 443), (15.5, 53), (18.0, 48)]
+   enemyTooClose                    n=  742 median=2.0        mode=[(0.0, 321), (3.0, 169), (5.0, 106)]
+
+--- Quest  (n=518) ---
+   AllyAttackedAnger                n=  518 median=5.0        mode=[(4.0, 194), (6.0, 136), (8.0, 92)]
+   AngerTolerance                   n=  518 median=0.0        mode=[(0.0, 333), (1.0, 111), (3.0, 36)]
+   AttackedAnger                    n=  518 median=15.0       mode=[(12.0, 189), (16.0, 185), (15.0, 85)]
+   ChanceToRespondToDistressCall    n=  518 median=50.0       mode=[(20, 225), (75, 130), (100, 85)]
+   ClearAngerWhenFleeing            n=  518 median=0.0        mode=[(False, 518)]
+   DistressResponseBehavior         n=  502 [('RespondToSameGroup', 443), ('RespondToSameRace', 55), ('RespondToAll', 4)]
+   ForgiveRate                      n=  518 median=1.0        mode=[(0.0, 192), (1.0, 170), (2.0, 134)]
+   InnerSightAngerRate              n=  517 median=10.0       mode=[(10.0, 280), (8.0, 199), (15.0, 10)]
+   InnerViewDistance                n=  518 median=4.0        mode=[(4.0, 415), (8.0, 47), (5.0, 28)]
+   MaxPursuitDistance               n=  518 median=75.0       mode=[(75.0, 379), (200.0, 51), (45.0, 18)]
+   MaxYViewDistance                 n=  518 median=10.0       mode=[(10.0, 425), (15.0, 63), (20.0, 22)]
+   ProjectileAnger                  n=  518 median=3.0        mode=[(3.0, 199), (2.0, 172), (4.0, 64)]
+   PursuitTime                      n=  518 median=10000.0    mode=[(10000, 491), (30000, 13), (60000, 10)]
+   RandomAngerChance                n=  518 median=0.0        mode=[(0, 426), (10, 83), (15, 4)]
+   ResetOriginAfterFleeing          n=  518 median=0.0        mode=[(False, 412), (True, 106)]
+   SightAngerRate                   n=  518 median=5.0        mode=[(5.0, 288), (4.0, 160), (6.0, 28)]
+   ViewDistance                     n=  518 median=15.0       mode=[(15.0, 275), (15.5, 58), (35.0, 43)]
+   enemyTooClose                    n=  499 median=2.0        mode=[(0.0, 217), (3.0, 197), (2.0, 55)]
+
+--- Boss  (n=85) ---
+   AllyAttackedAnger                n=   82 median=6.0        mode=[(6.0, 43), (4.0, 17), (5.0, 14)]
+   AngerTolerance                   n=   82 median=0.0        mode=[(0.0, 53), (1.0, 19), (3.0, 9)]
+   AttackedAnger                    n=   82 median=15.0       mode=[(15.0, 57), (16.0, 11), (12.0, 8)]
+   ChanceToRespondToDistressCall    n=   82 median=20.0       mode=[(20, 59), (100, 9), (75, 6)]
+   ClearAngerWhenFleeing            n=   82 median=0.0        mode=[(False, 82)]
+   DistressResponseBehavior         n=   81 [('RespondToSameGroup', 74), ('RespondToSameRace', 7)]
+   ForgiveRate                      n=   82 median=2.0        mode=[(2.0, 58), (1.0, 13), (0.0, 7)]
+   InnerSightAngerRate              n=   82 median=10.0       mode=[(10.0, 38), (12.0, 22), (8.0, 19)]
+   InnerViewDistance                n=   82 median=4.0        mode=[(4.0, 76), (6.0, 3), (15.0, 2)]
+   MaxPursuitDistance               n=   82 median=210.0      mode=[(210.0, 70), (75.0, 9), (35.0, 2)]
+   MaxYViewDistance                 n=   82 median=10.0       mode=[(10.0, 76), (16.0, 3), (25.0, 2)]
+   ProjectileAnger                  n=   82 median=3.0        mode=[(2.0, 40), (3.0, 24), (4.0, 11)]
+   PursuitTime                      n=   82 median=10000.0    mode=[(10000, 82)]
+   RandomAngerChance                n=   82 median=0.0        mode=[(0, 76), (10, 6)]
+   ResetOriginAfterFleeing          n=   82 median=0.0        mode=[(False, 69), (True, 13)]
+   SightAngerRate                   n=   82 median=5.0        mode=[(5.0, 65), (4.0, 16), (9.0, 1)]
+   ViewDistance                     n=   82 median=17.5       mode=[(15.0, 37), (17.5, 32), (200.0, 4)]
+   enemyTooClose                    n=   82 median=3.0        mode=[(0.0, 29), (3.0, 25), (4.0, 21)]
+
+--- (none)  (n=51) ---
+   AllyAttackedAnger                n=   51 median=6.0        mode=[(6.0, 32), (4.0, 18), (8.0, 1)]
+   AngerTolerance                   n=   51 median=1.0        mode=[(1.0, 32), (0.0, 19)]
+   AttackedAnger                    n=   51 median=15.0       mode=[(15.0, 50), (12.0, 1)]
+   ChanceToRespondToDistressCall    n=   51 median=100        mode=[(100, 32), (0, 18), (20, 1)]
+   ClearAngerWhenFleeing            n=   51 median=0          mode=[(False, 51)]
+   DistressResponseBehavior         n=   33 [('RespondToSameGroup', 33)]
+   ForgiveRate                      n=   51 median=1.0        mode=[(1.0, 33), (0.0, 18)]
+   InnerSightAngerRate              n=   51 median=10.0       mode=[(10.0, 51)]
+   InnerViewDistance                n=   51 median=6.0        mode=[(6.0, 21), (8.0, 18), (4.0, 12)]
+   MaxPursuitDistance               n=   51 median=18.0       mode=[(18.0, 21), (25.0, 18), (7.0, 11)]
+   MaxYViewDistance                 n=   51 median=0.0        mode=[(0.0, 32), (12.0, 18), (10.0, 1)]
+   ProjectileAnger                  n=   51 median=2.0        mode=[(2.0, 51)]
+   PursuitTime                      n=   51 median=5000       mode=[(5000, 32), (30000, 18), (10000, 1)]
+   RandomAngerChance                n=   51 median=0          mode=[(0, 51)]
+   ResetOriginAfterFleeing          n=   51 median=1          mode=[(True, 33), (False, 18)]
+   SightAngerRate                   n=   51 median=4.0        mode=[(4.0, 32), (3.0, 18), (5.0, 1)]
+   ViewDistance                     n=   51 median=20.0       mode=[(20.0, 21), (24.0, 18), (18.0, 11)]
+   enemyTooClose                    n=   51 median=2.0        mode=[(2.0, 32), (0.0, 18), (3.0, 1)]
+
+--- SuperBoss  (n=29) ---
+   AllyAttackedAnger                n=   29 median=8.0        mode=[(8.0, 22), (4.0, 7)]
+   AngerTolerance                   n=   29 median=0.0        mode=[(0.0, 29)]
+   AttackedAnger                    n=   29 median=12.0       mode=[(12.0, 22), (16.0, 7)]
+   ChanceToRespondToDistressCall    n=   29 median=0          mode=[(0, 22), (20, 7)]
+   ClearAngerWhenFleeing            n=   29 median=0          mode=[(False, 29)]
+   DistressResponseBehavior         n=   14 [('RespondToSameGroup', 14)]
+   ForgiveRate                      n=   29 median=2.0        mode=[(2.0, 15), (1.0, 7), (0.0, 7)]
+   InnerSightAngerRate              n=   29 median=15.0       mode=[(15.0, 15), (10.0, 7), (8.0, 7)]
+   InnerViewDistance                n=   29 median=5.0        mode=[(5.0, 15), (4.0, 11), (8.0, 3)]
+   MaxPursuitDistance               n=   29 median=200.0      mode=[(200.0, 13), (75.0, 10), (600.0, 6)]
+   MaxYViewDistance                 n=   29 median=10.0       mode=[(10.0, 26), (15.0, 3)]
+   ProjectileAnger                  n=   29 median=2.0        mode=[(2.0, 22), (3.0, 7)]
+   PursuitTime                      n=   29 median=10000      mode=[(10000, 23), (60000, 6)]
+   RandomAngerChance                n=   29 median=0          mode=[(0, 29)]
+   ResetOriginAfterFleeing          n=   29 median=1          mode=[(True, 22), (False, 7)]
+   SightAngerRate                   n=   29 median=5.0        mode=[(5.0, 22), (4.0, 7)]
+   ViewDistance                     n=   29 median=15.5       mode=[(15.5, 16), (30.0, 6), (200.0, 4)]
+   enemyTooClose                    n=   29 median=3.0        mode=[(3.0, 22), (0.0, 4), (2.0, 3)]
+
+====================================================================================================
+MONSTER-SIDE distressCall PARAMS by monsterClassification
+====================================================================================================
+
+--- Hero  (n=1279) ---
+   distressCall                     n= 1279 median=1          mode=[(True, 1273), (False, 6)]
+   distressCallGroup                n= 1265 [('Aetherial', 242), ('Beast', 215), ('Chthonic', 187), ('Undead', 179)]
+   distressCallRange                n= 1279 median=15.0       mode=[(15.0, 867), (18.0, 326), (20.0, 36)]
+   distressCallTime                 n= 1279 median=500        mode=[(500, 845), (2000, 341), (5000, 69)]
+   maxDistressCalls                 n= 1279 median=2          mode=[(2, 803), (1, 410), (4, 39)]
+
+--- Champion  (n=1030) ---
+   distressCall                     n= 1030 median=1.0        mode=[(True, 1018), (False, 12)]
+   distressCallGroup                n=  959 [('Beast', 173), ('Aetherial', 132), ('Eldritch', 122), ('Chthonic', 121)]
+   distressCallRange                n= 1030 median=18.0       mode=[(18.0, 751), (16.0, 103), (17.0, 91)]
+   distressCallTime                 n= 1030 median=2000.0     mode=[(2000, 856), (5000, 143), (500, 25)]
+   maxDistressCalls                 n= 1030 median=1.0        mode=[(1, 885), (4, 101), (2, 39)]
+
+--- Common  (n=742) ---
+   distressCall                     n=  742 median=1.0        mode=[(True, 673), (False, 69)]
+   distressCallGroup                n=  567 [('Beast', 140), ('Aetherial', 75), ('Undead', 58), ('Eldritch', 55)]
+   distressCallRange                n=  739 median=18.0       mode=[(18.0, 391), (16.0, 184), (17.0, 86)]
+   distressCallTime                 n=  742 median=2000.0     mode=[(2000, 572), (5000, 156), (500, 9)]
+   maxDistressCalls                 n=  742 median=1.0        mode=[(1, 624), (4, 94), (2, 19)]
+
+--- Quest  (n=518) ---
+   distressCall                     n=  518 median=1.0        mode=[(True, 507), (False, 11)]
+   distressCallGroup                n=  456 [('Chthonic', 99), ('Beast', 82), ('Aetherial', 70), ('Eldritch', 70)]
+   distressCallRange                n=  513 median=18.0       mode=[(15.0, 135), (18.0, 129), (20.0, 109)]
+   distressCallTime                 n=  517 median=3000       mode=[(5000, 233), (2000, 135), (500, 123)]
+   maxDistressCalls                 n=  517 median=2          mode=[(1, 194), (2, 184), (4, 123)]
+
+--- Boss  (n=85) ---
+   distressCall                     n=   85 median=1          mode=[(True, 85)]
+   distressCallGroup                n=   82 [('Yeti', 21), ('Undead', 15), ('Chthonic', 10), ('Aetherial', 9)]
+   distressCallRange                n=   85 median=18.0       mode=[(18.0, 38), (15.0, 31), (17.0, 11)]
+   distressCallTime                 n=   85 median=2000       mode=[(2000, 38), (500, 28), (5000, 17)]
+   maxDistressCalls                 n=   85 median=2          mode=[(1, 39), (2, 33), (4, 11)]
+
+--- (none)  (n=51) ---
+   distressCall                     n=   51 median=1          mode=[(True, 51)]
+   distressCallGroup                n=   51 [('Survivor', 51)]
+   distressCallRange                n=   51 median=20.0       mode=[(20.0, 50), (17.0, 1)]
+   distressCallTime                 n=   51 median=4000       mode=[(4000, 50), (5000, 1)]
+   maxDistressCalls                 n=   51 median=20         mode=[(20, 50), (4, 1)]
+
+--- SuperBoss  (n=29) ---
+   distressCall                     n=   29 median=1          mode=[(True, 29)]
+   distressCallGroup                n=   29 [('Chthonic', 10), ('Undead', 9), ('Celestial', 4), ('Eldritch', 3)]
+   distressCallRange                n=   29 median=17.0       mode=[(15.0, 14), (17.0, 7), (18.0, 6)]
+   distressCallTime                 n=   29 median=2000       mode=[(500, 12), (5000, 7), (2000, 6)]
+   maxDistressCalls                 n=   29 median=2          mode=[(2, 9), (1, 9), (4, 7)]
+
+--- Common;Champion;Hero;Boss;Quest;SuperBoss;  (n=1) ---
+   distressCall                     n=    1 median=1          mode=[(True, 1)]
+   distressCallRange                n=    1 median=15.0       mode=[(15.0, 1)]
+   distressCallTime                 n=    1 median=5000       mode=[(5000, 1)]
+   maxDistressCalls                 n=    1 median=1          mode=[(1, 1)]
