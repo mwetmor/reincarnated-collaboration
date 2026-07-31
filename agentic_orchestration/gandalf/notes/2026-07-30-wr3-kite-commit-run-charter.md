@@ -1229,6 +1229,55 @@ against the frozen WR2 baseline immediately.
   - **(7) SEQUENCE:** both repos push now → **Gate-2 COMMISSIONED (jack-ryan)** on the
     consolidated packet + stage-2c + refit → owner-eye render (drax) → stage 2 CLOSES.
 
+- **R-WR3-38 (conductor, 2026-07-31) — GATE-2 VERDICT LANDED: PASS, 2 WARN, 0 BLOCK.
+  The owner-eye render is UNBLOCKED; stage-2 close is gated only on drax.**
+  Verdict doc: `agentic_orchestration/qa/findings/2026-07-31-gate2-wr3-kite-commit-consolidated.md`
+  (packet moved out of `pending/`). Trust-but-verify performed: findings read in full;
+  engine ratification commit `9c978b1e` inspected; jack-ryan's own independent-verification
+  table (Discipline #11) covers 13 checks including the 64-test re-run (0.21 s) and the
+  12-instance poisoned-key count on the banked artifact. Sub-items:
+  - **(1) Per-section:** §A PASS (all three corrections verified at primary source);
+    §B RATIFIED 6/6 in substance; §C PASS-with-carry; §E-10 disposition ISSUED;
+    §E-11 PARTIAL (WARN-1); §E-12 RATIFIED as §19.2.
+  - **(2) Nine candidates land as SIX objects — six numbers deliberately NOT minted**
+    (each on the #58-DECLINED precedent): **#63 unmeasured-is-not-zero** (items 5+9
+    MERGED — read-side and emit-side of one proposition; the founding file violates one
+    while implementing the other in the SAME function, which is why #63 ships pointing
+    at the AST-sweep + allow-list mechanism, not at documentation); **#64
+    referent-binding declaration** (item 4 GENERALIZED past charLevel — rank/magnitude/
+    grain forms, the run's own evidence outgrew the submission); **#65 full-sweep run
+    law** (promoted from R-WR3-31(8); explicitly does NOT inherit #2's scale exemption;
+    the refit sweep banked as compliant exemplar); **#66 discriminator survival**
+    (mode = CONFLATION, distinguished from P7-absence and R11(b)-contract); **§19.2**
+    (the conduct corollary as #19's agent-side half); **Pattern P8 state-object
+    degeneracy** (a recognition shape whose gate — #10 clean-arm duty cycle — already
+    exists and already caught all three occurrences).
+  - **(3) §E-10 disposition re-aimed at the ARTIFACT, and rightly:** the three options I
+    offered all acted on the cell; the durable quotable object is the JSON, which
+    carries 12 unannotated `worst_received_event_hp: 0.0` entries. Disposition: (a)
+    additive `_DEFECT_` top-level key (#53 seam-authority, verified no digest/schema
+    consumer); (b) tree-wide AST guard with a NAMED allow-list entry for s2c:88; (c)
+    strike at next re-run. gamora's refusal to edit the banked cell UPHELD.
+  - **(4) WARN-1 (gamora, next seam session):** the melee default-False debt is tracked
+    at the producing site BETTER than the packet claimed (docstring enumerates
+    WR1/WR2/G-5 consumers by name) but ABSENT from MIGRATION.md — the ADR-004 surface
+    reads "NOTHING MOVES" without its counterweight. One-paragraph remediation owed.
+  - **(5) CONDUCTOR CARRY (INFO-1) → the RDR design-lap charter:** §C's route target
+    was stale (stage-2c has landed; R-WR3-36 detached the band). The pre/post-mitigation
+    unit qualifier now rides the design-lap package alongside the band and the
+    split-default promotion. Also noted: packet numbering collision (§C item "8") and a
+    one-directory path slip — cosmetic, recorded for citation hygiene.
+  - **(6) The sweep is ATTESTED, not re-verified, and the verdict says so** —
+    corroborated provenance (two independent readers, identical name-diff) accepted as
+    the #65-compliant shape. The distinction being RECORDED is itself the discipline.
+  - **(7) Gate-2's own conduct note banked:** "55% froze" was block-buffered stdout, not
+    a hang — liveness is the process table, completion is the sentinel. Worth more than
+    the corollary itself; it would otherwise have entered the record as "55% is a
+    suspicious site."
+  - **(8) NEXT:** drax owner-eye render commissioned → on its acceptance, **stage 2
+    CLOSES**. Matt decision required by this verdict: NONE (both deferred rulings
+    already chartered to the RDR design lap per R-WR3-36/37).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
