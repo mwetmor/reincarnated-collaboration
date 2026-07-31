@@ -740,6 +740,48 @@ against the frozen WR2 baseline immediately.
   - **(9) GATE-2 ROUTING:** envelope U-5 closure + envelope §2 correction (the missed
     trash-tier offensive modifier) → jack-ryan on ratification.
 
+- **R-WR3-27 (F-2 flag-split micro-commission lands, 2026-07-30) — the switch exists, the
+  count is emitted, the binding class is a PATTERN — and stage-2b's F-2 attribution was an
+  UPPER BOUND.** Landing verified (engine `127ba505`, collab `26922ead`; 18 new tests; WR
+  suites 4,000/0; MIGRATION §1a/§3a/§6a; byte-identity proven over 30 fights **including 6
+  stage-2b-ARMED** — mech `6e20f784…` / trace `14b08bfa…` identical, sole delta the additive
+  keys).
+  - **(1) FLAG DESIGN RATIFIED:** `wr3_f2_inflight_v1` tri-state with load-bearing `None` =
+    inherit `wr3_stage2b_v1` — every pre-existing call site reproduces WITHOUT edits (a plain
+    bool would fail silently on one missed caller). 2×2 smoke-verified non-vacuous (72/72/0
+    steering with kit; 0/139/0 without). Default UNTOUCHED — the F-2 ruling stays Matt's.
+  - **(2) `prong_count` RATIFIED**, additive, v1 stays v1. Trap banked for the renderer:
+    the existing `n_realized` counter reads **1.000 at every radius against a launched 16** —
+    a renderer reaching for the wrong field draws ONE prong. Rides the schema handoff to drax.
+  - **(3) ⚑ ARM-B CONFOUND — R-WR3-25's headline AMENDED:** stage-2b's ablation built arm B by
+    disarming the ENGINE flag with packets still armed, which disarmed **F-2 and the icearmor
+    tick together**. So "kit-only 0.433" was *kit minus F-2 minus icearmor*, and **the +0.500
+    attributed to F-2 is an UPPER BOUND**. Gamora declined to present the 6-seed smoke as a
+    rate — correct. **AUTHORIZED (conductor scope — measurement serving the HELD Fork 3, not
+    calibration; HALT untouched):** 30-seed seed-matched re-run of the clean arms
+    (`_s2bv1_f2off`, `_f2on`), leech 0 + leech default, same seeds as stage-2b §5; PLUS the
+    R-WR3-26(5) cross-artifact reconciliation owed (the ~283.14 S2 kit ceiling that does not
+    reproduce vs legolas's 94.4; the ~107 prong that was the 100 %-band figure).
+  - **(4) §1.4 `--help` REPAIR RATIFIED as in-commission:** the deliverable IS a switch, and an
+    undiscoverable switch is not delivered; `%`→`%%`, pre-existence proven at `97d51798`, live
+    since WR2-B, now pinned by a test. Meta-finding banked: the harness had never once been
+    driven by its own help — pinned-flag scripts only.
+  - **(5) THE BINDING CLASS IS A PATTERN — five instances, two seams, three ours.** Gamora's
+    standing-check proposal ("any `charLevel`-keyed operand names its owning entity at the
+    composition site") ROUTED to jack-ryan as an engineering-discipline candidate. Instance 4
+    (gd_nova derives boss level 16, gd_boss_kit says 18; inert only via the UNDECLARED
+    rank-5 invariance over 16..19): repair AUTHORIZED to ride the (3) commission — declare the
+    invariance, unify on the named constant, byte-identity proof required. Instance 5
+    (`OppositionRow.char_level = 13` emitted as the boss's into every artifact): **HELD to
+    stage-2c** — artifact-visible, and R-WR3-24 deliberately kept it; gamora's §6.6 honesty
+    accepted (his stated justification was wrong; the banked-artifact argument survives).
+  - **(6) GATE SEMANTICS BANKED:** `G-F2` grades steering > 0 and reads FAIL on an `_f2off`
+    run BY DESIGN — label such runs so the FAIL is read as the mechanism working.
+  - **(7) HONESTY RATIFIED on the pre-registered digest:** `a0c6b5c8…` was not reproduced
+    (instrument unrecoverable); the substitute stash-and-rerun digest pair is the operative
+    proof and the math note says so rather than substituting quietly. Full `tests/` sweep was
+    in flight at commit — verdict OWED at next landing.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
