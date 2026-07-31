@@ -1,0 +1,483 @@
+==============================================================================================================
+A. AREA001 (Act 1) region proxies naming wightmire/burrwitch, and the pools they draw
+==============================================================================================================
+  beastsburrwitchoutskirts_n.dbr                       spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_beastsswamp_raptor_n.dbr
+        -> records/proxies/pools/p_beastsswamp_mosquito_t.dbr
+  beastsburrwitchoutskirts_t.dbr                       spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_beastsswamp_raptor_t.dbr
+        -> records/proxies/pools/p_thornedhorror_solo.dbr
+  humanoutlaw_wightmire_s1_n.dbr                       spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_humanoutlaw_wightmire_n.dbr
+  humanoutlaw_wightmire_s2_n.dbr                       spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_humanoutlaw_wightmire_n2.dbr
+  slith_highhero_always.dbr                            spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_beasts_slitha_xhighhero.dbr
+  slitha01_always.dbr                                  spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_beasts_slitha_n.dbr
+        -> records/proxies/pools/p_beasts_slitha_t.dbr
+  slitha02_always.dbr                                  spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_beasts_slitha_n.dbr
+        -> records/proxies/pools/p_beasts_slitha_t.dbr
+  slitha03_always.dbr                                  spawnMin=None spawnMax=None
+        -> records/proxies/pools/p_beasts_slitha_vt.dbr
+
+==============================================================================================================
+B. FULL DUMP - the Act-1 slith trash pools
+==============================================================================================================
+
+  records/proxies/pools/p_beasts_slitha_amb_s1_n.dbr   (83 fields)
+     spawnMin=4 spawnMax=10  championChance=15.0 championMin=1 championMax=2
+        common  w=50    limit=3     lv=lv2_normal.dbr         slitha_melee_a01.dbr
+        common  w=20    limit=1     lv=lv3_strong.dbr         slitha_shaman_b01.dbr
+        common  w=50    limit=3     lv=lv1_weak+.dbr          slitha_melee_a01.dbr
+        common  w=30    limit=3     lv=lv3_strong.dbr         slitha_melee_a01.dbr
+        common  w=10    limit=1     lv=lv3_strong.dbr         slitha_shaman_b02.dbr
+        CHAMP   w=400   limit=None  minPL=7     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=400   limit=None  minPL=8     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=200   limit=None  minPL=15    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=150   limit=2     minPL=30    lv=lv4_champion.dbr       slitha_shaman_b02.dbr
+        CHAMP   w=100   limit=1     minPL=35    lv=lv4_champion.dbr       slitha_shaman_c02.dbr
+        CHAMP   w=3     limit=1     minPL=22    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=3     limit=1     minPL=22    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=3     limit=1     minPL=22    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=3     limit=1     minPL=22    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=3     limit=1     minPL=22    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=3     limit=1     minPL=22    lv=lv6_hero.dbr           hero/slith_h06.dbr
+
+  records/proxies/pools/p_beasts_slitha_n.dbr   (69 fields)
+     spawnMin=2 spawnMax=7  championChance=18.0 championMin=1 championMax=2
+        common  w=40    limit=None  lv=lv2_normal.dbr         slitha_melee_a01.dbr
+        common  w=30    limit=3     lv=lv3_strong.dbr         slitha_melee_a01.dbr
+        common  w=50    limit=3     lv=lv1_weak+.dbr          slitha_melee_a01.dbr
+        common  w=50    limit=4     lv=lv2_normal+.dbr        slitha_melee_a01.dbr
+        common  w=10    limit=1     lv=lv3_strong.dbr         slitha_shaman_b02.dbr
+        CHAMP   w=45    limit=1     minPL=9     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=45    limit=2     minPL=None  lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=22    limit=1     minPL=13    lv=lv4_champion+.dbr      slitha_melee_c01.dbr
+        CHAMP   w=35    limit=1     minPL=13    lv=lv4_champion+.dbr      slitha_shaman_c01.dbr
+        CHAMP   w=300   limit=1     minPL=None  lv=lv2_normal+.dbr        slitha_melee_a01.dbr
+        CHAMP   w=25    limit=2     minPL=30    lv=lv4_champion.dbr       slitha_shaman_b02.dbr
+        CHAMP   w=15    limit=1     minPL=35    lv=lv4_champion+.dbr      slitha_shaman_c02.dbr
+        CHAMP   w=15    limit=1     minPL=35    lv=lv4_champion+.dbr      slitha_melee_c02.dbr
+
+  records/proxies/pools/p_beasts_slitha_t.dbr   (102 fields)
+     spawnMin=4 spawnMax=6  championChance=30.0 championMin=1 championMax=2
+        common  w=40    limit=None  lv=lv2_normal+.dbr        slitha_melee_a01.dbr
+        common  w=60    limit=None  lv=lv3_strong.dbr         slitha_melee_a01.dbr
+        common  w=50    limit=3     lv=lv2_normal.dbr         slitha_melee_a01.dbr
+        common  w=10    limit=1     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        common  w=15    limit=2     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        common  w=8     limit=2     lv=lv4_champion.dbr       slitha_shaman_b02.dbr
+        CHAMP   w=200   limit=1     minPL=8     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=200   limit=1     minPL=None  lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=130   limit=1     minPL=12    lv=lv4_champion.dbr       slitha_melee_c01.dbr
+        CHAMP   w=130   limit=1     minPL=11    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=6     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=6     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=6     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=6     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=6     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=350   limit=1     minPL=None  lv=lv2_normal+.dbr        slitha_melee_a01.dbr
+        CHAMP   w=6     limit=1     minPL=15    lv=lv6_hero.dbr           hero/slith_h06.dbr
+        CHAMP   w=100   limit=2     minPL=30    lv=lv4_champion.dbr       slitha_shaman_b02.dbr
+
+  records/proxies/pools/p_beasts_slitha_vt.dbr   (97 fields)
+     spawnMin=6 spawnMax=8  championChance=33.0 championMin=2 championMax=3
+        common  w=50    limit=None  lv=lv2_normal+.dbr        slitha_melee_a01.dbr
+        common  w=60    limit=None  lv=lv3_strong.dbr         slitha_melee_a01.dbr
+        common  w=50    limit=3     lv=lv2_normal.dbr         slitha_melee_a01.dbr
+        common  w=10    limit=1     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        common  w=15    limit=2     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        common  w=8     limit=2     lv=lv4_champion.dbr       slitha_shaman_b02.dbr
+        CHAMP   w=300   limit=1     minPL=8     lv=lv4_champion+.dbr      slitha_melee_b01.dbr
+        CHAMP   w=300   limit=1     minPL=None  lv=lv4_champion+.dbr      slitha_shaman_b01.dbr
+        CHAMP   w=180   limit=1     minPL=10    lv=lv5_elitechampion.dbr  slitha_melee_c01.dbr
+        CHAMP   w=180   limit=1     minPL=11    lv=lv5_elitechampion.dbr  slitha_shaman_c01.dbr
+        CHAMP   w=10    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=10    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=10    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=10    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=10    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=10    limit=1     minPL=15    lv=lv6_hero.dbr           hero/slith_h06.dbr
+        CHAMP   w=150   limit=2     minPL=30    lv=lv4_champion+.dbr      slitha_shaman_b02.dbr
+        CHAMP   w=90    limit=1     minPL=35    lv=lv5_elitechampion.dbr  slitha_shaman_c02.dbr
+
+  records/proxies/pools/p_beasts_slitha_xhighhero.dbr   (94 fields)
+     spawnMin=6 spawnMax=8  championChance=15.0 championMin=2 championMax=2
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slitha_melee_a01.dbr
+        common  w=40    limit=None  lv=lv3_strong.dbr         slitha_melee_a01.dbr
+        common  w=30    limit=1     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        common  w=30    limit=2     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        common  w=15    limit=2     lv=lv4_champion.dbr       slitha_shaman_b02.dbr
+        CHAMP   w=300   limit=1     minPL=8     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=300   limit=1     minPL=1     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=200   limit=1     minPL=12    lv=lv4_champion.dbr       slitha_melee_c01.dbr
+        CHAMP   w=200   limit=1     minPL=16    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=60    limit=1     minPL=25    lv=lv6_hero.dbr           hero/slith_h06.dbr
+        CHAMP   w=150   limit=2     minPL=30    lv=lv4_champion+.dbr      slitha_shaman_b02.dbr
+        CHAMP   w=100   limit=1     minPL=35    lv=lv5_elitechampion.dbr  slitha_shaman_c02.dbr
+
+  records/proxies/pools/p_beasts_slithb_n.dbr   (33 fields)
+     spawnMin=2 spawnMax=6  championChance=30.0 championMin=1 championMax=1
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slithb_melee_a01.dbr
+        common  w=30    limit=None  lv=lv4_champion.dbr       slithb_melee_a01.dbr
+        CHAMP   w=45    limit=1     minPL=8     lv=lv4_champion.dbr       slithb_melee_b01.dbr
+        CHAMP   w=45    limit=1     minPL=1     lv=lv4_champion.dbr       slithb_shaman_b01.dbr
+        CHAMP   w=22    limit=1     minPL=12    lv=lv4_champion+.dbr      slithb_melee_c01.dbr
+        CHAMP   w=22    limit=1     minPL=16    lv=lv4_champion+.dbr      slithb_shaman_c01.dbr
+
+  records/proxies/pools/p_beasts_slithb_t.dbr   (67 fields)
+     spawnMin=5 spawnMax=7  championChance=40.0 championMin=1 championMax=2
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slithb_melee_a01.dbr
+        common  w=30    limit=None  lv=lv4_champion.dbr       slithb_melee_a01.dbr
+        CHAMP   w=200   limit=1     minPL=8     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=200   limit=1     minPL=None  lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=130   limit=1     minPL=12    lv=lv4_champion.dbr       slitha_melee_c01.dbr
+        CHAMP   w=130   limit=1     minPL=16    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=350   limit=1     minPL=None  lv=lv2_normal+.dbr        slithb_melee_a01.dbr
+        CHAMP   w=5     limit=1     minPL=25    lv=lv6_hero.dbr           hero/slith_h06.dbr
+
+  records/proxies/pools/p_beasts_slithb_xhighhero.dbr   (63 fields)
+     spawnMin=6 spawnMax=7  championChance=15.0 championMin=2 championMax=2
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slithb_melee_a01.dbr
+        common  w=30    limit=None  lv=lv4_champion.dbr       slithb_melee_a01.dbr
+        CHAMP   w=300   limit=1     minPL=8     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=300   limit=1     minPL=1     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=200   limit=1     minPL=12    lv=lv4_champion.dbr       slitha_melee_c01.dbr
+        CHAMP   w=200   limit=1     minPL=16    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=60    limit=1     minPL=25    lv=lv6_hero.dbr           hero/slith_h06.dbr
+
+  records/proxies/pools/p_beasts_slithc_n.dbr   (33 fields)
+     spawnMin=2 spawnMax=6  championChance=30.0 championMin=1 championMax=1
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slithc_melee_a01.dbr
+        common  w=30    limit=None  lv=lv4_champion.dbr       slithc_melee_a01.dbr
+        CHAMP   w=45    limit=1     minPL=8     lv=lv4_champion.dbr       slithc_melee_b01.dbr
+        CHAMP   w=45    limit=1     minPL=1     lv=lv4_champion.dbr       slithc_shaman_b01.dbr
+        CHAMP   w=22    limit=1     minPL=12    lv=lv4_champion+.dbr      slithc_melee_c01.dbr
+        CHAMP   w=22    limit=1     minPL=16    lv=lv4_champion+.dbr      slithc_shaman_c01.dbr
+
+  records/proxies/pools/p_beasts_slithc_t.dbr   (67 fields)
+     spawnMin=5 spawnMax=7  championChance=40.0 championMin=1 championMax=2
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slithc_melee_a01.dbr
+        common  w=30    limit=None  lv=lv4_champion.dbr       slithc_melee_a01.dbr
+        CHAMP   w=200   limit=1     minPL=8     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=200   limit=1     minPL=None  lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=130   limit=1     minPL=12    lv=lv4_champion.dbr       slitha_melee_c01.dbr
+        CHAMP   w=130   limit=1     minPL=16    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=5     limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=350   limit=1     minPL=None  lv=lv2_normal+.dbr        slithc_melee_a01.dbr
+        CHAMP   w=5     limit=1     minPL=25    lv=lv6_hero.dbr           hero/slith_h06.dbr
+
+  records/proxies/pools/p_beasts_slithc_xhighhero.dbr   (63 fields)
+     spawnMin=6 spawnMax=7  championChance=15.0 championMin=2 championMax=2
+        common  w=70    limit=None  lv=lv2_normal+.dbr        slithc_melee_a01.dbr
+        common  w=30    limit=None  lv=lv4_champion.dbr       slithc_melee_a01.dbr
+        CHAMP   w=300   limit=1     minPL=8     lv=lv4_champion.dbr       slitha_melee_b01.dbr
+        CHAMP   w=300   limit=1     minPL=1     lv=lv4_champion.dbr       slitha_shaman_b01.dbr
+        CHAMP   w=200   limit=1     minPL=12    lv=lv4_champion.dbr       slitha_melee_c01.dbr
+        CHAMP   w=200   limit=1     minPL=16    lv=lv4_champion.dbr       slitha_shaman_c01.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h01.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h02.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h03.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h04.dbr
+        CHAMP   w=60    limit=1     minPL=10    lv=lv6_hero.dbr           hero/slith_h05.dbr
+        CHAMP   w=60    limit=1     minPL=25    lv=lv6_hero.dbr           hero/slith_h06.dbr
+
+==============================================================================================================
+C. CENSUS - every proxy pool with championChance (whole base DB)
+==============================================================================================================
+  pools with championChance: 371
+  championChance: min 3.0  median 40.0  mean 46.78  max 100.0
+  championChance distribution: {3.0: 4, 5.0: 4, 8.0: 1, 10.0: 3, 15.0: 16, 18.0: 1, 20.0: 26, 25.0: 48, 28.0: 1, 30.0: 42, 33.0: 13, 35.0: 13, 40.0: 46, 45.0: 1, 50.0: 73, 60.0: 2, 65.0: 2, 70.0: 1, 75.0: 4, 80.0: 1, 100.0: 69}
+  championMax distribution   : {0: 2, 1: 107, 2: 179, 3: 76, 4: 5, 7: 1, 300: 1}
+  championMin distribution   : {0: 132, 1: 212, 2: 25, 3: 1, 5: 1}
+  spawnMax  distribution     : {1: 5, 2: 1, 3: 9, 4: 29, 5: 74, 6: 53, 7: 58, 8: 34, 9: 31, 10: 28, 11: 5, 12: 10, 14: 5, 15: 5, 16: 8, 18: 9, 19: 2, 20: 4, 999: 1}
+  spawnMin  distribution     : {1: 27, 2: 42, 3: 113, 4: 56, 5: 30, 6: 24, 7: 18, 8: 11, 9: 14, 10: 5, 11: 2, 12: 9, 13: 1, 14: 5, 15: 8, 16: 2, 18: 2, 19: 1, 999: 1}
+  hero share of champion-roster WEIGHT: n=369 mean 8.2%  median 3.1%
+
+==============================================================================================================
+D. ACT-1 subset  (pools referenced by area001 proxies)
+==============================================================================================================
+  area001 proxies reference 377 distinct pools; 254 of them carry championChance
+  championChance: min 3.0 median 33.0 mean 36.19 max 100.0
+  distribution: {3.0: 3, 5.0: 4, 10.0: 2, 15.0: 14, 18.0: 1, 20.0: 22, 25.0: 42, 28.0: 1, 30.0: 32, 33.0: 11, 35.0: 7, 40.0: 40, 45.0: 1, 50.0: 60, 60.0: 2, 65.0: 1, 70.0: 1, 75.0: 2, 80.0: 1, 100.0: 7}
+  championMax : {0: 2, 1: 53, 2: 137, 3: 60, 4: 1, 7: 1}
+  spawnMin/Max: {(1, 1): 3, (1, 2): 1, (1, 3): 3, (1, 4): 9, (1, 5): 2, (1, 6): 3, (1, 8): 3, (2, 3): 2, (2, 4): 14, (2, 5): 5, (2, 6): 5, (2, 7): 6, (2, 8): 3, (2, 9): 1, (3, 4): 4, (3, 5): 39, (3, 6): 17, (3, 7): 21, (3, 8): 5, (3, 9): 8, (3, 10): 6, (4, 4): 1, (4, 5): 15, (4, 6): 10, (4, 7): 6, (4, 8): 3, (4, 9): 3, (4, 10): 4, (5, 5): 1, (5, 6): 2, (5, 7): 6, (5, 8): 5, (5, 9): 2, (5, 10): 2, (5, 12): 1, (6, 6): 1, (6, 7): 1, (6, 8): 4, (6, 9): 6, (6, 10): 3, (6, 11): 1, (7, 9): 1, (7, 10): 5, (7, 14): 1, (8, 10): 1, (8, 12): 1, (8, 16): 1, (8, 18): 1, (9, 12): 1, (9, 14): 1, (12, 16): 1, (12, 20): 1, (15, 20): 1, (18, 20): 1}
+  hero weight share: mean 7.7% median 4.0%
+
+  per-pool rows:
+   pool                                                       cc% sMin sMax cMin cMax #ch #hero heroW%
+   pools/p_beasts_boar_halftrollsonly_n.dbr                    15    2    8    0    1   7     6    4.6
+   pools/p_beasts_boar_halftrollsonly_t.dbr                    20    4    7    0    2   7     6    7.2
+   pools/p_beasts_boar_n.dbr                                   15    2    9    0    2   7     6    5.1
+   pools/p_beasts_boar_t.dbr                                   25    4    7    0    2   7     6    4.6
+   pools/p_beasts_boarice_n.dbr                                25    3    7    0    1   9     8    6.6
+   pools/p_beasts_boarice_t.dbr                                25    4    6    1    2   9     8    6.0
+   pools/p_beasts_boarvulture_n.dbr                            20    3   10    0    2   8     6    5.1
+   pools/p_beasts_boarvulture_t.dbr                            25    4    8    1    3   8     6    5.2
+   pools/p_beasts_manticore_n.dbr                              15    2    4    0    2   8     6    6.7
+   pools/p_beasts_manticore_t.dbr                              30    2    4    1    3   8     6    8.3
+   pools/p_beasts_manticoreb_n.dbr                             15    2    4    0    2   8     6    6.7
+   pools/p_beasts_manticoreb_t.dbr                             30    2    4    1    3   8     6    8.3
+   pools/p_beasts_prawn_n.dbr                                  20    3    9    0    2   9     5    4.6
+   pools/p_beasts_prawn_t.dbr                                  50    5   10    1    3   9     5    3.8
+   pools/p_beasts_scavengersa_n.dbr                            30    3    9    1    2  12     9    4.9
+   pools/p_beasts_scavengersa_t.dbr                            33    4    9    2    4  12     9    4.8
+   pools/p_beasts_slitha_amb_s1_n.dbr                          15    4   10    1    2  11     6    1.4
+   pools/p_beasts_slitha_n.dbr                                 18    2    7    1    2   8     0    0.0
+   pools/p_beasts_slitha_t.dbr                                 30    4    6    1    2  12     6    3.1
+   pools/p_beasts_slitha_vt.dbr                                33    6    8    2    3  12     6    4.8
+   pools/p_beasts_slitha_xhighhero.dbr                         15    6    8    2    2  12     6   22.4
+   pools/p_beasts_vultures_n.dbr                               25    3   10    0    1   6     5    7.4
+   pools/p_beasts_vultures_t.dbr                               50    3    9    0    2   6     5    7.0
+   pools/p_beasts_wasp_n.dbr                                   40    3   10    0    1   8     6    2.9
+   pools/p_beasts_wasp_t.dbr                                   30    4    9    0    2   8     6    5.1
+   pools/p_beastshills_raptor_t.dbr                             3    3    6    1    2   5     5  100.0
+   pools/p_beastsswamp_highlvl_mosquito_n.dbr                  10    7    9    1    1   6     5   16.7
+   pools/p_beastsswamp_highlvl_mosquito_t.dbr                  25    6    9    1    3   6     5    6.5
+   pools/p_beastsswamp_highlvl_rifthound_t.dbr                  3    4    7    1    2   6     6  100.0
+   pools/p_beastsswamp_highlvl_troll_n.dbr                     30    1    4    1    1   2     0    0.0
+   pools/p_beastsswamp_highlvl_troll_t.dbr                     25    3    4    1    2   7     4    9.1
+   pools/p_beastsswamp_mosquito_n.dbr                          20    1    8    0    1   6     5   16.7
+   pools/p_beastsswamp_mosquito_t.dbr                          30    3    6    0    3   6     5    6.5
+   pools/p_beastsswamp_raptor_n.dbr                            25    4    6    1    2   4     0    0.0
+   pools/p_beastsswamp_raptor_t.dbr                             3    5    8    1    2   9     9  100.0
+   pools/p_beastsswamp_rifthound_t.dbr                          5    2    7    0    2   6     6  100.0
+   pools/p_cave_groble_n.dbr                                   50    5    7    1    2   3     2    2.9
+   pools/p_cave_groble_t.dbr                                   50    6    8    1    3   3     2    4.8
+   pools/p_cave_prawn_n.dbr                                    15    1    5    0    1   5     3   12.5
+   pools/p_cave_prawn_t.dbr                                    15    1    4    1    3   5     3   16.0
+   pools/p_cave_spidergiant_n.dbr                              20    1    8    0    1   4     3   11.7
+   pools/p_cave_spidergiant_t.dbr                              25    3    8    0    2   4     3   43.8
+   pools/p_cave_trollhalf+worms_n.dbr                          50    5    7    1    2   5     3    3.0
+   pools/p_cave_trollhalf+worms_t.dbr                          50    5    7    1    3   5     3    2.6
+   pools/p_cave_trollhalf_n.dbr                                50    5    9    1    2   5     3    3.5
+   pools/p_cave_trollhalf_t.dbr                                50    6    9    1    3   5     3    4.9
+   pools/p_chthonic_cultista_areac_n.dbr                       25    2    6    0    2  11     0    0.0
+   pools/p_chthonic_cultista_areac_t.dbr                       25    4    5    1    3  12     7    2.2
+   pools/p_chthonic_cultista_n.dbr                             25    2    5    0    2  10     6    1.8
+   pools/p_chthonic_cultista_t.dbr                             20    4    6    1    3  12     9    4.9
+   pools/p_chthonic_cultistb_areac_n.dbr                       25    1    6    0    2  11     0    0.0
+   pools/p_chthonic_cultistb_areac_t.dbr                       20    3    5    1    3  12     7    2.2
+   pools/p_chthonic_cultistb_n.dbr                             25    2    6    0    2  10     6    1.8
+   pools/p_chthonic_cultistb_t.dbr                             20    4    5    1    3  12     9    4.9
+   pools/p_chthonic_cultistc_n.dbr                             25    1    6    0    2  10     6    1.8
+   pools/p_chthonic_cultistc_t.dbr                             20    3    5    1    3  12     9    4.9
+   pools/p_chthonic_cultistd_n.dbr                             25    3    6    0    2  10     6    1.8
+   pools/p_chthonic_cultistd_t.dbr                             20    4    5    1    3  12     9    4.9
+   pools/p_chthonic_cultistonlya_areac_t.dbr                   30    4    5    1    2  11     6    4.0
+   pools/p_chthonic_cultistonlya_areac_tsm.dbr                 30    1    3    1    2  11     6    4.0
+   pools/p_chthonic_cultistonlya_t.dbr                         35    3    5    1    2  10     6    2.2
+   pools/p_chthonic_cultistonlyb_areac_t.dbr                   35    4    5    1    2  11     6    4.0
+   pools/p_chthonic_cultistonlyb_areac_tsm.dbr                 35    2    3    1    2  11     6    4.0
+   pools/p_chthonic_cultistonlyb_t.dbr                         35    3    5    1    2  10     6    2.2
+   pools/p_chthonic_cultistonlyc_t.dbr                         35    3    5    1    2  10     6    2.2
+   pools/p_chthonic_cultistonlyd_t.dbr                         35    3    5    1    2  10     6    2.2
+   pools/p_chthonic_devourer+fiends_n.dbr                      20    3    7    0    2  12     7    2.7
+   pools/p_chthonic_devourer+fiends_t.dbr                      30    3    7    1    2  12     7    3.4
+   pools/p_chthonic_devourer_n.dbr                             20    2    8    0    2  12    10    2.9
+   pools/p_chthonic_devourer_t.dbr                             25    3    7    1    3  12    10    6.5
+   pools/p_chthonic_dreadguards+leeches_n.dbr                  25    3    5    1    2  12     9    9.0
+   pools/p_chthonic_dreadguards+leeches_t.dbr                  40    3    6    1    2  12     9   12.3
+   pools/p_chthonic_dreadguards_n.dbr                          25    2    4    1    2  12     9    9.0
+   pools/p_chthonic_dreadguards_necropolis.dbr                 25    1    2    0    1   3     0    0.0
+   pools/p_chthonic_dreadguards_t.dbr                          40    3    5    1    2  12     9   10.7
+   pools/p_chthonic_fiends_amb_n.dbr                           25    3    7    0    2  12     9    3.8
+   pools/p_chthonic_fiends_amb_t.dbr                           30    3    7    1    2  12     9    5.0
+   pools/p_chthonic_fiends_n.dbr                               25    2    6    0    2  12     9    6.2
+   pools/p_chthonic_fiends_t.dbr                               30    3    6    1    2  12     9    6.2
+   pools/p_chthonic_leeches_n.dbr                              20    2    6    1    2  12     9    6.9
+   pools/p_chthonic_leeches_t.dbr                              40    3    5    1    2  12     9    9.3
+   pools/p_chthonic_obsidiandefiler+minion_n.dbr               25    2    5    1    2  12     9    6.9
+   pools/p_chthonic_obsidiandefiler+minion_t.dbr               40    3    6    1    2  12     9    9.3
+   pools/p_chthonic_obsidiandefiler_n.dbr                      25    3    5    1    2  12     9    6.9
+   pools/p_chthonic_obsidiandefiler_t.dbr                      40    3    4    1    2  12     9    9.3
+   pools/p_chthonic_obsidiandefiler_xhighhero.dbr              40    4    5    1    2  12     9   28.6
+   pools/p_chthonic_terrors_n.dbr                              20    3    6    0    2  12     7    2.7
+   pools/p_chthonic_terrors_t.dbr                              30    3    7    1    2  12     7    3.4
+   pools/p_corruption_aetherobelisk_n.dbr                     100    3    5    1    1   2     0    0.0
+   pools/p_corruption_aetherobelisk_t.dbr                     100    3    5    1    1   2     0    0.0
+   pools/p_corruption_fleshhulk_n.dbr                          25    3    5    0    1  12     9    7.1
+   pools/p_corruption_fleshhulk_t.dbr                          40    3    5    1    1  12     9   10.1
+   pools/p_corruption_fleshhulkamb_n.dbr                       25    4    6    0    1  12     9    7.1
+   pools/p_corruption_manticoreaether_n.dbr                    15    2    4    0    2   2     0    0.0
+   pools/p_corruption_manticoreaether_t.dbr                    30    2    4    1    3   2     0    0.0
+   pools/p_corruption_portvalbury_burning_n.dbr                50    4    5    0    2  12     6    2.9
+   pools/p_corruption_portvalbury_burning_t.dbr                50    4    5    1    2  12     6    4.0
+   pools/p_corruption_portvalbury_fleshhulk_n.dbr              65    4    4    0    1  12     9    2.6
+   pools/p_corruption_portvalbury_fleshhulk_t.dbr              80    4    5    1    1  12     9    5.1
+   pools/p_corruption_portvalbury_mutants_n.dbr                25    6    6    0    1  12     8    6.7
+   pools/p_corruption_portvalbury_mutants_t.dbr                50    6    7    0    2  12     8    6.7
+   pools/p_corruption_portvalbury_trollranged_n.dbr            50    4    5    0    2  12     6    2.9
+   pools/p_corruption_portvalbury_trollranged_t.dbr            50    5    5    1    2  12     6    4.0
+   pools/p_corruption_possessed_n.dbr                          40    3    6    0    1   8     5    3.7
+   pools/p_corruption_possessed_t.dbr                          50    3    5    0    2   8     5    4.0
+   pools/p_corruption_possessed_xhighhero.dbr                  30    4    5    1    3   7     5   25.9
+   pools/p_corruption_possessedact4_n.dbr                      40    3    6    0    1   8     5    3.7
+   pools/p_corruption_possessedact4_t.dbr                      50    3    5    0    2   8     5    4.0
+   pools/p_corruptions_horrorstrolls_t.dbr                     40    5    6    1    2  10     6    9.6
+   pools/p_corruptions_trollshorrors_n.dbr                     50    5    6    1    2  10     6    6.7
+   pools/p_corruptions_trollshorrors_t.dbr                     40    4    6    1    3  10     6    7.8
+   pools/p_dermapteran+worms_n.dbr                             15    4    8    0    2  12     9    7.6
+   pools/p_dermapteran+worms_t.dbr                             25    4    7    1    3  12     9    6.0
+   pools/p_dermapteran_n.dbr                                   25    4    9    0    2   9     5    7.4
+   pools/p_dermapteran_small.dbr                               40    3    6    0    2   9     5    7.4
+   pools/p_dermapteran_t.dbr                                   30    4    8    1    3   9     5    5.7
+   pools/p_dermapteran_xhighhero.dbr                           50    4    7    1    3   9     5   28.6
+   pools/p_faction_blacklegion_n.dbr                           50    3    5    0    2   4     0    0.0
+   pools/p_faction_blacklegion_n_melee.dbr                     50    4    5    0    2   6     0    0.0
+   pools/p_faction_blacklegion_n_ranged.dbr                    50    3    5    0    2   6     0    0.0
+   pools/p_faction_blacklegion_t.dbr                           50    4    6    1    3   8     0    0.0
+   pools/p_faction_kymonchosen_n.dbr                           50    3    5    0    2   3     0    0.0
+   pools/p_faction_kymonchosen_n_melee.dbr                     50    4    5    0    2   3     0    0.0
+   pools/p_faction_kymonchosen_n_ranged.dbr                    50    3    5    0    2   3     0    0.0
+   pools/p_faction_kymonchosen_t.dbr                           50    4    6    1    3   3     0    0.0
+   pools/p_faction_orderdeathsvigil_n.dbr                      50    3    5    0    2   4     0    0.0
+   pools/p_faction_orderdeathsvigil_n_melee.dbr                50    4    5    0    2   4     0    0.0
+   pools/p_faction_orderdeathsvigil_n_ranged.dbr               50    3    5    0    2   4     0    0.0
+   pools/p_faction_orderdeathsvigil_skeletons_n.dbr            50    3    9    1    2   3     0    0.0
+   pools/p_faction_orderdeathsvigil_skeletons_t.dbr            50    7   10    1    3   6     0    0.0
+   pools/p_faction_orderdeathsvigil_t.dbr                      50    4    6    1    3   4     0    0.0
+   pools/p_gazer_n.dbr                                         50    1    6    0    1   2     0    0.0
+   pools/p_gazer_t.dbr                                         28    2    7    0    2   8     6    3.7
+   pools/p_groblea_melee_n.dbr                                 30    3    9    0    1   2     0    0.0
+   pools/p_groblea_ranged_n.dbr                                30    2    7    0    1   2     0    0.0
+   pools/p_groblea_variable.dbr                                30    3    9    1    3  12     7    1.8
+   pools/p_grobleb_variable.dbr                                30    3    9    1    3  12     7    1.8
+   pools/p_groblec_variable.dbr                                40    4   10    1    3  12     7    1.8
+   pools/p_grobled_dranghoul_t.dbr                             50    4    6    0    2   3     0    0.0
+   pools/p_grobled_variable.dbr                                40    4   10    1    3  12     7    1.8
+   pools/p_groblee_variable.dbr                                40    3   10    1    3  12     7    1.8
+   pools/p_harpy_amb_n.dbr                                     50    7   10    0    2   3     0    0.0
+   pools/p_harpy_amb_t.dbr                                     60    8   12    2    3   3     0    0.0
+   pools/p_harpy_amb_xt.dbr                                    75   18   20    5    7   9     6   23.1
+   pools/p_harpy_n.dbr                                         45    3    8    1    2   9     6    2.0
+   pools/p_harpy_t.dbr                                         60    3    8    2    3   9     6    2.9
+   pools/p_harpy_xhighhero.dbr                                 70    5    8    2    3   9     6   23.1
+   pools/p_harvestman_n.dbr                                    20    1    3    0    1   5     4    9.1
+   pools/p_harvestman_t.dbr                                    30    1    5    0    1   5     4    9.1
+   pools/p_humanoutlaw_aether_n.dbr                            20    1    4    0    2  12    10    7.9
+   pools/p_humanoutlaw_aether_t.dbr                            40    3    5    1    2  12    10    5.2
+   pools/p_humanoutlaw_aether_xhighhero.dbr                    50    3    5    1    2  12    10   25.9
+   pools/p_humanoutlaw_convict_n.dbr                           30    1    4    0    1   5     0    0.0
+   pools/p_humanoutlaw_convict_n2.dbr                          30    2    6    0    2   5     0    0.0
+   pools/p_humanoutlaw_convict_t.dbr                           40    3    5    1    2  12     8    3.3
+   pools/p_humanoutlaw_convict_xhighhero.dbr                   40    3    6    1    2  12     8   22.0
+   pools/p_humanoutlaw_meleeaether_n.dbr                       40    2    5    0    2  12    10    7.4
+   pools/p_humanoutlaw_meleeaether_t.dbr                       40    3    6    1    2  12    10    5.2
+   pools/p_humanoutlaw_meleeconvict_n.dbr                      30    2    5    0    1   5     0    0.0
+   pools/p_humanoutlaw_meleeconvict_n2.dbr                     40    3    5    0    2   5     0    0.0
+   pools/p_humanoutlaw_meleeconvict_t.dbr                      40    3    6    1    2  12     8    3.8
+   pools/p_humanoutlaw_meleeconvict_xhighhero.dbr              40    3    6    1    2  12     8   25.8
+   pools/p_humanoutlaw_rangedaether_n.dbr                      30    1    4    0    2  12    10    7.4
+   pools/p_humanoutlaw_rangedaether_t.dbr                      40    2    4    1    2  12    10    5.2
+   pools/p_humanoutlaw_rangedaether_xhighhero.dbr              40    4    5    1    2  12    10   23.7
+   pools/p_humanoutlaw_rangedconvict_n.dbr                     30    1    4    0    1   5     0    0.0
+   pools/p_humanoutlaw_rangedconvict_n2.dbr                    30    2    4    0    2   5     0    0.0
+   pools/p_humanoutlaw_rangedconvict_t.dbr                     30    2    5    1    2  12     8    3.8
+   pools/p_humanoutlaw_rangedconvict_xhighhero.dbr             35    3    5    1    2  12     8   25.8
+   pools/p_humanoutlaw_wightmire_n.dbr                         40    3    4    1    2   3     0    0.0
+   pools/p_humanoutlaw_wightmire_n2.dbr                        33    3    5    1    2   3     0    0.0
+   pools/p_rockgolem_amb_n.dbr                                 40    1    3    0    1   8     6   20.1
+   pools/p_rockgolem_amb_solo.dbr                              40    1    1    0    1   8     6   20.1
+   pools/p_rockgolem_n.dbr                                     40    2    4    0    1   8     6   13.5
+   pools/p_rockgolem_t.dbr                                     40    2    4    0    2   8     6   10.7
+   pools/p_spidergiant_n.dbr                                   10    6    9    0    1   7     6   10.7
+   pools/p_spidergiant_t.dbr                                   15    5    8    0    1   7     6   20.9
+   pools/p_thornedhorror_n.dbr                                 20    2    8    0    1   8     6   11.2
+   pools/p_thornedhorror_solo.dbr                              20    1    1    1    1   8     6   18.6
+   pools/p_thornedhorror_t.dbr                                 30    2    7    1    2   8     6    8.3
+   pools/p_troll_n.dbr                                         30    1    4    0    1   2     0    0.0
+   pools/p_troll_solo.dbr                                       5    1    1    1    1   5     5  100.0
+   pools/p_troll_t.dbr                                         30    2    4    0    2   8     5   11.1
+   pools/p_trollhalf+boars_n.dbr                               50    3    7    0    2  12     9    3.3
+   pools/p_trollhalf+trolls_n.dbr                              50    3    7    0    2  11     4    2.7
+   pools/p_trollhalf+trolls_t.dbr                              50    3    7    0    3  12     6    2.9
+   pools/p_trollhalf_n.dbr                                     50    2    7    0    2   8     4    2.7
+   pools/p_trollhalf_t.dbr                                     50    3    7    0    3   8     4    3.8
+   pools/p_trollhalf_xhighhero.dbr                             50    3    5    1    3   8     4   20.6
+   pools/p_trollhalfswamp_n.dbr                                50    3    7    0    2   8     4    2.7
+   pools/p_trollhalfswamp_t.dbr                                50    3    7    1    3   8     4    3.8
+   pools/p_undead_ghosts+skeletons_n.dbr                       50    3   10    1    2  12     7    3.4
+   pools/p_undead_ghosts+skeletons_t.dbr                       50    6   10    2    3  12     6    3.8
+   pools/p_undead_ghosts_amb_n.dbr                             40    5   12    1    2   9     5    5.7
+   pools/p_undead_ghosts_amb_t.dbr                             40    7   14    1    3   9     5    7.0
+   pools/p_undead_ghosts_highhero.dbr                         100    6    9    2    3  10     6   23.1
+   pools/p_undead_ghosts_n.dbr                                 50    3    9    1    2  10     6    5.7
+   pools/p_undead_ghosts_t.dbr                                 40    5    9    1    3  10     6    6.7
+   pools/p_undead_ghouls_n.dbr                                 50    3    8    1    2   8     5    2.6
+   pools/p_undead_ghouls_t.dbr                                 50    6   10    1    3   8     5    4.8
+   pools/p_undead_skeletongolem_amb_n.dbr                      40    9   14    0    1   8     5    3.1
+   pools/p_undead_skeletongolem_n.dbr                          40    6   11    0    1   8     5    3.1
+   pools/p_undead_skeletongolem_t.dbr                         100    9   12    0    2   8     5    4.3
+   pools/p_undead_skeletons_amb_n.dbr                          50    8   16    1    2  10     5    3.2
+   pools/p_undead_skeletons_amb_t.dbr                          50   12   20    1    3  12     6    5.1
+   pools/p_undead_skeletons_amb_xhighhero.dbr                 100    8   18    1    3  12     6   19.4
+   pools/p_undead_skeletons_n.dbr                              50    3   10    1    2  10     5    3.2
+   pools/p_undead_skeletons_n_ranged.dbr                       50    5   10    1    2  10     5    3.2
+   pools/p_undead_skeletons_t.dbr                              50    7   10    1    3  12     6    6.7
+   pools/p_undead_skeletons_xhighhero.dbr                     100    6    9    1    3  12     6   19.4
+   pools/p_witchgod_bonerat_n.dbr                              25    3    5    0    1   7     6    6.7
+   pools/p_witchgod_bonerat_t.dbr                              25    3    5    1    2   7     6    6.7
+   pools/p_witchgod_bysmiel_t.dbr                              33    3    5    1    2   3     0    0.0
+   pools/p_witchgod_dreeg_t.dbr                                33    3    5    1    2   2     0    0.0
+   pools/p_witchgod_hellhound_n.dbr                            25    3    5    0    1   1     0    0.0
+   pools/p_witchgod_hellhound_t.dbr                            25    7   10    1    2   1     0    0.0
+   pools/p_witchgod_prawn_n.dbr                                25    4    7    0    1   6     5    5.7
+   pools/p_witchgod_prawn_t.dbr                                33    6    9    1    2   6     5    3.8
+   pools/p_witchgod_raptor_n.dbr                               25    3    5    0    1   7     6    6.7
+   pools/p_witchgod_raptor_t.dbr                               33    5    8    1    3   7     6    4.6
+   pools/p_witchgod_rifthound_n.dbr                            25    5    7    0    1   7     6    6.7
+   pools/p_witchgod_rifthound_t.dbr                            25    7   10    1    2   7     6    8.3
+   pools/p_witchgod_solael_t.dbr                               33    3    5    1    2   2     0    0.0
+   pools/p_witchgod_spider_n.dbr                               25    5    8    0    1   8     6    6.7
+   pools/p_witchgod_spider_t.dbr                               33    8   10    2    3   8     6    4.6
+   pools/p_witchgod_trio_t.dbr                                 33    2    4    0    1   6     0    0.0
+   pools/p_worms_n.dbr                                         25    1    4    1    1   6     5    7.4
+   pools/p_worms_t.dbr                                         50    3    6    1    2   6     5    5.7
+   pools/p_wormsdeepdweller_t_amb.dbr                          20    1    4    0    1   6     5    5.7
+   pools/p_yeti_n.dbr                                          40    2    3    0    1   7     4    3.4
+   pools/p_yeti_t.dbr                                          30    2    4    1    2   7     4    4.2
+   pools/p_zombie_amb_s1_e.dbr                                  5    3    4    0    0   3     0    0.0
+   pools/p_zombie_amb_s1_n.dbr                                 15    6    8    1    2   2     0    0.0
+   pools/p_zombie_amb_s1_t.dbr                                 25    6   10    1    3   7     5    2.4
+   pools/p_zombie_amb_s2_e.dbr                                  5    3    5    0    0   3     0    0.0
+   pools/p_zombie_amb_s2_n.dbr                                 15   12   16    1    3   2     0    0.0
+   pools/p_zombie_amb_s2_t.dbr                                100   15   20    1    3   7     5    2.4
+   pools/p_zombie_n.dbr                                        25    1    8    0    2   7     0    0.0
+   pools/p_zombie_n_burning.dbr                                20    3    7    0    1   6     0    0.0
+   pools/p_zombie_n_hounds.dbr                                 20    3    7    0    1   6     4    3.8
+   pools/p_zombie_nl.dbr                                       75    4   10    0    2   7     0    0.0
+   pools/p_zombie_t.dbr                                        40    3    7    0    3  12     6    1.6
+   pools/p_zombie_t_2.dbr                                      33    3    7    1    3  12     6    1.8
+   pools/p_zombie_t_burning.dbr                                15    3    8    0    2   0     0    0.0
+   pools/p_zombie_t_corruptedtrolls.dbr                        50    3    5    0    2  12     6    2.8
+   pools/p_zombie_t_corruptedtrollsact4.dbr                    50    3    5    0    2  12     6    2.5
+   pools/p_zombie_t_hounds.dbr                                 20    3    7    0    1  11     9   13.3
+   pools/p_zombie_t_soldiers.dbr                               50    3    7    1    2  12     6    2.5
+   pools/p_zombiegazer_n.dbr                                   25    3    7    0    1  12     6    2.3
+   pools/p_zombiegazer_t.dbr                                   50    3    7    1    2  12     6    2.9
+   pools/p_zombiereanimator_highhero.dbr                       50    5    7    1    3  12     4   11.6
+   pools/p_zombiereanimator_t.dbr                              50    5    7    1    3  12     4    3.4
+   pools/p_zombiereanimator_t_act4corruptedtrolls.dbr          40    3    6    1    3  12     4    4.0
+   pools/p_zombiereanimator_t_corruptedtrolls.dbr              40    3    6    1    3  12     4    3.5

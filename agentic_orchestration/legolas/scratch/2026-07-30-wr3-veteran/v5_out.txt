@@ -1,0 +1,290 @@
+matching templates: ['attributepak.tpl', 'copy of proxypool.tpl', 'gameadjustment.tpl', 'gameengine.tpl', 'proxy.tpl', 'proxypool.tpl', 'proxypoolequation.tpl', 'setpiece.tpl', 'setpiecepart.tpl', 'setpiecepool.tpl', 'gameascendant.tpl']
+
+====================================================================================================
+attributepak.tpl
+====================================================================================================
+
+====================================================================================================
+copy of proxypool.tpl
+====================================================================================================
+  spawnMin                             type=int        class=variable   def=1      :: 
+  spawnMax                             type=int        class=variable   def=1      :: 
+  championMin                          type=int        class=variable   def=0      :: 
+  championMax                          type=int        class=variable   def=0      :: 
+  championChance                       type=real       class=variable   def=0      :: 
+  alwaysSpawn1                         type=bool       class=variable   def=       :: force spawn of object
+  alwaysSpawn2                         type=bool       class=variable   def=       :: 
+  alwaysSpawn3                         type=bool       class=variable   def=       :: 
+  alwaysSpawn4                         type=bool       class=variable   def=       :: 
+  alwaysSpawn5                         type=bool       class=variable   def=       :: 
+  alwaysSpawn6                         type=bool       class=variable   def=       :: 
+  alwaysSpawn7                         type=bool       class=variable   def=       :: 
+  alwaysSpawn8                         type=bool       class=variable   def=       :: 
+  alwaysSpawn9                         type=bool       class=variable   def=       :: 
+  alwaysSpawn10                        type=bool       class=variable   def=       :: 
+  alwaysSpawn11                        type=bool       class=variable   def=       :: 
+  alwaysSpawn12                        type=bool       class=variable   def=       :: 
+  alwaysSpawn13                        type=bool       class=variable   def=       :: 
+  alwaysSpawn14                        type=bool       class=variable   def=       :: 
+  alwaysSpawn15                        type=bool       class=variable   def=       :: 
+  nameChampion1                        type=file_dbr   class=variable   def=       :: spawn record
+  weightChampion1                      type=int        class=variable   def=       :: pooled weight of selection
+  levelVarianceEquationChampion1       type=file_dbr   class=variable   def=       :: available if difficulty exceeds value
+  limitChampion1                       type=int        class=variable   def=       :: number available to spawn
+  alwaysSpawnChampion1                 type=bool       class=variable   def=       :: force spawn of object
+  nameChampion2                        type=file_dbr   class=variable   def=       :: 
+  weightChampion2                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion2       type=file_dbr   class=variable   def=       :: 
+  limitChampion2                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion2                 type=bool       class=variable   def=       :: 
+  nameChampion3                        type=file_dbr   class=variable   def=       :: 
+  weightChampion3                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion3       type=file_dbr   class=variable   def=       :: 
+  limitChampion3                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion3                 type=bool       class=variable   def=       :: 
+  nameChampion4                        type=file_dbr   class=variable   def=       :: 
+  weightChampion4                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion4       type=file_dbr   class=variable   def=       :: 
+  limitChampion4                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion4                 type=bool       class=variable   def=       :: 
+  nameChampion5                        type=file_dbr   class=variable   def=       :: 
+  weightChampion5                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion5       type=file_dbr   class=variable   def=       :: 
+  limitChampion5                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion5                 type=bool       class=variable   def=       :: 
+  nameChampion6                        type=file_dbr   class=variable   def=       :: 
+  weightChampion6                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion6       type=file_dbr   class=variable   def=       :: 
+  limitChampion6                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion6                 type=bool       class=variable   def=       :: 
+  nameChampion7                        type=file_dbr   class=variable   def=       :: 
+  weightChampion7                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion7       type=file_dbr   class=variable   def=       :: 
+  limitChampion7                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion7                 type=bool       class=variable   def=       :: 
+  nameChampion8                        type=file_dbr   class=variable   def=       :: 
+  weightChampion8                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion8       type=file_dbr   class=variable   def=       :: 
+  limitChampion8                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion8                 type=bool       class=variable   def=       :: 
+  nameChampion9                        type=file_dbr   class=variable   def=       :: 
+  weightChampion9                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion9       type=file_dbr   class=variable   def=       :: 
+  limitChampion9                       type=int        class=variable   def=       :: 
+  alwaysSpawnChampion9                 type=bool       class=variable   def=       :: 
+  nameChampion10                       type=file_dbr   class=variable   def=       :: 
+  weightChampion10                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion10      type=file_dbr   class=variable   def=       :: 
+  limitChampion10                      type=int        class=variable   def=       :: 
+  alwaysSpawnChampion10                type=bool       class=variable   def=       :: 
+  nameChampion11                       type=file_dbr   class=variable   def=       :: 
+  weightChampion11                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion11      type=file_dbr   class=static     def=       :: 
+  limitChampion11                      type=int        class=variable   def=       :: 
+  alwaysSpawnChampion11                type=bool       class=variable   def=       :: 
+  nameChampion12                       type=file_dbr   class=variable   def=       :: 
+  weightChampion12                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion12      type=file_dbr   class=variable   def=       :: 
+  limitChampion12                      type=int        class=variable   def=       :: 
+  alwaysSpawnChampion12                type=bool       class=variable   def=       :: 
+  nameChampion13                       type=file_dbr   class=variable   def=       :: 
+  weightChampion13                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion13      type=file_dbr   class=variable   def=       :: 
+  limitChampion13                      type=int        class=variable   def=       :: 
+  alwaysSpawnChampion13                type=bool       class=variable   def=       :: 
+  nameChampion14                       type=file_dbr   class=variable   def=       :: 
+  weightChampion14                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion14      type=file_dbr   class=variable   def=       :: 
+  limitChampion14                      type=int        class=variable   def=       :: 
+  alwaysSpawnChampion14                type=bool       class=variable   def=       :: 
+  nameChampion15                       type=file_dbr   class=variable   def=       :: 
+  weightChampion15                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion15      type=file_dbr   class=variable   def=       :: 
+  limitChampion15                      type=int        class=variable   def=       :: 
+  alwaysSpawnChampion15                type=bool       class=variable   def=       :: 
+
+====================================================================================================
+gameadjustment.tpl
+====================================================================================================
+  spawnMinAdj                          type=int        class=array      def=       :: 
+  spawnMaxAdj                          type=int        class=array      def=       :: 
+  spawnChampionMinAdj                  type=int        class=array      def=       :: 
+  spawnChampionMaxAdj                  type=int        class=array      def=       :: 
+
+====================================================================================================
+gameengine.tpl
+====================================================================================================
+  experienceRecord                     type=file_dbr   class=variable   def=       :: 
+  championMonsterColor                 type=string     class=variable   def=       :: 
+  heroMonsterColor                     type=string     class=variable   def=       :: 
+  experienceGainStyle                  type=file_dbr   class=variable   def=       :: 
+  challengeAdjustment                  type=file_dbr   class=variable   def=       :: GameAdjustment for Normal
+
+====================================================================================================
+proxy.tpl
+====================================================================================================
+
+====================================================================================================
+proxypool.tpl
+====================================================================================================
+  spawnMin                             type=int        class=variable   def=1      :: 
+  spawnMax                             type=int        class=variable   def=1      :: 
+  championMin                          type=int        class=variable   def=0      :: 
+  championMax                          type=int        class=variable   def=0      :: 
+  championChance                       type=real       class=variable   def=0      :: 
+  alwaysSpawn1                         type=bool       class=variable   def=       :: force spawn of object
+  alwaysSpawn2                         type=bool       class=variable   def=       :: 
+  alwaysSpawn3                         type=bool       class=variable   def=       :: 
+  alwaysSpawn4                         type=bool       class=variable   def=       :: 
+  alwaysSpawn5                         type=bool       class=variable   def=       :: 
+  alwaysSpawn6                         type=bool       class=variable   def=       :: 
+  alwaysSpawn7                         type=bool       class=variable   def=       :: 
+  alwaysSpawn8                         type=bool       class=variable   def=       :: 
+  alwaysSpawn9                         type=bool       class=variable   def=       :: 
+  alwaysSpawn10                        type=bool       class=variable   def=       :: 
+  alwaysSpawn11                        type=bool       class=variable   def=       :: 
+  alwaysSpawn12                        type=bool       class=variable   def=       :: 
+  alwaysSpawn13                        type=bool       class=variable   def=       :: 
+  alwaysSpawn14                        type=bool       class=variable   def=       :: 
+  alwaysSpawn15                        type=bool       class=variable   def=       :: 
+  nameChampion1                        type=file_dbr   class=variable   def=       :: spawn record
+  weightChampion1                      type=int        class=variable   def=       :: pooled weight of selection
+  levelVarianceEquationChampion1       type=file_dbr   class=variable   def=       :: available if difficulty exceeds value
+  limitChampion1                       type=int        class=variable   def=       :: number available to spawn
+  minPlayerLevelChampion1              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion1              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion1                 type=bool       class=variable   def=       :: force spawn of object
+  nameChampion2                        type=file_dbr   class=variable   def=       :: 
+  weightChampion2                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion2       type=file_dbr   class=variable   def=       :: 
+  limitChampion2                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion2              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion2              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion2                 type=bool       class=variable   def=       :: 
+  nameChampion3                        type=file_dbr   class=variable   def=       :: 
+  weightChampion3                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion3       type=file_dbr   class=variable   def=       :: 
+  limitChampion3                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion3              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion3              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion3                 type=bool       class=variable   def=       :: 
+  nameChampion4                        type=file_dbr   class=variable   def=       :: 
+  weightChampion4                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion4       type=file_dbr   class=variable   def=       :: 
+  limitChampion4                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion4              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion4              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion4                 type=bool       class=variable   def=       :: 
+  nameChampion5                        type=file_dbr   class=variable   def=       :: 
+  weightChampion5                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion5       type=file_dbr   class=variable   def=       :: 
+  limitChampion5                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion5              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion5              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion5                 type=bool       class=variable   def=       :: 
+  nameChampion6                        type=file_dbr   class=variable   def=       :: 
+  weightChampion6                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion6       type=file_dbr   class=variable   def=       :: 
+  limitChampion6                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion6              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion6              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion6                 type=bool       class=variable   def=       :: 
+  nameChampion7                        type=file_dbr   class=variable   def=       :: 
+  weightChampion7                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion7       type=file_dbr   class=variable   def=       :: 
+  limitChampion7                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion7              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion7              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion7                 type=bool       class=variable   def=       :: 
+  nameChampion8                        type=file_dbr   class=variable   def=       :: 
+  weightChampion8                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion8       type=file_dbr   class=variable   def=       :: 
+  limitChampion8                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion8              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion8              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion8                 type=bool       class=variable   def=       :: 
+  nameChampion9                        type=file_dbr   class=variable   def=       :: 
+  weightChampion9                      type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion9       type=file_dbr   class=variable   def=       :: 
+  limitChampion9                       type=int        class=variable   def=       :: 
+  minPlayerLevelChampion9              type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion9              type=int        class=variable   def=       :: 
+  alwaysSpawnChampion9                 type=bool       class=variable   def=       :: 
+  nameChampion10                       type=file_dbr   class=variable   def=       :: 
+  weightChampion10                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion10      type=file_dbr   class=variable   def=       :: 
+  limitChampion10                      type=int        class=variable   def=       :: 
+  minPlayerLevelChampion10             type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion10             type=int        class=variable   def=       :: 
+  alwaysSpawnChampion10                type=bool       class=variable   def=       :: 
+  nameChampion11                       type=file_dbr   class=variable   def=       :: 
+  weightChampion11                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion11      type=file_dbr   class=variable   def=       :: 
+  limitChampion11                      type=int        class=variable   def=       :: 
+  minPlayerLevelChampion11             type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion11             type=int        class=variable   def=       :: 
+  alwaysSpawnChampion11                type=bool       class=variable   def=       :: 
+  nameChampion12                       type=file_dbr   class=variable   def=       :: 
+  weightChampion12                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion12      type=file_dbr   class=variable   def=       :: 
+  limitChampion12                      type=int        class=variable   def=       :: 
+  minPlayerLevelChampion12             type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion12             type=int        class=variable   def=       :: 
+  alwaysSpawnChampion12                type=bool       class=variable   def=       :: 
+  nameChampion13                       type=file_dbr   class=variable   def=       :: 
+  weightChampion13                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion13      type=file_dbr   class=variable   def=       :: 
+  limitChampion13                      type=int        class=variable   def=       :: 
+  minPlayerLevelChampion13             type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion13             type=int        class=variable   def=       :: 
+  alwaysSpawnChampion13                type=bool       class=variable   def=       :: 
+  nameChampion14                       type=file_dbr   class=variable   def=       :: 
+  weightChampion14                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion14      type=file_dbr   class=variable   def=       :: 
+  limitChampion14                      type=int        class=variable   def=       :: 
+  minPlayerLevelChampion14             type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion14             type=int        class=variable   def=       :: 
+  alwaysSpawnChampion14                type=bool       class=variable   def=       :: 
+  nameChampion15                       type=file_dbr   class=variable   def=       :: 
+  weightChampion15                     type=int        class=variable   def=       :: 
+  levelVarianceEquationChampion15      type=file_dbr   class=variable   def=       :: 
+  limitChampion15                      type=int        class=variable   def=       :: 
+  minPlayerLevelChampion15             type=int        class=variable   def=       :: 
+  maxPlayerLevelChampion15             type=int        class=variable   def=       :: 
+  alwaysSpawnChampion15                type=bool       class=variable   def=       :: 
+
+====================================================================================================
+proxypoolequation.tpl
+====================================================================================================
+  spawnMinEquation                     type=equation   class=variable   def=       :: poolValue is spawnMin
+  spawnMaxEquation                     type=equation   class=variable   def=       :: poolValue is spawnMax
+  championMinEquation                  type=equation   class=variable   def=       :: poolValue is championMin
+  championMaxEquation                  type=equation   class=variable   def=       :: poolValue is championmax
+
+====================================================================================================
+setpiece.tpl
+====================================================================================================
+
+====================================================================================================
+setpiecepart.tpl
+====================================================================================================
+
+====================================================================================================
+setpiecepool.tpl
+====================================================================================================
+
+====================================================================================================
+gameascendant.tpl
+====================================================================================================
+  ultimateChallangeAdjustment          type=file_dbr   class=variable   def=       :: GameAdjustment for Ultimate+
+  ultimateChallengeTroveChance         type=real       class=variable   def=       :: Chance treasure troves will roll super, only used in Ultimate+ mode
+  ultimateChallengeTotemChance         type=real       class=variable   def=       :: Chance monster totems will roll super, only used in Ultimate+ mode
+  ultimateChallengeSuperBossChance     type=real       class=variable   def=       :: Chance super boss will spawn, only used in Ultimate+ mode
+  ultimateChallengeSuperBossSpawn      type=file_dbr   class=array      def=       :: Super boss to spawn, only used in Ultimate+ mode
+  superBossSpawnSound                  type=file_dbr   class=variable   def=       :: Super boss spawn sound
+  itemAscensionHero                    type=file_dbr   class=variable   def=       :: 
+  ultimateChallengeItemAscensionHeroChance type=real       class=variable   def=       :: 
+  itemAscensionHeroEquation            type=equation   class=variable   def=       :: 
+  ultimateChallengeItemAscensionBossChance type=real       class=variable   def=       :: 
+  ultimateChallengeItemAscensionNemesisChance type=real       class=variable   def=       :: 
+  ultimateChallengeItemAscensionNemesisChance2 type=real       class=variable   def=       :: 

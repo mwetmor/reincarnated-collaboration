@@ -1,0 +1,477 @@
+====================================================================================================
+A. FULL DUMP of the Primordian's own proxy
+====================================================================================================
+records/proxies/boss&quest/boss&questpools/p_wightmire_slitha01.dbr  Class=None tpl=database/templates/proxypool.tpl  (22 fields)
+   alwaysSpawn1                                 True
+   alwaysSpawn2                                 True
+   alwaysSpawn3                                 True
+   levelVarianceEquation1                       records/proxies/lv6_hero.dbr
+   levelVarianceEquation2                       records/proxies/lv4_champion+.dbr
+   levelVarianceEquation3                       records/proxies/lv4_champion+.dbr
+   limit1                                       1
+   limit2                                       1
+   limit3                                       1
+   name1                                        records/creatures/enemies/boss&quest/slith_wightmirecave01.dbr
+   name2                                        records/creatures/enemies/slitha_melee_b01.dbr
+   name3                                        records/creatures/enemies/slitha_shaman_c01.dbr
+   proxyPoolEquation                            records/proxies/proxypoolequation_01.dbr
+   spawnMax                                     3
+   spawnMin                                     3
+   templateName                                 database/templates/proxypool.tpl
+   weight1                                      100
+   weight2                                      100
+   weight3                                      100
+
+====================================================================================================
+B. Wightmire / slith pools — every proxy pool naming a slith or wightmire
+====================================================================================================
+  records/proxies/area001/humanoutlaw_wightmire_s1_n.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/humanoutlaw_wightmire_s2_n.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_campslith_01a.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_campslith_02a.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_campslith_parta01.dbr
+      Class=SetPiecePart  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_campslithaltar_02a.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_campslithaltar_parta01.dbr
+      Class=SetPiecePart  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_random_wightmire01a.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_random_wightmire01a_e.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_random_wightmire01a_sm.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/set_random_wightmire01b.dbr
+      Class=SetPiecePool  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/setpiece_campslith_01a.dbr
+      Class=SetPiece  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/setpiece_campslith_02a.dbr
+      Class=SetPiece  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/setpiece_campslithaltar_02a.dbr
+      Class=SetPiece  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/setpiece_random_wightmirea01.dbr
+      Class=SetPiece  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/setpiece_random_wightmirea01_e.dbr
+      Class=SetPiece  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/setpieceproxies/setpiece_random_wightmirea01_sm.dbr
+      Class=SetPiece  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/slith_highhero_always.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/slitha01_always.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/slitha02_always.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/slitha03_always.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/area001/slitha_amb_s1_n.dbr
+      Class=ProxyAmbush  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/boss&quest/boss&questpools/p_slithlab_slitha01.dbr
+      Class=None  spawnMin=1 spawnMax=1 championChance=0.0 heroChance=None
+        w=100  records/creatures/enemies/boss&quest/slith_slithlab01.dbr
+  records/proxies/boss&quest/boss&questpools/p_wightmire_slitha01.dbr
+      Class=None  spawnMin=3 spawnMax=3 championChance=0.0 heroChance=None
+        w=100  records/creatures/enemies/boss&quest/slith_wightmirecave01.dbr
+        w=100  records/creatures/enemies/slitha_melee_b01.dbr
+        w=100  records/creatures/enemies/slitha_shaman_c01.dbr
+  records/proxies/boss&quest/boss&questpools/p_wightmireriftgate_wave1.dbr
+      Class=None  spawnMin=4 spawnMax=6 championChance=50.0 heroChance=None
+        w=50  records/creatures/enemies/zombie_a01.dbr
+        w=60  records/creatures/enemies/zombie_aetherfire01.dbr
+        w=50  records/creatures/enemies/zombie_soldiera01.dbr
+        w=50  records/creatures/enemies/zombie_soldierfirea01.dbr
+        w=35  records/creatures/enemies/zombiemutated_a01.dbr
+  records/proxies/boss&quest/boss&questpools/p_wightmireriftgate_wave2.dbr
+      Class=None  spawnMin=5 spawnMax=7 championChance=50.0 heroChance=None
+        w=50  records/creatures/enemies/zombie_a01.dbr
+        w=60  records/creatures/enemies/zombie_aetherfire01.dbr
+        w=50  records/creatures/enemies/zombie_soldiera01.dbr
+        w=50  records/creatures/enemies/zombie_soldierfirea01.dbr
+        w=35  records/creatures/enemies/zombiemutated_a01.dbr
+  records/proxies/boss&quest/boss&questpools/p_wightmireriftgate_wave3.dbr
+      Class=None  spawnMin=6 spawnMax=8 championChance=100.0 heroChance=None
+        w=50  records/creatures/enemies/zombie_a01.dbr
+        w=60  records/creatures/enemies/zombie_aetherfire01.dbr
+        w=50  records/creatures/enemies/zombie_soldiera01.dbr
+        w=50  records/creatures/enemies/zombie_soldierfirea01.dbr
+        w=35  records/creatures/enemies/zombiemutated_a01.dbr
+  records/proxies/boss&quest/proxy_slithlab_slitha01.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/boss&quest/proxy_wightmire_slitha01.dbr
+      Class=Proxy  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/boss&quest/proxy_wightmireriftgate_wave1.dbr
+      Class=ProxyAmbush  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/boss&quest/proxy_wightmireriftgate_wave2.dbr
+      Class=ProxyAmbush  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/boss&quest/proxy_wightmireriftgate_wave3.dbr
+      Class=ProxyAmbush  spawnMin=None spawnMax=None championChance=None heroChance=None
+  records/proxies/pools/p_beasts_slitha_amb_s1_n.dbr
+      Class=None  spawnMin=4 spawnMax=10 championChance=15.0 heroChance=None
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=20  records/creatures/enemies/slitha_shaman_b01.dbr
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=30  records/creatures/enemies/slitha_melee_a01.dbr
+        w=10  records/creatures/enemies/slitha_shaman_b02.dbr
+  records/proxies/pools/p_beasts_slitha_n.dbr
+      Class=None  spawnMin=2 spawnMax=7 championChance=18.0 heroChance=None
+        w=40  records/creatures/enemies/slitha_melee_a01.dbr
+        w=30  records/creatures/enemies/slitha_melee_a01.dbr
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=10  records/creatures/enemies/slitha_shaman_b02.dbr
+  records/proxies/pools/p_beasts_slitha_t.dbr
+      Class=None  spawnMin=4 spawnMax=6 championChance=30.0 heroChance=None
+        w=40  records/creatures/enemies/slitha_melee_a01.dbr
+        w=60  records/creatures/enemies/slitha_melee_a01.dbr
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=10  records/creatures/enemies/slitha_melee_b01.dbr
+        w=15  records/creatures/enemies/slitha_shaman_b01.dbr
+        w=8  records/creatures/enemies/slitha_shaman_b02.dbr
+  records/proxies/pools/p_beasts_slitha_vt.dbr
+      Class=None  spawnMin=6 spawnMax=8 championChance=33.0 heroChance=None
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=60  records/creatures/enemies/slitha_melee_a01.dbr
+        w=50  records/creatures/enemies/slitha_melee_a01.dbr
+        w=10  records/creatures/enemies/slitha_melee_b01.dbr
+        w=15  records/creatures/enemies/slitha_shaman_b01.dbr
+        w=8  records/creatures/enemies/slitha_shaman_b02.dbr
+  records/proxies/pools/p_beasts_slitha_xhighhero.dbr
+      Class=None  spawnMin=6 spawnMax=8 championChance=15.0 heroChance=None
+        w=70  records/creatures/enemies/slitha_melee_a01.dbr
+        w=40  records/creatures/enemies/slitha_melee_a01.dbr
+        w=30  records/creatures/enemies/slitha_melee_b01.dbr
+        w=30  records/creatures/enemies/slitha_shaman_b01.dbr
+        w=15  records/creatures/enemies/slitha_shaman_b02.dbr
+  records/proxies/pools/p_beasts_slithb_n.dbr
+      Class=None  spawnMin=2 spawnMax=6 championChance=30.0 heroChance=None
+        w=70  records/creatures/enemies/slithb_melee_a01.dbr
+        w=30  records/creatures/enemies/slithb_melee_a01.dbr
+  records/proxies/pools/p_beasts_slithb_t.dbr
+      Class=None  spawnMin=5 spawnMax=7 championChance=40.0 heroChance=None
+        w=70  records/creatures/enemies/slithb_melee_a01.dbr
+        w=30  records/creatures/enemies/slithb_melee_a01.dbr
+  records/proxies/pools/p_beasts_slithb_xhighhero.dbr
+      Class=None  spawnMin=6 spawnMax=7 championChance=15.0 heroChance=None
+        w=70  records/creatures/enemies/slithb_melee_a01.dbr
+        w=30  records/creatures/enemies/slithb_melee_a01.dbr
+  records/proxies/pools/p_beasts_slithc_n.dbr
+      Class=None  spawnMin=2 spawnMax=6 championChance=30.0 heroChance=None
+        w=70  records/creatures/enemies/slithc_melee_a01.dbr
+        w=30  records/creatures/enemies/slithc_melee_a01.dbr
+  records/proxies/pools/p_beasts_slithc_t.dbr
+      Class=None  spawnMin=5 spawnMax=7 championChance=40.0 heroChance=None
+        w=70  records/creatures/enemies/slithc_melee_a01.dbr
+        w=30  records/creatures/enemies/slithc_melee_a01.dbr
+  records/proxies/pools/p_beasts_slithc_xhighhero.dbr
+      Class=None  spawnMin=6 spawnMax=7 championChance=15.0 heroChance=None
+        w=70  records/creatures/enemies/slithc_melee_a01.dbr
+        w=30  records/creatures/enemies/slithc_melee_a01.dbr
+  records/proxies/pools/p_humanoutlaw_wightmire_n.dbr
+      Class=None  spawnMin=3 spawnMax=4 championChance=40.0 heroChance=None
+        w=40  records/creatures/enemies/humanoutlaw_wightmire_melee_a01.dbr
+        w=15  records/creatures/enemies/humanoutlaw_wightmire_ranged_a01.dbr
+        w=15  records/creatures/enemies/humanoutlaw_wightmire_melee_b01.dbr
+        w=15  records/creatures/enemies/humanoutlaw_wightmire_meleef_a01.dbr
+        w=5  records/creatures/enemies/humanoutlaw_wightmire_rangedf_a01.dbr
+  records/proxies/pools/p_humanoutlaw_wightmire_n2.dbr
+      Class=None  spawnMin=3 spawnMax=5 championChance=33.0 heroChance=None
+        w=40  records/creatures/enemies/humanoutlaw_wightmire_melee_a01.dbr
+        w=15  records/creatures/enemies/humanoutlaw_wightmire_ranged_a01.dbr
+        w=10  records/creatures/enemies/humanoutlaw_wightmire_melee_b02.dbr
+        w=15  records/creatures/enemies/humanoutlaw_wightmire_meleef_a01.dbr
+        w=5  records/creatures/enemies/humanoutlaw_wightmire_rangedf_a01.dbr
+        w=5  records/creatures/enemies/humanoutlaw_wightmire_melee_b03.dbr
+
+====================================================================================================
+C. FIELD SURFACE of the proxy-pool class (union over all pool records)
+====================================================================================================
+  classes: {'Proxy': 383, 'SetPiecePool': 120, 'None': 657, 'ProxyAmbush': 149, 'SetPiece': 106, 'SetPiecePart': 2}
+
+   templateName                             n= 1417   e.g. database/templates/proxy.tpl
+   Class                                    n=  760   e.g. Proxy
+   pool1                                    n=  632   e.g. records/proxies/pools/p_trollhalf_n.dbr
+   spawnMax                                 n=  614   e.g. 5
+   spawnMin                                 n=  614   e.g. 4
+   mesh                                     n=  611   e.g. creatures/enemies/troll/half-troll_01a.msh
+   baseTexture                              n=  609   e.g. creatures/enemies/proxytexture_yellow.tex
+   levelVarianceEquation1                   n=  573   e.g. records/proxies/lv2_normal+.dbr
+   scale                                    n=  553   e.g. 2.0
+   proxyPoolEquation                        n=  545   e.g. records/proxies/proxypoolequation_01.dbr
+   chanceToRun                              n=  532   e.g. 75.0
+   maxTransparency                          n=  532   e.g. 0.5
+   outlineThickness                         n=  532   e.g. 0.03500000014901161
+   physicsFriction                          n=  532   e.g. 1.0
+   physicsMass                              n=  532   e.g. 1.0
+   placementExtents                         n=  532   e.g. 10.0
+   shadowBias                               n=  532   e.g. 0.009999999776482582
+   levelVarianceEquation2                   n=  468   e.g. records/proxies/lv2_normal+.dbr
+   levelVarianceEquation3                   n=  401   e.g. records/proxies/lv2_normal+.dbr
+   levelVarianceEquationChampion1           n=  395   e.g. records/proxies/lv4_champion+.dbr
+   nameChampion1                            n=  395   e.g. records/creatures/enemies/humanchthonic_cultist_b01.dbr
+   weightChampion1                          n=  394   e.g. 150
+   levelVarianceEquationChampion2           n=  391   e.g. records/proxies/lv4_champion+.dbr
+   nameChampion2                            n=  391   e.g. records/creatures/enemies/humanchthonic_cultist_b02.dbr
+   weightChampion2                          n=  390   e.g. 200
+   championMax                              n=  374   e.g. 2
+   championChance                           n=  371   e.g. 30.0
+   weightChampion3                          n=  370   e.g. 400
+   levelVarianceEquationChampion3           n=  369   e.g. records/proxies/lv5_elitechampion.dbr
+   nameChampion3                            n=  369   e.g. records/creatures/enemies/humanchthonic_cultistf_b03.dbr
+   levelVarianceEquationChampion4           n=  345   e.g. records/proxies/lv5_elitechampion.dbr
+   nameChampion4                            n=  345   e.g. records/creatures/enemies/humanchthonic_cultistf_c01.dbr
+   levelVarianceEquation4                   n=  342   e.g. records/proxies/lv2_normal+.dbr
+   weightChampion4                          n=  339   e.g. 50
+   levelVarianceEquationChampion5           n=  327   e.g. records/proxies/lv5_elitechampion.dbr
+   nameChampion5                            n=  327   e.g. records/creatures/enemies/humanchthonic_cultist_c02.dbr
+   weightChampion5                          n=  318   e.g. 200
+   limitChampion4                           n=  315   e.g. 1
+   limit1                                   n=  311   e.g. 1
+   levelVarianceEquationChampion6           n=  308   e.g. records/proxies/lv5_elitechampion.dbr
+   nameChampion6                            n=  308   e.g. records/creatures/enemies/hero/humanchthonic_cultist_h01.dbr
+   limitChampion3                           n=  303   e.g. 1
+   limit2                                   n=  302   e.g. 1
+   weightChampion6                          n=  298   e.g. 7
+   limitChampion2                           n=  293   e.g. 2
+   levelVarianceEquationChampion7           n=  278   e.g. records/proxies/lv6_hero.dbr
+   nameChampion7                            n=  278   e.g. records/creatures/enemies/hero/humanchthonic_cultist_h02.dbr
+   limitChampion6                           n=  274   e.g. 1
+   weightChampion7                          n=  274   e.g. 7
+   limit3                                   n=  265   e.g. 2
+   levelVarianceEquationChampion8           n=  255   e.g. records/proxies/lv6_hero.dbr
+   nameChampion8                            n=  255   e.g. records/creatures/enemies/hero/humanchthonic_cultist_h03.dbr
+   minPlayerLevelChampion2                  n=  252   e.g. 12
+   weightChampion8                          n=  251   e.g. 7
+   limitChampion5                           n=  251   e.g. 1
+   limitChampion7                           n=  250   e.g. 1
+   limitChampion8                           n=  244   e.g. 1
+   championMin                              n=  240   e.g. 1
+   limit4                                   n=  234   e.g. 1
+   minPlayerLevelChampion4                  n=  233   e.g. 15
+   levelVarianceEquation5                   n=  227   e.g. records/proxies/lv3_strong.dbr
+   minPlayerLevelChampion3                  n=  227   e.g. 15
+   minPlayerLevelChampion5                  n=  224   e.g. 15
+   minPlayerLevelChampion6                  n=  223   e.g. 10
+   limitChampion1                           n=  217   e.g. 2
+   levelVarianceEquationChampion9           n=  208   e.g. records/proxies/lv6_hero.dbr
+   nameChampion9                            n=  208   e.g. records/creatures/enemies/hero/humanchthonic_cultist_h04.dbr
+   limitChampion9                           n=  206   e.g. 1
+   weightChampion9                          n=  197   e.g. 7
+   minPlayerLevelChampion7                  n=  196   e.g. 10
+   levelVarianceEquationChampion10          n=  185   e.g. records/proxies/lv6_hero.dbr
+   nameChampion10                           n=  185   e.g. records/creatures/enemies/hero/humanchthonic_cultist_h05.dbr
+   minPlayerLevelChampion8                  n=  181   e.g. 10
+   weightChampion10                         n=  176   e.g. 7
+   minPlayerLevelChampion1                  n=  168   e.g. 8
+   limit5                                   n=  159   e.g. 1
+   limitChampion10                          n=  158   e.g. 1
+   levelVarianceEquationChampion11          n=  156   e.g. records/proxies/lv6_hero.dbr
+   nameChampion11                           n=  156   e.g. records/creatures/enemies/hero/human_h07.dbr
+   minPlayerLevelChampion9                  n=  152   e.g. 10
+   alertArea                                n=  149   e.g. 6.0
+   minGroupSize                             n=  149   e.g. 3
+   spawnThreshold                           n=  149   e.g. 2
+   pool2                                    n=  148   e.g. records/proxies/pools/p_beasts_boarice_t.dbr
+   maxGroupSize                             n=  148   e.g. 4
+   levelVarianceEquation6                   n=  147   e.g. records/proxies/lv3_strong.dbr
+   weightChampion11                         n=  147   e.g. 7
+   limitChampion11                          n=  138   e.g. 1
+   minSpawnTime                             n=  132   e.g. 0.5
+   levelVarianceEquationChampion12          n=  131   e.g. records/proxies/lv6_hero.dbr
+   nameChampion12                           n=  131   e.g. records/creatures/enemies/hero/chthonianminion_h04.dbr
+   minPlayerLevelChampion10                 n=  122   e.g. 10
+   weightChampion12                         n=  122   e.g. 8
+   maxToPlace                               n=  120   e.g. 2
+   minToPlace                               n=  120   e.g. 2
+   object1                                  n=  120   e.g. records/items/lootchests/chestproxies/chestproxy_nemesis_und
+   placementRadius                          n=  120   e.g. 6.0
+   placementScheme                          n=  120   e.g. Camp
+   limitChampion12                          n=  119   e.g. 1
+   buffer1                                  n=  118   e.g. 0.5
+   object2                                  n=  117   e.g. records/storyelements/scriptentity/nemesis_undead.dbr
+   maxSpawnTime                             n=  117   e.g. 1.0
+   limit6                                   n=  114   e.g. 1
+   levelVarianceEquationChampion13          n=  112   e.g. records/proxies/lv6_hero.dbr
+   nameChampion13                           n=  112   e.g. records/creatures/enemies/hero/chthonianminion_h05.dbr
+   minPlayerLevelChampion11                 n=  110   e.g. 10
+   rotation1                                n=  109   e.g. None
+   tags1                                    n=  109   e.g. main
+   minPlayerLevel3                          n=  109   e.g. 10
+   minPlayerLevel4                          n=  107   e.g. 24
+   minPlayerLevel2                          n=  106   e.g. 10
+   placementChance                          n=  106   e.g. 100.0
+   weightChampion13                         n=  103   e.g. 8
+   buffer2                                  n=  102   e.g. 2.0
+   levelVarianceEquationChampion14          n=   99   e.g. records/proxies/lv6_hero.dbr
+   limitChampion13                          n=   99   e.g. 1
+   nameChampion14                           n=   99   e.g. records/creatures/enemies/hero/chthonianminion_h06.dbr
+   time1                                    n=   98   e.g. Always
+   levelVarianceEquation7                   n=   97   e.g. records/proxies/lv2_normal.dbr
+   limitChampion14                          n=   93   e.g. 1
+   minPlayerLevelChampion12                 n=   92   e.g. 55
+   weightChampion14                         n=   91   e.g. 8
+   ignoreGameBalance                        n=   89   e.g. True
+   pool3                                    n=   88   e.g. records/proxies/pools/p_beastsswamp_mosquito_n.dbr
+   maxDelayTime                             n=   87   e.g. 3.5
+   limit7                                   n=   82   e.g. 1
+   levelVarianceEquation8                   n=   78   e.g. records/proxies/lv2_normal.dbr
+   minPlayerLevelChampion13                 n=   76   e.g. 55
+   alwaysSpawn1                             n=   71   e.g. True
+   minPlayerLevelChampion14                 n=   68   e.g. 55
+   factionRequired                          n=   68   e.g. User6
+   factionStanding                          n=   68   e.g. Hated
+   minPlayerLevel5                          n=   67   e.g. 8
+   levelVarianceEquation9                   n=   66   e.g. records/proxies/lv3_strong.dbr
+   limit8                                   n=   66   e.g. 1
+   levelVarianceEquationChampion15          n=   64   e.g. records/proxies/lv6_hero.dbr
+   nameChampion15                           n=   64   e.g. records/creatures/enemies/hero/chthonianminion_h07.dbr
+   weightChampion15                         n=   62   e.g. 8
+   FileDescription                          n=   61   e.g. Dreadguards+Fiends+Leeches
+   levelVarianceEquation10                  n=   59   e.g. records/proxies/lv3_strong.dbr
+   limitChampion15                          n=   58   e.g. 1
+   minPlayerLevelChampion15                 n=   51   e.g. 55
+   levelVarianceEquation11                  n=   51   e.g. records/proxies/lv4_champion.dbr
+   levelVarianceEquation12                  n=   51   e.g. records/proxies/lv4_champion.dbr
+   minPlayerLevel1                          n=   48   e.g. 15
+   limit11                                  n=   46   e.g. 1
+   tags2                                    n=   46   e.g. perimeter
+   rotation2                                n=   45   e.g. None
+   limit12                                  n=   42   e.g. 1
+   limit9                                   n=   42   e.g. 1
+   levelVarianceEquation13                  n=   41   e.g. records/proxies/lv4_champion+.dbr
+   minDelayTime                             n=   39   e.g. 0.5
+   limit13                                  n=   39   e.g. 1
+   object3                                  n=   39   e.g. records/level art/outpost/light_torchburning.dbr
+   levelVarianceEquation14                  n=   38   e.g. records/proxies/lv5_elitechampion+.dbr
+   limit10                                  n=   38   e.g. 2
+   limit14                                  n=   36   e.g. 1
+   rotation3                                n=   34   e.g. Y
+   object4                                  n=   32   e.g. records/proxies/area001/humanroversa_s1_n.dbr
+   maxVarianceEquationNormal                n=   32   e.g. ((averagePlayerLevel+(averagePlayerLevel/20))+3)*(0.99+(numb
+   minVarianceEquationNormal                n=   32   e.g. ((averagePlayerLevel+(averagePlayerLevel/22))+3)*(0.99+(numb
+   minPlayerLevel6                          n=   31   e.g. 25
+   pool4                                    n=   31   e.g. records/proxies/pools/p_beastsswamp_mosquito_t.dbr
+   tags3                                    n=   31   e.g. perimeter
+   object5                                  n=   30   e.g. ['records/items/lootchests/breakables/a01_barrel_wood01_brea
+   rotation6                                n=   27   e.g. Y
+   object6                                  n=   26   e.g. ['records/level art/outpost/handtruck_loaded_01.dbr', 'recor
+   rotation5                                n=   25   e.g. Y
+   tags5                                    n=   25   e.g. collection
+   rotation4                                n=   24   e.g. Y
+   force1                                   n=   23   e.g. True
+   levelVarianceEquation15                  n=   23   e.g. records/proxies/lv5_elitechampion.dbr
+   maxPlayerLevel1                          n=   21   e.g. 10
+   buffer3                                  n=   21   e.g. 1.0
+   scaleMax1                                n=   20   e.g. 1.0
+   minPlayerLevel7                          n=   20   e.g. 30
+   tags4                                    n=   20   e.g. interior
+   limit15                                  n=   19   e.g. 1
+   accessory1                               n=   18   e.g. records/items/lootchests/chestproxies/chestproxy_natural_a01
+   force4                                   n=   18   e.g. True
+   object7                                  n=   16   e.g. records/proxies/area001/beastsswamp_highlvl_random.dbr
+   poolEpic1                                n=   15   e.g. records/proxies/devotion/devotionpools/devotion_c01_epic.dbr
+   poolLegendary1                           n=   15   e.g. records/proxies/devotion/devotionpools/devotion_c01_legendar
+   weightEpic1                              n=   15   e.g. 100
+   weightLegendary1                         n=   15   e.g. 100
+   alwaysSpawn2                             n=   15   e.g. True
+   alwaysSpawn3                             n=   15   e.g. True
+   maxPlayerLevel3                          n=   14   e.g. 7
+   tags6                                    n=   14   e.g. perimeter
+   rotation7                                n=   14   e.g. Y
+   minPlayerLevel8                          n=   14   e.g. 2
+   force2                                   n=   13   e.g. True
+   accessoryEpic1                           n=   13   e.g. records/items/lootchests/chestproxies/chestproxy_corpsesmall
+   accessoryLegendary1                      n=   13   e.g. records/items/lootchests/chestproxies/chestproxy_corpsesmall
+   buffer7                                  n=   13   e.g. 1.0
+   tags7                                    n=   13   e.g. interior
+   scaleMin1                                n=   12   e.g. 1.0
+   actorRadius                              n=   12   e.g. 0.20000000298023224
+   maxPlayerLevel4                          n=   12   e.g. 7
+   delayedRun                               n=   12   e.g. True
+   maxPlayerLevelChampion1                  n=   11   e.g. 15
+   minPlayerLevel9                          n=   11   e.g. 3
+   alwaysSpawn4                             n=   11   e.g. True
+   maxPlayerLevelEquationEpic               n=   10   e.g. 60*1
+   maxPlayerLevelEquationLegendary          n=   10   e.g. 100*1
+   maxPlayerLevelEquationNormal             n=   10   e.g. 200
+   minPlayerLevelEquationEpic               n=   10   e.g. 40*1
+   minPlayerLevelEquationLegendary          n=   10   e.g. 80*1
+   minPlayerLevelEquationNormal             n=   10   e.g. 1
+   buffer5                                  n=   10   e.g. 1.0
+   buffer6                                  n=   10   e.g. 1.0
+   object8                                  n=   10   e.g. ['records/level art/outpost/campclutter_destroyed01.dbr', 'r
+   pool5                                    n=    9   e.g. records/proxies/pools/p_beastsswamp_mosquito_n.dbr
+   alwaysSpawn7                             n=    9   e.g. True
+   force3                                   n=    9   e.g. True
+   tags8                                    n=    9   e.g. secondary
+   maxPlayerLevel2                          n=    8   e.g. 9
+   scaleMax8                                n=    8   e.g. 0.8999999761581421
+   buffer4                                  n=    7   e.g. 0.699999988079071
+   maxPlayerLevelChampion10                 n=    6   e.g. 35
+   maxPlayerLevelChampion5                  n=    6   e.g. 24
+   factionGreaterThan                       n=    6   e.g. True
+   pool6                                    n=    5   e.g. records/proxies/pools/p_beastsswamp_mosquito_t.dbr
+   maxPlayerLevelChampion15                 n=    5   e.g. 15
+   minPlayerLevel10                         n=    5   e.g. 14
+   alwaysSpawn5                             n=    5   e.g. True
+   maxPlayerLevelChampion11                 n=    4   e.g. 22
+   alwaysSpawn8                             n=    4   e.g. True
+   maxPlayerLevelChampion6                  n=    4   e.g. 20
+   onAddToWorld                             n=    4   e.g. gd.quests.devilsCrossingTownAttacks.outlawAttacksFollowPatro
+   maxPlayerLevel6                          n=    3   e.g. 7
+   maxPlayerLevel7                          n=    3   e.g. 5
+   maxPlayerLevelChampion7                  n=    3   e.g. 13
+   timeEpic1                                n=    3   e.g. Always
+   timeLegendary1                           n=    3   e.g. Always
+   scaleMax2                                n=    3   e.g. 1.100000023841858
+   scaleMax3                                n=    3   e.g. 1.100000023841858
+   scaleMax4                                n=    3   e.g. 1.100000023841858
+   scaleMin2                                n=    3   e.g. 0.800000011920929
+   scaleMin3                                n=    3   e.g. 0.800000011920929
+   scaleMin4                                n=    3   e.g. 0.699999988079071
+   alwaysSpawn6                             n=    3   e.g. True
+   alwaysSpawn11                            n=    3   e.g. True
+   maxPlayerLevelChampion2                  n=    3   e.g. 18
+   maxPlayerLevelChampion9                  n=    2   e.g. 25
+   alwaysSpawnChampion1                     n=    2   e.g. True
+   maxPlayerLevelChampion14                 n=    2   e.g. 20
+   rotation9                                n=    2   e.g. None
+   force7                                   n=    2   e.g. True
+   maxPlayerLevel9                          n=    2   e.g. 7
+   force9                                   n=    2   e.g. True
+   object9                                  n=    2   e.g. records/proxies/area001/humanroversa_s2_n.dbr
+   time2                                    n=    2   e.g. Always
+   time3                                    n=    2   e.g. Always
+   buffer                                   n=    2   e.g. 2.0
+   maxScale                                 n=    2   e.g. 1.0
+   minScale                                 n=    2   e.g. 1.0
+   names                                    n=    2   e.g. ['records/level art/monstercamp/slith_burrow01.dbr', 'record
+   weight                                   n=    2   e.g. 100
+   alwaysSpawn9                             n=    2   e.g. True
+   alwaysSpawn12                            n=    2   e.g. True
+   alwaysSpawnChampion6                     n=    2   e.g. True
+   maxPlayerLevel5                          n=    2   e.g. 8
+   alwaysSpawnChampion13                    n=    2   e.g. True
+   minPlayerLevel11                         n=    2   e.g. 15
+   minPlayerLevel12                         n=    2   e.g. 15
+   minPlayerLevel13                         n=    2   e.g. 15
+   maxPlayerLevel8                          n=    1   e.g. 5
+   time4                                    n=    1   e.g. Always
+   time6                                    n=    1   e.g. Always
+   maxParts                                 n=    1   e.g. 1
+   minParts                                 n=    1   e.g. 1
+   parts                                    n=    1   e.g. records/proxies/area001/setpieceproxies/set_campslith_parta0
+   alwaysSpawn13                            n=    1   e.g. True
+   force5                                   n=    1   e.g. True
+   rotation8                                n=    1   e.g. FaceIn
+   tags9                                    n=    1   e.g. interior
+   alwaysSpawn10                            n=    1   e.g. True
+   minPlayerLevel14                         n=    1   e.g. 15
+   maxPlayerLevelChampion12                 n=    1   e.g. 20
+   maxPlayerLevelChampion3                  n=    1   e.g. 7
+   championMaxEquation                      n=    1   e.g. poolValue * 1
+   championMinEquation                      n=    1   e.g. poolValue * 1
+   spawnMaxEquation                         n=    1   e.g. poolValue * 1
+   spawnMinEquation                         n=    1   e.g. poolValue * 1

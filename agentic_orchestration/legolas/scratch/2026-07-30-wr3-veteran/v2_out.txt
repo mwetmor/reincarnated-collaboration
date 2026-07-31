@@ -1,0 +1,357 @@
+====================================================================================================
+INBOUND REFERENCES (which records point AT the mutator paks)
+====================================================================================================
+  [base] records/game/gameengine.dbr
+        challengeAdjustment = records/game/balancingadjustment_challengemode_enemies01.dbr
+  [base] records/game/gameengine.dbr
+        monsterAttributePak = records/game/balancingadjustment_mp+difficulty_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 01-23-15.dbr
+        challengeAdjustment = records/game/balancingadjustment_challengemode_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 01-23-15.dbr
+        monsterAttributePak = records/game/balancingadjustment_mp+difficulty_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 02-01-16.dbr
+        challengeAdjustment = records/game/balancingadjustment_challengemode_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 02-01-16.dbr
+        monsterAttributePak = records/game/balancingadjustment_mp+difficulty_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 09-09-15.dbr
+        challengeAdjustment = records/game/balancingadjustment_challengemode_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 09-09-15.dbr
+        monsterAttributePak = records/game/balancingadjustment_mp+difficulty_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 10-31.dbr
+        challengeAdjustment = records/game/balancingadjustment_challengemode_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 10-31.dbr
+        monsterAttributePak = records/game/balancingadjustment_mp+difficulty_enemies01.dbr
+  [base] records/sandbox/arthur/archive/gameengine 7-31.dbr
+        monsterAttributePak = records/game/balancingadjustment_mp+difficulty_enemies01.dbr
+  [gdx3] records/game/gameascendant.dbr
+        ultimateChallangeAdjustment = records/game/balancingadjustment_ultramode_enemies01.dbr
+
+====================================================================================================
+EXPERIENCE / spawn* FIELD SWEEP across ALL records
+====================================================================================================
+--- experience-family field names seen (with count + up to 6 examples) ---
+  ActiveExperience  (n=2)
+        [base] records/game/playerrewardsharing.dbr  = amountOfExperience * (1 + ((evaluatingPartyMemberCount - 1) / 15))
+        [base] records/game/bonussharing.dbr  = amountOfExperience * (1 + ((evaluatingPartyMemberCount - 1) / 15))
+  PassiveExperience  (n=2)
+        [base] records/game/playerrewardsharing.dbr  = amountOfExperience * (1 + ((evaluatingPartyMemberCount - 1) / 15))
+        [base] records/game/bonussharing.dbr  = amountOfExperience * (1 + ((evaluatingPartyMemberCount - 1) / 15))
+  XPControlBackground  (n=1)
+        [base] records/ingameui/questrewardwindow/questrewardwindow.dbr  = records/ingameui/questrewardwindow/xpcontrolbackground.dbr
+  XPValue  (n=1)
+        [base] records/ingameui/questrewardwindow/questrewardwindow.dbr  = records/ingameui/questrewardwindow/xpvalue.dbr
+  bonusExperiencePoints  (n=17)
+        [base] records/items/loreobjects/lorechest_lowercrossinga01.dbr  = 50
+        [base] records/items/loreobjects/lorechest_areac_farmerrandom03.dbr  = 50
+        [base] records/items/loreobjects/lorechest_burrwitcha01.dbr  = 50
+        [base] records/items/loreobjects/lorechest_burrwitchb01.dbr  = 50
+        [base] records/items/loreobjects/lorechest_homesteada01.dbr  = 50
+        [base] records/items/loreobjects/lorechest_lowercrossinga02.dbr  = 50
+  challengeExperienceEquation  (n=1)
+        [base] records/game/experienceformulas.dbr  = ((((monsterLevel*12.75-(averagePartyLevel*averagePartyLevel/50))+((monsterLevel-averagePartyLevel)*(averagePartyLevel/1.12)))*0.12)*(1+(monsterExperience/100))+3)*1.1
+  characterIncreasedExperience  (n=30)
+        [base] records/items/lootaffixes/completion/b09_chest_experience.dbr  = 10.0
+        [base] records/items/gearaccessories/medals/a002_medal01.dbr  = 4.0
+        [base] records/items/lootaffixes/prefix/aa002a_exp_02.dbr  = 5.0
+        [base] records/items/lootaffixes/prefix/aa002a_exp_01.dbr  = 2.0
+        [base] records/items/gearaccessories/necklaces/c019_necklace.dbr  = 8.0
+        [base] records/items/gearaccessories/medals/a001_medal01.dbr  = 3.0
+  eliteExperienceEquation  (n=1)
+        [base] records/game/experienceformulas.dbr  = ((((monsterLevel*12.75-(averagePartyLevel*averagePartyLevel/50))+((monsterLevel-averagePartyLevel)*(averagePartyLevel/1.12)))*0.12)*(1+(monsterExperience/100))+3)^1.03+20
+  experienceBarX  (n=2)
+        [base] records/ingameui/ui load tables/ui_hud.dbr  = 8
+        [base] records/ui load tables/ui_hud.dbr  = 8
+  experienceBarXSize  (n=2)
+        [base] records/ingameui/ui load tables/ui_hud.dbr  = 133
+        [base] records/ui load tables/ui_hud.dbr  = 133
+  experienceBarY  (n=2)
+        [base] records/ingameui/ui load tables/ui_hud.dbr  = 133
+        [base] records/ui load tables/ui_hud.dbr  = 133
+  experienceBarYSize  (n=2)
+        [base] records/ingameui/ui load tables/ui_hud.dbr  = 7
+        [base] records/ui load tables/ui_hud.dbr  = 7
+  experienceBonus  (n=314)
+        [base] records/items/loreobjects/loreobject_slithisland_a02.dbr  = 1400
+        [base] records/items/loreobjects/loreobject_areac_cultistrandom04.dbr  = 1750
+        [base] records/items/loreobjects/loreobject_wightmire_outlaws_01.dbr  = 250
+        [base] records/items/loreobjects/loreobject_burrwitch_random_07.dbr  = 350
+        [base] records/items/loreobjects/loreobject_creedsjournala02.dbr  = 25
+        [base] records/items/loreobjects/loreobject_aetherialcity_02.dbr  = 2500
+  experienceEquation  (n=1)
+        [base] records/game/experienceformulas.dbr  = (((monsterLevel*12.75-(averagePartyLevel*averagePartyLevel/50))+((monsterLevel-averagePartyLevel)*(averagePartyLevel/1.12)))*0.12)*(1+(monsterExperience/100))+3
+  experienceGainStyle  (n=6)
+        [base] records/game/gameengine.dbr  = records/ui/styles/text/style_floatingtext_rewardsfaction.dbr
+        [base] records/sandbox/arthur/archive/gameengine 01-23-15.dbr  = records/ui/styles/text/style_floatingtext_rewardsfaction.dbr
+        [base] records/sandbox/arthur/archive/gameengine 02-01-16.dbr  = records/ui/styles/text/style_floatingtext_rewardsfaction.dbr
+        [base] records/sandbox/arthur/archive/gameengine 09-09-15.dbr  = records/ui/styles/text/style_floatingtext_rewardsfaction.dbr
+        [base] records/sandbox/arthur/archive/gameengine 10-31.dbr  = records/ui/styles/text/style_floatingtext_rewardsfaction.dbr
+        [base] records/sandbox/arthur/archive/gameengine 7-31.dbr  = records/ui/styles/text/style_special_floatingtextdefault.dbr
+  experienceLevelEquation  (n=3)
+        [base] records/creatures/pc/playerlevels.dbr  = (((((playerLevel*playerLevel*playerLevel)^1.16)*32)+((playerLevel*playerLevel)*300))*0.1)+36
+        [gdx1] records/creatures/pc/playerlevels.dbr  = (((((playerLevel*playerLevel*playerLevel)^1.16)*32)+((playerLevel*playerLevel)*300))*0.1)+36
+        [gdx2] records/creatures/pc/playerlevels.dbr  = (((((playerLevel*playerLevel*playerLevel)^1.16)*32)+((playerLevel*playerLevel)*300))*0.1)+36
+  experienceModifier  (n=1)
+        [gdx3] records/interactive/ascendant/altarformula_aethercrystal.dbr  = [20.0, 40.0, 60.0, 80.0, 100.0]
+  experiencePoints  (n=4092)
+        [base] records/creatures/enemies/boss&quest/waveevent_pv_zombiemutated_h03.dbr  = 750
+        [base] records/creatures/enemies/boss&quest/waveevent_burrwitchrift_zombie_soldierfirea01.dbr  = 125
+        [base] records/creatures/enemies/hero/chthonianfiend_h05.dbr  = 750
+        [base] records/creatures/enemies/hero/rifthound_h02.dbr  = 750
+        [base] records/creatures/enemies/boss&quest/reanimator.dbr  = 800
+        [base] records/creatures/enemies/boss&quest/waveevent_boc_chthonianleech_h03.dbr  = 1000
+  experienceRecord  (n=1)
+        [base] records/game/gameengine.dbr  = records/game/experienceformulas.dbr
+  hudExperienceBar  (n=10)
+        [base] records/ui/hud/hud_orbmastertable.dbr  = records/ui/hud/orbhud/hud_playerexperiencebar.dbr
+        [base] records/ui/hud/bkup/hud_mastertable.dbr  = records/ui/hud/hud_playerexperiencebar.dbr
+        [base] records/ui/hud/hud_mastertable.dbr  = records/ui/hud/hud_playerexperiencebar.dbr
+        [base] records/ui/hud/temp/hud.dbr  = records/ingameui/player hud/hudexperiencebar.dbr
+        [gdx1] records/ui/hud/hud_orbmastertable.dbr  = records/ui/hud/orbhud/hud_playerexperiencebar.dbr
+        [gdx1] records/ui/hud/hud_mastertable.dbr  = records/ui/hud/hud_playerexperiencebar.dbr
+  hudExperienceBarRollover  (n=10)
+        [base] records/ui/hud/hud_orbmastertable.dbr  = records/ui/hud/hud_playerexperiencebarrollover.dbr
+        [base] records/ui/hud/bkup/hud_mastertable.dbr  = records/ui/hud/hud_playerexperiencebarrollover.dbr
+        [base] records/ui/hud/hud_mastertable.dbr  = records/ui/hud/hud_playerexperiencebarrollover.dbr
+        [base] records/ui/hud/temp/hud.dbr  = records/xpack/ui/hud/hudexperiencebarrollover.dbr
+        [gdx1] records/ui/hud/hud_orbmastertable.dbr  = records/ui/hud/hud_playerexperiencebarrollover.dbr
+        [gdx1] records/ui/hud/hud_mastertable.dbr  = records/ui/hud/hud_playerexperiencebarrollover.dbr
+  skillExperienceLevels  (n=237)
+        [base] records/skills/devotion/tier1_20e_skill.dbr  = [0, 30000, 63816, 104308, 155181, 221016, 307300, 420448, 567822, 757751, 999546, 1303516, 1680979, 2144278, 2706792, 3382947, 4188225, 5139176, 6253427, 7549690]
+        [base] records/skills/devotion/tier2_16c_skill.dbr  = [0, 75000, 164154, 276228, 422138, 615122, 870884, 1207721, 1646637, 2211449, 2928881, 3828651, 4943558, 6309558, 7965836]
+        [base] records/skills/devotion/tier2_01c_skill.dbr  = [0, 75000, 164154, 276228, 422138, 615122, 870884, 1207721, 1646637, 2211449, 2928881, 3828651, 4943558, 6309558, 7965836]
+        [base] records/skills/devotion/tier1_10e_skill.dbr  = [0, 30000, 63816, 104308, 155181, 221016, 307300, 420448, 567822, 757751, 999546, 1303516, 1680979, 2144278, 2706792, 3382947, 4188225, 5139176, 6253427, 7549690]
+        [base] records/skills/devotion/tier1_26e_skill.dbr  = [0, 30000, 63816, 104308, 155181, 221016, 307300, 420448, 567822, 757751, 999546, 1303516, 1680979, 2144278, 2706792, 3382947, 4188225, 5139176, 6253427, 7549690]
+        [base] records/skills/devotion/tier2_05f_skill_buff.dbr  = [0, 75000, 164154, 276228, 422138, 615122, 870884, 1207721, 1646637, 2211449, 2928881, 3828651, 4943558, 6309558, 7965836]
+  ultimateExperienceEquation  (n=1)
+        [base] records/game/experienceformulas.dbr  = ((((monsterLevel*12.75-(averagePartyLevel*averagePartyLevel/50))+((monsterLevel-averagePartyLevel)*(averagePartyLevel/1.12)))*0.12)*(1+(monsterExperience/100))+3)^1.06+40
+  xPosition  (n=14)
+        [base] records/ui/riftgatemap/riftgate_mapsection9.dbr  = -1024
+        [base] records/ui/riftgatemap/riftgate_mapsection2.dbr  = -512
+        [base] records/ui/riftgatemap/riftgate_mapsection7.dbr  = -1024
+        [base] records/ui/riftgatemap/riftgate_mapsection6.dbr  = -1024
+        [base] records/ui/riftgatemap/riftgate_mapsection5.dbr  = 512
+        [base] records/ui/riftgatemap/riftgate_mapsection4.dbr  = -1024
+
+--- spawn* field names seen ---
+  spawnAtCameraY                     total=  1899  nonzero=5
+        [base] records/sounds/human/spak_levelup01.dbr  = True
+        [base] records/sounds/human/vocals/spak_femalewarninglowhealth.dbr  = True
+        [base] records/sounds/human/vocals/spak_malewarninglowhealth.dbr  = True
+        [gdx3] records/sounds/wereforms/spak_wereraven_warninglowhealth.dbr  = True
+        [gdx3] records/sounds/wereforms/spak_werewolf_warninglowhealth.dbr  = True
+  spawnChampionMaxAdj                total=    14  nonzero=14
+        [base] records/game/balancingadjustment_challengemode_enemies01.dbr  = 2
+        [base] records/sandbox/arthur/archive/balancingadjustment_challengemode_enemies01 (07-20).dbr  = 2
+        [base] records/sandbox/arthur/archive/balancingadjustment_challengemode_enemies01 (05-26).dbr  = 2
+        [base] records/sandbox/arthur/archive/copy of balancingadjustment_challengemode_enemies01.dbr  = 2
+        [base] records/skills/nonplayerskills/passive/backup 06-26-19/balancingadjustment_challengemode_enemies01.dbr  = 2
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_03.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_01.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_02.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  spawnChampionMinAdj                total=     6  nonzero=3
+        [base] records/sandbox/arthur/archive/balancingadjustment_challengemode_enemies01 (07-20).dbr  = 1
+        [base] records/sandbox/arthur/archive/balancingadjustment_challengemode_enemies01 (05-26).dbr  = 1
+        [base] records/sandbox/arthur/archive/copy of balancingadjustment_challengemode_enemies01.dbr  = 1
+  spawnDirection                     total=     2  nonzero=2
+        [base] records/skills/base_template skills/skill_defensiveline.dbr  = X
+        [gdx1] records/skills/base_template skills/skill_defensiveline.dbr  = X
+  spawnEffect                        total=   963  nonzero=963
+        [base] records/skills/nonplayerskills/bossskills/pets/witchgodguardian_sentinel_crystal.dbr  = records/fx/itemfx/equipmentfx/gun2h_muzzleflashdefault_fx01.dbr
+        [base] records/creatures/enemies/boss&quest/waveevent_boc_chthonianleech_h03.dbr  = records/fx/creatures/aethercreaturespawn_fx01.dbr
+        [base] records/skills/playerclass02/pets/mortartrap19.dbr  = records/fx/itemfx/equipmentfx/gun2h_muzzleflashdefault_fx01.dbr
+        [base] records/skills/playerclass02/pets/thermitemine11.dbr  = records/fx/itemfx/equipmentfx/gun2h_muzzleflashdefault_fx01.dbr
+        [base] records/creatures/enemies/chthoniandreadguard_c01.dbr  = records/fx/creatures/aethercreaturespawn_fx01.dbr
+        [base] records/creatures/enemies/boss&quest/chthonian_chthonicroguelike_02b.dbr  = records/fx/creatures/aethercreaturespawn_fx01.dbr
+        [base] records/creatures/enemies/hero/chthoniandreadguard_h03.dbr  = records/fx/creatures/aethercreaturespawn_fx01.dbr
+        [base] records/creatures/enemies/hero/chthoniandreadguard_h02.dbr  = records/fx/creatures/aethercreaturespawn_fx01.dbr
+  spawnHeight                        total=    26  nonzero=26
+        [base] records/game/weathersystemleavesoak02.dbr  = 12.0
+        [base] records/game/weathersystemash.dbr  = 14.0
+        [base] records/game/weathersystemdebrisfalling.dbr  = 12.0
+        [base] records/game/weathersystemdusty.dbr  = 20.0
+        [base] records/game/weathersysteminsects01.dbr  = 10.0
+        [base] records/game/weathersystemleavesmaple01.dbr  = 12.0
+        [base] records/game/weathersystemleavesoak01.dbr  = 12.0
+        [base] records/game/weathersystemrain.dbr  = 16.0
+  spawnLocations                     total=    32  nonzero=32
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/avinnia_tornadoespattern_01.dbr  = 5
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/final/p2_turret_lightningstrikes_attackpattern_shortrange.dbr  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/nemesis/mogdrogen2_summonpattern02.dbr  = 4
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/chieftaingradda_summonpattern.dbr  = [7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/prodromus_chaospattern_01.dbr  = [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/scorv_summonpattern_01.dbr  = 1
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/avian_naddo_summonpattern.dbr  = 1
+        [gdx3] records/skills/nonplayerskillsgdx3/bossskills/blacklodgeguardian_summonpattern.dbr  = 16
+  spawnMax                           total=  3278  nonzero=3068
+        [base] records/proxies/pools/p_chthonic_cultistonlya_areac_t.dbr  = 5
+        [base] records/proxies/pools/p_cave_trollhalf+worms_n.dbr  = 7
+        [base] records/proxies/pools/p_beasts_boar_halftrollsonly_n.dbr  = 8
+        [base] records/proxies/pools/p_beasts_boarice_t.dbr  = 6
+        [base] records/proxies/poolsdeathspawn/dp_bandit_edmund.dbr  = 1
+        [base] records/proxies/pools/aethercrystal_small.dbr  = 1
+        [base] records/proxies/pools/aethercrystala02_n.dbr  = 1
+        [base] records/proxies/factionspawns/factionpools/p_kymonchosen_tier3_nemesis.dbr  = 1
+  spawnMaxAdj                        total=    14  nonzero=14
+        [base] records/game/balancingadjustment_challengemode_enemies01.dbr  = 1
+        [base] records/sandbox/arthur/archive/balancingadjustment_challengemode_enemies01 (07-20).dbr  = 1
+        [base] records/sandbox/arthur/archive/balancingadjustment_challengemode_enemies01 (05-26).dbr  = 1
+        [base] records/sandbox/arthur/archive/copy of balancingadjustment_challengemode_enemies01.dbr  = 1
+        [base] records/skills/nonplayerskills/passive/backup 06-26-19/balancingadjustment_challengemode_enemies01.dbr  = 1
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_03.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_01.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_02.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  spawnMaxEquation                   total=     1  nonzero=1
+        [base] records/proxies/proxypoolequation_01.dbr  = poolValue * 1
+  spawnMin                           total=  3277  nonzero=3067
+        [base] records/proxies/pools/p_chthonic_cultistonlya_areac_t.dbr  = 4
+        [base] records/proxies/pools/p_cave_trollhalf+worms_n.dbr  = 5
+        [base] records/proxies/pools/p_beasts_boar_halftrollsonly_n.dbr  = 2
+        [base] records/proxies/pools/p_beasts_boarice_t.dbr  = 4
+        [base] records/proxies/poolsdeathspawn/dp_bandit_edmund.dbr  = 1
+        [base] records/proxies/pools/aethercrystal_small.dbr  = 1
+        [base] records/proxies/pools/aethercrystala02_n.dbr  = 1
+        [base] records/proxies/factionspawns/factionpools/p_kymonchosen_tier3_nemesis.dbr  = 1
+  spawnMinAdj                        total=    14  nonzero=9
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_03.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_01.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/balanceadjustment_02.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/bac_balanceadjustment_01.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/bac_balanceadjustment_02.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx2] records/endlessdungeon/difficultyscaling/bac_balanceadjustment_03.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [gdx3] records/endlessdungeon/difficultyscaling/bac_balanceadjustment_04.dbr  = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        [gdx3] records/game/balancingadjustment_ultramode_enemies01.dbr  = 1
+  spawnMinEquation                   total=     1  nonzero=1
+        [base] records/proxies/proxypoolequation_01.dbr  = poolValue * 1
+  spawnObjectWeights                 total=    59  nonzero=59
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = 55
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/nemesis/ravagerminds_summonnulltotem_secondary.dbr  = 100
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = 29
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = 25
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = [85, 80, 75, 70, 68, 66, 64, 62, 52, 50, 48, 46, 34, 30, 27, 24, 23, 23, 22, 22, 21, 21, 20, 20, 19, 19]
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/nemesis/wendigo_summonwraiths.dbr  = 75
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/galakros_summonbloater_secondary.dbr  = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70]
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/nemesis/ravagersouls_summonsunderwraith.dbr  = 100
+  spawnObjectWeights2                total=    21  nonzero=21
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = 15
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = 28
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = 25
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = [15, 20, 25, 30, 32, 34, 36, 38, 38, 38, 38, 38, 38, 38, 38, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 27]
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/nemesis/wendigo_summonwraiths.dbr  = 25
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/galakros_summonbloater_secondary.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_summonrevenantsecondary.dbr  = 33
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/kraken_summonslith_secondary.dbr  = 50
+  spawnObjectWeights3                total=    14  nonzero=14
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = 15
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = 28
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = 25
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 14, 16, 18, 20, 22, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_summonrevenantsecondary.dbr  = 33
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/kraken_summonslith_secondary.dbr  = 35
+        [gdx1] records/skills/nonplayerskillsgdx1/summoning/aethercrystalf_summoncorruption01.dbr  = 5
+        [gdx1] records/skills/nonplayerskillsgdx1/summoning/aetherialfleshshaper_summoncorruptionb.dbr  = 33
+  spawnObjectWeights4                total=     7  nonzero=7
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = 15
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = 15
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = 25
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 13, 14, 15, 15, 16, 16, 17, 17, 18, 18, 19, 20]
+        [gdx1] records/skills/nonplayerskillsgdx1/summoning/aethercrystalf_summoncorruption01.dbr  = 5
+        [gdx2] records/skills/nonplayerskillsgdx2/bossskills/inashkor_summonarmorsecondary.dbr  = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+        [gdx2] records/skills/nonplayerskillsgdx2/bossskills/roguelike/gryphonriggs_summonarmorsecondary.dbr  = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69]
+  spawnObjects                       total=   540  nonzero=540
+        [base] records/skills/nonplayerskills/bossskills/cultistleader_summonharbinger.dbr  = ['records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a00_summon.dbr', 'records/creatures/enemies/chthonianminion_a01_summon.dbr', 'records/creatures/enemies/chthonianminion_a01_summon.dbr', 'records/creatures/enemies/chthonianminion_a01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr', 'records/creatures/enemies/chthonianminion_b01_summon.dbr']
+        [base] records/skills/nonplayerskills/heroskills/nurgaru_voidfiendgenerator.dbr  = records/creatures/enemies/chthonianfiend_a01_summon.dbr
+        [base] records/skills/nonplayerskills/summoning/reanimatorhero_summonzombie01.dbr  = ['records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_a01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr', 'records/creatures/enemies/zombie_soldiera01_summon.dbr']
+        [base] records/skills/nonplayerskills/bossskills/ilgorr_ghostgenerator.dbr  = ['records/creatures/enemies/ghost_a01_summon.dbr', 'records/creatures/enemies/ghost_a01_summon.dbr', 'records/creatures/enemies/ghost_a01_summon.dbr', 'records/creatures/enemies/ghost_a01_summon.dbr', 'records/creatures/enemies/ghost_a01_summon.dbr', 'records/creatures/enemies/ghost_b01_summon.dbr', 'records/creatures/enemies/ghost_b01_summon.dbr', 'records/creatures/enemies/ghost_b02_summon.dbr', 'records/creatures/enemies/ghost_b03_summon.dbr', 'records/creatures/enemies/ghost_b04_summon.dbr']
+        [base] records/skills/nonplayerskills/bossskills/nemesis/fabius_bladeswarm_longrange.dbr  = records/skills/nonplayerskills/bossskills/pets/bladeswarm_a01.dbr
+        [base] records/skills/itemskills/granted/item_summonrevenantognapesh.dbr  = ['records/skills/itemskills/pets/itempet_revenant_ognapesh.dbr', 'records/skills/itemskills/pets/itempet_revenant_ognapesh02.dbr']
+        [base] records/skills/nonplayerskills/bossskills/outlaw_thermitemine.dbr  = records/skills/nonplayerskills/bossskills/pets/thermitemine01.dbr
+        [base] records/skills/nonplayerskills/bossskills/boss_chest_02.dbr  = records/items/lootchests/d03_bosschest_dropped.dbr
+  spawnObjects2                      total=    21  nonzero=21
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = records/creatures/enemies/skeleton_c01_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = records/creatures/enemies/special/skeleton_c02_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = records/creatures/enemies/special/skeleton_b02_knight_summon.dbr
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = ['records/skills/playerclass08/pets/skeleton_01b.dbr', 'records/skills/playerclass08/pets/skeleton_02b.dbr', 'records/skills/playerclass08/pets/skeleton_03b.dbr', 'records/skills/playerclass08/pets/skeleton_04b.dbr', 'records/skills/playerclass08/pets/skeleton_05b.dbr', 'records/skills/playerclass08/pets/skeleton_06b.dbr', 'records/skills/playerclass08/pets/skeleton_07b.dbr', 'records/skills/playerclass08/pets/skeleton_08b.dbr', 'records/skills/playerclass08/pets/skeleton_09b.dbr', 'records/skills/playerclass08/pets/skeleton_10b.dbr', 'records/skills/playerclass08/pets/skeleton_11b.dbr', 'records/skills/playerclass08/pets/skeleton_12b.dbr', 'records/skills/playerclass08/pets/skeleton_13b.dbr', 'records/skills/playerclass08/pets/skeleton_14b.dbr', 'records/skills/playerclass08/pets/skeleton_15b.dbr', 'records/skills/playerclass08/pets/skeleton_16b.dbr', 'records/skills/playerclass08/pets/skeleton_17b.dbr', 'records/skills/playerclass08/pets/skeleton_18b.dbr', 'records/skills/playerclass08/pets/skeleton_19b.dbr', 'records/skills/playerclass08/pets/skeleton_20b.dbr', 'records/skills/playerclass08/pets/skeleton_21b.dbr', 'records/skills/playerclass08/pets/skeleton_22b.dbr', 'records/skills/playerclass08/pets/skeleton_23b.dbr', 'records/skills/playerclass08/pets/skeleton_24b.dbr', 'records/skills/playerclass08/pets/skeleton_25b.dbr', 'records/skills/playerclass08/pets/skeleton_26b.dbr']
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/nemesis/wendigo_summonwraiths.dbr  = records/creatures/enemies/wraith_c01_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/galakros_summonbloater_secondary.dbr  = records/creatures/enemies/aetherialbloater_c01_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_summonrevenantsecondary.dbr  = records/creatures/enemies/skeleton_c01_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/kraken_summonslith_secondary.dbr  = records/creatures/enemies/slithc_b01_summon.dbr
+  spawnObjects3                      total=    14  nonzero=14
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = records/creatures/enemies/skeleton_c02_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = records/creatures/enemies/special/skeleton_c03_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = records/creatures/enemies/special/ghost_b01_summon.dbr
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = ['records/skills/playerclass08/pets/skeleton_01c.dbr', 'records/skills/playerclass08/pets/skeleton_02c.dbr', 'records/skills/playerclass08/pets/skeleton_03c.dbr', 'records/skills/playerclass08/pets/skeleton_04c.dbr', 'records/skills/playerclass08/pets/skeleton_05c.dbr', 'records/skills/playerclass08/pets/skeleton_06c.dbr', 'records/skills/playerclass08/pets/skeleton_07c.dbr', 'records/skills/playerclass08/pets/skeleton_08c.dbr', 'records/skills/playerclass08/pets/skeleton_09c.dbr', 'records/skills/playerclass08/pets/skeleton_10c.dbr', 'records/skills/playerclass08/pets/skeleton_11c.dbr', 'records/skills/playerclass08/pets/skeleton_12c.dbr', 'records/skills/playerclass08/pets/skeleton_13c.dbr', 'records/skills/playerclass08/pets/skeleton_14c.dbr', 'records/skills/playerclass08/pets/skeleton_15c.dbr', 'records/skills/playerclass08/pets/skeleton_16c.dbr', 'records/skills/playerclass08/pets/skeleton_17c.dbr', 'records/skills/playerclass08/pets/skeleton_18c.dbr', 'records/skills/playerclass08/pets/skeleton_19c.dbr', 'records/skills/playerclass08/pets/skeleton_20c.dbr', 'records/skills/playerclass08/pets/skeleton_21c.dbr', 'records/skills/playerclass08/pets/skeleton_22c.dbr', 'records/skills/playerclass08/pets/skeleton_23c.dbr', 'records/skills/playerclass08/pets/skeleton_24c.dbr', 'records/skills/playerclass08/pets/skeleton_25c.dbr', 'records/skills/playerclass08/pets/skeleton_26c.dbr']
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_summonrevenantsecondary.dbr  = records/creatures/enemies/skeleton_c02_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/kraken_summonslith_secondary.dbr  = records/creatures/enemies/slithc_c01_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/summoning/aethercrystalf_summoncorruption01.dbr  = records/creatures/enemies/aetherialcorruption_b02_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/summoning/aetherialfleshshaper_summoncorruptionb.dbr  = records/creatures/enemies/aetherialcorruption_b03_summon.dbr
+  spawnObjects4                      total=     7  nonzero=7
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/ugdall_raiseskeletons.dbr  = records/creatures/enemies/skeleton_c03_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_summonrevenant.dbr  = records/creatures/enemies/special/skeletalgolem_b01_summon.dbr
+        [gdx1] records/skills/nonplayerskillsgdx1/bossskills/special/livingplant_undeadgenerator.dbr  = records/creatures/enemies/special/ghost_b02_summon.dbr
+        [gdx1] records/skills/playerclass08/summon_skeleton1.dbr  = ['records/skills/playerclass08/pets/skeleton_01d.dbr', 'records/skills/playerclass08/pets/skeleton_02d.dbr', 'records/skills/playerclass08/pets/skeleton_03d.dbr', 'records/skills/playerclass08/pets/skeleton_04d.dbr', 'records/skills/playerclass08/pets/skeleton_05d.dbr', 'records/skills/playerclass08/pets/skeleton_06d.dbr', 'records/skills/playerclass08/pets/skeleton_07d.dbr', 'records/skills/playerclass08/pets/skeleton_08d.dbr', 'records/skills/playerclass08/pets/skeleton_09d.dbr', 'records/skills/playerclass08/pets/skeleton_10d.dbr', 'records/skills/playerclass08/pets/skeleton_11d.dbr', 'records/skills/playerclass08/pets/skeleton_12d.dbr', 'records/skills/playerclass08/pets/skeleton_13d.dbr', 'records/skills/playerclass08/pets/skeleton_14d.dbr', 'records/skills/playerclass08/pets/skeleton_15d.dbr', 'records/skills/playerclass08/pets/skeleton_16d.dbr', 'records/skills/playerclass08/pets/skeleton_17d.dbr', 'records/skills/playerclass08/pets/skeleton_18d.dbr', 'records/skills/playerclass08/pets/skeleton_19d.dbr', 'records/skills/playerclass08/pets/skeleton_20d.dbr', 'records/skills/playerclass08/pets/skeleton_21d.dbr', 'records/skills/playerclass08/pets/skeleton_22d.dbr', 'records/skills/playerclass08/pets/skeleton_23d.dbr', 'records/skills/playerclass08/pets/skeleton_24d.dbr', 'records/skills/playerclass08/pets/skeleton_25d.dbr', 'records/skills/playerclass08/pets/skeleton_26d.dbr']
+        [gdx1] records/skills/nonplayerskillsgdx1/summoning/aethercrystalf_summoncorruption01.dbr  = records/creatures/enemies/aetherialcorruption_b03_summon.dbr
+        [gdx2] records/skills/nonplayerskillsgdx2/bossskills/inashkor_summonarmorsecondary.dbr  = records/creatures/enemies/eldritcharmor_b01_summon.dbr
+        [gdx2] records/skills/nonplayerskillsgdx2/bossskills/roguelike/gryphonriggs_summonarmorsecondary.dbr  = records/creatures/enemies/eldritcharmor_b01_summon.dbr
+  spawnObjectsCount                  total=     2  nonzero=2
+        [base] records/skills/base_template skills/skill_defensiveline.dbr  = 3
+        [gdx1] records/skills/base_template skills/skill_defensiveline.dbr  = 3
+  spawnObjectsDistance               total=     2  nonzero=0
+  spawnObjectsDistanceIncrement      total=     4  nonzero=4
+        [base] records/skills/base_template skills/skill_defensiveground.dbr  = 0.800000011920929
+        [base] records/skills/base_template skills/skill_defensivewall.dbr  = 0.800000011920929
+        [gdx1] records/skills/base_template skills/skill_defensiveground.dbr  = 0.800000011920929
+        [gdx1] records/skills/base_template skills/skill_defensivewall.dbr  = 0.800000011920929
+  spawnObjectsDistanceInnerCircle    total=     4  nonzero=4
+        [base] records/skills/base_template skills/skill_defensiveground.dbr  = 2.0
+        [base] records/skills/base_template skills/skill_defensivewall.dbr  = 2.0
+        [gdx1] records/skills/base_template skills/skill_defensiveground.dbr  = 2.0
+        [gdx1] records/skills/base_template skills/skill_defensivewall.dbr  = 2.0
+  spawnObjectsNumberOfRings          total=     4  nonzero=4
+        [base] records/skills/base_template skills/skill_defensiveground.dbr  = 2
+        [base] records/skills/base_template skills/skill_defensivewall.dbr  = 2
+        [gdx1] records/skills/base_template skills/skill_defensiveground.dbr  = 2
+        [gdx1] records/skills/base_template skills/skill_defensivewall.dbr  = 2
+  spawnObjectsSpacing                total=     2  nonzero=2
+        [base] records/skills/base_template skills/skill_defensiveline.dbr  = 1.7000000476837158
+        [gdx1] records/skills/base_template skills/skill_defensiveline.dbr  = 1.7000000476837158
+  spawnObjectsSpacingAngle           total=     4  nonzero=4
+        [base] records/skills/base_template skills/skill_defensiveground.dbr  = 45.0
+        [base] records/skills/base_template skills/skill_defensivewall.dbr  = 45.0
+        [gdx1] records/skills/base_template skills/skill_defensiveground.dbr  = 45.0
+        [gdx1] records/skills/base_template skills/skill_defensivewall.dbr  = 45.0
+  spawnObjectsTimeToLive             total=   439  nonzero=439
+        [base] records/skills/nonplayerskills/bossskills/cultistleader_summonharbinger.dbr  = 60.0
+        [base] records/skills/nonplayerskills/heroskills/nurgaru_voidfiendgenerator.dbr  = 45.0
+        [base] records/skills/nonplayerskills/bossskills/ilgorr_ghostgenerator.dbr  = 30.0
+        [base] records/skills/nonplayerskills/bossskills/nemesis/fabius_bladeswarm_longrange.dbr  = 10.0
+        [base] records/skills/nonplayerskills/bossskills/outlaw_thermitemine.dbr  = 40.0
+        [base] records/skills/nonplayerskills/summoning/darius_aethercrystal_zombiegenerator_02.dbr  = 30.0
+        [base] records/skills/nonplayerskills/bossskills/darius_summon_aethercrystal.dbr  = 75.0
+        [base] records/skills/nonplayerskills/heroskills/corruptis_aetherzombiegenerator.dbr  = 30.0
+  spawnRadius                        total=    88  nonzero=88
+        [base] records/game/weathersystemleavesoak02.dbr  = 22.0
+        [base] records/game/weathersystemgroundfogdark.dbr  = 25.0
+        [base] records/game/weathersystemgroundfog.dbr  = 25.0
+        [base] records/game/weathersystemash.dbr  = 20.0
+        [base] records/game/weathersystemcavedustmotes.dbr  = 20.0
+        [base] records/game/weathersystemdebrisfalling.dbr  = 22.0
+        [base] records/game/weathersystemdustvoid.dbr  = 25.0
+        [base] records/game/weathersystemdustvoidashenwaste.dbr  = 25.0
+  spawnSoundEffect                   total=   272  nonzero=272
+        [base] records/skills/playerclass02/pets/mortartrap19.dbr  = records/sounds/objects/containers/spak_lootchestwood_a01.dbr
+        [base] records/creatures/enemies/aetherialabomination_01.dbr  = records/sounds/enemies/vocalizations/spak_aetherialabominationalert.dbr
+        [base] records/skills/playerclass02/pets/mortartrap25.dbr  = records/sounds/objects/containers/spak_lootchestwood_a01.dbr
+        [base] records/skills/playerclass02/pets/mortartrap24.dbr  = records/sounds/objects/containers/spak_lootchestwood_a01.dbr
+        [base] records/creatures/enemies/boss&quest/aetherialabomination_01.dbr  = records/sounds/enemies/vocalizations/spak_aetherialabominationalert.dbr
+        [base] records/creatures/enemies/boss&quest/aetherialcommander_01.dbr  = records/sounds/enemies/vocalizations/possessedcommander/spak_possessedcommander_alert.dbr
+        [base] records/creatures/enemies/boss&quest/aetherial_roguelike_watcher_01.dbr  = records/sounds/enemies/vocalizations/possessedcommander/spak_possessedcommander_alert.dbr
+        [base] records/creatures/enemies/boss&quest/aetherial_roguelike_watcher_02.dbr  = records/sounds/enemies/vocalizations/possessedcommander/spak_possessedcommander_alert.dbr
+  spawnThreshold                     total=   447  nonzero=443
+        [base] records/proxies/area001/beasts_prawn_amb_n.dbr  = 2
+        [base] records/proxies/area001/zombie_amb_s1_t.dbr  = 3
+        [base] records/proxies/area001/chthonic_fiends_amb_t.dbr  = 2
+        [base] records/proxies/area001/cave_spidergiant_amb_t_delaylong.dbr  = 2
+        [base] records/proxies/area001/undead_skeletongolem_amb_solo.dbr  = 5
+        [base] records/proxies/boss&quest/proxy_aread_portvalbury_traproomwave3.dbr  = 3
+        [base] records/proxies/area001/beasts_prawn_amb_n_delayshort.dbr  = 2
+        [base] records/proxies/area001/undead_skeletongolem_amb_solo_always.dbr  = 5
