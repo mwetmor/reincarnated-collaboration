@@ -553,6 +553,57 @@ in the scope above is superseded by the measurement where the measurement is cle
   fires now** (tree free): Bangers swap · walltop Option A · WOLF-SHADOW portrait · labeled
   SKY-OPTIONS board for the held sky ruling (incl. locating the "22.8" referent).
 
+## Scope 12 (Matt ruling 2026-07-30) — BAKE-OFF RULED: **Arm A**
+
+- **Matt verbatim: "Ruling: Arm A - warm carried light over a dimmed center."** The player-light
+  fork (Scope 6/7) CLOSES. Arm A ships in the hand-off stack: warm player-carried OmniLight3D
+  (energy 5.2 / range 9 m, parented to the body node — parenting IS the same-frame guarantee),
+  static center dimmed to 45%, floor roughness 0.640 floor-tiles-only (separate cache key).
+  Presence traded for ambience, ruled at his eye against the A/B pair. Veto-open clause on the
+  warmth survives per standing law.
+- **HAND-OFF MANIFEST update:** E1 moves from "bake-off pending" → **ACCEPTED (Arm A)**. Thematic
+  read now canon: the soul carries firelight through dead purple air — the warm-in-cool grammar
+  (GD lineage) is the player's own signature in the three-temperature lighting system.
+- *(Shadow-casting flag on the carried omni: amended by Scope 13 below — the light stands
+  unchanged; its shadow authorship transfers to the unified author.)*
+
+## Scope 13 (Matt directive 2026-07-30) — UNIFIED SHADOW GRAMMAR (the Grim Dawn observation)
+
+- **Matt verbatim intent:** all characters + monsters share the SAME shadow direction/height-depth;
+  passing light sources (torches) MAGNIFIES the shadow's contrast (maybe slight height increase).
+  Observed in the GD saved playtest clip. Conductor asked to ultra-think/research and decide.
+- **Conductor ruling (senior-designer read, veto-open): Matt has described GD's actual
+  architecture, and our own E2 measurements already voted for it.** Grim Dawn's engine uses ONE
+  scene directional light as the sole character-shadow author; torch point lights are
+  non-shadow-casting local illumination. The contrast magnification near torches is **EMERGENT,
+  not authored**: the shadow's darkness is ~constant (occlusion of the directional), but the torch
+  brightens the surrounding floor → the shadow/surround luminance RATIO rises → the shadow pops.
+  No second shadow, no direction fight, near-zero cost. Our E2 finding is the same physics from
+  the other side: 2.30 m torch = 5.11× projection stretch (smear); 15 m skylight = 1.14×
+  (armor detail reads). Multi-torch casting was fighting the grammar Matt wants.
+- **SHADOW-UNIFY spec (drax cell, queued behind INTEGRATE-PREP — single-writer):**
+  1. **One shadow author:** scene-level cool DirectionalLight3D (sky family; angle set for
+     ~1.1–1.2× shadow-length ratio, matching the measured skylight read). Every combatant,
+     every room: same azimuth, same proportion. *(Tint/angle final trim composes with the HELD
+     sky ruling; the ROLE is ruled now.)*
+  2. **All twelve torches: `shadow_enabled = false`** — retires E2's all-twelve casting.
+     Light stays; contrast magnification becomes emergent. Kills the 5.11× smear class and
+     the 8192-atlas spend.
+  3. **Arm A carried omni: `shadow_enabled = false`** (spec amendment) — the warm light becomes
+     the CONTRAST ENGINE of this directive: it brightens the floor ring around the player, so the
+     player's unified shadow gains contrast exactly where the eye lives. No swinging self-shadow.
+  4. **"Slight height increase" near torches: HELD as an optional stylization lever.** Test
+     emergent-only first; if Matt's eye wants the height kick after the watch, a subtle
+     proximity-keyed secondary is the fallback. Don't fake geometry before measuring the honest
+     mechanism (the E2 subset-rule lesson).
+- **SHADOW-CAL galadriel cell (read-only, parallel-safe, fires now):** measure the GD fixture
+  footage (GAL-CAM's own capture corpus) for (a) shadow azimuth constancy across the clip,
+  (b) shadow-length ratio, (c) shadow-vs-surround contrast delta during torch passes, (d) any
+  secondary lobe / length change near torches. Returns become SHADOW-UNIFY's acceptance targets —
+  we tune to the referent's numbers, not to memory.
+- **Werewolf rider composes:** the unified (high, cool) author is precisely the light that carries
+  anatomy detail — the unarmored wolf silhouette test rides on the correct light by construction.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
