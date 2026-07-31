@@ -1436,6 +1436,64 @@ against the frozen WR2 baseline immediately.
     schema deltas, commit-not-push. W-1 `ai_state` vocabulary gains the new states
     additively (alert-before-pursue, return) — same one-implementation law as W-1.
 
+- **R-WR3-42 (conductor, veto-open, 2026-07-31) — W-2 LAP ACCEPTED (engine `f808b46d`);
+  the six-item debt list is DISCHARGED; AI-D2 dissolved for a reason nobody predicted.**
+  Conductor verification: name-diff independently reproduced from the sweep logs —
+  **+1/−0 vs the 81-name `dbb2d6a9` baseline**, the +1 being the untracked-source
+  detector correctly reporting the commission's own pre-commit unstaged modules;
+  verified CLEARED post-commit (44/44 green on detector + both new test files, 2.47 s).
+  Sub-items:
+  - **(1) DEBTS DISCHARGED, two upgraded in the discharge:** the MIGRATION debt
+    magnitude is MEASURED at **1.64–1.89×** (supersedes Gate-2's "~2×" hearsay — the
+    flag-OFF post-mit is uniform ×0.7517 of pre-mit); the `family` one-liner lands
+    13/13 with a DECLARED residual — the boss's generic per-skill AOE (skill_idx 3)
+    emits `family=null`, so family is a discriminator-where-present, not a total
+    partition; consumers keep a default arm (drax's ladder rung (c)/(d) already does).
+  - **(2) THE AST-SWEEP SCOPE MEASUREMENT (phase-0 item 4) is itself a finding:**
+    `worst_received_event_hp` is NOT a phantom name — it is a LIVE grain-dict key at
+    `kitcal_g5_harness.py:641` read as a dataclass attribute, which is exactly why a
+    compliant author reached for it. Three predicates measured (0 / 105 / 35 sites at
+    ~3% precision), all recorded in the test file. Collateral surfaced and correctly
+    LEFT ALONE: disabled=zero is honest; unmeasured=zero is not.
+  - **(3) ITEM-6 ANSWERS, both discipline-grade:** (a) `TestDF1Fencepost` did NOT
+    fire — the pin is FIXTURE-ARM-SCOPED and the durations moved under
+    `wr3_stage2_v1`, an arm the fixture never runs. **"A fixture-arm-scoped pin is
+    not a tripwire, and the arm that gets calibrated is by definition not the frozen
+    one"** — routed to jack-ryan as a discipline candidate (pin-scope rule), with the
+    counter-example in the SAME commit: `TestW1Vocabulary` fired by name because it
+    pins a module-level constant, not a fixture-derived literal. Stage-2 arm now
+    pinned with non-vacuity; `N_emit = N_lock + 1` survived both arms. (b) G-I1
+    decomposes to **12.1/duration** (ward casts once, σ=0; up_ticks constant at 121
+    while total_ticks moves) — the band [0.30,0.42] ≡ a fight-duration band
+    [28.81 s, 40.33 s]. Annotated, not re-based; the artifact refutes its own label.
+  - **(4) AI-D2 RESOLVED STRUCTURALLY — the predicted dissolution was TRUE BY
+    ACCIDENT:** the 1.368 s timing margin is real, but the load-bearing disjointness
+    is GEOMETRIC (the only committing skill reaches 2.00 m) and TWO shipped skills
+    exceed ViewDistance (shaman 18 m, nova 40 m) — a future committing long-range
+    skill would have re-opened the conflict silently. Made structural via AI-D2-R1 +
+    a named tripwire; `commit_beat_return = 0` measured. R-WR3-41(4)'s "verify, don't
+    assume" instruction EARNED ITS KEEP — the verification found the accident.
+  - **(5) BUILD OF RECORD:** one flag `wr3_encounter_ai_v1` default OFF, reusing the
+    existing `is_activated` latch (no duplicate); boss spawns at 17.58 m against the
+    15 m radius so the armed boss STARTS DORMANT — the pre-registered
+    boss-battery-unaffected gate holds as flag-identity, **G-W2-1 PASS 575/575
+    digit-for-digit**. Pack stagger measured: closing 0.2→2.3 s; only 50.2% of a
+    Common 5th body ever engages (B11 responder probability doing its referent job).
+  - **(6) HONEST GAPS FLAGGED, none blocking, all named:** G-W2-4 under-powered
+    (n=60 rolls vs 200 pre-registered — not a pass to lean on); G-W2-7 NOT SAMPLED —
+    the 75 m pursuit limb is GEOMETRICALLY UNREACHABLE in every arena (50.91 m max),
+    so the envelope mechanism is battery-untestable as-built; NO per-mechanism
+    sub-flags (a real #10 gap — attribution currently by measured non-participation;
+    three sub-flags are a cheap follow-on); social aggro NEAR-INERT in current
+    geometry (403/463 calls reach nobody) — design-lap-shaped observation. Two
+    gamora self-caught defects banked (shared counter split; the 0.1×100 float
+    fencepost firing a 10 s timeout at 10.1 s).
+  - **(7) NEXT:** Gate-2 (jack-ryan, background) on the W-2 landing — routings: the
+    pin-scope discipline candidate, the AST precision measurement, AI-D2-R1, the
+    G-I1 annotation. The **R-WR3-2 full-mix acceptance lap** scopes AFTER the
+    verdict, with the sub-flags follow-on + G-W2-4 power extension riding its
+    commission. D1/D2 still queued for Matt; nothing built presumes them.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
