@@ -875,6 +875,47 @@ in the scope above is superseded by the measurement where the measurement is cle
   pitch the upper-air shaft occupies less frame height and the void-overlay segment may crop;
   the landing must show the shafts READ at the game camera, not only at eye level.
 
+## LANDING — BATON-CENSUS ✓ (2026-07-30; note `legolas/notes/2026-07-30-baton-census.md`; pushed by this bank)
+
+- **Headline: the schema is baton-ready for the fight the traces CONTAIN — and NOT for the boss
+  the wave NOW BUILDS.** The four freshest Stage-2/2b artifacts (18:37–21:01) contain ZERO
+  `.jsonl` — newest emission (16:45) predates the Stage-2b mechanics. A scene certified against
+  the existing traces certifies against a boss that no longer exists.
+- **⚑⚑ THREE RIDERS ROUTED TO THE CHARTER SESSION (WR1 Stage-2 final lap — the amendable
+  window is NOW; this pushed bank is the routing artifact, and Matt is asked to relay verbatim):**
+  1. **`primordian_icearmor` has NO emission channel** — state lives in `mob._wr3_icearmor`, a
+     plain attribute NOT in `combatant_state.active_effects` (the only thing `_ailments()`
+     reads). A 25% absorb + 28% outgoing-cold buff runs INVISIBLY. **Not recoverable post-hoc —
+     without this rider the baton costs a re-emission regardless.** Fix: route through
+     `active_effects` or a `buffs:[]` block.
+  2. **`chillbane_blizzard` emits `shape:"circle"`** — downstream it would be painted AND SCORED
+     as a nova (`wr2_playback.gd:2435` tests circle unqualified → corrupts `_nova_verdicts`,
+     the statistic the run is GRADED on; silent). Fix: a `family` string on telegraph events
+     (`nova|blizzard|wave|melee`).
+  3. **`attack_id` absent on damage/dot events** — hit→telegraph unjoinable (nova's own hit
+     carries `skill_idx:-1`). Fix: carry `attack_id` on damage/dot.
+- **NEEDS-vs-CARRIES (full table in the census note):** telegraph geometry CARRIES (19 fields;
+  real nova: circle/12.0 m/wind_up 2.32 s/damage 218) — but only point+circle ever emitted,
+  orientation/half_angle/width 100% null, tells are MOB-SIDE ONLY · skill flavor
+  CARRIES-PARTIALLY (element null everywhere except impact `damage.element`; mechanic = substring
+  sniff on `attack_id`) · status CARRIES as `ailments[]` (CC = `action_lock` 1.3 s, NOT `freeze`
+  — Gate-2 H-1 fidelity honored in the schema itself; zero occurrences in fresh batteries, the
+  player escaped all 114 novas; consumer reads it 0 times) · projectile/travel ABSENT (one
+  telegraph + one damage; the 14 m/s ring crossing is sub-tick solved — scene must animate
+  expansion from telegraph fields, declared stylization-of-truth) · identity CARRIES-PARTIALLY
+  (**`is_boss` false for the boss on 100% of traces**; consumer already workarounds by
+  id-prefix+max_hp) · wave additions: decision/telegraph event types, crit (player-only
+  structurally), hp_provenance, per-frame ai_state in 5 files.
+- **TELL-DRESS charter GROWS (scene-side obligations regardless of riders):** qualified
+  family/shape handling (blizzard ≠ nova even if the rider lands — defense in depth) · `rect`
+  shape support (primordian_wave emits it; today's `else` branch merely HAPPENS to build the
+  right BoxMesh) · ailment rendering (`action_lock` body language — the first time the scene
+  shows CC) · ring-expansion animation from `origin/radius_m/wind_up_s/fire_tick` · boss
+  identification hardening until `is_boss` is fixed · player tells: none exist (mob-side
+  grammar; consistent with ARPG convention — enemy tells telegraph, player attacks resolve).
+- **Certification law banked:** the scene's baton certification happens against a POST-Stage-2b
+  trace or not at all; the 15:33/16:45 traces are development fixtures from here on.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
