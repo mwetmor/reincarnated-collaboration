@@ -867,6 +867,13 @@ in the scope above is superseded by the measurement where the measurement is cle
   reads in a single still.
 - No injection possible (SendMessage down, standing); signal reaches the cell via this bank if
   it reads the note late, else via conductor at landing reconciliation.
+- **CAVEAT (Matt, follow-up): the signal is at `cam=eye` — he has NOT yet seen it at the ARPG
+  camera angle.** The reference-set bank stands, but the BINDING verdict waits on the judge/
+  player_lock deliverables (which the cell's charter already requires — the 47°-pitch watch is
+  the acceptance surface, per M-EYE). Known physics rider for that view: beam visibility is
+  view-dependent for fog but NOT for additive mesh — geometry is, though: at the steep ARPG
+  pitch the upper-air shaft occupies less frame height and the void-overlay segment may crop;
+  the landing must show the shafts READ at the game camera, not only at eye level.
 
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
