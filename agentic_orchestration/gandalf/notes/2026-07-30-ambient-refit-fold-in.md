@@ -692,6 +692,34 @@ in the scope above is superseded by the measurement where the measurement is cle
 - Standing note: the measured pick still gets DECLARED (which arm the numbers favor and why) —
   Matt rules with the measurement in hand, per bake-off precedent.
 
+## Scope 16 (Matt ruling 2026-07-30) — CENTER LIGHT RETIRED · character-as-light-source · WOLF-WARMTH test body
+
+- **Matt ruling: the static center-of-room light RETIRES ENTIRELY.** The player character IS the
+  light source. Amends the Scope-12 Arm A spec: "static center dimmed to 45%" → **static center
+  REMOVED (0%)**; the warm carried omni (energy 5.2 / range 9 m, parented) becomes the sole
+  player-side room-fill. HAND-OFF MANIFEST E1 entry amends accordingly.
+- **Testing configuration (Matt): the WEREWOLF stands at room center carrying its own light
+  source** — the wolf's warmth REPLACES what the center light had been providing. Wolf body =
+  the R-PC-4 caster (52-bone, 0.0000° retarget, albedo repaired, VHCaster load path from
+  INTEGRATE-PREP P3). Wolf's carried light: same warm family as the player's; energy/range
+  scaling is the cell's to measure (does one wolf-omni at center reproduce the retired center
+  light's floor luma?) — declared, veto-open.
+- **Grammar recognition (conductor, banked for the record):** this completes the thematic
+  inversion the session has been walking toward — **rooms are dark; the LIVING glow.** Torches
+  = fixed local fire, skylight = the distant living world, and now every warm pool that moves
+  is a soul. The *Reap. Die. Rise.* read writes itself: light is carried by the living through
+  the dead air, not installed in it. (Extension question — do MONSTERS generally carry light,
+  or only the player + chosen bodies? — NOT ruled; parked as a design fork for after the
+  testing config is at Matt's eye.)
+- **Composition with Scope 13:** wolf's carried omni is non-shadow-casting like the player's;
+  BOTH bodies become contrast engines for the unified directional shadow — the wolf at center
+  is simultaneously the shadow-detail test body (anatomy silhouette) and the warmth source.
+  One placement, two acceptance reads.
+- **Routing:** SKY-2 cell in flight (queue-behind; no injection possible) → **CENTER-RETIRE +
+  WOLF-WARMTH fold into SHADOW-UNIFY's charter** (it is the lighting-architecture cell: one
+  directional author + non-casting torches + non-casting carried omnis + center retired + wolf
+  placed at center). SHADOW-UNIFY still gated on SHADOW-CAL returns + tree free.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
