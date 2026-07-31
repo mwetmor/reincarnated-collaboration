@@ -1604,8 +1604,11 @@ against the frozen WR2 baseline immediately.
     `test_L1`. Queued to the design lap with D5 (the species/tier taxonomy).
   - **(7) GATES — no third state, as commissioned:** all G-ACC-0..5 PASS; **G-W2-5 GRADED at
     last** (trash 2.298 s · mixed_pack 10.820 s stagger — the static model's 2.15 s declared
-    itself a lower bound and measured 6.9 % under, earning its keep; **champion FAILS at
-    0.165 s**, an honest named gap; boss NOT ELIGIBLE, declared); G-W2-10 PASS (0
+    itself a lower bound and measured 6.9 % under, earning its keep *[ATTRIBUTION FALSIFIED
+    at R-WR3-45(2) by the artifact's own per-arm block: mixed_pack carries ZERO M2
+    contribution, and M2 REDUCES trash stagger 3.008→2.298 — the grade stands, the sentence
+    does not]*; **champion FAILS at 0.165 s**, an honest named gap; boss NOT ELIGIBLE,
+    declared); G-W2-10 PASS (0
     out-of-vocabulary; `return` unsampled-declared); G-W2-4 **PASS on trash** (363 rolls,
     0.5096 vs 0.50) and NOT-SAMPLED-ON-n on three tiers with the mechanism reason. WARN-1/3/4
     remediations landed; the retired-basis sweep per #64's new clause done.
@@ -1621,6 +1624,68 @@ against the frozen WR2 baseline immediately.
     Matt's return surface (deferred watch · D1/D2 · T11 · the grill, now carrying the
     discriminating-statistic + hero-taxonomy + champion-stagger + inert-mechanism items) is
     unchanged and complete.
+
+- **R-WR3-45 (2026-07-31, conductor — ★ THE CLOSING GATE-2 HOLDS: PASS 2-WARN 0-BLOCK; THE
+  RUN'S §0 TARGET-STATE IS REACHED; WIND-DOWN BEGINS ★).** Verdict at
+  `agentic_orchestration/qa/findings/2026-07-31-gate2-wr3-fullmix-acceptance.md` (collab
+  `54ffec63`); Discipline #68 + #1 clause 1.3 at engine `ddbdebc8`. jack-ryan's headline,
+  quoted: *"R-WR3-2 is MEASURED, and it PASSES, on the arm of record… Neither WARN touches the
+  R-WR3-2 verdict."* Read in full; decisive claims INDEPENDENTLY REPRODUCED: (i) `test_H4b`'s
+  third assertion read directly at :130–131 — `m1_armed is False` is true of every mob on the
+  arm under test, the disjunction cannot fail (WARN-2 confirmed); (ii) the per-arm stagger
+  table reproduced to the float — mixed_pack 10.820 IDENTICAL across all M1-on arms, trash
+  M1-only 3.008 vs M2-armed 2.298 (WARN-1's falsification confirmed); (iii) `N_BOSS_SWEEP =
+  (0,1,2,3,4,6)` — 5 absent, INFO-1 confirmed, floor unaffected (monotone bound, adverse
+  corner present). Banked:
+  - **(1) TARGET-STATE ADJUDGED REACHED** on jack-ryan's independent reproduction: W = 1.0000
+    recomputed from per-cell data on both arms; floor 125/141 exact; all 18 corners = {1.0};
+    anchor `==`-identity; both sweeps name-diffed by hand (+1/−0 → 0/−0, pass delta
+    reconciled to `--collect-only`); annotation reversibility proven byte-for-byte both ways;
+    the punching-bag repair verified IN THE DATA (M1-off boss intake 0.622 > FULL 0.413, the
+    mechanically correct direction).
+  - **(2) WARN-1 ADOPTED — G-W2-5's grade stands, its attribution is falsified by its own
+    artifact:** mixed_pack's 10.820 s is proximity + player travel crossing the ADR-004 seam
+    labelled "stagger" (distress 888 = 888 no-eligible-target); the 2.15 s model models the
+    DISTRESS path, yet the M1-only arm (no distress at all) reads 3.008 s and arming M2 moves
+    it DOWN to 2.298 — the call converts never-engaged bodies (excluded from width) into
+    near-minimum engagers. A better finding than the note claimed, wrongly credited. **Fourth
+    stale-attribution annotation in my own ledger** (R-WR3-44(7), annotated this commit) —
+    #64's basis-propagation clause recurring one layer down, one landing after I banked it.
+  - **(3) WARN-2 ADOPTED:** `test_H4b`'s third limb is unconditionally satisfiable — the one
+    limb aimed at the symptom its comment names ("frozen mobs") is inert. The repair it
+    guards is otherwise sound (`m1_armed`: one production write site, `__init__`-set, never
+    mutated — passes #67 cleanly); the intake assertions carry the load.
+  - **(4) R-WR3-44(3) RETIREMENT: jack-ryan CONCURS, one amendment ADOPTED.** His warrant is
+    the right one — the acc cell *discharges everything the retirement costs*, checked item
+    by item (G-W2-3's 554=554 and G-W2-8's heal 0.0 re-confirmed on the arm of record;
+    G-W2-7 re-taken on the 57 %-longer fight, still unsampled; G-W2-1 never read the
+    defective arm). Amendment: the divergence enumeration is one-directional — the W-2 cell
+    also arms `emit_telegraphs`/`nova_telegraph_v2`, measured +7.7 s, LARGER than the W-2
+    lap's entire headline effect (−1.737 s); the consumer instruction is right, its reason
+    under-inclusive. One MIGRATION §1 sentence owed.
+  - **(5) DISCIPLINES: #68 MINTED — ceiling statistics** (*a statistic at its ceiling is not
+    a measurement; declare saturation before the run and emit a discriminator beside it*) —
+    four founding instances in one landing, the decisive one being that H1 = 1.0000 could not
+    have shown the punching-bag battery and the pre-registered intake column did. **#1 gains
+    clause 1.3** (precedence evidenced, not asserted — forward habit; all three WR3 math
+    notes landed same-commit as their data, so no Gate-2 in this run could CHECK
+    math-before-code; a verifiability gap, not an honesty one). Conductor lesson carried
+    forward to future charters: **pre-registration commits should land as their own commit,
+    before the battery fires.**
+  - **(6) WIND-DOWN DEBT LIST (gamora's next seam session; none blocks close, no re-battery):**
+    (a) restate G-W2-5's attribution in math note §10 + MIGRATION §3 per WARN-1; (b) fix
+    `test_H4b`'s third limb (assert activation on the M1-ARMED arm, or drop the vacuous
+    disjunct); (c) the MIGRATION §1 divergence sentence per (4); (d) add 5 to `N_BOSS_SWEEP`
+    or annotate the enumeration claim. Also standing from prior rulings: Gate-2 §E-10(c)
+    strike-at-next-re-run; drax's `project.godot` NO-DELTA disposition (R-WR3-40(7)); the two
+    2026-07-22 `qa/pending/` items → knight-rider's queue (twice flagged).
+  - **(7) ★ WIND-DOWN BEGINS ★** — hand-off note next; Matt return surface FINAL: the parity
+    watch (`matt_to_do/`) · D1/D2 leash-departure (`matt_decision_needed/`) · T11 · the RDR
+    design-lap ELICITOR grill, now carrying (from this run): band + duration target +
+    split-default re-base + discriminating-statistic (H1 saturated; intake candidate) +
+    dodge hazard + ward duty cycle + melee land-rate feel + hero-tier taxonomy (with D5) +
+    champion-stagger spawn geometry + two-of-three-mechanisms-inert + social-aggro
+    near-inertness + the intake 1.11-pools lifesteal read.
 
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
