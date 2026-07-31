@@ -1467,3 +1467,47 @@ All four gates PASS:
 `ROOMDRESS_four_room_walk_CAMLOCK.mp4` · `plates/PLATE_D2_four_rooms.png` / `PLATE_D1_clearance.png`.
 
 **Routing:** **LAP-1 WATCH fires now** (BR-1 §3 cell #7) — the integrated deliverable.
+
+## LANDING — LAP-1 WATCH ✓ (2026-07-31; note `drax/notes/2026-07-31-lap1-watch.md`; godot LOCAL `be576c7`, ahead 16) — **BR-1 TARGET T-1 DELIVERED**
+
+**G-4 PASS: 11 PRESENT / 1 PARTIAL**, every item frame-stamped. Seed 74000806 unchanged from the
+conductor's pick; all four feature classes on screen.
+
+- **Boss-ID (R-BR-1) triple-verified:** max-HP ∧ id-prefix ∧ roster-tier all agree —
+  **`boss&quest_slith_wightmirecave01_0`, 14,812 HP: PRIMORDIAN, THE FORGOTTEN ONE.** The watch
+  renders the very boss whose Grim Dawn fight is the run-family's acceptance fixture (R-KC1-22).
+  `is_boss` reads FALSE on the correct actor, exactly as the ruling predicted.
+- In-situ re-verification: TELL-DRESS radius 11.953 m (better than banked), burst −1 frame;
+  one-sun shadows on BOTH bodies; staticity 3 px over two launches; LSTAT sha unchanged; zero
+  lighting edits (shaders byte-identical to banked).
+- **The one PARTIAL:** werewolf in-motion readability 1.288× vs the 1.540× static standard.
+- **Worst declared debt — the player MOONWALKS:** heading faces the boss 97.9% of ticks while
+  velocity points away; 93.2% of moving ticks are backwards on forward-only clips (median
+  4.18 m/s lateral slide). The strafe/backpedal clips exist ON DISK, unretargeted. **Fix folds
+  into the next drax write-cell** (strafe retarget + velocity-vs-heading blend).
+
+**R-BR-7 (conductor ruling, veto-open) — Arm-A default drift:** `wr2_playback.gd::_pl_arm`
+defaults to "B" (NO carried lamp), against Matt's standing Scope-12 ruling. LAP-1 WATCH rendered
+correctly (flag passed, arm printed on-frame); but TELL-DRESS + ROOM-DRESS clips were cut on the
+rejected B baseline. Ruling: the default FLIPS to "A" in the next drax write-cell (implements a
+standing Matt ruling — not a new lighting decision); until then every render passes the flag
+explicitly. **Consequence for the sitting: judge lighting off SHADOW-UNIFY + LAP-1 clips (Arm A);
+the TELL-DRESS/ROOM-DRESS gates are arm-internal and stand.** Drax's restraint (did not move the
+default with the package open) was correct.
+
+**Lap-2 gate G-5 CHECKED — OPEN, riders 1/3:** newest on-disk wr3 batteries (`wr3_battery_after_s11`
++ `_s11_det`, 220 traces censused) carry `attack_id` but **zero files with `family` or
+`icearmor`**; `wr3_stage2c/` holds only the report JSON, no traces. Per the charter's honorable
+fallback: **Lap 1 IS the deliverable; Lap 2 parks armed**, firing when full-rider traces land
+(one census command re-checks). Strafe retarget + R-BR-7 default flip ride with it.
+
+**Eye-package CONSOLIDATED (one sitting, all in motion):** ① shadow depth 1.00 vs 3.50 (conductor
+leans 3.50; dressing contrast rides free) · ② pools at 62% (full lever = SKY_ENERGY_REF→~74) ·
+③ boss head crossing the 2.40 m beam base (lean: leave it) · ④ room temperature inversion ·
+⑤ fog-unlit A/B (pool-edge decision only) · ⑥ decal floor-lift ×2.02 for 2.3 s · ⑦ numerals
+cover >50% of the hero for ~1.9 s (charter §14.17's question at watch scale) · ⑧ R-BR-6 substrate
+re-pin + R-BR-7 arm default (both veto-open rubber-stamps).
+
+**THE WATCH:** `tmp/lap1watch/clips/LAP1_WATCH_full_fight_CAMLOCK.mp4` (27.80 s) ·
+`LAP1_WATCH_highlights_CAMLOCK.mp4` (nova/action-lock/crit/death, ×1 + ×0.5) ·
+`plates/PLATE_G4_checklist.png`.
