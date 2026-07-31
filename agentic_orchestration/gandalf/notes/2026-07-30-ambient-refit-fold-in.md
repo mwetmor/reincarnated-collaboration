@@ -1511,3 +1511,69 @@ re-pin + R-BR-7 arm default (both veto-open rubber-stamps).
 **THE WATCH:** `tmp/lap1watch/clips/LAP1_WATCH_full_fight_CAMLOCK.mp4` (27.80 s) ·
 `LAP1_WATCH_highlights_CAMLOCK.mp4` (nova/action-lock/crit/death, ×1 + ×0.5) ·
 `plates/PLATE_G4_checklist.png`.
+
+---
+
+## Scope 24 — MOB BODIES (Matt ruling, 2026-07-31, post-LAP-1-WATCH review)
+
+Matt verbatim: *"The enemy combatants which are not bosses (I'm unsure if they are trash/pack/etc)
+do not have skeletons, rigs, characters or animations. They are still geometric blobs. Please
+ensure they are skinned and animated with their movements and attacks."*
+
+**Binding:** every non-boss actor in a rendered trace gets a skinned, rigged, animated body —
+movement locomotion AND attack animations. No geometric proxies in any Matt-facing render from
+this scope forward. Substrate note: the newest batteries enumerate the non-boss cast directly
+(`trash__none`, `champion__none`, `mixed_pack__none` traces per seed) — the cast list is
+countable before casting. Bodies: Fantasy Rivals pack (20 SK rigs, R-PC-2 asset home) + the
+scene-proven L6 registry; drax holds rig-quality say per R-BR-5's pattern.
+
+## Scope 25 — BOSS/COMBAT VFX BAKE-OFF + STRIKE-CONNECT (Matt ruling, 2026-07-31)
+
+Matt verbatim (compressed, full text in session): boss skills/attacks must NOT render as
+geometric shapes — *"the boss monster has VFX as this is probably the 100% most important part
+of the bake-off."* He wants **phase-1 AND 2c scenes with VFX bake-offs**: arms = (a) VFX from
+catalogues in the asset folders, (b) VFX created by drax via Murzak/MCP, (c) **combinations of
+both** — try different combinations. Sequencing law: if 2c is consumable before phase-1 VFX work
+begins, phase-1 VFX may be skipped; otherwise phase-1 VFX work fires (it supports phase 2).
+Census at banking: 2c traces NOT on disk → **phase-1 VFX work fires.**
+
+**Strike-connect sub-ruling:** boss hand-attacks and werewolf claw-attacks must VISIBLY connect —
+prefer farther-reaching attack animations where they exist; swipes must cross the target body.
+On top: **physical claw & strike VFX attached to the melee animations** ("for juice") — both
+combatants.
+
+## Scope 26 — BEAM BASE-PIN 100% + GRADUAL GRADIENT (Matt ruling, 2026-07-31)
+
+Matt verbatim (compressed): beams getting better; two updates. **(#1)** beams pinned **100%** to
+the ground shape — slat-beams currently cover only ~5–10% of the length of the ground-lit slats;
+circle has the same defect, milder. The beam's base footprint must equal the lit floor shape,
+full length/full disc. **(#2)** extend the non-transparent blue light/particles HIGHER and make
+the solid→transparent gradient **much more gradual** — current falloff reads near-instant, wrong.
+Solid at the floor, gradual fade, transparent by frame top (Scope 23's endpoint law unchanged;
+the CURVE between endpoints is what changes).
+
+## Ruling — Lap-2c PRE-RATIFIED (Matt, 2026-07-31)
+
+Matt verbatim: *"Lap2c is completing the owner-eye render right now, and I have
+PRE_RATIFIED/CERTIFIED it for use within your scene here. Please review what's available now and
+switch now if you can; if not, keep an eye out for the rendering that you need to swap to phase
+2c and save yourself time."*
+
+**G-5 status change: the gate's Matt-authorization clause is now PRE-CLEARED** — when rider-bearing
+2c traces land on disk, the swap fires WITHOUT a fresh Matt halt (schema spot-check still applies).
+Census at banking (2026-07-31): newest emissions Jul 30 16:45; `wr3_stage2c/` report-only; 0 files
+with `family`/`icearmor` anywhere under `kitcal_g5/`. **Re-census at every cell boundary.**
+
+**Cell sequence for the fix lap (conductor sequencing, veto-open):**
+1. **MOB-CAST** (Scope 24) — + carries the two standing debts: R-BR-7 Arm-A default flip +
+   moonwalk strafe retarget (velocity-vs-heading blend).
+2. **BEAM-PIN2** (Scope 26) — small, independent; lands before the bake-off so audition clips
+   carry corrected beams.
+3. **VFX-BAKEOFF** (Scope 25) — the most important surface, cut LAST so Matt judges VFX arms
+   against the fully-dressed scene (skinned cast + pinned beams), not against blobs and
+   mis-pinned light. If 2c traces land mid-lap → swap substrate at the next cell boundary
+   (PRE-RATIFIED above).
+
+Rationale for VFX-last despite VFX-most-important: the bake-off is a JUDGMENT surface — M-EYE
+verdicts on VFX arms are contaminated if every clip also contains known-wrong cast/beam defects.
+Dress the stage before the audition.
