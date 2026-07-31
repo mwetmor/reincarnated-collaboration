@@ -916,6 +916,26 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Certification law banked:** the scene's baton certification happens against a POST-Stage-2b
   trace or not at all; the 15:33/16:45 traces are development fixtures from here on.
 
+## Scope 19 (Matt directives 2026-07-30) — ONE SKY DIRECTION · fog-unlit comparison (post-BEAM-REAL)
+
+- **SKY-ALIGN (Matt): all skylight shafts share ONE direction.** Drax "keeps making two skylight
+  angles"; Matt wants every shaft (circle + all slats, all rooms) descending from the SAME
+  implied direction. Design grounding: the sun is at infinity — real church-window beams are
+  PARALLEL; two angles read as two suns. Composes with Scope 13 (one directional shadow author)
+  into a single law: **the sky has ONE direction in this world** — shadow azimuth and shaft lean
+  derive from the same vector (SHADOW-CAL's measured GD angle is the natural candidate for
+  both; final direction Matt's at the watch). Per-room pattern LAYOUT stays unique (seeded);
+  DIRECTION becomes global.
+- **FOG-UNLIT COMPARISON (Matt): a version where the volumetric fog is NOT lit by the window
+  skylights at all** — just mesh beams + floor pools, E3 haze staying neutral. A/B at his eye
+  vs current (skylight-lit fog). Mechanism: exclude the sky projector spots from fog
+  contribution (per-light fog-energy zero) — the warm torch fog-lighting stands unless he says
+  otherwise; only the SKY-fog interaction toggles.
+- **Routing:** BEAM-REAL in flight (no injection; standing) → both items fold into
+  **SHADOW-UNIFY's charter** (it is the one-direction cell by construction: directional author
+  + shaft alignment + fog-light exclusion toggle + center-retire + wolf + pools-vanish
+  reconciliation). Its deliverables now include the fog-unlit A/B pair.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
