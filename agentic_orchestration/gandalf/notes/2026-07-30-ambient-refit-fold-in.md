@@ -1396,3 +1396,44 @@ them together off the SHADOW-UNIFY clips.
 
 **Routing:** TELL-DRESS fires now (BR-1 §3 cell #5) — none of the five eye items block decal
 work; any ruling lands as one-constant changes.
+
+## LANDING — TELL-DRESS ✓ (2026-07-31; note `drax/notes/2026-07-31-tell-dress.md` `619c7c77`; godot LOCAL `30f83fc`, ahead 14; only file touched: `wr2_playback.gd`)
+
+All five gates PASS:
+- **T-1 radius truth:** declared 12.000 m → measured 11.939 m (−0.51%), per-azimuth local scale
+  (no global px/m — at 53° pitch one number IS the error); 5 azimuths eaten by the arena wall
+  excluded by geometry, counted.
+- **T-2 timing:** nova 69/70 frames (−1); achieved by moving decals off `create_tween` onto the
+  PLAYBACK CLOCK (trace time, not wall time — the right master for a sim render).
+- **T-3 legibility:** rim/floor median ×3.355 — via the pre-authorised escalation: cold-on-cold
+  DID fail against the cold pools, so the shipped rim is a SKY_COLOR-cold core + **0.14 m warm
+  danger lip** — the one warm accent in the cold family, and it is the danger channel.
+  Both bands inside true radius (the lit outer edge IS `radius_m`).
+- **T-4 no regression, EARNED:** first pass failed at 393,347 px; three non-deterministic authors
+  (tween numerals, unseeded dust, room ambient) peeled AT THE AUTHOR → final 29 px vs NULL
+  floor 1. LSTAT-2 unchanged.
+- **T-5 qualified switch:** rect renders (inherited centred-box semantics CORRECTED to run from
+  the caster); unknown family → magenta fallback + warning; neither enters `_nova_verdicts` —
+  the `:2435` corruption hazard is closed.
+
+**Ring grammar shipped:** static rim = the WHERE; a front band travelling 0→radius over
+`wind_up_s`, arriving at the rim exactly at `fire_tick` = the WHEN; 0.32 s shock burst. The
+telegraph teaches its own timing — a first-time viewer can read when it will fire.
+
+**⚑ CHARTER CORRECTION — R-BR-6 (conductor ruling, veto-open):** BR-1 §1 S-1 pinned Lap-1 to
+`kitcal_g5/g5/traces/` — **that battery contains ZERO telegraph events** (it is the pre-telegraph
+G-5 baseline). Telegraphs + the only `action_lock` frames live in `kitcal_g5/wr2_battery_after/`
+(post-`bef1f55`, same phase-1 era, pre-2c). The g5 pin was the CONDUCTOR'S drafting choice, not a
+Matt ruling — Matt's two-lap law distinguishes phase-1 vs 2c, not batteries. **S-1 is RE-PINNED
+to `wr2_battery_after` traces** (R-BR-4 feature-coverage selection is unsatisfiable from g5).
+Proven fixture: seed 74000806 — nova at 414.80, `action_lock` ticks 33–45, 2 crits, death 23.8 s.
+Flagged at Matt's eye with this bank; his veto reverts one line.
+
+**At Matt's eye (with the standing five):** (6) the decal lifts the floor inside the ring ×2.02
+for 2.3 s — legibility over ambience as ruled; retreats on one constant.
+
+**Deliverables:** `tmp/telldress/clips/TELLDRESS_before_after_watch_CAMLOCK.mp4` (first) ·
+`TELLDRESS_nova_cycle_CAMLOCK.mp4` · `TELLDRESS_action_lock_x3slow_CAMLOCK.mp4` ·
+`TELLDRESS_synthetic_shapes_CAMLOCK.mp4` · `plates/PLATE_T1_radius_truth.png`.
+
+**Routing:** ROOM-DRESS fires now (BR-1 §3 cell #6). Then LAP-1 WATCH on the re-pinned substrate.
