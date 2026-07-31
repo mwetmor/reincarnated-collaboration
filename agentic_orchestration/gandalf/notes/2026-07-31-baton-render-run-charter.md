@@ -2,8 +2,8 @@
 
 **Conductor:** gandalf (`RUN-CONDUCTOR`) · **Chartered:** 2026-07-31 · **Pattern:** desirable-run
 (`operating-procedures/desirable-run-pattern.md`; F1–F4 all YES, audit in the fold-in ledger)
-**Ledger of record:** `gandalf/notes/2026-07-30-ambient-refit-fold-in.md` (Scopes 1–22 bind; this
-charter composes them — it does not restate them)
+**Ledger of record:** `gandalf/notes/2026-07-30-ambient-refit-fold-in.md` (Scopes 1–23 bind, and
+later Scopes bind as banked; this charter composes them — it does not restate them)
 **Matt authorization:** 2026-07-31 — *"take the phase2c baton and complete the run ending at the
 fully godot rendered battle sim (including lighting, shadows, VFX, characters (player and enemy)?
 Full combat sim render in a beautiful corner"* + two-lap law + Scope-22 casting rulings.
