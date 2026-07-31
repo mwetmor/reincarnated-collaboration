@@ -1304,3 +1304,43 @@ one-command item is WITHDRAWN.**
 / `PLATE_cone_base_G1.png` (136 MB total).
 
 **Routing:** RIVAL-CAST fires now (BR-1 §3 cell #3). SHADOW-UNIFY next.
+
+## LANDING — RIVAL-CAST ✓ (2026-07-31; note `drax/notes/2026-07-31-rival-cast.md` `e8aefafd`; godot LOCAL `b80d7d9`, ahead 12)
+
+**CAST: `SK_BR_Character_ElementalGolem_01` — G-2 PASS, no fallback walked.** The strongest
+possible compatibility result: the golem's rest pose is byte-identical to the werewolf's to four
+decimals (head 1.6940 / hips 0.8763 / foot 0.0811) — **the boss IS the player's skeleton.**
+Retarget 51 bones / 39 profile, rest-Δ 0.0000° mean AND max; 24-phase animation battery zero
+inversion / zero collapse / zero non-finite. L6 law deliberately NOT applied (not needed in the
+in-memory path; the werewolf's own import lacks it; one word away if ever needed).
+
+- **Scale — pack-level finding:** NO Fantasy Rivals rig is natively boss-large (nine candidates
+  span 1.79–2.05 m; the lean is 1.0015× the werewolf). "One of the larger rigs" is unreachable
+  by selection — shipped **×1.5077 uniform → 2.75 m, 1.528× the player** (0.915× the masonry
+  course). Veto-open.
+- **Emissive:** tint READ from `SKY_COLOR` (0.620, 0.740, 1.000), not typed — boss glow and
+  floor pools are one cold family by construction. Energy 0.50 off a five-rung ladder, 0.00%
+  saturated, 102.6-point B−R separation against the warm floor. The temperature grammar is live.
+- **Import was a verification, not a copy** — the pack has lived in the R-PC-2 home since the
+  2026-06-21 ingest. GOVERNANCE FLAG (minor): two asset-home conventions coexist; the charter
+  cited the minority form; drax followed the live majority. Convention unification = queue row,
+  not a run item.
+- Two drax instrument failures written down (a PASS scored on a 10/93-track unretargeted clip;
+  a tint selector calling 96.6% of its bbox "the boss") — both caught in-cell, pre-verdict.
+
+**Deliverable:** `tmp/rivalcast/clips/RIVALCAST_orbit_watch.mp4` (14 s, one revolution ending on
+CAM-LOCK, boss cycling idle→walk→swipe beside the werewolf).
+
+**Two items routed, not ruled:**
+1. **Boss head enters the beam base** — 2.75 m boss vs the 2.40 m gap terminus (sized for a
+   1.8 m body). Conductor lean: DO NOT move the gap law yet — cold emissive crossing a cold beam
+   is the same temperature family and may read as intentional; and raising the terminus re-dims
+   the floor pools (the exact 71.4% mechanism), coupling this to the pools-at-62% eye item.
+   **One packaged brightness decision at the SHADOW-UNIFY landing, judged in motion.**
+2. **The player reads as a dark silhouette at the game camera** — not texture (atlas means
+   106/105/103): the carried lamp sits INSIDE the torso, lighting the floor and not the body.
+   Routed to SHADOW-UNIFY as a charter item: in the D1 grammar the carried light must make the
+   CARRIER readable — the hero is never the darkest thing in the room.
+
+**Routing:** SHADOW-UNIFY fires now (BR-1 §3 cell #4) — the full cosmology cell, validated on
+both cast bodies.
