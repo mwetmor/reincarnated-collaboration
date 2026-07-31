@@ -1278,6 +1278,34 @@ against the frozen WR2 baseline immediately.
     CLOSES**. Matt decision required by this verdict: NONE (both deferred rulings
     already chartered to the RDR design lap per R-WR3-36/37).
 
+- **R-WR3-39 (MATT-SIGNED, 2026-07-31) — OWNER-EYE PASS PRE-RATIFIED; the baton passes
+  while Matt is away.** Matt verbatim: *"I pre-ratify the pass on the owner-eye render
+  so that the baton can be passed while I'm away."* Conductor's reading, banked
+  veto-open:
+  - **(1) SCOPE OF THE PRE-RATIFICATION:** it covers the ACCEPTANCE of a render that
+    lands CLEAN — measured fight selection per the stage-1 precedent, split-melee leg
+    verified active, blizzard/nova painted distinct, no landing defect. It does NOT
+    cover a defective landing: if drax's render surfaces a measurement-integrity
+    problem (wrong leg, verb absent from the selected fight, playback mispaint), the
+    conductor HALTS the close and the render re-fires — pre-ratification is a
+    delegation of the WATCH, not a waiver of landing verification. The clip still
+    files for Matt's deferred eye; a "pass" the deferred eye later contradicts is
+    veto-open like every conductor ruling in this ledger.
+  - **(2) EFFECT:** on drax's clean return (conductor-verified), **stage 2 CLOSES**
+    without waiting on Matt's sitting. The sitting converts from a gate to a
+    deferred watch.
+  - **(3) MATT INTERFACE WHILE AWAY:** commitment boundaries do not evaporate — they
+    QUEUE. New forks accumulate in `canonical/matt_decision_needed/`; nothing
+    commitment-shaped fires on Matt's behalf beyond this one pre-ratified acceptance.
+    Specifically NOT unlocked by this ruling: the RDR design-lap ELICITOR grill (Matt
+    rules its forks — it queues for his return), T11 (his hands only), the
+    split-default re-base ruling (chartered to the design lap).
+  - **(4) THE BATON, POST-CLOSE:** with the design-lap grill Matt-gated, the runnable
+    next object is the **W-2 encounter-AI lap** (chartered at R-WR3-15/36 sequence;
+    required before the full-mix R-WR3-2 acceptance measurement). Conductor scopes its
+    commission on stage-2 close; any fork inside it that proves commitment-shaped
+    queues per (3).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
