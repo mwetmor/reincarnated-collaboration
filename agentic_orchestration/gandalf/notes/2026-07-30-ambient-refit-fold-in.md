@@ -787,6 +787,40 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Tree free at `8d66ac3` → SHADOW-UNIFY next** (still gated on SHADOW-CAL returns; charter now
   carries Scope 13 + Scope 16/16-b + the pools-vanish flag).
 
+## Scope 17 (Matt ruling 2026-07-30) — BEAM-REAL: the church-window reference spec
+
+- **Matt verdict on the shipped beams: too bright · not pinned to the ground lighting · too
+  thick.** His reference — real photographs of church-window light shafts — yields three laws:
+  1. **Ground pool: as we have it** (verdicted, untouched).
+  2. **GAP LAW: a nearly TRANSPARENT space between the ground pool and the beam** — the beam's
+     lower terminus is NOT the floor.
+  3. **UPPER-AIR LAW: the beam begins ABOVE a person's height and extends upward toward the
+     (out-of-view) windows** — the visible shaft is the upper-air segment, fading toward an
+     implied source beyond the frame.
+- **Conductor spec translation (BEAM-REAL cell):** (a) INTENSITY down — the beam is a whisper,
+  not a glare (additive gain re-tuned; the LOCKED 22.8 lamp energy governs the POOL, not the
+  mesh gain — separate constants, no energy re-tune); (b) lower terminus lifts to ~2.2 m+ with
+  a soft fade — the near-transparent gap is the signature realism cue; (c) THINNER — beam
+  cross-section DECOUPLES from pool width (real shafts read narrower than their scattered
+  ground pools; stylization declared): the pool Matt likes stays full-size, the shaft slims;
+  (d) beams extend UP past the wall course, fading out — toward implied windows above.
+- **⚑ FORK DISPOSITION: the §1.6 A/B/C fork DISSOLVES into this spec.** The slab problem was a
+  full-height floor-coupled beam; with the gap law + decoupled cross-section + upper-air
+  extension, the circle-beam becomes a thin upper-air shaft — B's cost (shrinking the liked
+  pool) is avoided by decoupling; C's mechanism (rising past the wall line) is ADOPTED with its
+  cost DECLARED: beam meshes will overlay the void-black region above the walls — shafts
+  descending out of darkness. The VOID-1 containment guarantee AMENDS: additive beam meshes are
+  air-visuals (they light no surfaces); the no-light-past-walls guarantee continues to bind
+  LIGHTING (projector spots, pools), while beam volumes above the wall line are an authorized,
+  declared, peelable exception. Veto-open at the watch.
+- Apex-foot coupling law amends to POOL-AXIS coupling: shaft axis still lands its (invisible)
+  foot on the pool center (IoU machinery repurposed as an axis check) — the gap is a fade, not
+  a displacement; parallax one-transform-chain law unchanged.
+- **Sequencing:** tree free at `8d66ac3` → **BEAM-REAL fires NOW**; SHADOW-UNIFY still gated on
+  SHADOW-CAL (in flight); fog-failure render offer stands but is MOOT unless Matt asks (mesh is
+  now doubly confirmed as the only implementation that can honor the gap law — fog cannot
+  hold a floating lower terminus).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
