@@ -690,6 +690,56 @@ against the frozen WR2 baseline immediately.
     prerequisite to ANY attributable battery after the arm ruling. Stage-2c calibration and the
     owner-eye render QUEUED behind the arm + leech + F-2 rulings.
 
+- **R-WR3-26 (discriminator lands, 2026-07-30) — the fork's premise FALLS, the ceiling sweep
+  stands: S1_PAK favoured, S2_FULL disfavoured-not-falsified; the arm fork goes to Matt
+  DECIDABLE.** Landing verified against the artifact
+  (`legolas/research/2026-07-30-wr3-damage-discriminator.md`, commit `21b18db7`; ten read-only
+  harnesses in scratch; no canonical docs touched; no web sources — corpus + save + `Game.dll`
+  symbol table only).
+  - **(1) V1 BANKED:** `lastHitBy` 273.704 is **NOT-PRIMORDIAN, firm** — the save stores the
+    entity (`lastMonsterHitBy` = Plague Walker, a trash zombie; save written mid-trash-pack).
+    AND it is **not a single impact**: Plague Walker's entire instantaneous kit is 68–85 raw
+    physical, failing the single-impact reading 8–16× under EVERY regime → the field
+    AGGREGATES. **Envelope U-5 closed, by the negative.**
+  - **(2) V2 BANKED:** `greatestDamageReceived` 260.498 is **lifetime-of-character** (7,096 s,
+    882 kills, 500 hits received), carries no attribution field, and is structurally
+    unresolvable from a single save.
+  - **(3) CONDUCTOR ERROR BANKED — the commission's premise was FALSIFIED:** I wrote "if not
+    Primordian, the constraint dissolves and S2_FULL stands unopposed." Wrong: the outgoing
+    damper is ROSTER-WIDE (93.4 % of 1,307 Monster records, trash tier included at
+    `−56 + rank`) — re-attribution relocates the constraint into another damped bucket. The
+    envelope note had only ever read trash records' *life* modifier, never their *offensive*
+    one. Legolas's single most important line, and the finding that reshapes the fork.
+  - **(4) THE DECISION SUBSTRATE is the ceiling sweep, not the datum:** best-case
+    post-mitigation single-event ceilings over the full reachable roster — **S0 894.6 / S1
+    670.9 / S2 252.9** (deliberately generous to S2: fabricated +80 weapon, 8 %-proc granted
+    everywhere, implausible cl-21 spawns admitted; excluding those → 240.3) vs the measured
+    260.498 / 273.704. **S2 short by 2.9–7.6 % from ANY source the character could have met.**
+    Regime arithmetic over the corpus, independent of save-field semantics.
+  - **(5) CROSS-ARTIFACT CORRECTIONS ABSORBED:** stage-2b's "S2 entire-kit ceiling ~283.14"
+    does NOT reproduce — Primordian's S2 kit ceiling is **94.4** (frigidring far band), and if
+    283 summed simultaneous events it is not comparable to a per-event maximum; the "~107
+    worst prong" was the 100 %-band figure — the FAR band governs. Routed to gamora at next
+    landing.
+  - **(6) LIVE THREATS NAMED, NOT CLOSED:** U-1 — the two field labels are community
+    convention, not engine truth (`Game.dll` has no such symbols), and the invariant
+    `greatest ≥ last` is VIOLATED as labelled; under the swap reading, 260.498 becomes the
+    Plague-Walker-attributed number — a direct NOT-PRIMORDIAN on the headline datum. U-2 —
+    if `greatestDamageReceived` aggregates like its neighbour, it constrains nothing. U-3 —
+    trap damage may bypass the monster damper (`trap_floorspikes` 449 raw pierce vs zero
+    player pierce resist; regime-neutral if so). **Cheapest closure for U-1+U-2: a second
+    `.gdc` diffed — filed as matt_to_do T11.**
+  - **(7) CONDUCTOR LEAN (veto-open; the RULING stays HELD FOR MATT per R-WR3-25(1)):**
+    **S1_PAK**, resting on the ceiling sweep; S2_FULL disfavoured, NOT falsified (2.9 % is
+    not a landslide); S0_NONE remains the regime of record until Matt rules.
+  - **(8) INDEPENDENT CONFIRMATION BANKED:** legolas reproduced the 269.66 far-band figure to
+    the decimal from record payloads + measured gear (armor 337 → 70 % physical absorb, cold
+    resist 14) — validating the mitigation model, the rank-5 payload, and that all these are
+    post-mitigation comparisons. Side datum: Warden Krieg ph.2 was never killed by this
+    character (`greatestMonsterKilled` = Primordian at 15,822).
+  - **(9) GATE-2 ROUTING:** envelope U-5 closure + envelope §2 correction (the missed
+    trash-tier offensive modifier) → jack-ryan on ratification.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
