@@ -36,3 +36,11 @@ answer is "correct but wrong-feeling," that reaction is the RDR design lap's ope
 - **T11** — the Veteran `.gdc` save pull (~5 min; confirm/deny on the own-stage composition).
 - **RDR design-lap grill** — band, duration target, split-default re-base, intake/duration
   statistic, dodge hazard, ward duty cycle, the melee land-rate feel.
+- **Grill additions from the R-WR3-2 acceptance close (R-WR3-44):** your signed sentence
+  PASSED over the full mix — **W = 1.0000, saturated** (H1 = 1.0 in all 6,400 fights; the win
+  rate can no longer rank anything — the design lap needs a discriminating statistic, e.g.
+  intake: the worst boss seed wins while taking **1.11× his entire pool** on lifesteal). Also
+  carried: only M1 (engagement) of the three W-2 mechanisms does anything in shipped geometry
+  (M3 measures exactly 0.0000); champion-tier stagger fails its own 0.5 s threshold (0.165 s);
+  and the GD Hero social profile is unreachable in every shipped tier (hero records carried at
+  `tier="elite"` — the species/tier taxonomy question, riding with D5).

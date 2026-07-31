@@ -1117,7 +1117,8 @@ against the frozen WR2 baseline immediately.
     "imperfect F-2" means.** HELD FOR MATT with the closing package.
   - **(6) MELEE CHANNEL COMPOSITION — HALTED correctly:** the unit fix exposed our boss
     melee as **100 % cold vs the referent's 72–83 % physical**; the SPLIT carries 2.16×
-    of the 1.64–1.89× overshoot (magnitude and mitigation model both roughly right).
+    of the 1.64–1.89× overshoot *(magnitude BASIS-RETIRED at R-WR3-43/44 — restated
+    model/model **1.87–2.16×**; the split-carries-the-overshoot attribution stands)*.
     Re-splitting the row is a fixture change no ruling covers. Conductor lean: re-split to
     referent composition (a measured-fidelity fix, not a balance opinion) — but it rides
     the band fork, so HELD with the package.
@@ -1199,7 +1200,10 @@ against the frozen WR2 baseline immediately.
   - **(2) CHARTER CORRECTION (strikes stage-2c §4's attribution):** "our mitigation
     carries 0.87×, the other way" is a variance-sampling artifact (the finite-sample mean
     of U(0.80,1.20)); **our mitigation is at PARITY and the channel split carried the
-    ENTIRE 1.64–1.89× overshoot.** The 0.87× must do no further attribution work.
+    ENTIRE overshoot *(quoted here as 1.64–1.89×; magnitude BASIS-RETIRED at
+    R-WR3-43/44 — restated model/model **1.87–2.16×**; the PARITY attribution is the
+    part of this correction that stands untouched)*.** The 0.87× must do no further
+    attribution work.
   - **(3) FOURTH LIVE INSTANCE of the `get(k,0)`/absence-graded class, INSIDE a
     battery-of-record cell:** the banked 2c artifact's `worst_received_event_hp = 0.0`
     was a `getattr` default — **G-N3″ was graded PASS on an absence.** The refit measured
@@ -1445,7 +1449,10 @@ against the frozen WR2 baseline immediately.
   Sub-items:
   - **(1) DEBTS DISCHARGED, two upgraded in the discharge:** the MIGRATION debt
     magnitude is MEASURED at **1.64–1.89×** (supersedes Gate-2's "~2×" hearsay — the
-    flag-OFF post-mit is uniform ×0.7517 of pre-mit); the `family` one-liner lands
+    flag-OFF post-mit is uniform ×0.7517 of pre-mit) *[WRONG, both claims — WARN-1 at
+    R-WR3-43(3): the ×0.7517 basis was retired by anchor-refit §3.3, every consistent
+    basis gives 1.85–2.21×, and the "~2×" was NOT superseded; restated model/model
+    **1.87–2.16×**]*; the `family` one-liner lands
     13/13 with a DECLARED residual — the boss's generic per-skill AOE (skill_idx 3)
     emits `family=null`, so family is a discriminator-where-present, not a total
     partition; consumers keep a default arm (drax's ladder rung (c)/(d) already does).
@@ -1547,6 +1554,73 @@ against the frozen WR2 baseline immediately.
     (signature-derived `_ARMED` with named out-of-arm list), the three per-mechanism sub-flags,
     INFO-2/3/4 docstring fixes. Unrelated find logged: two 2026-07-22 items untracked in
     `qa/pending/` — not this run's scope, flagged to knight-rider's queue.
+
+- **R-WR3-44 (2026-07-31, conductor — ★ THE RUN'S CLOSING MEASUREMENT LANDS: R-WR3-2 FULL-MIX
+  ACCEPTANCE **PASS** — AND SATURATED ★; engine `bb453f98` accepted).** The owner's sentence is
+  now MEASURED over the full mix, not just the boss cell. Verified this session, not accepted on
+  report: mix weights reproduce from save absolutes exactly (2/150 boss · 7/150 champion · 3/150
+  hero · 138/150 trash, Σ=1.0); adverse-corner floor reproduces (125/141 = **0.8865** > 0.5,
+  assumption-free — `N_boss` is NOT save-measured and G-ACC-3 makes that hole non-decisional);
+  G-ACC-0 carries the frozen anchor **digit-for-digit** (1.0 / 36.10666666666687 /
+  384.0105222222797); sweep-2 name-diff independently reproduced **0/−0** vs the `f808b46d`
+  82-name baseline (the untracked-source detector name present at sweep time = pre-commit state,
+  verified self-clearing post-commit, 1 passed); `wr3_w2.json` annotation is 2 `_`-prefixed keys,
+  additive. Banked:
+  - **(1) THE VERDICT: W = Σ w_t·H1_t = 1.0000** under the pre-pinned rule (PASS iff W > 0.500;
+    N_packs=150, N_boss=2, n=200/tier; W=1.0 at all 18 sweep corners). E[wins] = 150/150.
+    **Matt's signed sentence is satisfied on the arm of record, flag-armed AND flag-OFF.**
+  - **(2) SATURATION, PRE-REGISTERED HONEST (P-ACC-A):** H1 = 1.0000 in all 32 cells / 6,400
+    fights — the acceptance statistic CANNOT RANK ANYTHING. Non-decisional discriminators
+    emitted for the design lap: mix-weighted intake 0.1024 pools; worst-seed boss intake
+    **1.1122 pools** (the player takes more than his entire pool and wins on lifesteal). **The
+    design lap needs a discriminating statistic, not a win rate** — added to the grill queue.
+  - **(3) PREMISE ERROR #3 OF THE RUN — the W-2 cell measured an arm that is not the arm of
+    record:** `wr3_stage2b_v1` was passed to `build_scenarios` and never to `run_spatial_fight`
+    (+3 more omissions). Boss tier: 0.0333 as banked → **1.0000 / 36.1067 / 384.0105 = the
+    frozen anchor exactly** with the engine half applied. Found by REPRODUCING THE ANCHOR, not
+    by reading the cell. **G-W2-1 and G-W2-2/3/6/8/9 STAND** (flag-identity and mechanism gates
+    are arm-independent); the W-2 boss-tier *effect sizes* in R-WR3-42 do NOT transfer.
+    Artifact annotated-not-re-based (sha256-reversible). **CONDUCTOR RULING (veto-open): the
+    W-2 cell is RETIRED as an effect-size instrument in favour of the acceptance cell** — the
+    acc cell measures the arm of record, reproduces the anchor, and carries a real 8-arm grid;
+    re-firing the W-2 cell would duplicate a measurement already made correctly. The W-2 cell
+    remains of record for its surviving gates only.
+  - **(4) WARN-4 CLOSED WITH REAL ARMS, and the answer is stark:** **M1 (engagement) carries
+    the WHOLE effect** (boss −1.737 s, −0.2091 pool); M2 (social) is trash-only +0.0108 pool;
+    **M3 (pursuit-return) is exactly 0.0000 on all four tiers** — a measured arm, not a counter
+    inference, consistent with G-W2-7's geometric unreachability. M2/M3/M2+M3 indistinguishable
+    from flag-OFF to the last float. Design-lap-shaped: two of three mechanisms are inert in
+    shipped geometry.
+  - **(5) GAMORA SELF-CATCH, the saturation lesson in miniature:** the first battery's M1-off
+    arms fought PUNCHING BAGS (disarming M1's writer left readers gating a latch nothing set;
+    intake 0.0000 across four tiers while the player "won" 200/200). **H1 could not have shown
+    it; the intake column did** — the discriminating-statistic point proving itself mid-lap.
+    Repaired (`m1_armed`, one variable four readers) + `test_H4b` de-vacuizes `test_H4`. Plus
+    the FIFTH BQ-3 door, opened by the commission's own cell on its own author.
+  - **(6) PREMISE ERROR–ADJACENT, NEW:** the GD **Hero social profile is unreachable in every
+    shipped tier** — the Thundersnout is a hero record carried at `tier="elite"` so it receives
+    Champion's profile; W-2 note §2.3's Hero row has never been exercised; G-W2-4's mixed_pack
+    B11 agreement survives only because both ship 0.75 — **luck, not design**. Pinned by
+    `test_L1`. Queued to the design lap with D5 (the species/tier taxonomy).
+  - **(7) GATES — no third state, as commissioned:** all G-ACC-0..5 PASS; **G-W2-5 GRADED at
+    last** (trash 2.298 s · mixed_pack 10.820 s stagger — the static model's 2.15 s declared
+    itself a lower bound and measured 6.9 % under, earning its keep; **champion FAILS at
+    0.165 s**, an honest named gap; boss NOT ELIGIBLE, declared); G-W2-10 PASS (0
+    out-of-vocabulary; `return` unsampled-declared); G-W2-4 **PASS on trash** (363 rolls,
+    0.5096 vs 0.50) and NOT-SAMPLED-ON-n on three tiers with the mechanism reason. WARN-1/3/4
+    remediations landed; the retired-basis sweep per #64's new clause done.
+  - **(8) THE CHARTER'S OWN STALE MAGNITUDES ANNOTATED (this commit, append-only bracketed
+    forward-pointers):** R-WR3-35(6) and R-WR3-37(2) as gamora flagged — **plus a third gamora
+    did not flag, in my own R-WR3-42(1)** ("supersedes Gate-2's ~2× hearsay" — the exact
+    framing WARN-1 falsified). The conductor's acceptance text carried the wrong number with
+    approval; annotated against myself.
+  - **(9) NEXT:** push both repos → **Gate-2 (jack-ryan, background) on the acceptance
+    landing** — routings: the arm-of-record defect + retirement ruling (3), the saturation
+    pre-registration's honesty, the M-arm grid, the Hero-profile reachability find, sweep
+    integrity. After that verdict the run's §0 target-state is REACHED and wind-down begins;
+    Matt's return surface (deferred watch · D1/D2 · T11 · the grill, now carrying the
+    discriminating-statistic + hero-taxonomy + champion-stagger + inert-mechanism items) is
+    unchanged and complete.
 
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
