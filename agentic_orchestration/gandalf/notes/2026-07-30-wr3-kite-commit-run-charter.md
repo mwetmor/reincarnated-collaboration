@@ -1379,6 +1379,63 @@ against the frozen WR2 baseline immediately.
     invented ones; gamora's W-2 commission fires on legolas's return. Commitment-shaped
     forks queue for Matt per R-WR3-39(3).
 
+- **R-WR3-41 (conductor, veto-open, 2026-07-31) — LEGOLAS REFERENT READ ACCEPTED
+  (first-of-kind extraction, 3,735 monster + 447 controller records + `Game.dll`
+  symbols); THE CHARTER'S OWN W-2 PREMISE IS CORRECTED TWICE; W-2 COMMISSIONED
+  referent-faithful.** Findings:
+  `legolas/research/2026-07-31-wr3-w2-aggro-leash-referent.md` (commit `0a6d6d91`),
+  B1–B18 bind table + D1–D7 decide list. Unreplicated first documentation — treated
+  accordingly (assumption-declaring discipline throughout).
+  - **(1) CHARTER CORRECTION A — R-WR3-12(W-2)'s stagger reasoning:** "real packs
+    stagger via aggro radii and body-blocking" is WRONG about the mechanism — GD's
+    aggro radii are FLAT (15 m trash through hero) and cannot carry the spread.
+    Stagger is ENGINEERED: call delay 500–2000 ms, per-caller cap 1–2, responder
+    probability 20–75%, pre-pursuit emote 20%, plus a first-class
+    `StateAlertBeforePursue`. The charter's sequencing CONCLUSION survives its
+    premise repair (unstaggered packs still bias the acceptance measurement DOWN);
+    the mechanism the lap builds is the engineered one. Ironically, "aggro radii
+    carry the stagger" is D2's model, not GD's.
+  - **(2) CHARTER CORRECTION B — THE HEADLINE: "leash-in-combat (territory-guard
+    full-heal return)" is NOT referent-attested; all three qualifiers FAIL.**
+    `leash`: 0 hits in `Game.dll`. Heal-on-return: proven negative (complete 17-group
+    template surface enumerated, no heal field; no restore symbol; the trap field
+    `lowHealthResetLevel` is an AUDIO cue re-arm). Mid-combat: impossible by
+    construction (75 m envelope = 5× the 15 m view distance; disengagement-only,
+    10 s). Full-heal-on-leash is a WoW/MMO convention absent from ALL FOUR ARPGs
+    surveyed. What GD has: a pursuit envelope (75 m trash/champion/hero, 210 m boss —
+    functionally un-leashable) + `StateReturn`/`StateReturnFast` walk-back on
+    `HomePosition`, ordinary regen only.
+  - **(3) FORK SPLIT under R-WR3-39(3).** QUEUED FOR MATT (departure decisions,
+    `canonical/matt_decision_needed/2026-07-31-wr3-w2-leash-departure.md`): **D1**
+    adopt full-heal-on-leash at all (now a DEPARTURE decision — the charter's "GD's
+    convention" premise is false; referent default = no heal proceeds meanwhile);
+    **D2** territory-guard as a distinct narrower concept (would make us MORE
+    restrictive than GD). CONDUCTOR-RULED at reasoning-boundary, each a declared
+    assumption, veto-open: **D3** pursuit distance is HOME-relative (leans
+    `GetHomePosition`; recorded as assumption, not referent fact); **D4** engagement
+    binds as hard 15 m/4 m radius (faithful: shipped `AngerTolerance` 0–1 makes the
+    accumulator's gate a no-op at 0–0.2 s; anger-as-threat-ranking DEFERRED until
+    multi-target threat is in scope); **D5** distress-group keys are
+    spawn-composition species placeholders for the sim (GD's Beast/Aetherial/… is
+    GD's fiction; Reincarnated's taxonomy is a story-side surface — rides the design
+    lap); **D6** stagger is EXPLICIT four-parameter, per correction A (emergent-only
+    under-produces); **D7** anger time base per-second, declared (ordering-safe).
+  - **(4) AI-D2's LEDGERED DISAGREEMENT LIKELY DISSOLVES:** commit-vs-return
+    precedence conflict assumed leash could fire mid-combat; B18 says the referent's
+    return fires ONLY after 10 s disengagement — the two states are disjoint by
+    construction. gamora must VERIFY the dissolution mechanically, not assume it
+    (the assumption-vs-referent error class this very ruling corrects).
+  - **(5) LANE HAZARD banked:** `.tpl` defaults are Titan Quest heritage — wrong ~10×
+    on the anger economy, 3.75× on pursuit distance. Every bound number comes from
+    SHIPPED records. Any future reader of the templates gets TQ's game, not GD's.
+  - **(6) W-2 COMMISSION FIRES (gamora, background):** phase 0 = the R-WR3-40(8)
+    six-item debt list (same seam session, as consolidated); phase 1 = math note
+    binding B1–B18; phase 2 = build — proximity aggro (hard radius), distress-call
+    social aggro (explicit stagger), pursuit envelope + return (no heal, referent
+    default). Run laws apply: #65 full sweep, §19.2 discharge shape, MIGRATION for
+    schema deltas, commit-not-push. W-1 `ai_state` vocabulary gains the new states
+    additively (alert-before-pursue, return) — same one-implementation law as W-1.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
