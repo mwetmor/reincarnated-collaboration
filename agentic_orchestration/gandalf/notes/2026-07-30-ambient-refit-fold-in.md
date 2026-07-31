@@ -720,6 +720,20 @@ in the scope above is superseded by the measurement where the measurement is cle
   directional author + non-casting torches + non-casting carried omnis + center retired + wolf
   placed at center). SHADOW-UNIFY still gated on SHADOW-CAL returns + tree free.
 
+## Scope 16-b (Matt confirmation 2026-07-30) — D1-esque carried-light path CONFIRMED, empirical fallback named
+
+- **Matt verbatim: "we will try this more-D1-esque character lighting path, and if we need to
+  warm up the room with more light, then we will after we see it."** The Scope-16 ruling is
+  confirmed WITH its escape hatch pre-named: the fallback criterion is EMPIRICAL — his eye on
+  the rendered testing config (wolf at center, player carrying, no installed warm fill). If the
+  room reads too dead, warm fill returns as a measured lever, not a reversion (candidate levers,
+  banked for that day: raise carried-omni range/energy; per-torch energy up; a faint GD-style
+  legibility whisper as the LAST resort — it is the vestigial form this path exists to surpass).
+- Lineage note carried: rig = Grim Dawn's (carried warm omni, non-casting, one directional
+  author); role = Diablo 1's (the room has no warm fill unless a living body stands in it).
+  D1's third layer (light-radius-as-stat/itemization) remains a PARKED wave-scale fork —
+  engine-touching, not scene-side; unlocked but not opened.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
