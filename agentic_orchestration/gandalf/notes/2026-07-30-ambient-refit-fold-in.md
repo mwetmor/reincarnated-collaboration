@@ -675,6 +675,23 @@ in the scope above is superseded by the measurement where the measurement is cle
   cell NOW; **SHADOW-UNIFY queues behind it** (needs SHADOW-CAL's returns anyway); ROOM-DRESS
   after; then the ONE integrated hand-off watch.
 
+## Scope 15 (Matt ruling 2026-07-30) — BEAM IMPLEMENTATION → BAKE-OFF (mesh-shaft vs fog)
+
+- **Matt converts the beam-implementation choice from measured-pick to A/B AT HIS EYE:**
+  **Arm MESH** = mesh-shaft with additive gradient shader (the GD light-well / D4 cathedral-column
+  technique), shaft + pool moving as ONE COUPLED BODY under the parallax tilt — Matt's stated
+  interest ("I would like to see the mesh-shaft…"). **Arm FOG** = volumetric fog attempting to
+  hold a crisp non-diffusing edge. Same room, same pattern layout, same segment, comparative
+  clips — the bake-off grammar from the player-light fork (Scope 7) reapplied.
+- **Conductor injection status: SendMessage unavailable on this host (third confirmation) —
+  queue-behind declared.** The in-flight SKY-2 cell runs its charter (pick by measurement, both
+  candidates probed); on its landing, whichever arm lacks render-grade material gets a short
+  **BEAM-BAKEOFF** follow-up render so both arms reach Matt's eye as clips. The beam law binds
+  BOTH arms (apex-foot coupling, no outward diffusion, dust inside only); the parallax coupling
+  clause binds both.
+- Standing note: the measured pick still gets DECLARED (which arm the numbers favor and why) —
+  Matt rules with the measurement in hand, per bake-off precedent.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
