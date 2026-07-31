@@ -490,6 +490,37 @@ in the scope above is superseded by the measurement where the measurement is cle
 - Fix rides the next drax cell (BEAUTY-CORNER in flight; fold at integration alongside the
   Bangers swap). **"22.8 sky" referent still awaiting Matt's pointer** (Scope 10 candidates).
 
+## Scope 11 (Matt 2026-07-30) — walltop Option A · sky ruling HELD · SKY-2 layout · werewolf shadows
+
+- **Walltop fork RULED (Matt): Option A** — daylight authored INTO the cap ramp (cold sky-lit
+  stone inner half → void black outer half). Rides the integration cell.
+- **Sky-light ruling HELD (Matt): "I'll hold my ruling of the sky light as I'm unsure of the
+  options."** The "22.8 sky" lean stays UNBANKED as a ruling; context resolved to the skylight-
+  options domain (he has seen a skylight circle — "it's great!" — evidently from in-progress
+  BEAUTY-CORNER output). Action: when BEAUTY-CORNER returns, present the skylight OPTIONS
+  properly labeled (incl. whatever variant "22.8" names) for his single sitting ruling.
+- **SKY-2 directives (Matt verbatim intent; execute AFTER his sky ruling):**
+  1. The skylight CIRCLE moves UP to the top half of the room.
+  2. A set of small, almost-linear skylight beams "as if through shutters" near the BOTTOM half
+     (where the circle sits today).
+  3. **Refraction-dust particles** as an ultra-soft beam from above on BOTH patterns (the
+     god-ray dust grammar — motes living only inside the light volumes; D3 cathedral lineage).
+  4. **Parallax drift:** all patterns move "ever slightly" across the floor as character/camera
+     move — "perspective vs movement change." Conductor translation, honesty declared: the
+     view-dependent shaft shimmer is PHYSICAL (volumetric fog scattering is view-dependent —
+     free); the floor-pattern slide is a STYLIZATION (a fixed ceiling opening's pool does not
+     move with the observer) — implemented as a tiny projector-offset keyed to camera/player
+     position (one parallax factor constant, subtle), the genre's depth-cue trick. Declared as
+     stylized, veto-open.
+- **Werewolf shadows (Matt asks; "the only character who may not wear armor — unsure"):** answer
+  routes through BEAUTY-CORNER's return — standing carried flag says the current roster has NO
+  rig binding (proxies), so the werewolf body (52-bone, 0.0000° retarget, R-PC-4 caster body)
+  may need to be PLACED to be shadow-shown. If so: **WOLF-SHADOW rider** on the integration
+  cell — the werewolf posed at a torch for a cast-silhouette portrait. Design note (conductor):
+  an unarmored werewolf is the BEST shadow test we own — no armor to carry the read means the
+  silhouette itself (ears, muzzle, claws, fur tufts) does ALL the legibility work; if the shadow
+  system sells an unarmored wolf, it sells anything.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
