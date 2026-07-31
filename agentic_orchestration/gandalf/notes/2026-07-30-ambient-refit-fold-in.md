@@ -1635,3 +1635,47 @@ rider-bearing 2c traces with `attack_id` + `icearmor` present; `family` served b
 ladder rung (b) substring sniff (already carrying the discriminator; 47.2% of that battery's
 circles are the blizzard) until the seam fix lands engine-side. Cell-boundary census at MOB-CAST
 close: still zero `icearmor` anywhere under `kitcal_g5/`; newest dirs report-only.
+
+---
+
+## LANDING — BEAM-PIN2 ✓ (drax, 2026-07-31; godot `d472c1a` LOCAL; landing note `drax/notes/2026-07-31-beam-pin2.md`, meta `d5faef06`+`95a3fb96`)
+
+**Scope 26 #1 base pin — root cause was structural, not tuning: the beam did not EXIST at the
+floor.** Scope 17's gap law clipped below 2.40 m; lowest drawn cross-section was 84% of pool
+width, carried 1.07 m sideways by the lean. G-1 passed at 0.0000% because it extrapolated to y=0
+where nothing was drawn and never measured slat LENGTH — a gate measuring the wrong shadow of the
+question. AFTER: **slats 100.00% length / 97.67% width** (from 77.5/76.4); circle 89.88% length /
+77.49% width (from 68.0/60.0) — residual attributed structurally (chord→0 at silhouette; pool
+carries bounce+sheen a volume can't; ×4 gain buys only 1.9 pts). Geometric clause printed every
+build: ratio 1.0000, displacement 0.0000 m. **Declared cost: Scope 17's gap law + the
+"player walks UNDER the beam" shot are RETIRED by Scope 26.**
+
+**Scope 26 #2 gradient — the constant was never what fell:** at optical depth 0.34 the beam never
+saturated, so cone WIDTH authored the falloff. Shipped density 0.90 / pow 0.60 / gain 0.175
+(p99 parity held) / motes ×2.1. Profile after (own-peak): circle 0.571/0.689/0.942/0.685/0.023 ·
+slats 0.684/0.761/0.861/0.525/0.011 — frame-top law holds (G-1b 8/8).
+
+**Shadow gate on the five-body scene (MOB-CAST debt): PASS all three clauses, BETTER than
+two-body** — ρ spread 3.06% (was 9.6%), 71 lights / 1 directional author / 0 non-directional,
+pools bit-identical to BEAM-CONE.
+
+**Finding — fog is the last lever on "solid at the floor":** E3 room fog eats ~45% of the shaft
+below the 3.006 m wall course despite the shaft's `fog_disabled`; with fog peeled the same build
+is MONOTONE from the floor (1.000/0.975/0.896/0.651/0.022). Out of scope, unfixed → **Matt eye
+item** (composes with the standing fog-unlit A/B fork, item ⑤).
+
+**F-BR-1b (process, push side):** the concurrent WR3 run's 09:25 push published godot
+`65cafec..49209b6` — **BEAM-FIX through LAP-1 WATCH are on origin/main**; every BR-1 landing's
+"LOCAL, not pushed" is stale through no fault of its author. Not remediated (undo = force-push).
+Verified at cell boundary: origin/main = `49209b6`; still local-only = `a0bfb88` (MOB-CAST) +
+`d472c1a` (BEAM-PIN2). **Matt's push-authorization ask now covers only these two.**
+
+**Debts:** fog attenuation (Matt fork) · circle 89.88% · AGENT_STATE missing two entries ·
+topo-vs-base-slice gate variant choice for a future cell. Disk healthy (148 MB).
+
+**WATCH:** `tmp/beampin2/clips/BEAMPIN2_before_after_watch_NOHUD_CAMLOCK.mp4` +
+`BEAMPIN2_gradient_tilt_BEFORE_AFTER.mp4` · plates G26a/G26b.
+
+**Cell-boundary census:** zero new `.jsonl` since 07:00; zero `icearmor` anywhere → VFX-BAKEOFF
+cuts on the **phase-1 substrate** per Matt's sequencing law ("do the phase 1 work as it will
+support phase 2").
