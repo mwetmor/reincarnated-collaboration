@@ -1344,3 +1344,55 @@ CAM-LOCK, boss cycling idle→walk→swipe beside the werewolf).
 
 **Routing:** SHADOW-UNIFY fires now (BR-1 §3 cell #4) — the full cosmology cell, validated on
 both cast bodies.
+
+## LANDING — SHADOW-UNIFY ✓ (2026-07-31; note `drax/notes/2026-07-31-shadow-unify.md` `2045f1d2`; godot LOCAL `97cac6d`, ahead 13)
+
+**G-3 PASS, all three clauses:**
+- **One author:** 71 Light3D in the built level → **1 directional author, 0 non-directional**,
+  8 sky spots alive at `shadow_opacity=0`. Key aimed by `sun_travel_dir()` — the SAME expression
+  the beams are graded against: **one-sun deviation 0.000000°** across shadows AND shafts.
+- **ρ spread 9.6%** (0.8623 dim / 0.9496 bright) vs inherited 10.2% FAIL; shadow-area span
+  collapsed **478× → 1.14×** (the inherited state had 92 px vs 43,935 px shadows in ONE room).
+- **Pools survive:** the landmine is REAL and was measured — `shadow_enabled=false` on sky spots
+  costs the pool **56.3% of its p99**; shipped `shadow_opacity=0` instead: 1.028×/1.035×, inside
+  the named ±10%.
+
+**★ THE FINDING THE GATE WAS HIDING (spec question, routed):** ρ = 1 − author-share of local
+floor light, so a DEEPER shadow NECESSARILY widens within-room bright-vs-dim spread. Reaching
+SHADOW-CAL's ρ≈0.50 at ≤10% spread requires bright:dim floor ratio ≤1.11; ours is 1.47 (the
+inhomogeneity is the cold sky pools, not the torches — dimming torches buys nothing).
+**SHADOW-CAL's 0.482/0.565 pair was BETWEEN-SCENE; the G-3 gate re-used it as a within-room
+check — the gate mis-composed two measurements.** Consequence: the shipped shadow is FAINT
+(ρ~0.86–0.95, the deepest rung that passes the spread clause). The gate PASSED as registered;
+the DEPTH question goes to Matt's eye: `UNIFIED_KEY_ENERGY` 1.00 (shipped, uniform-but-faint) vs
+3.50 (matches the referent's absolute-contrast band, fails the spread clause the finding just
+discredited). **Conductor lean, veto-open: the referent look wins — GD's shadows are READ-ABLY
+deep, and a ~15% within-room ρ spread is likely imperceptible while a 14%-dark shadow is
+functionally invisible; the spread clause should be re-derived from a within-room referent
+measurement, not discarded silently.** Judged in motion at Matt's eye.
+
+**Silhouette fix SHIPPED:** lamp +0.72 m camera-side at h 1.42 m (out of the torso). Hero luma
+vs his pool **1.016× → 1.540×**; sub-floor-dark pixels 11.9% → 2.9%. Boss 1.73× baseline (its
+unlit half declared — the cold emissive reads on the lit side). Carrier fill built, measured
++0.6%, honestly NOT shipped.
+
+**Other gates:** staticity 0 px / LSTAT-2 NO DELTA; declared deltas: floor +2.3% luma and
+**temperature inversion −44.84 → +17.11 B−R (warm→cold)** — at Matt's eye. **Fog-unlit A/B
+verdict-shape:** it is a POOL-EDGE decision, not a beam decision — since the beam became a mesh,
+un-lighting the fog changes only the haze skirt around the pools, nothing above 2 m.
+
+**Boss-head-in-beam: captured, not ruled** (gap law untouched, crossing on film). Five drax
+instrument failures on record — the best: the ρ census was reading DUST as shadow (unseeded
+GPUParticles3D broke the NULL at 20,757 px; caught by the control, as designed).
+
+**Deliverables:** `tmp/shadowunify/clips/SHADOWUNIFY_before_after_watch_CAMLOCK.mp4` (first) ·
+`SHADOWUNIFY_fight_walk_CAMLOCK.mp4` (torch pass-by + boss beam-crossing + both readable) ·
+`SHADOWUNIFY_fog_unlit_AB_CAMLOCK.mp4` · `plates/PLATE_shadow_rho_G3.png`.
+
+**Packaged brightness decision NOW AT MATT'S EYE (one sitting, all in motion):** (1) shadow
+depth 1.00 vs 3.50 · (2) floor pools at 62% · (3) boss head crossing the 2.40 m beam base ·
+(4) room temperature inversion · (5) fog-unlit A/B. Five couplings, one lighting state — rule
+them together off the SHADOW-UNIFY clips.
+
+**Routing:** TELL-DRESS fires now (BR-1 §3 cell #5) — none of the five eye items block decal
+work; any ruling lands as one-constant changes.
