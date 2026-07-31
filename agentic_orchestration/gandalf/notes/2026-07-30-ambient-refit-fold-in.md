@@ -1679,3 +1679,53 @@ topo-vs-base-slice gate variant choice for a future cell. Disk healthy (148 MB).
 **Cell-boundary census:** zero new `.jsonl` since 07:00; zero `icearmor` anywhere → VFX-BAKEOFF
 cuts on the **phase-1 substrate** per Matt's sequencing law ("do the phase 1 work as it will
 support phase 2").
+
+---
+
+## LANDING — VFX-BAKEOFF ✓ (drax, 2026-07-31; godot `fd21756` LOCAL; landing note `drax/notes/2026-07-31-vfx-bakeoff.md`, meta `ec3695f7`)
+
+**Scope 25 delivered — four arms, no self-verdict, Matt judges.** Single-writer held (opened
+`d472c1a`/origin `49209b6`, no foreign commits). Cell-boundary census: 2c still report-only,
+zero `icearmor` → phase-1 substrate per Matt's law.
+
+**Catalogue census (arm a):** 10 Binbun categories staged, 230 effect scenes reachable, 26/27
+shortlist USABLE (gate refuses any `.tscn` that doesn't load AND own a draw-capable node).
+Honest negatives: `addons/vfx_library`'s 32 effects are ALL 2D (unusable in the 3D fight);
+vaportrail + yparticles3d GDExtension binaries absent. Ten per-pack `class_name VFXController`
+collisions resolved via merged per-file tree, 92 byte-conflicts all → incumbent, all printed.
+
+**Arms (all 3/3 element coverage, 0 spawn fails):** `A_cat` pure catalogue · `B_mcp` pure
+Murzak/MCP (113/113 wire calls OK) · `C_combo` catalogue+MCP same-event · `C2_combo` MCP burst +
+catalogue flash lead. Control: pixel-diff Δ190–236 at damage beats across all ten pairs — the
+arms GENUINELY differ; combos distinct from each other. **THE JUDGMENT SURFACE:
+`tmp/vfxbakeoff/clips/VFXBO_QUAD_4arms_NOHUD_CAMLOCK.mp4` + `VFXBO_BEATS_QUAD_halfspeed.mp4`.**
+
+**Strike-connect — the planned fix was the wrong fix, measured first:** surface gap 0.000 m on
+all 39 strikes (the sim already touches); NO displacement invented. Real defect: 9/11 strike
+clips addressed `Skeleton3D:pelvis` and bound ZERO tracks — inert. Post-retarget-bake the
+werewolf's swing reach 0.8493 → 1.7671 m (×2.08), crossing the boss surface 1.267 m.
+**Strike-cross 35/40 = 87.50%** (5 misses are cone-AoE secondary victims a hand-swing correctly
+can't reach). Per-body: 41 own-clip swings, 0 generic fallbacks — honestly: incumbent wins 5/8
+bodies because Fantasy Rivals + werewolf packs ship ZERO animation FBX.
+
+**F-BR-4 (process):** the standing SIMPLE-asset gate is **RED — 900 violations** (simple-dungeons
+516 · simple-town 384); last PASS 2026-06-20, unrun since. Not this run's to fix → queue row to
+knight-rider/jack-ryan alongside F-BR-1's worktree row.
+
+**F-BR-5 (Matt fork):** the guard cannot see `polygon-simple-fantasy`, which holds
+`Animations_Melee.fbx` — the tree's ONLY real melee animation bundle, exactly what Scope 25
+wanted, NOT used. **Needs Matt's ruling: is retargeted SIMPLE *animation* (mesh never on screen)
+inside the POLYGON-only intent?** If YES, a small follow-cell upgrades the 5/8 incumbent-winning
+bodies with real melee clips.
+
+**Self-caught pre-verdict:** stale global-pose cache (Δ0.000000 vs 0.988433), two wrong
+hypotheses recorded, `apply_particle_preset` silently stomping node config while returning OK
+47× (standing Murzak hazard, banked), `--import` stripping `[rendering]` (restored, NO-DELTA).
+
+**Debts:** staticity bar holdable-not-held · `tmp/vfxbakeoff/` ~8.2 GB (prune sandbox-denied —
+Matt one-command or next cell) · nova identical across arms by construction (TELL-DRESS owns it) ·
+AGENT_STATE 3 behind · MCP lab editor left running.
+
+**Fix-lap CLOSE:** Scopes 24/25/26 all delivered. Godot local-only chain now THREE:
+`a0bfb88` + `d472c1a` + `fd21756`. Lap-2c swap stays armed (PRE-RATIFIED; census at every
+boundary; F-BR-2 sniff amendment governs `family`).
