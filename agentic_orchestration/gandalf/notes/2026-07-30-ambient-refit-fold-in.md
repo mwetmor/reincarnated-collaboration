@@ -1437,3 +1437,33 @@ for 2.3 s — legibility over ambience as ruled; retreats on one constant.
 `TELLDRESS_synthetic_shapes_CAMLOCK.mp4` · `plates/PLATE_T1_radius_truth.png`.
 
 **Routing:** ROOM-DRESS fires now (BR-1 §3 cell #6). Then LAP-1 WATCH on the re-pinned substrate.
+
+## LANDING — ROOM-DRESS ✓ (2026-07-31; note `drax/notes/2026-07-31-room-dress.md` `ab2105cc`; godot LOCAL `78043af`, ahead 15)
+
+All four gates PASS:
+- **D-1 clearance:** 0 props in the fight envelope (min 2.286 m vs the WHOLE 60-trace battery,
+  not just the fixture — the law generalises to any Lap-1 fight); envelope = union of swept
+  capsules, not a bounding box (a box would have forbidden 22.5×24.6 m of the arena). Telegraph
+  disc: 0 footprints AND 0 camera-occlusion strips inside 12.0 m (the occlusion test is
+  directional — a prop hides 0.7548 m of floor per metre of height along the camera bearing).
+- **D-2 rooms distinguishable:** collapsed guardroom (131 props, the only cobwebs) / silted
+  works (97, broad-flat) / boneyard (65, few-tall) / **boss stage 172 in 11 groups**; doorway
+  bleed 152 pieces over 6 thresholds. Four registers, one old place.
+- **D-3 zero lighting drift:** LSTAT-2 byte-identical · staticity 0 px · cold-pool footprint
+  1.000023× · beam share identical to 3 decimals · zero constants touched — the five-item eye
+  package reaches Matt EXACTLY as SHADOW-UNIFY left it.
+- **D-4 perf:** +4.09% median frame time vs +25% budget (draw calls 323→543).
+
+**Two eye-riders banked (join the package):**
+1. **The clearance law's price is visible:** CAM-LOCK locks to the player; the player lives
+   inside the envelope; therefore dressing sits at the frame periphery and the fought floor is
+   bare. That is the law WORKING (D1/GD fight-floors are bare for readability) — lever is the
+   2.00 m margin if Matt wants dressing closer.
+2. **Dressing reads by silhouette, not brightness** (prop-to-floor contrast 1.0262×) — a SIXTH
+   rider on the shadow-depth clause: if Matt rules `UNIFIED_KEY_ENERGY` 3.50, the dressing gains
+   contrast for free; drax honestly did NOT pre-brighten to hide the coupling.
+
+**Deliverables:** `tmp/roomdress/clips/ROOMDRESS_before_after_watch_CAMLOCK.mp4` (first) ·
+`ROOMDRESS_four_room_walk_CAMLOCK.mp4` · `plates/PLATE_D2_four_rooms.png` / `PLATE_D1_clearance.png`.
+
+**Routing:** **LAP-1 WATCH fires now** (BR-1 §3 cell #7) — the integrated deliverable.
