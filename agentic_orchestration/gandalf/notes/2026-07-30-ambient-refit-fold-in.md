@@ -1199,3 +1199,63 @@ approach the top of the camera."*
   BEAM-CONE's charter is now: cone geometry (Scope 21) + reversed opacity gradient (Scope 23) as
   ONE shader surface. Gate G-1 (BR-1) gains a second clause: **G-1b — measured beam opacity at
   frame-top row ≈ 0** (tolerance named in-cell); pool-BASE identity check unchanged.
+
+## LANDING — BEAM-FIX ✓ (2026-07-31; note `drax/notes/2026-07-30-beam-fix.md` `73ef50ff`; godot LOCAL `65cafec`, ahead 10)
+
+All five Scope-20 rulings discharged at the CAM-LOCK camera, identity printed on every frame:
+
+1. **CAMERA FIXED** — root cause one line: the deliverables script passed the INSTRUMENT pose
+   (`arena_full`: 58 m / −41° / fov 40 / 17.05 px/m) for the two clips Matt watched. All verdict
+   clips now at CAM-LOCK; rig re-verifies against GAL-CAM's published surface every run (anchor
+   err −0.000/−0.001 px; worst box residual 0.032 m).
+2. **PARALLAX RETIRED** — constants removed (not zeroed); staticity **0 px of 921,600, max
+   channel Δ 0** across 22.6 m observer travel (before: 257,918 px). One-transform-chain
+   coupling kept; pool-axis ≤ 4 µm on all 8 patterns.
+3. **POOLS — MEASURED ANSWER to Matt's "what happened to them?":** the lamp's floor pool is
+   **bit-identical between arms (0 px differ)**. What vanished is the **beam's own additive
+   light lying on the floor — 71.4% of all light inside the pool footprint before, 7.1% after**
+   (footprint added-luma ×3.25 darker). **The cause is the gap law itself** (Scope 17, Matt-ruled)
+   lifting the beam base to 2.4 m. Lever proposed NOT applied: `SKY_ENERGY_REF` stays LOCKED at
+   22.8 (partial ~30, full restoration ~74). **Conductor ruling R-BF-1 (veto-open): DEFER the
+   lever** — Scope 23's reversed gradient puts MAXIMUM beam opacity at the base, which is exactly
+   the light that left the footprint; BEAM-CONE re-measures footprint added-luma after
+   cone+gradient land. Decision rule: if pool presence still deficient vs the SKY-2 accepted
+   state, apply the partial lever (22.8→30) and re-measure; the full lever (~74) re-opens SKY-2's
+   accepted brightness and is Matt's, not the run's.
+4. **ONE SUN EXECUTED** — before-arm measurement: rooms 1 and 3 (the boss room) genuinely held
+   TWO suns (47.999994° = 2× tilt). After: **0.000000° deviation on all 8 patterns.** Direction
+   provisional/veto-open: az 137° / el 66°. Pool centres exact to 1 µm.
+5. **LONGER BEAMS PASSED, screen-space** — frame-top census at 8 player positions incl. both
+   worst cases: before 6 FAIL (11 visible ends) → **after 8 PASS / 0 FAIL** (top 11.0→32.0 m).
+   Gain 0.26→0.22 restores p99 parity to exactly BEAM-REAL's accepted 1.024; VOID-1 A/C clean,
+   B declared (35,363 px = 53.57% of void crossed by beam air-visual); LSTAT-2 NO DELTA.
+
+**Reconciliation with Scopes 21/23 (banked while BEAM-FIX flew):** BEAM-FIX solved the apex
+limit by turning the shaft into a **parallel PRISM** ("a cone cannot be lengthened past its own
+apex" — sun at infinity ⇒ parallel rays; two rulings, one geometry change). **Scopes 21+23
+supersede the SHAPE:** cone opening to the floor, apex-ward opacity → 0 by frame top — the
+apex problem dissolves via TRANSPARENCY, not geometric extension. Carried forward from BEAM-FIX
+into BEAM-CONE regardless of shape: the one-sun AXIS discipline (all beam axes parallel at the
+provisional sun vector), the 8-position frame-top census instrument (now checks opacity≈0, G-1b),
+camera-identity-on-frame law, and the new record law that **any intensity metric must name its
+camera** (p99 parity 1.024 at CAM-LOCK vs 1.656 at judge pose, same gain).
+
+**Overturns banked:** BEAM-REAL's "money shot cannot exist at player_lock" is FALSE (body and
+beam co-frame at the game camera; P1 beam base row 343 vs player anchor row 397); BEAM-REAL's
+pool-axis 0.000000 was a one-room measurement. **Three drax instrument failures committed-not-
+hidden** (global-vs-room-local axis foot; ±lean_dir sign error exposed by impossible unanimity;
+identity line reading an off-tree builder).
+
+**At Matt's eye:** (1) the price of "no visible beam-end": beam covers up to **20% of the frame,
+crosses 53.6% of the void** at the game camera — flagged, but Scope 23's fade is expected to
+shrink exactly this; judge in motion AFTER BEAM-CONE's clips. (2) **Disk hazard: `tmp/beamfix/`
+is 4.8 GB; the sandbox refused deletion for BOTH drax and the conductor.** One-command prune for
+Matt (keeps clips/plates/keyframes/measurement peels):
+`cd ~/Games/reincarnated-godot/tmp/beamfix/frames && rm -rf _ba _wk BR_lock_*.png BF_lock_*.png WALKBR_*.png WALK_*.png`
+
+**Deliverables:** `tmp/beamfix/clips/BEAMFIX_before_after_watch_CAMLOCK.mp4` (watch first) ·
+`BEAMFIX_room_walk_CAMLOCK.mp4` (three rulings in one motion) · `plates/PLATE_pools_diagnosis.png`
+(fastest read).
+
+**Routing:** BEAM-CONE FIRES NOW (Scope 21 geometry + Scope 23 gradient as one shader surface +
+R-BF-1 pools re-measure). Then RIVAL-CAST → SHADOW-UNIFY per BR-1 §3.
