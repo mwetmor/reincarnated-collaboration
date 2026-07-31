@@ -821,6 +821,37 @@ in the scope above is superseded by the measurement where the measurement is cle
   now doubly confirmed as the only implementation that can honor the gap law — fog cannot
   hold a floating lower terminus).
 
+## Scope 18 (Matt directive 2026-07-30) — BATON-PREP: Stage-2 final lap began; take the baton, render the sim as THE scene
+
+- **Timing recognition (why now):** the WR1 run's Stage-2 FINAL LAP just began in the charter
+  session — the baton emission spec is STILL AMENDABLE. A scene render-need found now = one
+  rider on that run's ledger; found after close = a re-emission. The window is the lap.
+- **BATON-CENSUS fired (legolas, read-only, parallel-safe):** NEEDS-vs-CARRIES table over the
+  wave's actual Stage-2 emissions vs the scene's render needs — (1) telegraph GEOMETRY
+  (shape/radius/origin/windup — the frigidring 12 m nova decal); (2) skill flavor labels
+  (element+mechanic per event); (3) per-frame status states (freeze/CC); (4) projectile/travel
+  vs aim-line-only; (5) combatant identity (kit/monster id + hero slot); (6) schema diff vs G-5
+  baseline. Gaps route to the charter session via pushed bank — the established cross-session
+  mechanism.
+- **Scene-side prep ledger (this session's lane, sequenced):**
+  1. **TELL-DRESS cell (chartered, queued):** ground-decal telegraph renderer — the one big
+     UNBUILT scene piece for boss legibility (D3/Lost Ark decal grammar: shape decal grows over
+     windup, keyed to telegraph events). The frigidring as a cold pale-blue expanding ring drops
+     straight into the temperature grammar (cold = hostile/distant register). Gated on
+     BATON-CENSUS row 1 (geometry present or rider filed).
+  2. **SHADOW-UNIFY** (gated on SHADOW-CAL) — the lighting architecture must be settled before
+     the baton watch, or the boss fight gets judged under a rig we're about to replace.
+  3. **Input-swap verification:** confirm the harness takes the baton trace path as pure config
+     (mechanical swap, no code) — rides TELL-DRESS's cell as a checklist item.
+  4. **⚑ ROSTER FORK (Matt's, opens when the baton lands):** trace actors → BODIES. Today's
+     combatants are capsules; the werewolf caster (Scope 16 center placement) is the only rigged
+     body staged. Which body renders the player? The boss? Capsules-with-beautiful-room for
+     baton lap 1 vs bodies-first? His call when he sees the census + what the trace names.
+- **Sequencing:** BEAM-REAL (in flight) → SHADOW-UNIFY (on SHADOW-CAL return) → TELL-DRESS
+  (on census) → ROOM-DRESS → the ONE integrated hand-off watch ON THE BATON TRACE — Lane 1 and
+  Lane 2 converge at that watch: the accepted stack rendering the canonical fight = the scene
+  live.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
