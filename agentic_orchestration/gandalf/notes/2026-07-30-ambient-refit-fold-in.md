@@ -1025,6 +1025,48 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Routing:** BEAM-FIX (drax) fires NOW on the free tree (`6c9e3dd`); SHADOW-UNIFY remains
   gated on SHADOW-CAL and inherits the final-direction unification.
 
+## LANDING — SHADOW-CAL ✓ (2026-07-30; note `galadriel/notes/2026-07-30-shadow-cal.md` `536a3fa9`; pushed by this bank)
+
+- **Headline: the Scope-13 conclusion SURVIVES ("emergent, not authored"); the conductor's
+  stated mechanism INVERTS.** Measured: the GD shadow interior is NOT pinned — it is
+  **MULTIPLICATIVE, ρ ≈ 0.50 of local floor luminance** (0.482 on an 81.9-luma floor, 0.565 on
+  38.1). The RATIO holds; the ABSOLUTE hole deepens on bright floors (42.4 vs 16.6 luma). Same
+  destination, different build instruction.
+- **SHADOW-UNIFY acceptance target (replaces the pinned-interior framing):** a multiplicative
+  shadow at **ρ ≈ 0.50 of local floor luminance**, verified NOT to clamp to a fixed dark value
+  in dim rooms; acceptance test = same figure on a bright and a dim tile, ρ within ~10%. If
+  that holds, Arm-A's contrast magnification is free — no proximity lever.
+- **Azimuth: direction class established, degrees structurally unanswerable from this corpus.**
+  Up-screen-and-left at the fixture camera (two verified segmentations +142.7°/+107.3°;
+  whole-session left-dark asymmetry median dA +0.0922, n=556, p=5.07×10⁻⁸, synthetic controls
+  passed). A single frame cannot separate figure-sprite from up-screen shadow — degeneracy is
+  structural, not effort-bound. ⚑ Block-wise the SIGN FLIPS (one 700-s block 88.7% left-dark,
+  another significantly right-dark) — either GD's azimuth differs per area (their choice, not
+  binding on us) or terrain defeats the control; ROUTED, NOT RULED. Our one-sun law (Scope 19)
+  is MATT'S aesthetic ruling and stands regardless.
+- **⚑ PROVENANCE GUARD:** Scope 13's "~1.1–1.2× length ratio matching the measured skylight
+  read" is OUR OWN E2 number — the referent's ratio is CANNOT-ANSWER (the fixture player is a
+  modded werewolf with a VFX plume; height denominator untrustworthy). Fine to ship; must never
+  be quoted as referent-anchored.
+- (d) Height-kick near torches: CANNOT-ANSWER — the Scope-13 decision to HOLD that lever is now
+  evidence-backed rather than prudent.
+- **The corpus is exhausted (measured, not asserted):** 75.4% of frames carry an open UI panel;
+  zones volumetric-fogged; ZERO torch-pass segments in 1h53m (the 581 warm sources near the
+  player are his own aura/VFX). **MATT-ACTION (optional, ~60 seconds, the only remaining
+  instrument): one deliberate GD capture — one zone, ONE torch, walk in and out TWICE, panels
+  closed, non-fog zone** — turns (c)/(d) into two-significant-figure numbers and gives (a)/(b)
+  proper n. Refinement, not a gate: SHADOW-UNIFY proceeds on ρ≈0.50 + direction-class +
+  provisional azimuth (veto-open at the watch).
+- Instrument discipline: four failures committed not hidden (SC-4 died to its random-azimuth
+  null; SC-8's guard decided its answer; plate harvest 0/56 windows for a measured reason;
+  estimator chosen BY a control, −4.2% bias vs naive +30%). `sc_cam.py` reproduced GAL-CAM's
+  scale field to 0.04% with independent inputs.
+- **Gate state: SHADOW-UNIFY's measurement gate is DISCHARGED** (targets in hand); it queues
+  behind BEAM-FIX (tree) and inherits: ρ-multiplicative target, direction-class azimuth
+  (provisional exact vector, veto-open), one-vector unification with shaft lean (Scope 19/20),
+  pools-vanish fix, fog-unlit A/B, center-retire + wolf placement (Scope 16), our-number
+  provenance on the length ratio.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
