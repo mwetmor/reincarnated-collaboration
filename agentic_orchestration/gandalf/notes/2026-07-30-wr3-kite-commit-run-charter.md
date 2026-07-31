@@ -1072,6 +1072,77 @@ against the frozen WR2 baseline immediately.
     committed) and RELAUNCHED with scope (i)–(xi). Schema additions are additive keys —
     MIGRATION note owed with the report (star-lord emission seam + drax consumer downstream).
 
+- **R-WR3-35 (conductor rulings on the stage-2c landing, 2026-07-30) — the build LANDS
+  clean, the battery of record DISCHARGES R-WR3-15's debt by FAILING the band above, and
+  the run's closing forks go to Matt.** Landing verified: engine commits `f1039b3a` /
+  `b20f1b9a` / `c3887bd3` present; artifact JSON reproduces the headline figures (S0 0.733 /
+  S1 0.900 / S2 0.967, duration 34.75 s, leech legs identical); code sites spot-checked
+  (`family`, `lifesteal_scope` door, `_wr3_icearmor` mirror). Gamora's harness blocked his
+  `.md` write, so the conductor banked the report VERBATIM with a provenance header at
+  `gamora/notes/2026-07-30-wr3-stage2c-report.md`.
+  - **(1) BUILD ACCEPTED — all eleven scope items landed.** Predecessor work absorbed on
+    executed evidence (pins reproduce to 0.01; flip runs both branches). Whole-build
+    byte-inertness: PREDICATE R PASS 9/9 cells to the last digit; final sweep **81 names,
+    name-diff 0/0**. The middle sweep (+58) earned its runtime per run law: caught one
+    real shipped regression (unconditional widening moved the production combat digest →
+    repaired as tri-state on R-WR3-25(3) precedent) and surfaced two real latent
+    `get(k, 0)`-scores-unmeasured-as-zero defects, one INSIDE the battery-report harness.
+  - **(2) BATTERY OF RECORD (30 seeds, arm of record): H1 = 0.967 — FAIL, ABOVE the
+    Matt-signed [0.40, 0.60]. G-T′ duration 34.75 s — FAIL, BELOW [59, 118] (pre-existing,
+    not a 2c regression). All ten other gates PASS.** P-0, pre-registered, HOLDS: no
+    authorized 2c lever bridges the gap (lever sweep banked — arm raises it, leech scope
+    inert, leech depth −0.067, cap wrong-direction, melee self-limiting). **R-WR3-15's
+    chartered debt is DISCHARGED — it was a debt to a measurement, not to a pass.**
+  - **(3) VERDICT-INTEGRITY AUDIT RESOLVES BENIGN-PLUS-ONE:** the escape-rate statistic is
+    keyed on the nova's minted `attack_id`, NOT shape — **no stage-2b escape figure is
+    suspect**; R-WR3-34(2)'s feared conflation was playback-only (drax consumer). ONE real
+    engine-side defect found in a different instrument (`g4_damage_substrate`, unqualified
+    circle on damage events) — LATENT not realised (G4 last ran pre-blizzard), repaired
+    before the battery, now self-reporting via `conflation_guard`. `family` + `attack_id`
+    landed on all emitters; five-point MIGRATION note banked in the report (star-lord +
+    drax; additive, no schema bump; consumers must not `get(k, 0)` the tri-state block).
+  - **(4) CHARTER CORRECTIONS BANKED:** (a) **R-WR3-25(4)'s Δkit headline is WRONG IN
+    SIGN** — true Δkit = **+0.100 player-ward** (was −0.134 confounded with permanent
+    icearmor); **icearmor-alone = −0.200, the single largest boss-ward term measured**
+    (P-5 falsified by magnitude; R-WR3-25(5)'s rank-2 promotion over-supported). The
+    telescope closes exactly: 0.567 + 0.100 − 0.200 = 0.467. (b) **R-WR3-33(2)'s "within
+    5 %" caveat is a MEAN/DISPERSION statement, false per-channel** — the wave sits 6.84 %
+    low (9.1 % at the grid's bottom); the substitution is a uniform ≈0.955× rescaling with
+    ±2 % wobble. Restated so no reader prices the wave off the headline.
+  - **(5) F-2 CAP — P-3 FALSIFIED BY SIGN; built, measured, NOT SHIPPED (correct
+    conduct):** the structural clamp (reads/ring 4.87 → 1.00) produced a THIRD, WORSE
+    regime (Δ = −0.300 = −0.64× of ΔF2) — one corrective read is worse than zero because
+    the in-flight verb's value is in the RE-solving; a clamp inverts it rather than
+    attenuating. **Matt's Fork-3(c) presumed attenuation; re-ruling owed on what
+    "imperfect F-2" means.** HELD FOR MATT with the closing package.
+  - **(6) MELEE CHANNEL COMPOSITION — HALTED correctly:** the unit fix exposed our boss
+    melee as **100 % cold vs the referent's 72–83 % physical**; the SPLIT carries 2.16×
+    of the 1.64–1.89× overshoot (magnitude and mitigation model both roughly right).
+    Re-splitting the row is a fixture change no ruling covers. Conductor lean: re-split to
+    referent composition (a measured-fidelity fix, not a balance opinion) — but it rides
+    the band fork, so HELD with the package.
+  - **(7) `BOSS_DMG_DEFAULT` RULED (conductor, veto-open): stays 50.0, inert, pending the
+    band fork.** It lies inside the graduated band; moving it to 52.0 would re-base banked
+    figures on a ruling nobody made. Gamora was right to leave it.
+  - **(8) THE BAND FORK — the run's closing commitment boundary, HELD FOR MATT.** Measured
+    conflict between two Matt-signed intents: R-WR3-2 ("player should win the majority")
+    is SATISFIED at 0.967 and corroborated by the referent save (2 deaths, comfortable
+    clear); R-WR3-17's [0.40, 0.60] boss band FAILS. Every lever that could move H1 down
+    sits OUTSIDE ruled scope: player pool (759 vs 1600), boss HP/duration (G-T′ fails
+    below), the unpriced Veteran OA/DA/speed/str terms (all of which bias our boss WEAKER
+    than the referent's — bias, not conservatism), and the melee re-split. Elicitation to
+    Matt drafted; stage 2 cannot close without this ruling.
+  - **(9) PATTERN ROUTED TO JACK-RYAN (Gate-2 packet §B gains two items):**
+    "discriminator lost at the seam" — three instances in ONE commission (icearmor state
+    invisible to emission, telegraph family absent, attack_id minted-then-dropped) — and
+    the `get(k, 0)`/`or 0` hazard class (two live instances, one in the battery-report
+    harness itself: every non-stage-2b G-5 fight has recorded measured zeros for
+    quantities never measured).
+  - **(10) SEQUENCE:** engine pushed (3 commits) + collab pushed; Matt rules the band fork
+    (+ F-2 meaning + melee re-split as its riders) → the ruled configuration re-batteries
+    if needed → Gate-2 (jack-ryan, consolidated packet) → owner-eye render (drax) → stage 2
+    CLOSES. T11 confirm/deny still queued and still cheap.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |

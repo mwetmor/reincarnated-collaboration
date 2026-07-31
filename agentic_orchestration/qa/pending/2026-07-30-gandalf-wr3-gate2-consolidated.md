@@ -33,7 +33,20 @@
    the residual-key rule above.
 7. **Full-sweep run law ratified in-run (R-WR3-31(8)), offered for engineering-disciplines
    promotion:** four BQ-3 door occurrences, three caught ONLY by full-regression name-diff;
-   a labelled expectation is not a substitute for the sweep.
+   a labelled expectation is not a substitute for the sweep. **Stage-2c evidence:** the
+   middle sweep (+58 names) caught a shipped digest-moving regression AND two latent
+   defects the author's labelled expectation missed.
+8. **"Discriminator lost at the seam" — THIRD named class (R-WR3-35(9)):** three instances
+   in ONE commission: icearmor state on a plain attribute invisible to the emitter's
+   `active_effects` path; telegraph `family` absent (blizzard masquerading as nova at any
+   unqualified circle-test); `attack_id` minted upstream, dropped at the emission boundary.
+   Proposed rule: any discriminator that exists upstream must survive every seam it
+   crosses, or its loss must be declared.
+9. **The `get(k, 0)` / `or 0` hazard class (R-WR3-35(1)):** two live instances found by
+   the residual-key widening — one INSIDE `kitcal_g5_harness`, the battery-report writer:
+   every non-stage-2b G-5 fight has recorded MEASURED ZEROS for quantities it never
+   measured. Companion to the "conditionally-emitted counter block declares its own
+   absence" rule (item 5): consumers must distinguish None=unmeasured from 0=measured-zero.
 
 ## C. Unit-hygiene flag (rides the deferred melee graduation)
 
