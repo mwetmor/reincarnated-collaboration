@@ -852,6 +852,22 @@ in the scope above is superseded by the measurement where the measurement is cle
   Lane 2 converge at that watch: the accepted stack rendering the canonical fight = the scene
   live.
 
+## Scope 17-b (Matt signal 2026-07-30, mid-flight) — BEAM-REAL smoke frame: "exactly what I want"
+
+- **Matt, on a BEAM-REAL SMOKE frame (room 3, seed 74001000, cam=eye): "the first render is
+  looking like exactly what I want!"** Frame banner constants — **`narrow=0.300 · base=2.40 ·
+  top=11.00 · gain=0.300`, beam+dust on** — are hereby the EYE-APPROVED REFERENCE SET: if the
+  cell's final tuning drifts from these values, the drift must be declared against this banked
+  set at landing (his eye liked THIS one). Not a final verdict (M-EYE motion rule stands for
+  the landing watch); banked as the strongest possible mid-flight signal.
+- Conductor read of the frame, for the record: all three Scope-17 laws visible at once — thin
+  cold shaft descending OUT OF THE VOID BLACK above the wall line (the amended VOID-1 exception
+  earning its keep as an image), lower terminus fading ~2.4 m up with clean air beneath, cool
+  floor circle waiting below, torch-warm walls wrapping it. The cold/warm temperature grammar
+  reads in a single still.
+- No injection possible (SendMessage down, standing); signal reaches the cell via this bank if
+  it reads the note late, else via conductor at landing reconciliation.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
