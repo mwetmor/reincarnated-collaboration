@@ -623,6 +623,73 @@ against the frozen WR2 baseline immediately.
     steering + the R-WR3-23(6) telegraph-record schema fields, ALL on measured numbers, stage
     map first. Deliverable: `gamora/notes/2026-07-30-wr3-stage2b-build-report.md`.
 
+- **R-WR3-25 (conductor rulings on the stage-2b landing, 2026-07-30) — the band is REACHABLE,
+  the stage-map HALT is SUSTAINED, and F-2 is unmasked as the run's largest balance
+  intervention.** Landing verified against the artifact (engine `97d51798`, collab `3b4d5cc7`;
+  38 new tests; WR suites 3,907 pass; the full-`tests/` verdict owed from stage 2 now banked —
+  the 82nd failing name was the W-1 guard-the-guard test firing on its own refactor (`2a33881e`
+  extracted the predicate it inspected), re-pointed at the extraction site, **baseline back to
+  81**; flag-OFF byte identity `a0c6b5c8f6c8795f` PROVEN vs `92381a23`). Decision-grade
+  findings: (a) seed-matched ablation at leech 0 puts kit-only at **0.433** and the stage-2 arm
+  at **0.567** — BOTH inside Matt's 40–60 band (R-WR3-17); (b) what LEAVES the band is F-2
+  in-flight steering (0.433→0.933; intake −54 %; nova crossings −94 %) and lifesteal (H1 on the
+  battery of record is a BQ-3-door reading, not a boss-difficulty reading); (c) the stage arm
+  moves intake 2.3× and the win rate not at all — convergence-or-coincidence answered:
+  **coincidence** at the outcome layer, which is exactly why the HALT stands at the evidence
+  layer.
+  - **(1) HALT SUSTAINED (the pre-registered >15 % predicate fired):** `S0_NONE` / `S1_PAK` /
+    `S2_FULL` re-bases the evidence chain and re-points a Matt-signed gate's input —
+    COMMITMENT BOUNDARY, HELD FOR MATT. The discriminator gamora cannot settle: **whether the
+    referent's `greatestDamageReceived` 260.498 / `lastHitBy` 273.704 was a Primordian event at
+    all** (if Primordian: S2_FULL — no prong over 107 — is falsified and S1_PAK's far-band
+    prong 269.66 sits 3.5 % over it, consistent with dodged-far-band lower-bound logic; if
+    Warden Krieg: the constraint dissolves and gamora's mechanical case for S2_FULL stands).
+  - **(2) legolas COMMISSIONED (evidence, read-only, background):** settle the discriminator
+    from the referent session's save/stats artifacts + prior extraction chains, so the fork
+    reaches Matt DECIDABLE. Deliverable:
+    `legolas/research/2026-07-30-wr3-damage-discriminator.md`.
+  - **(3) F-2 SEPARATION — RULED (conductor scope per §11.2):** F-2 gets its OWN flag; the
+    stage-2b arm's H1 is not attributable while kit and steering share one. Whether the
+    competent policy SHIPS with perfect in-flight bearing-tracking is a POOL-1
+    "replicates-a-real-player" fidelity question — HELD FOR MATT.
+  - **(4) LEECH — H1 re-read RULED:** H1 on the battery of record is NOT a boss-difficulty
+    number while both arms carry leech 0.05/0.08; the leech-0 ablation is the decision-grade
+    H1. The BQ-3 calibration door itself — HELD FOR MATT.
+  - **(5) RE-RANKING AMENDED (ratified on measurement):** wave to rank 1 on the compound-loss
+    warrant (freeze → unescapable wave → 30 %/3 s outgoing-damage debuff; predicted hit rate
+    0.10, measured 0.098–0.100), icearmor to rank 2 (twice-the-ability, up 37.5 % of the
+    fight), blizzard DEMOTED to tempo channel. Amends R-WR3-23(1). gamora's self-corrections
+    accepted (§2.1 blizzard re-aim premise, §2.2 r≈9.5 crossover) — a rank ratified on a wrong
+    premise and corrected on measurement is the veto-open ledger working as designed.
+  - **(6) PINS RATIFIED:** A-WAVE-1 (345.32 / 258.99 / 91.37) and A-BLIZ-1 (173.61 / 130.21 /
+    45.93) join the set, per-arm, icearmor's +28 % cold included; A-NOVA-2 per-arm stands;
+    A-DMG-1 fired TRUTHFULLY on the wave at S0 (279.82 > 260.5) — banked as an independent
+    stage-map datum, reported-not-used, which is exactly the narrowed pin's job.
+  - **(7) RANK-BINDING ERROR CLASS — third instance:** our own
+    `NovaParams.tdm_additive_multiplier` was built at charLevel 13 (−78) where the boss's own
+    18 gives −73 — the same shape as carried-ext's rank-4 wave/blizzard arrays. SS-S2B-4
+    supersession ratified. Three instances make a NAMED CLASS; a grep-audit for
+    `char_level`-crossed bindings rides the next gamora commission.
+  - **(8) SMOKE DEFECTS RATIFIED flag-scoped (Discipline #11):** SS-S2B-8 (re-use timer ≠
+    action-slot occupancy — the blizzard's 10 s Delay was starving the entire kit, nova
+    crossings 3→0) and SS-S2B-9 (least-recently-used tiebreak among specials; the melee keeps
+    strict priority). Both are arguably fixture-wide truths; graduation off-flag is Gate-2
+    territory — routed to jack-ryan, not widened here. Also banked: icearmor cooldown-init
+    (the R-WR3-15 `is_boss`-on-the-wrong-object shape, SECOND occurrence this run) and the
+    `range_m == 0.0` dead carve-out (repaired at the packet; the dead branch stays a named
+    follow-on).
+  - **(9) MELEE GRADUATION — DEFERRED to stage-2c:** `BOSS_DMG_SWEEP` → (43.1, 52.0, 60.8) +
+    HELD-SWEPT→M-BAND is the right shape, but it re-points gate inputs and the sweep's meaning
+    depends on the arm — folds into the stage-2c calibration ratification AFTER the arm ruling.
+  - **(10) PRONG COUNT — RULED:** emit `prong_count` as one more additive telegraph-record key.
+    R-WR3-23(6) refused per-frame prong positions as DERIVABLE; the count is not derivable from
+    a single record and the renderer needs it. Rides the F-2 flag-separation commission.
+  - **(COMMISSIONED):** legolas discriminator probe (background, read-only, per (2)); gamora
+    micro-commission (F-2 own flag + `prong_count` emission + the binding-class grep-audit,
+    flag-OFF byte identity must hold) — orthogonal plumbing the HALT does not block, and
+    prerequisite to ANY attributable battery after the arm ruling. Stage-2c calibration and the
+    owner-eye render QUEUED behind the arm + leech + F-2 rulings.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
