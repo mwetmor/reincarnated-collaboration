@@ -1164,3 +1164,38 @@ cold-emissive tint pass, casting verdict banked. Single-writer queue: BEAM-FIX (
 BEAM-CONE → RIVAL-CAST → SHADOW-UNIFY (unify then validates the shadow grammar + temperature
 grammar on BOTH cast bodies) → TELL-DRESS → ROOM-DRESS → **LAP-1 WATCH** → LAP-2 (2c re-render).
 Full run charter: `gandalf/notes/2026-07-31-baton-render-run-charter.md` (BR-1).
+
+## Scope 23 (Matt ruling 2026-07-31) — BEAM-GRADE: gradient reversed — opacity emanates from the ground, full transparency at frame top
+
+Matt, verbatim: *"I think we may want to reverse my lean before as when they are less translucent
+up high in the camera view they can be a bit distracting. Let's have a gradient fade,
+starting/emanating from the ground lighting towards complete translucent transparency as they
+approach the top of the camera."*
+
+- **The law:** beam opacity is MAXIMUM at the base — emanating from the ground lighting (the
+  floor pools/slats the cones pin to) — and fades MONOTONICALLY to **complete transparency by
+  the top of the camera view**. The old top-presence lean (visible upper shafts) is REVERSED by
+  its author; the eye-approved reference set's upper-gain figures (top=11.00 territory) are
+  SUPERSEDED at the top end — declared drift, not silent.
+- **Composition with Scope 21 (cone law):** one unified rule falls out — **opacity ∝ proximity
+  to the floor**, exactly co-varying with the cone's width. Base = widest AND most present;
+  upward = narrowing AND vanishing. The beam becomes a single readable object: light standing
+  on its pool, dissolving into the dark air above.
+- **Composition with Scope 17 (gap law):** the gap-over-body clearance survives — the gradient's
+  maximum sits at the beam BASE (perceptual pinning through the transparent fade base stands);
+  "emanating from the ground lighting" reads as the pool being the SOURCE of the beam's
+  presence, which is precisely the pinning Scope 21 demanded.
+- **Composition with Scope 20 #5 (past frame top):** the geometric extension stands, but the
+  screen-space acceptance ("no visible beam-end in-frame") is now satisfied by TRANSPARENCY
+  rather than by extension alone — the fade IS the no-end guarantee. Upper-air "implied windows"
+  reading (Scope 17) is henceforth carried by beam DIRECTION alone, not visible upper shafts.
+- **Frame-referenced vs world-referenced fade (in-cell decision, conductor lean):** Matt's words
+  are camera-referenced ("top of the camera"), but Scope 20 #2 ruled lights WORLD-STATIC — a
+  screen-keyed opacity would reintroduce camera-coupled dynamics the staticity veto killed.
+  **Lean: world-height fade, constants calibrated so transparency completes at the world height
+  corresponding to frame top at the CAM-LOCK camera.** Same look at the locked framing, zero
+  swim. Veto-open.
+- **Routing:** ABSORBED INTO BEAM-CONE (no injection into in-flight BEAM-FIX; standing pattern).
+  BEAM-CONE's charter is now: cone geometry (Scope 21) + reversed opacity gradient (Scope 23) as
+  ONE shader surface. Gate G-1 (BR-1) gains a second clause: **G-1b — measured beam opacity at
+  frame-top row ≈ 0** (tolerance named in-cell); pool-BASE identity check unchanged.
