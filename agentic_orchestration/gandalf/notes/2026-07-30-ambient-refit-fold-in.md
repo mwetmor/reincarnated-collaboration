@@ -945,6 +945,55 @@ in the scope above is superseded by the measurement where the measurement is cle
   + shaft alignment + fog-light exclusion toggle + center-retire + wolf + pools-vanish
   reconciliation). Its deliverables now include the fog-unlit A/B pair.
 
+## LANDING — BEAM-REAL ✓ (2026-07-30; note `drax/notes/2026-07-30-beam-real.md` `f0cb00ef`; godot `6c9e3dd` LOCAL, ahead 9)
+
+- **The three church-window laws, measured in:** gain 0.72→**0.26** (beam p99/pool p99
+  2.033→**1.024** — the shipped beam had been TWICE the pool's brightness; total added light
+  −18.5× at the grading camera) · cross-section **0.30 of pool** (~1.0–1.4 m shaft under a
+  7.41 m pool; recovered 0.2845 in image space) · lower terminus **2.493 m** (50% fade 3.251 m;
+  **0.69 m of clear air over a 1.80 m body**) · upper terminus **10.633 m — 7.63 m past the
+  wall course**, fading toward the implied windows · dust 0.85/260→**0.10/110** · lamp 22.8
+  UNTOUCHED (separate constant, verified by code path).
+- **Scope 17-b reconciliation (eye-approved set narrow=0.300 base=2.40 top=11.00 gain=0.300):**
+  narrow 0.300 ✓ · base 2.493 (≈) · top 10.63 (≈) · **gain 0.26 vs 0.300 — small declared
+  drift, dimmer**, driven by the p99 ratio landing at 1.024 (beam ≈ pool parity). Within the
+  approved family; the metric had to be p99 — peak is flat across the whole ladder because the
+  brightest pixel is always a dust mote (a peak ladder would have said dimming does nothing).
+- **§1.6 fork DISSOLVED by measurement:** circle aspect 0.81→**7.87** within one instrument —
+  a COLUMN, taller than the SKY-2 slats (prior 0.43/3.84 figures not comparable — different
+  method; within-instrument gains ×9.7, ×8.1).
+- **VOID-1 split three ways, the zero earned:** lighting moves 0 void px (both cameras); beam
+  overlay 0 px at the grading pose, 14,833 px (3.03% of void) at a low pose — the authorized
+  air-visual exception, quantified; ablation present-but-silent vs absent BIT-IDENTICAL
+  (0/921,600, max Δ 0) → the mesh lights nothing, proven not asserted. Pool-axis coupling
+  0.000000 m geometric, 0.0035 m image-space, containment 0.9997; parallax unchanged;
+  **LSTAT-2 NO DELTA** (L7 bit-identical, re-run rather than argued).
+- **⚑ ERRATUM ROUTED:** SKY-2's IoU 0.963 was measured through an inherited shader defect
+  (perspective ray reconstruction under an ortho rig; fixed via `PROJECTION_MATRIX[3][3]`,
+  0.013% px delta) — **verdict survives, precision figure must not be re-quoted.**
+- Four honest failures on record with numbers (ortho ray defect caught by 1,350 px below the
+  beam's own cut-off; a `--nosky` reference that re-aimed 6 m caught as negative additive px,
+  first pool reference wrong ~5×; void mask measuring its own antialiasing, eroded 2 px; a
+  wrong axis-test formulation discarded).
+- **⚑ TWO ITEMS AT MATT'S EYE beyond the verdict:**
+  1. **Narrowing cost:** the aperture's fine structure (oculus ring/spokes, individual slits)
+     no longer resolves INSIDE the shaft — one contiguous run; it fully resolves on the
+     untouched pool. `SKY_BEAM_NARROW` is one constant if he wants some back.
+  2. **The money shot cannot exist at `player_lock`:** the camera frames ~12 m of ground; the
+     beam lives 2.4–11 m up — body and beam NEVER co-frame at the game camera (verified on the
+     real render). The gap-over-body read is staged on the probe (`BEAMREAL_gap_over_body.mp4`)
+     and declared as staged. At gameplay pitch the shafts read as environment (the GD grammar —
+     shafts live at room edges/background). **If Matt wants beam-over-head at the game camera,
+     that is a CAMERA fork, not a beam change.**
+- SHADOW-UNIFY flags carried: pools-vanish (unchanged) + the fixed shaft shader is now
+  projection-aware (safe under any future camera work).
+- **At Matt's eye** (`~/Games/reincarnated-godot/tmp/beamreal/`): **watch first**
+  `clips/BEAMREAL_before_after_watch.mp4` (SKY-2 vs BEAM-REAL, beam the only variable) ·
+  `clips/BEAMREAL_playerlock_watch.mp4` (**the ARPG-angle read his 17-b caveat waits on**) ·
+  `clips/BEAMREAL_room_watch_motion.mp4` · gap-over-body pair (staged, declared) ·
+  `plates/PLATE_beam_before_after.png` (fastest) · `PLATE_gap_measured.png` · `PLATE_pool_axis.png`.
+- **Tree free at `6c9e3dd` → SHADOW-UNIFY next, still gated on SHADOW-CAL** (in flight).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
