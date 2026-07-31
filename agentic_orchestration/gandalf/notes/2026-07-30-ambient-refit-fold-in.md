@@ -734,6 +734,59 @@ in the scope above is superseded by the measurement where the measurement is cle
   D1's third layer (light-radius-as-stat/itemization) remains a PARKED wave-scale fork —
   engine-touching, not scene-side; unlocked but not opened.
 
+## LANDING — SKY-2 + WALLTOP-2 + CRIT-RED ✓ (2026-07-30; note `drax/notes/2026-07-30-sky2-walltop2-critred.md` `ae735944`; godot `8d66ac3` LOCAL, ahead 8)
+
+- **P1 SKY-2 ✓ — BEAM IS MESH, decided by measurement (Scope 15 bake-off disposition):** froxel
+  fog lost on its own numbers — no beam silhouette (room-wide plateau across half the frame),
+  12.5 px quantisation floor, 90% temporal reprojection smearing any moving pattern. Shipped
+  mesh edge 4–7 px (10–90%) on a 13 px core; "cannot diffuse outwards" is STRUCTURAL (samples
+  outside the cone don't exist; the ray-march integral IS the chord — zero at boundary by
+  arithmetic). **Fog did not lose a beauty contest; it failed to form a beam at all** — the
+  Scope-15 A/B render of the fog arm is one short cell away IF Matt wants the failure on screen;
+  conductor lean: the measurement stands. E3's ambience fog untouched.
+- Layout measured in SCREEN terms (top-half = screen statement, projected through the actual
+  camera): **the old pool was in the bottom half exactly as Matt said** (−0.737 on the screen-up
+  axis); all four rooms now circle-top / 4–5 slats-bottom; per-room seeding preserved by
+  appending slat draws. Apex-foot coupling IoU **0.963** (vs 0.000 for all three alternative
+  projector conventions); parallax EXACT — one transform chain carries lamp + shaft + dust
+  (+0.4800 m slide both patterns; cannot decouple). Tilt raised 14°→24° for the ruled diagonal
+  read; cost declared (pool irradiance ×0.886 — geometry consequence, not an energy re-tune).
+  VOID-1 0 px contained (control trips at 484,326 px).
+- **⚑ FORK TO MATT (§1.6, the honest failure): the CIRCLE-beam is a SLAB** — 6.93 m wide ×
+  3.01 m tall (aspect 0.43) because the room has no ceiling above the wall course and lamp
+  height is welded to the LOCKED 22.8 energy; slats read as proper columns (3.84). Options:
+  **(A)** accept the wide low circle-beam as a large oculus honestly rendered — conductor-visible
+  default, what ships; **(B)** narrow the aperture so it reads as a column, accepting a smaller
+  pool (Matt has seen and liked the current pool); **(C)** let beams rise above the wall line,
+  accepting deliberate light in the void (retires a containment guarantee that cost E3 three
+  failures). Conductor lean: **A** — an oculus and light-wells is a coherent cathedral pairing;
+  B shrinks a verdicted pool; C spends a guarantee for geometry.
+- **P2 WALLTOP-2 ✓ — the Scope-14 diagnosis OVERTURNED by measurement:** shadows/SSAO, fog,
+  skylight each move exactly ZERO cap pixels. The bands were `Brick_Small_01`'s own mortar
+  coursing (texture swings 3.73×, cap swung 4.07×). Flattened: contrast 4.12× → **1.03×**, one
+  uniform band at L 56.89 vs Matt's L 57.04 daylight referent; dissolve 0 px above 1/255
+  outboard (glow off). No screen-space pass ever touched the unshaded cap — the conductor's
+  SSAO suspicion was wrong, named here.
+- **P3 CRIT-RED ✓ — the trace CAN tell:** `crit` on 100% of damage events (145/10,581
+  battery-wide, all ×1.5); exactly ONE crit in this watch (t = 36.300 s) renders red. Mob-dealt
+  crit rate measured 0/1,424 — red can only appear on a dealt number. Pop untouched (a colour
+  was ruled, a colour was shipped).
+- **⚑ FLAG CARRIED TO SHADOW-UNIFY:** a projector spot with `shadow_enabled = false` renders
+  ZERO light in Godot — if Scope 13 naively switches the skylight spots' shadows off, THE POOLS
+  VANISH. SHADOW-UNIFY must reconcile: skylight spots keep shadows on (localized casters inside
+  beam footprints) OR the pools re-author as unlit decals/meshes; the "one directional author"
+  principle applies to COMBATANT shadows — the cell decides the mechanism and declares it.
+- Three drax constructions died to their own renders, on record with numbers (single-surface
+  sample halved the circle; divide-and-clamp saturated 2.80% of pixels white; a Godot-4.6
+  `DEPTH_TEXTURE` removal fell back silently to `blend_mix`, caught by picture before log).
+  Guards all clean; LSTAT-2 L7 stage +0.450710 authorized/declared/peelable.
+- **At Matt's eye** (`~/Games/reincarnated-godot/tmp/sky2/`): `clips/SKY2_room_judge_motion.mp4`
+  (THE one to watch) · `clips/SKY2_playerlock_crossing_beams.mp4` · `clips/CRITRED_t36.3.mp4` ·
+  `clips/WTSWEEP.mp4` · `plates/PLATE_walltop2_before_after.png` (fastest read) ·
+  `plates/PLATE_crit_red_vs_normal.png`.
+- **Tree free at `8d66ac3` → SHADOW-UNIFY next** (still gated on SHADOW-CAL returns; charter now
+  carries Scope 13 + Scope 16/16-b + the pools-vanish flag).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
