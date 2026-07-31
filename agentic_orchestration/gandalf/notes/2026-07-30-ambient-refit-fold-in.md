@@ -639,6 +639,42 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Tree free → SHADOW-UNIFY (Scope 13) fires next**; SKY-2 + ROOM-DRESS remain gated on the
   sky ruling.
 
+## Scope 14 (Matt rulings 2026-07-30) — SKY RULED (B/22.8 + full SKY-2 spec) · walltop re-diagnosed · crit red
+
+- **SKY RULING CLOSES (Matt): option B — `SKY_ENERGY_REF` ×3 (22.8), the shipped value** — WITH
+  amendments that fold the Scope-11 SKY-2 directives into a complete spec:
+  1. **Circle moves to the TOP HALF of the room** (per Scope 11 #1, reaffirmed).
+  2. **Four or five cold pale-blue pools near the BOTTOM HALF** — same hue and energy family as
+     the circle; these are the shutter-slat pattern (linear pools; "slat-beams descend to the
+     ground slats").
+  3. **BEAM LAW (Matt, emphatic): the dust-particle light-up is a BEAM, not a glow.** Particles
+     lit DIRECTIONALLY along the shaft axis (diagonally-downward shafts — reading
+     diagonally-upward from the floor), forming a CLEARLY LIT circle-beam descending onto the
+     ground circle and slat-beams descending onto the ground slats. **The beam CANNOT diffuse
+     outwards** — crisp bounded shaft volume, dust living only inside it, apex at ceiling, foot
+     exactly on its floor pool (the D4-cathedral / GD light-well column grammar, not a fog bloom).
+  4. **Parallax: the whole pattern (shaft + pool together) tilts ever-slightly** as the player/
+     camera moves (Scope-11 stylization clause carries: one subtle constant, declared).
+- **WALLTOP RE-DIAGNOSED (Matt): the failure is BAND MISMATCH, not tone.** Three bands currently
+  read on the cap (a shadow band atop the wall ≠ the portion between it and the void ≠ an "odd
+  totally daylight-bright strip"). Ruling: **the ENTIRE non-void cap portion goes UNIFORM
+  daylight-bright** — one tone, no warm inner-lip bounce, no intermediate band — then the void
+  dissolve. (WALLTOP-2: the Option-A paint was directionally right — "daylight bright is best" —
+  but must be ONE band; the structural dissolve guarantee stays.)
+- **BANGERS ACCEPTED (Matt): "Bangers look great."** Amendment: **CRIT damage numbers render
+  RED** (CRIT-RED). Rider: discover whether the playback trace carries a crit flag; if the trace
+  cannot distinguish crits, declare it honestly and flag to the charter session (crit labelling
+  is already a wave-inherited item, BQ-4 family) — do NOT fake crits scene-side.
+- **Shadow-angle question (Matt: "which angle are we using? can we replicate Grim Dawn's?"):**
+  answered inline — no unified angle EXISTS yet (current build: torches + skylight all cast;
+  Scope 13 retires that); SHADOW-CAL is measuring GD's actual azimuth + length ratio from the
+  fixture footage NOW, and SHADOW-UNIFY will set the DirectionalLight3D to the measured values —
+  including matching the SCREEN-SPACE shadow direction at our camera (world azimuth chosen so
+  the shadow reads at the same screen angle GD's does at its camera). Yes: replicable exactly.
+- **Sequencing:** tree free at `ec40cdc` → **SKY-2 + WALLTOP-2 + CRIT-RED** fire as one drax
+  cell NOW; **SHADOW-UNIFY queues behind it** (needs SHADOW-CAL's returns anyway); ROOM-DRESS
+  after; then the ONE integrated hand-off watch.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
