@@ -1,6 +1,6 @@
 # T11 — Pull a SECOND Grim Dawn character save (`.gdc`) — now the DECISIVE test for Fork 1
 
-**Filed:** 2026-07-30, gandalf (RUN-CONDUCTOR, WR3-KITE-COMMIT) · **Source:** R-WR3-26(6) U-1/U-2 · **AMENDED per R-WR3-29(4):** the same pull now closes the VETERAN byte question, which decides the stage-map arm.
+**Filed:** 2026-07-30, gandalf (RUN-CONDUCTOR, WR3-KITE-COMMIT) · **Source:** R-WR3-26(6) U-1/U-2 · **AMENDED per R-WR3-29(4):** the same pull now closes the VETERAN byte question, which decides the stage-map arm. · **RE-AMENDED per R-WR3-32(3):** the decisive item is now **U-3** (Veteran own-stage ×1.40 vs pooled ×2.14 — a 1.62× HP spread): kill ONE named monster before the save so `greatestMonsterKilledLifeAndMana` records a Veteran-inflated HP we can compare against corpus. U-4 rides free (worth ≤5 % if own-stage, per the degeneracy).
 
 ## The ask (~2 minutes, upgraded)
 

@@ -931,6 +931,76 @@ against the frozen WR2 baseline immediately.
     standing full-sweep requirement is hereby RATIFIED as run law: a labelled expectation is
     not a substitute for the sweep.**
 
+- **R-WR3-32 (Veteran characterization lands, 2026-07-30) — Matt's lookup corroborated
+  field-by-field, and THE DEGENERACY reorders the run's unknowns: U-3 gates stage-2c, U-4
+  does not.** Landing verified (`legolas/research/2026-07-30-wr3-veteran-characterization.md`,
+  659 lines, commit `8fe88a07`; §0 verdict, §4.4 degeneracy, §4.5–4.6 grid + pins, §5 mix,
+  §6 corrections read against the ledger).
+  - **(1) Q1 CLOSED (M):** R-WR3-30's commission answered at the record. Veteran =
+    `records/game/balancingadjustment_challengemode_enemies01.dbr` (`Class=GameAdjustment`,
+    a THIRD class distinct from AttributePak and Mutator), reached
+    `gameengine.dbr → challengeAdjustment`, template-described **"GameAdjustment for
+    Normal"** — the corpus itself calls Veteran a Normal-mode overlay. **14 nonzero fields,
+    complete:** dmg +40 total/+10 phys · life +140 (×2.40) · OA +25/+5 % · DA +15/+5 % ·
+    speeds +5 % · str +5 % · retaliation +15 (negligible: composes with pak −66 to ≈3.4–7.4)
+    · **`spawnMaxAdj +1` · `spawnChampionMaxAdj +2`**. XP +10 % is a literal `*1.1` in
+    `experienceformulas.dbr`. Every channel of Matt's lookup confirmed. **Deliberate
+    asymmetry banked:** `spawnMinAdj`/`spawnChampionMinAdj` ABSENT — **Veteran raises pack
+    ceilings, not floors** (widens the right tail without moving the smallest pack).
+  - **(2) U-3 OPEN and now THE gate — own-stage ×1.40 lean (grade C) sustained on better
+    ground:** `GameEngine::GetChallengeAdjustment()` has NO exported consumer (application
+    site inlined), so composition is unproven from binary. The difficulty probe's
+    `ContributeMutator*` citation is SUPERSEDED (§6.3 — those symbols are Crucible/SR
+    mutators, not Veteran); the lean now rests on the structural argument plus a soft
+    play-consistency read: **own-stage cells land ON CAL-1's 10–15 % norm; pooled cells run
+    2.2× over with the worst hit at 98 % of the 759 pool** — pricing a fight the save says
+    was won comfortably at level 13 with 2 deaths in 7,096 s.
+  - **(3) THE DEGENERACY (headline):** cl-13/rank-4 + Veteran-own-stage vs the charter's
+    existing cl-18/rank-5 no-Veteran column = **mean ratio 0.951, spread 0.909–0.971,
+    dispersion ≤4.4 % across all eight channels** — the SAME FIXTURE within 5 %. The
+    rank-step (≈0.79×) and the `armorbase05` level-step (≈0.86×) near-cancel Veteran's
+    ×1.40; the probe's 0.4 % HP coincidence is a property of the whole kit. **SEQUENCING
+    AMENDED (inverts R-WR3-29(5)):** if U-3 = own-stage, closing U-4 is worth ≤5 % and the
+    feared rank-5→4 pin re-basing DOES NOT MOVE the fixture; if pooled, every cell is
+    1.58–2.19× and pins re-base. **U-3 gates; U-4 does not; both close on the same T11 pull**
+    (T11 amended to carry U-3 as its decisive item).
+  - **(4) FOUR-CELL PIN TABLE BANKED** (artifact §4.6, post-mitigation rider-ON, ratified
+    units): a Fork-1 re-ruling to S2_FULL+Veteran **halves the pins under own-stage (×0.50)
+    and cuts ~23 % under pooled (×0.77)** vs the S1_PAK values in force. No cell reproduces
+    S1_PAK (30–200 % apart everywhere) — **the arm ruling is genuinely load-bearing.**
+  - **(5) U-4 ADVANCED, one branch dead, a third surfaced:** `greatestMonsterKilledLevel`
+    is **engine-truth** (`PlayStats::{Get,Set}GreatestMonsterKilledLevel` + co-named
+    monster-side triple) — the "player level at kill" reading is **DEAD**. New branch:
+    proxy-SPAWN-level = 13 ⇒ **cl 16 / rank 5**, more plausible on world-level grounds
+    (aPL 10–11 clearing Act-1 Wightmire) and reconciling `gd_nova`'s charLevel-16 derivation
+    (R-WR3-27(5) instance 4). Three readings priced; degeneracy caps the stakes at ≤5 %
+    under own-stage. ALSO banked: `play_stats.maxLevel = 12` vs `character_bio.level = 13`
+    — a lagging high-water mark; **any argument leaning on play_stats currency at save time
+    is on notice.**
+  - **(6) ENCOUNTER MIX — measured answer was in the save all along:** `championKills 7` ·
+    `heroKills 3` / 882 kills = **1.13 % elite (M)**, the R-WR3-2 mix, measured and
+    Veteran-inclusive. **PRESCRIPTION RATIFIED:** pin ABSOLUTES to the save; use modelled
+    uplift ratios (+73 % champ / +56 % hero / +16 % bodies) for counterfactuals ONLY; price
+    the pack-size RIGHT TAIL (ceilings-not-floors); acceptance denominator ≈141–164
+    pack-equivalents. **U-V1 registered:** champion model over-predicts 10× (hero rate
+    matches — soft corroboration of the Veteran read); not laundered, causes named.
+  - **(7) CORRECTIONS ROUTED TO JACK-RYAN (Gate-2 packet filed):** (a) **R-WR3-26(6) U-1's
+    premise FALSIFIED** — `greatestDamageReceived`/`greatestDamageInflicted` ARE literal
+    `Game.dll` strings (engine-truth labels); swap hypothesis stays dead (`lastHitBy`
+    unattested) but the ledger's stated basis was wrong; (b) **melee-band unit mismatch** —
+    charter's 43.1–60.8 is PRE-mitigation (post-mit equivalent 17.13–27.90 at cl 18 no-Vet)
+    vs post-mitigation pins; `BOSS_DMG_SWEEP` (R-WR3-25(9), deferred) would compare against
+    pins in different units — routes WITH the melee graduation.
+  - **(8) NEW UNKNOWNS REGISTERED:** U-V1 (championChance semantics) · U-V2 (Adj add vs
+    clamp; lean add) · U-V3 (Ascendant = Veteran-on-Ultimate; not needed) · **U-V4 (monster
+    base life/OA/DA NOT in the `.arz`** — envelope HP figures are back-solved, not
+    forward-computed; why the HP-anchor route to U-4 cannot close from corpus, and why the
+    OA/DA/speed/str Veteran terms are unpriceable pre-fixture).
+  - **(9) FORK-1 RE-RULING PACKAGE — HELD FOR MATT (commitment boundary):** conductor lean =
+    difficulty-parameterised operator with **S2_FULL × Veteran own-stage** (the cell within
+    5 % of the fixture already in force). T11 (~5 min) closes U-3 + U-4 + field semantics
+    and is the run's critical path. Stage-2c waits on the re-ruling.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
