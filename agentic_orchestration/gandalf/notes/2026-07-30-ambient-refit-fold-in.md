@@ -604,6 +604,41 @@ in the scope above is superseded by the measurement where the measurement is cle
 - **Werewolf rider composes:** the unified (high, cool) author is precisely the light that carries
   anatomy detail — the unarmored wolf silhouette test rides on the correct light by construction.
 
+## LANDING — INTEGRATE-PREP ✓ (2026-07-30; note `drax/notes/2026-07-30-integrate-prep.md` `50e333d2`; godot `ec40cdc` LOCAL, ahead 7)
+
+- **P1 BANGERS ✓:** font + OFL carried byte-identical; PLACEHOLDER retired. First render FAILED
+  (un-imported `.ttf`) and NUM-POP's own fallback warning caught it — the guard earned its keep.
+  At equal cap height Bangers is +27% ink / 15% narrower (both safe directions); solver landed
+  `font_size 135 / outline 27` — IDENTICAL to the accepted state, no compensating constant.
+  U+25C6 absent from Bangers (cmap-read) — fallback chain load-bearing, named. An analytic
+  outline model was discarded for failing on the already-accepted face.
+- **P2 WALLTOP OPTION A ✓:** `unshaded` retained; cold sky uniform across the cap + warm
+  room-bounce at inner lip only. Chroma sRGB (0.49, 0.59, 0.85) @ `sky_level 0.62` → cap linear
+  R:B 2.029 → 0.303 (S14 direction). Dissolve guarantee STRUCTURAL (`lum` untouched → outer lip
+  = stone × 0.0). ⚑ First whole-frame reading uninterpretable (null test: ablation 0.54× noise
+  floor) — only the masked cap-band measurement attributes. Declared divergence from galadriel's
+  value metric, with reason (hers targeted the make-it-shaded lever, not the ruled paint).
+- **P3 WOLF-SHADOW ✓:** BL walk clip frozen at stride phase 0.34 + arm-raise 0.55, loaded via
+  VHCaster (R-PC-8 exclusion, facing fix, albedo repair carried). Ratios RE-DERIVED for the
+  body's own 1.80 m: torch **4.60×**, skylight **1.136×** — not inherited from the armoured
+  probe. *(Conductor note: rendered under the pre-Scope-13 architecture; under the unified
+  grammar the SKYLIGHT orbit is the canonical read — and it is the flattering one.)*
+- **P4 "22.8" LOCATED ✓: `SKY_ENERGY_REF` ×3 rung** of BEAUTY-CORNER's ladder, on disk as
+  `tmp/beauty/SKY_22.8.mp4`. **Matt's lean is for the value ALREADY SHIPPING** (tile B on the
+  board). Six-tile labeled board delivered; no variant shipped.
+- Refusals honored: cap `world_uv_period` declined (masonry ≠ daylight, one-variable law);
+  SKY-2 not built (frozen behind the sky ruling per Scope 11).
+- Guard catches: `--import` deleted a `[rendering]` LOD line from `project.godot` — restored
+  bit-exact, not committed; frozen L7 stage moved −0.418 luma / 127,657 px — authorized,
+  declared, peelable.
+- **At Matt's eye** (`~/Games/reincarnated-godot/tmp/integ/`): `plates/PLATE_SKY_OPTIONS_board.png`
+  + `clips/SKYOPTIONS_cycle_ABCDEF.mp4` (the held sky ruling's decision surface) ·
+  `clips/WOLF_skylight_1.14x_orbit.mp4` + `WOLF_torch_4.60x_orbit.mp4` +
+  `plates/PLATE_wolf_shadow_two_conditions.png` · `plates/PLATE_walltop_before_after.png` ·
+  `plates/PLATE_numbers_bangers_swap.png`.
+- **Tree free → SHADOW-UNIFY (Scope 13) fires next**; SKY-2 + ROOM-DRESS remain gated on the
+  sky ruling.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
