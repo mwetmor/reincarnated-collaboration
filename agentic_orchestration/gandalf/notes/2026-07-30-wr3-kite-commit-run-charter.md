@@ -782,6 +782,35 @@ against the frozen WR2 baseline immediately.
     proof and the math note says so rather than substituting quietly. Full `tests/` sweep was
     in flight at commit — verdict OWED at next landing.
 
+- **R-WR3-28 (Matt-signed, 2026-07-30) — THE THREE FORKS RULED: S1_PAK provisional with routes
+  open · leech is the RING's 5 %, not a dial · F-2 capped.**
+  - **(1) FORK 1 — Matt verbatim: "we will continue with S1_PAK for now, but leave the option
+    of either route later as open."** `S1_PAK` is the REGIME OF RECORD, PROVISIONAL. All
+    per-arm pins re-base to their S1 columns (A-NOVA-2 269.66/305.97 · A-WAVE-1 258.99 ·
+    A-BLIZ-1 130.21); stage-2c calibrates under S1. **The three-arm stage map is retained
+    LIVE, not collapsed** — S0/S2 stay built and switchable; the arm object IS the
+    open-route mechanism Matt asked for. The R-WR3-24/25 HALT is RESOLVED by this ruling.
+  - **(2) FORK 2 — Matt: "I had a leech ring, remember?… ok with removing or quite low."
+    CONDUCTOR ELICITATION FAILURE BANKED FIRST:** I presented as a Matt-question what was a
+    substrate lookup — the referent gear was never lost; the G-7 save parse carries all 12
+    pieces with affix records. Extracted this turn: **exactly ONE leech source in the whole
+    kit — equipment slot 6, "Vampiric Silver Band," prefix `ao008a_lifeleech_01.dbr`,
+    `offensiveLifeLeechMin = 5.0` (5 % of ATTACK damage converted to health); full 12-piece
+    sweep found no other leech field anywhere.** RULING under R-WR3-2 referent-parity: the
+    battery of record carries **leech 0.05 scoped to attack damage per GD ADCtH semantics**
+    (scope-mapping into our sim's leech channel = a named stage-2c gamora task — if our leech
+    applies to ALL damage dealt it overstates the ring); **the 0.08 value has NO gear warrant
+    and is RETIRED**. Matt's remove-or-low latitude noted; parity governs: the ring is real,
+    it stays, at its measured value and measured scope.
+  - **(3) FORK 3 — Matt: "agreed on (c)."** F-2 in-flight steering is CAPPED-IMPERFECT: the
+    shape is ruled; the cap's numbers (reaction latency + miss rate, tuned so telegraph-escape
+    rates match referent behavior) are stage-2c calibration, informed by the clean ablation
+    in flight.
+  - **(4) SEQUENCED:** stage-2c calibration lap fires when the clean ablation lands —
+    S1_PAK regime + ring-scoped leech 0.05 + F-2 cap tuning + melee graduation
+    (R-WR3-25(9)) + instance-5 char_level repair (R-WR3-27(5)) + battery of record →
+    owner-eye render.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
