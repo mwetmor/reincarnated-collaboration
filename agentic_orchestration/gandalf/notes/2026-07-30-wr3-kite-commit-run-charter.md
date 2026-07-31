@@ -857,6 +857,80 @@ against the frozen WR2 baseline immediately.
   - **(7) SEQUENCING:** stage-2c now waits on BOTH the clean ablation (in flight) and Matt's
     Fork-1 re-ruling; calibrating under an arm whose basis just inverted would burn the lap.
 
+- **R-WR3-30 (Matt corroboration + Veteran characterization commissioned, 2026-07-30) — Matt
+  verbatim: "I looked it up, and Veteran setting is an optional modifier for normal mode which
+  increases monster stats, density, hero spawns, and grants +10% experience. I must have been
+  playing on veteran. Can you research this?"**
+  - **(1) EVIDENCE UPGRADED:** player testimony (independent lookup matching GD's Veteran
+    exactly, plus self-attribution) now corroborates the byte-128 read. R-WR3-29(2)'s grade-C
+    call is effectively confirmed for conduct purposes; the T11 provenance save remains the
+    formal M-grade closure and stays open (it also closes U-4 boss-level and the field
+    semantics).
+  - **(2) REFERENT REDEFINED (consequence):** the referent world is **Normal + Veteran** —
+    which touches not just the damage stage but potentially DENSITY and HERO-SPAWN rates,
+    i.e. R-WR3-2's "majority of encounters" mix, not only the boss fight. A Veteran-blind
+    encounter mix under-prices the trash the referent player actually fought.
+  - **(3) COMMISSIONED — legolas Mode A, full Veteran characterization (background):**
+    (a) complete corpus enumeration of the Veteran mutator's effects (every nonzero field,
+    stats/life/damage/XP/density/champion-hero spawn mechanics, where each lives);
+    (b) U-3 composition adjudication attempt (own ×1.40 stage vs pooled ×2.14);
+    (c) the four-cell Primordian payload grid — {cl 13 rank 4, cl 18 rank 5} × {both
+    composition readings} under S2_FULL + Veteran — so stage-2c commissions the moment Matt
+    re-rules Fork 1, with pin re-basing pre-computed;
+    (d) what Veteran density/hero spawns imply for the encounter-mix fixture and the
+    R-WR3-2 majority measurement. Deliverable:
+    `legolas/research/2026-07-30-wr3-veteran-characterization.md`.
+  - **(4) FORK-1 RE-RULING still open at Matt's hand** — the characterization lands first so
+    the re-ruling arrives with the full price tag, not just the damage multiplier.
+
+- **R-WR3-31 (clean ablation lands, 2026-07-30) — ΔF2 = +0.467 measured clean, the banked
+  "kit-only" arm was PERMANENT icearmor, and the fourth BQ-3 door caught its own author.**
+  Landing verified (PREDICATE R PASS — banked arms reproduce to the last digit; 30 seeds
+  seed-matched; decomposition telescopes exactly: Δkit −0.133 · Δicearmor(permanent→cycling)
+  +0.033 · **ΔF2 +0.467** · interaction +0.100).
+  - **(1) CHARTER CORRECTION (gamora §8.1):** R-WR3-27(3) recorded the confound as "disarmed
+    F-2 and the icearmor tick together"; MEASURED, disarming the engine flag made icearmor
+    **PERMANENT** (tick_calls = 0, buff up 95.0 % of reads vs clean 33.2 %). Every R-WR3-25/27
+    sentence reading arm B as "kit only" carries this correction. **The headline SURVIVES on
+    better ground:** the shippable clean arm (kit + cycling icearmor, F-2 OFF) reads **0.467
+    at leech 0 — IN BAND, nearer centre** than the unshippable 0.433.
+  - **(2) R-WR3-25(5) AMENDED — icearmor's rank-2 promotion is UNMEASURED, was believed
+    measured:** no arm removes the packet-driven cast; the only contrast available is
+    permanent-vs-cycling (+0.033). Not challenged — unmeasured. **AUTHORIZED: packet-level
+    icearmor kill-switch, riding the stage-2c build** (with it, icearmor-alone and the true
+    Δkit both become measurable). Stage-2b's Δkit likewise re-labelled.
+  - **(3) 283.14 STRUCK from the charter (gamora: "legolas is right"):** it was
+    `nova_delivered(9.5, count=3)` — three simultaneous far-band crossings where
+    `n_bounds = (0,1)`; not a per-event maximum. **The charter carries 95.36** (rider-inclusive
+    far-band single prong; legolas's 94.4 is the same number rider-free). Legolas's diagnosis
+    of the "~107" was wrong (it is the `resists_low`-leg far band, not the 100 %-band) but his
+    conclusion stands. NOTE: gamora's "this strengthens the S1_PAK lean, against the arm I
+    argued for" was written blind to R-WR3-29/30 — the S-arm question now runs through
+    VETERAN, where S2+Veteran is favoured; the number correction banks either way.
+  - **(4) F-3 CALIBRATION INPUT BANKED:** F-2's true effect is +0.467 (the cap target prices
+    against this, not +0.500). Under Matt's ruled ring-leech 0.05 the clean arm reads 0.733 —
+    ABOVE band — which makes the R-WR3-28(2) leech SCOPE-MAPPING (attack-only per the ring vs
+    all-damage in the sim) load-bearing for stage-2c, exactly as named.
+  - **(5) INSTANCE-4 LANDED byte-inert** (stash-and-rerun incl. armed fights, digests
+    identical); instance 5 still HELD, now resting on the banked-artifact argument ALONE
+    (its stated justification corrected in source).
+  - **(6) SECOND NAMED CLASS — state-object degeneracy, three occurrences this run:**
+    `is_boss`-on-wrong-object (R-WR3-15), icearmor cooldown-init, and now the tick/cast split.
+    Two made mechanisms measuring NOTHING; one made a mechanism measuring EVERYTHING, forever
+    — the dangerous variant, because its counters all look plausible. Routed with the
+    residual-key discipline question to jack-ryan.
+  - **(7) RESIDUAL-KEY WIDENING AUTHORIZED to ride stage-2c** (eight counters absent-not-zero
+    on flag-OFF arms; one `if`, schema-visible so gamora rightly did not land it unruled). The
+    discipline companion — "any conditionally-emitted counter block declares its own absence"
+    — routes to jack-ryan alongside R-WR3-27(5)'s charLevel standing check.
+  - **(8) THE FOURTH BQ-3 DOOR:** gamora's own byte-identity harness opened the door
+    undeclared at `127ba505` — his labelled expectation ("sweep should be unmoved at 81") was
+    wrong, the full-regression name-diff caught it, three declared allow-list entries fixed
+    it, confirming sweep **81 exact, name-diff 0/0**. All four occurrences of this class were
+    measurement drivers; three of four were caught only by the full sweep. **R-WR3-27(7)'s
+    standing full-sweep requirement is hereby RATIFIED as run law: a labelled expectation is
+    not a substitute for the sweep.**
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
