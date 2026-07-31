@@ -1,0 +1,12 @@
+# Regenerable frame caches (~1.5 GB).  Nothing here is evidence; everything
+# here is exactly reproducible from the source MP4 with the commands below.
+#
+#   keyframe ladder (640x360, 1 per 250 frames):
+#     ffmpeg -v error -skip_frame nokey -i /Users/admin/gd-scratch/play_test_2026-07-26.mp4 \
+#       -vsync 0 -vf scale=640:360 -q:v 4 -frame_pts 1 tmp/keyall/k%07d.jpg
+#   keyframe ladder (full res):
+#     ffmpeg -v error -skip_frame nokey -i /Users/admin/gd-scratch/play_test_2026-07-26.mp4 \
+#       -vsync 0 -q:v 3 -frame_pts 1 tmp/keyfull/k%07d.jpg
+#   single frames / bursts: sc_grab.py, sc_burst.py
+tmp/
+frames/
