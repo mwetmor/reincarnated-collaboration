@@ -1001,6 +1001,43 @@ against the frozen WR2 baseline immediately.
     5 % of the fixture already in force). T11 (~5 min) closes U-3 + U-4 + field semantics
     and is the run's critical path. Stage-2c waits on the re-ruling.
 
+- **R-WR3-33 (MATT-SIGNED 2026-07-30 — Fork-1 RE-RULED, plan (a): S2_FULL × Veteran
+  own-stage; stage-2c COMMISSIONED).** Matt verbatim: *"go ahead with plan (a). We will
+  later check T11 and confirm/deny."*
+  - **(1) REGIME OF RECORD:** `S2_FULL × Veteran own-stage (×1.40)` via the
+    difficulty-parameterised operator (R-WR3-29 lean, now ruled):
+    `outgoing = base × (1 + Σpool(charLevel)/100) × (1 + pak[difficulty]/100) × (1 + veteran/100)`
+    with veteran applied at its OWN stage. **Supersedes R-WR3-28(1)'s provisional S1_PAK.**
+    The three-arm stage map is RETAINED as flags (R-WR3-28's routes-open clause carries
+    forward); a T11 "pooled" result is a PARAMETER flip, not a rebuild — gamora builds it so.
+  - **(2) THE ≤5 % CAVEAT IS THE RULING'S WHOLE RISK:** boss cell of record = **cl 13 /
+    rank 4 + Veteran own-stage**, which by the degeneracy (R-WR3-32(3)) is within 5 % of
+    the existing cl-18/rank-5 no-Veteran fixture — so the existing fixture STANDS as the
+    approximation and pins re-base per the characterization §4.6 (A-NOVA-2 far 113.78 /
+    mid 81.27 · A-WAVE-1 85.12 · A-BLIZ-1 44.28, rider-ON post-mitigation units).
+  - **(3) CONFIRM/DENY PROTOCOL (Matt's clause):** T11 remains queued. **Confirm**
+    (own-stage) → caveat dissolves, pins stand. **Deny** (pooled) → cells re-base ×1.58–2.19
+    vs the no-Vet column; battery re-fires under flipped parameter; gates re-register.
+    Either way the stage-2c BUILD survives untouched — only calibration constants move.
+  - **(4) STAGE-2c COMMISSIONED (gamora, background, commit-never-push).** Scope, all
+    previously authorized items now firing together: (i) arm-of-record wiring per (1);
+    (ii) ring-scoped leech 0.05 with the ATTACK-ONLY scope-mapping task (R-WR3-28(2) /
+    R-WR3-31(4) — load-bearing: clean arm reads 0.733 at all-damage 0.05); (iii) F-2
+    capped-imperfect tuning, cap priced against ΔF2 = +0.467 (R-WR3-28(3), R-WR3-31(4));
+    (iv) melee graduation `BOSS_DMG_SWEEP (43.1, 52.0, 60.8)` WITH the pre/post-mitigation
+    unit fix (R-WR3-32(7b)); (v) icearmor packet-level kill-switch (R-WR3-31(2)) + the
+    icearmor-alone and true-Δkit measurements it unlocks; (vi) residual-key widening
+    (R-WR3-31(7)); (vii) instance-5 repair — `OppositionRow.char_level` binding declared
+    at call site (R-WR3-27(5), HELD → now authorized within this build); (viii) gates
+    RE-REGISTER under stage-2c params, then the **30-seed battery of record** fires
+    (discharges R-WR3-15's chartered debt); full-regression name-diff sweep MANDATORY per
+    run law R-WR3-31(8). Target: boss win rate **40–60 %** (R-WR3-17). HALT-and-route on
+    any degenerate regime or unruled decision.
+  - **(5) SEQUENCE TO STAGE-2 COMPLETION:** 2c build + battery → Gate-2 (jack-ryan, joins
+    the consolidated packet) → owner-eye render (drax baton) → Matt watches → stage 2
+    CLOSES. W-2 encounter-AI lap remains chartered between stage-2 close and the R-WR3-2
+    full-mix acceptance measurement.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
