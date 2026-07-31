@@ -1259,3 +1259,48 @@ Matt (keeps clips/plates/keyframes/measurement peels):
 
 **Routing:** BEAM-CONE FIRES NOW (Scope 21 geometry + Scope 23 gradient as one shader surface +
 R-BF-1 pools re-measure). Then RIVAL-CAST → SHADOW-UNIFY per BR-1 §3.
+
+## LANDING — BEAM-CONE ✓ (2026-07-31; note `drax/notes/2026-07-31-beam-cone.md` `902909ac`; godot LOCAL `811c320`, ahead 11; relaunch r2 — r1 stalled pre-edit at the stream watchdog, tree verified clean)
+
+All five gates PASS; Scope 21 + Scope 23 live as one shader surface:
+
+- **G-1 cone-base == pool: PASS** at ±5% pre-named tolerance — construction residual 0.000000 m;
+  image-space 0.61%/0.91% at working levels; the 2%-level divergence ATTRIBUTED (rim
+  stylisations `mask_gamma`/`edge_power`, which the pool never carries; peeled → 0.52%, slope
+  93.8% of geometric), not thresholded away. **Slat law fell out free** — `beam_narrow` 1.00
+  restores one sub-cone per slit, each pinned to its own floor slat.
+- **G-1b frame-top opacity: PASS 8/8** — 0.000–0.928/255, zero pixels over 1 luma at row 0.
+- **Staticity 0 px / VOID-1 crossing 53.60% → 0.00% / frame coverage 21.5% → 13.8%** (8-position
+  range 4.0–18.3%) — **Matt's Scope-23 instinct measured true: the distraction figure went to
+  zero.** LSTAT-2 NO DELTA (declared limit: L7 stage builds no skylight).
+- **Pools (R-BF-1) — HALF RESTORED, decision rule fired as written:** Scope 23 alone
+  0.379× → 0.556× of the SKY-2 accepted state (beam share 17.0% → 43.5%); partial lever
+  `SKY_ENERGY_REF` 22.8 → 30 bought 0.622×; gain re-laddered (0.19) holding p99 parity 1.014.
+  **OPEN AT MATT'S EYE: floor pools sit at 62% of the accepted brightness.** If his eye wants
+  them fully back, the full lever (~74) is his one-word call (it re-opens SKY-2's accepted
+  brightness); if the dimmer floor reads right under the new cones, nothing moves.
+
+**Overturns banked:**
+1. **The conductor's world-height fade lean is REFUTED by arithmetic** — at CAM-LOCK the frame
+   top is a slanted plane (18.47 m near edge → 1.68 m far edge; no single world height works —
+   the far edge would need 1.68 m, below the 2.40 m gap-law base). Shipped as **world × screen**
+   — the two factors Matt's sentence names; screen half reads the CAMERA (not observer), so
+   staticity survives. Declared cost: appearance not camera-invariant, peelable in one constant.
+   Conductor accepts the overturn — the cell's arithmetic beats the conductor's lean; that is
+   what veto-open leans are FOR.
+2. BEAM-FIX's topology census PASS/FAIL superseded by G-1b (under Scope 23 a beam can never
+   touch row 0 — "FAIL" there is the new law working); retained as diagnostic.
+3. **`SKY_ENERGY_REF` is no longer 22.8** (now 30, per the R-BF-1 pre-registered rule; reverts
+   in one line, paired with `SKY_SHAFT_ENERGY` 0.19 → 0.14).
+4. Inherited defect fixed: legacy arms read LIVE constants (BEAM-FIX's "before" ran BEAM-REAL
+   geometry at BEAM-FIX gain); every arm now reads its own frozen constant.
+
+**Disk hazard CLOSED:** deletion worked this session; the published prune executed — beamfix
+4.8 GB → 232 MB, free 13 → 17 GB, clips/plates/keyframes/peels verified intact. **Matt's
+one-command item is WITHDRAWN.**
+
+**Deliverables:** `tmp/beamcone/clips/BEAMCONE_before_after_watch_CAMLOCK.mp4` (watch first) ·
+`BEAMCONE_room_walk_CAMLOCK.mp4` · plates `PLATE_pools_remeasure.png` / `PLATE_frame_top_G1b.png`
+/ `PLATE_cone_base_G1.png` (136 MB total).
+
+**Routing:** RIVAL-CAST fires now (BR-1 §3 cell #3). SHADOW-UNIFY next.
