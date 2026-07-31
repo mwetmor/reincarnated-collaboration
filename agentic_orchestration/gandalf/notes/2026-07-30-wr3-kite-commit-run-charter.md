@@ -1038,6 +1038,40 @@ against the frozen WR2 baseline immediately.
     CLOSES. W-2 encounter-AI lap remains chartered between stage-2 close and the R-WR3-2
     full-mix acceptance measurement.
 
+- **R-WR3-34 (conductor, veto-open, 2026-07-30) — godot-session trace findings land on the
+  in-flight 2c commission: STOP + RELAUNCH with three scope additions.** Source: drax-seam
+  playback-consumer read of the WR3 trace, relayed by Matt. The commission was minutes old;
+  a corrupted battery of record would cost far more than the relaunch.
+  - **(1) ICEARMOR IS STRUCTURALLY INVISIBLE TO EMISSION — FOURTH occurrence of the
+    state-object degeneracy class (R-WR3-31(6)):** its state is a plain Python attribute
+    (`mob._wr3_icearmor`), not in `active_effects` — the only surface the emitter's ailment
+    path reads. A 25 % absorb + 28 % outgoing-cold buff runs with NO emission channel. The
+    class's new variant: state visible to its author only. **2c scope item (ix): route
+    icearmor state through `active_effects` (or a declared `buffs:[]` block) BEFORE any
+    baton emits** — rides the icearmor kill-switch item, same code region. Without it every
+    baton needs re-emitting regardless of what else is right. Class count 4 → the Gate-2
+    packet's item B.6 gains this instance.
+  - **(2) BLIZZARD MASQUERADES AS THE NOVA — MEASUREMENT-INTEGRITY THREAT, the reason for
+    the stop:** `chillbane_blizzard` telegraphs `shape:"circle"`; an unqualified circle-test
+    scores it into `_nova_verdicts`, silently corrupting the escape-rate statistic the run
+    is graded on. **2c scope item (x): add a `family` discriminator string to telegraph
+    events (`nova|blizzard|wave|melee`)** — additive key, prong_count precedent
+    (R-WR3-25(10)) — AND, BLOCKING before the battery of record: **audit whether the
+    ENGINE-side verdict/escape-rate scorer keys on unqualified circle-shape.** If yes, every
+    stage-2b escape figure taken since blizzard entered is suspect and the fix precedes the
+    battery; if the defect is playback-only, the family key still lands for the baton.
+  - **(3) 2c scope item (xi): `attack_id` join key on damage/dot events** (today the nova's
+    own hit carries `skill_idx:-1` — a hit cannot be joined to its telegraph). Cheapest of
+    the three; unlocks impact-flavor rendering downstream.
+  - **(4) FIDELITY BANKED (the good news is evidence, not just cheer):** telegraph geometry
+    CARRIES — 19 fields; the real nova reads circle / radius 12.0 m / windup 2.32 s /
+    damage 218; TELL-DRESS can draw the honest death-2 ring from the trace AS IT STANDS.
+    And the CC arrives as `action_lock`, not `freeze` — the Gate-2 ruling (model the GD
+    mechanic, don't reuse RDR freeze-shatter) is honored in the schema itself.
+  - **(5) CONDUCT:** in-flight commission STOPPED (stop+relaunch pattern; no landings had
+    committed) and RELAUNCHED with scope (i)–(xi). Schema additions are additive keys —
+    MIGRATION note owed with the report (star-lord emission seam + drax consumer downstream).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
