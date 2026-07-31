@@ -22,7 +22,7 @@ change. No battery. No banked evidence root written** — the ablation owns a fr
 | **⚑ THE CONFOUND IS NOT WHAT WE THOUGHT — IT IS WORSE, AND IT INVERTS** | **Disarming the engine flag did NOT remove icearmor. It made it PERMANENT.** The flag gates `_gd_icearmor_tick`, not `_gd_icearmor_cast`; `remaining_s` decrements only in `tick()`. Measured: buff UP on **95.0 %** of state reads with `tick_calls == 0`. The banked arm B ran **+35 % boss attack speed, +28 % cold, 25 % absorb, for the entire fight**. §2. |
 | **(2) THE R-WR3-26(5) RECONCILIATION** | **LEGOLAS IS RIGHT. SAID FLATLY.** `283.14` was **three simultaneous far-band prong crossings** — reproduced exactly — and **three prongs are unreachable** at that band (`n_bounds(9.5) = (0,1)`). It is not a per-event maximum and is not comparable to `greatestDamageReceived`. **Charter should carry 95.36**; his 94.4 is the same number rider-free. §5. |
 | **(3) INSTANCE-4 REPAIR** | **LANDED, and byte-inert — PROVEN, not asserted.** Stash-and-rerun over 30 fights **including 6 stage-2b-ARMED**: the whole artifact is **IDENTICAL**, `mech 6e20f7846cb07e0c` / `trace 14b08bfa6e95fffb`, reproducing R-WR3-27's banked digests. §6. |
-| **(R-WR3-27(7)) FULL `tests/` SWEEP** | **§7.2 — the number, measured on the final tree.** |
+| **(R-WR3-27(7)) FULL `tests/` SWEEP** | **62F / 9,861P / 21E in 22:51 = 83 names vs the 81 baseline. ⚑ +2, AND ONE OF THEM IS A DEFECT MY OWN `127ba505` SHIPPED** — an undeclared BQ-3 override-door site, in the very commit whose report said the sweep *"should be unmoved at 81"* as an explicitly-labelled expectation. **The expectation was wrong; only the sweep caught it.** Both deltas diagnosed and fixed; **post-fix baseline 81**. §7.2. |
 | **Tests** | **19 new**, all passing. WR1+WR2+WR3 **4,019 pass, 0 fail** (was 4,000). Schema/emitter-adjacent **128 pass** (unchanged). |
 | **⚑ A REPORTING DEFECT I WALKED INTO, IN MY OWN SEAM** | Eight of the nine stage-2b kit counters are **ABSENT, not zero**, on an engine-flag-OFF arm. My first draft printed `wave_casts = 0` for a wave that fired **63 times**. My own flag-split §2.1 named this exact hazard and fixed it for one counter only. §4. MIGRATION errata written; the engine widening is **routed, not landed**. |
 
@@ -393,10 +393,23 @@ tree, **6** allow-list entries, offenders **with** the three = `[]`, offenders *
 #### 7.2.1 Post-fix verification
 
 Both names re-run green after the allow-list entries and the commit that makes the new modules
-tracked; `_untracked_loaded_source()` returns empty with the cell and probe imported. **A confirming
-full sweep was fired after the commit** — its result is the number to trust, and if it disagrees
-with 81 the disagreement is the finding, not the 81. Result recorded below at landing:
-**`<CONFIRM_SWEEP>`**
+tracked; `_untracked_loaded_source()` returns `[]` with the cell and the probe imported, and the
+harness stamp reads a clean `5731ce07`. **A confirming full sweep was then fired on the committed
+tree** — that is the number to trust, and it was fired knowing that a disagreement with 81 would
+itself be the finding.
+
+> **CONFIRMING SWEEP AT `5731ce07`: 60 failed, 9,863 passed, 21 errors in 1,322.72 s (22:02) =
+> 81 failing names.**
+>
+> **Name-diff against the banked 81-name baseline: 0 new, 0 gone — EXACT MATCH.**
+
+**⇒ R-WR3-27(7) IS DISCHARGED WITH A MEASUREMENT, AND THE BASELINE IS 81, UNMOVED.** Not an
+expectation this time, and the distinction is not pedantic: the *first* sweep is the reason there
+was anything to fix, and it fixed something that predates this commission.
+
+The banked failure-name list
+(`gamora/notes/2026-07-29-wr1-battery-3-regression-failure-names.txt`) is therefore **still
+current and is not rewritten**.
 
 ### 7.3 Reproduction
 
@@ -453,6 +466,12 @@ banked so the next pairing question is answerable without a re-run) and
    produced a mechanism measuring nothing; one produced a mechanism measuring everything, forever.
    **That is a second named class**, and the "measuring everything" variant is the dangerous one
    because every counter it emits looks plausible.
+8. **⚑ THE BQ-3 DOOR DECLARATION IS NOW A FOUR-OCCURRENCE CLASS, AND THE FOURTH CAUGHT ME (§7.2).**
+   Every occurrence has been a *measurement driver* that its author did not think of as "a shipped
+   module" — and three of the four were found by the full-regression name-diff rather than by the
+   author. **The full sweep is the only instrument that has ever caught this**, which is a direct
+   argument for R-WR3-27(7)'s standing requirement: an expectation, however carefully labelled as
+   one, is not a substitute. Mine was labelled correctly and was still wrong.
 
 ---
 
