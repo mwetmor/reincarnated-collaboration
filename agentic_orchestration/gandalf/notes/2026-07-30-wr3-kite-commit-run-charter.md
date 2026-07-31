@@ -1306,6 +1306,79 @@ against the frozen WR2 baseline immediately.
     commission on stage-2 close; any fork inside it that proves commitment-shaped
     queues per (3).
 
+- **R-WR3-40 (conductor, veto-open, 2026-07-31) — OWNER-EYE #4 LANDS CLEAN;
+  ★ STAGE 2 CLOSES ★ per R-WR3-39(2). Matt's sitting is a deferred watch.**
+  Render note: `drax/notes/2026-07-31-wr3-stage2-close-owner-eye-render.md`; THE WATCH:
+  `reincarnated-godot/tmp/wr3anchor/clips/WR3ANCHOR_sidebyside_74000802.mp4` (83 s, 1×,
+  BEFORE-left/ANCHOR-right, framing sentence on every frame). Commits: godot
+  `8fafc73`+`49209b6`, collab `28e25136`, engine tree untouched (verified).
+  - **(1) LANDING VERIFICATION (R-WR3-39(1) criteria):** measured fight selection —
+    seed 74000802, NOT the top scorer but THE ONE SEED IN THIRTY whose outcome the
+    re-split moves (refit §3.1 "loss on seed +2"), and the seed Matt has watched twice —
+    the strongest possible selection for a parity watch. Split leg verified ACTIVE
+    (`physical`×37, mean 21.650; consumer-side 30-fight mean 21.344 vs cell probe
+    21.329 — two instruments, one number; telegraph counts reproduce gamora's counters
+    wave 77/blizzard 60 from the other side of the seam). Verbs probed headlessly
+    before rendering. Reproduction of the traceless anchor proven on five axes (frozen
+    figures digit-for-digit, sink byte-neutrality, trace_decisions non-perturbation
+    13,573/13,573). NO HALT trigger fired. **CLEAN.**
+  - **(2) FINDING 1 — `TelegraphSpec.family` DROPPED at `ReplicaFrameSink.telegraph()`
+    — CONDUCTOR-CONFIRMED by direct read (record built key-by-key :497–544, `family`
+    never copied; the emitter's own :400 comment names the lost-at-seam pattern).
+    The FOURTH #66 instance, INSIDE the repair, undeclared — 0/13,573 records; drax's
+    rung-(b) substring sniff is carrying 47.2% blizzard discrimination.** Not a close
+    blocker: the render is correct (declared fallback, banner discloses), no graded
+    number depends on it (this battery: 0 escapes under both tests; stage-1: 114
+    nova/0 blizzard measured). Routed: ONE-LINE fix at gamora's next seam session,
+    top of the debt list. Precision banked in the other direction: stage-2c §7's
+    "the drax-seam consumer had that defect" is true as LATENT, false about the
+    stage-1 owner-eye numbers.
+  - **(3) FINDINGS 2–3 routed to gamora (contract corrections, ride the same
+    session):** MIGRATION ANCHOR-REFIT §2(1) "count doubles" is FALSE at the trace
+    boundary (ONE event per swing both legs, 91 vs 77 measured; a consumer correcting
+    for it would HALVE the boss melee on screen) — and the composition is in the
+    number, not the stream (45.6% cold rider, no field says so). Roster split-row
+    carries NO entity id — the join is a `/`→`_` string transform + spawn suffix,
+    THIRD custody instance of information-without-join; flagged to jack-ryan's next
+    Gate-2 as a #64/#66-adjacent custody candidate (drax's reader cross-checks the
+    transform and refuses on disagreement — the compliant shape).
+  - **(4) FINDING 4 split two ways:** VERIFY question to gamora — commit lock moved
+    `w4/s1/r2`→`w5/s1/r9` between stage 1 and the anchor; did `TestDF1Fencepost` fire
+    as the W-1 amendment promises? DESIGN observation to the RDR design-lap charter —
+    boss melee land-rate 4.45%→28.2% (90.2% on the rendered seed): **the stage-1
+    "metronome the player has solved" reading is GONE.** This is the fight-feel
+    substrate the design lap's grill reads against.
+  - **(5) FINDING 5 routed (instrument critique, gamora + design lap):** G-I1's 0.336
+    is 120 ticks over a 361-tick mean fight — the ward casts ONCE at t=0 (σ=0, 30/30),
+    "cycling" does not cycle, and a ratio whose denominator is fight duration can be
+    walked across its own band by the fight getting longer (per-fight 14.6% and 25.0%
+    both sit OUTSIDE the band the pooled figure sits inside). G-I1's instrument note
+    joins the gamora session; ward duty-cycle-as-design-lever joins the design lap.
+  - **(6) FINDINGS 6–7 design-lap carries:** the player never clears a ring in the
+    anchor world (0/67; `evade:tg` 95 ticks vs `evade:commit` 3,212 — the kite is
+    alive and doing something else); `evade:dash` registered-before-observed (0
+    occurrences; `evade:pressure` fell 46→0) — fourth value-set growth on the intent
+    channel, the no-exhaustive-match-without-default rule holds.
+  - **(7) DRAX-SEAM OPEN ITEM (queued, not Matt-shaped):** `project.godot` dirty from
+    a prior uncommitted cell under a standing NO-DELTA guard; coupled files declared
+    and landed. Disposition at drax's next godot session.
+  - **(8) CONSOLIDATED GAMORA NEXT-SESSION DEBT LIST (one session, six items):**
+    Gate-2 WARN-1 MIGRATION debt paragraph · §E-10(a) artifact `_DEFECT_` key ·
+    §E-10(b) tree-wide AST guard + named allow-list · family one-liner (item 2 above)
+    · MIGRATION §2(1) correction (item 3) · TestDF1Fencepost answer + G-I1 instrument
+    note (items 4–5).
+  - **(9) MATT DEFERRED-WATCH PACKAGE:** `canonical/matt_to_do/` item filed — the
+    sidebyside clip + drax's §8 five-disbeliefs + his closing question, which the
+    conductor adopts as the watch's actual question: **"H1 has stopped discriminating;
+    the clip is the only instrument left that can tell you whether a fight the engine
+    reproduces CORRECTLY is a fight that reads RIGHT."** Veto-open: Matt's eye can
+    still overturn this close.
+  - **(10) BATON FIRES:** legolas commissioned (background) on the GD referent
+    conventions W-2 binds against — proximity-aggro radii, pack social aggro,
+    leash-in-combat — so the lap opens math-first with referent parameters instead of
+    invented ones; gamora's W-2 commission fires on legolas's return. Commitment-shaped
+    forks queue for Matt per R-WR3-39(3).
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
