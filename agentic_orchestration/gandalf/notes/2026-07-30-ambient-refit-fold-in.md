@@ -1577,3 +1577,61 @@ with `family`/`icearmor` anywhere under `kitcal_g5/`. **Re-census at every cell 
 Rationale for VFX-last despite VFX-most-important: the bake-off is a JUDGMENT surface — M-EYE
 verdicts on VFX arms are contaminated if every clip also contains known-wrong cast/beam defects.
 Dress the stage before the audition.
+
+---
+
+## LANDING — MOB-CAST ✓ (drax, 2026-07-31; godot `a0bfb88` LOCAL; landing note `drax/notes/2026-07-31-mob-cast.md`, meta `36395eb7`)
+
+**Scope 24 PASS — the blobs are bodies.** Census widened to the whole battery of record (450
+traces): **7 mob kinds over 3 roster tiers** (fixture shows only 3). Cast table banked in the
+landing note: Primordian ×1.5077/2.75 m · Thundersnout→Pig_Butcher 2.30 m · Eastmire
+Warrior→Troll 2.15 m · Deepmire Vanguard→Medusa 2.00 m · Deepmire Evocator→ForestWitch 2.00 m ·
+Eastmire Herder→Big_Ork 1.65 m · Walking Dead→MutantGuy 1.65 m. Ladder: swarm 1.65 < player
+1.80 < elite 2.00–2.30 < boss 2.75. **Scale keys off roster `tier`, not max-HP** — on 270
+non-boss files the max-HP actor is a zombie/troll/boar; the naive reading ships a 2.75 m Walking
+Dead. R-BR-1 ∧ `tier=="boss"` agree 180/180 where a boss exists. NO-BLOB: 4/4 rigged, zero
+capsules, no code path returns a proxy. Import 9/9 clean, 0 non-finite samples.
+
+**R-BR-7 PASS both directions** (no-flag → `E1 ARM A`; `--playerlight B` still reachable).
+**Moonwalk PASS:** player 5.88% → **100.00%** velocity-octant match (boss 97.48→100, escort
+84.34→100, 0 unserved, 1,310 moving frames).
+
+**Instruments caught pre-ship:** (1) left/right inversion in drax's own new blend code — `+Z`-forward
+Synty bodies have LEFT on `+X`; first sign choice would have shipped confident wrong-way strafes
+on all 7 off-axis labels; (2) emissive mask renders nothing on 7/8 bodies (golem 49.11% verts,
+rest 0.00%) → replaced with mask-free cold glow, A/B'd +13.49 B−R (21.28% of warm bias);
+(3) SIGSEGV from mutating a playing AnimationPlayer's library (LAP-1 latent, 3 clips hid it).
+
+**Debts (named, not hidden):** sprint-strafe gait gap (87.7% of off-axis frames one gait rung
+slow — octant right); one generic swing on every body (goblin idle-fidget swipe is the tree's
+only attack-shaped clip — **Scope 25 owns per-body strikes**); 4/7 bodies parade-verified not
+fight-verified; shadow gate NOT re-measured on the five-body scene (**BEAM-PIN2 or VFX-BAKEOFF
+must re-check SHADOW-UNIFY's one-author law**); AGENT_STATE no MOB-CAST entry; `tmp/mobcast/`
+~1.6 GB unpruned.
+
+**WATCH:** `tmp/mobcast/clips/MOBCAST_full_fight_CAMLOCK.mp4` (27.80 s) · escort closeup ×0.5 ·
+`MOBCAST_full_fight_WIDE.mp4` (CAM-LOCK loses escorts at 6.51 m median separation — framing
+question for Matt) · `MOBCAST_cast_parade.mp4` (verifies the 4 kinds the fixture never shows).
+
+## FINDING — single-writer collision + `family` dropped at the seam (2026-07-31)
+
+**F-BR-1 (process):** a concurrent drax cell from run WR3-KITE-COMMIT (`8fafc73`, 09:24 — the
+owner-eye render Matt announced as "Lap2c is completing… right now") committed mid-MOB-CAST in
+the shared godot tree, carrying MOB-CAST's in-progress `wr2_playback.gd`/`wr2_actor_rig.gd` edits
+(provenance declared in good faith from both ends; no history rewritten; coupled files kept
+together — the right call). **Root cause is structural: two Matt-authorized runs share one godot
+working tree.** Drax's recommendation stands as a queue row: `git worktree` per write-cell makes
+the collision impossible. Routed to knight-rider/jack-ryan as process finding; BR-1 mitigation
+meanwhile: conductor checks godot `git log` freshness at every cell boundary (this entry is that
+check firing).
+
+**F-BR-2 (substrate, gate-G-5-critical):** the WR3 cell measured that **`TelegraphSpec.family`
+is minted engine-side and then DROPPED at `ReplicaFrameSink.telegraph()`** — 0 occurrences in
+13,573 records; the sink builds its record key-by-key and never copies `family` across. Fourth
+instance of the emitter's own named defect class. **Consequence: NO future trace can carry
+`family` until the engine seam is fixed** — G-5's 3-rider census would wait forever on a field
+the pipeline cannot emit. **G-5 amended (conductor, veto-open):** swap criterion becomes
+rider-bearing 2c traces with `attack_id` + `icearmor` present; `family` served by TELL-DRESS's
+ladder rung (b) substring sniff (already carrying the discriminator; 47.2% of that battery's
+circles are the blizzard) until the seam fix lands engine-side. Cell-boundary census at MOB-CAST
+close: still zero `icearmor` anywhere under `kitcal_g5/`; newest dirs report-only.
