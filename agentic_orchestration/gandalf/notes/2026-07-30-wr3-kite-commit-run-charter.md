@@ -1180,6 +1180,55 @@ against the frozen WR2 baseline immediately.
     The RDR-boss design lap and the W-2 encounter-AI lap queue behind the close. T11
     confirm/deny unchanged — still the cheap empirical check on the Veteran composition.
 
+- **R-WR3-37 (conductor rulings on the anchor-refit landing, 2026-07-30/31) — the refit
+  LANDS, the anchor FREEZES, and the sweep verdict arrived only because the conductor held
+  the watch.** Landing verified: engine `56881b52` + `dbb2d6a9`; report at
+  `gamora/notes/2026-07-30-wr3-anchor-refit-report.md`; sweep completed detached
+  (20:35 runtime), **60F / 9927P / 21E = 81 names, NAME-DIFF 0/0 vs the `c3887bd3`
+  baseline — EXACT MATCH** (+31 new tests, all passing). §6 filled by the conductor with
+  provenance; mechanical name-diff by the conductor.
+  - **(1) LANDING ACCEPTED; ANCHOR FREEZE RATIFIED.** The re-split lands with residual
+    **−0.9 %, uniform**, decomposing to one known finite-sample term — and the
+    verification was sharper than commissioned: the referent post-mit band 17.13–27.90 is
+    **our own two mitigation operators** applied to the referent's phys/cold pairs
+    (`E[delivered] = 0.30·phys + 0.86·cold`). G-MELEE PASS. Anchor measurements of
+    record: **H1 1.000 · intake 384.0 · duration 36.11 s** (no band verdict, per
+    R-WR3-36(1) — and the cell structurally cannot emit one: no `_band()`, a test forbids
+    it). F-2 designation byte-inert four ways (digests, PREDICATE R 9/9, before-leg
+    17/17 keys digit-for-digit).
+  - **(2) CHARTER CORRECTION (strikes stage-2c §4's attribution):** "our mitigation
+    carries 0.87×, the other way" is a variance-sampling artifact (the finite-sample mean
+    of U(0.80,1.20)); **our mitigation is at PARITY and the channel split carried the
+    ENTIRE 1.64–1.89× overshoot.** The 0.87× must do no further attribution work.
+  - **(3) FOURTH LIVE INSTANCE of the `get(k,0)`/absence-graded class, INSIDE a
+    battery-of-record cell:** the banked 2c artifact's `worst_received_event_hp = 0.0`
+    was a `getattr` default — **G-N3″ was graded PASS on an absence.** The refit measured
+    it properly off the hit stream (**91.3688**, cross-validating the report §8 by-family
+    instrument; sink byte-neutrality proven by a seed-matched uninstrumented leg). The
+    report's 91.369 STANDS (different instrument); the ARTIFACT key must not be quoted.
+    Gamora correctly did NOT edit the banked cell (editing would silently re-base its
+    artifact) — **disposition of the still-live `getattr` in `wr3_cell_s2c_2026_07_30.py`
+    routes to Gate-2.**
+  - **(4) SPLIT-AS-DEFAULT PROMOTION — DEBT NAMED, DEFERRED (conductor, veto-open):**
+    `wr3_melee_split_v1` stays default-False on R-WR3-35(7)'s comparability argument, so
+    every unarmed consumer (WR1/WR2/G-5) runs a boss melee ~2× the referent's post-mit —
+    **a known-wrong default deliberately retained, which is a debt, not a resting state.**
+    Re-base ruling deferred to the RDR design lap's charter, where the band and the
+    default land together. Gate-2 packet carries the debt.
+  - **(5) DESIGN-LAP CARRIES:** H1 = 1.000 is a CEILING — the design lap's discriminating
+    statistic should be intake or duration, not H1. SS-AR-1's dodge hazard (boss melee now
+    principled-dodgeable for 72–83 % of its magnitude, inert only at `dodge_chance` 0.0)
+    joins the design lap's lever list.
+  - **(6) CONDUCT LESSON — RUN-LAW COROLLARY (two occurrences in one landing):** both the
+    refit agent and the sweep-completion agent returned with the decisive measurement in
+    flight ("watchers armed" — which die with their agent). **A commission is discharged
+    by its VERDICT, not by its instrumentation.** Corollary adopted for all future
+    commissions in this run: block on the run-law sweep, or hand the live process to the
+    conductor explicitly by PID + sentinel (as the completion agent at least did —
+    detached process + `EXIT=` sentinel is the acceptable hand-off shape).
+  - **(7) SEQUENCE:** both repos push now → **Gate-2 COMMISSIONED (jack-ryan)** on the
+    consolidated packet + stage-2c + refit → owner-eye render (drax) → stage 2 CLOSES.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |

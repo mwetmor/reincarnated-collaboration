@@ -42,11 +42,29 @@
    unqualified circle-test); `attack_id` minted upstream, dropped at the emission boundary.
    Proposed rule: any discriminator that exists upstream must survive every seam it
    crosses, or its loss must be declared.
-9. **The `get(k, 0)` / `or 0` hazard class (R-WR3-35(1)):** two live instances found by
-   the residual-key widening — one INSIDE `kitcal_g5_harness`, the battery-report writer:
-   every non-stage-2b G-5 fight has recorded MEASURED ZEROS for quantities it never
-   measured. Companion to the "conditionally-emitted counter block declares its own
-   absence" rule (item 5): consumers must distinguish None=unmeasured from 0=measured-zero.
+9. **The `get(k, 0)` / `or 0` hazard class (R-WR3-35(1)) — now FOUR live instances:** two
+   found by the residual-key widening (one INSIDE `kitcal_g5_harness`, the battery-report
+   writer: every non-stage-2b G-5 fight has recorded MEASURED ZEROS for quantities it never
+   measured); a fourth found by the anchor-refit (R-WR3-37(3)): the banked stage-2c
+   artifact's `worst_received_event_hp = 0.0` was a `getattr` default on a field the result
+   object does not have — **G-N3″ was graded PASS on an absence.** Companion to the
+   "conditionally-emitted counter block declares its own absence" rule (item 5): consumers
+   must distinguish None=unmeasured from 0=measured-zero.
+
+## E. Dispositions Gate-2 must issue (anchor-refit additions)
+
+10. **The still-live `getattr` in `wr3_cell_s2c_2026_07_30.py`** (R-WR3-37(3)): gamora
+    correctly did not edit the banked cell (silent artifact re-base). Options: annotate the
+    banked artifact key as unmeasured; version the cell; or strike the key at next re-run.
+    Your call — the refit's properly-measured 91.3688 stands on its own instrument.
+11. **The known-wrong melee default retained for comparability** (R-WR3-37(4)):
+    `wr3_melee_split_v1` default-False leaves WR1/WR2/G-5 consumers on a boss melee ~2× the
+    referent's post-mit. Debt named; re-base ruling deferred to the RDR design-lap charter.
+    Gate-2 should verify the debt is tracked where those consumers will see it.
+12. **Conduct corollary for engineering-disciplines consideration** (R-WR3-37(6)): "a
+    commission is discharged by its verdict, not by its instrumentation" — two agents in
+    one landing returned with the decisive sweep in flight; acceptable hand-off shape is
+    detached process + PID + completion sentinel.
 
 ## C. Unit-hygiene flag (rides the deferred melee graduation)
 
