@@ -1143,6 +1143,43 @@ against the frozen WR2 baseline immediately.
     if needed → Gate-2 (jack-ryan, consolidated packet) → owner-eye render (drax) → stage 2
     CLOSES. T11 confirm/deny still queued and still cheap.
 
+- **R-WR3-36 (MATT-SIGNED 2026-07-30 — THE BAND FORK RULED (c): SPLIT THE OBJECTS; both
+  riders ruled on the conductor's leans).** Matt verbatim: *"I agree with (c) - Split the
+  objects. I also agree with your leans on riders 1 & 2."*
+  - **(1) THE SPLIT:** the referent-parity cell is the run's **VERIFICATION ANCHOR** —
+    frozen as calibration truth once refit (see (3)). Its acceptance criterion is
+    **PARITY, not the band**: the pins-to-three-decimals cross-validation is the PASS, and
+    **H1 = 0.967 / duration 34.75 s are re-classified from gate FAILURES to MEASUREMENTS
+    of the referent world.** R-WR3-17's [0.40, 0.60] band DETACHES from the anchor and
+    re-attaches to the **RDR design object** — a design lap that tunes RDR's own boss FROM
+    the verified baseline, chartered as a post-stage-2-close follow-on (ELICITOR grill
+    before it fires; the band, duration target, and which anchor deltas are design levers
+    all get elicited there). **R-WR3-2 and R-WR3-17 no longer conflict:** R-WR3-2 governs
+    the referent claim (satisfied, measured); R-WR3-17 governs the design target (its
+    measurement moves to the design lap).
+  - **(2) RIDER 1 — "imperfect F-2" = the MISS-RATE dial:** the read-clamp is **RETIRED
+    IN PLACE** (stays in tree, defaults False, docstring records the inversion measurement
+    −0.64× so nobody re-ships it innocently). `F2_MISS_RATE` is the designated
+    imperfection dial; it ships **0.0 until a referent-derived number exists** (R-WR3-23(5):
+    a number that will not reproduce is not a calibration). Fork-3(c)'s "capped-imperfect"
+    is re-read as "miss-rate-imperfect"; no numeric change today.
+  - **(3) RIDER 2 — MELEE RE-SPLIT AUTHORIZED (fidelity fix):** the boss melee row moves
+    from 100 % cold to the referent's measured composition (83 % phys at the band's low
+    end → 72 % at its high end, per the stage-2c §4 decomposition). This is a fixture
+    change to the ANCHOR, so the anchor **re-batteries and re-freezes** — H1, duration,
+    intake, and the affected digests legitimately move, and the moved digests must be
+    DECLARED, not discovered (BQ-3 discipline).
+  - **(4) COMMISSIONED — gamora ANCHOR-REFIT lap (background, commit-never-push):**
+    (A) melee re-split per (3), verified against the referent post-mit band 17.13–27.90
+    (cl18/r5 no-Vet) / 16.59–27.07 (cl13/r4 own); (B) F-2 dial designation per (2);
+    (C) 30-seed re-battery, gate table re-emitted with H1/G-T′ as **anchor measurements
+    (no band verdict)** per (1), anchor FROZEN on the result. Full name-diff sweep per
+    run law.
+  - **(5) SEQUENCE TO STAGE-2 CLOSE:** anchor-refit lands → Gate-2 (jack-ryan,
+    consolidated packet + the refit) → owner-eye render (drax baton) → **stage 2 CLOSES.**
+    The RDR-boss design lap and the W-2 encounter-AI lap queue behind the close. T11
+    confirm/deny unchanged — still the cheap empirical check on the Veteran composition.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
