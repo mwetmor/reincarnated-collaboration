@@ -521,6 +521,38 @@ in the scope above is superseded by the measurement where the measurement is cle
   silhouette itself (ears, muzzle, claws, fur tufts) does ALL the legibility work; if the shadow
   system sells an unarmored wolf, it sells anything.
 
+## LANDING — BEAUTY-CORNER ✓ (2026-07-30; note `drax/notes/2026-07-30-beauty-corner.md` `ff147a6a`; godot `5b05947` LOCAL, ahead 6)
+
+- **E1 bake-off DELIVERED, at Matt's eye:** `tmp/beauty/clips/BAKEOFF_armB_left_armA_right.mp4`.
+  Arm A (warm carried omni, energy 5.2/range 9 m/shadow-casting, parented to the body node —
+  parenting IS the same-frame guarantee; static center dimmed 45%): +26% luma within 2 m of the
+  player, near/far gradient +38% steeper, room-wide DARKER (43.9 vs 46.9). Floor roughness
+  0.900→0.640 floor-tiles-only (separate cache key — shared key would have sheened the walls);
+  value = lit-area maximum on a measured ladder (0.35 = the plastic signature, area collapses).
+- **E2 shadows:** subset rule DIED TO ITS OWN CONTROL (corners-only → zero shadowed px at room
+  center) — all twelve torches cast; 8192 atlas; bias swept 0.028; SSAO contact anchoring
+  declared; stalk/ring/nub forced no-cast (9 m stalk would have laid a 15 m black bar).
+  **⚑ ARMOR-SILHOUETTE REALITY: the watch CANNOT answer Matt's standard — combatants are
+  capsules.** Answered on a rigged probe (King male): legs/greave taper/tasset hem/sword-arm
+  read; pauldrons do NOT at a wall torch — **5.11× projection stretch from a 2.30 m lamp
+  (GEOMETRY, not rig; same figure under the 15 m skylight reads at 1.14×).** Consequence:
+  wall-torch shadows carry mass, SKYLIGHT shadows carry armor detail — the standard is met under
+  the skylight; near-lamp stretch is physics.
+- **E3 fog:** VOID-1 failed three times before 0 px CONTAINED (global→bounded FogVolume→box
+  height→froxel bleed); two tripping controls earn the zero; inherited luma void-mask declared
+  WRONG for fog at room scale — geometric mask built.
+- **E4 skylight:** two-rooms plate delivered; rooms 0/1 share a motif (seeded pigeonhole,
+  declared). LSTAT-2 all declared not smoothed: E3 +32.9%, all-on +35.3%, contrast RISES 60.3
+  vs 58.1 (fog costs contrast, shadows give it back); E4 stage delta +0.000% (localization as a
+  number). Frozen L7 stage 0/921,600 px.
+- South wall left flagged WITH REASON (shading it breaks the void-black dissolve guarantee —
+  design conflict, not a patch). One protected-dir write declared (`tmp/wr2/pl_audit.json`,
+  untracked scratch; camlock twin intact).
+- **At Matt's eye:** bake-off pick (A vs B) · integrated preview `BEAUTY_BEFORE_top_AFTER_bottom.mp4`
+  · plates E2 armor silhouette / E1 sheen ladder / E3 haze / E4 two-rooms. **INTEGRATE-PREP cell
+  fires now** (tree free): Bangers swap · walltop Option A · WOLF-SHADOW portrait · labeled
+  SKY-OPTIONS board for the held sky ruling (incl. locating the "22.8" referent).
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
