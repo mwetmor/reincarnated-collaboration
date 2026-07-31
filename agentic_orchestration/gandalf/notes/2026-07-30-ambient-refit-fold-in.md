@@ -994,6 +994,37 @@ in the scope above is superseded by the measurement where the measurement is cle
   `plates/PLATE_beam_before_after.png` (fastest) · `PLATE_gap_measured.png` · `PLATE_pool_axis.png`.
 - **Tree free at `6c9e3dd` → SHADOW-UNIFY next, still gated on SHADOW-CAL** (in flight).
 
+## Scope 20 (Matt rulings 2026-07-30) — BEAM-FIX: five adjustments after the BEAM-REAL watch
+
+1. **Camera defect (Matt): the clips are NOT at the correct GD camera angle.** All future beam
+   verdict clips render at the CAM-LOCK-verified rig (the GAL-CAM measured pinhole family /
+   `--cam player_lock` Matt verdicted "looks right") — the cell must state ON-FRAME which
+   camera each clip uses and verify against the CAM-LOCK operands, not against memory.
+2. **⚑ PARALLAX RETIRED (veto exercised):** "it doesn't look good to have the angle of the
+   lights adjust as the camera moves. Let's make them static now." The Scope-11 #4 stylization
+   (declared veto-open at birth) is VETOED — beams/pools/dust become WORLD-STATIC. The
+   one-transform-chain coupling machinery stays (shaft+pool+dust one body); only the
+   camera/player-keyed offset dies. The system worked as designed: stylization declared →
+   seen in motion → vetoed cleanly.
+3. **Floor pools LOST in the after version (Matt: "what happened to them?")** — DIAGNOSE
+   FIRST, fix second: the pools were charter-untouched in BEAM-REAL, so their absence in the
+   watch is either a real regression (the `--nosky`-re-aim bug family / peel path leaking into
+   the shipped render), a pools-vanish landmine trip, or a brightness-perception effect of the
+   beam dimming. Name the mechanism with a measurement, restore the pools, and prove
+   restoration against the SKY-2 landed state.
+4. **ONE SUN (reaffirms Scope 19 SKY-ALIGN, now EXECUTES):** all shafts from one shared
+   direction "as the sun does on earth." BEAM-FIX picks a PROVISIONAL single direction
+   (declared on-frame, veto-open); SHADOW-UNIFY may re-derive the final vector from
+   SHADOW-CAL's measured GD angle so shadow azimuth + shaft lean stay one vector (Scope 19 law).
+5. **SUPER IMPORTANT (Matt): beams must be LONGER — extending WELL BEYOND the upper bound of
+   the frame at the proper GD camera.** The 10.63 m top is insufficient; the acceptance check
+   is SCREEN-SPACE: at the CAM-LOCK rig, every shaft's upper terminus exits the frame top (no
+   visible beam-end in-frame). This dissolves the co-frame concern from the BEAM-REAL landing
+   the right way — the beam doesn't need to share a frame with the body's head; it needs to
+   have no visible end.
+- **Routing:** BEAM-FIX (drax) fires NOW on the free tree (`6c9e3dd`); SHADOW-UNIFY remains
+  gated on SHADOW-CAL and inherits the final-direction unification.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
