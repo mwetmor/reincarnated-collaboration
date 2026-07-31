@@ -915,6 +915,15 @@ in the scope above is superseded by the measurement where the measurement is cle
   grammar; consistent with ARPG convention — enemy tells telegraph, player attacks resolve).
 - **Certification law banked:** the scene's baton certification happens against a POST-Stage-2b
   trace or not at all; the 15:33/16:45 traces are development fixtures from here on.
+- **✓ RIDERS LANDED (Matt confirmation, 2026-07-30): "the stage 2c flight was stopped and
+  re-launched with your requests folded in."** The charter session absorbed all three riders
+  into the re-launched Stage-2c flight — the census fired inside the window it was fired to
+  hit (icearmor emission channel, telegraph `family`, damage `attack_id` now inbound in the
+  baton schema). Consequences: TELL-DRESS may RELY on the three fields (defense-in-depth
+  handling stays per its charter — reliance ≠ trust without checking); the certification law
+  updates to **post-Stage-2c trace**; the `is_boss` fourth-rider suggestion remains
+  outstanding (not confirmed in scope — consumer workaround stands until seen in a real
+  Stage-2c emission).
 
 ## Scope 19 (Matt directives 2026-07-30) — ONE SKY DIRECTION · fog-unlit comparison (post-BEAM-REAL)
 
