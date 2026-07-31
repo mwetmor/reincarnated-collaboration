@@ -1124,3 +1124,43 @@ path). **Flagged to the WR3 charter session, not ruled here:** the sim-side twin
 perception-radius clamp on the pilot (Mechanism K reacting only to screen-visible events at the
 measured camera) is a fidelity refinement candidate; today's pilot is better-informed than the
 referent player was. Mechanism-K territory ⇒ that run's ledger decides.
+
+## Scope 22 (Matt rulings 2026-07-31) — BATON-RENDER authorized: casting delegated, werewolf locked, Fantasy Rivals boss
+
+Matt, on the ARCHITECT completeness pass for the baton-render run:
+
+1. **Fork A resolved: option (a), authority DELEGATED** — *"(a), and you and Drax may choose; no
+   need to hold on my verdict."* The orbit-board M-EYE hold is WAIVED for casting — gandalf +
+   drax cast the roster; Matt sees the cast in the rendered watch, veto-open as always.
+2. **Player body LOCKED: the werewolf** (52-bone SK rig, 0.0000° retarget, albedo repaired).
+3. **Boss body: cast from POLYGON Fantasy Rivals** — *"it would be really great if it could be
+   one of the larger skeletons/rigs"* from
+   `matt_notes_handoff_docs/recent-synty-packs/fantasy-rivals`.
+4. **Two-lap law (Matt's prior message, adopted as charter structure):** *"Render phase 1 first
+   if phase 2c hasn't yet completed, then render 2c afterwards."* Lap 1 = phase-1 g5 traces
+   (30 on disk, engine ≥ `bef1f55`); Lap 2 = re-render on rider-bearing Stage-2c traces once
+   confirmed on disk (`wr3_stage2c.json` landed Jul 31 00:18; per-fight replay traces with
+   icearmor/`family`/`attack_id` riders NOT yet located — Lap-2 gate verifies).
+
+**Pack inventory (conductor recon, on-disk verified):** 20 boss-class rigs (`SK_Character_*` +
+`SK_BR_Character_*`), Unreal-convention mirror set present, 4 texture families A–D **each with an
+EMISSIVE map** + `FantasyRivals_Texture_Elemental_Emissive.png`. Large-rig candidates:
+ElementalGolem · FortGolem · MechanicalGolem · Troll · BarbarianGiant · RedDemon · EvilGod ·
+SpiritDemon · AncientQueen.
+
+**Conductor's casting lean (drax holds final say at rig-quality check, per delegation):**
+**SK_BR_Character_ElementalGolem_01** — (i) large mass sells the 12.0 m nova telegraph and the
+2.32 s wind-up body language at the GD camera; (ii) the dedicated Elemental emissive channel lets
+the boss GLOW COLD PALE-BLUE — the icearmor/blizzard kit, the Scope-14 cold floor pools, and the
+"rooms are dark; the living glow" grammar all converge on one body (boss = cold emissive glow vs
+werewolf = warm carried light: the temperature grammar becomes the fight's readability axis);
+(iii) golem gait tolerates trace-driven locomotion better than humanoid gaits (foot-slide reads
+as mass, not error). Fallbacks in order: FortGolem, SpiritDemon. Adds (if trace fields any):
+dark-fantasy skeletons (Light/Heavy armor), already scene-proven in arena_*.tscn.
+
+**Routing:** new cell **RIVAL-CAST** (drax) — import pack into the godot tree per the R-PC-2
+Synty asset-home convention, rig-compat + retarget check on the lean (fallback chain on failure),
+cold-emissive tint pass, casting verdict banked. Single-writer queue: BEAM-FIX (in flight) →
+BEAM-CONE → RIVAL-CAST → SHADOW-UNIFY (unify then validates the shadow grammar + temperature
+grammar on BOTH cast bodies) → TELL-DRESS → ROOM-DRESS → **LAP-1 WATCH** → LAP-2 (2c re-render).
+Full run charter: `gandalf/notes/2026-07-31-baton-render-run-charter.md` (BR-1).
