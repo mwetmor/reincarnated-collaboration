@@ -1067,6 +1067,29 @@ in the scope above is superseded by the measurement where the measurement is cle
   pools-vanish fix, fog-unlit A/B, center-retire + wolf placement (Scope 16), our-number
   provenance on the length ratio.
 
+## Scope 21 (Matt ruling 2026-07-30) — BEAM-CONE: cones of light, opening to the floor
+
+- **Beam height VERDICTED GOOD** (Scope-20 #5 satisfied at Matt's eye — banked mid-BEAM-FIX on
+  the smoke evidence he's watching; formal reconciliation at the cell's landing).
+- **SHAPE LAW (Matt): beams are perceived as CONES OF LIGHT, opening TOWARD THE FLOOR** —
+  narrow aloft, widening downward, **the cone's circular end pinning EXACTLY to the circle of
+  light on the floor (radius/diameter match)**. Slat-beams: cones of "almost no width" — thin
+  blades pinning exactly to their floor slats.
+- **Amends BEAM-REAL's uniform 0.30 cross-section:** the shaft re-couples to the pool AT THE
+  FLOOR END (cone base = pool circle) and tapers UPWARD (the ~0.30 narrowness now lives at the
+  top). Composition with the Scope-17 GAP LAW, conductor reading (veto-open): the cone's
+  GEOMETRY pins to the pool — the near-floor portion of the cone stays nearly transparent via
+  the fade envelope, so the eye completes the cone onto its pool without the beam ever sitting
+  opaque on the ground. Perceived pinning through a transparent base; if his eye wants the base
+  more present, the fade floor is one constant.
+- **Aperture-structure note dissolves for slats:** Scope-20's "fine structure lost in the
+  shaft" concern — the cone law inherently restores per-slat blade identity (one near-zero-width
+  cone PER slat, not one contiguous run).
+- **Routing:** BEAM-FIX in flight (no injection; standing) → **BEAM-CONE fires as a focused
+  geometry cell on BEAM-FIX's landing**, BEFORE SHADOW-UNIFY (keep the cosmology cell clean of
+  in-flight geometry churn). One-sun parallelism (Scope 19/20) binds the cones' AXES; pool-axis
+  coupling law now upgrades to pool-BASE identity.
+
 ## LANDING — GAL-CAM ✓ (2026-07-30; note `galadriel/notes/2026-07-30-gal-cam-fixture-camera.md`
 `88170009`; operands `galadriel/captures/2026-07-30-gal-cam/godot-spec.json`)
 
