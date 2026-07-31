@@ -1494,6 +1494,60 @@ against the frozen WR2 baseline immediately.
     verdict, with the sub-flags follow-on + G-W2-4 power extension riding its
     commission. D1/D2 still queued for Matt; nothing built presumes them.
 
+- **R-WR3-43 (2026-07-31, conductor — jack-ryan's Gate-2 on the W-2 landing ACCEPTED: PASS
+  4-WARN 0-BLOCK; #67 minted; the acceptance lap is NOT GATED).** Verdict at
+  `agentic_orchestration/qa/findings/2026-07-31-gate2-wr3-w2-encounter-ai.md` (collab `6c49c426`);
+  ratifications at engine `e32c5ed8` (#67 pin-scope + #64 basis-propagation clause). Read in full;
+  decisive measurements INDEPENDENTLY REPRODUCED this session: (i) `0.7517/0.86 = 0.8741` — the
+  MIGRATION overshoot's basis IS the factor anchor-refit §3.3 retired, and MIGRATION :151–160
+  still computes 1.64–1.89× from it (WARN-1 confirmed); (ii) `t_engage` occurs **0 times** in
+  `wr3_w2.json` — G-W2-5 ungradeable as built (WARN-2 confirmed); (iii) #67 in-tree at
+  `engineering-disciplines.md`. Banked:
+  - **(1) HEADLINE RULING CARRIED:** the R-WR3-2 full-mix acceptance lap is **not gated** by
+    the verdict. ONE precondition attaches to the lap's COMMISSION, not this landing: the
+    **stagger instrument** (per-body `t_engage`) must exist before R-WR3-2 win rates are graded
+    with W-2 armed — otherwise the lap measures an outcome it cannot attribute to the mechanism
+    it just armed. Conductor concurs: this is the scope line, adopted verbatim.
+  - **(2) DISCIPLINE #67 RATIFIED — pin scope** ("a pin must bind the surface that moves"), on
+    THREE instances, the third found BY this Gate-2: the AI-D2 tripwire's `_ARMED` is a frozen
+    5-key literal against a 12-parameter `build_scenarios` surface — **the repair for the
+    pin-scope defect reproduced the pin-scope defect.** jack-ryan swept all 1,024 flag
+    combinations: 0 live violations, committing ranges = {2.0} everywhere — so the tripwire is
+    SOUND TODAY and blind to an arm added tomorrow. Minted-not-merged rationale banked: **#65
+    catches a test that starts failing; #67 catches a test that keeps passing for the wrong
+    reason** — a name-diff is blind to a green test that guards nothing. #64 gains the
+    basis-propagation clause (no new number, #58-DECLINED precedent): *when a correction retires
+    a factor, every magnitude derived from it is re-stated in the same landing.*
+  - **(3) WARN-1 IS THE CONDUCTOR'S LESSON TOO:** the "precision upgrade" (1.64–1.89× replacing
+    my quoted "~2×") moved AWAY from the answer — every consistent basis gives 1.85–2.21×. The
+    anchor-refit correction repaired the *attribution* and left the *magnitude* standing, and
+    the stale magnitude crossed the ADR-004 seam one lap later. R-WR3-42(1) accepted that
+    paragraph as an upgrade; this ruling RECORDS THE ACCEPTANCE AS PARTLY WRONG — the paragraph's
+    purpose held, its headline number did not. Remediation to gamora: restate model/model
+    **1.87–2.16×**, strike the ×0.7517 row, un-claim the supersession.
+  - **(4) WARN-2/3/4 DISPOSITIONS ADOPTED:** 2 of 10 pre-registered gates ungraded (G-W2-5
+    ungradeable — no per-body engagement time; G-W2-10's emission limb unchecked); G-W2-4
+    re-labels **CRITERION NOT MET ON n** (0.500 vs 0.50 on-target, but n=60 and rolls on 1 of 4
+    tiers — "PASS, under-powered" renegotiates a pre-registered threshold); math-note §5's arm
+    column annotates NOT BUILT (2 arms exist, the comment says four). All ride the acceptance-lap
+    commission as named work items, none blocks this landing.
+  - **(5) TWO REVIEWER SELF-RECORDS BANKED APPROVINGLY:** jack-ryan's prior "READ IN FULL" missed
+    MIGRATION §2(1)'s false count-doubling that drax caught by measuring the stream (#11 cuts
+    against the reviewer too); and G-W2-7's disposition is now a REUSABLE RULE — an unsampled
+    mechanism is acceptably built iff (a) zero reported as unsampled not passing, (b)
+    dark-vs-unsampled measured, (c) non-vacuity by construction, (d) reachability tripwire.
+    Called the best Pattern P8 application reviewed to date.
+  - **(6) MATT SURFACE UNCHANGED:** no decision required by the verdict; D1/D2 stay queued and
+    jack-ryan **verified nothing built presumes them** (`HEAL_ON_RETURN_FRACTION = 0.0`;
+    `test_B1/B2/B5`; leash-return ≠ return kept distinct — a #66 conflation avoided).
+  - **(7) NEXT:** push both repos (per-landing law), then scope the **R-WR3-2 full-mix
+    acceptance-lap commission** (gamora) carrying: the stagger instrument (PRECONDITION —
+    `t_engage` emitted + G-W2-5/G-W2-10 graded or NOT-SAMPLED-declared), WARN-1 restatement,
+    G-W2-4 re-label + n→200 extension, WARN-4 annotations, the #67 arm-coverage repair
+    (signature-derived `_ARMED` with named out-of-arm list), the three per-mechanism sub-flags,
+    INFO-2/3/4 docstring fixes. Unrelated find logged: two 2026-07-22 items untracked in
+    `qa/pending/` — not this run's scope, flagged to knight-rider's queue.
+
 ## §3 — The envelope diff (what stage 2 calibrates, pending grill)
 
 | metric | GD L13 referent | our fixture | verdict |
