@@ -2313,3 +2313,64 @@ configuration as rendered IS the keeper; bank its exact parameters (mask, roughn
 in the landing note as the verdicted state; restage inherits it unchanged. Remaining delegated
 eye-gates drop from four to three (dust arm · numeral grade · non-swipe cores/parity grade —
 sheen is closed).
+
+---
+
+## LANDING — WARMTH ✓ (drax, 2026-08-01; godot `1feebeb` opened at `88a29a9`, note `drax/notes/2026-08-01-warmth.md`, meta `139887d0`)
+
+**Scope 31 — Matt's OBSERVATION right, his ATTRIBUTION wrong (and the cell proved it before
+acting).** `sky_dust.gdshader` `discard`s every mote outside the shaft cone+mask — **beam motes
+have been unable to reach the room since SKY-2**; peel matrix: sky motes 61.2 luminance units
+over 1.72% of frame, room dust 54.2 over 1.50%, zero overlap. The room's dust IS cold
+(0.636:0.776:1.000, b* −9.39) — sourced from the **Matt-accepted AMB-HUE ramps**, not the beams.
+Shipped anyway because the ASK was warmth, not blame: `--dustwarm` (five ambient emitters
+regraded to the torch register at runtime — chromaticity only; offsets/alpha/per-stop luminance
+held; resources duplicated, none written) + `--fogwarm` (room air on the same dial —
+`FOG_ALBEDO`'s own header admits it was purpled to match the AMB-HUE spine).
+**Measured (luminance-weighted Σ(Y·b*)/ΣY after the cell RETIRED its own unweighted instrument
+mid-flight, F-W-4): whole-frame +1.065 → +9.110; warm luminance 50.6% → 71.4%; mid rung
+(fog_warm 0.55) +6.344 / 64.6%.**
+
+**Scope-27 survival CLEAN three ways:** pools byte-identical (sha 3/3), every beam constant
+`diff`-empty (0.000000° direction, mask_sign, gain, apex), shaft additive delta −0.84% ΣY /
+−0.11% p99 = tonemap re-seating a fixed additive over a recoloured background (shaft is
+`fog_disabled`; its radiance cannot change).
+
+**Scope 32 — the kill-test REFUTED the arm's premise, honourably.** Film = roughness field on
+the floor's own opaque material, world-XZ patches (a UV mask would stamp one puddle across 900
+atlas-sharing tiles), lit by real GGX so the claim is testable. Arm-0 identity max 2/255. It
+WORKS (box gain 1.11×; clearcoat 1.69×) — but `--plkill` shows the **carried lamp's own
+contribution FALLS** (0.01457 → 0.01362). Geometry: mirror point 0.96 m from the player at 34.1°
+from normal — the Fresnel floor — and under his own body. **The sconces rake the sheen; the lamp
+cannot.** Answer to arm (c): **the LAMP is the limiting factor, not the mirror.**
+
+**Findings:** F-W-1 **62% of the room's cold budget is the Scope-27 shaft** (37.25% of frame,
+b* −25.85) — Scopes 31 and 27 are in tension on one frame; the next warmth lever IS the beam and
+needs Matt, not an edit · F-W-2 no floor material routes more carried-lamp light to the eye at
+this pitch (levers are energy + placement; `CARRY_H`/`CARRY_OUT` are SHADOW-UNIFY's) · F-W-3
+AMB-HUE and `FOG_ALBEDO` are ONE decision in two constants — any grade must write both · F-W-4
+unweighted chroma means are not a room instrument. Clip-gate (F-AH-6) caught two own-defects:
+all five clips first shipped at 50 fps; half-speed concat emitted non-monotonic DTS three ways.
+
+**Surfaces:** `tmp/warmth/clips/DUST_WARM_before_after.mp4` (watch first) · `DUST_WARM_ladder.mp4`
+· `SHEEN_ABC_walk.mp4` · `SHEEN_ABC_rake_halfspeed.mp4` · `SHEEN_KILLTEST_carried_omni.mp4`.
+
+## R2 INTERIM RULINGS — conductor picks under Scope 38 (veto-open; A/Bs preserved for Matt's return)
+
+- **R-BR-10 (dust grade) — SHIP FULL `--dustwarm` + `--fogwarm`, written to BOTH constants per
+  F-W-3.** Reasoning: the composition's cold half is carried by the SHAFT (F-W-1: 62% of the
+  cold budget, 37.25% of frame) — and the shaft is Matt-verdicted GREAT. So the ambient dust can
+  go fully warm without collapsing the Arm-A cold/warm split; the split survives in the light
+  that earns it. 71.4% warm luminance is the D1 crypt register: warm torch body, cold accents.
+  Mid rung (64.6%) preserved as the A/B alternate. **Scope 27 NOT touched** — F-W-1's beam lever
+  stays parked for Matt, exactly as the cell asked.
+- **R-BR-11 (sheen) — the wet layer SHIPS as Matt verdicted it, PLUS a graded carried-lamp
+  energy bump.** Matt's eye ruled the sploches ("look AMAZING") — that verdict governs the LOOK
+  and is not reopened. But his ORIGINAL ask was *sheen when the player walks by*, and F-W-2
+  proves the floor cannot deliver that at this pitch: the lamp is the limiting factor. So the
+  restage renders the verdicted film with a lamp-energy grade (1.0× / 1.6× / 2.2×) and preserves
+  the A/B. Honest statement of the residual: at this camera pitch the player's own light will
+  never be the PRIMARY sheen author — the sconces rake it. That is a physics fact about a
+  0.96 m mirror point at 34.1°, not a tuning failure.
+- Remaining delegated gates: numeral grade · non-swipe VFX cores · parity grade (all in the
+  cells ahead). **HUD-BUILD fires next.**
