@@ -462,3 +462,265 @@ Filed explicitly so the record self-heals rather than accumulating drift.
 ---
 
 **Signed:** legolas, 2026-08-01. The build is 1.1.9-era canon that the newest patch just handed a weapon back to. The savefile makes the construction question mostly disappear — and the one that remains is not "how do I build it" but "which folder does it live in," because the Crucible will not take a custom-game character. That is the sentence to read twice.
+
+---
+---
+
+# ADDENDUM — Crucible access probe (Q1–Q4) — 2026-08-01
+
+**Commissioner:** knight-rider, relaying Matt. **Trigger:** gandalf v3 playtest doc flags Crucible ACCESS as UNVERIFIED — the single most likely thing to derail a 35-minute Gladiator 150–170 sitting.
+**Method added since the body:** I downloaded the tested savefile (read-only, into scratch) and **parsed its `player.gdc`** with our own parser (`…/scratch/2026-07-28-gdc-parse-g7/gdc_parse.py`). Four of the answers below are therefore **measured off the actual file Matt will import**, not inferred.
+**Scratch:** `agentic_orchestration/legolas/scratch/2026-08-01-eor-addendum/` — `q_blockver.py`, `q_waves.py`, `q_merit.py`, `q_mark*.py`, `eor_parsed.json`, `player.gdc.eor`, `raw_{132117,136968,142410,155979,157189}.txt`, `t{46518,48035,148061,156415,156302,151819,156121}.json`, `gdc.clj`, `gdguide_crucible.html`.
+
+## VERDICT BLOCK
+
+1. **Q1 unlocks — SITTING-SAFE.** Beat wave **100** on the difficulty below (official Crate guide; Zantai). v1.3.0.0 adds waves **110 and 160** as triggers. Per-**character**, stored in `player.gdc`; a "Crucible merit" item can grant it to alts.
+2. **Q2 does the import carry it — SITTING-SAFE, MEASURED.** The zip's `player.gdc` holds `greatestSurvivalDifficulty = 2` (**Gladiator**), `currentTribute = **999**`, `survivalWaveTier = **170**`, and difficulty-2 trigger tokens `SURVIVALMODE_NORMAL` + `SURVIVALMODE_CHALLENGER` + `SURVIVALMODE_GLADIATOR` + `TIER05/10/15CHECKPOINT`. **Gladiator is already unlocked and every checkpoint is already flagged.**
+3. **Q3 start wave — SITTING-SAFE.** Since **v1.2.1.3** checkpoints 50/100/150 are free and available to *all* characters, and **Tributes are no longer required to start high** (only to restart/retry). Matt starts at 150 at zero cost, with 999 tributes banked for blessings/retries. 35 min ≈ **3–7 runs of 150→170** (4:30 best-case per the Top-20 guideline; 10–12 min at ordinary pace).
+4. **Q4 forward-compat — WORKAROUND-NEEDED (not a blocker).** Zantai, verbatim: *"A character saved in v1.2 becomes a v1.2+ character and cannot be rolled back."* Forward load works; it is **irreversible**. → **Back up the pristine zip before first load.**
+5. **Q4 devotion — NO REFUND FOUND. SITTING-SAFE for points; WORKAROUND-NEEDED for bindings.** Zero devotion-refund notices across 1.2.0.0 / 1.2.1.x / 1.3.0.0 / 1.3.0.4. But **v1.2.1.5 forced a one-time reset** that hits this build by name: skills granted by **two-handed weapons or their components** were cleared from the quickbar and **Celestial Powers were unassigned from them**. Expect to re-bind devotion procs.
+6. **NEW, and it changes the plan's wording — the Crucible now runs to 200 waves, not 170.** `SurvivalMode3.arz` (FoA overlay) adds `tier18/19/20waves`. 1.3.0.4 patch notes reference *"the 200th wave."* **"150–170" is now a mid-run cash-out, not the end of the event.** This corrects § 3.1/§ 3.2 of the body and closes U-8.
+
+---
+
+## Q1 — How Challenger and Gladiator unlock
+
+**The rule, from the developer's own guide.** Crate's official game guide, *Game Settings → Crucible → Difficulties*, verbatim:
+
+> *"You will begin as an **Aspirant**… But once you defeat the **first 100 waves** of the Crucible, you will earn access to the **Challenger** difficulty. Likewise, defeating 100 waves as a Challenger will allow you to play on the **Gladiator** difficulty."*
+> — https://www.grimdawn.com/guide/game-settings/crucible/ (accessed 2026-08-01)
+
+**"Beat 100," not "start at 101."** This is the trap that generated the 1.3.0.0 change. Crate forum [148061](https://forums.crateentertainment.com/t/crucible-confusion-unlocking-challenger-difficulty-ideas-for-improvement/148061), 2025-08-15 — a player reports starting at 100 and beating 110 with nothing unlocking, then 150→160, then 50→60. **Zantai** (Crate), post #2, verbatim:
+
+> *"The difficulty unlocks are earned for **beating wave 100**, not starting on 101+."*
+
+That same thread's post #3 is the feature request Crate then shipped. v1.3.0.0 patch notes ([155979](https://forums.crateentertainment.com/t/grim-dawn-version-v1-3-0-0/155979)), § Crucible, **in full — it is only two lines**:
+
+> *"Unlocking the next Crucible difficulty now also triggers at **Wave 110 and Wave 160**, rather than requiring clearing the Crucible Waves 1-100."*
+> *"Failing the Crucible on the same tier as a checkpoint no longer awards Tribute."*
+
+**Per-character, with a transferable escape hatch.** The unlock is character-scoped: it lives in `player.gdc` as `greatestSurvivalDifficulty` (see Q2) and as `SURVIVALMODE_*` trigger tokens. Two independent statements of the escape hatch:
+
+- Crate forum [46518](https://forums.crateentertainment.com/t/how-to-unlock-gladiator-crucible/46518) (2018), malawiglenn: *"you need a char that can buy the Challengers's mark (and the Gladiator's mark) that are sold at the crucible vendor in the respective difficulty. So you need one char that has access to gladiator, then that char can grant your other chars access."*
+- v1.2.1.3 patch notes ([142410](https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-1-3-hotfixes/142410)), verbatim: *"The higher difficulties continue to be gated by beating wave 100 on the previous difficulty, **or using a Crucible merit**."*
+
+**UNVERIFIED — the merit item's exact record name.** I searched all five local archives (`database.arz`, `SurvivalMode.arz`, `SurvivalMode1/2/3.arz`) for `merit`, `mark`, `token`, `tribute`, `unlock`: **zero `merit` hits, and no Challenger/Gladiator "mark" item record** (`q_merit.py`, `q_mark.py`, `q_mark2.py`). The `SurvivalMode.arz` item tree is 248 records and is all weapons/shields and chest loot-tables — **no unlock items at all**. Either the merits live under a name I did not guess, or they are campaign-side (`records/items/misc/dlc_crucible_*unlock.dbr` exist in BASE but are the DLC *item*-pool unlocks, not difficulty unlocks). **Do not plan around merits — the imported character does not need them (Q2).**
+
+**Fallback path if the unlock is somehow absent:** on Aspirant, start at the free wave-100 checkpoint and beat wave **110** → Challenger unlocks (1.3.0.0 rule). Repeat on Challenger → Gladiator. Two ten-wave segments at trivial difficulty, well inside 35 minutes. **UNVERIFIED:** I found no post confirming the 110/160 trigger works as written post-1.3.0.0 — it is a patch-note claim, not an observed one.
+
+## Q2 — Does the imported savefile carry Crucible progress? **Yes. Measured.**
+
+### 2A — Where the game stores it (primary: the save-editor source)
+
+`Odie/gd-edit`'s save-format spec, `src/gd_edit/io/gdc.clj` (fetched from GitHub raw, 2026-08-01), places all of it inside **`player.gdc` itself** — the file that ships in the zip:
+
+```clojure
+(def Block1                                   ;; character info
+  ... :greatest-difficulty-completed :byte
+      :iron :int32
+      :greatest-survival-difficulty-completed :byte
+      :tributes :int32 ...)
+;; stats block
+   :survival-greatest-wave      :int32
+   :survival-greatest-score     :int32
+;; Block10
+   :tokens-per-difficulty (s/array (s/array (s/string :ascii)) :length 3)
+```
+
+There is **no separate per-character Crucible save file** and **no account-level store**. The `maps_survivalworld_{a..f}.map/` folders in the zip are arena fog-of-war/quest scratch, not progression.
+
+### 2B — What this specific savefile actually contains
+
+Parsed from `_EoRWarlGuts/player.gdc` (87,820 bytes, mtime 2022-08-13), read-only:
+
+| Field | Value | Meaning |
+|---|---|---|
+| header name / level / hardcore | `EoRWarlGuts` / **100** / 0 | softcore L100, class tag `tagSkillClassName0109` (Warlord) |
+| `greatestDifficulty` | **2** | campaign Ultimate completed |
+| **`greatestSurvivalDifficulty`** | **2** | **Crucible Gladiator unlocked** |
+| **`currentTribute`** | **999** | tribute bank (likely at cap) |
+| **`survivalWaveTier`** | **170** | greatest Crucible wave = the era's max |
+| `greatestSurvivalScore` | 22,568,006 | — |
+| `totalDevotionUnlocked` / unspent | **55 / 0** | full devotion, all allocated |
+| attribute / skill points unspent | 0 / 0 | nothing left in the tank |
+| `money` | 80,131,364 | — |
+| `playTime` / `deaths` | 591,060 s (**164 h**) / 601 | a genuinely farmed character |
+| `bossKills` | [0, 0, 361] | all on Ultimate |
+| **trigger tokens, difficulty slot 2** | `SURVIVALMODE_TIER05CHECKPOINT`, `SURVIVALMODE_TIER10CHECKPOINT`, `SURVIVALMODE_TIER15CHECKPOINT`, `SURVIVALMODE_NORMAL`, `SURVIVALMODE_CHALLENGER`, `SURVIVALMODE_GLADIATOR`, `SURVIVALMODE_DEFENSEBUILT`, `SURVIVALMODE_POWERUPACTIVE`, `SURVIVALMODE_4POWERUPS`, `GD_STASHED` | **all three difficulty tokens and all three checkpoint tokens present** |
+
+**Conclusion: Crucible ACCESS is not a risk for this sitting.** The character arrives with Gladiator unlocked, all checkpoints flagged, and 999 tributes.
+
+*Two honest caveats.* (i) `GD_STASHED` is a token I cannot identify from any source — it is **UNVERIFIED** whether it is a vanilla token or a fingerprint of GD Stash having touched the file. It does not affect access. (ii) Three blocks (inventory, stash, skills) **failed** our parser — see Q4 § 4B; that is a *format-era* fact, not a corruption finding, and it is why the § 1.4 / U-1 gear question stays open.
+
+## Q3 — Starting wave, checkpoints, Tribute costs, and what 35 minutes buys
+
+### 3A — Checkpoints are free and universal since v1.2.1.3
+
+v1.2.1.3 patch notes ([142410](https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-1-3-hotfixes/142410)), § Crucible, verbatim:
+
+> *"The Crucible **no longer requires previously unlocking the wave 50/100/150 checkpoints** on a character to start on them. They are now **immediately available for all characters**. The higher difficulties continue to be gated by beating wave 100 on the previous difficulty, or using a Crucible merit."*
+> *"**Tributes are no longer required to start a Crucible at higher waves**, but are still required for restarting or retrying a Crucible run. End of event Tribute rewards have been reduced to compensate."*
+> *"Tributes earned for failing the event after using a checkpoint have been significantly reduced."*
+
+Plus, from v1.3.0.0: *"Failing the Crucible on the same tier as a checkpoint no longer awards Tribute."*
+
+**This retires the historical cost model.** The pre-1.2.1.3 numbers still circulating in old threads — *"25 tributes to start from wave 150"* ([48035](https://forums.crateentertainment.com/t/crucible-what-is-the-point-of-starting-at-the-wave-50-or-100/48035) #8, Witcher, 2018) — **no longer apply to the start action.** What tributes still buy, per the official guide: **Defenses 5 Tributes** (+8, +12 to upgrade twice) and **Celestial Blessings 12 Tributes each, 25-minute duration** (https://www.grimdawn.com/guide/game-settings/crucible/). At 999 banked, Matt can run a full 4-blessing + banner setup every run for the whole sitting without arithmetic.
+
+### 3B — What 35 minutes covers
+
+Two independent pace anchors, both from the corpus we already trust:
+
+| Source | Segment | Time |
+|---|---|---|
+| Top-20 SC guideline, identical wording in the 2022 and 2026 editions ([122229](https://forums.crateentertainment.com/t/top-20-softcore-builds-in-grim-dawn-an-opinion/122229), [150895](https://forums.crateentertainment.com/t/top-20-softcore-builds-end-of-forgotten-gods-edition-with-hc-section-by-rektbyprotoss-1-2-1-6/150895)) | 151–170, best run | **≤ 4:30** |
+| Witcher, [48035](https://forums.crateentertainment.com/t/crucible-what-is-the-point-of-starting-at-the-wave-50-or-100/48035) #8 (2018, ordinary-pace farming) | 150–170 | **10–12 min** |
+| same | 130–150 | 9–11 min |
+| same | 100–150 | 18–22 min |
+
+**Planning band: 3 runs of 150→170 as the conservative floor, 7 as the ceiling.** If Matt is piloting an unfamiliar build (he is), assume the 10–12 min end, i.e. **~3 runs**. If capture needs many independent engagement segments, 130→150 is cheaper per segment and, per both MortalKombat and Nery in that thread, materially safer.
+
+**The bit that would actually cost time:** Nery, same thread — *"Start on wave 100 unbuffed, at 110 buy 2 or 3 buffs and play."* Blessings last 25 minutes, so **one blessing purchase covers most of a 35-minute sitting** — buy once, at the start, and don't re-buy per run.
+
+### 3C — Can GD Stash grant tributes / unlock state? **Tributes yes; difficulty unlock unclear.**
+
+GD Stash's own changelog (author `mamba`, [29036](https://forums.crateentertainment.com/t/tool-gd-stash/29036) OP) v1.06: *"**Crucible Token Points can be edited**"*. That maps to `Block1 :tributes`. **UNVERIFIED:** whether the Char Editor exposes `greatest-survival-difficulty-completed` or the `SURVIVALMODE_*` trigger tokens — I found no changelog line for either. **Moot for this sitting** (Q2), so I did not chase it further.
+
+### 3D — NEW: the Crucible is 200 waves now, and this corrects the body of this note
+
+Measured in the local `.arz` set (`q_waves.py`), counting `records/proxies/tierNNwaves/` directories per overlay:
+
+| Archive | Tier directories present | Implied wave cap |
+|---|---|---|
+| `mods/survivalmode/SurvivalMode.arz` (base Crucible) | tier01–**tier15** | 150 |
+| `survivalmode1/SurvivalMode1.arz` (AoM) | tier05–**tier17** | 170 |
+| `survivalmode2/SurvivalMode2.arz` (FG) | tier10–tier17 | 170 |
+| **`survivalmode3/SurvivalMode3.arz` (FoA)** | tier15–**tier20** | **200** |
+
+Corroborated in the patch record: v1.3.0.4 ([157189](https://forums.crateentertainment.com/t/grim-dawn-version-v1-3-0-4/157189)), § Crucible — *"Grava'Thull is no longer a guaranteed spawn in the **200th wave** of the Crucible."*
+
+**Three consequences.**
+1. **§ 3.1 of the body is wrong where it says the Crucible caps at 170.** It capped at 170 through 1.2.1.6; FoA extended it to 200.
+2. **U-8 closes.** The body flagged the 200-element `balancingadjustment_survivalmode_enemies0*.dbr` arrays as *"suggestive but not proof"* of a wave index, and called indices 171–199 *"unreachable padding."* They are not padding — 20 tiers × 10 waves = **200**, exactly the array length, and all of it is now reachable. The arrays are wave-indexed. The `characterLifeModifier` figures quoted at indices 150/160/170 stand and are wave numbers.
+3. **The plan's wording needs a change.** "Play waves 150–170" was, in the 1.1.9.x world, "play to the end of the event." In 1.3.0.0 it is **"play 150–170 and then cash out at the 170 treasure chamber rather than continuing."** Matt must actively choose to stop. **UNVERIFIED:** whether a wave-200 checkpoint exists (the save's tokens stop at `TIER15CHECKPOINT` = wave 150) and whether Crucible difficulty unlock triggers were extended past 160.
+
+## Q4 — U-2: does a 1.1.9.x save load in a 1.3.0.0 client?
+
+### 4A — Developer-confirmed, and it is one-way
+
+Zantai (Crate), Steam discussion *"Way to recover 1.1.9.8 save after 1.2 load/save?"*, 2025-01-02 — **the thread exists because the OP's 1.1.9.8 character loaded into 1.2 perfectly well and then would not go back**:
+
+> *"The game was not designed to flip back and forth between versions, so you would need to maintain personal backups. **A character saved in v1.2 becomes a v1.2+ character and cannot be rolled back to v1.1.9.8.** While you *can* keep v1.1.9.8 and v1.2+ saves together in the same folder, there will not be any in-game way to distinguish between them, so I would not recommend it."*
+> — https://steamcommunity.com/app/219990/discussions/0/592885200426419330/ (accessed 2026-08-01)
+
+Reinforced in the same thread by powbam: *"the game can be launched without affecting the save files. **The moment you load a character's file into the game world, however, there is no going back** — any changes to the save file for that character (as far as versioning and file structure changes go) will become permanent."*
+
+**Operational consequence, and it is the one action item of this addendum: keep `Gutsmasher EoR Warlord.zip` unmodified, outside the save tree, before the first load.** The migration is irreversible and there is no second copy on the forum thread if the first is spoiled.
+
+**Counter-evidence checked and dismissed.** Three "old save broken" threads surfaced in search; none survives reading:
+- [156415](https://forums.crateentertainment.com/t/old-saves-incompatible-with-latest-version-game-constantly-unresponsive/156415) (2026-07-25, a 2021-era save vs 1.3.0.0) — title says incompatible; **the OP retracted it**: *"Seems like it's not the save — works fine on my work PC."* Note also that Crate's Kinree asked for the file, i.e. treats old-save crashes as a bug, not as expected behaviour.
+- [156302](https://forums.crateentertainment.com/t/v1-3-0-0-crashing-on-menu-load-unless-i-remove-my-save-file-manually/156302) — a save *created on the current version* during coop. Not a forward-migration case.
+- [156121](https://forums.crateentertainment.com/t/xbox-characters-gone-after-patching-to-1-3/156121) — **Xbox only**, and Rhis: *"This fix is now live."*
+
+**Residual UNVERIFIED:** I found no report of exactly **1.1.9.x → 1.3.0.0** in one hop. Zantai's statement covers 1.1.9.8 → 1.2; 1.2 → 1.3 is the same mechanism. The hop is *expected* to work and is not *evidenced* to work. Path B (GD Stash) remains the fallback per body § 2.1.
+
+### 4B — Measured: the file format did move, in six places
+
+Comparing the 2022 EoR `player.gdc` against a `player.gdc` written by a current 1.3.0.0 client (our own G-7 werewolf capture), via `q_blockver.py`:
+
+| block | 1.1.9.x (2022-08-13) | 1.3.0.0 (2026-07-28) | |
+|---|:--:|:--:|---|
+| file version | 8 | 8 | same |
+| **expansion byte** | **3** | **7** | BUMPED |
+| character_info | 5 | 5 | same |
+| character_bio | 8 | 8 | same |
+| **inventory** | **4** | **11** | BUMPED |
+| **character_stash** | **6** | **11** | BUMPED |
+| **character_skills** | **5** | **8** | BUMPED |
+| **ui_settings** | **5** | **7** | BUMPED |
+| **play_stats** | **11** | **12** | BUMPED |
+| respawn / teleport / marker / shrine / lore / faction / tutorial / trigger_tokens | 1/1/1/2/1/5/1/2 | identical | same |
+
+**Read this correctly.** The container version and the character-identity blocks are unchanged — which is why `greatestSurvivalDifficulty`, `tributes`, `survivalWaveTier` and the trigger tokens read cleanly out of a four-year-old file with a parser fitted to a 2026 one. What moved is **inventory, stash, skills, UI, and play-stats**. The game's job on first load is to upgrade those five. That is a real migration, not a no-op, and it is the concrete content of the body's *"format upgrade is expected but UNVERIFIED"* caveat.
+
+The **expansion byte 3 → 7** is almost certainly a DLC bitmask (`gd-edit` names this field `:expansion-character?`): 0b011 = AoM+FG, 0b111 = AoM+FG+FoA. **INFERRED, not proven.** If it is a mask, the character is flagged as a pre-FoA character until the client rewrites it — which is exactly the kind of thing that has a first-load-only code path.
+
+### 4C — Devotion: no refund anywhere. But the 2H binding reset is real.
+
+**I grepped the complete patch record from 1.2.0.0 through 1.3.0.4** — threads [132117](https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-0-0-v1-2-0-1-v1-2-0-2-v1-2-0-3-hotfixes/132117), [136968](https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-1-0-hotfixes/136968), [142410](https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-1-3-hotfixes/142410), [155979](https://forums.crateentertainment.com/t/grim-dawn-version-v1-3-0-0/155979), [157189](https://forums.crateentertainment.com/t/grim-dawn-version-v1-3-0-4/157189) — for `refund`, `reset`, `respec`, `unassigned`, `were cleared`, `one-time`, `devotion points have`, and every `[color=red]` notice.
+
+**Result: exactly one forced-reset notice exists, and it is not a devotion refund.** v1.2.1.5, the red banner at the top of thread 142410, verbatim:
+
+> *"Due to a bug fix related to casting with two-handed weapons, **any skills granted by two-handed weapons (either directly or through an attached Component) were cleared from the quickbar and Celestial Powers have been unassigned from them.** This is a one-time necessary reset."*
+
+**This build is a two-handed weapon build (Gutsmasher) whose devotion routing is entirely proc-bindings** — body § 1.5 lists Maul→Judgment, Ulzaad's Decree→War Cry, Crab→Divine Mandate, Bull/Assassin→EoR. **Flag it loudly: on first load, expect quickbar slots and at least some Celestial Power assignments to be empty, and re-bind before recording.** Devotion *points* stay allocated (`totalDevotionUnlocked = 55`, `devotionPointsUnspent = 0` in the file; nothing in the patch record refunds them), so the **100%-match premise survives** — the constellation map is intact, only the bindings are loose.
+
+**Also checked:** the Devotion sections of 1.2.0.0 and 1.3.0.0 are pure stat-tuning lists (e.g. 1.3.0.0: *"Panther: reduced % Crit damage to 5%"*, *"Fist of Vire: increased base % Retaliation added to Attack by 6%"*). **No affinity-requirement changes, no constellation removals, no node restructuring.** The § 1.5 devotion-manipulation problem does not recur on import.
+
+**One further first-load nuisance, from v1.2.0.0:** *"A new base **Evade** skill has been added, bound to Spacebar by default… **Existing players will need to set a keybind or reset their keybinds** in order to take advantage of this."* Harmless, but it means the imported character's keybind set is pre-Evade.
+
+## ADDENDUM — corrections to this note's own body
+
+1. **§ 3.1 / § 3.2 / U-8 — the Crucible caps at 200 waves, not 170**, as of FoA/1.3.0.0 (`SurvivalMode3.arz` carries tier18–tier20; 1.3.0.4 names *"the 200th wave"*). Indices 171–199 of the 200-element balancing arrays are **not** unreachable padding. **U-8 is closed: the arrays are wave-indexed, 1:1, 20 tiers × 10 waves.**
+2. **§ 2.1's Tribute assumption** — the body carried the historical model implicitly. Since v1.2.1.3, starting at a checkpoint is **free** and all checkpoints are available to **all** characters. Nothing in the plan needs tributes.
+3. **§ 2.7 gains a data point.** Crate forum [151819](https://forums.crateentertainment.com/t/corrupt-save-after-copying-from-main-to-user/151819) (2026-02-22) reports the **reverse** copy (`main` → `user`) breaking skill-point allocation and hotkey persistence; the reporter fixed it by *"checking the 'In Mod' option under Character Data on the Char Editor tab"* in GD Stash. Our plan copies **into `main`**, so this is not our failure mode — but if Matt ever does keep the second `save\user\` copy for console access, **that checkbox is the known fix.**
+4. **U-2 is downgraded from open to "developer-answered, one-hop-unverified"** — see § 4A.
+
+## ADDENDUM — unverified / open
+
+| # | Item | Why it matters | What closes it |
+|---|---|---|---|
+| U-11 | The Crucible **merit** item's record name and whether one exists in the current DB | would give a hard fallback if a save's unlock state were ever missing | not in any of the five local `.arz` archives under `merit`/`mark`/`token`/`unlock`; needs a text-tag (`.arc`) search or an in-game vendor visit |
+| U-12 | Whether v1.3.0.0's **wave-110/160 unlock trigger** works as written | the fallback path in Q1 | patch-note claim only; nobody has reported testing it |
+| U-13 | Whether a **wave-200 (or 175/190) checkpoint** exists post-FoA | changes the run structure | the save's tokens stop at `TIER15CHECKPOINT`; needs an in-game look at the checkpoint menu |
+| U-14 | Whether GD Stash can write **`greatestSurvivalDifficulty`** / `SURVIVALMODE_*` tokens | only matters if Q2 were ever false | no changelog line; Char Editor inspection |
+| U-15 | The `GD_STASHED` trigger token's provenance | if it is a GD Stash fingerprint, the "tested savefile" was tool-touched | unidentified in every source consulted |
+| U-16 | Exactly **which** Celestial Powers survive the v1.2.1.5 reset on this character | pre-record checklist | Matt looks at the devotion window on first load |
+| U-17 | The 1.1.9.x **inventory/stash/skills** block contents | still blocks U-1 (per-slot gear, skill ranks) from the file | our parser is fitted to v11/v11/v8; the file is v4/v6/v5. A v4-era item struct would decode it — a real but bounded piece of work |
+
+## ADDENDUM — sources
+
+**Primary — Crate (official / developer)**
+
+| Source | URL | Accessed |
+|---|---|---|
+| Official game guide — *Game Settings → Crucible* (difficulties, tributes, blessings, defenses, mutators) | https://www.grimdawn.com/guide/game-settings/crucible/ | 2026-08-01 |
+| Zantai, *"The difficulty unlocks are earned for beating wave 100, not starting on 101+"* | https://forums.crateentertainment.com/t/crucible-confusion-unlocking-challenger-difficulty-ideas-for-improvement/148061 | 2026-08-01 |
+| Zantai, save-version migration is one-way (Steam, 2025-01-02) | https://steamcommunity.com/app/219990/discussions/0/592885200426419330/ | 2026-08-01 |
+| v1.2.0.0 + hotfixes patch notes | https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-0-0-v1-2-0-1-v1-2-0-2-v1-2-0-3-hotfixes/132117 | 2026-08-01 |
+| v1.2.1.0 + hotfixes patch notes | https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-1-0-hotfixes/136968 | 2026-08-01 |
+| **v1.2.1.3 + hotfixes** — free checkpoints, tribute rule change, **and the v1.2.1.5 red-banner 2H reset** | https://forums.crateentertainment.com/t/grim-dawn-version-v1-2-1-3-hotfixes/142410 | 2026-08-01 |
+| v1.3.0.0 patch notes — Crucible § in full | https://forums.crateentertainment.com/t/grim-dawn-version-v1-3-0-0/155979 | 2026-08-01 |
+| v1.3.0.4 patch notes — *"the 200th wave of the Crucible"* | https://forums.crateentertainment.com/t/grim-dawn-version-v1-3-0-4/157189 | 2026-08-01 |
+| Xbox 1.3 character loss (fixed; not PC) | https://forums.crateentertainment.com/t/xbox-characters-gone-after-patching-to-1-3/156121 | 2026-08-01 |
+
+**Primary — save format**
+
+| Source | URL / path | Accessed |
+|---|---|---|
+| `Odie/gd-edit` `src/gd_edit/io/gdc.clj` — `:greatest-survival-difficulty-completed`, `:tributes`, `:survival-greatest-wave`, `:tokens-per-difficulty` | https://raw.githubusercontent.com/Odie/gd-edit/develop/src/gd_edit/io/gdc.clj | 2026-08-01 |
+| **The tested savefile itself** (read-only download, 1,223,894 bytes, 96 files, mtimes 2022-07-12 → 2022-08-13) | https://forums.crateentertainment.com/uploads/short-url/wu1LwqaU4vrKY0CtVhxCUnwj1Vu.zip | 2026-08-01 |
+| Our parser | `agentic_orchestration/legolas/scratch/2026-07-28-gdc-parse-g7/gdc_parse.py` | — |
+| 1.3.0.0-written reference save | `…/2026-07-28-gdc-parse-g7/player.gdc.scratch` | — |
+| Local `.arz` (tier-count probe) | `/Users/admin/Games/vendor/grim-dawn-edition-II-20260724/{mods/survivalmode,survivalmode1,survivalmode2,survivalmode3}/database/*.arz` via `gd_arz_adapter_2026_07_24.py` | 2026-08-01 |
+
+**Secondary — community**
+
+| Source | URL | Accessed |
+|---|---|---|
+| *How to unlock gladiator crucible?* — the mark/merit transfer mechanism (2018) | https://forums.crateentertainment.com/t/how-to-unlock-gladiator-crucible/46518 | 2026-08-01 |
+| *What is the point of starting at wave 50 or 100?* — run-time anchors, per-char checkpoint behaviour pre-1.2.1.3 | https://forums.crateentertainment.com/t/crucible-what-is-the-point-of-starting-at-the-wave-50-or-100/48035 | 2026-08-01 |
+| *Old-save incompatibility with latest version (solved)* — **retracted by its own OP** | https://forums.crateentertainment.com/t/old-save-incompatibility-with-latest-version-solved/156415 | 2026-08-01 |
+| *V1.3.0.0 crashing on menu load…* — current-version save, not a migration case | https://forums.crateentertainment.com/t/v1-3-0-0-crashing-on-menu-load-unless-i-remove-my-save-file-manually/156302 | 2026-08-01 |
+| *Corrupt Save After Copying from Main to User* — the `In Mod` checkbox fix | https://forums.crateentertainment.com/t/corrupt-save-after-copying-from-main-to-user/151819 | 2026-08-01 |
+| `[Tool] GD Stash` OP + changelog — *"Crucible Token Points can be edited"* (v1.06) | https://forums.crateentertainment.com/t/tool-gd-stash/29036 | 2026-08-01 |
+
+**Blocked / not fetched (addendum pass)**
+
+- `grimdawn.fandom.com` — Cloudflare JS challenge to curl; WebFetch returned HTTP 402. **Zero wiki pages read; no wiki claim appears above.**
+- `grimtools.com` — still robots-disallowed for `ClaudeBot`/`Claude-User`. Not fetched.
+- `nexusmods.com`, `moddb.com` — 403 to agent fetches (unchanged from the body).
+- `steamcommunity.com` — WebFetch domain-blocked; **one** page reached by plain curl and quoted above (the Zantai migration statement). No other Steam page is cited.
+
+---
+
+**Signed:** legolas, 2026-08-01 (addendum). Crucible access was the thing most likely to derail the sitting, and it turns out the savefile settles it: Gladiator unlocked, all three checkpoints flagged, 999 tributes, wave-170 record — measured out of the actual `player.gdc`, not assumed. Two things did move under us. Starting high is now **free**, so the tribute planning in every old guide is dead weight. And the Crucible **runs to 200 waves now**, which means "150–170" is a stopping decision Matt has to make on purpose rather than an ending the game hands him. The only genuine hazard left is not compatibility — it is that v1.2.1.5 knocked two-handed weapon skills off the quickbar and unassigned their Celestial Powers, and this build is a two-hander whose devotions are all procs. **Back up the zip, load once, and check the devotion window before the recorder starts.**
