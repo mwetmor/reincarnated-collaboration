@@ -1247,3 +1247,79 @@ surfaced at exit — in-engine reads 21/21, 614/614, burn 0), G-6a–f + G-7 (ce
 **Closed:** G-1 · G-1b · G-1c · G-1d · G-1e · G-1f · G-1g · G-1h · G-2c · G-3 · G-3b · G-4 · G-5b ·
 G-5e · G-10 · G-12 · G-13 · G-9 per cell. **FAILED and processed:** G-11 (moving-host; `SwordChargeUp`
 named unusable, coverage redundancy absorbed it).
+
+---
+
+## Addendum 11 (2026-08-01) — the swing was never drawn: R-BR-46 and cell 3b
+
+**Matt, mid-run:** *"We haven't removed the werewolf's arsenal melee slash vfx, btw have we? I didn't
+see it in the latest MP4."*
+
+**Verified rather than recalled** (R-BR-34 / R-BR-45). Grepped the ARSENAL-2 landing note and read
+COMBAT-JUICE-1 §1 verbatim. **Nothing was removed. There never was an arc.** What cell 3 authored for
+the claw, quoting §1:
+
+| beat | effect | placement |
+|---|---|---|
+| **D** wind-up | `ChargeSphereRed` [2,029] | per-hand, `RightHand` (bone 26) / `LeftHand` (bone 13) of the werewolf's 52-bone skeleton, scale 0.95, brightening 0.45 → 1.35 across a 0.500 s window |
+| **D** strike | `MuzzleFireballRed` [4,044] | at the damage event, at the point the swing reaches. 21 firings |
+
+A glow on two hands, and a flash at a point. **There is no arc, and there never was one — because
+there was never a need for one.** ARSENAL-2's eight-need coverage table has no "melee slash arc" row.
+
+### R-BR-46 — A COVERAGE GATE MUST GATE THE COMPLETENESS OF THE NEED LIST, NOT ONLY COVERAGE OF IT
+
+G-13 was written straight out of `desirable-run-pattern.md` §6 observation 1 — *coverage-gates before
+accuracy-gates*, the KIT-FIDELITY lesson, the run that certified a sliver and called it a twin. G-13
+passed **8 COVERED / 0 GAP**, honestly, machine-generated, no bar moved. And it certified a sliver
+anyway, because **it gated coverage of the need list. Nothing gated the need list.** The eight needs
+were mine, from memory, at charter time.
+
+This is §6 observation 1's own failure recurring exactly one level up — and, per §6 observation 2, it
+was caught by the same instrument that caught it the first time: the owner's eye, mid-stream,
+unprompted. That is now twice this run (the ward ring, and this).
+
+**Remedy, binding on every future coverage gate:** derive the need list from the **trace's own event
+vocabulary**, not from the conductor's recollection. Enumerate every event type, geometry class and
+ailment channel the substrate actually emits, then require each one to map to either a drawn need or
+an explicitly declared invisible **with a stated reason**. Applied to this fight it catches the miss
+instantly: seed 74000909 resolves **21 cone-geometry damage events** and not one row of the table drew
+the swing that produced them.
+
+### The design cost
+
+Melee hit-feel is a four-beat structure — **anticipation → arc → impact → reaction.** We have beat 1
+(the hand glow) and beat 3 (the flash) and *nothing between them.* The arc is the beat that connects
+intent to consequence; without it a swing reads as *"a number appeared"* rather than *"I hit it."*
+Diablo II's melee weight, Diablo III's deliberate correction of it, and PoE's melee rework all live in
+that connective beat. Right now the boss's danger has had four cells of authorship — telegraphs,
+shapes, wind-ups, wards — and the player's own agency has no visual weight at all. On a watch whose
+whole claim is *the true shapes and the true motion*, the player's swing is the one motion nobody
+drew.
+
+### The material was measured and never assigned
+
+G-11's FAIL stands and is structural, not a taste call: `SwordTrail` (×0.65) and `SwordTrailShadow`
+(×1.12) are Shuriken **LOCAL**-space, rate 0, single-burst — one particle riding the host, whose trail
+follows the host by construction. No host motion can help them. **But the same section names
+`SwordParticleTrail` — WORLD space, 25/s billboards — and that sibling does respond: ×1.28 on both
+metrics.** That is the second time this run a refusal-shaped record contained the answer to a later
+question (the first: the 39 travel-bearing effects sitting inside R-BR-3's ban).
+
+### Cell 3b — SLASH-ARC-1 (executes ahead of cell 4, same launch)
+
+One relaunch, not two: the slash arc lands while the combat-authoring context is warm, then the HUD
+port follows. Scope: a **swept arc** driven by the fight's own commit-lock window `w5/s1/r9` at
+0.1 s/tick, tracking hand bones 26/13, beginning where the wind-up glow ends and ending where the
+strike flash begins.
+
+- **G-14a — the material earns its place.** `SwordParticleTrail` must clear the **unmoved** G-10 pixel
+  bar and the G-11 moving-host test. FAIL → author the arc from a primitive. *The pack is a
+  convenience, never a dependency.*
+- **G-14b — presence.** Arc on frame for ≥90% of the 21 cone-geometry damage events, measured inside a
+  screen disc around the player, on the existing framemap.
+- **G-14c — order.** Four-beat sequence holds: onset **after** the wind-up peak, extinction **at or
+  before** the strike flash. *A slash that outlives its own impact is decoration.*
+- **G-13b — R-BR-46's first application.** The need-list completeness sweep, run against seed 74000909's
+  full event vocabulary; every unmapped channel is a GAP or a declared invisible with a reason.
+- **Fallback:** if an arc cannot read at 23.0 px/m, say so and name what would.
