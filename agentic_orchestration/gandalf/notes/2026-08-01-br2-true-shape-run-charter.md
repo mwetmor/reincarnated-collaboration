@@ -384,3 +384,86 @@ question is specific.
 | 3 | COMBAT-JUICE-1 | drax | godot | |
 | 4 | HUD-PORT-1 | drax | godot | |
 | 5 | BR2-WATCH | drax | godot | |
+
+---
+
+## ADDENDUM 3 — cell 1b landed; three rulings; one probe outstanding (conductor, 2026-08-01)
+
+### Cell 1b — TRACE-STAGE-1: **G-1c PASS, G-1d PASS, G-9 verified**
+
+Engine `5b8c724b` + `28eddef4`, meta `efa8b2ab`, all on `origin/main`.
+
+The control limb came back **stronger than cell 1's**: the whole 200-trace battery regenerated at
+pre-change HEAD, **90,708 records, ZERO simulation paths differing** — and the only moving field,
+`engine_git_hash`, was reconciled by `git diff --stat` showing the intervening commit touched
+`AGENT_STATE.md` and nothing else. Post-change: four sim paths at exactly 1,556 each (470 + 516 +
+570), `engine_git_hash` at 200, **no fifth path in 90,708 records.**
+
+G-1d as counts *including the nulls*, which is the part that matters: `stage_count` /
+`stage_interval_s` / `hit_radius_m` at **570/570** blizzard and **986 null elsewhere with 0
+non-null** — and **`absent_key` 0 in every cell**, which is the R-WR3-40(2) guard: a mistyped field
+name would show as 1,556 absent, not as null. The instrument can tell "deliberately empty" from
+"never arrived."
+
+### ⚑ THE INSERTION WAS NOT OPTIONAL — Scope 43.1 was wrong
+
+I banked in Scope 43.1 that the blizzard's 24 drops were *"already individually addressed… renderable
+today without a schema change"* via the `attack_id` string. **False.** Only **156 of 570** casts
+produce any damage record at all — a drop that hits nothing leaves no trace of itself, and per-volley
+counts decay 87 → 60 → 25 → 14 as the player leaves the scatter. Parsing `attack_id` would have
+rendered a blizzard that **thins as it goes and vanishes when the player dodges well.**
+
+Cell 1b was not a nicety. It was the only honest route. And this is R-BR-34's third confirmation in a
+week: I asserted a field's usefulness from a structural reading without probing what fraction of the
+records actually existed.
+
+### R-BR-36 — `duration_s` is LIVENESS; sweep time is TRAVEL. They are different quantities.
+
+The wave ships `duration_s = 1.4874999999999998`, not 1.4. Gamora derived it under **one uniform
+definition across all three families** — `event.t_expiry − fire_time_s`, no family branch — which is
+the deliberate opposite of `projectile_velocity_ms`'s per-family axis, and it is the right call: a
+field whose meaning forks per family is the defect we have now found three times.
+
+**The 0.0875 is real** — the wave's band is 1.0 m deep, so the trailing edge clears the far end after
+the leading edge arrives. **G-2b is amended: the sweep is graded from `range_m ÷
+projectile_velocity_ms` = 16.0 ÷ 11.428571428571429 = 1.4 s, NOT from `duration_s`.** A renderer that
+animates the front from `duration_s` fails G-2b by 0.0375 s, and would deserve to.
+
+⚑ **This is the same defect class for the third time**, and it is worth naming as a class:
+`range_m` carried AI-trigger *and* extent; `wind_up_s` carried charge-up *and* fall time; now
+`duration_s` would carry liveness *and* travel. **One scalar per telegraph cannot answer both "how
+long is this dangerous" and "how long does the front take."** Standing distinction: **liveness comes
+from `duration_s`; travel is always derived from velocity and extent.**
+
+### R-BR-37 — G-2c re-pinned to the measured rhythm, and the 8.0 s is not a defect
+
+Measured (R-BR-34, evidence cited): **186 blizzard damage events land at offsets exactly
+{0.0, 2.0, 4.0, 6.0} from their own `fire_t_s`, zero variance.** Cast→last-impact 6.8333 s;
+first→last **6.0 s**. `duration_s` = 8.0 over-bounds the last impact by exactly one volley interval —
+**which is correct, not a bug**: four volleys on 2.0 s centres occupy a half-open [0, 8.0) schedule
+whose last member fires at 6.0.
+
+**G-2c re-pinned:** 4 volleys × 6 orbs = 24; impact times at `fire_t_s` + {0, 2, 4, 6} **± 0.05 s**;
+first→last **6.0 s ± 0.05**. The old "8.0 s window ± 0.1" is **retired as a visual criterion** —
+holding a danger decal for 2.0 s after the last orb teaches the player to fear an empty floor, which
+is the reverse-falloff error wearing different clothes. **Draw the danger for the danger; the 8.0 s
+is scheduling, not threat.**
+
+### ⚑ RULING DEFERRED PENDING PROBE — the wave's 3.0 → 6.0 taper
+
+Gamora reports the source lane widens **3.0 → 6.0 m** while the telegraph emits only the **end**
+width, so a uniform 16.0 × 6.0 rect **overstates the lane 2× at the origin** — and the origin end is
+exactly where the player stands, since his primary skill is a 2.0 m cone. This is census rec 13, in
+substrate, and it is the same class as the `hit_radius_m` overstatement I pulled forward.
+
+**But I am NOT firing a cell 1d yet, because the obvious fix may be a lie in the other direction.**
+The governing question is not what the *source* says — it is **what our simulation resolves damage
+against.** If our sim hit-tests a uniform 6.0 m rect, then a uniform 6.0 m rect is the true danger
+zone *in our game*, and drawing a trapezoid would misinform the player about the sim they are
+actually playing. In that case `start_width_m` is a **simulation-fidelity** question for BR-3, not a
+presentation fix for BR-2.
+
+R-BR-24's principle, stated generally: **we render what the sim does, not what the source says.**
+Probe sent to gamora. Cell 2's brief carries the uniform rect until it answers.
+
+**Cell 2 opens when ARSENAL-2 (1c) lands.**
