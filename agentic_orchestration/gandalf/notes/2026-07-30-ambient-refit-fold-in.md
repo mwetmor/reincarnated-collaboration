@@ -1892,3 +1892,18 @@ frigidring (10 m) entirely off-screen = undodgeable telegraph, escort band unfit
   indicative only) — NO boss-rig tuning against that row until re-measured. Threat-inversion
   guard: D1 alone makes the player (3.78 m) outgrow the boss (2.75 m) — the A/B must show Matt
   this consequence explicitly before any default flips.
+
+---
+
+## D-VFX-2 EXECUTED — Binbun Battle FX (Full) INSTALLED (Matt, 2026-07-31)
+
+Path: `Assets/Binbun_VFX/BattleFXFull` (`assets/BinbunVFX_Vol2/BattleFX/`). Census: **43 scenes
+across 5 families — shield ×15, charge ×7, swing ×7, slash (≥7), claw (dir present)** —
+element-themed (fire/ice/wind/dark/nature/data/plasma) **plus `blank` variants = tintable to our
+element grammar.** The claw + swing + slash families are the direct swipe-uplift payload for the
+werewolf and the boss hand-strikes. Integration notes for the restage cell: pack ships its own
+`shared/` script+shader dirs — the bake-off's `class_name VFXController` merge-tree fix must
+absorb this pack (same collision class, 11th instance); usability gate (loads + owns a
+draw-capable node) applies before any scene counts. GD-recordings erasure noted separately:
+parity numbers banked machine-readable; GD boss re-measure will need PC/Pi backup restore when
+boss-size tuning fires.
