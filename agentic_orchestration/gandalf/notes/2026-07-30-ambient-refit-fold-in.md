@@ -3585,3 +3585,98 @@ time of this ruling, already committing (`a2fcaf2`, `51516e1`) and writing its l
 interrupting** — the r1 stall taught that lesson and a name table is a cheap follow-up. Whatever
 names that cell wired, they are overwritten to this table at its landing.
 
+
+---
+
+## SCOPE 40-b — HUD-FIX-1 LANDED (4/4 PASS): conductor's rulings on the four items it left open
+
+**Cell:** drax, `2026-08-01-hud-fix-1.md`, godot `a2fcaf2` / `51516e1` / `ba3276e` (LOCAL).
+Gates **G-M1…G-M4 all PASS**, plus **R-BR-19 PASS** (framemap identical row for row, worst
+|Δt| 0.000000000000 s). Headline finding: **M-2 and M-4 are the same class of defect — a thing
+drawn without anyone having asked what it covers.**
+
+- **M-2 was never a circle.** `r = size.length()` put the fan's vertices **84.8 px outside a
+  92.8 px box** with nothing clipping them, so the polygonal *arc* was being painted on the arena
+  floor. Fixed by casting the fan to the box boundary. 0 orphan sweep pixels vs **1,002,887** on the
+  control.
+- **M-4 was a pre-HUD instrument that Scope 33 superseded and Scope 33a's retirement list missed** —
+  because that list enumerated `Label`s and this is two world-space `MeshInstance3D` quads.
+  `_set_corpse` hid the identity stalk and never hid the bar; a dead actor leaves the tick frame
+  entirely, so a corpse's last write was its final *living* tick with the fill at zero — a black
+  plate, `no_depth_test`, at head height, forever. **1,981 dead-actor widget-frames, 66.3 % of the
+  watch** → **0**. My hypothesis (a) confirmed, (b) refuted on both limbs, (c) explains the *colour*
+  not the persistence.
+
+⚑ **A retirement list is only as good as its type assumption.** Scope 33a retired the pre-HUD
+surface by enumerating one node class. Everything of a different class survived, invisibly, for
+every watch since. **Candidate discipline:** retirement is proven by *absence on frame*, never by a
+list of nodes. This is the same failure shape as the census instrument in §7.1 below.
+
+### R-BR-31 — the Scope-20 collision, ruled: identity binds to CONTROLS, not to HUD-ness
+
+Drax priced three options and correctly refused to pick. All three ask *which arms keep the on-frame
+provenance footer*, and all three answer in terms of HUD-bearing vs measurement. **That is the wrong
+axis.** Scope 20 ruling 1 exists so a frame cannot be confused with **its own A/B** — the hazard
+lives in the *control*, not in the HUD.
+
+**Ruled:**
+- **Control arms carry the identity ON FRAME, always** — including HUD-bearing ones. The
+  `--sweepcircle` control is exactly the confusable artifact and is exactly what option (c) as
+  written would have left bare.
+- **Deliverable arms carry it in `[playstats/provenance]` stdout + `--psdump` + the build banner +
+  the filename** — drax's option (a), which is already implemented and already emitting 44 lines.
+- **G-M1 stands as pre-registered.** Drax was right not to buy a law back by breaking a gate, and
+  right to say so out loud rather than quietly re-homing the line. That refusal is the behaviour the
+  pre-registration safety exists to produce.
+
+Net: option **(a) for deliverables + a strengthened (c) for controls**, on the deliverable-vs-control
+axis rather than the HUD axis. §2.4's slab shrink is **accepted** — an empty lower third reads as a
+rendering bug, and Scope 42-a's A-2 re-homes the survivors below the mini-map regardless.
+
+### The naming table is OVERWRITTEN by Scope 40-a — and drax's own measurement had already argued for it
+
+M-3 wired my retired pool faithfully (**G-M3 PASS: 0 GD tokens across 665 distinct on-screen
+strings, 0 uncovered** — including `slith`/`wightmire`, which are in the trace and confirmed never
+drawn). It is replaced wholesale:
+
+| raw roster label (untouched on disk) | **ships as** |
+|---|---|
+| `Primordian, the Forgotten One` | **Ice Golem** |
+| `Deepmire Vanguard (escort)` | **Ice Warrior (escort)** |
+| `Deepmire Evocator (escort)` | **Ice Caster (escort)** |
+| `Thundersnout` / `Eastmire Warrior` / `Eastmire Herder` / `Walking Dead` | **Ice Shaman / Ice Warrior / Ice Herder / Ice Thrall** (same rule: element + role) |
+
+⚑ **Two defects Matt's ruling dissolves that were live findings in this note:**
+1. **§5.3** — the target panel is 480 px with **no `clip_text`**, and the shipped long name occupied
+   **466 px, 97 % of the panel**, bleeding rather than truncating past ~39 characters. `Ice Golem`
+   is ~10. An instrument arrived independently at the same verdict Matt reached by eye, from the
+   opposite direction. That is two witnesses, and it is worth more than either alone.
+2. **§2.2** — the kill feed prints `.left(24)`, which cut `Deepmire Evocator (escort)` to
+   **`Deepmire Evocator (escor`** on every kill row of the watch Matt saw. `Ice Caster (escort)`
+   is 19. Dissolved too.
+
+**Still add `clip_text` to `tname`** as a standing guard — the fix is cheap and the next long name
+should truncate, not bleed.
+
+**`(escort)` parenthetical: KEPT, and now ratified rather than tolerated.** Drax flagged it as
+arguably redundant with the `ELITE` badge. Matt's own ruling ships **`Werewolf (player)`** — a role
+parenthetical in the same slot. The convention is therefore *established by the ruling itself*:
+**name = element + role; parenthetical = role in the simulation.** Case question is moot; the new
+names are two words.
+
+### ⚑ §7.1 — the instrument that would have failed like a success (banked as a pattern candidate)
+
+Drax's occlusion census identified the player as `eid.startswith("player")`. The player's id is
+`gd-werewolf-kitcal-1`. **It would have matched nobody and printed a confident "no occlusion" —
+refuting a symptom Matt had actually seen.** It was caught only because drax audited its own
+instruments.
+
+**Candidate for `desirable-run-pattern.md` §6 — the null-instrument tripwire:** *any instrument that
+selects its subject by a guessed convention must first assert it FOUND the subject (non-zero match)
+before it is allowed to report a negative.* An unasserted selector converts "I looked and saw
+nothing" into "I did not look" — and the two are indistinguishable in the output. This is the same
+shape as the Scope-33a retirement list above: **a negative finding is only as strong as the proof
+that the search could have found a positive.** Routed to jack-ryan with the three §9 observations
+already queued.
+
+**Debts:** `LAP2C_WATCH_JUICE.mp4` is now stale. Three godot commits sit local pending Matt's push.
