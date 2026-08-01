@@ -30,7 +30,13 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
-### 2026-07-26 (latest) — **L8 UI CLOSED (all-H, HUD arrived, candles Matt-ratified) · 45-row plugin provisioning menu · L7/L6 bake-offs designed · NEXT SESSION = SUITE ARCHITECTURE**
+### 2026-08-01 — THE DENSE ROOM: render-exhibit targets measured; two DB-resident rooms buildable with ZERO capture
+
+- **Matt directive 2026-08-01:** find the most highly dense pack-filled area in Grim Dawn and represent that room in the battle simulator AND the Godot render. Measured answer (legolas probe `2026-08-01-gd-pack-density-ranking.md`, from the `.arz`): the render/sim exhibit pair is **Crucible t13w06** (35-min guaranteed, deterministic — the reproducible sim room) + **SR Shard-33+** (142.5–209.4 per floor — the density ceiling). **Both are fully DB-resident: buildable with no playtest capture at all.** The Window-2 *play* target (Matt's hands) is a separate pick — SoT floor-5-wave-3, 24–25 concurrent, lean pending Q51 F-V2-1.
+- **Camera as placement instrument:** until T12 (`Levels.arc`) lands, campaign rooms have no per-room instance counts in the DB — **Ceremony 5's cleared-room wide shot** (playtest v2 §5) is the composition referent drax frames against. Room volume → monsters-per-m² arrives with T12.
+- **Emission needs for the dense-room scene** (playtest v2 §II.3): N-actor trace + blood pools ×N · channel records with dry-out reason (the ENERGY orb) · spin geometry reconstructible per G-1h · a second arena floor · the "need-9" spin-signature VFX gap. These ride the BR-2 emission lane; nothing here fires until BR-2 cell 2+ shapes the VFX contract.
+
+### 2026-07-26 — **L8 UI CLOSED (all-H, HUD arrived, candles Matt-ratified) · 45-row plugin provisioning menu · L7/L6 bake-offs designed · NEXT SESSION = SUITE ARCHITECTURE**
 
 **L8 closed at TCP-54:** full dark-fantasy HUD, five arms, all method H; hotbar backing landed on the
 exemplars' own ratio; 18 game-systems HALTs queued for Matt. **Matt ruled provision-first** — legolas's

@@ -1,5 +1,11 @@
 # Eye of Reckoning Warlord — play-test directions (KIT-CAL-2 fixture capture)
 
+> **⚠ SUPERSEDED 2026-08-01 by `2026-08-01-eor-warlord-playtest-directions-v2.md`** — v2 carries
+> every rule here forward and adds: the two-window structure (RF/Primordian + EoR/DENSE-ROOM), the
+> dense-room program (Matt directive 2026-08-01), five ceremonies, the WR3/BR-2 lesson fold, and
+> Part II (engine gap table + emission needs + probe queue). Do not play from this copy; the share
+> copy re-syncs from v2.
+
 **For:** Matt, at the GD PC · **Author:** gandalf, 2026-07-28 · **Build:** C2 "Gutsmasher"
 (shortlist top-2; corpus `gd-eor-warlord`, canon_tier=deep; `.arz`-confirmed
 `playerclass09/eyeofreckoning1.dbr` → `Skill_AttackRadiusSpin`)
