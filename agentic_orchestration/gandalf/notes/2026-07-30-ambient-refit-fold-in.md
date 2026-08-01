@@ -1907,3 +1907,57 @@ absorb this pack (same collision class, 11th instance); usability gate (loads + 
 draw-capable node) applies before any scene counts. GD-recordings erasure noted separately:
 parity numbers banked machine-readable; GD boss re-measure will need PC/Pi backup restore when
 boss-size tuning fires.
+
+---
+
+## SCOPE 29 AMENDED — GD-parity is FULL-CAST, not wolf-only (Matt re-ruling, 2026-07-31; conductor's D1-lean superseded)
+
+Matt, verbatim: *"Regardless of the wolf being larger than the man in GD, the player character
+(man) and all monsters/bosses are smaller in our scene than in GD. Again, I'm unsure of what's
+causing it (camera or asset size), but it is not parity. We lose valuable detail because our
+characters/monsters are smaller than they should be."*
+
+**Binding interpretation:** the D1-only reading (fix the wolf's 2.10× rig-height error and stop)
+is REJECTED. The 1.29× base gap — ours 5.47% of frame vs GD's 7.04% for the human form — is
+itself a defect, and it multiplies through EVERY body on stage. The restage parity lap scales
+the WHOLE cast toward GD screen-fractions:
+- **player (human form)** → ~7.04% of frame (×~1.29)
+- **werewolf form** → ~14.77% (the 1.29× base × ~2.10 Lycanthropy-class multiplier)
+- **mobs/elites/boss** → same ×~1.29 base uplift, tier ladder + the GD-correct 1.46 boss÷player
+  ratio preserved
+- Cause attribution stays open per Matt ("camera or asset size") — but GD-PARITY proved the
+  camera metre-identical, so the lever is BODY SCALE; camera untouched.
+- **Consequence rendering (unchanged from GD-PARITY landing):** the graded A/B at Matt's eye
+  must SHOW the architecture collisions (scaled boss vs 3.0 m wall courses / 2.40 m beam base;
+  frigidring legibility; escort-band fit) rather than argue them — his ruling on stage-scale
+  (D2) rides on seeing them.
+- **Threat-inversion guard carries:** the A/B must show player-vs-boss silhouette at each grade.
+
+Routed into the LAP-2C RESTAGE cell as the parity sub-scope.
+
+## D-VFX-1 DELIVERED — Polygon Arsenal ON DISK, both forms (2026-07-31)
+
+- **Raw package:** `~/Library/Unity/Asset Store-5.x/Archanor VFX/Particle Systems/Polygon
+  Arsenal.unitypackage` (107 MB, gzipped tar — self-serve extraction, Unity never needed again).
+- **Imported project copy (pre-extracted, real filenames):** `/Users/admin/Setup Guide
+  In-Editor Tutorial/Assets/Polygon Arsenal/` — Matt's import landed in the Hub's tutorial
+  project (the only project in the Hub registry; the "new empty 3D project" resolved here).
+  Includes Polygon Arsenal 2.0 documentation (PDF+txt).
+- **Harvest cell UNBLOCKED:** Option-A asset-strip fires against the imported folder (simpler
+  than untar); priority payload per the scout: Ground Slam + Nova ×9 + Melee & Sword ×14,
+  register test at Matt's eye vs the C2 baseline. EULA discipline carries: deterministic
+  parsing only, no AI/ML training on pack content (§2.2.1.1(g)).
+
+## SCOPE 30 — SFX layer joins the restage (Matt, 2026-07-31): repurpose the demo audio packs
+
+Matt: the original-demo SFX purchases at `reincarnated-demo/public/audio/sfx` (4.0 GB, 20 pack
+dirs, `_licenses` present) are available for re-use. Census at bank: **Battle · Hits · SWORD ·
+MAGIC WEPONES · monsters_creatures_sfx_1 · dragon · AMBIENCE · Ultimate_Game_Ambient ·
+Footsteps · Horse · Human_amb · Locations · Pixel Magic · kenney · kmontesdev · leohpaz · oga ·
+pixelloops · tommusic.** Consequence: the run's watches have been SILENT MP4s; audio is the
+missing half of juice (hit-stop without a hit SOUND is half a hit). Restage cell gains an SFX
+sub-scope: claw/swing impacts (Hits/SWORD/Battle), boss casts + nova (MAGIC WEPONES), monster
+vocalizations incl. dormant→alert bark (monsters_creatures/dragon), crypt ambience bed
+(AMBIENCE/Ultimate_Game_Ambient), footsteps. License check per pack from `_licenses` before any
+clip ships in a watch. Event hooks already exist — the same trace events that key VFX
+(damage/telegraph/decision/alive→false) key SFX; one mapping table, two payloads.
