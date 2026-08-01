@@ -2681,3 +2681,56 @@ just obey it differently.
 `SwordChargeUp`) passed the pixel gate on 7–232 lit pixels because a static stage gives a ribbon
 nothing to streak along. The restage **exercises** them on a swinging bone; exercising is not
 measuring, so the cell measures them there or names them still-unproven.
+
+---
+
+## CONDUCTOR PREP — JUICE SPEC (Scope 33/36; and a conflict with our own instrument)
+
+Matt asked when JUICE lands. It lands in LAP-2C RESTAGE, and it needs numbers, because "add juice"
+is how a trace-driven replay quietly starts lying about the fight it is replaying.
+
+### R-BR-19 — hit-stop is BUDGETED and the trace clock is INVIOLATE (veto-open)
+
+Hit-stop is the single biggest weight-per-byte in melee presentation. Diablo II shipped without it
+and reads fluid-but-weightless; Diablo III added a short melee pause and that is most of why its
+strikes *land*; Hades reserves its heaviest freeze for one beat per exchange so the freeze stays
+legible instead of becoming stutter.
+
+**The trap specific to us:** this render is trace-driven. The baton fight carries **57 damage
+events** in ~12 s. Hit-stop on every one at 60 ms accrues **~3.4 s of drift** — the watch would no
+longer be the length of the fight, and every rate-shaped HUD number would read against a wall-clock
+that no longer means anything.
+
+**Ruling.** Hit-stop fires on **three beat classes only**: each **mob death**, the **boss ultimate
+connect**, and **player death**. ~90 ms each; on this fight that is 3 deaths + 2 ultimates ≈
+**0.45 s ≈ 3.7 %** — bounded, and the watch declares it. **Every clock on screen reads TRACE time,
+never wall time**, so no displayed number moves when the presentation breathes. Ordinary hits get
+weight from flash + SFX + VFX, not from freezing the world.
+
+**Forbidden outright: knockback / impact displacement.** Positions come from the trace. Shoving a
+body a half metre for feel would falsify the one thing the render exists to show. Weight comes from
+*timing and light*, never from moving something the sim did not move.
+
+### R-BR-20 — camera impulse: TWO ARMS, because juice and CAM-LOCK collide (veto-open)
+
+Screen-shake is the other half of impact — and our camera is **CAM-LOCK**, proven metre-identical
+to GD's, and it is the anchor every parity measurement in this run stands on. Shaking it dissolves
+the instrument. Two arms, one flag apart:
+
+- **CAM-LOCK arm** — camera untouched. The measurement surface, and the parity comparison stays valid.
+- **JUICE arm** — **rotational-only** micro-impulse, **≤0.4°, 120 ms decay**, on the same three beat
+  classes as hit-stop. Position never moves, so frame-fraction still measures between impulses.
+
+Matt judges the taste; the run keeps its instrument. Neither is sacrificed to the other.
+
+### The rest, with values
+
+| Element | Value | Why this number |
+|---|---|---|
+| **Victim flash** | additive emissive, ~0.08 s, ease-out | Additive, **not albedo replacement** — replacement would strip the boss's cold-emissive identity for a tenth of a second, which is the exact identity SHADOW-UNIFY built |
+| **Numeral pop** | 1.15× overshoot over 60 ms, then settle to grade C | Grade C is deliberately smaller (R-BR-13); the pop is what keeps a smaller numeral legible without giving back the size Matt asked to lose |
+| **Death resolution** | 1.2 s emissive fade + sink, or the retargeted death clip if BODY-PROBE found one | A mob that simply stops existing on `alive→false` reads as a bug; the SFX bed already gives death 2.0–2.67 s of tail to fill |
+| **Strike-to-flash latency** | 0 frames — flash on the damage event's own frame | Anything later reads as the victim reacting to a decision rather than a hit |
+
+**What JUICE is NOT allowed to touch:** trace positions, trace timing of events, displayed numbers,
+the element grammar, or `UNIFIED_KEY_ENERGY`. Juice is a layer over the truth, never an edit to it.
