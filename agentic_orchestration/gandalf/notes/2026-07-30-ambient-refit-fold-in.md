@@ -2201,3 +2201,13 @@ combos are lacking (fireworks/explosions/splash, specialized trails, auras, char
 **Guard:** every N effect passes the same usability + judgeable-in-motion gates as pack
 effects; N is not exempt from the eye. "And more" = standing invitation — gaps found in the
 restage watch route back to N by default.
+
+## SCOPE 36 AMENDED — "Arsenal wins as core" is scoped to THE CLAW-SWIPE BEATS, all of them (Matt, 2026-08-01)
+
+Matt, precise: *"the core beats are all of the claw swipes."* Binding reading: **Arsenal is the
+verdicted CORE for every swipe-class beat** — player feral_claws, the rip_and_tear sweep, and
+the boss/mob melee strikes (the swipe grammar is one family regardless of who swings it). For
+NON-swipe beats (novas, casts, shields, auras, deaths, pulses) the core assignment is NOT
+pre-verdicted — the beat table's A-core entries there are conductor leans, decided per-beat at
+Matt's eye in the restage watch. The three-source palette stands; only the scope of the
+standing verdict narrows to where his eye actually ruled.
