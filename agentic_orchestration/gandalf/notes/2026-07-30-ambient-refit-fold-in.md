@@ -2303,3 +2303,13 @@ If tier 2 fires, the swap carries story weight for free.
 **Standing for the remainder:** red-flag pings only; landings bank+push as they occur; queue
 WARMTH (in flight) → HUD-BUILD → ANIM-PROBE-headed LAP-2C RESTAGE. Deliverable at Matt's
 return: the integrated watch + queued A/Bs + this ledger.
+
+## SCOPE 32 — WET-LAYER VERDICTED at Matt's eye (2026-08-01, pre-departure, reviewing WARMTH output in motion): "the water sploches look AMAZING"
+
+The patchy wet-layer arm (Scope 32 arm b — Matt's own proposal) is **PASSED by the owner
+directly**, superseding the R2 interim delegation for the SHEEN gate: the conductor no longer
+picks this arm — Matt did. Consequence for the in-flight WARMTH cell + restage: the puddle-patch
+configuration as rendered IS the keeper; bank its exact parameters (mask, roughness, coverage)
+in the landing note as the verdicted state; restage inherits it unchanged. Remaining delegated
+eye-gates drop from four to three (dust arm · numeral grade · non-swipe cores/parity grade —
+sheen is closed).
