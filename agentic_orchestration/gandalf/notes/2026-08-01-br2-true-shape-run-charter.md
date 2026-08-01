@@ -1187,3 +1187,63 @@ work and never set back. **F-CJ-2** (occlusion measured off an actor list rather
 | 2b | TELL-DRESS-1 | drax | **NEXT** — banks cell 3 first, then R-BR-41/43/44 + F-CJ-1 |
 | 4 | HUD-PORT-1 | drax | |
 | 5 | BR2-WATCH | drax | + the F-CJ-6 tail hold |
+
+---
+
+## ADDENDUM 10 — Matt ratifies the shell; G-2b given an honest close; the run's remaining surface
+### (conductor, 2026-08-01)
+
+### R-BR-44 RATIFIED + refined (Matt, 2026-08-01)
+
+*"I like the shell as it is used by many games to indicate frost armor (as long as we give it ice
+texture and color and sheen)."*
+
+The FLOOR→BODY re-registration is **ratified**, and the parenthesis is a requirement, not a garnish.
+**The shell must be ICE, not a generic ward:** ice texture, cold colour, and **sheen** — a specular
+response that moves with the light, which is the property that separates *armour* from *glow*. A flat
+tinted silhouette reads as a status effect; a shell that catches the crypt's cone-beams and returns
+them reads as a **surface**, and a surface is a thing a claw has to get through.
+
+Genre note supporting his read: the frost-shell is a settled convention — WoW's Ice Barrier, Diablo
+III's Ice Armor, PoE's Arctic Armour, and the isekai-adjacent lineage the project lives in all use a
+body-conforming crystalline layer for exactly this signal. It is legible without a tutorial, which is
+the highest compliment a defensive VFX can earn. Cell 2b is already briefed to `ShieldAuraBlue` /
+`AuraDamageFrost`; **the sheen requirement is carried to cell 4 as a verification item** in case 2b
+lands the shell without a specular response.
+
+### G-2b — RULED: measure the +edge at a CLEAN CUT, then close honestly
+
+G-2b has stood FAILED at 5.6498 m with the cause fully pinned to a **2 m floor feature at world
+(11.74, 7.65)** that the depth-tested decal correctly declines to draw across. The subject of the gate
+is *the trapezoid mesh*, and the mesh is **not** in doubt: the −edge, which lands on clean floor,
+measures **−3.00 against a geometric −2.981 m.**
+
+**The gate has been measuring the wrong cut, not the wrong thing.** Ruled: **re-measure the +edge at a
+cut whose ground is clean** (u < 15.80, off the floor feature). If the trapezoid holds there, G-2b
+closes **PASS with the u = 15.80 cut named UNMEASURABLE** — the same disposition drax already applied
+correctly to wave:1 (*"reported NOT MEASURABLE, not FAILED"*). If it does not hold, we have a real mesh
+defect and a much more interesting problem.
+
+This is not tolerance-shopping and the distinction matters: we are not widening a bar to admit a
+failing number, we are **moving the probe off a hole in the floor.** The bar is untouched. Assigned to
+cell 4's §0, since cell 2b is in flight.
+
+### Remaining run surface (stated for the record at Matt's request)
+
+**In flight:** cell 2b TELL-DRESS-1 — R-BR-41 clip law, R-BR-43 dressing + G-4b legibility floor,
+R-BR-44 ward→body + G-5e re-pass, F-CJ-1 peel parity + G-2a re-measure, new gates G-C / G-G.
+**Cell 4 HUD-PORT-1:** Scope 42 + 42-a in full — 9 boxes with 6 bound, plate span, playstats slab,
+copy census, names per S-7, mini-map **real or omitted** (a decorative mini-map is a FAIL), plus the
+`Werewolf (player)`-drawn-nowhere defect (F-CJ-4), the G-2b clean-cut close, and the shell-sheen
+verification. Gates G-6a–f, G-7.
+**Cell 5 BR2-WATCH:** the integrated cut, G-8 item-by-item completeness with the frame index that
+proves each, and the **F-CJ-6 tail hold** (~4 s on the final state, declared as a HOLD, not simulated
+time, so the room's accumulated record is visible on a seed whose boss dies on the last tick).
+**Then:** the BR-2 exit review, with every gate's disposition and the BR-3 queue.
+
+**Gates outstanding at this moment:** G-2a (restated, re-measuring), G-2b (ruled above), G-4b / G-C /
+G-G / G-5e-after-move (cell 2b), G-5a / G-5c / G-5d pixel-side numbers (in `cj_gate.txt`, to be
+surfaced at exit — in-engine reads 21/21, 614/614, burn 0), G-6a–f + G-7 (cell 4), G-8 (cell 5).
+**Closed:** G-1 · G-1b · G-1c · G-1d · G-1e · G-1f · G-1g · G-1h · G-2c · G-3 · G-3b · G-4 · G-5b ·
+G-5e · G-10 · G-12 · G-13 · G-9 per cell. **FAILED and processed:** G-11 (moving-host; `SwordChargeUp`
+named unusable, coverage redundancy absorbed it).
