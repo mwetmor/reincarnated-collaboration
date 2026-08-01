@@ -15,13 +15,14 @@
 
 ## §1 — The two-minute version
 
-Five cells landed while you were away: **BEAM-V3 · ARSENAL-HARVEST · WARMTH · HUD-BUILD ·
-BEAM-SLITS.** A sixth (**BODY-PROBE**) is in flight, and the final integration cell
-(**LAP-2C RESTAGE**) is briefed and waiting on it.
+Six cells landed while you were away: **BEAM-V3 · ARSENAL-HARVEST · WARMTH · HUD-BUILD ·
+BEAM-SLITS · BODY-PROBE.** The final integration cell (**LAP-2C RESTAGE**) is in flight and is the
+last one in the run.
 
-Three of your asks were answered by measurement in a way that **contradicted the stated cause while
-confirming the observation** — those are the three worth your attention first, because in each case
-you saw something real and the reason was not what any of us thought:
+**Four** of your asks were answered by measurement in a way that **contradicted the stated cause
+while confirming the observation.** Those are worth your attention first, because in each case you
+saw something real and the reason was not what any of us thought: your eye has been the best
+instrument in this run, and our explanations have been the worst.
 
 1. **The cold dust was not the beam particles.** Beam motes have been shader-discarded outside the
    shaft since SKY-2 — they *cannot* reach the room. The cold came from the AMB-HUE ramps you
@@ -34,6 +35,13 @@ you saw something real and the reason was not what any of us thought:
    different reason, had already removed it before you asked. **Take your glow verdict against the
    current frame, not your memory of the old one.** This is the one item where your eye may
    reasonably land somewhere different from where it landed when you wrote the note.
+4. **The werewolf wasn't failing to strike — it had never been given a strike to play.** Every
+   attack in every render you have ever watched played `A_MOD_GBL_Idle_Fidget_Swipe_Neut` — an
+   **idle fidget from a goblin locomotion pack**. Not a weak attack animation: not an attack
+   animation. And the tree's one real melee take was there the whole time, invisible to every search
+   because it shares **0 of 21 bone names** with anything else we own. You described it as *"mildly
+   jumping forwards and attempting to scare the monsters"* — that is an exact description of a
+   fidget, arrived at from the frame alone.
 
 ---
 
@@ -60,7 +68,9 @@ machine's ffmpeg emits corrupt H.264 while exiting 0).
 | 14 | `arsenalharvest/clips/ARSENAL_REGISTER_SIDEBYSIDE_NOHUD_CAMLOCK.mp4` | Full fight, C2 left / Arsenal right — the register call you already made |
 | 15 | `arsenalharvest/clips/ARSENAL_D_SOLO_NOHUD_CAMLOCK.mp4` | Arsenal alone at full width |
 | 16 | `hudbuild/clips/HUD_TARGET_STICKY.mp4` | Target-panel stickiness on the boss |
-| 17 | *(pending)* `bodyprobe/clips/PROBE_BEAT_bodies` + `PARITY_GRADES` + `STRIKE_CONNECT` | **The body verdict + your parity grade** — the one place I expect you may overrule |
+| ★17 | `bodyprobe/clips/PROBE_BEAT_bodies.mp4` | **Watch this one against your own words.** Front row: werewolf / Undead Knight / dark lord on the **real strike**; back row: the *same three* on the fidget you objected to. One light, one frame |
+| 18 | `bodyprobe/clips/STRIKE_CONNECT.mp4` | The strike crossing **0.5652 m into the target hull** — 24.5 % deeper than the incumbent |
+| 19 | `bodyprobe/clips/PARITY_GRADES.mp4` (+ `_100` / `_115` / `_129`) | Your full-cast enlargement, with the architecture collisions **drawn as datum sticks** rather than argued |
 
 ---
 
@@ -79,19 +89,48 @@ machine's ffmpeg emits corrupt H.264 while exiting 0).
 | **R-BR-18** | Mob skills draw as **muzzle-flash + impact, same frame, nothing between** — the schema has no travel and we will not dress one | — |
 | **R-BR-19** | Hit-stop **budgeted** to mob death / boss ultimate / player death (~90 ms, ≈3.7 % drift). Every clock on screen reads **trace** time. **Knockback forbidden** | — |
 | **R-BR-20** | Camera impulse ships as a **second arm** — CAM-LOCK stays clean because it is the anchor every parity measurement stands on | both arms rendered |
+| **R-BR-21** ⚑ | **The werewolf ships; the knight is one flag away.** This reverses your stated lean, on the condition you attached to it — see §4.1 | knight = one re-render, not a cell |
+| **R-BR-22** | Parity ships at **×1.29**; the boss overtopping the wall course is resolved as **disrepair** (break the beam over the arena), never by shrinking the cast | ×1.00 / ×1.15 rendered |
+| **R-BR-23** | **HOLD** on the "fix" to the boss/player ratio — two of our own instruments disagree (1.5278 vs 1.46) and I will not pull a lever to correct a number another measurement says is already right | — |
 
 ---
 
 ## §4 — Open for your eye (nothing blocks on these; the run continued past all of them)
 
-1. **The body verdict** (BODY-PROBE, in flight) — your R3 chain governs: Undead Knight → other
-   on-disk humanoid → werewolf floor. I will rule interim and you overrule on sight.
-2. **Parity grade** — full-cast enlargement per your Scope 29 amendment; graded, with architecture
-   collisions rendered rather than hidden, because a body that clips the crypt is a different
-   problem from a body that is too small.
+1. **The body — and I went the other way from your lean, so here is the reasoning in full.**
+   Your condition was *"are there any actual swipe-left/swipe-right claw animations… **if not**,
+   let's select another character."* The answer measured out as: **there are no attack-named clips
+   anywhere in 24,576 files** — but there is exactly **one** authored melee take, and it was not
+   missing, it was *unreachable* (0/21 shared bone names with anything, so no search would ever have
+   surfaced it). Bridged, it binds **16/18 on the werewolf and the knight alike** and crosses
+   **24.5 % deeper** into the target than the thing you were watching. It has **21 bones and no
+   fingers**, and the pack ships a **claw mesh authored against it** — so it is weapon-agnostic by
+   construction, and the sword-vs-claw fork you and I were both reasoning about **has no referent in
+   the asset**. Your condition therefore does not fire, and the charter's Matt-locked body keeps the
+   role. Three reasons I did not simply default: your complaint was that strikes did not read as
+   strikes, and **that is now fixed on both bodies identically**; an undead knight in a crypt of the
+   undead is *camouflage* at a 34.8 m stand-off where silhouette is how you know which body is
+   yours; and a beast form standing over the human dead states *Reap. Die. Rise.* in one frame where
+   a knight states nothing. **Counter-evidence, not buried: the knight out-reaches it ×1.51 vs
+   ×1.19, and you named a preference out loud.** Both are one word from winning, and the swap is a
+   re-render, not a cell. ⚑ I also pre-committed a FAIL: the werewolf's **pounce** (+2.023 m) still
+   out-reaches its new strike (+1.323 m) — that pounce is the clip you called *"mildly jumping
+   forwards."* It is removed from every strike path, and **if the strike still reads weaker than the
+   jump on the watch, the knight ships without further argument.**
+2. **Parity grade** — ×1.29 shipped; ×1.00 and ×1.15 rendered beside it. The boss overtops the
+   3.00 m wall course by 0.55 m at ×1.29, and the 2.40 m beam base is exceeded at **every** grade
+   including ×1.00 (so beam clearance is pre-existing, not caused by your enlargement). A boss too
+   large for a crypt is the correct reading of a boss; **visible interpenetration** is the only real
+   defect, and it gets fixed as ruin dressing — which also hands your ceiling-crack slits a cause
+   standing in the frame.
 3. **Beam glow, re-judged against the current frame** (§1.3).
 4. **Music on/off** for the Lap-2c watch.
 5. **Camera impulse arm** — taste.
+6. **F-BR-5 principle** — `polygon-simple-fantasy` is SIMPLE-line and our gate's naming rule does
+   not catch it. What was consumed is **rotation curves only** — no SIMPLE mesh, material, texture
+   or rig instantiated anywhere. Your ruling on the principle is owed; separately, a gate that
+   misses by naming convention will keep missing, and that defect routes to jack-ryan regardless of
+   how you rule.
 
 ## §5 — Routed OUT of the run (engine seam; knight-rider sequences, not this run's to fix)
 
