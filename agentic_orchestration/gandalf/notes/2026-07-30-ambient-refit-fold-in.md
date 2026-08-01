@@ -2264,3 +2264,22 @@ R-PC-1/R-PC-4, the "sad for a werewolf fantasy" swipe critique) is superseded ON
 fires — werewolf stays primary until the probe reports. (c) **Parity simplifies:** a
 human-height knight dissolves the 2.10× Lycanthropy question — Scope 29 grading collapses to
 the clean ×1.29 full-cast uplift.
+
+## SCOPE 37 SECOND AMENDMENT — Matt names the candidate: Chr_Undead_Knight_01 (POLYGON Dungeon Realms), 2026-08-01
+
+Matt surfaced the asset-browser card: rigged, 48 bones, 2.17 m, 9,526 verts, 3 renderers,
+attach set (helmet/skull/head/crown). **ON DISK:** `Assets/Synty/polygon-dungeon-realms/FBX/
+Characters/Chr_Undead_Knight_01.fbx` — already through the importer once (`.godot/imported`
+artifacts present) + Matt's own `undead-knight.png` sat in the handoff notes. **He is now the
+LEAD tier-2 candidate**, ahead of SK_Knights_Dark_01/DarkLord/Human_Knight.
+
+**Rig-family advantage (probe must verify, not assume):** 48 bones = the classic POLYGON
+humanoid skeleton generation — the SAME family `Animations_Melee.fbx` (simple-fantasy) and
+`anim-base-locomotion` target. If confirmed, the melee clips may bind DIRECTLY or near-directly
+— cheaper than the werewolf's cross-family retarget, possibly zero-retarget. ANIM-PROBE order
+amended: after the clip census, the FIRST bind test is Undead Knight × Animations_Melee; render
+him swinging in the probe beat alongside the werewolf-retarget attempt.
+
+**Thematic note (conductor, for the record):** an undead knight as the player's form in a
+death-faith frame (*Reap. Die. Rise.*) is on-spine — the body that already died, risen to reap.
+If tier 2 fires, the swap carries story weight for free.
