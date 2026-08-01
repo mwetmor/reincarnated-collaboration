@@ -185,3 +185,108 @@ verified remote state.
   work in set dressing. One word reverses it.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
+
+---
+
+## ADDENDUM 1 — cell 1 landed; cell 1b inserted (conductor, 2026-08-01)
+
+### Cell 1 — TRACE-FILL-1: **G-1 PASS, G-1b PASS, G-9 verified**
+
+`bce46fd9` + `2a9ebb02` (engine), `a5b03e14` (meta), all confirmed present on `origin/main`.
+
+**G-1 came back stronger than it was asked for.** The gate wanted one trace; gamora produced three
+limbs: (1) a **control arm** — seed 74000909 regenerated at the pre-change HEAD is byte-identical to
+the banked trace, md5 `6c4baeb…`, which proves the *generator* is reproducible and therefore
+attributes the whole post-change delta to this change alone; (2) a whole-battery diff — **90,708
+records, exactly three differing paths**, `projectile_velocity_ms` 1,086 · `prong_count` 570 ·
+`engine_git_hash` 200, no fourth path anywhere; (3) 200 fights re-run reproducing `wr3_acc.json`
+digit-for-digit and re-selecting the same seed. **No RNG moved.**
+
+The SIMULATION/PROVENANCE split was written into the math note *before* the run rather than carved
+out after — `engine_git_hash` **must** change, because that field's entire job is to say which code
+ran, and reproducing the old hash would have been the defect. Pre-registering the exception is the
+difference between a principled carve-out and an excuse.
+
+G-1b as counts, not adjectives: **516/516** wave · **570/570** blizzard velocity · **570/570**
+blizzard `prong_count` · **470/470** nova controls unmoved. 1,556 total — legolas's own denominator.
+
+⚑ **For cell 2:** the emitted float is **`11.428571428571429`**, not the census's rounded `11.4286`.
+An equality test against the rounded value matches nothing.
+
+⚑ **Semantic shift drax must not generalise over.** `projectile_velocity_ms` now carries a
+**per-family axis** — radial (nova) / forward (wave) / **downward** (blizzard) — and the header's
+`frame` block does not declare that axis. Applying the nova's closed form to the blizzard draws an
+expanding ground circle: **a different lie from the static one, not a smaller one.** `prong_count` is
+per *launch event*, not per cast.
+
+### ⚑ THE FINDING THAT FORCED CELL 1b — and my own fallback was written on a false premise. Again.
+
+G-2c asks for 24 orbs in 4 volleys 2.0 s apart across an 8.0 s window. **After cell 1 that is still
+not satisfiable from the trace.** `prong_count = 6` is not multipliable by anything a consumer can
+read: `n_volleys` (4), `volley_interval_s` (2.0) and `active_duration_s` (8.0) live in
+`BlizzardParams` and reach **no** consumer. A renderer can honestly draw **one volley of six** and
+has no trace-sourced basis for the other eighteen — while `radius_m 8.0` goes on representing all of
+it.
+
+**My declared G-2c fallback — "render 6 orbs per volley with volley rhythm intact" — cannot be
+executed, because the rhythm is exactly what is missing.** I wrote a fallback that assumed a field I
+had not verified existed.
+
+**This is the second time in three days.** R-BR-3 declared *"travel is ABSENT from schema"* and on
+that false premise refused 39 travel-bearing effects; it was reversed as R-BR-24 only because Matt
+asked me to open the packet. Now a pre-registered fallback rests on a rhythm the schema never
+carried. Same shape both times: **I ruled on what the data does, from memory of the data, without
+re-reading it.**
+
+**Standing discipline, minted here (R-BR-34):** *any ruling or fallback whose validity depends on a
+field existing must cite the census line or the probe that confirms it, in the ruling itself.* A
+ruling that names no evidence is a recollection wearing a ruling's clothes.
+
+### Cell 1b — TRACE-STAGE-1 (gamora, engine) — INSERTED, and why this is not goalpost movement
+
+**Ruled: this is sequence extension inside the frozen substrate, not a charter amendment.** The
+fields being added are **census recommendations 3, 4 and the §3d per-drop radius** — all of them
+already inside S-2, which was frozen at launch. G-1 is closed with a recorded PASS; nothing about it
+moves. What changes is that one more cell stands between here and G-2c. Stated with the veto open;
+one word from Matt collapses it back to the honest single volley.
+
+**The alternative I rejected, and why.** Rendering one volley of six is honest and cheap — but the
+blizzard is *the* headline defect this run exists to fix (8.0 s reading as 0.857 s), and a quarter of
+it is not a fix. Declaring 4/2.0/8.0 on frame as declared-not-sourced is worse: it puts numbers on
+screen that the substrate refuses to say, which is the exact thing R-BR-24 and the rubric law were
+written against.
+
+**Scope of 1b — four nullable fields, emission-only:**
+- `duration_s` on the telegraph (nova 0.857 · wave 1.4 · **blizzard 8.0**) — census rec 3, *"the
+  single biggest omission"*: a renderer currently cannot know how long to hold a danger zone.
+- `stage_count` (blizzard 4) + `stage_interval_s` (blizzard 2.0) — census rec 4.
+- **`hit_radius_m` per drop (blizzard 1.32)** — census §3d. Without it the renderer must treat the
+  **8.0 m scatter radius as lethal area**, overstating per-drop danger by roughly **6× in area**.
+  That is a legibility lie of the same class as the nova's reverse falloff, which this run already
+  committed to fixing under R-BR-28. Fixing one and shipping the other would be incoherent.
+
+**Pre-registered gates for 1b** (pinned now, before results):
+- **G-1c — emission purity, again.** Regenerated battery differs from the cell-1 battery in **exactly
+  these four paths plus `engine_git_hash`**, no fifth path. Same three-limb evidence standard.
+- **G-1d — coverage as counts.** `duration_s` non-null on 100 % of all three families at the stated
+  values; `stage_count`/`stage_interval_s` on 100 % of blizzard; `hit_radius_m` on 100 % of blizzard;
+  null elsewhere, deliberately.
+- **G-1e — MIGRATION + schema version handled**, and cell 1's `traces_PREFILL_ddbdebc8/` preserved.
+- **Fallback:** G-1c FAIL → stop, keep the cell-1 battery, and G-2c falls back to **one honest volley
+  of six** with the reduction named on frame and in the note.
+
+**G-2c is amended to match what 1b makes available** — 24 orbs, 4 volleys, 2.0 s ± 0.05, 8.0 s
+window ± 0.1, **per-drop impact drawn at 1.32 m, scatter drawn as scatter and not as lethal area.**
+
+### Banked to BR-3, not fixed here
+
+The pre-existing engine test baseline: **10,024 passed / 60 failed / 21 errors**, and the identical
+60/21 reproduce on a stashed clean tree (generation, kit-space, foundation, season-generation seams;
+**zero in `spatial_gauntlet`**). Not this run's seam, not this run's substrate — but measured rather
+than assumed, and routed to knight-rider for the owning seams.
+
+Also BR-3: the `-dirty` stamp near-miss (a battery nearly shipped stamped `ddbdebc8-dirty`, a hash
+naming no commit — **commit before generate** is now a standing order for any trace-regenerating
+cell), and gamora's `NullInstrument` guard, which is the null-instrument tripwire from Scope 40-b
+independently implemented one cell later. Two seams reaching the same discipline unprompted is the
+strongest evidence it is real.
