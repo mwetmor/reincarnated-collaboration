@@ -701,3 +701,129 @@ both need-1 ice barrages, at 4 each) rides the same measurement.
 **Banked to BR-3:** the `--headless --import` `[rendering]` strip (third occurrence, guard caught it,
 `git diff project.godot` empty — a recurring Godot-CLI behaviour that deserves a permanent fix rather
 than a permanent guard), and `Orbital Beam` / `Channel` as unprobed families.
+
+---
+
+## ADDENDUM 6 — cell 1d landed. **THE NOVA IS A STAR.** T-1 and G-2a amend on a finding.
+### (conductor, 2026-08-01)
+
+### Cell 1d — RESOLVE-TRUTH-1: **G-1f / G-1g / G-1h PASS, G-9 verified**
+
+Battery of record `~/Games/reincarnated-godot/tmp/wr3acc/traces/`, stamped `16fa7e8d`. Landing note
+`gamora/notes/2026-08-01-resolve-truth-1.md`; math note
+`reincarnated-engine/…/simulation/math/br2-resolve-truth-1-2026-08-01.md`.
+
+**G-1h — predicate reconstruction — passed at 100 % on all four arms, FP 0 / FN 0.** Nova 470/470 ·
+wave 516/516 · blizzard 570/570 telegraphs · **13,680/13,680 individual drops.** The reconstructor
+imports nothing from `reincarnated` — asserted, not asserted-about. This was the strongest gate this
+run has written and it is now a fact rather than a hope: **a consumer holding only the telegraph record
+can reproduce the resolver's own hit/no-hit, on every case, in every family.**
+
+And the gate nearly certified nothing. Its **degenerate-predictor tripwire fired during development**:
+a predictor that answers "always miss" scores **48 % / 81 % / 98.6 %** on the three families and
+*reads like a pass*. A reconstruction gate without a degenerate control measures class imbalance and
+calls it fidelity — the KIT-FIDELITY failure in a new costume. It was caught by the instrument's own
+design.
+
+G-1f held the three-limb standard a third time: control arm at `28eddef4`, 90,708 records, the only
+moving field `engine_git_hash`, reconciled to an intervening commit touching `AGENT_STATE.md` alone.
+Post-change: **exactly seven simulation paths**, six new fields at n=1,556 and `shape` at **n=986 =
+470 nova + 516 wave, blizzard's 570 deliberately untouched.** No eighth path. The instrument also
+grades fields that *failed to move* — the `family`-died-at-the-seam mode — and found zero.
+
+---
+
+### ⚑⚑ THE FINDING: 48.5 % OF THE NOVA'S CROSSINGS DEALT ZERO DAMAGE, AND EVERY ONE WAS A GAP
+
+`gd_nova.py:666` (`n_realized`, gated at `spatial_engine.py:6559`) tests **sixteen 0.84 m lanes.
+Not a 12 m disc.**
+
+- **226 of 466 resolved crossings — 48.5 % — dealt zero damage. Not one was out of range.**
+- Gapless only inside **2.1528 m**. At r = 9 m, **76.2 % of bearings are safe.**
+- The disc we have been drawing is **3.076× the lethal area** of the thing that actually kills.
+- The 1.5 m splash is **predicate-dead** — it exists and does nothing. (Null-instrument control:
+  the same selector found 3 live sites on `hit_half_width` before being allowed to report zero.)
+
+**Sit with what that means for the player, because it is worse than a fidelity error.** Half the time
+the nova swept over him, it did nothing — and the screen showed a solid disc of fire passing through
+his body. From inside the fight, the nova is a hazard that *sometimes hurts and sometimes doesn't,
+for no visible reason.* That is not difficulty. That is **noise**, and noise is the one thing an ARPG
+floor must never be: the entire genre from Diablo II's Blood Moor to PoE's degen-carpets rests on the
+covenant that **the floor tells the truth about the floor.** We broke that covenant in the boss's
+signature ability and then measured 48.5 % of it as unexplained variance.
+
+**And the mechanic underneath is better than the one we thought we had.** A 12 m expanding disc is a
+pure reaction test — see it, run out, no decision. Sixteen phased lanes with `spoke_offset_rad`
+rotating the gaps *between casts* is a **read-and-step** mechanic: you cannot camp a bearing, you must
+re-read the floor each cast. That is the good version, the Diablo-lineage floor-literacy that
+separates a player who survives from a player who reacts. **The simulation has been playing a better
+game than the renderer has been showing for as long as this fight has existed.**
+
+**One tension, named rather than smoothed:** the gapless radius is 2.1528 m and the player's primary
+skill is a **2.0 m cone**. Melee range sits *inside* the gapless core. So the nova is, correctly, a
+**melee-eviction pull** — it says leave the body, read the star, step a lane, come back. That is a
+rhythm, and it is the fight's rhythm; it was invisible.
+
+### R-BR-40 — MATCH ON `family`, NEVER ON `shape`
+
+Gamora's own summary line, promoted to standing law. `shape` is a *drawing hint*; `family` is the
+*contract*. Any consumer branching on `shape` breaks the moment an enum is corrected — which has now
+happened twice in one cell.
+
+### `shape` — executed, extended, and argued back on. All three accepted.
+
+- **Wave → `trapezoid`.** Agreed, no argument against; **18 false positives in 516 measured** by the
+  old rect.
+- **Nova → `star`.** Gamora extended my ruling to the family I had not named, and it is the larger
+  error of the two.
+- **Blizzard keeps `circle` — and this is the part I asked for.** I told gamora to argue rather than
+  comply if the ruling was wrong, and on the third family it was: the blizzard's `radius_m`
+  *truthfully* names its scatter disc and its primitive genuinely **is** a circle test. The defect
+  there is **cardinality** — one telegraph record standing for 24 instances — not shape. Correctly
+  decomposed, correctly routed to BR-3 as multi-instance enums. A sub-agent that takes two thirds of
+  a ruling and refuses the third with a reason is worth more than one that takes all three.
+
+**Self-caught, and worth recording:** `PRIMORDIAN_FRIGIDRING` is the rank-4 pre-stage-2 nova
+(`hit_half_width` **1.5**); the shipping ability is `PRIMORDIAN_FRIGIDRING_STAR_R5` (**0.42**).
+**3.57× apart, one suffix apart.** The test draft reached for the obvious name and the value pins
+caught it. Every near-miss this run has caught has had the same shape: *the obvious reading of a
+familiar name.*
+
+---
+
+### AMENDMENTS — findings propagating correctly, not scope drift
+
+The intent sentence was always *render the fight the substrate has been describing.* The substrate
+turned out to describe something different from what we pinned, so the pins move to it.
+
+**T-1 item 1 replaced:**
+> **Nova** draws **16 discrete lanes at 22.5°**, each **0.84 m wide**, travelling outward at 14.0 m/s
+> over 0.857 s, phased per cast by `spoke_offset_rad` — **with the gaps between lanes drawn as
+> unambiguously safe beyond 2.15 m** — and its danger shading **inverted per the emitted bands**
+> (hub ×0.50, rim ×1.40).
+
+**G-2a re-pinned:**
+- 16 lane instances counted; angular spacing 22.5° ± 0.5°; outer extent 12.0 m ± 0.2 m at 0.857 s ±
+  0.03 s (unchanged).
+- **NEW — lane width:** rendered corridor half-width **0.42 m ± 0.05** at all radii.
+- **NEW — and this is the gate that matters: ZERO rendered danger pixels in the gaps beyond 2.15 m.**
+  A soft glow bridging the lanes fails this gate. The gaps are the mechanic; anything drawn in them
+  re-tells the lie in a prettier font.
+
+**G-4 re-pinned to the emitted fields:** band shading is graded against `band_bounds_m` / `band_scales`
+as emitted, not against the remembered 2.5 m step.
+
+**G-2b confirmed:** trapezoid, `start_width_m` 3.0 → `end_width_m` 6.0, `depth_m` 1.0 band, **sweep
+timed 1.4 s from range ÷ velocity, never from `duration_s`** (R-BR-36).
+
+**G-2c refined:** 24 discs of 1.32 m at the emitted `impact_points_xy`. **1.36 % of drops hit** —
+so the blizzard's threat is **positional pressure, not damage**, and the renderer must therefore make
+the *scatter legible* rather than the *impacts dramatic*. Drawing 24 spectacular explosions for a
+1.36 % hit rate would teach fear of a floor that is 98.6 % safe — the reverse-falloff error again.
+
+**Banked to BR-3:** the **body-radius asymmetry** (the wave adds the live target's radius; nova and
+blizzard bake the referent's 0.32 m in — on a 0.5-radius player, two of three families resolve
+against a body **0.18 m too small**); the dead 1.5 m splash (wire it or delete it); multi-instance
+shape enums.
+
+**Cell 2 — VFX-TRUTH-1 — is OPEN.**
