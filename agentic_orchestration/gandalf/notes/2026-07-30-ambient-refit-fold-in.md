@@ -2034,3 +2034,46 @@ fantasy is sold by the floor answering the lamp.
 
 **Sequencing:** Scopes 31+32 compose into one WARMTH cell (drax) — queued AFTER ARSENAL-HARVEST
 (single-writer), BEFORE the restage, so the restage inherits verdicted warmth + sheen settings.
+
+---
+
+## PRUNE EXECUTED (Matt, 2026-08-01) — recommended rm set run; retired surfaces cleared, judgment clips + JSON/MD ledgers kept. `wr3anchor` left standing (WR3 run's surface).
+
+## SCOPE 33 — HUD assembly from the baton (Matt, 2026-08-01) + R-BR-9 sticky-target ruling
+
+Matt: assemble a HUD — minimal skills in use, player health/energy, target-monster stats on
+targeting, plus a specialized HUD space for battle-sim stats (DPS etc.).
+
+**Field census against seed 74000909 (verified this session):** the trace carries MORE than the
+HUD needs. Per-tick (×361): player `hp/max_hp` (759) + **`energy` (player-only; mobs null —
+correct)** + **`skill_cooldowns` per skill** + `commit_state/commit_skill_idx` (cast-in-progress
+highlight) + `ailments` + `ai_state` dormant/alert. Header: per-entity `skills[]` with
+name/geometry/range (feral_claws_r16 cone 2 m · rip_and_tear_r16 line 14 m). g5_header roster:
+**target-panel payload ready-made** — label ("Primordian, the Forgotten One"), `char_level`,
+`tier`, `max_hp`, melee channel split (physical/cold shares). Events: damage
+(amount/delivered/element/crit/lethal/skill_idx) + leech (×29) + death + telegraph → rolling
+DPS, damage dealt/taken, leech healed, crit count, kills ALL derivable. `door_values` lifesteal
+5%. **Nothing Matt asked for is missing from the substrate.**
+
+**One gap, ruled in-run — R-BR-9 (veto-open):** the sim has no explicit target lock. Target
+panel binds STICKY to the entity the player most recently damaged or committed a skill against;
+falls back to nearest-in-heading-cone when no engagement yet. Diff-able against the trace.
+
+**Three HUD surfaces:**
+1. **Player cluster** — HP + energy orbs/bars, skill bar with cooldown sweeps
+   (`skill_cooldowns`) + active-cast highlight (`commit_skill_idx`). Asset source: the Fantasy
+   Warrior HUD pack (Matt-surfaced; element glyphs 6/6 per R-PC-11/12).
+2. **Target panel** — name/level/tier/HP bar from roster + live tick hp; damage-composition
+   readout available.
+3. **Sim-stats strip** — the sim-viewer specialization, visually SEPARATE register from the
+   game HUD: rolling DPS, damage dealt/taken, leech healed, crit %, kill count.
+
+**Existing scaffold:** `wr2_playback.gd` `_ui` layer + `--nohud` measurement law ("a
+measurement frame carries no HUD; a DELIVERABLE frame always does") + melee-flash slot.
+**Placement law:** GAL-CAM's opaque-HUD cuts sit at rows 60/950 of 1080 — GD's own HUD bands.
+Ours lives in the SAME bands: genre-correct composition AND the measured play-area stays
+untouched for every standing instrument.
+
+**Sequencing (amended cell queue):** ARSENAL-HARVEST (in flight) → **WARMTH** (Scopes 31+32) →
+**HUD-BUILD** (Scope 33) → **LAP-2C RESTAGE** (final integrated watch, HUD on). Each cell
+bounded; restage stays the integration cell, not the build-everything cell.
