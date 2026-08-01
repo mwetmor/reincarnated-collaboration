@@ -2986,3 +2986,75 @@ distinction unprompted** — R-BR-16's vendoring rule said nothing about muxed o
 have. **Standing amendment to R-BR-16: restricted audio is restricted in every container.**
 
 **RUN BR-1 IS COMPLETE.** Exit review: `gandalf/notes/2026-08-01-br1-exit-review.md`.
+
+---
+
+## SCOPE 40 — POST-RUN FIX PASS (Matt, 2026-08-01, reviewing the LAP-2C watch on return)
+
+BR-1 closed at the exit review; this is the first **post-run** scope. Four fixes Matt named as
+"quick," bound here so the cell (**HUD-FIX-1**, drax) reads its scope before it reads the tree.
+Matt's separate A–F list is DESIGN discussion, held at the conductor's desk — **not** in this cell.
+
+**M-1 — playstats small text: REMOVE.** The bottom-right playstats sheet's small text comes out.
+(Conductor note: this is a partial retraction of Scope 33a, which I authored — the observer-first
+playstats absorbed the on-screen text sprawl and then became sprawl itself at watch scale. Remove
+the small-text tier; keep whatever tier survives at 34.8 m stand-off. ⚠ SWITCH: SPEC-AUTHOR →
+DRIFT-CRITIC on my own spec.)
+
+**M-2 — cooldown indicators: CIRCLE → BOX, exact fit.** Same radial-sweep *process*, new shape: the
+sweep must fit the skill box exactly — box-shaped wipe, no overhang, no inset. Matt verbatim:
+*"having the same process but without a circle shape move to box shape and exactly fit the skill
+boxes."*
+
+**M-3 — rename the Grim Dawn enemies.** Matt: *"generic-yet-creative."* Naming is story-seam, so
+the **law and the pool are authored here** and the cell wires them; the cell does NOT invent names.
+
+- **Law:** no Grim Dawn proper nouns of any kind — no place-names (`wightmire`), no faction/species
+  IP (`slith`), no GD unique names. Replacements are built from OUR register: a crypt under the
+  *Reap. Die. Rise.* death-faith frame. Mobs ≤ 2 words (nameplates are short). The boss keeps the
+  two-part `NAME, THE EPITHET` shape the roster string already had.
+- **Boss (14,812 HP, currently "PRIMORDIAN, THE FORGOTTEN ONE"):** ship
+  **`THE UNBURIED, FIRST TENANT OF THE VAULT`**. Alternates preserved for Matt's veto:
+  `HOLLOW SOVEREIGN, THE LONG INTERRED` · `GRAVEWARDEN PRIME, THE FIRST TENANT`.
+- **Mob pool (draw in order, reuse only after exhaustion):** `Rotwake` · `Palefeeder` · `Cryptling`
+  · `Ashen Thrall` · `Boneknit` · `Mireborn` · `Hollow Kin` · `Sepulchral Drudge` · `Grave-Chewer`
+  · `Pale Verger`.
+- **Deliverable:** the cell prints the **full old→new mapping table** in its landing note, including
+  any displayed string the census finds that this pool does not cover. An uncovered string is a
+  finding, not a licence to improvise.
+
+**M-4 — the phantom health bars: DIAGNOSE, THEN REMOVE.** Matt, verbatim: *"There is a strange
+health bar which appears over and occludes the player character's health bar at one point in the
+fight and then lasts the rest of the way through it… The boss also seems to have one of these above
+it, occluding things the entire fight as well. Enemies also have this strange black bar, and it
+persists after their death."*
+
+⚑ **This is a THREE-surface bug and the third symptom is the diagnostic one.** Conductor
+hypotheses, to be confirmed or refuted by measurement before any edit — the cell states which:
+(a) overhead nameplate/health widgets are spawned per actor and **never freed on `alive→false`**
+(explains the post-death persistence directly); (b) the player's own overhead widget is drawing in
+screen space **on top of** the HUD's player bar (explains "occludes… at one point in the fight" —
+likely the frame the player first takes damage, i.e. the widget is spawned lazily on first damage
+event); (c) the "black bar" is a bar whose fill has gone to zero/NaN and is rendering its own
+backing plate. **Requirement: no overhead health widget survives its actor's death, and none
+overlaps the HUD's own player bar in screen space, at any frame of the watch.**
+
+**Gates (pre-registered, before the cell runs):**
+- **G-M1** playstats: the removed text tier is absent in **every** frame of the re-cut, and the
+  surviving tiers are unchanged (framediff on the rest of the sheet).
+- **G-M2** cooldown: sweep bounds == skill-box bounds within ≤ 1 px on all four edges, measured on
+  a frame where a cooldown is mid-sweep; sweep still reads as a wipe in motion.
+- **G-M3** naming: **zero** GD proper nouns in any on-screen string (grep the displayed name set),
+  and the mapping table printed.
+- **G-M4** phantom bars: automated census over all 1,264 frames — **0** overhead widgets belonging
+  to dead actors, **0** overlap between any overhead widget and the HUD player-bar rect. A count,
+  not an eyeball.
+
+**Deliverable:** a re-cut of the LAP-2C watch (same seed, same camera, same length) so Matt judges
+the fixes in MOTION per M-EYE — plus a **HUD-close** clip if the full watch does not let the eye
+land on M-1/M-2. Watch clips stay LOCAL-ONLY while the AAC track carries restricted audio
+(R-BR-16 standing amendment); silent evidence clips commit normally.
+
+**Not in this cell:** everything in Matt's A–F list (VFX floor-pinning, telegraph decals as VFX,
+smoke plumes, the dead-at-start monster, the HUD bake-off port, claw-strike VFX, death animation +
+blood, clutter). Those are design forks and are being drained at the conductor's desk first.
