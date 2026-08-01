@@ -290,3 +290,97 @@ naming no commit — **commit before generate** is now a standing order for any 
 cell), and gamora's `NullInstrument` guard, which is the null-instrument tripwire from Scope 40-b
 independently implemented one cell later. Two seams reaching the same discipline unprompted is the
 strongest evidence it is real.
+
+---
+
+## ADDENDUM 2 — the arsenal re-opens; cell 1c inserted (Matt authorized, 2026-08-01)
+
+**Matt:** *"go, and definitely add this into the run."*
+
+### The finding, cited (R-BR-34 applied to myself)
+
+`drax/notes/2026-08-01-arsenal-harvest.md` §5, verbatim: **`Barrage/Nova` (14)** — *"Nova-shaped
+barrages of **flying** projectiles. **R-BR-3 forbids invented travel** — our schema has no projectile
+flight, so these would render a mechanic that does not exist."* And **`Missiles` (25)**, `Beams`,
+`Chains`, `Flamethrower`, `Orbital Beam` — *"Travel- or channel-bearing. Same R-BR-3 bar."*
+
+**That is the 39.** R-BR-3 was false; the schema has carried `projectile_velocity_ms` and
+`t_launch_s` all along, and R-BR-24 reversed it. *Nova-shaped barrages of flying projectiles* is a
+literal description of `primordian_frigidring_star_r5`. **We refused the folder that contains the
+answer, because I misremembered our own schema.**
+
+A second tier was never refused at all — §5 records it as *"Queued, not refused"*, one manifest edit
+away now the pipeline runs in a single command: **Aura (6) · Curses (9) · Debuffs (9) · Enchant (8) ·
+Necromancy (6) · Death (8) · Gore (11) · Explosions (32) · Muzzleflash (30) = 119.**
+
+**39 + 119 = 158 effects**, in a pack we own, through a pipeline that already gated **33/33 config**
+and **33/33 pixel** with an in-run empty-stage control, EULA honoured by construction (the
+transcriber is a parser, never a generator; no pack content was ever fed to a model).
+
+### R-BR-35 — THE PACK SUPPLIES MATERIAL; THE TRACE SUPPLIES GEOMETRY
+
+Standing law for all VFX work from here. A pack effect is authored at its own scale, its own count,
+its own speed — **none of which we adopt.** We take its *material* (mesh, texture, shader, colour,
+fade) and drive **how many, at what angle, how fast, how far** from the trace: `prong_count`,
+`spoke_offset_rad`, `projectile_velocity_ms`, `radius_m`, `orientation_rad`, `duration_s`,
+`stage_count`, `stage_interval_s`, `hit_radius_m`.
+
+**Why this makes the asset problem small.** The source itself uses **one mesh — `frostorb01.msh` —
+for both the nova prong and the blizzard drop**, at scale 1.0 and 1.2 (census §3c). We do not need a
+nova effect and a blizzard effect. We need **one good ice projectile** and the numbers we now have.
+
+### Cell 1c — ARSENAL-2 (drax, godot) — INSERTED, runs in parallel with 1b
+
+**No contention, stated explicitly:** gamora (cell 1b) works in `reincarnated-engine` and writes
+traces to the **untracked** `reincarnated-godot/tmp/wr3acc/`. ARSENAL-2 works in **tracked** godot
+paths only, must **not read `tmp/wr3acc/` at all** (gamora is rewriting it), and must commit named
+paths rather than `-A`. Single-writer on tracked files is preserved.
+
+**The eight material needs, and where each is sourced:**
+
+| # | Need | Target folder | Status |
+|---|---|---|---|
+| 1 | ice projectile + flight trail (nova prong AND blizzard drop) | `Barrage/Nova` (14), `Missiles` (25) | **un-refused** |
+| 2 | projectile impact burst (×24 blizzard, ×16 nova) | `Explosions` (32) | queued |
+| 3 | sweeping cold wall (the 16×6 m rect) | `Beams`, `Flamethrower`, + harvested `LightningWave` | un-refused |
+| 4 | claw wind-up glow (Matt's item D) | harvested `SwordChargeUp` + `Muzzleflash` (30) | ⚑ see debt |
+| 5 | line-skill signature (`rip_and_tear`, 14 m) | `Chains`, `Beams`, harvested sword trails | un-refused |
+| 6 | blood splatter + persistent pool (item E) | **`Gore` (11)**, `Death` (8) | queued |
+| 7 | DoT / ailment channel (`bleed`, 10,913 frames) | `Debuffs` (9), `Curses` (9) | queued |
+| 8 | icearmor aura (live 7,200 frames, invisible) | `Aura` (6) | queued |
+
+### Pre-registered gates for 1c
+
+- **G-10 — harvest gates hold at the established standard:** config gate + pixel gate **100 %** of
+  newly harvested effects, each against an **in-run empty-stage control**, counts reported per effect.
+- **G-11 — the moving-host test (a debt this cell pays).** The trail class passed the pixel gate at
+  **7 / 139 / 232** lit pixels (`SwordTrailShadow` / `SwordChargeUp` / `SwordTrail`) against
+  12,000–47,000 for hero effects, because Unity draws ribbons behind a **moving** host and a static
+  stage gives them nothing to streak along. `SwordChargeUp` **is** Matt's item-D charge glow. PASS =
+  lit-pixel count on a moving-host rig materially exceeds its static baseline; FAIL = the effect is
+  named unusable and item D sources elsewhere. *"Not broken and not proven" is not a state we ship.*
+- **G-12 — licence method unchanged.** Parser-never-generator; per-effect provenance manifest where
+  every emitted number traces to a line in a source prefab. Any effect that cannot be traced is
+  **refused, not faked** (the harvest's own `unmapped` vs `partial` discipline).
+- **G-13 — coverage, the gate that outranks accuracy** (§6 obs 1): **every one of the eight needs
+  above has ≥ 1 gate-passing candidate**, or the gap is named. A harvest that lands 100 effects and
+  misses blood has failed this run.
+
+**Fallback:** any family failing G-10/G-11 → named gap, and cell 2 composes from what passed. A gap
+is a finding; a silent substitution is not.
+
+**Purchase remains OUT.** Matt's call, deliberately deferred: buying before we know which families
+read thin is how one buys the wrong assets. Revisit after the cell-2 owner-eye clip, when the
+question is specific.
+
+### §3 cell table amended
+
+| # | Cell | Owner | Repo |
+|---|---|---|---|
+| 1 | TRACE-FILL-1 | gamora | engine | **LANDED, G-1/G-1b PASS** |
+| 1b | TRACE-STAGE-1 | gamora | engine | in flight |
+| **1c** | **ARSENAL-2** | **drax** | **godot** | **inserted here, parallel with 1b** |
+| 2 | VFX-TRUTH-1 | drax | godot | opens when 1b + 1c land |
+| 3 | COMBAT-JUICE-1 | drax | godot | |
+| 4 | HUD-PORT-1 | drax | godot | |
+| 5 | BR2-WATCH | drax | godot | |
