@@ -2605,3 +2605,79 @@ dissolved hazard is worth as much as a found one.
 
 **Standing:** this table is *input to* LAP-2C RESTAGE, not a substitute for its judgement — drax
 holds final say at asset quality, and any row he replaces he names.
+
+---
+
+## CONDUCTOR PREP — VFX COMPOSITION LAW (Scope 36 discharge; the "combine both packs" ruling)
+
+Matt's gap list after `ARSENAL_BEATS_halfspeed`: *"Arsenal wins as core, but it lacks the Binbun
+drama, it lacks our player aura (the one from the bake-off), it lacks charge-up glows (the claws
+should glow on strike), it lacks monster skill VFX completely, and more."* Plus: augment with
+home-grown Godot where the combos are lacking. The restage must not receive that as prose.
+
+**Inventory, from the two landings (not re-derived):** Arsenal = 33 effects / 119 emitters, all 8
+textures measured **chroma 0.0000** → wholly retintable, authored at ARPG combat scale (spawns at
+1.0). Binbun = **230 reachable scenes**, CC0 (fire 32 · magic_orbs 32 · poison 25 · smoke 25 ·
+muzzle_flash 24 · ice 21 · impact_explosions 21 · beam 19 · magic_projectiles 16 · loot 15), and
+the bake-off arm needed a **1.7× catalogue correction** to read at the CAM-LOCK stand-off. The
+player aura Matt wants back is `Assets/BinbunVFX/magic_areas/`, referenced by absolute path from
+`king_rig.gd::AURA_VFX` — deliberately left unstaged by VFX-BAKEOFF, so the restage stages it
+knowingly.
+
+### R-BR-17 — the three-layer law, with a discriminator that prevents soup (veto-open)
+
+The danger in "combine both" is double-spend: two packs firing the same beat with the same
+silhouette turns the frame to mush, and mush is *exactly* what cost Binbun the core in Matt's own
+watch. So the layers are separated by **what they contribute, not by how good they are**:
+
+| Layer | Owns | Rule |
+|---|---|---|
+| **CORE — Arsenal** | the **silhouette** of every strike beat: slash arcs, sword impacts, Cleave, GroundSlam ring, the nine Novas | spawns at **1.0**; tint from the element family; Matt's "core beats are all of the claws swipes" lands here |
+| **SHELL — Binbun** | everything that is **not a silhouette**: bloom wash, ground scorch, motes, dust kick — stacked **UNDER** the Arsenal beat, never replacing it | keeps its **1.7×**; layers scale independently — the shell is the *weight*, the core is the *reading* |
+| **NATIVE — Godot** | only what neither pack has a primitive for: bone-attached charge glow, moving-host trail, ground decal persistence | built, not harvested; each one named in the landing |
+
+**The discriminator, pre-registered:** *if a Binbun scene has a readable shape, it does not go under
+an Arsenal beat.* A shaped Binbun scene goes to a beat Arsenal does not cover (below). This is what
+buys Matt "Binbun's drama" without spending the legibility he chose Arsenal for.
+
+**Gate G-VFX (cheap, on an instrument that already exists):** at each beat's peak frame, count
+distinct connected components against the Arsenal-alone arm. Peak |diff| may rise — that is drama.
+**Component count must not collapse** — that would be the shell eating the core. If it collapses,
+the shell drops a rung, and the number says so rather than the eye arguing.
+
+### R-BR-18 — monster skill VFX: the instant-resolve pair (veto-open)
+
+Mobs have no VFX at all today, and Arsenal's Nova/GroundSlam family is boss-class. Mob skills draw
+as **muzzle_flash at the caster + impact_explosion at the target, fired on the same frame, with
+nothing between them.** R-BR-3 forbids invented travel and the schema has none — so we render what
+the sim actually does (instant resolve) rather than dressing a projectile the fight never had. It
+reads as a bolt; it lies about nothing. Binbun owns both halves (24 + 21 scenes), and this is the
+shaped-Binbun beat the discriminator sends here.
+
+### The four named gaps, each with an owner
+
+1. **Binbun drama** → SHELL layer under every core beat (R-BR-17).
+2. **Player aura** → stage `BinbunVFX/magic_areas/` and bind it to the player body; the aura is
+   **persistent**, not per-beat — it is the thing that makes the player read as the protagonist in
+   a wide shot, which is what the bake-off frame had and the Arsenal watch lost.
+3. **Charge-up glows** → **NATIVE**, bone-attached emissive on the weapon/claws, and the authorship
+   split from R-BR-14 holds without amendment: boss/mob glows key off the **real telegraph
+   wind-up** in the trace; the player's is a **declared presentation-layer pre-roll**, labelled as
+   presentation timing, never dressed as sim truth (`commit_skill_idx` is −1 on 361/361 ticks —
+   there is no player cast window to key off, and we do not invent one).
+4. **Monster skill VFX** → R-BR-18.
+
+**"And more" is not a gap I will guess at.** The restage ships the four named, and the watch is
+where Matt names the fifth.
+
+### Element grammar — one grammar, two mechanisms
+
+Element identity comes from the verdicted 6/6 family and the trace's `damage.element`, applied as
+**tint** on Arsenal (measured retintable, one `GradientTexture1D` per emitter, no re-harvest) and as
+**category selection** on Binbun (fire/ice/poison are native categories). Same grammar; the packs
+just obey it differently.
+
+**Carried debt into the cell:** F-AH-2 — the trail-class effects (`SwordTrail`, `SwordTrailShadow`,
+`SwordChargeUp`) passed the pixel gate on 7–232 lit pixels because a static stage gives a ribbon
+nothing to streak along. The restage **exercises** them on a swinging bone; exercising is not
+measuring, so the cell measures them there or names them still-unproven.
