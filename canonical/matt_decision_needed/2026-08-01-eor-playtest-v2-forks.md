@@ -1,5 +1,31 @@
 # Q51 — EoR Warlord playtest v2: four forks (F-V2-1..4) before the GD session fires
 
+> **✓ FULLY RULED 2026-08-01 (Matt, same-session exchange) — plus one PREMISE RULING that supersedes
+> the v2 spec's spine:**
+>
+> - **PREMISE — ENDGAME-FIRST (Matt verbatim: "Other than a brief werewolf referent, I don't see any
+>   point to making another level 13 build play test.. we need to play test end game").** The v2
+>   leveling-run structure (RF window → Primordian controlled experiment → EoR online ~L15–20) is
+>   DEAD. The character is CONSTRUCTED at L100 via GD Stash, matched 100% to the endgame
+>   build-of-record, and plays endgame directly. v3 of the directions doc restructures around this.
+> - **F-V2-1 ✓ RULED as leaned + extended:** playtest = SoT deepest floor AND 35 minutes of Crucible
+>   waves; the render exhibit lives in the **Crucible setting**. Matt design recognition captured:
+>   the deterministic wave-arena is a **free RDR mini-game / endgame-mode candidate** (game tracker).
+> - **F-V2-2 ✓ RULED merge:** the 10-min werewolf referent (v2 §1.8) merges into the sitting; T11
+>   rides with it.
+> - **F-V2-3 ✓ RESOLVED: PC** (the game is on the PC; T11's SSH save-copy pattern applies).
+> - **F-V2-4 ✓ DISSOLVED** by the endgame-first premise ruling — endgame validation IS the session.
+> - **F-V3-1 (devotion — the fork the pivot opened) ✓ RULED (Matt verbatim: "I will use the build
+>   guide 100%, including devotion, and we will work out how to adapt the mechanic(s) into RDR's
+>   mechanic(s)"):** 100% match INCLUDING devotions; the v2 devotion-ZERO rule dies at endgame.
+>   Devotion-proc damage is a NAMED measured layer in the fixture — and the devotion system itself
+>   becomes an **RDR mechanic-adaptation SOURCE** (a design workstream, not just a gap-register
+>   line). Queued as an ELICITOR grill candidate after the fixture lands.
+>
+> **Build-of-record + GD Stash construction protocol + difficulty axis:** legolas probe in flight →
+> `agentic_orchestration/legolas/notes/2026-08-01-eor-endgame-build-of-record.md`. v3 authors when
+> it lands. Original forks below retained as lineage.
+
 **Surfaced:** 2026-08-01, gandalf (SPEC-AUTHOR / ELICITOR) · **Blocks:** the next Matt GD playtest
 session (KIT-CAL-2 fixture capture + THE DENSE ROOM)
 **Spec of record:** `agentic_orchestration/gandalf/notes/2026-08-01-eor-warlord-playtest-directions-v2.md`

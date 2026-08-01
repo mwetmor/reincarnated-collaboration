@@ -30,6 +30,11 @@
 
 ## SESSION-DELTA LOG (latest governs all below)
 
+### 2026-08-01 (later) — WAVE-ARENA = RDR ENDGAME-MODE CANDIDATE (Matt recognition, Q51 ruling)
+
+- **Matt, ruling F-V2-1:** rendering the dense room *in the Crucible setting* "will also give us a free mini-game or end game mode for RDR." Captured as a NAMED candidate: **the deterministic wave-arena endgame mode.** Design case: a fixed arena with scripted opposition waves is exactly what the battle sim already IS — no navigation, no level-geometry pipeline, opposition fully DB-resident (that is *why* Crucible t13w06 was buildable with zero capture). Genre precedent: D3 Rifts and Last Epoch's Arena are the cheapest-to-ship endgame modes in their games because they reuse the combat loop with no content pipeline; GD's own Crucible was DLC built on the same recognition. Status: CANDIDATE (PART B queue) — scope/keystone-fit ELICITOR grill after the EoR endgame fixture + Crucible render exhibit land.
+- **Render exhibit setting ruled:** Crucible (deterministic room t13w06 + SR Shard-33+ as ceiling reference stand as the sim/render pair; the *setting* presented to the player camera is Crucible's arena).
+
 ### 2026-08-01 — THE DENSE ROOM: render-exhibit targets measured; two DB-resident rooms buildable with ZERO capture
 
 - **Matt directive 2026-08-01:** find the most highly dense pack-filled area in Grim Dawn and represent that room in the battle simulator AND the Godot render. Measured answer (legolas probe `2026-08-01-gd-pack-density-ranking.md`, from the `.arz`): the render/sim exhibit pair is **Crucible t13w06** (35-min guaranteed, deterministic — the reproducible sim room) + **SR Shard-33+** (142.5–209.4 per floor — the density ceiling). **Both are fully DB-resident: buildable with no playtest capture at all.** The Window-2 *play* target (Matt's hands) is a separate pick — SoT floor-5-wave-3, 24–25 concurrent, lean pending Q51 F-V2-1.
