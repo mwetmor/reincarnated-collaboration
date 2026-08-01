@@ -1,0 +1,221 @@
+# GD Savefile editor
+Links: 
+[https://tiny.cc/gdedexe](https://tiny.cc/gdedexe) (Windows)
+[https://tiny.cc/gdednixbin](https://tiny.cc/gdednixbin) (Linux)
+
+# What is it?
+This is a tool that lets you look at and modify the contents of your save file.
+Want to rename your character? Sure.
+Want to change your level? What about skill points or devotion points? Not a problem.
+Want to a specific piece of gear? Easy.
+
+That is... if you're willing to put up with a command-line tool.
+
+Yes, it's a command-line tool. Why would I choose to make such a thing?
+Because... I'm a lazy programmer?
+
+A command-line tool lets me just focus on dealing with the features instead of fighting the UI. If
+you're willing to overlook the barebones non-UI, I think you'll find a pretty useful little utility
+to tweak your character to better enjoy the game.
+
+# Need help?
+Please see the FAQ page first!
+
+https://odie.github.io/gd-edit-docs/faq/
+
+There's even a search function there.
+If an answer *isn't* there, you can always post your question here!
+
+Also, if you'd like an exhaustive list of commands and detailed documentation on them, try:
+https://odie.github.io/gd-edit-docs/commands/
+
+Leave me a note here if any of the documentation seems hard to read!
+
+# Before getting started
+This thing needs Java 8 to run.
+You can get your very own copy here: https://java.com/en/download/manual.jsp
+Please be sure to download the 64bit version for your platform.
+
+# How to use it
+
+TLDR version
+  - `show` command to explore and examine fields
+  - `set` command to set new values into fields
+  - `help <cmd name>` command to see some help and get some examples
+  - Press up-arrow key for command history
+
+
+## The First step
+Run the program. A "beautiful" command line window will pop up, having located all your save files. A little [color=green] &gt; [/color] is shown at the bottom of the screen, showing you that the program is waiting for your input. This is "the prompt". 
+
+At the prompt, all the capabilities (commands) of the program is at your fingertips! How exciting! Also, whatever is shown on screen can also be used as additional commands. Let's try one now!
+
+Select a save file to load by pressing the number corresponding to the save file you want to
+load. Hit enter to send your input to the program. (For example, hit '1', then enter)
+
+That's it! You've loaded your character (hopefully). You've just entered a "command", which consists of putting in some text at the prompt and hitting the enter key.
+
+
+### The core commands: show and set
+So what exactly can we do with this character file that's been loaded? Where are these so-called "capabilities" that we talked about?
+
+Well, now that you have the file loaded, you can change every piece of information that the
+Crate devs have carefully packed into the save files.
+
+Try using the `show` command. A list of 90 some fields, listed in alphabetical order, should scroll by. Enlarge the window or use your mouse wheel to see more of the output.
+
+## Changing your level
+[This example illustrates how to use the "set" and "show" command. For a more robust way to change your character level, use the "level" command.]
+
+The editor should have shown you a LOT of fields. Don't feel like look at them all?
+Try this command: `show level`
+This says to show any fields with the string "level" in its name.
+
+On my loaded character, it shows something like this:
+
+```
+ 
+character-level : 42
+   level-in-bio : 42
+      max-level : 42
+
+                3 fields
+```
+
+
+What? A lowly 42 level character? But I want a god-like 85 level character!
+
+Try putting in these commands:
+  `set character-level 85`
+  `set level-in-bio 85`
+  `set max-level 85`
+  `show level`
+
+Okay. Now your character is at level 85. Save your character by inputting `w` at the prompt. This will make a backup of your current save file, then write out a file that gives you a level 85 character. Go ahead and make sure it worked by loading up the character in the game. I can wait. =)
+
+Okay! That wasn't so hard now, was it? What else can this thing do? Well, as said, the program can manipulate any field you can see. So things like devotion points (try `show devotion`) or skill points (try `show skill`) can be changed just like we did with the character level. The same can be done with your character name or gender or whatever-you-want. Just look around with the `show` command.
+
+## Changing your equipment and weapon
+So changing some values are neat. But you want a bit more? Didn't I mention something about items?
+
+Let's take a look at where they are in your loaded character.
+	`show equipment` shows you all the items you have equipped on your character
+	`show inventory-sacks` shows you all your inventory sacks
+	`show weapon-sets` shows your equipped weapons, including your alternate set
+
+Let's try checking out the weapons you have equipped.
+	`show weapon-sets`
+
+hmm... The output is a bit cryptic....
+
+```
+	0:
+   		items : collection of 2 items
+   	       unused : false
+
+	1:
+   		items : collection of 2 items
+  	       unused : true
+
+```
+
+  There seem to be two sets of identical fields. The top one is labeled "0:"?
+
+Try "show weapon-sets/0"
+Now it just says:
+
+```
+  	   items : collection of 2 items
+	  unused : false
+
+       2 fields
+```
+
+Right, the second set isn't shown anymore because you asked to see the first set, labeled "0".
+Can we see what the items actually are?
+
+Try `show weapon-sets/0/items`
+Wait! Just in case you've been entering everything by hand up to this point by hand... Try pushing the up-arrow key. Yeah, it'll show you the last command entered. You can use the up-arrow and down-arrow key to navigate forward and backward in the command history.
+
+Less typing = less work = lazy = my cup of tea
+
+Ohhh hey! It shows something more!
+
+```
+	0:
+	        attached : true
+	    augment-name : ""
+	    augment-seed : 0
+	        basename : records/items/gearweapons/melee2h/d005_blunt2h.dbr
+	   modifier-name : ""
+	     prefix-name : ""
+	     relic-bonus : ""
+	      relic-name : records/items/materia/compb_hauntedsteel.dbr
+	      relic-seed : 472303388
+	            seed : 458229418
+	     stack-count : 1
+	     suffix-name : ""
+	  transmute-name : ""
+	         unknown : 0
+	            var1 : 4
+
+	1:
+	        attached : false
+	    augment-name : ""
+	    augment-seed : 0
+	        basename : ""
+	   modifier-name : ""
+	     prefix-name : ""
+	     relic-bonus : ""
+	      relic-name : records/items/materia/compb_hauntedsteel.dbr
+	      relic-seed : 472303388
+	            seed : 458229418
+	     stack-count : 1
+	     suffix-name : ""
+	  transmute-name : ""
+	         unknown : 0
+	            var1 : 4
+
+```
+
+So there are two items in the "weapon-sets/0/items" collection. But it's hard to tell heads or tails from what's being shown here.
+
+Well, as it turns out, Grim Dawn items are first defined by a "basename", which points to the game's database record that defines what the thing is. It can then be further enhanced by prefix, suffix, and augment, all of which should point at their appropriate DB records.
+
+Sooo... that means we can't even tell what the item is until we look in the game's DB? It just so happens that we have the DB loaded and ready to go.
+
+Let's dig a bit deeper into this item collection.
+
+Try `show weapon-sets/0/items/0`
+
+O-kay... It shows quite a bit more, doesn't it? It shows you the primary weapon you have equipped. It'll show you the name, then the "contents" or fields that define the weapon, then a list of records that relates to the item. More specifically, it'll show you the basename, prefix, suffix, and augment records if they are available.
+
+That just lets us look at the item though. How do we change the item?
+
+As mentioned earlier, if you know the exact basename, prefix, and suffix, you make any item you want! As a matter of fact, the editor has a command to help look up records in the database!
+
+Ain't nobody got time for dat! I want my sweet gear NOW!
+`set weapon-sets/0/items/0 "Ultos' Stormseeker"`
+	
+Save with 'w' and load up the game!
+
+Be warned though. If you go overboard with boosting your character and gear, the game won't be very fun anymore. So you might want to give yourself something a bit more modest.
+
+`set weapon-sets/0/items/0 "vampiric legion warhammer of valor"`
+
+As you can see, the editor is happy to decipher and find the right basename, prefix, and suffix for you. 
+
+Lastly, if you want to find out more about what the editor can do, or need some examples of how it can be used, use the "help" command!
+
+Got questions and/or issues? Just drop me a note here.
+
+That just about wraps it up for this post. I can't believe you read this wall of text! Good work! Now go give yourself
+some nice gear to play with.
+
+
+[color=red]**Warning:**[/color]
+This is alpha quality software. 
+Although it does function normally most of the time,
+don't be surprised if you see some exceptions thrown here and there.
+
+Also, I don't claim to know how all the fields affect the game, but they are exposed for tinkering. If something should go wrong, the editor should have made a backup for you, so don't worry (too much)!

@@ -1,0 +1,529 @@
+Guess who's back with the third edition of [our top20 softcore list](https://forums.crateentertainment.com/t/top-20-softcore-builds-ft-hc-approved-section-from-rektbyprotoss-1-2-0-5-an-onion/136117)!
+
+After almost six months of creating and testing builds of new and old we finally arrive here! Game has changed quite a bit since last time so did the candidates. This time, we explored the realm of Chinese Grim Dawn community. Special thanks to @mi023 who was our connect into the world of powerful, weird and beautiful builds from the other side of the globe. As you can see quite a few builds that made it were initially created by Chinese builders and then min-maxed and fine tuned by our little toxic cabal. And we even have pets now (yay!).
+Much like the last time, the process was long and arduous, friendships were made and broken and ma.. You get the bit, it was needlessly drawn-out, we almost succumbed to the usual apathy of why bother with anything, especially other people and their wrong opinions, by sheer miracle slacked through it and now are somewhat-proud-with-how-it-turned-to-be and we-definitely-should-do-this-one-some-other-time. 
+
+---
+
+If you want MOAR builds or download build files, or to look at some nitty-grittie's of ranking and have some tips have to play them, take a look at this spreadsheet made by @eardianm. 
+[size=60] [spoiler] And if this post will become link-uneditable like the last one did, we might post updates exclusively there, but lets hope it wont come to this. [/spoiler][/size]
+https://drive.google.com/drive/folders/1RRwAvJQyNxZPpRRRJhXRFolj2CPOCAtx?usp=sharing
+
+---
+
+More about the process below, as well as obsevation on how the meta shifted:
+
+<k><details><summary>[size=120][color=cyan]The process[/color][/size]</summary>
+
+6 people made their personal lists of top 30 builds. Based on each list builds were given 35 points for the first place and all the way to 6 points for the last. Out of those 6 lists the final top20 was made.
+
+First step was the nomination - the list of all possible builds that can be considered for the "contest" of the best builds in the game. Sounds vague but the "we" i'm referring to is a group of veteran endgame players who kept up with the game changes and had sufficient cumulative knowledge to account for all the best performing builds.
+
+~~Secondly, we wanted to develop an objective scoring system for builds' performance. But soon we realized that we would not be able to pull off the huge amount of data required for it - both the amount of SR, Crucible and superboss runs for all builds in the contest as well as the sheer amount of people needed to make data entries to shoot for anything objective. So we've settled for a compromise: each player makes their tier list of builds and the summary of these lists will be the final list of top builds.~~
+~~We did, however, made a sort of scoring system that helped with the development of the project, especially for the purpose of filtering out the contestant builds to reduce the amount of grind. The system had 6 scores, each from 0 to 10 with a 0.5 step:~~
+~~1) Solo dmg output
+2) AoE/multitarget dmg output
+3) Tankiness vs solo targets
+4) Sustain in the crowded environment, including vulnerabilities to CC and special effects
+5) Convenience - how easy is it to play the build: the amount of active skills, mobility, difference in nature of active skills, how punishing are mistakes you make (had 80% weight in the scoring)
+6) Gear accessibility - how easy is it to farm the items needed, how easy is it to substitute BiS items, is there a viable faction gear variant of the build (rated on the scale of 1 to 5)~~
+
+We tried to do the above, but this time we collectively came to the conclusion that the scoring system we've been using is hot garbage that has little to do with reality, so we practically abandoned it. We will return to it in the next issue, but it's gonna get heavily revamped and hopefully we'll get new way of testing and benchmarking builds in endgame, as SR is just incredibly volatile and CR is irrelevant.
+
+
+In the end we had 6 people who extensively tested the contestant builds against endgame content - SR 30-31, Crucible 150-170 and superbosses, last two categories bearing least weight - and also several people on top who provided the contestants to test and helped with the discussion.
+
+As for performance guidelines, it went smth like this: every top20 build is able to farm SR 30-31 with ease and finish every SR76 regardless of mutators, rooms and boss selection; every build is capable of finishing Crucible 151-170 within 4:30 in the best run, safely farm it with correct play, finish 151-170 without buffs and banners with safe play; take down Mogdrogen and Ravager with facetanking or minor kiting at worst, Callagadra with kiting by extension.
+</details>
+
+<k><details><summary>[size=120][color=cyan]Disclaimers[/color][/size]</summary>
+- Game version was 1.2.1.6. We are aware than next test patch is bringing the significant changes, however we don't have the manpower to make the list for every patch. We will try and adjust some builds based on the biggest changes in the game.
+- As the goal was to aim for best performing builds, we tried to take the "fun factor" out of the equation as much as possible. Different people like different builds, no one is in the position to say what is "objectively more fun".
+- Props to game's balance, the contest was a very tight race. Even though the absolute best builds were kinda clearly ahead, it is safe to say that the game has over 100 builds that are not far behind the best of the best in terms of performance. So if you don't personally like any of top 20 builds, there is a huge chance there is a build exactly for you and it will not make you feel handicapped. It's all about optimization.
+- Every build in the list has an author of the exact variant we tested as means of props for the optimization work done. It's not a copyright label or anything. It is important to mention that the majority of the builds had some degree of community effort in them, whether it was some "meta" adopted by the builder or outright gear and devotion change suggestions from the others.
+
+</details>
+
+<k><details><summary>[size=120][color=#E4AAC0]**Meta Trends**[/color][/size]</summary>
+During this extensive testing we realised that the meta of buildmaking has shifted quite dramatically and that our ideas and approached have changed accordingly. Below are listed some of the general trends, that reflect how and why new benchmarks and standarts came to be. Why every build has 20k+ hp and when did the-oh-so-precious physical resistance go. 
+ 
+Offence:
+  * Stacking OA and crit helped elevating a lot of builds, for example: Chillwhisper Reaper got from mid 10s into top3 that way. Chinese players were making high OA/crit builds for quite some time for SR speedrunning, but now this route is available for more builds that are less skill-demanding. There's still not enough opportunities in the game to make a build fully focused on two skills to reach that desirable dmg lvl where you roll over SR30-31, and most of them are locked behind sets. And the devo proc dmg kinda falls under the overall powercreep curve. So stacking OA and crit is quite often the only way to push the build's dmg beyong the base and mod numbers of your main skill.
+  
+  * High burst dmg is very important in many SR scenarios. When you jump a Nemesis surrounded by other mobs and can focus-kill it within 5 seconds surpassing a lot the dangerous, initial timeout mechanics, the SR chunk experience is much smoother. Same for Arcane and healer heroes: one-twoshotting them rids you off a lot of pain.
+
+Defence:
+  * Max HP is by far the strongest defence in the game. With some recent flat HP buffs for affixes, devos and set, 20k is available to basically any build. More often than not 20k is not enough, though. Some Reapers and Oppressors that we've tested only really felt sufficiently tanky at 26k+ point. Reason for that is burst dmg is also the strongest tool of the enemy. When you jump a big pack in SR, first few seconds are the most dangerous: you don't have any debuffs applied to the enemies, a lot of dangerous hero debuffs don't have any initial cooldown, and most importantly - enemies don't really miss in this game. You can Shadow Strike into a pack of manticores and will see every single tail converge on your head before your Nightfall even hits. No amount of tricks up your sleeve will matter in those first couple of seconds. Only your max HP, your absorb and...
+  
+  * DA. The second best defence has made the full comeback. Unconditional % of dodge and crit immunity are important multipliers of your max HP layer. And then you have increasing returns (to a point) from stacking DA because you start applying damage reduction to the enemies from your DA - their OA difference.
+  
+  * Leech >> regen. Regen had its spotlight couple of years ago but then was kinda nerfed, and HP was powercrept together with enemy non-physical dmg that made flat regen values fall behind even more. Leech is still a much stronger mechanic overall, and regen mostly comes into play when it's free. Other sources like flat absorb and %hp regain are often cheaper and more reliable.
+  
+  * Passive leech is best leech. Every build that aquired some substantial source of passive leech immediately became better. Too often your main skill dmg can be suddenly turned off, and having some passive source of hp regain that scales off the size of the enemy pack is a dealbreaker.
+  
+ * Physical dmg is no longer THE threat, and phys resist is no longer the main stat in the game. If you have it - good, but most builds can go by with 0. Armor on the other hand has visible impact on your survivability (ehp) at least up to 3k level.
+ 
+  * Big areal CC is very important for SR experience. Even formerly hated confuse can be a lifesaver. It's not uncommon to run into packs where some strong debuffers stay at range and if you don't have some (ideally passive) CC to handle them, the encounter drags out and becomes more dangerous.
+
+</details>
+
+<k><details><summary>[size=120][color=#D0E4C5]**Hardcore Section**[/color][/size]</summary>
+
+As per last time, @RektbyProtoss tested wheter the list holds to his hardcore-viability standards.  
+![image|690x305](upload://yI8h2QqrvKUUlacvKt4YYp8P0IN.jpeg)
+
+These are the conclusions he came to, you can watch the testing procces for all builds [here](https://youtu.be/aWcjYc6QgMU?list=PL-7HuL5PyGEJhSls3DA-RDxMWm3wuOQdz) and [here is the full playlist](https://youtube.com/playlist?list=PL-7HuL5PyGEJhSls3DA-RDxMWm3wuOQdz&si=i5WESKckl0By9ABq).
+
+Note however, that the ranking came to be this way mainly due to Callagadra testings, as 90% of the builds were cruising through SR&CR. 
+
+To showcase the level of HC performance and not check the above image 
+constantly indication markers were added to the list:
+:1st_place_medal: - Gold tier i.e. "The braindead tier"
+:2nd_place_medal: - Silver tier
+:3rd_place_medal: - Bronze tier
+No marker - SC tier
+
+
+</details>
+
+---
+
+<font size=120>**That's all cool and stuff, but didn't you hear the expansion was announced?**:</size>
+
+We sure did! In fact, the announcement and its (hopefully) soon arrival is what insipired us to do the list, to capture the moment at the very end of extremely long expansion, right before the new one arrives with it incredible and inevitable powercreep. A moment captured in amber if you will. Besides, having some base line for balance might prove usefull, who knows. Surely, no sudden patch coming before FoA is going to ruin this, that thing just can't happen.
+
+
+
+Speaking of “we”. People who played the contestant builds the most and made their final lists of top builds: @Nery, @nofika4u, @mad_lee, @banana_peel, @grey-maybe, @romanN1. People who provided and helped with gathering contestants, as well as provided feedback: @mi023, @eardianm. Special thanks to the latter for setting up the spreadsheet and doing data-gathering.
+
+ ---
+
+<k><div align='center'>
+![logo21|558x147](upload://rUQxiEpsaKPz3PwVh5XtGM6ZTk4.png)
+</div>
+
+<k><details><summary>[size=170][color=#84D0E1]1. Dawnbreaker Warder [/color][/size]</summary>
+____
+
+<k><div align='center'>
+![1. Dawnbreaker Warder|591x372](upload://3pl1jOMAHZKaYRIDkTShrCxDFND.jpeg)</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :1st_place_medal: by @KingRed_424 & @mad_lee[/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/qNYgbjeV)</div>
+
+[< Guide >](https://forums.crateentertainment.com/t/retaliation-warder-leveling-guide-and-endgame-setup-rank-1-build-1-2-1-6/152990)
+[SR30-31, x5 runs by nofika](https://www.youtube.com/watch?v=vL8-1mg9BaY)
+[Ravager 37 seconds kill](https://www.youtube.com/watch?v=LK3S3zwQYO4)
+[Callagadra 48 seconds kill](https://www.youtube.com/watch?v=pHVvQiXYxzc)
+~~AND THE NEW...~~
+CHINA NUMBA WAN!
+Born in the depths of Chinese GD community and reworked for this top20 testing by @mad_lee, this Warder is really in a league of its own. Deepest most layered tank out of all the builds in our testing plus a whole arsenal of RtA tools make this monster an extremely potent farmer. Tanking any bosses combination in SR 30-31, speedrunning Crucible, crushing Celestials, this new king does it all and for relatively modest gear price. An absolute unit.
+https://youtu.be/kwcIQuNY31w?si=ptmGrhZaMS2XD_E0
+_____
+</details>
+
+<k><details><summary>[size=170][color=#725E65]2. Brutallax Dervish[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![2. Chinese dervish|590x372](upload://nlJmoNViFHZZldV2H0ttIJuKTDK.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :3rd_place_medal: by 黑暗波666(Johnson333) & @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/q2MxOJ4N)</div>
+
+[SR30-31, x5 runs by nofika](https://youtu.be/hCdi7TS6bGo)
+[Callagadra 47 seconds kill (60% success rate)](https://youtu.be/V1OOq5YSDIM)
+A pierce/bleed hybrid, stacking high crit and very high OA - this is a masterpiece from the chinese community. Offensively it quickly stacks big critted bleed dots from Blind Fury powered Blade Spirits, Living Shadows and flat bleed from Auto Attacks, while the pierce side still makes it feel very punchy. No enemy lasts long and this is the fastest SR farmer we have on our list. Due to it's ridiculous kill speed this Dervish is never really put in dangerous positions but the defenses here are still solid.
+Strong sustain and any HP dips are covered by Living Shadows leech, which is very mighty with 70% Healing Effects. Max res is a massive defensive tool in todays meta and this build is rocking +4%, with another +4% when Resilience procs. On top of Resilience there are other strong circuit breakers from Serenity and Azrakaa's Sands. The only drawback is the gear cost.
+https://youtu.be/Bfe5Isjpagk?si=ibYwoOkWFZWedZzy
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#3284FF]3. Chillwhisper Reaper[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![3. Chillwhisper Reaper|589x372](upload://ktezTAALoryZJoMUgeYRKXTD90T.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :3rd_place_medal: by @nofika4u & @banana_peel[/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/4ZDYKvQN)</div>
+
+[< Guide >](https://forums.crateentertainment.com/t/cold-drain-essence-reaper-leveling-and-endgame-setup-1-2-1-6-1-3/154887)
+[SR30-31, x5 by nofika](https://youtu.be/zVCvDIu4JMw)
+[Callagadra 44 seconds kill (~70% success rate)](https://www.youtube.com/watch?v=AFfCPZSnPVU)
+OA stacking is the name of the game for skills with high in-built crit these days. Here, Drain Essence rocks a 115% crit damage modifier and we support it with high OA. With very strong leech from Drain Essence and passive leech from Blade Spirits combined with high effective DA this Reaper stands its ground in most situations, even with a measly 4% phys res. Add one button gameplay and high mobility and you get yourself a podium finisher.
+https://youtu.be/fsDKMIOBPSQ?si=vkm7aR_4V5QaWKNN
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#797C82]4. Pierce RoS Blademaster/Dervish[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![4.5. RoS blademaster|591x372](upload://vw7sgRGPgB0W1tjFf2niscGpEeV.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :3rd_place_medal: by @mad_lee / @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS Blademaster>>** ](https://www.grimtools.com/calc/w26e4D0N)</div>
+<k><div align='center'>[ **<< GRIMTOOLS Dervish>>** ](https://www.grimtools.com/calc/pZr8wDk2)</div>
+
+[**< Guide >**](https://forums.crateentertainment.com/t/hc-ssf-ring-of-steel-blademaster-leveling-and-endgame-guide-1-2-1-6/149114)
+[**< Forum Post >**](https://forums.crateentertainment.com/t/1-2-1-6-master-of-none-4-00-crucible-gladiator-150-170-shard-36-celestials-lightning-fast-farmer-pierce-melee-blademaster-bonus-build/147405)
+[SR30-31, x5 runs by mad_lee](https://www.youtube.com/watch?v=S_qCfofExzU)
+[SR30-31, x5 runs by roman](https://youtu.be/ZB0AYzNFBwY)
+[Ravager 41 seconds kill](https://www.youtube.com/watch?v=ngTXYRi8Zy0)
+[Callagadra 56 seconds kill (~50% success rate)](https://www.youtube.com/watch?v=zcPSaBjwifw)
+A beacon of hope and a source of great pride for a forgotten class, a flying buzzsaw that rips apart trash mobs and Nemeses alike. Can take several bosses in SR30-31 together but requires precise positioning for such brazen affairs. CD mods to RoS and the new addition of DW hits for it make this build an incredible hero pack exterminator and one of the fastest build in the game. Blademaster has a non-identical twin brother in Dervish that has higher QoL but a bit lower guaranteed burst dmg.
+https://youtu.be/8JUyn1sz-HM?si=ROfmti5YosL9axui
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#FF3B14]5. Hellborne Shieldbreaker[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![6. Grenado RTA shieldbreaker|591x372](upload://bT35frQlZZInpl6QUKr3XTNVCD7.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/8NKAWdjV)</div>
+
+[SR30-31, x5 run by banana](https://youtu.be/NqqHKxdIwE8)
+Inspired by Chinese made Hellborne Pyromancer, this build has monster burst damage, the highest in the game, most of the time it bypasses boss mechanics, SR30-31 bosses often go down in 2 seconds. AoE is also great with Canister and Ulzuin's Wrath help. The only downside is QoL, you have to manage your failsafe rotation with 3 active skills and AA filler on top.
+https://youtu.be/aRcX6n1Yulk?si=Hybw9dSbomO0RfCy
+_____
+</details>
+
+<k><details><summary>[size=170][color=#DB2730]6. Voidsoul Sentinel[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![7. Voidsoul Sentinel|592x372](upload://bhxOrzf23HCrpgNSuDy7kYk1qJX.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/RZRDXpB2)</div>
+
+[Callagadra 1:02 kill](https://www.youtube.com/watch?v=ekd2ckJGBUI)
+[SR30-31, x5 runs by banana](https://youtu.be/BCKUGZmSaZU)
+Another not so great skill, Aegis of Menhir, propelled by a wacky mode that allows near spam high tooltip AoM gameplay with a unique Keeper's conduit. The build bursted into top10 thanks to the buffed DB that unlocked the intended (more or less) Sentinel gameplay. The build has very high clearspeed, high mobility and can dish out almost full dps at a very high range. Of many possible chaos Sentinels that spawned thanks to CoF chaos support, Voidsoul is the strongest.
+https://youtu.be/pCaESUE3-m8?si=lpG1DwW0HE3jcihd
+_____
+</details>
+
+<k><details><summary>[size=170][color=#27743D]7. Deathguard Reaper[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![8. Deathguard Reaper|591x372](upload://mfWDtadbdHmIQUERC3Z9ULuZnRV.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @romanN1 & @mad_lee & @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/Q2z95MvN)</div>
+
+[SR30-31, x5 runs by nofika](https://youtu.be/KcMww6T4aFQ)
+[Ravager 34 seconds kill](https://www.youtube.com/watch?v=BFLXgcw2_bI)
+Deathguard Reaper
+It took several builders to figure out the optimal spec for this Reaper but it was more than worth it. A true speedster with one of the most diverse damage profiles, it's a build that defies laws of gravity flying all over the mapand leaving huge poison ticks everywhere. Can fight several bosses in SR 30-31 at once but doesn't really need to with the amount of dot damage it possesses.
+https://youtu.be/_09nqkw6BXs?si=wnZPWf7zF4kczvLS
+_____
+</details>
+
+<k><details><summary>[size=170][color=#8E1111]8. Chaos Skeletons Cabalist[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![9. Chaos skeletons caba|591x372](upload://t8DmYSYobLmExb9wSCeFymTO1gD.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :1st_place_medal: by @nofika4u [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/RZRDEyv2)</div>
+
+[**< Forum Post >**](https://forums.crateentertainment.com/t/1-2-1-6-pet-necromancers-4-00-crucible-150-170-sr-90-ravager/137928)
+[SR30-31, x5 runs by mad_lee](https://youtu.be/g6_qMFNWl9w)
+At long last a pet build makes our top20 list! Skeletons provide good clear speed without lacking the AoE damage other pets might. Chaos RR being added to Curse of Frailty help push this Cabalist to the top of the food chain for summoners.
+Taunt from Ishtak keeps our summoner safe while our army burns down the Shattered Realm villages. Callagadra is the biggest weakness of skeletons as they lack enough tank to stay alive.
+https://youtu.be/cQUtXSu2b8E?si=gHpfUgcj8hB-mJWr
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#5F5252]9. Pierce/Bleed PB Witch Hunter [/color][/size]</summary>
+____
+
+<k><div align='center'>
+![10. Pierce Bleed PB wh|591x372](upload://RhRZ0DUcC0PNvuhxpZPU5SrMIc.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF]by @nofika4u [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/eVLQED6Z)</div>
+
+[SR30-31, x5 runs by roman](https://youtu.be/g2RxC_dSGg4)
+[Callagadra 45 seconds kill (<25% success rate)](https://www.youtube.com/watch?v=Avny2uQRPlY)
+While mostly a pierce build, this Witch Hunter takes advantage of CoF bleed res shred, cunning stack %dmg and OA with high crit damage to somewhat pursue bleed damage as well.
+Supporting two low resisted damage types makes us chew through any enemy at a very fast pace. With good leech, decent HP & DA and Possession %absorb we scramble together enough defenses to handle most situations in the farmable SR range.
+https://youtu.be/sNAaVFUlblU?si=4uelIQEDePcFZPro
+_____
+</details>
+
+<k><details><summary>[size=170][color=#AF3F71] 10. Rotgheist DEE Conjurer[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![11. Rotgheist DEE conj|591x372](upload://nSG7Xm9lKOUjuNN8Sb8ZeZv6Zr4.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @banana_peel & @mad_lee & @romanN1 & @nofika4u [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/NOYzzdoV)</div>
+
+[SR30-31, x5 runs by banana](https://youtu.be/pHI3V8zrVAk)
+[Callagadra 49 seconds kill (90% success rate)](https://youtu.be/d-y25Vctnws)
+[Ravager 42 seconds kill](https://youtu.be/BEYBp5JgGMw)
+A result of a think tank involving several builders this Nightbringer beast brings massive firepower and very solid tank to the table. It has single target damage, it has range, it has dots, it has massive aoe. Can tank few bosses in SR 30-31 at once but you have to pick your fights. DEE finally has its spotlight and with the best mods and synergies it completely outshines other projectile casts and leaves ranged AA builds deep in the dirt.
+https://youtu.be/WrlbqKsGrh0?si=3RweWS68Fl_sDHLh
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#AF6730]11. FoI RtA Purifier[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![image|662x416](upload://nRneeRmY9bCnXvWmNrTFacgMtIm.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF]by @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/23X59eEV)</div>
+
+[SR30-31, x5 runs by banana](https://youtu.be/LtBJoEmx__A)
+[Callagadra 44 seconds kill (80% success rate)](https://www.youtube.com/watch?v=bSisvMXRHrw)
+Another strange RtA creation. FoI is mechanically behind AAR and far behind DE, it has the most demanding positioning. But when your 8 tick per second skill tooltip reaches into 100k territory, all is tolerated. Ulzuin's Wrath provides great AoE help and passive sustain while you focus your angry fumes on the big guy.
+https://youtu.be/MuW3zuwcu4w?si=1jTeuPix9fJxQ6jb
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#AF1F39]12. Demonslayer Reaper/Dervish/Witch Hunter[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![13.14.15. Demonslayer reaper|591x372](upload://bUn1P3ZxYt9vgwOAmCaTPrLx35f.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @mad_lee / @banana_peel / @romanN1 [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS Reaper >>** ](https://www.grimtools.com/calc/lNknq0BZ)</div>
+<k><div align='center'>[ **<< GRIMTOOLS Dervish >>** ](https://www.grimtools.com/calc/wV1X5En2)</div>
+<k><div align='center'>[ **<< GRIMTOOLS Witch Hunter >>** ](https://www.grimtools.com/calc/eZPJzwl2)</div>
+
+[**< Forum Post >**](https://forums.crateentertainment.com/t/1-2-1-6-launch-the-slayer-4-15-crucible-gladiator-150-170-easy-sr-30-31-sr-36-celestials-hc-friendly-tanky-vitality-caster-reaper/146182)
+[SR30-31, x5 runs, by nofika](https://www.youtube.com/watch?v=W9XgVBWvNgY)
+[SR30-31, x5 runs, by banana](https://youtu.be/tqQF2zeQKhU)
+[Ravager 48 seconds kill](https://www.youtube.com/watch?v=GzMIW-uR-BQ)
+[Callagadra 54 seconds kill (90% success rate)](https://www.youtube.com/watch?v=07bgS3u0hJg)
+The original Demonslayer, a leech tank ready to take on the world of demons and beasts. Can facetank most boss combos in SR30-31 as well as Ravager and Callagadra. It went through an entire saga of buffs and nerfs and ended up landing on a solid spot. Rumoured to be a part of a gang of triplets that include a Witch Hunter and a Dervish. Can even be played as a Trickster, with both vitality and bleed focus, and to top that off it has budget MI alternatives. All that puts this set in a unique position as a chase goal of a caster Nightblade starter.
+https://youtu.be/VZiIFCdzcKc
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#E46B9C]13. Vitality Skeletons Ritualist[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![16. Vitality Skeletons ritu|591x372](upload://ctLV3qpZL3XVd4fkytZyaO51JS4.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :1st_place_medal: by @mi023 [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/DV9bw36Z)</div>
+
+[SR30-31, x5 runs, by nofika](https://youtu.be/jIVodfmCp0s)
+Another pet build making our list, this Ritualist is slightly more demanding on the pilot than its Cabalist cousin but still very much in the same tier performance wise. With very high crit damage and OA, permanent uptime on Call of the Grave and Primal Spirit our army deletes Nemesises in seconds. 
+Ishtak keeps us from being targeted while Healing Rain and Wendigo Totem keep our Summoner and Skeletons alive and well. A safe and strong SR farmer for anyone preferring pet builds.
+https://youtu.be/sciHHAgmGsU?si=GO6gYptXqfSb63wQ
+_____
+</details>
+
+<k><details><summary>[size=170][color=#E43639]14. Blightlord DE Oppressor[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![17. Vitality DE Blightlord|591x372](upload://1qNunBOHn67Y2xLb0xPJ6LkEhnC.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :3rd_place_medal: by @nofika4u [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/xZyWWnk2)</div>
+
+[SR30-31, x5 runs by nofika](https://youtu.be/cd37H7OPLZA)
+[Callagadra 52 seconds kill (70% success rate)](https://www.youtube.com/watch?v=8sqc20xaJfo)
+Blightlord is the latest addition to the fold as a very unexpected match of a defensively weak set and one of the best skills in the game, Drain Essence, that perfectly covers the set's weaknesses. Guardians are not a high dps skill but they help with trash clear and act as a strong devotion proccer. With its high mobility it's a very fast farmer. And the compound power of 3 skills and raw stats puts this build above all vitality Drain Essence specialists.
+https://youtu.be/ILkDKywdFkA?si=N_S3dU6COJ4EgpyE
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#921F1F]15. Vitality Spam Sigils Conjurer/Sentinel[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![18. Vit Sigils conj|592x372](upload://d5OUNCQ2j70hRCcqEvPo4eWA037.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @mad_lee / @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS Conjurer >>** ](https://www.grimtools.com/calc/p25vBmxV)</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS Sentinel >>** ](https://www.grimtools.com/calc/YZexpP0V)</div>
+
+[**< Forum Post >**](https://forums.crateentertainment.com/t/1-2-1-6-conjurer-of-the-dark-arts-2-sigil-of-solael-4-20-crucible-gladiator-150-170-shard-36-celestials-immortal-vitality-caster-conjurer/150076)
+[SR30-31, x5 runs by banana](https://youtu.be/HqoFNJr8v20)
+[Ravager 38 seconds kill](https://www.youtube.com/watch?v=pohI-Rx17Es)
+[Callagadra 45 seconds kill](https://www.youtube.com/watch?v=rulFfAm6ay0)
+Latest patch introduced brand new playstyle - spam sigils, which proven to be extremely potent on the right platform, and such one of the leechiest builds in the history of Grim Dawn - Dark One - is reborn just in time for this top20. Can facetank the world but only once you deploy all your leeching/healing magic. At the start of the patch it felt like a top1 build by such a large margin that we even reported it and didn't want to include in the ranking at first, but the progress of the testing had another say in that. Superb damage and tank ceiling of vitality sigil spam are offset by low QoL and very high setup/ramp-up time. You can increase QoL by playing as a Sentinel but you trade some damage for it.
+https://youtu.be/AtmhIHpXz44?si=YpeY6_pNtAccEmiS
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#0FFFC3]16. Uroboruuk Spellbinder[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![20. Uroboruuk Spellbinder|591x372](upload://oA7Gcfo8RJ1aVqCf6sAtkGBY78Y.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/nZoelRd2)</div>
+
+[SR30-31, x5 runs by roman](https://youtu.be/onGMCH9-upQ)
+[Ravager 58 seconds kill](https://www.youtube.com/watch?v=GLvTV4KpDzA)
+The biggest beneficiary of the buffed Drain Essence. The easiest to play spam skill in the game, that also has very high leech, unlocks something special in this uniquely layered defensive class. The build has great dmg, great tank and good QoL. Why isn't it higher in the list? It just exposes how handicapped in terms of farming are the builds without an extra movement skill. 
+https://youtu.be/QUcAPHBKOmk?si=yL5B_t-8im1DF0aK
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#FF9137]17. Embercalling Sentinel[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![21. Fire DEE sent|591x372](upload://dZhWFLUCHsKsA5a3xdHsL8JVAur.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :3rd_place_medal: by GD中山狼 [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/O2G8Q7GV)</div>
+
+[SR30-31, x5 runs by nofika](https://youtu.be/YfZQSrRdNFQ)
+Fire Dreeg's Evil Eye receives a wooping 20%*28% total damage modifier. With high global crit from Divine Mandate on top of the in-built crit on DEE, OA is very valuable here and gives DEE quite some punch. High DA and leech during Bloodthirster helps us stand our ground until the danger is exterminated, with Serenity proc to fall back on in worst scenarios.
+AoE is limited to DEE splash radius and the build plays a bit similar to a melee build. Due to good damage and Oathkeeper's high mobility it's a very fast farmer in SR.
+https://youtu.be/2sskkG6MDo4?si=CcUUR4I60vXmG3ki
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#9079E4]18. Nightbringer Archon[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![22. Player based vitality archon|591x372](upload://gbAeS1kMIN78JzUmXemHLNSw4GI.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :3rd_place_medal: by @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/RZR69EKZ)</div>
+
+[SR30-31, x5 runs by banana](https://youtu.be/vHWkuS3-POk)
+[Ravager 53 seconds kill](https://www.youtube.com/watch?v=R5iXbsfUZDw)
+[Callagadra 56 seconds kill (closer to 100% with some kiting)](https://www.youtube.com/watch?v=jraJzBamoYU)
+Embracing the theme of the game, this oddity is built mainly of scrap metal and it somehow works very well. You need a Nightbringer and a dream of having a pet build where the caster is not a punching bag. The main dmg is done by Devils and Guardians stacking dots with the help of devotion procs. Acid Purge is more of a procer but also does dmg and helps with sustain.
+https://youtu.be/PJA20JUHfdA?si=IzIx6EuSyx-WbJWZ
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#36E4A1]19. Aether PB Reaper[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![23. Aether PB reaper|591x372](upload://dvbf478fKepbnQfjErbRFJsyQXr.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF]by @nofika4u [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/Q2z9XLLN)</div>
+
+[SR30-31, x5 runs by roman](https://youtu.be/t52Yk_nXuX8)
+[Callagadra 38 seconds kill (75% success rate)](https://www.youtube.com/watch?v=j23wCR6xsdY)
+With recent buffs to Phantasmal Blades this aether Reaper makes its return to our list. As always, the piloting tax is high and requires the pilot to enter enemies hitboxes using the movement rune or evade to make all the blades hit our target.
+Mastering the playstyle makes very quick work of single enemies and even Celestials drop as if they were some lowly nemesis. Defenses are decent, and with Ghoul to fall back on it should handle most situations.
+https://youtu.be/M32YeW23lOI?si=csp2VilM-t5uDK0d
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#1258E4]20. Cold Morgoneth Reaper[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![24. Morgo cold AA reaper|591x372](upload://ysKtbTvaNmLAKSQFkyVhHkwJcUm.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF]by @nofika4u [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/a2ERjdmV)</div>
+
+[SR30-31, x5 runs by mad_lee](https://youtu.be/jlqwUPnvCDo)
+[Callagadra 52 seconds kill (60% success rate)](https://www.youtube.com/watch?v=ksgOjbXrTFc)
+Melee builds have fallen from prior glory and require a lot of defenses to work in todays meta game. A high HP pool to tank almost any hit, converted wendigo and high leech from Haunted Steel to quickly recover from big damage spikes get this one over the line.
+Stacked Ill Omen helps us clear trash mobs and avoid getting stuck with multiple debuffs. Offensively, the strong MI weapons and overall class-synergy helps this Reaper clear at a good pace.
+https://youtu.be/sJoeisau-sk?si=n6rLnOD_ptjdxx28
+
+_____
+</details>
+
+<k><details><summary>[size=170][color=#3AE4D6]21. Clairvoyant Spellbinder[/color][/size]</summary>
+____
+
+<k><div align='center'>
+![25. Clairvoyant spellbinder|591x372](upload://cueXQbebMBdzotSnICQhPqkesa4.jpeg)
+</div>
+
+<k><div align='right'><k>[color=#DA5FFF] :2nd_place_medal: by @banana_peel [/color]</div>
+
+<k><div align='center'>[ **<< GRIMTOOLS >>** ](https://www.grimtools.com/calc/YZeXeJEV)</div>
+
+[SR30-31, x5 runs by nofika](https://youtu.be/8iH03RZp0yQ)
+[Ravager 59 seconds kill](https://www.youtube.com/watch?v=BI95ZTUejl8)
+You're seeing it right, we have 21 builds here. Just couldn't leave this one behind as it was extremely close in power to the last few we have featured. Joining the team of aether Spellbinders, another channeler. Clair waited long enough to be called top. And it still doesn't use half of its proficiency, but that's an issue for another day. AAR is finally in a good place, and Clair Binder is the best way to play it. Compared to DE, you have to worry about lining the erratic enemies up, but you have some good range and a snappier start as a compensation.
+https://youtu.be/nOqjlneDiF8?si=qRm5ErjG4d_aFuKW
+_____
+</details>
+
+____
+We didn't know whether we would post before the expansion, but the idea of the last hooray for Forgotten Gods era was too tempting to miss. Balance is very tight and unfortunately there isn't an endgame activity to really flash out how diverse buildmaking can be (everyone is really sick of SR). Hopefully this is going to change in Fangs of Asterkarn. See you then!
+___
+<k><div align='right'> **Writing:** grey-maybe, @mad_lee and @banana_peel 
+**Formatting:** grey-maybe
+**Tears:** Second Amendment Defenders
+**Entertainment:** Crate
+[size=55]Upd. 2026.03.04 [/size]
