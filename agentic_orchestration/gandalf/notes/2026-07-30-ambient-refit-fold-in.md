@@ -2374,3 +2374,46 @@ all five clips first shipped at 50 fps; half-speed concat emitted non-monotonic 
   0.96 m mirror point at 34.1°, not a tuning failure.
 - Remaining delegated gates: numeral grade · non-swipe VFX cores · parity grade (all in the
   cells ahead). **HUD-BUILD fires next.**
+
+---
+
+## SCOPE 39 — SKY-BEAMS RE-OPENED as CEILING-CRACK SLITS (Matt, 2026-08-01, pre-departure; supersedes the Scope-27 CLOSED state)
+
+Matt, verbatim: *"(A) Can you please tone down their glow/energy/opacity? (B) Can you please have
+the slats separated out so that the combined floor space they take up is about 2.5X and shorten
+their length? I want them to appear like slits of light shining through cracks in the crypt's
+ceiling."*
+
+**Intent (the design sentence that governs the numbers):** the shutter reads as an ARCHITECTURAL
+GRATE; Matt wants **broken masonry** — thin slits of daylight through cracks in a failing crypt
+ceiling. Every parameter below serves that image; where a number and the image disagree, the
+image governs and the cell reports the conflict.
+
+**Three measured asks:**
+- **A — energy/opacity DOWN.** Beam glow, shaft opacity, and the pool intensity that reads as
+  "glow" all come down. Graded ladder (e.g. 1.00× / 0.70× / 0.50× on `SKY_SHAFT_ENERGY` + the
+  opacity profile BEAM-V3 tuned), conductor picks interim under Scope 38, A/B preserved.
+- **B1 — SEPARATION: combined floor footprint ≈ 2.5× current.** Slats spread apart so their
+  collective span on the floor covers ~2.5× the area they now occupy. Measured against the
+  BEAM-PIN2/BEAM-V3 floor instruments (the pool/slat masks already exist).
+- **B2 — LENGTH: each slat SHORTER.** Individual slits shorten while the spread widens — the net
+  reads as scattered cracks, not a shutter. Cell derives per-slat length from the 2.5× spread +
+  the crack image; reports the resulting total lit area (it will FALL, which is correct — a
+  crack passes less light than a grate).
+
+**PRESERVE (non-negotiable, all Matt-verdicted or measured):** slat DIRECTION match (0.25°,
+Scope 27 #1 — separation must not re-introduce the disjoint) · **8/8 exit-top topology** (no
+visible beam end in CAM-LOCK) · the 40 m apex / wide-cone law (no tightening to a point in view)
+· pools bit-identical unless the cell proves a pool change is required, in which case it halts
+that sub-item · the WARMTH state (dust/fog/sheen) is inherited, not re-tuned.
+
+**Interaction flagged (conductor, F-W-1 composition):** the shaft is 62% of the room's cold
+budget. Toning it down ALSO warms the room — so R-BR-10's FULL dustwarm pick may over-warm once
+Scope 39 lands. **Ruling R-BR-12 (interim, veto-open):** after the beam tone-down measures, the
+cell re-reads the luminance-weighted warm split and, if warm luminance exceeds ~80%, steps the
+dust grade back to the mid rung (fog_warm 0.55) — the two scopes are graded TOGETHER, and both
+A/Bs reach Matt's return review. Warmth and cold are one composition, not two dials.
+
+**Sequencing:** single-writer holds — **HUD-BUILD is in flight**; BEAM-SLITS fires on its
+landing, BEFORE the restage (the restage must inherit verdicted beams). Queue: HUD-BUILD (in
+flight) → **BEAM-SLITS (Scope 39)** → LAP-2C RESTAGE (ANIM-PROBE at its head).
