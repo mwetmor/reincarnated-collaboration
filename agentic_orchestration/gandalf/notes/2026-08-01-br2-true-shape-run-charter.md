@@ -1323,3 +1323,139 @@ strike flash begins.
 - **G-13b — R-BR-46's first application.** The need-list completeness sweep, run against seed 74000909's
   full event vocabulary; every unmapped channel is a GAP or a declared invisible with a reason.
 - **Fallback:** if an arc cannot read at 23.0 px/m, say so and name what would.
+
+---
+
+## Addendum 12 (2026-08-01) — R-BR-46 fires immediately: the census of seed 74000909
+
+R-BR-46 was minted one addendum ago and applied at once, by the conductor, before cell 3b launched —
+an independent enumeration so that drax's G-13b sweep can be *checked* rather than trusted. Method:
+read the watch trace's own event vocabulary out of `boss__FULL__seed74000909.jsonl`
+(`replica-frame/v1`, engine `16fa7e8d`, 462 records).
+
+**Process note, recorded because it is the discipline working:** my first selector filtered on a
+`type` field, found **0 leech records**, and was one keystroke from reporting a clean negative. The
+discriminator is `event`, not `type`. The null-instrument tripwire (R-BR-34) caught it only because
+the census printed a non-zero subject count beside the filter. A selector that returns zero is not a
+finding until it has proven it has a subject.
+
+### The measured vocabulary
+
+| record_type | n | |
+|---|---|---|
+| `tick` | 361 | per-frame actor state |
+| `event: damage` | **57** | geometry {cone **21**, dot **21**, line **8**, circle 3, point 3, rect 1} · element {chaos **50**, cold 4, physical 3} · crit {false 55, **true 2**} |
+| `event: leech` | **29** | `healed` / `capacity` / `cum_healed` / `cum_capacity` / `source_hp_after` |
+| `event: telegraph` | 9 | 3 nova (star) · 3 wave (trapezoid) · 3 blizzard (circle) |
+| `event: death` | 3 | |
+
+**Who does what:**
+
+```
+ 21  player  cone   chaos        <- the claw          (NO ARC DRAWN)
+ 21  player  dot    chaos        <- the bleed
+  8  player  line   chaos        <- the line skill
+  3  boss    circle cold         <- the nova resolving
+  2  mob     point  physical     <- enemy basic swing (NOTHING DRAWN)
+  1  boss    point  physical     <- enemy basic swing (NOTHING DRAWN)
+  1  boss    rect   cold         <- the wave resolving
+```
+
+### F-BR2-L1 — LIFE LEECH: 29 events, the kit's sustain pivot, drawn nowhere
+
+Charter §14.16 ruled *"sustain resolves by measurement: pivot is **LIFE LEECH**."* Matt's own ruling.
+It is a **first-class event type** with a full field set, it fires **29 times**, and it appears in no
+need row of any cell in this run.
+
+What it does in this fight, measured:
+
+```
+player HP:  max 759.0  ->  min 496.8 (65%)  ->  final 686.1 (90%)
+leech:      23 realized, 6 wasted at full HP;  362.8 healed of 616.1 capacity (59% realization)
+```
+
+**The player falls to 65% and climbs back to 90% by hitting things.** That recovery is the entire
+second act of the fight and it is invisible — the HP number simply goes back up. `healed` vs
+`capacity` is a real and interesting distinction (leech wasted at full health is the player's sustain
+headroom); the trace models it and nothing consumes it.
+
+**Genre placement, for the form:** Diablo II left leech to be read off the globe; Diablo III added a
+per-hit tick on the health orb; PoE animates leech as a fill on the life bar with instant-leech
+flashes; Last Epoch shimmers the bar. The convention is unanimous — **leech reads on the resource
+bar, not in the world.** But at 23.0 px/m in a watch MP4 a bar shimmer may not survive the encode.
+**Ruled (reasoning-boundary, veto-open):** both surfaces. HP-bar behaviour in **cell 4** (it belongs
+to Scope 42 with the rest of the resource read), plus a faint warm body pulse on the player in
+**cell 3b** scaled to `healed`, so the recovery is legible at watch scale. When `healed == 0` and
+`capacity > 0`, draw **nothing** — a wasted leech is information, not a beat.
+
+### F-BR2-C1 — the fight's only two crits are on the undrawn swing
+
+```
+tick 211  t=21.10s  cone  chaos  amt 257.4  x1.5   player
+tick 217  t=21.70s  cone  chaos  amt 367.7  x1.5   player   (leech realizes on both; twice at 217)
+```
+
+Crit RED numerals are a verdicted feature (S-5). **Both crits in the entire fight are player cone
+events** — that is, both land on the one beat with no arc. The largest hit of the fight (367.7, more
+than double any other) is currently a number appearing beside a werewolf standing still.
+
+Two consequences, both binding:
+1. This is the strongest possible argument for cell 3b's priority. The arc is not polish; it is the
+   carrier of the fight's two dramatic peaks.
+2. **G-8 constraint for cell 5:** the watch cut MUST contain ticks 211–217 or crit RED is unproven on
+   this seed. Pinned here so the cut cannot be chosen without it. (This is what R-BR-4 fight-selection
+   should have surfaced at charter time and did not.)
+
+### F-BR2-G2 — enemy basic attacks are drawn nowhere either
+
+Three `point`/`physical`/`skill_idx=0` events (ticks 201, 205, 221) — a mob and the boss landing
+ordinary swings on the player for 20–23 damage. No telegraph, no VFX, no row in any need list. The
+missing-arc defect is **symmetric**: neither side's ordinary attack has ever been drawn. Folded into
+cell 3b's scope, at lower fidelity than the player's (the player's swing carries the crits).
+
+### F-BR2-G1 — the wave is a `trapezoid` in the telegraph and a `rect` in the damage event
+
+Tick 230, boss, cold, 74.2, `geometry: rect` — the wave resolving. Its telegraph declares
+`shape: trapezoid`. **Named, not diagnosed.** The benign reading is that the two fields describe
+different things (danger footprint vs. resolution geometry). The other reading is the sixth instance
+of this run's signature defect class — one field carrying two quantities. Probe assigned to cell 3b's
+G-13b sweep; if it is a real mismatch it goes to BR-3 with the geometry work, not into this run.
+
+### F-BR2-T1 — 9 telegraphs, 7 enemy damage events
+
+Two telegraphs resolve to no damage at all. If the player dodged them, that is **readable player
+skill and the best possible advertisement for the telegraph work of cells 1d/2/2b** — and cell 5
+should find it. If the resolution is simply missing, it is a substrate gap. Determine which; do not
+assume the flattering one.
+
+### F-BR2-A1 — `attack_id` is null on 53 of 57 damage events
+
+Telegraphs carry it 9/9; damage events carry it 4/57. Any animation keying that assumes `attack_id`
+on damage is building on a 7%-populated field. **`skill_idx` is present on 66 of 66** offensive events
+and is the correct key. Recorded against the Lap-2 rider ambitions.
+
+### Amendments to cell 3b — SLASH-ARC-1
+
+Scope now: (1) the player's cone arc, 21 events, four-beat completion; (2) the leech body pulse per
+F-BR2-L1; (3) enemy basic-swing arcs, 3 events, lower fidelity. Gates G-14a/b/c stand, plus:
+
+- **G-14d — leech legibility.** The player pulse is present on frame for ≥90% of the 23 *realized*
+  leech events and absent on all 6 wasted ones, measured on the framemap at the unmoved pixel bar.
+- **G-13b (amended).** The sweep's reference denominator is **this census**, verbatim: every one of
+  the 5 record types, 6 damage geometries, 3 elements and 3 telegraph families maps to a drawn need or
+  to an explicitly declared invisible **with a stated reason**. The list above is the bar; drax's
+  independently derived list must reproduce it, and any divergence is itself a finding.
+
+### R-BR-47 — presentation priority follows the substrate's distribution, not the drama we assumed
+
+**Fifty of fifty-seven damage events in this fight belong to the player.** Four cells of this run have
+authored the boss's danger — telegraph shapes, wind-ups, wards, shells, clip laws — and the player's
+entire offensive and sustain output is a hand-glow and a rising number. That is not a taste
+disagreement; it is a measurable inversion between where the substrate puts the fight and where the
+run put its labour. The fight the trace describes is an ascendant-arc fight: the player deals 88% of
+everything, falls to 65%, crits twice at the climax, and heals himself back to 90% by hitting things.
+That is the genre's core power-fantasy beat — Slime, Solo Leveling, the Diablo-II sorceress finding
+her rhythm — and a watch that does not show it is showing the wrong story.
+
+Binding on future cells: before authoring presentation for an actor, count that actor's share of the
+substrate's events. Labour follows the count.
