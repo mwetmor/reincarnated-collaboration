@@ -2480,3 +2480,62 @@ killed the end card for 150 frames.
   animation window; the sin is not the pre-roll, it is pretending it came from the sim.
 
 **Queue:** BEAM-SLITS (Scope 39) fires now → LAP-2C RESTAGE (ANIM-PROBE at its head).
+
+---
+
+## LANDING — BEAM-SLITS ✓ (drax, 2026-08-01; godot `4f1a3ca` opened at `d2ec8c9` clean, note `drax/notes/2026-08-01-beam-slits.md`, meta `8a902a89`)
+
+**All three Scope-39 asks measured, not asserted:**
+- **B1 separation: 2.507×** achieved (convex hull of lit floor 57.432 → 144.011 m²) — and the
+  multiple **holds 2.22–2.59 across the entire threshold sweep**, so it is not a bar-placement
+  artefact. (Matt asked ~2.5×.)
+- **B2 length: 3.62 / 3.89 / 3.67 / 4.74 / 4.24 m** vs inherited 8.32 m built — **ranges do not
+  overlap; every slit is shorter than every slit it replaces.**
+- **Lit area 0.566×** (21.656 → 12.250 m²) — FELL, exactly as Scope 39 predicted a crack must.
+- **A energy ladder (paired grades — unpaired they break topology):** A1 0.080/0.14 → floor luma
+  32.8, p99 1.000×; A2 0.056/0.20 → 24.5, 0.752×; A3 0.040/0.28 → 18.4, **0.566×**. Cell states
+  plainly: **A1 is not a tone-down** (floor luma 0.99× the shutter's) — the ask lands at A2/A3.
+
+**PRESERVE checklist, re-measured item by item (not assumed):**
+- **Direction — HELD at −0.26°** with stagger peeled. The shipped arm's −1.46°/+17.93° is the
+  Radon instrument locking onto a SECOND apparent lattice the stagger creates. An initial
+  **+48.48° "disjoint" was a phantom** (clipping frame + a threshold tuned for 47%-open slats);
+  caught because the beam half never moved.
+- **8/8 exit-top — BROKE, then restored, and the break is the cell's best finding.** The old
+  shutter passed as ONE 346,683-px component; separated cracks resolve as **SIX**, four with
+  ends inside frame. **F-BS-2: the exit-top gate had only ever run on one topology** — it was
+  never testing what we thought. Fixed via slat `grad_floor` 0.06→0.14 at **no brightness cost**
+  (p99 35.16→35.24).
+- **40 m apex / wide cone — byte-identical.** **Pools — circle sha-identical**; the slat pool
+  changed BY THE ASK (clause read out loud rather than silently edited). **WARMTH inherited
+  exactly** (+9.110 / 71.4%). `--slitlegacy` renders byte-identical to pre-change;
+  `project.godot` sha no delta.
+
+**Coupled warm split (R-BR-12): 71.4 / 71.0 / 74.6 / 76.7% — DOES NOT TRIGGER** (~80% threshold
+pre-registered). A3 + mid-rung dust = 71.5%, within 0.1 pt of where WARMTH left the room —
+measured and available as the alternate pair.
+
+**F-BS-1 (flag for Matt's return):** **~80% of the "glow" Matt objected to was FOG lit by the
+sky lamp — and R-BR-10's own `--fogunlit` already removed it.** Part of ask A was discharged
+after he left, by a change he has not seen. His glow verdict on return should be taken against
+the CURRENT frame, not his memory of the old one.
+
+## R2 INTERIM RULING — R-BR-15 (beam grade; veto-open, ladder preserved)
+
+**SHIP A3 (0.040 / 0.28), dust stays FULL.** Reasoning: (1) Matt said *tone down*, not
+*slightly* — and A1 measures as no tone-down at all; A3 is the grade that makes the image true,
+since a crack in masonry passes markedly less light than an open grate. (2) The pre-registered
+R-BR-12 threshold (~80%) did NOT trigger at A3's 76.7%, and **the run does not move its own
+goalposts after seeing results** (standing safety §5.1) — so FULL dust stands, with the A3 +
+mid-rung pair (71.5%) preserved as the measured alternate for his eye. (3) Every PRESERVE item
+survived re-measurement, so the cheaper-looking A2 buys nothing the image wants.
+
+## SEQUENCING RULING — the restage SPLITS (conductor, Scope 38 authority)
+
+The restage was carrying discovery (which body? which clips?) INTO an integration cell. That is
+the mega-cell failure mode. Split, effective now:
+- **CELL: BODY-PROBE** — ANIM-PROBE + the R1/R3 body chain (Undead Knight → other on-disk
+  humanoid → werewolf floor) + full-cast parity scaling applied to whichever cast wins. Bounded,
+  decidable, ends in a body verdict + a probe beat.
+- **CELL: LAP-2C RESTAGE** — pure integration on the verdicted body: VFX beat table, SFX, JUICE,
+  HUD on at grade C/C′, 3.50 shadows, W-2 states, end card, seed 74000909.
