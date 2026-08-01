@@ -3291,3 +3291,242 @@ noted as evidence that the register is *findable*, which matters more than the i
 **Item C is CLOSED** (Matt supplied the artifact and the two amendments). Still open from his list:
 **A)** now reframed by F-PR-2 — the tells are drawing the wrong *shapes*, not the wrong sizes ·
 **F)** the register ruling (clutter + blood-persistence + the ceiling-less slits, one word).
+
+---
+
+## SCOPE 42-a — HUD AMENDMENT: slot fill + copy ruled (Matt, 2026-08-01)
+
+**Matt, verbatim:** *"Regarding the extra skill slots, we can add dodge (we do have this) and basic
+attack (we have it but don't use it) and potions (we have health and energy potions but we don't use
+them in the scene). Anything else, leave blank/open. we can remove too hot, page 12/400 and
+structure 2 and we can replace 'the treasure room' with 'Battle Simulation Arena'."*
+
+**This closes both open tensions from Scope 42 — and vetoes one of my leans. Recording it as a veto,
+not as an agreement.** I leaned LOCKED-not-empty (D3/PoE: *a locked slot promises, an empty slot
+indicts*). Matt ruled **blank/open**. Blank/open ships. The lean is logged as overruled and the
+argument does not get re-litigated at build time.
+
+### A-3 — the nine boxes, ruled
+
+| # | Bind | Trace referent | Status |
+|---|---|---|---|
+| 1 | **basic attack** | *(none — see ⚑)* | present, inert |
+| 2 | `feral_claws_r16` — cone 2.0 m | skill_idx 0, 21 dmg events | **live** |
+| 3 | `rip_and_tear_r16` — line 14.0 m | skill_idx 1, 8 dmg events | **live** |
+| 4 | **dodge** | *(none)* | present, inert |
+| 5 | **health potion** | *(none)* | present, inert |
+| 6 | **energy potion** | *(none)* | present, inert |
+| 7–9 | — | — | **blank/open** (Matt-ruled; not "locked") |
+
+Cooldown treatment: `skill_cooldowns` is a live per-frame array on the tick stream and drives boxes
+2–3 for real. Boxes 1/4/5/6 have no cooldown source — they render at rest.
+
+### A-4 — copy ruled
+
+- **REMOVE:** `TOO HOT` · `grimoire · page 12 of 400+` · `STRUCTURE II`.
+- **REPLACE:** `the treasure room` → **`Battle Simulation Arena`**.
+- Effect: the context line loses its unreferenced half and keeps a name that is *true* — this is a
+  battle simulation, in an arena, and calling it that is the opposite of importing another game's
+  fiction. It also quietly resolves the register question the mock posed: we are not pretending the
+  crypt is a dungeon crawl the player wandered into.
+- The mana orb's `41 MANA` still needs its ruling: our field is **`energy`**. Standing lean: label it
+  ENERGY. One word, and it stops the HUD from naming a stat we do not simulate.
+
+### ⚑ F-PR-3 — dodge, basic attack, and potions emit NOTHING into the replay trace
+
+Probed the trace directly rather than assuming. On `boss__FULL__seed74000909`-family traces:
+
+- Player header declares **exactly two skills**. There is no third, no basic-attack slot, no
+  consumable list.
+- Event vocabulary is **`damage` · `death` · `leech` · `telegraph`** and nothing else. **Zero**
+  dodge/dash/evade events. **Zero** potion/consumable events across the battery.
+- Per-frame entity stream carries `energy` and `skill_cooldowns` — but no consumable counts, no
+  dodge charge, no i-frame state.
+
+So four of the six filled boxes are **present-but-inert for this watch**: they will be on screen and
+they will never light up, because the sim never tells us they fired. That is not a reason to drop
+them — Matt ruled them in, and a HUD that shows the kit's *shape* is honest about the kit even when
+this particular trace doesn't exercise it. But it is a reason to **say it in the landing note rather
+than let a viewer infer the player never dodged.** The distinction that matters: the player did not
+*decline* to dodge; the trace has no grammar in which dodging could be recorded.
+
+**Queue row (engine seam):** dodge / basic attack / consumable use are player actions the engine
+performs and the replay schema cannot express. Same family as census rec #9 (`icearmor` casts with
+no cast event) and #10 (`commit_state` idle during signature casts) — **the trace records what was
+suffered far better than what was chosen.**
+
+### ⚑ F-PR-4 — the `leech` channel is live, and reports zero
+
+25 `leech` events per fight, well-formed: `healed`, `capacity`, `cum_healed`, `cum_capacity`,
+`source_hp_after`. Every one reads **`healed: 0.0`** against a real `capacity: 42.3`. This is the
+adapter-discards-by-design behaviour banked at `2dc8f0cf` (R-KC1-17 → O-d). Presentation
+consequence, stated before anyone builds it: **a life-leech VFX bound to this channel would fire 25
+times and depict nothing.** Bind it to `capacity` and it lies; bind it to `healed` and it is
+invisible. **Ruling R-BR-25: leech gets NO presentation until the adapter stops discarding.** An
+honest absence beats a beautiful falsehood.
+
+
+---
+
+## SCOPE 43 — THE DESCRIPTOR CENSUS: Matt was right, and the nova was the small half
+
+**Commissioned:** gandalf → legolas (Mode A), 2026-08-01, on Matt's prompt: *"look at the actual JSON
+packet? We should have TONS of descriptive details and geometric facts that we may not be
+implementing."* **Returned:** `agentic_orchestration/legolas/research/2026-08-01-trace-descriptor-census.md`
+— 4,073 old-battery traces + 200 current-generation traces + 15 upstream `.arz` records.
+
+**Why I commissioned it instead of answering from F-PR-2:** I had hand-censused exactly ONE trace and
+found the 16-prong star. A finding that large from a sample of one is a finding you do not trust. The
+brief I gave was *"what else does the substrate already know that presentation is throwing away — do
+not trust my sample."* The battery answer is that my sample was the **small** half.
+
+### 43.1 — The headline: the blizzard loses more than the nova ever did
+
+| | What we render | What the substrate holds |
+|---|---|---|
+| **Nova** | expanding circle | 16 prongs, 22.5° apart, 14 m/s, 0.857 s flight, per-cast phase offset |
+| **Wave** | static circle | **a 3.0 → 6.0 m lane SWEEPING to 16 m at 11.4 m/s over 1.4 s** |
+| **Blizzard** | one static circle, r 8.0 | **24 orbs, 4 volleys 2.0 s apart, falling from 20 m at 24 m/s across an 8.0 s window** |
+
+The blizzard is **9× the nova's duration** and reads on screen as *the same thing*. That is the
+single largest presentation lie in the scene, and it has been there since the first watch.
+
+**And the 24 drops are already individually addressed in the trace** — encoded inside the
+`attack_id` string as `…:blizzard:<cast 0-n>:<volley 0-3>:<drop 0-5>`, verified across the battery.
+**No schema change is required to render 24 falling orbs today.** It requires a string split. That is
+the cheapest large win available anywhere in this run's surface.
+
+### 43.2 — ⚑ The blizzard's `wind_up_s` is not a wind-up, and we have been drawing the wrong tell
+
+`wind_up_s = 0.8333` on every blizzard telegraph. It is not a charge-up. It is
+`dropHeight / velocity` = `20.0 / 24.0` — **the fall time of an orb** — sitting in the wind-up field
+because the source record has **no cast animation for this skill at all** (`skillSpecialAnimationName`
+absent, confirmed on a 726-field dump).
+
+**Presentation consequence:** a caster-centred charge-up glow held for 0.83 s renders a thing that
+does not happen. **The tell IS the descent.** The player is supposed to look UP, see six orbs
+falling, and move — the danger is announced by the projectile itself, which is a different and older
+grammar than the wind-up glow (Diablo II's Blizzard, PoE's Ice Nova of Frostbolts, Last Epoch's
+Avalanche all announce by descent). **Ruling R-BR-26: the blizzard's tell is the falling orb, not a
+ground glow. `wind_up_s` on the blizzard family must NOT be consumed as a wind-up.**
+
+This is the second time in two days that a field name has lied about its contents. See next.
+
+### 43.3 — ⚑ `header…skills[].range_m` is the AI trigger distance. 0/1,556 extent agreement.
+
+Verified against source on 3 of 3 slots, **exactly**: nova 10.0 = `mediumRangeMax`; wave 9.0 =
+`moderateRange`; blizzard 15.0 = `longRange`. It is how close the boss must be to *decide to cast*.
+It has **never** been the extent of anything.
+
+- **Extent agreement between header and telegraph: 0.0 %.** (1,556 / 1,556 disagree.)
+- **Shape agreement: 66.8 %** — the wave's 516 records say header `cone` vs telegraph `rect`. A
+  consumer trusting the header draws an **unbounded wedge** where the truth is a bounded 16 m lane.
+- Present since the OLD schema too: 805 `primordian_frigidring_r4` records show the same 10.0-vs-12.0
+  disagreement. This is not new drift; it is an old field-name collision we only now have the
+  instrument to see.
+
+**Ruling R-BR-27 (standing law):** *telegraph events are the sole authority for danger-zone geometry;
+`header.entities[].skills[].range_m` is AI fire range and must never be rendered.* Recommend the
+engine seam rename it `fire_range_m`. This retroactively vindicates the render-from-the-event
+instinct — it is now **evidenced**, not assumed.
+
+### 43.4 — ⚑ `commit_state` reads `idle` while the boss casts. This is R-BR-14's defect, larger.
+
+R-BR-14 banked that `commit_skill_idx` is −1 on 361/361 ticks of the watched trace. The census shows
+why and how far it goes: the 4-phase state machine `idle/windup/strike/recovery` is **boss-only and
+skill-0-only**. During a nova, a wave, or a blizzard the boss's entity row reads **`commit_state:
+"idle"`**.
+
+So the two instruments contradict each other: the telegraph event says *a cast is happening*, the
+per-frame stream says *the boss is doing nothing*. **Animation cannot be driven from the entity
+stream for any AoE** — which is precisely why every cast in every watch so far has been a boss
+standing still while the floor lights up. It was never a rigging problem. Engine-seam queue row.
+
+### 43.5 — What Matt predicted, found: `FileDescription` is human-authored intent, one line per skill
+
+- `primordian_frigidring` → **"Freeze projectile ring"**
+- `primordian_wave` → **"large cone wave with cold and poison dot"**
+- `chillbane_blizzard` → **"ice projectiles from air doing cold and slow"**
+
+A designer, in the source, telling us what the ability *is*. Nothing in our pipeline reads it. This
+is the literal "TONS of descriptive details" Matt said would be there — he was right, and the field
+that carries it is one string wide.
+
+Also unread and free: **`cameraShakeAmplitude 0.12` on all three offensive skills**, plus
+`cameraShakeDurationSecs 1.0` on the wave. We currently have **zero camera feedback anywhere in the
+scene**, and the source is holding the numbers.
+
+### 43.6 — The nova's falloff runs BACKWARD, and a uniform ring misinforms
+
+Distance bands: `[0, 2.5) ×0.50` · `[2.5, 9) ×1.00` · `[9, 12] ×1.40`. **The star is 2.8× more
+dangerous at its rim than at its centre, with a 2× cliff at 2.5 m.**
+
+That is a genuinely interesting piece of design — the correct play is to run *toward* the boss, not
+away — and our uniform-intensity ring teaches the player the exact opposite. This is the one item on
+the census list that is not a fidelity improvement but a **legibility bug**: we are actively
+misinforming. Presentation answer: intensity ramps outward, hot rim, cool core. **Ruling R-BR-28.**
+
+### 43.7 — ⚑ Do NOT surface `opposition_roster.label`. It collides with M-3.
+
+Census rec #11 proposes promoting the sidecar display name into the entity header so the nameplate
+reads **"Primordian, the Forgotten One"** instead of `boss&quest_slith_wightmirecave01_0`.
+
+**That name is Grim Dawn's.** Scope 40's M-3 exists precisely to keep vendor fiction off our screen.
+Adopting rec #11 as written would import the thing M-3 was written to remove — *by way of a fidelity
+improvement*, which is how this class of leak always arrives.
+
+**Ruling R-BR-29:** promote the **`tier`** field (`boss` / `elite` — real, ours to use, and it drives
+nameplate framing) and the **join key**; the **`label` is consumed as an input to OUR naming table,
+never rendered.** The plumbing is right, the payload is not.
+
+### 43.8 — The work, sorted by what it costs us
+
+**(0) Renderable TODAY, no engine change, no schema change:**
+- 24 blizzard orbs via `attack_id` string split (43.1)
+- 16 nova prongs at 22.5°, phase from `spoke_offset_rad` (F-PR-2 / R-BR-24)
+- wave as an oriented **rect** 16.0 × 6.0 at `orientation_rad`, not a cone (43.3)
+- the **`ailments`** channel — a complete per-frame status stream with countdowns and elements
+  (`wr3_icearmor` 7,200 frames, `bleed` 10,913, `action_lock` 989, slow, damage-debuff). This is a
+  finished buff/debuff VFX layer waiting for a consumer, and it is the single most under-consumed
+  thing in the trace.
+- `ai_state` `alert` (358 frames) — a real pre-aggro beat, stageable
+- reverse falloff on the nova ring (43.6)
+
+**(1) Two floats and one int in the engine — fields ALREADY EXIST and are null:**
+`projectile_velocity_ms` on wave (11.4286) and blizzard (24.0); `prong_count` on blizzard (6).
+**This is a fill, not a schema change**, and it is what makes the wave *sweep* and the blizzard
+*fall*. Highest ratio on the board.
+
+**(2) Schema additions (engine seam, queued not blocking):** `duration_s` on the telegraph (nova
+0.857 / wave 1.4 / **blizzard 8.0** — a renderer currently cannot know how long to hold a danger
+zone); `stage_count` + `stage_interval_s`; promoted `attack_id` sub-fields; `skills[].element`
+(0/1,800 populated while damage events are 100 %); `FileDescription`; camera-shake pair; a cast event
+for `icearmor`; `commit_state` for skills 1–3 (43.4); nova distance bands; `wave.start_width_m`.
+
+**(3) Static bake-time table, NOT the event stream:** the `.pfx` / `.msh` / `.tex` names. The census
+is right to refuse these — they name assets we do not possess and **cannot acquire from the current
+pin** (only `Text_EN.arc` ships; no asset archives). What we *can* read is how the effect is coloured
+and faded — `swordfrost_fxtrail` is fully specified (additive trail shader, 400 ms fade, white,
+shrink 2.0). That is a **recipe**, and a recipe is more portable than an asset. It belongs in a
+skill→VFX mapping table keyed on skill name, read at bake.
+
+### 43.9 — What this does to Matt's item A
+
+Item A asked whether VFX sizing is pinned to the floor geometry. Two answers now stand above it:
+
+1. **F-PR-2:** three of four tells draw the wrong *shape*.
+2. **43.3:** the number a naive consumer would size *from* is the wrong number entirely — it is the
+   AI's trigger distance, and it disagrees with reality 100 % of the time.
+
+So item A's premise — *"the geometrical area listed is accurate, I assume"* — is **half true**: the
+telegraph's geometry is accurate and load-bearing; the header's is a different quantity wearing a
+similar name. Sizing was never the first problem. **A) resolves as: render from the telegraph event,
+draw the true shape, and the sizing question dissolves** — there is nothing left to reconcile once
+both instruments are the same instrument.
+
+**Clean negatives worth banking** (absence of evidence, established): `half_angle_rad` is 0/15,421
+non-null — **no true cone has ever been telegraphed**, by anything, ever. `melee` is a declared family
+that has never been emitted. `boss_focus_entity_id`, `threat_tier`, and five damage-expectation
+fields are always null. One fixture only — this is *this boss never casts them*, not *the engine
+cannot*.
+
