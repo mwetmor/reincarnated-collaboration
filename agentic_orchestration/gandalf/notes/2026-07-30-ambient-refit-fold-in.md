@@ -2136,3 +2136,34 @@ HUD-BUILD (the readability-register cell). Deliverable: graded A/B in motion (e.
 0.85× / 0.70×) so "a bit" is his pick, not a guess; crit RED distinctness must SURVIVE the
 shrink (the crit pop is verdicted — smaller may not mean weaker). Composition-rule lineage
 (G-8 §14.17 numeral pin) carries: re-verify the pin at the chosen size.
+
+---
+
+## LANDING — ARSENAL-HARVEST ✓ (drax, 2026-08-01; godot `d508f23`+`5c76d84`+`88a29a9`, opened at `42e9caf` clean; note `drax/notes/2026-08-01-arsenal-harvest.md`, meta `9b6e8f2a`)
+
+**Census: 33 effects / 119 emitters / 13 meshes / 8 textures ported.** Both Matt-named misses
+covered BY NAME: Ground Slam ×4 + nine Nova types + LightningWave (14 — the AoR-Ultimate hole)
+and 17 Melee & Sword (the swipe hole) + 2 bonus. Principled skips: ~60 colour siblings
+(gradient-only diffs), **39 travel-bearing effects refused under R-BR-3** (no invented projectile
+flight), 20 spike variants, aura/curse/gore families queued, C# scripts not ported. Unmapped
+honestly named: SubModule ×12 across 8 effects REFUSED not faked; partials per-emitter
+(limitVelocity ×84, renderer ×27, Trail ×21, etc.).
+
+**Gates: config+live 33/33 · pixel 33/33** vs in-run empty-stage control. Honest asterisk:
+three trail-class effects pass on 7–232 lit pixels — Unity ribbons need a MOVING host; static
+stage proves nothing (F-AH-2, unpaid — the restage's moving werewolf is the natural payer).
+Four self-caught instrument defects (stale minScalar, discarded −90° root rotation, phantom
+mesh translation 0.579 m, m_RenderMode:5 read wrong twice) — **orientation settled against the
+pack's own demo scene, not the eye.** The arm's 1.7× `big` multiplier REFUSED for this pack
+(would inflate a 4.65 m shockwave to 42% of frame height). Ground-Slam faintness measured as a
+REGISTER fact at 34.8 m (dead-centre at (0.448,0.563)), not a framing fault.
+
+**Findings routed:** F-AH-1 SubModule support (largest gap, buildable) · F-AH-2 trail-on-
+moving-host (pays in restage) · F-AH-3 `--import` strips `[rendering]` AGAIN — standing guard
+row · F-AH-6 **ffmpeg emits corrupt H.264 and exits 0** — standing clip-gate row: decode-verify
+every deliverable clip henceforth (this cell did).
+
+**Review surfaces (M-EYE):** `tmp/arsenalharvest/clips/ARSENAL_BEATS_halfspeed.mp4` (watch
+first — six labelled beats, both arms, half speed) · `ARSENAL_REGISTER_SIDEBYSIDE_NOHUD_CAMLOCK.mp4`
+· `ARSENAL_D_SOLO_NOHUD_CAMLOCK.mp4`. No self-verdict; Matt's interim "Arsenal much better"
+(Scope 34) already on record. **WARMTH cell fires next** (Scopes 31+32).
