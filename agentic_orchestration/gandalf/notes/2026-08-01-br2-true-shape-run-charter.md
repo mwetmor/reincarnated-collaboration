@@ -467,3 +467,83 @@ R-BR-24's principle, stated generally: **we render what the sim does, not what t
 Probe sent to gamora. Cell 2's brief carries the uniform rect until it answers.
 
 **Cell 2 opens when ARSENAL-2 (1c) lands.**
+
+---
+
+## ADDENDUM 4 — the probe answered (a); cell 1d inserted, and generalized (conductor, 2026-08-01)
+
+### The answer: the simulation TAPERS. `start_width_m` is on the damage path.
+
+`gd_boss_kit.py:645` — `(start_width_m + (end_width_m − start_width_m) · u / distance_m) · 0.5` —
+read by the lateral test at `:680`, reached from `wave_hits` `:860`. **A linearly tapering lane,
+evaluated per-target at that target's own along-axis position.**
+
+`full_width(u) = 3.0 + 0.1875·u`, reaching 6.0 **only at u = 16.0 m — the lane's terminal point.**
+Overstatement of the drawn uniform 6.0: **2.00× at u=0 · 1.78× at u=2 · 1.33× at u=8 · 1.00× only at
+16.** The area figure (96 vs 72 m², 1.33× overall) *understates* the problem, because the error is
+**front-loaded onto the dodge band** — worst everywhere the player stands, zero only where he never
+is. And the resolver adds `target_radius_m` to the *target*, not the lane, so the shape to draw is
+the bare trapezoid.
+
+**Routing: (a) — presentation gap. The taper is what the sim resolves; the trace under-describes it.**
+
+⚑ **And the null-instrument tripwire produced a genuinely informative zero.** `_gd_wave_half_width_m`
+— the alias `spatial_engine.py:717` imports — has **1 reference and 0 call-sites**, while the
+identical selector shape returns 3 on the unaliased helper and 2 on `wave_hits`. An unused import
+that *reads like a dropped taper and isn't one*. The selector proved it could find call sites before
+it was allowed to report none. That is the discipline working exactly as designed, on a question
+where the wrong answer would have sent this run down a false path.
+
+### ⚑ THE PROBE'S REAL LESSON — I asked about one skill and should have asked about all three
+
+I asked: *does the sim taper the wave?* The answer was yes. But the **question generalizes**, and the
+generalized version is much larger:
+
+**For each family, does the drawn shape match the predicate the resolver actually evaluates?**
+
+The census already tells us it may not, in a place that matters more than the wave:
+
+- **NOVA** — §3d lists a **prong corridor half-width of 0.42 m** and a splash radius of 1.5 m. If the
+  resolver tests *sixteen 0.84 m corridors* rather than a 12 m disc, then **the gaps between the
+  prongs are SAFE**, and every frame we have ever rendered has told the player the opposite. That is
+  not a fidelity nicety — it is the difference between "run out" and "stand in a gap," and it is a
+  bigger legibility error than the wave's.
+- **NOVA distance bands** — ×0.50 / ×1.00 / ×1.40 (R-BR-28, already ruled) belong to the same
+  predicate.
+- **BLIZZARD** — `hit_radius_m` 1.32 within an 8.0 m scatter: already emitted by cell 1b.
+
+So cell 1d is chartered as the **general** form, not the one-field patch.
+
+### Cell 1d — RESOLVE-TRUTH-1 (gamora, engine): *the telegraph describes the resolver's predicate*
+
+**Scope, bounded hard:** for the three telegraphing families, audit the actual damage-resolution
+hit-test and emit exactly the fields required to reconstruct that predicate from the telegraph alone.
+Wave: `start_width_m`. Nova: whatever the corridor/splash/band test actually reads. Blizzard: confirm
+cell 1b's fields close it. **Nothing outside those three predicates.** Discoveries beyond → BR-3.
+
+⚑ **`shape` must stop lying, and this is the cheapest moment it will ever be.** The wave's `shape`
+reads `rect` and the resolver evaluates a trapezoid. We have now found a field carrying the wrong
+quantity **four times** — `range_m`, `wind_up_s`, `duration_s`, and now `shape`. **Ship
+`shape: "trapezoid"`** unless there is a strong argument against, and make the argument if so. The
+only consumer is a renderer being written this week; there will never be a cheaper time to correct
+an enum.
+
+**Pre-registered gates:**
+- **G-1f — emission purity**, three-limb standard, as cells 1 and 1b. No fifth path.
+- **G-1g — coverage as counts**, with null counts and `absent_key` as their own evidence.
+- **G-1h — PREDICATE RECONSTRUCTION.** *An independent function that consumes ONLY telegraph fields
+  must reproduce hit/no-hit against the trace's own recorded damage events on **100 %** of resolvable
+  cases, per family, with the denominator stated.* This is the gate that makes "the telegraph
+  describes the resolver" a checkable fact rather than a hope. It is also the strongest gate this run
+  has written, and it is the one to fight for.
+- **Fallback:** if reconstruction cannot reach 100 %, emit what *is* provable, state the residual
+  fraction and its cause, and the renderer draws only the reconstructible part. **A named residual is
+  a finding; a rounded-up "verified" is the rubric-law failure that killed KIT-FIDELITY.**
+
+**G-2a and G-2b are amended on landing** to whatever the resolver turns out to test. If the nova's
+predicate is corridors, the T-1 target-state changes with it — and that change is a *finding
+propagating correctly*, not scope drift, because the intent sentence was always *render the fight the
+substrate has been describing*.
+
+Cell 1d runs in the engine, parallel-safe with ARSENAL-2 in godot (same contention rules as 1b/1c).
+**Cell 2 opens when 1c and 1d have both landed.**
