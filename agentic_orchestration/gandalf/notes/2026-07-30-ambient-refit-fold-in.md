@@ -1961,3 +1961,40 @@ vocalizations incl. dormant→alert bark (monsters_creatures/dragon), crypt ambi
 (AMBIENCE/Ultimate_Game_Ambient), footsteps. License check per pack from `_licenses` before any
 clip ships in a watch. Event hooks already exist — the same trace events that key VFX
 (damage/telegraph/decision/alive→false) key SFX; one mapping table, two payloads.
+
+---
+
+## LANDING — BEAM-V3 ✓ (drax, 2026-08-01; godot `42e9caf`, note `drax/notes/2026-07-31-beam-v3.md`, meta `7ddff6be`) — Scope 27 all four measures + shadow A/B
+
+**The slat disjoint was ONE SIGN** — `sky_mask_sign.y = (1,-1)`: Godot's spot projector inverts
+V relative to `sky_shaft.gdshader:536`'s own reconstruction, mirroring bar angle about the
+lamp's u axis (floor +θ, volume −θ). Quadrant sweep decisive: `(1,-1)` → **0.103 m** vs 4.118 m
+shipped. Sun never implicated (0.000000° both sides); mirror line −43.5° = the lamp's u axis,
+unfitted. **Gate self-indictment banked:** G-26a's principal-extent grading REWARDED the mirror
+(spread further on a foreign axis) — the 100.00% slat pin was partly the defect flattering
+itself; corrected pin 77.04% (gain-matched control 77.33%), overlap 0.1332 → **0.3790** (the
+measure a mirror cannot flatter). BEAM-PIN2 §3's "superseded" topology census was the correct
+instrument a cell early — 6/8 FAIL was Matt's defect, on record, ungraded.
+
+**Four measures:** #1 direction 26.32° → **0.25°** · #2 transparency p99 0.594×, total 0.895×,
+profile alive at frame-top (0.00 → 12.21) · #3 topology **8/8 exit-top PASS** (was 7/8 visible-
+END FAIL) · #4 apex 15 m → **40 m**, clears frame-top by 21.53 m, 53.8% base width at the edge.
+Pools bit-identical (sha both windows). G-26a image clause retired per BEAM-PIN2's request.
+
+**Shadow A/B (R-BR-8 confirmation artifact):** 1.00→3.50 = shadowed area 1.49×, mean darkening
+1.56×, p99 1.68× — **strongly sub-linear**; motion-isolation method (median-of-peel static
+field), residual 0.86/0.93 vs 2.0 criterion. Default shipped UNCHANGED per cell charter; **3.50
+ships in the restage per R-BR-8.**
+
+**Findings routed:** F-BV-1 probe never set `unified_cosmology` (every probe frame since
+SHADOW-UNIFY carried a Key 51.53° off the one sun; beam numbers immune — unshaded + NOSKY;
+`--unified` flag added, default OFF) · SHADOW-UNIFY clause grades LOCAL basis vs WORLD vector
+(true only while no ancestor rotates; instrumented, its seam's line — queue row) · debts: fog
+fork carried (dims beam low — the direction Matt asked), two circle positions still raise total
+light, overlap/stripe gates python-side only, AGENT_STATE four cells behind, `tmp/vfxbakeoff/`
+~8 GB non-frame prune candidate (dir-level rm sandbox-denied; Matt's hand or file-level).
+
+**Review surfaces (M-EYE):** `tmp/beamv3/clips/BEAMV3_gradient_tilt_BEFORE_AFTER.mp4` (watch
+FIRST — before closes to a point mid-frame, after runs wide off the top) ·
+`BEAMV3_before_after_watch_NOHUD_CAMLOCK.mp4` · `SHADOW_AB_1.00_vs_3.50.mp4` ·
+plate `PLATE_direction_G27a.png`.
