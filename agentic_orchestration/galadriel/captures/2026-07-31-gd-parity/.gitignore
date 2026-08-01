@@ -1,0 +1,8 @@
+# Regenerable intermediates. Frames re-extract in seconds:
+#   ffmpeg -ss <t> -i /Users/admin/gd-scratch/play_test_2026-07-26.mp4 -frames:v 1 gd/frames/t<t>.png
+#   ffmpeg -i ~/Games/reincarnated-godot/tmp/vfxbakeoff/clips/VFXBO_legacy_full_NOHUD_CAMLOCK.mp4 \
+#          -vf fps=2 ours/frames/leg_%03d.png
+# GD screenshot corpus lives on /Volumes/reincarnated (not in-repo, not ours to vendor).
+gd/frames/
+ours/frames/
+work/
