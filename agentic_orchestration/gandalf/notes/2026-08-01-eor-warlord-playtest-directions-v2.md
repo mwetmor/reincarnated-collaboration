@@ -1,5 +1,14 @@
 # Eye of Reckoning Warlord — play-test directions **v2** (KIT-CAL-2 fixture capture + THE DENSE ROOM)
 
+> **⚠ SUPERSEDED 2026-08-01 by `2026-08-01-eor-warlord-playtest-directions-v3.md`** — Matt's
+> ENDGAME-FIRST premise ruling struck this doc's spine (no leveling run; the character exists at
+> L100 matched 100% to the build-of-record **including devotions**, so §2.4's devotion-ZERO rule is
+> dead and §§0/2/4/5's RF→Primordian→EoR-online structure is dead). v3 carries forward the
+> recording rules, the narration rules, the 10-hold probe, the werewolf referent, and **all of Part
+> II by reference** (§§ II.2–II.4 remain governing; v3 lists only the deltas). Windows are now SoT
+> deepest floor + 35 min Crucible/Gladiator; machine is PC. Do not play from this copy; the share
+> copy re-syncs from v3.
+
 **For:** Matt, at the GD machine · **Author:** gandalf (SPEC-AUTHOR), 2026-08-01
 **Supersedes:** `2026-07-28-eor-warlord-playtest-directions.md` (bannered; all its rules survive here
 unless struck) · **Build:** C2 "Gutsmasher" (corpus `gd-eor-warlord`, canon_tier=deep;
