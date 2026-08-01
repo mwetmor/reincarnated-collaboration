@@ -547,3 +547,157 @@ substrate has been describing*.
 
 Cell 1d runs in the engine, parallel-safe with ARSENAL-2 in godot (same contention rules as 1b/1c).
 **Cell 2 opens when 1c and 1d have both landed.**
+
+---
+
+## ADDENDUM 5 — cell 1c landed; five rulings, two disciplines minted (conductor, 2026-08-01)
+
+### Cell 1c — ARSENAL-2: **G-10 PASS, G-12 PASS, G-13 PASS (8/8), G-11 FAIL, G-9 verified**
+
+godot `68d0ca8` · meta `9798aa6a`, both confirmed present on `origin/main`. Landing note:
+`drax/notes/2026-08-01-arsenal-2.md`. **27 new effects / 98 new emitters** → harvest now **60
+effects / 217 emitters / 23 meshes / 10 textures**, G-10 at **60/60 config · 60/60 pixel** against an
+in-run empty-stage control of **0**.
+
+**G-13 — coverage, the gate that outranks accuracy: 8 COVERED / 0 THIN / 0 GAP.** Every one of the
+eight material needs has ≥1 gate-passing candidate, most have three or more. The redundancy was not
+decoration — need 4 consumed it within the hour (below). Machine-generated from the need→effect
+manifest joined against the pixel gate's own JSON, not asserted by hand.
+
+**The 39 refused effects were the answer.** `BarrageNovaIce` (7,538 lit px) and `BarrageRainIce`
+(7,148) — the two strongest need-1 candidates — came out of `Barrage/Nova`, the folder R-BR-3 refused
+on a false premise. *Nova-shaped barrages of flying projectiles* was a literal description of what we
+needed and we had banned reading it. Reversing a bad ruling recovered the run's single most important
+material.
+
+### ⚑ G-11 FAIL — and the FAIL is the cell's best work
+
+| effect | static | moving | ratio |
+|---|---|---|---|
+| `SwordChargeUp` (item D candidate) | 9 | **6** | **×0.67** |
+| `SwordTrail` | 207 | **134** | ×0.65 |
+| `SwordTrailShadow` | 8 | **9** | ×1.12 |
+| non-trail control, n=57 | | | median **×1.073** |
+
+The moving-host hypothesis was **mine** — I reasoned that Unity ribbons look dead on a static stage
+because they have nothing to streak along. Two of three went *down* on a moving host; the third sits
+on the non-trail median. **The bar was "materially exceeds" and drax did not move it after seeing the
+number.** That is the preregistration safety (§5.1) working against the conductor's own hypothesis,
+which is the only direction in which it is worth anything.
+
+And the instrument proved it was alive before it was allowed to report a negative: `min peak yaw
+69.62° (declared 70.0) · min mount travel 3.385 m`, asserted across all 60 in `_finish` *before* any
+verdict may print, with `FlamethrowerSprayBlue` at **×4.56** in the same run showing the treatment
+bites. Reproduced bit-for-bit across two full runs. This is the null-instrument tripwire (Scope 40-b)
+now independently implemented in a **third** seam.
+
+**Per the declared fallback: `SwordChargeUp` is named unusable, item D sources elsewhere, cell 2
+composes from what passed.** No silent substitution.
+
+---
+
+### R-BR-38 — A SUBPROCESS INSTRUMENT MUST ASSERT `returncode == 0` BEFORE ITS OUTPUT MAY BE READ
+
+Drax's own verification probe returned a clean **"0 effects differ."** It was false: the probe's patch
+produced a comment inside a call expression, `pa_emit.py` crashed, `capture_output=True` swallowed the
+traceback, and nothing checked the return code. A **null instrument built inside the cell that shipped
+two tripwires against exactly this.** The corrected probe asserts the return code first and then found
+**4**.
+
+Standing law, all seams: **an instrument that shells out has not reported until it has proved the
+shell succeeded.** A silent non-zero exit is indistinguishable from a clean negative, and a clean
+negative is the most dangerous output any instrument can produce. This is the same organism as
+R-BR-34 (*a ruling that cites no evidence is a recollection wearing a ruling's clothes*) — here the
+recollection is the shell's, and it is a lie by omission.
+
+### R-BR-39 — THE PIXEL GATE IS A THRESHOLD INSTRUMENT, NOT A MEASUREMENT
+
+`SwordChargeUp` measured **139** lit px in ARSENAL-HARVEST and **16** in both ARSENAL-2 runs, on a
+**byte-identical transcription** (`git diff` on `pa_emit.py` shows only the root-translation edit;
+the effect is not among the 4 changed scenes). The gate is sound at its PASS bar of ≥500 against a
+control of 0. It is **not** reproducible at low counts.
+
+**Therefore: counts below the gate's noise floor may not be compared, ranked, or cited as evidence of
+anything except "did not pass."** The 139 never supported a conclusion, and any future finding of the
+form "effect A is brighter than effect B" must be at magnitudes the gate can actually resolve. This
+retroactively validates the G-11 handling — the ×0.67 was read as *did not pass*, not as *got dimmer
+by a third*, which the instrument cannot support.
+
+---
+
+### Rulings on the cell's four escalations (veto-open)
+
+**F-A2-1 — the claw wind-up. RULED: it is two beats, not one choice.**
+`ChargeSphereRed` (2,029) is the **wind-up**, mounted per-hand on the claw bones and scaled down;
+`MuzzleFireballRed` (4,044) is the **strike flash** at the damage event. Reasoning: a muzzle flash is
+a *release* — instantaneous, the wrong temporal grammar for anticipation. A charge sphere accumulates,
+holds, releases, which is exactly what a wind-up tell must teach. Under R-BR-35 we take the material
+and set our own scale, so "sphere" does not commit us to a caster's orb — two small gathering points
+on a beast's hands is the same material at our geometry. `MuzzleSkullRed` is refused: necromantic
+iconography on a werewolf is a register error, and it is also the dimmest of the three.
+**This is a taste call and it goes to Matt at the cell-2 owner-eye clip** — I am ruling so cell 2 is
+not blocked, not so the ruling is final. One word reverses it.
+
+**F-A2-2 — displaced effects passed the pixel gate. ACCEPTED, with a consequence.**
+`NovaLife` (0.29 m) and `NovaLightningWave` (1.28 m) shipped displaced in ARSENAL-HARVEST and the
+pixel gate passed them, **because the pixel gate asks whether something lit up, not whether it lit up
+where it should have.** Fixed in this cell. Two consequences bank: (1) **the register clip Matt
+already judged contained the displaced versions** — his verdict on those two effects is void, not
+wrong; (2) position is not a harvest-gate question at all, it is a cell-2 question, and **G-2a/G-2b
+already measure it** (angular spacing ±0.5°, footprint ±0.3 m, orientation ±3°). The gap closes
+downstream by construction. No new gate.
+
+**F-A2-3 — ACCEPTED as amendment, not reversal**, exactly as drax routed it. The original citation
+was wrong; the conclusion survives on the new `PolyAura4` evidence (rotation bit-identical to the
+prefab root, position unrelated → rotation preserved, position replaced). Correcting the citation
+while preserving the conclusion is the right disposition, and volunteering that your own earlier
+evidence was wrong when the conclusion still holds is the harder half of the discipline.
+
+**F-A2-5 — NOT an exception. The grammar's domain was mis-stated.**
+`polygore_atlas_red.png` at chroma 0.5052 has its colour baked and is not gradient-retintable — and
+that is correct, because **the element grammar governs elemental families; gore is not an element.**
+Blood is red because blood is red. Nothing to reconcile.
+
+**The `Beams` refusal — UPHELD, and it is the right kind of refusal.** `PolyBeamStaticBlue` and
+`BeamBlue` carry **zero ParticleSystems** — LineRenderers driven by C#, nothing our parser can
+transcribe. G-12 says an effect that cannot be traced is refused, not faked. Needs 3 and 5 are served
+from `Wall` / `Flamethrower` / `Chains` instead, **stated rather than silently substituted**, and
+`Orbital Beam` / `Channel` recorded as **UNPROBED** rather than folded into the negative. Recording
+the difference between "we looked and it isn't there" and "we did not look" is the whole of honest
+coverage.
+
+**Persistent blood pools — the pack has none (0 of 1,597 prefabs), and it does not need to.**
+`SurfacePoolSplat` is the mechanism; **persistence is ours, not the pack's** — a decal we keep alive
+for the room. That is R-BR-35 read correctly: the pack supplies material, we supply duration. The
+hue is our recolour and is declared as the cell's only non-pack tint.
+
+### ⚑ F-BR-6 — THE DANGLING GUID IS CELL 2's FIRST ACT, NOT AN ACCEPTED DEBT
+
+`68d05d7c…` resolves to nothing, leaving **`PolyIce.mat` + `PolyBubbleWater.mat` untextured** — and
+those hit needs **1, 2 and 3**, which is to say **the boss's entire signature kit**. Drax named it and
+did not measure it, correctly, because measuring it is a render question and this was a harvest cell.
+
+**Ruled: cell 2 opens by rendering one `BarrageNovaIce` at scene scale and judging the untextured
+material on frame, before composing anything on top of it.** Untextured may read as acceptable — flat
+pale ice is not an absurd look for ice — or it may read as grey plastic. We do not know, and composing
+16 prongs and 24 drops on an unmeasured material is how a cell discovers at the watch that its
+headline shape looks like a toy. **Fallback if it reads unusable: we author the material ourselves.**
+Meshes are the pack's; shaders were never in its gift. `21 of 60 effects lose `SubModule`` (including
+both need-1 ice barrages, at 4 each) rides the same measurement.
+
+### §3 cell table amended
+
+| # | Cell | Owner | Repo | State |
+|---|---|---|---|---|
+| 1 | TRACE-FILL-1 | gamora | engine | **LANDED** — G-1 / G-1b PASS |
+| 1b | TRACE-STAGE-1 | gamora | engine | **LANDED** — G-1c / G-1d PASS |
+| 1c | ARSENAL-2 | drax | godot | **LANDED** — G-10 / G-12 / G-13 PASS, G-11 FAIL (processed) |
+| 1d | RESOLVE-TRUTH-1 | gamora | engine | in flight |
+| 2 | VFX-TRUTH-1 | drax | godot | opens on 1d; **first act = F-BR-6 material measurement** |
+| 3 | COMBAT-JUICE-1 | drax | godot | |
+| 4 | HUD-PORT-1 | drax | godot | |
+| 5 | BR2-WATCH | drax | godot | |
+
+**Banked to BR-3:** the `--headless --import` `[rendering]` strip (third occurrence, guard caught it,
+`git diff project.godot` empty — a recurring Godot-CLI behaviour that deserves a permanent fix rather
+than a permanent guard), and `Orbital Beam` / `Channel` as unprobed families.
