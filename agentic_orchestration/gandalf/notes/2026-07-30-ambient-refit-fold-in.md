@@ -1859,3 +1859,36 @@ empty 3D project, Package Manager → My Assets → Polygon Arsenal → Download
 project's `Assets/PolygonArsenal/`). Everything downstream (untar, FBX/PNG harvest, YAML parse)
 is ours and needs Unity never again — though keeping the editor enables the Option-C flipbook
 bake harness later. Disk: Matt pruned further; headroom ample.
+
+---
+
+## LANDING — GD-PARITY ✓ (galadriel, 2026-07-31; note `galadriel/notes/2026-07-31-gd-parity-measure.md`, meta `eb170b51`) — CONDUCTOR'S CAMERA-ONLY RULING OVERTURNED
+
+**The camera is exonerated by identity: our camera IS Grim Dawn's camera** — CAM-LOCK reproduces
+GAL-CAM §4's decision surface to the metre (−17.660/+17.587/+15.211/−7.020 vs GD-derived
+−17.66/+17.57/+15.21/−7.02). With the camera equal on both sides, screen size IS world size —
+a dolly divides out of the ratio it's asked to fix. Scope 29's method ruling (camera-only)
+is OVERTURNED by measurement; instrument self-validated (reads 2.74 m on a 2.75 m rig).
+
+**The gap: werewolf 5.69% of frame vs GD 14.77% — 2.59× short.** Decomposition 1.29× × 2.10×:
+the 2.10× is `wr2_playback.gd:1541 RIG_PLAYER_H := 1.80` — **a HUMAN height applied to a
+werewolf rig.** GD's Lycanthropy doubles the silhouette; our transformation changed the mesh
+and kept the height. Galadriel's closing line, banked verbatim: *"We built the world to the
+metre and then put a man's height on a wolf."* Boss÷player proportion is ALREADY GD-correct
+(1.46 both sides). Camera levers priced and rejected at k=2.59: decision surface ±17.6→±6.8 m,
+frigidring (10 m) entirely off-screen = undodgeable telegraph, escort band unfittable.
+
+**Decision fork (routed):**
+- **D1 — werewolf form multiplier ~2.1× (conductor rules IN-RUN, veto-open): fold into the 2c
+  restage as a graded A/B** — one constant, no geometry cost, 0.78× of GD parity, gradeable
+  against this note's numbers. Fantasy-correct (Lycanthropy convention) AND composes with
+  Matt's "I don't feel the swings" — a wolf at man-height cannot loom.
+- **D2 / world-scale (MATT):** full "exactly the same" requires the WHOLE cast ×~2.6 with the
+  1.46 ratio preserved — boss → ~7 m in a room with 3.0 m wall courses and a 2.40 m beam base:
+  metric-truth vs architecture collides head-on. The honest full resolution is a STAGE-scale
+  question (ARPGs oversize architecture relative to bodies), not a body hack — SCENEWRIGHT
+  territory, Matt's ruling, informed by the D1 A/B at his eye.
+- **CANNOT-ANSWER carried:** GD boss reference is occluded in all 313 corpus shots (21.6%
+  indicative only) — NO boss-rig tuning against that row until re-measured. Threat-inversion
+  guard: D1 alone makes the player (3.78 m) outgrow the boss (2.75 m) — the A/B must show Matt
+  this consequence explicitly before any default flips.
