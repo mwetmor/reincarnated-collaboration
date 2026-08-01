@@ -1459,3 +1459,68 @@ her rhythm — and a watch that does not show it is showing the wrong story.
 
 Binding on future cells: before authoring presentation for an actor, count that actor's share of the
 substrate's events. Labour follows the count.
+
+---
+
+## Addendum 13 (2026-08-01) — the impact-VFX mapping was censused on a different fight
+
+Two verifications while cell 2b renders.
+
+### Verified negative: the watch is trace-driven, the scripted beats are dormant
+
+`wr2_playback.gd` carries a `VFX_BEATS` table — the ARSENAL-HARVEST bakeoff arm, six labelled beats at
+fixed times, built so Matt could judge VFX register in motion against a matched C2 arm. It is honestly
+declared in source (*"the TIMES and the BEAT KINDS are scripted. The POSITIONS are read from the live
+frame"*). The question that matters for a run whose §0 intent is *render the fight the substrate has
+been describing*: **is it live in the watch?**
+
+`_vfxbeats := false` at 2313; set only by an explicit `--vfxbeats` argument at 818; gated at 4269 and
+8224; and passed by **no** invocation in `scripts/*.sh`. **The watch path is trace-driven.** Recorded
+as an instrumented negative — the flag exists, parses, has four call sites, and the shell scripts it
+was grepped against are the same ones cell 2b is running, so the selector had a proven subject.
+
+### F-BR2-S1 — the impact-VFX element mapping was designed against seed 74000806; the watch runs 74000909
+
+The mapping's own source comment names its census honestly (`measure/fight_census.py`, **seed
+74000806**). Set beside Addendum 12's census of the actual watch seed:
+
+| | **74000806** (the design census) | **74000909** (the watch) |
+|---|---|---|
+| chaos | 26 — cone ×25, line ×1 | **50** — cone 21, **dot 21**, line 8 |
+| cold | 14 — point ×13, circle ×1 | **4** |
+| physical | 1 — point | **3** |
+| `dot` geometry | **0** | **21 (37% of all damage)** |
+| enemy events | 15 | **7** |
+
+These are not the same fight. In 806 the boss's melee dominates and the player lands 26 hits with no
+damage-over-time at all; in 909 the player lands 50 across three geometries, more than a third of them
+`dot`, and the enemies land seven. **The `dot` geometry — 37% of the watch fight's damage events — is
+a geometry the impact-VFX design census never saw.** Cell 3 drew bleed as `BloodCurse` over 614 frames,
+but that is the *ailment* channel; whether the 21 discrete `dot` damage events produce impact VFX and
+numerals at all is **unverified**, and it was never asked, because the seed that would have raised the
+question was not the seed on the bench.
+
+**This is the conductor's defect, not the cell's.** The impact-VFX work was authored under BR-1 against
+the `boss__A__seed748xx` battery. BR-2 re-pinned the substrate to the `wr3acc` battery and the watch to
+74000909 (charter §1, S-1) and **never re-ran the census across that migration.** Every cell since has
+been authoring presentation for a distribution measured on a fight nobody is going to watch. It is
+KIT-FIDELITY §6 observation 1 again — coverage certified on a sliver — displaced one layer up, into
+the handoff between two runs.
+
+### R-BR-48 — a presentation census is only valid for the seed it was run on
+
+When a run re-pins its substrate or its watch seed, **every census that presentation decisions rest on
+is invalidated and must be re-run against the new seed.** Sibling seeds from the same battery are
+different fights, not samples of one fight — 806 and 909 differ by 4× on enemy volume and by the entire
+existence of a damage geometry. A census carried across a substrate re-pin is an assumption wearing a
+measurement's clothes.
+
+Practical form: at any substrate/seed re-pin, enumerate the censuses in force and re-run them or
+declare each one stale. This run will pay that debt in cell 3b rather than at exit.
+
+### Assigned to cell 3b
+
+Added to the G-13b sweep, ahead of the rest: **does `geometry: dot` draw anything at the damage event
+— impact VFX, numeral, or neither?** Twenty-one events, 37% of the fight. If it draws nothing, that is
+a larger hole than the slash arc and it takes priority within the cell. Report the answer as a count on
+the framemap, not as a reading of the source.
