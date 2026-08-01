@@ -1799,3 +1799,41 @@ galadriel **GD-PARITY measure** (Scope 29) + legolas **VFX-pack scouting** (Scop
 parallel read-only. 2) **LAP-2C RESTAGE** on 74000909 — full dressed stage, C2-lean VFX interim,
 W-2 dormant→alert rendering, new-skill telegraph mapping via `family` (native!), JUICE sub-scope,
 GD-parity camera if measured. 3) VFX-UNITY spike gated on Matt's purchase ruling.
+
+---
+
+## LANDING — VFX-SCOUT ✓ (legolas, 2026-07-31; findings `legolas/research/2026-07-31-unity-vfx-translation-scout.md`, meta `f538ef6a`)
+
+**License gate GREEN:** current Asset Store EULA (2024-12-04) has NO engine restriction — §2.2.1(a)
+grant is engine-agnostic; §2.2.1(e)+§6 expressly permit modification; reverse-engineering clause
+scoped to Services SDKs only (extraction is inside the grant). **Binding constraint for our MCP
+idea: §2.2.1.1(g) forbids AI/ML training inputs → the disassembler must be a DETERMINISTIC
+PARSER, never a generator** — honored from design day one.
+
+**Shortlist:** ① **Polygon Arsenal (Archanor, $40, Shuriken/Built-in)** — ships `Ground Slam`,
+`Nova (9 types)`, `Melee & Sword (14 types)` + `Cleave`: Matt's two named misses BY NAME; 1,383
+prefabs, 100+ custom meshes, low-poly register (look lives in MESHES → ports losslessly).
+② Magic Arsenal ($30) second. ③ Epic Toon FX under-register, skip. **Ranking inversion vs June:
+Hovl moved look into Shader Graph (untranslatable) — excluded.** Translatability is a property
+of the PACK: art-carried translates, shader-carried doesn't.
+
+**Feasibility:** `.unitypackage` = gzipped tar; `.prefab` = plain YAML; Godot 4.3+ imports FBX
+NATIVELY (Blender off the critical path — no Shuriken importer exists, its real jobs are
+flipbook baking + pivot repair). **No Shuriken→Godot translator exists anywhere** (Unidot omits
+ParticleSystem) — if wanted, we build it; ~14/23 Shuriken modules map cleanly (flagged as
+inference).
+
+**Native-Godot pool EXHAUSTED, measured:** AssetLib = zero ARPG content packs; Matt already owns
+~the entire native pool (49 Binbun packs / 390 scenes — the rejected bake-off sampled a
+near-complete library, making his verdict decisive); both hero needs score literal ZERO against
+installed assets. Exception: **Binbun `Battle FX` (~$6, claws/swings/flying slashes) NOT
+installed — cheapest swipe shot, worth taking regardless.**
+
+**Pre-purchase check (free, 5 min):** Polygon Arsenal's live WebGL demo — do Nova + Ground Slam
+read HEAVY or clean-and-light? The one register judgment a product page can't settle.
+Caveats: itch.io HTTP 521 all run (Binbun pricing unverified); Gabriel Aguiar not properly
+surveyed — flagged, not guessed.
+
+**→ Matt purchase decisions queued:** D-VFX-1 Polygon Arsenal $40 (after WebGL check) ·
+D-VFX-2 Binbun Battle FX ~$6 (unconditional lean YES) · D-VFX-3 Magic Arsenal $30 (defer until
+Arsenal-1 verdict lands at the eye).
