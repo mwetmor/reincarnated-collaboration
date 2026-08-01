@@ -27,6 +27,12 @@ the false premise. It stays dormant.
 - **(a) NO — referent default (conductor's lean, and what W-2 builds meanwhile):** pursuit
   envelope + walk-back + ordinary regen. Player consequence: a half-killed pack you flee from is
   still half-killed when you return — attrition is a real tactic, as in every genre peer.
+  *Strengthened 2026-07-31 (post-close, from Matt's own GD play observation):* GD's delayed
+  fast-regen is **Constitution** — a depletable out-of-combat reserve on the PLAYER only, while
+  monsters recover solely by trickle `characterLifeRegen` (B17) on the walk back. The attrition
+  asymmetry is thus DESIGNED IN on the referent: the player heals between engagements faster than
+  the pack does. Full-heal-on-leash would invert that asymmetry against the player — a second,
+  independent reason for NO.
 - **(b) YES — deliberate departure:** full-heal on return. Player consequence: encounters become
   all-or-nothing sieges; hit-and-run attrition dies as a tactic. Defensible only if you want
   encounter-as-puzzle-room pressure — name that goal if so.

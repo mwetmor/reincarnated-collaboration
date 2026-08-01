@@ -66,3 +66,72 @@ attribution, the reviewer's own missed doubling-claim — are one lesson from fo
 **an instrument at its ceiling cannot see its own failures, and neither can an author reading his
 own sentence.** The remedy that worked, every time, was the same: reproduce the number from the
 artifact, not from the report. Nothing mythic about it; that is the whole craft.
+
+## §7 — POST-CLOSE ADDENDUM (same sitting): seed pick, baton pass, next-session goal
+
+Folded in per Matt's instruction after the §1–§6 close. Supersedes nothing above; extends §3.
+
+### 7.1 Baton: PASSED to the presentation seam — faithful-arm ruling (veto-open)
+
+Render work reproduces the **acceptance arm of record EXACTLY**: `wr3_encounter_ai_v1=True`,
+**NO telegraph flags** (the retired W-2 cell also armed `emit_telegraphs`/`nova_telegraph_v2`
+— +7.7 s, larger than the W-2 headline effect; the arm of record runs without them). Any clip
+that deviates from this arm is not evidence about the measurement.
+
+### 7.2 The pick — Matt's characteristic rubric, not the conductor's worst-seed lean
+
+Matt's rule: **A) no cornering · B) split-second saves · C) differentiating statistics** —
+"mostly I really dont want cornering." Executed as a deliberately minimal drax micro-task, not
+a commission:
+
+- **Machinery:** `~/Games/reincarnated-godot/scripts/wr3_acc_pick_scan.py` (godot `0601a04`) —
+  FULL-arm leg transcribed character-for-character from the cell source; G5TraceSink neutrality
+  proven in-artifact; n=200 reproduction **digit-for-digit** vs `tiers.boss.FULL`.
+- **Pick table:** `agentic_orchestration/drax/notes/2026-07-31-wr3-acc-fight-pick.json` / `.md`
+  (200 boss seeds × cornering_fraction / min_hp_fraction / intake_pool_fraction; conductor
+  independently reproduced the argmin from the JSON).
+- **Selected: seed 74000909** (cornering **0.0**, min-HP 0.6545, intake 0.5740) — clip at
+  `~/Games/reincarnated-godot/tmp/wr3acc/clips/WR3ACC_full_74000909.mp4` (36.07 s, 1×, ai_state
+  painted dormant/alert).
+
+### 7.3 Three scan findings (design-lap substrate, carried to the grill)
+
+1. **Cornering is the norm, not the exception:** 140/200 boss fights corner at all; only 60/200
+   run clean. The arena/AI interaction, not the outlier, is the design question.
+2. **Danger lives in the corner:** the cohort-deepest fight (seed 74000848, min-HP 0.4764) is
+   ALSO the most-cornered (0.661) AND the worst-intake (**1.1122 pools**) — cornering, near-death,
+   and over-pool lifesteal are one phenomenon, not three. **Standing offer:** render 74000848 as
+   the counter-exhibit beside 74000909.
+3. **No split-second saves exist:** cohort min-HP floor is 0.4764; no fight dips below 0.25.
+   Rubric-B is EMPTY in this cohort — the drama deficit is the saturation finding (§1) seen from
+   the fight's inside, and it feeds the discriminating-statistic grill item directly.
+
+### 7.4 GD recovery mechanics (Matt's play observation, resolved)
+
+The delayed regen Matt observed is **Constitution** — GD's depletable out-of-combat fast-regen
+reserve, triggered by time-since-damage (distance is a correlate, not the trigger), refilled by
+food/shrines. Sim posture is honest: base regen measured 1.10 HP/s and **declared negligible**
+(`kitcal_g5_harness.py:136`, Discipline #63 form); Constitution **unmodeled — correctly so
+within-fight** (it cannot fire mid-combat), which licenses the per-encounter full-pool
+assumption; cross-encounter attrition is therefore unmodeled. Design consequence banked: the
+referent's attrition asymmetry (player fast-recovers between fights; monsters only trickle via
+`characterLifeRegen`, B17) is a SECOND independent reason for D1 lean-NO — the D1 file was
+annotated this sitting. Optional legolas Constitution-parameters probe stays queued under the
+grill, not fired.
+
+### 7.5 NEXT SESSION GOAL — Matt's referent capture
+
+**Prepare for the screen recording of the Mac-level Grim Dawn canonical build run.** The prep
+surface the next session should open on:
+
+1. **Recording tooling** on the Mac (capture method, resolution/fps, disk headroom).
+2. **The character/save state** — the L13 canonical build; **T11** (the Veteran `.gdc` pull)
+   rides with this and may merge into the same sitting.
+3. **What to note during play** — encounter-mix tally vs the save absolutes (0.92/0.047/0.02/
+   0.013), cornering feel, Constitution usage moments, ward duty cycle, melee land-rate feel:
+   the grill's feel-side questions, answered from the referent's own footage.
+4. **Binding** — how the capture links to the referent envelope + the parity clip, so
+   sim-vs-referent watches become side-by-side rather than memory-vs-clip.
+
+The recording is the empirical criterion the grill has been waiting on: every "does it read
+right?" question in §3 gets its ground truth from this footage.
