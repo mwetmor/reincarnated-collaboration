@@ -3530,3 +3530,58 @@ that has never been emitted. `boss_focus_entity_id`, `threat_tier`, and five dam
 fields are always null. One fixture only — this is *this boss never casts them*, not *the engine
 cannot*.
 
+
+---
+
+## SCOPE 40-a — NAMING RULED SIMPLE: the register was wrong for the surface (Matt, 2026-08-01)
+
+**Matt, verbatim:** *"regarding the boss/hero and monster/elite names.. let's go with simpler naming
+conventions here. For the boss, let's simply choose Ice Golem. For the hero, let's choose Werewolf
+(player)."*
+
+**This supersedes Scope 40's M-3 wholesale** — the boss name `THE UNBURIED, FIRST TENANT OF THE
+VAULT`, the 10-name mob pool (`Rotwake · Palefeeder · Cryptling · …`), and the
+`Ossuary Warden of the Pale Choir` alternate I offered off the HUD mock are all **retired**.
+
+### ⚑ Why I got this wrong, named plainly
+
+M-3 asked for "generic-yet-creative" replacements for vendor names and I answered by writing
+**shipped-game fiction into a diagnostic instrument.** The register error was not the names — several
+were good — it was that I applied the *story spec's* register to a surface whose job is
+**legibility**. This scene is a Battle Simulation Arena (Scope 42-a, A-4, ruled the same day). Its
+labels exist so a viewer parsing a sim can tell instantly what is on screen. `Ice Golem` does that in
+two words; `THE UNBURIED, FIRST TENANT OF THE VAULT` makes a viewer decode before they can read the
+fight.
+
+Genre precedent for the instrument register: D3's internal test rooms, PoE's *Hideout Dummy*, every
+fighting game's Training Mode. Naming by **element + role** is the convention of the harness, and it
+is a virtue here, not a poverty. The evocative register is not wrong — it is wrong *on this surface*,
+and it belongs to `reap-die-rise-story/` when real content gets named.
+
+The parenthetical in **`Werewolf (player)`** is itself instrument-register: it labels the entity's
+*role in the simulation*, not its identity in a fiction. Consistent, and worth preserving exactly.
+
+### The table, ruled
+
+| Slot | Vendor string | **Ships as** |
+|---|---|---|
+| Player | `gd-werewolf-kitcal-1` | **Werewolf (player)** |
+| Boss (`tier: boss`) | `boss&quest_slith_wightmirecave01_0` / *"Primordian, the Forgotten One"* | **Ice Golem** |
+| Elite/mob — shaman | `slitha_shaman_c01_*` | **Ice Shaman** — *proposed* |
+| Elite/mob — melee escort | *"Deepmire Vanguard (escort)"* | **Ice Warrior** — *proposed* |
+| Elite/mob — caster escort | *"Deepmire Evocator (escort)"* | **Ice Caster** — *proposed* |
+
+The three mob rows are **proposed in Matt's register, open to a one-word veto.** They follow the rule
+he set by example: element + role, no fiction. If a fourth body type appears in the cast, it names
+itself the same way.
+
+**Standing law (R-BR-30):** no vendor display string reaches the screen. R-BR-29 already routes
+`opposition_roster.label` into the naming table as an *input*; this scope pins what the table
+outputs. The `tier` field (`boss` / `elite`) still drives nameplate framing — that part was always
+ours.
+
+**Reconciliation debt:** HUD-FIX-1 r2 was launched with M-3's retired pool inlined and was, at the
+time of this ruling, already committing (`a2fcaf2`, `51516e1`) and writing its landing note. **Not
+interrupting** — the r1 stall taught that lesson and a name table is a cheap follow-up. Whatever
+names that cell wired, they are overwritten to this table at its landing.
+
