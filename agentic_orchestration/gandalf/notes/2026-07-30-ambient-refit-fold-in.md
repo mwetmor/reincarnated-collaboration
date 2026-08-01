@@ -3228,3 +3228,66 @@ not a scaled burst; a 16×6 m oriented rect is not a scaled circle. The composit
 (native-scale core + rim instances + exact shockwave) is still right for the *sizing* of what
 remains, but it is now the second problem. The first is that three of the boss's four tells are
 drawing the wrong shape.
+
+---
+
+## SCOPE 42 — HUD RULED: the bake-off layout Matt chose, +2 amendments (Matt, 2026-08-01)
+
+**Reference pinned (the cache would have lost it):**
+`agentic_orchestration/gandalf/reference/2026-08-01-hud-bakeoff-MATT-CHOICE.png`. **This image is
+the spec.** It supersedes the HUD-BUILD surface wholesale — item C of Matt's list is closed.
+
+**Matt's two amendments, verbatim:** *"the art asset behind the skills should be extended
+horizontally so that it encompasses all of the skill boxes and they don't sit out in open space.
+The play-stats can fit below the mini-map."*
+
+- **A-1 — the skill-bar backing plate 9-slices horizontally** to span the full box row plus padding.
+  In the mock the ornamental banner is narrower than the nine boxes, so the outer boxes sit on open
+  space. The winged-skull crest stays centred as a single ornament; the *plate* stretches, the
+  *crest* does not. (Standard 9-slice: fixed decorated caps, tiled middle.)
+- **A-2 — playstats relocate BELOW the mini-map** (top-right column), not deleted.
+  ⚑ **This partly supersedes Scope 40's M-1**, which is in flight with drax right now and removes
+  the playstats small-text tier outright. Both are correct in sequence: M-1 kills the sprawl on the
+  *current* HUD, A-2 gives the survivors a *home* on the new one. **Not interrupting the cell to
+  reconcile** — the r1 stall taught that lesson. Reconcile at its landing.
+
+### Surface inventory (from the mock), and the ruling each one needs
+
+| Surface | In the mock | Referent in OUR trace | Disposition needed |
+|---|---|---|---|
+| Portrait + level | gothic arch, "27" | player entity; **no level in trace** | dressing, or bind to nothing and say so |
+| Context line | "STRUCTURE II · the treasure room / grimoire · page 12 of 400+" | **none** — nearest real fields are `scenario_id`, `fight_key`, 36×36 m arena | **bind or drop** |
+| Target panel | name + tapered HP bar + 3 ailment pips + "TOO HOT" | **all real**: `max_hp`/`hp` per tick, `ailments`, `icearmor` rider | **bind — this is the richest honest surface in the mock** |
+| Mini-map | circular, spiked frame, marker icons | **buildable for real**: arena bounds 36×36 m + every actor's `x_m`/`y_m` on all 361 ticks | see ⚑ below |
+| Element strip | fire / water / wind / snow / ? / +1 | **real**: `element` on damage events (`chaos`/`cold`/`physical`), `death_element` | bind to the fight's live elements |
+| HP orb | "248" | `hp` — real | bind |
+| Mana orb | "41 MANA" | trace field is **`energy`**, not mana | **rename or accept the lie** |
+| Skill bar | 9 boxes, keys 1-5/Q/E/R/T | **the werewolf has TWO skills** | ⚑ see below |
+
+### ⚑ Three tensions the mock creates, which I will not paper over
+
+1. **Nine slots, two skills.** `feral_claws_r16` (cone 2.0 m) and `rip_and_tear_r16` (line 14.0 m)
+   are the entire player kit. Seven empty boxes on screen read as *poverty*, not as *potential*.
+   Genre answer (D3, PoE): empties render as **LOCKED**, visually distinct from empty — a locked
+   slot promises, an empty slot indicts. **Lean: keep the authored nine-slot width, render seven as
+   locked.** Alternative: trim the bar to two for the watch, and lose the layout Matt just chose.
+   **Matt rules.**
+2. **The mini-map can be REAL, and it is the only element that would consume the position data we
+   already write 3,441 times per render.** Arena is a known 36×36 m; every actor's `x_m`/`y_m` is on
+   every tick. A dot-map is cheap and *honest*. **Lean: build it real.** A decorative mini-map in a
+   sim render is the exact thing the exit review's rubric-law was written against.
+3. **"TOO HOT", "page 12 of 400+", "STRUCTURE II" have no referent.** Under the standing law that an
+   on-screen number which is not a sim field must SAY it is not, these are either bound to something
+   real or dropped. They are placeholder content from the mock's own fiction and shipping them
+   verbatim would put another game's copy in our frame.
+
+### ⚑ The mock's own naming is better than mine
+
+The target in the mock is **"Ossuary Warden of the Pale Choir."** That is precisely the register
+Scope 40's M-3 naming law was reaching for and it is a better name than anything in my pool.
+Offered to Matt as the boss alternate alongside `THE UNBURIED, FIRST TENANT OF THE VAULT` — and
+noted as evidence that the register is *findable*, which matters more than the individual name.
+
+**Item C is CLOSED** (Matt supplied the artifact and the two amendments). Still open from his list:
+**A)** now reframed by F-PR-2 — the tells are drawing the wrong *shapes*, not the wrong sizes ·
+**F)** the register ruling (clutter + blood-persistence + the ceiling-less slits, one word).
