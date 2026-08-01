@@ -2283,3 +2283,23 @@ him swinging in the probe beat alongside the werewolf-retarget attempt.
 **Thematic note (conductor, for the record):** an undead knight as the player's form in a
 death-faith frame (*Reap. Die. Rise.*) is on-spine — the body that already died, risen to reap.
 If tier 2 fires, the swap carries story weight for free.
+
+---
+
+## SCOPE 38 — ABSENCE PROVISIONING: Matt rulings R1–R3 (2026-08-01, verbatim; the run is fully provisioned to the final watch)
+
+- **R1 — YES:** if ANIM-PROBE finds sword-strikes-only, the restage SHIPS the Undead Knight as
+  player body; werewolf parked, not deleted.
+- **R2 — YES:** interim-verdict delegation — conductor picks (veto-open) on the four maturing
+  eye-gates (WARMTH dust arm + sheen arm, numeral grade, non-swipe VFX cores, parity grade);
+  restage renders the picks; EVERY A/B preserved alongside the final watch for one-sitting
+  return review with full reversal power.
+- **R3 — NO PURCHASES; body chain ruled:** *"if there are issues with the knight, simply use
+  another humanoid. If no humanoid works, fall back to werewolf."* Chain: Undead Knight →
+  another on-disk humanoid (SK_Knights_Dark_01 / DarkLord / Human_Knight / Samurai order at
+  probe's measured discretion) → **werewolf as the honorable floor** (with best-available clip).
+  Purchase fork DISSOLVED for this run.
+
+**Standing for the remainder:** red-flag pings only; landings bank+push as they occur; queue
+WARMTH (in flight) → HUD-BUILD → ANIM-PROBE-headed LAP-2C RESTAGE. Deliverable at Matt's
+return: the integrated watch + queued A/Bs + this ledger.
