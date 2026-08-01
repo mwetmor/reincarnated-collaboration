@@ -2417,3 +2417,66 @@ A/Bs reach Matt's return review. Warmth and cold are one composition, not two di
 **Sequencing:** single-writer holds — **HUD-BUILD is in flight**; BEAM-SLITS fires on its
 landing, BEFORE the restage (the restage must inherit verdicted beams). Queue: HUD-BUILD (in
 flight) → **BEAM-SLITS (Scope 39)** → LAP-2C RESTAGE (ANIM-PROBE at its head).
+
+---
+
+## LANDING — HUD-BUILD ✓ (drax, 2026-08-01; godot `d2ec8c9` opened at `1feebeb` clean, note `drax/notes/2026-08-01-hud-build.md`, meta `063cb88d`)
+
+**All four surfaces built:** player cluster (HP + energy, skill bar, radial cooldown sweeps) ·
+R-BR-9 sticky target panel · right-edge monospace sim strip · D3-style end card at resolution.
+Synty `interface-dark-fantasy-hud` loaded **5/5 clean** — no procedural fallback. Six legacy
+labels retired per Scope 33a; camera identity MOVED to the strip footer, not dropped.
+**Placement law HELD** — audited from built rectangles after a pixel diff's 741 "violating rows"
+proved to be dust motes; strip column never entered by a body (0 of 5,567,975 px, 83 px margin).
+
+**Attribution — twelve accumulators reconcile EXACT** against an independent trace read (dealt
+16,235.00; by-skill 8,312.24 / 4,010.46 / 3,912.30; hp lost 421.23; leech 362.80/616.14; crit
+2/50; TTK 0.00/1.20/33.50). **Four quantities are NOT fields and say so ON THE FRAME** (the
+Scope-33a law honoured literally): no `max_energy` (bar reads ">=90 seen") · no cooldown base
+(running max, converges 0.4556/2.400 s) · **`commit_skill_idx` is −1 on 361/361 ticks** (cast
+highlight driven off `damage.skill_idx` instead) · **no attack→damage join key**
+(`telegraph.attack_id` 9/9 vs `damage.attack_id` 4/57) → telegraph rows read `IN`/`CLR`, never
+`HIT`.
+
+**Two ENGINE findings (route out of this run):**
+- **F-HB-7 — 30.9% of damage taken emits NO event** (421.23 hp lost vs 291.20 evented).
+  Reconciliation otherwise closed (all positive hp motion is leech; −14.45 overheal at cap).
+  This is the KF-5-family received-side wound one layer deeper: the sink now fires, but ~a third
+  of intake still arrives as unattributed hp motion. **Engine seam (gamora/star-lord); the
+  battle-sim wave inherits it.** Consequence for presentation: no HUD, no VFX, and no SFX can
+  react to a hit that was never announced — a third of the punishment is invisible by
+  construction.
+- **F-HB-8 — circle-footprint verdict disagrees with the damage record 4 of 6**, always in one
+  direction; unattributable without the join key. A stricter telegraph gate was built and then
+  **WITHDRAWN ON EVIDENCE** (it would have forked from `_wr3_nova_readout`, which agrees with
+  this strip 3/3 to the millimetre). Route with the `ReplicaFrameSink.telegraph()` family-drop
+  row — one join-key repair closes both.
+
+**Numeral grades (no self-verdict, as briefed):** A 76 px/8.5% · B 65/7.2 · C 54/5.9 ·
+D 54 normals + 76 crit. G-8 pin re-measured over the crit burst: **hero covered median 41.99 →
+19.90 → 14.28 → 11.77%**; frames >75% covered **27 → 15 → 7 → 17**. D's tail sits above C
+*because* its crits are full-size — the property D exists to test. Crit RED untouched at every
+grade. Eight own-defects logged in the note, incl. a `String(null)` on `ai_state` that silently
+killed the end card for 150 frames.
+
+## R2 INTERIM RULINGS (Scope 38; veto-open, all arms preserved for Matt's return)
+
+- **R-BR-13 (numerals) — GRADE C interim (54 px), with a fifth arm C′ (54 normals / 65 crit)
+  rendered in the restage as the refinement.** Reasoning: Matt asked for "a bit," which B
+  satisfies literally — but the instrument says grade A was covering the hero **41.99% of the
+  time**, i.e. the monster you are trying to read was half-hidden by the numbers describing it.
+  That is D3's numbers-soup failure, and "a bit" was Matt's floor, not his ceiling ("at least a
+  bit"). C cuts hero occlusion to 14.28% and >75% frames from 27 to 7. D's full-size crits buy
+  size-contrast at the cost of re-importing the occlusion tail (17), so C′ splits it: crits
+  bigger than normals but not full-size, with crit RED carrying the rest of the contrast. All
+  four rendered arms + C′ reach Matt's review.
+- **R-BR-14 (charge-glow authorship, Scope 36 correction) — the wind-up window I cited does NOT
+  exist in the trace.** `commit_skill_idx` −1 on every tick kills the plan to key player
+  charge-glows off commit state. Ruling: **boss/mob charge-glows key off REAL telegraph wind-up
+  (genuine data, 19-field telegraphs); the PLAYER's charge-glow is a declared presentation-layer
+  PRE-ROLL** — synthesized backwards from the damage event by a fixed lead (the anim's own
+  wind-up length), labelled as presentation timing in the landing note, never dressed as sim
+  truth. Genre precedent: fighting-game and ARPG clients routinely lead the server event by an
+  animation window; the sin is not the pre-roll, it is pretending it came from the sim.
+
+**Queue:** BEAM-SLITS (Scope 39) fires now → LAP-2C RESTAGE (ANIM-PROBE at its head).
