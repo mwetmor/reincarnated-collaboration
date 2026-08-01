@@ -2211,3 +2211,34 @@ NON-swipe beats (novas, casts, shields, auras, deaths, pulses) the core assignme
 pre-verdicted — the beat table's A-core entries there are conductor leans, decided per-beat at
 Matt's eye in the restage watch. The three-source palette stands; only the scope of the
 standing verdict narrows to where his eye actually ruled.
+
+---
+
+## SCOPE 37 — THE WEREWOLF HAS NO ATTACK ANIMATION (Matt eye-catch, 2026-08-01; elevates the VFX-BAKEOFF §4.3 admission to a run-level defect)
+
+Matt: *"it looks like the werewolf is mildly jumping forwards and attempting to scare the
+monsters but not striking them."* **That is LITERALLY what the clip is.** Verified this
+session + already confessed in the bake-off landing (§4.3 "this tree ships no authored attack
+animation"): every strike on every body — werewolf included — plays
+`A_MOD_GBL_Idle_Fidget_Swipe_Neut.fbx`, an **idle-fidget menace clip from the goblin-locomotion
+pack**, pressed into strike duty. At strike tempo it reads as a pounce (throws the silhouette
+1.77 m forward). The MOD_GBL library census (this session): locomotion + idles ONLY — zero
+attack clips exist in it. There are no swipe-left/swipe-right claw clips anywhere in the tree.
+**Consequence law:** no VFX layer can rescue a fidget — Scope 36's swipe beats presuppose an
+authored swipe that does not exist. This is the run's deepest R-BR-2 debt surfacing.
+
+**One unexamined candidate found (the bake-off's `*attack*` search-pattern missed it):**
+`Assets/Synty/polygon-simple-fantasy/SourceFiles/Fbx/Animations_Melee.fbx` + companion
+`SF_Wep_Claws_01.fbx` (a claw WEAPON mesh — suggests the pack's melee set may include
+claw/unarmed strikes). Compressed FBX — clip list needs an in-engine probe, not strings.
+Rig-compat unknown (older simple-fantasy skeleton vs the 52-bone Sidekick; the L6 retarget
+ladder + remove_tracks/unmapped_bones law is the proven path).
+
+**ANIM-PROBE task (front of the restage cell, gate before swipe beats build):**
+1. Import `Animations_Melee.fbx`; list clips; identify any slash/claw/unarmed strikes.
+2. Retarget best candidates to the werewolf (0.0000° pipeline) + boss/mob rigs; measure reach
+   vs the fidget incumbent; render a probe beat.
+3. **If no viable claw swipe exists → HALT to Matt (commitment-boundary: purchase fork):**
+   options priced — (a) Synty Sidekick-line combat/melee ANIM pack (drops into the proven
+   retarget path), (b) Mixamo creature/claw attacks (free, auto-retarget, game-license clean),
+   (c) hand-authored keyframe swipe (native; quality risk on a hero beat — last resort).
