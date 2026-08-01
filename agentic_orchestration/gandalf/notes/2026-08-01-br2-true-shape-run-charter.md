@@ -827,3 +827,113 @@ against a body **0.18 m too small**); the dead 1.5 m splash (wire it or delete i
 shape enums.
 
 **Cell 2 — VFX-TRUTH-1 — is OPEN.**
+
+---
+
+## ADDENDUM 7 — cell 2 landed. The star is drawn true; the ARENA is too small for the kit.
+### (conductor, 2026-08-01)
+
+### Cell 2 — VFX-TRUTH-1: **G-2c / G-3 / G-4 PASS · G-2a 4/6 · G-2b FAIL by 0.050 m · G-9 verified**
+
+Landing note `drax/notes/2026-08-01-vfx-truth-1.md`. Clip:
+`~/Games/reincarnated-godot/tmp/vfxtruth1/VFXTRUTH1_BEFORE_AFTER.mp4` (36 s, seed 74000909, all three
+casts of all three families, before/after). Baseline frame 5 max diff **0** — nothing moved that
+wasn't asked to move.
+
+**F-BR-6 — USABLE. No material authored, and the reasoning is better than the verdict.**
+`BarrageNovaIce` carries **0 of 5 materials with an albedo texture** and reads as flat pale faceted
+ice anyway, because the shader is `Rimlight/Transparent` on **mesh** renderers — silhouette and facets
+carry the look, and the crypt's cold ambient tints the white vertex colour for free. Then closed by
+the camera's own arithmetic: **at 23.0 px/m a 0.19 m shard subtends 4.3 px.** There is no texture
+detail a four-pixel shard could carry. That is the right way to close a material question — not "it
+looks fine" but "the pixel budget forbids the difference from existing." The `SubModule` debt rides
+the same verdict and dissolves with it.
+
+**The star is drawn true.** Spacing **22.5000° exactly, min = max, 6/6 phases.** Extent 12.0000 /
+12.0000 / 11.9500 m against ±0.2. Corridor half-width **0.4080** (min 0.3850, max 0.4300) against
+0.42 ±0.05. **And on the only cast whose star fits inside the arena, the gaps are clean: 0 danger
+pixels of 2,945 and 0 of 2,998.** The mechanic nobody has ever seen is on frame.
+
+**G-4 PASS — the reverse falloff is dead.** Band luma **104.29 → 121.06 → 134.59**, monotonically
+brightening centre→rim. The nova now tells the player the rim is the dangerous part, which it always
+was.
+
+---
+
+### ⚑ G-2a's FAIL is unresolved, and I am not going to guess it away
+
+**31 of 2,564 and 43 of 2,684 danger pixels in classified gaps on nova #1, all at the boss's own
+capsule base — and drax did not widen the exclusion pad to sweep them.** That refusal is the whole
+value of the gate. Moving a pad to clear a FAIL is goalpost movement wearing a bug-fix's clothes.
+
+The verdict turns on **one number I do not have**: the radius of those pixels.
+- If **r < 2.1528 m** they are inside the gapless core, where the lanes genuinely merge — they are
+  **TRUE danger**, and the gate's gap-classifier is missing a radius qualifier. The render is right
+  and the instrument is wrong.
+- If **r ≥ 2.1528 m** they are a render defect at the boss capsule and cell 3 fixes them.
+
+**Ruled: cell 3's first act measures it.** Same pattern as F-BR-6 — one cheap measurement before
+anything composes on top. I will not rule a gate PASS on the plausible reading of "at the capsule
+base."
+
+### ⚑⚑ THE REAL FINDING: G-2b's FAIL AND FINDING #2 ARE THE SAME PHENOMENON
+
+Drax pinned G-2b's cause with a structural argument rather than a tolerance nudge: the trapezoid
+measures **5.6498 m at u=16** against 6.000 ±0.3 — a miss of **0.050 m** — because the cut at
+u = 15.80 is **one-sided**. The −edge lands exact (−3.00 vs −2.981); the +edge stops at ≈ +2.41.
+**A symmetric quad cannot be asymmetrically narrow. The mesh is right; the cut is occluded.**
+Leave-one-out recovers 2.9724 → 5.9825, printed as *diagnosis, not verdict* — which is the correct
+epistemic placement and the discipline this run has been demanding all week.
+
+**What occludes it is the east wall.** Finding #2: a 16 m wave from (32.10, 8.08) ends at
+**(44.4, 18.1) in a 36 m room**, and two of three novas put a 12 m star through the east wall.
+
+So: **the boss's kit is authored for a larger arena than the one we fight in** — or, more precisely
+and more cheaply, **the boss is fighting in a corner.** A 12 m nova and a 16 m wave are unremarkable
+in a 36 m room *if the fight happens near its centre*. At (32.10, 8.08) the boss is pinned against a
+wall, so a large fraction of every telegraph's area lands where no one can stand. The ability scale
+is not the defect. **The fighting position is.**
+
+**Ruled for BR-2: draw it truthfully, do not clip.** Clipping a decal at a wall would require the
+renderer to carry the arena's collision — a new dependency, in service of hiding a real mismatch. The
+danger genuinely does extend there; there is simply nowhere to stand. Honest and slightly absurd beats
+tidy and false.
+
+**Ruled OUT of BR-2, and it is a commitment-boundary, not a preference:** moving the fight position
+touches CAM-LOCK, which §5 reserves to Matt. **Banked as the headline BR-3 finding.** It is also the
+first finding of this run that is neither a presentation gap nor an emission gap — it is an
+**encounter-space** question, and it is the interesting kind.
+
+**G-2b's residual disposition:** re-measure on a cast whose lane fits the room, applying the exact
+discipline drax used for the nova ("the only cast whose star fits the arena"). Cell 3's second act.
+Until then G-2b stands **FAILED with cause pinned** — a named residual is a finding; a rounded-up
+"verified" is the rubric-law failure that killed KIT-FIDELITY.
+
+### R-BR-40 was violated by our own existing code, and it broke exactly as predicted
+
+`_ps_tg_verdict` **branched on `shape`**. Cell 1d's enum correction broke it (it printed `?` on the
+nova) — and *before* that break it had been **over-claiming 3.076×**. Fixed in-cell. Drax's
+instruction stands and is promoted to a gate:
+
+**G-3b — the `shape`-branch audit.** Every remaining consumer of telegraph records is grepped for
+`shape`-branching; the count is **zero**, or each survivor is justified in writing. R-BR-40 is a law
+whose first violation was already in the tree when it was written.
+
+### Standing riders for cell 3 (from cell 2's own findings)
+
+- **Fog inverted the danger grade** until `fog_disabled`. Anything cell 3 adds to the marker layer
+  needs the same treatment, and needs it verified rather than assumed.
+- **`Werewolf (player)` is wired and drawn NOWHERE** — 34 on-screen strings censused. That is a
+  cell-4 (HUD-PORT) item and it is now a named requirement, not a discovery waiting to happen.
+
+### §3 cell table
+
+| # | Cell | Owner | State |
+|---|---|---|---|
+| 1 · 1b · 1c · 1d | TRACE-FILL · TRACE-STAGE · ARSENAL-2 · RESOLVE-TRUTH | gamora / drax | **LANDED** |
+| 2 | VFX-TRUTH-1 | drax | **LANDED** — G-2c/G-3/G-4 PASS, G-2a 4/6, G-2b FAIL cause-pinned |
+| 3 | COMBAT-JUICE-1 | drax | **OPEN** — opens with the two residual measurements |
+| 4 | HUD-PORT-1 | drax | |
+| 5 | BR2-WATCH | drax | |
+
+**Owner-eye checkpoint fired:** the cell-2 clip goes to Matt. The run does not halt for it.
