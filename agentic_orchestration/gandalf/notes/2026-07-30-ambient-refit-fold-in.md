@@ -2242,3 +2242,25 @@ ladder + remove_tracks/unmapped_bones law is the proven path).
    options priced — (a) Synty Sidekick-line combat/melee ANIM pack (drops into the proven
    retarget path), (b) Mixamo creature/claw attacks (free, auto-retarget, game-license clean),
    (c) hand-authored keyframe swipe (native; quality risk on a hero beat — last resort).
+
+## SCOPE 37 AMENDED — Matt fallback ruling (2026-08-01): if no claw swipe exists, SWAP THE PLAYER CHARACTER; "I really like the dark knight"
+
+Fallback chain now three-tiered, resolved by what ANIM-PROBE finds in `Animations_Melee.fbx`:
+1. **Claw/unarmed strikes found + retarget clean → werewolf keeps the body** (S-4 stands).
+2. **Sword/humanoid strikes only → CHARACTER SWAP goes live** (Matt's stated preference).
+   On-disk candidates, this session's census: **`SK_Knights_Dark_01.fbx`**
+   (polygon-mini-fantasy-characters — the literal dark knight) · `SK_Chr_DarkLord_Male_01.fbx`
+   (dark-fantasy; the G-2 scene-proven honorable floor) · `SK_Character_Human_Knight.fbx`
+   (adventure pack) · `SK_Character_Samurai_Warrior_01.fbx`. Probe retargets the melee set to
+   the leading knight candidates and renders the same probe beat — Matt picks at the eye.
+3. **Probe empty → purchase fork** — and the knight REPRICES it: humanoid sword-combat anim
+   packs are the most abundant commodity in every store (vs claw/creature sets, the rare good);
+   a knight makes acquisition trivial and cheap.
+
+**Consequences named (not argued):** (a) presentation-body swap only — the sim kit
+(feral_claws/rip_and_tear, cone/line geometry) is untouched; skill NAMES would mismatch a sword
+until renamed at the presentation layer. (b) The werewolf-fantasy investment (Matt-locked
+R-PC-1/R-PC-4, the "sad for a werewolf fantasy" swipe critique) is superseded ONLY if tier 2/3
+fires — werewolf stays primary until the probe reports. (c) **Parity simplifies:** a
+human-height knight dissolves the 2.10× Lycanthropy question — Scope 29 grading collapses to
+the clean ×1.29 full-cast uplift.
