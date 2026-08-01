@@ -2167,3 +2167,37 @@ every deliverable clip henceforth (this cell did).
 first — six labelled beats, both arms, half speed) · `ARSENAL_REGISTER_SIDEBYSIDE_NOHUD_CAMLOCK.mp4`
 · `ARSENAL_D_SOLO_NOHUD_CAMLOCK.mp4`. No self-verdict; Matt's interim "Arsenal much better"
 (Scope 34) already on record. **WARMTH cell fires next** (Scopes 31+32).
+
+---
+
+## SCOPE 36 — VFX COMPOSITION SPEC (Matt verdict on ARSENAL_BEATS + gap list, 2026-08-01; supersedes Scope 34's two-pack frame with a THREE-SOURCE palette)
+
+**Matt's watch verdict, banked:** *"Arsenal wins as core"* — but it lacks Binbun drama, lacks
+the player aura from the bake-off, lacks charge-up glows (claws should glow on strike), lacks
+monster skill VFX completely, "and more." Matt ratifies HOME-GROWN augmentation where the
+combos are lacking (fireworks/explosions/splash, specialized trails, auras, charge-glows).
+
+**Three-source palette:**
+- **A — Arsenal:** the CORE layer (read/feel/quality). Won at the eye.
+- **B — Binbun:** the SHELL layer (size/drama/screen presence; ice/dark shields for icearmor).
+- **N — Native (home-grown Godot):** the GAP layer — everything neither pack carries: the
+  bake-off player aura (Matt-named keeper), charge-up glows, moving-host trails, element
+  aftermath, alert pulses, splash. Precedent: the native arm is already Matt-verdicted
+  judgeable ×3 (PC-VERDICT fire/smoke/sparks) — home-grown is a PROVEN source, not a fallback.
+
+**Beat table (restage builds against this; trace fields named):**
+| Beat | Composition |
+|---|---|
+| Player melee wind-up | **N charge-glow on claws** — emissive ramp + particle gather keyed to `commit_state`/`commit_skill_idx` window |
+| Player melee strike (feral_claws, cone 2 m) | A slash core → B impact shell → JUICE (hit-stop/flash/impulse) |
+| Player line skill (rip_and_tear, line 14 m) | A core + **N trail on the moving sweep** (pays F-AH-2) + B shell at impact |
+| Player aura (persistent) | **N — the bake-off aura, carried forward as-is** |
+| Boss nova / AoR Ultimate | A Nova core (element-matched of the 9) + B shell scale + TELL-DRESS ring (ring stays the warning; VFX is the payoff at `fire_tick`) |
+| Boss melee strike | **NEW — monster skill VFX from zero:** B swing family cold-tinted per the boss's measured 77/23 physical/cold split + A melee core; strike must visibly connect (Scope 24 law carries to monsters) |
+| Mob strikes/casts | element-mapped A/B presets per damage `element`; shaman casts get charge tell |
+| Icearmor | B ice/dark shield (standing designation) |
+| Dormant→alert (W-2) | **N alert pulse** (+ SFX bark, Scope 30) |
+| Deaths | N splash/burst, element-tinted; boss death gets the full A+B+N stack |
+**Guard:** every N effect passes the same usability + judgeable-in-motion gates as pack
+effects; N is not exempt from the eye. "And more" = standing invitation — gaps found in the
+restage watch route back to N by default.
