@@ -1524,3 +1524,140 @@ Added to the G-13b sweep, ahead of the rest: **does `geometry: dot` draw anythin
 — impact VFX, numeral, or neither?** Twenty-one events, 37% of the fight. If it draws nothing, that is
 a larger hole than the slash arc and it takes priority within the cell. Report the answer as a count on
 the framemap, not as a reading of the source.
+
+---
+
+## Addendum 14 (2026-08-01) — F-BR2-S1 pays out immediately: DoT ticks are being rendered as impacts
+
+Reconnaissance on the `dot` question opened by F-BR2-S1 (source reading only — the *gate* remains a
+framemap count, per the brief). `wr2_playback.gd` ~4846–4886, the damage-event handler:
+
+```
+if _cj_on and source is player:
+    geometry == "cone"  -> _cj_strike_flash(...)        <- the claw's release
+    geometry == "line"  -> _cj_line_signature(...)      <- rip_and_tear_r16
+                                                        <- "dot" matches NEITHER
+
+# ...then, OUTSIDE that conditional, for EVERY damage event:
+_vfx_impact(target + 0.9y, elem, big, t)                <- full impact burst
+rig_t.flash()                                           <- additive victim flash
+rig_t.hit_react()                                       <- the authored 18.50 m/s flinch slice
+```
+
+So `dot` gets no release beat of its own — and then receives **the complete impact treatment anyway**:
+burst, victim flash, and a real flinch animation. Twenty-one times.
+
+### The consequence, stated as the player would feel it
+
+**Twenty-one cone hits and twenty-one DoT ticks are currently rendered identically.** Half of
+everything that looks like a hit in this fight is not a hit. The boss flinches on every bleed tick, so
+he is in near-continuous hit-reaction, which does two things at once: it makes the fight read as though
+the player is landing 42 blows instead of 21, and it destroys the legibility of the 21 real ones — a
+body that is always flinching is a body whose flinch means nothing. The two crits at ticks 211/217, the
+fight's dramatic peaks, land inside that noise.
+
+Every ARPG in the genre separates these and separates them the same way. Diablo III ticks DoT as small
+floating numbers with no burst and no hit reaction; PoE's ignite burns as a persistent visual with the
+hit-reaction reserved for hits; Grim Dawn and Last Epoch both keep flinch on the strike channel only.
+The convention is not stylistic — it exists because **hit-reaction is the enemy's answer to your
+agency, and spending it on passive damage spends the currency that makes a swing feel like a swing.**
+
+This is exactly the payout F-BR2-S1 predicted. The design census ran on seed 74000806, where `dot`
+count is **zero**. Nobody ever had to decide what a DoT tick should look like, so the unconditional
+impact path silently swallowed a geometry it was never designed for — and it did so on 37% of the
+watch fight's damage events.
+
+**Noted in fairness:** the same handler's hit-stop comment reads *"4 of 57 damage events"*, which
+matches Addendum 12's census of 74000909 exactly. Provenance in this file is **mixed** — some numbers
+are on the watch seed, some on 806. That is a stronger argument for R-BR-48's re-census sweep, not a
+weaker one: a file whose measurements come from two different fights cannot be audited by reading it.
+
+### R-BR-49 — the render must distinguish DAMAGE ARRIVING from DAMAGE ONGOING
+
+Ruled (reasoning-boundary, veto-open). Two channels, deliberately unequal:
+
+| | hit (`cone` / `line` / `circle` / `point` / `rect`) | ongoing (`dot`) |
+|---|---|---|
+| release beat | yes, per geometry | none |
+| impact burst | yes | **no** — the persistent `BloodCurse` aura already carries this channel |
+| victim flash | yes | **no** |
+| `hit_react` flinch | yes | **no** |
+| numeral | full scale | **reduced scale/opacity, in the DoT's own tint** |
+
+The numeral stays because the information is real and the player is owed it; everything that says *"a
+blow landed"* comes off, because no blow landed.
+
+### G-14e — added to cell 3b
+
+On the framemap: (a) **zero** `hit_react` firings on `dot` events, asserted against a proven non-zero
+subject of 21; (b) a `dot` tick and a `cone` hit are **distinguishable on frame** by the same kind of
+measurement G-5b used for cone-vs-line (which passed at a 1.574 span ratio); (c) the numeral is still
+present on all 21, so the fix removes a false signal without removing information.
+
+Cell 3b's ordering within scope, now settled: **(1) R-BR-49 the DoT/impact separation** — it is a
+subtraction, it is cheap, and it clears the noise floor that everything else has to read against;
+**(2) the player's cone arc** with its two crits; **(3) the leech pulse** (F-BR2-L1); **(4) enemy
+basic-swing arcs**. Beat 1 first, because there is no point authoring a swing's arc into a fight where
+the enemy is already flinching forty-two times.
+
+---
+
+## Addendum 15 (2026-08-01) — the volume filled; what that cost and what it bought
+
+Mid-cell-2b the host volume reached zero bytes. Every `Bash` call failed at output-file creation before
+its command ran, and a 6-byte `Write` probe failed with ENOSPC; the conductor and the cell were both
+reduced to read-only. Matt reclaimed ~15 GB. Proximate cause, measured by the cell: **cell 3 left 5,917
+PNG frames** and cell 2b added ~7 × 360 more, on top of the ~8.6 GB `tmp/` accumulation already parked
+as a BR-3 queue row. The queue row was right and was not urgent until it was.
+
+### Disposition
+
+- **Cell 3** had already banked and pushed before the wall: **`fac2a5aa`**, 969 insertions verified as
+  its own against the COMBAT-JUICE-1 marker set, plus its three instruments (1,650 total). **G-9 closed.**
+- **Cell 2b's authored surface** was on disk and uncommitted when the cell died. Banked by the conductor
+  as **`1d17098`** — 1,235 insertions across six files: `tg_true_shape.gdshader` (arena clip + held rim +
+  frost mottle), new `tg_decal.gdshader`, new `tg_body_shell.gdshader`, the playback wiring, and two
+  instruments. `origin/main` verified at the same hash.
+- **Tracked non-PNG files** removed by the reclamation (the L7RACE `VMUR/` instruments and wire probes)
+  were restored from git; **0 remain deleted.** Tracked PNG plates stay deleted in the worktree — that is
+  the space saving, and whether to commit those removals is BR-3's call, not a side effect of a cell.
+
+### What cell 2b established before it died — kept
+
+- **The ice palette is SAMPLED, not chosen.** 97,246 lit px of the ARSENAL-2 harvest: floor
+  **(0.7145, 0.9118, 1.0000)**, head **(0.9277, 0.9834, 1.0000)**. This is what Matt's shell ruling
+  (Addendum 10 — *"as long as we give it ice texture and colour and sheen"*) will be built from.
+- ⚑ **`ShieldAuraBlue`'s plates measure `(0.463, 0.464, 0.464)` — achromatic to three decimals, on an
+  effect named "Blue."** The hue lives in the `color_ramp`, not the plate. Second time this run a pack
+  asset's *name* has disagreed with its *material*, and a reminder that the register is decided by
+  sampling, never by a filename.
+- **R-BR-41 clip rider verified:** 53 of 53 telegraph materials carry the arena rectangle; 0 of 54 under
+  `--noclip 1`. The control arm proves the rider is doing the work.
+- **G-G PASS:** treatment 0 ground-mark node-frames / 327 shell; control 327 / 0. Perfectly symmetric —
+  the ward moved to the body and nothing stayed behind on the floor. R-BR-44 discharged at the node layer.
+
+### G-C — FAILED its first pass on an instrument defect, correctly refused
+
+Wave frames read control 15,274 px outside the arena → treatment **41**, which is the clip working. Nova
+frames showed no reduction — and the cause was the instrument, not the shader: **4,675 of 4,996
+"outside" pixels sat in the top 60 rows**, i.e. the telegraph's own HUD banner, above the arena's highest
+vertex at y = 100.1. Cell 2's own law requires `--nohud 1` on a measurement frame and the render omitted
+it. The corrected renders died at ~40% on ENOSPC.
+
+**The cell called nothing.** G-C (clean), G-4b, G-2a and G-5e are all **UNMEASURED and uncalled**, and
+no owner-eye clip was cut. That is the correct disposition and it is worth saying plainly: a cell that
+had every incentive to bank a green number on a half-run instrument instead reported the defect in its
+own measurement and refused the verdict. The §5 preregistration safety works because cells behave this
+way when nobody is watching.
+
+### Cell 2c — TELL-DRESS-2 (the measurement lap)
+
+The authoring is banked; what remains is the measurement, which is a smaller cell than the one that
+died. Scope: re-render the five gate frames **with `--nohud 1`**, then call G-C (clean), G-4b, G-2a and
+G-5e, and cut the owner-eye clip. Carries one standing instruction, promoted out of this failure:
+
+**R-BR-50 — a render that will be measured must delete its own frames when the measurement is done.**
+Frame dumps are intermediate state, not evidence; the evidence is the gate number and the clip. Cells
+that measure now prune their own PNGs at the end of the cell, and a cell that cannot prune says so. A
+run whose cells each leave six thousand frames behind will eventually stop being able to run, and this
+one did.
