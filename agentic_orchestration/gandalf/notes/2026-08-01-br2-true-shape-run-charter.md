@@ -1049,3 +1049,141 @@ decals (R-BR-41) and render where the sim says. Repositioning touches CAM-LOCK a
 | **2b** | **TELL-DRESS-1** | **drax** | **QUEUED — fires on cell 3's landing** |
 | 4 | HUD-PORT-1 | drax | |
 | 5 | BR2-WATCH | drax | |
+
+---
+
+## ADDENDUM 9 — cell 3 landed (unbanked); **the ring is the ICEARMOR**, and two of my attributions
+## were wrong. (conductor, 2026-08-01)
+
+Cell 3 completed its work and was terminated by an org usage limit at the commit step. Landing note
+written (`drax/notes/2026-08-01-combat-juice-1.md`, untracked), artifacts on disk
+(`tmp/combatjuice1/`, incl. `CJ1_OWNER_EYE.mp4` and `CJ1_WATCH.mp4`), **969 insertions across three
+tracked scripts uncommitted.** Banking is the first act of the next cell — **G-9 is not satisfied and
+the cell is not closed.**
+
+### ⚑⚑ R-BR-44 — THE RING IS THE BOSS'S ICEARMOR. MATT'S REMOVAL CONDITION IS FALSE.
+
+Matt asked, conditionally: *"Is the consistently appearing circle around the boss just its wind up for
+its swings? **If so**, we can remove that entirely."* **The condition is false, so the removal does
+not fire** — and R-BR-42 (*identify before removing*) paid for itself in the most direct way available.
+Deleting it would have deleted the boss's armour state.
+
+Four independent numbers, four matches:
+
+```
+contaminant annulus, measured    : 2.50 .. 3.25 m from the boss, tracking him
+contaminant lifetime, measured   : trace t 1.03 .. 12.87 s (clean before and after)
+_tell_dress WARD RING geometry   : entity_radius x (2.05 +/- 0.10) x [0.86 .. 1.00]
+                                   on a 1.5 m boss -> 2.51 .. 3.23 m
+`wr3_icearmor` live on this seed : ticks 10 .. 129 -> trace t 1.0 .. 12.9 s
+```
+
+**And the same object is the thing that failed cell 2's gate.** The 31 and 43 "danger pixels in the
+gaps" were the ward ring, contaminating a differential because `--tgoff` and `--tgfam <fam>` peel
+different layers. Two open items, one object, one measurement — which is exactly why the identification
+was ruled before the deletion.
+
+**But Matt's eye was not wrong; it was reading a register error.** He saw a flat ground ring appearing
+constantly around the boss and correctly parsed it as *telegraph grammar* — because a ground ring **is**
+telegraph grammar. It says "danger will happen in this footprint." Armour says nothing of the kind: it
+is a property of a **body**, not of a **floor**.
+
+**Ruled: the ward is re-registered from FLOOR to BODY.** It becomes a body-hugging shell — a rime
+shimmer on the boss's own silhouette, `ShieldAuraBlue`/`AuraDamageFrost` material at body scale — and
+**vacates the ground plane entirely.** Both of Matt's needs are met without losing information: the
+spurious telegraph disappears from the floor, and the armour state stays legible, which G-5e measured
+at **99.17 %** on-frame and **0** false-positive frames. The ground plane belongs to danger. Nothing
+that is not danger may draw on it.
+
+### F-CJ-1 — RULED. Make the two peels identical; G-2a re-measures after.
+
+Drax escalated this correctly because it changes cell 2's control arm. **Ruled: `--tgoff` and `--tgfam`
+must differ ONLY in which decals are drawn.** Body resting-emissive (`_tell_dress`'s write) is applied
+**identically in both arms** — today `--tgoff` skips the function entirely, which is why a frame where
+nothing is drawn still shows a **237 px** between-arm disagreement.
+
+**And drax's refusal to call G-2a 6/6 is upheld and commended.** 31/43 collapsed to 1/1 under
+`--nomark 1`, but 1 is not 0, and 1/1/3/2 sit inside a 237 px parity floor — indistinguishable from
+instrument noise. His own words: *"a gate whose control arm is not clean has not earned a PASS."*
+That is the rubric law stated from the inside. **G-2a stands RESTATED, not passed**, and closes only
+when the baseline reads 0.
+
+### ⚑ MY EAST-WALL SYNTHESIS WAS WRONG, AND IT IS THE SECOND WRONG ATTRIBUTION IN TWO ADDENDA
+
+Addendum 7 declared: *"G-2b's FAIL and finding #2 are the same phenomenon."* It was a satisfying
+unification and **the measurement destroyed it.** Only **wave:2** fits the room, it is the cast cell 2
+already measured, and **it runs south-west — away from the east wall entirely.**
+
+What actually produces the 0.050 m: the +edge at world (12.576, 8.817) lands on a **2 m floor feature
+in the baked arena** — a well or drain, centre (11.74, 7.65), radius ≈ 1.9–2.4 m, ringed with pale
+stones. The decal is depth-tested **on purpose**, so it correctly does not draw across a hole in the
+floor. The gate read a hole as missing decal. The −edge, on clean floor, measures −3.00 against a
+geometric −2.981.
+
+The east-wall finding is **still real and still the headline BR-3 item** (F-CJ-3: wave:1 and wave:3
+both put 16 m of lane through a wall). It simply does not explain this number. Two true things, and I
+welded them together because the weld was elegant.
+
+### R-BR-45 — A SYNTHESIS THAT UNIFIES TWO FINDINGS MUST BE MEASURED, NOT INFERRED
+
+The elegance of a unification is not evidence for it. This is R-BR-34's family — *a ruling that names
+no evidence is a recollection wearing a ruling's clothes* — but the failure mode is subtler and more
+seductive: **the recollection is replaced by a structural argument that is internally sound and
+externally untested.** My east-wall weld was internally sound. So was "travel is absent from schema."
+So was "the blizzard is renderable today via `attack_id`." Three for three, and all three were
+plausible enough to survive scrutiny that was not measurement.
+
+### G-3b — PASS, and R-BR-40 had FOUR live victims, not one
+
+14 candidates / 14 justified / **0 unjustified**, matched on **predicate text, not line number** —
+because a line-number allow-list forgives whatever drifts into the slot after the next edit. Beyond
+`_ps_tg_verdict`:
+
+1. `wr2_playback.gd::_spawn_telegraph` — `is_ring := (shape == "circle")`. Cell 1d set `shape` to
+   `"star"`, so `is_ring` went false, so `_wr3_register_nova` was never called, and **the fight's
+   entire nova statistic went dark with no warning whatsoever.** `[wr2] nova telegraph:` printed **0
+   times** on a seed that fires three novas. `_ps_tg_verdict` at least printed `?`; this printed
+   nothing. **A silent zero is the most expensive output a system can produce.**
+2. `_wr3_register_nova` guarded the same event on `shape` a second time — belt-and-braces is precisely
+   where a law gets violated quietly.
+3. `replica_playback.gd::_spawn_telegraph` drew a nova as an oriented box **sized from `range_m` =
+   10.0 m**, the AI trigger distance, against a real 12.0 m footprint. **R-BR-40 and the extent law
+   violated in one line.**
+4. `[wr3probe] (c)` — a probe whose whole job is separating nova from blizzard **had quietly stopped
+   seeing the nova**, and reported a blizzard-only census under a heading reading "by family."
+
+### Gates: G-5b · G-5e · G-3b PASS · G-2b FAIL (cause re-pinned) · G-2a RESTATED
+
+**G-5e's absence half reads 0** — the aura drops the tick the buff drops, zero frames up-while-not-
+buffed. That half is what makes it an instrument rather than a decoration. **G-5d's burn is deleted,
+not dimmed** (`_cj_burn_spawns` = 0 counts any attempt to reinstate it); the body's own collapse stays,
+because a body that persists is the point of a room that keeps a record.
+
+**Six instrument defects were built and measured out of**, each having produced a confident wrong
+number first — including a coverage loop that `break`ed on the first match while this fight lands two
+cone events on one tick, **capping coverage at 20/21 forever**: *"a denominator that cannot reach its
+own numerator is a null instrument wearing a plausible 95 %."* And a G-5e denominator that reported
+**205.9 %** — *"a percentage above 100 is an instrument telling you it is measuring two different
+things and calling them one ratio."*
+
+### F-CJ-6 — RULED: hold the tail, do not re-pick the seed
+
+The boss dies on the trace's **final tick**, so its pool has no frames to persist over and was reported
+**NOT MEASURABLE** rather than as either verdict — correct handling. Re-picking the watch seed would
+re-open every measurement in this run. **Cell 5 instead holds the final state for a named tail (~4 s)
+so the room's accumulated record is visible, declared as a HOLD, not as simulated time.** Nothing
+animates that the trace does not say.
+
+**F-CJ-5 folded into the next cell:** sweep the `--` flags whose defaults were set during instrument
+work and never set back. **F-CJ-2** (occlusion measured off an actor list rather than off the frame)
+→ BR-3.
+
+### §3 cell table
+
+| # | Cell | Owner | State |
+|---|---|---|---|
+| 1 · 1b · 1c · 1d · 2 | fill · stage · arsenal · resolve · vfx-truth | gamora / drax | **LANDED** |
+| 3 | COMBAT-JUICE-1 | drax | **WORK COMPLETE, UNBANKED** — G-9 owed |
+| 2b | TELL-DRESS-1 | drax | **NEXT** — banks cell 3 first, then R-BR-41/43/44 + F-CJ-1 |
+| 4 | HUD-PORT-1 | drax | |
+| 5 | BR2-WATCH | drax | + the F-CJ-6 tail hold |
