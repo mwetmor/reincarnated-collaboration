@@ -3107,3 +3107,81 @@ them.** (2) A death communicated by absence is a schema smell: one explicit deat
 would cost one line and close a class of consumer bugs. Companion to F-HB-7 (~30.9 % of damage taken
 emits no event) — both are the same underlying shape, **the trace under-reporting its own state
 changes.**
+
+---
+
+## FINDING F-PR-2 — the telegraph schema carries an ICY 16-PRONG TRAVELLING STAR, and R-BR-3 refused to look (conductor probe, 2026-08-01)
+
+Matt, unprompted: *"the AOE ultimate move of the primordian boss is actually supposed to be an icy
+multi-pronged star projectile."* **The packet says exactly that, in named fields, and we rendered a
+static circle.** Telegraph events carry **24 fields**; here is what the three families populate:
+
+| family | shape | wind-up | geometry actually declared | fields we IGNORED |
+|---|---|---|---|---|
+| **nova** (`primordian_frigidring_star_r5`) | circle | 0.8500 s | **radius 12.0 m** | **`prong_count = 16`** · **`projectile_velocity_ms = 14.0`** · **`t_launch_s`** · **`spoke_offset_rad`** |
+| **blizzard** (`chillbane_blizzard_r5`) | circle | 0.8333 s | **radius 8.0 m** | — |
+| **wave** (`primordian_wave_r5`) | **rect** | 0.8519 s | **range 16.0 m × width 6.0 m** | **`orientation_rad`** |
+
+**The nova is a sixteen-spoke star that FIRES OUTWARD at 14.0 m/s to a 12.0 m radius — 0.857 s of
+visible flight — and `spoke_offset_rad` rotates the whole star to a different phase on every cast**
+(5.4501 / 2.9153 / 2.8660 rad across the three casts in this fight). Matt named it from the frame.
+
+### ⚑ R-BR-3 IS REVERSED — it was founded on a false premise (R-BR-24)
+
+R-BR-3, my own ruling, verbatim: *"No invented projectiles — **travel is ABSENT from schema**;
+instant-resolve renders as such (declared limitation, wave territory)."*
+
+**Travel is not absent from the schema. It has two dedicated fields** — `projectile_velocity_ms` and
+`t_launch_s` — and they are POPULATED on every nova in the trace. On the strength of that ruling
+ARSENAL-HARVEST **refused 39 travel-bearing effects** as principled non-invention. The refusal was
+principled and **wrong**, and the 39 effects are precisely the vocabulary a sixteen-prong star needs.
+**R-BR-18** (mob skills = muzzle-flash + impact, *nothing between*) rests on the same dead premise
+and falls with it.
+
+**R-BR-24 (conductor ruling, veto-open) — travel RENDERS, from the trace, never invented.** A
+projectile draws only where `projectile_velocity_ms` and `t_launch_s` are non-null; its flight time
+is `radius_m / projectile_velocity_ms`, not a chosen number; its count is `prong_count`; its phase is
+`spoke_offset_rad`. The 39 refused effects return to the palette **for trace-backed travel only.**
+The original discipline is intact — *never invent what the substrate does not say* — it was the
+FACT that was wrong, not the principle.
+
+### The floor tells are metrically right and geometrically wrong
+
+Matt's A) asked whether the listed area is accurate. **Radii are** (TELL-DRESS: declared 12.000 →
+measured 11.939, −0.51 %). **Shapes are not:**
+- **blizzard is 8.0 m and nova is 12.0 m — two different circles.** If they render at one size, the
+  8 m tell is lying by 50 % of its area.
+- **wave is a `rect` 16.0 × 6.0 m with a per-cast `orientation_rad`** — while the entity header
+  nominally declares that same skill `geometry: cone, range_m 9.0`. **The header and the telegraph
+  disagree, and the telegraph is the per-cast truth.** Any tell drawn from the header's nominal
+  geometry draws the wrong shape at the wrong size in a fixed direction.
+
+**Standing law proposed:** telegraphs render from the TELEGRAPH event, never from the entity
+header's nominal skill declaration. The header is a roster summary; the event is what happened.
+
+### F-PR-1 AMENDED — the corpse has a killer, and it is the player
+
+The 846-HP actor is **not** a phantom roster entry. `event: damage`, tick 0, source
+`gd-werewolf-kitcal-1`, **skill_idx 1 = `rip_and_tear_r16`, geometry `line`, element `chaos`,
+delivered 846.0, lethal true** — followed by `event: death, killer_id: gd-werewolf-kitcal-1,
+death_element: chaos`. **The player one-shots a shaman at 7.06 m on frame zero.** The tick-0 entity
+snapshot is written POST-resolution, which is why the actor appears already dead.
+
+**This is a presentation fix and a dramatic upgrade at the same time:** spawn the cast from the
+**header's `entities`** (all four, with `spawn_x_m`/`spawn_y_m`/`max_hp`/`entity_radius_m`), then let
+tick 0's death **play as a death**. The fight would open with the werewolf opening a shaman at range
+instead of with a body lying inexplicably still. My "phantom roster entry" framing was wrong; the
+engine-seam item about tick-0 snapshots is narrowed accordingly and the schema-smell half of F-PR-1
+is **withdrawn** — deaths DO emit explicit events with `killer_id` and `death_element`.
+
+### Two more things we hold and do not draw
+
+- **The player has a 14.0 m LINE skill and it is the heavy hitter.** `rip_and_tear_r16` fires 8
+  times for 960–1246 delivered, versus 21 cone hits from `feral_claws_r16` at 2.0 m. **Matt's D)
+  claw-VFX discussion assumed a melee-only player.** A third of the player's offence is a ranged
+  line and it has no visual identity at all.
+- **There is a DoT: 21 damage events at `skill_idx −1, geometry "dot", element "chaos"`** — a
+  damage-over-time channel with no presentation whatsoever.
+- **Elements are live on EVENTS** (`chaos` / `cold` / `physical`, plus `death_element`) even though
+  `element` is null on every skill declaration in the header — so the element grammar must key off
+  events. It does. That one we got right.
