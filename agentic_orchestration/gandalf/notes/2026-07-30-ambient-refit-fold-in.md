@@ -1998,3 +1998,39 @@ light, overlap/stripe gates python-side only, AGENT_STATE four cells behind, `tm
 FIRST — before closes to a point mid-frame, after runs wide off the top) ·
 `BEAMV3_before_after_watch_NOHUD_CAMLOCK.mp4` · `SHADOW_AB_1.00_vs_3.50.mp4` ·
 plate `PLATE_direction_G27a.png`.
+
+---
+
+## VERDICT — Matt PASS on BEAM-V3 beams + shadows (2026-08-01): "Beams and shadows are great now."
+
+Scope 27 CLOSED at the owner's eye. R-BR-8 (3.50) confirmed against the A/B clip; ships as
+default in the restage.
+
+## SCOPE 31 — dust clouds went COLD-BLUE with the beams; decouple (Matt, 2026-08-01)
+
+Matt: *"the particles from the beams have now made the dust clouds very cold-blue which they
+shouldn't have. Can I see a render where the beam particles don't interact with the dust clouds
+at all so that we gain back the warmth in the room?"* The dust system (`sky_dust.gdshader`,
+motes living inside the shaft, lit along its axis — the reference-photo law at
+`kit_replica_level.gd:1540` said dust should be the LOUDEST thing in the beam) now reads as
+tinting the room's dust volume cold. Deliverable: an A/B render — beam-dust chromatically
+DECOUPLED from the room (beam motes may stay cold inside the shaft; the room's ambient dust
+returns to the warm register), at CAM-LOCK, in motion. Cell decides mechanism (separate dust
+populations vs tint clamp); Matt judges warmth recovery at his eye.
+
+## SCOPE 32 — carried-light sheen: the wet-layer proposal (Matt, 2026-08-01)
+
+Matt: light-source not evidently centered on player; no sheen on the ground. Proposes *"a
+super-thin layer of mud or water which could be nearly imperceptible, but just enough to cast
+the sheen when the player walks by."* **Standing fact:** the warm carried omni EXISTS and is
+player-attached (the living soul, E1 arm A — `kit_replica_level.gd:1006` cosmology block); what's
+missing is the FLOOR'S REPLY — kit modules build at roughness 0.9 (floor tiles ladder to 0.64),
+a GGX lobe too diffuse to return a moving highlight. The lamp is lit; the mirror is missing.
+Deliverable: graded A/B at Matt's eye — (a) floor-tile roughness drop alone, (b) Matt's wet
+layer: patchy near-imperceptible low-roughness/clearcoat film (puddle-map, not uniform) that
+ignites ONLY when the carried light rakes it, (c) carried-omni energy bump as control. Genre
+anchor: D1's torch-radius intimacy + D3 Cathedral's polished-stone specular — the carried-light
+fantasy is sold by the floor answering the lamp.
+
+**Sequencing:** Scopes 31+32 compose into one WARMTH cell (drax) — queued AFTER ARSENAL-HARVEST
+(single-writer), BEFORE the restage, so the restage inherits verdicted warmth + sheen settings.
