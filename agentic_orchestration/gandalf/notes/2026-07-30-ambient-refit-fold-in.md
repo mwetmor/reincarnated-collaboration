@@ -2895,3 +2895,94 @@ body scale that every later parity claim inherits.
   **308.90 m** mesh AABB unit-scale defect. Cost recorded so the next cell does not rediscover it.
 
 **Queue:** LAP-2C RESTAGE fires now — the last cell of the run.
+
+---
+
+## LANDING — LAP-2C RESTAGE ✓ (drax, 2026-08-01; godot `69264c5` opened at `136ff81` clean, note `drax/notes/2026-08-01-lap-2c-restage.md`, meta `9e4d165f`)
+
+**Charter T-2 DELIVERED.** `tmp/restage/clips/LAP2C_WATCH.mp4` — 1600×900, 1,264 frames, **42.13 s**,
+h264+AAC, decode-verified: the whole fight start→boss-death in the crypt corner at CAM-LOCK, with
+the second camera arm (`LAP2C_WATCH_JUICE.mp4`) beside it.
+
+**G-6: 20 rows, 0 silently missing.** G-VFX **PASS** (17 beats, 0 collapse; components median 32 vs
+32). 70/70 audio beats measured landing on their own frames. **3,441 position writes, 0 displacement
+violations.** Hit-stop drift **1.11 %**. `land_hard` is **deleted** from `STRIKE_CLIP_BY_BODY`, not
+out-ranked — the +2.0230 m pounce is never loaded and no branch of `strike()` can reach it; 112/126
+tracks bound, `attack_1/2/3` fired 16/16/16.
+
+**All three Lap-2 riders censused before being claimed:** `icearmor` **YES** (120/361 boss ticks,
+rendered as the ward annulus at 2.05× body radius) · `family` **YES 9/9** · `attack_id` **PARTIAL**
+(9/9 telegraph, 4/57 damage) — consumed for the boss-ultimate hit-stop class, and **refused** for
+T-2's "`attack_id`-keyed attack anims" because keying three slices off a rider null on 53 of 57
+events *"would be a mapping wearing a rider's clothes."* **An absent referent, named.**
+
+**Four of the cell's own instruments failed like successes and are printed:** G-7 run 1 reported
+0.1849 m interpenetration, of which 81 of 84 offending frames were **the floor slab** and the tail
+was the cell's own death sink; the drift line printed 17.04 % by counting two deliberate cinematic
+holds as drift; the aura shipped at 17.5 m across, then as a filled disc hiding the player's legs;
+and the cell then blamed the aura for a warm core whose total contribution peels out at **+0.3 %**.
+
+### THREE OF MY OWN PREMISES WERE WRONG, AND THE MEASUREMENT WON EACH TIME
+
+**1 — The nova wind-up is 0.8500 s, not 2.32 s** (9/9 telegraphs: blizzard 0.8333 · nova 0.8500 ·
+wave 0.8519). The 2.32 s came from a BATON-CENSUS reading of an *earlier battery*, and I carried it
+into the SFX beat table, G-6 row 6 and the charter itself. **Truncating the charge sample to 2.32 s
+would have made the audio outrun every tell in the watch by 1.47 s** — which is precisely the lie
+R-BR-16's own truncation clause was written to prevent, arriving through a stale *constant* rather
+than through an asset. A conductor's inherited number is exactly as dangerous as an agent's
+assumption, and it hides better, because it comes with a provenance.
+
+**2 — R-BR-23 was never a disagreement, and the information to dissolve it was already banked.**
+1.5278 is a ratio of two **constants**; 1.46 is a **rendered** ratio; this render measures the
+rendered mean at **1.4571**. GD-PARITY's own note **already published both in one row** — I called
+two different quantities "two measurements of the same number" without finding the note that says
+they are not. **The HOLD was still right, and this is why:** had it not held, the cell would have
+edited `RIG_BOSS_H` to "fix" 1.5278 and pushed the ratio *an eye actually sees* **away** from
+GD-correct. A hold that is right for an imprecise reason still beats an edit that is wrong for a
+confident one. **No `RIG_BOSS_H` edit made.**
+
+**3 — R-BR-17's mechanism is wrong: the shell works by OCCLUSION, not addition.** I described it as
+*"bloom wash, ground scorch, motes"* — additive. Measured, the Binbun smoke class is an
+alpha-blended grey puff that, stacked at the core's world point, **occludes** core light and pushes
+**~6 %** of the core's lit pixels below threshold (law/core lit-px ratio median **0.944**). The
+layer does its job — components held, |diff| confirms presence — but *weight by occlusion* and
+*bloom by addition* are different things to hand Matt, and the gate I pre-registered measured the
+right criterion for the wrong reason. **The gate passes; the ruling's mechanism is amended by the
+measurement.**
+
+### R-BR-22's disrepair clause DISSOLVES — and leaves a design debt behind it
+
+**G-7 measures 0.0000 m** along the boss's alive path. There is no interpenetration, so there is no
+beam to break — and the "2.40 m beam base" datum I ruled against was **stale by two cells**
+(BEAM-PIN2 retired it to −0.60 m; **the room has no ceiling mesh at all**). The parity collision I
+resolved was a collision with a number, not with geometry.
+
+⚑ **The consequence outlives the ruling: Scope 39's slits still want a cause.** Matt asked for
+*"slits of light shining through cracks in the crypt's ceiling."* There is no ceiling. The light is
+correct and its **source is unexplained in frame** — the disrepair edit I ruled would have supplied
+that cause as a side effect, and it is not being made. **Carried forward as a design item, not a
+defect:** a crypt whose light has no visible origin reads as stylised rather than ruined, and that
+is a register choice nobody has made on purpose yet.
+
+### Findings routed out (knight-rider / jack-ryan)
+
+- **F-RS-1 — F-BR-2's forward-looking clause is STALE.** `family` is populated 9/9; the seam that
+  dropped it is fixed. **G-5's rider-census amendment can be un-amended.**
+- **F-RS-3 — F-HB-4 is too strong** (a real telegraph→damage join key exists on 4/57 and joins 4/9
+  telegraphs exactly; HUD-BUILD's heuristic mis-read nova #5 because `telegraph.damage_amount` is
+  **pre**-mitigation and `delivered` is **post**). A correction, not a reversal.
+- **F-RS-2 — Binbun asset case-mismatch** (`res://assets/…` vs `Assets/…`): works on macOS's
+  case-insensitive filesystem, **would not survive export to a case-sensitive target.**
+- **F-RS-6 / F-AH-2** — a flag that does not announce itself; the trail class now **exercised on a
+  swinging bone (50 attachments) and still not measured there.** Downgraded, not paid.
+
+### ⚑ The watch clips are LOCAL-ONLY, and the reason is the licence
+
+A WAV mixed from leohpaz + tommusic samples — and an MP4 with that WAV in its AAC track — **are the
+restricted audio in another container**, under the same rule as `assets/sfx/`. So both watch clips
+stay on this Mac while the **silent** evidence clips commit normally. `bash tmp/restage/run_all.sh`
+rebuilds both from committed instruments in one command. **The cell reasoned its way to that
+distinction unprompted** — R-BR-16's vendoring rule said nothing about muxed output, and it should
+have. **Standing amendment to R-BR-16: restricted audio is restricted in every container.**
+
+**RUN BR-1 IS COMPLETE.** Exit review: `gandalf/notes/2026-08-01-br1-exit-review.md`.
