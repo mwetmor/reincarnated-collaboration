@@ -2539,3 +2539,69 @@ the mega-cell failure mode. Split, effective now:
   decidable, ends in a body verdict + a probe beat.
 - **CELL: LAP-2C RESTAGE** — pure integration on the verdicted body: VFX beat table, SFX, JUICE,
   HUD on at grade C/C′, 3.50 shadows, W-2 states, end card, seed 74000909.
+
+---
+
+## CONDUCTOR PREP — SFX PALETTE (Scope 30 discharge; measured while BODY-PROBE holds the tree)
+
+Matt handed the run a 4.0 GB library (`reincarnated-demo/public/audio/sfx`, 20 dirs). The restage
+should not receive "go find sounds." It receives a table. Censused read-only; nothing moved.
+
+**Licence audit first, because it changes the palette.** `_licenses/` covers **7 sources**; the
+tree holds **20 dirs**. The uncovered twelve — `Battle`, `SWORD`, `Hits`, `MAGIC WEPONES`,
+`monsters_creatures_sfx_1_wav`, `Pixel Magic…`, `dragon`, `AMBIENCE`, `Footsteps`, `Horse`,
+`Human_amb`, `Locations` — carry **no provenance file on disk**, and they are exactly the
+combat-named ones. Two more drifts: `pixelloops/` and `kmontesdev/` are **empty (0 files)** while
+their licence notes still read *NOT YET ACQUIRED / NOT YET STAGED* — and the 304-file
+`Ultimate_Game_Ambient_Sound_Effects_Pack/` **is** the pixelloops pack, staged later under a
+different name. The ledger is stale in both directions.
+
+### R-BR-16 — SFX palette: LICENCE-CLEARED SET ONLY (veto-open)
+
+The restage draws **exclusively** from `kenney` (CC0) · `oga` (CC0) · `leohpaz` (commercial YES,
+redistribution NO) · `tommusic` (royalty-free commercial). The twelve unattributed dirs are **not
+consumed** — and note *why* that is not a request to Matt: the cleared set covers **every beat in
+the table below**, so no provenance ruling is needed to ship the watch. Refusing unprovenanced
+material when a cleared substitute exists is cheaper than asking permission to need it.
+
+**Vendoring rule (mirrors ARSENAL-HARVEST exactly):** copy **only the ~45 named files** into
+`reincarnated-godot/assets/sfx/`, gitignored, with a tracked manifest carrying source path +
+licence per file and a one-command rebuild script. Redistribution is forbidden by two of the four
+licences; a manifest is the tracked authority, not the audio.
+
+### The beat table — every row an existing file, probed
+
+| Beat | Trace source of truth | Assets (cleared) | Variants |
+|---|---|---|---|
+| player strike — **sword body** | strike beat (R-BR-2) | `leohpaz/07_human_atk_sword_1..3` | 3 |
+| player strike — **werewolf floor** | " | `leohpaz/10_Battle_SFX/03_Claw_03` + `oga/…/NPC/misc/wolfman` | 2 ⚑ |
+| strike **connects** | `damage` event | `leohpaz/26_sword_hit_1..3` + `15_Impact_flesh_02` + `tommusic/…/Sword Impact Hit 1..3` | 7 |
+| strike **misses** | no damage in window | `leohpaz/27_sword_miss_1..3` + `35_Miss_Evade_02` | 4 |
+| player **takes** damage | received-side `damage` | `leohpaz/11_human_damage_1..3` | 3 |
+| mob **death** | `alive→false` | `leohpaz/69_Enemy_death_01` (2.67 s) + `24_orc_death_spin` (2.0 s) | 2 |
+| player death | " | `leohpaz/14_human_death_spin` | 1 |
+| **telegraph wind-up** | real nova 2.32 s | `leohpaz/45_Charge_05` (5.33 s — **truncate + fade to the measured wind-up**; a charge that outruns its own tell is a lie about timing) · `09_human_charging_1..2_loop` for longer tells | 3 |
+| **nova resolve, per element** | `damage.element` | `8_Atk_Magic_SFX`: fire `04` · ice `13` · thunder `18` · water `22` · wind `25` · earth `30` (+`46` poison spare) | 6/6 — **exactly our element family** |
+| mob vocal | aggro / hit | `oga/…/NPC/`: shade ×15 · gutteral beast ×15 · slime ×10 · ogre ×5 | 45 |
+| footsteps on stone | kinematics | `leohpaz/16_human_walk_stone_1..3` (player) · `25_orc_walk_stone_1..3` (mobs) | 6 |
+| ambience bed | — | `tommusic/…/BGS Loops/Cave/Cave.ogg` (60.0 s loop) | 1 |
+| HUD audio | — | **NONE — ruled out.** The HUD is a diagnostic overlay, not a diegetic UI; beeping it asserts a UI the game does not have | — |
+
+**Music: OFF for the Lap-2c watch** (`leohpaz/Minifantasy_Dungeon_Music/` is cleared and available).
+A score competes with the exact judgement the watch exists to collect. Preserve as a one-flag
+alternate arm; Matt's call on the return review, not mine to pre-empt.
+
+**⚑ The variation hazard, sized:** the baton fight carries **57 damage events**. The connect-class
+has 7 real variants and survives; the **claw class has 2** — if BODY-PROBE lands on the werewolf
+floor, repeated identical claws will read as a machine-gun. Mitigation the restage must apply
+regardless: ±2 semitone pitch and ±1.5 dB gain randomisation per instance, plus round-robin
+without immediate repeat.
+
+**A hazard I predicted and measurement refuted:** leohpaz files are quantised to a 0.667 s grid, so
+I expected leading pad — which would land every hit late. `silencedetect` at −45 dB / 20 ms finds
+**no leading silence on any probed sample**; the padding is trailing tail. All probed assets are
+44.1 kHz stereo (one 48 kHz: `wolfman`). No offset compensation needed. Recorded because a
+dissolved hazard is worth as much as a found one.
+
+**Standing:** this table is *input to* LAP-2C RESTAGE, not a substitute for its judgement — drax
+holds final say at asset quality, and any row he replaces he names.
