@@ -99,9 +99,23 @@ multiple forum readers got stuck at exactly this, unable to meet the 8 yellow af
 Scales). A savefile arrives at the terminal state with no sequence at all. That is the difference
 between "100% match" as a fact and as an aspiration.*
 
-**Flagged, not buried: forward-compatibility is UNVERIFIED (probe U-2).** The zip is a 1.1.9.x-era
-save; the client is 1.3.0.0. GD has historically read forward across format bumps, but nobody
-tested this one. **If the character fails to load, fall back to Path B and say so.**
+**Forward-compatibility: VERIFIED, and IRREVERSIBLE (probe addendum, U-2 closed).** Zantai
+(Crate), verbatim: *"A character saved in v1.2 becomes a v1.2+ character and cannot be rolled
+back."* The migration is real, not a no-op — six save-block format bumps measured between the 2022
+file and a current one — and **no patch between 1.2.0.0 and 1.3.0.4 refunds devotion points**, so
+the 100%-match premise survives the load. Two consequences:
+
+4. **Keep the pristine zip. Do not delete or overwrite it.** *First load converts the save
+   permanently; the zip is the only way back to the untouched original if anything goes wrong.*
+5. **FIRST-LOAD BINDINGS CHECK (on camera, before the ceremony).** *One patch in the span —
+   v1.2.1.5 — ran a one-time reset that **unassigned Celestial Powers from skills granted by
+   two-handed weapons or their components.** Gutsmasher is a two-hander and its devotion map is
+   all procs (Maul→Judgment, Ulzaad→War Cry, Crab→Divine Mandate). Points survive; some bindings
+   may arrive CLEARED.* **At first load, open the devotion window and check every proc binding
+   against the grimtools tab. Re-bind any that were cleared — re-binding costs nothing and is a
+   named migration repair, not a deviation. Say on the mic which ones you re-bound.** *An unbound
+   Maul is a silently different build; a narrated re-bind is the same build with its paperwork
+   done.*
 
 **Path B (fallback) — GD Stash 1.8.2g**, constructed against the grimtools sheet
 **`https://www.grimtools.com/calc/b28gD0KN`**. Follow the probe's § 2.2 steps exactly — set the
@@ -144,15 +158,15 @@ cannot attribute. If something genuinely will not work (an item won't equip, a d
 missing), **change nothing and tell us**; a documented deviation is data, an undocumented one is
 contamination.*
 
-**Contingency — Crucible access (flagged UNVERIFIED; nobody has established this).** An imported
-character may or may not arrive with Gladiator difficulty and the wave-150 checkpoint unlocked, and
-may or may not arrive with riftgates near Steps of Torment discovered. *v1.3.0.0 made unlocking
-cheaper — the next Crucible difficulty now triggers at wave 110 and wave 160 rather than requiring
-a full 1–100 clear (probe § 3.1) — and GD Stash can set riftgates and Crucible token points (§ 2.2
-feature list). But whether the savefile ships unlocked is not in our notes.* **If Gladiator or the
-150 checkpoint is not available: play the highest difficulty and highest checkpoint that IS
-available, for the same 35 minutes, and report exactly what you played.** *The 35-minute window is
-the invariant; the wave band is the preference.*
+**Crucible access — RESOLVED, SITTING-SAFE (probe addendum; the actual savefile was parsed).**
+*Legolas stopped inferring and read the `player.gdc` you will import: `greatestSurvivalDifficulty
+= 2` (**Gladiator unlocked**), `currentTribute = 999`, `survivalWaveTier = 170`, all three
+difficulty tokens and the tier-checkpoint tokens present — and all of this lives in `player.gdc`
+itself, so it travels with the character; there is no separate Crucible file to lose. Since
+v1.2.1.3 the 50/100/150 checkpoints are free to start from and Tributes are no longer needed to
+start high.* **Expect to select Gladiator and start at wave 150 immediately. If reality disagrees
+with the parse, play the highest difficulty and checkpoint available for the same 35 minutes and
+report exactly what you played** — the 35-minute window is the invariant.
 
 ## 3 · VERIFICATION CEREMONY — before the first fight, out of combat
 
@@ -215,12 +229,18 @@ except X."*
 
 ## 5 · Window W2 — Crucible, Gladiator, 35+ minutes
 
-1. **Play the Crucible at Gladiator for at least 35 minutes.** Prefer **waves 150–170**; per §2's
-   contingency, take the highest available band if 150 isn't offered and report what you played.
+1. **Play the Crucible at Gladiator for at least 35 minutes, in the 150–170 band.** Start from
+   the 150 checkpoint (unlocked in your save — §2).
    *Both Top-20 editions, 2022 and 2026, state the same benchmark verbatim: every listed build
    *"finish[es] 151-170 within 4:30 in the best run."* 35 minutes buys roughly **4–6 complete
    150–170 runs** — and several short runs give more engagement segments than one long climb
    (probe § 3.1).*
+   **Know before you queue: the Crucible now runs to wave 200** (FoA added tiers 18–20; probe
+   addendum). **Stopping at the 170 reward chamber is a deliberate cash-out, not the event
+   ending — say "cashing out at 170" on the mic each time so the stop reads as a choice, not a
+   wipe.** *If you feel like pushing 170→200 once at the end of the window, that is bonus data on
+   waves nobody has benchmarked for this build — welcome, but entirely optional; report the
+   deepest wave reached.*
 2. **Quick re-shot of the character sheet + devotion screen between the windows if ANYTHING
    changed** (a level-up is impossible at 100, but blessings, buffs, or a swapped component are
    not). Otherwise skip it. *One ceremony, one regime — confirm it held.*
