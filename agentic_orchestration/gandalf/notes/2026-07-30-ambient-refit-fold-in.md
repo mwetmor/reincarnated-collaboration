@@ -1837,3 +1837,25 @@ surveyed — flagged, not guessed.
 **→ Matt purchase decisions queued:** D-VFX-1 Polygon Arsenal $40 (after WebGL check) ·
 D-VFX-2 Binbun Battle FX ~$6 (unconditional lean YES) · D-VFX-3 Magic Arsenal $30 (defer until
 Arsenal-1 verdict lands at the eye).
+
+---
+
+## R-BR-8 — SHADOW DEPTH RULED: 3.50 (MATT-SIGNED, 2026-07-31)
+
+Matt verbatim: *"on shadows - go with 3.5"*. `UNIFIED_KEY_ENERGY` 1.00 → **3.50** becomes the
+shipped default. Standing fork ① CLOSED. Implementation: next godot write-cell (2c restage) —
+BEAM-V3 was in flight when the ruling landed and completes as chartered (its A/B remains the
+evidence artifact). Character shadows become visible by construction; pools survival at 3.50 to
+be re-verified at implementation (pools-vanish landmine check rides along).
+
+## D-VFX-1 EXECUTED — Polygon Arsenal PURCHASED (Matt, 2026-07-31); download blocked on Unity-Editor-only delivery
+
+Matt purchased Polygon Arsenal; Asset Store offers only "Open in Unity" (no direct download —
+Asset Store delivery requires the Unity Editor's Package Manager; there is no browser download
+link by design). **Unblock path (Matt host-level, one-time):** install Unity Hub + a free
+Personal-license LTS editor (minimal, no platform modules), sign in with the purchasing account,
+empty 3D project, Package Manager → My Assets → Polygon Arsenal → Download/Import. The
+`.unitypackage` lands at `~/Library/Unity/Asset Store-5.x/` (or imported files under the
+project's `Assets/PolygonArsenal/`). Everything downstream (untar, FBX/PNG harvest, YAML parse)
+is ours and needs Unity never again — though keeping the editor enables the Option-C flipbook
+bake harness later. Disk: Matt pruned further; headroom ample.
