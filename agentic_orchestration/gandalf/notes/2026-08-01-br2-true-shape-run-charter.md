@@ -937,3 +937,115 @@ whose first violation was already in the tree when it was written.
 | 5 | BR2-WATCH | drax | |
 
 **Owner-eye checkpoint fired:** the cell-2 clip goes to Matt. The run does not halt for it.
+
+---
+
+## ADDENDUM 8 — the cell-2 owner-eye checkpoint fired. Matt ruled 3 changes; one REVERSES me.
+### (conductor, 2026-08-01)
+
+**Matt, on `VFXTRUTH1_BEFORE_AFTER.mp4`:** *"VFX truth is looking good, only a couple of changes:
+(1) the telegraph ground fields should not pass through the walls (happens with one new conical
+zone). (2) Is the consistently appearing circle around the boss just its wind up for its swings? If
+so, we can remove that entirely as we can see the swings and the words wind up. (3) We need to make
+the telegraph zones much more translucent and use textures/colors to match to the actual VFX skills
+they're casting."*
+
+**This is §6 obs 2 paying for itself.** The owner-eye checkpoint was pre-registered as a mid-run gate
+precisely so his eye would land before downstream cells built on unviewed state. It landed, it caught
+three things, and one of them overturns a ruling I made **in the previous addendum**. That is the
+checkpoint working, not the run faltering.
+
+### R-BR-41 — TELEGRAPH FIELDS CLIP AT THE ARENA BOUNDS. **My Addendum-7 ruling is REVERSED.**
+
+I ruled, one addendum ago: *"draw it truthfully, do not clip… honest and slightly absurd beats tidy
+and false."* **Matt vetoed it, and he is right — I weighed the wrong two things against each other.**
+
+My argument was information-preservation: the danger genuinely does extend past the wall, so drawing
+it is truthful. But **no information is lost by clipping, because no actor can ever stand there** —
+the clipped region is empty of consequence by construction. So the trade I framed as truth-vs-tidiness
+was never that. It was truth-vs-**nothing**, against a real cost on the other side:
+
+**A danger field crossing a solid wall teaches the player that the wall is not real.** Walls are the
+one class of object in an arena that a player must be able to trust absolutely — they are the
+substrate of every positional decision he makes. An effect that visibly ignores one says *geometry
+here is decorative*, and that lesson contaminates every future read of the room, not just this cast.
+I optimised a local truth and paid for it with the room's global credibility.
+
+**Implementation note (cheapest honest route):** this does **not** require the renderer to carry
+arbitrary collision — which was my stated objection and was also wrong. The arena is a known
+rectangular extent; clip the decal to the **floor mesh footprint**, not to scene collision. Matt names
+*"one new conical zone"* — that is the wave's trapezoid, the widest overrunner.
+
+### R-BR-42 — IDENTIFY THE RING BEFORE REMOVING IT (and it may already be measured)
+
+Matt: *"the consistently appearing circle around the boss."* His removal reasoning is sound on its own
+terms — the swing animation and the on-screen wind-up text already carry the tell, and a third channel
+saying the same thing is clutter, not redundancy.
+
+**But I will not remove a ring I have not identified**, because one of the candidates is
+**load-bearing**: the nova's **gapless hub** (r < 2.1528 m, where the sixteen lanes genuinely merge)
+is TRUE danger and is the exact thing this run just spent four cells surfacing. Deleting it would
+re-break what cell 2 fixed. The other candidates — a melee wind-up decal, or a leftover full-disc from
+the pre-star rendering — are clutter and go.
+
+⚑ **Discriminator, from the frequency Matt himself observed:** *"consistently appearing."* The nova
+fires **three times** in seed 74000909. Consistent appearance is basic-attack cadence, not nova
+cadence. That points hard at a melee wind-up decal — but it is a *point*, not a measurement, and
+R-BR-34 says a ruling that names no evidence is a recollection wearing a ruling's clothes.
+
+⚑ **And it may already be under the instrument.** Cell 3's §0(A) is measuring the **radius** of
+G-2a's 31 and 43 failing pixels, which drax located *"at the boss's own capsule base."* If that ring
+is a melee decal bleeding into the nova's gap classification, then **the same measurement identifies
+the ring AND closes G-2a at 6/6, and removing the ring fixes the gate for free.** Two open items
+collapsing into one measurement is worth waiting one cell for.
+
+### R-BR-43 — TELEGRAPHS DRESS AS THEIR ABILITY, WITH A LEGIBILITY FLOOR
+
+Matt's item 3 is the most substantial of the three and it is a genre-level call, so it gets a
+genre-level answer.
+
+**The convention he is rejecting is the Diablo III / Lost Ark generic red zone** — one danger palette
+for every ability, maximally legible and completely flat. It reads as **UI painted on the floor**
+rather than as something happening in the world. The convention he is asking for is Diablo IV's:
+telegraphs share material language with the ability that casts them, so Lilith's ground-tells are made
+of the same stuff as Lilith. All three of our boss abilities are **ice**. The telegraph palette
+therefore goes cold — pale blue, white, frost — sampled from the materials we already harvested
+(`PolyIce.mat`, `BarrageNovaIce`, `ExplosionIceBig`). **R-BR-35 extended to decals: the pack supplies
+the material, the trace supplies the geometry.**
+
+⚑ **The floor this ruling must not fall through — and it is a real risk, not a caveat.** Danger reads
+as danger because of **hard edges and motion**, not because of fill opacity. Drop the fill too far and
+we lose the gap contrast that G-2a exists to protect — the sixteen lanes only teach *read-and-step*
+if lane and gap are distinguishable. **So: fill opacity drops, rim/edge definition does NOT.**
+
+That constraint composes *favourably* with what cell 2 already landed. G-4 grades the bands
+**brightening outward** (104.29 → 121.06 → 134.59), so the contrast already lives at the rim.
+Reducing fill while holding the rim **strengthens** the reverse-falloff read rather than fighting it.
+The three changes reinforce; they do not trade off.
+
+**New gate, G-4b — the legibility floor:** after re-dressing, the measured lane-vs-gap contrast in the
+nova's outer band is **≥ 80 %** of its cell-2 value, and G-2a's zero-pixels-in-gaps result still
+holds. Translucency that costs us the gaps is a FAIL, and it is the one way item 3 could go wrong.
+
+### Cell 2b — TELL-DRESS-1 — QUEUED, not fired
+
+Items 1–3 are cell-2 territory reopened by a Matt veto, which §5 pre-declares as *"a processable
+finding that reopens the named cell."* **Cell 3 (COMBAT-JUICE-1) is in flight in the godot tree and
+will not be interrupted** — single-writer holds, and mid-cell scope injection is the r1-stall failure
+mode. Cell 2b fires the moment cell 3 lands, carrying R-BR-41, R-BR-42, R-BR-43 and gate G-4b.
+
+### The encounter-space question, answered to Matt (not ruled — his call)
+
+*"How do you want to change the room/size? I'm not following."* — put to him as options with costs
+in the session reply. **The BR-2 position is unchanged and unaffected by his answer:** clip the
+decals (R-BR-41) and render where the sim says. Repositioning touches CAM-LOCK and is his.
+
+### §3 cell table
+
+| # | Cell | Owner | State |
+|---|---|---|---|
+| 1 · 1b · 1c · 1d · 2 | fill · stage · arsenal · resolve · vfx-truth | gamora / drax | **LANDED** |
+| 3 | COMBAT-JUICE-1 | drax | **IN FLIGHT** |
+| **2b** | **TELL-DRESS-1** | **drax** | **QUEUED — fires on cell 3's landing** |
+| 4 | HUD-PORT-1 | drax | |
+| 5 | BR2-WATCH | drax | |
