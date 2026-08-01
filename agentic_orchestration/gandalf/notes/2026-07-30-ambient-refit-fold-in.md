@@ -2114,3 +2114,25 @@ NOT in ARSENAL-HARVEST (harvest only ports the Arsenal payload + register test).
 LAP-2C RESTAGE: body-scale parity grading (the "zoom" fix — camera itself proven GD-identical,
 Scope 29 amended), Battle FX + Arsenal integration, Scope-30 SFX, JUICE sub-scope. Queue
 unchanged: HARVEST (in flight) → WARMTH → HUD-BUILD (incl. this spec) → RESTAGE.
+
+---
+
+## SCOPE 34 — VFX interim verdict + the COMBINE lean (Matt, 2026-08-01, reviewing harvest output in motion)
+
+Matt: *"so far the Arsenal Polygon VFX are much better"* — the slash-attack family fits the
+werewolf claws. Hypothesis, his words: Binbun has the **size/drama**, Arsenal has the
+**feel/quality**; purposeful combination likely wins. **Binding consequence for the restage VFX
+sub-scope:** the LEAN ARM is now COMBINED presets — per-beat layering with Arsenal as the
+core/read layer (slash geometry, feel) and Binbun as the drama/scale layer (impact flash,
+shield presence, screen-filling shells) — with Arsenal-only and Binbun-only as controls. Layer
+grammar: core (what the attack IS — Arsenal) · shell (how big it FEELS — Binbun) · aftermath
+(ground scorch/lingering — whichever family owns the element). Judged at Matt's eye in motion,
+per M-EYE. Prior C/C2 lean SUPERSEDED as the front-runner; C2 stays a control only if cheap.
+
+## SCOPE 35 — scrolling damage numerals on monsters/boss: DECREASE size (Matt, 2026-08-01)
+
+Matt: numerals are "just a bit too large currently" — decrease "at least a bit." Routed to
+HUD-BUILD (the readability-register cell). Deliverable: graded A/B in motion (e.g. 1.00× /
+0.85× / 0.70×) so "a bit" is his pick, not a guess; crit RED distinctness must SURVIVE the
+shrink (the crit pop is verdicted — smaller may not mean weaker). Composition-rule lineage
+(G-8 §14.17 numeral pin) carries: re-verify the pin at the chosen size.
