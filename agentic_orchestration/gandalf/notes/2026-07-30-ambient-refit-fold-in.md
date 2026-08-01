@@ -1729,3 +1729,73 @@ AGENT_STATE 3 behind · MCP lab editor left running.
 **Fix-lap CLOSE:** Scopes 24/25/26 all delivered. Godot local-only chain now THREE:
 `a0bfb88` + `d472c1a` + `fd21756`. Lap-2c swap stays armed (PRE-RATIFIED; census at every
 boundary; F-BR-2 sniff amendment governs `family`).
+
+---
+
+## G-5 OPENS — the 2c baton lands (Matt handoff, 2026-07-31 evening-session)
+
+Matt verbatim: *"The above seed is provided by the battle simulation session as the handed-off
+baton!"* Substrate: **`tmp/wr3acc/traces/boss__FULL__seed74000909.jsonl`** (462 frames; accepted
+fight per Matt: never touches a wall, dips to 65% HP, 0.57 pools taken; W-2 dormant→alert boss
+wake on screen). Census: `attack_id` ×66 · `icearmor` ×121 · **`family` ×9 / 9 telegraphs** ·
+`dormant` ×175 / `alert` ×5. **Riders 3/3 — exceeds even the pre-F-BR-2 criterion; the sniff
+amendment is unneeded on THIS trace.** Reference clip: `tmp/wr3acc/clips/WR3ACC_full_74000909.mp4`
+(36 s). Godot head now `0601a04` (WR3-ACC seed-selection cell, other session). **PUSH AUTHORIZED
+standing** (Matt: "feel free to push now and as you go") — all BR-1 godot commits published;
+F-BR-1's push clause is mooted going forward.
+
+## Scope 27 — BEAM V3: one issue + three tweaks (Matt ruling, 2026-07-31)
+
+1. **(ISSUE) Slat direction disjoint:** floor-lit slats face diagonal-RIGHT while their beams
+   face diagonal-LEFT — "very bad disjoint look." Beams and floor slats must share one direction.
+   (Suspect class: the ±lean sign family MOB-CAST caught in blend code — same genus, light side.)
+2. Beams too opaque overall — MORE transparent/translucent across their ENTIRE height.
+3. **Frame-top law REVERSED (supersedes Scope 23's endpoint + G-1b):** beam tops must NOT be
+   visible inside CAM-LOCK — "at least some small level of opaque light energy can be seen at
+   the top and slightly above the cam-lock view." Light must feel like it comes from above frame.
+4. No tightening-to-a-point in view: plenty of cone width stretching far up toward the crypt
+   ceiling where sun would enter. (Composes with 3: the visible cone segment reads as a shaft
+   continuing upward, not a spike terminating.)
+
+## Scope 28 — VFX verdict + the Unity-translation direction (Matt ruling, 2026-07-31)
+
+Bake-off verdict: **no arm wins outright; lean C/C2** (C vs C2 indistinguishable at his eye).
+Two named misses: **(a) swipe-feel** — "I don't feel the player character's swings which is very
+sad for a werewolf fantasy"; **(b) the boss AoR Ultimate has no VFX** (now "star-geometry" in
+the 2c clip, with new attacks/skills to cover). Direction to ultra-think (conductor): purchasing
+**Unity VFX packs and translating them** (Blender / MCP-node additions / our OWN MCP
+disassembler) — catalogue VFX are "best assets so far but likely far too few and not quite the
+correct ARPG register/feel." Purchase = Matt commitment-boundary; exploration + scouting fires
+now. Conductor's decomposition: swipe-FEEL is partly juice MECHANICS (hit-stop, impact flash,
+camera impulse), not particles — routed as JUICE sub-scope of the restage.
+
+## Scope 29 — Grim Dawn screen-size parity (Matt ruling, 2026-07-31)
+
+Player/monsters/boss "appear far smaller within the screen than the Grim Dawn" equivalents; make
+them "exactly the same." Conductor's method ruling (veto-open): this is a CAMERA question, not a
+body-scale question — bodies are meters-true against level geometry (MOB-CAST ladder banked);
+the fix is dolly/framing within the GAL-CAM pinhole family. Measure first: galadriel computes
+hero/boss screen-height fraction in GD reference captures vs our CAM-LOCK renders; drax closes
+the gap to tolerance; overlay verifies.
+
+## Shadow question (Matt asks "why am I not seeing shadows on characters — do I need to rule?")
+
+**YES — this is standing fork ① (shadow depth).** Shipped `UNIFIED_KEY_ENERGY=1.00` renders
+character shadows near-invisible by construction; pool-projector shadows ship `shadow_opacity=0`
+(pools-vanish reconciliation). The 3.50 arm is the visible-shadow arm (conductor lean). BEAM-V3
+cell cuts a character-shadow A/B (1.00 vs 3.50, same beat) so the ruling lands on evidence.
+
+## Prune policy (Matt: "we must prune… without losing data we need")
+
+`tmp/*/frames/` = 15 GB of the 21 GB, ALL regenerable (per-cell RUNBOOK/scripts re-render from
+traces + scene). Data of record = clips + plates + traces + measure scripts + landing notes
+(small, all referenced by ledger). Conductor's rm was sandbox-DENIED (second occurrence) → one
+Matt command: `cd ~/Games/reincarnated-godot/tmp && rm -rf */frames`. Superseded-generation
+clips (beamfix/beamcone/sky2/ambrise/ambhue/beauty/integ/wr1/wr2 …) are candidates for a second
+pass ONLY after Matt confirms review-done per surface.
+
+**Fix-lap-2 cell sequence:** 1) **BEAM-V3** (Scope 27 + shadow A/B) — drax write-cell;
+galadriel **GD-PARITY measure** (Scope 29) + legolas **VFX-pack scouting** (Scope 28) run
+parallel read-only. 2) **LAP-2C RESTAGE** on 74000909 — full dressed stage, C2-lean VFX interim,
+W-2 dormant→alert rendering, new-skill telegraph mapping via `family` (native!), JUICE sub-scope,
+GD-parity camera if measured. 3) VFX-UNITY spike gated on Matt's purchase ruling.
