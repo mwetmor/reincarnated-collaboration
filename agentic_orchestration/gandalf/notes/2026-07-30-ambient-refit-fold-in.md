@@ -3185,3 +3185,46 @@ is **withdrawn** — deaths DO emit explicit events with `killer_id` and `death_
 - **Elements are live on EVENTS** (`chaos` / `cold` / `physical`, plus `death_element`) even though
   `element` is null on every skill declaration in the header — so the element grammar must key off
   events. It does. That one we got right.
+
+---
+
+## SCOPE 41 — Matt rules D + E (2026-08-01): *"Regarding D & E, I agree with your leans"*
+
+**D — claw drama: SEQUENCE FIXED, and it is not "add more effects."** We have IMPACT; we lack
+ANTICIPATION, ARC and REACTION. Build in this order, and add nothing new until all three are in:
+
+1. **Anticipation** — the red charge glow on the claws. **This was already ruled as R-BR-14** (the
+   player's glow is a *declared presentation pre-roll*, because `commit_skill_idx` is −1 on 361/361
+   ticks — the trace carries no player cast window). Authored, never built. Build it.
+2. **Arc** — a swept trail ribbon on the claw. **The single biggest missing piece**: a swipe without
+   a trail reads as a pose change, not a cut. F-AH-2 records the trail class as *exercised on a
+   swinging bone (50 attachments) and still unmeasured there* — so the class already runs and this
+   is the cheapest large gain on the board.
+3. **Reaction** — **there is no hit-flash on the target.** 60–80 ms element-coloured rim flash on the
+   struck body. Diablo II's entire melee feel is carried by hit-flash plus sound, and we already
+   have the sound (70/70 beats landing on-frame).
+
+⚑ **AMENDED THE SAME DAY BY F-PR-2:** this list was written believing the player is melee-only. He
+is not — `rip_and_tear_r16` is a **14.0 m LINE** skill that lands 8 hits at 960–1246 delivered
+against 21 cone hits at 2.0 m, **and it has no visual identity whatsoever.** There is also a
+**21-event `dot` channel** with no presentation. A fourth item joins the list, ahead of "more
+drama": **give the line skill and the DoT a visual identity at all.**
+
+**E — death: BLOOD, and the burn is retired.** The burn/dissolve is an **unowned inheritance** — no
+ruling ever chose it, which is reason enough to replace rather than tune it. Shipping:
+- **Corpse dissolves at ~3 s; blood pool PERSISTS for the room.** Perf from the first, meaning from
+  the second: a persistent floor decal marks where things died, so the room accumulates the record
+  of what the player has done. *Reap.* written on the floor.
+- Genre anchor: D2 kept corpses and pools; D3 dissolved for perf; we take the split.
+
+**Still open on Matt's list:** A) the fire-follows-circle ruling (now reframed by F-PR-2 — see
+below) · C) the HUD bake-off artifact, Matt is looking it up · F) the register ruling that settles
+clutter + blood-persistence + the ceiling-less slits in one word.
+
+⚑ **A) IS NO LONGER THE QUESTION I ASKED.** I framed it as *"does the fire follow the circle, or the
+circle follow the fire?"* — a scaling problem. F-PR-2 dissolves that framing: **the geometry is not
+a scale to match, it is a SHAPE we never drew.** A 16-prong star travelling at 14 m/s for 0.857 s is
+not a scaled burst; a 16×6 m oriented rect is not a scaled circle. The composition work I proposed
+(native-scale core + rim instances + exact shockwave) is still right for the *sizing* of what
+remains, but it is now the second problem. The first is that three of the boss's four tells are
+drawing the wrong shape.
