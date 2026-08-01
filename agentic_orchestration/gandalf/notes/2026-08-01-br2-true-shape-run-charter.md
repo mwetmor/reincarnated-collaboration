@@ -1661,3 +1661,126 @@ Frame dumps are intermediate state, not evidence; the evidence is the gate numbe
 that measure now prune their own PNGs at the end of the cell, and a cell that cannot prune says so. A
 run whose cells each leave six thousand frames behind will eventually stop being able to run, and this
 one did.
+
+---
+
+## Addendum 16 (2026-08-01) — cells 2c + 3b land; six gate rulings, and two corrections to the conductor
+
+Godot `de928b9` (2c) + `bdc0fed` (3b); collab `c53f3f03` + `38ca8eb1`; all four verified at
+`origin/main`. **19,643 PNG frames pruned** — R-BR-50 working on its first lap.
+
+### The rulings
+
+**G-C — PASS.** Telegraph decal outside the arena: control **40,096 px → treatment 0**. The residual
+1,612 px decomposes into 899 px per-process speckle (proven on six telegraph-free frames) and **713 px
+emissive spill onto wall faces the off-arm already lights — against a control that carries the same
+term at 789.** Ruled: the spill is **not the clip's business.** A control arm that carries the term
+undiminished is the definition of a term the treatment does not own, and Matt's item 1 named *ground
+fields* passing through walls, not light falling on them. R-BR-41 is discharged; the spill is declared
+out of its scope rather than quietly folded into its number.
+
+**G-4b — PASS**, 131.4% (foot) / 117.1% (peak) of cell-2 contrast against an 80% floor. Worth naming:
+**Matt's translucency ruling *gained* legibility.** Making the fields more transparent and matching
+their texture to the skill being cast did not cost readability, it bought it — which is what happens
+when a field stops competing with the effect it is describing and starts agreeing with it.
+
+**G-5e — PASS**, 327/327 (bar 90%), up-while-not-buffed **0**. R-BR-44 fully discharged.
+
+**G-2a — UNMEASURABLE below r ≈ 3.2 m; PASS above it.** Four of six gap clauses read exactly zero on a
+byte-clean instrument; nova#1 reads 5/53 with every offender inside r 2.55–3.15 m. The reason is
+geometry, not rendering: at sixteen spokes on 22.5°, adjacent 0.42 m corridors are separated by
+**0.165 m — about 4 px at this camera.** Near the hub the star has no separable shape to measure, so
+the instrument cannot distinguish "a gap" from "two spokes converging."
+
+**The declared gapless radius (2.1528 m) is not the separable radius**, and that is the finding.
+Disposition follows this run's own precedent exactly — the NOT MEASURABLE / not FAILED call drax
+already applied correctly to wave:1. Deriving the true separable radius from spoke count, corridor
+width and px/m goes to **BR-3**; it is a real piece of work and it is not this run's.
+
+**G-14c — PASS** 8/8. The four-beat order holds: the arc begins after the wind-up peak and is gone by
+the strike flash.
+
+**G-14e — PASS on all three clauses.** (a) zero `hit_react` on `dot` against a proven subject of 21 and
+a peer of 33; (c) numerals present 21/21. (b) drax refused to call, and reported both numbers rather
+than picking one — correct behaviour, and the conductor owns the call: **the gate's text asked for
+distinguishability against G-5b's 1.574 reference, and the measurement is 31.0.** That is a crushing
+pass. The 40 px bar is **G-10's legibility bar and was never in G-14e(b)**; importing it would be
+failing a gate against a bar it was not given, which is the mirror-image sin of moving a bar to meet a
+result. Separately minted, not folded in: the DoT's 31 px absolute span sits below the legibility
+floor. That is a *legibility* question, and it is arguably the correct answer — a DoT tick **should**
+be quieter than a hit. It goes to M-EYE, labelled, not resolved by arithmetic.
+
+**G-13b — PASS, zero unmet needs**, and the cell's independently derived census reproduces the
+conductor's in all nine cells. R-BR-46's first application returns clean.
+
+### F-BR2-G1 and F-BR2-T1 — both probes answered, and one of them corrects my arithmetic
+
+**F-BR2-G1: benign.** Two fields describing two quantities — danger footprint vs resolution geometry.
+Not the sixth instance of the defect class. Routed to BR-3 as a **naming hazard** rather than a bug,
+which is the right severity: nothing is wrong, but `shape` and `geometry` disagreeing on the same
+attack will mislead the next reader, and it already misled this one.
+
+**F-BR2-T1: the player DODGED them — and it is FIVE telegraphs, not two.** My 9−7 = 2 subtracted the
+three untelegraphed basic swings from the wrong side of the equation. Drax mapped **9 of 9 telegraphs
+to the sub-tick arrival instant, tightest 28 mm.**
+
+Twenty-eight millimetres. The werewolf clears five telegraphed attacks in this fight, and on the
+tightest of them he is a hand's breadth outside the field at the instant it resolves. **That is the
+best thing in the substrate and nobody has ever seen it.** Four cells of this run have been authoring
+danger; this is the fight answering back. **Binding on cell 5:** the watch must contain at least one
+dodge, in addition to ticks 211–217 for the crits. Those two constraints now jointly pin the cut.
+
+### The two corrections to me
+
+**1. `SwordParticleTrail` does not exist.** Addendum 11 said *"the material was measured and never
+assigned"* and named it — WORLD space, 25/s billboards, ×1.28 both metrics. The asset matching that
+description is `SwordTrailShadow`, which measures **8 lit px against the pre-registered 40**. So the
+material was never measured, because there is nothing to measure; I read a description in the
+ARSENAL-2 note as an inventory entry. **Fourth instance of the R-BR-45 class** — a synthesis inferred
+rather than measured, and this one had the added defect of being a claim about an artifact's existence
+that one `ls` would have settled.
+
+What saved it was the gate's own construction. G-14a said *"the pack is a convenience, never a
+dependency"* and named the primitive fallback in advance, so the cell hit a non-existent asset and
+authored the arc anyway without stopping to ask. **A gate that pre-registers its own fallback converts
+a wrong conductor premise into a routing decision.** That is worth more than the premise being right.
+
+**2. F-SA-1 — the renderer was not deterministic, and drax falsified his own earlier finding to say
+so.** 209 COMBAT-JUICE particle emitters have run on a **random per-process seed since cell 3**. Every
+pixel A/B taken in that window carried a random term alongside its signal. TELL-DRESS-2's peel set was
+correct and the *attribution* on it was wrong — the largest term was never the dust. Fixed in
+`_cj_load`; the fix produced two byte-clean control arms and **changed a verdict**: G-14d's absence
+clause read "5 of 6 drew up to 6,968 px" before and **0 of 6** after.
+
+### R-BR-51 — a renderer used as a measurement instrument must be deterministic
+
+An A/B whose two arms differ by a random seed is measuring noise plus signal and reporting the sum. It
+is the same class as the null instrument (R-BR-34) and the two-quantities-one-field defect: an
+instrument that looks like it is answering the question. **Any cell that measures pixels asserts its
+renderer's seed determinism first, and prints the assertion.**
+
+**Blast radius, owed at exit review:** enumerate every gate number in this run that was a pixel-diff
+taken between cell 3 and the `_cj_load` fix, and state for each whether it needs re-derivation. G-C is
+already clear — cell 2c characterised and subtracted the speckle term explicitly. G-G is a node census
+and never touched pixels. The rest must be listed, not assumed.
+
+### G-14b and G-14d(presence) — FAIL, processable, and the fix is mine to authorise
+
+**G-14b: 71.43% against a 90% bar** (two measured passes, 47.62 → 71.43). **G-14d presence: 18 of 23.**
+Raising the floor moved G-14d **not at all** — so neither is a magnitude problem. All five G-14b misses
+are **camera-vs-body occlusion, and they include BOTH CRITS.** The arc exists, is correctly ordered,
+and is hidden behind the werewolf at the two moments the entire watch is being cut around.
+
+Drax named the fix — `no_depth_test` — and **refused to take it**, because it cuts against
+COMBAT-JUICE-1's deliberate depth-test-ON ruling. That refusal was right: a cell does not silently
+extend a ruling it did not make. The conductor extends it or declines it, out loud.
+
+**Ruled, in two steps.** First, **geometry, not rendering**: widen and lift the sweep so it clears the
+body silhouette. A claw swing *extends outward* — an arc that the torso occludes is an arc drawn too
+close to the torso, so the honest fix and the legible fix are the same fix. Second, **if that does not
+clear the bar, `no_depth_test` is authorised for the arc alone** — because COMBAT-JUICE-1's ruling
+governs **ground decals**, where depth-test-ON exists so the pool respects floor geometry, and an arc
+is a body-level effect, not a ground mark. The two rulings were never in conflict; they were adjacent,
+and nobody had said so. Same diagnosis and same two-step fix apply to G-14d's five missing pulses.
+
+Assigned to **cell 3c**, folded into cell 4's launch rather than spawned separately.
