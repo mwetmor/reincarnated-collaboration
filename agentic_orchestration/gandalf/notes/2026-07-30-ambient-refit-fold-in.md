@@ -3058,3 +3058,52 @@ land on M-1/M-2. Watch clips stay LOCAL-ONLY while the AAC track carries restric
 **Not in this cell:** everything in Matt's A–F list (VFX floor-pinning, telegraph decals as VFX,
 smoke plumes, the dead-at-start monster, the HUD bake-off port, claw-strike VFX, death animation +
 blood, clutter). Those are design forks and are being drained at the conductor's desk first.
+
+---
+
+## FINDING F-PR-1 — the fight begins with a corpse, and the trace says so (conductor probe, 2026-08-01)
+
+Matt, on returning to the LAP-2C watch: *"why does the one monster nearest to the player character
+seem to start the fight dead?"* **Because it is dead.** Read-only probe of the very trace the watch
+was cut from (`tmp/wr3acc/traces/boss__FULL__seed74000909.jsonl`, 361 ticks / 98 events):
+
+| tick | n | roster (max_hp) | alive |
+|---|---|---|---|
+| **0** | **4** | 759 · 14812 · 577 · **846** | T · T · T · **FALSE** |
+| 1 | 3 | 759 · 14812 · 577 | T · T · T |
+| 223 | 3 | 759 · 14812 · 577 | T · T · **FALSE** |
+| 224 | 2 | 759 · 14812 | T · T |
+| 360 | 2 | 759 · 14812 | T · **FALSE** |
+
+**The 846-HP actor exists for exactly one tick, at `hp 0.0 / alive false`, and is gone by tick 1.**
+It never lives. It sits **7.06 m** from the player — nearer than the 577 mob (23.22 m) and nearer
+than the boss (17.46 m). **Matt identified the nearest actor in the room by eye and was exactly
+right.** This is a SUBSTRATE defect faithfully rendered, not a presentation bug: the renderer
+spawned a body for an entity the engine published.
+
+**⚑ The second half is the more valuable half — the trace's death grammar.** An actor shows
+`alive:false` for **one tick only**, then **vanishes from the entity list**. It is confirmed on all
+three deaths (846 @ t0, 577 @ t223, boss @ t360 — the boss only reads false because the trace ends
+there). So a death is announced for one frame and thereafter communicated by **absence**.
+
+That has a direct consequence for M-4: **absence is not an event.** Any widget freed on a death
+*event*, or on any signal other than the single `alive→false` frame or the disappearance itself,
+has nothing to tell it to die — which is exactly the shape of Matt's *"persists after their death."*
+Conductor hypothesis (a) is now **structurally motivated** rather than merely plausible. It is being
+left to HUD-FIX-1 to confirm or refute **from the render side, independently** — the cell was told
+to diagnose by measurement and handing it the answer mid-flight would buy minutes at the cost of a
+cross-check. If the cell lands on the same mechanism from the other end, two instruments agree.
+
+**Refuted while I was in there:** entity indices are positional and the list SHRINKS (4→3→2), which
+would scramble identities if drops came from the middle. They do not — **0 index-identity changes**
+across all 361 ticks; drops are tail-only. The renderer's positional keying is safe. Worth recording
+because it was a plausible cause of several unrelated symptoms and it is now dead.
+
+**Routed to the engine seam (knight-rider sequences):** (1) tick 0 publishes a roster slot that is
+already dead and is culled by tick 1 — either the snapshot is written before the cull, or an actor
+died in a setup phase and the first snapshot includes it. Either way the first tick of every trace
+may carry phantom roster entries, and **every downstream consumer that spawns from tick 0 inherits
+them.** (2) A death communicated by absence is a schema smell: one explicit death event per actor
+would cost one line and close a class of consumer bugs. Companion to F-HB-7 (~30.9 % of damage taken
+emits no event) — both are the same underlying shape, **the trace under-reporting its own state
+changes.**
