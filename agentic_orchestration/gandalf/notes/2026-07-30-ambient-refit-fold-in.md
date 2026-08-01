@@ -2077,3 +2077,40 @@ untouched for every standing instrument.
 **Sequencing (amended cell queue):** ARSENAL-HARVEST (in flight) → **WARMTH** (Scopes 31+32) →
 **HUD-BUILD** (Scope 33) → **LAP-2C RESTAGE** (final integrated watch, HUD on). Each cell
 bounded; restage stays the integration cell, not the build-everything cell.
+
+---
+
+## SCOPE 33a — PLAYSTATS spec (Matt ratified HUD direction, 2026-08-01: absorb the on-screen text sprawl; conductor authors observer-first playstats)
+
+**Design law:** every number on screen must answer a question MATT-AS-OBSERVER actually asks
+mid-watch. If it changes his judgment mid-fight → live strip. If it only matters at the end →
+end card. If it never changes his judgment → it stays in the trace. The text sprawl (the
+10+-line melee banner et al.) is RETIRED into these surfaces.
+
+**Live sim-strip (right edge, vertical, monospace sim-register — clear of the GD HUD bands at
+rows 60/950):**
+1. **Throughput** — rolling DPS (10 s window) + fight-total dealt.
+2. **Sustain triplet** — dmg taken/s · leech healed · net HP drift. (The KIT-CAL sustain
+   question — "is leech carrying him" — as one glance. This stat spent an entire run being
+   interrogated; it earns a permanent seat.)
+3. **Crit line** — count + observed crit %. (BQ-4's un-glued crit seam becomes VISIBLE drift.)
+4. **Telegraph line** — novas cast · in-ring-at-fire_tick verdict per nova: HIT / CLEAR.
+   (Death-2 frigidring fixture + dodge-on-tell wave both live here — the skill-expression stat.)
+5. **Clock + encounter state** — t_s · boss `ai_state` (DORMANT/ALERT) — W-2 made audible by
+   SFX, made legible here.
+6. **Kill feed** — label · tier · TTK on each death event.
+
+**Event toasts (existing register):** damage numerals + crit RED stay diegetic; death toast;
+nova warning ring is TELL-DRESS's, not the strip's.
+
+**End card (at `alive→false` or victory, before the watch cuts):** totals · TTK table ·
+**damage-by-skill share** (events carry `skill_idx` → feral_claws vs rip_and_tear attribution
+— which skill carries the kit, on one card) · damage-by-element · leech total · crit % · verdict
+line (WIN / DEATH t=X). Genre anchor: D3's rift-close results screen — the watch should END on
+a readable card, not a freeze-frame.
+
+**Timeline confirmations (Matt Q):** camera/angle/zoom fix + remaining VFX + SFX + JUICE are
+NOT in ARSENAL-HARVEST (harvest only ports the Arsenal payload + register test). They land in
+LAP-2C RESTAGE: body-scale parity grading (the "zoom" fix — camera itself proven GD-identical,
+Scope 29 amended), Battle FX + Arsenal integration, Scope-30 SFX, JUICE sub-scope. Queue
+unchanged: HARVEST (in flight) → WARMTH → HUD-BUILD (incl. this spec) → RESTAGE.
