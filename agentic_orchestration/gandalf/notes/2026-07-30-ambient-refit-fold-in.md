@@ -2734,3 +2734,43 @@ Matt judges the taste; the run keeps its instrument. Neither is sacrificed to th
 
 **What JUICE is NOT allowed to touch:** trace positions, trace timing of events, displayed numbers,
 the element grammar, or `UNIFIED_KEY_ENERGY`. Juice is a layer over the truth, never an edit to it.
+
+---
+
+## PRE-REGISTERED GATE — G-6, LAP-2C RESTAGE COMPLETENESS (set BEFORE the cell runs)
+
+Charter §2 T-1/T-2 want "every element present in-frame at least once, checklist in the landing
+note." Registering the checklist **now**, before the cell exists to grade itself against it — a gate
+written after the render is a description, not a gate.
+
+**The cell PASSES G-6 only if each row is verified present per-cell, with the evidence named:**
+
+| # | Element | Verified how |
+|---|---|---|
+| 1 | Cone-beam slits at **A3** + cold pools | inherited byte-check vs BEAM-SLITS head |
+| 2 | Unified shadow grammar at `UNIFIED_KEY_ENERGY` **3.50** (R-BR-8) | ρ within ~10 % bright-vs-dim; one directional author |
+| 3 | Wet floor film + sconce rake + graded lamp bump (R-BR-11) | present under the shipped body's walk path |
+| 4 | Player body with warm carried light, at the verdicted parity grade | frame-fraction measured, not eyeballed |
+| 5 | Boss with cold emissive + **icearmor rider readable** | the Lap-2 diff vs Lap 1, named |
+| 6 | Telegraph decals rendering the **real** nova (circle / 12.0 m / 2.32 s from trace) | shape + radius + wind-up read from the trace, not constants |
+| 7 | Damage numerals at **grade C** with crit RED and the 1.15× pop | on-frame count reconciles to the trace's damage events |
+| 8 | Element-mapped VFX on damage events — **6/6 families exercised or the absent ones named** | per-family census |
+| 9 | Arsenal CORE fired on every claw/strike beat | beat table, counts |
+| 10 | Binbun SHELL stacked under core beats — **component count did not collapse** (G-VFX) | the soup gate |
+| 11 | Player aura present and persistent | `magic_areas` staged and bound |
+| 12 | Charge glows — boss/mob off real wind-up; player pre-roll **labelled as presentation** | R-BR-14 compliance is a *frame* check, not a code claim |
+| 13 | Mob skill VFX as instant-resolve pairs, **zero travel** | R-BR-18 |
+| 14 | SFX from the cleared set only, with pitch/gain variation on repeats | manifest + licence column |
+| 15 | Ambience bed under the whole watch | present |
+| 16 | JUICE — hit-stop on exactly 3 beat classes, victim flash, **no knockback** | drift measured and declared ≈3.7 % |
+| 17 | HUD on, four surfaces, non-fields labelled on frame | HUD-BUILD inheritance |
+| 18 | Death resolution on `alive→false` for every death in the trace | count matches |
+| 19 | End card | present |
+| 20 | Both camera arms rendered (CAM-LOCK clean + JUICE impulse) | R-BR-20 |
+
+**Absence is a PASS if it is named.** A row the trace cannot support (an element family this seed
+never rolls) passes by being declared absent-with-reason. A row silently missing is a FAIL. **Gate
+FAIL remains a processable finding, never a terminal event** — but it must be *found*, and this
+list is what finds it.
+
+**Seed:** 74000909. **Substrate:** `tmp/wr3acc/traces/boss__FULL__seed74000909.jsonl`.
