@@ -2774,3 +2774,124 @@ FAIL remains a processable finding, never a terminal event** — but it must be 
 list is what finds it.
 
 **Seed:** 74000909. **Substrate:** `tmp/wr3acc/traces/boss__FULL__seed74000909.jsonl`.
+
+---
+
+## LANDING — BODY-PROBE ✓ (drax, 2026-08-01; godot `136ff81` opened at `4f1a3ca` clean, note `drax/notes/2026-08-01-body-probe.md`, meta `db16c9fc`)
+
+**Matt's animation catch was right, and the cause was worse than he guessed.** 24,576 FBX swept by
+**content**, 317 opened. **Attack-worded clip names in the whole tree: ZERO.** Exactly **one** file
+holds authored melee — `Animations_Melee.fbx`, 11.333 s, 20 tracks, 17 moved bones, hand-reach span
+**1.3671 m**, which is **2.3–3.0× every other take in the corpus**. It was never missing. It was
+unreachable: **0/21 shared bone names** with anything, so no filename search and no naive retarget
+would ever have found it. A `SkeletonProfileHumanoid` bridge and a hand-authored
+`sf_melee_bone_map.tres` (13 slots left **empty rather than guessed**) reached it.
+
+**Measured, on the incumbent's own metrics:**
+- **Bind:** melee **16/18 on knight, werewolf, dark lord and dungeon skeleton alike** (the 2 misses
+  are hat attach points). The **incumbent fidget binds 21/95** on the knight — the real take is a
+  **4× cleaner bind**.
+- **Reach @1.80 m:** knight `attack_3` **+1.7543 m** vs incumbent +1.1587 (**×1.51**); werewolf
+  **+1.3231** vs +1.1154 (×1.19).
+- **Strike-connect at identical 1.267 m separation:** melee **−0.5652 m into the target hull** vs
+  incumbent −0.4539 — **24.5 % deeper**. Both connect.
+- **Werewolf `land_hard` still leads at +2.0230 m** — that is the pounce Matt read as *"mildly
+  jumping forwards"*. It is the defect, not a rival. It out-reaches the real strike.
+
+**Two standing claims corrected.** The goblin-pack claim **holds on a bigger corpus** (a second pack
+with an unlisted `A_POLY_*` subtree exists; still zero attacks). *"Rivals/werewolf ship zero
+animation"* is **true of files, false of the tree** — Synty embeds showcase takes inside character
+FBX, and the knight's own 8.333 s take is one: a **turntable** (span 0.4505 m), not a strike. That
+half of Scope 37's lead did not pay off, and the cell says so.
+
+**Scope 37's rig-family hypothesis is FALSE — 0/21 shared bone names.** But the same matrix found
+what the hypothesis wanted: **knight ↔ werewolf = 49/49, identical family.** One retarget serves
+both, which is why the body choice below costs a flag rather than a cell.
+
+**Three self-caught errors, all of which fail like success** — the retarget `PATH:` key is per-FBX
+(a wrong key is a **silent no-op**); the first werewolf row compared a static-mesh variant no scene
+loads; STRIKE_CONNECT run 1 faced the target **behind** the attacker and reported a clean, precise,
+meaningless *"neither connects."* Gates: F-AH-3 fired twice and restored hash-identical both times;
+F-AH-6 pass on all six clips; F-BR-4 **RED at 900, unchanged — zero added**.
+
+## R2 INTERIM RULINGS
+
+### R-BR-21 — the player body: WEREWOLF ships; knight is one flag away (veto-open)
+
+**R1's condition does not fire, because the fork it named has no referent in the asset.** The melee
+rig has **21 bones and no fingers**; the take is pure arm-arc; and the pack ships
+`SF_Wep_Claws_01.fbx` authored against that same set beside its swords. It is **weapon-agnostic by
+construction** — neither sword-only nor claw-only. R1 was *"if ANIM-PROBE finds sword-strikes-only,
+ship the Knight."* It did not. So the ruling falls back to the charter's **Matt-locked** body.
+
+**Why the werewolf, said plainly — this reverses the lean Matt stated, on the condition he attached
+to it, so it owes reasons:**
+1. His complaint was never *"I dislike the werewolf."* It was that the strikes did not read as
+   strikes. **That defect is now fixed on both bodies identically** — same clip set, same 16/18
+   bind. The reason to swap has been repaired rather than routed around.
+2. **Silhouette contrast at 34.8 m.** An undead knight in a crypt of the undead is *camouflage*; a
+   beast form against that ground is *figure*. At this stand-off, silhouette is how a player knows
+   which body is theirs — Diablo II's Necromancer in the Halls of the Dead is the standing example
+   of getting this wrong, and Diablo III's answer was exactly the rim/aura treatment we are adding
+   under R-BR-17 gap 2. The aura mitigates; it does not erase.
+3. **Thematic load.** *Reap. Die. Rise.* is a game about reincarnation across forms. A beast-form
+   protagonist standing over the human dead states the premise in one frame. An undead knight in a
+   crypt states nothing — it reads as one of the room's own.
+
+**Counter-evidence, stated rather than buried:** the knight out-reaches it ×1.51 vs ×1.19, and
+absolutely (+1.7543 vs +1.3231). Matt named a preference out loud. Both are real, and both are one
+word from winning.
+
+**Implementation constraint that makes the veto cheap:** the restage keeps the body behind a
+**single flag**. Identical clip set on both bodies means a swap is a **re-render, not a rebuild**.
+
+⚑ **Named FAIL condition, because the pounce still out-reaches the fix.** `land_hard` (+2.0230 m)
+beats the real strike (+1.3231 m) on the werewolf. **The pounce is removed from every strike path.**
+If, on the restage watch, the werewolf's strike still reads weaker than its own jump, **the knight
+ships without further argument** — the whole point of this ruling is that Matt's original complaint
+is dead, and if it survives, so does his remedy.
+
+### R-BR-22 — parity ships at ×1.29; the collision is resolved as DISREPAIR, not by shrinking (veto-open)
+
+×1.29 is the grade Matt's amendment asked for (frame fraction 5.47 % → GD's 7.04 %), and detail was
+the whole point of the ask. The collisions are a **stage** problem, not a **body** problem:
+- Boss at ×1.29 stands **3.548 m — 0.55 m over the 3.00 m wall course.**
+- The **2.40 m beam base is exceeded at every grade, including ×1.00** — so beam clearance is a
+  **pre-existing** condition that enlargement worsens; it is not caused by it.
+
+**Resolution:** ROOM-DRESS (charter cell 6) **breaks or removes the beam over the fight cell**. This
+is native dressing language in a ruined crypt — and it composes with Scope 39 rather than fighting
+it: **a collapsed roof course is precisely what puts cracks in a ceiling for light to come through.**
+The slits Matt asked for now have a cause standing in the frame. A boss too large for the room is
+not a defect in a crypt; it is the correct reading of a boss. **Visible interpenetration is the
+defect** — and heights are only a proxy for it.
+
+**G-7 (pre-registered):** measure actual interpenetration **along the boss's trace path**, not
+height against a datum. If the path never passes under a beam, there is nothing to fix and the
+dressing edit is not made. Grades ×1.00/×1.15/×1.29 all preserved and already rendered.
+
+### R-BR-23 — the 1.5278 ratio is NOT to be "fixed" until two measurements are reconciled
+
+BODY-PROBE measures boss ÷ player = **1.5278 at every grade** (scale-invariant) against Scope 29's
+GD-correct **1.46**, and proposes a `RIG_BOSS_H` change. **HOLD.** An earlier measurement in this
+run banked *boss ÷ player 1.46, already GD-correct.* **Two measurements of the same number
+disagree** — most likely rig-height vs rendered-height, or human-form vs werewolf player (native
+rest 1.8469 m against the harness's `RIG_PLAYER_H := 1.80`).
+
+**Changing a constant to correct a ratio that another instrument says is already correct is pulling
+the wrong lever.** The restage reconciles the two readings and states which is which **before** any
+`RIG_BOSS_H` edit. If they cannot be reconciled in-cell, ship at the current ratio and carry the
+discrepancy as a named flag. This costs one measurement; the alternative costs a silently wrong
+body scale that every later parity claim inherits.
+
+### Routed to Matt (not blocking; the run continued past both)
+
+- **F-BR-5 principle** — `polygon-simple-fantasy` is SIMPLE-line and the gate's rule (path
+  components starting `simple-`/`simple_`) **does not catch a pack root starting `polygon-`.** The
+  cell consumed **rotation curves only** — no SIMPLE mesh, material, texture or rig instantiated
+  anywhere. Matt's ruling on the principle is owed. **Separately and regardless of that ruling: a
+  gate that misses by naming convention will keep missing** — route the gate defect to jack-ryan.
+- **Steps 3/4 bodies** each need their own bone map if ever wanted; the samurai FBX also carries a
+  **308.90 m** mesh AABB unit-scale defect. Cost recorded so the next cell does not rediscover it.
+
+**Queue:** LAP-2C RESTAGE fires now — the last cell of the run.
