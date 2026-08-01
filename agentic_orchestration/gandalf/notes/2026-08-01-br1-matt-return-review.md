@@ -2,7 +2,11 @@
 
 > **One surface for the whole window Matt was away.** Run BR-1 (BATON-RENDER) · conductor gandalf
 > (`RUN-CONDUCTOR`) · charter `2026-07-31-baton-render-run-charter.md` · ledger of record
-> `2026-07-30-ambient-refit-fold-in.md` (Scopes 1–39, rulings R-BR-1…R-BR-20).
+> `2026-07-30-ambient-refit-fold-in.md` (Scopes 1–39, rulings R-BR-1…R-BR-23).
+>
+> **RUN COMPLETE 2026-08-01** — both target-states delivered. Full exit surface (scorecard, gates,
+> honorable-fallback audit, debts routed out): `2026-08-01-br1-exit-review.md`. **This page stays the
+> review page; the exit review is the account of the run.**
 >
 > **Nothing here is a request for permission to continue.** Every item was ruled in-run under the
 > veto-open standing, the run kept moving, and the alternates were all preserved so any veto is one
@@ -15,9 +19,20 @@
 
 ## §1 — The two-minute version
 
-Six cells landed while you were away: **BEAM-V3 · ARSENAL-HARVEST · WARMTH · HUD-BUILD ·
-BEAM-SLITS · BODY-PROBE.** The final integration cell (**LAP-2C RESTAGE**) is in flight and is the
-last one in the run.
+Seven cells landed while you were away: **BEAM-V3 · ARSENAL-HARVEST · WARMTH · HUD-BUILD ·
+BEAM-SLITS · BODY-PROBE · LAP-2C RESTAGE.** The last of those delivered the charter's final
+target-state and **the run is complete**: `tmp/restage/clips/LAP2C_WATCH.mp4` — the whole fight,
+start→boss-death, **42.13 s**, at CAM-LOCK, with SFX, HUD, JUICE and the real strike in it. G-6
+passed 20 rows with **0 silently missing**; 70/70 audio beats land on their own frames; 3,441
+position writes with **0 displacement violations**; hit-stop drift 1.11 %.
+
+⚑ **Two things to know before you press play.** The watch clips are **LOCAL-ONLY** — their AAC track
+is mixed from restricted samples, and restricted audio is restricted in every container (standing
+amendment to R-BR-16; `bash tmp/restage/run_all.sh` rebuilds them). And **three of my own premises
+were wrong**, each caught by the cell's own measurement rather than by me: the nova wind-up is
+0.8500 s, not the 2.32 s I put in the charter; R-BR-23's two "disagreeing" instruments were never
+measuring the same quantity (the HOLD was still right, and §3 says why); and the Binbun shell works
+by **occlusion**, not the additive bloom I described. All three are printed in full in the ledger.
 
 **Four** of your asks were answered by measurement in a way that **contradicted the stated cause
 while confirming the observation.** Those are worth your attention first, because in each case you
@@ -45,13 +60,20 @@ instrument in this run, and our explanations have been the worst.
 
 ---
 
-## §2 — Watch order (17 clips, ~25 min if you watch every one; the starred four are the spine)
+## §2 — Watch order (24 clips, ~30 min if you watch every one; the starred five are the spine)
 
 All paths under `~/Games/reincarnated-godot/tmp/`. Every clip decode-verified (F-AH-6: this
 machine's ffmpeg emits corrupt H.264 while exiting 0).
 
+**Watch ★0 first. If you only watch one thing, watch ★0 — it is the run's answer to your charter
+sentence, and everything below it is the evidence for one decision inside it.**
+
 | # | Clip | What it asks of you |
 |---|---|---|
+| ★0 | `restage/clips/LAP2C_WATCH.mp4` | **The deliverable.** Full combat sim, beautiful corner, 42.13 s — lighting, shadows, VFX, SFX, HUD, both bodies, the real strike, the ward annulus, the boss's death |
+| ★0b | `restage/clips/LAP2C_WATCH_JUICE.mp4` | The same watch with the **camera-impulse arm** on (R-BR-20). Taste call: which arm ships |
+| 0c | `restage/clips/GVFX_LAW.mp4` + `GVFX_CORE_ONLY.mp4` | The three-layer VFX law vs Arsenal core alone — the shell's contribution, isolated |
+| 0d | `restage/clips/AURA_PEEL.mp4` | The player aura peeled off, after the cell blamed it for a warm core it contributes **+0.3 %** to |
 | ★1 | `hudbuild/clips/HUD_FULL_FIGHT.mp4` | The HUD as built — four surfaces, and four on-screen numbers that are **not** sim fields and say so on frame. Does the observer's read hold? |
 | ★2 | `beamslits/clips/SLITS_BEFORE_AFTER.mp4` | Your ceiling-crack ask, delivered: **2.507×** footprint spread, every slit shorter than every slit it replaced, lit area **0.566×** |
 | ★3 | `warmth/clips/SHEEN_ABC_walk.mp4` | The wet layer you already praised — three arms; confirm which arm, not whether |
@@ -117,12 +139,18 @@ machine's ffmpeg emits corrupt H.264 while exiting 0).
    out-reaches its new strike (+1.323 m) — that pounce is the clip you called *"mildly jumping
    forwards."* It is removed from every strike path, and **if the strike still reads weaker than the
    jump on the watch, the knight ships without further argument.**
-2. **Parity grade** — ×1.29 shipped; ×1.00 and ×1.15 rendered beside it. The boss overtops the
-   3.00 m wall course by 0.55 m at ×1.29, and the 2.40 m beam base is exceeded at **every** grade
-   including ×1.00 (so beam clearance is pre-existing, not caused by your enlargement). A boss too
-   large for a crypt is the correct reading of a boss; **visible interpenetration** is the only real
-   defect, and it gets fixed as ruin dressing — which also hands your ceiling-crack slits a cause
-   standing in the frame.
+2. **Parity grade** — ×1.29 shipped; ×1.00 and ×1.15 rendered beside it. A boss too large for a
+   crypt is the correct reading of a boss. ⚑ **Correction, post-restage: the defect I promised to
+   fix does not exist.** G-7 measures **0.0000 m** interpenetration along the boss's whole alive
+   path, and the "2.40 m beam base" I ruled against was **stale by two cells** — BEAM-PIN2 retired
+   it to −0.60 m. I resolved a collision with a number, not with geometry. No disrepair edit was
+   made. Only the grade itself is still yours to rule.
+2b. ⚑ **The slits have no cause in frame — and this is now a question, not a fix.** You asked for
+   *"slits of light shining through cracks in the crypt's ceiling."* **There is no ceiling mesh.**
+   The light is correct; its origin is unexplained. The disrepair edit above would have supplied
+   that cause as a side effect and is not being made. A crypt whose light has no visible origin
+   reads **stylised** rather than ruined — that is a register choice nobody has made on purpose yet,
+   and it is yours to make.
 3. **Beam glow, re-judged against the current frame** (§1.3).
 4. **Music on/off** for the Lap-2c watch.
 5. **Camera impulse arm** — taste.
@@ -131,6 +159,10 @@ machine's ffmpeg emits corrupt H.264 while exiting 0).
    or rig instantiated anywhere. Your ruling on the principle is owed; separately, a gate that
    misses by naming convention will keep missing, and that defect routes to jack-ryan regardless of
    how you rule.
+7. **The watch clips stay on this Mac** (licence, §1). Nothing is lost — the silent evidence clips
+   commit normally and one command rebuilds the muxed pair from committed instruments. If you'd
+   rather the watch travel, the lever is ruling the restricted audio out of it, not out of the run.
+8. **Push authorization** for the godot tree — seventeen cells of local commits are standing.
 
 ## §5 — Routed OUT of the run (engine seam; knight-rider sequences, not this run's to fix)
 
