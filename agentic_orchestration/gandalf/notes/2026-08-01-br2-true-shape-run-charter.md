@@ -2158,3 +2158,51 @@ every item**, not at the end. Two agents have now died on the usage cap with com
 disk; both were recovered only because the conductor went looking. Recovery-by-luck is not a discipline.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
+
+---
+
+## Addendum 22 (2026-08-02) — cell 7 lands the watch WITH AUDIO; R-BR-55 pays on the lap it was minted
+
+**Deliverable:** `~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4` — 1600×900, seed 74000909, 1211
+frames / 40.367 s, **h264 + aac**. Godot `93eeae3 · 9d64842 · 61f6a2a · 81e1b17 · 60c5cab · 33fa745 ·
+8f6f16e`, local.
+
+**Third usage-cap death of the run, and the first that cost nothing.** R-BR-55 (commit after every item)
+was minted one addendum ago on the strength of two deaths that stranded work. Cell 7 died the same way
+and left **seven commits, a complete note, and a finished cut**. The rule paid inside one lap.
+
+⚑ **The dying render overwrote the good deliverable.** It died at frame 297 of 1211 and its truncated
+output (21.9 s, no audio stream) landed on `BR2W.mp4`. The complete cut survived only as the cell's own
+`BR2W-cell7-bak.mp4`. Conductor restored it; the corpse is kept as `BR2W-TRUNCATED-dead-render.mp4`.
+⇒ **R-BR-56: a re-render writes to a TEMPORARY name and is promoted to the deliverable name only after
+its duration and stream inventory are verified. A partial render must never be able to land on the
+deliverable path.**
+
+**Gates:** G-6b **0.0 px² before and after** the new hotbar geometry · G-6c/G-6e **0 forbidden hits over
+637 strings** · G-6d real per-tick data under the ornate bezel · G-5d re-pointed **PASS** · G-6f, G-M4
+PASS · G-8 2.633 s tail hold on the corpse · **G-SFX PASS** — aac 44.1 kHz stereo, peak 0.997, beats
+`{connect 50, mob_death 3, telegraph 9, hurt 7, resolve 9, boss_ultimate 1}`, decode clean 1211/1211.
+
+**M-1's author, found by looking rather than by arguing:** the corpse char was `DeathNormal.tscn`, a
+**soot prefab** billboarded over the body for 2.5 s — i.e. exactly the tail hold. That is why G-5d could
+read 0 burn-shader frames and PASS while the defect shipped in front of the owner. Gate pointed at a
+mechanism; defect authored by a different one. **This is the second gate this run to pass while failing**
+(G-14's presence clauses were the first, via the noise floor). Both were caught by Matt's eye, neither by
+a gate. Logged for the pattern doc: §6 obs 2 is now evidenced twice over.
+
+**Conductor ratification — `MANA` vs `ENERGY`: drax's call STANDS.** He took the reference's globe shape,
+colour and position and kept our word, because `MANA` is one of the six `PS_COPY_FORBIDDEN` needles and
+R-BR-54 says a reference is never authority over copy. He applied the rule to the very artifact the rule
+was written for, unprompted, and flagged it for ratification rather than deciding silently. Ratified.
+
+**Residual, one item:** the delivered cut predates commit `8f6f16e` (M-3's last-line clip fix). The
+play-stats box in this MP4 is translucent, mini-map-width and 472.6 px tall, but its final text-overflow
+correction is in code and not in frame. **Named, not hidden.**
+
+**Routed to BR-3:** no 2D winged bat-skull or skull-pip sprite exists in-repo (pack `Greeble_Cross_01` and
+a diamond stand in — acquisition or an offscreen-render pass) · `action_lock` now has **no dedicated tell**,
+M-0 removed its only channel and a replacement is a design call · boss HUD re-proportioned because
+GAL-CAM's row-60 opaque-HUD cut outranks the reference · Scope 20 ruling 1 still has no on-frame carrier ·
+the third non-determinism term, unidentified · the shell's green/blue double-transfer half.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-02.
