@@ -2066,3 +2066,68 @@ is the shape of the defect.
 Class C on the clean instrument; (3) resolve G-14a's Class D question with one look.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
+
+---
+
+## Addendum 20 (2026-08-01) — Matt's owner-eye pass on the watch: six rulings, and cell 7
+
+**Conductor:** gandalf (`RUN-CONDUCTOR`). **Authority:** Matt, watching the cut. This is §6-obs-2 of the
+desirable-run pattern working exactly as written — *the owner's eye is an instrument of record, not a
+briefing recipient.* Six defects, all six ours, none of them caught by a gate.
+
+**What he actually watched:** `BR2W.mp4` as of cell 5 — **cell 6 was still in flight** and had made only
+its `BR2W-predress.mp4` backup. So the cut carried no SFX, no blood-red charge-up, and no dressing.
+⚑ **Ruling 1 (SFX absent) is therefore already cell 6's S-2 and is not a new defect** — it is the owner
+observing a cell that had not landed. Recorded because a later reader will otherwise count it twice.
+
+### §1 — THE SIX RULINGS (verbatim intent, owner authority, execute-not-evaluate)
+
+| # | ruling | disposition |
+|---|---|---|
+| 1 | SFX were not brought back in | **already cell 6 S-2** — verify at cell 7, do not re-implement |
+| 2 | blood splatter good, but **the corpse must be bloody, not burnt** | cell 7 |
+| 3 | **remove the `Werewolf (player)` circle and name entirely** — "not helpful" | cell 7 |
+| 4 | play-stats box: more translucent · pushed right to the mini-map's width · **taller, the bottom letters overflow** | cell 7 |
+| 5 | bottom hotbar → the reference, **option B**, minus the outer two boxes; globes, bat-skull, **candles + candle VFX** | cell 7 |
+| 6 | mini-map **and** the top-middle boss HUD (portrait / name / healthbar / skull pips) → the reference | cell 7 |
+
+**References pinned** (Matt-supplied, in-repo so they survive the session):
+`gandalf/notes/br2-hud-refs/matt-ref-hotbar-3arms.png` · `…/matt-ref-full-hud.png`.
+
+### §2 — RULING 3 REVERSES A HOLD, AND THE REVERSAL IS THE INTERESTING PART
+
+**F-CJ-4** — `Werewolf (player)` reaches no surface, 34 strings — was held to BR-3 as *unfinished work*.
+Matt's ruling is not "finish it." It is **"remove it entirely. It is not helpful."** The label was never
+a missing feature; it was a debug affordance that had been mistaken for a player-facing one, and it took
+the owner's eye to say so. ⇒ **F-CJ-4 CLOSES as WONTFIX-BY-DESIGN, not as debt.** A hold list that
+carries a phantom is a hold list that costs the next run real time; this one is now one row lighter.
+
+And it is right on the merits. A single-player ARPG does not nameplate the protagonist — Diablo never
+has, in five titles. The player knows which body is theirs because the camera is welded to it.
+
+### §3 — R-BR-54 (new rule, and it is a trap this run walked up to)
+
+⚑ **`matt-ref-full-hud.png` contains, on its face, three of the six exact copy needles G-6c and G-6e
+hunt: `STRUCTURE II`, `page 12 of 400+`, and `TOO HOT`.** The reference for the layout we are being told
+to adopt is *also* the source of the vendor placeholder copy we pre-registered a census to keep out.
+
+> **R-BR-54 — a visual reference is authority over FRAME, LAYOUT, ORNAMENT and PALETTE. It is NEVER
+> authority over COPY, DATA, or SEMANTICS.** Any cell working from a reference image restates this before
+> it starts, and the copy census (G-6c / G-6e, **0 hits over all distinct on-screen strings**) is re-run
+> after, non-negotiably.
+
+Same law governs the mini-map: the reference frame is a round ornate bezel, our data is real per-tick
+`x_m`/`y_m`/`heading_rad`/`alive`. **Adopt the bezel; keep the truth.** The square arena inscribes inside
+a circle without cropping — the geometry is free, and G-6d's "real or omitted, never faked" clause stands
+untouched.
+
+### §4 — CELL 7 (HUD-REF) — the run's new final cell
+
+Fires **on cell 6's landing**, not before — single-writer discipline on the godot tree is not suspended
+because the owner is waiting. Scope: rulings 2–6 plus verification of 1. Pre-registered gates:
+**G-6c / G-6e re-run at 0 hits** (R-BR-54), **G-6b 0 px outside the plate** at the new hotbar geometry,
+**G-6d real-data mini-map preserved**, **G-5d 0 burn frames on the corpse** — which ruling 2 says is
+currently FAILING and no gate caught, itself a finding: *G-5d's absence half was measured on burn/dissolve
+shader frames and the corpse is being charred by something that is not that shader.*
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
