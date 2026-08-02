@@ -2259,3 +2259,50 @@ a bright shape drawn over the body? The honest answers are timing and silhouette
 sells, and a hitstop the audio now exists to punctuate — not another overlay.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-02.
+
+---
+
+## Addendum 24 (2026-08-02) — cell 9 (SNUFF); and the split-cell economics that made it cheap
+
+**Deliverable:** `~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4` — 1211/1211 decode clean, 40.367 s,
+h264 + aac, sha256 `ea61b0ee3469d8e0`. Godot `978a423`, local. `BR2W-cell7.mp4` preserved.
+⚑ The cell-8 cut was **not** preserved as a separate file — the conductor pruned `BR2W_C8.mp4` before
+copying it. Recoverable by re-render from `d2a839b`; named rather than quietly omitted.
+
+**Matt's ruling:** remove the health and mana candle flames. Executed. Gate line unmoved — G-6b 0.0 px²,
+G-6c 0 forbidden hits over 636 strings, G-6d real, G-SFX aac clean.
+
+### ⚑ THE FINDING: THE FLAME *WAS* THE CANDLE
+
+`PS_TEX_CANDLE` was loaded and placed as the flame `TextureRect` itself — there was never a separate body
+sprite. So "remove the flame" is satisfiable **only** by removing the candle. No unlit stub remains because
+no stub ever existed. The conductor shipped that reading as the only executable one and put the alternative
+in front of Matt: an unlit candle needs a new asset, and that is a BR-3 row, not a re-render.
+
+Drax flagged this rather than deciding it, exactly as instructed. **Sixth name-vs-object disagreement of the
+run** — the asset called `PS_TEX_CANDLE` is a flame.
+
+**The colour trap held.** Cell 8 found `PS_COL_HP` painting both the globe water and the flames. The flame
+path used `tint` at construction and never wrote `fill.color`; water comes from `wcol`
+(`PS_COL_HP_WATER` red / `PS_COL_EN` blue). Verified by reading the call sites, not by rendering twice —
+which is the whole point, because a verification render costs more than the edit did.
+
+### R-BR-57 — THE SPLIT CELL (new, and it is the cheapest thing this run learned)
+
+> **When a cell is one small edit plus a render, SPLIT it: a named sub-agent on a smaller model makes the
+> edit and commits, and the CONDUCTOR runs the render as mechanical execution. The render is the dominant
+> cost and it requires no seam judgment.**
+
+Measured: cell 9's edit cost **13 tool calls / 28k tokens** against cells 6–8's 129–278 tool calls each.
+The three usage-cap deaths this run all occurred *inside* agents that were carrying both the judgment and
+the batch work. This does not violate Element 7 of the desirable-run pattern (*conductor writes no
+production code*) — running a build script is not authoring, and the conductor-economics corollary's
+"reconnaissance exception" for mechanical work extends naturally to mechanical *execution*. **Proposed as a
+pattern-observation amendment to `desirable-run-pattern.md` §6; jack-ryan ratification queued per
+`canonical-doc-format.md § 6.7`.**
+
+Model choice was deliberate and is worth recording: **sonnet, not haiku.** This codebase has produced
+**six** name-vs-material disagreements; a wrong edit costs a full re-render, which dwarfs the model delta.
+Ultra-low spend is achieved by removing the render from the agent, not by under-powering the judgment.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-02.
