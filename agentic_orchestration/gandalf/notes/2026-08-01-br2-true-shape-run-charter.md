@@ -2206,3 +2206,56 @@ GAL-CAM's row-60 opaque-HUD cut outranks the reference · Scope 20 ruling 1 stil
 the third non-determinism term, unidentified · the shell's green/blue double-transfer half.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-02.
+
+---
+
+## Addendum 23 (2026-08-02) — cell 8 (SURGICAL) lands; R-BR-56 pays on its first lap
+
+**Deliverable:** `~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4` — 1211/1211 decode clean, 40.367 s,
+h264 + aac 44.1 kHz stereo, sha256 `25e01f383956d404`, 55,189,399 bytes. Godot `ec5a0f5 · a1521a2 ·
+d2a839b`, local. Prior cut preserved at `BR2W-cell7.mp4`.
+
+**Matt's four:** S-1 boss bubble field DELETED · S-2 werewolf purple slash arc DELETED · S-3 `ENERGY`
+label removed from the right globe · S-4 health globe water orange → red. **"EVERYTHING ELSE CUT EXACTLY
+AS IS"** — honoured; the only other deltas in the render log are the ones these four cause.
+
+**R-BR-55 and R-BR-56 both paid, on the same cell.** The agent committed all four items before it stopped
+(R-BR-55) and its render died without touching the deliverable, because the cut writes to a temp name and
+is promoted only after ffprobe verifies duration and stream inventory (R-BR-56). The conductor re-ran the
+render as mechanical execution — no authoring, no piece-work delegated — and promoted after verification.
+Cell 7's failure mode was structurally impossible here, one lap after it happened.
+
+**Three identification findings, all from PEELING rather than from names:**
+- **S-1's object was the WARD SHELL, not `ShieldAuraBlue`.** The asset whose *name* matches the symptom
+  draws nothing at watch scale — the same asset that measured achromatic `(0.463, 0.464, 0.464)` earlier
+  in this run. Fifth name-vs-material disagreement.
+- **S-2's re-pointed gate had to be corrected once by drax against himself:** `fired` counts *windows*,
+  not *nodes*.
+- **S-4's water was a SECOND colour.** `PS_COL_HP` was also painting the candle flames; a naive globe
+  recolour would have turned the candles red. Found by reading the call sites, not by rendering twice.
+
+**Gate line (from the delivered render's own log, not asserted):** G-6a 7 boxes / 2 bound / 5 open ·
+**G-6b 0.0 px² outside the plate** · **G-6c 0 forbidden hits over 636 distinct on-screen strings, and
+`ENERGY` seen on 0 (bar 0)** · G-6d mini-map REAL, per-tick sources, no decorative element · G-6e 3
+mappings, 0 uncovered · G-6f 0.0 px² overlap · G-M4 0 dead-actor widgets, 0 overlaps · clip budget
+40.367 s = 36.000 trace + 4.000 holds + 0.400 hit-stop, residual −0.033 s · **G-SFX** mix 41.87 s peak
+0.997, beats `{connect 50, mob_death 3, telegraph 9, hurt 7, resolve 9, boss_ultimate 1}`.
+⚑ The census denominator moved **637 → 636 strings**, which is `ENERGY` leaving. The gate's own arithmetic
+records the removal.
+
+### ⚑ THE DESIGN CONSEQUENCE, NAMED NOT IMPROVISED
+
+Cells 7 and 8 have now closed **both** dedicated combat read-channels: M-0 deleted the `action_lock` rime
+crust, S-2 deleted the melee slash arc. After this cut the player's melee commit and the enemy's control
+state are carried by **body language alone** — `BL_FLINCH_AMP` stagger, `BL_LOCK_TINT` emissive pull, the
+charge squash/lean. Both deletions were owner rulings and both were right about what was on frame: the
+arc and the crust were noise. But *noise removed* is not the same as *signal present*, and the fight now
+has no melee tell that is not posture.
+
+This is exactly the shape of the thing this run has been catching all lap — a gate can certify the absence
+of a defect while the surface it was protecting is empty. **Routed to BR-3 as a design call**, deliberately
+not improvised by a cell: what carries "I am committing to a swing" and "I am locked" when neither may be
+a bright shape drawn over the body? The honest answers are timing and silhouette — a wind-up the animation
+sells, and a hitstop the audio now exists to punctuate — not another overlay.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-02.
