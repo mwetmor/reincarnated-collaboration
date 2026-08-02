@@ -1784,3 +1784,81 @@ is a body-level effect, not a ground mark. The two rulings were never in conflic
 and nobody had said so. Same diagnosis and same two-step fix apply to G-14d's five missing pulses.
 
 Assigned to **cell 3c**, folded into cell 4's launch rather than spawned separately.
+
+---
+
+## Addendum 17 (2026-08-01) — cell 3c: R-BR-51 pays on its first lap; G-14b gets a third pass, off the substrate
+
+Godot `8b64581`. Cell 3c completed its geometry pass and died at the org usage limit with the work on
+disk and unbanked; the conductor banked it. Pass 2 was wired but never rendered.
+
+### R-BR-51 prevented three false verdicts on the lap it was minted
+
+The determinism assertion was implemented as two halves; **half (a) passed on the first batch and half
+(b) did not, and (b) was right.** The batch it caught would have produced:
+
+| gate | the bad batch would have said | the truth |
+|---|---|---|
+| G-14b | **PASS** 21 of 21, peak 1,080 px | FAIL 18 of 21 |
+| G-14c | **FAIL** 0 ok / 8 bad | PASS 8 / 8 |
+| G-14d absence | **FAIL** 6 of 6 wasted leeches drew | PASS 0 of 6 |
+
+Three verdicts, all three wrong, **in both directions** — one flattering, two damning. A rule that only
+caught flattering errors would be a rule protecting us from ourselves; this one caught noise, which is
+what a determinism assertion is for. Minted one addendum ago, paid for on its first lap.
+
+### The results
+
+**G-14d — PASS on geometry alone.** 78.26% → **95.65%** against a 90% bar, with the absence half held
+at **0 of 6**. The one remaining miss is the fight's last leech at **tick 360, the final captured
+frame**, where the pulse has 0.03 s of its 0.45 s life inside the capture. **Clip-boundary truncation,
+not a defect** — named so no later reader chases it.
+
+**G-14c — PASS 8/8 held**, onset t−0.05 on 8 of 8, extinction t+0.10 on 7 of 8.
+
+**G-14b — 71.43% → 85.71%, three events short, and tick 217 is among them.** The geometry fix moved it
+14 points and did not clear. That it still misses one of the fight's two crits is the whole reason this
+matters.
+
+### F-AC-2 — an arc's brightest geometry points where its occluder stands, by construction
+
+The cell's own generalisation, and it is a good one: any body-level effect aimed along a strike bearing
+inherits this property, because the bearing that makes it meaningful is the bearing that puts the body
+between it and the camera. Worth carrying into the 3D seam generally.
+
+### F-AC-1 — a SECOND non-determinism term, not covered by the first fix
+
+The ambient dust layer is per-process non-deterministic and **survives F-SA-1's `_cj_load` seeding**;
+it is peeled only by `--nodust 1 --noambient 1`. **Any pixel differential in this run whose arms did
+not carry both flags is standing on a ~500 px floor at this camera.** This is a second term beside the
+one Addendum 16 already listed, and it goes into the R-BR-51 blast-radius enumeration owed at exit —
+which is now a two-term sweep, and is looking less like a formality than it did when I wrote it.
+
+### Ruled: PASS 3 takes the substrate's own number, ahead of `no_depth_test`
+
+Cell 3c named **F-AC-3** and deliberately did not take it: *"the melee arc is sized off a SKELETON
+OFFSET floored at 0.55 m, not off any fight quantity"* — while the trace publishes the **contact
+distance for every damage event** (`|target − source|` at the event tick: cone **min 1.00 m / median
+2.00 m / max 3.22 m**). It routed the idea to BR-3 on the grounds that taking it would be *"choosing my
+fix over the conductor's."*
+
+That restraint was correct and the routing was not. **Authorised as PASS 3, ahead of the already-
+authorised `no_depth_test` step**, for two reasons:
+
+1. **It is not drax's fix versus mine — it is the substrate's number replacing an invented one.** A
+   0.55 m floor on a bone offset is a magic constant; the contact distance is what the fight actually
+   published about how far away the thing he hit was. This entire run exists to replace assumed
+   quantities with measured ones — the nova was never a disc, `range_m` was never an extent, the ward
+   was never a floor mark. A 0.55 m constant sitting inside the arc is the same defect wearing a
+   smaller hat.
+2. **It is also the more likely fix for the actual failure.** F-AC-2 says the arc is occluded because
+   it points along the strike bearing. Sizing it off contact distance pushes its mass *outward toward
+   the target* — median 2.00 m against a 0.55 m floor, nearly 4×. It moves the bright geometry off the
+   torso for the same reason it is honest.
+
+**Order: PASS 3 (contact-distance sizing) first. If it clears 90%, `no_depth_test` is NOT taken at all**
+and the arc ships with depth-test ON like every other body effect. If it does not clear, the
+Addendum-16 authorisation stands and `SA_ARC_NO_DEPTH` — already wired, already scoped to
+`_sa_arc_material`, already commented at the point of use — flips.
+
+Assigned to **cell 4's §0**, ahead of the HUD work.
