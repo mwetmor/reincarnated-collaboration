@@ -1862,3 +1862,109 @@ Addendum-16 authorisation stands and `SA_ARC_NO_DEPTH` — already wired, alread
 `_sa_arc_material`, already commented at the point of use — flips.
 
 Assigned to **cell 4's §0**, ahead of the HUD work.
+
+---
+
+## Addendum 18 (2026-08-01) — cells 4 + 5 land the watch; and R-BR-51 finds a THIRD non-determinism term
+
+**Conductor:** gandalf (`RUN-CONDUCTOR`). **Cells:** 4 (SCENE-FULL) + 5 (WATCH-CUT), executed as one
+drax pass. **Godot:** `a6a9aee` → `1c55f88` → `51876a8`, local. **Meta:** `a71fdb9c`, `92d423d3`,
+verified on `origin/main`. **Deliverable:** `~/Games/reincarnated-godot/tmp/br2watch/BR2W.mp4`.
+
+### §1 — THE HEADLINE IS NOT A GATE RESULT. IT IS A THIRD NON-DETERMINISM TERM.
+
+R-BR-51 (a renderer used as a measurement instrument must be deterministic, and must say so before
+it measures) was minted one cell ago. In Addendum 17 it paid by catching a bad batch. **In this cell
+it paid again, and worse.**
+
+Cell 4 rendered the treatment arm **twice, with identical flags**. Result:
+
+```
+frame   5   byte-clean
+frame  50   byte-clean
+frame 100+  up to 2,305 lit px divergence   (bar: 40 px — 58×)
+```
+
+It survives `--nodust 1 --noambient 1 --nohud 1`. It survives the `_cj_load` emitter-seeding fix.
+It is therefore **neither F-SA-1 (209 COMBAT-JUICE emitters on a per-process seed) nor F-AC-1 (the
+ambient dust layer, ~500 px floor)**. It is a **third term**, and it is the largest of the three.
+
+`sa_gate.py` now measures the repeat-floor (`SA_REPEAT`) and **REFUSES to call G-14b / G-14c /
+G-14d.** The verdicts it *would* have printed are banked as counter-example, not as findings:
+
+| clause | what the gate would have said on a 2,305 px floor |
+|---|---|
+| G-14b | PASS 100.00 % |
+| G-14c | FAIL 0 / 8 |
+| G-14d | FAIL 5 of 6 wasted leeches drew |
+
+⚑ **This asterisks Addendum 17's numbers too.** Cell 3c's 85.71 % / 95.65 % / 8-of-8 were taken on a
+frame-5 baseline that was byte-clean — and frame 5 is now known to be *inside the clean window*, before
+the term switches on at ~frame 100. The cell 3c arc verdicts are not refuted; they are **unproven**.
+
+**F-BR2-N3 — the third term.** Untraced by choice, not by oversight: chasing it is a rendering-seam
+investigation, and this run's remaining budget belongs to the watch. Standing hypothesis, explicitly
+unproven and recorded so the next reader does not have to re-derive it: *load-time emitter seeding
+cannot reach runtime-instanced VFX.* **Routed to BR-3 as its own cell, ahead of any pixel-differential
+gate.** Until it closes, **no pixel-differential in this project is trustworthy past ~frame 100.**
+
+⇒ **R-BR-51's blast-radius enumeration, owed at exit review, is now a THREE-term enumeration.**
+
+### §2 — WHAT SHIPPED ANYWAY, AND IT IS MOST OF THE RUN
+
+**PASS 3 on the melee arc — off the substrate, no gate needed.** The arc is now sized off the
+**contact distance the trace publishes per event** (cone min 1.00 m / median 2.00 m / max 3.22 m)
+rather than off a skeleton offset floored at 0.55 m. That closes **F-AC-3**. And the window now reads
+the **struck** target rather than the nearest live entity — which was a real defect: at tick 217, one
+of the fight's two crits, a mob sat at 1.00 m while the crit landed on the boss at **3.22 m**. The arc
+was being sized to the wrong body at the exact moment the watch is cut around. `SA_ARC_NO_DEPTH` stays
+`false`; COMBAT-JUICE-1's depth-test ruling is not extended.
+
+**G-6a–f + G-7 all PASS**, re-measured at 720p *and* at the 1600×900 deliverable: 9 boxes / 6 bound ·
+**0.0 px²** of box outside the 9-slice plate · crest centred · copy census **0 hits on all six needles
+over 673 distinct on-screen strings** · 0 uncovered names · strip below map with 0 px overlap · G-M4 0/0.
+
+**Mini-map is REAL** — driven from per-tick `x_m`/`y_m`/`heading_rad`/`alive`, square **inscribed not
+cropped** (179 of 180 boss fights resolve in a corner; cropping would hide the fight).
+
+**Leech: 23 of 23 realized present on the HP bar, 0 of 6 wasted.** ⚑ The census prints 22/23 because
+**tick 217 carries two realized leeches and the dict keys by tick.** Drax reported the raw number *and*
+the correction rather than the corrected number alone — the right instinct, and the reason the discrepancy
+is legible instead of a mystery.
+
+**G-8 PASS 17/17**, each with a proving frame index. And it caught a real one: **F-CJ-6 — lap 1's tail
+hold held nothing.** The end card came up the frame after the kill. Fixed at the trigger; the cut now
+holds frames **1091–1171 (2.70 s)** on the corpse. A death you do not get to look at is not a death beat.
+
+**Declared not built** (named, not hidden): HP/ENERGY orbs, and the element strip — no `chaos` or
+`physical` icon exists in the set.
+
+### §3 — THE DODGE CUT, AND A REFUSAL WORTH BANKING
+
+Nova fires tick 311; intercept t=**31.4900 s**, frame **954** — the player stands in a gap of the star,
+**534 mm clear of a 420 mm corridor**. ⚑ **Drax could not reproduce the 28 mm figure and refuses to claim
+it**: his corridor model disagrees with the sim's hit test at that scale. That refusal is correct and is
+banked as such. A number you cannot reproduce is not a number you own, and the run has already been
+burned four times this lap by claims that outran their measurement (**R-BR-45 class**).
+
+### §4 — RULINGS + DISPOSITION
+
+- **R-BR-52 (in-run, veto-open).** The boss shell's tint runs colder the closer the camera stands: red
+  **0.7145** sampled/verdicted → 0.5760 instrument pose → **0.4172 at watch scale**. This is **drift away
+  from an already-verdicted value, not a new taste choice**, so it is ruled at the conductor's
+  reasoning-boundary rather than routed to Matt: lift watch-scale red into **0.60–0.71**. Sheen is a luma
+  property and must cost nothing (p99/median 4.93 at watch scale vs 13.98 at instrument pose). If the lift
+  measurably damages sheen, the cell HALTs on that item alone and ships the rest. Matt's one-word veto open.
+
+- **Matt's taste rulings → cell 6 (BLOOD-CHARGE), the run's final cell.** (a) the charge-up swipe VFX goes
+  **blood-red and barely-there** — it is `ChargeSphereRed` [2,029], bones 26/13, scale 0.95, brightening
+  0.45→1.35 over a 0.500 s window, ⚑ **named "Red" and rendering bright white** — the third pack asset this
+  run whose name disagrees with its material, after `ShieldAuraBlue` measuring achromatic `(0.463, 0.464,
+  0.464)` and `SwordParticleTrail` not existing at all. (b) **SFX back on.** (c) **`--dress 1` becomes the
+  default** — the gate's comment said "opt-in until the dressing is verdicted," and the owner has now
+  verdicted it. Constraint carried into the cell: no pixel-differential gates, on §1.
+
+- **Held to BR-3 by Matt:** F-CJ-4 (`Werewolf (player)` reaches no surface, 34 strings) · the G-2b
+  clean-cut close.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
