@@ -1968,3 +1968,101 @@ burned four times this lap by claims that outran their measurement (**R-BR-45 cl
   clean-cut close.
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
+
+---
+
+## Addendum 19 (2026-08-01) — the R-BR-51 blast radius, three terms wide (exit review, part 1)
+
+**Conductor:** gandalf (`RUN-CONDUCTOR`). This is the enumeration R-BR-51 has owed since it was minted,
+now discharged against **three** known non-determinism terms rather than the one it was written for.
+
+### §1 — THE THREE TERMS
+
+| # | term | discovered | peeled by | floor at the GD camera |
+|---|---|---|---|---|
+| N1 | **F-SA-1** — 209 COMBAT-JUICE `GPUParticles3D` emitters on a per-process random seed | cell 3b | the `_cj_load` fix (fixed seed) | closed |
+| N2 | **F-AC-1** — the ambient dust layer, outside the emitter fix entirely | cell 3c | `--nodust 1 --noambient 1` | ~500 px (isolated speckle) |
+| N3 | **F-BR2-N3** — unidentified; survives all of the above | cell 4 | **nothing known** | **up to 2,305 px, from ~frame 100** |
+
+N3 is byte-clean at frames 5 and 50 and switches on around frame 100. **Every clean baseline this run
+took was taken at frame 5.** That is not a coincidence to be relieved by — it is the reason N3 went
+undetected for four cells.
+
+### §2 — THE DISCRIMINATOR IS NOT "DIFF VS ABSOLUTE." THAT WAS MY FIRST ANSWER AND IT IS WRONG.
+
+The instinct is to quarantine the gates that **diff two renders** and clear the ones that measure a
+single frame absolutely. That reasoning fails, and the failure is already on the record in Addendum 17:
+cell 3c's 544 px floor produced three wrong verdicts **in both directions** — including a FALSE PASS on
+an absolute presence clause, because *the speckle is drawn in the single render too.* A diff exposes the
+term; an absolute measurement **silently eats it.** The absolute case is the more dangerous one.
+
+⇒ **The real discriminator:**
+
+> **A verdict is in the blast radius if it depends on a LIT-PIXEL COUNT compared against a BAR, inside a
+> SAMPLED WINDOW, on a frame past ~100.** Diff or no diff. Everything else in this run is clean by class.
+
+### §3 — TRIAGE
+
+**Class A — CLEAN BY CLASS (no lit-pixel threshold anywhere in the verdict). No re-derivation owed.**
+G-1, G-1b–h (trace/schema/predicate-reconstruction — no renderer in the loop at all) · G-3, G-3b
+(grep audits) · G-9 (push truth) · G-10, G-12, G-13, G-13b (config gates, provenance, need-list counts) ·
+G-6a, G-6c, G-6e, G-6f (box counts, string censuses over 673 distinct strings, overlap of UI rects) ·
+G-7 (framemap identity, worst |Δt| = 0) · G-M4.
+
+**Class B — CLEAN ON MARGIN (a pixel quantity, but the margin is orders of magnitude off any 2,305 px
+noise budget, or the measured surface is deterministic UI). No re-derivation owed; margin named so the
+next reader can check my reasoning rather than take my word.**
+G-4 / G-4b (band luma **104.29 → 121.06 → 134.59** monotonic; a graded luma ramp, not a threshold count) ·
+G-6b (**0.0 px²** of box outside the plate — UI geometry, drawn deterministically) · G-2a / G-2b / G-2c
+(geometric extent, prong counts, footprint dimensions in metres — the verdict is a *measured shape*, not a
+lit-px sum). ⚑ **One exception inside G-2a:** four of six gap clauses read **exactly zero** below r ≈ 3.2 m
+and were called UNMEASURABLE rather than PASS. That call was right for its own reason and is right again
+for this one.
+
+**Class C — IN THE BLAST RADIUS. Verdicts do NOT stand; re-derivation owed on a clean instrument.**
+- **G-14b / G-14c / G-14d** — already declared NOT CALLABLE by the gate itself (Addendum 18). The banked
+  counter-example verdicts (PASS 100.00 % / FAIL 0-of-8 / FAIL 5-of-6) are evidence *about the instrument*,
+  never about the arc.
+- **G-14b / G-14c from Addendum 17** — 85.71 % / 8-of-8, and **G-14d's 95.65 %**. Taken on a frame-5
+  baseline, i.e. inside N3's clean window. ⚑ **Unproven, not refuted.** They may well be right; nothing in
+  this run entitles anyone to say so.
+- **G-5a, G-5c, G-5e** — presence-on-frame percentages against a 90 % bar, evaluated per-frame by lit-px
+  in a sampled window. G-5e's 327/327 and its **0** up-while-not-buffed absence half are the strongest of
+  the three (an absence half reading exactly zero is *hostile* to a noise floor — noise inflates presence
+  and would have broken the absence half first, and did not). **Downgraded to PROVISIONAL, not voided.**
+- **G-5b, G-5d, G-8** — G-5b's "distinguishable signature," G-5d's blood-pool persistence, and any G-8
+  item whose proving frame was certified by a lit-px threshold rather than by a named on-frame artifact.
+  G-8's 17/17 each carry a **proving frame index**, which makes re-derivation cheap: re-check the frames,
+  do not re-run the gate.
+
+**Class D — UNDETERMINED, one item.** **G-14a** (the asset clears the unmoved G-10 pixel gate). The G-10
+standard is a harvest-time isolated-asset measurement, which is very likely outside the watch render path
+entirely — but I have not confirmed that, and this run has been burned four times by claims that outran
+their measurement (**R-BR-45**). It stays UNDETERMINED until someone looks.
+
+### §4 — WHAT THIS COSTS, STATED PLAINLY
+
+Of BR-2's gate surface, **the great majority is clean by class or by margin.** The trace-side spine —
+emission purity, coverage-as-counts, predicate reconstruction at 100 % with FP 0 / FN 0 — never touched a
+renderer and is untouched by all three terms. The HUD work, which is the bulk of what Matt is about to
+watch, is clean. **What N3 took is the combat-legibility layer specifically**: the arc clauses outright,
+and the presence-percentage family provisionally.
+
+That is the correct place to lose confidence, and it is worth saying why: **the legibility gates are the
+ones that ask "is this visible?", and "visible" was operationalized as "enough lit pixels." A renderer with
+an unaccounted noise term is, precisely and only, a machine that manufactures lit pixels.** The gates most
+exposed to N3 are the gates whose question N3 is best equipped to answer falsely. That is not bad luck; it
+is the shape of the defect.
+
+### §5 — R-BR-53 (new rule, born here)
+
+> **A presence gate must state the noise floor of the instrument it is measured on, in the same units and
+> on the same frame range as its bar — or it does not report a percentage.** R-BR-51 required the
+> instrument to *assert determinism*; N3 proves an assertion can pass while the instrument is
+> non-deterministic in a layer the assertion does not cover. The floor must be **measured, at the frames
+> where the verdict is taken**, not asserted at frame 5 and assumed to hold.
+
+**Owed to BR-3, in order:** (1) identify and close N3 — ahead of any pixel-differential work; (2) re-derive
+Class C on the clean instrument; (3) resolve G-14a's Class D question with one look.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
