@@ -2131,3 +2131,30 @@ currently FAILING and no gate caught, itself a finding: *G-5d's absence half was
 shader frames and the corpse is being charred by something that is not that shader.*
 
 **Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
+
+---
+
+## Addendum 21 (2026-08-01) — cell 7 (HUD-REF) fires; cell 6 banked at `d13060a`
+
+**Cell 6:** all four items solved in code, died on the org usage cap before rendering. Conductor-banked
+godot `d13060a`. Key results carried forward: S-2's absence was a **pipeline path** (mixer never run,
+muxer never reached), not a mute. S-4's red was a **double sRGB→linear transfer** — a defect, not the
+drift R-BR-52 called it; green/blue same bug, routed BR-3. S-1's named object (`ChargeSphereRed`) draws
+≈0 lit px; the white was the `action_lock` rime crust.
+
+**Matt rulings (this turn):** (a) **delete the rime crust entirely** — supersedes cell 6's `TG_RIME_GAIN`
+compromise; boss `wr3_icearmor` untouched. (b) **option B = the middle arm, `3c CANDLES (shipped)`** —
+conductor read confirmed. (c) fold the re-cut into cell 7; one cell, one render.
+
+**Cell 7 scope:** M-0 rime delete · M-1 corpse bloody not burnt · M-2 delete `Werewolf (player)` ·
+M-3 play-stats box · M-4 hotbar option B minus outer two boxes, globes/bat-skull/candles+VFX ·
+M-5 reference mini-map + boss HUD · then render + cut **with audio**.
+**Gates:** G-6c/G-6e 0 hits (R-BR-54) · G-6b at new geometry · G-6d real data · G-5d re-pointed ·
+G-8 incl. 2.70 s tail hold · **G-SFX (new)**: delivered MP4 carries a non-silent audio stream, beats
+framemap-aligned. No pixel-differential verdicts (N3).
+
+**R-BR-55 (born from two deaths):** a cell whose work spans multiple independent items **commits after
+every item**, not at the end. Two agents have now died on the usage cap with completed work stranded on
+disk; both were recovered only because the conductor went looking. Recovery-by-luck is not a discipline.
+
+**Signed:** gandalf (`RUN-CONDUCTOR`), 2026-08-01.
