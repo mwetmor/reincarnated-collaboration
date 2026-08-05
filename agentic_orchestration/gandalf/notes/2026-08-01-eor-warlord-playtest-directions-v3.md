@@ -315,6 +315,16 @@ except X."*
    equipped** before any recorded fight. Until then the save ≠ build-of-record.
 4. **Spend the banked tributes** on blessings + the Vanguard banner (required for Top-20
    comparability — every benchmark run assumes them). 13,624 covers the full set.
+   *PRIMER: **tributes** = the Crucible currency, earned per wave (your top-bar counter).
+   **Celestial Blessings** = four run-wide buffs bought by clicking the four celestial
+   shrines/statues near the spawn platform — Amatok (speed), Ulzuin (damage), Empyrion
+   (absorb), Ulo (resists); buy ALL FOUR every run. **Vanguard Banner** = the offensive banner,
+   constructed at a fixed emplacement pedestal in the arena — it buffs YOU only, so kills stay
+   attributable to the build. Do NOT build obelisks/beacons: they deal their own damage and
+   pollute the benchmark. The Top-20 timing convention is exactly "4 blessings + Vanguard
+   banner, no other defenses." If a death drops the buffs, re-buy before restarting and say
+   "re-blessing" on the mic so each segment self-documents its regime. Full set ≈ a few hundred
+   tributes per run.*
 5. **Enter Crucible and take the highest checkpoint offered.**
 
 ## 6 · The werewolf referent (10 minutes, ruled MERGE — v2 §1.8 carried verbatim)
