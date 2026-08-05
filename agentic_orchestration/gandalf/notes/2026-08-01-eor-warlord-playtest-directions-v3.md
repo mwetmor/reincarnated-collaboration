@@ -71,10 +71,14 @@ fixture.*
 
 1. **Check the game version on the main menu and write it down. If Steam patched Grim Dawn after
    2026-07-24, STOP and tell us before playing.**
-   **✓ DONE 2026-08-04 — Matt reports v1.3.0.5 (x64).** Ruled proceed-as-is: no downgrade; the
-   client-vs-corpus delta (1.3.0.5 vs 1.3.0.0) is a DECLARED delta, and a legolas patch-note probe
-   (1.3.0.1–1.3.0.5 → `legolas/notes/2026-08-04-gd-1305-patch-delta-probe.md`) closes whether any
-   change touches the build, the Crucible, or GD Stash save-format compat before the sitting.
+   **✓ DONE 2026-08-04 — Matt reports v1.3.0.5 (x64). Expected version for this sitting: v1.3.0.5.**
+   Ruled proceed-as-is, and the patch-delta probe has since LANDED
+   (`legolas/notes/2026-08-04-gd-1305-patch-delta-probe.md`, primary-source read of all five
+   hotfix notes): **zero touches to the build's skills or devotions across 1.3.0.1–1.3.0.5; W1 and
+   W2 are confound-clean** (only Crucible change is a wave-200 spawn tweak, outside the 150–170
+   band); the 1.3.0.0 tailwinds (EoR 39%/50%, monster-armour cut) are intact at 1.3.0.5. GD Stash
+   1.8.2g on 1.3.0.5 saves is **field-VERIFIED** (same-day forum report performing exactly our §2
+   operation). The only patch-moved surface is the **werewolf referent** — see the §6 confound.
    *The corpus is pinned to the Edition-II 2026-07-24 fetch (patch 1.3.0.0). A patched client
    poisons every number — the co-pinning rule is the whole basis of joining video to datamine.*
 2. **Vanilla client. No Grim Internals, no Rainbow Filter, no GDAutoCaster, no YoloMouse.**
@@ -169,6 +173,9 @@ do rename, report both names.*
 **Skeleton Key.** *Measured, not folklore: `levelRequirement = 0`, and it is craftable from a
 blueprint (probe § 3.3) — no gate at any level.* **If the imported character already has a key or
 the blueprint, use it. If not, grant one via GD Stash. Do not farm for it.**
+*Granting caveat (patch-delta probe, field report 2026-08-04): a GD-Stash-granted Skeleton Key
+lands in the **second tab of the transfer stash** — FoA auto-collects crafting materials there.
+If the key seems missing after a grant, check that tab before concluding the tool failed.*
 
 **Do NOT otherwise alter the build. Not gear, not skills, not devotions, not a "small improvement."**
 *The build IS the fixture. A 100% match that is 97% is worse than useless — it is a number we
@@ -282,6 +289,14 @@ chain on camera.** Same recorder, zero extra setup. *That short clip is the refe
 with whichever sitting touches the werewolf save** — this one. **Do not move, copy, or edit that
 character; it stays in `save\user`.** *R-V3-1 puts the new character in `save\main`; the werewolf
 stays where it is. Two save roots, two pulls, no conversion.*
+
+**DECLARED CONFOUND (patch-delta probe 2026-08-04) — the referent clip will NOT be
+patch-comparable to the 2026-07-26 werewolf session.** Three 1.3.0.x changes touch this family:
+boss health reduced at levels 1–35 (1.3.0.1) · a second early-game pass adding separate
+Normal/Elite variants (1.3.0.4) · **wereform hitboxes shrunk to human size** (1.3.0.4). The clip
+is still the right parity referent for "does the sim read right?" — but any number compared
+across the two werewolf captures carries this delta, and the hitbox change specifically touches
+melee-range/geometry readings. Declare the version string on this clip too.
 
 ## 7 · Ending the run
 
