@@ -281,6 +281,40 @@ except X."*
    monsters-on-screen dial. If the room feels the same but slower, that is the data being honest.*
 5. **Same narration rules as §4. Same no-mid-combat-screenshot rule. Same deaths-are-data rule.**
 
+### §5-AFTERMATH — W2 sitting one (2026-08-04, 21:09–21:51) — what the frames established
+
+**Filed by gandalf from frame forensics on `eor-test-1/video/eor-warlord-2026-08-04 21-09-31.mp4`.**
+
+- **The run started at WAVE 1, not 150 and not 70.** Frame 9:22:51 shows wave badge **1**, tribute
+  counter **0**; 9:23:21 shows wave 3. The imported 1.1.9.x save's parsed Crucible progress
+  (`survivalWaveTier` 170, 999 tributes) did **NOT** carry through the 1.3.0.5 client's
+  save-format upgrade — the client re-initialized Crucible state. **§2's "start from the 150
+  checkpoint" claim is CORRECTED: sitting one's climb rebuilds checkpoints from scratch.**
+- **Clear speed was genuinely fast:** waves 1→93 in ~25 min (~16 s/wave average) with zero
+  blessings and zero banner. Wave 52 at 9:34:31 (×10 score multiplier live, full 20,005 HP).
+- **The weapon left the character between 9:34:31 and 9:48:41.** Fingerprint: max HP
+  **20,005 → 15,939** (the 2H mace's stat contribution). Death at wave 93 at 9:48:41
+  ("You have failed…" objective visible), **13,624 tributes** banked as compensation.
+- **The live client DOES offer a checkpoint at death** — frame 9:50:31 (poison-pool sequence,
+  198/15,939 HP) shows wave badge **70** at the "Speak to the Master… to Begin" state. Video
+  review to confirm whether the offered checkpoint was 70 or 93; either way the climb to 150 is
+  now **one to two partial sittings**, not a cold restart.
+- **The deliberate poison-pool death is a welcome micro-oracle segment** (DoT tick cadence on
+  camera; lineage: play-test-v1 measured poison at −10 HP/1.000 s).
+
+**BEFORE SITTING TWO — mandatory, in order:**
+
+1. **Check weapon set II first.** The most common way to "somehow drop" a weapon in GD is the
+   weapon-swap toggle (default **W**; the small I/II switch beside the hotbar) landing on an
+   empty alternate set. The mace may be sitting in the inactive slot, not lost.
+2. **If truly lost:** re-create the exact build-of-record mace via **GD Stash → Crafting**
+   (item spec = the grimtools sheet already screenshotted, `b28gD0KN`).
+3. **Re-run the §3 ceremony quick pass** — the sheet must read **20,005 max HP with the weapon
+   equipped** before any recorded fight. Until then the save ≠ build-of-record.
+4. **Spend the banked tributes** on blessings + the Vanguard banner (required for Top-20
+   comparability — every benchmark run assumes them). 13,624 covers the full set.
+5. **Enter Crucible and take the highest checkpoint offered.**
+
 ## 6 · The werewolf referent (10 minutes, ruled MERGE — v2 §1.8 carried verbatim)
 
 **Load the existing L13 werewolf in its existing custom-game save and play one ordinary encounter
