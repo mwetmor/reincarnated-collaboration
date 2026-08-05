@@ -441,4 +441,109 @@ committed from a clean tracked tree first, and the shipping battery stamps `5b8c
 
 ---
 
+## ADDENDUM A — `start_width_m` routing probe (conductor follow-up, 2026-08-01, read-only)
+
+**The question put to me:** finding #3 says the drawn rect overstates the lane 2× at the origin. Under
+R-BR-24 (*render what the SIMULATION resolves, not what the SOURCE says*), that is only a defect if
+**our simulation** tapers. If the resolver hit-tests a uniform 6.0 m rect, then a uniform 6.0 m rect
+IS the danger zone, the trace is honest, and drawing a trapezoid would be the worse lie — it would
+invite a dodge into space that kills.
+
+**Verdict: the simulation tapers. `start_width_m` is CONSUMED in the damage path. This is (a), a
+presentation gap.**
+
+### A.1 — The real hit-test, quoted
+
+Chain, walked not inferred: `_gd_wave_resolve_tick` (`spatial_engine.py:6770`) never tests geometry
+itself — it delegates to `self._gd_wave.resolve_tick(...)` and consumes `(ev, target_id)` pairs.
+That scheduler is `gd_boss_kit.py:836`, which calls `wave_hits` (`:860`). `wave_hits` tests the
+lateral axis at `gd_boss_kit.py:680`:
+
+```python
+if abs(s) > wave_half_width_m(u, p) + float(target_radius_m):
+    return False
+```
+
+and `wave_half_width_m` (`:645`) is the taper itself:
+
+```python
+return (p.start_width_m + (p.end_width_m - p.start_width_m) * uu / p.distance_m) * 0.5
+```
+
+Not a uniform rect. Not a laterally-moving band. A **linearly tapering lane, evaluated per-target at
+that target's own along-axis `u`**, plus the target's body radius. The band motion
+(`front`/`back` over `depth_m`) is the ALONG axis only and is orthogonal to this question.
+
+### A.2 — The probe, with counts (R-BR-34)
+
+Selector counts over `src/` (`*.py`); call-form = the name followed by `(`:
+
+| name | total refs | call-form |
+|---|---|---|
+| `start_width_m` | 3 | 0 (it is a field, read at `:645`) |
+| `wave_half_width_m` | 5 | **3** |
+| `wave_hits` | 19 | **2** |
+| `_gd_wave_half_width_m` | **1** | **0** |
+
+`start_width_m`'s three references are: the `WaveParams` field decl (`:535`), the fixture value
+`3.0` (`:614`), and **the read inside the half-width formula (`:645`)** — which is on the damage path
+via `:680`. Consumed.
+
+**Null-instrument tripwire.** One selector did return zero: `_gd_wave_half_width_m`, the alias
+`spatial_engine.py:717` imports. That zero is real and *informative*, not instrument failure — proof
+the selector class can find call sites is that the identical selector shape on the unaliased
+`wave_half_width_m` returned **3** and on `wave_hits` returned **2**. So: `spatial_engine.py` imports
+the taper helper and never calls it; the taper reaches the damage path through the scheduler in
+`gd_boss_kit.py` instead. The unused import is cosmetic, NOT evidence of a dropped taper — I checked
+precisely because a naive read of that import suggests the opposite conclusion.
+
+### A.3 — Effective width as a function of distance
+
+`full_width(u) = 3.0 + 0.1875·u`, clamped to `u ∈ [0, 16.0]` (`uu = min(max(u,0), distance_m)`).
+It reaches 6.0 m **only at u = 16.0 m — the terminal point of the 16 m lane.** Measured:
+
+| u (m) | actual full width (m) | drawn 6.0 overstates by |
+|---|---|---|
+| 0.0 | 3.000 | **2.00×** |
+| 1.0 | 3.188 | 1.88× |
+| **2.0** | **3.375** | **1.78×** |
+| 4.0 | 3.750 | 1.60× |
+| 8.0 | 4.500 | 1.33× |
+| 12.0 | 5.250 | 1.14× |
+| 16.0 | 6.000 | 1.00× |
+
+The conductor's point lands: with a 2.0 m cone as the primary skill, the player fights at `u ≈ 2`,
+where the drawn rect is **1.78× too wide** — the error is worst everywhere he actually stands and
+zero only at the one point he never occupies. Area-wise the drawn rect is 96.0 m² against a true
+72.0 m² trapezoid (1.33× overall), but that overall ratio understates the harm: the error is
+front-loaded onto exactly the band the dodge verb operates in.
+
+Body convention, for whoever charters the renderer: the resolver tests
+`|s| <= half_width(u) + target_radius_m`, so the *lane* is the trapezoid and the body radius is added
+to the target, not baked into the drawn shape — the same convention `wave_hits` uses on the along
+axis.
+
+### A.4 — Documented, or dropped?
+
+Q4 is moot (it IS consumed), but for completeness on the trace side: the omission is **documented as
+a handed-up finding, not an undocumented drop.** It is stated in three places written at cell 1b —
+math note §8, `simulation/MIGRATION.md:119-121`, and finding #3 above — and `spatial_engine.py:6728`
+emits `width_m=float(p.end_width_m)` with the schema comment naming it *"the END width"*. A test
+(`test_br2_trace_fill_1.py:288`) asserts `start_width_m` has NOT been added, so nobody can act on it
+quietly. What is NOT documented anywhere is a decision that the *renderer* may treat the lane as
+uniform — no math note, no MIGRATION entry, no decisions-log line makes that claim, because the sim
+does not support it.
+
+### A.5 — Routing, one line
+
+**(a) Presentation gap** — the sim tapers 3.0 → 6.0 over the full 16.0 m and hit-tests against it, so
+the uniform 16.0 × 6.0 rect is the trace under-describing a taper the simulation already resolves;
+BR-2 needs a cell 1d to emit it, and this is NOT a BR-3 source-fidelity question.
+
+Not acted on. No production code changed, no regeneration, no test amended by this probe. Charter
+G-2b still pins the uniform rect and the cell-1b guard test still asserts `start_width_m` absent —
+both remain correct until a cell 1d charter with pre-registered gates says otherwise.
+
+---
+
 *BR-2 / TRACE-STAGE-1 — gamora, simulation seam, 2026-08-01.*
