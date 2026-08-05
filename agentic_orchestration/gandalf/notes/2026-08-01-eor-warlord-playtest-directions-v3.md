@@ -41,6 +41,20 @@ Two windows, both endgame:
   (probe § 3.1).
 - **Plus a 10-minute werewolf referent** (§6) — carried from v2 §1.8, ruled MERGE.
 
+**R-V3-3 — WINDOW ORDER: W2 (Crucible) plays FIRST, split-sitting authorized.** *(Matt-proposed
+2026-08-04, gandalf ratified in-seam.)* The v3 W1→W2 order was v2-spine inheritance with no
+methodological weight (Q51 dissolved the controlled-experiment coupling; the windows are
+independent). Crucible-first maximizes parallel agent work: scripted waves join against the
+DB-resident rosters with **no T12 dependency**, and the footage becomes drax's composition referent
+for the F-V2-1 Crucible-setting render exhibit while the SoT sitting is still pending. Riders:
+**(a)** the §2/§3 first-load ceremonies (bindings check, devotion screen, version string) move to
+the Crucible sitting; **(b)** first waves at Gladiator-150 are DECLARED WARMUP on mic (first-ever
+pilot of this build — keep learning-curve noise out of the TTK ladder), then the measured 35 min;
+**(c)** NO character drift between sittings — no re-gear/re-spec/component swap; re-check the
+version string at sitting two and declare any delta on mic; **(d)** the werewolf referent rides the
+SoT sitting (it touches `save\user`) — **T11 save-copy precedes that sitting**, so the Crucible
+sitting has zero Matt-queue dependencies.
+
 *The spin is a pack-clearer. A single boss was always the wrong referent for it; a finished L100
 build in a 25-monster ambush and a Gladiator wave arena is the right one. The render exhibit lives
 in the Crucible setting (F-V2-1) — that is drax-side and DB-resident; it needs no capture from you.*
@@ -57,6 +71,10 @@ fixture.*
 
 1. **Check the game version on the main menu and write it down. If Steam patched Grim Dawn after
    2026-07-24, STOP and tell us before playing.**
+   **✓ DONE 2026-08-04 — Matt reports v1.3.0.5 (x64).** Ruled proceed-as-is: no downgrade; the
+   client-vs-corpus delta (1.3.0.5 vs 1.3.0.0) is a DECLARED delta, and a legolas patch-note probe
+   (1.3.0.1–1.3.0.5 → `legolas/notes/2026-08-04-gd-1305-patch-delta-probe.md`) closes whether any
+   change touches the build, the Crucible, or GD Stash save-format compat before the sitting.
    *The corpus is pinned to the Edition-II 2026-07-24 fetch (patch 1.3.0.0). A patched client
    poisons every number — the co-pinning rule is the whole basis of joining video to datamine.*
 2. **Vanilla client. No Grim Internals, no Rainbow Filter, no GDAutoCaster, no YoloMouse.**
@@ -300,7 +318,7 @@ endgame-first ruling creates are listed below.*
 | **II.2 — engine gap table** (8 rows) | GOVERNING, unchanged rows 1–7 | Row 8 **Retaliation — still EXCLUDED** (V1 is the physical-hit spin; V5's bleed-conversion variant was explicitly rejected as a different BC-axis signature). **New row 9: devotion-proc layer — MEASUREMENT TARGET + adaptation source.** Procs bound to skills are an unmodelled damage layer in the sim today; F-V3-1 makes them a named measured quantity and a design workstream, not a gap-register line. |
 | **II.3 — drax emission needs** (6 items) | GOVERNING | Item 4 (N-actor trace) now stresses at **Crucible scale**, not SoT scale — the render exhibit moved to the Crucible setting (F-V2-1). Item 5's arena footprint takes the Crucible arena, with SoT's Ceremony frame as the campaign referent. Add: **proc-triggered secondary damage events need their own record class** or they will silently fold into weapon damage — the R-BR-34 census rule applied to a layer that did not exist in v2. |
 | **II.4 — probe queue** | UNCHANGED status | P-D1 **LANDED**. **P-E1 / P-E2 / P-E3 / P-E4 all still open** — and P-E1 (`Skill_AttackRadiusSpin` per-rank tick cadence, radius, energy drain) is now needed at **max ultimate rank**, not rank 1–5. **New: P-E5 — devotion constellation → proc template join** (proc damage, trigger conditions, cooldowns, bind rules), consumer = the new gap row 9. |
-| **II.5 — open forks** | CLOSED | F-V2-1..4 and F-V3-1 all ruled (see the governing banner). The live forks are now **R-V3-1** and **R-V3-2** above, both gandalf in-seam and both **veto-open to Matt**. |
+| **II.5 — open forks** | CLOSED | F-V2-1..4 and F-V3-1 all ruled (see the governing banner). The live forks are now **R-V3-1**, **R-V3-2** and **R-V3-3** (window order, Matt-proposed 2026-08-04) above, gandalf in-seam and **veto-open to Matt**. |
 
 **One new opposition-side note for whoever builds the Crucible sim room:** the Crucible balancing
 records carry a `retaliationTotalDamageModifier` of **74 at Gladiator** versus 53–54 at the lower
