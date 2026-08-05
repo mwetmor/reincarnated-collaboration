@@ -295,10 +295,12 @@ except X."*
 - **The weapon left the character between 9:34:31 and 9:48:41.** Fingerprint: max HP
   **20,005 → 15,939** (the 2H mace's stat contribution). Death at wave 93 at 9:48:41
   ("You have failed…" objective visible), **13,624 tributes** banked as compensation.
-- **The live client DOES offer a checkpoint at death** — frame 9:50:31 (poison-pool sequence,
-  198/15,939 HP) shows wave badge **70** at the "Speak to the Master… to Begin" state. Video
-  review to confirm whether the offered checkpoint was 70 or 93; either way the climb to 150 is
-  now **one to two partial sittings**, not a cold restart.
+- **The live client DOES offer a checkpoint at death — CONFIRMED wave 70** (Matt, video review
+  2026-08-04; matches the frame at 9:50:31, poison-pool sequence, 198/15,939 HP). The offered
+  checkpoint was **below** the death wave (93 → 70), so checkpoints are coarser than 10-wave
+  granularity in the live client — plan around the checkpoint you're *shown*, not the wave you
+  reached. **Remaining climb to the benchmark band: 70 → 150 = 80 waves**, ~20–25 min at
+  sitting-one's unbuffed pace, faster with blessings + banner. One partial sitting.
 - **The deliberate poison-pool death is a welcome micro-oracle segment** (DoT tick cadence on
   camera; lineage: play-test-v1 measured poison at −10 HP/1.000 s).
 
