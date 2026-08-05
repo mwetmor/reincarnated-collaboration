@@ -285,22 +285,28 @@ except X."*
 
 **Filed by gandalf from frame forensics on `eor-test-1/video/eor-warlord-2026-08-04 21-09-31.mp4`.**
 
-- **The run started at WAVE 1, not 150 and not 70.** Frame 9:22:51 shows wave badge **1**, tribute
-  counter **0**; 9:23:21 shows wave 3. The imported 1.1.9.x save's parsed Crucible progress
-  (`survivalWaveTier` 170, 999 tributes) did **NOT** carry through the 1.3.0.5 client's
-  save-format upgrade — the client re-initialized Crucible state. **§2's "start from the 150
-  checkpoint" claim is CORRECTED: sitting one's climb rebuilds checkpoints from scratch.**
+- **The run started at WAVE 1, not 150 and not 70.** Frame 9:22:51 shows wave badge **1**;
+  9:23:21 shows wave 3. ~~Initial reading: the save-format upgrade dropped Crucible progress.~~
+  **OVERTURNED by the checkpoint-edit probe (salvage, 2026-08-04): the migrated fixture's parse
+  shows ALL THREE checkpoint tokens present (TIER05/10/15) in the Gladiator slot — Crucible
+  state DID carry.** The wave-1 start was therefore almost certainly a **dialogue-choice miss**:
+  Lokarr's start dialogue offers a checkpoint/wave selection when the tokens are present, and
+  clicking straight through "Begin" starts at wave 1. *(Corollary correction: the top-bar
+  counter with the ×N multiplier is the SCORE bar — the 13,624 read at death is score, not
+  tributes. The tribute balance shows in Lokarr's purchase UI; per the parse it is ~999 plus
+  run earnings.)*
 - **Clear speed was genuinely fast:** waves 1→93 in ~25 min (~16 s/wave average) with zero
   blessings and zero banner. Wave 52 at 9:34:31 (×10 score multiplier live, full 20,005 HP).
 - **The weapon left the character between 9:34:31 and 9:48:41.** Fingerprint: max HP
   **20,005 → 15,939** (the 2H mace's stat contribution). Death at wave 93 at 9:48:41
   ("You have failed…" objective visible), **13,624 tributes** banked as compensation.
 - **The live client DOES offer a checkpoint at death — CONFIRMED wave 70** (Matt, video review
-  2026-08-04; matches the frame at 9:50:31, poison-pool sequence, 198/15,939 HP). The offered
-  checkpoint was **below** the death wave (93 → 70), so checkpoints are coarser than 10-wave
-  granularity in the live client — plan around the checkpoint you're *shown*, not the wave you
-  reached. **Remaining climb to the benchmark band: 70 → 150 = 80 waves**, ~20–25 min at
-  sitting-one's unbuffed pace, faster with blessings + banner. One partial sitting.
+  2026-08-04; matches the frame at 9:50:31, poison-pool sequence, 198/15,939 HP). **Explained
+  to the digit by the probe:** the in-session retry rule is *"20 waves before where you
+  stopped, rounding down to the nearest 10th"* (game's own UI tags) — 93 − 20 = 73 → **70**.
+  This is the RETRY mechanic, distinct from the persistent checkpoint starts (50/100/150,
+  token-gated, all present in this fixture). **The 150 start should be selectable from
+  Lokarr's dialogue on a fresh entry — if it is, there is NO climb at all.**
 - **The deliberate poison-pool death is a welcome micro-oracle segment** (DoT tick cadence on
   camera; lineage: play-test-v1 measured poison at −10 HP/1.000 s).
 
@@ -313,8 +319,9 @@ except X."*
    (item spec = the grimtools sheet already screenshotted, `b28gD0KN`).
 3. **Re-run the §3 ceremony quick pass** — the sheet must read **20,005 max HP with the weapon
    equipped** before any recorded fight. Until then the save ≠ build-of-record.
-4. **Spend the banked tributes** on blessings + the Vanguard banner (required for Top-20
-   comparability — every benchmark run assumes them). 13,624 covers the full set.
+4. **Spend tributes** on blessings + the Vanguard banner (required for Top-20 comparability —
+   every benchmark run assumes them). Balance per the fixture parse: ~999 + sitting-one
+   earnings — ample. *(Check the balance in Lokarr's purchase UI, not the top score bar.)*
    *PRIMER: **tributes** = the Crucible currency, earned per wave (your top-bar counter).
    **Celestial Blessings** = four run-wide buffs bought by clicking the four celestial
    shrines/statues near the spawn platform — Amatok (speed), Ulzuin (damage), Empyrion
@@ -325,7 +332,15 @@ except X."*
    banner, no other defenses." If a death drops the buffs, re-buy before restarting and say
    "re-blessing" on the mic so each segment self-documents its regime. Full set ≈ a few hundred
    tributes per run.*
-5. **Enter Crucible and take the highest checkpoint offered.**
+5. **Enter Crucible and, in Lokarr's start dialogue, LOOK FOR THE CHECKPOINT / STARTING-WAVE
+   SELECTION before clicking Begin.** The fixture's tokens say **150 should be offered** — take
+   it and say "starting at checkpoint 150" on the mic. If 150 is NOT offered (field falsifies
+   the parse), take the highest offered and climb; say what was offered on the mic either way —
+   that one sentence is the token-state ground truth.
+   *(Ruling R-V3-4, gandalf 2026-08-04: NO save edit for this sitting either way. The
+   checkpoint-edit probe's durable record — console `GrantPlayerToken` path LOW-risk, gd-edit
+   FoA fork MEDIUM, GD Stash cannot touch the token list — lives at
+   `legolas/notes/2026-08-04-gd-crucible-checkpoint-edit-probe.md` for future fixtures.)*
 
 ## 6 · The werewolf referent (10 minutes, ruled MERGE — v2 §1.8 carried verbatim)
 
