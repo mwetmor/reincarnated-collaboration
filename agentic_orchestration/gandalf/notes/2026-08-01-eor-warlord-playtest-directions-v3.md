@@ -332,6 +332,12 @@ except X."*
    banner, no other defenses." If a death drops the buffs, re-buy before restarting and say
    "re-blessing" on the mic so each segment self-documents its regime. Full set ≈ a few hundred
    tributes per run.*
+   *(2026-08-05 correction, from the corpus + sitting two: the actual defense-site set is
+   **3 Beacons (Deathchill/Inferno/Stormcaller) + 2 Banners (Stonewall/Vanguard)** — "obelisks"
+   is stale pre-1.3 vocabulary, no such site exists. Sitting two DEPARTED from this convention
+   — 1 aura banner + 3 beacons, zero blessings, zero upgrades — so its clears grade as a
+   beacon-assisted UPPER BOUND on build output, not Top-20-comparable. Regime measured by the
+   save parse: defenses-built +4, powerups-activated +0.)*
 5. **Enter Crucible and, in Lokarr's start dialogue, LOOK FOR THE CHECKPOINT / STARTING-WAVE
    SELECTION before clicking Begin.** The fixture's tokens say **150 should be offered** — take
    it and say "starting at checkpoint 150" on the mic. If 150 is NOT offered (field falsifies
