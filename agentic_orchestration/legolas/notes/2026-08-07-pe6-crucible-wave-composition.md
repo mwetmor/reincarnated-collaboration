@@ -10,6 +10,10 @@
 
 ---
 
+> **CORRIGENDUM — § 2.8 `characterLifeModifier` indexing (conductor-landed at KC2 ledger L-58, 2026-08-08; source: legolas's own w152/w157 generator-join finding, join note § 3.1/R-2 — a self-correction, honored corrigenda-forward; the body below is left as written).** The Gladiator life array is **WAVE-indexed** — `balancingadjustment_survivalmode_enemies03`, 200 entries, read `arr[wave − 1]`, reproduced under u8 read 200/200 — not a flat difficulty constant. The `+168 %` quoted at four sites below is the array read at the wrong index. At the fixture band (waves 151–158) the array reads **≈ +308 % … +318 %**; at wave 160 it reads **+324 %** ⇒ ≈ **1.3 M effective HP per nemesis**, 1.58 × the 827 K derived below. The four superseded sites (pre-banner line refs): **:167** difficulty-table row `+168 %` · **:187** burst-and-bulk designer-intent paragraph · **:377** "roughly 827,000 effective HP per nemesis" · **:621** wave-160 death narrative (its eHP figure scales × 1.58; its composition reading and the don't-over-fit-to-Zantarin conclusion are unaffected). Downstream surfaces were ALREADY corrected at ledger L-17 and are CURRENT — sim spec :1243/:2876 (wave-indexed row `…304·306·314·324·326·344…`), ledger L-17 strike, engine `opposition.py:281` wave-indexed read + `:301` regression guard. No consumer carried the stale value forward; this note was the last stale surface, closed here.
+
+---
+
 ## §0 — Headline
 
 **The whole Crucible is database-resident and it fully decodes.** 925 spawn-point proxy records across 20 tiers × 10 waves × up to 6 spawn points, resolving through 632 distinct pools to 1,617 distinct monster records, with **zero unresolved pool references and zero non-conforming records**. Global waves 1–200 are covered end to end.
