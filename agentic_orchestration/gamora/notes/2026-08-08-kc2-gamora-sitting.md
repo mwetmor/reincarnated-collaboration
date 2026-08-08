@@ -3,7 +3,8 @@
 **Agent:** gamora (simulation seam)
 **Date:** 2026-08-08
 **Commission:** gandalf (RUN-CONDUCTOR), at the G-D gate close — standing next-touch queue
-**Status:** OPEN
+**Status:** **CLOSED** — all 5 items discharged. Engine `f06e2981` + `d79950e3`; meta `f77d12a1`.
+**UNPUSHED** (conductor pushes at the next fold beat).
 **Scope:** BLOCKING PRE-STEP of the C-1 closure lap. Corrections + annotations + one modeling
 note. NO new sim behavior, NO s1/s2 re-runs, NO C-1 work.
 
