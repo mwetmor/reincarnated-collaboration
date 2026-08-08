@@ -35,7 +35,7 @@
 - `agentic_orchestration/legolas/notes/2026-08-01-gd-pack-density-ranking.md` (dense-room targets; .arz extraction pattern lineage)
 - Footage: **`/Volumes/reincarnated/visual-artifacts/GD-matt-test/eor-test-1/`** (s1: 41.6-min video + 142 screenshots) + **`eor-test-2/`** (s2: 17.2-min video 1,034 s 1920×1080@60 + ceremony screenshots #495–611). *(Handoff path `matt-notes-from-pc/GD-matt-test/` corrected at L0.)*
 - Save: `/Volumes/reincarnated/matt-notes-from-pc/gd-save/_EoRWarlGuts/` (SHA-verified; `player.gdc` = `b8e6f510…`)
-- Edition-II `.arz` corpus: `~/Games/vendor/grim-dawn/` (join-safe at client 1.3.0.5 per patch-delta probe; werewolf family = declared confound)
+- Edition-II `.arz` corpus: **`~/Games/vendor/grim-dawn-edition-II-20260724/`** (join-safe at client 1.3.0.5 per patch-delta probe; werewolf family = declared confound). *(CORRECTED in-run at Phase A per P-E5 return: the charter's original pin `~/Games/vendor/grim-dawn/` is the Edition-I tree — no GDX3, hence no Oathkeeper/EoR records. Ledger § A.2; each probe return verifies its corpus provenance.)*
 - Claim vocabulary in force: *name-identical; derived within +3.9%/−0.5%* — "matches 100%" retired. Parse-over-frames governs. M1 (Lokarr fixed offers {50,100,150,180}) ≠ M2 (death−20↓10 rewind) — never blurred.
 
 **Work surface (NOT frozen — the thing being built):** `~/Games/reincarnated-engine/` main, at launch HEAD **`ebf13240`** = gap-table basis `28eddef4` + 2 BR-2 shape-truth commits (nova=sixteen-corridors; `shape` semantics on two families). **G-B obligation:** re-verify the § II.2 BUILD/EXTEND rows against launch HEAD — the gap table was measured at `28eddef4`.

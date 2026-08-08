@@ -1,0 +1,25 @@
+# Bulk CV intermediates for the 2026-08-07 EoR extraction.
+# ~700 MB of extracted video frames. Reproducible from
+# agentic_orchestration/galadriel/pipeline/eor_*.py against the source MP4s on
+# /Volumes/reincarnated/visual-artifacts/GD-matt-test/.
+# Keep evidence/, frames-s1/, frames-s2/ and the small JSON/log artefacts.
+work/*.png
+work/s1-1fps/
+work/s2-1fps/
+work/s1shot/
+work/s2-def/
+work/s2-def10/
+work/s2-trib10/
+work/s2-lobby/
+work/s1-death/
+work/s1-d60/
+work/s1-a2/
+work/s2-death/
+work/s2-refine/
+work/s1-refine/
+work/trib/
+work/trib2/
+work/s1trib/
+work/s2-exemplars/
+work/s2-ex2/
+work/*.npy
