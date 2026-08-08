@@ -1,5 +1,16 @@
 # KC2-SIM Phase D — the LOCOMOTION LAP (§ 10.9a). gamora seam.
 
+> ## ⚑ CORRIGENDA BANNER — added 2026-08-08 under R-L65-2 (ANNOTATION, not value-rewrite)
+> Conductor ACCEPTED the annotation form at **L-63(a)**. **Nothing below is struck and no measured
+> row is edited** — both items annotate the *derivation* of a value, never the value as executed.
+>
+> | # | site | what moved | disposition |
+> |---|---|---|---|
+> | **C-a** | **§ 8.4** — the F-13 perturbation scale *"271.50 (record) → 289.62 (measured floor) = **+6.674 %**"* | F-1 retired the **289.62** floor to **288.62** across 8 engine lines (commit `f06e2981`). Read off the corrected floor the scale is **17.12 / 271.50 = +6.306 %**. | **The § 8.4 TABLE STANDS AS EXECUTED.** The sweep really did run at `n_scale` 1.0667 / 0.9333, so those rows measure *that* perturbation and are not re-run. Annotated is the scale's derivation, not the rows. Under the corrected floor the arms would have been 1.0631 / 0.9369 — a **0.37 pp narrower** perturbation, which can only *reduce* the measured sensitivity, so § 8.4's conclusion (**the result inherits the F-13 residual**) is unchanged in sign and in force. The spec already carries the matching `:1753` tag *"±6.674 % (as executed)"*. |
+> | **C-b** | **§ 12 F-L7** — *"the band-A locomotion join is 895 of 896"*, `hero/scavenger_h075.dbr` absent from the emission | The **C-1 closure lap** (R-L65-2) ran the § 6.2b eHP chain over the same 896-record band against Edition-III and resolved **895**. The one residual is **the same record**. | **Not a correction — a corroboration that sharpens the claim.** Band A does not carry two independent 1-in-896 absences; it carries **ONE absent record that blocks two different chains**. F-L7's declared modal fallback is therefore the only fallback the band ever needs, on either chain. Recorded so a later reader does not price the two absences separately. |
+>
+> Derivation: `agentic_orchestration/gamora/notes/2026-08-08-kc2-c1-closure-arr-repass.md`.
+
 **Run:** KC2-SIM (autonomous, desirable-run pattern). **Conductor:** gandalf (`RUN-CONDUCTOR`).
 **Author:** gamora (simulation seam). **Phase:** D — the F-12 locomotion amendment lap (L-46 / L-47).
 **Base:** engine `main` @ `13451fdf` (beat 3) — **moved to `265069b1` mid-lap** when star-lord's
