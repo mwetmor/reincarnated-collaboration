@@ -9,6 +9,42 @@ Part C **NAMED-BLOCKED-ON-T15**
 **External fetches:** ZERO. Corpus-resident only, Edition-II pin only.
 **Truth-boundary tags:** MEASURED (read from records/emissions) · INFERRED (ratio or structural argument) · DECLARED (carried from prior notes)
 
+> ### ⚠ CORRIGENDA-FORWARD BANNER — added 2026-08-08 under ruling R-L64-3. Nothing below is struck, rewritten or retro-edited.
+>
+> **§ 3.3 and § 3.4 have been RE-RUN.** The re-run is at
+> `2026-08-08-kc2-consolidated-record-touch.md` § 2 and it **REPLACES** the bands and every
+> dead-gap verdict published here. Two errors compounded in the original, and they pushed in
+> opposite directions:
+>
+> | # | error | direction |
+> |---|---|---|
+> | E-1 | § 3.2 censused the `charLevel` **multiplier** and missed the **additive** term (1,132 / ~3,115 records carry offsets −1…+6). Self-flagged at intake-note § c.0. | would narrow the bands |
+> | E-2 | The multiplier stack was modelled as **level-independent**. It is not: every monster carries a passive (`armorbase0N.dbr`) whose `characterLifeModifier` is a **200-array indexed by skill rank = charLevel**, so a same-record ΔL = 1 step moves the *multiplier* as well as the base. | **widens** the bands, and dominates |
+>
+> **E-2 is the larger error and it goes the other way**, so the published bands are not merely
+> "overstated" as § c.0 predicted — they are **too narrow**:
+>
+> | ΔL | published § 3.3 (Branch A) | **corrected** (w152, level-scaling records, L 102–108) |
+> |---:|---|---|
+> | 1 | 1.181 % … 1.519 % | **1.595 % … 2.329 %** |
+> | 2 | 2.364 % … 3.046 % | **2.833 % … 4.543 %** |
+> | 3 | 3.550 % … 4.580 % | **4.449 % … 6.923 %** |
+>
+> **Consequence — the § 3.4 "dead gap" DOES NOT EXIST.** All seven measured inter-class deltas
+> (0.826 – 2.075 %) are admissible as ONE record at ΔL = 1. **Every "NOT one record (dead gap)"
+> verdict in § 3.4 is WITHDRAWN.** The w152 low pair `42,798 → 43,548` (Δ 1.752 %) is now
+> **MEASURED** to be exactly that: `swampcrab_a00_summon` at charLevel **107** and **108**,
+> reproduced to +0.0021 % / +0.0001 %.
+>
+> **§ 3.5's discriminating consequence is therefore WITHDRAWN with it** — the Carraxus requirement
+> was an artefact of the too-narrow band. (The seat had already fallen to galadriel's plate; this
+> retires the *derivation* that demanded it.) **§ 3.1, § 3.2's censuses, § 3.6 and all of Part A
+> stand as filed.**
+>
+> Also superseded here: **Part C open item 1 ("the stacking rule is undeclared")** — it is
+> **DECLARED BY MEASUREMENT**: additive-within-field. And **open item 2 (`averagePlayerLevel`)** —
+> **DERIVED to [103.0, 103.92)**, not 100.
+
 ## 0. Commission
 
 Two Crucible waves are falsified against the KC2 composition model:

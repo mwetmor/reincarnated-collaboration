@@ -6,6 +6,19 @@
 **Status:** IN PROGRESS — appended live
 **Attribution grade tags:** R-KC2-7 (MEASURED / INFERRED / MODELED)
 
+> ### ⚠ CORRIGENDA-FORWARD BANNER — added 2026-08-08 under ruling R-L64-3. Nothing below is struck or rewritten.
+>
+> | # | site | what is wrong | what is right | authority |
+> |---|---|---|---|---|
+> | C-1 | **§ a.7 HEADER** (`"8 CHANGED / 8 IDENTICAL (of the 16 shared)"`) | the count | **9 DIFFER / 7 IDENTICAL** | a.7's own TABLE (9 = 7 `.arz` + base/gdx3 `Text_EN`; 7 = `sm2.arz` + 6 `Text_EN`); jack-ryan's independent L-60(b) re-hash; his L-62(c) re-verification. Majority of independent measurement, 3 : 1. |
+> | C-2 | **§ a.7 closing prose, line 214** (`"It is 8 of 16."`) | the same count, second site | **It is 7 of 16.** | as C-1. Header-only repair would have left this standing — the widened scope is jack-ryan's L-62(e) catch. |
+> | C-3 | **instrument `kc2set_verdicts.json`** | 6 rows report `ABSENT-BOTH` from unresolved path-guesses, not from absence | all 6 resolve and are **IDENTICAL**. **The note's `15/15 summon bodies` claim was CORRECT; the ARTEFACT was stale.** | jack-ryan L-62(d) found 2 (`fleshshaper_spirit_01`, `krieg_aethertrap` → `…/bossskills/pets/`); this touch's re-emit found 4 more (`swampcrab_h05`, `aetherialcorruption_h05` → `…/hero/`; `swampcrab_crabgenerator`, `springscrab_crabgenerator` → `…/summoning/`). **Superseded by `kc2set_verdicts_v2.json`** (613 IDENTICAL / 5 CHANGED / 9 genuinely ABSENT; equality predicate declared in-file per Discipline #69 clause (i)). v1 retained for lineage. |
+> | C-4 | **§ c.1** (`averagePlayerLevel = 100 CONFIRMED`) | the value, and the inference that produced it | **`averagePlayerLevel` ∈ [103.0, 103.92)** — DERIVED. The `108 = 103 + 5` reading was arithmetically valid but rested on the record `charLevel` additive offset entering the spawn level, which is now MEASURED-FALSE (below). | `2026-08-08-kc2-consolidated-record-touch.md` § 4–5 |
+> | C-5 | **§ c.5 / the NAMED BLOCK B-KC2-C1** (`×2.7181 unexplained residual`) | the framing, not the arithmetic | **No residual exists.** The stack is **additive-within-field**: Σ = 580 (difficulty) + 308 (survival w152) + `armorbase0N.characterLifeModifier[charLevel−1]`. At charLevel 108 → Σ = 1009 % → **×11.0900 EXACT**. `×2.7181` was the artefact of dividing by a `×4.08` that never multiplied. **B-KC2-C1 is CLOSED, not merely unblocked.** | same note, § 3 |
+> | C-6 | **§ d falsifiable prediction** (`Rotmouth's plate must read 109 or 110`) | the prediction (registered, falsified — as designed) | plate reads **107**, MEASURED 7/7 (galadriel). The identity join (`hero/basilisk_h02.dbr`, w152 sp = 2, `poolsherogdx1/basilisk_hero`) **STANDS**; the failed link is the **offset**. | same note, § 5 |
+>
+> Everything else in this note stands as filed, including every § b diff verdict (independently reproduced by jack-ryan at L-62(c)).
+
 ## Commission parts
 
 - (a) INTAKE — SHA-256 pin + inventory of the 38-file Edition-III tree; reconcile vs `depot.pins.predicted.txt`; independently re-verify Edition-II 16/16
@@ -187,6 +200,10 @@ fa0689778ef0badb4472213684733e958edfbeeebb45086830939c9693b3d06e  mods/survivalm
 
 ### a.7 FILE-LEVEL II→III DELTA — 8 CHANGED / 8 IDENTICAL (of the 16 shared)
 
+> **⚠ CORRIGENDUM C-1 (2026-08-08, R-L64-3) — this header count is WRONG. It is 9 DIFFER / 7 IDENTICAL.**
+> The header is left standing per corrigenda-forward; the TABLE BELOW is correct and is the record.
+> Second site of the same slip: the closing prose at "It is 8 of 16" (→ corrigendum C-2). See the banner at the top of this note.
+
 | path | Edition-II | Edition-III | verdict |
 |---|---|---|---|
 | `database/database.arz` | `8cdeff12…` | `2ad6d379…` | **CHANGED** |
@@ -212,6 +229,7 @@ fa0689778ef0badb4472213684733e958edfbeeebb45086830939c9693b3d06e  mods/survivalm
 - Among the **8 `Text_EN.arc` localization archives: 2 CHANGED (base, gdx3), 6 IDENTICAL.**
   Matt named both changed ones correctly.
 - **The sharpening:** Matt's phrasing could be read as "only 1 of 16 identical." It is 8 of 16.
+  > **⚠ CORRIGENDUM C-2 (2026-08-08, R-L64-3) — WRONG at this second site. It is 7 of 16.** Left standing per corrigenda-forward; see the banner at the top of this note. The sharpening's *point* (many-more-than-one identical) is unaffected.
   The six unchanged localization archives matter for Part (d) — the `Rotmouth` tag-join is
   reproducible on gdx1/gdx2/sm/sm1/sm2/sm3 text across BOTH editions, and only base + gdx3
   text carry edition-skew risk.
