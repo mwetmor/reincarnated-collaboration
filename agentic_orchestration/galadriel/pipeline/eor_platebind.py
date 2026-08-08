@@ -57,18 +57,71 @@ import eor_hpocr as HO       # noqa: E402
 W, H = 1920, 1080
 
 # ---- plate geometry (full-frame px) -----------------------------------------
+# The scan bands must span the WIDEST track any rank draws (the boss bar reaches
+# x ~ 1123), otherwise a boss plate is measured through a champion-sized window
+# and silently clips. See TRACKS below.
 NAME_BAND = (600, 17, 1350, 35)     # x0, y0, x1, y1
 LVL_BAND = (915, 43, 1005, 59)
-BEVEL_BAND = (830, 59, 1100, 65)
-FILL_BAND = (830, 66, 1100, 73)
+BEVEL_BAND = (780, 59, 1160, 65)
+FILL_BAND = (780, 66, 1160, 73)
 FAM_BAND = (700, 90, 1250, 104)
 
-TRACK_X0 = 861.0                    # measured: fill left edge, invariant
-TRACK_X1 = 1060.0                   # default; override from calibrate()
+# ---- per-RANK bar track geometry --------------------------------------------
+# Grim Dawn does not draw one plate bar. It draws a NARROW bar for common /
+# champion / hero plates and a WIDE bar for boss / nemesis plates, and the two
+# differ by 124 px of track — 63 % longer. Measuring a boss bar on champion
+# constants produces fractions > 1.0 (the fifth-extraction artefact fill_end
+# 1099 -> frac 1.196) because the run-walk simply hits the scan band's own edge.
+#
+#   std   common / champion / hero   x 862.0 -> 1059.4   (197.4 px)
+#   boss  boss / nemesis             x 800.0 -> 1123.0   (323.0 px)
+#
+# Provenance of the numbers, both measured from the pixels, never assumed:
+#   boss  w152 skull-plate note § 4.1 — fill left edge x=800 on all 25 violet
+#         frames; gold end-cap warm onset x=1120..1124 on the empty-bar frames.
+#         Right edge refined 1121.5 -> 1123.0 here: at 1123.0 the sub-pixel edge
+#         estimator reproduces the census fraction on the Haraxis hover to
+#         0.0002 (0.06 px), against 0.0046 (1.5 px) at 1121.5.
+#   std   crabling / Rotmouth touch (2026-08-08) — fill left edge x=862 measured
+#         on common, champion, hero and empty-bar frames alike; right edge 1059.4
+#         from (a) the corpus maximum fill_end 1059 in BOTH w152 and w153,
+#         independently, and (b) an independent partial-bar check: the Mudflinger
+#         hover at t=702.4667 binds 367,509/443,554 (f=0.82856) to +0.33 px.
+TRACKS = {"std": (862.0, 1059.4), "boss": (800.0, 1123.0)}
+
+TRACK_X0, TRACK_X1 = TRACKS["std"]  # back-compat aliases for the std track
+
+
+def rank_class(p: dict) -> str:
+    """Which TRACK a plate draws, from its own name-glyph colour.
+
+    Grim Dawn's rank colours are white (common) / yellow (champion) / orange
+    (hero) / violet (boss+nemesis). Only violet changes the bar geometry, and
+    violet is the only rank whose glyphs are BLUE-leaning: measured R-B in
+    -11..+5 and G-B ~ -30 across the w152 boss frames, against R-B +44..+70 for
+    every non-violet plate in the same span (skull-plate note § 2.1).
+
+    Returns "boss" or "std". A plate with no readable name colour is "std",
+    which is the conservative default: it under-reads a boss bar rather than
+    over-reading a champion one past its own track.
+    """
+    c = p.get("name_rgb")
+    if not c:
+        return "std"
+    return "boss" if (c[0] - c[2] <= 8 and c[1] - c[2] <= -8) else "std"
+
+
+def track_of(p: dict):
+    return TRACKS[rank_class(p)]
 
 
 def plate_metrics(fr: np.ndarray) -> dict:
-    """Everything the plate can be measured for on one frame."""
+    """Everything the plate can be measured for on one frame.
+
+    The bar is measured on the track its OWN rank colour selects, so a boss
+    plate is never walked with champion constants. `rank` is emitted alongside
+    so a consumer can re-derive the fraction without re-classifying.
+    """
     a = fr.astype(np.int16)
 
     nx0, ny0, nx1, ny1 = NAME_BAND
@@ -100,6 +153,10 @@ def plate_metrics(fr: np.ndarray) -> dict:
     bc = np.nonzero((bv.max(2) > 110).sum(0) >= 3)[0]
     bev = (int(bx0 + bc[0]), int(bx0 + bc[-1])) if bc.size else None
 
+    # which track this plate draws — decided BEFORE the bar is measured
+    rk = rank_class({"name_rgb": nrgb})
+    tx0, tx1 = TRACKS[rk]
+
     # bar fill: red body rows, left-anchored run
     gx0, gy0, gx1, gy1 = FILL_BAND
     fb = a[gy0:gy1, gx0:gx1]
@@ -113,26 +170,77 @@ def plate_metrics(fr: np.ndarray) -> dict:
     # scene bleeds VFX over it). A run that does not START at the origin is not
     # the fill and is refused rather than guessed.
     fill_end = None
-    ox = int(TRACK_X0) - gx0
-    if rc.size and rc[0] <= ox + 7:
-        cur = max(rc[0], 0)
-        for v in rc[1:]:
+    ox = int(tx0) - gx0
+    rc_o = rc[rc >= ox - 3] if rc.size else rc          # ignore ink left of the origin
+    if rc_o.size and rc_o[0] <= ox + 7:
+        cur = max(rc_o[0], 0)
+        for v in rc_o[1:]:
             if v - cur <= 4:
                 cur = v
             else:
                 break
         fill_end = int(gx0 + cur)
-    elif rc.size is not None and (colcount[max(0, ox - 2):ox + 8] >= 5).sum() == 0:
-        fill_end = int(TRACK_X0)          # bar empty at the origin -> fraction 0
+    elif rc_o.size is not None and (colcount[max(0, ox - 2):ox + 8] >= 5).sum() == 0:
+        fill_end = int(tx0)               # bar empty at the origin -> fraction 0
 
-    edge, contrast = fill_edge(fr)
+    edge, contrast = fill_edge(fr, x_lo=int(tx0) - 6, x_hi=int(tx1) + 22)
+    sub = fill_edge_subpix(fr, tx0, int(tx1) + 22)
 
     return {"name_px": name_px, "name_rows": name_rows,
             "name_x0": int(nx0 + xs[0]) if xs.size else None,
             "name_x1": int(nx0 + xs[-1]) if xs.size else None,
             "name_rgb": nrgb, "lvl_px": lvl_px, "fam_px": fam_px,
             "bevel": bev, "fill": fill, "fill_end": fill_end,
-            "edge": edge, "contrast": round(contrast, 2)}
+            "rank": rk, "track": [tx0, tx1],
+            "edge": edge, "contrast": round(contrast, 2),
+            "sub_edge": None if sub[0] is None else round(sub[0], 3),
+            "sub_frac": None if sub[0] is None else round((sub[0] - tx0) / (tx1 - tx0), 5)}
+
+
+def fill_edge_subpix(fr: np.ndarray, track_x0: float, x_hi: int, min_step=14.0):
+    """Sub-pixel fill edge by plateau-midpoint crossing. Returns (x, lp, rp).
+
+    Why this exists alongside `fill_edge`. The step fit locates the edge to the
+    nearest column; on the 197-px std track one column is 0.51 % of the bar, and
+    that is coarse enough to confuse a body at 98.8 % with a body at 100 %. The
+    crabling read (2026-08-08) turned on exactly that distinction.
+
+    Redness profile r(x) = mean over the FILL_BAND rows of (R - max(G,B)). Inside
+    the fill r is high and flat, right of the edge low and flat. Take the left
+    plateau as the median over [x0+6, e-4] and the right over [e+4, e+22] around
+    the coarse edge e, then interpolate the crossing of their midpoint.
+
+    Measured behaviour on the KC2 corpus: repeatability 0.02 px across adjacent
+    frames of one hover; agreement with a census-known partial fraction 0.33 px
+    (std track) and 0.06 px (boss track). REFUSES (None) when the two plateaus
+    are within `min_step`, i.e. when there is no visible step to fit.
+    """
+    a = fr.astype(np.int16)
+    x_lo = int(track_x0) - 4
+    x_hi = min(int(x_hi), W)
+    if x_hi - x_lo < 30:
+        return None, None, None
+    sub = a[FILL_BAND[1]:FILL_BAND[3], x_lo:x_hi]
+    r = (sub[:, :, 0] - np.maximum(sub[:, :, 1], sub[:, :, 2])).mean(0)
+    xs = np.arange(x_lo, x_hi)
+    k = int(np.argmin(np.diff(r)))
+    ec = xs[k]
+    li = (xs >= track_x0 + 6) & (xs <= ec - 4)
+    ri = (xs >= ec + 4) & (xs <= ec + 22)
+    if li.sum() < 3 or ri.sum() < 3:
+        return None, None, None
+    lp, rp = float(np.median(r[li])), float(np.median(r[ri]))
+    if lp - rp < min_step:
+        return None, lp, rp
+    mid = (lp + rp) / 2.0
+    idx = np.nonzero((xs > track_x0 + 6) & (r < mid))[0]
+    if idx.size == 0:
+        return None, lp, rp
+    j = idx[0]
+    x1_, y1_ = float(xs[j]), float(r[j])
+    x0_, y0_ = float(xs[j - 1]), float(r[j - 1])
+    xe = x0_ + (y0_ - mid) * (x1_ - x0_) / (y0_ - y1_) if y0_ != y1_ else x0_
+    return xe, lp, rp
 
 
 def fill_edge(fr: np.ndarray, x_lo=856, x_hi=1064):
@@ -291,14 +399,18 @@ def frac(x_end, x0=TRACK_X0, x1=TRACK_X1):
     return (x_end - x0) / (x1 - x0)
 
 
-def calibrate(frames, q=0.995):
-    """Pin the track's 100% column from the corpus itself.
+def calibrate(frames, q=0.995, rank="std"):
+    """Pin the track's 100% column from the corpus itself, PER RANK.
 
-    Uses the largest fill_end observed on a plate frame. Reported with the count
-    of frames within 2 px of it, so a single VFX outlier cannot set the anchor.
+    Uses the largest fill_end observed on a plate frame of that rank. Reported
+    with the count of frames within 2 px of it, so a single VFX outlier cannot
+    set the anchor. Mixing ranks here is what produced the boss-track clip: the
+    boss bar's 100% column is 64 px right of the champion bar's, so a pooled
+    maximum is neither track's anchor.
     """
     ends = [f["plate"]["fill_end"] for f in frames
-            if is_plate(f["plate"]) and f["plate"]["fill_end"]]
+            if is_plate(f["plate"]) and f["plate"]["fill_end"]
+            and rank_class(f["plate"]) == rank]
     if not ends:
         return None
     ends = np.array(sorted(ends))
@@ -386,26 +498,46 @@ def spans(frames, gap_frames=2, rgb_tol=26):
     return out
 
 
-def bind_frame(f, x1=TRACK_X1, tol=0.035):
-    """Candidate readouts for one plate frame, ranked by |f_readout - f_plate|."""
+def bind_frame(f, x1=None, tol=0.035):
+    """Candidate readouts for one plate frame, ranked by |f_readout - f_plate|.
+
+    The plate fraction is taken on the plate's OWN rank track. `x1` overrides the
+    track's right edge (kept for calibration sweeps); leave it None in normal use
+    so a boss plate is never read on champion constants.
+
+    Prefers the sub-pixel edge when the scan carries one, and says which it used:
+    `src` is "sub" or "walk". On the std track the two differ by up to half a
+    percent of the bar, which is the whole margin in a full-bar discrimination.
+    """
     p = f["plate"]
-    if not is_plate(p) or p["fill_end"] is None:
+    if not is_plate(p):
         return None
-    fp = frac(p["fill_end"], TRACK_X0, x1)
+    tx0, tx1 = track_of(p)
+    if x1 is not None:
+        tx1 = x1
+    if p.get("sub_edge") is not None:
+        fp, src = (p["sub_edge"] - tx0) / (tx1 - tx0), "sub"
+    elif p.get("fill_end") is not None:
+        fp, src = frac(p["fill_end"], tx0, tx1), "walk"
+    else:
+        return None
     bl = [b for b in bodies_on_frame(f["rd"])
           if b["max"] and b["cur"] is not None]
     cand = []
     for b in bl:
         fr_ = b["cur"] / b["max"]
         cand.append({"max": b["max"], "cur": b["cur"], "f": round(fr_, 4),
-                     "d": round(abs(fr_ - fp), 4), "x": b["x"], "y": b["y"]})
+                     "d": round(abs(fr_ - fp), 4),
+                     "dpx": round((fr_ - fp) * (tx1 - tx0), 2),
+                     "x": b["x"], "y": b["y"]})
     cand.sort(key=lambda c: c["d"])
     inside = [c for c in cand if c["d"] <= tol]
     return {"t": f["t"], "f_plate": round(fp, 4), "n_bodies": len(bl),
+            "rank": rank_class(p), "src": src, "track": [tx0, tx1],
             "cand": cand[:6], "n_inside": len(inside)}
 
 
-def span_report(sp, x1=TRACK_X1, tol=0.030):
+def span_report(sp, x1=None, tol=0.030):
     """Aggregate the fraction match over one held-plate span.
 
     Per candidate max-HP fingerprint, over the frames of the span:

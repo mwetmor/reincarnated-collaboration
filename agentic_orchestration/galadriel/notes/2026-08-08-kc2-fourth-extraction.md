@@ -10,18 +10,20 @@
 **Evidence root:** `agentic_orchestration/galadriel/captures/2026-08-08-kc2-fourth-extraction/evidence/` (UNTRACKED)
 **New pipeline:** `galadriel/pipeline/eor_cohort.py`, `eor_grid.py`
 
-> ### ⚠ THIS NOTE CARRIES FOUR STRIKE-ANNOTATIONS (2026-08-08, galadriel, rulings R-L50-1..4)
+> ### ⚠ THIS NOTE CARRIES FIVE ANNOTATIONS (2026-08-08, galadriel, rulings R-L50-1..4 · R-L58-1)
 > Annotations only — **no record line has been rewritten or deleted.** Struck text is left legible.
 >
-> | ruling | § | what is struck |
+> | ruling | § | what is struck / clarified |
 > |:--|:--|:--|
 > | **R-L50-1** | § 0 table · § 2.3 | `16,368` is not a hostile body; wave 153 → **18 fp · ≥ 26 bodies · 22 plain** |
 > | **R-L50-2** | § 5 | rank is the **glyph colour**, not the `~ Affix` name shape; `Wendigo ~ Ancient` is a **champion** |
 > | **R-L50-3** | § 4 | the star-pair binds **hero only**; the "88 plain" bucket is commons **and champions** |
 > | **R-L50-4** | § 5.1 item 3 · § 8.3 | **withdrawn in full** — the level-colour boundary is **amber ≤ 105, red ≥ 106** |
+> | **R-L58-1** | § 4 | *clarification, nothing struck* — the star keys on **POOL-level** champion mechanics, not record `monsterClassification`; legolas's PLAIN column is record taxonomy. Two axes, both valid |
 >
 > Authority: `galadriel/notes/2026-08-08-kc2-fifth-extraction-w153-identity.md` § 9 ·
-> `galadriel/notes/2026-08-08-kc2-barhue-cohort-correction.md`.
+> `galadriel/notes/2026-08-08-kc2-barhue-cohort-correction.md` ·
+> ledger row L-58 (R-L58-1), applied `galadriel/notes/2026-08-08-kc2-crabling-rotmouth-touch.md` § 4.
 > **Waves 151 / 152 / 157 / 158 were re-swept for allegiance and are hostile-clean and UNCHANGED.**
 
 ---
@@ -355,9 +357,40 @@ the bar are in the tile with the value.
 > not see champions at all.** Any inference that read "plain" as "common" needs re-deriving.
 > Cite: `…-kc2-barhue-cohort-correction.md` § 3.4, § 3.5.
 
+> **⚠ ANNOTATION 2026-08-08 (galadriel, ruling R-L58-1) — WHAT AXIS THE STAR MEASURES.**
+> **The star glyph keys on POOL-level champion mechanics — `championChance` / `nameChampion` on the
+> placement pool the body was drawn through — NOT on the body record's own `monsterClassification`.**
+> legolas's PLAIN column, in the w152/w157 generator join and elsewhere, is *record taxonomy*: what the
+> `.dbr` says the monster IS. This note's PLAIN/★ column is *render taxonomy*: what the placement
+> mechanism made the game DRAW. **Two axes, both valid, answering different questions**, and they are
+> free to disagree — a trash-pool record at `championChance = 0` enters a regular roster and renders
+> starless no matter how its own record is classified, while a record drawn through a champion-chance
+> pool renders starred. Neither column is a correction of the other, and neither should be substituted
+> for the other in a derivation. **Practical consequence for the reader of § 2's tables:** a PLAIN row
+> is not a claim about the record's class; it is a claim about the pool. The R-L50-3 strike above
+> narrowed *which ranks* the star resolves; this annotation names *which axis* it resolves at all.
+> Cite: ledger L-58 ruling R-L58-1; the T-1 falsification table is UNAFFECTED (it widens add capacity,
+> it does not move a count). No record line below is rewritten.
+>
+> *Applied in anger this touch:* the w152 `Ugdenbog Crabling` read
+> (`…-kc2-crabling-rotmouth-touch.md` § 1) uses PLAIN-vs-★ as an **independent second axis** to exclude
+> `443,554` and `453,883` from a plate binding that the fraction axis alone could not separate. That
+> is what having two axes is worth, and it only works while they are kept distinct.
+>
+> *And a measured corroboration, on camera, from the same touch (§ 5 of that note).* Wave 152's plate
+> roster inside this note's own census window resolves, by glyph-core colour, to **five distinct
+> orange→HERO names** — `Mudflinger ~ Reflective` · `Chaosshell ~ Voidtouched` · `Aregos ~ Corrupted` ·
+> `Chillslither ~ Arctic` · `Rotmouth` (G/R 0.691–0.714, all inside the measured hero band) — against
+> the **two** ★ fingerprints this section records for w152 (`443,554` ×4, `453,883` ×2). Five hero
+> names cannot live in two fingerprints. **So the star is SUFFICIENT for hero, not NECESSARY for it**
+> — R-L50-3 bound the implication one way (everything starred is a hero, 7/7, 0 counterexamples) and
+> it must not be read in the other. Under R-L58-1 this is the expected shape rather than an anomaly: a
+> hero drawn through a placement whose pool carries `championChance = 0` renders starless. **Do not
+> use a PLAIN row to argue a body is not a hero.**
+
 | class | glyph | bodies (of ~~113~~ **112**, R-L50-1) |
 |:--|:--|---:|
-| plain *(**commons AND champions** — R-L50-3)* | nothing at either end of the bar | **88** |
+| plain *(**commons AND champions** — R-L50-3; **pool-axis, not record-axis** — R-L58-1)* | nothing at either end of the bar | **88** |
 | ~~hero / champion~~ **hero ONLY (R-L50-3)** | **one gold five-point star at each end** | **23** |
 | boss | **bone/pale double skull** | **2** |
 | nemesis | red double skull | **0** |
