@@ -1804,6 +1804,8 @@ sits in it · the L-A vs L-B sensitivity delta · the N-sensitivity result (F.4)
 radii · the three excluded waves, by name, with their simulated results · every C-row omission
 restated as an omission.
 
+*(Gate-2 F-4 annotation, L-56 — INFO: the lap answered this section's first-engagement ask with ARRIVAL times (emitter→player arrival), not engagement times. The distinction is LIVE for the baton's `engage_tick` semantics (R-LOCO-1 rides this section): downstream consumers must not read the lap's § G tables as engagement times. Correction class: gamora next-touch annotation on the lap note; baton-side semantics stay governed by the G-LOCO-PATH span rules.)*
+
 **R-LOCO-1 — the baton cannot express a moving board, and this spec will not pretend otherwise.**
 § 2.3's **BR-2 G-1h law** requires that an independent function reconstruct hit/no-hit from the
 emitted telegraph alone. Under a static board that was satisfiable from `circle_sweep`
