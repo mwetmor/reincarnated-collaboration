@@ -8,6 +8,28 @@
 **Spec contract:** `agentic_orchestration/gandalf/notes/2026-08-08-kc2-sim-battle-spec.md` § 10.9a blocks A–G
 **Mode:** read-only on engine repo. No code changes, no test changes, no commits, no push.
 
+> ## ⚑ CORRIGENDA — 2026-08-08, later fold (jack-ryan; KC2-SIM ledger L-63, commission R-L65-3)
+>
+> **The verdict is UNCHANGED: PASS-with-findings.** Two findings moved after the developer's sitting
+> returned. **Nothing below is rewritten** — corrigenda-forward, no silent self-healing, the same rule
+> this review applied to others.
+>
+> - **F-1 — UPHELD AND EXTENDED. My hit table was short by three.** I priced 5 engine line-hits; the
+>   correction closed at **8** (L-63(a)). The load-bearing omission is `tests/test_kc2_locomotion.py:567`,
+>   a **second live pin** whose repair-omission would have left the test **RED on its third assertion
+>   with the first two green**. The finding was right; my own sweep of it was not. See the annotation
+>   at F-1.
+> - **F-2 — WITHDRAWN BY EVIDENCE.** The `+77` decomposes exactly; my reconstruction was wrong, and it
+>   was wrong by the method error I was auditing for. See the annotation at F-2. Severity was INFO, so
+>   no verdict limb rests on it.
+> - **F-3, F-4, N-1 — unchanged.** F-3's set claim got its roster on disk at the same sitting (full
+>   census at `f06e2981`: 63 F / 10,354 P / 21 E, exact on all three; 12/12 failure files exact vs
+>   L-39; zero novel).
+> - **Consequence beyond this record:** F-1 was the **fifth recurrence** of the value-set-sweep class
+>   and fired `desirable-run-pattern.md` § 6.5's pre-registered graduation trigger. With L-63(a) and
+>   L-65(j) as sixth and seventh, the law landed as **Discipline #72** on 2026-08-08; the
+>   derived-value half of my own miss landed as **#64**'s third basis instance.
+
 ## VERDICT: **PASS-with-findings**
 
 **Four findings: 2 × WARN, 2 × INFO. Zero BLOCK.** The lap's binding claims — T-1's 8/65/19 FAIL
@@ -46,8 +68,8 @@ ADR, no milestone tag, no conflict with a locked decisions-log entry. Nothing es
 
 | id | severity | one line |
 |---|---|---|
-| **F-1** | **WARN** | L-52 hand-back list incomplete — 5 further line-hits carry the superseded `289.62`, incl. a live constant and a test pin; the correction is code+test+re-run, not a note edit |
-| **F-2** | INFO | `+77 passing` does not decompose; per-file reconstruction lands at `+75`. Binding claims unaffected |
+| **F-1** | **WARN** | L-52 hand-back list incomplete — 5 further line-hits carry the superseded `289.62`, incl. a live constant and a test pin; the correction is code+test+re-run, not a note edit — **⚑ UPHELD; closed at 8, not 5 (L-63(a))** |
+| **F-2** | INFO | `+77 passing` does not decompose; per-file reconstruction lands at `+75`. Binding claims unaffected — **⚑ WITHDRAWN BY EVIDENCE (L-63(c)): it decomposes exactly** |
 | **F-3** | **WARN** | "zero novel failure files" is a set claim; the 13-file roster is on no disk. Remedy is near-free |
 | **F-4** | INFO | § 10.9a G's *first-engagement times* answered with arrival times; immaterial under CAMP + declared-zero kill |
 | N-1 | INFO | `emitter_radius_m` survives as a *method* on the cited-geometry object — spelling collision with the deleted scalar, not a live reference. No action |
@@ -247,6 +269,51 @@ correction from free to costed, and the conductor should price it before the fol
   conductor had already registered the class of the error before I arrived. This finding extends the
   hit list; it does not overturn the disposition.
 
+> ### ⚑ ANNOTATION — F-1 COMPLETION, 2026-08-08 later fold (jack-ryan; ledger L-63(a), engine `f06e2981`)
+>
+> **The finding is UPHELD. The hit table above is INCOMPLETE — I priced 5; it closed at 8.** The three
+> beyond my list, verified by me at this fold rather than taken from the developer's report:
+>
+> | # | surface | line | kind | why my sweep missed it |
+> |---|---|---:|---|---|
+> | 6 | `tests/test_kc2_locomotion.py` | **567** | **SECOND LIVE PIN** — `assert cal.F13_N_PERTURBATION == pytest.approx(1.0667, abs=1e-3)` | the value is **derived**, not a spelling of `289.62` |
+> | 7 | `src/reincarnated/simulation/math/kc2-locomotion-lap-2026-08-08.md` | 370 | prose ±6.68 % | second line of a two-line pair; I tabulated :369 |
+> | 8 | `src/reincarnated/simulation/AGENT_STATE.md` | 25 | queued at L-52(j)/L-54(f), never discharged | already on the conductor's hand-back list; I recorded it as *confirmed present and stale* and did not carry it into my own table |
+>
+> **Hit 6 is the load-bearing one, and it is the one that indicts my method.** In the pre-correction
+> file (`git show a5382e65:tests/test_kc2_locomotion.py`) the pins sit in one three-assertion block:
+> `:565` the floor constant — **which I tabulated as hit 4** — `:566` the unchanged operand `271.50`,
+> benign, and `:567` the derived perturbation. `|1.0667 − 288.62/271.50| = |1.0667 − 1.063057| =
+> **0.0036 > 1e-3**`, so **the five-site repair I prescribed would have left this test RED on its
+> third assertion with the first two green.**
+>
+> **The mechanism is not ignorance — which is worse, and is why it graduated a law.** The F-1 body
+> above *names the derived pair explicitly*: "*the executed sweep ran at 1.0667 / 0.9333 … under the
+> corrected floor the sweep runs at 1.0631 / 0.9369.*" I traced the derivation, printed both values,
+> and never added `1.0667` to the grep set. The sweep enumerated the changed value's **spellings**;
+> a value **derived from** it is not a spelling of it. That half of the miss is governed by
+> **Discipline #64**'s BASIS FORM propagation clause — *binding since 2026-07-31, eight days before
+> this review* — and now lands there as its **third founding instance**. The other half — that the
+> residual enumeration was **by eye** in a file I was already reading — became **Discipline #72**
+> clause 5, founding instance 6.
+>
+> **The prescription's substance held, and the developer took both limbs of it, not either.** I
+> offered *"correct across hits 1–5 … **or** explicitly DEFER with the stale value NAMED as stale in
+> code (a `SUPERSEDED_AT_L52` sibling)."* The sitting did **both**: the constant now reads `288.62`,
+> and `F13_MEASURED_FLOOR_REGULARS_SUPERSEDED_AT_L52 = 289.62` exists with a test asserting the
+> retirement (`calibration.py:950`/`:969`, `test_kc2_locomotion.py:576`). Re-grepped by me at this
+> fold: **four `289.62` sites survive in the engine tree and all four are corrigenda or
+> retired-value assertions — zero live consumers.** The recomputation reproduces mine exactly
+> (`(288.62 − 271.50)/271.50 = 6.30571 %`), and the § 8.4 rows were deliberately **not** restated —
+> they are true measurements at the scale named beside them, and the corrected scale lies *inside*
+> the executed one, so the published envelope is conservative. That is the right call and it is
+> **#12** done properly.
+>
+> **The work-class limb of the finding is confirmed by outcome.** I argued the L-52(j) disposition
+> was mispriced as *"a note edit."* It was a live-constant edit + two test-pin edits + two docstring
+> edits + a math-note edit + a state-file edit, held back from a re-run on an explicit and reasoned
+> deferral. That limb is now **#72** clause 8.
+
 **Affirmative counterpart — the other two hand-back surfaces are COMPLETE.** I swept
 `survivalworld_a` across all engine `.py`/`.md` independently. The stale
 `sm_mod/survivalworld_a` declaration appears at exactly the two named places —
@@ -287,6 +354,38 @@ settle. Recorded so the `+77` is not carried forward as an established decomposi
 
 - **Cite:** Review Principle #2 (smoke-gate — the gate claim is the failure/error equality, not the
   pass delta); Discipline #9 (attribution clarity).
+
+> ### ⚑ ANNOTATION — F-2 **WITHDRAWN BY EVIDENCE**, 2026-08-08 later fold (jack-ryan; ledger L-63(c))
+>
+> **F-2 is withdrawn. The `+77` decomposes EXACTLY, and my reconstruction was the thing that was
+> wrong.** The finding text above stands unedited; this annotation is its disposition.
+>
+> | file | Δ | note |
+> |---|---:|---|
+> | `tests/test_baton_v1.py` | **+35** | **51 → 86 collected**, not the 49 → 82 `def test` count in my table |
+> | `tests/test_kc2_locomotion.py` | +41 | as I had it |
+> | `tests/test_kc2_micro_oracles.py` | +1 | as I had it |
+> | | **+77** | **exact** |
+>
+> The residual-2 was mine: `test_r_loco_1_arena_ref_guard_has_teeth` expands **1 `def` → 3 node IDs**.
+> star-lord had independently published 51 → 86 before this review ran.
+>
+> **The error is worth naming precisely, because it is the failure mode this very review was
+> auditing.** My table applied **collected-node counting** to the locomotion file and **`def test`
+> counting** to the baton file — two methods in one column, silently — and then asserted the gap
+> closed: *"`parametrize` count is 0 → 0 in all four non-locomotion files, so there is no hidden
+> expansion there."* **That assertion is false**, and it is a **discharge-by-assertion** — exactly
+> what § 6.5's fourth clause exists to forbid, committed by the reviewer citing § 6.5 two findings
+> earlier. A mechanical `--collect-only` on both trees would have closed it in one command; I
+> reasoned about the counts instead of collecting them. **Discipline #65** already owns the
+> prescription (*reconcile `+passed` against the collected count*, not against a `def` count), and
+> **#72** clause 5 now owns the enumeration half.
+>
+> **Nothing in the verdict moves.** F-2 was INFO, the finding itself said *"no action required of the
+> developer"*, and the binding census claims (63 = 63 failures, 21 = 21 errors, zero novel failure
+> files) were separately verified and never depended on the pass delta. The prescription's last line
+> — *"recorded so the `+77` is not carried forward as an established decomposition"* — is now
+> discharged in the opposite direction: **it IS established, and this is the decomposition.**
 
 ---
 
@@ -438,3 +537,29 @@ describes the state at writing and is not a stale claim.
 - **Engine `a5382e65` left UNPUSHED and unmodified.** No commits made by this review in any repo.
 
 **Reviewer:** jack-ryan · Gate 2 · 2026-08-08
+
+---
+
+> ### ⚑ DISPOSITION ANNOTATION — 2026-08-08, later fold (jack-ryan; commission R-L65-3)
+>
+> **Verdict UNCHANGED (PASS-with-findings). All four findings + N-1 now CLOSED.**
+>
+> | id | disposition |
+> |---|---|
+> | **F-1** | **UPHELD, closed in code at 8 lines** (I priced 5). engine `f06e2981`. Both prescribed limbs taken — value corrected *and* retired value asserted-as-retired. Re-verified by me: zero live `289.62` consumers remain. |
+> | **F-2** | **WITHDRAWN BY EVIDENCE.** `+77` decomposes exactly (35 + 41 + 1); my reconstruction mixed two counting methods in one table. |
+> | **F-3** | **CLOSED.** Full census at `f06e2981` — 63 F / 10,354 P / 21 E exact on all three; 12/12 failure files exact vs L-39; **zero novel**. The set claim now has its roster on disk. |
+> | **F-4 / N-1** | unchanged (record only). |
+>
+> **What escalated after all.** The original disposition said *"Nothing escalates to Matt."* That was
+> correct for this record's own contents and is now **overtaken by a mechanism outside it**: F-1
+> proved to be the **fifth recurrence** of the value-set-sweep class, firing
+> `desirable-run-pattern.md` § 6.5's own pre-registered graduation trigger — whose named surface is
+> **Matt, via jack-ryan**. Two further recurrences (L-63(a), L-65(j)) landed before the graduation
+> executed. The law is now **Discipline #72**, minted under ADR-002 process-tier with Matt-veto open
+> and explicitly flagged to his surface. **My own F-1 sweep is founding instance 6 of the discipline
+> my own F-1 graduated**, and its derived-value half is **#64**'s third basis instance — a clause
+> binding eight days before this review ran.
+>
+> Graduation record: `agentic_orchestration/jack-ryan/notes/2026-08-08-kc2-sweeplaw-graduation-touch.md`;
+> engine `design/working-agreement/engineering-disciplines.md` **#72**; decisions-log 2026-08-08.
