@@ -1527,6 +1527,22 @@ sensitivity check, and **reports the delta rather than choosing on taste**. Node
 (nearest node vs group centroid vs per-emitter assignment) is **DECLARED** — the baton records
 which rule ran.
 
+*(L-54 — the lap RAN. Policy: `CAMP_THEN_COLLECT` (JC-G9 → **R-L54-1 ACCEPT**, veto-open): pure
+CAMP is MEASURED NON-TERMINATING under the cited constants — the 27/895 records at
+`ViewDistance = 15.0 m` path to their nodes and never acquire (F-L1; 8.7 % of band-A runs cannot
+clear; `distressCall`'s absence measured SIGNED, see C). The completion is minimal: 0.95 m mean
+player path firing on 32/368 runs, vs beat-3 tours of 88–199 m — channel (i) survives.
+`PursuitTime` semantics NAMED-ABSENT with two non-close readings (F-L2): the lifetime-budget
+reading leaves 30.4 % of runs unclearable — contradicted by the instrument (the fixture cleared
+92/92 in 7.03–82.13 s); **R-L54-2 ACCEPT reading (ii), memory-timer** (the field-neighbourhood
+reading — it sits beside `ViewDistance`/`InnerViewDistance`, and `MaxPursuitDistance` already
+supplies the spatial leash (i) would duplicate in time; limb (i) stays runnable + cost-asserted,
+so the declaration is falsifiable, not convenient). L-A vs L-B MEASURED: +0.44 s mean, 61/92
+waves differ, max 2.63 s — distinguishable, small, exactly as predicted for a centrally-camped
+player; Δr = 0.005 with L-A marginally the MORE coupled → **L-46(a)'s stated justification
+("the less body-count-coupled shape") is NOT DEMONSTRATED and retires; the ruled L-A default
+STANDS on its remaining legs** (F-L8; JC-2 confirmed).)*
+
 #### B — Every term, with its citation — **the free-parameter surface is ONE scalar**
 
 | term | value | grade | source of record |
@@ -1537,7 +1553,7 @@ which rule ran.
 | patrol node set | 173 nodes, median **18.85 m** from their own centroid (max 30.07) | **LEVEL-CITED** | `kc2_crucible_patrolpoints.csv` (sha `106facba…`) |
 | reference frame | the `PatrolPoint_Attack` centroid — **not** `playerspawnpoint` | **LEVEL-CITED** | probe § 4.3 |
 | arena enumeration | 10 arenas `survivalworld_a…j` / `tagSurvivalArena_01…10` — **F-14 (L-51): a MAP-NAME enumeration that UNDER-DETERMINES geometry**; the geometry keys on **16 (archive, map) pairs** (sm_mod 6 / sm1 8 / sm2 2; `survivalworld_f` p06 = 29.73 m in sm1 vs 40.35 m in sm_mod, 36 % apart) → `arena_archive` REQUIRED in `arena_ref`. **L-53: loadability partition CITED — sm1 supersedes sm_mod; TEN pairs LOADABLE (sm1 a–g, j + sm2 h, i), the six sm_mod duplicates SHADOW; loadable c, d, e carry NO p05** | **LEVEL-CITED** (names); archive-qualified at L-51; loadability CITED at L-53 | probe § 4.2 · F-14 · L-53 micro-probe §§ 3–4 |
-| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation). ~~**s1 selection of record (L-51): `sm_mod/survivalworld_f`** — L-46 bearing best-fit 11.8°, archive-qualified, the composite the sim already emits~~; map-file loading-law probe (legolas T2) in flight → upgrades DECLARED → CITED or flags conflict at the lap fold **→ L-53: the probe flagged CONFLICT — `sm_mod/survivalworld_f` is a SHADOW file (sm1 supersedes; it never loads); selection-of-record WITHDRAWN. Best loadable fit `sm1/f` = 19.9°, OUTSIDE ±15° → s1 selection stays DECLARED, UNRESOLVED over the 10 loadable arenas. s2 survives loadably: w151 `sm1/a` 10.2° INSIDE (2 obs)** | § 10.6 layer 2 · F-14 · R-L53-1 |
+| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation). ~~**s1 selection of record (L-51): `sm_mod/survivalworld_f`** — L-46 bearing best-fit 11.8°, archive-qualified, the composite the sim already emits~~; map-file loading-law probe (legolas T2) in flight → upgrades DECLARED → CITED or flags conflict at the lap fold **→ L-53: the probe flagged CONFLICT — `sm_mod/survivalworld_f` is a SHADOW file (sm1 supersedes; it never loads); selection-of-record WITHDRAWN. Best loadable fit `sm1/f` = 19.9°, OUTSIDE ±15° → s1 selection stays DECLARED, UNRESOLVED over the 10 loadable arenas. s2 survives loadably: w151 `sm1/a` 10.2° INSIDE (2 obs)** **→ L-54 EXECUTED state: s1 ran the SHADOW radii (`sm_mod/f`, declared at launch pre-L-53); s2 ran LOADABLE `sm1/a` (F-L6-forced). R-L54-3: results CARRY, sensitivity-bounded, no re-run — full adjudication at the § G F-14 annotation** | § 10.6 layer 2 · F-14 · R-L53-1 · R-L54-3 |
 | scatter | `placementExtents = 8.0` m, all 925 proxies; **SIM-ROLLED** | **DB-CITED** | P-E6 § 2.3 / M-7 |
 | **length unit** | the **METRE** | **DB-CITED (Crate annotation)** | `travelSpeed` / `tailTravelSpeed` / `particleSpeed` / `textureSpeed` all declare *meters per second* |
 | `characterRunSpeed(a)` | per-record multiplier; band-A **n = 895, median 1.000**, mean 1.0358, range 0.60–2.00 (191 exactly 1.0; 311 below; 393 above) | **DB-CITED** | `kc2_s1_banda_record_inputs.csv` (sha `ac50ef77…`) |
@@ -1575,7 +1591,7 @@ re-introduced exactly the class of uncited bare float that F-12a caught in `Aren
 | **`characterRunSpeedJitter`** | n = 810, **median 15.0**, mean 12.21, max 50.0 (85 band-A records carry none) | **OUT-OF-MODEL, DECLARED.** If it disperses run speed, arrival is a **distribution**, not a time, and a single `v(a)` under-describes it. The lap runs point-speed and **reports the omission by name**; it does not fold a dispersion into `v_ref`. |
 | **the `controller` surface** | 126 `ControllerMonster` records × **27 emitted fields**: `RoamBehavior` / `RoamDistance`, patrol-idle timings (1–5 s), `EmoteBeforePursuingChance`, swing pauses | **OUT-OF-MODEL except the three gate fields in B.** Every unmodelled field here adds *latency*, i.e. pushes arrival **later** — a known, signed bias, stated in D. |
 | **`walkDistance`** | *"Distance below which to walk when pursuing"*, n = 677, median **4.5 m**; `walkSpeed` median 1.000 | **OUT-OF-MODEL.** Inside 4.5 m the actor walks, not runs; the effect is a sub-second terminal correction against a 33–36 m approach. Named, bounded, not modelled. |
-| **`distressCall` / range / time** | emitted per record | **OUT-OF-MODEL** — a pull mechanic that could couple arrivals across actors. |
+| **`distressCall` / range / time** | emitted per record | **OUT-OF-MODEL** — a pull mechanic that could couple arrivals across actors. *(L-54 / F-L1: the omission is now MEASURED-SIGNED — without it, low-`ViewDistance` actors beside dying neighbours never acquire; the absence biases toward NON-CLEARANCE, resolved this lap by the R-L54-1 policy completion, and it is what a future controller-surface lap restores.)* |
 | patrol-node assignment | 173 nodes; assignment rule not in any pin | **DECLARED** (A above). |
 | **F-13 residual on N** | the count model's trash limb is INCOMPLETE (§ 14 F-13) | **DECLARED** — see F below. |
 
@@ -1608,6 +1624,24 @@ named not chosen: the minimap glyph is not spawn; the readout is not first-conta
 sub-1.0 `characterRunSpeed`; the player was closing and the attribution differs). **Solving the
 inequality for `A` and adopting the result is FITTING and is forbidden** (charter § 4.2) — `A` is
 declared from evidence or declared as unknown, and the check is then run.
+
+*(L-54 — RUN. `A` declared **0.5 s** (spawn_resolution 0.0 + advance_tick_latency 0.5), grade
+DECLARED-FREE-PARAMETER / no-corpus-source, BEFORE the inequality was evaluated; `k_bracket()`
+takes `A` as an input and no code path solves for it. The K region is **EMPTY under every
+reading** — [≥ 8.01, ≤ 5.16] declared; [≥ 8.01, ≤ 5.40] most-permissive-mixed — so calibration
+**HALTED by this section's own rule**: `v_ref` stays **4.0 m/s** (HALT-2) with its grade, never
+solved against T-1. The pre-registered consequence is **VIOLATED by 2.31 s** (`A ≥ 2.81 s`
+required — the spec's ≳ 2.81 confirmed to four figures), carried with the four candidates above
+UNCHOSEN plus a fifth named-not-adopted (**JC-G7**: the C-row omissions are, by their own signs, a
+latency reservoir of exactly this order — folding them into `A` would be fitting by another
+route; it is what a controller-surface lap will test). D2-2 restated at **n = 32 as a
+REPLACEMENT** (the static board no longer exists to run): the mean crosses zero ≈ 6.9 m/s, but
+across a 5.25× sweep r(sim,N) is FLAT (+0.429…+0.522) and the class ratio moves AWAY from the
+measured 2.00× (0.977 → 0.753) — **a scale parameter buys the mean and nothing structural**,
+re-demonstrated on the moving board; embargo discharged, the old ~10 m/s digit is a different
+quantity and is not reproduced. K-1 would put `v_ref` ≥ 8.01 where in-band has already FALLEN to
+6/92 — the K region and T-1 do not point at the same value: the violated consequence's second
+face.)*
 
 **Closure attribution.** K-1…K-3 all bound *closing* speed, which is `v_ref × (player multiplier +
 mob multiplier)` when both parties close and `v_ref × mob multiplier` when the player is stationary.
@@ -1660,6 +1694,32 @@ measures each, and **does not credit the model for a channel it did not demonstr
 The fixture's r = +0.154 is the target *shape*; **r is a DIAGNOSTIC, reported, and is not a
 goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
 
+*(L-54 — THE LAP'S VERDICT. **T-1 FAILS, un-re-pinned: 8 in-band / 65 over / 19 under**, mean Δ
+**+4.207 s** (beat 3: 0/89/3, +23.16); seed sd halved 3.22 → 1.72 s; the sign argument
+RE-DERIVED under the amended model (kill term declared zero ⇒ `t_end ≥ last_arrival` for ANY HP
+assignment) → **46 falsified / 46 consistent**, the falsified set halved because the touring
+inflation left. Channels: **(i) DEMONSTRATED** — tours 88–199 m → 0.95 m. **(ii) PARTIAL** —
+r(sim,N) +0.737 → **+0.515** against the fixture's +0.154; the surviving ×10 inversion (sim
+0.905× vs measured 2.00×) is **RE-ATTRIBUTED off locomotion** (F-L9): with a declared-zero kill
+term, few-tough-body waves MUST read cheaper — arithmetic — so **C-1 (band-A eHP, 7/896) is now
+THE load-bearing open item for T-1**. **(iii) DEMONSTRATED, and carrying the lap's sharpest
+finding: the residual has an ADDRESS.** Split on p05: the **59 non-p05 waves match the fixture's
+mean to +0.204 s**; the entire delta sits on the **33 p05 waves (+11.363 s)**. The carrier is
+the **3.0 s intra-drip cadence** — ADOPTED, never measured (L-21: only the t + 4.0 s anchor was
+observed), INERT under the static board (all p05 bodies read slot 0), load-bearing for the first
+time. The cadence sweep 3.0/1.5/0.0 s moves the p05-wave delta +11.36 → +0.19 **while the
+non-p05 delta holds +0.204 to three decimals** — that invariance makes the localisation a
+measurement, not a coincidence of means. **THE LAP SHIPS 3.0 s UNCHANGED** (F-L3: editing a spec
+constant to close a MEASURED gate with an UNMEASURED term is fitting, of the worst kind);
+falsification probe PRE-REGISTERED — a galadriel re-read targeted at intra-drip spacing on a
+high-p05 s1 wave decides it. The composition law is **UNMEASURABLE on BOTH bands** — band A
+carries no eHP (kill ≡ 0; `max` and `+` coincide, the law cannot discriminate), s2's
+0.315 %-covered subset TIMES OUT against the ×130.8–178.9 damage-basis understatement (E-6) —
+stated as the finding rather than papered; the static-additive comparator measures **9.54×** of
+the retired sim's clear time as pure sequencing. F-12's 89/92 argument RETIRED as live, per E.3.
+r stays a DIAGNOSTIC. Beat 5 (full ladder) STAYS PAUSED — volume without a kill term adds no
+discrimination; C-1 disposition gates it.)*
+
 #### F — Calibration procedure for the amendment lap
 
 1. **Order.** Build the movement rules (A–C) → re-run the **micro-oracles** (unchanged, direct-binding)
@@ -1690,7 +1750,12 @@ goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
    systematically low by the same unresolved mechanism. The lap therefore reports **how sensitive
    its result is to N** (a per-wave N perturbation at the F-13 measured-floor scale is sufficient);
    a result that is insensitive to N is robust to the residual, and one that is sensitive inherits
-   it. Do not re-pin counts in-run.
+   it. Do not re-pin counts in-run. *(L-54: MEASURED — ±6.674 % moves the mean Δ +0.496/−1.462 s
+   on a ±1.0 s tolerance: **the result INHERITS the residual and says so**; the asymmetry
+   (shrinking N removes p05 bodies) is § E's localisation in miniature. Scale note: the lap
+   consumed the pre-L-52 re-grade (271.50 → 289.62 = +6.674 %); L-52's corrected floor 288.62
+   gives ±6.30 %, INSIDE the swept scale — the sweep is conservative, conclusion unchanged;
+   gamora hand-back queued for `simulation/AGENT_STATE.md:25`. No count re-pinned.)*
 5. **Beat-4 rides INSIDE this lap (L-45(d) / D2-5).** The **s2 one-sided inequality** —
    sim-kit-alone at waves 151–160 must clear **≤** fixture-with-defenses; faster ⇒ anomaly tripwire
    ⇒ finding — runs as a **second-geometry diagnostic**, not as a separate beat. Its value here is
@@ -1701,10 +1766,30 @@ goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
    geometry** — a generalisation test the s1 band cannot provide. It stays **INFORMATIVE**
    (R-KC2-2: s2 field outcomes inform, they do not bind) and it **cannot false-trip under a slow
    bias**, which is why it is safe to bundle. **N-exclusions apply here too** — w152 / w153 / w157
-   are inside this band; run them, report them, keep them out of parameter selection.
+   are inside this band; run them, report them, keep them out of parameter selection. *(L-54:
+   RAN, on `sm1/survivalworld_a` — the LOADABLE copy, **FORCED by geometry availability** (F-L6:
+   sm_mod carries NO p01 geometry above tier 15, so the tier-16 band cannot express on the shadow
+   limb at all — independent corroboration of R-L53-1's loading law, arrived from the tier
+   direction with no knowledge of the Lua citation). Tripwire fires **5/9 AND CANNOT
+   DISCRIMINATE**: a declared-zero kill term beating a fixture-with-kill is arithmetic, not
+   anomaly — attribution stated, no locomotion finding claimed. What the band DOES establish:
+   the movement rules on a second cited geometry produce the fixture's own 10–26 s envelope
+   (all-9 sim 15.22 vs measured 17.42 s) under a model with no kill term on an arena it never
+   saw. The three excluded waves simulated + reported; the exclusion binds VACUOUSLY — the K
+   region is empty, nothing was selected.)*
 6. **MO-5 re-check** per the § 10.6 motion hook: re-demonstrate the floor under the selected arena's
    **cited** radii, reporting the traversal-lengthening and player-touring-removal effects
-   separately. The *provisional-on-geometry* flag clears only on that demonstration.
+   separately. The *provisional-on-geometry* flag clears only on that demonstration. *(L-54:
+   DEMONSTRATED — **9.797 s ≥ 7.0, PASS** (+39.96 %) on the s1 cited tier-5 active ring, effects
+   SEPARATED: geometry +2.047 s in closed form (retired 30.0 m → cited ring median 38.19 m);
+   touring-removal quoted from beat 3, because the retired build no longer exists to run — the
+   honest statement. **Flag CLEARS.** Second observer defect found + corrected in-seam (F-L5):
+   the pre-L-46 observer ran the s2 arena against s1 pins (waves 47/8/81) — harmless under one
+   shared float, an L-21 pooling under cited geometry; a derivation correction, the pin stands.
+   The overshoot is a FINDING: the sim's minimum achievable cycle (9.80 closed-form / 8.0
+   empirical) EXCEEDS the fixture's fastest observed clear (7.03 s) — at v_ref = 4.0 the model
+   cannot reach the fixture's fast waves: K-1's message from a second direction, and NOT a
+   re-pin licence.)*
 7. **Zero fitted parameters, restated at the point of temptation.** Every constant is either cited
    in B with its record, or declared in C/D with its bound. The one free scalar is bracketed by
    measurements that are **not** the T-1 target. If the lap ends wanting an eighth term, the term is
@@ -1780,7 +1865,29 @@ selection-of-record WITHDRAWN.** Best loadable fit `sm1/f` = 19.9°, OUTSIDE the
 band → no honest CITED upgrade exists; **s1 arena selection stays DECLARED over the 10 loadable
 pairs** (R-L53-1). Radii move materially under the law — 9 of 33 emitters shift > 10 % (f/p06
 40.35 → 29.73 m = −26.3 %; b/p01 −30.2 %) — so WHICH archive's radii the locomotion lap consumed
-is a named L-54 agenda item, adjudicated there.)*
+is a named L-54 agenda item, adjudicated there.)* *(L-54 — ADJUDICATED, **R-L54-3** (veto-open).
+EXECUTED state: the lap ran s1 on **`sm_mod/survivalworld_f` — SHADOW radii** (declared at
+launch, pre-L-53; the math note § B.3 and `calibration.py:342` docstring still carry the
+superseded "s2 → sm_mod/a" pre-build declaration — gamora hand-backs) and s2 on **`sm1/
+survivalworld_a` — LOADABLE** (F-L6: sm_mod carries NO p01 above tier 15, so tier-16 s2 was
+FORCED to the sm1 limb — the loading law corroborated independently from the tier direction).
+**Ruling: the s1 results CARRY, sensitivity-bounded; NO re-run this lap.** Four legs: (a) s1
+selection was always DECLARED-free — the law changed which declarations are defensible, not the
+grade of results conditional on one; (b) arena f's two > 10 % movers are **p06 (−26.3 %, INERT —
+the operative limb runs p06 OFF)** and **p05 (+26.1 % on ~11 m ≈ +0.7 s traversal against an
+18.7 s schedule term — second-order)**; ring p01–p04, the operative traversal AND K-region
+inputs, all moved ≤ 10 %; (c) K-region emptiness survives ±10 % perturbation of its radius
+inputs (lower ≥ 7.1 vs upper ≤ 5.7 — the 1.55× gap does not close); (d) the § E localisation is
+schedule-driven and radii-invariant by its own cadence-sweep invariance. A **loadable-radii
+re-run is PRE-REGISTERED as CONDITIONAL**: it fires before any future lap that consumes the s1
+T-1 table for parameter selection — this lap selected nothing (K empty). Residual edge NAMED:
+the record-database winner rule (the band-A join resolved sm_mod on majority rows, JC-G2) vs the
+loading law — law-scope for the `.arz`/record overlay is INFERRED-SAME-VFS, not separately
+cited; L-53's T1 spot-checks found duplicated copies value-identical; a cheap **delta-census**
+(do sm_mod/sm1-duplicated record paths differ in any consumed field?) rides the next geometry
+touch together with P-3's CSV `loaded` boolean (legolas emits, gamora re-pins SHAs). The
+Phase-E emit constraint is UNTOUCHED by this ruling: the baton MUST select a LOADABLE pair
+(G-ARENA-REF extension, L-53).)*
 
 ### 10.10 Acceptance criteria
 
