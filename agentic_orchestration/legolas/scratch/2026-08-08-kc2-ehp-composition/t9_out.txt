@@ -1,0 +1,73 @@
+============================================================================================================
+A — VERIFY the survival wave modifier at wave 160 Gladiator (index 159)
+============================================================================================================
+   Aspirant    characterLife                  = 0.0
+   Aspirant    characterLifeModifier          len=200  i=149:108.0  i=155:114.0  i=158:117.0  **i=159:118.0**  i=160:119.0  i=169:128.0  i=199:438.0
+   Aspirant    characterLifeMultModifier      = None
+   Aspirant    characterLifeRegenModifier     len=200  i=149:66.0  i=155:69.0  i=158:70.0  **i=159:70.0**  i=160:70.0  i=169:75.0  i=199:110.0
+   Aspirant    defensivePercentCurrentLife    len=200  i=149:8.0  i=155:8.0  i=158:8.0  **i=159:8.0**  i=160:8.0  i=169:8.0  i=199:10.0
+   Challenger  characterLife                  = 0.0
+   Challenger  characterLifeModifier          len=200  i=149:218.0  i=155:224.0  i=158:228.0  **i=159:229.0**  i=160:230.0  i=169:240.0  i=199:612.0
+   Challenger  characterLifeMultModifier      = None
+   Challenger  characterLifeRegenModifier     len=200  i=149:66.0  i=155:69.0  i=158:70.0  **i=159:70.0**  i=160:70.0  i=169:75.0  i=199:110.0
+   Challenger  defensivePercentCurrentLife    len=200  i=149:8.0  i=155:8.0  i=158:8.0  **i=159:8.0**  i=160:8.0  i=169:8.0  i=199:10.0
+   Gladiator   characterLife                  = 0.0
+   Gladiator   characterLifeModifier          len=200  i=149:304.0  i=155:316.0  i=158:322.0  **i=159:324.0**  i=160:326.0  i=169:344.0  i=199:990.0
+   Gladiator   characterLifeMultModifier      = None
+   Gladiator   characterLifeRegenModifier     len=200  i=149:66.0  i=155:69.0  i=158:70.0  **i=159:70.0**  i=160:70.0  i=169:75.0  i=199:110.0
+   Gladiator   defensivePercentCurrentLife    len=200  i=149:8.0  i=155:8.0  i=158:8.0  **i=159:8.0**  i=160:8.0  i=169:8.0  i=199:10.0
+
+============================================================================================================
+B — per-ROSTER-RECORD own life modifiers (H3 residual)
+============================================================================================================
+   aetherialcolossus_galakros.dbr             {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 25.0, 'healthGainOnKillDifficulty': 1, 'healthGainOnKillPct': 20}
+   Korvaak's Tomb Guardian                    {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 40.0, 'healthGainOnKillDifficulty': 1, 'healthGainOnKillPct': 20}
+   Ulda Emberclaw                             {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 25.0, 'lowHealthResetLevel': 50.0, 'lowHealthTriggerLevel': 75.0}
+   Haldra the Bloodlust                       {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 25.0, 'lowHealthResetLevel': 50.0, 'lowHealthTriggerLevel': 75.0}
+   Palros Protector of the Pack ~ Defender    {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 25.0, 'lowHealthResetLevel': 50.0, 'lowHealthTriggerLevel': 75.0}
+   Allcadius the Unburied ~ Reflective        {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 25.0, 'lowHealthResetLevel': 50.0, 'lowHealthTriggerLevel': 75.0}
+   Gaddo Evergrown ~ Bramble                  {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 25.0, 'lowHealthResetLevel': 50.0, 'lowHealthTriggerLevel': 75.0}
+   Reanimator - Valdaran                      {'UpperHealthDisplayPercentage': 100.0, 'healthGainOnKillPct': 33}
+   nemesis_aetherialvanguard_01.dbr           {'UpperHealthDisplayPercentage': 100.0, 'healthGainOnKillPct': 33}
+   nemesis_beast_01_p1.dbr                    {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 50.0}
+   Borreus the Underking                      {'UpperHealthDisplayPercentage': 100.0}
+   Defiler - Benn'Jahr                        {'UpperHealthDisplayPercentage': 100.0, 'healthGainOnKillPct': 33}
+   nemesis_chthonianvoidborn_01.dbr           {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 20.0, 'healthGainOnKillPct': 33}
+   Curate Ignus                               {'UpperHealthDisplayPercentage': 100.0}
+   Heavy - The Iron Maiden                    {'UpperHealthDisplayPercentage': 100.0, 'healthGainOnKillPct': 33}
+   Necromancer - Zantarin                     {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 50.0, 'healthGainOnKillPct': 33}
+   Shriek                                     {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 20.0}
+   Assassin - Fabius                          {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 20.0, 'healthGainOnKillPct': 33}
+   Vinn the Giant Ozmald                      {'UpperHealthDisplayPercentage': 100.0, 'lowHealthTriggerLevel': 66.0}
+   Raddoth                                    {'UpperHealthDisplayPercentage': 100.0, 'characterLifeModifier': 100.0}
+   Golem P2 - Moosilauke                      {'UpperHealthDisplayPercentage': 100.0, 'defensiveLife': 50.0, 'healthGainOnKillPct': 33}
+   nemesis_wendigo_01.dbr                     {'UpperHealthDisplayPercentage': 100.0, 'healthGainOnKillPct': 33}
+   Reaper of Rot                              {'UpperHealthDisplayPercentage': 100.0, 'healthGainOnKillDifficulty': 1, 'healthGainOnKillPct': 20}
+
+============================================================================================================
+C — MUTATORS: every mutator record carrying a life term (H4)
+============================================================================================================
+   110 mutator records in corpus
+   12 carry a non-zero *life* field:
+
+     mutator_monster_leeching.dbr                 {'offensiveLifeLeechMin': 400.0}   [['base']]
+     mutator_monster_leeching_e.dbr               {'offensiveLifeLeechMin': 500.0}   [['base']]
+     mutator_monster_leeching_u.dbr               {'offensiveLifeLeechMin': 600.0}   [['base']]
+     mutator_monster_regenerating.dbr             {'characterLifeMultModifier': 4.0, 'characterLifeRegenModifier': 25.0}   [['base']]
+     mutator_monster_regenerating_e.dbr           {'characterLifeMultModifier': 5.0, 'characterLifeRegenModifier': 35.0}   [['base']]
+     mutator_monster_regenerating_u.dbr           {'characterLifeMultModifier': 6.0, 'characterLifeRegenModifier': 40.0}   [['base']]
+     mutator_monster_toughened.dbr                {'characterLifeMultModifier': 8.0}   [['base']]
+     mutator_monster_toughened_e.dbr              {'characterLifeMultModifier': 10.0}   [['base']]
+     mutator_monster_toughened_u.dbr              {'characterLifeMultModifier': 12.0}   [['base']]
+     mutator_player_vigorous.dbr                  {'characterLifeMultModifier': 12.0}   [['base']]
+     mutator_player_vigorous_e.dbr                {'characterLifeMultModifier': 12.0}   [['base']]
+     mutator_player_vigorous_u.dbr                {'characterLifeMultModifier': 12.0}   [['base']]
+
+============================================================================================================
+D — which mutators does the CRUCIBLE actually reference?
+============================================================================================================
+     records/fx/general/playermutator_fx01.dbr   owners=['sm_mod']
+     records/fx/ui/playermutator_fx01.dbr   owners=['gdx2']
+     records/sounds/spak_playermutator.dbr   owners=['sm_mod']
+     records/sounds/ui/spak_playermutator.dbr   owners=['gdx2']
+   (4 total)

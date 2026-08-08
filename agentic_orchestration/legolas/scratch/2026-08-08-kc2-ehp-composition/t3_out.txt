@@ -1,0 +1,239 @@
+==============================================================================================================
+A — levelVarianceEquation proxy records (the SPAWN-LEVEL layer)
+==============================================================================================================
+
+-- records/proxies/lv8_boss+.dbr  owners=['base']  fields=3
+     maxVarianceEquationNormal                = (averagePlayerLevel+4)+(averagePlayerLevel/50)                                   [base]
+     minVarianceEquationNormal                = (averagePlayerLevel+4)+(averagePlayerLevel/50)                                   [base]
+     templateName                             = database/templates/proxylevelvarianceequation.tpl                                [base]
+
+-- records/proxies/lv7_uber hero.dbr  owners=['base']  fields=3
+     maxVarianceEquationNormal                = (averagePlayerLevel+3)+(averagePlayerLevel/50)                                   [base]
+     minVarianceEquationNormal                = (averagePlayerLevel+3)                                                           [base]
+     templateName                             = database/templates/proxylevelvarianceequation.tpl                                [base]
+
+-- records/proxies/lv6_hero.dbr  owners=['base']  fields=3
+     maxVarianceEquationNormal                = (averagePlayerLevel+3)+(averagePlayerLevel/50)                                   [base]
+     minVarianceEquationNormal                = (averagePlayerLevel+2)+(averagePlayerLevel/50)                                   [base]
+     templateName                             = database/templates/proxylevelvarianceequation.tpl                                [base]
+
+-- records/proxies/lv2_normal.dbr  owners=['base']  fields=3
+     maxVarianceEquationNormal                = (averagePlayerLevel)                                                             [base]
+     minVarianceEquationNormal                = (averagePlayerLevel-1)                                                           [base]
+     templateName                             = database/templates/proxylevelvarianceequation.tpl                                [base]
+
+-- records/proxies/lv3_strong.dbr  owners=['base']  fields=3
+     maxVarianceEquationNormal                = (averagePlayerLevel)+(averagePlayerLevel/75)                                     [base]
+     minVarianceEquationNormal                = (averagePlayerLevel)                                                             [base]
+     templateName                             = database/templates/proxylevelvarianceequation.tpl                                [base]
+
+
+==============================================================================================================
+B — per-roster-record: charLevel eq, bio, classification, own life fields
+==============================================================================================================
+
+records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr
+    desc=None  cls=Quest  owners=['gdx1', 'sm1']
+    charLevel = 'charLevel*1+5'
+    bio       = 'records/creatures/enemies/bios/bio_boss_aetherial_colossusgalakros.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 25.0}
+
+records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr
+    desc=Korvaak's Tomb Guardian  cls=Quest  owners=['gdx2', 'sm2']
+    charLevel = 'charLevel*1'
+    bio       = 'records/creatures/enemies/bios/bio_boss_tombguardian.dbr'
+    ownLife   = characterLife=0.0 mod=None other={'defensiveLife': 40.0}
+
+records/creatures/enemies/hero/wendigocannibal_h01.dbr
+    desc=Ulda Emberclaw  cls=Hero  owners=['gdx1', 'sm1']
+    charLevel = '(charLevel*1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_hero_standard_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 25.0}
+
+records/creatures/enemies/hero/wendigocannibal_h02.dbr
+    desc=Haldra the Bloodlust  cls=Hero  owners=['gdx1', 'sm1']
+    charLevel = '(charLevel*1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_hero_standard_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 25.0}
+
+records/creatures/enemies/hero/wendigocannibal_h03.dbr
+    desc=Palros Protector of the Pack ~ Defender  cls=Hero  owners=['gdx1', 'sm1']
+    charLevel = '(charLevel*1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_hero_standard_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 25.0}
+
+records/creatures/enemies/hero/wendigocannibal_h04.dbr
+    desc=Allcadius the Unburied ~ Reflective  cls=Hero  owners=['gdx1', 'sm1']
+    charLevel = '(charLevel*1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_hero_standard_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 25.0}
+
+records/creatures/enemies/hero/wendigocannibal_h05.dbr
+    desc=Gaddo Evergrown ~ Bramble  cls=Hero  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_hero_standard_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 25.0}
+
+records/creatures/enemies/nemesis/nemesis_aetherial_01.dbr
+    desc=Reanimator - Valdaran  cls=Boss  owners=['base', 'gdx1', 'gdx2', 'sm_mod']
+    charLevel = 'charLevel*1+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr
+    desc=None  cls=Boss  owners=['gdx1', 'gdx2', 'sm1']
+    charLevel = 'charLevel*1+5'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr
+    desc=None  cls=Boss  owners=['gdx1', 'sm1']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis3phase_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 50.0}
+
+records/creatures/enemies/nemesis/nemesis_beast_02.dbr
+    desc=Borreus the Underking  cls=Boss  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=None other=None
+
+records/creatures/enemies/nemesis/nemesis_chthonian_02.dbr
+    desc=Defiler - Benn'Jahr  cls=Boss  owners=['base', 'gdx1', 'gdx2', 'sm_mod']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_chthonianvoidborn_01.dbr
+    desc=None  cls=Boss  owners=['gdx1', 'gdx2', 'sm1']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 20.0}
+
+records/creatures/enemies/nemesis/nemesis_kymon_01.dbr
+    desc=Curate Ignus  cls=Boss  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_kymon_02.dbr
+    desc=Heavy - The Iron Maiden  cls=Boss  owners=['base', 'gdx1', 'gdx2', 'sm_mod']
+    charLevel = 'charLevel*1'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr
+    desc=Necromancer - Zantarin  cls=Boss  owners=['base', 'gdx1', 'gdx2', 'sm_mod']
+    charLevel = 'charLevel*1'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 50.0}
+
+records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_02.dbr
+    desc=Shriek  cls=Boss  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 20.0}
+
+records/creatures/enemies/nemesis/nemesis_outlaw_01.dbr
+    desc=Assassin - Fabius  cls=Boss  owners=['base', 'gdx1', 'gdx2', 'sm_mod']
+    charLevel = 'charLevel*1'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other={'defensiveLife': 20.0}
+
+records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr
+    desc=Vinn the Giant Ozmald  cls=Boss  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_undead_01.dbr
+    desc=Raddoth  cls=Boss  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=100.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_undead_02b.dbr
+    desc=Golem P2 - Moosilauke  cls=Boss  owners=['base', 'gdx1', 'gdx2', 'sm_mod']
+    charLevel = '(charLevel*1)'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=None other={'defensiveLife': 50.0}
+
+records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr
+    desc=None  cls=Boss  owners=['gdx1', 'gdx2', 'sm1']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+records/creatures/enemies/nemesis/nemesis_wendigo_02.dbr
+    desc=Reaper of Rot  cls=Boss  owners=['gdx3', 'sm3']
+    charLevel = '(charLevel*1.1)+2'
+    bio       = 'records/creatures/enemies/bios/bio_boss_nemesis_01.dbr'
+    ownLife   = characterLife=0.0 mod=0.0 other=None
+
+
+==============================================================================================================
+C — bio records (the characterLife EQUATION layer)
+==============================================================================================================
+
+-- records/creatures/enemies/bios/bio_boss_aetherial_colossusgalakros.dbr  owners=['gdx1', 'sm1']  fields=10
+     characterDefensiveAbility                = (charLevel*7.0)+50                                                                 [sm1]
+     characterDexterity                       = (charLevel*8)+55                                                                   [sm1]
+     characterIntelligence                    = (charLevel*7)+55                                                                   [sm1]
+     characterLife                            = ((charLevel*33)^1.5)+500                                                           [sm1]
+     characterLifeRegen                       = (((charLevel/10+2) + lifeRegen) * (1 + lifeRegenMod/100))*elapsedTime              [sm1]
+     characterMana                            = ((charLevel*15)^1.27)+200                                                          [sm1]
+     characterManaRegen                       = (((charLevel*3+45) + manaRegen) * (1 + manaRegenMod/100))*elapsedTime              [sm1]
+     characterOffensiveAbility                = (charLevel*7.8)+100                                                                [sm1]
+     characterStrength                        = (charLevel*6.5)+50                                                                 [sm1]
+     templateName                             = database/templates/characterattributeequations.tpl                                 [sm1]
+
+-- records/creatures/enemies/bios/bio_boss_nemesis3phase_01.dbr  owners=['gdx1', 'sm1']  fields=10
+     characterDefensiveAbility                = (charLevel*6.3)+60                                                                 [sm1]
+     characterDexterity                       = (charLevel*10)+80                                                                  [sm1]
+     characterIntelligence                    = (charLevel*10)+80                                                                  [sm1]
+     characterLife                            = ((charLevel*36)^1.5)+16000                                                         [sm1]
+     characterLifeRegen                       = (((charLevel/5+8) + lifeRegen) * (1 + lifeRegenMod/100))*elapsedTime               [sm1]
+     characterMana                            = ((charLevel*25)^1.28)+500                                                          [sm1]
+     characterManaRegen                       = (((charLevel*3+45) + manaRegen) * (1 + manaRegenMod/100))*elapsedTime              [sm1]
+     characterOffensiveAbility                = (charLevel*7.2)+100                                                                [sm1]
+     characterStrength                        = (charLevel*7.5)+65                                                                 [sm1]
+     templateName                             = database/templates/characterattributeequations.tpl                                 [sm1]
+
+-- records/creatures/enemies/bios/bio_boss_nemesis_01.dbr  owners=['base', 'sm_mod']  fields=10
+     characterDefensiveAbility                = (charLevel*6.3)+60                                                                 [sm_mod]
+     characterDexterity                       = (charLevel*10)+80                                                                  [sm_mod]
+     characterIntelligence                    = (charLevel*10)+80                                                                  [sm_mod]
+     characterLife                            = ((charLevel*42)^1.5)+20000                                                         [sm_mod]
+     characterLifeRegen                       = (((charLevel/5+8) + lifeRegen) * (1 + lifeRegenMod/100))*elapsedTime               [sm_mod]
+     characterMana                            = ((charLevel*25)^1.28)+500                                                          [sm_mod]
+     characterManaRegen                       = (((charLevel*3+45) + manaRegen) * (1 + manaRegenMod/100))*elapsedTime              [sm_mod]
+     characterOffensiveAbility                = (charLevel*7.2)+100                                                                [sm_mod]
+     characterStrength                        = (charLevel*7.5)+65                                                                 [sm_mod]
+     templateName                             = database/templates/characterattributeequations.tpl                                 [sm_mod]
+
+-- records/creatures/enemies/bios/bio_boss_tombguardian.dbr  owners=['gdx2', 'sm2']  fields=10
+     characterDefensiveAbility                = (charLevel*6.3)+50                                                                 [sm2]
+     characterDexterity                       = (charLevel*8)+55                                                                   [sm2]
+     characterIntelligence                    = (charLevel*7)+55                                                                   [sm2]
+     characterLife                            = ((charLevel*33)^1.5)+500                                                           [sm2]
+     characterLifeRegen                       = (((charLevel/10+2) + lifeRegen) * (1 + lifeRegenMod/100))*elapsedTime              [sm2]
+     characterMana                            = ((charLevel*15)^1.27)+200                                                          [sm2]
+     characterManaRegen                       = (((charLevel*3+45) + manaRegen) * (1 + manaRegenMod/100))*elapsedTime              [sm2]
+     characterOffensiveAbility                = (charLevel*7)+100                                                                  [sm2]
+     characterStrength                        = (charLevel*6.5)+50                                                                 [sm2]
+     templateName                             = database/templates/characterattributeequations.tpl                                 [sm2]
+
+-- records/creatures/enemies/bios/bio_hero_standard_01.dbr  owners=['base', 'sm_mod']  fields=11
+     FileDescription                          = Standard Hero                                                                      [sm_mod]
+     characterDefensiveAbility                = (charLevel*6.8)+15                                                                 [sm_mod]
+     characterDexterity                       = (charLevel*8.4)+15                                                                 [sm_mod]
+     characterIntelligence                    = (charLevel*8.4)+20                                                                 [sm_mod]
+     characterLife                            = ((charLevel*11)^1.50)-20                                                           [sm_mod]
+     characterLifeRegen                       = (((charLevel/15+1) + lifeRegen) * (1 + lifeRegenMod/100))*elapsedTime              [sm_mod]
+     characterMana                            = ((charLevel*15)^1.27)+200                                                          [sm_mod]
+     characterManaRegen                       = (((charLevel*2+10) + manaRegen) * (1 + manaRegenMod/100))*elapsedTime              [sm_mod]
+     characterOffensiveAbility                = (charLevel*7)+92                                                                   [sm_mod]
+     characterStrength                        = (charLevel*6.7)+25                                                                 [sm_mod]
+     templateName                             = database/templates/characterattributeequations.tpl                                 [sm_mod]
+
+wrote t3_chain.json

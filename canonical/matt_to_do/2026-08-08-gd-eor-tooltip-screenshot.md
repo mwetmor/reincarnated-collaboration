@@ -1,6 +1,12 @@
 # T14 — ONE screenshot: Eye of Reckoning tooltip (EoRWarlGuts character)
 
-**Parked:** 2026-08-08 (gandalf, KC2-SIM G-A close, ledger L-6 step (b)). **Non-blocking.**
+> **✓ SHORT-CIRCUITED 2026-08-08 — NO ACTION NEEDED (gandalf, KC2-SIM ledger L-22).** galadriel's
+> sweep found the tooltip **inside the s2 video** (t ≈ 193–240, skill window open): **"Energy Cost:
+> 176.4 per Second"** at Current Level 26 → per-tick reading (M2) confirmed, decomposed exactly
+> (16.0 × 12.25 ticks/s × 0.90). The drain spec row is CLOSED (spec § 3.1); this screenshot is no
+> longer needed. Row retained as record only.
+
+**Parked:** 2026-08-08 (gandalf, KC2-SIM G-A close, ledger L-6 step (b)). ~~**Non-blocking.**~~ **RESOLVED-BY-FOOTAGE.**
 
 ## Action (~2 minutes, GD PC)
 

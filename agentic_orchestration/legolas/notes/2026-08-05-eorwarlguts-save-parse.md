@@ -808,3 +808,130 @@ the save knows that we did not: a Nemesis named **Zantarin, the Immortal** ended
 from opposite directions — the calculator and the file. They agree everywhere they overlap once the
 allocated-vs-total rank scale is applied (§ 2.5). Reading either note alone will produce a false
 contradiction on Eye of Reckoning; read the reconciliation first.
+
+---
+---
+
+# POST-COMMIT CORRIGENDA — appended 2026-08-08
+
+> **Read this before using §§ 2.5 or 7.2 above.** These blocks are **appended, not rewritten**: the
+> original text is left standing so the lineage of the correction is legible. Where a corrigendum and
+> the body disagree, **the corrigendum governs.** Filed by legolas under the KC2-SIM Phase-B micro-probe
+> (conductor: gandalf), Task 4. Both items were queued debt from the G-A fold.
+
+## C-1 — § 7.2 / U3 tribute arithmetic — **PARTIAL → CLOSED on camera. The ledger balances exactly.**
+
+**Status change: U3 (clamp-on-load) and U2 (Crucible prices) are both CLOSED.** § 7.2's grade line
+*"PARTIAL — counters MEASURED, currency UNRESOLVED"* is **superseded**; the currency is now MEASURED.
+
+galadriel's sitting extraction (`galadriel/notes/2026-08-07-eor-sittings-extraction.md` **§ 1**) read the
+Crucible tribute counter directly off both videos at 10 Hz (ROI `x 1360..1440, y 98..124`), localising
+every debit to ±0.1 s and naming each purchase from the confirmation dialogue in the preceding frame.
+The full ledger:
+
+| step | value | evidence |
+|---|---:|---|
+| sitting 1, prep + entire 1→93 ramp | **150 flat**, t = 300 → 2240, **zero debits of any size** | `evidence/s1-tribute-ledger-flat-150.png` |
+| − 5 · wave-93 checkpoint restart (attempt 2) | **145** from t = 2440 to end of s1 recording | § 1 |
+| *(sittings are contiguous — nothing spent between them)* | s2 **opens at 145** at t = 60 | § 1 cross-sitting continuity check |
+| − 5 · Deathchill Beacon @ t = 476.8 | 140 | `evidence/s2-defense-ledger-all-four.png` |
+| − 5 · Stormcaller Beacon @ t = 484.1 | 135 | ″ |
+| − 5 · Inferno Beacon @ t = 502.3 | 130 | ″ |
+| − 5 · Vanguard Banner @ t = 509.6 | **125** | `evidence/s2-defense4-VANGUARD-BANNER-t509.4.png` |
+| held 125 from t = 512 → 850 — **zero upgrades, zero blessings** | 125 | § 1 |
+| + 3 in-run awards | **128** by t = 900 | § 1 |
+| **= the save-observed value** | **128** ✔ | § 7.1 / § 5 above |
+
+```
+150  −  5 (restart)  −  20 (4 × base defense)  +  3 (in-run awards)  =  128
+```
+
+**Three corrections to the body text:**
+
+1. **The clamp-on-load hypothesis is CONFIRMED, and its start value is now observed, not assumed.**
+   § 7.2 reasoned from `999 → 128` to a hypothesised clamp at 150. The camera shows the counter
+   **pinned at exactly 150** across sitting 1's whole prep phase and 93-wave ramp. The 999 never
+   reached the Crucible. § 7.2's *"clamp-on-load is UNVERIFIED"* is retired.
+2. **The −5 restart debit was missing from the body's model.** § 7.2 wrote `150 − spend + earnings = 128
+   ⟹ net burn 22 below cap` and attributed it to *"four base-tier purchases plus wave earnings."* The
+   22 is really **25 spent (20 defenses + 5 restart) less 3 earned.** The restart term is the one the
+   file could not see, and it is exactly the term v1.2.1.3 predicts: *"Tributes … are still required for
+   restarting or retrying a Crucible run."* **The M1/M2 distinction is now visible in the fixture's own
+   currency, not just in the patch notes.**
+3. **§ 7.2's premise that prices are unresolvable is wrong and was already corrected once.**
+   *"Crucible prices live in `Grim Dawn.exe`, not in the database"* — they do not; they are in
+   `Conversations.arc` (`object_defensesite_01.cnv`: *"spend 5 Tributes + 7000 Iron Bits"*;
+   `npc_event_03.cnv`: the 5 / 15 / 30 restart ladder). First corrected in
+   `legolas/notes/2026-08-07-u8-tier-wave-map.md` § 6.2 / § 7; **now confirmed on camera** — the
+   observed debits are 5 apiece, and the fourth purchase's dialogue reads *"Create this defense (spend
+   **5 Tributes** + 10000 Iron Bits)"*, matching the `.cnv` exactly.
+
+**The U-8 residual is retired, and it retires in the right direction.** `2026-08-07-u8-tier-wave-map.md`
+§ 7 left *"a residual of ~2"* against a 150-clamp model and declined to claim closure. That residual
+decomposes cleanly as **−5 (restart, unknown to that pass) + 3 (awards)**. The same note predicted the
+failed-checkpoint award from `rewards.lua` as **≈ 2.6 Tributes**; the camera shows **+3**. The formula
+was right; the ledger was one term short.
+
+**Grade for § 7.2: MEASURED.** Counters MEASURED (§ 7.1, unchanged); **currency MEASURED**.
+**U2 CLOSED · U3 CLOSED.** § 12's row 6 (*"PARTIAL — … currency UNRESOLVED (U2, U3)"*) should be read
+as **MEASURED**.
+
+*Also correct in § 7.2's spirit and worth keeping:* the reasoning that "871 is not a spend" was right,
+and right for the right reason.
+
+## C-2 — § 2.5 gear attribution — **arithmetic CORRECTED. The § 2.5 CONCLUSION is UNCHANGED.**
+
+Per `legolas/notes/2026-08-07-pe1-eor-spin-parameters.md` §§ 5.1 and 7.1, which read the live item
+records rather than inferring from field names.
+
+**§ 2.5 as written is wrong on both named gear sources:**
+
+- *"**Gutsmasher** — `augmentMasteryLevel1 = 2`, `augmentMasteryLevel2 = 2` → +2 to **every** Soldier and
+  Oathkeeper skill."* **WRONG.** Gutsmasher's mastery names are
+  `augmentMasteryName1 = _classtraining_class01` (**Soldier**) and
+  `augmentMasteryName2 = _classtraining_class03` (**Occultist**). Not Oathkeeper.
+- *"**Warborn Visor** — `augmentMasteryLevel1/2 = 1` → +1 to both masteries."* **WRONG.** The Visor's
+  names are `class01` (**Soldier**) and `class08` (**Necromancer**). Not Oathkeeper.
+- **No equipped item on this fixture grants any Oathkeeper mastery rank.** Eye of Reckoning is
+  `playerclass09` (Oathkeeper), so **the mastery route contributes ZERO to EoR.** The `+11` comes
+  entirely from *direct* `+skill` and `+all-skills` grants.
+
+**The corrected attribution — the real +11, DB-CITED:**
+
+| source | record | field | +EoR |
+|---|---|---|---:|
+| allocated | `player.gdc :: character_skills` | `eyeofreckoning1.level` | **15** |
+| **Gutsmasher** | `items/gearweapons/melee2h/d107_blunt2h` [GDX2] | `augmentSkillName2` / `Level2` | **+4** |
+| **Warborn Visor** | `items/upgraded/gearhead/d028_head` [GDX2] | `augmentSkillName1` / `Level1` | **+2** |
+| **Warborn Chestguard** | `items/upgraded/geartorso/d026_torso` [GDX2] | `augmentSkillName4` / `Level4` | **+2** |
+| **Sandreaver Bracers** | `items/gearhands/d206_hands` [**GDX3**] | `augmentSkillName4` / `Level4` | **+2** |
+| **Kaisan's Burning Eye** | `items/gearaccessories/necklaces/b201e_necklace` [GDX2] | **`augmentAllLevel = 1`** | **+1** |
+| Warborn set, 4-pc bonus | `items/lootsets/itemset_d025b` | `augmentSkillLevel4 = [0,0,0,3]` | **+0** — only 3 pieces worn |
+| | | **TOTAL** | **26** |
+
+**15 + 11 = 26 = `skillUltimateLevel`. Two lanes that never touched each other — the `.gdc` and the
+`.arz` — land on the same integer, and it is gandalf's ceremony-lane grimtools reading.**
+
+Two narrower fixes inside § 2.5, both about *which* source carries the grant:
+
+- § 2.5 credits **Sandreaver Bracers** as *"gloves"* with `+2` — the `+2` and the record are right; the
+  slot is **hands/bracers**, and it is a **GDX3** record, the only Fangs-of-Asterkarn item in the +11.
+- § 2.5 omits **Warborn Chestguard** (`+2`) and **Kaisan's Burning Eye** (`augmentAllLevel = 1`, `+1`)
+  entirely. Those three points are why the note could only gesture at 26 rather than reach it.
+
+**What does NOT change.** § 2.5's conclusion, its table, and its rule all stand:
+
+> Gear slots **AGREE** · Devotion 55/55 **AGREE** · **Eye of Reckoning 26 (grimtools, total) vs 15
+> (`.gdc`, allocated) — RECONCILED, different scales.** `skillMaxLevel = 16`, `skillUltimateLevel = 26`.
+> **"A `.gdc` skill rank is never directly comparable to a grimtools rank."**
+
+Only the arithmetic underneath it was wrong; **cite EoR at TOTAL 26**, unchanged. The correction makes
+§ 2.5 *stronger*, because the reconciliation now closes on the exact value instead of pointing at it.
+
+*Related, and already carried in the P-E1 note § 7.2 — not restated here:* § 3.1's weapon-set-II hazard
+is sharper than recorded (EoR's `Mace2h = True` / all ranged-and-caster `False` gate means an empty set
+II makes the build's only damage skill **uncastable**, not merely weaker).
+
+**Signed:** legolas, 2026-08-08. Two debts paid. The tribute ledger balanced the moment the camera
+supplied the one term the file could not hold — a five-Tribute restart — and the `+11` turned out to
+come from five items, none of them via the mastery route I had assumed.

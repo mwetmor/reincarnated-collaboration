@@ -1,0 +1,904 @@
+[
+ {
+  "record": "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr",
+  "desc": null,
+  "cls": "Quest",
+  "pools": [
+   "p04a:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 103,
+  "charLevel_eq": "charLevel*1+5",
+  "charLevel": 108,
+  "trunc": true,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 213268.1135508796
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr",
+  "desc": null,
+  "cls": "Quest",
+  "pools": [
+   "p04a:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "charLevel*1+5",
+  "charLevel": 110,
+  "trunc": true,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 219205.61721181282
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr",
+  "desc": null,
+  "cls": "Quest",
+  "pools": [
+   "p04a:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 103,
+  "charLevel_eq": "charLevel*1+5",
+  "charLevel": 108.0,
+  "trunc": false,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 213268.1135508796
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr",
+  "desc": null,
+  "cls": "Quest",
+  "pools": [
+   "p04a:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "charLevel*1+5",
+  "charLevel": 110.0,
+  "trunc": false,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 219205.61721181282
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+  "desc": "Korvaak's Tomb Guardian",
+  "cls": "Quest",
+  "pools": [
+   "p04b:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 103,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 103,
+  "trunc": true,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 198664.90657782977
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+  "desc": "Korvaak's Tomb Guardian",
+  "cls": "Quest",
+  "pools": [
+   "p04b:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 105,
+  "trunc": true,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 204464.62836727352
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+  "desc": "Korvaak's Tomb Guardian",
+  "cls": "Quest",
+  "pools": [
+   "p04b:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 103,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 103.0,
+  "trunc": false,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 198664.90657782977
+ },
+ {
+  "record": "records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr",
+  "desc": "Korvaak's Tomb Guardian",
+  "cls": "Quest",
+  "pools": [
+   "p04b:name1"
+  ],
+  "proxy": "records/proxies/lv7_uber hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 105.0,
+  "trunc": false,
+  "life_eq": "((charLevel*33)^1.5)+500",
+  "base_life": 204464.62836727352
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h01.dbr",
+  "desc": "Ulda Emberclaw",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion1"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h01.dbr",
+  "desc": "Ulda Emberclaw",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion1"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h01.dbr",
+  "desc": "Ulda Emberclaw",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion1"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h01.dbr",
+  "desc": "Ulda Emberclaw",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion1"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h02.dbr",
+  "desc": "Haldra the Bloodlust",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion2"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h02.dbr",
+  "desc": "Haldra the Bloodlust",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion2"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h02.dbr",
+  "desc": "Haldra the Bloodlust",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion2"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h02.dbr",
+  "desc": "Haldra the Bloodlust",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion2"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h03.dbr",
+  "desc": "Palros Protector of the Pack ~ Defender",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion3"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h03.dbr",
+  "desc": "Palros Protector of the Pack ~ Defender",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion3"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h03.dbr",
+  "desc": "Palros Protector of the Pack ~ Defender",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion3"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h03.dbr",
+  "desc": "Palros Protector of the Pack ~ Defender",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion3"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h04.dbr",
+  "desc": "Allcadius the Unburied ~ Reflective",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion4"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h04.dbr",
+  "desc": "Allcadius the Unburied ~ Reflective",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion4"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h04.dbr",
+  "desc": "Allcadius the Unburied ~ Reflective",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion4"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h04.dbr",
+  "desc": "Allcadius the Unburied ~ Reflective",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion4"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h05.dbr",
+  "desc": "Gaddo Evergrown ~ Bramble",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion5"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h05.dbr",
+  "desc": "Gaddo Evergrown ~ Bramble",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion5"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107,
+  "trunc": true,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h05.dbr",
+  "desc": "Gaddo Evergrown ~ Bramble",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion5"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 104,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 39795.10135614375
+ },
+ {
+  "record": "records/creatures/enemies/hero/wendigocannibal_h05.dbr",
+  "desc": "Gaddo Evergrown ~ Bramble",
+  "cls": "Hero",
+  "pools": [
+   "p06:nameChampion5"
+  ],
+  "proxy": "records/proxies/lv6_hero.dbr",
+  "spawn_level": 105,
+  "charLevel_eq": "(charLevel*1)+2",
+  "charLevel": 107.0,
+  "trunc": false,
+  "life_eq": "((charLevel*11)^1.50)-20",
+  "base_life": 40359.849343453476
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_aetherial_01.dbr",
+  "desc": "Reanimator - Valdaran",
+  "cls": "Boss",
+  "pools": [
+   "p01:name1"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1+2",
+  "charLevel": 108,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 325498.84231531876
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_aetherial_01.dbr",
+  "desc": "Reanimator - Valdaran",
+  "cls": "Boss",
+  "pools": [
+   "p01:name1"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1+2",
+  "charLevel": 108.0,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 325498.84231531876
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p03:name1"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1+5",
+  "charLevel": 111,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 338315.9523618004
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_aetherialvanguard_01.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p03:name1"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1+5",
+  "charLevel": 111.0,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 338315.9523618004
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p02:name1"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*36)^1.5)+16000",
+  "base_life": 292870.5491597111
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_beast_01_p1.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p02:name1"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*36)^1.5)+16000",
+  "base_life": 294984.9558122015
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_beast_02.dbr",
+  "desc": "Borreus the Underking",
+  "cls": "Boss",
+  "pools": [
+   "p02:name4"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_beast_02.dbr",
+  "desc": "Borreus the Underking",
+  "cls": "Boss",
+  "pools": [
+   "p02:name4"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_chthonian_02.dbr",
+  "desc": "Defiler - Benn'Jahr",
+  "cls": "Boss",
+  "pools": [
+   "p01:name2"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_chthonian_02.dbr",
+  "desc": "Defiler - Benn'Jahr",
+  "cls": "Boss",
+  "pools": [
+   "p01:name2"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_chthonianvoidborn_01.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p02:name2"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_chthonianvoidborn_01.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p02:name2"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr",
+  "desc": "Curate Ignus",
+  "cls": "Boss",
+  "pools": [
+   "p01:name8"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_kymon_01.dbr",
+  "desc": "Curate Ignus",
+  "cls": "Boss",
+  "pools": [
+   "p01:name8"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_kymon_02.dbr",
+  "desc": "Heavy - The Iron Maiden",
+  "cls": "Boss",
+  "pools": [
+   "p01:name6"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_kymon_02.dbr",
+  "desc": "Heavy - The Iron Maiden",
+  "cls": "Boss",
+  "pools": [
+   "p01:name6"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr",
+  "desc": "Necromancer - Zantarin",
+  "cls": "Boss",
+  "pools": [
+   "p01:name3"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_01.dbr",
+  "desc": "Necromancer - Zantarin",
+  "cls": "Boss",
+  "pools": [
+   "p01:name3"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_02.dbr",
+  "desc": "Shriek",
+  "cls": "Boss",
+  "pools": [
+   "p01:name9"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_orderdeathsvigil_02.dbr",
+  "desc": "Shriek",
+  "cls": "Boss",
+  "pools": [
+   "p01:name9"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_outlaw_01.dbr",
+  "desc": "Assassin - Fabius",
+  "cls": "Boss",
+  "pools": [
+   "p01:name4"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_outlaw_01.dbr",
+  "desc": "Assassin - Fabius",
+  "cls": "Boss",
+  "pools": [
+   "p01:name4"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "charLevel*1",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr",
+  "desc": "Vinn the Giant Ozmald",
+  "cls": "Boss",
+  "pools": [
+   "p01:name10"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_outlaw_02.dbr",
+  "desc": "Vinn the Giant Ozmald",
+  "cls": "Boss",
+  "pools": [
+   "p01:name10"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_undead_01.dbr",
+  "desc": "Raddoth",
+  "cls": "Boss",
+  "pools": [
+   "p01:name7"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_undead_01.dbr",
+  "desc": "Raddoth",
+  "cls": "Boss",
+  "pools": [
+   "p01:name7"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_undead_02b.dbr",
+  "desc": "Golem P2 - Moosilauke",
+  "cls": "Boss",
+  "pools": [
+   "p01:name5"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1)",
+  "charLevel": 106,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_undead_02b.dbr",
+  "desc": "Golem P2 - Moosilauke",
+  "cls": "Boss",
+  "pools": [
+   "p01:name5"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1)",
+  "charLevel": 106.0,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 317052.17287203943
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p02:name3",
+   "p03:name2"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_wendigo_01.dbr",
+  "desc": null,
+  "cls": "Boss",
+  "pools": [
+   "p02:name3",
+   "p03:name2"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_wendigo_02.dbr",
+  "desc": "Reaper of Rot",
+  "cls": "Boss",
+  "pools": [
+   "p02:name5"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118,
+  "trunc": true,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 368896.76813636435
+ },
+ {
+  "record": "records/creatures/enemies/nemesis/nemesis_wendigo_02.dbr",
+  "desc": "Reaper of Rot",
+  "cls": "Boss",
+  "pools": [
+   "p02:name5"
+  ],
+  "proxy": "records/proxies/lv8_boss+.dbr",
+  "spawn_level": 106,
+  "charLevel_eq": "(charLevel*1.1)+2",
+  "charLevel": 118.60000000000001,
+  "trunc": false,
+  "life_eq": "((charLevel*42)^1.5)+20000",
+  "base_life": 371561.22504526586
+ }
+]
