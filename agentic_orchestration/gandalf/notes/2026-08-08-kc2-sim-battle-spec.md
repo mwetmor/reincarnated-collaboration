@@ -1158,7 +1158,9 @@ anchors ride L-44(d) by reference.
 **Emitter positions: provenance TWO-LAYER (L-46(b) — supersedes L-10d's "never DB-hunted").**
 Layer 1, **emitter geometry: CITED-per-arena** — the Maps.arc decode makes per-arena ring + ambush
 radii database facts, not free parameters. Layer 2, **arena selection: DECLARED** — which of the
-10 arenas a sitting ran is not DB-decidable (s2 favours `survivalworld_a`; lean). The sim carries
+10 arenas a sitting ran is not DB-decidable (s2 favours `survivalworld_a`; lean) *(F-14/L-51: the
+selection domain is properly **16 (archive, map) pairs** over the 10 names; s1 selection of record
+`sm_mod/survivalworld_f`, archive-qualified)*. The sim carries
 the selected arena's cited geometry plus one player-spawn parameter; **`v_ref` is the sole free
 scalar** (L-46), ~~traversal-bounded 3.5–6.1 s (above)~~ *— R-L48-1: `v_ref` is bracketed per
 emitter class at § 10.9a D (K-1..K-3; the 3.5–6.1 s band is ambush-class only)*. This intersects R-KC2-7 cleanly: the sim
@@ -1200,7 +1202,8 @@ changes what the sim *reads*, so state the read precisely:
 - **Reconciliation with the per-sitting rule above.** "Position parameters are per-sitting sets" now
   reads: **the ARENA SELECTION is per-sitting; the positions inside a selected arena are cited.**
   Pooling remains a spec violation — but the thing that must not be pooled is now a choice among
-  ten cited geometries rather than a free bearing set.
+  ten cited geometries rather than a free bearing set *(F-14/L-51: properly SIXTEEN cited
+  geometries — (archive, map) pairs over the 10 names; the choice carries `arena_archive`)*.
 
 **MO-5 re-check rides this hook (F-12/C-4).** The § 12 MO-5 sim-side PASS was re-graded
 *provisional-on-geometry* at L-43 because it was earned on the uncited 30.0 m radius. The flag
@@ -1525,8 +1528,8 @@ which rule ran.
 | p05 ambush radius | **median 10.17 m** (n = 10, 1.70–17.15) | **LEVEL-CITED** | same |
 | patrol node set | 173 nodes, median **18.85 m** from their own centroid (max 30.07) | **LEVEL-CITED** | `kc2_crucible_patrolpoints.csv` (sha `106facba…`) |
 | reference frame | the `PatrolPoint_Attack` centroid — **not** `playerspawnpoint` | **LEVEL-CITED** | probe § 4.3 |
-| arena enumeration | 10 arenas `survivalworld_a…j` / `tagSurvivalArena_01…10` | **LEVEL-CITED** | probe § 4.2 |
-| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation) | § 10.6 layer 2 |
+| arena enumeration | 10 arenas `survivalworld_a…j` / `tagSurvivalArena_01…10` — **F-14 (L-51): a MAP-NAME enumeration that UNDER-DETERMINES geometry**; the geometry keys on **16 (archive, map) pairs** (sm_mod 6 / sm1 8 / sm2 2; `survivalworld_f` p06 = 29.73 m in sm1 vs 40.35 m in sm_mod, 36 % apart) → `arena_archive` REQUIRED in `arena_ref` | **LEVEL-CITED** (names); archive-qualified at L-51 | probe § 4.2 · F-14 |
+| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation). **s1 selection of record (L-51): `sm_mod/survivalworld_f`** — L-46 bearing best-fit 11.8°, archive-qualified, the composite the sim already emits; map-file loading-law probe (legolas T2) in flight → upgrades DECLARED → CITED or flags conflict at the lap fold | § 10.6 layer 2 · F-14 |
 | scatter | `placementExtents = 8.0` m, all 925 proxies; **SIM-ROLLED** | **DB-CITED** | P-E6 § 2.3 / M-7 |
 | **length unit** | the **METRE** | **DB-CITED (Crate annotation)** | `travelSpeed` / `tailTravelSpeed` / `particleSpeed` / `textureSpeed` all declare *meters per second* |
 | `characterRunSpeed(a)` | per-record multiplier; band-A **n = 895, median 1.000**, mean 1.0358, range 0.60–2.00 (191 exactly 1.0; 311 below; 393 above) | **DB-CITED** | `kc2_s1_banda_record_inputs.csv` (sha `ac50ef77…`) |
@@ -1709,7 +1712,20 @@ question stated rather than decided:
 - **Option 2 — per-tick actor position tracks.** Exact under any motion law, but it multiplies the
   columnar track surface by the live actor count and lands squarely against § 11.6.1's size work.
 - **Lean:** Option 1, on cost and on the fact that A's motion law *is* piecewise-linear by
-  construction. **The conductor rules; star-lord and drax sign.**
+  construction. **The conductor rules; star-lord and drax sign.** *(L-51: RULED Option 1 → R-L48-4;
+  LANDED at engine `28b578fe` — star-lord bundle, 86 baton tests / 32 checks / 33 stub items, all
+  green + conductor-reproduced. **COST PREMISE CORRECTED, not absorbed:** measured **357 B/actor**
+  under the shipping `rows-compact` default (waypoint lists are object-arrays, which the
+  scalar-leaf collapse does not touch) — the "~tens of bytes" above was wrong by ~10×; still 3.2 %
+  of the measured 17.4 MB and ~12 % of the headroom under drax's ≈ 22 MB budget, so the ruling
+  HOLDS on cost. The landed waypoint carries `run_tick` alongside `{t_s, x, y}` — § 11.4 pin 4
+  (`t_s` is derived, NEVER a key) forces the int-tick join against `circle_sweep`; adopted
+  **R-L51-1**. A leaf-collapse mitigation (186 B/actor, −48 %) is measured and deliberately NOT
+  taken — `rows-compact` is a signed write-discipline corrigendum (L-31/CD-1); one line reverses
+  it if ever needed. drax counter-sign RETURNED at this fold — **SIGNED, 10/11 rows unconditional
+  incl. both breaking ones** (MIGRATION block at engine `265069b1`; note at meta `6b855ab3`); the
+  `run_tick` deviation explicitly KEEP-requested from the consumer seat; **OBJ-1** on
+  `path_coverage` → **R-L51-3** union re-law, gates the Phase-E emit, not `28b578fe`.)*
 
 Two smaller schema consequences ride the same routing, both currently **operative-false in a signed
 artifact**: `config.arena.arena_id: "s1" | "s2"` names a *sitting*, not an arena, and can no longer
@@ -1717,7 +1733,19 @@ express *which* of the ten cited arenas ran (a sibling `arena_ref` over the cite
 the six radii would); and `positions_provenance: "DECLARED"` is now wrong at layer 1 — emitter
 positions are **CITED**, selection is **DECLARED** (§ 10.6). The `D-ARENA-DECLARED` declaration
 string is corrected below at § 11.4 with strike-lineage, because a **false provenance claim inside a
-provenance block** is the one defect this artifact exists to prevent.
+provenance block** is the one defect this artifact exists to prevent. *(L-51: BOTH LANDED at
+`28b578fe` — `arena_ref` NEW + REQUIRED (guard `G-ARENA-REF`), `positions_provenance` RETYPED
+str → `{emitter_geometry, arena_selection, ruling}` (the bundle's one breaking change; zero baton
+artifacts and zero baton/v1 loaders existed, so back-compat cost measured zero), `D-ARENA-CITED` on
+the wire with the retired id NAMED in `DECLARATION_IDS_RETIRED` — struck, not aliased. **F-14
+registered at this fold:** the "ten cited arenas" is a MAP-NAME enumeration and UNDER-DETERMINES
+the geometry — the decode holds **16 (archive, map) pairs** over 10 names (sm_mod 6 / sm1 8 /
+sm2 2; names a–f duplicated), measured divergence **36 %** on `survivalworld_f` p06 (29.73 m sm1
+vs 40.35 m sm_mod — star-lord, measured). `arena_archive` is therefore REQUIRED in `arena_ref`.
+The s1 selection of record is the archive-QUALIFIED bearing best-fit **`sm_mod/survivalworld_f`**
+(11.8°, L-46 — already the composite the sim seam emits); the MAP-FILE loading-law citation (does
+sm1's copy override sm_mod's under the last-wins stack?) is a legolas micro-probe in flight — its
+return upgrades selection DECLARED → CITED or flags a conflict at the lap fold.)*
 
 ### 10.10 Acceptance criteria
 
@@ -1991,7 +2019,17 @@ baton/v1
 │   │               #      sweep missed this SPELLING (owned L-43 — sweep sets must enumerate all
 │   │               #      historical spellings). TYPE GAP (gamora beat-3 flag → star-lord rider):
 │   │               #      bool + `_ac_11_4g`'s RESOLVED/UNKNOWN mapping cannot express RULED-OFF;
-│   │               #      schema extension queued, not landed here.
+│   │               #      ~~schema extension queued, not landed here~~ → LANDED at 28b578fe
+│   │               #      [L-51, R-4 BOTH SIDES]: str-side mapping widened to DATA; bool side is
+│   │               #      the additive grade sibling below (CD-2's own pattern — the VALUE stays
+│   │               #      bool so drax M-1 isinstance stays green; the GRADE carries what bool
+│   │               #      cannot).
+│   │               fixture_p06_state_grade: "RULED-OFF",   # ADDED [L-51, R-4] — "RULED-OFF" |
+│   │               #      "MEASURED-OFF" | "MEASURED-ON" | "DEMOTED-OPEN" | "UNKNOWN"; defaults
+│   │               #      to the RULED member (the fixture's state of record IS the ruling —
+│   │               #      exactly the property R-1 found unpinned; now pinned by test AND by the
+│   │               #      G-P06-GRADE boundary guard, so the two-sided revert (True, "RESOLVED")
+│   │               #      fires instead of validating).
 │   │               run_p06_enabled: <bool>,     # MANDATORY, NON-NULL — what the run did [M-1]
 │   │               defenses: [], blessings: [], mutators: "OUT-OF-MODEL" }
 │   ├── kit       { drain_unit: "PER_TICK", drain_rate_per_s: 176.4,            # PINNED  [L-22]
@@ -2007,7 +2045,8 @@ baton/v1
 │   │               mitigation_model, damage_semantic,                                   [M-20]
 │   │               crit_model: "PTH-BAND" | "NOT_MODELLED",                             [M-24]
 │   │               player_hp_increase_sources: [ … ] | [] }                             [M-17]
-│   └── arena     { arena_id: "s1" | "s2",         # per-sitting set — NEVER pooled  [§ 10.6, L-21]
+│   └── arena     { arena_id: "s1" | "s2",         # per-sitting set — NEVER pooled; re-worded
+│                                       #   L-51: names the SITTING, not the arena  [§ 10.6, L-21]
 │                   arena_schema_kinship: "arena_scenarios.json v1",                     [R-13]
 │                   width_m, height_m,                                                   [R-11]
 │                   arena_bounds { shape: "rect" | "disc" | "UNBOUNDED", … },            [M-9]
@@ -2021,12 +2060,42 @@ baton/v1
 │                   player_spawn { x, y, heading_rad },
 │                   placement_extents_m: 8.0,                                            [R-12]
 │                   scatter_model: "SIM-ROLLED",                                         [M-7]
-│                   positions_provenance: "DECLARED",   # ⚠ OPERATIVE-FALSE post-L-46 — layer-1
-│                                       #   positions are CITED-per-arena, selection is DECLARED.
-│                                       #   Value + the arena_id/radii/path shape route via
-│                                       #   R-LOCO-1 (§ 10.9a G) for star-lord + drax re-sign;
-│                                       #   NOT changed here — § 11 is a signed contract.
-│                   bearings_provenance: "ESTIMATED-FOOTAGE ±15°" }                      [L-21]
+│                   positions_provenance: { emitter_geometry,     # RETYPED str→object [L-51] —
+│                                           arena_selection,      #   ~~"DECLARED"~~ was ⚠ OPERATIVE-
+│                                           ruling },             #   FALSE post-L-46; the R-LOCO-1
+│                                       #   routing DISCHARGED at 28b578fe (the bundle's ONE
+│                                       #   breaking change — zero artifacts/loaders existed).
+│                                       #   Two-layer truth carried as data: emitter geometry
+│                                       #   CITED-per-arena / selection DECLARED.
+│                   bearings_provenance: "ESTIMATED-FOOTAGE ±15°",                       [L-21]
+│                   arena_ref { arena_key, arena_archive, arena_tag,  # NEW + REQUIRED [L-51,
+│                               selection_grade, selection_note,      #   G-ARENA-REF]. arena_archive
+│                               enumeration, enumeration_source,      #   REQUIRED — map name alone
+│                               emitter_radii { p01_m..p06_m,         #   under-determines geometry
+│                                               p01_tier_key, grade },#   36 % (F-14: 16 pairs over
+│                               geometry_source, geometry_sha256,     #   10 names). split_arena_ref()
+│                               reference_frame },                    #   is the named adapter.
+│                   path_model: "PIECEWISE-LINEAR",              # defaulted        [L-51, R-L48-4]
+│                   path_interpolation,        # the rule ships IN the artifact          [L-51]
+│                   path_coverage,             # span + where position is UNDEFINED      [L-51]
+│                                       #   ⚠ OBJ-1 (drax counter-sign, engine 265069b1): as
+│                                       #   landed these two rules give TWO ANSWERS post-engage —
+│                                       #   path[-1].run_tick == engage_tick on all 13 fixture
+│                                       #   actors, death 17–65 ticks later; 625/854 monster
+│                                       #   lifetime ticks (73.2 %) yield no position; the event
+│                                       #   rows the rule delegates to are sparse, not per-tick.
+│                                       #   RE-LAWED **R-L51-3**: the position track is piecewise-
+│                                       #   linear over the UNION of path[] knots + the actor's
+│                                       #   own event-row positions (all 8 death rows already
+│                                       #   carry the terminal knot) — drax-measured 854/854
+│                                       #   ticks, residual gap 0, ZERO added bytes. Validator +
+│                                       #   stub extension = named PRE-PHASE-E obligation (star-
+│                                       #   lord seam). OBJ-1 gates the Phase-E emit, NOT 28b578fe.
+│                   path_target_policy: "L-A-ZONE-FIRST" | "L-B-GATE-FIRST" | null,  # [§ 10.9a A]
+│                   path_node_assignment_rule: "nearest-node" | "group-centroid"
+│                                              | "per-emitter" | null,               # [R-LOCO-6]
+│                   v_ref: float | null,       # SOLE free locomotion scalar       [§ 10.9a B/D]
+│                   d_engage_m: float | null } # meleeTargetDistance 2.4 … meleeAutoTargetDistance 4.0
 ├── actors[]      { actor_id,                       # unique RUN-WIDE, not per-wave      [M-13]
 │                   record_path,                    # AC-6.4 — every statline resolvable
 │                   display_name,
@@ -2038,7 +2107,13 @@ baton/v1
 │                   spawn_t_s, spawn_tick,                                               [R-18]
 │                   engage_t_s | null, engage_tick | null, engage_null_reason | null,    [M-14]
 │                   level, hp_max, hp_max_basis: "POST-SCALING",                         [M-13]
-│                   life_modifier_pct, wave }
+│                   life_modifier_pct, wave,
+│                   path[] { run_tick, t_s, x, y } }   # ADDED [L-51, R-L48-4] — spawn-anchored
+│                                       #   (path[0] ≡ spawn, REFUSED at build otherwise), strictly
+│                                       #   ordered, span reaches engage_tick; carries run_tick so
+│                                       #   the replay joins circle_sweep on int tick, never float
+│                                       #   t_s equality (pin 4 / R-L51-1); empty path FAILS
+│                                       #   G-LOCO-PATH — a body with no trajectory is not emitted
 ├── waves[]       { wave, content_tier, reward_tier,             # AC-10.2 allows these to differ
 │                   t_start_s, t_end_s, tick_start, tick_end,   # tick span INCLUSIVE (L-31/CD-6) [R-19]
 │                   outcome, outcome_enum_version: 1,                                    [M-15]
@@ -2150,7 +2225,10 @@ event_type ∈ { spawn, engage, damage_dealt, dot_tick, heal_tick, death,
     cited 10-member enumeration — the positions inside a selected arena are **CITED**, and the
     radial coordinate the parameter list never had is now a level fact. The field that expresses
     which arena ran, and the six radii that come with it, are **R-LOCO-1** — routed for re-sign,
-    not landed here.)*
+    not landed here.)* *(L-51: LANDED — `arena_ref` + six radii + `path[]` at `28b578fe`; the
+    enumeration corrected 10 map-names → **16 (archive, map) pairs** (F-14, 36 % divergence on
+    `survivalworld_f`); s1 selection of record `sm_mod/survivalworld_f`, loading-law probe in
+    flight.)*
 12. **`config.encounter.bonus_spawn_p06` splits [M-1], and the fixture side is ~~MEASURED~~
     RULED-OFF.** `fixture_p06_state: false` records the L-37(b) ruling — MEASURED-NULL (hero band
     zero across 5,146 readouts, positive-controlled; F-10 OFF-operative). ~~`fixture_p06_state:
@@ -2224,7 +2302,10 @@ provenance:
     arena_id:        <s1 | s2>           # names the SITTING, not the arena -- post-L-46 this can no
                                          #   longer express WHICH of the 10 cited arenas ran.
                                          #   Sibling arena_ref (survivalworld_a..j) + the six cited
-                                         #   radii route via R-LOCO-1 (§ 10.9a G). Not added here.
+                                         #   radii route via R-LOCO-1 (§ 10.9a G). ~~Not added
+                                         #   here~~ -> LANDED at 28b578fe (L-51): arena_ref
+                                         #   REQUIRED, arena_archive REQUIRED (F-14 -- the map name
+                                         #   alone under-determines geometry by 36%; 16 pairs).
     geometry_layer:  CITED-PER-ARENA (emitter radii) / DECLARED (arena selection)   # L-46 two-layer
     bearings_grade:  ESTIMATED-FOOTAGE +-15 deg (L-21)
     pooling_rule:    per-sitting sets, NEVER pooled -- pooling is a spec violation (§ 10.6)
@@ -2263,9 +2344,18 @@ provenance:
     #   `Maps.arc`, and they are cited. A false claim inside a provenance block is the one defect
     #   this artifact exists to prevent, so the text is corrected here rather than left standing.
     #   AC-11.4b set-compares against this register => star-lord re-sync required (R-LOCO-1).
+    #   -> DONE at 28b578fe (L-51): D-ARENA-CITED on the wire; the retired id stays NAMED in
+    #      DECLARATION_IDS_RETIRED (struck, not aliased -- an alias would let the false claim
+    #      keep validating), so an old wire is told WHAT HAPPENED, not just "unexpected id".
     - { id: D-ARENA-CITED,       text: "arena emitter geometry is CITED per arena (Maps.arc decode,
                                         10-member enumeration, ring median 37.53 m / p05 ambush
                                         10.17 m); ARENA SELECTION is DECLARED (L-46 two-layer)." }
+    #   L-51/F-14 TEXT-PRECISION RIDER (queued, star-lord seam, rides the pre-Phase-E obligation):
+    #   "10-member enumeration" under-determines — geometry keys on 16 (archive, map) pairs over
+    #   10 names. Wire text and THIS register copy move TOGETHER (AC-11.4b set-compare), so the
+    #   correction lands as one paired edit there, not here. Same rider covers schema.py:144/:319/
+    #   :717 + validator.py:662/:683 docstrings/errors, and the schema.py:96 cost-comment
+    #   corrigendum ("~tens of bytes" -> measured 357 B/actor).
     - { id: D-ARENA-PER-SITTING, text: "the two sittings ran DIFFERENT arenas; parameter sets are
                                         per-sitting and are never pooled (L-21)." }
     - { id: D-IDENTITY-ENVELOPE, text: "fixture identity is name-identical, derived within
@@ -2391,6 +2481,12 @@ row-array events [S3, measured 18.06 → 7.84 MB, 2.3×].
 | **AC-11.7f** | Every `player_death` row carries a **non-null `source_id`** [M-19] — the death card names the killer, and G-5 rides with it. |
 | **AC-11.7g** | `len(events.columns)` equals the length of **every** row in `events.rows` [S3 invariant]. |
 | **AC-11.8** | The MIGRATION entry exists, in the **current** `## [YYYY-MM-DD]` style, at the **top** of `export/MIGRATION.md`, carrying the explicit ADR-006 answer and the by-name list of dropped `fight_events` columns. |
+| **G-P06-GRADE** *(ADDED L-51)* | `fixture_p06_state_grade` ↔ `u9_bonus_spawn_state` ↔ p06-value cross-consistency — R-1's missing boundary guard, now two-sided: the revert `(True, "RESOLVED")` fires it. Enum `RULED-OFF \| MEASURED-OFF \| MEASURED-ON \| DEMOTED-OPEN \| UNKNOWN`, defaults RULED-OFF [L-37(b)]. |
+| **G-ARENA-REF** *(ADDED L-51)* | Two-layer `positions_provenance` object present · `arena_ref` present with `arena_archive` REQUIRED · enumeration intact against F-14's 16 (archive, map) pairs · F-12a radii invariant holds · geometry citation sha256-backed. |
+| **G-LOCO-PATH** *(ADDED L-51)* | `path_model` named · `path[0]` ≡ spawn (REFUSED at build otherwise) · strictly ordered on `run_tick` · `t_s` derived, never a key [pin 4 / R-L51-1] · span reaches `engage_tick` · empty path FAILS. *(OBJ-1/R-L51-3: the post-engage window this span rule left to event rows is re-lawed to the UNION rule — validator extension is a named pre-Phase-E obligation, star-lord seam.)* |
+| **G-LOCO-ONE-TRAJECTORY** *(ADDED L-51)* | `path[]` + event-row positions are ONE trajectory, cross-checked — refuses to pass vacuously. *(OBJ-1 measured the as-landed cross-check skipping 339/385 monster-target rows outside the span, `baton_v1_validator.py:845`; the union re-law closes this under the same pre-Phase-E obligation.)* |
+
+*(Check-count 28 → 32 at `28b578fe`; ids stay `G-` per the CD-2 precedent — adopted-as-landed, L-51.)*
 
 ### 11.8 MIGRATION entry — shape, and the two things it must state
 
@@ -2565,8 +2661,9 @@ is improvised, estimated, or fetched externally.
 **Declared-not-HALT** (unknown but carrying a *declared* disposition rather than a hole):
 ~~emitter world positions (DECLARED free parameters, per-sitting sets, § 10.6)~~ **STRUCK at the
 L-46 fold — emitter geometry is CITED-per-arena (`Maps.arc` decode, § 10.6 layer 1); what remains
-declared is the ARENA SELECTION over a cited 10-member enumeration, and the single player-spawn
-parameter** · mutator identities
+declared is the ARENA SELECTION over a cited 10-member enumeration *(F-14/L-51: properly 16
+(archive, map) pairs over 10 names; the selection carries `arena_archive`)*, and the single
+player-spawn parameter** · mutator identities
 (OUT-OF-MODEL, **six** glyphs confirmed, 25-pool prior, § 10.3) · `maxGroupSize` concurrency
 semantics (safe model, start anchor measured, § 10.6) · Shifting Sands host delegation (DUAL-BOUND,
 § 9.4) · `v_ref` movement reference (free parameter by bundle § 6.1 disposition — *L-46: now the
