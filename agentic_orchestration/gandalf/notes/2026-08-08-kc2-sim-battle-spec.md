@@ -177,18 +177,67 @@ Two handling constraints ride with it, both DB-CITED and both real inputs to how
 **Run speed:** the fixture reads **135 %** (ceremony § D). That is a modifier; the base rate in
 m/s is not in the read set → **HALT-2**.
 
-### 2.2 Truth boundary (R-KC2-7)
+### 2.2 Truth boundary (R-KC2-7) — and the locomotion model of record
 
 The player path and the circle sweep are **sim-owned causal truth** and are baton payload
-(§ 11.4). Presentation owns locomotion *aesthetics* — how a monster's approach between spawn and
-engagement is choreographed — within the constraints the baton fixes. The sim therefore emits the
-player's position at a stated sample rate, and the disc centre is that position: presentation must
-never re-derive the sweep, because re-deriving it would let the picture disagree with the damage.
+(§ 11.4). ~~Presentation owns locomotion *aesthetics* — how a monster's approach between spawn and
+engagement is choreographed — within the constraints the baton fixes.~~ **AMENDED at the L-46 fold
+(F-12 / L-46(a)): under a static board a monster's approach was aesthetic; under motion it is
+CAUSAL, because this kit's damage predicate is an AREA that sweeps (§ 2.1). A monster that crosses
+the disc while travelling takes ticks it would not take standing still, and a monster that arrives
+late is alive for ticks it would otherwise have missed.** The boundary therefore moves one notch:
+the sim owns **where every actor is, over time, to hit-test resolution**; presentation owns gait,
+footfall, turn-in-place, crowd micro-spacing, camera and VFX **within** the emitted motion. The sim
+emits the player's position at a stated sample rate, and the disc centre is that position:
+presentation must never re-derive the sweep, because re-deriving it would let the picture disagree
+with the damage. **The same non-re-derivation rule now binds monster motion** — with a baton
+consequence the schema does not yet carry (**R-LOCO-1**, § 10.9a G).
+
+**Locomotion model of record — `path-to-zone` THEN `pursuit-gate`** *(conductor ruling L-46(a),
+reasoning-boundary, **veto-open**; supersedes L-43 C-3's "monsters path to the player")*. The
+mechanism is SOURCE-CITED, in Crate's own comments:
+
+- **Non-ambush spawns are told to follow a set path to a named group.**
+  `sm_mod/game/events/survivalevent.lua:552` links each spawned proxy to a patrol-point group —
+  *"patrol point group the spawns should head to upon spawning"* / *"Execute the proxy to dispense
+  monsters and follow the set path"* — and **17/17 Crucible tier modules set
+  `patrolPoint = "PatrolPoint_Attack"`, all 200 waves.** The destination is arena-resident: a group
+  of **173 decoded patrol nodes**, median **18.85 m** from their own centroid (§ 10.6 layer 1).
+- **Pursuit of the player is a SEPARATE, gated controller behaviour** — not the spawn instruction.
+  Every band-A record points at a `ControllerMonster` DBR (**126 distinct, 0 missing**) declaring
+  `ViewDistance` **80.0 m** (868/895), `MaxPursuitDistance` **125.0 m** (868/895) and `PursuitTime`
+  **10 000 ms**.
+- **Ambush spawns are excluded from the patrol link by construction** — `IsAmbush() == false` gates
+  it. p05 is the ambush point (§ 10.6), and its measured radius (median **10.17 m** vs the ring's
+  **37.53 m**) agrees with that exclusion from a second, independent direction.
+
+**This shape is the HYPOTHESIS the lap TESTS, never an assumption it inherits.** The fixture's
+fingerprint is a clear time that barely tracks body count (**r = +0.154**) against a static-board
+sim that tracks it strongly (**r = +0.737**). A model in which the *monsters* travel is the less
+body-count-coupled family, which is why it is adopted — but adoption is a starting hypothesis with a
+pre-registered test (§ 10.9a F), and **T-1 is UNCHANGED** (standing safety #1). If the amended model
+also fails T-1, that is a finding, not a licence to widen the goalpost or to fit `v_ref`.
+
+**One discriminability caveat, stated here so nobody reads more into the ruling than the citations
+carry.** `ViewDistance = 80 m` **exceeds every measured emitter radius** (max 47.89 m) and
+`MaxPursuitDistance = 125 m` exceeds every arena's full diagonal — so for a player anywhere inside
+the arena the pursuit gate is **open from t = 0**, and the priority between "follow the set path"
+and "pursue the acquired target" lives in the executable, which no pin contains
+(**NAMED-ABSENT**). The two limbs are therefore near-indistinguishable for a centrally-camped
+player and diverge only for an off-centre one. § 10.9a A carries both limbs with the ruled default
+and the divergence condition; the lap reports which limb it ran.
 
 ### 2.3 Composition + telegraph law
 
 - Composes with the arena shell in § 10.6 (6 emitters, `placementExtents = 8.0` scatter, single
-  player spawn).
+  player spawn) — *amended L-46: the emitters now carry **cited per-arena radii** (ring median
+  37.53 m, p05 ambush 10.17 m), and the actors on them **move**; the movement rules are § 10.9a.*
+- **G-1h under motion [consequence, not a restatement].** The reconstruction bar below was
+  satisfiable from `{centre, radius, tick}` alone only because the board was static and each
+  actor's position was its emitted `spawn_x/spawn_y` forever. Once actors move, hit/no-hit is a
+  function of **two** trajectories, and the emitted set must permit reconstruction of the monster
+  one as well. This is a baton-schema consequence and is registered as **R-LOCO-1** (§ 10.9a G),
+  routed — not landed here, because § 11 is a signed cross-seam contract.
 - **BR-2 G-1h law applies to the player's kit for the first time:** the telegraph fields the sim
   emits must be sufficient for an independent function to reconstruct hit/no-hit from the telegraph
   alone. For a self-centred moving disc that means `{centre_position, radius, tick_time}` per tick —
@@ -499,10 +548,19 @@ eHP        = floor(base_life × M)                      floor, not round (round 
   § 8.1 — substituting the camera numerals closes 8/8 exact with unique solutions). The +3 above
   the proxy band is MEASURED on two independent proxies (`lv8_boss+` 106→109 · `lv7_uber` min
   103→106) and its **DB source is NAMED-ABSENT** (enumerated search: 32 variance records, 627
-  adjustment fields, `gameengine.dbr`, the survival Lua — no level term anywhere). Two
+  adjustment fields, `gameengine.dbr`, the survival Lua — no level term anywhere). ~~Two
   observationally-equivalent readings — (a) +3 offset · (b) `averagePlayerLevel` evaluating to 103 —
-  are non-discriminable from a single wave; **a nameplate read at any other wave separates them**
-  (galadriel follow-up in flight, L-33). The sim carries +3 as a **stated input, not a derived one**.
+  are non-discriminable from a single wave; a nameplate read at any other wave separates them
+  (galadriel follow-up in flight, L-33).~~ **DISCRIMINATED — L-37(a), the follow-up fired (third
+  extraction): reading (a) +3-offset WINS; the apl-evaluation reading is STRUCK.** Camera: level
+  does NOT track wave (w20 common 102/103 vs w158 common 104 — 2 levels across 138 waves); nemesis
+  **109 INVARIANT at w90 AND w160** (4/4, two arenas); within-wave same-TYPE spread up to 5 (w151
+  Carnivorous Plants 103 AND 107, ×4 consecutive-frame audit). Kill shot for (b): **champions read
+  103–104 at s1 (w40–80) but 109–112 at w160 under the SAME character** — a pool-blind
+  `f(apl, rank)` cannot produce the divergence, and any per-pool patch of (b) IS (a). Standing law:
+  nameplate/HP-equation level = the per-body `levelVarianceEquation` band draw over the **proxy's
+  own wave-invariant level fields** + the MEASURED +3. The sim carries +3 as a **stated input, not
+  a derived one** (DB source still NAMED-ABSENT — now multi-wave-measured).
   Summon levels: MEASURED per body (summoner's 109; Galakros's bloater 112 = +6); general rule
   NAMED-ABSENT.
 - **STRUCK from the old chain (L-33, DB-cited):** the per-record `charLevel` re-evaluation
@@ -522,8 +580,11 @@ eHP        = floor(base_life × M)                      floor, not round (round 
   `balancingadjustment_mp+difficulty_enemies01.characterLifeModifier[8] = +580` `[base]`, wired by
   `gameengine.monsterAttributePak`) + **G/100** (Gladiator wave cell per the CORRECTED § 10.7 law:
   **324** while fighting 160 = `characterLifeModifier[159]`, the cell labeled 160) +
-  **armorbase/100** (above). Multiplicative composition still overshoots ×2.9 (structural guard
-  retained); `characterLifeMultModifier` — the only multiplicative life term in the layer — is 0 at
+  **armorbase/100** (above). Multiplicative composition still overshoots — **×5.746 all-three-term,
+  ×2.664 two-term, every multiplicative reading scoring 0/8** per AC-6.5 *(~~×2.9~~ — the figure
+  formerly here was the C-1 mixed-chain artifact: multiplicative WITHOUT armorbase against additive
+  at the superseded G = 322; L-40 value-set sweep)* (structural guard retained);
+  `characterLifeMultModifier` — the only multiplicative life term in the layer — is 0 at
   solo on every difficulty.
 - **The wave-160 board, closed (8/8 EXACT):** 3,722,896 ×2 (Zantarin · Archmage Aleksander —
   **every `bio_boss_nemesis_01` nemesis is eHP-identical**; the "nemesis band" is a POINT; dedupe
@@ -585,7 +646,16 @@ in the read set.
    integer equality** — against the r2 CSV of record (`t21_wave160_board_ehp_r2.csv`, § 6.2b
    consumption rule applied: `nemesis_beast_01_p{2,3}*` rows excluded). Three structural guards, each
    of which must FAIL if violated:
-   - **Additive-M guard** — a multiplicative composition overshoots ×2.9 (M 28.83 vs 10.02);
+   - **Additive-M guard** — every multiplicative composition scores **0/8**; on the nemesis row
+     the all-three-term multiplicative reading overshoots **×5.746 (M 64.87 vs 11.29)**, the
+     two-term variant (armorbase added, G multiplied) ×2.664 (M 30.08). *(C-1 restatement, G-D
+     fold: the earlier "×2.9 (28.83 vs 10.02)" mixed chains — multiplicative WITHOUT armorbase
+     against additive at the superseded G = 322 — and survives only as a pinned superseded literal
+     inside the guard test, so neither reading of the old prose can be silently picked.
+     **Predicate-form lineage (D-W2 → L-40(d)):** this restatement also changed the guard's
+     predicate FORM, ratio-threshold → **0/8 score** — substance verified 0/8 under both forms,
+     but L-38(e)'s "binding predicate untouched" was false of the TEXT; the score-form is the
+     binding predicate of record and this clause is its lineage.)*;
    - **Floor guard** — `floor`, not `round`: rounding misses 5 of the 8 bodies by ±1;
    - **G-index guard** — G must read the cell **LABELED 160** (0-based `[159] = 324`); the
      index-inverted read (`[158] = 322`) scores **0/8**, all bodies −0.177 %.
@@ -953,7 +1023,8 @@ implements it.]** The zero-regulars limb remains the plausible engine behaviour,
 ```
 per spawn point, per wave, Gladiator, solo:
 
-if pool.ignoreGameBalance:                      # 74/632 pools — ALL of them boss pools
+if pool.ignoreGameBalance:                      # 74/632 pools (POP-A axis; Gladiator-slot 74/635, L-40(d));
+                                                #   73 boss + 1 trash -- was "ALL boss" (fact 3 strike)
     n_min, n_max = pool.spawnMin, pool.spawnMax
     c_min, c_max = pool.championMin, pool.championMax
 else:
@@ -977,7 +1048,10 @@ Five load-bearing facts inside that model:
    change."* This kills the ×2.20 reading that would have roughly **doubled** the densest calibration
    wave.
 2. **`spawnMaxModifier` is declared-but-unset** — the ceiling moves by the **+1 additive only**.
-3. **`ignoreGameBalance` exempts 74/632 pools, and ~~every exempt pool is a boss pool~~.** ~~No trash or
+3. **`ignoreGameBalance` exempts 74/632 pools** *(census-axis note, L-40(d): 632 = POP-A
+   all-difficulty rows; the Gladiator difficulty-slot axis this solo model walks = **635** (POP-B),
+   full = 637 (POP-C); numerator **74 invariant** across all three — the adopted E-2 probe § 2.1
+   had already published the axis before the L-38 flag)*, and ~~every exempt pool is a boss pool~~. ~~No trash or
    hero pool is ever exempt.~~ *(FALSE BY ONE — L-35 sidecar, DB-CITED: `celestialmonstrosity_t3.dbr`
    is `trash` with `ignoreGameBalance=True`, the sole non-boss exempt pool of the 74. The universal
    was a heuristic that survived until per-pool citation; "boss-pool" is a description of 73/74,
@@ -989,8 +1063,10 @@ Five load-bearing facts inside that model:
 5. **Waves 151–170 hero placements spawn THREE heroes each**, exactly: `championMin' = 1 + 1 + 1 = 3`,
    `championMax'` likewise. `championMinModifier`/`MaxModifier` are unset, so this term is purely
    additive — no rounding, no clamp. Over waves 151–170 that is an expected **63.0 champions against
-   292 regulars ≈ 18 %** of the wave population. *(G-I1/L-34: this pairing is the p06-OFF limb —
-   with p06 ON the measured expectation is 81.0 champions / 306.83 regulars; see AC-10.4 scoping.)*
+   292 regulars ≈ 18 %** of the wave population *(292 = pin-era denominator — basis note below)*.
+   *(G-I1/L-34: this pairing is the p06-OFF limb — with p06 ON the ~~measured~~ **informative**
+   expectation is 81.0 champions / ~~306.83~~ **290.17** regulars (count model of record, T-3/F-10;
+   306.83 was the L-34-era branch, superseded with its pin — D2-1 sweep); see AC-10.4 scoping.)*
 
 **No player-count scaling exists anywhere in the chain.** All 632 Crucible pools reference the
 identity `proxypoolequation_01.dbr` (`poolValue * 1` on all four outputs), and the multiplayer
@@ -1005,26 +1081,48 @@ clamp-min-down is adopted.** *(The cheapest full-green option — one screenshot
 wave with a pool of `base_min ≡ 4 (mod 5)` — was ASSESSED NOT-WORTH-A-LAP at L-14.7: 1.9 % ≈ 0.3 s on
 a median wave, dominated ×3 by the ±1.0 s timing floor.)*
 
-**U9-6 RESOLVED — p06 is ON; the ±8.4 % branch is RETIRED (L-21).** p06 is **player-opt-in**
+*(Denominator basis — D2-1 sweep annotation: the **292** in fact 5 and the residual above is the
+PIN-ERA regulars total, retained by the § 12 T-2 tolerance-on-target ruling — percentages take the
+PINNED target as denominator, goalpost fixed at pin time. F-10 superseded that pin; the count model
+of record runs **271.50** regulars p06-OFF operative / 290.17 informative-ON (T-3). The 1.9 % spread
+and the ≈ 18 % champion share are pin-era arithmetic kept with their pin's lineage, not live model
+output; any future re-pin restates both at its own pre-registration point.)*
+
+**U9-6 — ~~RESOLVED: p06 is ON (L-21)~~ → DEMOTED-OPEN (L-33(g)) → RULED OFF for the specified run
+(L-37(b), MEASURED-NULL, positive-controlled, veto-open).** p06 is **player-opt-in**
 (`survivalevent.lua`: *"final spawn point is for bonus spawns, player chooses to enable this"*;
 achievement + `SURVIVALMODE_GLADIATORBONUSSPAWNS` token corroborate), declared on 13 of the 20 waves
-151–170 worth +8.4 % (292.0 → 316.5). **galadriel's wave-160 body census measured the state:**
-max-simultaneous **5** distinct hostiles (4 skull-tier + 1 star-tier) at t = 850.87/852.87 — the
-5th body **is** the p06 hero slot (4-body branch excluded on two independent instruments; 6 distinct
-HP fingerprints across the wave, two pairs simultaneous). The rung-2 one-liner to Matt is **MOOT**;
-the sim runs **p06 = ON** as the fixture parameter, recorded in baton provenance.
+151–170 — worth +8.4 % on the pin-era totals (292.0 → 316.5). ~~galadriel's wave-160 body census
+measured the state: max-simultaneous **5** distinct hostiles (4 skull-tier + 1 star-tier) at
+t = 850.87/852.87 — the 5th body **is** the p06 hero slot~~ *(IDENTIFICATION SUPERSEDED — the third
+extraction read the 5th body's nameplate: **"Aleksander's Shard," CHAMPION-tier level-109 Aetherial
+SUMMON** (first non-boss icon +5.00 s ± 0.13; first `103,912` readout +4.93 s; icon→body binding
+STRONG not MEASURED, her stated honest limit), not a p06 hero. The p06 hero band 450,012–460,431 is
+**ZERO across all 5,146 wave-160 readouts** — and the band is not dead instrument: w158's 458,794
+one-star hero sits INSIDE it. Residual honestly carried: the census closes engaged on-screen bodies
+only.)* The sim runs **p06 = OFF** as the fixture parameter for the specified run, the ON limb
+carried informative — both recorded in baton provenance. The rung-2 one-liner to Matt remains
+**MOOT** (the ruling is measured, veto-open).
 
 **Design finding, transferable, parked for RDR difficulty design:** `spawnMinModifier` is
 **variance suppression, not volume**. Deterministic (width-0) pools go **68 % → 93 %** from Aspirant
 to Gladiator. Gladiator escalates by *removing the downside roll*, not by raising the cap — the
 player experiences "always the bad case" instead of "sometimes a worse case."
 
-### 10.6 Arena shell — 6 parameterised emitters, positions DECLARED
+### 10.6 Arena shell — 6 parameterised emitters — provenance TWO-LAYER (L-46(b)): emitter geometry CITED-per-arena, arena selection DECLARED
 
-**Arena geometry is mostly NOT DB-resident, and the sim must not go looking for it.** The database
+~~**Arena geometry is mostly NOT DB-resident, and the sim must not go looking for it.** The database
 gives structure; it does not give coordinates. `Levels.arc` holds the geometry and **zero**
-`.wrl`/`.map`/`.lvl` files exist in the fetch. A field-name sweep across all four survival archives
-for `position|worldpos|coord|spawnloc|location|levelname|mapname` returns only UI-bitmap offsets.
+`.wrl`/`.map`/`.lvl` files exist in the fetch.~~ **SUPERSEDED at the L-46 fold — the geometry WAS
+resident; one archive sat outside the read set.** legolas's citation probe decoded Edition-I
+`Maps.arc`: **10 Crucible arenas** (`tagSurvivalArena_01..10`, 7,473 placements), per-arena emitter
+rings with **ring median 37.53 m** vs **p05 ambush median 10.17 m** (3.7× separation); the build's
+uncited 30.0 m sits at the ring distribution's **9.3rd percentile** → **F-12a re-graded
+STRUCTURAL**. The database gives structure AND coordinates; what it does not give is **which arena
+a sitting ran** (s2 favours `survivalworld_a` — lean, not citation; selection stays DECLARED). The
+pre-L-46 field-name sweep (`position|worldpos|coord|spawnloc|location|levelname|mapname` →
+UI-bitmap offsets only) was faithful over the four survival archives; the claim died when the read
+set widened — the F-10 lesson wearing geometry clothes.
 
 | Element | Value | Source |
 |---|---|---|
@@ -1045,10 +1143,20 @@ t + 4.0 s p05 start ×3 (s1 waves 4/6/13, wave 13 clean); the 3 s intra-drip cad
 minimap instrument's resolution — the adopted model stands unfalsified with its start anchor
 MEASURED.**
 
-**Emitter positions: provenance DECLARED, footage-estimable, never DB-hunted (L-10d).** The sim
-carries six position parameters and one player-spawn parameter as **free, declared** inputs. They
-intersect R-KC2-7 cleanly: the sim owns causal spatial truth **on a declared-parameter arena**, and
-the baton records the parameter values it ran with so the Godot session builds the same arena.
+**Traversal bounds (L-44(d), measured) — the readout is ENGAGEMENT, not emitter departure.** The
+fourth extraction's first-arrival timestamps measure spawn-to-engagement lags of **3.5–6.1 s**
+across the censused waves — the empirical band that bounds the arena's one free timescale until an
+engine m/s citation lands (HALT-2; no such citation exists — see the L-46 closure there). Evidence
+anchors ride L-44(d) by reference.
+
+**Emitter positions: provenance TWO-LAYER (L-46(b) — supersedes L-10d's "never DB-hunted").**
+Layer 1, **emitter geometry: CITED-per-arena** — the Maps.arc decode makes per-arena ring + ambush
+radii database facts, not free parameters. Layer 2, **arena selection: DECLARED** — which of the
+10 arenas a sitting ran is not DB-decidable (s2 favours `survivalworld_a`; lean). The sim carries
+the selected arena's cited geometry plus one player-spawn parameter; **`v_ref` is the sole free
+scalar** (L-46), traversal-bounded 3.5–6.1 s (above). This intersects R-KC2-7 cleanly: the sim
+owns causal spatial truth on a **cited-geometry, declared-selection** arena, and the baton records
+`arena_id` + the geometry provenance it ran with so the Godot session builds the same arena.
 
 **Footage-estimated bearings (L-21, grade ESTIMATED-FOOTAGE ± 15°) — TWO ARENAS, NEVER POOLED.**
 galadriel's spawn-direction extraction shows the two sittings ran **different arenas**: s1 arrivals
@@ -1056,6 +1164,47 @@ bear ≈ 3.0 / 5.2 / 6.9 / 9.6 o'clock; s2 wave-151 bears ≈ 9.9 + 2.2, and wav
 bearings read 1.8 / 10.5 / 4.5 / 7.5. **Position parameters are per-sitting sets; calibration bands
 load their own sitting's set; the baton pins the arena it ran** (`arena_id` + the six bearings +
 player spawn). Pooling bearings across sittings is a spec violation, not a modelling choice.
+
+**Motion hook — how the movement model consumes this geometry (§ 10.9a).** The two-layer ruling
+changes what the sim *reads*, so state the read precisely:
+
+- **Per selected `arena_id`, the sim loads SIX radii, not one.** Five ring radii (p01–p04, p06) and
+  one ambush radius (p05), from the decoded per-arena placement table
+  (`legolas/notes/2026-08-08-kc2-citation-microprobe/kc2_crucible_emitter_geometry.csv`,
+  sha256 `ece0c345…`, 332 rows × 15). The build's `Arena.emitter_radius_m = 30.0` is **retired** —
+  not re-valued. *One radius cannot describe six emitters whose ring : ambush ratio is 3.7×* is the
+  F-12a defect in one line.
+- **p01 is keyed PER TIER.** Spawn point 1 is placed per tier, spread up to **17.36 m** within a
+  single arena across its 15–17 tier placements; band-A (tiers 1–10) spread runs 0.31–16.39 m by
+  arena. The sim reads `p01_tier<NN>` for the tier it is instantiating, never a per-arena p01 mean.
+- **The reference frame is the `PatrolPoint_Attack` centroid, not `playerspawnpoint`.** The player
+  spawn is the level ENTRY and sits tens of metres outside the arena (arena b: player-spawn Z 26.2
+  vs patrol centroid Z 64.7). A sim that anchors on the player spawn imports a level-entry offset
+  into every traversal.
+- **The convergence destination is a NODE SET, not a point** — 173 `PatrolPoint_Attack` nodes,
+  median **18.85 m** from their own centroid (max 30.07). Node assignment per spawn is
+  **NAMED-ABSENT**; § 10.9a A declares the assignment rule and the baton records which one ran.
+- **Geometry provenance travels with the numbers.** Whatever `arena_id` the sim declares, it
+  records the arena's cited radii and their source alongside it, so a later reader can tell a
+  *cited* radius from a *declared* selection. The lineage note: `Maps.arc` is **Edition-I**
+  (Edition-II ships no `.arc` at all — § 13 hygiene row, widened at L-46(e)); the decode is
+  first-of-kind and was **solved, not assumed** (string-table indices valid 16/16 files,
+  independent patrol-group cross-check 16/16 counts, 155/173 positions to 3 dp).
+- **Reconciliation with the per-sitting rule above.** "Position parameters are per-sitting sets" now
+  reads: **the ARENA SELECTION is per-sitting; the positions inside a selected arena are cited.**
+  Pooling remains a spec violation — but the thing that must not be pooled is now a choice among
+  ten cited geometries rather than a free bearing set.
+
+**MO-5 re-check rides this hook (F-12/C-4).** The § 12 MO-5 sim-side PASS was re-graded
+*provisional-on-geometry* at L-43 because it was earned on the uncited 30.0 m radius. The flag
+clears only when the floor is re-demonstrated **under the selected arena's cited radii**, and the
+direction is not neutral: the cited ring is **~25 % larger** than the retired float, so the
+traversal leg lengthens and the floor is pushed **up**, while removing the player-tours-the-board
+term pushes total cycle time **down**. The two moves are independent and must be reported
+separately — a floor that passes because traversal grew is not the same result as a floor that
+passes because the model is right. **If the re-check UNDERSHOOTS the pinned ~7.0 s, that is a
+finding against `v_ref` (too fast) or against the arena selection — never a licence to re-pin
+MO-5**, whose measured value stands (7.03 / 7.05 / 7.07 s observed).
 
 ### 10.7 Wave scaling — the U-8 emission is the HP/damage basis
 
@@ -1156,7 +1305,7 @@ post-death menu view, corrected on the hourglass + UI-clear evidence).
 | **p02** | `poolsbossgdx1/nemesis_all_noaetherialvanguard` (`1-1`) | **1 of 5** — **Kubacabra (the fixture's MEASURED draw — F2 unique-bio fingerprint, L-29)** · Grava'Thul · Reaper of the Lost · The Underking · Reaper of Rot | **True — exempt** |
 | **p03** | `poolsbossgdx1/nemesis_wendigooraetherialvanguard` (`1-1`) | **1 of 2, 50/50** — **Archmage Aleksander** · Reaper of the Lost | **True — exempt** |
 | **p04** | `aetherialcolossus_galakros` (w 100) **/** `korvaaktombguardian` (w 100) | 1 of 2 pools, 50/50 — Galakros · The Steward | field absent → **takes the additives** |
-| **p06** | `poolsherogdx1/wendigocannibal_hero`, `championChance 100 %` | 1 of 5, uniform — **fixture state DEMOTED-OPEN (L-33(g)): the L-21 census leg is STRUCK** — the 5th initial-window body is a SUMMON, and the corrected hero band 450,012–460,431 has zero census hits; `u9_bonus_spawn_state` rides the galadriel star-tier follow-up | **False (explicit)** → **takes the additives** |
+| **p06** | `poolsherogdx1/wendigocannibal_hero`, `championChance 100 %` | 1 of 5, uniform — **fixture state DEMOTED-OPEN (L-33(g)): the L-21 census leg is STRUCK** — the 5th initial-window body is a SUMMON, and the corrected hero band 450,012–460,431 has zero census hits; `u9_bonus_spawn_state` rides the galadriel star-tier follow-up **(→ since RULED OFF — L-37(b) MEASURED-NULL, positive-controlled; F-10 names OFF the operative limb)** | **False (explicit)** → **takes the additives** |
 
 **There is no p05 — no ambush drip in the POOL structure. All pool spawns arrive together.**
 *(The camera's t ≈ 862 late cohort (L-30) is NOT a p05 refutation — the DB fact stands; mechanism
@@ -1172,8 +1321,8 @@ now NAMED on camera):**
   unengaged/off-viewport bodies leave no readout). **≥ 11 engaged bodies** across the 25.88 s
   window. The initial-spawn window's max-simultaneous 5 (t = 850.87/852.87) reads as the **4 pool
   spawns + an early summon** (L-33(g) — the p06-ON reading is STRUCK: no corrected-band hero value
-  appears anywhere in the census; whether p06 rolled at all is DEMOTED-OPEN, since engaged-census
-  closure cannot see an unengaged hero); the death window carries **≥ 6 simultaneous** (twins +
+  appears anywhere in the census; whether p06 rolled at all is DEMOTED-OPEN *(→ subsequently RULED OFF — L-37(b), L-40 sweep)*,
+  since engaged-census closure cannot see an unengaged hero); the death window carries **≥ 6 simultaneous** (twins +
   cohort).
 - **The board, named (L-30):**
 
@@ -1314,12 +1463,37 @@ a pooled mean is fitting a bimodal quantity (§ 12 pins the comparison classes a
    scoping, L-34: the champion expectation is limb-dependent — measured p06 OFF → 63.00, p06 ON →
    **81.00**; § 10.5 fact 5 always paired 63.0 with the 292-regular OFF limb, so the build's reading
    was defensible; the ON-limb 81.0 is a measured-consistency figure with NO camera pin — the
-   fixture's own p06 state is DEMOTED-OPEN per L-33(g), which is why both limbs are carried)*. *(L-35 annotation: numbers stand
+   fixture's own p06 state is DEMOTED-OPEN per L-33(g), which is why both limbs are carried —
+   *tense frozen at L-34 writing; the state has since been RULED OFF (L-37(b), G-D annotation
+   below) — D2-1 sweep-extension catch, L-47*)*. *(L-35 annotation: numbers stand
    as written pending a pre-registered G-D re-evaluation under the citation-complete exemption
    sidecar — the probe measures the exemption set at ≈ 20.7 bodies over the band vs the 4.0 these
    totals accounted; both p06 limbs are CARRIED because the fixture's p06 state is DEMOTED-OPEN
-   (L-33(g)); F-9's empty-roster `+1` question may perturb further. Re-evaluation is by citation,
-   never by fitting — § 4.2.)*
+   (L-33(g)) *(tense frozen at L-35 — since RULED OFF, L-37(b) below; L-47 sweep-extension
+   catch)*; F-9's empty-roster `+1` question may perturb further. Re-evaluation is by citation,
+   never by fitting — § 4.2.)* *(G-D RE-EVALUATION EXECUTED + **F-10**, fold 2026-08-08: p06 is now
+   **OFF-MEASURED** for the specified run (L-37(b) — hero band 450,012–460,431 ZERO across all
+   5,146 wave-160 readouts, positive-controlled by w158's in-band 458,794; **the OFF limb is the
+   operative limb**, the ON limb rides informative). Under the citation-complete sidecar + the
+   ~~on-camera-confirmed~~ **pre-registered** no-op *(re-graded L-40(b): camera NON-DISCRIMINATING
+   at w160 — CORROBORATION NOT AVAILABLE; the no-op stands on the L-35(e) pre-registration)* (F-9
+   status / L-37(c)) the model of record returns **271.50** regulars
+   p06-OFF (pin 292.0 → **MISS**, Δ −20.50 / 7.02 %) and **290.17** p06-ON (pin 316.5 → **MISS**,
+   Δ −26.33 / 8.32 %); champions **63.00 EXACT** (structural: all 28 citation-flipped band pools
+   carry `championChance = 0`, so the champion expectation is provably invariant under the
+   exemption correction). **Both regular-limb pins are re-graded SUPERSEDED-PROVENANCE per finding
+   F-10** — they are faithful evaluations of the roster-blind pin-era model, not measurements of
+   the game. The misses stay pinned as named findings in the tests; the **CITED + no-op model is
+   the count model of record for the baton**; re-derivation of pins happens only via F-10's
+   corroboration path, never by fitting.)* *(F-13 fold, L-47 — second annotation, first
+   EMPIRICAL contact: the model of record's per-wave regular components are falsified at support
+   on w152 (17 > 7 deterministic) / w153 (23 > 18) / w157 (15 > 14); the band re-grades to a
+   RANGE — 248.83 … 271.50 (record, unchanged) … 289.62 (measured floor) … 632–772 (not
+   endorsed); the excess is a second low-HP population — the trash limb is INCOMPLETE, not
+   WRONG — mechanism UNDECIDABLE among four named-never-fitted candidates. The champion pin's
+   "63.0 EXACT" claim is now **empirically corroborated for the first time** (w157 6/6;
+   star-furniture ≠ champion count, F-13 § 1.4). No re-pin in-run; the w153 sub-50k decider is
+   commissioned; baton `count_model` carries F-13 by name.)*
 5. **AC-10.5** Monster life scaling while fighting wave *w* on Gladiator equals the CSV's 0-based
    `(w−1, gladiator)` row = the row **LABELED *w*** per the § 10.7 corrected array-lookup law — in
    particular **324 while fighting wave 160**: not 322 (index-inversion guard — the L-29 error;
@@ -1490,15 +1664,30 @@ baton/v1
 ├── spec_pin     { spec_note, spec_sha256, charter_commit, ledger_commit, pin_state }        [R-7]
 │                # pin_state ∈ {COMMITTED, UNCOMMITTED-WORKING-COPY}
 ├── sim_pin      { engine_version_sha, engine_version_full, engine_tree_state,
-│                  sim_module_version, seed, rng_algorithm }                            [R-8, R-9]
+│                  sim_module_version, seed, rng_algorithm,
+│                  tree_state_policy, tree_state_untracked_entries_outside_src }  [R-8, R-9, CD-2]
 │                # engine_tree_state ∈ {clean, dirty}; "unknown" sha is a HARD STOP
+│                # CD-2 fields (L-42): tree_state_policy — string enum, NULLABLE default null
+│                #   (pre-ruling batons load honestly as "policy not recorded"); five values,
+│                #   exhaustive by construction: "code-surface-v1" (ruled default: dirty ⟺ any
+│                #   tracked modification OR any untracked path under src/) | "any-change-v1" |
+│                #   "tracked-only-v1" | "declared-override" (fixture hook, log.warning, never
+│                #   selectable) | "unavailable" (git unreachable → forced dirty, never selectable).
+│                # tree_state_untracked_entries_outside_src — int ≥ 0, NULLABLE; set only under
+│                #   code-surface-v1. ENTRIES not files (porcelain -unormal collapses untracked
+│                #   dirs). See F-11 (§ 14): code-surface-v1 grades THIS repo dirty by construction.
 ├── config
 │   ├── fixture   { name: "EoRWarlGuts", build_of_record: "b28gD0KN",
 │   │               eor_rank_total: 26, identity_grade: "MEASURED",
 │   │               identity_envelope: "+3.9%/-0.5%" }
 │   ├── encounter { difficulty: "gladiator", start_wave_label, first_wave_fought,
 │   │               lives: 1,
-│   │               fixture_p06_state: true,     # MEASURED ON (L-21) — provenance side  [M-1]
+│   │               fixture_p06_state: false,    # RULED-OFF (L-37(b) MEASURED-NULL; F-10)  [M-1]
+│   │               #   -- was `true # MEASURED ON (L-21)`: pin-era claim; the L-40(e) value-set
+│   │               #      sweep missed this SPELLING (owned L-43 — sweep sets must enumerate all
+│   │               #      historical spellings). TYPE GAP (gamora beat-3 flag → star-lord rider):
+│   │               #      bool + `_ac_11_4g`'s RESOLVED/UNKNOWN mapping cannot express RULED-OFF;
+│   │               #      schema extension queued, not landed here.
 │   │               run_p06_enabled: <bool>,     # MANDATORY, NON-NULL — what the run did [M-1]
 │   │               defenses: [], blessings: [], mutators: "OUT-OF-MODEL" }
 │   ├── kit       { drain_unit: "PER_TICK", drain_rate_per_s: 176.4,            # PINNED  [L-22]
@@ -1649,11 +1838,16 @@ event_type ∈ { spawn, engage, damage_dealt, dot_tick, heal_tick, death,
     arena it ran (`arena_id` + six bearings + player spawn). **Pooling bearings across sittings is a
     spec violation, not a modelling choice** — and `bearing_grade` carries ESTIMATED-FOOTAGE ± 15°
     onto the frame so nobody reads a declared bearing as a measured one.
-12. **`config.encounter.bonus_spawn_p06` splits [M-1], and the fixture side is now MEASURED.**
-    `fixture_p06_state: true` records the L-21 census result (max-simultaneous **5** hostiles at
-    t = 850.87 — the 5th body *is* the p06 hero slot; the 4-body branch excluded on two independent
-    instruments). `run_p06_enabled` is mandatory and non-null — the run is not unknown to itself, and
-    at the § 10.8 showcase p06 is the difference between 5 raw bodies and 4.
+12. **`config.encounter.bonus_spawn_p06` splits [M-1], and the fixture side is ~~MEASURED~~
+    RULED-OFF.** `fixture_p06_state: false` records the L-37(b) ruling — MEASURED-NULL (hero band
+    zero across 5,146 readouts, positive-controlled; F-10 OFF-operative). ~~`fixture_p06_state:
+    true` records the L-21 census result (max-simultaneous **5** hostiles at t = 850.87 — the 5th
+    body *is* the p06 hero slot; the 4-body branch excluded on two independent instruments)~~
+    *— struck at the D2-1 sweep: the 5th-body leg was itself STRUCK at L-33(g), and L-37(b)
+    superseded the ON reading; this item was asserting the struck state as live.* `run_p06_enabled`
+    is mandatory and non-null — the run is not unknown to itself — and at the § 10.8 showcase the
+    OFF ruling is operative: **4 raw start bodies, not 5**; a run electing p06 ON departs from the
+    fixture state and this field pair says so.
 
 **Sample rate — ANSWERED by drax, no longer a consult question [M-27].** `player_path` and
 `circle_sweep` both run the **12.25 Hz tick grid, stride 1, across the whole run including IDLE
@@ -1691,9 +1885,10 @@ provenance:
   u8_closure_state:            CLOSED    # ladder = 200 waves; first_wave_fought = label + 1
   u9_closure_state:            CLOSED
   u9_intra_order_residual_pct: 1.9       # intra-order + rounding + clamp, waves 151-170
-  u9_bonus_spawn_state:        DEMOTED-OPEN  # L-33(g): the L-21 census leg STRUCK (5th body = summon;
-                                             #   corrected hero band has zero census hits); rides the
-                                             #   galadriel star-tier follow-up -- was RESOLVED
+  u9_bonus_spawn_state:        RULED-OFF     # L-37(b): MEASURED-NULL — hero band 450,012-460,431 ZERO
+                                             #   across all 5,146 wave-160 readouts, positive-controlled
+                                             #   (w158 in-band 458,794); F-10 names OFF operative, ON
+                                             #   informative -- was DEMOTED-OPEN (L-33(g)) -- was RESOLVED (L-21)
   u9_bonus_spawn_branch_pct:   RETIRED   # the +-8.4% branch is DEAD, not carried as a tolerance
   drain_unit:                  PER_TICK  # PINNED L-22; enum frozen, hook retained -- was drain_fork
   drain_rate_per_s:            176.4     # @ 196% AS, client-verbatim = 16.0 x 12.25 x 0.90
@@ -1926,7 +2121,7 @@ declaration of a choice already made, or one nullable column under a row-array l
 
 | ID | Ask | Merged schema element | Disposition |
 |---|---|---|---|
-| M-1 | split `bonus_spawn_p06` | `config.encounter.fixture_p06_state` **+** `run_p06_enabled` | **ADOPTED** — fixture side now `true`, MEASURED (L-21) |
+| M-1 | split `bonus_spawn_p06` | `config.encounter.fixture_p06_state` **+** `run_p06_enabled` | **ADOPTED** — fixture side ~~`true`, MEASURED (L-21)~~ **`false`, RULED-OFF (L-37(b) MEASURED-NULL; F-10)** *(D2-1 sweep)* |
 | M-2 | rotation-speed constant | `config.kit.rotation_speed_multiplier: 0.35` | ADOPTED |
 | M-3 | release ≠ tail expiry | `event_type` members `channel_release` / `channel_expiry` | ADOPTED — `channel_end` retired |
 | M-4 | tail + Soulfire constants | `config.kit.channel_tail_s` · `config.kit.soulfire{}` | ADOPTED |
@@ -1979,8 +2174,8 @@ sidecar or NDJSON split at v1.
 | T-1a | *instrument precision* | ± 0.05 s / transition (± 0.07 s / interval) | **NOT the pinnable number** — *"the instrument is far finer than the thing it is pointed at"* | do not pin |
 | T-1b | badge-vs-last-kill lag | ≤ 1 game tick, same-signed | **contained inside T-1 — never added to it** | contained |
 | T-1c | s2 band | ± 1.0 s, by deliberate under-claim | n = 9 has no power to claim finer | under-claimed |
-| **T-2** | count model — intra-order + rounding + clamp | **1.9 %** (5.5 monsters on 292, waves 151–170) | wave-total counts | declared residual |
-| **T-3** | count model — **U9-6 bonus spawn** | **RESOLVED: p06 = ON, measured** (L-21 census) | branch RETIRED — counts run the p06-on table | **closed**, no tolerance carried |
+| **T-2** | count model — intra-order + rounding + clamp | **1.9 %** (5.5 monsters on 292, waves 151–170) *(C-2 ruling, G-D fold: the percentage takes the **PINNED TARGET** as denominator — tolerance-on-target, goalpost fixed at pin time; re-deriving the band from the model's own output each lap would let the goalpost track the model, the drift this table exists to prevent. Margins of record at the G-D re-evaluation: ±5.55 on 292.0 / ±6.01 on 316.5 — both regular limbs MISS under either denominator reading, so the ruling moves margins, never verdicts. With F-10 the 292-anchored band is superseded together with its pin; any future re-pin restates T-2 against the newly pinned value at its own pre-registration point.)* | wave-total counts | declared residual |
+| **T-3** | count model — **U9-6 bonus spawn** | ~~RESOLVED: p06 = ON, measured (L-21 census)~~ **RULED OFF — L-37(b) MEASURED-NULL** (hero band zero across 5,146 readouts, positive-controlled; F-10 OFF-operative) | ~~counts run the p06-on table~~ counts run the **p06-OFF model of record 271.50 / 63.00** (ON informative 290.17 / 81.00) | **closed** — closure cites **L-37(b)**, never L-21 *(row re-annotated at the L-40 sweep — this was the D-W3 stale sibling)* *(F-13, L-47: the OFF-limb REGULAR figure 271.50 is CONTESTED-with-band — falsified below at ≥ 289.62 (measured floor); carried as a **floor with a named finding** per the F-10 pattern, NOT re-pinned in-run. Champion **63.00 untouched** — unfalsified on all five discriminating waves, EXACT at w157 (6/6); star-furniture ≠ champion count. The p06-state closure THIS row records is unaffected.)* |
 | **T-4** | energy drain rate | **PINNED: PER_TICK, 176.4 / s @ 196 % AS** (client-verbatim, L-22) | drain rate now BINDS alongside ceiling/reserve; Soulfire term declared-separate (§ 3.1) | **closed** — fork collapsed |
 | **T-5** | devotion envelope | error-bar **classes**, not a scalar: defensive-trigger (opposition-dependent) · dual-bound (Shifting Sands ~200×) · piloting-parameter | envelope disclosure | structural (L-3) |
 | **T-6** | monster damage | **upper bounds only** (G-2 rank binding unread) | INFORMATIVE rows only | declared ceiling |
@@ -1995,7 +2190,7 @@ sidecar or NDJSON split at v1.
 | **MO-2** energy reservation | **982 — exact-integer** (BINDING-and-derived; bundle § 3.3 ledger, L-26) | `PIN` — derived from DB, not hard-coded |
 | **MO-3** s2 in-combat energy | **1477 / 2576** | `PIN` |
 | **MO-4** HP orb / max health | **20,005** | `PIN` — two independent instruments agree (sheet + in-combat orb) |
-| **MO-5** cycle floor | **~7.0 s** (7.03 / 7.05 / 7.07 observed) | `PIN` as a **floor**, one-sided |
+| **MO-5** cycle floor | **~7.0 s** (7.03 / 7.05 / 7.07 observed) | `PIN` as a **floor**, one-sided — *beat-3 sim-side PASS re-graded **provisional-on-geometry** (L-43, F-12/C-4): the PASS consumed the uncited 30.0 m radius (F-12a); the measured pin itself stands* |
 
 **Ordering for G-D (charter Phase D):** micro-oracles (direct-binding) → s1 ramp 1→93 through the
 envelope (BINDING) → s2 one-sided inequality (INFORMATIVE tripwire: sim kit-alone at 151–160 must
@@ -2021,7 +2216,7 @@ is improvised, estimated, or fetched externally.
 | # | Value | Outcome (L-26) |
 |---|---|---|
 | **HALT-1** | Shield lifetime for `Skill_BuffSelfShield` | **CLOSED** — the `.tpl` declares **no duration field at all** (nor its four includes); clone of `Skill_BuffSelfToggled.tpl`. **Absorb-POOLS, not timed buffs.** Bonus: Arcane Barrier's 2900 is **type-gated away from Physical** → § 9.4 envelope re-runs its row (merge-pass touch) |
-| **HALT-2** | Player base movement rate (m/s); `delayMovement` magnitude | **CLOSED-BY-TYPE** — `characterRunSpeed = 0.92` is a *dimensionless multiplier* (1,467-record census: median/mode 1.0); engine m/s reference **NAMED-ABSENT**; `delayMovement` is `bool`, no magnitude exists. **Adopted disposition: declared free parameter `v_ref`** (bundle § 6.1 recommendation), calibrated at D against traversal times; fixture is AT the run-speed cap (135 = `playerRunSpeedCapMax`) |
+| **HALT-2** | Player base movement rate (m/s); `delayMovement` magnitude | **CLOSED-BY-TYPE** — `characterRunSpeed = 0.92` is a *dimensionless multiplier* (1,467-record census: median/mode 1.0); engine m/s reference **NAMED-ABSENT**; `delayMovement` is `bool`, no magnitude exists. **Adopted disposition: declared free parameter `v_ref`** (bundle § 6.1 recommendation), ~~calibrated at D against traversal times~~ *— C-2 annotation (L-43): calibration **SUSPENDED-PENDING-LOCOMOTION**; beat-3 broke its precondition (static board ⇒ kill term ≈ 0 ⇒ calibrating v_ref = fitting the wrong mechanism; F-12 negative control: fitted v_ref ≈ 10.5 m/s = 2.63× the declared class buys only the mean, 75/92 still fail). `v_ref` stays DECLARED; calibration re-enters after the locomotion lap. Degeneracy: time ∝ radius/v_ref — (radius, v_ref) is ONE free timescale; an engine m/s citation (Lua lane, L-9) collapses it*; fixture is AT the run-speed cap (135 = `playerRunSpeedCapMax`) *(L-46 closure: the m/s hunt is CLOSED NAMED-ABSENT-CONFIRMED, census-complete — 260 Lua files / 97,907 lines with zero speed call; 18,999 template Variables, no base run speed; `gameengine.dbr` caps are percentages. The METRE is engine-declared — four template fields say meters/second — and the degeneracy half-collapses the measured way round: RADIUS becomes CITED-per-arena (`Maps.arc` decode, § 10.6 two-layer ruling), leaving **v_ref the sole free scalar**, traversal-bounded 3.5–6.1 s (L-44(d)). Unmodelled surfaces registered as lap inputs: `characterRunSpeedJitter` (median 15.0, n = 810) · per-record `controller` surface (126 × 27).)* |
 | **HALT-3** | P(crit) from OA vs DA | **CLOSED** — `records/game/combatformulas.dbr` **was in the base archive**: `probabilityToHitEquation` verbatim; crit = **PTH-band** mechanic (6 thresholds → ×1.0…×1.5, `pthMinimum = 55`). Band *semantics* INFERRED → gamora proves by test (§ 4.2) |
 | **HALT-4** | Damage application order | **PARTIAL — ORDER-1 (convert-then-modify) FAVOURED** (1.26× vs 1.84× residual), not proven: 3.2 % signal under ~20 % un-enumerated devotion/component remainder. Weapon term **CONFIRMED** (solved w = 0.671 vs DB 0.64, +4.8 %); **crit proven EXCLUDED** from the sheet window; missing `× (1 + cunning/245)` = ×5.98 supplied by `physicalDamageEquation`. Spec declares ORDER-1; **residual enumeration = G-D contingency alongside HALT-7** |
 | **HALT-5** | ≈ 358 unattributed reservation | **CLOSED-EXACT — 982 = 982** (§ 3.2 ledger; Presence of Might 300; Divine Mandate reserves 0; `characterManaLimitReserveModifier` dead corpus-wide) |
@@ -2037,7 +2232,8 @@ world positions (DECLARED free parameters, per-sitting sets, § 10.6) · mutator
 semantics (safe model, start anchor measured, § 10.6) · Shifting Sands host delegation (DUAL-BOUND,
 § 9.4) · `v_ref` movement reference (free parameter by bundle § 6.1 disposition) · Soulfire
 cost-term effective magnitude (declared-separate, fixture-sustain-bounded, § 3.1). *(Former members
-CLOSED and struck: energy-drain unit → PINNED L-22; U9-6 → measured ON L-21.)*
+CLOSED and struck: energy-drain unit → PINNED L-22; U9-6 → ~~measured ON L-21~~ **RULED OFF
+L-37(b)** — closure cites L-37(b), never L-21 (T-3's own rule; D2-1 sweep).)*
 
 **Corpus hygiene (L-26):** the Edition-II pin ships **no `templates.arc`** — bundle `.tpl` citations
 are graded `TPL-CITED (Edition-I, freshness-probed)` (all 19 field names probed present; numeric
@@ -2205,7 +2401,11 @@ so the play-test directions are not re-cited as a count authority.
 > own-modifier term) and one was missing (**armorbase**). The corrected four-link chain closes
 > **8/8 bodies at ± 0** (§ 6.2b). The *"fighting 160 reads label-159's 322"* join quoted above is
 > the L-29 lookup-law error — corrected at L-33 to the cell LABELED 160 (**324**), § 10.7. Its
-> −0.004 % was two ~12 % errors cancelling (microprobe § 9.1).
+> −0.004 % was two ~12 % errors cancelling (microprobe § 9.1). *(L-40 sweep extension: the quote's
+> "overshoots ×2.9 and fails AC-6.5" is the same-era **mixed-chain artifact** — multiplicative
+> WITHOUT armorbase against additive at the superseded G = 322 (C-1 restatement, § 6.2b guard
+> lineage); the guard of record is AC-6.5's **0/8 score**, ×5.746 all-three-term. The quote stays
+> as RECORD.)*
 
 galadriel's census read three boss-class HP fingerprints on wave 160: **3,722,896 · 2,955,796 ·
 2,295,755.** The L-17-corrected model gives `308,685 × (1 + 3.24) ≈ 1,308,800` — residuals
@@ -2248,7 +2448,7 @@ not edited in her seam.)*
 > "which ×-group form" was never a real degree of freedom; the "hero band" bodies are **SUMMONS**
 > (Bileeater ← Galakros skill12 · Death Revenant ← Zantarin skill6), so the hero-record audit
 > target dissolves — and the corrected hero band **450,012–460,431 has zero census hits** → p06
-> **DEMOTED-OPEN** (L-33(g)); Kubacabra's phase wiring is answered — **single-phase DB-CITED**
+> **DEMOTED-OPEN** (L-33(g)) *(→ since RULED OFF — L-37(b)/L-40 sweep)*; Kubacabra's phase wiring is answered — **single-phase DB-CITED**
 > (`[sm1]` whole-record overlay deletes the death-spawn chain, C-9); the nameplate displayed level
 > **is the real spawn level** (`L = levelVarianceEquation(apl) + 3`; modelled 118.6 was a
 > degeneracy artifact). Source-of-record: **r2 CSV** (`t21_wave160_board_ehp_r2.csv`, § 6.2b
@@ -2334,6 +2534,306 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   already decide whether any un-rostered trash body appears.
 - **Consumers:** § 10.5 count model · AC-10.4 (annotated) · gamora wave instantiation (G-D wiring
   re-lap) · baton `count_model` provenance.
+- **Status at the G-D fold (2026-08-08):** the footage limb of the resolution path **FIRED** —
+  galadriel's third extraction (L-37(c)): the wave-160 start cohort is **4 skulls, ZERO stars
+  through +4.75 s**, and no un-rostered trash body appears (the r2 census closes 8/8 camera-named
+  bodies with multiplicities); w151–159 ALL show stars at matched offsets (w159 control: 4 skulls
+  + 2 stars), so the property is w160's, not the detector's. ~~**No-op-on-empty
+  CONFIRMED-ON-CAMERA** for the engaged window.~~ **RE-GRADED at Gate-2 Phase-D (adopted L-40(b)):
+  NOT DISCRIMINATED ON CAMERA.** w160's only non-exempt empty-regular-roster alternative sits at
+  spawn point 6, so under the operative p06-OFF limb all three branch hypotheses (NO_OP / CONJURE /
+  PROMOTE) predict the SAME w160 cohort — likelihood ratio zero; under p06-ON the check is
+  circular. The discriminating waves are **151 / 152 / 153 / 157 / 158** — inside the extracted s2
+  footage and UNREAD at re-grade time; deterministic separation (weight-1 picks, integer): CONJURE
+  predicts **+2 / +3 / +2 / +2 / +2** extra un-rostered bodies vs NO_OP **+0**, with **w152 (+3)
+  decisive** — galadriel fourth extraction commissioned (L-40(c)). The no-op disposition stands on
+  the **L-35(e) pre-registration** (declared before any camera claim was available). The
+  `proxypool` template fine-print limb stays open as citation-grade corroboration (legolas r3
+  rider). The un-adopted `+1` branch is measured as a parameter in the build: band effect
+  **+21.00 / +27.00** over 151–170 — the registered ≈ 27.0 reproduced exactly. See **F-10** for
+  what that reproduction turned out to mean.
+- **Status at the F-13 fold (2026-08-08, L-47): CONTESTED — disposition UNCHANGED, un-adopted.**
+  The discriminating waves are now READ (fourth extraction, L-44) and ADJUDICATED (F-13, L-47):
+  **the count leg REJECTS the CONJURE magnitude and shape** (predicted +2/+3/+2/+2/+2 vs measured
+  overshoot +0/+10/+5/+1/+0; adding the `+1` still leaves w152 at 17 > 10 and w153 at 23 > 20);
+  **the identity leg produces exactly ONE un-rostered body consistent with CONJURE at a predicted
+  point** (`Ugdenbog Crabling`, w152 +3.40 s — common rank, swampcrab family, bracketed inside
+  0.8 s by the `swampcrab_hero` pool's own champions; that pool is non-exempt with
+  `roster_n = 0`). The two legs disagree, and the un-rostered class is **known non-unique in
+  mechanism** — `Aleksander's Shard` (w160) is equally un-rostered and graded SUMMON. The no-op
+  stands on the L-35(e) pre-registration, **now with a named contradiction on the record**;
+  adopting the `+1` because a crabling appeared would fit one free parameter to a residual that
+  is demonstrably not that parameter's shape (charter § 4.2 — the exact move F-10 caught the
+  pin-era model making). The count excess is a LARGER finding than F-9 (+18-to-+45 bodies over
+  three waves vs F-9's ±21 over the band) and is owned by **F-13**, not resolved into this one;
+  the `proxypool` fine-print limb (legolas r3 rider) remains the citation path, joined by the
+  **w153 sub-50k identity decider** (commissioned at L-47) and the **Crabling fingerprint
+  binding** (F-13 § 5).
+
+### F-10 — AC-10.4's regular-count pins were computed by the roster-blind pin-era model — pins re-graded SUPERSEDED-PROVENANCE; the CITED + no-op model is the count model of record
+
+> **REGISTERED — G-D fold 2026-08-08 (conductor adjudication of gamora CONFLICT C-3, ledger L-38;
+> veto-open).** The G-D re-evaluation made both regular limbs of AC-10.4 MISS (271.50 vs 292.0;
+> 290.17 vs 316.5) while F-9's un-adopted `+1`-on-empty branch lands Δ +0.50 / +0.67 **INSIDE T-2
+> on both limbs**. Two readings existed (gamora § 12.1, correctly not discriminated in-seam):
+> **(i)** the pins were computed with the `+1` landing on empty rosters, or **(ii)** two ≈ 20-body
+> corrections coincidentally cancelling. **RULED (i) — by construction — on ~~three~~ two independent
+> legs** *(leg count as MODIFIED at Gate-2 Phase-D, adopted L-40(b): the empirical leg is REJECTED
+> AS GRADED → CORROBORATION NOT AVAILABLE; the disposition additionally rests on the L-35(e)
+> pre-registration)*:
+>
+> - **Documentary** *(as MODIFIED at Gate-2 Phase-D, adopted L-40(b))*. § 10.5's published model
+>   draws `regulars = randint(n_min, n_max)` with **no roster term** — primary evidence is
+>   **U-9 § 4.3: "Applying A/floor with clamp across all 558 non-exempt pools"** (558 = 632 − 74:
+>   the pin-era evaluator walked EVERY non-exempt pool, roster-blind, empty included). ~~the only
+>   roster-awareness at pin time was the U9-8 hero-pool edge~~ *(STRUCK — arithmetically false:
+>   edge-APPLIED evaluation gives 280.50 / 301.17, not the pins; the edge covers only 95/117 empty
+>   pools, leaving DEVOTION 15 + BOUNTY 7 uncovered, 47 in-band: HERO 26 / DEV 15 / BOUNTY 6)*. A
+>   **§ 10.4 ↔ § 10.5 pin-time inconsistency is REGISTERED on the re-pin clause** — the two
+>   sections' models differ at pin time; any future re-pin must resolve which walked. The
+>   empty-roster class (117 pools) was discovered at L-35 (E-2 sidecar), AFTER the pins were
+>   published; F-9's registration framing (the ≈ 27.0 as a correction the G-D re-evaluation *would
+>   confront*) is downgraded **CORROBORATIVE** — language-reading, never load-bearing. A
+>   roster-blind evaluator grants the `+1` to empty-roster pools because it cannot see that they
+>   are empty: for the non-exempt empty class, **the pin-era model IS the `+1` branch.**
+> - **Arithmetic — unique fit on the config lattice** *(as MODIFIED at Gate-2 Phase-D, adopted
+>   L-40(b): unique on the 6-cell lattice AS DRAWN; the 12-cell edge-extension lands TWO cells —
+>   the rival "6-override + hero-only edge" cell (+3.83 / +1.33 residual) also lands sub-residual
+>   but is NOT live: it fails per-limb miss-tracking (+9.00 / +11.00 vs misses 5.17 / 9.67). The
+>   load-bearing sub-criterion is **per-limb tracking + historical availability**, not bare
+>   landing)*. Of the exemption × empty-disposition configurations {none, 6-override, cited} ×
+>   {no-op, +1}, **only cited/+1 lands at the pins** (292.50 / 317.17 vs 292.0 / 316.5), jointly,
+>   on both limbs — residual **+0.50 / +0.67, STRUCTURED not noise** (mixture quanta ½ and ½+⅙;
+>   POP-A/POP-B axis ruled out — 0/7 differing pools in band; `legendary_override` False on all
+>   265 band rows; carried OPEN, never absorbed into a "sub-0.25 %" gloss) — and the correction
+>   tracks the miss **per limb** (OFF: band +21.00 vs miss 20.50; ON: +27.00 vs 26.33).
+>   Independent corrections would have to cancel twice at different magnitudes; the ON-limb band
+>   effect reproduces F-9's registered ≈ 27.0 **exactly**. Shared computational origin is the only
+>   parsimonious reading: the pin-era evaluator carried § 10.5's exemption branch (fact 3's
+>   74-pool set) but no roster join.
+> - ~~**Empirical.** The game itself no-ops — CONFIRMED-ON-CAMERA (L-37(c), F-9 status above).~~
+>   **REJECTED AS GRADED at Gate-2 Phase-D (adopted L-40(b)) → CORROBORATION NOT AVAILABLE.**
+>   w160 carries no non-exempt empty-regular-roster alternative off spawn point 6, so under the
+>   operative p06-OFF limb every branch hypothesis predicts the same w160 cohort (likelihood ratio
+>   zero); under p06-ON the check is circular. The camera is SILENT here, not confirming — the
+>   discriminating waves (151/152/153/157/158, w152 decisive at +3) ride the galadriel fourth
+>   extraction (L-40(c)). The no-op stands on the **L-35(e) pre-registration**, declared before
+>   any camera claim; a model "corrected" toward the pins by adopting the `+1` would still be the
+>   free-parameter fit charter § 4.2 forbids.
+
+- **Disposition.** AC-10.4's 292.0 / 316.5 are **SUPERSEDED-PROVENANCE** — faithful evaluations of
+  the pin-era roster-blind model, not measurements of the game. The **CITED + no-op** model is the
+  count model of record: p06-OFF (operative, L-37(b)) **271.50 regulars / 63.00 champions**
+  expected over 151–170; p06-ON informative 290.17 / 81.00. The champion pin **63.0 survives
+  EXACT** (structurally invariant — all 28 citation-flipped pools carry `championChance = 0`). The
+  misses stay pinned AS misses in named tests; the `+1` branch stays an un-adopted parameter
+  (`empty_roster_plus_one`), never a fit. This is the Run-A Gate-B event class: a pre-registered
+  criterion FAILED, was diagnosed to its provenance, and is reclassified as a published finding
+  under independent Gate-2 review — the run continues.
+- **What would re-open this** *(WIDENED at Gate-2 Phase-D, adopted L-40(b))*: **either** the
+  `proxypool` template fine-print (legolas r3 rider) reading that an empty-roster `+1` conjures or
+  promotes, **or** the galadriel fourth-extraction count pass on the discriminating waves
+  (w151/152/153/157/158) finding un-rostered extra bodies — the camera is currently SILENT on the
+  no-op (empirical leg above), so footage evidence would be **first contact, not contradiction**.
+  Either goes to the conductor loudly (the branch is a parameter; the tests name both worlds).
+  Absent that, re-derived pins may be registered at a future pre-registration point from the model
+  of record — never retro-fitted inside this run.
+- **Count-pass leg — FIRED and adjudicated (F-13 fold, L-47).** The fourth-extraction count pass
+  (first contact, L-44) + the F-13 identity-join: **the model of record stands UNCHANGED and is
+  now CONTESTED-with-band** — its regular limb is falsified at its own support on w152 (17 > 7,
+  deterministic zero-width) / w153 (23 > 18) / w157 (15 > 14), while the HP decomposition lands
+  the above-gap plains EXACTLY on the model's support on both hard-falsifying waves (7 and 18):
+  the trash limb is **INCOMPLETE, not WRONG** — a second low-HP population the model does not
+  represent. Band 151–170 becomes a **RANGE**: 248.83 (`boss_add=OFF`) … **271.50 (record)** …
+  **289.62 (measured floor, assumption-free — carried as a FLOOR; the point estimate is
+  refused)** … 632–772 (lattice survivors, NOT endorsed). Champions **63.00 unmoved and now
+  empirically corroborated** (w157 6/6 EXACT; star-furniture ≠ champion count per F-13 § 1.4).
+  No re-pin fires in-run (standing safety #1); the un-adopted parameter list extends to **four
+  named-never-fitted mechanisms** (`trash_pool_multiplicity` · `p05_replenishment` ·
+  `boss_spawn_additive` · `summoned_bodies`) alongside `empty_roster_plus_one`; baton
+  `count_model` provenance carries F-13 + the falsification table + the floor by name. Full
+  adjudication: **F-13**.
+- **One census-count note for Gate-2:** § 10.5 fact 3 says 74/**632** pools; the sidecar registry
+  counts 74/**635** (F-9's own text uses 635). The 632-vs-635 denominator delta is unresolved in
+  this spec — a one-line verification item, not material to any count above.
+- **Consumers:** AC-10.4 (annotated) · § 12 T-2 (annotated) · baton `count_model` provenance
+  (carries F-10 + the superseded pins by name) · jack-ryan Gate-2 (reclassification review per
+  desirable-pattern standing safety #2).
+
+### F-11 — `code-surface-v1` grades this repo dirty by construction (tree-state policy; star-lord Phase-D, folded L-42)
+
+- **Status:** OPEN — policy fork to Matt at the Phase-E touch (R-KC2-5 agenda); `code-surface-v1`
+  STANDS until ruled.
+- **Finding.** The ruled policy (dirty ⟺ any tracked modification OR any untracked path under
+  `src/`) implemented literally grades THIS repo dirty in perpetuity: the engine's runtime artifact
+  directory IS `src/reincarnated/output/`. Star-lord measured 2,403 untracked entries with 2,393
+  (99.6 %) under output/; the conductor's independent reproduction minutes later read **2,414 /
+  2,404 / 10** — the +11 delta was gamora's beat-3 writing new run artifacts into
+  `src/reincarnated/output/` BETWEEN the two measurements: **the mechanism confirmed itself live.**
+  ENTRIES not files (porcelain `-unormal` collapses wholly-untracked dirs).
+- **Phase-E consequence.** Baton emits `engine_tree_state: dirty` → AC-11.4e forbids `FULL`. Under
+  the current policy an honest emitter cannot grade this repo's baton FULL even with every tracked
+  file committed.
+- **The 10 non-output entries** (conductor enumeration, evidence-by-reference to L-42): 1 export
+  delta note, 2 generation notes, 2 simulation math notes, 2 simulation scripts, 1 telemetry
+  backup, 2 telemetry-seed WAL/shm files. All notes/artifacts, zero code.
+- **Options (fork):** **(a)** `code-surface-v2` = `src/` minus `src/**/output/` — conductor lean:
+  the artifact dir is the sim's own exhaust; excluding it makes the policy measure the code surface
+  its name claims. **(b)** keep v1, emit non-FULL honestly. **(c)** demand a clean tree at emit —
+  fragile: the sim dirties its own tree by running.
+- **Consumers:** CD-2 fields (§ 11.4, landed) · AC-11.4e · Phase-E emit gate · Matt touch.
+
+### F-12 — Locomotion: the sim's board is static; the fixture's is not (T-1 BINDING FAIL 92/92; gamora beat-3, folded L-43 — Run-A Gate-B event class)
+
+- **Status:** OPEN — citation probe RETURNED + FOLDED (L-46: lap precondition MET); the locomotion
+  model amendment lands via the named-gandalf spec-amendment piece (commissioned at the L-47
+  fold), then the gamora lap; **beats 4–5 PAUSED** (beat-4 re-scoped at L-45(d)/D2-5 — bundled
+  into the lap as a second-geometry diagnostic); **T-1 UNCHANGED** (standing safety #1 — the run
+  cannot move its own goalposts). **Lap N-inputs EXCLUDE w152/153/157** (F-13: falsified-count
+  waves — calibrating a body-count-coupled timing model on a falsified N would bake the count
+  error into `v_mob`/radius); the lap calibrates on unfalsified waves and reports the excluded
+  three as findings.
+- **Headline.** First full s1 calibration (ramp 1→93): **T-1 (± 1.0 s, two-class, tick-quantised)
+  FAILS 92/92.** ×10 class mean 28.57 s measured vs 34.04 s sim; non-×10 **14.29 vs 39.37**; class
+  ratio **INVERTED** (measured ×10/non-×10 = 2.00×, sim 0.86×); 0 waves in band; mean abs error
+  +23.16 s.
+- **Correlation fingerprint.** Sim clear time is a function of body count (r = +0.737 vs N); the
+  fixture's is NOT (r = +0.154). That is not a constant missing — it is a **mechanism** missing.
+- **Mechanism.** `simulate_wave` hands the disc each actor's SPAWN coordinate forever: static
+  board, player tours it, 2.5×–5.1× traversal inflation. Spec §§ 2.2 / 10.6 / 10.9 describe
+  monsters APPROACHING the player. **Spec-described, build-omitted.**
+- **Lower-bound argument (why no eHP fix rescues this).** `engagement_kill_time ≥ 0` ⇒ the current
+  locomotion cycle is a lower bound on any completion time. On **89/92 waves the lower bound ALONE
+  already exceeds measured + 1.0 s.** Survivors: waves 80/90/92 ~~(few-bodies/high-HP,
+  kill-term-dominated)~~ *(gloss RESTATED per D2-3, adopted L-47: "few-bodies" is false of two of
+  the three — w80 carries E[bodies] 25.00 = 1.75× its own class mean 14.28, w92 carries 27.33 =
+  1.35× of 20.23; only w90 (2.00) is few-bodies. "High-HP" is unmeasurable for band A — eHP absent
+  for 889/896 band-A records by § C.1's own census. What the evidence DOES support, and it is
+  enough: the three survivors are the fixture's 1st, 2nd and 4th SLOWEST measured waves, and the
+  absent kill term is the only modelled term whose sign could lengthen the sim on them. Set
+  membership, the 89/3 split, and the arithmetic are EXACT — only the causal gloss was
+  unsupported.)*.
+- **Negative control (refusal-to-fit as measurement).** Fitting `v_ref` to the residual demands
+  ≈ 10.5 m/s — 2.63× the declared reference class, with the fixture already AT the run-speed cap
+  (135 = `playerRunSpeedCapMax`) — and buys only the mean: **75/92 still fail**, correlation stays
+  +0.757, inversion stays 0.84×. The residual is not a speed. Charter § 4.2 forbids the fit and
+  the fit would not even work. *(D2-2 annotation, adopted L-47: this bullet's digit-set does NOT
+  co-reproduce at any single `n_seeds` — 75/92 occurs only at n = 1, +0.757 sits at n ≈ 8–16,
+  0.84× occurs nowhere in the grid; the parameterisation was undeclared. The CONCLUSION is
+  grid-robust — corr stays ≥ 0.70 against measured +0.154, ratio stays < 1.0 against measured
+  2.00×, 74–81/92 fail everywhere: "a scale parameter cannot repair a structure error" stands.
+  Digits restate from gamora's 32-seed re-run at the locomotion lap; until then cite D2-2, not
+  these numerals.)*
+- **Dispositions (conductor, L-43; Gate-2 Phase-D2 review commissioned per standing safety #2):**
+  - **T-1 UNCHANGED** — preregistration holds; a gate FAIL is a processable finding, not a
+    goalpost-move license.
+  - **C-1 ADOPT** — legolas band-A per-record eHP emission (896 records; 7 exist; ehp-composition
+    t0–t21 precedent) so the kill term composes per-record INPUTS, not summaries.
+  - **C-2 ADOPT** — `v_ref` calibration SUSPENDED-PENDING-LOCOMOTION (§ 13 HALT-2 annotated): at
+    kill term ≈ 0, calibration is fitting the wrong mechanism.
+  - **C-3 ADOPT (core)** — locomotion amendment: monsters path to the player; `v_mob` enters ONLY
+    DB-CITED (per-record `characterRunSpeed` multipliers × the SAME engine reference as `v_ref`,
+    per HALT-2's census). **Degeneracy:** time ∝ radius / v_ref ⇒ (radius, v_ref) collapse to ONE
+    free timescale; an engine m/s citation from the Lua lane (legolas, L-9/U-8) collapses the
+    whole free-parameter surface by citation.
+  - **C-4 ADOPT, two limbs** — build: ARENA_S1 completes to 6 emitters per § 10.6 (measured
+    bearings where measured — ≈ 3.0/5.2/6.9/9.6 o'clock — declared where not; p05 ambush + p06
+    bonus points join per their measured/ruled states). Spec-side: **F-12a** below. MO-5 sim-side
+    PASS re-graded provisional-on-geometry (§ 12 annotated); the measured ~7.0 s pin stands.
+  - **C-5 PARKED-REGISTERED** — ± 1.0 s vs single-draw process sd ≈ 3.21 s is a legitimate
+    tolerance-FORM question that may NOT move this run's goalposts; re-enters only at a future
+    pre-registration point (F-10 re-pin pattern). Matt surface.
+- **F-12a (spec-side OWN, conductor).** § 10.6's parameter list (:1089) enumerates arena_id + six
+  bearings + player spawn — **NO radial coordinate**; `Arena.emitter_radius_m = 30.0` entered the
+  build as an uncited bare float. The radius joins the declared-parameter list with a provenance
+  ladder (footage-estimable; DB/template hunt riding the legolas geometry probe). A spec that
+  omits a load-bearing free parameter from its own declared list has under-declared its freedom —
+  same class as the § 10.4 ↔ § 10.5 inconsistency registered at F-10. *(Hunt LANDED — L-46: it
+  returned CITATION, not absence. Per-arena ring + ambush radii are `Maps.arc` facts (ring median
+  37.53 m / ambush 10.17 m); the uncited 30.0 sits at the ring distribution's 9.3rd percentile →
+  re-graded **STRUCTURAL** — the bare float was not merely undeclared, it was ~20 % low against
+  the plausible arena set. The radius EXITS the free-parameter list: CITED-per-arena under the
+  § 10.6 two-layer ruling; arena selection remains the declared freedom.)*
+- **Beats 4–5 PAUSED.** s2 + full-ladder against a known 2.5×–5.1× traversal inflation produce
+  structurally-known-wrong numbers. Un-pause condition: locomotion lap lands AND s1 re-runs
+  against UNCHANGED T-1.
+- **Consumers:** § 12 T-1 · § 13 HALT-2 (annotated) · § 10.6 (F-12a) · gamora locomotion lap
+  (N-exclusions per F-13) · legolas citation probe (C-1 / C-3 / F-12a — RETURNED, L-46) ·
+  jack-ryan Gate-2 Phase-D2 · Matt surfaces (T-1 outcome · C-5 · amendment path).
+
+### F-13 — The count model's trash limb is INCOMPLETE: falsified at its own support on 3/5 discriminating waves while the above-gap population lands EXACTLY on that support (fourth extraction + identity-join)
+
+> **REGISTERED — L-44 (fourth-extraction fold, first contact); ADJUDICATED — L-47 (identity-join
+> piece, `gandalf/notes/2026-08-08-kc2-f13-count-model-discrimination.md`; conductor adoptions
+> veto-open).** Instrument calibrated before any claim: all four F-10 published cells (271.50 /
+> 63.00 · 292.50 · 290.17 / 81.00 · 317.17) and the CONJURE lattice (2/3/2/2/2, band 21.00)
+> reproduced exactly. Methodological pin governing every verdict: one censored realization per
+> wave ⇒ falsification is **support-based only** (observed lower bound > support maximum);
+> undershoots are UNINFORMATIVE without exception.
+
+- **Identity (Q1):** 31/33 plates ROSTERED (30 exact, 1 one-char fuzzy: Culldar → *Tulldar*);
+  zero roster-other-point. Exactly **ONE un-rostered body corpus-wide**: `Ugdenbog Crabling`
+  (w152 +3.40 s — absent from 1,492 names + 1,617 record paths; robust to the obvious eye-read
+  failure, since `Ugdenbog Crab` is also absent from w151/152/153). `Carnivorous Plant` w152
+  +0.40 s: UNDECIDABLE, lean carryover. **91 of ~113 bodies are UNIDENTIFIED, not un-rostered** —
+  the join has no power over unplated fingerprints; that asymmetry is load-bearing.
+  **Un-rostered ≠ conjured:** `Aleksander's Shard` (w160) is equally un-rostered and graded
+  SUMMON — the class has ≥ 2 mechanisms, and the level-inheritance summon discriminator has NO
+  power on 151–158 (every plausible summoner sits inside the 102–108 regular band).
+- **Star-furniture ≠ champion count (§ 1.4 category-error correction):** regular rosters carry
+  champion- and hero-ranked RECORDS on 4/5 waves — rank is a property of the monster record, not
+  of the proxypool limb that drew it. AC-10.4's 63.00 counts `nameChampion{j}` DRAWS; star-pairs
+  count RANK FURNITURE — a superset. The commissioning brief's "star-pairs exceed selection
+  champs" premise is RETIRED; reproduced, the champion limb never overshoots.
+- **Discrimination (Q2):** M1 (model of record) **FALSIFIED at its own support on the PLAIN
+  limb** — w152 **17 > 7 DETERMINISTIC** (zero-width support: both trash alternatives are
+  (5,6) → 7; the hero pools are empty → no-op 0), w153 **23 > 18**, w157 **15 > 14**. STAR limb
+  unfalsified everywhere, **w157 6/6 EXACT** (positive control: the instrument CAN reach the
+  champion expectation — undershoots elsewhere are engagement censoring, not model error). SKULL
+  unfalsified. Lattice: 12/64 cells survive, ALL requiring `trash=ALL` ∧ `CONJURE` — **NOT
+  endorsed**: a 2.33–2.84× band correction implying w158 ≈ 81 regulars against a ≈ 14-icon
+  minimap, while the **HP decomposition** (unsupervised max-ratio split) lands the above-gap
+  plains **EXACTLY on M1's support on both hard-falsifying waves** (w152: gap 2.53×, above-gap
+  7 = the deterministic 7; w153: gap 5.37×, above-gap 18 = the support top). **The trash limb is
+  INCOMPLETE, not WRONG** — it reproduces the rostered population and is silent about a second,
+  low-HP population. Four candidate mechanisms NAMED, none fitted: **(i)** summoned minions
+  (w160 precedent MEASURED — same 40k–104k HP band), **(ii)** p05 replenishment (w153
+  sensitivity: n = 2 emissions → 23 EXACT; § 10.6's own declared-undetermined `maxGroupSize`
+  flag, now load-bearing; does NOT explain w152), **(iii)** CONJURE-on-empty (≤ +3 at w152 —
+  insufficient alone; supported by the identity leg only), **(iv)** trash-point multiplicity.
+- **Quiet opposite-direction finding (§ 2.5):** `boss_add=OFF` matches the camera 3/3 (w152 1 ·
+  w157 1 · w160 4, vs record-model 1.75 / 2.00 / 5.00); band effect 271.50 → **248.83** (−22.67,
+  −8.35 %). STRONG CIRCUMSTANTIAL, NOT DECIDED (three undershoots cannot falsify). Rides the
+  legolas r3 `proxypool`/`adj03` fine-print rider.
+- **F-9 (Q3):** status → **CONTESTED**, disposition UNCHANGED (see F-9's own status bullet). The
+  count-pass found something LARGER than F-9: a +18-to-+45-body question over three waves vs
+  F-9's ±21 over the band. F-13 is a NEW finding, not a resolution of F-9.
+- **Blast radius (Q4):** band = **RANGE — the point estimate is refused**: 248.83 … **271.50
+  (record, UNCHANGED)** … **289.62 (measured floor = 271.50 + 18.12 E-form; assumption-free
+  arithmetic on measured lower bounds — carried as a FLOOR)** … 632–772 (not endorsed). MOVES:
+  § 12 T-3 (regular limb → floor-with-named-finding, the F-10 pattern; champion untouched) ·
+  AC-10.4 (second annotation; 63.0 empirically corroborated for the first time) · **F-12
+  locomotion N-inputs (the painful one: w152's N = 7 vs measured ≥ 17 is a 2.4× error on a
+  body-count-coupled timing model — w152/153/157 EXCLUDED from calibration, reported as
+  findings)** · baton `count_model` provenance (additive: F-13 + the falsification table + the
+  floor + the four named-never-fitted parameters). DOES NOT MOVE: MO-5 (one-sided floor,
+  N-independent) · T-2 (annotated: 1.9 % bounds intra-order/rounding/clamp, NOT total count
+  error — w152's miss is +10 on a deterministic 7). NEEDS-DATA: AC-10.3 "zero trash" scoping
+  (the w160 seven plains are graded SUMMON, which the AC does not model — scope it "about
+  spawns") · § 10.6 p05 replenishment fork.
+- **Deciders (§ 5, priority order):** **(1) w153 per-body identity pass on the five sub-50k
+  bodies** (16,368 ×1, 37,840 ×4) — the only falsifying wave with no boss/skull confound:
+  `livingplant_t3` plates (Carnivorous Plant / Ugdenbog Golem) → p05 replenishment; `giant_t3`
+  plates (Asterkarn / Groble) → trash multiplicity; un-rostered → summon-or-conjure.
+  Deterministic three-way separation on five bodies; **commissioned to galadriel at L-47**.
+  (2) `Ugdenbog Crabling` fingerprint binding (a low-cluster binding makes w152's un-rostered
+  population seven-bodies-from-one-point, killing CONJURE's 1-body prediction). (3) w152
+  +0.40 s carryover — badge-advance semantics, one `survivalevent.lua` citation (worth 1 of
+  w152's 17 and the above-gap count's exact landing). (4) `boss_add` template fine-print
+  (legolas r3 rider).
+- **Consumers:** § 12 T-3 (annotated) · AC-10.4 (annotated) · AC-10.3 (scoping) · § 10.6 (p05
+  fork now load-bearing) · F-9 / F-10 (status bullets) · F-12 + gamora locomotion lap
+  (N-exclusions) · baton `count_model` provenance · galadriel w153 decider · legolas r3 rider.
 
 The spec's load is carried by three things and it is worth naming them plainly. **The channel is
 build-invariant**, which is a bounding negative result and lets § 1 be short. **The Crucible is
