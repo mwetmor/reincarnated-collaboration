@@ -1660,7 +1660,10 @@ goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
    accountings falsify; w152 stands (margin 10); w157's 15 > 14 is margin-1 with bar_hue UNRUN —
    it stays excluded on suspicion. If the commissioned bar_hue cohort pass de-falsifies w157, it
    re-enters calibration only at a future pre-registration point, never mid-lap — standing
-   safety #1.)*
+   safety #1.)* *(L-52: the commissioned pass RAN — it does NOT de-falsify. w157 15 > 14
+   RE-CONFIRMED (zero green in the hostile cohort; 11/11 eye-read RED); w153 corrected to a
+   single accounting 22 > 18. The exclusion set **{w152, w153, w157} STANDS unchanged**; no
+   re-entry fires.)*
 4. **The band-A N residual is DECLARED, not assumed away.** Band A (waves 1–93) contains **no
    censused wave**, so no band-A count is *falsified* — and none is *corroborated* either. Band A
    draws from the same count model whose trash limb F-13 graded **INCOMPLETE**, so band-A N may be
@@ -1802,7 +1805,18 @@ return upgrades selection DECLARED → CITED or flags a conflict at the lap fold
    (margin 10; the second green entity 20,005 was never in its 17). The 289.62 floor re-grades
    CONTINGENT pending bar_hue-corrected excesses — endpoints 248.83/271.50 untouched. The
    champion w157 6/6 corroboration gains a rank-audit caveat (fifth § 9.2/9.3: `~ Affix` ≠ rank
-   signal; stars bind HERO only; glyph-colour re-verification commissioned).)*
+   signal; stars bind HERO only; glyph-colour re-verification commissioned).)* *(F-13 fold,
+   L-52 — fourth annotation, the commissioned re-verification RETURNED and it BREAKS the
+   corroboration: all six w157 star bodies are STAR-DERIVED — none was ever glyph-read — and the
+   30 Hz plate re-scan (13 spans / 168 plate-valid frames) binds zero plates to stars, while
+   star-pairs bind HERO (fifth § 9.3, reproduced in-wave). Two champions measured ON PLAIN BARS
+   inside the plain count: Diremane Brute → 238,068 (FRACTION-TRACK, RMS 0.78 px, r² 0.9996 —
+   fourth independent calibration agreement) · Aetherial Stormdrinker → 304,994 (PROBABLE).
+   "63.0 empirically corroborated for the first time" is **WITHDRAWN** — champion limb
+   **UNCORROBORATED** (not falsified; the star instrument is one-sided and no champion census
+   exists). w157's PLAIN 15 > 14 RE-CONFIRMED STANDS (11/11 zero-green + eye-read RED); w153
+   22 > 18 single accounting; floor re-derived 288.62 E-form / 286.50 support form — above
+   271.50, the CONTINGENT grade clears.)*
 5. **AC-10.5** Monster life scaling while fighting wave *w* on Gladiator equals the CSV's 0-based
    `(w−1, gladiator)` row = the row **LABELED *w*** per the § 10.7 corrected array-lookup law — in
    particular **324 while fighting wave 160**: not 322 (index-inversion guard — the L-29 error;
@@ -2600,7 +2614,7 @@ sidecar or NDJSON split at v1.
 | T-1b | badge-vs-last-kill lag | ≤ 1 game tick, same-signed | **contained inside T-1 — never added to it** | contained |
 | T-1c | s2 band | ± 1.0 s, by deliberate under-claim | n = 9 has no power to claim finer | under-claimed |
 | **T-2** | count model — intra-order + rounding + clamp | **1.9 %** (5.5 monsters on 292, waves 151–170) *(C-2 ruling, G-D fold: the percentage takes the **PINNED TARGET** as denominator — tolerance-on-target, goalpost fixed at pin time; re-deriving the band from the model's own output each lap would let the goalpost track the model, the drift this table exists to prevent. Margins of record at the G-D re-evaluation: ±5.55 on 292.0 / ±6.01 on 316.5 — both regular limbs MISS under either denominator reading, so the ruling moves margins, never verdicts. With F-10 the 292-anchored band is superseded together with its pin; any future re-pin restates T-2 against the newly pinned value at its own pre-registration point.)* | wave-total counts | declared residual |
-| **T-3** | count model — **U9-6 bonus spawn** | ~~RESOLVED: p06 = ON, measured (L-21 census)~~ **RULED OFF — L-37(b) MEASURED-NULL** (hero band zero across 5,146 readouts, positive-controlled; F-10 OFF-operative) | ~~counts run the p06-on table~~ counts run the **p06-OFF model of record 271.50 / 63.00** (ON informative 290.17 / 81.00) | **closed** — closure cites **L-37(b)**, never L-21 *(row re-annotated at the L-40 sweep — this was the D-W3 stale sibling)* *(F-13, L-47: the OFF-limb REGULAR figure 271.50 is CONTESTED-with-band — falsified below at ≥ 289.62 (measured floor); carried as a **floor with a named finding** per the F-10 pattern, NOT re-pinned in-run. Champion **63.00 untouched** — unfalsified on all five discriminating waves, EXACT at w157 (6/6); star-furniture ≠ champion count. The p06-state closure THIS row records is unaffected.)* *(L-50: decider (1) executed — 16,368 NOT-HOSTILE struck from w153's census; w153 falsification STANDS (22-or-23 > 18), w152 STANDS, w157 SUSPENDED margin-1 (bar_hue unrun); floor 289.62 → CONTINGENT pending corrected excesses, endpoints 248.83/271.50 untouched; champion 63.00 unmoved — its w157 6/6 corroboration carries a glyph rank-audit caveat (fifth § 9.2).)* |
+| **T-3** | count model — **U9-6 bonus spawn** | ~~RESOLVED: p06 = ON, measured (L-21 census)~~ **RULED OFF — L-37(b) MEASURED-NULL** (hero band zero across 5,146 readouts, positive-controlled; F-10 OFF-operative) | ~~counts run the p06-on table~~ counts run the **p06-OFF model of record 271.50 / 63.00** (ON informative 290.17 / 81.00) | **closed** — closure cites **L-37(b)**, never L-21 *(row re-annotated at the L-40 sweep — this was the D-W3 stale sibling)* *(F-13, L-47: the OFF-limb REGULAR figure 271.50 is CONTESTED-with-band — falsified below at ≥ 289.62 (measured floor); carried as a **floor with a named finding** per the F-10 pattern, NOT re-pinned in-run. Champion **63.00 untouched** — unfalsified on all five discriminating waves, EXACT at w157 (6/6); star-furniture ≠ champion count. The p06-state closure THIS row records is unaffected.)* *(L-50: decider (1) executed — 16,368 NOT-HOSTILE struck from w153's census; w153 falsification STANDS (22-or-23 > 18), w152 STANDS, w157 SUSPENDED margin-1 (bar_hue unrun); floor 289.62 → CONTINGENT pending corrected excesses, endpoints 248.83/271.50 untouched; champion 63.00 unmoved — its w157 6/6 corroboration carries a glyph rank-audit caveat (fifth § 9.2).)* *(L-52 — bar_hue cohort folded (galadriel corrected HOSTILE-ONLY cohorts; 8,781 readouts, 121 tiles eye-read): w157 **RE-CONFIRMED STANDS 15 > 14** — 11/11 plain-cohort zero green votes (9 with mean g exactly 0.0), 11/11 eye-read RED; the margin-1 suspension lifts on exclusion-of-alternative. w153 single-accounting **22 > 18** (the 22-or-23 resolves: −1 = struck 16,368). Floor re-derives **288.62** E-form / **286.50** support form — CONTINGENT clears, still above 271.50; carried as floor-with-named-finding, point estimate still refused. Champion side BREAKS: the w157 6/6 corroboration is **STRUCK derivation-invalid** — all six star bodies STAR-DERIVED, never glyph-read, and star-pairs bind HERO (fifth § 9.3, reproduced in-wave); two measured champions ride PLAIN bars inside the plain count (Diremane Brute → 238,068 FRACTION-TRACK · Aetherial Stormdrinker → 304,994 PROBABLE). Champion **63.00 → UNCORROBORATED** (not falsified — no champion-census instrument exists); the F-13 § 2.1 mapping gains its named contingency (PLAIN = commons + champion-flagged in principle; w151/w158 landings evidence the slot-conserved branch); branch ruling routed to the mechanism-adjudication piece.)* |
 | **T-4** | energy drain rate | **PINNED: PER_TICK, 176.4 / s @ 196 % AS** (client-verbatim, L-22) | drain rate now BINDS alongside ceiling/reserve; Soulfire term declared-separate (§ 3.1) | **closed** — fork collapsed |
 | **T-5** | devotion envelope | error-bar **classes**, not a scalar: defensive-trigger (opposition-dependent) · dual-bound (Shifting Sands ~200×) · piloting-parameter | envelope disclosure | structural (L-3) |
 | **T-6** | monster damage | **upper bounds only** (G-2 rank binding unread) | INFORMATIVE rows only | declared ceiling |
@@ -3109,7 +3123,20 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   199.8 px track; ceiling f ≈ 0.985) + bar-hue classifier. Identity outcome: `Skeletal Archer`
   L105 UN-ROSTERED corpus-wide → summon-or-conjure fires, SUMMON indicated (×4 > +2);
   summoner-candidate `skeletonrevenant_t3` rostered at w153 p03; the mechanism-adjudication
-  piece is QUEUED at the bar_hue fold.)*
+  piece is QUEUED at the bar_hue fold.)* *(L-52 — the bar_hue fold LANDED: the green class is
+  **ONE entity — the player's own readout** (16,368 ≡ 20,005: identical modal box
+  [882,399]–[1039,413], x-centre 960.5 = frame centre, zero co-occurrence across 1,073 frames,
+  value handover 713.347 → 713.380 coinciding with a buff expiry — the only STATIC entity in all
+  five cohorts). The Crucible-defense-structures candidate RETIRES — defense structures
+  NAMED-ABSENT from every cohort, with the engagement-censoring caveat (readouts render only for
+  engaged bodies; absence-from-instrument, not absence-from-arena). Exclusion now keys on the
+  BOX, not the value. Falsification triple final: w152 STANDS · w153 STANDS 22 > 18 · w157
+  RE-CONFIRMED STANDS 15 > 14. Floor 288.62 E-form / 286.50 support form. Instrument findings: a
+  new false-plate class (in-world readouts drifting into plate rows pass `is_plate`; the
+  contrast gate caught 1 of 2 — plates must be eye-read) and bar_hue purity is a
+  scene-brightness statistic erring BOTH directions (0.54 on a red body; 0.75–0.87 on the green
+  entity). The mechanism-adjudication piece stays QUEUED — it folds with the summon-citation
+  return.)*
 - **One census-count note for Gate-2:** § 10.5 fact 3 says 74/**632** pools; the sidecar registry
   counts 74/**635** (F-9's own text uses 635). The 632-vs-635 denominator delta is unresolved in
   this spec — a one-line verification item, not material to any count above.
@@ -3266,7 +3293,14 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   unfalsified everywhere, **w157 6/6 EXACT** (positive control: the instrument CAN reach the
   champion expectation — undershoots elsewhere are engagement censoring, not model error). *(L-50: w157's PLAIN 15 > 14
   SUSPENDED at margin-1 — bar_hue unrun there, one green-bar contaminant collapses it;
-  w152/w153 STAND post-strike. The 6/6 gains a glyph rank-audit caveat, fifth § 9.2.)* SKULL
+  w152/w153 STAND post-strike. The 6/6 gains a glyph rank-audit caveat, fifth § 9.2.)* *(L-52:
+  bar_hue RAN — no green contaminant in w157's hostile cohort (11/11 plain zero green votes, 9
+  with mean g exactly 0.0; 11/11 eye-read RED): **15 > 14 RE-CONFIRMED**. The caveat MATURES
+  into a strike: the 6/6 was STAR-DERIVED — never glyph-read — and star-pairs bind HERO; the
+  "positive control" is WITHDRAWN. STAR limb → **UNCORROBORATED everywhere** (one-sided
+  instrument, no champion census); two champions measured on PLAIN bars (238,068 FRACTION-TRACK
+  · 304,994 PROBABLE) → PLAIN falsifications are in-principle commons+champions mixtures;
+  w151/w158 landings evidence the slot-conserved branch.)* SKULL
   unfalsified. Lattice: 12/64 cells survive, ALL requiring `trash=ALL` ∧ `CONJURE` — **NOT
   endorsed**: a 2.33–2.84× band correction implying w158 ≈ 81 regulars against a ≈ 14-icon
   minimap, while the **HP decomposition** (unsupervised max-ratio split) lands the above-gap
@@ -3290,7 +3324,10 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   arithmetic on measured lower bounds — carried as a FLOOR)** … 632–772 (not endorsed) *(L-50:
   floor CONTINGENT — the 18.12 E-form consumed w153/w157 excesses now under census correction
   (16,368 struck; w157 margin-1 suspended); re-derives at the bar_hue fold from HOSTILE-ONLY
-  cohorts. Endpoints 248.83/271.50 untouched.)*. MOVES:
+  cohorts. Endpoints 248.83/271.50 untouched.)* *(L-52 re-derivation: E-form 271.50 + 10.00
+  (w152) + 4.50 (w153: 22 − 17.50) + 2.62 (w157) = **288.62** (1.063×); support form
+  271.50 + 10 + 4 + 1 = **286.50** (1.055×). Band: 248.83 … 271.50 (record, UNCHANGED) …
+  288.62 measured floor. Verdict shape unchanged — floor carried, point estimate refused.)*. MOVES:
   § 12 T-3 (regular limb → floor-with-named-finding, the F-10 pattern; champion untouched) ·
   AC-10.4 (second annotation; 63.0 empirically corroborated for the first time) · **F-12
   locomotion N-inputs (the painful one: w152's N = 7 vs measured ≥ 17 is a 2.4× error on a
