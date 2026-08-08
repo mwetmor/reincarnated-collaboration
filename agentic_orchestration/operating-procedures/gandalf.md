@@ -476,6 +476,20 @@ Together (§ 3 + § 4) constitute the gandalf decision-loop + operational-tools 
 
 **Composition:** sharpens `desirable-run-pattern.md` Element 7 (see its § 2.1 corollary); composes with the CLAUDE.md team commit discipline (seam agents auto-commit authorized work — but when multiple drafting agents run concurrently in ONE repo, the conductor may centralize commits to avoid interleave; instruct no-commit in the brief).
 
+### 4.11 Value-set sweep at value-changing folds (STANDING METHOD — born KC2-SIM L-45(b); extended L-47(f); ratified-as-amended by jack-ryan L-49(d) 2026-08-08, ADR-002 doc tier)
+
+**When it fires:** any fold that changes a VALUE or a STATE-NAME that other surfaces restate — a pinned constant, a count model, a boolean default, a state enum, a provenance grade. The stale-restatement hazard is structural in a spec-led run: every ruling that moves a number leaves the old number living on in prose, tables, AC text, code comments, and sibling docs.
+
+**The method:**
+1. **Enumerate the value set** — the OLD value's spellings AND its prior STATE-NAMES-as-values (the founding D2-1 sweep's patterns were value-only and missed two live-tense `is DEMOTED-OPEN` sites), matched **case-insensitively**, swept whole-file over every consuming surface.
+2. **Declare `(surface, owner)` pairs before sweeping** (amendment A) — and **HAND BACK** hits on surfaces you may not edit to their owner (first execution: jack-ryan's R-3 hit in gamora's math note → handed back as a lap-brief rider, ledger L-48(d)).
+3. **Discharge by HIT TABLE, never assertion** (amendment B) — "swept, nothing found" without the table is the exact claim-shape that failed at L-43(f); the table lists every hit + its disposition.
+4. **Benign/historical hits stand WITH a one-clause reason each** (amendment C) — record-rows, corrigenda-forward lineage, and fenced verbatim quotes are the named benign classes.
+
+**Escalation (pre-registered):** a FIFTH recurrence of stale-value leakage after A–C are in force graduates this from run-method to engineering-discipline candidate — a Matt surface, routed via jack-ryan (his seam owns the disciplines doc).
+
+**Lineage + composition:** born at a Gate-2 BLOCK (D2-1, KC2 ledger L-45(b)); extended after two live-tense misses (L-47(f)); ratified-as-amended with a counter-example per amendment (L-49(d)). Composes with corrigenda-forward (ledger rows are RECORD — the sweep annotates forward, never retro-edits) and with `desirable-run-pattern.md` § 6.5 (the pattern-level statement).
+
 ---
 
 ## 5. Session-end protocol

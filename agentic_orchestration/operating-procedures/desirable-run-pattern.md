@@ -4,6 +4,7 @@
 > **Born from:** Run A (Atlas derivation → Edition-I freeze, 2026-07-14/15, charter + preregistration) and Run B (VDM-1 corpus verify+dossier+map, 2026-07-18/19, charter R-1..R-9) — Matt 2026-07-21: *"two of our best runs — EVER."* Comparative verdict: gandalf session 2026-07-21 (D1 ruled: `RUN-CONDUCTOR` role-tag added; D4-modified ruled: this doc).
 > **Author:** gandalf. **Maintained by:** gandalf (pattern-observations from future runs amend it).
 > **Amended 2026-07-23:** §6 added — first failure-lap observations (KIT-FIDELITY, Matt-ruled FAILED at KFL-27; glance prod freeze).
+> **Amended 2026-08-08:** §6.5 added — value-set sweep law (KC2-SIM in-run BLOCK harvest; jack-ryan ratified-as-amended, KC2 ledger L-49(d)).
 
 ---
 
@@ -65,7 +66,7 @@ Ask four questions of any proposed autonomous run:
 
 ---
 
-## §6 — Pattern-observations from run failures (first failure lap: KIT-FIDELITY 2026-07-23 + the glance freeze)
+## §6 — Pattern-observations from run events (first failure lap: KIT-FIDELITY 2026-07-23 + the glance freeze; first in-run BLOCK harvest: KC2-SIM 2026-08-08)
 
 The header promises that "pattern-observations from future runs amend it." This is that mechanism firing for the first time — and it fires from a **FAILED** run, which is worth saying out loud. Runs A and B (§1–§5) were the two best runs ever; they taught the shape. KIT-FIDELITY was the first run conducted *in* that shape that Matt ruled FAILED (at KFL-27), and a pattern that only learns from its successes is a pattern that certifies its own blind spots. These four observations are what the failure taught. Lineage lives in `agentic_orchestration/gandalf/notes/2026-07-23-kit-fidelity-run-wind-down.md` (failure taxonomy §1 + conductor lessons §5) and `agentic_orchestration/gandalf/notes/2026-07-23-glance-restore-run-charter.md`. They are guidance in the same key as §1–§5 — deviations are judgment calls to be named — but they carry the weight of having been paid for.
 
@@ -76,6 +77,8 @@ The header promises that "pattern-observations from future runs amend it." This 
 **3. Rubric law.** A VERIFIED claim must name its rubric AND show that rubric is the OWNER'S question, not a narrower proxy. KIT-FIDELITY logged "verified" twice on narrower rubrics — data-honesty at KFL-22, five-facts-green at KFL-26 — while the owner's question was twin-fidelity. Every exit predicate was formally met and the run still failed at the owner's eye, because the predicates measured a narrower thing than the intent. Decidability bought by predicate-narrowing is **intent leak**: it is the failure mode of F2 (§3), where making "done" checkable quietly swaps the owner's question for a checkable proxy. At launch, diff the predicate set against the charter's §0 intent sentence and name what fell out — out loud.
 
 **4. Red-main tripwire.** Any run that pushes to a CI-gated or deploy-gated surface carries a post-push **pipeline-green + deploy-truth** gate in its EXIT predicate. The run is not done at push; it is done at **verified serving truth**. This one was born not inside KIT-FIDELITY but from the glance freeze that the GLANCE-RESTORE charter exists to repair: a push left the glance parse-contract red on main and Vercel prod silently frozen at `e5ea8584` (2026-07-22 15:41 UTC) for ~30 hours, because no run's exit predicate owned the deploy. Green-on-my-machine and pushed is not served. The GLANCE-RESTORE charter's G4 is the first application of this gate — applied, pointedly, to ourselves.
+
+**5. Value-set sweep law (born KC2-SIM 2026-08-08 — from a Gate-2 BLOCK the run survived; ratified-as-amended by jack-ryan, KC2 ledger L-49(d)).** When an in-run ruling changes a value or state-name that other surfaces restate, the landing fold owes a whole-file sweep of every consuming surface: enumerate the old value's spellings case-insensitively INCLUDING prior state-names-as-values; declare `(surface, owner)` pairs and hand back hits you may not edit; discharge by hit table, never assertion; give every benign hit a one-clause reason. Each clause was paid for by a measured miss: the founding BLOCK (D2-1) was four stale sites the landing fold had walked past; the extension clause caught two live-tense sites the value-only patterns missed; the hand-back clause exists because the next residual (R-3) sat in a seam the sweeper could not edit; the hit-table clause exists because the one discharge-by-assertion on record (L-43(f)) was false. The event class matters to the pattern: a Gate-2 BLOCK (safety #2) became a standing method plus three ratified amendments while the run continued to its outcome — the §4 reasoning-boundary machinery processing its own audit findings. Operational form: `operating-procedures/gandalf.md § 4.11`. A fifth recurrence graduates it to an engineering-discipline candidate (Matt surface, via jack-ryan).
 
 ---
 
