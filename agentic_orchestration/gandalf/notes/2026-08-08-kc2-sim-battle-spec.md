@@ -1652,7 +1652,12 @@ goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
    own support — 17 > 7 deterministic on w152, 23 > 18 on w153, 15 > 14 on w157). Calibrating a
    body-count-coupled timing model on a falsified N bakes the count error into the timing terms.
    **The three excluded waves are still SIMULATED and still REPORTED** — they are excluded from
-   parameter selection, not from the record.
+   parameter selection, not from the record. *(L-50, fifth extraction: the exclusion set is
+   UNCHANGED — 16,368 struck from w153's census as NOT-HOSTILE leaves 22-or-23 > 18, both
+   accountings falsify; w152 stands (margin 10); w157's 15 > 14 is margin-1 with bar_hue UNRUN —
+   it stays excluded on suspicion. If the commissioned bar_hue cohort pass de-falsifies w157, it
+   re-enters calibration only at a future pre-registration point, never mid-lap — standing
+   safety #1.)*
 4. **The band-A N residual is DECLARED, not assumed away.** Band A (waves 1–93) contains **no
    censused wave**, so no band-A count is *falsified* — and none is *corroborated* either. Band A
    draws from the same count model whose trash limb F-13 graded **INCOMPLETE**, so band-A N may be
@@ -1756,7 +1761,20 @@ provenance block** is the one defect this artifact exists to prevent.
    WRONG — mechanism UNDECIDABLE among four named-never-fitted candidates. The champion pin's
    "63.0 EXACT" claim is now **empirically corroborated for the first time** (w157 6/6;
    star-furniture ≠ champion count, F-13 § 1.4). No re-pin in-run; the w153 sub-50k decider is
-   commissioned; baton `count_model` carries F-13 by name.)*
+   commissioned; baton `count_model` carries F-13 by name.)* *(F-13 fold, L-50 — third
+   annotation, decider (1) EXECUTED: the fifth extraction binds one 37,840 = `Skeletal Archer`
+   L105 Undead common (FRACTION-UNIQUE 5/5 frames, Δ = 1.1 px, runner-up 17× out) and strikes
+   16,368 as NOT A HOSTILE BODY (green bar 92/93 frames, zero nameplates, fraction-excluded on
+   all 22 plate-valid frames). `Skeletal Archer` is ABSENT from every rostered pool on waves
+   151–158 (pools CSV, checked at this fold) → the decider's un-rostered branch FIRES:
+   summon-or-conjure, with ×4 bodies > CONJURE's +2 — pointing SUMMON; w153's own p03 rosters
+   `skeletonrevenant_t3` (Revenant-class undead), the named summoner-candidate — citation probe
+   queued. w153's falsification STANDS (22-or-23 > 18 — count-pass and census accountings both
+   exceed support); w157's 15 > 14 is SUSPENDED at margin-1 (bar_hue unrun there); w152 STANDS
+   (margin 10; the second green entity 20,005 was never in its 17). The 289.62 floor re-grades
+   CONTINGENT pending bar_hue-corrected excesses — endpoints 248.83/271.50 untouched. The
+   champion w157 6/6 corroboration gains a rank-audit caveat (fifth § 9.2/9.3: `~ Affix` ≠ rank
+   signal; stars bind HERO only; glyph-colour re-verification commissioned).)*
 5. **AC-10.5** Monster life scaling while fighting wave *w* on Gladiator equals the CSV's 0-based
    `(w−1, gladiator)` row = the row **LABELED *w*** per the § 10.7 corrected array-lookup law — in
    particular **324 while fighting wave 160**: not 322 (index-inversion guard — the L-29 error;
@@ -2486,7 +2504,7 @@ sidecar or NDJSON split at v1.
 | T-1b | badge-vs-last-kill lag | ≤ 1 game tick, same-signed | **contained inside T-1 — never added to it** | contained |
 | T-1c | s2 band | ± 1.0 s, by deliberate under-claim | n = 9 has no power to claim finer | under-claimed |
 | **T-2** | count model — intra-order + rounding + clamp | **1.9 %** (5.5 monsters on 292, waves 151–170) *(C-2 ruling, G-D fold: the percentage takes the **PINNED TARGET** as denominator — tolerance-on-target, goalpost fixed at pin time; re-deriving the band from the model's own output each lap would let the goalpost track the model, the drift this table exists to prevent. Margins of record at the G-D re-evaluation: ±5.55 on 292.0 / ±6.01 on 316.5 — both regular limbs MISS under either denominator reading, so the ruling moves margins, never verdicts. With F-10 the 292-anchored band is superseded together with its pin; any future re-pin restates T-2 against the newly pinned value at its own pre-registration point.)* | wave-total counts | declared residual |
-| **T-3** | count model — **U9-6 bonus spawn** | ~~RESOLVED: p06 = ON, measured (L-21 census)~~ **RULED OFF — L-37(b) MEASURED-NULL** (hero band zero across 5,146 readouts, positive-controlled; F-10 OFF-operative) | ~~counts run the p06-on table~~ counts run the **p06-OFF model of record 271.50 / 63.00** (ON informative 290.17 / 81.00) | **closed** — closure cites **L-37(b)**, never L-21 *(row re-annotated at the L-40 sweep — this was the D-W3 stale sibling)* *(F-13, L-47: the OFF-limb REGULAR figure 271.50 is CONTESTED-with-band — falsified below at ≥ 289.62 (measured floor); carried as a **floor with a named finding** per the F-10 pattern, NOT re-pinned in-run. Champion **63.00 untouched** — unfalsified on all five discriminating waves, EXACT at w157 (6/6); star-furniture ≠ champion count. The p06-state closure THIS row records is unaffected.)* |
+| **T-3** | count model — **U9-6 bonus spawn** | ~~RESOLVED: p06 = ON, measured (L-21 census)~~ **RULED OFF — L-37(b) MEASURED-NULL** (hero band zero across 5,146 readouts, positive-controlled; F-10 OFF-operative) | ~~counts run the p06-on table~~ counts run the **p06-OFF model of record 271.50 / 63.00** (ON informative 290.17 / 81.00) | **closed** — closure cites **L-37(b)**, never L-21 *(row re-annotated at the L-40 sweep — this was the D-W3 stale sibling)* *(F-13, L-47: the OFF-limb REGULAR figure 271.50 is CONTESTED-with-band — falsified below at ≥ 289.62 (measured floor); carried as a **floor with a named finding** per the F-10 pattern, NOT re-pinned in-run. Champion **63.00 untouched** — unfalsified on all five discriminating waves, EXACT at w157 (6/6); star-furniture ≠ champion count. The p06-state closure THIS row records is unaffected.)* *(L-50: decider (1) executed — 16,368 NOT-HOSTILE struck from w153's census; w153 falsification STANDS (22-or-23 > 18), w152 STANDS, w157 SUSPENDED margin-1 (bar_hue unrun); floor 289.62 → CONTINGENT pending corrected excesses, endpoints 248.83/271.50 untouched; champion 63.00 unmoved — its w157 6/6 corroboration carries a glyph rank-audit caveat (fifth § 9.2).)* |
 | **T-4** | energy drain rate | **PINNED: PER_TICK, 176.4 / s @ 196 % AS** (client-verbatim, L-22) | drain rate now BINDS alongside ceiling/reserve; Soulfire term declared-separate (§ 3.1) | **closed** — fork collapsed |
 | **T-5** | devotion envelope | error-bar **classes**, not a scalar: defensive-trigger (opposition-dependent) · dual-bound (Shifting Sands ~200×) · piloting-parameter | envelope disclosure | structural (L-3) |
 | **T-6** | monster damage | **upper bounds only** (G-2 rank binding unread) | INFORMATIVE rows only | declared ceiling |
@@ -2893,7 +2911,12 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   three waves vs F-9's ±21 over the band) and is owned by **F-13**, not resolved into this one;
   the `proxypool` fine-print limb (legolas r3 rider) remains the citation path, joined by the
   **w153 sub-50k identity decider** (commissioned at L-47) and the **Crabling fingerprint
-  binding** (F-13 § 5).
+  binding** (F-13 § 5). *(L-50: both deciders resolved — w153: one 37,840 = `Skeletal Archer`
+  L105, UN-ROSTERED across 151–158 → summon-or-conjure branch, ×4 > CONJURE's +2 points SUMMON
+  (Revenant summoner-candidates rostered at w153 p03; citation probe queued); 16,368
+  NOT-HOSTILE, struck. Crabling: CLOSED-UNBINDABLE — plate saturated FULL on all 4 hover
+  frames, ≥ 5 parsed bodies ≥ 0.988; the low band neither confirmed nor excluded. F-9's no-op
+  disposition UNCHANGED.)*
 
 ### F-10 — AC-10.4's regular-count pins were computed by the roster-blind pin-era model — pins re-graded SUPERSEDED-PROVENANCE; the CITED + no-op model is the count model of record
 
@@ -2977,7 +3000,19 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   named-never-fitted mechanisms** (`trash_pool_multiplicity` · `p05_replenishment` ·
   `boss_spawn_additive` · `summoned_bodies`) alongside `empty_roster_plus_one`; baton
   `count_model` provenance carries F-13 + the falsification table + the floor by name. Full
-  adjudication: **F-13**.
+  adjudication: **F-13**. *(L-50 — decider (1) executed, fifth extraction: 16,368 struck
+  NOT-HOSTILE. A second green entity, 20,005, matches MO-4's pinned player max health EXACTLY —
+  the green class contains the player's own readout; 16,368's profile (pixel-static box, never
+  damaged, persists across badge flips) plus the save regime's +4 purchased defenses name
+  Crucible defense structures as the candidate class — adjudication queued, not ruled. The
+  falsification triple survives as w152 STANDS · w153 STANDS (22-or-23 > 18) · w157 SUSPENDED
+  margin-1 pending the commissioned bar_hue cohort pass (w151/157/158 + w152 re-pass; eye-read
+  mandatory on green-lit scenes); M1's PLAIN falsification survives on w152+w153 alone. Floor
+  289.62 CONTINGENT. New instruments registered: plate-bar fraction binding (± 2.5 px on a
+  199.8 px track; ceiling f ≈ 0.985) + bar-hue classifier. Identity outcome: `Skeletal Archer`
+  L105 UN-ROSTERED corpus-wide → summon-or-conjure fires, SUMMON indicated (×4 > +2);
+  summoner-candidate `skeletonrevenant_t3` rostered at w153 p03; the mechanism-adjudication
+  piece is QUEUED at the bar_hue fold.)*
 - **One census-count note for Gate-2:** § 10.5 fact 3 says 74/**632** pools; the sidecar registry
   counts 74/**635** (F-9's own text uses 635). The 632-vs-635 denominator delta is unresolved in
   this spec — a one-line verification item, not material to any count above.
@@ -3110,17 +3145,31 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   the join has no power over unplated fingerprints; that asymmetry is load-bearing.
   **Un-rostered ≠ conjured:** `Aleksander's Shard` (w160) is equally un-rostered and graded
   SUMMON — the class has ≥ 2 mechanisms, and the level-inheritance summon discriminator has NO
-  power on 151–158 (every plausible summoner sits inside the 102–108 regular band).
+  power on 151–158 (every plausible summoner sits inside the 102–108 regular band). *(L-50: the
+  un-rostered class gains a THIRD member — `Skeletal Archer` L105, w153 ×4 (fifth-extraction
+  fraction binding; absent from every 151–158 roster across all pool kinds) — and the summon
+  discriminator regains power through IDENTITY: the citation question is now concrete — do the
+  Revenant records rostered at w153 p03 `skeletonrevenant_t3` carry a summon skill referencing
+  `skeleton_a02_archer.dbr`? Corpus-wide un-rostered: Crabling (w152) · Aleksander's Shard
+  (w160, SUMMON) · Skeletal Archer (w153, ×4).)*
 - **Star-furniture ≠ champion count (§ 1.4 category-error correction):** regular rosters carry
   champion- and hero-ranked RECORDS on 4/5 waves — rank is a property of the monster record, not
   of the proxypool limb that drew it. AC-10.4's 63.00 counts `nameChampion{j}` DRAWS; star-pairs
   count RANK FURNITURE — a superset. The commissioning brief's "star-pairs exceed selection
-  champs" premise is RETIRED; reproduced, the champion limb never overshoots.
+  champs" premise is RETIRED; reproduced, the champion limb never overshoots. *(L-50 refinement, fifth
+  § 7.1/§ 9.3: seven bound star cases are ORANGE/HERO names ONLY — champions carry bare bars,
+  so the fourth extraction's "88 plain" bucket mixes commons AND champions; star-pairs are a
+  HERO instrument. And § 9.2: `~ Affix` name-shape is NOT a rank signal — glyph colour is
+  (champion band G/R 0.91–0.95 vs hero 0.71–0.79). Consistent, not contradictory: the w153
+  champion-glyph reads (Revenants, Ugdenbog Golems) are record-rank champions drawn through
+  TRASH pools — this § 1.4 correction working in the other direction.)*
 - **Discrimination (Q2):** M1 (model of record) **FALSIFIED at its own support on the PLAIN
   limb** — w152 **17 > 7 DETERMINISTIC** (zero-width support: both trash alternatives are
   (5,6) → 7; the hero pools are empty → no-op 0), w153 **23 > 18**, w157 **15 > 14**. STAR limb
   unfalsified everywhere, **w157 6/6 EXACT** (positive control: the instrument CAN reach the
-  champion expectation — undershoots elsewhere are engagement censoring, not model error). SKULL
+  champion expectation — undershoots elsewhere are engagement censoring, not model error). *(L-50: w157's PLAIN 15 > 14
+  SUSPENDED at margin-1 — bar_hue unrun there, one green-bar contaminant collapses it;
+  w152/w153 STAND post-strike. The 6/6 gains a glyph rank-audit caveat, fifth § 9.2.)* SKULL
   unfalsified. Lattice: 12/64 cells survive, ALL requiring `trash=ALL` ∧ `CONJURE` — **NOT
   endorsed**: a 2.33–2.84× band correction implying w158 ≈ 81 regulars against a ≈ 14-icon
   minimap, while the **HP decomposition** (unsupervised max-ratio split) lands the above-gap
@@ -3141,7 +3190,10 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   F-9's ±21 over the band. F-13 is a NEW finding, not a resolution of F-9.
 - **Blast radius (Q4):** band = **RANGE — the point estimate is refused**: 248.83 … **271.50
   (record, UNCHANGED)** … **289.62 (measured floor = 271.50 + 18.12 E-form; assumption-free
-  arithmetic on measured lower bounds — carried as a FLOOR)** … 632–772 (not endorsed). MOVES:
+  arithmetic on measured lower bounds — carried as a FLOOR)** … 632–772 (not endorsed) *(L-50:
+  floor CONTINGENT — the 18.12 E-form consumed w153/w157 excesses now under census correction
+  (16,368 struck; w157 margin-1 suspended); re-derives at the bar_hue fold from HOSTILE-ONLY
+  cohorts. Endpoints 248.83/271.50 untouched.)*. MOVES:
   § 12 T-3 (regular limb → floor-with-named-finding, the F-10 pattern; champion untouched) ·
   AC-10.4 (second annotation; 63.0 empirically corroborated for the first time) · **F-12
   locomotion N-inputs (the painful one: w152's N = 7 vs measured ≥ 17 is a 2.4× error on a
@@ -3157,8 +3209,17 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   `livingplant_t3` plates (Carnivorous Plant / Ugdenbog Golem) → p05 replenishment; `giant_t3`
   plates (Asterkarn / Groble) → trash multiplicity; un-rostered → summon-or-conjure.
   Deterministic three-way separation on five bodies; **commissioned to galadriel at L-47**.
+  *(EXECUTED — L-50: B1 16,368 NOT-A-HOSTILE-BODY, struck; B2 = `Skeletal Archer` L105 Undead
+  common — un-rostered across 151–158, the separation lands in its THIRD branch:
+  summon-or-conjure, ×4 > CONJURE's +2 → SUMMON indicated. Note: this bullet's plate-class map
+  under-enumerated w153's trash pools — four, not two (+ `wendigo_t3` p01,
+  `skeletonrevenant_t3` p03) — neither silent case occurred, and the Revenant pool is now the
+  summoner-candidate. B3–B5 UNIDENTIFIED (degenerate / no-plate; the ×4 independently
+  reproduced by damage-state banding).)*
   (2) `Ugdenbog Crabling` fingerprint binding (a low-cluster binding makes w152's un-rostered
-  population seven-bodies-from-one-point, killing CONJURE's 1-body prediction). (3) w152
+  population seven-bodies-from-one-point, killing CONJURE's 1-body prediction). *(L-50:
+  CLOSED-UNBINDABLE — plate saturated FULL on all 4 hover frames, ≥ 5 parsed bodies ≥ 0.988;
+  the low band neither confirmed nor excluded.)* (3) w152
   +0.40 s carryover — badge-advance semantics, one `survivalevent.lua` citation (worth 1 of
   w152's 17 and the above-gap count's exact landing). (4) `boss_add` template fine-print
   (legolas r3 rider).
