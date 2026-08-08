@@ -1145,8 +1145,14 @@ MEASURED.**
 
 **Traversal bounds (L-44(d), measured) — the readout is ENGAGEMENT, not emitter departure.** The
 fourth extraction's first-arrival timestamps measure spawn-to-engagement lags of **3.5–6.1 s**
-across the censused waves — the empirical band that bounds the arena's one free timescale until an
-engine m/s citation lands (HALT-2; no such citation exists — see the L-46 closure there). Evidence
+~~across the censused waves — the empirical band that bounds the arena's one free timescale until an
+engine m/s citation lands (HALT-2; no such citation exists — see the L-46 closure there)~~ *—
+CONDUCTOR STRIKE 2026-08-08 (R-L48-1; JC-1/R-LOCO-7 GRANTED): that band is an **AMBUSH-CLASS**
+measurement (p05 plant chain, 10.17 m traversal) and binds ONLY its own emitter class — it is not
+a global arena timescale. The ring-class analogue in the same L-44(d) row is the w152/w157 boss
+glyph→readout window: **3.0–4.3 s over p04 38.45 m**. Binding the ambush band over the 37.53 m
+ring median is a 3.7× radius error. Per-emitter-class binding + the K-1..K-3 `v_ref` bracket live
+at § 10.9a D; HALT-2 status unchanged (engine m/s citation NAMED-ABSENT, L-46 closure).* Evidence
 anchors ride L-44(d) by reference.
 
 **Emitter positions: provenance TWO-LAYER (L-46(b) — supersedes L-10d's "never DB-hunted").**
@@ -1154,7 +1160,8 @@ Layer 1, **emitter geometry: CITED-per-arena** — the Maps.arc decode makes per
 radii database facts, not free parameters. Layer 2, **arena selection: DECLARED** — which of the
 10 arenas a sitting ran is not DB-decidable (s2 favours `survivalworld_a`; lean). The sim carries
 the selected arena's cited geometry plus one player-spawn parameter; **`v_ref` is the sole free
-scalar** (L-46), traversal-bounded 3.5–6.1 s (above). This intersects R-KC2-7 cleanly: the sim
+scalar** (L-46), ~~traversal-bounded 3.5–6.1 s (above)~~ *— R-L48-1: `v_ref` is bracketed per
+emitter class at § 10.9a D (K-1..K-3; the 3.5–6.1 s band is ambush-class only)*. This intersects R-KC2-7 cleanly: the sim
 owns causal spatial truth on a **cited-geometry, declared-selection** arena, and the baton records
 `arena_id` + the geometry provenance it ran with so the Godot session builds the same arena.
 
@@ -1446,10 +1453,266 @@ cycle_time(wave) = spawn_resolution + approach_traversal + engagement_kill_time 
                    \_______________ >= ~7.0 s floor for a trivially-dying wave _____/
 ```
 
+~~The four terms sum.~~ **AMENDED (L-45(e) / L-46(a)): the `+` above is the STATIC-BOARD reading and
+does not survive the locomotion amendment.** When monsters travel, later arrivals traverse *while*
+earlier arrivals are being killed, so the traversal and kill terms **overlap in time** and the
+composition law is closer to `max(last_arrival, cumulative_kill) + tail` than to a sum. **The
+composition law is not assumed here — the lap establishes it empirically and reports it** (§ 10.9a
+E). Every bound argument built on the additive form — including F-12's own 89/92 lower-bound
+argument, which was correct under the static board — must be **re-derived** under the amended
+model, never inherited.
+
 A sim that reproduces kill time but not the floor will beat the fixture on every early wave by
 construction. **Structural companion:** the clear-time distribution is **bimodal** — waves at
 multiples of 10 cost ~2× (**mean 28.57 s, n = 9** vs **14.29 s, n = 83**). Any model fitted against
 a pooled mean is fitting a bimodal quantity (§ 12 pins the comparison classes accordingly).
+
+### 10.9a Locomotion — the movement rules — **NEW (F-12 amendment; consumes L-43 C-2/C-3, L-44(d), L-45(d)/(e), L-46(a)–(d))**
+
+> **Why this subsection exists.** F-12 measured the defect precisely: `simulate_wave` hands the disc
+> each actor's SPAWN coordinate forever, so the board is static and the player tours it
+> (2.5×–5.1× traversal inflation, T-1 FAIL 92/92). §§ 2.2 / 10.6 / 10.9 *described* motion; **no
+> section stated the RULES**, which is why the build could omit them and still read as
+> spec-conformant. This subsection is the rules. Everything in it is DB-, TPL-, SOURCE- or
+> LEVEL-CITED with its record named, or DECLARED with its empirical bound stated. **Zero fitted
+> parameters** (charter § 4.2).
+
+#### A — The model
+
+```
+per actor a, spawned at wave-clock t_spawn(a) from emitter p(a) in arena A:
+
+  x_a(t_spawn)  := emitter_pos(A, p(a), tier) + scatter_roll        # LEVEL-CITED + SIM-ROLLED
+  v(a)          := characterRunSpeed(a) x v_ref                     # DB-CITED x ONE free scalar
+  target_a(t)   := player_pos(t)        if pursuit_gate(a, t)
+                   patrol_target(a)     otherwise                   # LEVEL-CITED node set
+  x_a(t+dt)     := x_a(t) + v(a) * dt * unit( target_a(t) - x_a(t) )   # planar, open-plane
+  engaged(a)    := first t with | x_a(t) - player_pos(t) | <= d_engage
+
+  pursuit_gate(a, t) := | x_a(t) - player_pos(t) |  <= ViewDistance(a)          # 80.0 m, 868/895
+                    AND | x_a(t) - x_a(t_spawn)  |  <= MaxPursuitDistance(a)    # 125.0 m, 868/895
+                    AND   time_in_pursuit(a)        <= PursuitTime(a)           # 10 000 ms
+
+  p05 (ambush) spawns DO NOT patrol-link — `IsAmbush() == false` gates the link
+  (survivalevent.lua:552). They enter the gate directly from the ambush radius.
+```
+
+**Two limbs, one ruled default, one divergence condition.** The priority between *follow the set
+path* and *pursue the acquired target* is **NAMED-ABSENT** — it lives in the executable, and no pin
+contains it (the Lua movement surface is exactly `LinkPatrolPointGroup` · `Run()` · `MoveAction` ·
+`SetCoords` · `Teleport*`; none takes or returns a rate or a priority). Therefore:
+
+| limb | rule | status |
+|---|---|---|
+| **L-A — zone-first** *(the ruled default, L-46(a))* | patrol target holds until the actor reaches its assigned node, then the gate governs | **RUN THIS** |
+| **L-B — gate-first** | the gate governs from t = 0 whenever it is open (which, in-arena, is always) | run as the declared sensitivity limb |
+
+**They are near-indistinguishable for a centrally-camped player** — `ViewDistance` 80 m exceeds
+every measured emitter radius (max 47.89 m) and `MaxPursuitDistance` 125 m exceeds every arena
+diagonal, so the gate is open at t = 0 for any in-arena player, and a player standing in the patrol
+node cloud *is* the zone. **They diverge when the player is off-centre**, because L-A routes via a
+node at median 18.85 m from the centroid before turning. The lap runs L-A, runs L-B as a
+sensitivity check, and **reports the delta rather than choosing on taste**. Node assignment
+(nearest node vs group centroid vs per-emitter assignment) is **DECLARED** — the baton records
+which rule ran.
+
+#### B — Every term, with its citation — **the free-parameter surface is ONE scalar**
+
+| term | value | grade | source of record |
+|---|---|---|---|
+| ring emitter radius (p01–p04, p06) | per-arena, per-emitter; **median 37.53 m** (n = 322, 15.52–47.89) | **LEVEL-CITED** | `Maps.arc` decode → `kc2_crucible_emitter_geometry.csv` (sha `ece0c345…`) |
+| **p01 radius** | keyed **per tier** (`p01_tier<NN>`); band-A tiers 1–10 median 38.51 m; within-arena spread up to 17.36 m | **LEVEL-CITED** | same |
+| p05 ambush radius | **median 10.17 m** (n = 10, 1.70–17.15) | **LEVEL-CITED** | same |
+| patrol node set | 173 nodes, median **18.85 m** from their own centroid (max 30.07) | **LEVEL-CITED** | `kc2_crucible_patrolpoints.csv` (sha `106facba…`) |
+| reference frame | the `PatrolPoint_Attack` centroid — **not** `playerspawnpoint` | **LEVEL-CITED** | probe § 4.3 |
+| arena enumeration | 10 arenas `survivalworld_a…j` / `tagSurvivalArena_01…10` | **LEVEL-CITED** | probe § 4.2 |
+| **arena selection** | which arena a sitting ran | **DECLARED** over the cited enumeration (s2 leans `survivalworld_a`; a lean, not a citation) | § 10.6 layer 2 |
+| scatter | `placementExtents = 8.0` m, all 925 proxies; **SIM-ROLLED** | **DB-CITED** | P-E6 § 2.3 / M-7 |
+| **length unit** | the **METRE** | **DB-CITED (Crate annotation)** | `travelSpeed` / `tailTravelSpeed` / `particleSpeed` / `textureSpeed` all declare *meters per second* |
+| `characterRunSpeed(a)` | per-record multiplier; band-A **n = 895, median 1.000**, mean 1.0358, range 0.60–2.00 (191 exactly 1.0; 311 below; 393 above) | **DB-CITED** | `kc2_s1_banda_record_inputs.csv` (sha `ac50ef77…`) |
+| player run speed | **135 %** — AT `playerRunSpeedCapMax = 135`; monsters carry 3.7× the headroom (`monsterRunSpeedCapMax = 500`) | **DB-CITED** + ceremony § D | `gameengine.dbr` |
+| `ViewDistance(a)` | **80.0 m** on 868/895 (min 15.0) | **DB-CITED** | `ControllerMonster` DBR, 126 distinct, 0 missing |
+| `MaxPursuitDistance(a)` | **125.0 m** on 868/895 (min 75.0) | **DB-CITED** | same |
+| `PursuitTime(a)` | **10 000 ms** (max 12 000) | **DB-CITED** | same |
+| `d_engage` | **2.4 m** `meleeTargetDistance` … **4.0 m** `meleeAutoTargetDistance` — the sim declares which, in range | **DB-CITED** | `gameengine.dbr` |
+| `disableMovement` | **ABSENT on 895/895** — nothing in band A is exempt from the movement manager | **DB-CITED** | probe § 2.5 |
+| collision / occlusion | `OPEN-PLANE — no blocking geometry modelled` | **DECLARED** (unchanged, M-10) | § 11.4 |
+| **`v_ref`** | **the SOLE free scalar of the whole locomotion surface** | **DECLARED**, bracketed in D | HALT-2 **CLOSED-BY-TYPE**; L-46 |
+
+**`v_mob` enters DB-CITED ONLY.** There is no global monster speed. Each actor's speed is its own
+record's `characterRunSpeed` multiplier times **the same `v_ref`** the player's 135 % resolves
+against — one engine reference, two consumers. A sim that carries a single `v_mob` constant has
+re-introduced exactly the class of uncited bare float that F-12a caught in `Arena.emitter_radius_m`.
+**The radius has EXITED the free-parameter list** (§ 10.6 layer 1); `v_ref` is what remains.
+
+#### C — Declared unmodelled inputs — **NAMED as lap inputs, never silently absorbed**
+
+| input | measured extent | disposition this lap |
+|---|---|---|
+| **`characterRunSpeedJitter`** | n = 810, **median 15.0**, mean 12.21, max 50.0 (85 band-A records carry none) | **OUT-OF-MODEL, DECLARED.** If it disperses run speed, arrival is a **distribution**, not a time, and a single `v(a)` under-describes it. The lap runs point-speed and **reports the omission by name**; it does not fold a dispersion into `v_ref`. |
+| **the `controller` surface** | 126 `ControllerMonster` records × **27 emitted fields**: `RoamBehavior` / `RoamDistance`, patrol-idle timings (1–5 s), `EmoteBeforePursuingChance`, swing pauses | **OUT-OF-MODEL except the three gate fields in B.** Every unmodelled field here adds *latency*, i.e. pushes arrival **later** — a known, signed bias, stated in D. |
+| **`walkDistance`** | *"Distance below which to walk when pursuing"*, n = 677, median **4.5 m**; `walkSpeed` median 1.000 | **OUT-OF-MODEL.** Inside 4.5 m the actor walks, not runs; the effect is a sub-second terminal correction against a 33–36 m approach. Named, bounded, not modelled. |
+| **`distressCall` / range / time** | emitted per record | **OUT-OF-MODEL** — a pull mechanic that could couple arrivals across actors. |
+| patrol-node assignment | 173 nodes; assignment rule not in any pin | **DECLARED** (A above). |
+| **F-13 residual on N** | the count model's trash limb is INCOMPLETE (§ 14 F-13) | **DECLARED** — see F below. |
+
+#### D — `v_ref`: the sole free scalar, and the three measurements that box it in
+
+**Nothing here calibrates `v_ref`.** These are consistency bounds computed from cited geometry and
+independently measured timings; the lap reports the feasible region, and **an empty region is a
+FINDING** (a named model error) — never a licence to widen a bound or solve for a term.
+
+**⚠ First, a provenance correction the lap MUST NOT get wrong.** The **3.5–6.1 s** traversal band
+(§ 10.6, L-44(d)) was measured at the **AMBUSH** emitter — it is the per-body residual of the p05
+plant chain against its DB cadence (spawns 4.0 / 7.0 / 10.0 s; engagements +10.1 / +12.7 / +13.5 s
+⇒ lags **6.1 / 5.7 / 3.5 s**), and p05's median radius is **10.17 m**. **Binding `v_ref` to that
+band over the 37.53 m RING is a 3.7× radius mismatch.** The ring-class analogue lives in the same
+L-44(d) row and is a different number: the w152 / w157 **boss skull-glyph on the minimap 3.0–4.3 s
+before first readout** — a spawn→engagement lag for a body travelling from the boss point
+(p04, median 38.45 m).
+
+| # | constraint | arithmetic (traversed = radius − `d_engage`; `t_path ≤ t_lag` because latency ≥ 0) | what it bounds |
+|---|---|---|---|
+| **K-1** *(ring class)* | boss glyph→readout **3.0–4.3 s** over p04 median **38.45 m** | traversed 34.45–36.05 m ⇒ **closing ≥ 8.01 m/s** (most conservative: 34.45 / 4.3) | **LOWER** bound on closing speed |
+| **K-2** *(ambush class)* | p05 chain **3.5–6.1 s** over median **10.17 m** | traversed 6.17–7.77 m ⇒ **closing ≥ 1.01 m/s** | **LOWER**, and weak — likely player-dominated if the plant stream is low-mobility |
+| **K-3** *(the floor)* | MO-5 `~7.0 s` one-sided PIN; ring median 37.53 m; `kill ≈ 0` for a trivially-dying wave; AC-10.6 puts p01–p04 at t = 0 so `spawn_resolution = 0` | closing ≤ 33.53 / (7.0 − `advance_tick_latency`) | **UPPER** bound on closing speed |
+
+**The joint consequence, pre-registered.** K-1 ∧ K-3 are simultaneously satisfiable **only if the
+declared non-traversal latency budget is ≳ 2.8 s** (33.53 / (7.0 − A) ≥ 8.01 ⇒ A ≥ 2.81 s).
+So the amended model makes a falsifiable prediction the lap must check: **either the wave cycle
+carries ≈ 3 s of non-traversal latency, or one of the two readings is misattributed** (candidates,
+named not chosen: the minimap glyph is not spawn; the readout is not first-contact; the boss uses a
+sub-1.0 `characterRunSpeed`; the player was closing and the attribution differs). **Solving the
+inequality for `A` and adopting the result is FITTING and is forbidden** (charter § 4.2) — `A` is
+declared from evidence or declared as unknown, and the check is then run.
+
+**Closure attribution.** K-1…K-3 all bound *closing* speed, which is `v_ref × (player multiplier +
+mob multiplier)` when both parties close and `v_ref × mob multiplier` when the player is stationary.
+The lap **declares its player-movement policy** (camp / kite / tour) and converts once, in one
+place. For scale: under mutual closure at `characterRunSpeed = 1.0` and player 135 %, K-1's
+≥ 8.01 m/s closing reads **`v_ref` ≥ 3.41 m/s**; under a stationary player it reads **≥ 8.01 m/s**.
+**That is the whole of F-12's negative control, explained without fitting anything:** the
+~ 10 m/s the static-board fit demanded *(digit per D2-2 discipline — cite the finding, not the
+numeral, until gamora's 32-seed re-run restates it)* is what you get when a **single** party is
+credited with all the closing. The amended model does not need the absurd number — and
+demonstrating that it does not is a *result of the lap*, not an input to it.
+
+#### E — Composition law and separability — **RE-ESTABLISHED, never inherited (L-45(e))**
+
+Gate-2 Phase-D2 verified the lower-bound separability that F-12's 89/92 argument rests on **holds
+under the static model and INVERTS under this one.** The reason is structural: with a static board,
+traversal and kill are sequential per actor and additive over the wave, so locomotion alone is a
+lower bound on completion. With actors in motion, **later arrivals traverse while earlier arrivals
+are being killed** — the terms overlap, and
+
+```
+static  :  clear_time  =  SUM over actors ( traversal_i + kill_i )        -> locomotion is a LOWER bound
+amended :  clear_time ~=  MAX( last_arrival , cumulative_kill ) + tail    -> neither term bounds alone
+```
+
+**Binding rules for the lap:**
+
+1. The composition law is **measured, then stated** — the lap instruments arrival times and kill
+   times separately and reports which term is binding, per wave and per class.
+2. **No bound argument is inherited.** Any claim of the form *"term X alone already exceeds
+   measured"* must be re-derived under the amended model with its own arithmetic shown.
+3. **F-12's 89/92 lower-bound argument is RETIRED as a live argument** and retained as a record of
+   the static-board diagnosis. It is not evidence about the amended model.
+4. Separability is a **finding to report**, not an assumption to consume: if the lap finds the
+   terms are in fact near-additive (e.g. because bodies arrive faster than they can be killed), it
+   says so with the measurement that shows it.
+
+**Three channels the amended model predicts will flatten the body-count coupling** — the lap
+measures each, and **does not credit the model for a channel it did not demonstrate**:
+
+- **(i) Traversal transfer.** The player stops touring; the 2.5×–5.1× inflation term disappears.
+- **(ii) Convergence bunching.** Actors converging on a common destination (zone or player) arrive
+  spatially clustered, and a 3.0 m self-centred disc engages a cluster at once — so throughput
+  tracks *cluster occupancy*, not N. Note the honest ordering: **pure pursuit (L-B) bunches on a
+  point and should bunch MORE than zone-first (L-A), which bunches on an 18.85 m node cloud.** Any
+  claim that L-A is "the less body-count-coupled limb" must be measured, not asserted.
+- **(iii) Arrival schedule.** p01–p04 fire at t = 0 and p05 staggers from t + 4 s (AC-10.6), so wave
+  duration has a geometric floor that is nearly independent of how many bodies ride each emitter.
+
+The fixture's r = +0.154 is the target *shape*; **r is a DIAGNOSTIC, reported, and is not a
+goalpost.** T-1 is the only binding clear-time gate and it is UNCHANGED.
+
+#### F — Calibration procedure for the amendment lap
+
+1. **Order.** Build the movement rules (A–C) → re-run the **micro-oracles** (unchanged, direct-binding)
+   → re-run the **s1 ramp 1→93** against **UNCHANGED T-1** → run the **s2 second-geometry
+   diagnostic** (below) → report. Full-ladder stays out of scope (beat 5 remains paused).
+2. **`v_ref` calibration re-enters** — C-2's SUSPENDED-PENDING-LOCOMOTION condition is met by this
+   subsection's existence, not by its results. `v_ref` is set **within the K-1…K-3 feasible region**
+   and the region is reported; it is **never solved against T-1 residuals.** A `v_ref` that must
+   leave the region to pass T-1 is a FINDING and the lap says so with the number.
+3. **Calibrate on UNFALSIFIED waves only.** Any wave whose modelled body count is empirically
+   falsified is **excluded from the calibration surface and reported as a finding**. Today that set
+   is exactly **{w152, w153, w157}** (F-13: the model of record's regular component falsified at its
+   own support — 17 > 7 deterministic on w152, 23 > 18 on w153, 15 > 14 on w157). Calibrating a
+   body-count-coupled timing model on a falsified N bakes the count error into the timing terms.
+   **The three excluded waves are still SIMULATED and still REPORTED** — they are excluded from
+   parameter selection, not from the record.
+4. **The band-A N residual is DECLARED, not assumed away.** Band A (waves 1–93) contains **no
+   censused wave**, so no band-A count is *falsified* — and none is *corroborated* either. Band A
+   draws from the same count model whose trash limb F-13 graded **INCOMPLETE**, so band-A N may be
+   systematically low by the same unresolved mechanism. The lap therefore reports **how sensitive
+   its result is to N** (a per-wave N perturbation at the F-13 measured-floor scale is sufficient);
+   a result that is insensitive to N is robust to the residual, and one that is sensitive inherits
+   it. Do not re-pin counts in-run.
+5. **Beat-4 rides INSIDE this lap (L-45(d) / D2-5).** The **s2 one-sided inequality** —
+   sim-kit-alone at waves 151–160 must clear **≤** fixture-with-defenses; faster ⇒ anomaly tripwire
+   ⇒ finding — runs as a **second-geometry diagnostic**, not as a separate beat. Its value here is
+   that s2 ran a **different arena** from s1 (§ 10.6 bearings; s2 leans `survivalworld_a`, s1's best
+   fit is `survivalworld_f`), so it exercises the movement rules against a **second cited
+   geometry** — a generalisation test the s1 band cannot provide. It stays **INFORMATIVE**
+   (R-KC2-2: s2 field outcomes inform, they do not bind) and it **cannot false-trip under a slow
+   bias**, which is why it is safe to bundle. **N-exclusions apply here too** — w152 / w153 / w157
+   are inside this band; run them, report them, keep them out of parameter selection.
+6. **MO-5 re-check** per the § 10.6 motion hook: re-demonstrate the floor under the selected arena's
+   **cited** radii, reporting the traversal-lengthening and player-touring-removal effects
+   separately. The *provisional-on-geometry* flag clears only on that demonstration.
+7. **Zero fitted parameters, restated at the point of temptation.** Every constant is either cited
+   in B with its record, or declared in C/D with its bound. The one free scalar is bracketed by
+   measurements that are **not** the T-1 target. If the lap ends wanting an eighth term, the term is
+   a **HALT row or a finding**, not a slider.
+
+#### G — What the lap must report — and one residual it must not swallow
+
+**Report (per wave, and per two-class summary):** arrival times by emitter · first-engagement times
+· the composition law measured (E.1) · clear time vs T-1 (UNCHANGED) · **r(clear time, N)** as a
+diagnostic against the fixture's +0.154 · the K-1…K-3 feasible region and where the declared `v_ref`
+sits in it · the L-A vs L-B sensitivity delta · the N-sensitivity result (F.4) · MO-5 under cited
+radii · the three excluded waves, by name, with their simulated results · every C-row omission
+restated as an omission.
+
+**R-LOCO-1 — the baton cannot express a moving board, and this spec will not pretend otherwise.**
+§ 2.3's **BR-2 G-1h law** requires that an independent function reconstruct hit/no-hit from the
+emitted telegraph alone. Under a static board that was satisfiable from `circle_sweep`
+`{centre, radius, tick}` plus each actor's `spawn_x / spawn_y` — because the actor's position was
+its spawn position, forever. **Under motion it is not:** hit/no-hit is now a function of two
+trajectories and the baton emits only one. **This is a schema gap, named at the moment the
+amendment creates it.** It is **NOT resolved in this subsection** — § 11 is a signed cross-seam
+contract (star-lord R-1…R-39, drax SIGNED-as-amended), and a spec author does not unilaterally
+amend a signed contract. **Routed to the conductor** for star-lord + drax re-sign, with the shape
+question stated rather than decided:
+
+- **Option 1 — per-actor path waypoints.** `actors[].path[] { t_s, x, y }` plus
+  `config.arena.path_model: "PIECEWISE-LINEAR"` and the interpolation rule. Exact reconstruction if
+  motion is piecewise-linear; a handful of nodes per actor (spawn → node → engage), so the cost is
+  ~tens of bytes per actor against a measured 17.4 MB artifact.
+- **Option 2 — per-tick actor position tracks.** Exact under any motion law, but it multiplies the
+  columnar track surface by the live actor count and lands squarely against § 11.6.1's size work.
+- **Lean:** Option 1, on cost and on the fact that A's motion law *is* piecewise-linear by
+  construction. **The conductor rules; star-lord and drax sign.**
+
+Two smaller schema consequences ride the same routing, both currently **operative-false in a signed
+artifact**: `config.arena.arena_id: "s1" | "s2"` names a *sitting*, not an arena, and can no longer
+express *which* of the ten cited arenas ran (a sibling `arena_ref` over the cited enumeration plus
+the six radii would); and `positions_provenance: "DECLARED"` is now wrong at layer 1 — emitter
+positions are **CITED**, selection is **DECLARED** (§ 10.6). The `D-ARENA-DECLARED` declaration
+string is corrected below at § 11.4 with strike-lineage, because a **false provenance claim inside a
+provenance block** is the one defect this artifact exists to prevent.
 
 ### 10.10 Acceptance criteria
 
@@ -1502,7 +1765,30 @@ a pooled mean is fitting a bimodal quantity (§ 12 pins the comparison classes a
    only when the bonus toggle is on.
 7. **AC-10.7** The minimum achievable cycle time for a trivially-dying wave in the modelled arena is
    ≥ the pinned floor (§ 12), i.e. the floor emerges from spawn + traversal geometry rather than
-   being asserted as a constant.
+   being asserted as a constant — **re-demonstrated under the selected arena's CITED radii**
+   (§ 10.6 motion hook; the pre-L-46 pass consumed the retired 30.0 m float).
+8. **AC-10.8 — the board moves, and the motion is causal.** For any actor whose spawn radius exceeds
+   `d_engage`, its position at engagement differs from its spawn position; and a wave exists in which
+   an actor takes disc ticks **before** its engage time (motion intersecting the sweep). A build in
+   which `position(t) == spawn_position` for all `t` fails this criterion by construction — it is the
+   F-12 regression guard.
+9. **AC-10.9 — speed is per-record, never global.** Two actors spawned from the same emitter under
+   the same target policy with `characterRunSpeed` 2.00 and 1.00 arrive with arrival-time ratio
+   1 : 2 within tick quantisation. **No global monster-speed constant exists in the build**: the only
+   free locomotion scalar is `v_ref`, and every actor speed is `characterRunSpeed(a) × v_ref`
+   (§ 10.9a B).
+10. **AC-10.10 — six radii, cited, p01 per tier.** The six emitter radii equal the selected
+    `arena_id`'s cited values; p01 resolves per content tier (`p01_tier<NN>`); **the literal 30.0
+    appears nowhere in the arena surface** (F-12a regression guard). p05's radius is the arena's
+    ambush value, not a ring value.
+11. **AC-10.11 — the ambush point is excluded from the patrol link.** p05 actors take no patrol leg
+    (`IsAmbush()` gate, `survivalevent.lua:552`) and enter the pursuit gate directly from the ambush
+    radius, on the arrival choreography AC-10.6 already pins.
+12. **AC-10.12 — the lap's reporting obligations are artifacts, not prose.** The run emits: the
+    K-1…K-3 feasible region with the declared `v_ref`'s position in it; `r(clear_time, N)` as a
+    **diagnostic** (never a gate); the measured composition law (§ 10.9a E.1); the L-A vs L-B
+    sensitivity delta; the N-sensitivity result; and **w152 / w153 / w157 simulated, reported, and
+    absent from parameter selection** (F-13).
 
 ---
 
@@ -1591,12 +1877,12 @@ concern** — she emits objects.
 
 | Owned by the SIM (causal combat truth — baton payload) | Owned by PRESENTATION (aesthetics within baton constraints) |
 |---|---|
-| who hit whom, for how much, at what time | monster approach choreography between spawn and engagement |
+| who hit whom, for how much, at what time | ~~monster approach choreography between spawn and engagement~~ **→ gait, footfall, turn-in-place and micro-spacing WITHIN the sim-emitted approach** *(amended L-46: the approach PATH is causal under a sweeping-area damage predicate — § 2.2. Schema consequence routed, not landed: **R-LOCO-1**, § 10.9a G)* |
 | **per-actor HP, carried event-locally on `hp_after`** (§ 11.3.1) | idle/walk/run animation blending, footfall, turn-in-place |
 | player HP + energy, as continuous columnar tracks | camera framing, lighting, VFX selection |
 | deaths (actor, time, killer — non-null on `player_death`) | crowd micro-spacing inside the declared scatter |
 | wave clocks (start, end, outcome, termination reason) | body radius / proxy sizing (the hit test is centre-to-centre — § 11.4 `hit_test_model`) |
-| **spawn positions** (the scatter roll is sim-rolled) and **engage times** | anything not fixed by an emitted field |
+| **spawn positions** (the scatter roll is sim-rolled), **engage times**, and — *added L-46* — **every actor's position over time, to hit-test resolution** (§ 10.9a A) | anything not fixed by an emitted field |
 | **player path + circle sweep** | |
 
 **The rule that makes the split safe:** presentation must never *re-derive* a sim-owned quantity. The
@@ -1717,7 +2003,11 @@ baton/v1
 │                   player_spawn { x, y, heading_rad },
 │                   placement_extents_m: 8.0,                                            [R-12]
 │                   scatter_model: "SIM-ROLLED",                                         [M-7]
-│                   positions_provenance: "DECLARED",
+│                   positions_provenance: "DECLARED",   # ⚠ OPERATIVE-FALSE post-L-46 — layer-1
+│                                       #   positions are CITED-per-arena, selection is DECLARED.
+│                                       #   Value + the arena_id/radii/path shape route via
+│                                       #   R-LOCO-1 (§ 10.9a G) for star-lord + drax re-sign;
+│                                       #   NOT changed here — § 11 is a signed contract.
 │                   bearings_provenance: "ESTIMATED-FOOTAGE ±15°" }                      [L-21]
 ├── actors[]      { actor_id,                       # unique RUN-WIDE, not per-wave      [M-13]
 │                   record_path,                    # AC-6.4 — every statline resolvable
@@ -1837,7 +2127,12 @@ event_type ∈ { spawn, engage, damage_dealt, dot_tick, heal_tick, death,
     are **per-sitting sets**; a calibration band loads its own sitting's set; the baton pins the
     arena it ran (`arena_id` + six bearings + player spawn). **Pooling bearings across sittings is a
     spec violation, not a modelling choice** — and `bearing_grade` carries ESTIMATED-FOOTAGE ± 15°
-    onto the frame so nobody reads a declared bearing as a measured one.
+    onto the frame so nobody reads a declared bearing as a measured one. *(L-46 annotation: the
+    non-pooling rule is unchanged, but what is per-sitting is now the **arena SELECTION** over a
+    cited 10-member enumeration — the positions inside a selected arena are **CITED**, and the
+    radial coordinate the parameter list never had is now a level fact. The field that expresses
+    which arena ran, and the six radii that come with it, are **R-LOCO-1** — routed for re-sign,
+    not landed here.)*
 12. **`config.encounter.bonus_spawn_p06` splits [M-1], and the fixture side is ~~MEASURED~~
     RULED-OFF.** `fixture_p06_state: false` records the L-37(b) ruling — MEASURED-NULL (hero band
     zero across 5,146 readouts, positive-controlled; F-10 OFF-operative). ~~`fixture_p06_state:
@@ -1900,14 +2195,23 @@ provenance:
                                          #   p04 gap DISSOLVED (T-8 RETIRED); F-7 RESOLVED;
                                          #   eHP source-of-record = r2 CSV (§ 6.2b consumption rule)
     partial:         [HALT-4]            # HALT-4: ORDER-1 FAVOURED, not proven
-    closed_by_type:  [HALT-2]            # v_ref is a DECLARED free parameter (bundle § 6.1)
+    closed_by_type:  [HALT-2]            # v_ref is a DECLARED free parameter (bundle § 6.1);
+                                         #   post-L-46 it is the SOLE free scalar of the locomotion
+                                         #   surface -- radius is CITED, v_mob is DB-CITED per
+                                         #   record. Bracketed two-sided at § 10.9a D.
     unfired:         [HALT-7]            # pre-registered G-D contingency
     open:            []
   open_halt_effect:  []                  # was HALT-10 -- closed EXACT L-33; residue rides declarations
   arena_pin:
-    arena_id:        <s1 | s2>
+    arena_id:        <s1 | s2>           # names the SITTING, not the arena -- post-L-46 this can no
+                                         #   longer express WHICH of the 10 cited arenas ran.
+                                         #   Sibling arena_ref (survivalworld_a..j) + the six cited
+                                         #   radii route via R-LOCO-1 (§ 10.9a G). Not added here.
+    geometry_layer:  CITED-PER-ARENA (emitter radii) / DECLARED (arena selection)   # L-46 two-layer
     bearings_grade:  ESTIMATED-FOOTAGE +-15 deg (L-21)
     pooling_rule:    per-sitting sets, NEVER pooled -- pooling is a spec violation (§ 10.6)
+                     # post-L-46 reading: the SELECTION is per-sitting; positions inside a selected
+                     # arena are cited. The non-pooling rule is unchanged.
   out_of_model:                          # {id, text} -- set-comparable, no free-form phrases [R-39]
     - { id: OOM-DEVOTION-PROCS,  text: "no proc mechanism modelled this lap (R-KC2-1(d))" }
     - { id: OOM-MUTATORS,        text: "6 active (2 player + 4 monster), identities unextracted,
@@ -1935,8 +2239,15 @@ provenance:
     - { id: G-4,  text: "p05 concurrency model is the safe reading (pool count staggered 3 s from
                          t+4 s); the t+4.0 s start anchor is MEASURED x3 (L-21)." }
     - { id: G-7,  text: "4 dangling roster refs of ~7,000 dropped, weights renormalised." }
-    - { id: D-ARENA-DECLARED,    text: "arena emitter positions are DECLARED free parameters,
-                                        footage-estimable, never DB-hunted (L-10d)." }
+    # ~~{ id: D-ARENA-DECLARED, text: "arena emitter positions are DECLARED free parameters,
+    #                                  footage-estimable, never DB-hunted (L-10d)." }~~
+    #   STRUCK at the L-46 fold: OPERATIVE-FALSE. The positions WERE DB-hunted, in Edition-I
+    #   `Maps.arc`, and they are cited. A false claim inside a provenance block is the one defect
+    #   this artifact exists to prevent, so the text is corrected here rather than left standing.
+    #   AC-11.4b set-compares against this register => star-lord re-sync required (R-LOCO-1).
+    - { id: D-ARENA-CITED,       text: "arena emitter geometry is CITED per arena (Maps.arc decode,
+                                        10-member enumeration, ring median 37.53 m / p05 ambush
+                                        10.17 m); ARENA SELECTION is DECLARED (L-46 two-layer)." }
     - { id: D-ARENA-PER-SITTING, text: "the two sittings ran DIFFERENT arenas; parameter sets are
                                         per-sitting and are never pooled (L-21)." }
     - { id: D-IDENTITY-ENVELOPE, text: "fixture identity is name-identical, derived within
@@ -2190,12 +2501,19 @@ sidecar or NDJSON split at v1.
 | **MO-2** energy reservation | **982 — exact-integer** (BINDING-and-derived; bundle § 3.3 ledger, L-26) | `PIN` — derived from DB, not hard-coded |
 | **MO-3** s2 in-combat energy | **1477 / 2576** | `PIN` |
 | **MO-4** HP orb / max health | **20,005** | `PIN` — two independent instruments agree (sheet + in-combat orb) |
-| **MO-5** cycle floor | **~7.0 s** (7.03 / 7.05 / 7.07 observed) | `PIN` as a **floor**, one-sided — *beat-3 sim-side PASS re-graded **provisional-on-geometry** (L-43, F-12/C-4): the PASS consumed the uncited 30.0 m radius (F-12a); the measured pin itself stands* |
+| **MO-5** cycle floor | **~7.0 s** (7.03 / 7.05 / 7.07 observed) | `PIN` as a **floor**, one-sided — *beat-3 sim-side PASS re-graded **provisional-on-geometry** (L-43, F-12/C-4): the PASS consumed the uncited 30.0 m radius (F-12a); the measured pin itself stands* *(L-46 annotation, ledgered-ruling consequence: the re-check is now **specifiable** — re-demonstrate under the selected arena's **CITED** radii per the § 10.6 motion hook; the flag clears on that demonstration and on nothing else. Second role acquired: this floor is the **UPPER** bound on closing speed in the § 10.9a D bracket (K-3), so it now constrains `v_ref` from the opposite side to the measured traversal lags — an undershoot is a finding against `v_ref` or the arena selection, **never a re-pin**.)* |
 
 **Ordering for G-D (charter Phase D):** micro-oracles (direct-binding) → s1 ramp 1→93 through the
 envelope (BINDING) → s2 one-sided inequality (INFORMATIVE tripwire: sim kit-alone at 151–160 must
 clear **≤** fixture-with-defenses; **faster ⇒ anomaly tripwire → finding**) → full-ladder runs beyond
 the fixture bands (reported, unbound).
+
+*(Ordering annotation — ledgered ruling **L-45(d) / D2-5**, not an edit to a pinned row. At the
+locomotion amendment lap the **s2 one-sided inequality runs INSIDE the lap**, not as a separate
+beat: it is the model's **second-geometry diagnostic** (s2 ran a different arena from s1 — § 10.6
+bearings), it stays **INFORMATIVE**, and it **cannot false-trip under a slow bias**, which is what
+makes the bundling safe. Procedure: § 10.9a F.5, including the F-13 N-exclusions that fall inside
+this band. **Full-ladder runs stay PAUSED** (beat 5) until the lap lands against **UNCHANGED T-1**.)*
 
 **Note on the s2 inequality's expected margin (L-12a):** the fixture had **+offense AND
 −enemy-threat** (Vanguard + Stormcaller on the output side; Deathchill + Inferno on the intake side).
@@ -2216,7 +2534,7 @@ is improvised, estimated, or fetched externally.
 | # | Value | Outcome (L-26) |
 |---|---|---|
 | **HALT-1** | Shield lifetime for `Skill_BuffSelfShield` | **CLOSED** — the `.tpl` declares **no duration field at all** (nor its four includes); clone of `Skill_BuffSelfToggled.tpl`. **Absorb-POOLS, not timed buffs.** Bonus: Arcane Barrier's 2900 is **type-gated away from Physical** → § 9.4 envelope re-runs its row (merge-pass touch) |
-| **HALT-2** | Player base movement rate (m/s); `delayMovement` magnitude | **CLOSED-BY-TYPE** — `characterRunSpeed = 0.92` is a *dimensionless multiplier* (1,467-record census: median/mode 1.0); engine m/s reference **NAMED-ABSENT**; `delayMovement` is `bool`, no magnitude exists. **Adopted disposition: declared free parameter `v_ref`** (bundle § 6.1 recommendation), ~~calibrated at D against traversal times~~ *— C-2 annotation (L-43): calibration **SUSPENDED-PENDING-LOCOMOTION**; beat-3 broke its precondition (static board ⇒ kill term ≈ 0 ⇒ calibrating v_ref = fitting the wrong mechanism; F-12 negative control: fitted v_ref ≈ 10.5 m/s = 2.63× the declared class buys only the mean, 75/92 still fail). `v_ref` stays DECLARED; calibration re-enters after the locomotion lap. Degeneracy: time ∝ radius/v_ref — (radius, v_ref) is ONE free timescale; an engine m/s citation (Lua lane, L-9) collapses it*; fixture is AT the run-speed cap (135 = `playerRunSpeedCapMax`) *(L-46 closure: the m/s hunt is CLOSED NAMED-ABSENT-CONFIRMED, census-complete — 260 Lua files / 97,907 lines with zero speed call; 18,999 template Variables, no base run speed; `gameengine.dbr` caps are percentages. The METRE is engine-declared — four template fields say meters/second — and the degeneracy half-collapses the measured way round: RADIUS becomes CITED-per-arena (`Maps.arc` decode, § 10.6 two-layer ruling), leaving **v_ref the sole free scalar**, traversal-bounded 3.5–6.1 s (L-44(d)). Unmodelled surfaces registered as lap inputs: `characterRunSpeedJitter` (median 15.0, n = 810) · per-record `controller` surface (126 × 27).)* |
+| **HALT-2** | Player base movement rate (m/s); `delayMovement` magnitude | **CLOSED-BY-TYPE** — `characterRunSpeed = 0.92` is a *dimensionless multiplier* (1,467-record census: median/mode 1.0); engine m/s reference **NAMED-ABSENT**; `delayMovement` is `bool`, no magnitude exists. **Adopted disposition: declared free parameter `v_ref`** (bundle § 6.1 recommendation), ~~calibrated at D against traversal times~~ *— C-2 annotation (L-43): calibration **SUSPENDED-PENDING-LOCOMOTION**; beat-3 broke its precondition (static board ⇒ kill term ≈ 0 ⇒ calibrating v_ref = fitting the wrong mechanism; F-12 negative control: fitted v_ref ≈ 10.5 m/s = 2.63× the declared class buys only the mean, 75/92 still fail). `v_ref` stays DECLARED; calibration re-enters after the locomotion lap. Degeneracy: time ∝ radius/v_ref — (radius, v_ref) is ONE free timescale; an engine m/s citation (Lua lane, L-9) collapses it*; fixture is AT the run-speed cap (135 = `playerRunSpeedCapMax`) *(L-46 closure: the m/s hunt is CLOSED NAMED-ABSENT-CONFIRMED, census-complete — 260 Lua files / 97,907 lines with zero speed call; 18,999 template Variables, no base run speed; `gameengine.dbr` caps are percentages. The METRE is engine-declared — four template fields say meters/second — and the degeneracy half-collapses the measured way round: RADIUS becomes CITED-per-arena (`Maps.arc` decode, § 10.6 two-layer ruling), leaving **v_ref the sole free scalar**, ~~traversal-bounded 3.5–6.1 s (L-44(d))~~ *— R-L48-1 strike: that band is AMBUSH-CLASS (p05, 10.17 m); ring-class analogue 3.0–4.3 s @ p04 38.45 m (same L-44(d) row); per-emitter-class binding + the K-1..K-3 bracket at § 10.9a D*. Unmodelled surfaces registered as lap inputs: `characterRunSpeedJitter` (median 15.0, n = 810) · per-record `controller` surface (126 × 27).)* |
 | **HALT-3** | P(crit) from OA vs DA | **CLOSED** — `records/game/combatformulas.dbr` **was in the base archive**: `probabilityToHitEquation` verbatim; crit = **PTH-band** mechanic (6 thresholds → ×1.0…×1.5, `pthMinimum = 55`). Band *semantics* INFERRED → gamora proves by test (§ 4.2) |
 | **HALT-4** | Damage application order | **PARTIAL — ORDER-1 (convert-then-modify) FAVOURED** (1.26× vs 1.84× residual), not proven: 3.2 % signal under ~20 % un-enumerated devotion/component remainder. Weapon term **CONFIRMED** (solved w = 0.671 vs DB 0.64, +4.8 %); **crit proven EXCLUDED** from the sheet window; missing `× (1 + cunning/245)` = ×5.98 supplied by `physicalDamageEquation`. Spec declares ORDER-1; **residual enumeration = G-D contingency alongside HALT-7** |
 | **HALT-5** | ≈ 358 unattributed reservation | **CLOSED-EXACT — 982 = 982** (§ 3.2 ledger; Presence of Might 300; Divine Mandate reserves 0; `characterManaLimitReserveModifier` dead corpus-wide) |
@@ -2226,11 +2544,18 @@ is improvised, estimated, or fetched externally.
 | **HALT-9** | Wave-dependence of non-emitted fields | **CLOSED** — full 600 × 28 grain emitted (§ 10.7); 33 non-zero fields (25 arrays / 8 scalars); 9 U-8 columns byte-identical; `offensiveTotalDamageModifier` +43 @160 / +130 @200; `offensivePhysicalModifier` −21 @160 Glad. **F-4 adjudicated as a side effect** (§ 14) |
 | **HALT-10** | **Opposition eHP composition beyond the wave-scaling array** | **CLOSED (nemesis class) / PARTIAL (p04) — L-29.** Five-link chain extracted DB-cited (§ 6.2b): apl → `levelVarianceEquation` spawn level → **per-record `charLevel` re-evaluation** (four forms; `lv8_boss+` is a POINT = 106) → five bio `characterLife` curves → **ADDITIVE M = 1 + 5.80 (Ultimate `characterLifeModifier[8]`) + G/100 (§ 10.7 array, lookup law) + own/100**. Lands F1 = 3,722,896 (−0.004 %) and F2 = Kubacabra P1 2,955,749 (+0.002 %); the L-17 interim ≈1,308,800 and P-E6's 827 k are **SUPERSEDED**. **Residue: p04 −4.3 % named gap** (Galakros favoured; nine explanations ruled out by reading) → declared **± 5 % band, INFORMATIVE-side** (T-8). Probe note `legolas/notes/2026-08-08-kc2-ehp-composition-probe.md`; sim consumes `t20_wave160_board_ehp.csv` (glad_cell = 322 rows). See **F-6 (RESOLVED)** · **L-30 postscript:** board NAMED on camera (§ 10.8) — dedupe twins = **Zantarin + Archmage Aleksander**, both at the `×1.1` figure (−0.004 %); **p04 bearer NAMED = Galakros, MEASURED**; Kubacabra phase chain **FALSIFIED on camera** (sim models P1 only); **F-7 FIRED** — the t20 record→form assignments are falsified while the chain stands; t20 consumed **mechanism-correct / values-pending** until the **F-7 revision lands for calibration** (pre-G-D) · **L-33 POSTSCRIPT — CLOSED EXACT; everything before this postscript is RECORD, not law:** the five-link chain was wrong in two links (**per-record `charLevel` re-evaluation STRUCK** — manual-placement scope only; 118.6 was a degeneracy artifact, the bio-curve ratio spans 0.018 % over L ∈ [106, 150] · **own-`characterLifeModifier` STRUCK** — breaks closure +4.41 % on Bileeater) and missing one (**armorbase — REVERSED IN**); the corrected **four-link** chain (§ 6.2b) closes **8/8 at ± 0** under the corrected lookup law (G = the cell LABELED 160 = **324**, not 322); p04 gap DISSOLVED (Galakros EXACT) · T-8 RETIRED · F-7 RESOLVED · source-of-record = **r2 CSV**. The ± 0.004 % this row records was **two ~12 % errors cancelling** (base −11.25 % × M +12.67 % — § 9.1 diagnostic: *a residual that survives on one body but not on others is a term, not a mystery*) |
 
-**Declared-not-HALT** (unknown but carrying a *declared* disposition rather than a hole): emitter
-world positions (DECLARED free parameters, per-sitting sets, § 10.6) · mutator identities
+**Declared-not-HALT** (unknown but carrying a *declared* disposition rather than a hole):
+~~emitter world positions (DECLARED free parameters, per-sitting sets, § 10.6)~~ **STRUCK at the
+L-46 fold — emitter geometry is CITED-per-arena (`Maps.arc` decode, § 10.6 layer 1); what remains
+declared is the ARENA SELECTION over a cited 10-member enumeration, and the single player-spawn
+parameter** · mutator identities
 (OUT-OF-MODEL, **six** glyphs confirmed, 25-pool prior, § 10.3) · `maxGroupSize` concurrency
 semantics (safe model, start anchor measured, § 10.6) · Shifting Sands host delegation (DUAL-BOUND,
-§ 9.4) · `v_ref` movement reference (free parameter by bundle § 6.1 disposition) · Soulfire
+§ 9.4) · `v_ref` movement reference (free parameter by bundle § 6.1 disposition — *L-46: now the
+**SOLE** free scalar of the locomotion surface, bracketed two-sided by measurement at § 10.9a D;
+`v_mob` is DB-CITED per record and is **not** a member of this list*) · `characterRunSpeedJitter`
+and the 126 × 27 `controller` surface (**OUT-OF-MODEL, DECLARED as lap inputs**, § 10.9a C) ·
+Soulfire
 cost-term effective magnitude (declared-separate, fixture-sustain-bounded, § 3.1). *(Former members
 CLOSED and struck: energy-drain unit → PINNED L-22; U9-6 → ~~measured ON L-21~~ **RULED OFF
 L-37(b)** — closure cites L-37(b), never L-21 (T-3's own rule; D2-1 sweep).)*
@@ -2731,11 +3056,17 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
     t0–t21 precedent) so the kill term composes per-record INPUTS, not summaries.
   - **C-2 ADOPT** — `v_ref` calibration SUSPENDED-PENDING-LOCOMOTION (§ 13 HALT-2 annotated): at
     kill term ≈ 0, calibration is fitting the wrong mechanism.
-  - **C-3 ADOPT (core)** — locomotion amendment: monsters path to the player; `v_mob` enters ONLY
+  - **C-3 ADOPT (core)** — locomotion amendment: ~~monsters path to the player~~ **AMENDED L-46(a)
+    — `path-to-zone` THEN `pursuit-gate`** (`PatrolPoint_Attack`, `survivalevent.lua:552`, 17/17
+    tier modules; pursuit is a separate gated controller behaviour). Model of record + movement
+    rules now live at **§ 10.9a**; `v_mob` enters ONLY
     DB-CITED (per-record `characterRunSpeed` multipliers × the SAME engine reference as `v_ref`,
     per HALT-2's census). **Degeneracy:** time ∝ radius / v_ref ⇒ (radius, v_ref) collapse to ONE
-    free timescale; an engine m/s citation from the Lua lane (legolas, L-9/U-8) collapses the
-    whole free-parameter surface by citation.
+    free timescale; ~~an engine m/s citation from the Lua lane (legolas, L-9/U-8) collapses the
+    whole free-parameter surface by citation~~ — *RESOLVED the OTHER way (L-46): the m/s hunt
+    returned **NAMED-ABSENT-CONFIRMED** (census-complete) while the **RADIUS** became
+    LEVEL-CITED, so the degeneracy half-collapsed on the geometry side and **`v_ref` is the sole
+    survivor**, bracketed two-sided by measurement at § 10.9a D.*
   - **C-4 ADOPT, two limbs** — build: ARENA_S1 completes to 6 emitters per § 10.6 (measured
     bearings where measured — ≈ 3.0/5.2/6.9/9.6 o'clock — declared where not; p05 ambush + p06
     bonus points join per their measured/ruled states). Spec-side: **F-12a** below. MO-5 sim-side

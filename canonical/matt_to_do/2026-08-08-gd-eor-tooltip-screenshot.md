@@ -30,6 +30,6 @@ One number, 6.25× apart — unmissable.
 
 ## What it unblocks
 
-The **last open constant in the EoR channel machine** for the KC2-SIM battle-sim spec. With it, the drain spec row sheds its declared dual-bound and the v1 energy micro-oracle binds on drain *rate*, not just ceiling/reserve (≈982 reserved by Divine Mandate). Without it the run still proceeds — dual-bound fallback pre-registered (ledger L-6), and **galadriel is sweeping existing footage for a tooltip frame that may short-circuit this row.**
+The **last open constant in the EoR channel machine** for the KC2-SIM battle-sim spec. With it, the drain spec row sheds its declared dual-bound and the v1 energy micro-oracle binds on drain *rate*, not just ceiling/reserve (≈982 reserved ~~by Divine Mandate~~ *— CORRIGENDUM 2026-08-08 (gandalf, KC2-SIM L-41(c)): attribution error — Divine Mandate reserves ZERO (`characterManaLimitReserve = 0.0`); the 982 total's closing component is **Presence of Might (component skill), 300 flat** (spec § 3.2); beat-2 positive control: 982 − 300 = 682*). Without it the run still proceeds — dual-bound fallback pre-registered (ledger L-6), and **galadriel is sweeping existing footage for a tooltip frame that may short-circuit this row.**
 
 **Source:** `agentic_orchestration/gandalf/notes/2026-08-07-kc2-sim-run-ledger.md` § A.4 + L-6; `agentic_orchestration/legolas/notes/2026-08-07-pe1-eor-spin-parameters.md`.
