@@ -1,0 +1,189 @@
+==========================================================================================================
+Soulfire   skillsecondary_attackprojectileorbiting.tpl   -> 610 variables after FULL include expansion
+    skillsecondary_attackprojectileorbiting.tpl                        6 own vars, 2 includes
+      database/templates/skill_attackprojectile.tpl                    11 own vars, 5 includes
+        database\Templates\TemplateBase\Skill_Base.tpl                 71 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Attack.tpl               9 own vars, 2 includes
+          database\Templates\TemplateBase\Parameters_Offensive.tpl     464 own vars, 0 includes
+          database\Templates\TemplateBase\RacialBonus.tpl              8 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Activated.tpl            28 own vars, 2 includes
+          database\Templates\TemplateBase\Parameters_Skill.tpl         15 own vars, 0 includes
+          database/templates/templatebase/skill_refresh.tpl            12 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_ProjectileBase.tpl       9 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_ComboCharge.tpl          6 own vars, 0 includes
+      database/templates/templatebase/skill_secondary.tpl              5 own vars, 0 includes
+----------------------------------------------------------------------------------------------------------
+    DECLARED     skillManaCost                    [database\Templates\TemplateBase\Skill_Activated.tpl]  class=array     type=real     default=''      desc=''
+    DECLARED     skillManaCostReduction           [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    DECLARED     skillManaCostReductionModifier   [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    NOT DECLARED skillActiveManaCost             
+    NOT DECLARED skillActiveManaCostPerSecond    
+    NOT DECLARED skillManaCostPct                
+    every cost/energy variable reachable: ['offensiveManaBurnChance', 'offensiveManaBurnDamageRatio', 'offensiveManaBurnDrainMax', 'offensiveManaBurnDrainMin', 'offensiveManaBurnGlobal', 'offensiveManaBurnRatioAdder', 'offensiveManaBurnRatioAdderChance', 'offensiveManaBurnXOR', 'offensiveSlowManaLeachChance', 'offensiveSlowManaLeachDurationMax', 'offensiveSlowManaLeachDurationMin', 'offensiveSlowManaLeachDurationModifier', 'offensiveSlowManaLeachGlobal', 'offensiveSlowManaLeachMax', 'offensiveSlowManaLeachMin', 'offensiveSlowManaLeachModifier', 'offensiveSlowManaLeachModifierChance', 'offensiveSlowManaLeachXOR', 'skillManaCost', 'skillManaCostReduction', 'skillManaCostReductionChance', 'skillManaCostReductionModifier', 'skillManaCostReductionModifierChance']
+
+==========================================================================================================
+Eye of Reckoning (base)   skill_attackradiusspin.tpl   -> 858 variables after FULL include expansion
+    skill_attackradiusspin.tpl                                         8 own vars, 5 includes
+      database\Templates\SkillChanneled.tpl                            6 own vars, 4 includes
+        database\Templates\TemplateBase\Skill_Base.tpl                 71 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Activated.tpl            28 own vars, 2 includes
+          database\Templates\TemplateBase\Parameters_Skill.tpl         15 own vars, 0 includes
+          database/templates/templatebase/skill_refresh.tpl            12 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Attack.tpl               9 own vars, 2 includes
+          database\Templates\TemplateBase\Parameters_Offensive.tpl     464 own vars, 0 includes
+          database\Templates\TemplateBase\RacialBonus.tpl              8 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Spell.tpl                5 own vars, 0 includes
+      database\Templates\TemplateBase\Skill_Radius.tpl                 7 own vars, 0 includes
+      database\Templates\TemplateBase\Skill_Cast.tpl                   6 own vars, 0 includes
+      database\Templates\TemplateBase\Parameters_Character.tpl         76 own vars, 0 includes
+      database/templates/templatebase/parameters_defensive.tpl         182 own vars, 0 includes
+----------------------------------------------------------------------------------------------------------
+    DECLARED     skillManaCost                    [database\Templates\TemplateBase\Skill_Activated.tpl]  class=array     type=real     default=''      desc=''
+    DECLARED     skillManaCostReduction           [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    DECLARED     skillManaCostReductionModifier   [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    NOT DECLARED skillActiveManaCost             
+    NOT DECLARED skillActiveManaCostPerSecond    
+    NOT DECLARED skillManaCostPct                
+    every cost/energy variable reachable: ['characterEnergyAbsorptionPercent', 'characterMana', 'characterManaLimitReserve', 'characterManaLimitReserveModifier', 'characterManaLimitReserveReduction', 'characterManaLimitReserveReductionModifier', 'characterManaModifier', 'characterManaRegen', 'characterManaRegenModifier', 'defensiveManaBurn', 'defensiveManaBurnChance', 'defensiveManaBurnRatio', 'defensiveManaBurnRatioChance', 'defensiveSlowManaLeach', 'defensiveSlowManaLeachChance', 'defensiveSlowManaLeachDuration', 'defensiveSlowManaLeachDurationChance', 'defensiveSlowManaLeachDurationModifier', 'defensiveSlowManaLeachDurationModifierChance', 'defensiveSlowManaLeachMaxResist', 'defensiveSlowManaLeachModifier', 'defensiveSlowManaLeachModifierChance', 'offensiveManaBurnChance', 'offensiveManaBurnDamageRatio', 'offensiveManaBurnDrainMax', 'offensiveManaBurnDrainMin', 'offensiveManaBurnGlobal', 'offensiveManaBurnRatioAdder', 'offensiveManaBurnRatioAdderChance', 'offensiveManaBurnXOR', 'offensiveSlowManaLeachChance', 'offensiveSlowManaLeachDurationMax', 'offensiveSlowManaLeachDurationMin', 'offensiveSlowManaLeachDurationModifier', 'offensiveSlowManaLeachGlobal', 'offensiveSlowManaLeachMax', 'offensiveSlowManaLeachMin', 'offensiveSlowManaLeachModifier', 'offensiveSlowManaLeachModifierChance', 'offensiveSlowManaLeachXOR', 'skillManaCost', 'skillManaCostReduction', 'skillManaCostReductionChance', 'skillManaCostReductionModifier', 'skillManaCostReductionModifierChance']
+
+==========================================================================================================
+Aether Ray (base)   skill_attackspellbeam.tpl   -> 789 variables after FULL include expansion
+    skill_attackspellbeam.tpl                                          19 own vars, 2 includes
+      database\Templates\SkillChanneled.tpl                            6 own vars, 4 includes
+        database\Templates\TemplateBase\Skill_Base.tpl                 71 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Activated.tpl            28 own vars, 2 includes
+          database\Templates\TemplateBase\Parameters_Skill.tpl         15 own vars, 0 includes
+          database/templates/templatebase/skill_refresh.tpl            12 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Attack.tpl               9 own vars, 2 includes
+          database\Templates\TemplateBase\Parameters_Offensive.tpl     464 own vars, 0 includes
+          database\Templates\TemplateBase\RacialBonus.tpl              8 own vars, 0 includes
+        database\Templates\TemplateBase\Skill_Spell.tpl                5 own vars, 0 includes
+      database/templates/templatebase/parameters_defensive.tpl         182 own vars, 0 includes
+----------------------------------------------------------------------------------------------------------
+    DECLARED     skillManaCost                    [database\Templates\TemplateBase\Skill_Activated.tpl]  class=array     type=real     default=''      desc=''
+    DECLARED     skillManaCostReduction           [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    DECLARED     skillManaCostReductionModifier   [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    NOT DECLARED skillActiveManaCost             
+    NOT DECLARED skillActiveManaCostPerSecond    
+    NOT DECLARED skillManaCostPct                
+    every cost/energy variable reachable: ['defensiveManaBurn', 'defensiveManaBurnChance', 'defensiveManaBurnRatio', 'defensiveManaBurnRatioChance', 'defensiveSlowManaLeach', 'defensiveSlowManaLeachChance', 'defensiveSlowManaLeachDuration', 'defensiveSlowManaLeachDurationChance', 'defensiveSlowManaLeachDurationModifier', 'defensiveSlowManaLeachDurationModifierChance', 'defensiveSlowManaLeachMaxResist', 'defensiveSlowManaLeachModifier', 'defensiveSlowManaLeachModifierChance', 'offensiveManaBurnChance', 'offensiveManaBurnDamageRatio', 'offensiveManaBurnDrainMax', 'offensiveManaBurnDrainMin', 'offensiveManaBurnGlobal', 'offensiveManaBurnRatioAdder', 'offensiveManaBurnRatioAdderChance', 'offensiveManaBurnXOR', 'offensiveSlowManaLeachChance', 'offensiveSlowManaLeachDurationMax', 'offensiveSlowManaLeachDurationMin', 'offensiveSlowManaLeachDurationModifier', 'offensiveSlowManaLeachGlobal', 'offensiveSlowManaLeachMax', 'offensiveSlowManaLeachMin', 'offensiveSlowManaLeachModifier', 'offensiveSlowManaLeachModifierChance', 'offensiveSlowManaLeachXOR', 'skillManaCost', 'skillManaCostReduction', 'skillManaCostReductionChance', 'skillManaCostReductionModifier', 'skillManaCostReductionModifierChance']
+
+==========================================================================================================
+Disintegration (modifier)   skill_modifier.tpl   -> 1172 variables after FULL include expansion
+    skill_modifier.tpl                                                 69 own vars, 3 includes
+      database\Templates\TemplateBase\Skill_Base.tpl                   71 own vars, 0 includes
+      database\Templates\TemplateBase\Skill_PassiveModifier.tpl        3 own vars, 8 includes
+        database\Templates\TemplateBase\Parameters_Defensive.tpl       182 own vars, 0 includes
+        database\Templates\TemplateBase\Parameters_Character.tpl       76 own vars, 0 includes
+        database\Templates\TemplateBase\Parameters_Retaliation.tpl     292 own vars, 0 includes
+        database\Templates\TemplateBase\Parameters_Offensive.tpl       464 own vars, 0 includes
+        database\Templates\TemplateBase\Parameters_Skill.tpl           15 own vars, 0 includes
+        database\Templates\TemplateBase\Parameters_Conversion.tpl      9 own vars, 0 includes
+        database\Templates\TemplateBase\RacialBonus.tpl                8 own vars, 0 includes
+        database\Templates\TemplateBase\PetBonusInc.tpl                4 own vars, 0 includes
+      database\Templates\TemplateBase\Skill_Refresh.tpl                12 own vars, 0 includes
+----------------------------------------------------------------------------------------------------------
+    DECLARED     skillManaCost                    [skill_modifier.tpl]  class=array     type=real     default=''      desc='Activated Skills Only'
+    DECLARED     skillManaCostReduction           [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    DECLARED     skillManaCostReductionModifier   [database\Templates\TemplateBase\Parameters_Skill.tpl]  class=array     type=real     default='0'     desc=''
+    DECLARED     skillActiveManaCost              [skill_modifier.tpl]  class=array     type=real     default=''      desc='Self Buff Toggled Only'
+    NOT DECLARED skillActiveManaCostPerSecond    
+    NOT DECLARED skillManaCostPct                
+    every cost/energy variable reachable: ['characterEnergyAbsorptionPercent', 'characterMana', 'characterManaLimitReserve', 'characterManaLimitReserveModifier', 'characterManaLimitReserveReduction', 'characterManaLimitReserveReductionModifier', 'characterManaModifier', 'characterManaRegen', 'characterManaRegenModifier', 'defensiveManaBurn', 'defensiveManaBurnChance', 'defensiveManaBurnRatio', 'defensiveManaBurnRatioChance', 'defensiveSlowManaLeach', 'defensiveSlowManaLeachChance', 'defensiveSlowManaLeachDuration', 'defensiveSlowManaLeachDurationChance', 'defensiveSlowManaLeachDurationModifier', 'defensiveSlowManaLeachDurationModifierChance', 'defensiveSlowManaLeachMaxResist', 'defensiveSlowManaLeachModifier', 'defensiveSlowManaLeachModifierChance', 'offensiveManaBurnChance', 'offensiveManaBurnDamageRatio', 'offensiveManaBurnDrainMax', 'offensiveManaBurnDrainMin', 'offensiveManaBurnGlobal', 'offensiveManaBurnRatioAdder', 'offensiveManaBurnRatioAdderChance', 'offensiveManaBurnXOR', 'offensiveSlowManaLeachChance', 'offensiveSlowManaLeachDurationMax', 'offensiveSlowManaLeachDurationMin', 'offensiveSlowManaLeachDurationModifier', 'offensiveSlowManaLeachGlobal', 'offensiveSlowManaLeachMax', 'offensiveSlowManaLeachMin', 'offensiveSlowManaLeachModifier', 'offensiveSlowManaLeachModifierChance', 'offensiveSlowManaLeachXOR', 'retaliationSlowManaLeachChance', 'retaliationSlowManaLeachDurationMax', 'retaliationSlowManaLeachDurationMin', 'retaliationSlowManaLeachDurationModifier', 'retaliationSlowManaLeachDurationModifierChance', 'retaliationSlowManaLeachGlobal', 'retaliationSlowManaLeachMax', 'retaliationSlowManaLeachMin', 'retaliationSlowManaLeachModifier', 'retaliationSlowManaLeachModifierChance', 'retaliationSlowManaLeachXOR', 'skillActiveLifeCost', 'skillActiveManaCost', 'skillActivePercentLifeCost', 'skillManaBonus', 'skillManaCost', 'skillManaCostReduction', 'skillManaCostReductionChance', 'skillManaCostReductionModifier', 'skillManaCostReductionModifierChance', 'skillManaPercent', 'skillManaPercentSlow']
+
+==========================================================================================================
+DIFFERENTIAL:  which template contributes skillManaCost, and does the Soulfire chain reach it?
+==========================================================================================================
+  skillsecondary_attackprojectileorbiting.tpl    skillManaCost -> DECLARED by database\Templates\TemplateBase\Skill_Activated.tpl
+  skill_attackradiusspin.tpl                     skillManaCost -> DECLARED by database\Templates\TemplateBase\Skill_Activated.tpl
+  skill_attackspellbeam.tpl                      skillManaCost -> DECLARED by database\Templates\TemplateBase\Skill_Activated.tpl
+  skill_modifier.tpl                             skillManaCost -> DECLARED by skill_modifier.tpl
+
+  --- every template in templates.arc that declares skillManaCost ---
+     skill_modifier.tpl                                       class=array     type=real     default=''     desc='Activated Skills Only'
+     skill_projectilemodifier.tpl                             class=array     type=real     default=''     desc='Activated Skills Only'
+     skill_projectiletransmuter.tpl                           class=array     type=real     default=''     desc='Activated Skills Only'
+     skill_refreshcooldownmodifier.tpl                        class=array     type=real     default=''     desc='Activated Skills Only'
+     skill_spawnpettransmuter.tpl                             class=array     type=real     default=''     desc='Activated Skills Only'
+     templatebase/skill_activated.tpl                         class=array     type=real     default=''     desc=''
+
+  --- and skill_secondary.tpl in full (the branch Soulfire actually sits on) ---
+Group
+{
+	name = "All Groups"
+	type = "list"
+
+	Group
+	{
+		name = "Header"
+		type = "system"
+
+		Variable
+		{
+			name = "ActorName"
+			class = "variable"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "Class"
+			class = "static"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+		Variable
+		{
+			name = "FileDescription"
+			class = "variable"
+			type = "string"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+	}
+
+	Group
+	{
+		name = "Skill Sound"
+		type = "list"
+
+		Variable
+		{
+			name = "skillHitSound"
+			class = "variable"
+			type = "file_dbr"
+			description = ""
+			value = ""
+			defaultValue = ""
+		}
+
+	}
+
+	Group
+	{
+		name = "Skill Config"
+		type = "list"
+
+		Variable
+		{
+			name = "specialSecondaryActivation"
+			class = "variable"
+			type = "bool"
+			description = "True disables default secondary activation for unique activation on a skill by skill basis"
+			value = ""
+			defaultValue = "0"
+		}
+
+	}
+
+}
+
+

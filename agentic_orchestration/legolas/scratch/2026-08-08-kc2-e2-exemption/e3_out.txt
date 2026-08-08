@@ -1,0 +1,57 @@
+==============================================================================================================
+Q1  MULTI-ARCHIVE OVERRIDE AUDIT over the 635 pools of the P-E6 CSV
+==============================================================================================================
+  pools present in >1 archive: 158/635
+  EFFECTIVE-VALUE divergence across archives: 0
+  same effective value but field-presence differs: 0
+
+  --- per-archive trace, the six wave-160 pools ---
+    poolsbossgdx1/nemesis_wendigooraetherialvanguard.dbr       archives=['sm1', 'sm3']  sm1:PRESENT=True  sm3:PRESENT=True
+    poolsherogdx1/wendigocannibal_hero.dbr                     archives=['sm1', 'sm3']  sm1:PRESENT=False  sm3:PRESENT=False
+    poolsbossgdx1/aetherialcolossus_galakros.dbr               archives=['sm1', 'sm3']  sm1:ABSENT=False  sm3:ABSENT=False
+    poolsbossgdx2/korvaaktombguardian.dbr                      archives=['sm2', 'sm3']  sm2:ABSENT=False  sm3:ABSENT=False
+    poolsboss/nemesis_all.dbr                                  archives=['sm_mod', 'sm3']  sm_mod:PRESENT=True  sm3:PRESENT=True
+    poolsbossgdx1/nemesis_all_noaetherialvanguard.dbr          archives=['sm1', 'sm3']  sm1:PRESENT=True  sm3:PRESENT=True
+
+==============================================================================================================
+Q2  POOLS WITH AN EMPTY REGULAR ROSTER (no name{j}) -- the +1 spawnMin additive has nothing to draw
+==============================================================================================================
+  117 of 635 pools have zero name{j} entries: {'poolsbounty': 3, 'poolsbountygdx1': 2, 'poolsbountygdx2': 1, 'poolsbountygdx3': 1, 'poolsdevotion': 6, 'poolsdevotiongdx1': 3, 'poolsdevotiongdx2': 3, 'poolsdevotiongdx3': 3, 'poolshero': 46, 'poolsherogdx1': 18, 'poolsherogdx2': 15, 'poolsherogdx3': 16}
+  of those, 0 declare spawnMin/Max != 0  ->  []
+  agreement with the P-E6 CSV roster_n column: 117/117 agree; disagree=[]
+
+==============================================================================================================
+Q3  VARIANT BAND TOTALS, waves 151-170
+==============================================================================================================
+
+  --- empty-regular-roster guard = False ---
+  variant                                         151-170 p06ON     p06OFF   w160 ON  w160 OFF
+  V1 all-non-exempt (gamora default False)               418.83     374.83     12.00      8.00
+  V2 AS-DECLARED (measured, this probe)                  398.17     355.50      9.00      5.00
+  V3 all BOSS pools exempt                               370.83     332.83      8.00      4.00
+  V4 all spawnMax<2 exempt (P-E6 s8 guard)               292.08     271.58      5.00      4.00
+
+  --- empty-regular-roster guard = True ---
+  variant                                         151-170 p06ON     p06OFF   w160 ON  w160 OFF
+  V1 all-non-exempt (gamora default False)               391.83     353.83     11.00      8.00
+  V2 AS-DECLARED (measured, this probe)                  371.17     334.50      8.00      5.00
+  V3 all BOSS pools exempt                               343.83     311.83      7.00      4.00
+  V4 all spawnMax<2 exempt (P-E6 s8 guard)               292.08     271.58      5.00      4.00
+
+==============================================================================================================
+WAVE-160 BODY BOARD  with the empty-roster guard ON (the spec's '3+1+3' arithmetic)
+==============================================================================================================
+  p3 * EXEMPT   poolsbossgdx1/nemesis_wendigooraetherialvanguard.dbr     roster= 2 champroster= 0  bodies_E=1.00
+  p3   NONEXEM  poolsbossgdx1/nemesis_wendigooraetherialvanguard.dbr     roster= 2 champroster= 0  bodies_E=2.00
+  p6   EXEMPT   poolsherogdx1/wendigocannibal_hero.dbr                   roster= 0 champroster= 5  bodies_E=1.00
+  p6 * NONEXEM  poolsherogdx1/wendigocannibal_hero.dbr                   roster= 0 champroster= 5  bodies_E=3.00
+  p4   EXEMPT   poolsbossgdx1/aetherialcolossus_galakros.dbr             roster= 1 champroster= 0  bodies_E=1.00
+  p4 * NONEXEM  poolsbossgdx1/aetherialcolossus_galakros.dbr             roster= 1 champroster= 0  bodies_E=2.00
+  p4   EXEMPT   poolsbossgdx2/korvaaktombguardian.dbr                    roster= 1 champroster= 0  bodies_E=1.00
+  p4 * NONEXEM  poolsbossgdx2/korvaaktombguardian.dbr                    roster= 1 champroster= 0  bodies_E=2.00
+  p1 * EXEMPT   poolsboss/nemesis_all.dbr                                roster=10 champroster= 0  bodies_E=1.00
+  p1   NONEXEM  poolsboss/nemesis_all.dbr                                roster=10 champroster= 0  bodies_E=2.00
+  p2 * EXEMPT   poolsbossgdx1/nemesis_all_noaetherialvanguard.dbr        roster= 5 champroster= 0  bodies_E=1.00
+  p2   NONEXEM  poolsbossgdx1/nemesis_all_noaetherialvanguard.dbr        roster= 5 champroster= 0  bodies_E=2.00
+
+  ('*' marks the branch the DB actually selects)

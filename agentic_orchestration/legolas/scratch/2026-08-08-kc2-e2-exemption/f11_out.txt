@@ -1,0 +1,275 @@
+========================================================================================================
+CONTROL CENSUS: every SkillSecondary_* record and whether it declares skillManaCost
+========================================================================================================
+  Class                                                 no cost  HAS cost
+  SkillSecondary_AttackProjectileAreaEffect                  18         0
+  SkillSecondary_AttackProjectileDrop                         4         0
+  SkillSecondary_AttackProjectileOrbiting                     2         1
+  SkillSecondary_AttackProjectileRing                        10         0
+  SkillSecondary_AttackRadius                                12         0
+  SkillSecondary_AttackRadiusLightning                        5         0
+  SkillSecondary_Bonus                                        1         0
+  SkillSecondary_BuffAttackRadiusDrop                         1         0
+  SkillSecondary_BuffAttackRadiusDuration                     2         1
+  SkillSecondary_BuffRadius                                   1         0
+  SkillSecondary_BuffSelfDuration                            23         0
+  SkillSecondary_ChainBonus                                  10         0
+  SkillSecondary_ChainLightning                               4         0
+  SkillSecondary_ForkLightning                                2         0
+  SkillSecondary_OnHitBuffRadius                              3         0
+  SkillSecondary_OnKillAttackRadius                           3         0
+  SkillSecondary_PetModifier                                337         0
+  SkillSecondary_PetSpawn                                     2         0
+  SkillSecondary_TargetedSpawnPet                            20         0
+  SkillSecondary_Tether                                      14         0
+  TOTAL                                                     474         2
+
+  records that DO declare it:
+    records/sandbox/jakub/skillsecondary_buffattackradiusduration.dbr      SkillSecondary_BuffAttackRadiusDuration      [15.0, 16.0, 18.0, 20.0, 22.0, 24.0, 26.0, 28.0, 30.0, 32.0, 34.0, 36.0, 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 52.0, 54.0, 56.0]
+    records/sandbox/jakub/skillsecondary_orbiting.dbr                      SkillSecondary_AttackProjectileOrbiting      [10.0, 11.0, 12.0, 14.0, 15.0, 17.0, 19.0, 21.0, 23.0, 25.0, 27.0, 29.0, 31.0, 33.0, 35.0, 37.0, 39.0, 42.0, 44.0, 46.0, 48.0, 51.0, 53.0, 55.0, 58.0, 60.0]
+
+========================================================================================================
+playerclass09 (Oathkeeper) skill records -- Class + skillManaCost presence
+========================================================================================================
+  _classtraining_class09             Skill_Mastery                                  skillManaCost=ABSENT
+  _classtree_class09                 SkillTree                                      skillManaCost=ABSENT
+  aegis1                             Skill_AttackProjectileChain                    skillManaCost=len=26 [14..84]
+  aegis1b                            Skill_Transmuter                               skillManaCost=ABSENT
+  aegis2                             Skill_Modifier                                 skillManaCost=len=22 [2..22]
+  aegis3                             Skill_Modifier                                 skillManaCost=ABSENT
+  ascension1                         Skill_BuffSelfDuration                         skillManaCost=len=22 [32..150]
+  ascension2                         Skill_Modifier                                 skillManaCost=len=22 [3..45]
+  divinemandate1                     Skill_BuffSelfToggled                          skillManaCost=ABSENT
+  eyeofreckoning1                    Skill_AttackRadiusSpin                         skillManaCost=len=26 [4..16]
+  eyeofreckoning2                    SkillSecondary_AttackProjectileOrbiting        skillManaCost=ABSENT
+  judgment1                          Skill_AttackRadius                             skillManaCost=len=22 [30..135]
+  judgment2                          Skill_Modifier                                 skillManaCost=len=22 [4..25]
+  judgment3                          SkillSecondary_BuffAttackRadiusDuration        skillManaCost=ABSENT
+  passive01                          Skill_Passive                                  skillManaCost=ABSENT
+  passive02                          Skill_PassiveOnLifeBuffSelf                    skillManaCost=ABSENT
+  pathofthethree1                    Skill_BuffSelfToggled                          skillManaCost=ABSENT
+  bio_celestialguardian_01           None                                           skillManaCost=ABSENT
+  bio_celestialguardian_01b          None                                           skillManaCost=ABSENT
+  celestialguardian_01               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_01b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_01c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_01d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_02               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_02b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_02c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_02d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_03               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_03b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_03c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_03d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_04               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_04b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_04c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_04d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_05               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_05b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_05c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_05d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_06               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_06b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_06c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_06d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_07               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_07b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_07c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_07d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_08               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_08b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_08c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_08d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_09               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_09b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_09c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_09d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_10               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_10b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_10c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_10d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_11               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_11b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_11c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_11d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_12               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_12b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_12c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_12d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_13               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_13b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_13c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_13d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_14               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_14b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_14c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_14d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_15               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_15b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_15c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_15d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_16               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_16b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_16c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_16d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_17               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_17b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_17c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_17d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_18               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_18b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_18c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_18d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_19               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_19b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_19c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_19d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_20               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_20b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_20c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_20d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_21               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_21b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_21c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_21d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_22               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_22b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_22c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_22d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_23               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_23b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_23c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_23d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_24               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_24b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_24c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_24d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_25               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_25b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_25c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_25d              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_26               PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_26b              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_26c              PetPlayerScaling                               skillManaCost=ABSENT
+  celestialguardian_26d              PetPlayerScaling                               skillManaCost=ABSENT
+  modifier_b305a_celestialguardian   Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_b305b_celestialguardian   Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_caster_b205_conjurecelestialguardian Skill_Passive                                  skillManaCost=ABSENT
+  modifier_caster_b205_conjurecelestialguardianb Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_caster_d113_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_celestialwrath_defaultfx  Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_eldritchwhispers_set1_oathkeeper3 Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_eldritchwhispers_set3_oathkeeper2 Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_focus_d004_conjurecelestialguardian Skill_Passive                                  skillManaCost=ABSENT
+  modifier_focus_d214_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_gun2h_b203_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_hands_d205_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_head_d213_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_medal_b304_summonguardianempyrion Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_necklace_b203_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_necklace_d108_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_necklace_d313_summonguardianofempyrion Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_set_d211_conjurecelestialguardian_02 Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_set_d215_conjurecelestialguardian Skill_Modifier                                 skillManaCost=ABSENT
+  modifier_set_d305_summonguardianofempyrion Skill_Modifier                                 skillManaCost=ABSENT
+  petskill_celestialguardian_bladearc1 Skill_AttackWeapon                             skillManaCost=ABSENT
+  petskill_celestialguardian_bladearc1b Skill_AttackWeapon                             skillManaCost=ABSENT
+  petskill_celestialguardian_bladearc1c Skill_AttackWeapon                             skillManaCost=ABSENT
+  petskill_celestialguardian_bladearc1d Skill_AttackWeapon                             skillManaCost=ABSENT
+  petskill_celestialguardian_celestialwrath1 Skill_BuffRadiusToggled                        skillManaCost=ABSENT
+  petskill_celestialguardian_celestialwrath1_buff SkillBuff_Debuf                                skillManaCost=ABSENT
+  petskill_celestialguardian_celestialwrath1b Skill_BuffRadiusToggled                        skillManaCost=ABSENT
+  petskill_celestialguardian_celestialwrath1b_buff SkillBuff_Debuf                                skillManaCost=ABSENT
+  petskill_celestialguardian_innate01 Skill_Passive                                  skillManaCost=ABSENT
+  presenceofvirtue1                  Skill_BuffRadiusToggled                        skillManaCost=ABSENT
+  presenceofvirtue1_buff             SkillBuff_Passive                              skillManaCost=ABSENT
+  presenceofvirtue2                  Skill_Modifier                                 skillManaCost=ABSENT
+  presenceofvirtue3                  Skill_Modifier                                 skillManaCost=ABSENT
+  righteousfervor1                   Skill_WeaponPool_ChargedScaling                skillManaCost=len=26 [1..10]
+  righteousfervor1b                  Skill_Transmuter                               skillManaCost=ABSENT
+  righteousfervor2                   Skill_Modifier                                 skillManaCost=len=22 [1..3]
+  righteousfervor3                   Skill_Modifier                                 skillManaCost=len=22 [1..3]
+  summon_celestialguardian1          Skill_TargetedSpawnPet                         skillManaCost=ABSENT
+  summon_celestialguardian1b         Skill_SpawnPetTransmuter                       skillManaCost=ABSENT
+  summon_celestialguardian2_petmodifier SkillSecondary_PetModifier                     skillManaCost=ABSENT
+  summon_celestialguardian2b_petmodifier SkillSecondary_PetModifier                     skillManaCost=ABSENT
+  viremight1                         Skill_AttackPathCharge                         skillManaCost=len=26 [22..122]
+  viremight1b                        Skill_Transmuter                               skillManaCost=ABSENT
+  viremight2                         SkillSecondary_AttackProjectileAreaEffect      skillManaCost=ABSENT
+  viremight3                         Skill_Modifier                                 skillManaCost=len=22 [3..12]
+  wpattack01                         Skill_WPAttack_BasicAttack                     skillManaCost=ABSENT
+  wpattack02                         Skill_WPAttack_AttackWave                      skillManaCost=ABSENT
+
+========================================================================================================
+PARENT LINKAGE -- records that reference eyeofreckoning2.dbr
+========================================================================================================
+  records/items/gearaccessories/medals/c037_medal.dbr                            .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/rings/c009_ring.dbr                              .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/rings/c051_ring.dbr                              .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/melee2h/d008_sword2h.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/c007_shoulder.dbr                                  .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/skills/playerclass09/_classtree_class09.dbr                            .skillName32 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearfeet/d106_feet.dbr                                           .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearhands/c110_hands.dbr                                         .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearfeet/d102_feet.dbr                                           .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearhands/d110_hands.dbr                                         .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/blunt1h/d102_blunt.dbr                               .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/upgraded/gearaccessories/rings/c051_ring.dbr                     .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/upgraded/gearaccessories/medals/c037_medal.dbr                   .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/upgraded/gearshoulders/c007_shoulder.dbr                         .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/upgraded/gearshoulders/d026_shoulder.dbr                         .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/upgraded/gearweapons/melee2h/d008_sword2h.dbr                    .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/upgraded/gearweapons/swords1h/c018_sword.dbr                     .augmentSkillName4 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/faction/torso/f207b_torso.dbr                                    .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/axe1h/c203_axe.dbr                                   .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/axe1h/c202_axe.dbr                                   .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/ui/skills/class09/skill27.dbr                                          .skillName = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/b203e_sword.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/waist/d201_waist.dbr                             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/enemygear/gear_kymoncurrupted01a_sword.dbr                       .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/d201_shoulder.dbr                                  .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/faction/torso/f207a_torso.dbr                                    .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/medals/d202_medal.dbr                            .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/medals/d207_medal.dbr                            .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/medals/d212_medal.dbr                            .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/waist/d206_waist.dbr                             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/caster/d204_scepter.dbr                              .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearhead/d203_head.dbr                                           .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearhead/d207_head.dbr                                           .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/b203b_sword.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/d204_shoulder.dbr                                  .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/b203f_sword.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/axe1h/c201_axe.dbr                                   .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/caster/d208_scepter.dbr                              .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/b203a_sword.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/b203c_sword.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/b203d_sword.dbr                             .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearweapons/swords1h/d207_sword.dbr                              .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/completionrelics/aoathkeeper_06a.dbr                 .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/completionrelics/aoathkeeper_13a.dbr                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/completionrelics/aoathkeeper_18a.dbr                 .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/prefix/aa024a_oathkeeper08_je.dbr                    .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/b307e_shoulder.dbr                                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/rings/d313_ring.dbr                              .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/faction/accessories/rings/f305a_ring.dbr                         .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/faction/accessories/rings/f306a_ring.dbr                         .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearaccessories/necklaces/d317_necklace.dbr                      .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearlegs/d302_legs.dbr                                           .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/d321_shoulder.dbr                                  .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearlegs/d306_legs.dbr                                           .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/b307a_shoulder.dbr                                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/b307c_shoulder.dbr                                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/d320_shoulder.dbr                                  .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/ascended/mastery/playerclass09/b306d.dbr             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/ascended/mastery/playerclass09/b306a.dbr             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/ascended/mastery/playerclass09/b306b.dbr             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/ascended/mastery/playerclass09/b306c.dbr             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/lootaffixes/ascended/mastery/playerclass09/b306h.dbr             .augmentSkillName1 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/b307f_shoulder.dbr                                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/b307b_shoulder.dbr                                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/gearshoulders/b307d_shoulder.dbr                                 .augmentSkillName2 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/geartorso/d302_torso.dbr                                         .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  records/items/geartorso/d305_torso.dbr                                         .augmentSkillName3 = records/skills/playerclass09/eyeofreckoning2.dbr
+  (67 references)

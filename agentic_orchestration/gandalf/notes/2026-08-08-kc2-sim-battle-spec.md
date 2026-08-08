@@ -246,13 +246,17 @@ per_tick_effective = 16.0 × 0.90 = 14.4
   leech** ⇒ **Tip the Scales (100/s while up, 2.0 s duration, 1.0 s cooldown) is LOAD-BEARING for
   sustain** — near-continuous uptime nets ≈ −1/s, reproducing the draw-down-then-recovery band.
   AC-3.2 tests exactly this.
-- **Soulfire carries a SEPARATE, DECLARED cost term NOT inside 176.4** (the decomposition's exactness
-  is the evidence). Its own `skillManaCost` is 3–20 rank-scaled (P-E1 § 5, build MAXES the node);
-  fine print: *"Energy Cost increase is per damage interval"*; interval basis **CLOSED at 0.2 s plain
-  seconds** (HALT-8, L-26). **Magnitude tension, declared:** a naive max-rank read (20 / 0.2 s =
-  100/s) would break the fixture's own observed sustain — so the term's *effective* magnitude is
-  bounded above by the fixture's sustain band, and Phase D adjudicates via AC-3.2's FINDING clause.
-  The sim carries the term declared-and-separate; it is never folded into `drain_rate_per_s`.
+- ~~**Soulfire carries a SEPARATE, DECLARED cost term NOT inside 176.4**~~ — **STRUCK L-35:
+  Soulfire declares NO cost.** The "3–20 rank-scaled `skillManaCost`" this bullet carried was a
+  **spec-authoring fusion** (SPEC-AUTHOR error, owned at L-35): the array belongs to
+  **Disintegration** (`aetherray2.dbr` — P-E1 § 5 cited it as a *control*, not as Soulfire);
+  `eyeofreckoning2.dbr` omits the field entirely, as do 474/476 `SkillSecondary_*` records. The
+  0.2 s-plain-seconds interval basis (HALT-8) remains true of the record it belongs to. Nothing
+  folds into `drain_rate_per_s`; the magnitude tension, its admissibility bound, and **F-8 are
+  RETIRED premise-withdrawn** — gamora's `effective_per_s = 0.0` graduates to **DB-CITED** (the
+  record's silence is the citation). Full retirement: F-8 (§ 14). Bonus coherence:
+  `eyeofreckoning1` carries `skillManaCost` [4..16], rank 26 = 16.0 — the drain constant's own
+  home (16.0 × 12.25 × 0.90 = 176.4/s).
 
 **Resolution ladder (L-6) — final disposition:** (a) galadriel sweep **CLOSED IT** (in-video tooltip
 beats any still) · (a′) energy-direction read **MOOT** · (b) matt_to_do T14 screenshot
@@ -298,6 +302,16 @@ MEASURED-pinned in prior art (`characterManaLimitReserve = 50.0` → *"50 Energy
 | Energy Regeneration | **75.37 / s** | Ceremony § D `#511` — *(closes P-E1's open item P4; see FINDING F-3)* |
 | Energy Absorption | 20 % | Ceremony § D `#511` |
 | Tip the Scales leech | **200 energy over 2.0 s = 100 / s while up**, `skillCooldownTime = 1.0 s` | P-E5 § 2.3 |
+
+**Leech stacking RULED — NON-STACKING, refresh-on-reproc [L-32/E-1].** The 2.0 s duration on a
+1.0 s cooldown arithmetically admits two concurrent instances; the ruling is non-stacking on three
+independent legs: (i) GD same-source buff behaviour is refresh-not-stack; (ii) this section's own
+"100/s **while up**" is a state predicate, not an instance count — and § 3.1's sustain arithmetic
+(nets ≈ −1/s) was authored on that reading; (iii) the BINDING instruments are unproducible under
+stacking — net would be **+98.97/s**, the pool pins at the usable ceiling, and neither the s2
+in-combat **1477** nor the 86–117 draw-down band (§ 3.3) can occur. The stacking reading's side
+effect of nearly admitting the naive Soulfire 100/s is NAMED AND REFUSED as a reason — adopting a
+mechanism to rescue an inadmissible constant is the fitting charter § 4.2 forbids.
 
 ### 3.3 Micro-oracles (BINDING per R-KC2-2)
 
@@ -453,71 +467,90 @@ live machinery; no double-build.
 
 | Input | Source of record |
 |---|---|
-| per-wave composition (pools, rosters, weights, record paths) | **P-E6 emissions** — `pe6_crucible_wave_pools.csv` (1,998 rows), `pe6_crucible_waves.csv` (200 rows), `s4_waves_full.json` |
+| per-wave composition (pools, rosters, weights, record paths) | **P-E6 emissions** — `pe6_crucible_wave_pools.csv` (1,998 rows), `pe6_crucible_waves.csv` (200 rows), `s4_waves_full.json`. **L-35 exemption-aware supersession:** consumers needing `ignoreGameBalance` read `legolas/scratch/2026-08-08-kc2-e2-exemption/pe6_crucible_wave_pools_v2.csv` (1,998 rows + per-pool flag; SHA `bbdc18f1…`) + `pe6_pool_ignoregamebalance.csv` (635 pools, **74 exempt**; SHA `40182de2…`, conductor-verified). Exemption is a **per-pool CITED fact, never a class heuristic** — exactly one non-boss exempt pool exists (`celestialmonstrosity_t3`, trash) |
 | per-wave counts | **U-9 count model** (§ 10.5) — *"count from U-9, composition from P-E6"* is declared in both notes |
-| per-wave monster scaling | **U-8 emission** `u8_survival_wave_scaling.csv` — joined via the **§ 10.7 array-lookup law: fighting wave *w* reads the row labeled *w−1*** |
-| monster level | **TWO-STAGE (HALT-10, § 6.2b):** the proxy `levelVarianceEquation` sets spawn level — nemesis/boss `lv8_boss+` is a **POINT**, `(apl+4)+(apl/50)` = **106** at L100 (P-E6's band read + its 104 corrected: min = max; the `apl/50` term was dropped) — then the **monster record's own `charLevel` equation re-evaluates it** (four forms on the wave-160 board; the `(charLevel*1.1)+2` form → **118.6**). Hero `lv6_hero`, trash `lv2_normal`/`lv3_strong`. **No player-level gate on tier access**; at L100 every `minPlayerLevel{j}` roster gate is open (P-E6 § 2.7). **No Epic/Legendary variance branch exists** — 0 of 16 proxy records populate them |
+| per-wave monster scaling | **U-8 emission** `u8_survival_wave_scaling.csv` — joined via the **§ 10.7 array-lookup law (CORRECTED L-33): fighting wave *w* reads 0-based index *w*−1 = the cell LABELED *w*** |
+| monster level | **SINGLE-STAGE + DECLARED OFFSET (L-33; supersedes the HALT-10 two-stage):** the proxy `levelVarianceEquation` sets the level — nemeses `lv8_boss+` = POINT `(apl+4)+(apl/50)` = **106** at L100; p04 `lv7_uber` min `(apl+3)` = 103; p06 `lv6_hero` 104–105 — **plus a MEASURED +3 offset** (nameplates: nemeses **109**, Galakros **106** = uber-min+3, Bileeater summon 112; measured on two independent proxies/bodies; **DB source NAMED-ABSENT** after an enumerated search — carried as a **DECLARED sim input**, § 6.2b). The old stage-2 per-record `charLevel` re-evaluation is **STRUCK** (`character.tpl` scopes that equation to MANUAL placement; `Proxy.Create` passes no level; the 118.6 was a degeneracy artifact — probe § 3.2). Trash `lv2_normal`/`lv3_strong`. **No player-level gate on tier access**; at L100 every `minPlayerLevel{j}` roster gate is open (P-E6 § 2.7). **No Epic/Legendary variance branch exists** — re-swept 0 of 32 corpus-wide |
 | boss concurrency | **engine cap explicitly defeated.** `survivalevent.lua` L548 verbatim: `Proxy.Create(…, …, true) -- true for 'ignore boss spawn limit'`, on **every** wave spawn. Campaign boss-concurrency intuitions do not transfer (U-9 § 5.5) |
 
-### 6.2b Opposition eHP — the five-link composition chain (HALT-10; L-29)
+### 6.2b Opposition eHP — the four-link composition chain (L-33; supersedes the HALT-10 five-link)
 
-**CLOSED for the nemesis class (±0.005 %); PARTIAL for the p04 superboss (named gap).** Probe:
-`legolas/notes/2026-08-08-kc2-ehp-composition-probe.md`. Sim-ready numbers:
-`legolas/scratch/2026-08-08-kc2-ehp-composition/t20_wave160_board_ehp.csv` — **the sim consumes the
-`glad_cell = 322` rows** (per the § 10.7 array-lookup law; the 324 rows are the labeled-cell
-alternative, retained for provenance).
+**CLOSED EXACT — 8/8 camera-named bodies (7 distinct values), residual 0, zero free parameters.**
+Probe: `legolas/notes/2026-08-08-kc2-groupassign-microprobe.md` (falsification: per-body level
+unique over L∈[80,160] = the camera nameplates 8/8; joint (G, L) unique over a 16,200-pair scan).
+**Source-of-record: `legolas/scratch/2026-08-08-kc2-ehp-composition/t21_wave160_board_ehp_r2.csv`**
+(39 rows × 33 cols; per-row provenance incl. `charLevel_grade`). The HALT-10 `t20` CSV and its
+`glad_cell = 322` consumption rule are **SUPERSEDED** (the 322 cell scores 0/8, all −0.177 %).
+
+> **⚠ BINDING consumption rule (conductor-measured hazard, L-33(i)):** the 3 Kubacabra P2/P3 rows
+> (`nemesis_beast_01_p2a/p2b/p3a`) carry `verdict = PREDICTION-uncorroborated` — class-identical to
+> the 28 rollable pool alternatives; the must-not-sum distinction lives only in the note column.
+> **Exclude `nemesis_beast_01_p{2,3}*` rows from any Crucible board enumeration.** legolas emits r3
+> with a distinct `phase-UNWIRED-in-crucible` verdict class on his next touch.
 
 ```
-apl        = averagePlayerLevel = 100                  (fixture is L100)
-spawn_lv   = levelVarianceEquation(apl)                records/proxies/lv*.dbr        [base]
-charLevel  = <per-record equation>(spawn_lv)           monster record field           [overlay winner]
-base_life  = characterLife(charLevel)                  bio curve (characterAttributeEquations)
-M          = 1 + 5.80 + G/100 + own/100                ADDITIVE — see below
-eHP        = base_life × M
+L          = levelVarianceEquation(apl) + 3           proxy lv*.dbr band + MEASURED offset (DECLARED input)
+base_life  = characterLife(L)                          bio curve (characterAttributeEquations), winner-only
+M          = 1 + 5.80 + G/100 + armorbaseNN[L−1]/100   ADDITIVE — see below
+eHP        = floor(base_life × M)                      floor, not round (round misses 5 of 8 bodies)
 ```
 
-- **Two-stage level.** Stage 1 sets spawn 106 (nemeses; point, not band). Stage 2 — the record's own
-  `charLevel` equation — splits the board four ways: `*1` (106) · `*1+2` (108) · `*1+5` (111) ·
-  **`*1.1+2` (118.6** — 10 of 16 nemeses; ×1.172 on base HP through the ^1.5 curve). This is the term
-  a shared-base model could not produce: 15/16 nemeses share `bio_boss_nemesis_01` but NOT the
-  `charLevel` equation.
-- **Five bio curves on the wave-160 board:** `bio_boss_nemesis_01` `((cl*42)^1.5)+20000` (16 records) ·
-  `nemesis3phase_01/02/03` `((cl*36)^1.5)+16000` / `((cl*19)^1.5)+9000` / `((cl*13)^1.5)+3000`
-  (**Kubacabra is 3-phase — P1→P2→P3 eHP 2,955,749 → 1,162,010 → 636,671 at the 322 cell; the sim
-  needs all three**) · `colossusgalakros` + `tombguardian` `((cl*33)^1.5)+500` · `hero_standard_01`
-  `((cl*11)^1.5)−20` (≈ 398,747–404,406).
+- **Level is SINGLE-STAGE + declared +3.** The nameplate level IS the HP-equation level (probe
+  § 8.1 — substituting the camera numerals closes 8/8 exact with unique solutions). The +3 above
+  the proxy band is MEASURED on two independent proxies (`lv8_boss+` 106→109 · `lv7_uber` min
+  103→106) and its **DB source is NAMED-ABSENT** (enumerated search: 32 variance records, 627
+  adjustment fields, `gameengine.dbr`, the survival Lua — no level term anywhere). Two
+  observationally-equivalent readings — (a) +3 offset · (b) `averagePlayerLevel` evaluating to 103 —
+  are non-discriminable from a single wave; **a nameplate read at any other wave separates them**
+  (galadriel follow-up in flight, L-33). The sim carries +3 as a **stated input, not a derived one**.
+  Summon levels: MEASURED per body (summoner's 109; Galakros's bloater 112 = +6); general rule
+  NAMED-ABSENT.
+- **STRUCK from the old chain (L-33, DB-cited):** the per-record `charLevel` re-evaluation
+  (`character.tpl` scopes it to MANUAL placement; Crucible bodies are `Proxy.Create` spawns — three
+  arguments, no level; the 118.6 was a degeneracy artifact, probe § 3.2) · the per-record own
+  `characterLifeModifier` (falsified on camera: Bileeater's +50 breaks its own exact closure by
+  +4.41 %; **Raddoth's +100 does NOT apply — "Raddoth = 4,102,036" is struck; he is 3,722,896 like
+  every `bio_boss_nemesis_01` nemesis**; single-witness-graded).
+- **REVERSED into the chain (L-33): `armorbaseNN.characterLifeModifier[L−1]` is REQUIRED.** Every
+  wave-160 monster runs an armorbase passive at `skillLevel = charLevel`; array index = skill
+  level − 1. Values on the board: `armorbase05[108] = 125` (nemeses, Death Revenant) ·
+  `armorbase05[105] = 103` (Galakros) · `armorbase01[108] = 110` (Skeletal Archer) ·
+  `armorbase04[111] = 129` (Bileeater) · `armorbase04[108] = 125` (Shard). HALT-10's exclusion
+  test ran at the wrong level (118.6); at the true L this term closes the deviating bodies to the
+  cent (−22/100 · −15/100 · +4/100).
 - **M is ADDITIVE:** `1` + **5.80** (ordinary Ultimate/solo —
   `balancingadjustment_mp+difficulty_enemies01.characterLifeModifier[8] = +580` `[base]`, wired by
-  `gameengine.monsterAttributePak`; the P-E6 line-377 phrase *"before ordinary Ultimate difficulty
-  scaling"*, now a number) + **G/100** (Gladiator wave cell per § 10.7 lookup: **322** while fighting
-  160) + **own/100** (per-record `characterLifeModifier`: **+100 on Raddoth only**, 0 on the other 22).
-  Multiplicative composition gives 28.83 — **−61 % wrong**. The DB's own additive statement:
-  `characterLifeMultModifier` — the only multiplicative life term in the adjustment layer — is **0 at
-  solo** on every difficulty.
-- **Verification (conductor re-run independently):** back-solved M = **10.019603 (F1) / 10.020158
-  (F2)** — two fingerprints through two different power-law curves (42 vs 36 coefficient, 20000 vs
-  16000 constant) agree to **0.006 %**; residuals at the 322 cell **+0.004 % / −0.002 %**
-  (noise-shaped, opposite-signed) vs **+0.204 % / +0.198 %** (systematic, same-signed) at 324.
-- **Exclusions, measured:** monster rank (Hero/Boss/SuperBoss) carries **NO HP term anywhere in the
-  corpus** (H2 NAMED-ABSENT — all 366 `gameengine.dbr` fields read; rank differentiation is bio choice
-  + `charLevel` equation, nothing else); the `armorbaseNN` passive's 200-cell `characterLifeModifier`
-  is **empirically EXCLUDED** from the life composition (including it breaks the exact closure by
-  +13.9 %/−9.6 % and demands a level no record can produce); **mutators are neither wired into the
-  Crucible nor needed** (H4 — zero proxy/pool/wave references to `records/game/mutators/` corpus-wide).
-- **⚠ Overlay law:** bios resolve through the eight-archive survival stack **last-wins**
-  (`base→gdx1→gdx2→gdx3→sm_mod→sm1→sm2→sm3`). **Two live wave-160 traps:** `colossusgalakros` (gdx1
-  `((cl*55)^1.53)+6000` vs the governing sm1 curve) and `tombguardian` (gdx2 vs sm2) — a
-  campaign-stack join returns a wildly different curve. Same class as P-E6 § 5.2's werewolf trap, but
-  these two are ON the board.
-- **p04 NAMED GAP:** Galakros @110 predicts 2,196,440 (322 cell) vs measured 2,295,755 = **−4.3 %**
-  (−4.1 % at the 324 cell; the Steward −10.6 %); closing it needs charLevel ≈ 113.3 and the DB permits
-  ≤ 110; nine candidate explanations ruled out by reading, none by fitting. **Declared ±5 % band on
-  the p04 slot** (§ 12 T-8) — INFORMATIVE-side only (no p04 slot exists in the BINDING s1 band);
-  galadriel board-closure question in flight (§ 10.8).
-- **Scale of the correction:** measured wave-160 board floor ≈ **9.4 M** eHP (three fingerprints +
-  hero) vs ≈ 4.1 M under the superseded flat model — opposition health was understated **~2.3×**.
-  *(Supersedes L-17's interim per-nemesis 1,308,800 figure and P-E6 § 4.1's ≈ 827 k; the corrected
-  nemesis band is 3.18 M – 3.73 M, 4.10 M for Raddoth.)*
+  `gameengine.monsterAttributePak`) + **G/100** (Gladiator wave cell per the CORRECTED § 10.7 law:
+  **324** while fighting 160 = `characterLifeModifier[159]`, the cell labeled 160) +
+  **armorbase/100** (above). Multiplicative composition still overshoots ×2.9 (structural guard
+  retained); `characterLifeMultModifier` — the only multiplicative life term in the layer — is 0 at
+  solo on every difficulty.
+- **The wave-160 board, closed (8/8 EXACT):** 3,722,896 ×2 (Zantarin · Archmage Aleksander —
+  **every `bio_boss_nemesis_01` nemesis is eHP-identical**; the "nemesis band" is a POINT; dedupe
+  collision between any two non-Kubacabra draws is CERTAIN, L-33/C-11) · 2,955,796 (Kubacabra P1 —
+  **single-phase in the Crucible, DB-CITED**: the phase chain is a death-spawn and [sm1] deletes
+  its wiring, 994 vs gdx1's 995 fields; **the Crucible strips campaign-only mechanics** — loot
+  chests, map nuggets, phase chains) · 2,295,755 (Galakros, L=106 — **EXACT**; the HALT-10 −4.3 %
+  "named gap" was the missing armorbase term; § 12 T-8 RETIRED) · 484,095 (Aetherial Bileeater —
+  **Galakros's summon**, skill12, 1/3) · 468,504 (Death Revenant — **Zantarin's summon**, skill6,
+  1/3) · 103,912 ×2 (Aleksander's Shard — skill9, burst 2/6) · 41,237 ×3 (Skeletal Archer —
+  Zantarin's skill13, burst 2/12). **DB-derived window total 13,981,477 = the camera-measured total
+  EXACT** — two independent instruments, one integer.
+- **⚠ Summons are a FLOW, not a stock (gamora TTK surface, G-D):** summons respawn (`petLimit`
+  3/6/12; `spawnObjectsTimeToLive` 30–75 s) — total eHP destroyed over a wave is strictly greater
+  than the instantaneous board. The r2 CSV gives per-body eHP + per-skill limits; the flow model is
+  the sim's to build, not the probe's claim.
+- **⚠ Overlay law (CORRECTED L-33/C-9): `.arz` overlay is WHOLE-RECORD REPLACEMENT, never
+  field-merge** — every archive ships a complete record; the winner is the last archive's record
+  ENTIRE (`base→gdx1→gdx2→gdx3→sm_mod→sm1→sm2→sm3`). A field-merge resurrects deliberately-deleted
+  fields (exactly how Kubacabra's phase chain would have haunted the model). The two live wave-160
+  traps stand: `colossusgalakros` (gdx1 curve vs governing sm1) and `tombguardian` (gdx2 vs sm2).
+- **Exclusions, re-confirmed (L-33(j)):** monster rank carries NO direct HP term (H2 NAMED-ABSENT;
+  rank differentiates indirectly via which `armorbaseNN` a record runs) · mutators neither wired
+  nor needed · no Epic/Legendary variance branch (0 of 32 corpus-wide).
+- **Scale:** the engaged wave-160 window totals **13,981,477** eHP (≈ 3.4× the superseded flat
+  model's ≈ 4.1 M; supersedes the interim ≈ 9.4 M floor, which missed the summon layer and the
+  armorbase term).
 
 ### 6.3 Monster-side damage — the declared ceiling
 
@@ -547,10 +580,15 @@ in the read set.
 3. **AC-6.3** Concurrent bosses are not capped.
 4. **AC-6.4** Every emitted monster carries its source record path — so any statline dispute is
    resolvable without re-running (R-BR-34 census rule).
-5. **AC-6.5** The § 6.2b chain reproduces the two measured nemesis-class fingerprints — **3,722,896**
-   (F1) and **2,955,796** (F2, Kubacabra P1) — within **±0.05 %** under the § 10.7 lookup law, and
-   places the p04 slot inside its declared ±5 % band. Structural guard: the composition is ADDITIVE —
-   a multiplicative build overshoots ×2.9 (M 28.83 vs 10.02) and must fail this test.
+5. **AC-6.5** *(rewritten L-33 — supersedes the ±0.05 % two-fingerprint form)* The § 6.2b four-link
+   chain reproduces **all eight camera-named wave-160 bodies (seven distinct values) at ±0 — exact
+   integer equality** — against the r2 CSV of record (`t21_wave160_board_ehp_r2.csv`, § 6.2b
+   consumption rule applied: `nemesis_beast_01_p{2,3}*` rows excluded). Three structural guards, each
+   of which must FAIL if violated:
+   - **Additive-M guard** — a multiplicative composition overshoots ×2.9 (M 28.83 vs 10.02);
+   - **Floor guard** — `floor`, not `round`: rounding misses 5 of the 8 bodies by ±1;
+   - **G-index guard** — G must read the cell **LABELED 160** (0-based `[159] = 324`); the
+     index-inverted read (`[158] = 322`) scores **0/8**, all bodies −0.177 %.
 
 ---
 
@@ -902,8 +940,13 @@ bands, and the fixture never fought it). Binding: base pools = Aspirant · `pool
 alternative at wave 93. Cited here so the renormalisation is not silent.
 
 **Hero-pool edge (U9-8), declared:** hero pools carry no `name1..N` regular roster, so a Gladiator
-`spawnMin +1` on a hero pool is modelled as spawning **zero** regulars. ≤1 monster per hero
-placement; the plausible engine behaviour, not a measurement.
+`spawnMin +1` on a hero pool is modelled as spawning **zero regulars**. ~~≤1 monster per hero
+placement~~ **[CORRIGENDUM L-32/E-4: the struck phrase overstated the edge — read as a TOTAL cap it
+contradicts § 10.5 fact 5 (hero placements spawn THREE champions each over 151–170). The edge
+governs the REGULAR limb only: `roster_n = 0` ⇒ zero regulars from the `spawnMin` term. The
+champion limb rolls per fact 5 — purely additive, no rounding, no clamp — and that branch
+reproduces the pinned **63.0 expected champions EXACTLY** (AC-10.4). Fact 5 governs; the sim
+implements it.]** The zero-regulars limb remains the plausible engine behaviour, not a measurement.
 
 ### 10.5 Count model — U-9, verbatim in structure
 
@@ -934,15 +977,20 @@ Five load-bearing facts inside that model:
    change."* This kills the ×2.20 reading that would have roughly **doubled** the densest calibration
    wave.
 2. **`spawnMaxModifier` is declared-but-unset** — the ceiling moves by the **+1 additive only**.
-3. **`ignoreGameBalance` exempts 74/632 pools, and every exempt pool is a boss pool.** No trash or
-   hero pool is ever exempt. (All 36 FoA boss pools are exempt; only 18 of 96 base-game ones are.)
+3. **`ignoreGameBalance` exempts 74/632 pools, and ~~every exempt pool is a boss pool~~.** ~~No trash or
+   hero pool is ever exempt.~~ *(FALSE BY ONE — L-35 sidecar, DB-CITED: `celestialmonstrosity_t3.dbr`
+   is `trash` with `ignoreGameBalance=True`, the sole non-boss exempt pool of the 74. The universal
+   was a heuristic that survived until per-pool citation; "boss-pool" is a description of 73/74,
+   never a derivation rule — consume the sidecar flags, never the class.)* (All 36 FoA boss pools
+   are exempt; only 18 of 96 base-game ones are.)
 4. **Champions ADD, they never convert** (Crate, modding guide, verbatim). Census: 515 pools have
    `championChance = 0` and no champion roster; 117 have both; **zero** have a roster with chance 0 —
    so the champion gate is safe to model as a hard gate.
 5. **Waves 151–170 hero placements spawn THREE heroes each**, exactly: `championMin' = 1 + 1 + 1 = 3`,
    `championMax'` likewise. `championMinModifier`/`MaxModifier` are unset, so this term is purely
    additive — no rounding, no clamp. Over waves 151–170 that is an expected **63.0 champions against
-   292 regulars ≈ 18 %** of the wave population.
+   292 regulars ≈ 18 %** of the wave population. *(G-I1/L-34: this pairing is the p06-OFF limb —
+   with p06 ON the measured expectation is 81.0 champions / 306.83 regulars; see AC-10.4 scoping.)*
 
 **No player-count scaling exists anywhere in the chain.** All 632 Crucible pools reference the
 identity `proxypoolequation_01.dbr` (`poolValue * 1` on all four outputs), and the multiplayer
@@ -1012,8 +1060,9 @@ player spawn). Pooling bearings across sittings is a spec violation, not a model
 ### 10.7 Wave scaling — the U-8 emission is the HP/damage basis
 
 `legolas/scratch/2026-08-07-u8-tierwave/u8_survival_wave_scaling.csv` — **600 rows
-(200 waves × 3 difficulties) × 9 scaling columns**, version-stable pre/post-FoA. The sim joins on
-`(wave_fought − 1, difficulty)` — see the **array-lookup law** below.
+(200 waves × 3 difficulties) × 9 scaling columns**, version-stable pre/post-FoA. The sim joins on 0-based index
+`(wave_fought − 1, difficulty)` = the row **LABELED `wave_fought`** (U-8's `wave = index + 1`) — see
+the **array-lookup law** below.
 
 Columns: `characterLifeModifier` · `characterOffensiveAbility` · `characterOffensiveAbilityModifier` ·
 `characterDefensiveAbility` · `characterDefensiveAbilityModifier` · `characterAttackSpeedModifier` ·
@@ -1030,39 +1079,45 @@ waves this run cares about:
 the folded block is the wave-100 slice of a 200-row array, and applying it at wave 160 understates
 monster HP by 1.58×.**
 
-**⚠ ARRAY-LOOKUP LAW (L-29; INFERRED-TESTED, single-point): fighting wave *w* reads the row LABELED
-*w−1*** (0-based array index *w−2* — the engine indexes the survival adjustment by **completed**
-waves). Measured: the wave-160 big-three HP fingerprints back-solve M = 10.0196/10.0202 across two
-different power-law bios (0.006 % agreement) — matching the label-159 cell (`characterLifeModifier`
-**322**) at **+0.004 %/−0.002 % (noise-shaped, opposite-signed)** vs the label-160 cell (324) at
-**+0.204 %/+0.198 % (systematic, same-signed)**. "Footage was wave 159" is excluded on bio census —
-neither measured bio exists anywhere on the 159 board. Consequences, **conductor-verified against the
-full-grain CSV**: (a) life while fighting 160 = **322**; (b) `offensiveTotalDamageModifier`
-**plateaus at 43 across labels 158–160** — the +43 figure is UNCHANGED (the probe note's "+43 → +41"
-consequence claim is **STRUCK**: no cell in the family carries 41); (c) at the ladder end, fighting
-200 reads label-199 — life **965** (not 990), total-damage **+125** (not +130; the label-200 row is
-read by no fought wave); (d) **decade walls land one fought-wave later than their labels** — fighting
-171 reads label-170 (**344**); the 420 cell binds while fighting **172**. Boundary: fighting wave 1
-has no label-0 row — engine behavior UNKNOWN, declared (sim clamps to label-1; negligible at that
-band). **One rule for EVERY array in the `enemies0{1,2,3}` family.** Pre-registered G-D diagnostic:
-a damage-side misfit at exactly-one-cell granularity re-opens this rule. Distinct fact from L-7's
-`first_wave_fought = label + 1` start invariant — two different off-by-one semantics, both measured,
-no contradiction.
+**⚠ ARRAY-LOOKUP LAW (CORRECTED L-33; supersedes L-29's fought-reads-label-*w−1* ruling): fighting
+wave *w* reads 0-based index *w−1* = the cell LABELED *w*** (U-8's `wave = index + 1`; the natural
+0-based read — no completed-waves offset exists). Evidence: the § 6.2b four-link chain closes **8/8
+wave-160 bodies at ±0 (exact integers, zero free parameters)** with G = `characterLifeModifier[159]
+= 324` — the cell **LABELED 160** — while the index-inverted read (`[158] = 322`) scores **0/8,
+every body −0.177 %** (microprobe § 3.6). L-29's opposite ruling rested on back-solved M under
+HALT-10's five-link chain — **two ~12 % errors cancelling** (base −11.25 % × M +12.67 %; microprobe
+§ 9.1): its "noise-shaped ±0.004 %" match was cancellation residue, not closure. Ledger rules
+adopted (L-33(c)): **exact-closure evidence (residual-0 × uniqueness-in-scan) OUTRANKS
+statistical-shape evidence**; and **verification against a ruled-but-wrong convention propagates the
+convention's error** — L-29's "conductor-verified consequences" were derived *through* the false
+law. Corrected consequence map, conductor-verified against the full-grain CSV: (a) life while
+fighting 160 = **324**; (b) `offensiveTotalDamageModifier` **+43 UNCHANGED** (labels 159 and 160
+both carry 43.0 — L-29's strike of the probe's "+43 → +41" claim **STANDS on arithmetic**: no cell
+in the family carries 41); (c) fighting 200 reads the labeled-200 cell — life **990**, total-damage
+**+130** (L-29's "965 / +125" consequences REVERSE; every label row is read by exactly one fought
+wave); (d) **decade walls bind AT their labels** — the 420 cell binds while fighting **171**; (e)
+the label-0 boundary **DISSOLVES** — the law is total on fought waves [1, 200] (fighting 1 reads
+index 0 = label 1); the L-29 clamp is retired. The true law has no edge case. **One rule for EVERY
+array in the `enemies0{1,2,3}` family.** Pre-registered G-D diagnostic unchanged: a damage-side
+misfit at exactly-one-cell granularity re-opens this rule. Distinct fact from L-7's
+`first_wave_fought = label + 1` start invariant (tier-start labeling — a different table, a
+different semantic); both measured, no contradiction.
 
 **Full grain for the remaining wave-varying fields (HALT-9 CLOSED, L-26):**
 `legolas/scratch/2026-08-08-kc2-halt-bundle/halt9_survival_wave_scaling_full.csv` (600 × 28 — all
 **25** array fields × 3 difficulties; scalars in `halt9_survival_scalars.csv`, 8 × 3; **33** non-zero
 fields total, not ~35; all 9 U-8 columns byte-identical). Headline ramps the wave-100 slice hid:
-**`offensiveTotalDamageModifier` = +43 % while fighting wave 160** (not +20; unchanged under the
-lookup law — the 43 plateaus across labels 158–160; **+125 while fighting wave 200**);
-**`offensivePhysicalModifier` = −21 %** at wave-160 Gladiator (not −15; also unchanged — labels
-159/160 agree). The sim joins this CSV on `(wave_fought − 1, difficulty)` per the array-lookup law,
-exactly as it does the U-8 nine.
+**`offensiveTotalDamageModifier` = +43 % while fighting wave 160** (not +20; robust to the L-33 law
+flip — the 43 plateaus across labels 158–160; **+130 while fighting wave 200** per the corrected
+law); **`offensivePhysicalModifier` = −21 %** at wave-160 Gladiator (not −15; labels 159/160 agree,
+so also flip-robust). The sim joins this CSV on 0-based `(wave_fought − 1, difficulty)` = the row
+labeled `wave_fought`, per the corrected array-lookup law, exactly as it does the U-8 nine.
 
 **Wave 171 is a step discontinuity, not a continuation** — Gladiator jumps **+76 pp in one label**
 (344 → 420) where labels 161–170 stepped ~+4 pp each. The FoA band is a deliberate wall. Under the
-array-lookup law the wall **binds while fighting 172** (fighting 171 still reads label-170's 344).
-Relevant to full-ladder runs beyond the fixture bands, which are reported UNBOUND per charter Phase D.
+corrected array-lookup law (L-33) the wall **binds while fighting 171** — the fought wave reads its
+own label. Relevant to full-ladder runs beyond the fixture bands, which are reported UNBOUND per
+charter Phase D.
 
 **Fixture calibration bands:**
 
@@ -1101,49 +1156,90 @@ post-death menu view, corrected on the hourglass + UI-clear evidence).
 | **p02** | `poolsbossgdx1/nemesis_all_noaetherialvanguard` (`1-1`) | **1 of 5** — **Kubacabra (the fixture's MEASURED draw — F2 unique-bio fingerprint, L-29)** · Grava'Thul · Reaper of the Lost · The Underking · Reaper of Rot | **True — exempt** |
 | **p03** | `poolsbossgdx1/nemesis_wendigooraetherialvanguard` (`1-1`) | **1 of 2, 50/50** — **Archmage Aleksander** · Reaper of the Lost | **True — exempt** |
 | **p04** | `aetherialcolossus_galakros` (w 100) **/** `korvaaktombguardian` (w 100) | 1 of 2 pools, 50/50 — Galakros · The Steward | field absent → **takes the additives** |
-| **p06** | `poolsherogdx1/wendigocannibal_hero`, `championChance 100 %` | 1 of 5, uniform — **measured ON in the fixture (L-21 census)** | **False (explicit)** → **takes the additives** |
+| **p06** | `poolsherogdx1/wendigocannibal_hero`, `championChance 100 %` | 1 of 5, uniform — **fixture state DEMOTED-OPEN (L-33(g)): the L-21 census leg is STRUCK** — the 5th initial-window body is a SUMMON, and the corrected hero band 450,012–460,431 has zero census hits; `u9_bonus_spawn_state` rides the galadriel star-tier follow-up | **False (explicit)** → **takes the additives** |
 
-**There is no p05 — no ambush drip. All arrive together.**
+**There is no p05 — no ambush drip in the POOL structure. All pool spawns arrive together.**
+*(The camera's t ≈ 862 late cohort (L-30) is NOT a p05 refutation — the DB fact stands; mechanism
+**RESOLVED (L-33(f)): summon respawn** — the cohort is Zantarin's summon layer re-casting (Skeletal
+Archer ×3, skill13 · Death Revenant, skill6) plus a returning Shard. Summons are a FLOW with
+30–75 s TTLs, not pool spawns.)*
 
-**Measured wave-160 census (L-21/L-23/L-29 — the fixture's own kill wave, instrumented and now
-IDENTIFIED under the § 6.2b chain):**
+**Measured wave-160 census (L-21/L-23/L-29/L-30 — the fixture's own kill wave, instrumented, and
+now NAMED on camera):**
 
-- **Max-simultaneous 5 hostiles** (4 skull-tier + 1 star-tier) at t = 850.87/852.87 — matches the
-  5-raw roll with p06 ON. **Six distinct HP fingerprints** across the wave (two pairs simultaneous).
-- **The big three, identified (L-29):**
-  **F1 = 3,722,896 ≈ the `×1.1`-group nemesis prediction 3,723,043 (−0.004 %)** — candidates:
-  Benn'Jahr · Curate Ignus · Shriek · Vinn Ozmald (p01) · Reaper of the Lost (p03). **NOT Zantarin**
-  (his `×1` group predicts 3,176,863) and **NOT Raddoth** (own +100 → 4,094,605).
-  **F2 = 2,955,796 ≈ Kubacabra P1, predicted 2,955,749 (+0.002 %)** — `bio_boss_nemesis3phase_01`
-  is **unique on this board**, so **the p02 draw is SETTLED: Kubacabra**, 3-phase eHP chain
-  2,955,749 → 1,162,010 → 636,671 at the 322 cell.
-  **F3 = 2,295,755 = the p04 slot** — Galakros favoured (−4.3 %; Steward ≈ −10.6 %) — the § 6.2b
-  **named gap**, declared ± 5 % band.
-- **Third-nemesis accounting (OPEN — galadriel board-closure question, Phase-C-concurrent):** three
-  nemesis slots spawned three nemeses; only two appear in the big three. Either the fingerprint
-  list is top-N and the third nemesis hides in the remaining three values, or **both non-Kubacabra
-  nemeses drew `×1.1`-group and deduped** (one fingerprint, two bodies, both at 3,722,896 — prior
-  P ≈ 0.20). **Prediction menu:** dedupe ⇒ remaining three = {1,162,010 (Kuba P2) · 636,671
-  (Kuba P3) · ~398,747–404,406 (hero)} and Zantarin + Aleksander + Grava'Thul were ALL absent;
-  else one remaining value ∈ {3,176,863 (`×1` group, incl. Zantarin) · 3,261,498 (Valdaran) ·
-  3,389,926 (Aleksander) · 4,094,605 (Raddoth)} **identifies the third nemesis directly**.
-- **Kill ledger before the death:** counter steps +12 (t 853.2) / +7 (854.5) / +11 (864.5) decode as
-  **2 nemesis-class + 1 boss-class killed pre-death** (± 1 display quantization). **Phase-credit
-  caveat (L-29):** Kubacabra is 3-phase and the timer-credit semantics of a phase transition are
-  UNKNOWN — the ledger may be counting phase deaths, not distinct bodies. Declared, not modelled.
-  The fixture died fighting the survivors at 25.88 s in.
+- **Seven distinct max-HP fingerprints — census-CLOSED for engaged on-screen bodies** (30 Hz
+  full-window pass + parse-failure audit + OCR-noise disproof; NOT closed for the arena —
+  unengaged/off-viewport bodies leave no readout). **≥ 11 engaged bodies** across the 25.88 s
+  window. The initial-spawn window's max-simultaneous 5 (t = 850.87/852.87) reads as the **4 pool
+  spawns + an early summon** (L-33(g) — the p06-ON reading is STRUCK: no corrected-band hero value
+  appears anywhere in the census; whether p06 rolled at all is DEMOTED-OPEN, since engaged-census
+  closure cannot see an unengaged hero); the death window carries **≥ 6 simultaneous** (twins +
+  cohort).
+- **The board, named (L-30):**
+
+  | max HP | bodies | identity (nameplate) | rank | displayed lv |
+  |---:|--:|---|---|---:|
+  | 3,722,896 | **2** | **Archmage Aleksander · Zantarin, the Immortal** — the dedupe twins (73 dual-readout frames, never three) | nemesis | 109 |
+  | 2,955,796 | 1 | **Kubacabra, the Endless Menace** (P1 denominator; phases unmanifested) | nemesis | 109 |
+  | 2,295,755 | 1 | **Galakros, the Mountain** — p04 MEASURED (violet boss plate; near-empty-bar binding t = 854.30 → death 854.50; the Steward never appears) | boss | 106 |
+  | 484,095 | 1 | **Aetherial Bileeater — SUMMON** (L-33(f): ← Galakros skill12, 1 per cast, cap 3) | summon | 112 |
+  | 468,504 | 1 | **Death Revenant — SUMMON** (L-33(f): ← Zantarin skill6, 1 per cast, cap 3) | summon | 109 |
+  | 103,912 | 2 | **Aleksander's Shard — SUMMON** (← Aleksander skill9, 2 per cast, cap 6) | summon | 109 |
+  | 41,237 | 3 | **Skeletal Archer — SUMMON** (L-33(f): ← Zantarin skill13, 2 per cast, cap 12) | summon | 109 |
+
+  *All four small fingerprints are summons (L-33(f)) — every "probable" tag from L-30 resolved by
+  DB summon-skill match, eHP EXACT under the § 6.2b chain at each summon's own level.*
+
+- **The L-29 prediction menu RESOLVED (L-30) → F-7 RESOLVED (L-33):** both value-branches
+  FALSIFIED — zero hits across 4,401 raw OCR strings (nulls on a dense instrument). The dedupe
+  MECHANISM is confirmed-MEASURED, and the F-7 micro-probe LANDED: the twins' 3,722,896 is the
+  **nemesis point-value, EXACT under the § 6.2b four-link chain** — no ×1.1-group approximation
+  survives (that framing was HALT-10-chain residue). The "hero band 398,747–404,406 vs measured
+  484,095/468,504" mismatch **DISSOLVES**: those bodies are SUMMONS (Bileeater ← Galakros skill12 ·
+  Death Revenant ← Zantarin skill6), not p06 heroes, and the corrected hero band 450,012–460,431
+  has zero census hits (→ the p06 demotion, L-33(g)).
+- **Kill ledger CLOSED — three distinct corpses:** +12 (853.2) = **Kubacabra** · +7 (854.5) =
+  **Galakros** · +11 (864.5) = **Archmage Aleksander**. The L-29 phase-credit caveat is RESOLVED —
+  the counter counted bodies, and the phases could not have manifested: **Kubacabra is single-phase
+  DB-CITED** (L-33(h): the `[sm1]` overlay REPLACES the record wholesale — C-9 — and deletes the
+  campaign death-spawn phase chain; camera agrees: denominator never moves, bar 9.1 % → vanish, no
+  refill anywhere). The fixture died fighting the survivors at 25.88 s in.
+- **Fresh cohort t ≈ 862.0** (3× Skeletal Archer + Death Revenant + a returning 103,912) into an
+  arena down to ONE monster at 861; the player is dead 2.7 s later. **Mechanism RESOLVED (L-33(f)):
+  summon respawn** — Zantarin, the standing survivor, re-casts his summon layer. The DB-side p05
+  absence stands; the cohort is HIS, not the wave's.
 - **The killing blow is a one-frame burst:** 20,005 → 0 in ≤ 0.100 s (~17,900 in one 1/60 s frame) —
-  exceeding every quoted single-hit raw ⇒ multi-hit-same-frame or an unquoted skill; this is the
-  G-5 identification's quantitative face, carried in baton provenance alongside the Death-Revenant
-  contradiction. *(Grava'Thul's 6,729-chaos quote is MOOT for this board — p02 went to Kubacabra.)*
-- **Board eHP floor (L-29): ≈ 9.4 M measured** (F1 + F2-P1 + F3 + hero ≈ 404 k) — **≥ 2.3× the
-  superseded 4.1 M-class model**; **≈ 13.1 M if the dedupe-twin holds.** Every TTK / narrative-shape
-  judgment about the death wave was understated by at least that factor before HALT-10 closed.
+  exceeding every quoted single-hit raw. On a ≥ 6-body death board this reads as
+  **multi-hit-same-frame**; the G-5 identification's quantitative face, carried in baton
+  provenance. *(Grava'Thul's 6,729-chaos quote stays MOOT — p02 went to Kubacabra.)*
+- **Board eHP (L-30/L-33): fight-window engaged total = 13,981,477 — MEASURED and DB-DERIVED
+  EXACT** (the § 6.2b chain over the 11 engaged bodies reproduces the camera total to the integer;
+  supersedes L-29's ≈ 9.4 M interim). A window total over a **FLOW** — summons carry 30–75 s TTLs
+  and respawn by cast, so board eHP is not a stock and never a simultaneity claim. Every TTK /
+  narrative-shape judgment about the death wave calibrates against this.
 
 ```
-bodies:  5 raw   |   <= 7 under full modifier application
+bodies:  5 raw   |   8 under full modifier application   (E-3 CLOSED-AGAINST-BOUND, L-35)
          three nemesis slots are EXACTLY ONE EACH regardless (explicit exemption)
 ```
+
+*[E-3 CLOSED-AGAINST-BOUND (L-35): the E-2 citation probe extracted p04's flag — **both p04 pools
+omit `ignoreGameBalance` → template-default False → NOT exempt → takes the additives**. gamora's
+honest roll of **8 modified** (3 exempt nemeses + 2 at p04-additive + 3 at p06) was RIGHT; the
+spec's ≤ 7 bound was the spec's error and is RETIRED. The probe decided the bound — no
+reconciliation was fitted (§ 4.2). Sidecar of record:
+`legolas/scratch/2026-08-08-kc2-e2-exemption/pe6_pool_ignoregamebalance.csv` (635 pools, 74
+exempt). Caution carried from the probe: "all exempt pools are boss pools" is FALSE by exactly one
+(`celestialmonstrosity_t3` — trash, True) — exemption is a per-pool CITED fact, never a class
+heuristic.]*
+
+*Census-vs-roll reconciliation (L-30/L-33): the camera's ≥ 11 engaged bodies do NOT contradict the
+roll — the roll governs POOL SPAWNS only. The measured board decomposes as **4 pool spawns** (the
+nemesis trio + Galakros) **+ 7 summon-layer bodies** (Bileeater ← Galakros · Death Revenant +
+3× Skeletal Archer ← Zantarin · 2× Shard ← Aleksander — including the entire t ≈ 862 cohort,
+RESOLVED as Zantarin's respawn). The sim's opposition board takes its pool-spawn identities from
+the r2 CSV of record under the § 6.2b consumption rule; summons are kit products of the monsters
+that cast them, never slot occupants.*
 
 **RULING IN FORCE (L-11): the sim models wave 160 as an all-champion, no-trash burst wave ROLLED
 HONESTLY FROM THE POOLS — never a scripted Zantarin reenactment.**
@@ -1156,24 +1252,33 @@ The reasons are worth carrying, because the temptation to script it is real:
   −75 % run speed, 10 m, 6 s), a 12 m death aura, a 2 s-cooldown vitality nova ≤ 2,888, and a
   **passive that retaliates against every incoming hit with a global attack-speed and run-speed
   slow** — the exact anti-pattern for a build whose damage is hits-per-second in contact range.
-- **But the identification does not close (G-5).** The sibling save field
-  `last-monster-hit = "Death Revenant"` names a monster **not spawnable at wave 160** (nearest: 153,
-  155). The two fields cannot both date from 160. Write-cadence is unverified, and Zantarin's own
-  wave-150 presence is p = 0.311.
-- **The co-credible killer set is RESTRUCTURED by L-29.** Grava'Thul is **ELIMINATED** — the p02
-  slot measurably went to Kubacabra (F2 unique-bio fingerprint), so his Nullification kit was never
-  on this board. *(Note the elimination rests on the p02-slot argument alone — Grava'Thul is
-  himself `×1.1`-group at 3,723,043, so eHP could not have distinguished him.)* Archmage Aleksander
-  (p = 0.50 on p03) remains co-credible — 4,893-aether meteors into the classic Warlord hole — but
-  his candidacy now **rides the remaining-fingerprints check**: his predicted 3,389,926 ≠ F1's
-  3,722,896, so he was present only if a remaining fingerprint carries his value. **Kubacabra
-  himself joins the killer-candidate list** — measured on the board, 3-phase pressure through the
-  death window. Zantarin's save-field identification survives only through the same door: a
-  remaining fingerprint at 3,176,863. The galadriel board-closure read adjudicates all three at
-  once.
+  **And (L-30) Zantarin is on camera as the standing survivor** — body B of the dedupe twins,
+  ≈ 2.1 M HP at the death frame, still on camera at 866.3.
+- **The G-5 field contradiction DISSOLVES fully (L-30 camera + L-33(f) mechanism).** The sibling
+  save field `last-monster-hit = "Death Revenant"` names a monster in no wave-160 POOL (nearest:
+  153, 155) — but the camera shows one at t = 863.2/867.1, and the mechanism is now named: **it is
+  Zantarin's summon** (skill6, 1 per cast). Not a pool body at all — the compositional puzzle is
+  CLOSED, both save fields are camera- AND DB-consistent, and the attribution tightens: the
+  fixture's last recorded hit came from Zantarin's own summon layer. Write-cadence stays
+  unverified, and Zantarin's own wave-150 presence is p = 0.311.
+- **The co-credible killer set, camera-adjudicated (L-30; summon layer named L-33).**
+  **Kubacabra EXITS** — dead at 852.5, 12.3 s before the death; his 3-phase pressure never existed
+  (single-phase DB-CITED, § 6.2b). **Archmage Aleksander WAS present** — dedupe twin A at the
+  nemesis point-value 3,722,896, which the § 6.2b chain closes EXACT (F-7 RESOLVED; the ×1.1-group
+  framing and the t20-assigned 3,389,926 are both HALT-10-chain residue) — **but he predeceases
+  the player by ≈ 0.15 s** (+11 at 864.5; death 864.75): meteors-in-flight can contribute, his
+  corpse cannot swing. Grava'Thul stays **ELIMINATED** — the p02 slot-argument stands *(and rests
+  on the slot alone: the nemesis class is a POINT (C-11/C-12) — his eHP is the same 3,722,896, so
+  eHP could never have distinguished him)*.
+  **Standing at the death frame: Zantarin (≈ 2.1 M, twin B) + his own summon layer — Death
+  Revenant (skill6) · 3× Skeletal Archer (skill13) — plus an orphaned Aleksander's Shard
+  (103,912)** — and the one-frame ~17,900 burst reads **multi-hit-same-frame** across that set, so
+  the killing blow is plural. The save's `hitBy = Zantarin` is the strongest single attribution,
+  is camera-compatible — and the swarm that delivered the plural blow was largely his.
 
-**Both declarations ride in the baton provenance: the G-5 Death Revenant contradiction, and the G-2
-boss-skill rank ceilings (all monster damage figures are UPPER BOUNDS).**
+**Both declarations ride in the baton provenance: the G-5 killer-attribution record (both save
+fields camera-consistent per L-30; killing blow = multi-hit-same-frame on a ≥ 6-body board), and
+the G-2 boss-skill rank ceilings (all monster damage figures are UPPER BOUNDS).**
 
 Zantarin appears in **15 of 200 waves** (coin-flip at 130) — a Phase-E narrative-shape input, not a
 script.
@@ -1205,10 +1310,20 @@ a pooled mean is fitting a bimodal quantity (§ 12 pins the comparison classes a
 3. **AC-10.3** Wave 160 puts exactly one nemesis on each of p01/p02/p03 across 1,000 rolls, with
    marginal frequencies matching the emitted pool weights within sampling error, and **zero trash**.
 4. **AC-10.4** Expected wave totals over waves 151–170 reproduce **292.0 ± 5.5** regulars with p06
-   off and **316.5** with p06 on, and **63.0** expected champions.
-5. **AC-10.5** Monster life scaling while fighting wave *w* on Gladiator equals the CSV's
-   `(w−1, gladiator)` row per the § 10.7 array-lookup law — in particular **322 while fighting wave
-   160**: not 324 (lookup-law guard) and not 168 (F-2 regression guard).
+   off and **316.5** with p06 on, and **63.0** expected champions **on the p06-OFF limb** *(G-I1
+   scoping, L-34: the champion expectation is limb-dependent — measured p06 OFF → 63.00, p06 ON →
+   **81.00**; § 10.5 fact 5 always paired 63.0 with the 292-regular OFF limb, so the build's reading
+   was defensible; the ON-limb 81.0 is a measured-consistency figure with NO camera pin — the
+   fixture's own p06 state is DEMOTED-OPEN per L-33(g), which is why both limbs are carried)*. *(L-35 annotation: numbers stand
+   as written pending a pre-registered G-D re-evaluation under the citation-complete exemption
+   sidecar — the probe measures the exemption set at ≈ 20.7 bodies over the band vs the 4.0 these
+   totals accounted; both p06 limbs are CARRIED because the fixture's p06 state is DEMOTED-OPEN
+   (L-33(g)); F-9's empty-roster `+1` question may perturb further. Re-evaluation is by citation,
+   never by fitting — § 4.2.)*
+5. **AC-10.5** Monster life scaling while fighting wave *w* on Gladiator equals the CSV's 0-based
+   `(w−1, gladiator)` row = the row **LABELED *w*** per the § 10.7 corrected array-lookup law — in
+   particular **324 while fighting wave 160**: not 322 (index-inversion guard — the L-29 error;
+   scores 0/8 on the measured board) and not 168 (F-2 regression guard).
 6. **AC-10.6** p05 arrivals are staggered 3 s from t + 4 s; p01–p04 arrive at t = 0; p06 arrives
    only when the bonus toggle is on.
 7. **AC-10.7** The minimum achievable cycle time for a trivially-dying wave in the modelled arena is
@@ -1264,7 +1379,7 @@ so — a standing open observation becomes a closed one, and that lineage belong
 | format-version constant | `EXPORT_FORMAT_VERSION` (`schemas.py:149`, string `"1.0"`) + `ExportMetadata.format_version` (`:373`) | `baton_trace_format: "v1"` as the **human label** |
 | **loader-comparable version int** | `arena_scenarios.json` `_schema_version` = int `1` — the idiom the Godot loader already reads | **`_schema_version: 1` (int), carried alongside** [R-1]. `"v1" >= "v1.10"` is a lexicographic trap; an int is not |
 | **root provenance keys** | `arena_scenario_emitter`: `_generated_from`, `_schema_version`, `_emitted_at` (`%Y-%m-%dT%H:%M:%SZ`), `_do_not_hand_edit` (the regen command) | **all four, verbatim in form** [R-2] |
-| **deterministic serialization** | `json.dumps(payload, sort_keys=True, indent=2, ensure_ascii=True) + "\n"` (`arena_scenario_emitter`) | **adopted** [S7]. Two batons from one seed must diff to nothing |
+| **deterministic serialization** | `json.dumps(payload, sort_keys=True, indent=2, ensure_ascii=True) + "\n"` (`arena_scenario_emitter`) | **adopted-AS-AMENDED [S7 corrigendum — L-31/CD-1]:** `sort_keys` + `ensure_ascii` + trailing newline stand; **`indent=2` REPLACED by `json_style="rows-compact"` default** (one event-row per line). The literal was inherited from a dict-serialising emitter; on a row-array payload it measures **1.95×** (MID 33.2 MB vs drax's signed ≈ 22 MB budget). `"indent"` stays reachable for human diffing; all styles `json.loads` to the identical object. Two batons from one seed must still diff to nothing — determinism is style-independent |
 | **atomic write** | `.json.tmp` → `os.replace`, reason stated in source: *"prevents partial reads by Godot/drax"* | **adopted** [S7] |
 | Pydantic validation at the export boundary | Discipline #8; `season_exporter.py:972–974` | **adopted — and this is a stated DIVERGENCE**, see below |
 | **run identity** | `run_registry.make_run_id()` (`:135`, UUID4); `emission_runs.run_id TEXT PRIMARY KEY` (`:70`) | **`baton_run_id`** — a *named distinct namespace*, plus optional `emission_run_id` cross-reference [R-5 / M2] |
@@ -1428,10 +1543,10 @@ baton/v1
 │                   level, hp_max, hp_max_basis: "POST-SCALING",                         [M-13]
 │                   life_modifier_pct, wave }
 ├── waves[]       { wave, content_tier, reward_tier,             # AC-10.2 allows these to differ
-│                   t_start_s, t_end_s, tick_start, tick_end,                            [R-19]
+│                   t_start_s, t_end_s, tick_start, tick_end,   # tick span INCLUSIVE (L-31/CD-6) [R-19]
 │                   outcome, outcome_enum_version: 1,                                    [M-15]
 │                   termination_reason, termination_enum_version: 1,                     [R-20]
-│                   life_modifier_pct,                           # 324 at wave 160 — F-2 guard
+│                   life_modifier_pct,        # 324 while FIGHTING 160 (§ 10.7 corrected law: reads the cell LABELED 160) — F-2 + L-33 index guards
 │                   nemesis_wave,                                                        [M-16]
 │                   spawn_points_active[],           # by point_id, never by array slot  [M-6]
 │                   actor_ids[],
@@ -1576,19 +1691,24 @@ provenance:
   u8_closure_state:            CLOSED    # ladder = 200 waves; first_wave_fought = label + 1
   u9_closure_state:            CLOSED
   u9_intra_order_residual_pct: 1.9       # intra-order + rounding + clamp, waves 151-170
-  u9_bonus_spawn_state:        RESOLVED  # p06 measured ON (L-21 census)  -- was <resolved|UNKNOWN>
+  u9_bonus_spawn_state:        DEMOTED-OPEN  # L-33(g): the L-21 census leg STRUCK (5th body = summon;
+                                             #   corrected hero band has zero census hits); rides the
+                                             #   galadriel star-tier follow-up -- was RESOLVED
   u9_bonus_spawn_branch_pct:   RETIRED   # the +-8.4% branch is DEAD, not carried as a tolerance
   drain_unit:                  PER_TICK  # PINNED L-22; enum frozen, hook retained -- was drain_fork
   drain_rate_per_s:            176.4     # @ 196% AS, client-verbatim = 16.0 x 12.25 x 0.90
   soulfire_cost_term:          DECLARED-SEPARATE   # never folded into drain_rate_per_s (§ 3.1)
   halt_register:                         # L-26 bundle outcome, carried so the artifact is auditable
-    closed:          [HALT-1, HALT-3, HALT-5, HALT-6, HALT-8, HALT-9]
-    partial:         [HALT-4, HALT-10]   # HALT-4: ORDER-1 FAVOURED, not proven · HALT-10: nemesis
-                                         #   class CLOSED +-0.05% (L-29, § 6.2b); p04 = named gap
+    closed:          [HALT-1, HALT-3, HALT-5, HALT-6, HALT-8, HALT-9, HALT-10]
+                                         # HALT-10 closed EXACT (L-33, § 6.2b four-link chain):
+                                         #   8/8 wave-160 bodies at +-0 integer, zero free params;
+                                         #   p04 gap DISSOLVED (T-8 RETIRED); F-7 RESOLVED;
+                                         #   eHP source-of-record = r2 CSV (§ 6.2b consumption rule)
+    partial:         [HALT-4]            # HALT-4: ORDER-1 FAVOURED, not proven
     closed_by_type:  [HALT-2]            # v_ref is a DECLARED free parameter (bundle § 6.1)
     unfired:         [HALT-7]            # pre-registered G-D contingency
     open:            []
-  open_halt_effect:  []                  # was HALT-10 -- closed L-29; residue rides declarations/T8-P04
+  open_halt_effect:  []                  # was HALT-10 -- closed EXACT L-33; residue rides declarations
   arena_pin:
     arena_id:        <s1 | s2>
     bearings_grade:  ESTIMATED-FOOTAGE +-15 deg (L-21)
@@ -1605,13 +1725,18 @@ provenance:
     - { id: OOM-M2-REWIND,       text: "wave-20, round down to 10; cost 5/15/30, cap 3 (§ 10.3)" }
     - { id: OOM-REWARDS,         text: "tributes / score / rewards / bonus timer (§ 10.3)" }
   declarations:                          # {id, text} -- AC-11.4b set-compares against this register
-    - { id: G-5,  text: "wave-160 save fields (last-monster-hit 'Death Revenant' vs
-                         last-monster-hitBy 'Zantarin') cannot both date from wave 160. Wave 160 is
-                         rolled honestly from the pools, NOT a scripted Zantarin reenactment." }
+    - { id: G-5,  text: "wave-160 save fields RECONCILED (L-30/L-33): 'Death Revenant' = Zantarin's
+                         summon (skill6), camera- AND DB-consistent; hitBy 'Zantarin' is the
+                         strongest single attribution on a plural killing blow. Wave 160 is rolled
+                         honestly from the pools, NOT a scripted Zantarin reenactment." }
     - { id: G-2,  text: "ALL monster damage figures are UPPER BOUNDS. Boss-skill rank binding unread." }
-    - { id: T8-P04, text: "p04 superboss eHP carries a -4.3% named gap (Galakros favoured; charLevel
-                         ceiling 110 vs required ~113.3): declared +-5% band, INFORMATIVE-side only.
-                         Nemesis-class eHP chain is CLOSED +-0.05% (L-29, § 6.2b, § 10.7 lookup law)." }
+    - { id: LV-OFFSET-3, text: "monster level L = levelVarianceEquation(apl) + 3 -- the +3 is
+                         MEASURED (8/8 closure + nameplates) but its DB residence is NAMED-ABSENT:
+                         a DECLARED input, riding the galadriel multi-wave nameplate follow-up." }
+    - { id: SUMMON-FLOW, text: "board eHP is a FLOW, not a stock: 7 of 11 engaged wave-160 bodies
+                         are summons (TTL 30-75 s, respawn by cast). The sim's opposition board =
+                         pool spawns + summon layer as kit products; window totals are not
+                         simultaneity claims. eHP chain CLOSED EXACT 8/8 (L-33, § 6.2b)." }
     - { id: G-4,  text: "p05 concurrency model is the safe reading (pool count staggered 3 s from
                          t+4 s); the t+4.0 s start anchor is MEASURED x3 (L-21)." }
     - { id: G-7,  text: "4 dangling roster refs of ~7,000 dropped, weights renormalised." }
@@ -1668,6 +1793,13 @@ this merge does not move him past it. **Three transforms do all the work and non
 sample rate:** precision truncation [S1, 1.4×], columnar tracks [S2, measured 1.89 → 0.51 MB, 3.7×],
 row-array events [S3, measured 18.06 → 7.84 MB, 2.3×].
 
+> **MEASURED AT PHASE C — SUPERSEDES THE 9–12 MB RECOMPOSITION (S-I2, Gate-2 INFO; L-34).** The
+> built emitter's `rows-compact` MID emission measures **17.4 MB**. The DERIVED 9–12 MB figure
+> under-called by ~1.6× and is retired for planning purposes — **plan against 17.4 MB.** Still
+> inside drax's declared ≈ 22 MB budget and far inside his ~100 MB split threshold, so the
+> signature holds unchanged; Discipline #10 honoured twice over (the estimate was labeled DERIVED,
+> the measurement now governs).
+
 #### 11.6.2 Wire form + write discipline
 
 - **Precision truncation, declared in the artifact [S1].** Positions and radii → **3 dp** (mm —
@@ -1705,7 +1837,7 @@ row-array events [S3, measured 18.06 → 7.84 MB, 2.3×].
 
 | # | Item | Owner | State |
 |---|---|---|---|
-| **O-1** | **gzip [S4]** — measured **~10×** (7.84 → 1.67 MB). Godot reads standard gzip via `PackedByteArray.decompress_dynamic(…, FileAccess.COMPRESSION_GZIP)`, but that is a change **inside drax's loader**, and there is no gzip / NDJSON / streaming-write machinery anywhere in `export/` or `telemetry/` at HEAD — adopting it is a **new capability**. | **drax** | **OPEN-ROUTED — deliberately NOT resolved here.** drax's sign budgets ≈ 22 MB uncompressed and asks for no split, which is adjacent evidence but is **not** an answer to the yes/no. If the answer is no, § 11.6.1's ~9–12 MB stands, which is a step and not a leap. |
+| **O-1** | **gzip [S4]** — measured **~10×** (7.84 → 1.67 MB). Godot reads standard gzip via `PackedByteArray.decompress_dynamic(…, FileAccess.COMPRESSION_GZIP)`, but that is a change **inside drax's loader**, and there is no gzip / NDJSON / streaming-write machinery anywhere in `export/` or `telemetry/` at HEAD — adopting it is a **new capability**. | **drax** | **OPEN-ROUTED — deliberately NOT resolved here.** drax's sign budgets ≈ 22 MB uncompressed and asks for no split, which is adjacent evidence but is **not** an answer to the yes/no. If the answer is no, § 11.6.1's measured **17.4 MB** stands (S-I2 — the derived ~9–12 MB is superseded), inside the signed ≈ 22 MB budget. |
 | **O-2** | **`config.model.monster_attack_model` VALUE** — `"abstract-schedule"` (presentation owns monster wind-ups, origins and shapes, labelled presentation-owned on frame) vs `"geometric"` (sim emits `{origin, shape, radius, wind_up_s}` per attack and drax draws the real thing). | **conductor** | **RULED — L-28: `"abstract-schedule"` for baton v1.** Not a preference — forced by the spec's own substrate posture: §§ 1–10 specify NO monster telegraph model (§ 6 COMPOSEs monster damage as declared ceilings on an abstract schedule; HALT-7 unfired; G-2 figures are upper bounds), so `"geometric"` would require the sim to **invent** per-attack `{origin, shape, radius, wind_up_s}` — § 4.2 free-parameter territory. The sim still owns WHEN monster damage lands and HOW MUCH (the `hp_after` stream); presentation choreographs the visible attack within those facts, **labelled presentation-owned on frame** — drax's meteor hazard is answered by the label discipline, not by silence. Evolution path: if G-D implicates monster damage and HALT-7 fires, a v2 schema may add `"geometric"` — version note, not v1. |
 | **O-3** | **ADR-006 / `emission_registry.db`** — does the emitter register the baton run? | conductor, **veto-open** | **ANSWERED BY DEFAULT: NO external DB write this lap.** `baton_run_id` is a **named distinct namespace** with an optional `emission_run_id` cross-reference, so `run_registry`'s `run_id` primary key is never shadowed [M2]. This is the non-escalating default; **reversing it makes the emitter an external-DB writer and requires Matt authorization per statement (ADR-006).** § 11.8's MIGRATION entry states the answer explicitly rather than omitting it. |
 | **O-4** | **`config.arena.axis_convention` VALUES** — the eight keys are pinned mandatory-non-null [M-8, drax's blocking item]; the values are a **read of the sim's own coordinate frame**, not a schema choice. `units: "m"` and `facing_units: "rad"` are pinned by the established `_m` / `heading_rad` conventions. | star-lord + gamora, **at build** | **BUILD-TIME OBLIGATION, not an open design question.** Recorded here because the failure mode is silent: wrong handedness **mirrors the arena**, so the body taking damage stands opposite a disc drawn perfectly — the same family as the WR2 projection lie, where a correct 2.000000 m separation *looked* like interpenetration at 41°. A frame will not tell anyone which side is wrong. |
@@ -1719,12 +1851,12 @@ row-array events [S3, measured 18.06 → 7.84 MB, 2.3×].
 | **AC-11.3** | Coverage 100 % against **the drax-SIGNED list** (`drax/notes/2026-08-08-kc2-baton-coverage-sign.md`), not against this document. § 11.9 is the reconciliation and is itself auditable row by row. |
 | **AC-11.4a** | Provenance is complete — **no field elided**. |
 | **AC-11.4b** | Every `declarations[]` entry is `{id, text}`; the ID set **equals** § 11.5's register (a set comparison, not an eyeball check). |
-| **AC-11.4c** | Every `out_of_model[]` entry is `{id, text}`; the ID set equals the register; no entry duplicates a `config.encounter` field. |
+| **AC-11.4c** | Every `out_of_model[]` entry is `{id, text}`; the ID set equals the register; no entry duplicates a `config.encounter` field. *(Reading ratified L-31/CD-4: "duplicates" = value-carriage — where an OOM id names something `config.encounter` also types, the typed field MUST carry the value and the OOM row carries only the reason; both present is the required state, and the check fails if the typed field is missing.)* |
 | **AC-11.4d** | A baton with a **truthful `PARTIAL`** grade passes; a baton with a missing declaration does **not**. |
 | **AC-11.4e** | `engine_tree_state == "dirty"` ⇒ `calibration_grade != FULL`, enforced at the write boundary [R-8]. |
 | **AC-11.4f** | `engine_version_sha == "unknown"` ⇒ **hard stop**; no baton is written. |
 | **AC-11.4g** | `provenance.u9_bonus_spawn_state` agrees with `config.encounter.fixture_p06_state` — asserted at the write boundary [R-38]. |
-| **AC-11.4h** | `devotion_envelope_disclosure` is the § 9.5 block **verbatim and complete** (AC-9.2), un-restructured. |
+| **AC-11.4h** | `devotion_envelope_disclosure` is the § 9.5 block **verbatim and complete** (AC-9.2), un-restructured. *(L-31/CD-5: the block's leading register-key line IS the wire key, not part of the value; every content line byte-identical, indentation preserved.)* |
 | **AC-11.5** | The baton **never** appears under the `encounters` bundle key (L-1, testable as an absence; the reserved marker is byte-unchanged after emit). |
 | **AC-11.6** | `_integrity` counts equal the emitted structures, and the stub consumer **asserts every one of them** — so AC-11.2 is a reconstruction exercise *with a checksum*. |
 | **AC-11.7a** | `run_tick` is strictly monotonic run-wide and **never resets** at a wave boundary [M-13]. |
@@ -1853,7 +1985,7 @@ sidecar or NDJSON split at v1.
 | **T-5** | devotion envelope | error-bar **classes**, not a scalar: defensive-trigger (opposition-dependent) · dual-bound (Shifting Sands ~200×) · piloting-parameter | envelope disclosure | structural (L-3) |
 | **T-6** | monster damage | **upper bounds only** (G-2 rank binding unread) | INFORMATIVE rows only | declared ceiling |
 | **T-7** | fixture identity | **+3.9 % / −0.5 %** | every derived player stat | declared envelope |
-| **T-8** | opposition eHP chain (§ 6.2b) | nemesis class **± 0.05 %** (measured −0.004 % / +0.002 % under the § 10.7 lookup law, two independent curves) | every opposition-eHP consumer (AC-6.5); **p04 = declared ± 5 % band, INFORMATIVE-side only** (−4.3 % named gap; no p04 spawns inside the BINDING s1 band; galadriel board-closure question in flight) | **pinned (L-29)** |
+| **T-8** | opposition eHP chain (§ 6.2b) | **RETIRED — L-33 ledgered ruling** (the pin note permits change only as a ledgered ruling; this is one). The corrected **four-link** chain closes **8/8 wave-160 bodies at ± 0 — exact integers, zero free parameters** — a tolerance band on exact closure is meaningless, so the row retires in favour of **AC-6.5's exact-equality + three structural guards**. ~~± 0.05 % nemesis / p04 ± 5 % band~~ — the p04 "named gap" was the missing armorbase term (**Galakros EXACT**), and the ± 0.05 % re-confirmation was two ~12 % errors cancelling (§ 10.7 / microprobe § 9.1) | every opposition-eHP consumer (AC-6.5); source-of-record = **r2 CSV** under the § 6.2b consumption rule | **RETIRED (L-33)** |
 
 **Micro-oracle rows (BINDING per R-KC2-2 — direct-binding, calibrate FIRST):**
 
@@ -1897,7 +2029,7 @@ is improvised, estimated, or fetched externally.
 | **HALT-7** | Boss-skill rank binding per wave | **UNFIRED — pre-registered G-D contingency, unchanged** |
 | **HALT-8** | Soulfire `projectilePeriod` unit | **CLOSED** — Crate's own annotation *"Delay between projectile launches (seconds)."* **0.2 = plain seconds, no ×0.8.** Now also the **Soulfire cost-interval basis** (§ 3.1, L-22) |
 | **HALT-9** | Wave-dependence of non-emitted fields | **CLOSED** — full 600 × 28 grain emitted (§ 10.7); 33 non-zero fields (25 arrays / 8 scalars); 9 U-8 columns byte-identical; `offensiveTotalDamageModifier` +43 @160 / +130 @200; `offensivePhysicalModifier` −21 @160 Glad. **F-4 adjudicated as a side effect** (§ 14) |
-| **HALT-10** | **Opposition eHP composition beyond the wave-scaling array** | **CLOSED (nemesis class) / PARTIAL (p04) — L-29.** Five-link chain extracted DB-cited (§ 6.2b): apl → `levelVarianceEquation` spawn level → **per-record `charLevel` re-evaluation** (four forms; `lv8_boss+` is a POINT = 106) → five bio `characterLife` curves → **ADDITIVE M = 1 + 5.80 (Ultimate `characterLifeModifier[8]`) + G/100 (§ 10.7 array, lookup law) + own/100**. Lands F1 = 3,722,896 (−0.004 %) and F2 = Kubacabra P1 2,955,749 (+0.002 %); the L-17 interim ≈1,308,800 and P-E6's 827 k are **SUPERSEDED**. **Residue: p04 −4.3 % named gap** (Galakros favoured; nine explanations ruled out by reading) → declared **± 5 % band, INFORMATIVE-side** (T-8). Probe note `legolas/notes/2026-08-08-kc2-ehp-composition-probe.md`; sim consumes `t20_wave160_board_ehp.csv` (glad_cell = 322 rows). See **F-6 (RESOLVED)** |
+| **HALT-10** | **Opposition eHP composition beyond the wave-scaling array** | **CLOSED (nemesis class) / PARTIAL (p04) — L-29.** Five-link chain extracted DB-cited (§ 6.2b): apl → `levelVarianceEquation` spawn level → **per-record `charLevel` re-evaluation** (four forms; `lv8_boss+` is a POINT = 106) → five bio `characterLife` curves → **ADDITIVE M = 1 + 5.80 (Ultimate `characterLifeModifier[8]`) + G/100 (§ 10.7 array, lookup law) + own/100**. Lands F1 = 3,722,896 (−0.004 %) and F2 = Kubacabra P1 2,955,749 (+0.002 %); the L-17 interim ≈1,308,800 and P-E6's 827 k are **SUPERSEDED**. **Residue: p04 −4.3 % named gap** (Galakros favoured; nine explanations ruled out by reading) → declared **± 5 % band, INFORMATIVE-side** (T-8). Probe note `legolas/notes/2026-08-08-kc2-ehp-composition-probe.md`; sim consumes `t20_wave160_board_ehp.csv` (glad_cell = 322 rows). See **F-6 (RESOLVED)** · **L-30 postscript:** board NAMED on camera (§ 10.8) — dedupe twins = **Zantarin + Archmage Aleksander**, both at the `×1.1` figure (−0.004 %); **p04 bearer NAMED = Galakros, MEASURED**; Kubacabra phase chain **FALSIFIED on camera** (sim models P1 only); **F-7 FIRED** — the t20 record→form assignments are falsified while the chain stands; t20 consumed **mechanism-correct / values-pending** until the **F-7 revision lands for calibration** (pre-G-D) · **L-33 POSTSCRIPT — CLOSED EXACT; everything before this postscript is RECORD, not law:** the five-link chain was wrong in two links (**per-record `charLevel` re-evaluation STRUCK** — manual-placement scope only; 118.6 was a degeneracy artifact, the bio-curve ratio spans 0.018 % over L ∈ [106, 150] · **own-`characterLifeModifier` STRUCK** — breaks closure +4.41 % on Bileeater) and missing one (**armorbase — REVERSED IN**); the corrected **four-link** chain (§ 6.2b) closes **8/8 at ± 0** under the corrected lookup law (G = the cell LABELED 160 = **324**, not 322); p04 gap DISSOLVED (Galakros EXACT) · T-8 RETIRED · F-7 RESOLVED · source-of-record = **r2 CSV**. The ± 0.004 % this row records was **two ~12 % errors cancelling** (base −11.25 % × M +12.67 % — § 9.1 diagnostic: *a residual that survives on one body but not on others is a term, not a mystery*) |
 
 **Declared-not-HALT** (unknown but carrying a *declared* disposition rather than a hole): emitter
 world positions (DECLARED free parameters, per-sitting sets, § 10.6) · mutator identities
@@ -2061,6 +2193,20 @@ so the play-test directions are not re-cited as a count authority.
 > (remaining three fingerprints · census methodology top-N-vs-all · p04 visual ID) fires
 > Phase-C-concurrent and folds at its return.
 
+> **FOLDED — L-30 (board closure):** the question returned and the board is NAMED (§ 10.8): seven
+> fingerprints, ≥ 11 engaged bodies, fight-window eHP **13,981,477 MEASURED**; p04 = **Galakros,
+> MEASURED**; the L-29 prediction menu resolved **against both value-branches** ⇒ the residue
+> graduated into **F-7 (GROUP-ASSIGNMENT)** below. F-6 itself stays RESOLVED — the chain the probe
+> extracted survived the camera at −0.004 % on two named bodies.
+
+> **L-33 POSTSCRIPT (final):** the composition term is now closed EXACT, and the L-29 chain above
+> is RECORD, not law — two of its five links were wrong (per-record `charLevel` re-evaluation: the
+> ×1.62 spread it "explained" is really the **summon layer** + per-class armorbase variation ·
+> own-modifier term) and one was missing (**armorbase**). The corrected four-link chain closes
+> **8/8 bodies at ± 0** (§ 6.2b). The *"fighting 160 reads label-159's 322"* join quoted above is
+> the L-29 lookup-law error — corrected at L-33 to the cell LABELED 160 (**324**), § 10.7. Its
+> −0.004 % was two ~12 % errors cancelling (microprobe § 9.1).
+
 galadriel's census read three boss-class HP fingerprints on wave 160: **3,722,896 · 2,955,796 ·
 2,295,755.** The L-17-corrected model gives `308,685 × (1 + 3.24) ≈ 1,308,800` — residuals
 **×1.75–×2.84**, and the **×1.62 spread** between fingerprints is the sharper fact: 15 of 16 nemeses
@@ -2083,9 +2229,111 @@ not edited in her seam.)*
   INFORMATIVE-with-declared-gap (R-KC2-2 already shields the BINDING split — but s1-band trash eHP
   uses the same chain, so the term must land either way).
 
----
+### F-7 — The eHP chain is camera-exact but the record→form map is falsified (group assignment)
 
-## Closing note
+> **RULED — L-30 (board closure; targeted legolas micro-probe FIRED, Phase-C-concurrent, lands
+> before G-D binds):** the five-link chain (§ 6.2b) is **camera-exact** — the `×1.1`-group figure
+> 3,723,043 landed at measured 3,722,896 = **−0.004 %** on TWO named bodies (Zantarin + Archmage
+> Aleksander, the dedupe twins) — but the t20 CSV's **record→form assignments are FALSIFIED** for
+> at least those two (t20-assigned ×1 → 3,176,863 and ×1+5 → 3,389,926 respectively; zero hits
+> across 4,401 OCR strings) and the p06 hero band (398,747–404,406) is falsified vs measured
+> **484,095 / 468,504**. Mechanism right; map wrong. gamora's build consumes t20
+> **mechanism-correct / values-pending**; **calibration (G-D) consumes the revised CSV** — emission
+> pins it as the eHP source-of-record.
+
+> **RESOLVED — L-33 (micro-probe return:
+> `legolas/notes/2026-08-08-kc2-groupassign-microprobe.md`):** the map is corrected by CITATION,
+> not fitting — and most of its falsified degrees of freedom **dissolve** rather than re-assign.
+> The nemesis class is a **POINT** (every rollable nemesis reads **3,722,896** — C-11/C-12), so
+> "which ×-group form" was never a real degree of freedom; the "hero band" bodies are **SUMMONS**
+> (Bileeater ← Galakros skill12 · Death Revenant ← Zantarin skill6), so the hero-record audit
+> target dissolves — and the corrected hero band **450,012–460,431 has zero census hits** → p06
+> **DEMOTED-OPEN** (L-33(g)); Kubacabra's phase wiring is answered — **single-phase DB-CITED**
+> (`[sm1]` whole-record overlay deletes the death-spawn chain, C-9); the nameplate displayed level
+> **is the real spawn level** (`L = levelVarianceEquation(apl) + 3`; modelled 118.6 was a
+> degeneracy artifact). Source-of-record: **r2 CSV** (`t21_wave160_board_ehp_r2.csv`, § 6.2b
+> consumption rule — exclude `nemesis_beast_01_p{2,3}*`, whose verdict column is class-mislabeled).
+> Every consumer below now reads r2; the pre-registered fallback never fired.
+
+The L-29(g) prediction menu resolved against BOTH pre-registered value-branches (zero hits across
+4,401 raw OCR strings — nulls on a dense instrument) while confirming the dedupe MECHANISM (73
+dual-readout frames, never three). The camera then named the twins as the two monsters the menu had
+predicted absent — both measuring the `×1.1`-group value. One finding, two faces: the CHAIN is now
+the strongest-verified object in the opposition model, and the per-record FORM assignments feeding
+it are wrong for at least two of sixteen nemeses plus the hero class. *(Naming caution: fingerprint
+indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 are hyphenated.)*
+
+- **Micro-probe scope (citation, never fitting — charter § 4.2):** pool-slot DBR enumeration for
+  the wave-160 slots · exact-carrier search — which records' `charLevel` forms evaluate to the
+  measured values · hero-record audit vs 484,095 / 468,504 · Kubacabra phase wiring (why P2/P3
+  never manifested) · the nameplate displayed-level field (106/109/112 vs modelled 118.6) ·
+  **revised `t20_wave160_board_ehp.csv`** into the same scratch dir.
+- **Consumers:** § 6.2b (assignment column) · § 10.8 board table · gamora opposition stack (values
+  bind at G-D) · baton provenance (assignment grade).
+- **Also carried (L-30):** Kubacabra models single-body P1 = 2,955,796 MEASURED, phases
+  declared-unmanifested · kill ledger CLOSED (+12/+7/+11 = three distinct corpses) · fresh-cohort
+  t ≈ 862 mechanism OPEN · displayed level ≠ modelled `charLevel`, both recorded, neither forced.
+- **Fallback (§ 4.2-compliant, pre-registered):** if the micro-probe cannot close the map by
+  citation before G-D, the affected rows carry **named residuals with bands** (the chain's
+  −0.004 % accuracy is unaffected; only identity labels degrade) and the baton's assignment grade
+  says so.
+
+### F-8 — ~~Soulfire's separate cost is OVER-CONSTRAINED~~ → RETIRED: the premise was a spec-authoring fusion; Soulfire declares NO cost
+
+> **REGISTERED — L-32 (gamora fold, E-5):** the § 3.1 magnitude tension is now a NUMBER. The
+> admissibility bound `S ≤ 100·u − 176.4 + 75.37·(1−d)/d` (u = leech uptime ≤ 1, d = channel duty
+> cycle) is **negative at every d ≥ 0.5**: −1.03/s at d = 0.5 · −57.56/s at d = 0.8 · −76.40/s at
+> d = 1.0. Against the naive max-rank read (20 per 0.2 s interval = 100/s) there is NO positive
+> Soulfire cost the fixture's own sustain can admit — the naive read is INADMISSIBLE, not merely
+> unmeasured.
+
+> **RETIRED — L-35 (E-2 rider return): PREMISE WITHDRAWN.** `eyeofreckoning2.dbr` (Soulfire)
+> declares **no `skillManaCost` field at all** — the 3–20 cost array belongs to **Disintegration**
+> (`aetherray2.dbr`), and the fusion of the two happened at spec authoring (§ 3.1 — a SPEC-AUTHOR
+> error, owned at L-35; P-E1 itself was clean and cited Disintegration as a *control*). There is no
+> Soulfire cost to adjudicate: gamora's `effective_per_s = 0.0` graduates **UNADJUDICATED →
+> DB-CITED** — the record's silence IS the citation (474/476 `SkillSecondary_*` records omit the
+> field). The admissibility bound above survives as a derived consistency check — a zero cost
+> trivially satisfies it; the "over-constrained" tension dissolves with the premise. The **×0.90
+> cost-reduction hunt stays open on the DRAIN side only.** Bonus coherence: `eyeofreckoning1` (the
+> channel itself) carries `skillManaCost` len = 26, range [4..16] — rank 26 = **16.0**, the drain
+> constant's home: 16.0 × 12.25 × 0.90 = **176.4/s**, closing the loop with L-22's client-verbatim
+> tooltip.
+
+- **Sim disposition (ratified):** `effective_per_s = 0.0`, grade **UNADJUDICATED**, the bound
+  exposed as a function; never folded into `drain_rate_per_s`. AC-3.2's FINDING clause is the
+  destination, exactly as § 3.1 pre-registered.
+- **Resolution path (citation, never calibration):** DB re-read of `eyeofreckoning2.dbr`'s cost
+  line + its template fine-print — is the 3–20 a per-interval INCREMENT or a total? does the cost
+  gate on projectile launches or damage intervals? The same unit-decomposition discipline that
+  closed the 176.4 drain (P-E1 → L-22). **Rider on the E-2 exemption probe.**
+- **What this is NOT:** a licence to tune. A fitted Soulfire cost that makes sustain work is the
+  free-parameter pattern charter § 4.2 forbids; the term stays 0.0-UNADJUDICATED until a record
+  citation moves it. *(L-35: the citation arrived — the record declares no cost; 0.0 is now
+  DB-CITED, and the resolution path above is CLOSED as written: the DB re-read happened and
+  answered "neither — the field does not exist on this record.")*
+
+### F-9 — 117 of 635 wave pools carry EMPTY regular rosters while the non-exempt `+1` additive expects a regular draw — engine behavior NAMED-ABSENT
+
+> **REGISTERED — L-35 (E-2 unasked rider):** the exemption sidecar shows **117/635 pools have zero
+> regular-roster entries** (champion/boss-only structures), while the non-exempt additive path
+> grants `spawnMax +1` / `spawnMin +1` to the REGULAR draw. A `+1` against an empty roster either
+> conjures a body from nothing, silently no-ops, or promotes into the champion draw — **the
+> engine's resolution is NAMED-ABSENT** (no field or template fine-print in the read set
+> adjudicates it). Band effect if the `+1` lands: **≈ 27.0 expected bodies over waves 151–170** —
+> the dominant structural unknown in the AC-10.4 G-D count re-evaluation (larger than the ≈ 20.7
+> exemption-set correction and far larger than the 4.0 originally accounted).
+
+- **Sim disposition (pre-registered, § 4.2):** the sim implements **no-op on empty roster** — a
+  draw from an empty set yields nothing — and DECLARES it in the baton count-model provenance.
+  The alternative branches (conjure-from-template · promote-to-champion-draw) are NAMED, never
+  fitted.
+- **Resolution path (citation or footage, never calibration):** template fine-print for the
+  `proxypool` spawner family; and/or a galadriel count-instrument pass on a boss-only s2 wave —
+  the fixture's own 151–160 band contains empty-regular-roster waves, so existing footage may
+  already decide whether any un-rostered trash body appears.
+- **Consumers:** § 10.5 count model · AC-10.4 (annotated) · gamora wave instantiation (G-D wiring
+  re-lap) · baton `count_model` provenance.
 
 The spec's load is carried by three things and it is worth naming them plainly. **The channel is
 build-invariant**, which is a bounding negative result and lets § 1 be short. **The Crucible is

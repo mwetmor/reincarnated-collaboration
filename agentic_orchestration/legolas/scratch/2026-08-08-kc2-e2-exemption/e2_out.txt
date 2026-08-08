@@ -1,0 +1,88 @@
+index-bound audit (highest declared slot index per proxy record):
+    pool           max_i= 1  on  353 proxies
+    pool           max_i= 2  on  282 proxies
+    pool           max_i= 3  on  184 proxies
+    pool           max_i= 4  on   61 proxies
+    pool           max_i= 5  on   11 proxies
+    pool           max_i= 6  on   34 proxies
+    poolEpic       max_i= 0  on  896 proxies
+    poolEpic       max_i= 1  on   12 proxies
+    poolEpic       max_i= 2  on    5 proxies
+    poolEpic       max_i= 3  on    9 proxies
+    poolEpic       max_i= 5  on    1 proxies
+    poolEpic       max_i= 6  on    2 proxies
+    poolLegendary  max_i= 0  on  897 proxies
+    poolLegendary  max_i= 1  on   12 proxies
+    poolLegendary  max_i= 2  on    5 proxies
+    poolLegendary  max_i= 3  on    8 proxies
+    poolLegendary  max_i= 5  on    1 proxies
+    poolLegendary  max_i= 6  on    2 proxies
+  -> confirms the 1..12 loop bound in P-E6 s4 truncates nothing.
+
+pools CSV: 1998 rows, 635 distinct pool_record
+field-state over the CSV's pool set: {'PRESENT': 511, 'ABSENT': 124}   IGB=True: 74
+
+pool_archive agreement: 635/635 agree; mismatches=NONE
+
+[wrote pe6_pool_ignoregamebalance.csv] 635 rows
+[wrote pe6_crucible_wave_pools_v2.csv] 1998 rows, 26 cols
+
+======================================================================================================================
+WAVE 160 BOARD  (E-3)   -- per spawn point, Gladiator, pools as declared
+======================================================================================================================
+ pt kind      pool                                                         wt    IGB state      base n   base c |   AS-IS n       c      E |  ifNONEX n       c      E
+  1 BOSS      poolsboss/nemesis_all.dbr                                   100   True PRESENT    1-1      0-0    |    1-1      0-0     1.00 |     2-2      0-0     2.00
+    point E                                                                                                     |                     1.00 |                      2.00
+  2 BOSS      poolsbossgdx1/nemesis_all_noaetherialvanguard.dbr           100   True PRESENT    1-1      0-0    |    1-1      0-0     1.00 |     2-2      0-0     2.00
+    point E                                                                                                     |                     1.00 |                      2.00
+  3 BOSS      poolsbossgdx1/nemesis_wendigooraetherialvanguard.dbr        100   True PRESENT    1-1      0-0    |    1-1      0-0     1.00 |     2-2      0-0     2.00
+    point E                                                                                                     |                     1.00 |                      2.00
+  4 BOSS      poolsbossgdx1/aetherialcolossus_galakros.dbr                100  False ABSENT     1-1      0-0    |    2-2      0-0     2.00 |     2-2      0-0     2.00
+  4 BOSS      poolsbossgdx2/korvaaktombguardian.dbr                       100  False ABSENT     1-1      0-0    |    2-2      0-0     2.00 |     2-2      0-0     2.00
+    point E                                                                                                     |                     2.00 |                      2.00
+  6 HERO      poolsherogdx1/wendigocannibal_hero.dbr                      100  False PRESENT    0-0      1-1    |    1-1      3-3     4.00 |     1-1      3-3     4.00
+    point E                                                                                                     |                     4.00 |                      4.00
+
+WAVE-160 TOTAL E   as-declared=9.00   all-non-exempt=12.00   all-exempt=5.00   delta(as-declared - all-non-exempt)=-3.00
+
+--- p04 cell, explicit ---
+  records/proxies/poolsbossgdx1/aetherialcolossus_galakros.dbr
+     archive=sm3  weight=100.0  field_state=ABSENT  raw=''  ignoreGameBalance=False  provenance=TPL-DEFAULT
+     spawnMin/Max=1/1  championChance=0 championMin/Max=0/0  proxyPoolEquation=records/proxies/proxypoolequation_01.dbr
+     -> exempt branch  n=1-1   non-exempt branch n=2-2
+  records/proxies/poolsbossgdx2/korvaaktombguardian.dbr
+     archive=sm3  weight=100.0  field_state=ABSENT  raw=''  ignoreGameBalance=False  provenance=TPL-DEFAULT
+     spawnMin/Max=1/1  championChance=0 championMin/Max=0/0  proxyPoolEquation=records/proxies/proxypoolequation_01.dbr
+     -> exempt branch  n=1-1   non-exempt branch n=2-2
+
+======================================================================================================================
+CALIBRATION BAND 151-170  -- wave E under as-declared IGB vs the default-False model
+======================================================================================================================
+   w  pts  E_declared  E_allFalse    delta  exempt pools on the wave (pt:pool)
+ 151    5       28.50       28.50    +0.00  
+ 152    6       24.75       25.00    -0.25  p4:fleshweaverkrieg
+ 153    6       29.50       29.50    +0.00  
+ 154    4       12.00       14.00    -2.00  p1:fatherkymon, p2:chthoniantyrant_grulthunn, p3:nemesis_bea
+ 155    5       22.33       22.33    +0.00  
+ 156    6       24.88       25.88    -1.00  p2:direwolf_frozenwastes, p3:kurnchthonic_shaman
+ 157    6       26.38       26.38    +0.00  
+ 158    6       39.00       39.00    +0.00  
+ 159    5        9.25       10.50    -1.25  p2:gryphonstone, p2:rok_wind, p4:yeti_rimehorn, p5:korvaakme
+ 160    5        9.00       12.00    -3.00  p1:nemesis_all, p2:nemesis_all_noaetherialvanguard, p3:nemes
+ 161    6       23.33       24.33    -1.00  p3:nemesis_aetherialvanguard
+ 162    5       17.00       17.00    +0.00  
+ 163    5       21.50       22.00    -0.50  p6:kurnchthonic_chieftain
+ 164    5       17.67       19.00    -1.33  p1:humanascendant_terrnox, p2:humanascendant_valaxteria, p6:
+ 165    5        7.67       10.00    -2.33  p1:kurnchthonic_strongholdchieftain, p3:nemesis_all_nobeast,
+ 166    5       15.83       17.50    -1.67  p1:fatherkymon, p1:chthonianherald_prodromus, p2:ghost_alkam
+ 167    5       25.75       25.75    +0.00  
+ 168    5       27.67       27.67    +0.00  
+ 169    6       10.50       12.50    -2.00  p1:korvaakfinal, p2:giant_totem, p3:fleshweaverkrieg, p5:wig
+ 170    5        5.67       10.00    -4.33  p1:nemesis_all_nokymon, p2:nemesis_all_nooutlaw, p3:nemesis_
+
+BAND TOTAL  p06 ON : declared=398.17  allFalse=418.83  delta=-20.67
+BAND TOTAL  p06 OFF: declared=355.50  allFalse=374.83  delta=-19.33
+
+SHA-256  pe6_pool_ignoregamebalance.csv  40182de26b64cc03e936d9504274e9135f10373979e73eccc224ec732aff77d3
+
+SHA-256  pe6_crucible_wave_pools_v2.csv  bbdc18f12aab8e3788eac229ed1871a88ed7790dc3d1786c509cd26c076e5587

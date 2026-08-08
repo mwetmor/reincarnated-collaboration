@@ -1,0 +1,133 @@
+========================================================================================================
+TEMPLATE  skillsecondary_attackprojectileorbiting.tpl   -> 7 declared variables after Include expansion
+    skillsecondary_attackprojectileorbiting.tpl                  7 vars
+========================================================================================================
+    --------  skillManaCost                      NOT DECLARED BY THIS TEMPLATE
+    --------  skillManaCostReduction             NOT DECLARED BY THIS TEMPLATE
+    --------  skillManaCostReductionModifier     NOT DECLARED BY THIS TEMPLATE
+    --------  skillActiveManaCost                NOT DECLARED BY THIS TEMPLATE
+    DECLARED  projectilePeriod                   class=variable  type=real      default='0.5'    desc='Delay between projectile launches (seconds).'
+    --------  skillProjectileNumber              NOT DECLARED BY THIS TEMPLATE
+    --------  skillCooldownTime                  NOT DECLARED BY THIS TEMPLATE
+    --------  skillActiveDuration                NOT DECLARED BY THIS TEMPLATE
+    --------  timeBetweenAttacks                 NOT DECLARED BY THIS TEMPLATE
+    all cost/energy-ish variables declared: []
+
+========================================================================================================
+TEMPLATE  skill_attackradiusspin.tpl   -> 9 declared variables after Include expansion
+    skill_attackradiusspin.tpl                                   9 vars
+========================================================================================================
+    --------  skillManaCost                      NOT DECLARED BY THIS TEMPLATE
+    --------  skillManaCostReduction             NOT DECLARED BY THIS TEMPLATE
+    --------  skillManaCostReductionModifier     NOT DECLARED BY THIS TEMPLATE
+    --------  skillActiveManaCost                NOT DECLARED BY THIS TEMPLATE
+    --------  projectilePeriod                   NOT DECLARED BY THIS TEMPLATE
+    --------  skillProjectileNumber              NOT DECLARED BY THIS TEMPLATE
+    --------  skillCooldownTime                  NOT DECLARED BY THIS TEMPLATE
+    --------  skillActiveDuration                NOT DECLARED BY THIS TEMPLATE
+    DECLARED  timeBetweenAttacks                 class=variable  type=int       default=''       desc='Time between hits to enemies along the path'
+    all cost/energy-ish variables declared: []
+
+========================================================================================================
+WHO OWNS THE '3-20' AND THE 'per damage interval' CLAUSE?
+========================================================================================================
+
+  records/skills/playerclass05/aetherray1.dbr   archives=['base']  Class='Skill_AttackSpellBeam'
+     skillDisplayName='tagClass05SkillName06A'  skillBaseDescription='tagClass05SkillDescription06A'
+     skillManaCost = [12.0, 15.0, 18.0, 21.0, 24.0, 27.0, 30.0, 33.0, 36.0, 39.0, 42.0, 45.0, 48.0, 51.0, 54.0, 57.0, 60.0, 63.0, 66.0, 69.0, 72.0, 75.0, 78.0, 81.0, 84.0, 87.0]
+        len=26  min=12.0  max=87.0
+
+  records/skills/playerclass05/aetherray1b.dbr   archives=['base']  Class='Skill_Transmuter'
+     skillDisplayName='tagClass05SkillName06C'  skillBaseDescription='tagClass05SkillDescription06C'
+     skillManaCost = None
+
+  records/skills/playerclass05/aetherray2.dbr   archives=['base']  Class='Skill_Modifier'
+     skillDisplayName='tagClass05SkillName06B'  skillBaseDescription='tagClass05SkillDescription06B'
+     skillManaCost = [3.0, 4.0, 4.0, 5.0, 6.0, 7.0, 8.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.0, 13.0, 14.0, 15.0, 16.0, 16.0, 17.0, 18.0, 19.0, 20.0]
+        len=22  min=3.0  max=20.0
+
+  --- corpus sweep: every skill record with skillManaCost min==3 and max==20 ---
+     records/skills/playerclass05/aetherray2.dbr                  len= 22  displayName='tagClass05SkillName06B'
+     (1 records)
+
+========================================================================================================
+EVERY 'eyeofreckoning' RECORD IN THE CORPUS, cost fields only
+========================================================================================================
+  records/fx/skillclass09/eyeofreckoning_acid_spinfx01.dbr                   Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_aether_spinfx01.dbr                 Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_chaos_spinfx01.dbr                  Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_cold_spinfx01.dbr                   Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_fire_spinfx01.dbr                   Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_flight_fx01.dbr                     Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_impact_fx01.dbr                     Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_lightning_spinfx01.dbr              Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_projectileorbitalfx01.dbr           Class=ProjectileOrbiting                   skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_spinfx01.dbr                        Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_spinfxclassic_01.dbr                Class=EffectEntity                         skillManaCost=ABSENT
+  records/fx/skillclass09/eyeofreckoning_spinredfx01.dbr                     Class=EffectEntity                         skillManaCost=ABSENT
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/axe1h_d204_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/axe2h_d206_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/caster_d205_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/caster_d208_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/hands_d206_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/head_d207_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/head_d216_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/set_d209_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/set_d214_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/shield_d204_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/sword1h_d205_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/sword1h_d206_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/legendary/sword1h_d207_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/mi/axe1h_b203_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/mi/axe1h_b203_eyeofreckoning_low.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/mi/sword1h_b203_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/axe2h_d104_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/hands_d110_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/head_d028_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/mace1h_d003_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/mace1h_d008_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/mace2h_d107_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/set_d025_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx2/skillmodifiers/upgradedgdx2/sword1h_d011_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx3/skillmodifiers/awakened/medal_c305_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx3/skillmodifiers/awakened/necklace_c061_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx3/skillmodifiers/legendary/necklace_d317_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx3/skillmodifiers/mi/axe2h_b306_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/itemskillsgdx3/skillmodifiers/mi/axe2h_b307_eyeofreckoning.dbr Class=Skill_Modifier                       skillManaCost=ABSENT
+       cost-ish keys: [('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/playerclass09/eyeofreckoning1.dbr                           Class=Skill_AttackRadiusSpin               skillManaCost=[4.0, 4.0, 5.0, 5.0, 5.0, 6.0, 6.0, 7.0, 7.0, 8.0, 8.0, 9.0, 9.0, 10.0, 10.0, 11.0, 11.0, 12.0, 12.0, 13.0, 13.0, 14.0, 14.0, 15.0, 15.0, 16.0]
+       cost-ish keys: [('skillManaCost', [4.0, 4.0, 5.0, 5.0, 5.0, 6.0, 6.0, 7.0, 7.0, 8.0, 8.0, 9.0, 9.0, 10.0, 10.0, 11.0, 11.0, 12.0, 12.0, 13.0, 13.0, 14.0, 14.0, 15.0, 15.0, 16.0]), ('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/skills/playerclass09/eyeofreckoning2.dbr                           Class=SkillSecondary_AttackProjectileOrb   skillManaCost=ABSENT
+       cost-ish keys: [('offensiveManaBurnGlobal', False), ('offensiveManaBurnXOR', False), ('skillManaCostReduction', 0.0), ('skillManaCostReductionModifier', 0.0)]
+  records/sounds/skillsounds/class09/spak_eyeofreckoning_cast.dbr            Class=SoundPak                             skillManaCost=ABSENT
+  records/sounds/skillsounds/class09/spak_eyeofreckoning_end.dbr             Class=SoundPak                             skillManaCost=ABSENT
+  records/sounds/skillsounds/class09/spak_eyeofreckoning_hit.dbr             Class=SoundPak                             skillManaCost=ABSENT
+  records/sounds/skillsounds/class09/spak_eyeofreckoning_loop.dbr            Class=SoundPak                             skillManaCost=ABSENT

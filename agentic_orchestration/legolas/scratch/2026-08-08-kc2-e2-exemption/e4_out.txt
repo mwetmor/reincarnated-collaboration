@@ -1,0 +1,114 @@
+========================================================================================================
+V1  does the adapter surface bool fields valued 0/False?  (rule out a systematic drop)
+========================================================================================================
+  over ALL records/proxies/pools* records in the resolved namespace: {'True': 135, 'False': 678}
+  example PRESENT-and-False pools: ['records/proxies/pools/p_corruption_fleshhulk_t.dbr', 'records/proxies/pools/p_corruption_fleshhulkamb_n.dbr', 'records/proxies/pools/p_corruption_fleshhulk_n.dbr']
+  -> the adapter does NOT drop false-valued bools; ABSENT means the DBR omits the key.
+
+========================================================================================================
+V2  VERBATIM field dump -- the two wave-160 p04 pool records, every archive that carries them
+========================================================================================================
+
+  --- [sm1] records/proxies/poolsbossgdx1/aetherialcolossus_galakros.dbr   (11 fields, recordType='') ---
+      championChance                   = 0.0
+      championMax                      = 0
+      championMin                      = 0
+      levelVarianceEquation1           = 'records/proxies/lv7_uber hero.dbr'
+      limit1                           = 1
+      name1                            = 'records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr'
+      proxyPoolEquation                = 'records/proxies/proxypoolequation_01.dbr'
+      spawnMax                         = 1
+      spawnMin                         = 1
+      templateName                     = 'database/templates/proxypool.tpl'
+      weight1                          = 100
+      >>> 'ignoreGameBalance' in record: False
+
+  --- [sm3] records/proxies/poolsbossgdx1/aetherialcolossus_galakros.dbr   (11 fields, recordType='') ---
+      championChance                   = 0.0
+      championMax                      = 0
+      championMin                      = 0
+      levelVarianceEquation1           = 'records/proxies/lv7_uber hero.dbr'
+      limit1                           = 1
+      name1                            = 'records/creatures/enemies/boss&quest/aetherialcolossus_galakros.dbr'
+      proxyPoolEquation                = 'records/proxies/proxypoolequation_01.dbr'
+      spawnMax                         = 1
+      spawnMin                         = 1
+      templateName                     = 'database/templates/proxypool.tpl'
+      weight1                          = 100
+      >>> 'ignoreGameBalance' in record: False
+
+  --- [sm2] records/proxies/poolsbossgdx2/korvaaktombguardian.dbr   (11 fields, recordType='') ---
+      championChance                   = 0.0
+      championMax                      = 0
+      championMin                      = 0
+      levelVarianceEquation1           = 'records/proxies/lv7_uber hero.dbr'
+      limit1                           = 1
+      name1                            = 'records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr'
+      proxyPoolEquation                = 'records/proxies/proxypoolequation_01.dbr'
+      spawnMax                         = 1
+      spawnMin                         = 1
+      templateName                     = 'database/templates/proxypool.tpl'
+      weight1                          = 100
+      >>> 'ignoreGameBalance' in record: False
+
+  --- [sm3] records/proxies/poolsbossgdx2/korvaaktombguardian.dbr   (11 fields, recordType='') ---
+      championChance                   = 0.0
+      championMax                      = 0
+      championMin                      = 0
+      levelVarianceEquation1           = 'records/proxies/lv7_uber hero.dbr'
+      limit1                           = 1
+      name1                            = 'records/creatures/enemies/boss&quest/statue_korvaaktombguardian.dbr'
+      proxyPoolEquation                = 'records/proxies/proxypoolequation_01.dbr'
+      spawnMax                         = 1
+      spawnMin                         = 1
+      templateName                     = 'database/templates/proxypool.tpl'
+      weight1                          = 100
+      >>> 'ignoreGameBalance' in record: False
+
+========================================================================================================
+V3  is ABSENT an artefact?  cross-tab over the 635 CSV pools
+========================================================================================================
+  <archive sm1>              PRESENT=  50  ABSENT=   0
+  <archive sm2>              PRESENT=  35  ABSENT=   0
+  <archive sm3>              PRESENT= 190  ABSENT=  49
+  <archive sm_mod>           PRESENT= 236  ABSENT=  75
+  <nfields 15+>              PRESENT= 461  ABSENT=  17
+  <nfields 9-14>             PRESENT=  50  ABSENT= 107
+  poolsbasic                 PRESENT= 215  ABSENT=   0
+  poolsbasicgdx1             PRESENT=  45  ABSENT=   0
+  poolsbasicgdx2             PRESENT=  31  ABSENT=   0
+  poolsbasicgdx3             PRESENT=  25  ABSENT=   0
+  poolsboss                  PRESENT=  18  ABSENT=  81
+  poolsbossgdx1              PRESENT=  13  ABSENT=  25
+  poolsbossgdx2              PRESENT=  11  ABSENT=  18
+  poolsbossgdx3              PRESENT=  36  ABSENT=   0
+  poolsbounty                PRESENT=   3  ABSENT=   0
+  poolsbountygdx1            PRESENT=   2  ABSENT=   0
+  poolsbountygdx2            PRESENT=   1  ABSENT=   0
+  poolsbountygdx3            PRESENT=   1  ABSENT=   0
+  poolsdevotion              PRESENT=   6  ABSENT=   0
+  poolsdevotiongdx1          PRESENT=   3  ABSENT=   0
+  poolsdevotiongdx2          PRESENT=   3  ABSENT=   0
+  poolsdevotiongdx3          PRESENT=   3  ABSENT=   0
+  poolshero                  PRESENT=  46  ABSENT=   0
+  poolsherogdx1              PRESENT=  18  ABSENT=   0
+  poolsherogdx2              PRESENT=  15  ABSENT=   0
+  poolsherogdx3              PRESENT=  16  ABSENT=   0
+
+========================================================================================================
+V4  WAVE-160 spawn-point inventory, straight off records/proxies/tier16waves/proxy_w10_p*a.dbr
+========================================================================================================
+  p01  [sm3] recordType='Proxy'  archives=['sm1', 'sm3']  22 fields
+        pool1=records/proxies/poolsboss/nemesis_all.dbr   weight1=100   ignoreGameBalance PRESENT=True
+  p02  [sm3] recordType='Proxy'  archives=['sm1', 'sm3']  23 fields
+        pool1=records/proxies/poolsbossgdx1/nemesis_all_noaetherialvanguard.dbr   weight1=100   ignoreGameBalance PRESENT=True
+  p03  [sm3] recordType='Proxy'  archives=['sm1', 'sm3']  22 fields
+        pool1=records/proxies/poolsbossgdx1/nemesis_wendigooraetherialvanguard.dbr   weight1=100   ignoreGameBalance PRESENT=True
+  p04  [sm3] recordType='Proxy'  archives=['sm1', 'sm2', 'sm3']  24 fields
+        pool1=records/proxies/poolsbossgdx1/aetherialcolossus_galakros.dbr   weight1=100   ignoreGameBalance ABSENT->False
+        pool2=records/proxies/poolsbossgdx2/korvaaktombguardian.dbr   weight2=100   ignoreGameBalance ABSENT->False
+  p05  <RECORD DOES NOT EXIST>
+  p06  [sm3] recordType='Proxy'  archives=['sm1', 'sm3']  22 fields
+        pool1=records/proxies/poolsherogdx1/wendigocannibal_hero.dbr   weight1=100   ignoreGameBalance PRESENT=False
+  p07  <RECORD DOES NOT EXIST>
+  p08  <RECORD DOES NOT EXIST>
