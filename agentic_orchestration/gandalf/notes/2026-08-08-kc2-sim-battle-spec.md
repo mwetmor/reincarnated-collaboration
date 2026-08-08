@@ -1750,12 +1750,12 @@ discrimination; C-1 disposition gates it.)*
    systematically low by the same unresolved mechanism. The lap therefore reports **how sensitive
    its result is to N** (a per-wave N perturbation at the F-13 measured-floor scale is sufficient);
    a result that is insensitive to N is robust to the residual, and one that is sensitive inherits
-   it. Do not re-pin counts in-run. *(L-54: MEASURED — ±6.674 % moves the mean Δ +0.496/−1.462 s
+   it. Do not re-pin counts in-run. *(L-54: MEASURED — ±6.674 % (as executed) moves the mean Δ +0.496/−1.462 s
    on a ±1.0 s tolerance: **the result INHERITS the residual and says so**; the asymmetry
    (shrinking N removes p05 bodies) is § E's localisation in miniature. Scale note: the lap
    consumed the pre-L-52 re-grade (271.50 → 289.62 = +6.674 %); L-52's corrected floor 288.62
    gives ±6.30 %, INSIDE the swept scale — the sweep is conservative, conclusion unchanged;
-   gamora hand-back queued for `simulation/AGENT_STATE.md:25`. No count re-pinned.)*
+   gamora hand-back DISCHARGED at the L-63 sitting — the F-1 hit table closed at **8 engine lines, not the priced 5** (incl. a second live test pin at `test_kc2_locomotion.py:567`). No count re-pinned.)*
 5. **Beat-4 rides INSIDE this lap (L-45(d) / D2-5).** The **s2 one-sided inequality** —
    sim-kit-alone at waves 151–160 must clear **≤** fixture-with-defenses; faster ⇒ anomaly tripwire
    ⇒ finding — runs as a **second-geometry diagnostic**, not as a separate beat. Its value here is
@@ -1870,7 +1870,7 @@ pairs** (R-L53-1). Radii move materially under the law — 9 of 33 emitters shif
 is a named L-54 agenda item, adjudicated there.)* *(L-54 — ADJUDICATED, **R-L54-3** (veto-open).
 EXECUTED state: the lap ran s1 on **`sm_mod/survivalworld_f` — SHADOW radii** (declared at
 launch, pre-L-53; the math note § B.3 and `calibration.py:342` docstring still carry the
-superseded "s2 → sm_mod/a" pre-build declaration — gamora hand-backs) and s2 on **`sm1/
+superseded "s2 → sm_mod/a" pre-build declaration — gamora hand-backs; L-63: both DISCHARGED, pins landed corrigenda-forward — with the superseded declaration struck, JC-G2's sm_mod-winner framing no longer attaches to s2, which EXECUTED on sm1/a) and s2 on **`sm1/
 survivalworld_a` — LOADABLE** (F-L6: sm_mod carries NO p01 above tier 15, so tier-16 s2 was
 FORCED to the sm1 limb — the loading law corroborated independently from the tier direction).
 **Ruling: the s1 results CARRY, sensitivity-bounded; NO re-run this lap.** Four legs: (a) s1
@@ -3263,7 +3263,7 @@ indices F1–F7 in galadriel's tables are unhyphenated; run findings F-1..F-7 ar
   empirically corroborated** (w157 6/6 EXACT; star-furniture ≠ champion count per F-13 § 1.4).
   No re-pin fires in-run (standing safety #1); the un-adopted parameter list extends to **four
   named-never-fitted mechanisms** (`trash_pool_multiplicity` · `p05_replenishment` ·
-  `boss_spawn_additive` · `summoned_bodies`) alongside `empty_roster_plus_one`; baton
+  `boss_spawn_additive` · `summoned_bodies`) alongside `empty_roster_plus_one` (L-63: `summoned_bodies` now carries a MODELED arrival process — engine `simulation/math/kc2-summon-arrival-process-2026-08-08.md`, findings ARR-1/ARR-2/ARR-3, attribution-grade; un-adopted status unchanged); baton
   `count_model` provenance carries F-13 + the falsification table + the floor by name. Full
   adjudication: **F-13**. *(L-50 — decider (1) executed, fifth extraction: 16,368 struck
   NOT-HOSTILE. A second green entity, 20,005, matches MO-4's pinned player max health EXACTLY —
